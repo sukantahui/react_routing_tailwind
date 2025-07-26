@@ -1,0 +1,228 @@
+{
+  "courses": [
+    {
+      "courseID": "course001",
+      "title": "Full Stack Web Development",
+      "desc": "Learn HTML, CSS, JS, React, Node.js & more.",
+      "more": "Covers front-end and back-end development with real-world projects, Git/GitHub, APIs, and deployment practices.",
+      "image": "reactImg",
+      "category": "Web Development"
+    },
+    {
+      "courseID": "course018",
+      "title": "Frontend Development with React",
+      "desc": "Build modern UIs with React, JSX, and hooks.",
+      "more": "Focus on creating responsive interfaces, component-based architecture, React Router, and state management with Redux.",
+      "image": "reactImg",
+      "category": "Web Development"
+    },
+    {
+      "courseID": "course019",
+      "title": "Backend Development with Node.js",
+      "desc": "Learn server-side development using Node.js.",
+      "more": "Covers Express.js, RESTful APIs, authentication, and working with databases like MongoDB.",
+      "image": "javaImg",
+      "category": "Web Development"
+    },
+    {
+      "courseID": "course020",
+      "title": "HTML & CSS Fundamentals",
+      "desc": "Get started with web design basics.",
+      "more": "Learn HTML5, CSS3, Flexbox, Grid, and responsive design techniques using real projects.",
+      "image": "javaImg",
+      "category": "Web Development"
+    },
+    {
+      "courseID": "course021",
+      "title": "Responsive Web Design",
+      "desc": "Create mobile-friendly websites.",
+      "more": "Focus on media queries, mobile-first design, and accessibility best practices.",
+      "image": "javaImg",
+      "category": "Web Development"
+    },
+    {
+      "courseID": "course002",
+      "title": "Python Programming",
+      "desc": "Master Python for web, data science, and AI.",
+      "more": "Includes Django for web development, Pandas for analysis, and frameworks like TensorFlow for machine learning.",
+      "image": "pythonImg",
+      "category": "Programming and Coding"
+    },
+    {
+      "courseID": "course022",
+      "title": "C Programming",
+      "desc": "Master the fundamentals of procedural programming.",
+      "more": "Topics include memory management, pointers, file handling, and structured programming techniques.",
+      "image": "javaImg",
+      "category": "Programming and Coding"
+    },
+    {
+      "courseID": "course023",
+      "title": "C++ Programming",
+      "desc": "Learn object-oriented programming with C++.",
+      "more": "Includes classes, inheritance, polymorphism, STL, and real-world projects.",
+      "image": "javaImg",
+      "category": "Programming and Coding"
+    },
+    {
+      "courseID": "course024",
+      "title": "Java Programming",
+      "desc": "Build scalable applications with Java.",
+      "more": "Learn core Java concepts, OOP principles, collections, file I/O, and multithreading.",
+      "image": "javaImg",
+      "category": "Programming and Coding"
+    },
+    {
+      "courseID": "course025",
+      "title": "Data Structures and Algorithms (DSA)",
+      "desc": "Strengthen problem-solving and coding skills.",
+      "more": "Covers arrays, linked lists, stacks, queues, trees, sorting, recursion, and graph algorithms.",
+      "image": "javaImg",
+      "category": "Programming and Coding"
+    },
+    {
+      "courseID": "course003",
+      "title": "Tally & GST Accounting",
+      "desc": "Become job-ready in financial accounting.",
+      "more": "Covers TallyPrime, GST filing, invoice management, tax calculation, and payroll processing in practical sessions.",
+      "image": "javaImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course031",
+      "title": "Advanced GST Compliance",
+      "desc": "Master GST return filing and reconciliation.",
+      "more": "Learn GSTR-1, GSTR-3B, e-way bills, ITC claims, and handling GST audits with case studies.",
+      "image": "taxImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course032",
+      "title": "Income Tax Preparation",
+      "desc": "File ITR for individuals and businesses.",
+      "more": "Covers tax slabs, deductions (80C, 80D), capital gains, Form 16, and e-filing procedures for FY 2023-24.",
+      "image": "taxImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course033",
+      "title": "Auditing Practices",
+      "desc": "Learn internal and statutory auditing.",
+      "more": "Understand audit planning, documentation, sampling techniques, and reporting as per Companies Act 2013.",
+      "image": "auditImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course034",
+      "title": "Corporate Taxation",
+      "desc": "Tax strategies for businesses.",
+      "more": "Covers MAT, DDT, transfer pricing, FEMA compliance, and tax-saving mechanisms for companies.",
+      "image": "corporateTaxImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course035",
+      "title": "Accounting with QuickBooks",
+      "desc": "Modern accounting software training.",
+      "more": "Hands-on practice with QuickBooks Online for invoicing, expense tracking, financial reports, and payroll.",
+      "image": "quickbooksImg",
+      "category": "Accounts and Taxation"
+    },
+    {
+      "courseID": "course004",
+      "title": "Data Analytics with Excel & Power BI",
+      "desc": "Analyze and visualize data like a pro.",
+      "more": "Learn Excel functions, pivot tables, charts, dashboards, and Power BI for professional data storytelling.",
+      "image": "javaImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course026",
+      "title": "SQL for Data Analysis",
+      "desc": "Master database querying for analytics.",
+      "more": "Learn SQL fundamentals, complex queries, joins, subqueries, and optimization techniques for PostgreSQL/MySQL.",
+      "image": "sqlImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course027",
+      "title": "Python for Data Science",
+      "desc": "Leverage Python libraries for data analysis.",
+      "more": "Hands-on training with Pandas, NumPy, Matplotlib, and Seaborn for data cleaning, visualization, and statistical analysis.",
+      "image": "pythonImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course028",
+      "title": "Machine Learning Fundamentals",
+      "desc": "Introduction to predictive modeling.",
+      "more": "Covers regression, classification, clustering, and model evaluation using Scikit-learn and real-world datasets.",
+      "image": "mlImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course029",
+      "title": "Tableau for Data Visualization",
+      "desc": "Create interactive dashboards and reports.",
+      "more": "From basic charts to advanced calculations, parameters, and storytelling with Tableau Public/Desktop.",
+      "image": "tableauImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course030",
+      "title": "Big Data Analytics with Spark",
+      "desc": "Process large-scale datasets efficiently.",
+      "more": "Learn PySpark for distributed computing, dataframes, and ETL pipelines on cloud platforms (AWS/GCP).",
+      "image": "sparkImg",
+      "category": "Data Analysis"
+    },
+    {
+      "courseID": "course005",
+      "title": "School-Level Computer Science (CBSE/ICSE/WBCHSE)",
+      "desc": "Class XI & XII curriculum-aligned courses.",
+      "more": "Covers computer applications, basic programming (Python/Java), logic building, DBMS, and exam-focused guidance.",
+      "image": "javaImg",
+      "category": "School Level Courses"
+    },
+    {
+      "courseID": "course036",
+      "title": "Mathematics for Class XI-XII (CBSE/ISC)",
+      "desc": "Comprehensive coverage of board exam syllabus.",
+      "more": "Includes calculus, algebra, trigonometry, and probability with solved examples and practice papers.",
+      "image": "mathImg",
+      "category": "School Level Courses"
+    },
+    {
+      "courseID": "course037",
+      "title": "Physics for Competitive Exams (JEE/NEET Foundation)",
+      "desc": "Build strong conceptual foundations.",
+      "more": "Covers mechanics, thermodynamics, optics, and modern physics with problem-solving techniques.",
+      "image": "physicsImg",
+      "category": "School Level Courses"
+    },
+    {
+      "courseID": "course038",
+      "title": "Chemistry Lab Practicals",
+      "desc": "Hands-on experimental learning.",
+      "more": "Step-by-step guidance for CBSE/ISC practical exams including titration, salt analysis, and chromatography.",
+      "image": "chemistryImg",
+      "category": "School Level Courses"
+    },
+    {
+      "courseID": "course039",
+      "title": "English Literature & Writing Skills",
+      "desc": "Master comprehension and composition.",
+      "more": "Improves reading, writing, grammar, and analytical skills for board exams and beyond.",
+      "image": "englishImg",
+      "category": "School Level Courses"
+    },
+    {
+      "courseID": "course040",
+      "title": "Biology Diagrams and Experiments",
+      "desc": "Perfect your lab notebooks and diagrams.",
+      "more": "Detailed tutorials on drawing biological systems and performing experiments as per CBSE/ISC guidelines.",
+      "image": "biologyImg",
+      "category": "School Level Courses"
+    }
+  ]
+}

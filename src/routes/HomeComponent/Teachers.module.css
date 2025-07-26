@@ -1,0 +1,17 @@
+/* Teachers.module.css */
+.cardCustom {
+  background: linear-gradient(135deg, #e7e9e9, #eef5e9);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardCustom:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.cardImage {
+  height: 300px;
+  object-fit: cover;
+}

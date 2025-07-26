@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Home';
+import Home from './HomeComponent/Home';
 import About from './About';
 import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
