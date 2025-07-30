@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
+import { useLocation } from "react-router-dom";
 import cnat from "../assets/cnat.png";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const baseLinkClass = 'px-4 py-2 text-sm rounded text-blue-600 hover:bg-blue-100 transition duration-200';
-
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   const linkClass = ({ isActive }) =>
     `block px-3 py-1.5 text-sm font-medium transition-all duration-200 rounded
      ${isActive
@@ -43,9 +45,16 @@ export default function NavBar() {
 
           {/* Desktop Menu */}
           <nav className="hidden sm:flex gap-3">
-            <NavLink to="/" className={linkClass}>Home</NavLink>
-            <HashLink smooth to="/#about" className={linkClass}>About</HashLink>
-            <HashLink smooth to="/#courses" className={linkClass}>Courses</HashLink>
+            {!isHome && <NavLink to="/" className={linkClass}>Home</NavLink>}
+            {isHome &&
+              <>
+              <HashLink smooth to="/#about" className={linkClass}>About</HashLink>
+              <HashLink smooth to="/#courses" className={linkClass}>Courses</HashLink>
+              <HashLink smooth to="/#teachers" className={linkClass}>Teachers</HashLink>
+              <HashLink smooth to="/#services" className={linkClass}>Services</HashLink>
+              <HashLink smooth to="/#contact" className={linkClass}>Contact</HashLink>
+              </>
+            }
             <NavLink to="/about" className={linkClass}>About</NavLink>
             <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink>
           </nav>
@@ -54,15 +63,20 @@ export default function NavBar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="sm:hidden pb-3 flex flex-col gap-1 transition-all duration-300">
-            <NavLink to="/" className={linkClass} onClick={() => setIsOpen(false)}>
-              Home
-            </NavLink>
-            <HashLink smooth to="/#about" className={linkClass}>About1</HashLink>
-            <HashLink smooth to="/#courses" className={linkClass}>Courses</HashLink>
+             {!isHome && <NavLink to="/" className={linkClass} onClick={() => setIsOpen(false)}>Home</NavLink>}
+            {isHome && 
+              <>
+              <HashLink smooth to="/#about" className={linkClass} onClick={() => setIsOpen(false)}>About</HashLink>
+              <HashLink smooth to="/#courses" className={linkClass} onClick={() => setIsOpen(false)}>Courses</HashLink>
+              <HashLink smooth to="/#teachers" className={linkClass} onClick={() => setIsOpen(false)}>Teachers</HashLink>
+              <HashLink smooth to="/#services" className={linkClass} onClick={() => setIsOpen(false)}>Services</HashLink>
+              <HashLink smooth to="/#contact" className={linkClass} onClick={() => setIsOpen(false)}>Contact</HashLink>
+              </>
+            }
             <NavLink to="/about" className={linkClass} onClick={() => setIsOpen(false)}>
               About
             </NavLink>
-            
+
             <NavLink to="/dashboard" className={linkClass} onClick={() => setIsOpen(false)}>
               Dashboard
             </NavLink>

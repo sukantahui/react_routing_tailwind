@@ -42,7 +42,7 @@ const teachers = [
     name: "Ritaja Ghosh",
     title: "Lab Instructor",
     image: teacher6,
-    bio: "Ritaja guides students in lab sessions with patience and precision, helping them gain real-world skills.",
+    bio: "Ritaja guides students in lab sessions with patience and precision, helping them gain real-world skills. She encourages hands-on practice and ensures every student is confident with the tools.",
   },
 ];
 
@@ -50,20 +50,30 @@ const Teachers = () => {
   return (
     <section id="teachers" className="bg-gray-100 py-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Meet Our Instructors</h2>
+        <h2 className="text-3xl font-bold text-center mb-10 text-amber-800">Meet Our Instructors</h2>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {teachers.map((teacher, index) => (
-            <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col h-full transition hover:shadow-xl">
+          {teachers.map((teacher) => (
+            <div
+              key={teacher.name}
+              className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col h-full transition hover:shadow-xl"
+            >
+              {/* Maintain original image ratio */}
               <img
                 src={teacher.image}
-                alt={teacher.name}
-                className="h-60 w-full object-cover"
+                alt={`${teacher.name} - ${teacher.title}`}
+                className="w-full object-contain"
               />
+
+              {/* Text content */}
               <div className="p-6 flex flex-col flex-grow">
                 <h5 className="text-xl font-semibold mb-1">{teacher.name}</h5>
                 <p className="text-sm text-gray-500 mb-3">{teacher.title}</p>
-                <p className="text-gray-700 text-sm">{teacher.bio}</p>
+
+                {/* Scrollable bio if too long */}
+                <div className="text-gray-700 text-sm overflow-y-auto max-h-24">
+                  {teacher.bio}
+                </div>
               </div>
             </div>
           ))}
