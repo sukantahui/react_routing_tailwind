@@ -4,7 +4,7 @@ import NavBar from "./routes/Navbar";
 
 export default function App() {
   return (
-    <div className="max-w-screen-xl mx-auto px-4">
+    <div className="">
       {/* Render Navigation Bar */}
       <NavBar />
 

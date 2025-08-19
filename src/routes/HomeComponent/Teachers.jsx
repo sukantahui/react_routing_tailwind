@@ -48,8 +48,8 @@ const teachers = [
 
 const Teachers = () => {
   return (
-    <section id="teachers" className="py-12">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="teachers" className="py-10">
+      <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl text-center text-amber-800 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Meet Our Instructors</h2>
         <hr className='mb-4  border border-gray-700'></hr>
 
