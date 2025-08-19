@@ -68,9 +68,10 @@ const Courses = () => {
   }, [expandedGroups]);
 
   return (
-    <section id="courses" className="py-10 bg-gray-100">
+    <section id="courses" className="py-10">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-blue-700 mb-10">🎓 Our Courses</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center">🎓 <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Our Courses</span></h2>
+        <hr className='mb-4  border border-gray-700'></hr>
 
         <div className="flex flex-wrap gap-6 justify-center">
           {coursesData.map((group) => {

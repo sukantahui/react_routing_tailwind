@@ -8,10 +8,11 @@ const Contact = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   return (
-    <section id="contact" className="bg-gray-100 py-10">
+    <section id="contact" className="py-10">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-6 text-amber-800">Contact Us</h2>
-        <p className="text-lg text-gray-700 mb-6">
+        <h2 className="text-3xl font-bold font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Contact Us</h2>
+        <hr className='mb-4  border border-gray-700'></hr>
+        <p className="text-lg mb-6">
           Have questions about our courses or programs? Reach out to us on WhatsApp or visit us at our location!
         </p>
 
@@ -26,7 +27,7 @@ const Contact = () => {
         </a>
 
         {/* ✅ Physical Address */}
-        <div className="mt-8 text-gray-800">
+        <div className="mt-8 ">
           <h5 className="text-xl font-semibold mb-2">📍 Our Institute Address</h5>
           <p>Coder & AccoTax Learning Center</p>
           <p>Ground Floor</p>
@@ -55,7 +56,7 @@ const Contact = () => {
           <p>
             <a
               href="mailto:info.codenaccotax@co.in"
-              className="text-blue-600 hover:underline"
+              className="hover:underline"
             >
               info.codenaccotax@co.in
             </a>
@@ -63,7 +64,7 @@ const Contact = () => {
           <p>
             <a
               href="mailto:codenaccotax@gmail.com"
-              className="text-blue-600 hover:underline"
+              className="hover:underline"
             >
               codenaccotax@gmail.com
             </a>
@@ -73,14 +74,14 @@ const Contact = () => {
         {/* ✅ Social Media */}
         <div className="mt-8">
           <h5 className="text-xl font-semibold mb-2">🔗 Follow Us</h5>
-          <div className="flex flex-wrap justify-center gap-6 text-lg text-blue-800">
+          <div className="flex flex-wrap justify-center gap-6 text-lg">
             <a
               href="https://www.facebook.com/profile.php?id=61561702110617"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              <i className="bi bi-facebook"></i> Facebook
+              <i className="bi bi-facebook text-[#1877F2]"></i> Facebook
             </a>
             <a
               href="https://instagram.com/yourprofile"
@@ -88,7 +89,10 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              <i className="bi bi-instagram"></i> Instagram
+              <span class="bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 bg-clip-text text-transparent">
+                <i className="bi bi-instagram"></i>
+              </span>
+              Instagram
             </a>
             <a
               href="https://www.youtube.com/@CodernAccotax"
@@ -96,7 +100,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="hover:underline"
             >
-              <i className="bi bi-youtube"></i> YouTube
+              <i className="bi bi-youtube text-[#FF0000]"></i> YouTube
             </a>
           </div>
         </div>

@@ -48,9 +48,10 @@ const teachers = [
 
 const Teachers = () => {
   return (
-    <section id="teachers" className="bg-gray-100 py-12">
+    <section id="teachers" className="py-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-amber-800">Meet Our Instructors</h2>
+        <h2 className="text-3xl text-center text-amber-800 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Meet Our Instructors</h2>
+        <hr className='mb-4  border border-gray-700'></hr>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {teachers.map((teacher) => (

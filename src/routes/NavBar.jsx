@@ -29,9 +29,9 @@ export default function NavBar() {
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="py-3 flex items-center justify-between">
           {/* Brand */}
-          <div className="flex items-center gap-2 text-[oklch(60%_0.2_260)] font-semibold text-base">
+          <div className="flex items-center gap-2  font-semibold text-base">
             <img src={cnat} alt="Logo" className="w-8 h-8" />
-            <span>Coder & AccoTax</span>
+            <span class="text-2xl">Coder & AccoTax</span>
           </div>
 
           {/* Toggle button (mobile) */}
@@ -55,8 +55,8 @@ export default function NavBar() {
               <HashLink smooth to="/#contact" className={linkClass}>Contact</HashLink>
               </>
             }
-            <NavLink to="/about" className={linkClass}>About</NavLink>
-            <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink>
+            {/* <NavLink to="/about" className={linkClass}>About</NavLink>
+            <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink> */}
           </nav>
         </div>
 
@@ -73,13 +73,13 @@ export default function NavBar() {
               <HashLink smooth to="/#contact" className={linkClass} onClick={() => setIsOpen(false)}>Contact</HashLink>
               </>
             }
-            <NavLink to="/about" className={linkClass} onClick={() => setIsOpen(false)}>
+            {/* <NavLink to="/about" className={linkClass} onClick={() => setIsOpen(false)}>
               About
             </NavLink>
 
             <NavLink to="/dashboard" className={linkClass} onClick={() => setIsOpen(false)}>
               Dashboard
-            </NavLink>
+            </NavLink> */}
           </div>
         )}
       </div>

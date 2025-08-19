@@ -11,10 +11,10 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="bg-gray-100 py-12">
+    <section id="services" className="py-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-amber-800">Our Services</h2>
-
+        <h2 className="text-3xl font-bold text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Our Services</h2>
+        <hr className='mb-4  border border-gray-700'></hr>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
