@@ -55,8 +55,8 @@ export default function NavBar() {
               <HashLink smooth to="/#contact" className={linkClass}>Contact</HashLink>
               </>
             }
-            {/* <NavLink to="/about" className={linkClass}>About</NavLink>
-            <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink> */}
+            {/* <NavLink to="/about" className={linkClass}>About</NavLink>*/}
+            <HashLink to="/dashboard" className={linkClass}>Dashboard</HashLink> 
           </nav>
         </div>
 

@@ -30,8 +30,8 @@ const Contact = () => {
         <div className='bg-blue-900'>
 
 
-          <div class="flex flex-wrap gap-4 text-center m-auto ">
-            <div class="p-2 w-106">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+            <div class="rounded-xl p-6 flex flex-col items-center text-center  transition">
               {/* ✅ Physical Address */}
               <div className="">
                 <h5 className="text-xl font-semibold mb-2 text-amber-500"><i class="bi bi-geo-alt"></i> Our Institute Address</h5>
@@ -42,7 +42,7 @@ const Contact = () => {
                 <p>Barrackpore, Kol - 700122</p>
               </div>
             </div>
-            <div class="p-2 w-110">
+            <div class="rounded-xl p-6 flex flex-col items-center text-center  transition">
               {/* ✅ Contact Email */}
               <div className="">
                 <h5 className="text-xl font-semibold text-amber-500">📧 Email us</h5>
@@ -106,7 +106,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div class="p-2 w-106">
+            <div class="rounded-xl p-6 flex flex-col items-center text-center  transition ">
               {/* ✅ Google Map */}
               <div className="">
                 <iframe
