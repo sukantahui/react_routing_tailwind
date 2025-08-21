@@ -70,18 +70,19 @@ const Teachers = () => {
               <div className="absolute inset-0 bg-black/50 flex items-center text-center 
                       text-white text-lg font-semibold opacity-0 hover:opacity-100 
                       transition-opacity duration-300 justify-center">
-                {teacher.title}
-                
-              </div>
-              {/* <div className="p-6 flex flex-col flex-grow">
-                <h5 className="text-xl font-semibold mb-1">{teacher.name}</h5>
-                <p className="text-sm text-gray-500 mb-3">{teacher.title}</p>
+                {/* {teacher.title} */}
 
-                {/ * Scrollable bio if too long * /}
-                <div className="text-gray-700 text-sm overflow-y-auto max-h-24">
-                  {teacher.bio}
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <h5 className="text-xl font-semibold mb-1">{teacher.name}</h5>
+                  <p className="text-sm text-gray-500 mb-3">{teacher.title}</p>
+
+                  {/* Scrollable bio if too long */}
+                  <div className="text-gray-700 text-sm overflow-y-auto max-h-24">
+                    {teacher.bio}
+                  </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           ))}
         </div>
