@@ -53,36 +53,31 @@ const Teachers = () => {
         <h2 className="text-3xl text-center text-amber-800 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Meet Our Instructors</h2>
         <hr className='mb-4  border border-gray-700'></hr>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teachers.map((teacher) => (
-            <div
-              key={teacher.name}
-              className="relative w-64 h-40 overflow-hidden rounded-lg bg-white shadow-md rounded-xl overflow-hidden flex flex-col h-full transition hover:shadow-xl "
-            >
-              {/* Maintain original image ratio */}
-              <img
-                src={teacher.image}
-                alt={`${teacher.name} - ${teacher.title}`}
-                className="w-full object-contain"
-              />
+            // <div key={teacher.name} className="bg-white shadow-md rounded-xl overflow-hidden flex flex-col h-full transition hover:shadow-xl">
+            <div key={teacher.name} className="">
+              <div className="flex justify-center items-center mt-12">
+                <div className="relative">
+                  {/* Gray Rectangle */}
+                  <div className="w-80 h-52 bg-gray-400 rounded-lg flex flex-col justify-end p-2">
+                    <h3 className='text-purple-600'><b>{teacher.title}</b></h3>
+                    <h6>{teacher.name}</h6>
+                    <p className='text-black text-sm'>{teacher.bio}</p>
 
-              {/* Text content */}
-              <div className="absolute inset-0 bg-black/50 flex items-center text-center 
-                      text-white text-lg font-semibold opacity-0 hover:opacity-100 
-                      transition-opacity duration-300 justify-center">
-                {/* {teacher.title} */}
+                  </div>
 
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <h5 className="text-xl font-semibold mb-1">{teacher.name}</h5>
-                  <p className="text-sm text-gray-500 mb-3">{teacher.title}</p>
-
-                  {/* Scrollable bio if too long */}
-                  <div className="text-gray-700 text-sm overflow-y-auto max-h-24">
-                    {teacher.bio}
+                  {/* Orange Circle */}
+                  <div className="absolute -top-16 left-3/4 -translate-x-1/2 w-32 h-32 rounded-full">
+                    <img
+                      src={teacher.image}
+                      alt={`${teacher.name} - ${teacher.title}`}
+                      className="w-full object-contain rounded-full"
+                    />
                   </div>
                 </div>
               </div>
+              
             </div>
           ))}
         </div>
