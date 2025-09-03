@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "g:component": "node generate-component.js",
+    "g:com": "node generate-component.js",
+    "g:c": "node generate-component.js"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
