@@ -7,7 +7,7 @@ if (!name) {
   process.exit(1);
 }
 
-const dir = `./src/components/${name}`;
+const dir = `./src/${name}`;
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, { recursive: true });
 }
@@ -23,4 +23,4 @@ export default function ${name}() {
 `;
 
 fs.writeFileSync(`${dir}/${name}.jsx`, component.trim());
-console.log(`✅ Component ${name} created at src/components/${name}/${name}.jsx`);
+console.log(`✅ Component ${name} created at src/${name}/${name}.jsx`);
