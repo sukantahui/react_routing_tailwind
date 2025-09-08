@@ -1,0 +1,2 @@
+to create component
+node run g:c Test

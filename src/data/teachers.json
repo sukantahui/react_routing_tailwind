@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Sukanta Hui",
+    "title": "Senior Web Development Instructor",
+    "image": "teacher1.jpg",
+    "bio": "Sukanta brings 20+ years of full-stack experience and has mentored over 500 developers worldwide."
+  },
+  {
+    "name": "Tanusree Hui",
+    "title": "Data Structures & Algorithms Mentor",
+    "image": "teacher2.jpg",
+    "bio": "Tanusree is an ex-Google engineer who specializes in competitive programming and interview prep."
+  },
+  {
+    "name": "Chandan Das",
+    "title": "Data Analytics and Taxation Expert",
+    "image": "teacher3.jpg",
+    "bio": "Chandan has 15+ years of experience in taxation and data analytics for small and large businesses."
+  },
+  {
+    "name": "Sreeparna Das",
+    "title": "Data Structures and Algorithms",
+    "image": "teacher4.jpg",
+    "bio": "Sreeparna simplifies complex DSA topics and focuses on logic building with hands-on coding sessions."
+  },
+  {
+    "name": "Mounita Bhandari",
+    "title": "Lab Instructor",
+    "image": "teacher5.jpg",
+    "bio": "Mounita ensures practical knowledge through lab-based learning, supporting students step-by-step."
+  },
+  {
+    "name": "Ritaja Ghosh",
+    "title": "Lab Instructor",
+    "image": "teacher6.jpg",
+    "bio": "Ritaja guides students in lab sessions with patience and precision, helping them gain real-world skills. She encourages hands-on practice and ensures every student is confident with the tools."
+  }
+]
