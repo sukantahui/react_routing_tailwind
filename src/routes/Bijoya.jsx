@@ -20,7 +20,7 @@ export default function Bijoya() {
     });
   };
 
-  // ✅ Validation function
+  // ✅ Validation rules
   const isValid = () => {
     return (
       formData.guestName.trim() !== "" &&
@@ -38,7 +38,8 @@ export default function Bijoya() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
+      {/* Form card */}
       <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-700">
           Guest Registration
@@ -166,15 +167,26 @@ export default function Bijoya() {
             type="submit"
             disabled={!isValid()}
             className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-                ${isValid()
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+              ${
+                isValid()
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
               }`}
           >
             Save Guest
           </button>
         </form>
       </div>
+
+      {/* Debug Panel - Only in Dev Mode */}
+      {import.meta.env.MODE === "development" && (
+        <div className="w-full max-w-lg mt-6 p-4 bg-black text-green-400 rounded-lg shadow-lg text-sm overflow-x-auto">
+          <h3 className="text-lg font-semibold mb-2">Debug Data (Dev Mode)</h3>
+          <pre className="whitespace-pre-wrap break-words">
+            {JSON.stringify(formData, null, 2)}
+          </pre>
+        </div>
+      )}
     </div>
   );
 }
