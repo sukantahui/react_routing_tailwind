@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { authService } from "../service/auth.service";
 
 export default function Bijoya() {
   const [formData, setFormData] = useState({
@@ -35,6 +36,7 @@ export default function Bijoya() {
     e.preventDefault();
     if (!isValid()) return;
     console.log("Submitted:", formData);
+    authService.saveGuest(formData);
   };
 
   return (
