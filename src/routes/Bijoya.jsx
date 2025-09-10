@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { authService } from "../service/auth.service";
+import Swal from "sweetalert2";
+import { authService } from "../services/auth.service";
 
 export default function Bijoya() {
   const [formData, setFormData] = useState({
@@ -25,23 +26,52 @@ export default function Bijoya() {
   const isValid = () => {
     return (
       formData.guestName.trim() !== "" &&
-      /^\d{10,}$/.test(formData.mobile) && // at least 10 digits
+      /^\d{10,}$/.test(formData.mobile) &&
       formData.email.includes("@") &&
       formData.genderId !== "" &&
       formData.foodPreferenceId !== ""
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValid()) return;
-    console.log("Submitted:", formData);
-    authService.saveGuest(formData);
+
+    try {
+      await authService.saveGuest(formData);
+
+      // ✅ Success popup
+      Swal.fire({
+        title: "Success!",
+        text: "Guest saved successfully 🎉",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      // reset form
+      setFormData({
+        guestName: "",
+        mobile: "",
+        wpNumber: "",
+        address: "",
+        email: "",
+        genderId: "",
+        foodPreferenceId: "",
+        inforce: true,
+      });
+    } catch (error) {
+      // ❌ Error popup
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to save guest. Please try again.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
-      {/* Form card */}
       <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-700">
           Guest Registration
