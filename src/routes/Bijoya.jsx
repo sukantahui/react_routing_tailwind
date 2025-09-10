@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { authService } from "../services/auth.service";
 
 export default function Bijoya() {
+  const[guests, setGuests] = useState([]);
   const [formData, setFormData] = useState({
     guestName: "",
     mobile: "",
@@ -13,6 +14,10 @@ export default function Bijoya() {
     foodPreferenceId: "",
     inforce: true,
   });
+
+  useEffect(() => {
+    getAllGuest();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -69,6 +74,16 @@ export default function Bijoya() {
       });
     }
   };
+  
+  const getAllGuest = ()=>{
+    authService.getAllGuest().then((guestData)=>{
+      console.log("guestData :: ", guestData);
+      if(guestData.status){
+         setGuests(guestData.data);
+      }
+     
+    })
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
@@ -219,6 +234,37 @@ export default function Bijoya() {
           </pre>
         </div>
       )}
+      <div>
+        {/* <pre>{JSON.stringify(guests, null, 2)}</pre> */}
+        <h2 className="text-xl font-bold mb-4">Guest List</h2>
+
+      <div className="overflow-x-auto rounded-lg shadow-md">
+        <table className="min-w-full bg-white border border-gray-200">
+          <thead className="bg-gray-100 text-gray-700">
+            <tr>
+              <th className="px-4 py-2 border">#</th>
+              <th className="px-4 py-2 border">Name</th>
+              <th className="px-4 py-2 border">Email</th>
+              <th className="px-4 py-2 border">Mobile</th>
+              <th className="px-4 py-2 border">Gender</th>
+              <th className="px-4 py-2 border">Food Preference</th>
+            </tr>
+          </thead>
+          <tbody className="text-gray-700">
+            {guests.map((guest, index) => (
+              <tr key={guest.guestId} className="text-center hover:bg-gray-50">
+                <td className="px-4 py-2 border">{index + 1}</td>
+                <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
+                <td className="px-4 py-2 border">{guest.email}</td>
+                <td className="px-4 py-2 border">{guest.mobile}</td>
+                <td className="px-4 py-2 border">{guest.genderName}</td>
+                <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      </div>
     </div>
   );
 }

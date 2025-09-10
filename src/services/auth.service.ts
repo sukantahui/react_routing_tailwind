@@ -10,4 +10,13 @@ export const authService = {
       throw error;
     }
   },
+  getAllGuest: async (data: any): Promise<any> => {
+    try {
+      const response = await api.get("/dev/guests");
+      return response.data;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  },
 };

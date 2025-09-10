@@ -31,7 +31,7 @@ export default function NavBar() {
           {/* Brand */}
           <div className="flex items-center gap-2  font-semibold text-base">
             <img src={cnat} alt="Logo" className="w-8 h-8" />
-            <span class="text-2xl">Coder & AccoTax</span>
+            <span className="text-2xl">Coder & AccoTax</span>
           </div>
 
           {/* Toggle button (mobile) */}
