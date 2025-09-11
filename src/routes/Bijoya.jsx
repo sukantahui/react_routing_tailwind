@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { User, Mail } from "lucide-react";
 import { authService } from "../services/auth.service";
 
 export default function Bijoya() {
-  const[guests, setGuests] = useState([]);
+  const [guests, setGuests] = useState([]);
   const [formData, setFormData] = useState({
     guestName: "",
     mobile: "",
@@ -74,14 +75,14 @@ export default function Bijoya() {
       });
     }
   };
-  
-  const getAllGuest = ()=>{
-    authService.getAllGuest().then((guestData)=>{
+
+  const getAllGuest = () => {
+    authService.getAllGuest().then((guestData) => {
       console.log("guestData :: ", guestData);
-      if(guestData.status){
-         setGuests(guestData.data);
+      if (guestData.status) {
+        setGuests(guestData.data);
       }
-     
+
     })
   }
 
@@ -95,7 +96,10 @@ export default function Bijoya() {
         <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
           {/* Guest Name */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Guest Name</label>
+            <label className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <User className="w-5 h-5 text-blue-500" />
+              Guest Name
+            </label>
             <input
               type="text"
               name="guestName"
@@ -109,7 +113,10 @@ export default function Bijoya() {
 
           {/* Mobile */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Mobile</label>
+            <label className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <Mail className="w-5 h-5 text-blue-500" />
+              Mobile
+            </label>
             <input
               type="tel"
               name="mobile"
@@ -214,10 +221,9 @@ export default function Bijoya() {
             type="submit"
             disabled={!isValid()}
             className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${
-                isValid()
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+              ${isValid()
+                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                : "bg-gray-400 text-white cursor-not-allowed opacity-70"
               }`}
           >
             Save Guest
@@ -238,32 +244,34 @@ export default function Bijoya() {
         {/* <pre>{JSON.stringify(guests, null, 2)}</pre> */}
         <h2 className="text-xl font-bold mb-4">Guest List</h2>
 
-      <div className="overflow-x-auto rounded-lg shadow-md">
-        <table className="min-w-full bg-white border border-gray-200">
-          <thead className="bg-gray-100 text-gray-700">
-            <tr>
-              <th className="px-4 py-2 border">#</th>
-              <th className="px-4 py-2 border">Name</th>
-              <th className="px-4 py-2 border">Email</th>
-              <th className="px-4 py-2 border">Mobile</th>
-              <th className="px-4 py-2 border">Gender</th>
-              <th className="px-4 py-2 border">Food Preference</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-700">
-            {guests.map((guest, index) => (
-              <tr key={guest.guestId} className="text-center hover:bg-gray-50">
-                <td className="px-4 py-2 border">{index + 1}</td>
-                <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
-                <td className="px-4 py-2 border">{guest.email}</td>
-                <td className="px-4 py-2 border">{guest.mobile}</td>
-                <td className="px-4 py-2 border">{guest.genderName}</td>
-                <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
+        <div className="overflow-x-auto rounded-lg shadow-md">
+          <table className="min-w-full bg-white border border-gray-200">
+            <thead className="bg-gray-100 text-gray-700">
+              <tr>
+                <th className="px-4 py-2 border">#</th>
+                <th className="px-4 py-2 border">Name</th>
+                <th className="px-4 py-2 border">Mobile</th>
+                <th className="px-4 py-2 border">Gender</th>
+                <th className="px-4 py-2 border">Food Preference</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody className="text-gray-700">
+              {guests.map((guest, index) => (
+                <tr key={guest.guestId} className="text-center hover:bg-gray-50">
+                  <td className="px-4 py-2 border">{index + 1}</td>
+                  <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
+                  <td className="px-4 py-2 border">{guest.mobile}</td>
+                  <td className="px-4 py-2 border flex justify-center">
+                    {guest.genderId === 1 && <span className="flex items-center gap-1"><User className="w-6 h-6 text-blue-500" />M</span>}
+                    {guest.genderId === 2 && <span className="flex items-center gap-1"><User className="w-6 h-6 text-pink-500" />F </span>}
+                    {guest.genderId === 3 && <span className="flex items-center gap-1"><UserCircle className="w-6 h-6 text-purple-500" />O</span>}
+                  </td>
+                  <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
