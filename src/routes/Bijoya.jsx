@@ -82,12 +82,11 @@ export default function Bijoya() {
       if (guestData.status) {
         setGuests(guestData.data);
       }
-
-    })
-  }
+    });
+  };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
       <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-700">
           Guest Registration
@@ -122,7 +121,7 @@ export default function Bijoya() {
               name="mobile"
               value={formData.mobile}
               onChange={handleChange}
-              placeholder="9876543210"
+              placeholder="Mobile Number"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
               required
             />
@@ -130,7 +129,9 @@ export default function Bijoya() {
 
           {/* WhatsApp Number */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">WhatsApp Number</label>
+            <label className="block text-sm text-gray-700 mb-1">
+              WhatsApp Number
+            </label>
             <input
               type="tel"
               name="wpNumber"
@@ -221,9 +222,10 @@ export default function Bijoya() {
             type="submit"
             disabled={!isValid()}
             className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+              ${
+                isValid()
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
               }`}
           >
             Save Guest
@@ -241,12 +243,11 @@ export default function Bijoya() {
         </div>
       )}
       <div>
-        {/* <pre>{JSON.stringify(guests, null, 2)}</pre> */}
         <h2 className="text-xl font-bold mb-4">Guest List</h2>
 
         <div className="overflow-x-auto rounded-lg shadow-md">
           <table className="min-w-full bg-white border border-gray-200">
-            <thead className="bg-gray-100 text-gray-700">
+            <thead className="bg-gray-100 text-black text-left">
               <tr>
                 <th className="px-4 py-2 border">#</th>
                 <th className="px-4 py-2 border">Name</th>
@@ -255,18 +256,34 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Food Preference</th>
               </tr>
             </thead>
-            <tbody className="text-gray-700">
+            <tbody className="text-black text-left">
               {guests.map((guest, index) => (
-                <tr key={guest.guestId} className="text-center hover:bg-gray-50">
+                <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
-                  <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
-                  <td className="px-4 py-2 border">{guest.mobile}</td>
-                  <td className="px-4 py-2 border flex justify-center">
-                    {guest.genderId === 1 && <span className="flex items-center gap-1"><User className="w-6 h-6 text-blue-500" />M</span>}
-                    {guest.genderId === 2 && <span className="flex items-center gap-1"><User className="w-6 h-6 text-pink-500" />F </span>}
-                    {guest.genderId === 3 && <span className="flex items-center gap-1"><UserCircle className="w-6 h-6 text-purple-500" />O</span>}
+                  <td className="px-4 py-2 border font-medium">
+                    {guest.guestName}
                   </td>
-                  <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
+                  <td className="px-4 py-2 border">{guest.mobileMasked}</td>
+                  <td className="px-4 py-2 border">
+                    {guest.genderId === 1 && (
+                      <span className="flex items-center gap-1">
+                        <User className="w-6 h-6 text-blue-500" /> Male
+                      </span>
+                    )}
+                    {guest.genderId === 2 && (
+                      <span className="flex items-center gap-1">
+                        <User className="w-6 h-6 text-pink-500" /> Female
+                      </span>
+                    )}
+                    {guest.genderId === 3 && (
+                      <span className="flex items-center gap-1">
+                        <User className="w-6 h-6 text-purple-500" /> Other
+                      </span>
+                    )}
+                  </td>
+                  <td className="px-4 py-2 border">
+                    {guest.foodPreferenceName}
+                  </td>
                 </tr>
               ))}
             </tbody>
