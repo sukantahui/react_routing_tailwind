@@ -169,7 +169,6 @@ export default function Bijoya() {
               <option value="">Select Gender</option>
               <option value="1">Male</option>
               <option value="2">Female</option>
-              <option value="3">Other</option>
             </select>
           </div>
 
@@ -188,7 +187,6 @@ export default function Bijoya() {
               <option value="">Select Preference</option>
               <option value="1">Vegetarian</option>
               <option value="2">Non-Vegetarian</option>
-              <option value="3">Vegan</option>
             </select>
           </div>
 
@@ -199,7 +197,7 @@ export default function Bijoya() {
               name="address"
               value={formData.address}
               onChange={handleChange}
-              placeholder="123, Lake Town, Kolkata"
+              placeholder="Your address"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
               rows={3}
             />

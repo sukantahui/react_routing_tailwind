@@ -57,7 +57,7 @@ export default function NavBar() {
             }
             {/* <NavLink to="/about" className={linkClass}>About</NavLink>*/}
             <NavLink to="/bijoya" className={linkClass}>Bijoya</NavLink>
-            <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink>
+            {/* <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink> */}
           </nav>
         </div>
 
@@ -74,11 +74,11 @@ export default function NavBar() {
                 <HashLink smooth to="/#contact" className={linkClass} onClick={() => setIsOpen(false)}>Contact</HashLink>
               </>
             }
-            {/* <NavLink to="/about" className={linkClass} onClick={() => setIsOpen(false)}>
-              About
+            <NavLink to="/bijoya" className={linkClass} onClick={() => setIsOpen(false)}>
+              Bijoya
             </NavLink>
 
-            <NavLink to="/dashboard" className={linkClass} onClick={() => setIsOpen(false)}>
+            {/* <NavLink to="/dashboard" className={linkClass} onClick={() => setIsOpen(false)}>
               Dashboard
             </NavLink> */}
           </div>
