@@ -11,6 +11,7 @@ export default function Bijoya() {
     wpNumber: "",
     address: "",
     email: "",
+    pin: "",
     genderId: "",
     foodPreferenceId: "",
     inforce: true,
@@ -61,6 +62,7 @@ export default function Bijoya() {
         wpNumber: "",
         address: "",
         email: "",
+        pin: "",
         genderId: "",
         foodPreferenceId: "",
         inforce: true,
@@ -156,6 +158,20 @@ export default function Bijoya() {
             />
           </div>
 
+          {/* Pin */}
+          <div>
+            <label className="block text-sm text-gray-700 mb-1">Pin</label>
+            <input
+              type="text"
+              name="pin"
+              value={formData.pin}
+              onChange={handleChange}
+              placeholder="1234"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+              required
+            />
+          </div>
+
           {/* Gender */}
           <div>
             <label className="block text-sm text-gray-700 mb-1">Gender</label>
@@ -220,10 +236,9 @@ export default function Bijoya() {
             type="submit"
             disabled={!isValid()}
             className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${
-                isValid()
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+              ${isValid()
+                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                : "bg-gray-400 text-white cursor-not-allowed opacity-70"
               }`}
           >
             Save Guest
@@ -252,6 +267,7 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Mobile</th>
                 <th className="px-4 py-2 border">Gender</th>
                 <th className="px-4 py-2 border">Food Preference</th>
+                <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
             <tbody className="text-black text-left">
@@ -281,6 +297,10 @@ export default function Bijoya() {
                   </td>
                   <td className="px-4 py-2 border">
                     {guest.foodPreferenceName}
+                  </td>
+
+                  <td className="px-4 py-2 border">
+                    Edit
                   </td>
                 </tr>
               ))}
