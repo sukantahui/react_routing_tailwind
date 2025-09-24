@@ -34,7 +34,7 @@ export default function Bijoya() {
     return (
       formData.guestName.trim() !== "" &&
       /^\d{10,}$/.test(formData.mobile) &&
-      formData.email.includes("@") &&
+      /^\d{10,}$/.test(formData.wpNumber) &&
       formData.genderId !== "" &&
       formData.foodPreferenceId !== ""
     );
@@ -141,12 +141,13 @@ export default function Bijoya() {
               onChange={handleChange}
               placeholder="WhatsApp number"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+              required
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Email</label>
+            <label className="block text-sm text-gray-700 mb-1">Email (Optional)</label>
             <input
               type="email"
               name="email"
@@ -154,19 +155,18 @@ export default function Bijoya() {
               onChange={handleChange}
               placeholder="example@email.com"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
-              required
             />
           </div>
 
           {/* Pin */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Pin</label>
+            <label className="block text-sm text-gray-700 mb-1">PIN</label>
             <input
               type="text"
               name="pin"
               value={formData.pin}
               onChange={handleChange}
-              placeholder="1234"
+              placeholder="Enter 4 Digit PIN"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
               required
             />
