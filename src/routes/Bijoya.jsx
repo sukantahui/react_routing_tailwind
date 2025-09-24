@@ -106,7 +106,7 @@ export default function Bijoya() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
-      {isSaved?  (
+      {!isSaved?  (
 
 
         <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
