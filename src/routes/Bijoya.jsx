@@ -16,6 +16,7 @@ export default function Bijoya() {
     foodPreferenceId: "",
     inforce: true,
   });
+  const [sameAsMobile, setSameAsMobile] = useState(false);
 
   useEffect(() => {
     getAllGuest();
@@ -36,7 +37,9 @@ export default function Bijoya() {
       /^\d{10,}$/.test(formData.mobile) &&
       /^\d{10,}$/.test(formData.wpNumber) &&
       formData.genderId !== "" &&
-      formData.foodPreferenceId !== ""
+      formData.foodPreferenceId !== "" &&
+      /^\d{4}$/.test(formData.pin) && // ensure 4-digit PIN
+      formData.pin === formData.confirmPin // confirm match
     );
   };
 
@@ -63,14 +66,17 @@ export default function Bijoya() {
         address: "",
         email: "",
         pin: "",
+        confirmPin: "",
         genderId: "",
         foodPreferenceId: "",
         inforce: true,
       });
     } catch (error) {
       // extract API error or fallback to generic message
-      const errorMessage =  error?.response?.data?.message || error?.message ||                 // if plain JS error
-      "Failed to save guest. Please try again.";
+      const errorMessage =
+        error?.response?.data?.message ||
+        error?.message || // if plain JS error
+        "Failed to save guest. Please try again.";
       // ❌ Error popup
       Swal.fire({
         title: "Error!",
@@ -135,7 +141,23 @@ export default function Bijoya() {
           {/* WhatsApp Number */}
           <div>
             <label className="block text-sm text-gray-700 mb-1">
-              WhatsApp Number
+              WhatsApp Number &nbsp;
+              <input
+                type="checkbox"
+                id="sameAsMobile"
+                checked={sameAsMobile}
+                onChange={(e) => {
+                  setSameAsMobile(e.target.checked);
+                  setFormData({
+                    ...formData,
+                    wpNumber: e.target.checked ? formData.mobile : "", // copy or clear
+                  });
+                }}
+                className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
+              />
+              <label htmlFor="sameAsMobile" className="text-sm text-gray-700">
+                Same as Mobile
+              </label>
             </label>
             <input
               type="tel"
@@ -146,11 +168,17 @@ export default function Bijoya() {
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
               required
             />
+            <div className="flex items-center gap-2 mt-2">
+              
+              
+            </div>
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Email (Optional)</label>
+            <label className="block text-sm text-gray-700 mb-1">
+              Email (Optional)
+            </label>
             <input
               type="email"
               name="email"
@@ -165,9 +193,23 @@ export default function Bijoya() {
           <div>
             <label className="block text-sm text-gray-700 mb-1">PIN</label>
             <input
-              type="text"
+              type="password"
               name="pin"
               value={formData.pin}
+              onChange={handleChange}
+              placeholder="Enter 4 Digit PIN"
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+              required
+            />
+          </div>
+
+          {/* confirmPin */}
+          <div>
+            <label className="block text-sm text-gray-700 mb-1">Confirm PIN</label>
+            <input
+              type="password"
+              name="confirmPin"
+              value={formData.confirmPin}
               onChange={handleChange}
               placeholder="Enter 4 Digit PIN"
               className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
@@ -239,9 +281,10 @@ export default function Bijoya() {
             type="submit"
             disabled={!isValid()}
             className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+              ${
+                isValid()
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
               }`}
           >
             Save Guest
@@ -302,9 +345,7 @@ export default function Bijoya() {
                     {guest.foodPreferenceName}
                   </td>
 
-                  <td className="px-4 py-2 border">
-                    Edit
-                  </td>
+                  <td className="px-4 py-2 border">Edit</td>
                 </tr>
               ))}
             </tbody>
