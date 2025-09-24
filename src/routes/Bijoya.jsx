@@ -68,10 +68,13 @@ export default function Bijoya() {
         inforce: true,
       });
     } catch (error) {
+      // extract API error or fallback to generic message
+      const errorMessage =  error?.response?.data?.message || error?.message ||                 // if plain JS error
+      "Failed to save guest. Please try again.";
       // ❌ Error popup
       Swal.fire({
         title: "Error!",
-        text: "Failed to save guest. Please try again.",
+        text: "Failed to save guest. Please try again." + errorMessage,
         icon: "error",
         confirmButtonText: "Close",
       });
