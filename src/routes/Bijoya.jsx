@@ -6,6 +6,7 @@ import qr from "../assets/google_review_QR.png";
 
 export default function Bijoya() {
   const [guests, setGuests] = useState([]);
+  const [savedGuests, setSavedGuests] = useState({});
   const [formData, setFormData] = useState({
     guestName: "",
     mobile: "",
@@ -54,6 +55,7 @@ export default function Bijoya() {
       await authService.saveGuest(formData).then((successData) => {
         if(successData.status){
           setIsSaved(true);
+          setSavedGuests(successData.data);
         }
       });
 
@@ -317,9 +319,10 @@ export default function Bijoya() {
           </form>
         </div>
       ):(
-        <div className="">
+        <div style={{textAlign: "center"}} >
           <img src={qr} width={200}/>
           <a href="https://www.google.com/search?sca_esv=8b6aaa0e07ec78a3&rlz=1C1CHBF_enIN996IN996&sxsrf=AE3TifP-qIbfhVoZsHixKv_VuWtMtcKdsQ:1758739494270&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwjRzruWh_KPAxXbyzgGHbVpAA0Q0bkNegQILBAE&biw=1366&bih=651&dpr=1&zx=1758739511915&no_sw_cr=1" target="blank">✍🏻 Click here to give the review</a>
+          <h1 style={{ fontSize: "30px"}}>Your token is <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff"}}> {savedGuests.token}</span></h1>
         </div>
       )}
       {/* Debug Panel - Only in Dev Mode */}
@@ -346,7 +349,7 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
-            <tbody className="text-black text-left">
+            <tbody className="text-black text-left">              
               {guests.map((guest, index) => (
                 <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
