@@ -21,6 +21,8 @@ export default function Bijoya() {
   });
   const [sameAsMobile, setSameAsMobile] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editGuestId, setEditGuestId] = useState(null);
 
   useEffect(() => {
     getAllGuest();
@@ -53,7 +55,7 @@ export default function Bijoya() {
 
     try {
       await authService.saveGuest(formData).then((successData) => {
-        if(successData.status){
+        if (successData.status) {
           setIsSaved(true);
           setSavedGuests(successData.data);
         }
@@ -106,11 +108,29 @@ export default function Bijoya() {
     });
   };
 
+  const handleEdit = async (guestData) => {
+    // alert("Edit button clicked!");
+    setIsEdit(true);
+    console.log("guestData ============== :: ", guestData);
+    setFormData(guestData);
+    setEditGuestId(guestData.guestId);
+
+  };
+
+  const updateDetails= async ()=>{
+    console.log("formData :: ", formData)
+    await authService.updateGuest(editGuestId, formData).then((successData) => {
+        if (successData.status) {
+          console.log("update :: successData :: ", successData);
+          // setIsSaved(true);
+          // setSavedGuests(successData.data);
+        }
+      });
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
-      {!isSaved?  (
-
-
+      {!isSaved ? (
         <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-700">
             Guest Registration
@@ -305,8 +325,20 @@ export default function Bijoya() {
             </div>
 
             {/* Submit button */}
-            <button
-              type="submit"
+            {!isEdit ? (
+              <button
+                type="submit"
+                disabled={!isValid()}
+                className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
+              ${isValid()
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                    : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+                  }`}
+              >
+                Save Guest
+              </button>
+            ) : (
+              <button type="button"  onClick={() => {updateDetails()}}
               disabled={!isValid()}
               className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
               ${isValid()
@@ -314,15 +346,19 @@ export default function Bijoya() {
                   : "bg-gray-400 text-white cursor-not-allowed opacity-70"
                 }`}
             >
-              Save Guest
+              Update Guest
             </button>
+            )}
+
+
+            
           </form>
         </div>
-      ):(
-        <div style={{textAlign: "center"}} >
-          <img src={qr} width={200}/>
+      ) : (
+        <div style={{ textAlign: "center" }} >
+          <img src={qr} width={200} />
           <a href="https://www.google.com/search?sca_esv=8b6aaa0e07ec78a3&rlz=1C1CHBF_enIN996IN996&sxsrf=AE3TifP-qIbfhVoZsHixKv_VuWtMtcKdsQ:1758739494270&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwjRzruWh_KPAxXbyzgGHbVpAA0Q0bkNegQILBAE&biw=1366&bih=651&dpr=1&zx=1758739511915&no_sw_cr=1" target="blank">✍🏻 Click here to give the review</a>
-          <h1 style={{ fontSize: "30px"}}>Your token is <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff"}}> {savedGuests.token}</span></h1>
+          <h1 style={{ fontSize: "30px" }}>Your token is <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff" }}> {savedGuests.token}</span></h1>
         </div>
       )}
       {/* Debug Panel - Only in Dev Mode */}
@@ -349,7 +385,7 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
-            <tbody className="text-black text-left">              
+            <tbody className="text-black text-left">
               {guests.map((guest, index) => (
                 <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
@@ -378,7 +414,20 @@ export default function Bijoya() {
                     {guest.foodPreferenceName}
                   </td>
 
-                  <td className="px-4 py-2 border">Edit</td>
+                  <td className="px-4 py-2 border">
+                    <button
+                      onClick={() => handleEdit(guest)}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: "20px",
+                      }}
+                      title="Edit"
+                    >
+                      ✏️
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

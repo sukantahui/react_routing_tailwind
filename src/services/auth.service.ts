@@ -19,4 +19,13 @@ export const authService = {
       throw error;
     }
   },
+  updateGuest: async (id: any, data: any): Promise<any> => {
+    try {
+      const response = await api.put("/dev/guests/"+id, data);
+      return response.data;
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  },
 };
