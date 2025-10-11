@@ -64,7 +64,7 @@ export default function Bijoya() {
       // ✅ Success popup
       Swal.fire({
         title: "Success!",
-        text: "Guest saved successfully 🎉",
+        text: "Registration completed 🎉",
         icon: "success",
         confirmButtonText: "OK",
       });
@@ -139,13 +139,14 @@ export default function Bijoya() {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
             {/* Guest Name */}
             <div>
-              <label className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label for="guest-name" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <User className="w-5 h-5 text-blue-500" />
                 Guest Name
               </label>
               <input
                 type="text"
                 name="guestName"
+                id="guest-name"
                 value={formData.guestName}
                 onChange={handleChange}
                 placeholder="Enter full name"
@@ -156,13 +157,14 @@ export default function Bijoya() {
 
             {/* Mobile */}
             <div>
-              <label className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label for="mobile" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <Mail className="w-5 h-5 text-blue-500" />
                 Mobile
               </label>
               <input
                 type="tel"
                 name="mobile"
+                id="mobile"
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="Mobile Number"
@@ -187,8 +189,8 @@ export default function Bijoya() {
                     });
                   }}
                   className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
-                />
-                <label htmlFor="sameAsMobile" className="text-sm text-gray-700">
+                />&nbsp;
+                <label htmlFor="sameAsMobile" className="text-sm text-gray-100">
                   Same as Mobile
                 </label>
               </label>
@@ -224,7 +226,7 @@ export default function Bijoya() {
 
             {/* Pin */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">PIN</label>
+              <label className="block text-sm text-gray-700 mb-1">PIN (Enter any 4 digit number it will help you to edit latter)</label>
               <input
                 type="password"
                 name="pin"
@@ -252,7 +254,7 @@ export default function Bijoya() {
 
             {/* Gender */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">Gender</label>
+              <label className="block text-sm text-gray-700 mb-1">*Gender</label>
               <select
                 name="genderId"
                 value={formData.genderId}
@@ -269,7 +271,7 @@ export default function Bijoya() {
             {/* Food Preference */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">
-                Food Preference
+                *Food Preference
               </label>
               <select
                 name="foodPreferenceId"
