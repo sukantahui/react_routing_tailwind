@@ -14,12 +14,13 @@ export default function Bijoya() {
     address: "",
     email: "",
     pin: "",
+    confirmPin: "",
     genderId: "",
     foodPreferenceId: "",
     is_present: true,
     comment: ""
   });
-  const [sameAsMobile, setSameAsMobile] = useState(false);
+  const [sameAsMobile, setSameAsMobile] = useState(false); // unchecked by default
   const [isSaved, setIsSaved] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editGuestId, setEditGuestId] = useState(null);
@@ -30,13 +31,22 @@ export default function Bijoya() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+
+    // Update wpNumber if sameAsMobile is checked
+    if (name === "mobile" && sameAsMobile) {
+      setFormData({
+        ...formData,
+        mobile: value,
+        wpNumber: value
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: type === "checkbox" ? checked : value,
+      });
+    }
   };
 
-  // ✅ Validation rules
   const isValid = () => {
     return (
       formData.guestName.trim() !== "" &&
@@ -44,8 +54,8 @@ export default function Bijoya() {
       /^\d{10,}$/.test(formData.wpNumber) &&
       formData.genderId !== "" &&
       formData.foodPreferenceId !== "" &&
-      /^\d{4}$/.test(formData.pin) && // ensure 4-digit PIN
-      formData.pin === formData.confirmPin // confirm match
+      /^\d{4}$/.test(formData.pin) &&
+      formData.pin === formData.confirmPin
     );
   };
 
@@ -54,22 +64,71 @@ export default function Bijoya() {
     if (!isValid()) return;
 
     try {
-      await authService.saveGuest(formData).then((successData) => {
-        if (successData.status) {
-          setIsSaved(true);
-          setSavedGuests(successData.data);
-        }
-      });
-
-      // ✅ Success popup
+      const successData = await authService.saveGuest(formData);
+      if (successData.status) {
+        setIsSaved(true);
+        setSavedGuests(successData.data);
+        Swal.fire({
+          title: "Success!",
+          text: "Registration completed 🎉",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        getAllGuest();
+        setFormData({
+          guestName: "",
+          mobile: "",
+          wpNumber: "",
+          address: "",
+          email: "",
+          pin: "",
+          confirmPin: "",
+          genderId: "",
+          foodPreferenceId: "",
+          is_present: true,
+          comment: ""
+        });
+        setSameAsMobile(false); // Reset checkbox
+      }
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Failed to save guest. Please try again.";
       Swal.fire({
-        title: "Success!",
-        text: "Registration completed 🎉",
+        title: "Error!",
+        text: "Failed to save guest. Please try again. " + errorMessage,
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+    }
+  };
+
+  const getAllGuest = async () => {
+    const guestData = await authService.getAllGuest();
+    if (guestData.status) {
+      setGuests(guestData.data);
+    }
+  };
+
+  const handleEdit = (guestData) => {
+    setIsEdit(true);
+    setFormData(guestData);
+    setEditGuestId(guestData.guestId);
+    setSameAsMobile(false); // Reset checkbox on edit
+  };
+
+  const updateDetails = async () => {
+    const successData = await authService.updateGuest(editGuestId, formData);
+    if (successData.status) {
+      Swal.fire({
+        title: "Updated!",
+        text: "Guest details updated successfully ✅",
         icon: "success",
         confirmButtonText: "OK",
       });
-
-      // reset form
+      getAllGuest();
+      setIsEdit(false);
       setFormData({
         guestName: "",
         mobile: "",
@@ -83,50 +142,9 @@ export default function Bijoya() {
         is_present: true,
         comment: ""
       });
-    } catch (error) {
-      // extract API error or fallback to generic message
-      const errorMessage =
-        error?.response?.data?.message ||
-        error?.message || // if plain JS error
-        "Failed to save guest. Please try again.";
-      // ❌ Error popup
-      Swal.fire({
-        title: "Error!",
-        text: "Failed to save guest. Please try again." + errorMessage,
-        icon: "error",
-        confirmButtonText: "Close",
-      });
+      setSameAsMobile(false);
     }
   };
-
-  const getAllGuest = () => {
-    authService.getAllGuest().then((guestData) => {
-      console.log("guestData :: ", guestData);
-      if (guestData.status) {
-        setGuests(guestData.data);
-      }
-    });
-  };
-
-  const handleEdit = async (guestData) => {
-    // alert("Edit button clicked!");
-    setIsEdit(true);
-    console.log("guestData ============== :: ", guestData);
-    setFormData(guestData);
-    setEditGuestId(guestData.guestId);
-
-  };
-
-  const updateDetails= async ()=>{
-    console.log("formData :: ", formData)
-    await authService.updateGuest(editGuestId, formData).then((successData) => {
-        if (successData.status) {
-          console.log("update :: successData :: ", successData);
-          // setIsSaved(true);
-          // setSavedGuests(successData.data);
-        }
-      });
-  }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
@@ -139,7 +157,7 @@ export default function Bijoya() {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
             {/* Guest Name */}
             <div>
-              <label for="guest-name" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label htmlFor="guest-name" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <User className="w-5 h-5 text-blue-500" />
                 Guest Name
               </label>
@@ -157,7 +175,7 @@ export default function Bijoya() {
 
             {/* Mobile */}
             <div>
-              <label for="mobile" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label htmlFor="mobile" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <Mail className="w-5 h-5 text-blue-500" />
                 Mobile
               </label>
@@ -176,7 +194,9 @@ export default function Bijoya() {
             {/* WhatsApp Number */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">
-                WhatsApp Number &nbsp;
+                WhatsApp Number
+              </label>
+              <div className="flex items-center mb-2">
                 <input
                   type="checkbox"
                   id="sameAsMobile"
@@ -185,15 +205,18 @@ export default function Bijoya() {
                     setSameAsMobile(e.target.checked);
                     setFormData({
                       ...formData,
-                      wpNumber: e.target.checked ? formData.mobile : "", // copy or clear
+                      wpNumber: e.target.checked ? formData.mobile : "",
                     });
                   }}
                   className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
-                />&nbsp;
-                <label htmlFor="sameAsMobile" className="text-sm text-gray-100">
+                />
+                <label
+                  htmlFor="sameAsMobile"
+                  className="ml-2 text-sm text-gray-700 cursor-pointer"
+                >
                   Same as Mobile
                 </label>
-              </label>
+              </div>
               <input
                 type="tel"
                 name="wpNumber"
@@ -203,10 +226,6 @@ export default function Bijoya() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
                 required
               />
-              <div className="flex items-center gap-2 mt-2">
-
-
-              </div>
             </div>
 
             {/* Email */}
@@ -224,9 +243,11 @@ export default function Bijoya() {
               />
             </div>
 
-            {/* Pin */}
+            {/* PIN */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">PIN (Enter any 4 digit number it will help you to edit latter)</label>
+              <label className="block text-sm text-gray-700 mb-1">
+                PIN (Enter any 4 digit number it will help you to edit later)
+              </label>
               <input
                 type="password"
                 name="pin"
@@ -238,15 +259,17 @@ export default function Bijoya() {
               />
             </div>
 
-            {/* confirmPin */}
+            {/* Confirm PIN */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">Confirm PIN</label>
+              <label className="block text-sm text-gray-700 mb-1">
+                Confirm PIN
+              </label>
               <input
                 type="password"
                 name="confirmPin"
                 value={formData.confirmPin}
                 onChange={handleChange}
-                placeholder="Enter 4 Digit PIN"
+                placeholder="Confirm 4 Digit PIN"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
                 required
               />
@@ -270,9 +293,7 @@ export default function Bijoya() {
 
             {/* Food Preference */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">
-                *Food Preference
-              </label>
+              <label className="block text-sm text-gray-700 mb-1">*Food Preference</label>
               <select
                 name="foodPreferenceId"
                 value={formData.foodPreferenceId}
@@ -294,27 +315,25 @@ export default function Bijoya() {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="Your address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black focus:ring-2 focus:ring-purple-400 outline-none"
                 rows={3}
               />
             </div>
 
-            {/* comment */}
+            {/* Comment */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">Your Comment (Optional)</label>
               <textarea
                 name="comment"
                 value={formData.comment}
                 onChange={handleChange}
-                placeholder="Your address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+                placeholder="Your comment"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black focus:ring-2 focus:ring-purple-400 outline-none"
                 rows={3}
               />
             </div>
 
-
-
-            {/* is_present */}
+            {/* Present Checkbox */}
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -323,16 +342,18 @@ export default function Bijoya() {
                 onChange={handleChange}
                 className="w-5 h-5 border-gray-300 rounded focus:ring-purple-400"
               />
-              <label className="text-sm text-gray-800">I'll be present that day</label>
+              <label className="text-sm text-gray-800">
+                I'll be present that day
+              </label>
             </div>
 
-            {/* Submit button */}
+            {/* Submit / Update */}
             {!isEdit ? (
               <button
                 type="submit"
                 disabled={!isValid()}
                 className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
+                ${isValid()
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
                     : "bg-gray-400 text-white cursor-not-allowed opacity-70"
                   }`}
@@ -340,43 +361,70 @@ export default function Bijoya() {
                 Save Guest
               </button>
             ) : (
-              <button type="button"  onClick={() => {updateDetails()}}
-              disabled={!isValid()}
-              className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
-                }`}
-            >
-              Update Guest
-            </button>
+              <button
+                type="button"
+                onClick={updateDetails}
+                disabled={!isValid()}
+                className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
+                ${isValid()
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                    : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+                  }`}
+              >
+                Update Guest
+              </button>
             )}
-
-
-            
           </form>
         </div>
       ) : (
-        <div style={{ textAlign: "center" }} >
-          <img src={qr} width={200} />
-          <a href="https://www.google.com/search?sca_esv=8b6aaa0e07ec78a3&rlz=1C1CHBF_enIN996IN996&sxsrf=AE3TifP-qIbfhVoZsHixKv_VuWtMtcKdsQ:1758739494270&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwjRzruWh_KPAxXbyzgGHbVpAA0Q0bkNegQILBAE&biw=1366&bih=651&dpr=1&zx=1758739511915&no_sw_cr=1" target="blank">✍🏻 Click here to give the review</a>
-          <h1 style={{ fontSize: "30px" }}>Your token is <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff" }}> {savedGuests.token}</span></h1>
-        </div>
-      )}
-      {/* Debug Panel - Only in Dev Mode */}
-      {import.meta.env.MODE === "development" && (
-        <div className="w-full max-w-lg mt-6 p-4 bg-black text-green-400 rounded-lg shadow-lg text-sm overflow-x-auto">
-          <h3 className="text-lg font-semibold mb-2">Debug Data (Dev Mode)</h3>
-          <pre className="whitespace-pre-wrap break-words">
-            {JSON.stringify(formData, null, 2)}
-          </pre>
-        </div>
-      )}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Guest List</h2>
+        <div className="text-center text-white">
+          <img src={qr} width={200} alt="QR" className="mx-auto mb-4" />
+          <a
+            href="https://www.google.com/search?q=Coder+%26+AccoTax+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-yellow-300 underline"
+          >
+            ✍🏻 Click here to give a review
+          </a>
+          <h1 className="text-2xl mt-4">
+            Your token is{" "}
+            <span className="text-yellow-400 font-bold drop-shadow-md">
+              {savedGuests.token}
+            </span>
+          </h1>
 
-        <div className="overflow-x-auto rounded-lg shadow-md">
-          <table className="min-w-full bg-white border border-gray-200">
+          {/* ✅ Add New Button */}
+          <button
+            onClick={() => {
+              setIsSaved(false);
+              setFormData({
+                guestName: "",
+                mobile: "",
+                wpNumber: "",
+                address: "",
+                email: "",
+                pin: "",
+                confirmPin: "",
+                genderId: "",
+                foodPreferenceId: "",
+                is_present: true,
+                comment: ""
+              });
+              setSameAsMobile(false);
+            }}
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white font-semibold rounded-lg shadow-md hover:from-green-700 hover:to-teal-700 transition active:scale-95"
+          >
+            ➕ Add New Guest
+          </button>
+        </div>
+      )}
+
+      {/* Guest List */}
+      <div className="mt-10 w-full max-w-4xl">
+        <h2 className="text-xl font-bold mb-4 text-white">Guest List</h2>
+        <div className="overflow-x-auto rounded-lg shadow-md bg-white">
+          <table className="min-w-full border border-gray-200">
             <thead className="bg-gray-100 text-black text-left">
               <tr>
                 <th className="px-4 py-2 border">#</th>
@@ -387,44 +435,32 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
-            <tbody className="text-black text-left">
+            <tbody className="text-black">
               {guests.map((guest, index) => (
                 <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
-                  <td className="px-4 py-2 border font-medium">
-                    {guest.guestName}
-                  </td>
+                  <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
                   <td className="px-4 py-2 border">{guest.mobileMasked}</td>
                   <td className="px-4 py-2 border">
-                    {guest.genderId === 1 && (
-                      <span className="flex items-center gap-1">
-                        <User className="w-6 h-6 text-blue-500" /> Male
+                    {guest.genderId === 1 ? (
+                      <span className="flex items-center gap-1 text-blue-600">
+                        <User className="w-5 h-5" /> Male
                       </span>
-                    )}
-                    {guest.genderId === 2 && (
-                      <span className="flex items-center gap-1">
-                        <User className="w-6 h-6 text-pink-500" /> Female
+                    ) : guest.genderId === 2 ? (
+                      <span className="flex items-center gap-1 text-pink-600">
+                        <User className="w-5 h-5" /> Female
                       </span>
-                    )}
-                    {guest.genderId === 3 && (
-                      <span className="flex items-center gap-1">
-                        <User className="w-6 h-6 text-purple-500" /> Other
+                    ) : (
+                      <span className="flex items-center gap-1 text-purple-600">
+                        <User className="w-5 h-5" /> Other
                       </span>
                     )}
                   </td>
-                  <td className="px-4 py-2 border">
-                    {guest.foodPreferenceName}
-                  </td>
-
+                  <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
                   <td className="px-4 py-2 border">
                     <button
                       onClick={() => handleEdit(guest)}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        fontSize: "20px",
-                      }}
+                      className="text-xl hover:scale-110 transition"
                       title="Edit"
                     >
                       ✏️
