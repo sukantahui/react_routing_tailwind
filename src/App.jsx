@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import AppRoutes from "./routes/AppRoutes";
-import NavBar from "./routes/Navbar";
+import NavBar from "./routes/NavBar";
 
 export default function App() {
   console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);

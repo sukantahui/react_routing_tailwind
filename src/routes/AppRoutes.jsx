@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './HomeComponent/Home';
 import Bijoya from './Bijoya';
+import Admin from './Admin';
 import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import NotFound from './NotFound';
@@ -18,6 +19,7 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
+
       <Route
         path="/bijoya"
         element={
@@ -26,7 +28,18 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
-      
+
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute>
+            <Admin />
+          </ProtectedRoute>
+        }
+      />
+
+    
+     
       
       <Route path="*" element={<NotFound />} />
     </Routes>
