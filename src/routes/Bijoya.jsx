@@ -20,7 +20,7 @@ export default function Bijoya() {
     is_present: true,
     comment: ""
   });
-  const [sameAsMobile, setSameAsMobile] = useState(false);
+  const [sameAsMobile, setSameAsMobile] = useState(false); // unchecked by default
   const [isSaved, setIsSaved] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editGuestId, setEditGuestId] = useState(null);
@@ -38,13 +38,22 @@ export default function Bijoya() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
+
+    // Update wpNumber if sameAsMobile is checked
+    if (name === "mobile" && sameAsMobile) {
+      setFormData({
+        ...formData,
+        mobile: value,
+        wpNumber: value
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: type === "checkbox" ? checked : value,
+      });
+    }
   };
 
-  // ✅ Validation rules
   const isValid = () => {
     return (
       formData.guestName.trim() !== "" &&
@@ -52,8 +61,8 @@ export default function Bijoya() {
       /^\d{10,}$/.test(formData.wpNumber) &&
       formData.genderId !== "" &&
       formData.foodPreferenceId !== "" &&
-      /^\d{4}$/.test(formData.pin) && // ensure 4-digit PIN
-      formData.pin === formData.confirmPin // confirm match
+      /^\d{4}$/.test(formData.pin) &&
+      formData.pin === formData.confirmPin
     );
   };
 
@@ -72,7 +81,25 @@ export default function Bijoya() {
           icon: "success",
           confirmButtonText: "OK",
         });
+<<<<<<< HEAD
         resetForm();
+=======
+        getAllGuest();
+        setFormData({
+          guestName: "",
+          mobile: "",
+          wpNumber: "",
+          address: "",
+          email: "",
+          pin: "",
+          confirmPin: "",
+          genderId: "",
+          foodPreferenceId: "",
+          is_present: true,
+          comment: ""
+        });
+        setSameAsMobile(false); // Reset checkbox
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
       }
     } catch (error) {
       const errorMessage =
@@ -81,6 +108,7 @@ export default function Bijoya() {
         "Failed to save guest. Please try again.";
       Swal.fire({
         title: "Error!",
+<<<<<<< HEAD
         text: errorMessage,
         icon: "error",
         confirmButtonText: "Close",
@@ -154,6 +182,57 @@ export default function Bijoya() {
     setSameAsMobile(false);
   };
 
+=======
+        text: "Failed to save guest. Please try again. " + errorMessage,
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+    }
+  };
+
+  const getAllGuest = async () => {
+    const guestData = await authService.getAllGuest();
+    if (guestData.status) {
+      setGuests(guestData.data);
+    }
+  };
+
+  const handleEdit = (guestData) => {
+    setIsEdit(true);
+    setFormData(guestData);
+    setEditGuestId(guestData.guestId);
+    setSameAsMobile(false); // Reset checkbox on edit
+  };
+
+  const updateDetails = async () => {
+    const successData = await authService.updateGuest(editGuestId, formData);
+    if (successData.status) {
+      Swal.fire({
+        title: "Updated!",
+        text: "Guest details updated successfully ✅",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      getAllGuest();
+      setIsEdit(false);
+      setFormData({
+        guestName: "",
+        mobile: "",
+        wpNumber: "",
+        address: "",
+        email: "",
+        pin: "",
+        confirmPin: "",
+        genderId: "",
+        foodPreferenceId: "",
+        is_present: true,
+        comment: ""
+      });
+      setSameAsMobile(false);
+    }
+  };
+
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
       {!isSaved ? (
@@ -202,18 +281,36 @@ export default function Bijoya() {
             {/* WhatsApp Number */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">
-                WhatsApp Number &nbsp;
+                WhatsApp Number
+              </label>
+              <div className="flex items-center mb-2">
                 <input
                   type="checkbox"
                   id="sameAsMobile"
                   checked={sameAsMobile}
+<<<<<<< HEAD
                   onChange={(e) => setSameAsMobile(e.target.checked)}
                   className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
                 />&nbsp;
                 <label htmlFor="sameAsMobile" className="text-sm text-gray-800">
+=======
+                  onChange={(e) => {
+                    setSameAsMobile(e.target.checked);
+                    setFormData({
+                      ...formData,
+                      wpNumber: e.target.checked ? formData.mobile : "",
+                    });
+                  }}
+                  className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
+                />
+                <label
+                  htmlFor="sameAsMobile"
+                  className="ml-2 text-sm text-gray-700 cursor-pointer"
+                >
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
                   Same as Mobile
                 </label>
-              </label>
+              </div>
               <input
                 type="tel"
                 name="wpNumber"
@@ -256,13 +353,15 @@ export default function Bijoya() {
 
             {/* Confirm PIN */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">Confirm PIN</label>
+              <label className="block text-sm text-gray-700 mb-1">
+                Confirm PIN
+              </label>
               <input
                 type="password"
                 name="confirmPin"
                 value={formData.confirmPin}
                 onChange={handleChange}
-                placeholder="Enter 4 Digit PIN"
+                placeholder="Confirm 4 Digit PIN"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
                 required
               />
@@ -308,7 +407,7 @@ export default function Bijoya() {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="Your address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black focus:ring-2 focus:ring-purple-400 outline-none"
                 rows={3}
               />
             </div>
@@ -320,13 +419,22 @@ export default function Bijoya() {
                 name="comment"
                 value={formData.comment}
                 onChange={handleChange}
+<<<<<<< HEAD
                 placeholder="Enter your comment"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
+=======
+                placeholder="Your comment"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black focus:ring-2 focus:ring-purple-400 outline-none"
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
                 rows={3}
               />
             </div>
 
+<<<<<<< HEAD
             {/* is_present */}
+=======
+            {/* Present Checkbox */}
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
@@ -335,10 +443,16 @@ export default function Bijoya() {
                 onChange={handleChange}
                 className="w-5 h-5 border-gray-300 rounded focus:ring-purple-400"
               />
-              <label className="text-sm text-gray-800">I'll be present that day</label>
+              <label className="text-sm text-gray-800">
+                I'll be present that day
+              </label>
             </div>
 
+<<<<<<< HEAD
             {/* Submit or Update Button */}
+=======
+            {/* Submit / Update */}
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
             {!isEdit ? (
               <button
                 type="submit"
@@ -368,12 +482,18 @@ export default function Bijoya() {
           </form>
         </div>
       ) : (
+<<<<<<< HEAD
         <div style={{ textAlign: "center" }}>
           <img src={qr} width={200} alt="QR" />
+=======
+        <div className="text-center text-white">
+          <img src={qr} width={200} alt="QR" className="mx-auto mb-4" />
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
           <a
             href="https://www.google.com/search?q=Coder+%26+AccoTax+Reviews"
             target="_blank"
             rel="noopener noreferrer"
+<<<<<<< HEAD
           >
             ✍🏻 Click here to give the review
           </a>
@@ -401,6 +521,50 @@ export default function Bijoya() {
         <h2 className="text-xl font-bold mb-4 text-white">Guest List</h2>
         <div className="overflow-x-auto rounded-lg shadow-md">
           <table className="min-w-full bg-white border border-gray-200">
+=======
+            className="text-yellow-300 underline"
+          >
+            ✍🏻 Click here to give a review
+          </a>
+          <h1 className="text-2xl mt-4">
+            Your token is{" "}
+            <span className="text-yellow-400 font-bold drop-shadow-md">
+              {savedGuests.token}
+            </span>
+          </h1>
+
+          {/* ✅ Add New Button */}
+          <button
+            onClick={() => {
+              setIsSaved(false);
+              setFormData({
+                guestName: "",
+                mobile: "",
+                wpNumber: "",
+                address: "",
+                email: "",
+                pin: "",
+                confirmPin: "",
+                genderId: "",
+                foodPreferenceId: "",
+                is_present: true,
+                comment: ""
+              });
+              setSameAsMobile(false);
+            }}
+            className="mt-6 px-6 py-3 bg-gradient-to-r from-green-600 to-teal-600 text-white font-semibold rounded-lg shadow-md hover:from-green-700 hover:to-teal-700 transition active:scale-95"
+          >
+            ➕ Add New Guest
+          </button>
+        </div>
+      )}
+
+      {/* Guest List */}
+      <div className="mt-10 w-full max-w-4xl">
+        <h2 className="text-xl font-bold mb-4 text-white">Guest List</h2>
+        <div className="overflow-x-auto rounded-lg shadow-md bg-white">
+          <table className="min-w-full border border-gray-200">
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
             <thead className="bg-gray-100 text-black text-left">
               <tr>
                 <th className="px-4 py-2 border">#</th>
@@ -411,39 +575,43 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
-            <tbody className="text-black text-left">
+            <tbody className="text-black">
               {guests.map((guest, index) => (
                 <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
                   <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
                   <td className="px-4 py-2 border">{guest.mobileMasked}</td>
+<<<<<<< HEAD
                   {/* <td className="px-4 py-2 border">
                     {guest.genderId === 1 && (
                       <span className="flex items-center gap-1">
                         <User className="w-6 h-6 text-blue-500" /> Male
+=======
+                  <td className="px-4 py-2 border">
+                    {guest.genderId === 1 ? (
+                      <span className="flex items-center gap-1 text-blue-600">
+                        <User className="w-5 h-5" /> Male
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
+                      </span>
+                    ) : guest.genderId === 2 ? (
+                      <span className="flex items-center gap-1 text-pink-600">
+                        <User className="w-5 h-5" /> Female
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-purple-600">
+                        <User className="w-5 h-5" /> Other
                       </span>
                     )}
-                    {guest.genderId === 2 && (
-                      <span className="flex items-center gap-1">
-                        <User className="w-6 h-6 text-pink-500" /> Female
-                      </span>
-                    )}
-                    {guest.genderId === 3 && (
-                      <span className="flex items-center gap-1">
-                        <User className="w-6 h-6 text-purple-500" /> Other
-                      </span>
-                    )}
+<<<<<<< HEAD
                   </td> */}
+=======
+                  </td>
+>>>>>>> 8eb3cc31413b21a0b03641217eebe32e92049c60
                   <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
                   <td className="px-4 py-2 border">
                     <button
                       onClick={() => handleEdit(guest)}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        fontSize: "20px",
-                      }}
+                      className="text-xl hover:scale-110 transition"
                       title="Edit"
                     >
                       ✏️
