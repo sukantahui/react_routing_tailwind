@@ -14,6 +14,7 @@ export default function Bijoya() {
     address: "",
     email: "",
     pin: "",
+    confirmPin: "",
     genderId: "",
     foodPreferenceId: "",
     is_present: true,
@@ -27,6 +28,13 @@ export default function Bijoya() {
   useEffect(() => {
     getAllGuest();
   }, []);
+
+  // Sync WhatsApp number with mobile if "Same as Mobile" is checked
+  useEffect(() => {
+    if (sameAsMobile) {
+      setFormData((prev) => ({ ...prev, wpNumber: prev.mobile }));
+    }
+  }, [sameAsMobile, formData.mobile]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -54,45 +62,26 @@ export default function Bijoya() {
     if (!isValid()) return;
 
     try {
-      await authService.saveGuest(formData).then((successData) => {
-        if (successData.status) {
-          setIsSaved(true);
-          setSavedGuests(successData.data);
-        }
-      });
-
-      // ✅ Success popup
-      Swal.fire({
-        title: "Success!",
-        text: "Registration completed 🎉",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-
-      // reset form
-      setFormData({
-        guestName: "",
-        mobile: "",
-        wpNumber: "",
-        address: "",
-        email: "",
-        pin: "",
-        confirmPin: "",
-        genderId: "",
-        foodPreferenceId: "",
-        is_present: true,
-        comment: ""
-      });
+      const successData = await authService.saveGuest(formData);
+      if (successData.status) {
+        setIsSaved(true);
+        setSavedGuests(successData.data);
+        Swal.fire({
+          title: "Success!",
+          text: "Registration completed 🎉",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        resetForm();
+      }
     } catch (error) {
-      // extract API error or fallback to generic message
       const errorMessage =
         error?.response?.data?.message ||
-        error?.message || // if plain JS error
+        error?.message ||
         "Failed to save guest. Please try again.";
-      // ❌ Error popup
       Swal.fire({
         title: "Error!",
-        text: "Failed to save guest. Please try again." + errorMessage,
+        text: errorMessage,
         icon: "error",
         confirmButtonText: "Close",
       });
@@ -101,45 +90,82 @@ export default function Bijoya() {
 
   const getAllGuest = () => {
     authService.getAllGuest().then((guestData) => {
-      console.log("guestData :: ", guestData);
       if (guestData.status) {
         setGuests(guestData.data);
       }
     });
   };
 
-  const handleEdit = async (guestData) => {
-    // alert("Edit button clicked!");
+  const handleEdit = (guestData) => {
     setIsEdit(true);
-    console.log("guestData ============== :: ", guestData);
-    setFormData(guestData);
     setEditGuestId(guestData.guestId);
-
+    setFormData({
+      ...guestData,
+      confirmPin: guestData.pin, // auto-fill confirm pin
+    });
+    setIsSaved(false);
   };
 
-  const updateDetails= async ()=>{
-    console.log("formData :: ", formData)
-    await authService.updateGuest(editGuestId, formData).then((successData) => {
-        if (successData.status) {
-          console.log("update :: successData :: ", successData);
-          // setIsSaved(true);
-          // setSavedGuests(successData.data);
-        }
+  const updateDetails = async () => {
+    if (!isValid()) return;
+
+    try {
+      const successData = await authService.updateGuest(editGuestId, formData);
+      if (successData.status) {
+        Swal.fire({
+          title: "Updated!",
+          text: "Guest details updated successfully ✅",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        getAllGuest();
+        resetForm();
+        setIsEdit(false);
+        setEditGuestId(null);
+      }
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Failed to update guest. Please try again.";
+      Swal.fire({
+        title: "Error!",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonText: "Close",
       });
-  }
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      guestName: "",
+      mobile: "",
+      wpNumber: "",
+      address: "",
+      email: "",
+      pin: "",
+      confirmPin: "",
+      genderId: "",
+      foodPreferenceId: "",
+      is_present: true,
+      comment: ""
+    });
+    setSameAsMobile(false);
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 p-4">
       {!isSaved ? (
         <div className="w-full max-w-lg bg-white shadow-2xl rounded-2xl p-6 sm:p-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-purple-700">
-            Guest Registration
+            {isEdit ? "Edit Guest" : "Guest Registration"}
           </h2>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
             {/* Guest Name */}
             <div>
-              <label for="guest-name" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label htmlFor="guest-name" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <User className="w-5 h-5 text-blue-500" />
                 Guest Name
               </label>
@@ -157,7 +183,7 @@ export default function Bijoya() {
 
             {/* Mobile */}
             <div>
-              <label for="mobile" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+              <label htmlFor="mobile" className="flex items-center gap-2 text-sm text-gray-700 mb-1">
                 <Mail className="w-5 h-5 text-blue-500" />
                 Mobile
               </label>
@@ -181,16 +207,10 @@ export default function Bijoya() {
                   type="checkbox"
                   id="sameAsMobile"
                   checked={sameAsMobile}
-                  onChange={(e) => {
-                    setSameAsMobile(e.target.checked);
-                    setFormData({
-                      ...formData,
-                      wpNumber: e.target.checked ? formData.mobile : "", // copy or clear
-                    });
-                  }}
+                  onChange={(e) => setSameAsMobile(e.target.checked)}
                   className="w-4 h-4 border-gray-300 rounded focus:ring-purple-400"
                 />&nbsp;
-                <label htmlFor="sameAsMobile" className="text-sm text-gray-100">
+                <label htmlFor="sameAsMobile" className="text-sm text-gray-800">
                   Same as Mobile
                 </label>
               </label>
@@ -203,17 +223,11 @@ export default function Bijoya() {
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
                 required
               />
-              <div className="flex items-center gap-2 mt-2">
-
-
-              </div>
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">
-                Email (Optional)
-              </label>
+              <label className="block text-sm text-gray-700 mb-1">Email (Optional)</label>
               <input
                 type="email"
                 name="email"
@@ -224,9 +238,11 @@ export default function Bijoya() {
               />
             </div>
 
-            {/* Pin */}
+            {/* PIN */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">PIN (Enter any 4 digit number it will help you to edit latter)</label>
+              <label className="block text-sm text-gray-700 mb-1">
+                PIN (Enter any 4 digit number it will help you to edit later)
+              </label>
               <input
                 type="password"
                 name="pin"
@@ -238,7 +254,7 @@ export default function Bijoya() {
               />
             </div>
 
-            {/* confirmPin */}
+            {/* Confirm PIN */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">Confirm PIN</label>
               <input
@@ -270,9 +286,7 @@ export default function Bijoya() {
 
             {/* Food Preference */}
             <div>
-              <label className="block text-sm text-gray-700 mb-1">
-                *Food Preference
-              </label>
+              <label className="block text-sm text-gray-700 mb-1">*Food Preference</label>
               <select
                 name="foodPreferenceId"
                 value={formData.foodPreferenceId}
@@ -299,20 +313,18 @@ export default function Bijoya() {
               />
             </div>
 
-            {/* comment */}
+            {/* Comment */}
             <div>
               <label className="block text-sm text-gray-700 mb-1">Your Comment (Optional)</label>
               <textarea
                 name="comment"
                 value={formData.comment}
                 onChange={handleChange}
-                placeholder="Your address"
+                placeholder="Enter your comment"
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm text-black placeholder-gray-400 focus:ring-2 focus:ring-purple-400 outline-none"
                 rows={3}
               />
             </div>
-
-
 
             {/* is_present */}
             <div className="flex items-center gap-2">
@@ -326,13 +338,13 @@ export default function Bijoya() {
               <label className="text-sm text-gray-800">I'll be present that day</label>
             </div>
 
-            {/* Submit button */}
+            {/* Submit or Update Button */}
             {!isEdit ? (
               <button
                 type="submit"
                 disabled={!isValid()}
                 className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
+                ${isValid()
                     ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
                     : "bg-gray-400 text-white cursor-not-allowed opacity-70"
                   }`}
@@ -340,29 +352,40 @@ export default function Bijoya() {
                 Save Guest
               </button>
             ) : (
-              <button type="button"  onClick={() => {updateDetails()}}
-              disabled={!isValid()}
-              className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
-              ${isValid()
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
-                  : "bg-gray-400 text-white cursor-not-allowed opacity-70"
-                }`}
-            >
-              Update Guest
-            </button>
+              <button
+                type="button"
+                onClick={updateDetails}
+                disabled={!isValid()}
+                className={`w-full py-3 px-4 rounded-lg font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition
+                ${isValid()
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 active:scale-[0.98]"
+                    : "bg-gray-400 text-white cursor-not-allowed opacity-70"
+                  }`}
+              >
+                Update Guest
+              </button>
             )}
-
-
-            
           </form>
         </div>
       ) : (
-        <div style={{ textAlign: "center" }} >
-          <img src={qr} width={200} />
-          <a href="https://www.google.com/search?sca_esv=8b6aaa0e07ec78a3&rlz=1C1CHBF_enIN996IN996&sxsrf=AE3TifP-qIbfhVoZsHixKv_VuWtMtcKdsQ:1758739494270&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwjRzruWh_KPAxXbyzgGHbVpAA0Q0bkNegQILBAE&biw=1366&bih=651&dpr=1&zx=1758739511915&no_sw_cr=1" target="blank">✍🏻 Click here to give the review</a>
-          <h1 style={{ fontSize: "30px" }}>Your token is <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff" }}> {savedGuests.token}</span></h1>
+        <div style={{ textAlign: "center" }}>
+          <img src={qr} width={200} alt="QR" />
+          <a
+            href="https://www.google.com/search?q=Coder+%26+AccoTax+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ✍🏻 Click here to give the review
+          </a>
+          <h1 style={{ fontSize: "30px" }}>
+            Your token is{" "}
+            <span style={{ textShadow: "0 0 3px #ffea00ff, 0 0 5px #ffdd00ff" }}>
+              {savedGuests.token}
+            </span>
+          </h1>
         </div>
       )}
+
       {/* Debug Panel - Only in Dev Mode */}
       {import.meta.env.MODE === "development" && (
         <div className="w-full max-w-lg mt-6 p-4 bg-black text-green-400 rounded-lg shadow-lg text-sm overflow-x-auto">
@@ -372,9 +395,10 @@ export default function Bijoya() {
           </pre>
         </div>
       )}
-      <div>
-        <h2 className="text-xl font-bold mb-4">Guest List</h2>
 
+      {/* Guest List */}
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-4 text-white">Guest List</h2>
         <div className="overflow-x-auto rounded-lg shadow-md">
           <table className="min-w-full bg-white border border-gray-200">
             <thead className="bg-gray-100 text-black text-left">
@@ -382,7 +406,7 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">#</th>
                 <th className="px-4 py-2 border">Name</th>
                 <th className="px-4 py-2 border">Mobile</th>
-                <th className="px-4 py-2 border">Gender</th>
+                {/* <th className="px-4 py-2 border">Gender</th> */}
                 <th className="px-4 py-2 border">Food Preference</th>
                 <th className="px-4 py-2 border">Action</th>
               </tr>
@@ -391,11 +415,9 @@ export default function Bijoya() {
               {guests.map((guest, index) => (
                 <tr key={guest.guestId} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border">{index + 1}</td>
-                  <td className="px-4 py-2 border font-medium">
-                    {guest.guestName}
-                  </td>
+                  <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
                   <td className="px-4 py-2 border">{guest.mobileMasked}</td>
-                  <td className="px-4 py-2 border">
+                  {/* <td className="px-4 py-2 border">
                     {guest.genderId === 1 && (
                       <span className="flex items-center gap-1">
                         <User className="w-6 h-6 text-blue-500" /> Male
@@ -411,11 +433,8 @@ export default function Bijoya() {
                         <User className="w-6 h-6 text-purple-500" /> Other
                       </span>
                     )}
-                  </td>
-                  <td className="px-4 py-2 border">
-                    {guest.foodPreferenceName}
-                  </td>
-
+                  </td> */}
+                  <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
                   <td className="px-4 py-2 border">
                     <button
                       onClick={() => handleEdit(guest)}
