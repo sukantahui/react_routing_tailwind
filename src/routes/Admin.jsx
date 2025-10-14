@@ -71,7 +71,7 @@ export default function Admin() {
             guest.wpNumber.startsWith("+") ? guest.wpNumber : "+91" + guest.wpNumber;
 
         const message = `Hello ${guest.guestName} [${guest.token}]! 
-                        We are thrilled to invite you to our upcoming event.
+                        We’re super excited to welcome you to our upcoming celebration, "মৈত্রী মহোৎসব" on 19th October 2025, from 7:32 PM onwards!
                         Your food preference: ${guest.foodPreferenceName}
                         Looking forward to seeing you and making this celebration memorable!
                         Please share your review with us here: [https://g.page/r/CTBkwqHJ6mZ2EBM/review]
