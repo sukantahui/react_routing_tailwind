@@ -446,21 +446,7 @@ export default function Bijoya() {
                   <td className="px-4 py-2 border">{index + 1}</td>
                   <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
                   <td className="px-4 py-2 border">{guest.mobileMasked}</td>
-                  <td className="px-4 py-2 border">
-                    {guest.genderId === 1 ? (
-                      <span className="flex items-center gap-1 text-blue-600">
-                        <User className="w-5 h-5" /> Male
-                      </span>
-                    ) : guest.genderId === 2 ? (
-                      <span className="flex items-center gap-1 text-pink-600">
-                        <User className="w-5 h-5" /> Female
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-1 text-purple-600">
-                        <User className="w-5 h-5" /> Other
-                      </span>
-                    )}
-                  </td>
+                  <td className="px-4 py-2 border">{guest.genderName} </td>
                   <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
                   <td className="px-4 py-2 border">
                     <button
