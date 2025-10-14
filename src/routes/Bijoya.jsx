@@ -20,16 +20,21 @@ export default function Bijoya() {
     is_present: true,
     comment: ""
   });
-  const [sameAsMobile, setSameAsMobile] = useState(false); // unchecked by default
+  const [sameAsMobile, setSameAsMobile] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editGuestId, setEditGuestId] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredGuests = guests.filter((guest) =>
+    guest.guestName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    guest.mobile?.includes(searchQuery)
+  );
 
   useEffect(() => {
     getAllGuest();
   }, []);
 
-  // Sync WhatsApp number with mobile if "Same as Mobile" is checked
   useEffect(() => {
     if (sameAsMobile) {
       setFormData((prev) => ({ ...prev, wpNumber: prev.mobile }));
@@ -39,7 +44,6 @@ export default function Bijoya() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    // Update wpNumber if sameAsMobile is checked
     if (name === "mobile" && sameAsMobile) {
       setFormData({
         ...formData,
@@ -95,7 +99,7 @@ export default function Bijoya() {
           is_present: true,
           comment: ""
         });
-        setSameAsMobile(false); // Reset checkbox
+        setSameAsMobile(false);
       }
     } catch (error) {
       const errorMessage =
@@ -122,7 +126,7 @@ export default function Bijoya() {
     setIsEdit(true);
     setFormData(guestData);
     setEditGuestId(guestData.guestId);
-    setSameAsMobile(false); // Reset checkbox on edit
+    setSameAsMobile(false);
   };
 
   const updateDetails = async () => {
@@ -399,7 +403,6 @@ export default function Bijoya() {
             </span>
           </h1>
 
-          {/* ✅ Add New Button */}
           <button
             onClick={() => {
               setIsSaved(false);
@@ -428,6 +431,16 @@ export default function Bijoya() {
       {/* Guest List */}
       <div className="mt-10 w-full max-w-4xl">
         <h2 className="text-xl font-bold mb-4 text-white">Guest List</h2>
+        <div className="mb-4 flex justify-end">
+          <input
+            type="text"
+            placeholder="Search by name or mobile..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full sm:w-1/2 border border-gray-300 rounded-lg px-4 py-2 text-white placeholder-gray-400 shadow-sm focus:ring-2 focus:ring-purple-400 outline-none"
+          />
+        </div>
+
         <div className="overflow-x-auto rounded-lg shadow-md bg-white">
           <table className="min-w-full border border-gray-200">
             <thead className="bg-gray-100 text-black text-left">
@@ -435,30 +448,38 @@ export default function Bijoya() {
                 <th className="px-4 py-2 border">#</th>
                 <th className="px-4 py-2 border">Name</th>
                 <th className="px-4 py-2 border">Mobile</th>
-                {/* <th className="px-4 py-2 border">Gender</th> */}
+                <th className="px-4 py-2 border">Gender</th>
                 <th className="px-4 py-2 border">Food Preference</th>
                 <th className="px-4 py-2 border">Action</th>
               </tr>
             </thead>
             <tbody className="text-black">
-              {guests.map((guest, index) => (
-                <tr key={guest.guestId} className="hover:bg-gray-50">
-                  <td className="px-4 py-2 border">{index + 1}</td>
-                  <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
-                  <td className="px-4 py-2 border">{guest.mobileMasked}</td>
-                  <td className="px-4 py-2 border">{guest.genderName} </td>
-                  <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
-                  <td className="px-4 py-2 border">
-                    <button
-                      onClick={() => handleEdit(guest)}
-                      className="text-xl hover:scale-110 transition"
-                      title="Edit"
-                    >
-                      ✏️
-                    </button>
+              {filteredGuests.length > 0 ? (
+                filteredGuests.map((guest, index) => (
+                  <tr key={guest.guestId} className="hover:bg-gray-50">
+                    <td className="px-4 py-2 border">{index + 1}</td>
+                    <td className="px-4 py-2 border font-medium">{guest.guestName}</td>
+                    <td className="px-4 py-2 border">{guest.mobileMasked}</td>
+                    <td className="px-4 py-2 border">{guest.genderName}</td>
+                    <td className="px-4 py-2 border">{guest.foodPreferenceName}</td>
+                    <td className="px-4 py-2 border">
+                      <button
+                        onClick={() => handleEdit(guest)}
+                        className="text-xl hover:scale-110 transition"
+                        title="Edit"
+                      >
+                        ✏️
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="6" className="px-4 py-4 border text-center text-gray-500">
+                    {searchQuery ? "No guests found matching your search" : "No guests registered yet"}
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
