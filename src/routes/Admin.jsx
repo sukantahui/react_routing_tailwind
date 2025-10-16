@@ -3,6 +3,8 @@ import { authService } from "../services/auth.service";
 
 export default function Admin() {
     const [guests, setGuests] = useState([]);
+    const [filteredGuests, setFilteredGuests] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -14,6 +16,7 @@ export default function Admin() {
         try {
             const fetchedData = await authService.getAllGuest();
             setGuests(fetchedData.data);
+            setFilteredGuests(fetchedData.data);
         } catch (err) {
             setError(err.message || "Failed to fetch guests.");
         } finally {
@@ -23,7 +26,7 @@ export default function Admin() {
 
     // CSV download function
     const exportToCSV = () => {
-        if (!guests.length) {
+        if (!filteredGuests.length) {
             alert("No data to export!");
             return;
         }
@@ -38,7 +41,7 @@ export default function Admin() {
             "Food",
         ];
 
-        const rows = guests.map((guest, index) => [
+        const rows = filteredGuests.map((guest, index) => [
             index + 1,
             guest.guestId,
             guest.guestName,
@@ -67,26 +70,49 @@ export default function Admin() {
 
     // WhatsApp message sender
     const sendWhatsApp = (guest) => {
-        const phone =
-            guest.wpNumber.startsWith("+") ? guest.wpNumber : "+91" + guest.wpNumber;
+        const phone = guest.wpNumber.startsWith("+") ? guest.wpNumber : "+91" + guest.wpNumber;
+        const qrLink = `${window.location.origin}/assets/google_review_QR.png`;
 
-        const message = `Hello ${guest.guestName} [${guest.token}]! 
-                        We’re super excited to welcome you to our upcoming celebration, "মৈত্রী মহোৎসব" on 19th October 2025, from 7:32 PM onwards!
-                        Your food preference: ${guest.foodPreferenceName}
-                        Looking forward to seeing you and making this celebration memorable!
-                        Please share your review with us here: [https://g.page/r/CTBkwqHJ6mZ2EBM/review]
+        const message =
+            `Hello ${guest.guestName} [${guest.token}]!
 
-                                                — Coder & AccoTax Team`;
+We’re super excited to welcome you to our celebration — *মৈত্রী মহোৎসব* 🎉  
+📅 Date: 19th October 2025  
+🕢 Time: From 7:32 PM onwards  
+
+🍽️ Food preference: ${guest.foodPreferenceName}  
+
+We’d love your feedback!  
+⭐ Share your review:  
+https://g.page/r/CTBkwqHJ6mZ2EBM/review  
+📸 Or scan this QR code to open the review page directly:  
+${qrLink}
+
+— Coder & AccoTax Team`;
 
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
+    };
+
+    // Search filter function
+    const handleSearch = (e) => {
+        const term = e.target.value.toLowerCase();
+        setSearchTerm(term);
+
+        const filtered = guests.filter(
+            (guest) =>
+                guest.guestName?.toLowerCase().includes(term) ||
+                guest.wpNumber?.toLowerCase().includes(term)
+        );
+
+        setFilteredGuests(filtered);
     };
 
     return (
         <div className="p-6 text-center bg-gray-50 min-h-screen text-black">
             <h2 className="text-2xl font-semibold mb-4">Admin Area</h2>
 
-            <div className="flex justify-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
                 <button
                     onClick={fetchGuests}
                     className="bg-blue-500 hover:bg-green-600 text-white px-4 py-2 rounded-md"
@@ -100,12 +126,20 @@ export default function Admin() {
                 >
                     Download CSV
                 </button>
+
+                <input
+                    type="text"
+                    placeholder="Search by Name or WhatsApp..."
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    className="border border-gray-300 rounded-md px-4 py-2 w-full sm:w-72 focus:ring-2 focus:ring-blue-400 outline-none"
+                />
             </div>
 
             {loading && <p className="mt-4 text-gray-600">Loading...</p>}
             {error && <p className="mt-4 text-red-500">Error: {error}</p>}
 
-            {guests.length > 0 && (
+            {filteredGuests.length > 0 && (
                 <div className="mt-6 overflow-x-auto">
                     <table className="min-w-full bg-white border border-gray-300 rounded-md shadow-md text-left">
                         <thead className="bg-gray-200 text-black">
@@ -119,7 +153,7 @@ export default function Admin() {
                             </tr>
                         </thead>
                         <tbody>
-                            {guests.map((guest, index) => (
+                            {filteredGuests.map((guest, index) => (
                                 <tr
                                     key={guest.id || index}
                                     className="hover:bg-gray-100 transition-colors"
@@ -144,14 +178,16 @@ export default function Admin() {
                                             </svg>
                                             WhatsApp
                                         </button>
-
-
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
+            )}
+
+            {!loading && !error && guests.length > 0 && filteredGuests.length === 0 && (
+                <p className="mt-4 text-gray-600">No guests found.</p>
             )}
         </div>
     );

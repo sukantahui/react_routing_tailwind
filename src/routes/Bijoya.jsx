@@ -16,7 +16,7 @@ export default function Bijoya() {
     pin: "",
     confirmPin: "",
     genderId: "",
-    foodPreferenceId: "",
+    foodPreferenceId: "2",
     is_present: true,
     comment: ""
   });
@@ -90,12 +90,12 @@ export default function Bijoya() {
           guestName: "",
           mobile: "",
           wpNumber: "",
-          address: "",
+          address: "Barrackpore",
           email: "",
           pin: "",
           confirmPin: "",
           genderId: "",
-          foodPreferenceId: "",
+          foodPreferenceId: "2",
           is_present: true,
           comment: ""
         });
@@ -144,7 +144,7 @@ export default function Bijoya() {
         guestName: "",
         mobile: "",
         wpNumber: "",
-        address: "",
+        address: "Barrackpore",
         email: "",
         pin: "",
         confirmPin: "",
