@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './HomeComponent/Home';
-import Bijoya from './Bijoya';
+import Certificate from './certificates/Certificate';
 import Admin from './Admin';
 import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
@@ -21,10 +21,10 @@ export default function AppRoutes() {
       />
 
       <Route
-        path="/bijoya"
+        path="/certificates/:certificateId"
         element={
           <ProtectedRoute>
-            <Bijoya />
+            <Certificate />
           </ProtectedRoute>
         }
       />
