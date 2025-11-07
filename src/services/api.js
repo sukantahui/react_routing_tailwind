@@ -1,9 +1,9 @@
-// api.ts
+// api.js
 import axios from "axios";
 
 // Create axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL, // ✅ only one comma
+  baseURL: import.meta.env.VITE_API_BASE_URL, // ✅ load from .env
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -13,7 +13,7 @@ const api = axios.create({
 // Request interceptor (for token)
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token"); // or sessionStorage, or context
+    const token = localStorage.getItem("token"); // from localStorage
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -26,9 +26,11 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response && error.response.status === 401) {
       console.warn("Unauthorized! Redirect to login.");
-      // e.g., use react-router navigate("/login")
+      // Optional: redirect user or clear token
+      // localStorage.removeItem("token");
+      // window.location.href = "/login";
     }
     return Promise.reject(error);
   }

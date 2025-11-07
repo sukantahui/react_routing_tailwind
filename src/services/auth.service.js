@@ -1,7 +1,8 @@
+// authService.js
 import api from "./api";
 
 export const authService = {
-  saveGuest: async (data: any): Promise<any> => {
+  saveGuest: async (data) => {
     try {
       const response = await api.post("/dev/guests", data);
       return response.data;
@@ -10,7 +11,8 @@ export const authService = {
       throw error;
     }
   },
-  getAllGuest: async (data: any): Promise<any> => {
+
+  getAllGuest: async () => {
     try {
       const response = await api.get("/dev/guests");
       return response.data;
@@ -19,9 +21,10 @@ export const authService = {
       throw error;
     }
   },
-  updateGuest: async (id: any, data: any): Promise<any> => {
+
+  updateGuest: async (id, data) => {
     try {
-      const response = await api.put("/dev/guests/"+id, data);
+      const response = await api.put(`/dev/guests/${id}`, data);
       return response.data;
     } catch (error) {
       console.error("Error:", error);

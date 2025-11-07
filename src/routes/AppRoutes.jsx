@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './HomeComponent/Home';
 import Certificate from './certificates/Certificate';
 import Admin from './Admin';
+import Bijoya from './Bijoya';
 import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import NotFound from './NotFound';
@@ -34,6 +35,15 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute>
             <Admin />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/bijoya"
+        element={
+          <ProtectedRoute>
+            <Bijoya />
           </ProtectedRoute>
         }
       />
