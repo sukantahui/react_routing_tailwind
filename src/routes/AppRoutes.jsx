@@ -3,14 +3,25 @@ import Home from './HomeComponent/Home';
 import Certificate from './certificates/Certificate';
 import Admin from './Admin';
 import Bijoya from './Bijoya';
-import Dashboard from './Dashboard';
+// import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import NotFound from './NotFound';
+import Login from '../components/login';
+import Dashboard from '../components/Dashboard';
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
      
       <Route
         path="/dashboard"

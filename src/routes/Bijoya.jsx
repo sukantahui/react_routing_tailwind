@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { User, Mail } from "lucide-react";
-import { authService } from "../services/auth.service";
+import { authService } from "../api/auth.service";
 import qr from "../assets/google_review_QR.png";
 
 export default function Bijoya() {

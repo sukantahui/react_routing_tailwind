@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { authService } from "../services/auth.service";
+import { authService } from "../api/auth.service";
 
 export default function Admin() {
     const [guests, setGuests] = useState([]);
