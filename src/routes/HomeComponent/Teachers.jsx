@@ -88,15 +88,21 @@ const TeacherCard = ({ teacher, index }) => {
         <h3 className="text-xl font-semibold text-sky-300">{teacher.name}</h3>
         <p className="text-sm text-indigo-300">{teacher.title}</p>
         {teacher.email && (
-          <p className="text-sm text-gray-400">
-            <span className="text-sky-400">📧</span> {teacher.email}
+          <p className="text-sm">
+            <span className="text-sky-400 mr-1">📧</span>
+            <a
+              href={`mailto:${teacher.email}`}
+              className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
+            >
+              {teacher.email}
+            </a>
           </p>
         )}
       </div>
 
       {/* Bio Section with ellipsis and smooth expand */}
       <div
-        className={`relative text-gray-300 text-sm mt-4 text-center leading-relaxed transition-all duration-500 ease-in-out ${
+        className={`relative text-gray-300 text-sm mt-4 text-left leading-relaxed transition-all duration-500 ease-in-out ${
           expanded ? "max-h-60" : "max-h-16"
         } overflow-hidden`}
         style={{
@@ -106,12 +112,10 @@ const TeacherCard = ({ teacher, index }) => {
         }}
       >
         {teacher.bio}
-
-        {/* Fade overlay with dots */}
         {!expanded && (
-          <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-gray-900 to-transparent flex justify-center items-end pb-2 text-gray-400 text-sm">
+          <span className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-black to-transparent flex items-end justify-start text-gray-400 text-sm">
             ...
-          </div>
+          </span>
         )}
       </div>
 
