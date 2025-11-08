@@ -56,7 +56,7 @@ export default function NavBar() {
               </>
             }
             {/* <NavLink to="/about" className={linkClass}>About</NavLink>*/}
-            {/* <NavLink to="/bijoya" className={linkClass}>Bijoya</NavLink> */}
+            <NavLink to="/login" className={linkClass}>Login</NavLink>
             {/* <NavLink to="/dashboard" className={linkClass}>Dashboard</NavLink> */}
           </nav>
         </div>

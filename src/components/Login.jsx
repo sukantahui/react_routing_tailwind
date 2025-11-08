@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../services/loginService";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,9 +31,17 @@ const Login = () => {
         // ✅ Store token and user details
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
+        // ✅ Trigger "storage" event to notify App.jsx
+        window.dispatchEvent(new Event("storage"));
 
         // 🟢 Optional success feedback
-        alert(`Welcome back, ${user.name || "User"}!`);
+        Swal.fire({
+          title: "Success!",
+          text: `Welcome Back ${user.name || "User"}!🎉`,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+        // alert(`Welcome back, ${user.name || "User"}!`);
 
         // Redirect to dashboard
         navigate("/dashboard");
