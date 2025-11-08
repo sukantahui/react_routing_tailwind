@@ -1,5 +1,6 @@
 // src/Teachers.jsx
 import React from "react";
+import { motion } from "framer-motion";
 import teachers from "../../data/teachers.json";
 
 // ✅ Import teacher images
@@ -10,7 +11,6 @@ import teacher4 from "../../assets/teacher4.jpg";
 import teacher5 from "../../assets/teacher5.jpg";
 import teacher6 from "../../assets/teacher6.jpg";
 
-// ✅ Map filenames to imports
 const images = {
   "teacher1.jpg": teacher1,
   "teacher2.jpg": teacher2,
@@ -24,25 +24,49 @@ const Teachers = () => {
   return (
     <section
       id="teachers"
-      className="py-16 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100"
+      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 drop-shadow-lg">
-          Meet Our Instructors
-        </h2>
-        <p className="text-center text-gray-400 mb-10 text-sm sm:text-base">
-          Our team of experienced mentors are passionate about helping students
-          achieve excellence in web development and beyond.
-        </p>
+      {/* Background accent gradient blur */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"></div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {teachers.map((teacher) => (
-            <div
+      <div className="relative max-w-6xl mx-auto px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 drop-shadow-lg"
+        >
+          Meet Our Instructors
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
+        >
+          Learn from industry experts who bring years of real-world experience,
+          creativity, and mentorship to every class.
+        </motion.p>
+
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          {teachers.map((teacher, index) => (
+            <motion.div
               key={teacher.name}
-              className="relative bg-gray-800/40 backdrop-blur-xl border border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-sky-500/20 transition-all duration-300 p-6 pt-16"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.7 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03, rotateX: 3, rotateY: -3 }}
+              className="relative group bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-lg p-8 pt-20 transition-all duration-500 hover:shadow-sky-500/30 hover:-translate-y-1"
             >
-              {/* Circle Image */}
-              <div className="absolute -top-14 left-1/2 -translate-x-1/2 w-28 h-28 rounded-full overflow-hidden border-4 border-sky-400 shadow-lg">
+              {/* Gradient border on hover */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-sky-500/40 transition duration-500"></div>
+
+              {/* Floating Circle Image */}
+              <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full overflow-hidden border-4 border-sky-400/70 shadow-lg group-hover:scale-105 transition-transform duration-300">
                 <img
                   src={images[teacher.image]}
                   alt={`${teacher.name} - ${teacher.title}`}
@@ -51,24 +75,25 @@ const Teachers = () => {
               </div>
 
               {/* Card Content */}
-              <div className="text-center mt-4">
-                <h3 className="text-lg font-semibold text-sky-300">
+              <div className="text-center mt-4 space-y-2">
+                <h3 className="text-xl font-semibold text-sky-300">
                   {teacher.name}
                 </h3>
-                <p className="text-sm text-indigo-300 mb-2">{teacher.title}</p>
+                <p className="text-sm text-indigo-300">{teacher.title}</p>
                 {teacher.email && (
-                  <p className="text-sm text-gray-400 mb-3">
-                    📧 {teacher.email}
+                  <p className="text-sm text-gray-400">
+                    <span className="text-sky-400">📧</span> {teacher.email}
                   </p>
                 )}
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {teacher.bio}
-                </p>
               </div>
 
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            </div>
+              <p className="text-gray-300 text-sm mt-4 text-center leading-relaxed">
+                {teacher.bio}
+              </p>
+
+              {/* Hover Accent Glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            </motion.div>
           ))}
         </div>
       </div>
