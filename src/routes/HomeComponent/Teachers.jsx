@@ -21,6 +21,7 @@ const images = {
 const Teachers = () => {
   return (
     <section className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden">
+      {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
@@ -67,6 +68,7 @@ const TeacherCard = ({ teacher, index }) => {
       whileHover={{ scale: 1.03 }}
       className="relative group bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-lg p-8 pt-20 transition-all duration-500 hover:shadow-sky-500/30 hover:-translate-y-1"
     >
+      {/* Floating circle image */}
       <div className="absolute -top-16 left-1/2 -translate-x-1/2">
         <motion.div
           whileHover={{ scale: 1.08 }}
@@ -81,6 +83,7 @@ const TeacherCard = ({ teacher, index }) => {
         </motion.div>
       </div>
 
+      {/* Card Content */}
       <div className="text-center mt-4 space-y-2">
         <h3 className="text-xl font-semibold text-sky-300">{teacher.name}</h3>
         <p className="text-sm text-indigo-300">{teacher.title}</p>
@@ -91,13 +94,25 @@ const TeacherCard = ({ teacher, index }) => {
         )}
       </div>
 
-      {/* Bio Section with smooth expand */}
+      {/* Bio Section with ellipsis and smooth expand */}
       <div
-        className={`overflow-hidden text-gray-300 text-sm mt-4 text-center leading-relaxed transition-all duration-500 ease-in-out ${
+        className={`relative text-gray-300 text-sm mt-4 text-center leading-relaxed transition-all duration-500 ease-in-out ${
           expanded ? "max-h-60" : "max-h-16"
-        }`}
+        } overflow-hidden`}
+        style={{
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          WebkitLineClamp: expanded ? "unset" : "3",
+        }}
       >
         {teacher.bio}
+
+        {/* Fade overlay with dots */}
+        {!expanded && (
+          <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-gray-900 to-transparent flex justify-center items-end pb-2 text-gray-400 text-sm">
+            ...
+          </div>
+        )}
       </div>
 
       {teacher.bio.length > 100 && (
