@@ -24,7 +24,7 @@ const Teachers = () => {
   return (
     <section id="teachers" className="py-10">
       <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl text-center text-amber-800 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">
+        <h2 className="text-3xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300">
           Meet Our Instructors
         </h2>
         <hr className="mb-4 border border-gray-700" />
@@ -36,10 +36,11 @@ const Teachers = () => {
                 <div className="relative">
                   {/* Gray Rectangle */}
                   <div className="w-80 h-52 bg-gray-400 rounded-lg flex flex-col justify-end p-2">
-                    <h3 className="text-purple-600">
-                      <b>{teacher.title}</b>
+                    <h3 className="text-indigo-700">
+                      <b>{teacher.name}</b>
                     </h3>
-                    <h6>{teacher.name}</h6>
+                    <h6 className="text-black">{teacher.title}</h6>
+                    <div>{teacher.email}</div>
                     <p className="text-black text-sm">{teacher.bio}</p>
                   </div>
 
