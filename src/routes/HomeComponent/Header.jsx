@@ -2,7 +2,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import background from "../../assets/background.jpg";
+import background from "../../assets/background2.jpg";
 
 const Header = () => {
   return (
