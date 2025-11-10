@@ -1,30 +1,108 @@
 // src/Services.jsx
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
 
 const services = [
-  { icon: "bi-code-slash", title: "Software Development", description: "Custom software solutions for your business." },
-  { icon: "bi-display", title: "Website Design", description: "Modern, responsive, and SEO-friendly websites." },
-  { icon: "bi-cpu", title: "Computer Hardware", description: "Sales and support for desktops, laptops, and accessories." },
-  { icon: "bi-file-earmark-text", title: "Tax Filing", description: "Quick and accurate income tax filing services." },
-  { icon: "bi-receipt", title: "GST", description: "Complete GST registration and return filing assistance." },
+  {
+    icon: "bi-code-slash",
+    title: "Software Development",
+    description:
+      "We build high-performance, scalable, and secure software tailored to your business needs.",
+  },
+  {
+    icon: "bi-display",
+    title: "Website Design",
+    description:
+      "Crafting modern, SEO-optimized, and responsive websites that leave a lasting impression.",
+  },
+  {
+    icon: "bi-cpu",
+    title: "Computer Hardware",
+    description:
+      "Complete desktop, laptop, and accessories solutions with expert technical support.",
+  },
+  {
+    icon: "bi-file-earmark-text",
+    title: "Tax Filing",
+    description:
+      "Fast, compliant, and accurate income tax filing services handled by experienced professionals.",
+  },
+  {
+    icon: "bi-receipt",
+    title: "GST Services",
+    description:
+      "End-to-end GST solutions, including registration, filing, and compliance consultation.",
+  },
 ];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
+  }),
+};
 
 const Services = () => {
   return (
-    <section id="services" className="py-12">
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-600 to-blue-500">Our Services</h2>
-        <hr className='mb-4  border border-gray-700'></hr>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"></div>
+
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-400 to-cyan-300 drop-shadow-lg"
+        >
+          Our Services
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
+        >
+          Explore our complete range of technology and financial services designed
+          to support your business and simplify your workflow.
+        </motion.p>
+
+        {/* Services Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white shadow-md rounded-xl p-6 flex flex-col items-center text-center hover:shadow-lg transition"
+              custom={index}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.04 }}
+              className="relative group bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-lg p-10 text-center transition-all duration-500 hover:shadow-sky-500/30 hover:-translate-y-2"
             >
-              <i className={`bi ${service.icon} text-4xl text-blue-600 mb-4`}></i>
-              <h5 className="text-xl font-semibold mb-2 text-indigo-600">{service.title}</h5>
-              <p className="text-gray-600">{service.description}</p>
-            </div>
+              {/* Icon */}
+              <div className="relative inline-flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-gradient-to-r from-sky-500/30 to-indigo-500/30 text-sky-300 shadow-inner shadow-sky-900/50 group-hover:from-sky-500/50 group-hover:to-indigo-500/50 transition-all duration-500">
+                <i className={`bi ${service.icon} text-4xl`}></i>
+                <div className="absolute inset-0 rounded-full border border-sky-400/40 group-hover:border-sky-400/70 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-all duration-500"></div>
+              </div>
+
+              {/* Text Content */}
+              <h5 className="text-xl font-semibold text-sky-300 mb-3">
+                {service.title}
+              </h5>
+              <p className="text-gray-400 leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Glow Overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            </motion.div>
           ))}
         </div>
       </div>
