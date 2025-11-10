@@ -8,28 +8,54 @@ const Header = () => {
   return (
     <>
       <Helmet>
+        {/* 🔹 Primary Meta Tags */}
         <title>Coder & AccoTax | Learn Coding Online</title>
         <meta
           name="description"
-          content="Join Coder & AccoTax to learn full stack web development, Python, React, and more. Get career-ready with practical training."
+          content="Join Coder & AccoTax to learn Full Stack Web Development, Python, React, Accounting, and Data Analysis. Become industry-ready with practical training."
         />
         <meta
           name="keywords"
-          content="coding courses, web development, react, nodejs, full stack, learn coding"
+          content="coding courses, web development, react, nodejs, full stack, accounting, data analysis, learn coding online"
         />
         <meta name="author" content="Coder & AccoTax" />
-        <meta property="og:title" content="Coder & AccoTax" />
+
+        {/* 🔹 Open Graph (Facebook, LinkedIn) */}
+        <meta property="og:title" content="Coder & AccoTax | Learn Coding Online" />
         <meta
           property="og:description"
-          content="Learn to Code. Build the Future. Get Job-Ready with our expert-led courses."
+          content="Learn to Code. Build the Future. Get Job-Ready with our expert-led courses in Web Development, Accounting, and Data Analysis."
         />
         <meta
           property="og:image"
-          content="https://yourdomain.com/og-image.jpg"
+          content="https://codernaccotax.co.in/og-home.png"
         />
-        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://codernaccotax.co.in/" />
+        <meta property="og:type" content="website" />
+
+        {/* 🔹 Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Coder & AccoTax | Learn Coding Online"
+        />
+        <meta
+          name="twitter:description"
+          content="Hands-on coding and compliance training by experienced mentors. Learn React, Node.js, Python, and Accounting."
+        />
+        <meta
+          name="twitter:image"
+          content="https://codernaccotax.co.in/og-home.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Coder & AccoTax Website Preview Banner"
+        />
       </Helmet>
+
 
       {/* 🔹 Header Section */}
       <header
