@@ -135,26 +135,80 @@ const Courses = () => {
     <>
       {/* 🧠 SEO Helmet Section */}
       <Helmet>
+        {/* 🔹 Basic Meta Tags */}
         <title>Courses | Coder & AccoTax</title>
         <meta
           name="description"
-          content="Explore industry-focused courses in Web Development, Python, Java, Accounting, and Data Analysis by expert instructors at Coder & AccoTax."
+          content="Explore practical, industry-focused courses in Web Development, Python, Java, Accounting, and Data Analysis. Learn from expert instructors at Coder & AccoTax."
         />
+        <meta
+          name="keywords"
+          content="coding courses, full stack, python, java, accounting, taxation, react, web development, online training"
+        />
+        <meta name="author" content="Coder & AccoTax" />
+
+        {/* 🔹 Canonical URL */}
+        <link rel="canonical" href="https://codernaccotax.co.in/courses" />
+
+        {/* 🔹 Open Graph (Facebook, LinkedIn) */}
         <meta property="og:title" content="Courses | Coder & AccoTax" />
         <meta
           property="og:description"
-          content="Hands-on training to make you industry ready."
+          content="Hands-on courses to make you industry-ready. Learn web development, accounting, and data analysis from experts."
         />
         <meta
           property="og:image"
           content="https://codernaccotax.co.in/og-courses.png"
         />
-        {/* 👇 Add these lines */}
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://codernaccotax.co.in/courses" />
+        <meta property="og:type" content="website" />
+        <meta property="fb:app_id" content="123456789012345" /> {/* Optional */}
+
+        {/* 🔹 Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Courses | Coder & AccoTax" />
+        <meta
+          name="twitter:description"
+          content="Explore hands-on courses in coding, accounting, and data analysis. Learn job-ready skills with Coder & AccoTax."
+        />
+        <meta
+          name="twitter:image"
+          content="https://codernaccotax.co.in/og-courses.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Coder & AccoTax Courses Banner"
+        />
+
+        {/* 🔹 Structured Data for Google */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Coder & AccoTax Courses",
+            description:
+              "A curated list of industry-oriented coding and accounting courses by Coder & AccoTax.",
+            itemListElement: coursesData.flatMap((group) =>
+              group.courses.map((course, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: course.title,
+                description: course.desc,
+                url: `https://codernaccotax.co.in/courses#${course.courseID}`,
+                provider: {
+                  "@type": "Organization",
+                  name: "Coder & AccoTax",
+                  url: "https://codernaccotax.co.in",
+                },
+              }))
+            ),
+          })}
+        </script>
       </Helmet>
+
 
 
 

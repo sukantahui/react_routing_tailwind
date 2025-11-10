@@ -1,7 +1,24 @@
+// ===============================================
+// Teachers.jsx
+// -----------------------------------------------
+// Purpose:
+//   Showcases instructor profiles with photos, bios,
+//   and contact details, featuring Framer Motion animations.
+//
+// Features:
+// - Interactive teacher cards (expandable bios)
+// - Framer Motion animations for smooth transitions
+// - Dynamic data rendering from teachers.json
+// - SEO optimized with Helmet & JSON-LD schema
+// - Accessibility enhancements and semantic HTML
+// -----------------------------------------------
+
 import React, { useState } from "react";
+import { Helmet } from "react-helmet"; // ✅ For SEO and metadata
 import { motion } from "framer-motion";
 import teachers from "../../data/teachers.json";
 
+// 🔹 Image imports (local mapping)
 import teacher1 from "../../assets/teacher1.jpg";
 import teacher2 from "../../assets/teacher2.jpg";
 import teacher3 from "../../assets/teacher3.jpg";
@@ -9,6 +26,7 @@ import teacher4 from "../../assets/teacher4.jpg";
 import teacher5 from "../../assets/teacher5.jpg";
 import teacher6 from "../../assets/teacher6.jpg";
 
+// 🔹 Image map for dynamic rendering
 const images = {
   "teacher1.jpg": teacher1,
   "teacher2.jpg": teacher2,
@@ -19,56 +37,167 @@ const images = {
 };
 
 const Teachers = () => {
+  // -----------------------------------------------
+  // 🧾 JSON-LD Schema for Google (Rich Results)
+  // Describes each teacher as a Person with job title and description.
+  // -----------------------------------------------
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: teachers.map((teacher, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Person",
+        name: teacher.name,
+        jobTitle: teacher.title,
+        description: teacher.bio,
+        email: teacher.email ? `mailto:${teacher.email}` : undefined,
+        worksFor: {
+          "@type": "Organization",
+          name: "Coder & AccoTax",
+          url: "https://codernaccotax.co.in",
+        },
+      },
+    })),
+  };
+
   return (
-    <section id="teachers" className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"></div>
+    <>
+      {/* ==============================
+          🧠 SEO & Metadata
+      ============================== */}
+      <Helmet>
+        <title>Our Instructors | Coder & AccoTax</title>
+        <meta
+          name="description"
+          content="Meet the expert instructors at Coder & AccoTax — experienced professionals in coding, finance, and data analysis, dedicated to helping you achieve your goals."
+        />
+        <meta
+          name="keywords"
+          content="coder accotax teachers, coding mentors, programming instructors, accounting tutors, web development faculty"
+        />
+        <meta name="author" content="Coder & AccoTax" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300 drop-shadow-lg"
-        >
-          Meet Our Instructors
-        </motion.h2>
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://codernaccotax.co.in/teachers" />
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
-        >
-          Learn from industry experts who bring years of real-world experience,
-          creativity, and mentorship to every class.
-        </motion.p>
+        {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
+        <meta property="og:title" content="Our Instructors | Coder & AccoTax" />
+        <meta
+          property="og:description"
+          content="Learn from certified and experienced educators at Coder & AccoTax — leaders in coding, web development, and finance education."
+        />
+        <meta
+          property="og:image"
+          content="https://codernaccotax.co.in/og-teachers.png"
+        />
+        <meta property="og:url" content="https://codernaccotax.co.in/teachers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {teachers.map((teacher, index) => (
-            <TeacherCard key={teacher.name} teacher={teacher} index={index} />
-          ))}
+        {/* Twitter Metadata */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Instructors | Coder & AccoTax" />
+        <meta
+          name="twitter:description"
+          content="Meet our professional teaching team — Coder & AccoTax instructors guiding you toward a successful career."
+        />
+        <meta
+          name="twitter:image"
+          content="https://codernaccotax.co.in/og-teachers.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Team of Coder & AccoTax instructors"
+        />
+
+        {/* JSON-LD Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
+
+      {/* ===============================================
+          TEACHERS SECTION
+      =============================================== */}
+      <section
+        id="teachers"
+        className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
+      >
+        {/* 🔹 Soft gradient background */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
+          aria-hidden="true"
+        ></div>
+
+        <div className="relative max-w-6xl mx-auto px-6">
+          {/* =====================
+              SECTION HEADING
+          ====================== */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300 drop-shadow-lg"
+          >
+            Meet Our Instructors
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
+          >
+            Learn from <strong className="text-sky-400">industry experts</strong> with years
+            of hands-on experience and mentorship. Our instructors combine practical
+            knowledge with passion for teaching.
+          </motion.p>
+
+          {/* =====================
+              TEACHER GRID
+          ====================== */}
+          <div
+            className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
+            role="list"
+            aria-label="List of instructors"
+          >
+            {teachers.map((teacher, index) => (
+              <TeacherCard key={teacher.name} teacher={teacher} index={index} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
+// ===============================================
+// TeacherCard Component
+// -----------------------------------------------
+// Displays individual instructor cards with image,
+// name, title, email, and expandable biography.
+// Includes animated transitions on hover and expansion.
+// ===============================================
 const TeacherCard = ({ teacher, index }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.15, duration: 0.7 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.03 }}
       className="relative group bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-lg p-8 pt-20 transition-all duration-500 hover:shadow-sky-500/30 hover:-translate-y-1"
+      itemScope
+      itemType="https://schema.org/Person"
     >
-      {/* Floating circle image */}
+      {/* Instructor Photo */}
       <div className="absolute -top-16 left-1/2 -translate-x-1/2">
         <motion.div
           whileHover={{ scale: 1.08 }}
@@ -76,7 +205,8 @@ const TeacherCard = ({ teacher, index }) => {
         >
           <img
             src={images[teacher.image]}
-            alt={teacher.name}
+            alt={`Instructor ${teacher.name}`}
+            loading="lazy"
             className="w-full h-full object-cover rounded-full"
           />
           <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-sky-400 group-hover:shadow-[0_0_25px_6px_rgba(56,189,248,0.6)] transition-all duration-500"></div>
@@ -85,13 +215,18 @@ const TeacherCard = ({ teacher, index }) => {
 
       {/* Card Content */}
       <div className="text-center mt-4 space-y-2">
-        <h3 className="text-xl font-semibold text-sky-300">{teacher.name}</h3>
-        <p className="text-sm text-indigo-300">{teacher.title}</p>
+        <h2 className="text-xl font-semibold text-sky-300" itemProp="name">
+          {teacher.name}
+        </h2>
+        <p className="text-sm text-indigo-300" itemProp="jobTitle">
+          {teacher.title}
+        </p>
         {teacher.email && (
           <p className="text-sm">
             <span className="text-sky-400 mr-1">📧</span>
             <a
               href={`mailto:${teacher.email}`}
+              itemProp="email"
               className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
             >
               {teacher.email}
@@ -100,33 +235,44 @@ const TeacherCard = ({ teacher, index }) => {
         )}
       </div>
 
-      {/* Smooth expanding bio using Framer Motion */}
+      {/* Bio Section (expandable) */}
       <motion.div
         initial={false}
         animate={{ height: expanded ? "auto" : "4rem" }}
         transition={{ duration: 0.5 }}
         className="relative text-gray-300 text-sm mt-4 text-left leading-relaxed overflow-hidden"
+        itemProp="description"
       >
         <div className="pr-2">{teacher.bio}</div>
 
         {!expanded && teacher.bio.length > 100 && (
-          <span className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-black to-transparent flex items-end justify-start text-gray-400 text-sm">
+          <span
+            className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-black to-transparent flex items-end justify-start text-gray-400 text-sm"
+            aria-hidden="true"
+          >
             ...
           </span>
         )}
       </motion.div>
 
+      {/* Toggle Button */}
       {teacher.bio.length > 100 && (
         <button
           onClick={() => setExpanded(!expanded)}
           className="block mx-auto text-sky-400 hover:text-sky-300 text-sm mt-2 underline underline-offset-4 transition-colors duration-300"
+          aria-expanded={expanded}
+          aria-controls={`bio-${teacher.name}`}
         >
           {expanded ? "Show Less" : "Read More"}
         </button>
       )}
 
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-    </motion.div>
+      {/* Decorative overlay */}
+      <div
+        className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        aria-hidden="true"
+      ></div>
+    </motion.article>
   );
 };
 
