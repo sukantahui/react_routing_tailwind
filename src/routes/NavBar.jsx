@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import cnat from "../assets/cnat.png";
 
@@ -9,12 +8,29 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const [activeHash, setActiveHash] = useState(location.hash);
 
-  const linkClass = ({ isActive }) =>
-    `block px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 
-    ${
+  // 🔹 Update active hash when location changes
+  useEffect(() => {
+    setActiveHash(location.hash);
+  }, [location]);
+
+  // 🔹 Color mapping for each section
+  const activeColors = {
+    home: "from-sky-600 to-purple-600",
+    about: "from-green-500 to-lime-500",
+    courses: "from-pink-500 to-rose-500",
+    teachers: "from-amber-500 to-orange-500",
+    services: "from-indigo-500 to-blue-500",
+    contact: "from-emerald-500 to-teal-500",
+    login: "from-red-500 to-pink-500",
+  };
+
+  // 🔹 General function for all link styles
+  const linkClass = (key, isActive = false) =>
+    `block px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
       isActive
-        ? "bg-gradient-to-r from-sky-600 to-purple-600 text-white shadow-md"
+        ? `bg-gradient-to-r ${activeColors[key]} text-white shadow-md`
         : "text-gray-300 hover:text-sky-300 hover:bg-gray-800/40"
     }`;
 
@@ -27,7 +43,7 @@ export default function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between py-3">
-          {/* Brand */}
+          {/* 🔹 Brand */}
           <motion.div
             whileHover={{ scale: 1.03 }}
             className="flex items-center gap-2 font-semibold text-lg text-white"
@@ -38,7 +54,7 @@ export default function NavBar() {
             </span>
           </motion.div>
 
-          {/* Mobile Toggle Button */}
+          {/* 🔹 Mobile Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="sm:hidden text-gray-300 text-2xl focus:outline-none"
@@ -47,23 +63,61 @@ export default function NavBar() {
             {isOpen ? "✕" : "☰"}
           </button>
 
-          {/* Desktop Menu */}
+          {/* 🔹 Desktop Menu */}
           <nav className="hidden sm:flex items-center gap-3">
-            {!isHome && <NavLink to="/" className={linkClass}>Home</NavLink>}
+            {!isHome && (
+              <NavLink to="/" className={({ isActive }) => linkClass("home", isActive)}>
+                Home
+              </NavLink>
+            )}
+
             {isHome && (
               <>
-                <HashLink smooth to="/#about" className={linkClass}>About</HashLink>
-                <HashLink smooth to="/#courses" className={linkClass}>Courses</HashLink>
-                <HashLink smooth to="/#teachers" className={linkClass}>Teachers</HashLink>
-                <HashLink smooth to="/#services" className={linkClass}>Services</HashLink>
-                <HashLink smooth to="/#contact" className={linkClass}>Contact</HashLink>
+                <HashLink
+                  smooth
+                  to="/#about"
+                  className={linkClass("about", activeHash === "#about")}
+                >
+                  About
+                </HashLink>
+                <HashLink
+                  smooth
+                  to="/#courses"
+                  className={linkClass("courses", activeHash === "#courses")}
+                >
+                  Courses
+                </HashLink>
+                <HashLink
+                  smooth
+                  to="/#teachers"
+                  className={linkClass("teachers", activeHash === "#teachers")}
+                >
+                  Teachers
+                </HashLink>
+                <HashLink
+                  smooth
+                  to="/#services"
+                  className={linkClass("services", activeHash === "#services")}
+                >
+                  Services
+                </HashLink>
+                <HashLink
+                  smooth
+                  to="/#contact"
+                  className={linkClass("contact", activeHash === "#contact")}
+                >
+                  Contact
+                </HashLink>
               </>
             )}
-            <NavLink to="/login" className={linkClass}>Login</NavLink>
+
+            <NavLink to="/login" className={({ isActive }) => linkClass("login", isActive)}>
+              Login
+            </NavLink>
           </nav>
         </div>
 
-        {/* Mobile Menu */}
+        {/* 🔹 Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -76,18 +130,19 @@ export default function NavBar() {
               {!isHome && (
                 <NavLink
                   to="/"
-                  className={linkClass}
+                  className={({ isActive }) => linkClass("home", isActive)}
                   onClick={() => setIsOpen(false)}
                 >
                   Home
                 </NavLink>
               )}
+
               {isHome && (
                 <>
                   <HashLink
                     smooth
                     to="/#about"
-                    className={linkClass}
+                    className={linkClass("about", activeHash === "#about")}
                     onClick={() => setIsOpen(false)}
                   >
                     About
@@ -95,7 +150,7 @@ export default function NavBar() {
                   <HashLink
                     smooth
                     to="/#courses"
-                    className={linkClass}
+                    className={linkClass("courses", activeHash === "#courses")}
                     onClick={() => setIsOpen(false)}
                   >
                     Courses
@@ -103,7 +158,7 @@ export default function NavBar() {
                   <HashLink
                     smooth
                     to="/#teachers"
-                    className={linkClass}
+                    className={linkClass("teachers", activeHash === "#teachers")}
                     onClick={() => setIsOpen(false)}
                   >
                     Teachers
@@ -111,7 +166,7 @@ export default function NavBar() {
                   <HashLink
                     smooth
                     to="/#services"
-                    className={linkClass}
+                    className={linkClass("services", activeHash === "#services")}
                     onClick={() => setIsOpen(false)}
                   >
                     Services
@@ -119,16 +174,17 @@ export default function NavBar() {
                   <HashLink
                     smooth
                     to="/#contact"
-                    className={linkClass}
+                    className={linkClass("contact", activeHash === "#contact")}
                     onClick={() => setIsOpen(false)}
                   >
                     Contact
                   </HashLink>
                 </>
               )}
+
               <NavLink
                 to="/login"
-                className={linkClass}
+                className={({ isActive }) => linkClass("login", isActive)}
                 onClick={() => setIsOpen(false)}
               >
                 Login
