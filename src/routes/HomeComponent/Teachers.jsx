@@ -100,24 +100,21 @@ const TeacherCard = ({ teacher, index }) => {
         )}
       </div>
 
-      {/* Bio Section with ellipsis and smooth expand */}
-      <div
-        className={`relative text-gray-300 text-sm mt-4 text-left leading-relaxed transition-all duration-500 ease-in-out ${
-          expanded ? "max-h-60" : "max-h-16"
-        } overflow-hidden`}
-        style={{
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
-          WebkitLineClamp: expanded ? "unset" : "3",
-        }}
+      {/* Smooth expanding bio using Framer Motion */}
+      <motion.div
+        initial={false}
+        animate={{ height: expanded ? "auto" : "4rem" }}
+        transition={{ duration: 0.5 }}
+        className="relative text-gray-300 text-sm mt-4 text-left leading-relaxed overflow-hidden"
       >
-        {teacher.bio}
-        {!expanded && (
+        <div className="pr-2">{teacher.bio}</div>
+
+        {!expanded && teacher.bio.length > 100 && (
           <span className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-black to-transparent flex items-end justify-start text-gray-400 text-sm">
             ...
           </span>
         )}
-      </div>
+      </motion.div>
 
       {teacher.bio.length > 100 && (
         <button
