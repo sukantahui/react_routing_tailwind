@@ -1,39 +1,7 @@
-// src/Services.jsx
+// src/components/Services.jsx
 import React from "react";
 import { motion } from "framer-motion";
-
-const services = [
-  {
-    icon: "bi-code-slash",
-    title: "Software Development",
-    description:
-      "We build high-performance, scalable, and secure software tailored to your business needs.",
-  },
-  {
-    icon: "bi-display",
-    title: "Website Design",
-    description:
-      "Crafting modern, SEO-optimized, and responsive websites that leave a lasting impression.",
-  },
-  {
-    icon: "bi-cpu",
-    title: "Computer Hardware",
-    description:
-      "Complete desktop, laptop, and accessories solutions with expert technical support.",
-  },
-  {
-    icon: "bi-file-earmark-text",
-    title: "Tax Filing",
-    description:
-      "Fast, compliant, and accurate income tax filing services handled by experienced professionals.",
-  },
-  {
-    icon: "bi-receipt",
-    title: "GST Services",
-    description:
-      "End-to-end GST solutions, including registration, filing, and compliance consultation.",
-  },
-];
+import services from "../../data/services.json";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
