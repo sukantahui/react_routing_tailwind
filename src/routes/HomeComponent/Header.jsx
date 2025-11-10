@@ -1,7 +1,8 @@
 // src/Header.jsx
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import background from '../../assets/background.jpg';
+import React from "react";
+import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
+import background from "../../assets/background.jpg";
 
 const Header = () => {
   return (
@@ -22,33 +23,79 @@ const Header = () => {
           property="og:description"
           content="Learn to Code. Build the Future. Get Job-Ready with our expert-led courses."
         />
-        <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://yourdomain.com/og-image.jpg"
+        />
         <meta property="og:url" content="https://yourdomain.com/" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
+      {/* 🔹 Header Section */}
       <header
-        className="text-white text-center min-h-[80vh] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        className="relative text-white text-center min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${background})`,
+          backgroundImage: `linear-gradient(rgba(10,10,20,0.7), rgba(10,10,20,0.7)), url(${background})`,
         }}
       >
-        <div className="px-4 max-w-2xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+        {/* 🔹 Animated Gradient Overlay */}
+        <motion.div
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(56,189,248,0.15),transparent_70%),radial-gradient(circle_at_70%_70%,rgba(147,51,234,0.15),transparent_70%)]"
+        ></motion.div>
+
+        {/* 🔹 Hero Content */}
+        <div className="relative z-10 px-6 max-w-3xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-purple-300 to-pink-300 drop-shadow-[0_0_20px_rgba(147,51,234,0.3)]"
+          >
             Coder & AccoTax
-          </h1>
-          <p className="text-lg md:text-2xl font-medium mb-6">
-            Shaping Futures with Code and Compliance.
-          </p>
-          <a
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-lg md:text-2xl font-medium text-gray-300 mt-4 mb-8"
+          >
+            Shaping Futures with <span className="text-sky-400">Code</span> &
+            <span className="text-purple-400"> Compliance</span>.
+          </motion.p>
+
+          <motion.a
             href="#courses"
             role="button"
             aria-label="Explore available coding and taxation courses"
-            className="inline-block bg-white text-black text-base md:text-lg font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-block bg-gradient-to-r from-sky-600 to-purple-600 text-white text-base md:text-lg font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-sky-400/40 transition-all duration-500"
           >
             🚀 Explore Courses
-          </a>
+          </motion.a>
         </div>
+
+        {/* 🔹 Decorative Floating Elements */}
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-10 right-10 text-sky-400/40 text-6xl select-none"
+        >
+          💻
+        </motion.div>
+
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-16 left-16 text-purple-400/40 text-5xl select-none"
+        >
+          ⚙️
+        </motion.div>
       </header>
     </>
   );

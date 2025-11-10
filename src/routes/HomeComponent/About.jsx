@@ -31,6 +31,12 @@ const Counter = ({ target, suffix = "+", duration = 2 }) => {
 };
 
 const About = () => {
+  const certificateLink = "/docs/iso-certificate.pdf"; // 👈 Replace with your actual certificate file path
+  const scrollToCourses = () => {
+    const section = document.getElementById("courses");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="about"
@@ -127,7 +133,6 @@ const About = () => {
             {
               icon: "🏅",
               label: "ISO 9001:2015 Certified",
-              value: "",
               isISO: true,
             },
           ].map((stat, idx) => (
@@ -145,11 +150,41 @@ const About = () => {
                 <Counter target={stat.value} />
               )}
               <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
+
+              {/* ISO Certificate Download Button */}
+              {stat.isISO && (
+                <a
+                  href={certificateLink}
+                  download
+                  className="mt-3 inline-block text-xs text-white bg-sky-700 hover:bg-sky-600 px-3 py-1 rounded-full transition-all duration-300"
+                >
+                  ⬇ Download Certificate
+                </a>
+              )}
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Decorative footer quote */}
+        {/* 🚀 Call to Action Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-12 flex flex-col items-center gap-4 text-center"
+        >
+          <p className="text-gray-400 italic">
+            Ready to start your learning journey with us?
+          </p>
+          <button
+            onClick={scrollToCourses}
+            className="px-6 py-2 bg-gradient-to-r from-sky-600 to-purple-600 text-white font-medium rounded-full shadow-md hover:shadow-sky-400/40 transition-all duration-500"
+          >
+            🚀 Join Us Now
+          </button>
+        </motion.div>
+
+        {/* Footer Quote */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
