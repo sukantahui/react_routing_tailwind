@@ -126,7 +126,7 @@ const Contact = () => {
                   Facebook
                 </a>
                 <a
-                  href="https://instagram.com/yourprofile"
+                  href="https://instagram.com/codernaccotax"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline flex items-center gap-1"

@@ -269,6 +269,29 @@ const Courses = () => {
                                 )}
                               </div>
 
+                              {/* 🟢 Merit Discount Section */}
+                              {course.meritDiscount?.available && (
+                                <div className="mt-3 text-xs bg-sky-900/30 border border-sky-600/30 rounded-lg p-2 text-sky-300">
+                                  <p className="font-semibold flex items-center gap-2">
+                                    🎓 Merit Discount Available
+                                  </p>
+                                  <p>
+                                    Up to{" "}
+                                    <span className="text-sky-200 font-semibold">
+                                      {course.meritDiscount.maxDiscountPercent}%
+                                    </span>{" "}
+                                    off (Currently{" "}
+                                    <span className="text-green-300 font-semibold">
+                                      {course.meritDiscount.actualDiscountPercent}%
+                                    </span>
+                                    )
+                                  </p>
+                                  <p className="text-gray-400 mt-1 italic">
+                                    {course.meritDiscount.criteria}
+                                  </p>
+                                </div>
+                              )}
+
                               {/* Buttons */}
                               <div className="flex flex-col sm:flex-row justify-center gap-2 mt-4">
                                 <button

@@ -18,7 +18,14 @@
         "studentsEnrolled": 480,
         "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
         "fee": "₹15,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course018",
@@ -34,7 +41,14 @@
         "studentsEnrolled": 220,
         "skills": ["React", "Redux", "JSX", "Hooks"],
         "fee": "₹9,500",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course019",
@@ -50,7 +64,14 @@
         "studentsEnrolled": 180,
         "skills": ["Node.js", "Express", "JWT", "MongoDB"],
         "fee": "₹8,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course020",
@@ -66,7 +87,14 @@
         "studentsEnrolled": 510,
         "skills": ["HTML5", "CSS3", "Flexbox", "Grid"],
         "fee": "₹4,000",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       }
     ]
   },
@@ -89,7 +117,14 @@
         "studentsEnrolled": 620,
         "skills": ["Python", "OOP", "Django", "Pandas"],
         "fee": "₹8,000",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course022",
@@ -105,7 +140,14 @@
         "studentsEnrolled": 300,
         "skills": ["C", "Pointers", "Functions", "Arrays"],
         "fee": "₹6,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course025",
@@ -121,7 +163,14 @@
         "studentsEnrolled": 410,
         "skills": ["DSA", "Recursion", "Linked List", "Trees", "Graphs"],
         "fee": "₹12,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       }
     ]
   },
@@ -144,7 +193,14 @@
         "studentsEnrolled": 260,
         "skills": ["Tally", "GST", "Invoicing", "Payroll"],
         "fee": "₹9,000",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course031",
@@ -160,7 +216,14 @@
         "studentsEnrolled": 140,
         "skills": ["GSTR", "GST Audit", "Reconciliation"],
         "fee": "₹7,500",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       }
     ]
   },
@@ -183,7 +246,14 @@
         "studentsEnrolled": 390,
         "skills": ["Excel", "Power BI", "Dashboards", "Reports"],
         "fee": "₹10,000",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course028",
@@ -199,7 +269,14 @@
         "studentsEnrolled": 210,
         "skills": ["Regression", "Clustering", "Scikit-learn"],
         "fee": "₹14,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       }
     ]
   },
@@ -222,7 +299,14 @@
         "studentsEnrolled": 580,
         "skills": ["Python", "MySQL", "Java", "Algorithms"],
         "fee": "₹12,000",
-        "instructor": "Tanusree Hui"
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       },
       {
         "courseID": "course036",
@@ -238,7 +322,14 @@
         "studentsEnrolled": 420,
         "skills": ["Calculus", "Algebra", "Probability"],
         "fee": "₹11,000",
-        "instructor": "Sukanta Hui"
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
       }
     ]
   }
