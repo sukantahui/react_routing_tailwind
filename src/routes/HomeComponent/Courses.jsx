@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import coursesData from "../../data/courses.json";
 
-// Images
+// Image imports
 import javaImg from "../../assets/course-images/java-logo.svg";
 import reactImg from "../../assets/course-images/react-logo.svg";
 import pythonImg from "../../assets/course-images/python-logo.svg";
@@ -37,7 +37,6 @@ const Courses = () => {
   const [expandedGroups, setExpandedGroups] = useState({});
   const [courseDescExpanded, setCourseDescExpanded] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeBadge, setActiveBadge] = useState("All");
   const whatsappNumber = "919432456083";
   const courseRefs = useRef({});
 
@@ -58,7 +57,7 @@ const Courses = () => {
 
   const encodeMessage = (title) =>
     encodeURIComponent(
-      `Hi, I'm interested in the "${title}" course. Could you please share location and fee details?`
+      `Hi, I'm interested in the "${title}" course. Could you please share duration, fee details, and admission info?`
     );
 
   useEffect(() => {
@@ -73,24 +72,25 @@ const Courses = () => {
     return group.courses.filter(
       (course) =>
         course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.desc.toLowerCase().includes(searchTerm.toLowerCase())
+        course.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        course.more.toLowerCase().includes(searchTerm.toLowerCase())
     );
   };
 
   return (
     <section
       id="courses"
-      className="relative py-24 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
+      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
     >
-      {/* Animated background glow */}
+      {/* Soft Animated Background */}
       <motion.div
         animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(56,189,248,0.15),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(147,51,234,0.15),transparent_60%)]"
       ></motion.div>
 
       <div className="relative max-w-6xl mx-auto px-6">
-        {/* Heading */}
+        {/* Section Header */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,28 +98,22 @@ const Courses = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-400 to-cyan-300 drop-shadow-lg"
         >
-          Our Courses
+          Explore Our Courses
         </motion.h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center text-gray-400 mb-10 max-w-2xl mx-auto"
-        >
-          Browse our categories and find the perfect course for your goals —
-          from coding to accounting, tax, and data analytics.
-        </motion.p>
+        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          Empower your future with our wide range of skill-based and academic
+          courses designed to make you industry-ready.
+        </p>
 
-        {/* Search & Filter */}
-        <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-10">
+        {/* Search Bar */}
+        <div className="flex justify-center mb-10">
           <input
             type="text"
-            placeholder="🔍 Search courses..."
+            placeholder="🔍 Search for a course..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-400 w-full md:w-1/2 placeholder-gray-500"
+            className="px-5 py-3 w-full md:w-1/2 rounded-full bg-gray-800/50 border border-gray-700 text-gray-200 focus:ring-2 focus:ring-sky-400 focus:outline-none placeholder-gray-500"
           />
         </div>
 
@@ -166,7 +160,7 @@ const Courses = () => {
                       </div>
                     </div>
 
-                    {/* Expandable Course List */}
+                    {/* Expandable Courses */}
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
@@ -196,7 +190,7 @@ const Courses = () => {
                                   alt={course.title}
                                   className="h-16 w-16 object-contain"
                                 />
-                                <div>
+                                <div className="flex-1">
                                   <h6 className="font-semibold text-sky-300 text-[1.1rem] flex items-center gap-2">
                                     {course.title}
                                     {course.badge && (
@@ -216,12 +210,63 @@ const Courses = () => {
                                   <p className="text-gray-400 text-xs">
                                     {course.desc}
                                   </p>
+
+                                  {/* Ratings & Info */}
+                                  <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-400">
+                                    {course.rating && (
+                                      <span className="text-amber-400">
+                                        ⭐ {course.rating} ({course.studentsEnrolled || 0}+)
+                                      </span>
+                                    )}
+                                    {course.duration && (
+                                      <span className="text-sky-300">
+                                        ⏳ {course.duration}
+                                      </span>
+                                    )}
+                                    {course.level && (
+                                      <span className="text-gray-300">
+                                        🎓 {course.level}
+                                      </span>
+                                    )}
+                                    {course.mode && (
+                                      <span className="text-green-300">
+                                        💻 {course.mode}
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  {/* Skills */}
+                                  {course.skills && (
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                      {course.skills.map((skill) => (
+                                        <span
+                                          key={skill}
+                                          className="text-[0.7rem] bg-sky-600/20 text-sky-300 px-2 py-1 rounded-full"
+                                        >
+                                          {skill}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
+
                                   {courseDescExpanded[course.courseID] && (
-                                    <p className="text-gray-300 text-xs mt-1 leading-relaxed">
+                                    <p className="text-gray-300 text-xs mt-2 leading-relaxed">
                                       {course.more}
                                     </p>
                                   )}
                                 </div>
+                              </div>
+
+                              {/* Instructor & Fee */}
+                              <div className="flex justify-between text-xs text-gray-400 mt-3">
+                                {course.instructor && (
+                                  <span>👩‍🏫 {course.instructor}</span>
+                                )}
+                                {course.fee && (
+                                  <span className="text-green-400 font-semibold">
+                                    💰 {course.fee}
+                                  </span>
+                                )}
                               </div>
 
                               {/* Buttons */}
@@ -238,8 +283,8 @@ const Courses = () => {
                                   }`}
                                 >
                                   {courseDescExpanded[course.courseID]
-                                    ? "⬆ Hide Description"
-                                    : "⬇ Show Description"}
+                                    ? "⬆ Hide Details"
+                                    : "⬇ Show Details"}
                                 </button>
 
                                 <a
