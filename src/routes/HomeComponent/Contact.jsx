@@ -74,6 +74,7 @@ const Contact = () => {
     email: "",
     interest: "",
     message: "",
+    extra_field: "", // ✅ honeypot field
   });
   const [loading, setLoading] = useState(false);
 
@@ -271,104 +272,143 @@ const Contact = () => {
             </motion.div>
           </div>
 
+
           {/* ===========================
-              VISITOR INQUIRY FORM
+          VISITOR INQUIRY FORM (Pro Edition)
           ============================ */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.7 }}
             viewport={{ once: true }}
-            className="mt-16 bg-gray-800/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-8 md:p-10 max-w-3xl mx-auto shadow-lg hover:shadow-sky-500/30 transition-all duration-500"
+            className="mt-20 relative max-w-3xl mx-auto bg-gray-900/60 backdrop-blur-2xl border border-gray-700/50 rounded-3xl shadow-xl shadow-sky-800/20 overflow-hidden"
           >
-            <h2 className="text-2xl font-bold text-center text-amber-300 mb-6">
-              Share Your Interest
-            </h2>
+            {/* Decorative Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-800/10 via-gray-900/40 to-purple-900/10 pointer-events-none" />
+            <div className="relative p-10">
+              {/* Heading */}
+              <h2 className="text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-sky-400 to-cyan-300 mb-2">
+                Share Your Interest
+              </h2>
+              <p className="text-center text-gray-400 mb-8">
+                Tell us a bit about yourself — our team will connect with you soon.
+              </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-700 bg-gray-900 text-gray-100 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="peer w-full bg-transparent border border-gray-700 rounded-xl px-3 pt-5 pb-2 text-gray-100 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                    placeholder="Your name"
+                  />
+                  <label
+                    htmlFor="name"
+                    className="absolute left-3 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sky-400 peer-focus:text-sm"
+                  >
+                    Full Name
+                  </label>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-700 bg-gray-900 text-gray-100 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                />
-              </div>
+                {/* Email */}
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="peer w-full bg-transparent border border-gray-700 rounded-xl px-3 pt-5 pb-2 text-gray-100 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                    placeholder="you@example.com"
+                  />
+                  <label
+                    htmlFor="email"
+                    className="absolute left-3 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sky-400 peer-focus:text-sm"
+                  >
+                    Email Address
+                  </label>
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">
-                  Interested In
-                </label>
-                <select
-                  name="interest"
-                  value={formData.interest}
-                  onChange={handleChange}
-                  required
-                  className="w-full border border-gray-700 bg-gray-900 text-gray-100 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                
+                {/* Interest (Dark Mode Select) */}
+                <div className="relative">
+                  <select
+                    name="interest"
+                    id="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    required
+                    className="w-full appearance-none bg-gray-900 text-gray-100 border border-gray-700 rounded-xl px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all cursor-pointer"
+                    style={{
+                      colorScheme: "dark", // 🧠 Ensures dropdown & scrollbars stay dark
+                    }}
+                  >
+                    <option value="">Select a course of interest</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Python Programming">Python Programming</option>
+                    <option value="C / C++ Programming">C / C++ Programming</option>
+                    <option value="DSA / Algorithm">DSA / Algorithm</option>
+                    <option value="Accounting & Taxation">Accounting & Taxation</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                  {/* Dropdown Arrow Icon */}
+                  <i className="bi bi-chevron-down absolute right-4 top-5 text-gray-400 pointer-events-none" />
+                </div>
+
+                {/* Message */}
+                <div className="relative">
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="4"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write your query..."
+                    className="peer w-full bg-transparent border border-gray-700 rounded-xl px-3 pt-5 pb-2 text-gray-100 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                  ></textarea>
+                  <label
+                    htmlFor="message"
+                    className="absolute left-3 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sky-400 peer-focus:text-sm"
+                  >
+                    Message (Optional)
+                  </label>
+                </div>
+                {/*this is extra field*/}
+                <div>
+                  <input
+                    type="text"
+                    name="extra_field"
+                    value={formData.extra_field || ""}
+                    onChange={handleChange}
+                    style={{ display: "none" }}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <motion.button
+                  type="submit"
+                  disabled={loading}
+                  whileTap={{ scale: 0.97 }}
+                  className={`w-full py-3 mt-4 rounded-xl font-semibold tracking-wide text-white shadow-lg transition-all duration-300 ${loading
+                    ? "bg-sky-700/50 cursor-not-allowed"
+                    : "bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 shadow-sky-700/30"
+                    }`}
                 >
-                  <option value="">Select an option</option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Python Programming">Python Programming</option>
-                  <option value="C / C++ Programming">
-                    C / C++ Programming
-                  </option>
-                  <option value="DSA / Algorithm">DSA / Algorithm</option>
-                  <option value="Accounting & Taxation">
-                    Accounting & Taxation
-                  </option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">
-                  Message (Optional)
-                </label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  placeholder="Write your query or interest..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-700 bg-gray-900 text-gray-100 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                ></textarea>
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={loading}
-                whileTap={{ scale: 0.97 }}
-                className={`w-full py-2.5 rounded-md text-white font-semibold tracking-wide transition-all duration-300 ${
-                  loading
-                    ? "bg-blue-600/40 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
-                }`}
-              >
-                {loading ? "Submitting..." : "Send Message"}
-              </motion.button>
-            </form>
+                  {loading ? "Submitting..." : "🚀 Send Message"}
+                </motion.button>
+              </form>
+            </div>
           </motion.div>
+
         </div>
       </section>
     </>
