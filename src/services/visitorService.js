@@ -5,7 +5,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://codernaccotax
 export const visitorService = {
   saveInquiry: async (data) => {
     try {
-      const res = await axios.post(`${API_BASE_URL}/visitors`, data);
+      const res = await axios.post(`${API_BASE_URL}/dev/visitors`, data);
       return res.data;
     } catch (err) {
       throw err.response?.data || err;
