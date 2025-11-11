@@ -18,6 +18,8 @@ import coursesData from "../../data/courses.json";
 import javaImg from "../../assets/course-images/java-logo.svg";
 import reactImg from "../../assets/course-images/react-logo.svg";
 import pythonImg from "../../assets/course-images/python-logo.svg";
+import clanguage from "../../assets/course-images/clanguage.svg";
+
 import defaultImg from "../../assets/course-images/default-logo.svg";
 import webDevImg from "../../assets/group-images/webdev.logo.svg";
 import codeImg from "../../assets/group-images/code.logo.svg";
@@ -34,6 +36,7 @@ const imageMap = {
   javaImg,
   reactImg,
   pythonImg,
+  clanguage,
   defaultImg,
   webDevImg,
   codeImg,
