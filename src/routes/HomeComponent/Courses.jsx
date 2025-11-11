@@ -19,6 +19,11 @@ import javaImg from "../../assets/course-images/java-logo.svg";
 import reactImg from "../../assets/course-images/react-logo.svg";
 import pythonImg from "../../assets/course-images/python-logo.svg";
 import clanguage from "../../assets/course-images/clanguage.svg";
+import dsa from "../../assets/course-images/dsa.svg";
+import sql from "../../assets/course-images/sql.svg";
+import mysql from "../../assets/course-images/mysql.svg";
+import databaselabs from "../../assets/course-images/database-labs.svg";
+import databaseServer from "../../assets/course-images/databaseServer.svg";
 
 import defaultImg from "../../assets/course-images/default-logo.svg";
 import webDevImg from "../../assets/group-images/webdev.logo.svg";
@@ -37,6 +42,11 @@ const imageMap = {
   reactImg,
   pythonImg,
   clanguage,
+  dsa,
+  sql,
+  mysql,
+  databaselabs,
+  databaseServer,
   defaultImg,
   webDevImg,
   codeImg,

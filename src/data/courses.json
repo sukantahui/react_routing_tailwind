@@ -159,7 +159,7 @@
         "level": "Beginner",
         "duration": "2.5 Months",
         "mode": "Offline",
-        "badge": "New",
+        "badge": "Essential",
         "rating": 4.8,
         "studentsEnrolled": 900,
         "skills": ["C", "Pointers", "Functions", "Arrays", "Memory Management", "Problem Solving"],
@@ -178,8 +178,8 @@
         "courseID": "PRG1004",
         "title": "Data Structures & Algorithms (DSA)",
         "desc": "Strengthen problem-solving and coding skills.",
-        "more": "Covers arrays, stacks, trees, recursion, and graphs.",
-        "image": "codeImg",
+        "more": "This course provides a deep understanding of core data structures and algorithms essential for high-performance programming and competitive coding. It covers arrays, stacks, queues, linked lists, trees, recursion, sorting, searching, and graph algorithms. Students will solve real-world coding challenges and optimize programs for efficiency, preparing them for technical interviews and advanced software development roles.",
+        "image": "dsa",
         "level": "Advanced",
         "duration": "4 Months",
         "mode": "Online / Offline",
@@ -193,6 +193,106 @@
           "available": true,
           "maxDiscountPercent": 25,
           "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "PRG1005",
+        "title": "C++ Programming",
+        "desc": "Build strong foundations in object-oriented programming and logic building.",
+        "more": "This course provides a comprehensive understanding of C++ programming, covering core and advanced concepts such as data types, functions, pointers, classes, objects, inheritance, polymorphism, and file handling. Students will learn how to write optimized, modular, and reusable code following OOP principles. The course also includes hands-on problem-solving sessions and projects to prepare learners for competitive programming and software development roles.",
+        "image": "cpp",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Trending",
+        "rating": 4.8,
+        "studentsEnrolled": 540,
+        "skills": ["C++", "OOP", "STL", "Classes", "Inheritance", "Polymorphism"],
+        "fee": "₹9,500",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+
+    ]
+  },
+  {
+    "category": "RDBMS & SQL",
+    "groupImage": "databaseServer",
+    "groupDesc": "Master relational database concepts, SQL queries, and data management techniques for real-world applications.",
+    "courses": [
+    {
+        "courseID": "DB1001",
+        "title": "MySQL Fundamentals",
+        "desc": "Learn to create, manage, and query databases efficiently.",
+        "more": "This beginner-friendly course introduces relational databases and the SQL language through MySQL. Students will learn to design tables, define relationships, and perform CRUD operations. The course covers SELECT, JOIN, WHERE, GROUP BY, and subqueries with practical exercises and mini projects.",
+        "image": "mysql",
+        "level": "Beginner",
+        "duration": "2.5 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.8,
+        "studentsEnrolled": 560,
+        "skills": ["SQL", "MySQL", "Joins", "Subqueries", "Normalization"],
+        "fee": "₹7,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "DB1002",
+        "title": "Advanced SQL & Database Optimization",
+        "desc": "Write complex SQL queries and optimize database performance.",
+        "more": "This advanced-level course focuses on query optimization, indexing, stored procedures, triggers, and transaction control. Students will learn real-world data handling techniques, performance tuning, and database normalization strategies using MySQL and PostgreSQL. Perfect for developers preparing for backend and data engineering roles.",
+        "image": "sql",
+        "level": "Advanced",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Advanced",
+        "rating": 4.9,
+        "studentsEnrolled": 320,
+        "skills": ["SQL Optimization", "Indexes", "Stored Procedures", "Triggers", "Transactions"],
+        "fee": "₹9,500",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "DB1003",
+        "title": "Database Design & ER Modeling",
+        "desc": "Learn to structure and design scalable relational databases.",
+        "more": "This course teaches how to plan, design, and implement relational databases using Entity-Relationship (ER) models. Students will understand primary/foreign keys, relationships, normalization, and schema design for complex systems. Practical exercises help apply concepts to real business and software applications.",
+        "image": "databaselabs",
+        "level": "Intermediate",
+        "duration": "2 Months",
+        "mode": "Online / Offline",
+        "badge": "New",
+        "rating": 4.7,
+        "studentsEnrolled": 280,
+        "skills": ["Database Design", "ER Model", "Normalization", "Schema Design"],
+        "fee": "₹8,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         }
