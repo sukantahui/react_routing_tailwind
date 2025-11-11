@@ -1,30 +1,9 @@
-// ===============================================
-// About.jsx
-// -----------------------------------------------
-// Purpose: Display details about Coder & AccoTax institute,
-// including mission, achievements, certification, and a CTA
-// to join courses.
-//
-// Features:
-// - Animated stats counter (achievements)
-// - ISO certificate download
-// - Call-to-action button
-// - SEO & Accessibility optimizations
-// -----------------------------------------------
-// SEO Enhancements:
-// - Helmet meta tags (title, description, keywords)
-// - Canonical link
-// - Open Graph & Twitter card metadata
-// - JSON-LD schema for Google rich results
-// - Semantic headings & accessible labels
-// ===============================================
-
 import React, { useRef, useEffect, useState } from "react";
-import { Helmet } from "react-helmet"; // ✅ SEO meta tag management
+import { Helmet } from "react-helmet";
 import { motion, useInView } from "framer-motion";
 
 // -----------------------------------------------
-// 🎯 Counter Component (Animated number increment)
+// 🎯 Animated Counter
 // -----------------------------------------------
 const Counter = ({ target, suffix = "+", duration = 2 }) => {
   const ref = useRef();
@@ -42,12 +21,12 @@ const Counter = ({ target, suffix = "+", duration = 2 }) => {
           clearInterval(counter);
         }
         setCount(Math.floor(start));
-      }, 16); // roughly 60 frames/sec
+      }, 16);
     }
   }, [isInView, target, duration]);
 
   return (
-    <span ref={ref} className="text-3xl md:text-4xl font-bold text-sky-300">
+    <span ref={ref} className="text-3xl md:text-4xl font-bold text-sky-400">
       {count}
       {suffix}
     </span>
@@ -58,102 +37,73 @@ const Counter = ({ target, suffix = "+", duration = 2 }) => {
 // 🌐 About Component
 // -----------------------------------------------
 const About = () => {
-  const certificateLink = "/docs/iso-certificate.pdf"; // ✅ Public path for certificate download
+  const certificateLink = "/docs/iso-certificate.pdf";
+
   const scrollToCourses = () => {
     const section = document.getElementById("courses");
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
-  // -----------------------------------------------
-  // 🧾 JSON-LD Structured Data
-  // Helps Google identify your organization and page info
-  // -----------------------------------------------
+  // ✅ SEO Schema
   const schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About Coder & AccoTax",
+    "@type": "EducationalOrganization",
+    name: "Coder & AccoTax",
+    url: "https://codernaccotax.co.in",
+    logo: "https://codernaccotax.co.in/cnat.ico",
+    foundingDate: "1998",
     description:
-      "Coder & AccoTax is a premier training institute providing professional courses in coding, accounting, and taxation. ISO 9001:2015 certified, with over 27 years of excellence.",
-    url: "https://codernaccotax.co.in/about",
-    publisher: {
-      "@type": "Organization",
-      name: "Coder & AccoTax",
-      url: "https://codernaccotax.co.in",
-      logo: "https://codernaccotax.co.in/cnat.ico",
-    },
-    mainEntity: {
-      "@type": "EducationalOrganization",
-      name: "Coder & AccoTax",
-      foundingDate: "1998",
-      sameAs: [
-        "https://www.facebook.com/",
-        "https://www.linkedin.com/",
-        "https://www.instagram.com/",
-      ],
+      "Coder & AccoTax is an ISO 9001:2015 certified professional training institute in India offering hands-on courses in full stack web development, Python, accounting, taxation, and data analysis.",
+    sameAs: [
+      "https://www.facebook.com/",
+      "https://www.linkedin.com/",
+      "https://www.instagram.com/",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "India",
     },
   };
 
-  // -----------------------------------------------
-  // 🧠 Render
-  // -----------------------------------------------
   return (
     <>
-      {/* 🧠 SEO Helmet Section */}
       <Helmet>
-        {/* Primary Meta Tags */}
-        <title>About Us | Coder & AccoTax</title>
+        <title>About Coder & AccoTax | ISO Certified Coding & Accounting Institute</title>
         <meta
           name="description"
-          content="Learn more about Coder & AccoTax — a leading training institute with 27 years of excellence in coding, accounting, and data analysis. ISO 9001:2015 certified."
+          content="Coder & AccoTax is an ISO 9001:2015 certified training institute offering courses in web development, Python, accounting, taxation, and data analysis — with 27+ years of excellence in professional education."
         />
         <meta
           name="keywords"
-          content="about coder accotax, coding institute, iso certified training, accounting classes, programming institute"
+          content="Coder & AccoTax, about coder accotax, ISO 9001 training institute, coding institute India, accounting courses, taxation classes, data analysis training, full stack web development, professional education"
         />
         <meta name="author" content="Coder & AccoTax" />
-
-        {/* Canonical Link */}
         <link rel="canonical" href="https://codernaccotax.co.in/about" />
 
-        {/* Open Graph Tags (for Facebook, LinkedIn) */}
-        <meta property="og:title" content="About Us | Coder & AccoTax" />
+        {/* Open Graph */}
+        <meta property="og:title" content="About Coder & AccoTax | ISO Certified Institute" />
         <meta
           property="og:description"
-          content="Discover Coder & AccoTax's mission, excellence, and ISO-certified achievements in coding and accounting education."
+          content="Learn about Coder & AccoTax, an ISO-certified institute offering world-class education in coding, accounting, taxation, and data analysis."
         />
-        <meta
-          property="og:image"
-          content="https://codernaccotax.co.in/og-about.png"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content="https://codernaccotax.co.in/og-about.png" />
         <meta property="og:url" content="https://codernaccotax.co.in/about" />
         <meta property="og:type" content="website" />
 
-        {/* Twitter Card */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="About Us | Coder & AccoTax - 27 Years of Excellence"
+          content="About Coder & AccoTax - 27+ Years of Excellence"
         />
         <meta
           name="twitter:description"
-          content="Coder & AccoTax is an ISO-certified institute offering training in coding, accounting, and data analysis."
+          content="Explore the story, mission, and excellence behind Coder & AccoTax — India’s trusted name in professional education and compliance training."
         />
-        <meta
-          name="twitter:image"
-          content="https://codernaccotax.co.in/og-about.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Coder & AccoTax - ISO Certified Institute"
-        />
+        <meta name="twitter:image" content="https://codernaccotax.co.in/og-about.png" />
 
-        {/* JSON-LD Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
+        {/* JSON-LD */}
+        <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
       </Helmet>
 
       {/* ============================================
@@ -167,8 +117,9 @@ const About = () => {
         <motion.div
           animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(236,72,153,0.15),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(37,99,235,0.15),transparent_60%)]"
-        ></motion.div>
+          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(236,72,153,0.12),transparent_60%),radial-gradient(circle_at_70%_70%,rgba(56,189,248,0.12),transparent_60%)]"
+          aria-hidden="true"
+        />
 
         <div className="relative max-w-5xl mx-auto px-6 text-center md:text-left">
           {/* 🏫 Section Header */}
@@ -177,7 +128,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 text-center mb-4 drop-shadow-lg"
+            className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 text-center mb-4"
           >
             About Us
           </motion.h1>
@@ -185,80 +136,86 @@ const About = () => {
           <motion.hr
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="mb-8 border border-gray-700 max-w-[150px] mx-auto"
           />
 
           {/* 🧾 About Content */}
-          <motion.div
+          <motion.article
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-900/60 border border-gray-700/50 backdrop-blur-xl shadow-lg shadow-purple-500/10 rounded-3xl p-8 md:p-10 hover:shadow-pink-500/30 transition-all duration-700"
+            className="bg-gray-900/70 border border-gray-800 rounded-3xl p-8 md:p-10"
           >
             <p className="text-justify mb-5 leading-relaxed text-gray-300">
               <strong className="text-amber-400">Coder & AccoTax</strong> is a
-              leading training institute offering courses in programming,
-              accounting, taxation, and data analysis. With expert instructors
-              and hands-on learning, we equip students to excel in their
-              professional journeys.
+              premier ISO 9001:2015 certified institute providing professional
+              training in <strong>Full Stack Web Development</strong>,
+              <strong> Python Programming</strong>, <strong>Accounting</strong>,
+              <strong> Taxation</strong>, and <strong>Data Analysis</strong>. 
+              Established in 1998, we’ve been a trusted name in skill-based learning
+              and career-oriented education.
             </p>
 
             <p className="text-justify mb-5 leading-relaxed text-gray-300">
-              We have been delivering quality education for over{" "}
-              <strong className="text-amber-400">27 years</strong> and are{" "}
-              <strong className="text-amber-400">ISO 9001:2015 Certified</strong>,
-              maintaining high standards in teaching and infrastructure.
+              Over the last <strong className="text-amber-400">27 years</strong>, 
+              we have trained more than <strong className="text-amber-400">5000 students</strong> 
+              and professionals across India and abroad. Our mission is to bridge
+              the gap between academic knowledge and real-world skills through
+              practical, mentor-led learning programs.
             </p>
 
             <p className="text-justify mb-5 leading-relaxed text-gray-300">
-              Our dedicated faculty consists of{" "}
-              <strong className="text-amber-400">
-                qualified and experienced educators
-              </strong>{" "}
-              who specialize across academic and professional domains.
+              Every program at Coder & AccoTax is designed with a focus on
+              <strong className="text-amber-400"> hands-on projects</strong>,
+              <strong className="text-amber-400"> industry mentorship</strong>, 
+              and <strong className="text-amber-400">continuous feedback</strong>.
+              Our faculty includes certified trainers, developers, and finance 
+              experts who bring real-world insights into the classroom.
             </p>
 
             <p className="text-justify leading-relaxed text-gray-300">
-              Our alumni are now{" "}
-              <strong className="text-amber-400">working globally</strong>,
-              representing our commitment to excellence and student success.
+              We take pride in being more than just an institute — we are a 
+              <strong className="text-amber-400"> community of learners</strong>, 
+              <strong className="text-amber-400"> educators</strong>, and 
+              <strong className="text-amber-400"> achievers</strong> united by 
+              the goal of building future-ready professionals equipped to 
+              thrive in a digital and data-driven world.
             </p>
-          </motion.div>
+          </motion.article>
 
-          {/* 🌟 Achievements Counters */}
-          <motion.div
+          {/* 🌟 Achievements Section */}
+          <motion.section
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
+            aria-label="Institute Achievements and Statistics"
             className="mt-16 grid grid-cols-2 md:grid-cols-5 gap-6 text-center"
           >
             {[
               { icon: "🎓", label: "Years of Excellence", value: 27 },
               { icon: "👩‍🎓", label: "Students Trained", value: 5000 },
               { icon: "🌐", label: "Corporate Projects", value: 200 },
-              { icon: "🏆", label: "Certifications & Awards", value: 15 },
+              { icon: "🏆", label: "Awards & Certifications", value: 15 },
               { icon: "🏅", label: "ISO 9001:2015 Certified", isISO: true },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gray-900/60 border border-gray-700/50 rounded-2xl p-6 shadow-md hover:shadow-sky-500/20 transition-all duration-500"
+                className="bg-gray-900/70 border border-gray-800 rounded-2xl p-6 hover:border-sky-600 transition-all duration-500"
               >
                 <div className="text-4xl mb-2">{stat.icon}</div>
                 {stat.isISO ? (
-                  <span className="text-lg font-semibold text-sky-300">
+                  <span className="text-lg font-semibold text-sky-400">
                     ISO 9001:2015
                   </span>
                 ) : (
                   <Counter target={stat.value} />
                 )}
                 <p className="text-sm text-gray-400 mt-1">{stat.label}</p>
-
-                {/* Download ISO Certificate */}
                 {stat.isISO && (
                   <a
                     href={certificateLink}
@@ -270,7 +227,7 @@ const About = () => {
                 )}
               </motion.div>
             ))}
-          </motion.div>
+          </motion.section>
 
           {/* 🚀 Call To Action */}
           <motion.div
@@ -278,20 +235,20 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mt-12 flex flex-col items-center gap-4 text-center"
+            className="mt-14 text-center"
           >
-            <p className="text-gray-400 italic">
-              Ready to start your learning journey with us?
+            <p className="text-gray-400 italic mb-3">
+              Ready to begin your journey toward a brighter career?
             </p>
             <button
               onClick={scrollToCourses}
-              className="px-6 py-2 bg-gradient-to-r from-sky-600 to-purple-600 text-white font-medium rounded-full shadow-md hover:shadow-sky-400/40 transition-all duration-500"
+              className="px-6 py-2 bg-gradient-to-r from-sky-600 to-purple-600 text-white font-medium rounded-full hover:opacity-90 transition-all duration-300"
             >
               🚀 Join Us Now
             </button>
           </motion.div>
 
-          {/* ✍️ Closing Quote */}
+          {/* ✍️ Inspirational Quote */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -299,7 +256,8 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mt-10 text-gray-400 italic"
           >
-            “Building Future-Ready Professionals with Code, Knowledge & Confidence.”
+            “Education is not just learning — it’s transformation. At Coder & AccoTax, 
+            we help you code your success and calculate your growth.”
           </motion.p>
         </div>
       </section>

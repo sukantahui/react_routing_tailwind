@@ -10,12 +10,10 @@ export default function NavBar() {
   const isHome = location.pathname === "/";
   const [activeHash, setActiveHash] = useState(location.hash);
 
-  // 🔹 Update active hash when location changes
   useEffect(() => {
     setActiveHash(location.hash);
   }, [location]);
 
-  // 🔹 Color mapping for each section
   const activeColors = {
     home: "from-sky-600 to-purple-600",
     about: "from-green-500 to-lime-500",
@@ -26,12 +24,12 @@ export default function NavBar() {
     login: "from-red-500 to-pink-500",
   };
 
-  // 🔹 General function for all link styles
+  // 🔹 Minimalist link style — no glow or shadow
   const linkClass = (key, isActive = false) =>
-    `block px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+    `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${
       isActive
-        ? `bg-gradient-to-r ${activeColors[key]} text-white shadow-md`
-        : "text-gray-300 hover:text-sky-300 hover:bg-gray-800/40"
+        ? `bg-gradient-to-r ${activeColors[key]} text-white`
+        : "text-gray-300 hover:text-white hover:bg-gray-800/70"
     }`;
 
   return (
@@ -39,22 +37,27 @@ export default function NavBar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="sticky top-0 z-50 bg-gray-900/60 backdrop-blur-md border-b border-gray-700/40 shadow-lg"
+      // 🖤 Flat, matte, dark gradient — no blur or extra shadow
+      className="sticky top-0 z-50 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 border-b border-gray-800"
     >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between py-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex items-center justify-between py-3 sm:py-4">
           {/* 🔹 Brand */}
           <motion.div
-            whileHover={{ scale: 1.03 }}
-            className="flex items-center gap-2 font-semibold text-lg text-white"
+            whileHover={{ scale: 1.02 }}
+            className="flex items-center gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
           >
-            <img src={cnat} alt="Coder & AccoTax Logo" className="w-9 h-9" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-purple-300 to-pink-300">
+            <img
+              src={cnat}
+              alt="Coder & AccoTax Logo"
+              className="w-8 h-8 sm:w-9 sm:h-9"
+            />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 whitespace-nowrap">
               Coder & AccoTax
             </span>
           </motion.div>
 
-          {/* 🔹 Mobile Toggle Button */}
+          {/* 🔹 Mobile Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="sm:hidden text-gray-300 text-2xl focus:outline-none"
@@ -64,7 +67,7 @@ export default function NavBar() {
           </button>
 
           {/* 🔹 Desktop Menu */}
-          <nav className="hidden sm:flex items-center gap-3">
+          <nav className="hidden sm:flex items-center gap-2 md:gap-3">
             {!isHome && (
               <NavLink to="/" className={({ isActive }) => linkClass("home", isActive)}>
                 Home
@@ -73,39 +76,19 @@ export default function NavBar() {
 
             {isHome && (
               <>
-                <HashLink
-                  smooth
-                  to="/#about"
-                  className={linkClass("about", activeHash === "#about")}
-                >
+                <HashLink smooth to="/#about" className={linkClass("about", activeHash === "#about")}>
                   About
                 </HashLink>
-                <HashLink
-                  smooth
-                  to="/#courses"
-                  className={linkClass("courses", activeHash === "#courses")}
-                >
+                <HashLink smooth to="/#courses" className={linkClass("courses", activeHash === "#courses")}>
                   Courses
                 </HashLink>
-                <HashLink
-                  smooth
-                  to="/#teachers"
-                  className={linkClass("teachers", activeHash === "#teachers")}
-                >
+                <HashLink smooth to="/#teachers" className={linkClass("teachers", activeHash === "#teachers")}>
                   Teachers
                 </HashLink>
-                <HashLink
-                  smooth
-                  to="/#services"
-                  className={linkClass("services", activeHash === "#services")}
-                >
+                <HashLink smooth to="/#services" className={linkClass("services", activeHash === "#services")}>
                   Services
                 </HashLink>
-                <HashLink
-                  smooth
-                  to="/#contact"
-                  className={linkClass("contact", activeHash === "#contact")}
-                >
+                <HashLink smooth to="/#contact" className={linkClass("contact", activeHash === "#contact")}>
                   Contact
                 </HashLink>
               </>
@@ -125,7 +108,7 @@ export default function NavBar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="sm:hidden flex flex-col gap-2 pb-3"
+              className="sm:hidden flex flex-col gap-2 pb-4"
             >
               {!isHome && (
                 <NavLink

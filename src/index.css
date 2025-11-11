@@ -1,22 +1,30 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* ✅ Keep your site’s structure and design */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+/* Smooth scrolling and readable base font size */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Body text defaults (Inter + normal colors) */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1f2937; /* text-gray-800 */
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Optional: smoother text rendering */
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* #root {
+
+/* Optional container helper */
+.container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-} */
-
-
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
