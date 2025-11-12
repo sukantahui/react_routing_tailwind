@@ -75,6 +75,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     interest: "",
     message: "",
     extra_field: "", // Honeypot field
@@ -364,6 +365,24 @@ const Contact = () => {
                     className="absolute left-3 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sky-400 peer-focus:text-sm"
                   >
                     Email Address
+                  </label>
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="peer w-full bg-transparent border border-gray-700 rounded-xl px-3 pt-5 pb-2 text-gray-100 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all"
+                    placeholder="999999999999"
+                  />
+                  <label
+                    htmlFor="phon"
+                    className="absolute left-3 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sky-400 peer-focus:text-sm"
+                  >
+                    Phone
                   </label>
                 </div>
 
