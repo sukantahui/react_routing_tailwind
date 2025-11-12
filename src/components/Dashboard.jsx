@@ -49,20 +49,6 @@ export default function Dashboard() {
     fetchData();
   }, [navigate]);
 
-  // ✅ Handle logout
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    Swal.fire({
-      title: "Logged Out",
-      text: "You have been logged out successfully.",
-      icon: "info",
-      confirmButtonColor: "#2563eb",
-      background: "#111827",
-      color: "#f9fafb",
-    }).then(() => navigate("/login"));
-  };
-
   // ✅ Derived stats
   const stats = useMemo(() => {
     const total = visitors.length;
@@ -98,31 +84,21 @@ export default function Dashboard() {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 p-6 pt-24">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-center"
+          className="text-center md:text-left"
         >
-          <div>
-            <h1 className="text-3xl font-bold text-sky-400">
-              Welcome, {user?.employee?.employeeName || user?.userName}
-            </h1>
-            <p className="text-gray-400">
-              {user?.userType?.userTypeName} Dashboard
-            </p>
-          </div>
-          <motion.button
-            onClick={handleLogout}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-4 md:mt-0 bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300"
-          >
-            Logout
-          </motion.button>
+          <h1 className="text-3xl font-bold text-sky-400">
+            Welcome, {user?.employee?.employeeName || user?.userName}
+          </h1>
+          <p className="text-gray-400 text-sm md:text-base">
+            {user?.userType?.userTypeName} Dashboard
+          </p>
         </motion.div>
 
         {/* ✅ Stats Grid */}
