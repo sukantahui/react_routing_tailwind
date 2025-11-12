@@ -142,6 +142,17 @@ export default function Dashboard() {
         />
 
         {/* Students Section */}
+        <div className="flex items-center justify-between mb-2 mt-12">
+          <h2 className="text-2xl font-semibold text-amber-400">Registered Students</h2>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => navigate("/students/add")}
+            className="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-xl shadow-md transition-all"
+          >
+            + Add Student
+          </motion.button>
+        </div>
         <DataTable
           title="Registered Students"
           color="text-amber-400"

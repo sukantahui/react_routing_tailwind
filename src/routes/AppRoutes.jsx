@@ -7,6 +7,7 @@ import ProtectedRoute from './ProtectedRoute';
 import NotFound from './NotFound';
 import Login from '../components/Login';
 import Dashboard from '../components/Dashboard';
+import AddStudent from '../components/AddStudent';
 
 export default function AppRoutes() {
   return (
@@ -49,7 +50,7 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       />
-
+      <Route path="/students/add" element={<AddStudent />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

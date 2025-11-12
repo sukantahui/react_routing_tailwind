@@ -11,4 +11,14 @@ export const studentService = {
       throw error;
     }
   },
+  create: async (data) => {
+    try {
+      const response = await api.post("/students",data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving student:", error);
+      throw error;
+    }
+
+  }
 };
