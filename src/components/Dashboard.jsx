@@ -1,17 +1,17 @@
 // src/components/Dashboard.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { visitorService } from "../services/visitorService";
 
-const Dashboard = () => {
+export default function Dashboard() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [visitors, setVisitors] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Load user and fetch visitors
+  // ✅ Load user and visitors
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,7 +33,7 @@ const Dashboard = () => {
         setUser(storedUser);
         const res = await visitorService.getAll();
         if (res?.status) setVisitors(res.data);
-      } catch (error) {
+      } catch {
         Swal.fire({
           title: "Error",
           text: "Failed to load visitors data.",
@@ -46,7 +46,6 @@ const Dashboard = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [navigate]);
 
@@ -64,7 +63,33 @@ const Dashboard = () => {
     }).then(() => navigate("/login"));
   };
 
-  // ✅ Loading screen
+  // ✅ Derived stats
+  const stats = useMemo(() => {
+    const total = visitors.length;
+    const today = visitors.filter((v) => {
+      const date = new Date(v.created_at);
+      const now = new Date();
+      return (
+        date.getDate() === now.getDate() &&
+        date.getMonth() === now.getMonth() &&
+        date.getFullYear() === now.getFullYear()
+      );
+    }).length;
+
+    const month = visitors.filter((v) => {
+      const date = new Date(v.created_at);
+      const now = new Date();
+      return (
+        date.getMonth() === now.getMonth() &&
+        date.getFullYear() === now.getFullYear()
+      );
+    }).length;
+
+    const uniquePages = new Set(visitors.map((v) => v.page_url)).size;
+
+    return { total, today, month, uniquePages };
+  }, [visitors]);
+
   if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-950 text-gray-400">
@@ -72,16 +97,15 @@ const Dashboard = () => {
       </div>
     );
 
-  // ✅ Main dashboard view
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 p-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row justify-between items-center mb-8"
+          className="flex flex-col md:flex-row justify-between items-center"
         >
           <div>
             <h1 className="text-3xl font-bold text-sky-400">
@@ -101,16 +125,34 @@ const Dashboard = () => {
           </motion.button>
         </motion.div>
 
-        {/* Visitors Section */}
+        {/* ✅ Stats Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          <StatCard title="Total Visitors" value={stats.total} icon="👥" color="text-sky-400" />
+          <StatCard title="Today’s Visitors" value={stats.today} icon="☀️" color="text-emerald-400" />
+          <StatCard title="This Month" value={stats.month} icon="🗓️" color="text-purple-400" />
+          <StatCard title="Unique Pages" value={stats.uniquePages} icon="🌐" color="text-pink-400" />
+        </motion.div>
+
+        {/* ✅ Visitors Table */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.9 }}
           className="bg-gray-900/70 border border-gray-800 rounded-3xl shadow-xl p-6 overflow-x-auto"
         >
-          <h2 className="text-2xl font-semibold text-sky-400 mb-4">
-            Recent Visitors
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-semibold text-sky-400">
+              Recent Visitors
+            </h2>
+            <span className="text-gray-400 text-sm">
+              Showing {visitors.length} records
+            </span>
+          </div>
 
           {visitors.length === 0 ? (
             <p className="text-gray-400 text-center py-10">
@@ -127,7 +169,7 @@ const Dashboard = () => {
                   <th className="p-3 text-left hidden md:table-cell">
                     Device
                   </th>
-                  <th className="p-3 text-left hidden md:table-cell">
+                  <th className="p-3 text-left hidden lg:table-cell">
                     Page URL
                   </th>
                   <th className="p-3 text-left">Date</th>
@@ -140,13 +182,11 @@ const Dashboard = () => {
                     className="border-b border-gray-800 hover:bg-gray-800/40 transition-all"
                   >
                     <td className="p-3">{index + 1}</td>
-                    <td className="p-3">{v.name}</td>
+                    <td className="p-3 font-medium text-sky-300">{v.name}</td>
                     <td className="p-3">{v.email}</td>
                     <td className="p-3">{v.interest}</td>
-                    <td className="p-3 hidden md:table-cell">
-                      {v.device_type}
-                    </td>
-                    <td className="p-3 hidden md:table-cell truncate max-w-[200px]">
+                    <td className="p-3 hidden md:table-cell">{v.device_type}</td>
+                    <td className="p-3 hidden lg:table-cell truncate max-w-[220px]">
                       {v.page_url}
                     </td>
                     <td className="p-3 text-gray-400">
@@ -161,6 +201,20 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Dashboard;
+// ✅ Reusable StatCard Component
+function StatCard({ title, value, icon, color }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      className="bg-gray-900/70 border border-gray-800 rounded-2xl shadow-lg p-5 flex items-center justify-between"
+    >
+      <div>
+        <p className="text-gray-400 text-sm">{title}</p>
+        <p className={`text-3xl font-bold ${color}`}>{value}</p>
+      </div>
+      <div className="text-4xl opacity-70">{icon}</div>
+    </motion.div>
+  );
+}
