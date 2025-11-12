@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { loginService } from "../services/loginService";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
@@ -30,14 +32,16 @@ const Login = () => {
 
         Swal.fire({
           title: "Welcome Back!",
-          text: `${user.employee?.employeeName || user.userName ||  "User"}, you're logged in successfully.`,
+          text: `${user.employee?.employeeName || user.userName || "User"}, you're logged in successfully.`,
           icon: "success",
           confirmButtonColor: "#2563eb",
           background: "#111827",
           color: "#f9fafb",
-        }).then(() => {
-          navigate("/dashboard");
-        });;
+          willClose: () => {
+            // const from = location.state?.from || "/dashboard";
+            navigate("/dashboard");
+          },
+        })
 
         // navigate("/dashboard");
       } else {
@@ -132,11 +136,10 @@ const Login = () => {
             type="submit"
             disabled={loading}
             whileTap={{ scale: 0.97 }}
-            className={`w-full py-2.5 rounded-md text-white font-semibold tracking-wide shadow-lg transition-all duration-300 ${
-              loading
+            className={`w-full py-2.5 rounded-md text-white font-semibold tracking-wide shadow-lg transition-all duration-300 ${loading
                 ? "bg-blue-600/40 cursor-not-allowed"
                 : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            }`}
+              }`}
           >
             {loading ? "Signing In..." : "Sign In"}
           </motion.button>

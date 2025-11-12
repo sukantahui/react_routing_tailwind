@@ -1,12 +1,11 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from './HomeComponent/Home';
 import Certificate from './certificates/Certificate';
 import Admin from './Admin';
 import Bijoya from './Bijoya';
-// import Dashboard from './Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import NotFound from './NotFound';
-import Login from '../components/login';
+import Login from '../components/Login';
 import Dashboard from '../components/Dashboard';
 
 export default function AppRoutes() {
@@ -14,15 +13,7 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-     
+
       <Route
         path="/dashboard"
         element={
@@ -59,9 +50,6 @@ export default function AppRoutes() {
         }
       />
 
-    
-     
-      
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
