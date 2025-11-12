@@ -7,24 +7,19 @@
 //
 // Features:
 // - Responsive grid layout (Framer Motion animations)
-// - SEO optimization with Helmet & JSON-LD structured data
-// - Accessibility improvements (semantic headings, aria labels)
-// - Reusable design system (Tailwind classes)
-//
-// -----------------------------------------------
-// SEO Implementation:
-// - <Helmet> for meta tags (title, description, canonical, OG)
-// - Twitter card metadata for social sharing
-// - JSON-LD schema describing service offerings
-// - Descriptive headings for screen readers
+// - Conditional Helmet for SEO (only active on /services)
+// - JSON-LD structured data (Service + OfferCatalog + BreadcrumbList)
+// - Accessibility enhancements
+// - Reusable Tailwind-based design
 // ===============================================
 
 import React from "react";
-import { Helmet } from "react-helmet"; // ✅ For SEO and metadata
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import services from "../../data/services.json";
 
-// 🔹 Animation variant for "fade-up" effect
+// 🔹 Animation variant
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i) => ({
@@ -35,10 +30,10 @@ const fadeUp = {
 };
 
 const Services = () => {
-  // -----------------------------------------------
+  const location = useLocation();
+  const isStandalone = location.pathname === "/services"; // ✅ Detect standalone page
+
   // 🧾 JSON-LD Schema for Google Rich Results
-  // Describes the list of services offered by Coder & AccoTax
-  // -----------------------------------------------
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -50,9 +45,11 @@ const Services = () => {
       "logo": "https://codernaccotax.co.in/cnat.ico",
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61561702110617",
-        "https://instagram.com/codernaccotax",
+        "https://www.instagram.com/codernaccotax",
         "https://www.youtube.com/@CodernAccotax"
-      ]
+      ],
+      "areaServed": "IN",
+      "availableLanguage": ["English"]
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -69,63 +66,66 @@ const Services = () => {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codernaccotax.co.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://codernaccotax.co.in/services" }
+    ]
+  };
+
   return (
     <>
       {/* ==============================
-          🧠 SEO & Metadata
+          🧠 Conditional SEO & Metadata
       ============================== */}
-      <Helmet>
-        <title>Services | Coder & AccoTax</title>
-        <meta
-          name="description"
-          content="Explore Coder & AccoTax's full range of technology and financial services — including web development, software training, accounting, and business compliance."
-        />
-        <meta
-          name="keywords"
-          content="services coder accotax, coding services, accounting solutions, taxation help, web development training, business consultancy"
-        />
-        <meta name="author" content="Coder & AccoTax" />
+      {isStandalone && (
+        <Helmet>
+          <title>Services | Coder & AccoTax</title>
+          <meta
+            name="description"
+            content="Explore Coder & AccoTax's range of technology and financial services — web development, accounting, taxation, and business compliance training."
+          />
+          <meta
+            name="keywords"
+            content="coder accotax services, accounting courses, coding institute, taxation consultancy, business compliance, software training"
+          />
+          <meta name="author" content="Coder & AccoTax" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Language" content="en" />
+          <link rel="canonical" href="https://codernaccotax.co.in/services" />
 
-        {/* Canonical Link */}
-        <link rel="canonical" href="https://codernaccotax.co.in/services" />
+          {/* --- Open Graph --- */}
+          <meta property="og:title" content="Our Services | Coder & AccoTax" />
+          <meta
+            property="og:description"
+            content="From coding to compliance — discover how Coder & AccoTax helps students and businesses grow."
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://codernaccotax.co.in/services" />
+          <meta property="og:image" content="https://codernaccotax.co.in/og-services.png" />
+          <meta property="og:image:alt" content="Coder & AccoTax Services Banner - Coding, Accounting, Taxation Training" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:site_name" content="Coder & AccoTax" />
+          <meta property="og:locale" content="en_IN" />
 
-        {/* Open Graph Tags for social platforms */}
-        <meta property="og:title" content="Our Services | Coder & AccoTax" />
-        <meta
-          property="og:description"
-          content="From full-stack development to tax consultancy — discover how Coder & AccoTax helps individuals and businesses grow."
-        />
-        <meta
-          property="og:image"
-          content="https://codernaccotax.co.in/og-services.png"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://codernaccotax.co.in/services" />
-        <meta property="og:type" content="website" />
+          {/* --- Twitter --- */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Our Services | Coder & AccoTax" />
+          <meta
+            name="twitter:description"
+            content="Explore expert-led coding, finance, and compliance services by Coder & AccoTax."
+          />
+          <meta name="twitter:image" content="https://codernaccotax.co.in/og-services.png" />
+          <meta name="twitter:image:alt" content="Coder & AccoTax Services Banner - Coding, Accounting, Taxation Training" />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Our Services | Coder & AccoTax" />
-        <meta
-          name="twitter:description"
-          content="Explore expert-led coding, finance, and compliance services by Coder & AccoTax."
-        />
-        <meta
-          name="twitter:image"
-          content="https://codernaccotax.co.in/og-services.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Coder & AccoTax Services - Web Development, Accounting, Taxation"
-        />
-
-        {/* JSON-LD Schema (Rich Results) */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
-      </Helmet>
+          {/* --- Structured Data --- */}
+          <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+          <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        </Helmet>
+      )}
 
       {/* ===============================================
           SERVICES SECTION
@@ -134,16 +134,14 @@ const Services = () => {
         id="services"
         className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
       >
-        {/* Decorative Background Glow */}
+        {/* Decorative Background */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
           aria-hidden="true"
         ></div>
 
         <div className="relative max-w-6xl mx-auto px-6">
-          {/* =====================
-              SECTION HEADING
-          ====================== */}
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -167,9 +165,7 @@ const Services = () => {
             tailored to empower students, entrepreneurs, and businesses.
           </motion.p>
 
-          {/* =====================
-              SERVICE GRID
-          ====================== */}
+          {/* Service Cards Grid */}
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <motion.article
@@ -184,7 +180,7 @@ const Services = () => {
                 itemScope
                 itemType="https://schema.org/Service"
               >
-                {/* Service Icon */}
+                {/* Icon */}
                 <div
                   className="relative inline-flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-gradient-to-r from-sky-500/30 to-indigo-500/30 text-sky-300 shadow-inner shadow-sky-900/50 group-hover:from-sky-500/50 group-hover:to-indigo-500/50 transition-all duration-500"
                   aria-hidden="true"
@@ -193,7 +189,7 @@ const Services = () => {
                   <div className="absolute inset-0 rounded-full border border-sky-400/40 group-hover:border-sky-400/70 group-hover:shadow-[0_0_20px_rgba(56,189,248,0.5)] transition-all duration-500"></div>
                 </div>
 
-                {/* Service Text */}
+                {/* Text */}
                 <h2
                   className="text-xl font-semibold text-sky-300 mb-3"
                   itemProp="name"
@@ -207,7 +203,7 @@ const Services = () => {
                   {service.description}
                 </p>
 
-                {/* Decorative Overlay */}
+                {/* Overlay */}
                 <div
                   className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   aria-hidden="true"

@@ -30,14 +30,16 @@ const Login = () => {
 
         Swal.fire({
           title: "Welcome Back!",
-          text: `${user.name || "User"}, you're logged in successfully.`,
+          text: `${user.employee?.employeeName || user.userName ||  "User"}, you're logged in successfully.`,
           icon: "success",
           confirmButtonColor: "#2563eb",
           background: "#111827",
           color: "#f9fafb",
-        });
+        }).then(() => {
+          navigate("/dashboard");
+        });;
 
-        navigate("/dashboard");
+        // navigate("/dashboard");
       } else {
         setError(res?.message || "Invalid login credentials.");
       }
@@ -94,7 +96,7 @@ const Login = () => {
             <input
               id="email"
               name="email"
-              type="email"
+              type="text"
               autoComplete="email"
               placeholder="you@example.com"
               value={formData.email}

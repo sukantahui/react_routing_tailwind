@@ -2,23 +2,22 @@
 // Teachers.jsx
 // -----------------------------------------------
 // Purpose:
-//   Showcases instructor profiles with photos, bios,
-//   and contact details, featuring Framer Motion animations.
-//
+//   Showcase instructor profiles with photos, bios, and contact details.
 // Features:
-// - Interactive teacher cards (expandable bios)
-// - Framer Motion animations for smooth transitions
-// - Dynamic data rendering from teachers.json
-// - SEO optimized with Helmet & JSON-LD schema
-// - Accessibility enhancements and semantic HTML
-// -----------------------------------------------
+// - Interactive cards (expandable bios)
+// - Framer Motion animations
+// - Conditional Helmet for SEO (only on /teachers)
+// - JSON-LD structured data for rich results
+// - Accessibility & responsive design
+// ===============================================
 
 import React, { useState } from "react";
-import { Helmet } from "react-helmet"; // ✅ For SEO and metadata
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import teachers from "../../data/teachers.json";
 
-// 🔹 Image imports (local mapping)
+// 🔹 Local image imports
 import teacher1 from "../../assets/teacher1.jpg";
 import teacher2 from "../../assets/teacher2.jpg";
 import teacher3 from "../../assets/teacher3.jpg";
@@ -26,7 +25,7 @@ import teacher4 from "../../assets/teacher4.jpg";
 import teacher5 from "../../assets/teacher5.jpg";
 import teacher6 from "../../assets/teacher6.jpg";
 
-// 🔹 Image map for dynamic rendering
+// 🔹 Image mapping
 const images = {
   "teacher1.jpg": teacher1,
   "teacher2.jpg": teacher2,
@@ -37,10 +36,10 @@ const images = {
 };
 
 const Teachers = () => {
-  // -----------------------------------------------
-  // 🧾 JSON-LD Schema for Google (Rich Results)
-  // Describes each teacher as a Person with job title and description.
-  // -----------------------------------------------
+  const location = useLocation();
+  const isStandalone = location.pathname === "/teachers"; // ✅ detect page mode
+
+  // 🧾 JSON-LD Schema (Instructor Listing)
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -62,62 +61,74 @@ const Teachers = () => {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codernaccotax.co.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Teachers", "item": "https://codernaccotax.co.in/teachers" }
+    ]
+  };
+
   return (
     <>
       {/* ==============================
-          🧠 SEO & Metadata
+          🧠 Conditional SEO (Helmet)
       ============================== */}
-      <Helmet>
-        <title>Our Instructors | Coder & AccoTax</title>
-        <meta
-          name="description"
-          content="Meet the expert instructors at Coder & AccoTax — experienced professionals in coding, finance, and data analysis, dedicated to helping you achieve your goals."
-        />
-        <meta
-          name="keywords"
-          content="coder accotax teachers, coding mentors, programming instructors, accounting tutors, web development faculty"
-        />
-        <meta name="author" content="Coder & AccoTax" />
+      {isStandalone && (
+        <Helmet>
+          <title>Our Instructors | Coder & AccoTax</title>
+          <meta
+            name="description"
+            content="Meet the expert instructors at Coder & AccoTax — experienced professionals in coding, finance, and data analysis, dedicated to helping you achieve your goals."
+          />
+          <meta
+            name="keywords"
+            content="coder accotax teachers, coding mentors, programming instructors, accounting tutors, web development faculty"
+          />
+          <meta name="author" content="Coder & AccoTax" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Language" content="en" />
+          <link rel="canonical" href="https://codernaccotax.co.in/teachers" />
 
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://codernaccotax.co.in/teachers" />
+          {/* Open Graph */}
+          <meta property="og:title" content="Our Instructors | Coder & AccoTax" />
+          <meta
+            property="og:description"
+            content="Learn from certified and experienced educators at Coder & AccoTax — leaders in coding, web development, and finance education."
+          />
+          <meta
+            property="og:image"
+            content="https://codernaccotax.co.in/og-teachers.png"
+          />
+          <meta property="og:url" content="https://codernaccotax.co.in/teachers" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content="Team of instructors at Coder & AccoTax" />
+          <meta property="og:site_name" content="Coder & AccoTax" />
 
-        {/* Open Graph (Facebook, WhatsApp, LinkedIn) */}
-        <meta property="og:title" content="Our Instructors | Coder & AccoTax" />
-        <meta
-          property="og:description"
-          content="Learn from certified and experienced educators at Coder & AccoTax — leaders in coding, web development, and finance education."
-        />
-        <meta
-          property="og:image"
-          content="https://codernaccotax.co.in/og-teachers.png"
-        />
-        <meta property="og:url" content="https://codernaccotax.co.in/teachers" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Our Instructors | Coder & AccoTax" />
+          <meta
+            name="twitter:description"
+            content="Meet our professional teaching team — Coder & AccoTax instructors guiding you toward a successful career."
+          />
+          <meta
+            name="twitter:image"
+            content="https://codernaccotax.co.in/og-teachers.png"
+          />
+          <meta
+            name="twitter:image:alt"
+            content="Team of instructors at Coder & AccoTax"
+          />
 
-        {/* Twitter Metadata */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Our Instructors | Coder & AccoTax" />
-        <meta
-          name="twitter:description"
-          content="Meet our professional teaching team — Coder & AccoTax instructors guiding you toward a successful career."
-        />
-        <meta
-          name="twitter:image"
-          content="https://codernaccotax.co.in/og-teachers.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Team of Coder & AccoTax instructors"
-        />
-
-        {/* JSON-LD Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
-      </Helmet>
+          {/* Structured Data */}
+          <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
+          <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        </Helmet>
+      )}
 
       {/* ===============================================
           TEACHERS SECTION
@@ -126,16 +137,14 @@ const Teachers = () => {
         id="teachers"
         className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
       >
-        {/* 🔹 Soft gradient background */}
+        {/* Background glow */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
           aria-hidden="true"
         ></div>
 
         <div className="relative max-w-6xl mx-auto px-6">
-          {/* =====================
-              SECTION HEADING
-          ====================== */}
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -158,9 +167,7 @@ const Teachers = () => {
             knowledge with passion for teaching.
           </motion.p>
 
-          {/* =====================
-              TEACHER GRID
-          ====================== */}
+          {/* Instructor Grid */}
           <div
             className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
             role="list"
@@ -179,10 +186,6 @@ const Teachers = () => {
 // ===============================================
 // TeacherCard Component
 // -----------------------------------------------
-// Displays individual instructor cards with image,
-// name, title, email, and expandable biography.
-// Includes animated transitions on hover and expansion.
-// ===============================================
 const TeacherCard = ({ teacher, index }) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -197,7 +200,7 @@ const TeacherCard = ({ teacher, index }) => {
       itemScope
       itemType="https://schema.org/Person"
     >
-      {/* Instructor Photo */}
+      {/* Image */}
       <div className="absolute -top-16 left-1/2 -translate-x-1/2">
         <motion.div
           whileHover={{ scale: 1.08 }}
@@ -213,7 +216,7 @@ const TeacherCard = ({ teacher, index }) => {
         </motion.div>
       </div>
 
-      {/* Card Content */}
+      {/* Content */}
       <div className="text-center mt-4 space-y-2">
         <h2 className="text-xl font-semibold text-sky-300" itemProp="name">
           {teacher.name}
@@ -235,7 +238,7 @@ const TeacherCard = ({ teacher, index }) => {
         )}
       </div>
 
-      {/* Bio Section (expandable) */}
+      {/* Expandable Bio */}
       <motion.div
         initial={false}
         animate={{ height: expanded ? "auto" : "4rem" }}
@@ -255,23 +258,15 @@ const TeacherCard = ({ teacher, index }) => {
         )}
       </motion.div>
 
-      {/* Toggle Button */}
       {teacher.bio.length > 100 && (
         <button
           onClick={() => setExpanded(!expanded)}
           className="block mx-auto text-sky-400 hover:text-sky-300 text-sm mt-2 underline underline-offset-4 transition-colors duration-300"
           aria-expanded={expanded}
-          aria-controls={`bio-${teacher.name}`}
         >
           {expanded ? "Show Less" : "Read More"}
         </button>
       )}
-
-      {/* Decorative overlay */}
-      <div
-        className="absolute inset-0 rounded-3xl bg-gradient-to-t from-sky-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        aria-hidden="true"
-      ></div>
     </motion.article>
   );
 };

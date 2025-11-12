@@ -5,12 +5,12 @@
 // respective courses. Includes search, expand/collapse,
 // and WhatsApp inquiry integration.
 // -----------------------------------------------
-// SEO Optimized: Meta tags, JSON-LD schema, accessibility
-// and semantic headings included.
+// SEO Optimized: Conditional Helmet + JSON-LD schema
 // ===============================================
 
 import React, { useEffect, useRef, useState } from "react";
-import { Helmet } from "react-helmet"; // ✅ SEO meta tag management
+import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import coursesData from "../../data/courses.json";
 
@@ -24,7 +24,6 @@ import sql from "../../assets/course-images/sql.svg";
 import mysql from "../../assets/course-images/mysql.svg";
 import databaselabs from "../../assets/course-images/database-labs.svg";
 import databaseServer from "../../assets/course-images/databaseServer.svg";
-
 import defaultImg from "../../assets/course-images/default-logo.svg";
 import webDevImg from "../../assets/group-images/webdev.logo.svg";
 import codeImg from "../../assets/group-images/code.logo.svg";
@@ -36,7 +35,6 @@ import accountsImg from "../../assets/group-images/accounts.logo.svg";
 import dataanalysisImg from "../../assets/group-images/dataanalysis.logo.svg";
 import studentImg from "../../assets/group-images/student.logo.svg";
 
-// 🔹 Image Mapping for dynamic access
 const imageMap = {
   javaImg,
   reactImg,
@@ -60,27 +58,22 @@ const imageMap = {
 };
 
 const Courses = () => {
-  // -----------------------------------------------
-  // 🧠 State Management
-  // -----------------------------------------------
   const [expandedGroups, setExpandedGroups] = useState({});
   const [courseDescExpanded, setCourseDescExpanded] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const whatsappNumber = "919432456083";
   const courseRefs = useRef({});
+  const location = useLocation();
+  const isStandalone = location.pathname === "/courses"; // ✅ conditional helmet
 
   // -----------------------------------------------
-  // 🔁 Toggle course groups open/closed
+  // Toggle logic and scrolling
   // -----------------------------------------------
   const toggleGroup = (category) => {
-    setExpandedGroups((prev) => {
-      const isSameGroup = prev[category];
-      return isSameGroup ? {} : { [category]: true };
-    });
+    setExpandedGroups((prev) => (prev[category] ? {} : { [category]: true }));
     setCourseDescExpanded({});
   };
 
-  // Toggle individual course description expansion
   const toggleCourseDescription = (courseID) => {
     setCourseDescExpanded((prev) => ({
       ...prev,
@@ -88,17 +81,6 @@ const Courses = () => {
     }));
   };
 
-  // -----------------------------------------------
-  // 📱 Pre-fill WhatsApp message template
-  // -----------------------------------------------
-  const encodeMessage = (title) =>
-    encodeURIComponent(
-      `Hi, I'm interested in the "${title}" course. Could you please share duration, fee details, and admission info?`
-    );
-
-  // -----------------------------------------------
-  // 🔄 Auto-scroll to expanded course section
-  // -----------------------------------------------
   useEffect(() => {
     const expandedCategory = Object.keys(expandedGroups)[0];
     if (expandedCategory) {
@@ -107,38 +89,63 @@ const Courses = () => {
     }
   }, [expandedGroups]);
 
-  // -----------------------------------------------
-  // 🔍 Filter courses by search term
-  // -----------------------------------------------
+  // Filter and encode WhatsApp message
   const filteredCourses = (group) =>
     group.courses.filter(
-      (course) =>
-        course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.more.toLowerCase().includes(searchTerm.toLowerCase())
+      (c) =>
+        c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        c.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        c.more.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  const encodeMessage = (title) =>
+    encodeURIComponent(
+      `Hi, I'm interested in the "${title}" course. Could you please share duration, fee details, and admission info?`
     );
 
   // -----------------------------------------------
-  // 🧾 Schema Markup for Google (JSON-LD)
-  // Helps Google understand course structure.
+  // 🧾 Schema Markup
   // -----------------------------------------------
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    name: "Coder & AccoTax Courses",
+    description:
+      "A curated list of industry-oriented coding and accounting courses by Coder & AccoTax.",
     itemListElement: coursesData.flatMap((group) =>
       group.courses.map((course, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name: course.title,
-        description: course.desc,
-        url: `https://codernaccotax.co.in/courses#${course.courseID}`,
-        provider: {
-          "@type": "Organization",
-          name: "Coder & AccoTax",
-          url: "https://codernaccotax.co.in",
+        item: {
+          "@type": "Course",
+          name: course.title,
+          description: course.desc,
+          provider: {
+            "@type": "EducationalOrganization",
+            name: "Coder & AccoTax",
+            url: "https://codernaccotax.co.in",
+          },
         },
       }))
     ),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://codernaccotax.co.in/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Courses",
+        item: "https://codernaccotax.co.in/courses",
+      },
+    ],
   };
 
   // -----------------------------------------------
@@ -146,84 +153,65 @@ const Courses = () => {
   // -----------------------------------------------
   return (
     <>
-      {/* 🧠 SEO Helmet Section */}
-      <Helmet>
-        {/* 🔹 Basic Meta Tags */}
-        <title>Courses | Coder & AccoTax</title>
-        <meta
-          name="description"
-          content="Explore practical, industry-focused courses in Web Development, Python, Java, Accounting, and Data Analysis. Learn from expert instructors at Coder & AccoTax."
-        />
-        <meta
-          name="keywords"
-          content="coding courses, full stack, python, java, accounting, taxation, react, web development, online training"
-        />
-        <meta name="author" content="Coder & AccoTax" />
+      {/* ✅ Conditional Helmet: only active on /courses route */}
+      {isStandalone && (
+        <Helmet>
+          <title>Courses | Coder & AccoTax</title>
+          <meta
+            name="description"
+            content="Explore practical, industry-focused courses in Web Development, Python, Java, Accounting, and Data Analysis. Learn from expert instructors at Coder & AccoTax."
+          />
+          <meta
+            name="keywords"
+            content="coding courses, full stack, python, java, accounting, taxation, react, web development, online training"
+          />
+          <meta name="author" content="Coder & AccoTax" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Language" content="en" />
+          <link rel="canonical" href="https://codernaccotax.co.in/courses" />
 
-        {/* 🔹 Canonical URL */}
-        <link rel="canonical" href="https://codernaccotax.co.in/courses" />
+          {/* Open Graph */}
+          <meta property="og:title" content="Courses | Coder & AccoTax" />
+          <meta
+            property="og:description"
+            content="Hands-on courses to make you industry-ready. Learn web development, accounting, and data analysis from experts."
+          />
+          <meta
+            property="og:image"
+            content="https://codernaccotax.co.in/og-courses.png"
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://codernaccotax.co.in/courses" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:locale" content="en_IN" />
+          <meta property="og:site_name" content="Coder & AccoTax" />
 
-        {/* 🔹 Open Graph (Facebook, LinkedIn) */}
-        <meta property="og:title" content="Courses | Coder & AccoTax" />
-        <meta
-          property="og:description"
-          content="Hands-on courses to make you industry-ready. Learn web development, accounting, and data analysis from experts."
-        />
-        <meta
-          property="og:image"
-          content="https://codernaccotax.co.in/og-courses.png"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://codernaccotax.co.in/courses" />
-        <meta property="og:type" content="website" />
-        <meta property="fb:app_id" content="123456789012345" /> {/* Optional */}
+          {/* Twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Courses | Coder & AccoTax" />
+          <meta
+            name="twitter:description"
+            content="Explore hands-on courses in coding, accounting, and data analysis. Learn job-ready skills with Coder & AccoTax."
+          />
+          <meta
+            name="twitter:image"
+            content="https://codernaccotax.co.in/og-courses.png"
+          />
+          <meta
+            name="twitter:image:alt"
+            content="Coder & AccoTax Courses Banner"
+          />
 
-        {/* 🔹 Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Courses | Coder & AccoTax" />
-        <meta
-          name="twitter:description"
-          content="Explore hands-on courses in coding, accounting, and data analysis. Learn job-ready skills with Coder & AccoTax."
-        />
-        <meta
-          name="twitter:image"
-          content="https://codernaccotax.co.in/og-courses.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Coder & AccoTax Courses Banner"
-        />
-
-        {/* 🔹 Structured Data for Google */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            name: "Coder & AccoTax Courses",
-            description:
-              "A curated list of industry-oriented coding and accounting courses by Coder & AccoTax.",
-            itemListElement: coursesData.flatMap((group) =>
-              group.courses.map((course, index) => ({
-                "@type": "ListItem",
-                position: index + 1,
-                name: course.title,
-                description: course.desc,
-                url: `https://codernaccotax.co.in/courses#${course.courseID}`,
-                provider: {
-                  "@type": "Organization",
-                  name: "Coder & AccoTax",
-                  url: "https://codernaccotax.co.in",
-                },
-              }))
-            ),
-          })}
-        </script>
-      </Helmet>
-
-
-
+          {/* Structured Data */}
+          <script type="application/ld+json">
+            {JSON.stringify(schemaMarkup)}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbSchema)}
+          </script>
+        </Helmet>
+      )}
 
       {/* =========================
           COURSES SECTION
@@ -232,7 +220,7 @@ const Courses = () => {
         id="courses"
         className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
       >
-        {/* ✨ Subtle Animated Background */}
+        {/* Animated Background */}
         <motion.div
           animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -240,9 +228,6 @@ const Courses = () => {
         ></motion.div>
 
         <div className="relative max-w-6xl mx-auto px-6">
-          {/* =====================
-              HEADER / TITLE
-          ====================== */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -258,7 +243,7 @@ const Courses = () => {
             courses designed to make you <strong>industry ready</strong>.
           </p>
 
-          {/* 🔍 Search Bar */}
+          {/* Search Bar */}
           <div className="flex justify-center mb-10">
             <input
               type="text"
@@ -270,15 +255,11 @@ const Courses = () => {
             />
           </div>
 
-          {/* =====================
-              COURSE GROUPS
-          ====================== */}
+          {/* Course Groups */}
           <div className="flex flex-wrap gap-8 justify-center">
             {coursesData.map((group) => {
               const isExpanded = expandedGroups[group.category];
               const visibleCourses = filteredCourses(group);
-
-              // Skip group if no results after filtering
               if (visibleCourses.length === 0 && searchTerm) return null;
 
               return (
@@ -290,14 +271,12 @@ const Courses = () => {
                   viewport={{ once: true }}
                   className={`${isExpanded ? "w-full" : "w-full md:w-[48%]"} transition-all duration-700`}
                 >
-                  {/* Group Card */}
                   <div
                     onClick={() => toggleGroup(group.category)}
                     className="relative bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-md hover:shadow-sky-500/30 overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1 group"
                   >
                     <div className="p-6 md:p-8">
-                      {/* Group Header */}
-                      <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+                      <div className="flex flex-col md:flex-row items-center gap-4">
                         <img
                           loading="lazy"
                           src={imageMap[group.groupImage] || imageMap.defaultImg}
@@ -311,13 +290,13 @@ const Courses = () => {
                               ({group.courses.length})
                             </span>
                           </h2>
-                          <p className="text-gray-400 text-sm leading-relaxed">
+                          <p className="text-gray-400 text-sm">
                             {group.groupDesc}
                           </p>
                         </div>
                       </div>
 
-                      {/* Expandable Course Grid */}
+                      {/* Expandable Courses */}
                       <AnimatePresence>
                         {isExpanded && (
                           <motion.div
@@ -328,14 +307,13 @@ const Courses = () => {
                             className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            {/* Render all visible courses */}
                             {visibleCourses.map((course, index) => (
                               <motion.div
                                 key={course.courseID}
                                 ref={(el) =>
-                                (courseRefs.current[
-                                  `${group.category}_${index}`
-                                ] = el)
+                                  (courseRefs.current[
+                                    `${group.category}_${index}`
+                                  ] = el)
                                 }
                                 whileHover={{ scale: 1.03 }}
                                 className="bg-gray-900/60 border border-gray-700/50 rounded-xl p-4 hover:border-sky-400/40 hover:shadow-[0_0_20px_rgba(56,189,248,0.3)] transition-all duration-500"
@@ -343,10 +321,7 @@ const Courses = () => {
                                 <div className="flex items-center gap-4">
                                   <img
                                     loading="lazy"
-                                    src={
-                                      imageMap[course.image] ||
-                                      imageMap.defaultImg
-                                    }
+                                    src={imageMap[course.image] || imageMap.defaultImg}
                                     alt={`Course: ${course.title}`}
                                     className="h-16 w-16 object-contain"
                                   />
@@ -355,12 +330,13 @@ const Courses = () => {
                                       {course.title}
                                       {course.badge && (
                                         <span
-                                          className={`text-[0.7rem] px-2 py-0.5 rounded-full ${course.badge === "New"
-                                            ? "bg-green-600/40 text-green-300"
-                                            : course.badge === "Popular"
+                                          className={`text-[0.7rem] px-2 py-0.5 rounded-full ${
+                                            course.badge === "New"
+                                              ? "bg-green-600/40 text-green-300"
+                                              : course.badge === "Popular"
                                               ? "bg-amber-600/40 text-amber-300"
                                               : "bg-purple-600/40 text-purple-300"
-                                            }`}
+                                          }`}
                                         >
                                           {course.badge}
                                         </span>
@@ -369,121 +345,29 @@ const Courses = () => {
                                     <p className="text-gray-300 text-xs">
                                       {course.desc}
                                     </p>
-
-                                    {/* Ratings & Info */}
-                                    <div className="flex flex-wrap items-center gap-3 mt-1 text-xs text-gray-400">
-                                      {course.rating && (
-                                        <span className="text-amber-400">
-                                          ⭐ {course.rating} (
-                                          {course.studentsEnrolled || 0}+)
-                                        </span>
-                                      )}
-                                      {course.duration && (
-                                        <span className="text-sky-300">
-                                          ⏳ {course.duration}
-                                        </span>
-                                      )}
-                                      {course.level && (
-                                        <span className="text-gray-300">
-                                          🎓 {course.level}
-                                        </span>
-                                      )}
-                                      {course.mode && (
-                                        <span className="text-green-300">
-                                          💻 {course.mode}
-                                        </span>
-                                      )}
-                                    </div>
-
-                                    {/* Skills */}
-                                    {course.skills && (
-                                      <div className="flex flex-wrap gap-2 mt-2">
-                                        {course.skills.map((skill) => (
-                                          <span
-                                            key={skill}
-                                            className="text-[0.7rem] bg-sky-600/20 text-sky-300 px-2 py-1 rounded-full"
-                                          >
-                                            {skill}
-                                          </span>
-                                        ))}
-                                      </div>
-                                    )}
-
-                                    {/* Extended Description */}
-                                    {courseDescExpanded[course.courseID] && (
-                                      <p className="text-gray-300 text-xs mt-2 leading-relaxed">
-                                        {course.more}
-                                      </p>
-                                    )}
                                   </div>
                                 </div>
-
-                                {/* Instructor & Fee */}
-                                <div className="flex justify-between text-xs text-gray-400 mt-3">
-                                  {course.instructor && (
-                                    <span>👩‍🏫 {course.instructor}</span>
-                                  )}
-                                  {course.fee && (
-                                    <span className="text-green-400 font-semibold">
-                                      💰 {course.fee}
-                                    </span>
-                                  )}
-                                </div>
-
-                                {/* Merit Discount */}
-                                {course.meritDiscount?.available && (
-                                  <div className="mt-3 text-xs bg-sky-900/30 border border-sky-600/30 rounded-lg p-2 text-sky-300">
-                                    <p className="font-semibold flex items-center gap-2">
-                                      🎓 Merit Discount Available
-                                    </p>
-                                    <p>
-                                      Up to{" "}
-                                      <span className="text-sky-200 font-semibold">
-                                        {
-                                          course.meritDiscount
-                                            .maxDiscountPercent
-                                        }
-                                        %
-                                      </span>{" "}
-                                      off (Currently{" "}
-                                      <span className="text-green-300 font-semibold">
-                                        {
-                                          course.meritDiscount
-                                            .actualDiscountPercent
-                                        }
-                                        %
-                                      </span>
-                                      )
-                                    </p>
-                                    <p className="text-gray-400 mt-1 italic">
-                                      {course.meritDiscount.criteria}
-                                    </p>
-                                  </div>
-                                )}
 
                                 {/* Buttons */}
                                 <div className="flex flex-col sm:flex-row justify-center gap-2 mt-4">
-                                  {/* Toggle Description */}
                                   <button
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       toggleCourseDescription(course.courseID);
                                     }}
-                                    className={`px-3 py-1 text-xs rounded-full transition-all duration-300 ${courseDescExpanded[course.courseID]
-                                      ? "bg-red-600 text-white hover:bg-red-700"
-                                      : "bg-sky-600 text-white hover:bg-sky-700"
-                                      }`}
+                                    className={`px-3 py-1 text-xs rounded-full ${
+                                      courseDescExpanded[course.courseID]
+                                        ? "bg-red-600 text-white"
+                                        : "bg-sky-600 text-white"
+                                    } transition-all duration-300`}
                                   >
                                     {courseDescExpanded[course.courseID]
                                       ? "⬆ Hide Details"
                                       : "⬇ Show Details"}
                                   </button>
 
-                                  {/* WhatsApp Button */}
                                   <a
-                                    href={`https://wa.me/${whatsappNumber}?text=${encodeMessage(
-                                      course.title
-                                    )}`}
+                                    href={`https://wa.me/${whatsappNumber}?text=${encodeMessage(course.title)}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-green-600 hover:bg-green-500 text-white px-3 py-1 rounded-full text-xs transition-all duration-300 flex items-center justify-center gap-1"
@@ -498,7 +382,6 @@ const Courses = () => {
                         )}
                       </AnimatePresence>
 
-                      {/* ↓ Expand Hint */}
                       {!isExpanded && (
                         <div className="text-right mt-4">
                           <span className="text-sky-400 text-sm italic">

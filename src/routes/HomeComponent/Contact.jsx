@@ -2,20 +2,17 @@
 // Contact.jsx
 // -----------------------------------------------
 // Contact section for Coder & AccoTax website.
-// - Provides WhatsApp CTA, email addresses, social links,
-//   address block, and an embedded Google Map.
-// - SEO & Social meta tags included via react-helmet.
-// - JSON-LD structured data included for better search engine
-//   understanding (ContactPage + Organization + ContactPoint).
-// - Accessibility considerations: descriptive alt text, iframe title,
-//   aria-friendly link text, lazy-loading for heavy resources.
-// - Added: Visitor Inquiry Form with API submission
+// - Provides WhatsApp CTA, email, social links, map, and inquiry form
+// - Conditional SEO Helmet: applies only on standalone /contact route
+// - JSON-LD structured data for ContactPage + Organization
+// - Accessible, mobile-friendly, performance-optimized
 // -----------------------------------------------
 
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
 import emailImg from "../../assets/email.logo.svg";
 import { visitorService } from "../../services/visitorService";
 
@@ -23,6 +20,9 @@ const Contact = () => {
   // -------------------------
   // Configuration / Constants
   // -------------------------
+  const location = useLocation();
+  const isStandalone = location.pathname === "/contact";
+
   const whatsappNumber = "919432456083";
   const message = encodeURIComponent(
     "Hi, I want to know about your courses and fees."
@@ -36,6 +36,9 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     url: pageUrl,
+    name: "Contact Coder & AccoTax",
+    description:
+      "Official contact page for Coder & AccoTax – learn web development, accounting, and data analysis.",
     mainEntity: {
       "@type": "Organization",
       name: "Coder & AccoTax",
@@ -43,14 +46,14 @@ const Contact = () => {
       logo: "https://codernaccotax.co.in/cnat.ico",
       sameAs: [
         "https://www.facebook.com/profile.php?id=61561702110617",
-        "https://instagram.com/codernaccotax",
+        "https://www.instagram.com/codernaccotax",
         "https://www.youtube.com/@CodernAccotax",
       ],
       contactPoint: [
         {
           "@type": "ContactPoint",
           telephone: "+91-9432456083",
-          contactType: "customer service",
+          contactType: "Customer Service",
           areaServed: "IN",
           availableLanguage: ["English"],
         },
@@ -74,7 +77,7 @@ const Contact = () => {
     email: "",
     interest: "",
     message: "",
-    extra_field: "", // ✅ honeypot field
+    extra_field: "", // Honeypot field
   });
   const [loading, setLoading] = useState(false);
 
@@ -120,28 +123,64 @@ const Contact = () => {
       {/* =========================
           SEO / Social Meta (Helmet)
       ========================== */}
-      <Helmet>
-        <title>Contact | Coder & AccoTax</title>
-        <meta
-          name="description"
-          content="Contact Coder & AccoTax for course enquiries, fees, admissions, and support. Message us on WhatsApp, email, or visit our Kolkata institute."
-        />
-        <meta
-          name="keywords"
-          content="contact coder accotax, coder accotax phone, coder accotax email, coding institute contact, accounting training contact"
-        />
-        <meta name="author" content="Coder & AccoTax" />
-        <link rel="canonical" href={pageUrl} />
-        <meta property="og:title" content="Contact | Coder & AccoTax" />
-        <meta property="og:image" content={ogImage} />
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </Helmet>
+      {isStandalone && (
+        <Helmet>
+          <title>Contact | Coder & AccoTax</title>
+          <meta
+            name="description"
+            content="Contact Coder & AccoTax for course enquiries, fees, admissions, and support. Message us on WhatsApp, email, or visit our Kolkata institute."
+          />
+          <meta
+            name="keywords"
+            content="contact coder accotax, coder accotax phone, coder accotax email, coding institute contact, accounting training contact"
+          />
+          <meta name="author" content="Coder & AccoTax" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Language" content="en" />
+          <link rel="canonical" href={pageUrl} />
+
+          {/* --- Open Graph (Facebook / LinkedIn) --- */}
+          <meta property="og:title" content="Contact | Coder & AccoTax" />
+          <meta
+            property="og:description"
+            content="Reach Coder & AccoTax for admissions, course details, or support. Chat on WhatsApp, email, or visit our Kolkata center."
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={pageUrl} />
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:site_name" content="Coder & AccoTax" />
+          <meta property="og:locale" content="en_IN" />
+
+          {/* --- Twitter Card --- */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content="Contact | Coder & AccoTax"
+          />
+          <meta
+            name="twitter:description"
+            content="Get in touch with Coder & AccoTax. Ask about coding, accounting, and data analysis courses."
+          />
+          <meta name="twitter:image" content={ogImage} />
+          <meta
+            name="twitter:image:alt"
+            content="Coder & AccoTax contact banner"
+          />
+
+          {/* --- Structured Data --- */}
+          <script type="application/ld+json">
+            {JSON.stringify(jsonLd)}
+          </script>
+        </Helmet>
+      )}
 
       {/* =========================
           CONTACT SECTION
       ========================== */}
       <section className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden">
-        {/* Decorative soft background glow */}
+        {/* Decorative Background */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
           aria-hidden="true"
@@ -272,10 +311,7 @@ const Contact = () => {
             </motion.div>
           </div>
 
-
-          {/* ===========================
-          VISITOR INQUIRY FORM (Pro Edition)
-          ============================ */}
+          {/* Visitor Inquiry Form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -283,10 +319,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mt-20 relative max-w-3xl mx-auto bg-gray-900/60 backdrop-blur-2xl border border-gray-700/50 rounded-3xl shadow-xl shadow-sky-800/20 overflow-hidden"
           >
-            {/* Decorative Gradient Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-sky-800/10 via-gray-900/40 to-purple-900/10 pointer-events-none" />
             <div className="relative p-10">
-              {/* Heading */}
               <h2 className="text-3xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-sky-400 to-cyan-300 mb-2">
                 Share Your Interest
               </h2>
@@ -295,7 +329,6 @@ const Contact = () => {
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name */}
                 <div className="relative">
                   <input
                     type="text"
@@ -315,7 +348,6 @@ const Contact = () => {
                   </label>
                 </div>
 
-                {/* Email */}
                 <div className="relative">
                   <input
                     type="email"
@@ -335,8 +367,6 @@ const Contact = () => {
                   </label>
                 </div>
 
-                
-                {/* Interest (Dark Mode Select) */}
                 <div className="relative">
                   <select
                     name="interest"
@@ -345,9 +375,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full appearance-none bg-gray-900 text-gray-100 border border-gray-700 rounded-xl px-3 pt-5 pb-2 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all cursor-pointer"
-                    style={{
-                      colorScheme: "dark", // 🧠 Ensures dropdown & scrollbars stay dark
-                    }}
+                    style={{ colorScheme: "dark" }}
                   >
                     <option value="">Select a course of interest</option>
                     <option value="Web Development">Web Development</option>
@@ -357,12 +385,9 @@ const Contact = () => {
                     <option value="Accounting & Taxation">Accounting & Taxation</option>
                     <option value="Other">Other</option>
                   </select>
-
-                  {/* Dropdown Arrow Icon */}
                   <i className="bi bi-chevron-down absolute right-4 top-5 text-gray-400 pointer-events-none" />
                 </div>
 
-                {/* Message */}
                 <div className="relative">
                   <textarea
                     name="message"
@@ -380,35 +405,33 @@ const Contact = () => {
                     Message (Optional)
                   </label>
                 </div>
-                {/*this is extra field*/}
-                <div>
-                  <input
-                    type="text"
-                    name="extra_field"
-                    value={formData.extra_field || ""}
-                    onChange={handleChange}
-                    style={{ display: "none" }}
-                    tabIndex="-1"
-                    autoComplete="off"
-                  />
-                </div>
 
-                {/* Submit Button */}
+                {/* Hidden honeypot field */}
+                <input
+                  type="text"
+                  name="extra_field"
+                  value={formData.extra_field || ""}
+                  onChange={handleChange}
+                  style={{ display: "none" }}
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+
                 <motion.button
                   type="submit"
                   disabled={loading}
                   whileTap={{ scale: 0.97 }}
-                  className={`w-full py-3 mt-4 rounded-xl font-semibold tracking-wide text-white shadow-lg transition-all duration-300 ${loading
-                    ? "bg-sky-700/50 cursor-not-allowed"
-                    : "bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 shadow-sky-700/30"
-                    }`}
+                  className={`w-full py-3 mt-4 rounded-xl font-semibold tracking-wide text-white shadow-lg transition-all duration-300 ${
+                    loading
+                      ? "bg-sky-700/50 cursor-not-allowed"
+                      : "bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 shadow-sky-700/30"
+                  }`}
                 >
                   {loading ? "Submitting..." : "🚀 Send Message"}
                 </motion.button>
               </form>
             </div>
           </motion.div>
-
         </div>
       </section>
     </>

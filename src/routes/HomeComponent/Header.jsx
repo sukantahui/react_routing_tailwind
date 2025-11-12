@@ -1,61 +1,88 @@
-// src/Header.jsx
+// ===============================================
+// Header.jsx
+// -----------------------------------------------
+// Purpose:
+//   Hero section introducing Coder & AccoTax with
+//   animated background, CTA, and SEO meta tags.
+//
+// Features:
+// - Conditional Helmet (only active on homepage /)
+// - Motion-based gradient overlay and icons
+// - Responsive hero layout with CTA
+// ===============================================
+
 import React from "react";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import background from "../../assets/background2.jpg";
 
 const Header = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/"; // ✅ Conditional Helmet logic
+
   return (
     <>
-      <Helmet>
-        <title>Coder & AccoTax | Learn Coding Online</title>
-        <meta
-          name="description"
-          content="Join Coder & AccoTax to learn Full Stack Web Development, Python, React, and more. Get career-ready with practical training."
-        />
-        <meta
-          name="keywords"
-          content="coding courses, web development, react, nodejs, full stack, learn coding"
-        />
-        <meta name="author" content="Coder & AccoTax" />
+      {/* 🧠 SEO Helmet (only on home route) */}
+      {isHome && (
+        <Helmet>
+          <title>Coder & AccoTax | Learn Coding & Compliance Online</title>
+          <meta
+            name="description"
+            content="Join Coder & AccoTax to learn Full Stack Web Development, Python, React, Accounting, and Taxation. Get career-ready with ISO-certified training."
+          />
+          <meta
+            name="keywords"
+            content="Coder & AccoTax, coding courses, accounting institute, python, react, taxation, web development training"
+          />
+          <meta name="author" content="Coder & AccoTax" />
+          <meta name="robots" content="index, follow" />
+          <meta httpEquiv="Content-Language" content="en" />
 
-        {/* ✅ Canonical URL */}
-        <link rel="canonical" href="https://codernaccotax.co.in/" />
+          {/* Canonical */}
+          <link rel="canonical" href="https://codernaccotax.co.in/" />
 
-        {/* Open Graph */}
-        <meta property="og:title" content="Coder & AccoTax | Learn Coding Online" />
-        <meta
-          property="og:description"
-          content="Learn to Code. Build the Future. Get Job-Ready with our expert-led courses."
-        />
-        <meta
-          property="og:image"
-          content="https://codernaccotax.co.in/og-home.png"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://codernaccotax.co.in/" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+          {/* Open Graph */}
+          <meta property="og:title" content="Coder & AccoTax | Learn Coding & Compliance Online" />
+          <meta
+            property="og:description"
+            content="ISO-certified institute offering courses in coding, accounting, taxation, and data analysis — helping you get job-ready."
+          />
+          <meta
+            property="og:image"
+            content="https://codernaccotax.co.in/og-home.png"
+          />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://codernaccotax.co.in/" />
+          <meta property="og:site_name" content="Coder & AccoTax" />
+          <meta property="og:locale" content="en_IN" />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image"
-          content="https://codernaccotax.co.in/og-home.png"
-        />
-      </Helmet>
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content="Coder & AccoTax | Learn Coding & Compliance Online"
+          />
+          <meta
+            name="twitter:description"
+            content="Join Coder & AccoTax for web development, accounting, and data analysis courses. Learn from experts and get certified."
+          />
+          <meta
+            name="twitter:image"
+            content="https://codernaccotax.co.in/og-home.png"
+          />
+          <meta name="twitter:image:alt" content="Coder & AccoTax Training Banner" />
+        </Helmet>
+      )}
 
-
-
-      {/* 🔹 Header Section */}
+      {/* 🌟 Hero Section */}
       <header
         className="relative text-white text-center min-h-[90vh] flex items-center justify-center bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(rgba(10,10,20,0.7), rgba(10,10,20,0.7)), url(${background})`,
         }}
       >
-        {/* 🔹 Animated Gradient Overlay */}
+        {/* 🔹 Animated Background Overlay */}
         <motion.div
           animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -64,7 +91,7 @@ const Header = () => {
           className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(56,189,248,0.15),transparent_70%),radial-gradient(circle_at_70%_70%,rgba(147,51,234,0.15),transparent_70%)]"
         ></motion.div>
 
-        {/* 🔹 Hero Content */}
+        {/* 🔹 Main Content */}
         <div className="relative z-10 px-6 max-w-3xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -97,7 +124,7 @@ const Header = () => {
           </motion.a>
         </div>
 
-        {/* 🔹 Decorative Floating Elements */}
+        {/* 🔹 Floating Decorative Icons */}
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
