@@ -4,14 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 import { visitorService } from "../services/visitorService";
+import { studentService } from "../services/studentService";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [visitors, setVisitors] = useState([]);
+  const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Load user and visitors
+  // ✅ Load all data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,12 +33,17 @@ export default function Dashboard() {
         }
 
         setUser(storedUser);
-        const res = await visitorService.getAll();
-        if (res?.status) setVisitors(res.data);
+        const [visitorsRes, studentsRes] = await Promise.all([
+          visitorService.getAll(),
+          studentService.getAll(),
+        ]);
+
+        if (visitorsRes?.status) setVisitors(visitorsRes.data);
+        if (studentsRes?.status) setStudents(studentsRes.data);
       } catch {
         Swal.fire({
           title: "Error",
-          text: "Failed to load visitors data.",
+          text: "Failed to load dashboard data.",
           icon: "error",
           confirmButtonColor: "#2563eb",
           background: "#111827",
@@ -49,7 +56,7 @@ export default function Dashboard() {
     fetchData();
   }, [navigate]);
 
-  // ✅ Derived stats
+  // ✅ Derived visitor stats
   const stats = useMemo(() => {
     const total = visitors.length;
     const today = visitors.filter((v) => {
@@ -101,85 +108,63 @@ export default function Dashboard() {
           </p>
         </motion.div>
 
-        {/* ✅ Stats Grid */}
+        {/* Stats Cards */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
         >
           <StatCard title="Total Visitors" value={stats.total} icon="👥" color="text-sky-400" />
           <StatCard title="Today’s Visitors" value={stats.today} icon="☀️" color="text-emerald-400" />
           <StatCard title="This Month" value={stats.month} icon="🗓️" color="text-purple-400" />
           <StatCard title="Unique Pages" value={stats.uniquePages} icon="🌐" color="text-pink-400" />
+          <StatCard title="Total Students" value={students.length} icon="🎓" color="text-amber-400" />
         </motion.div>
 
-        {/* ✅ Visitors Table */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9 }}
-          className="bg-gray-900/70 border border-gray-800 rounded-3xl shadow-xl p-6 overflow-x-auto"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-semibold text-sky-400">
-              Recent Visitors
-            </h2>
-            <span className="text-gray-400 text-sm">
-              Showing {visitors.length} records
-            </span>
-          </div>
-
-          {visitors.length === 0 ? (
-            <p className="text-gray-400 text-center py-10">
-              No visitors found.
-            </p>
-          ) : (
-            <table className="w-full text-sm text-gray-300 border-collapse">
-              <thead className="bg-gray-800/80 text-sky-400">
-                <tr>
-                  <th className="p-3 text-left">#</th>
-                  <th className="p-3 text-left">Name</th>
-                  <th className="p-3 text-left">Email</th>
-                  <th className="p-3 text-left">Interest</th>
-                  <th className="p-3 text-left hidden md:table-cell">
-                    Device
-                  </th>
-                  <th className="p-3 text-left hidden lg:table-cell">
-                    Page URL
-                  </th>
-                  <th className="p-3 text-left">Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {visitors.map((v, index) => (
-                  <tr
-                    key={v.id}
-                    className="border-b border-gray-800 hover:bg-gray-800/40 transition-all"
-                  >
-                    <td className="p-3">{index + 1}</td>
-                    <td className="p-3 font-medium text-sky-300">{v.name}</td>
-                    <td className="p-3">{v.email}</td>
-                    <td className="p-3">{v.interest}</td>
-                    <td className="p-3 hidden md:table-cell">{v.device_type}</td>
-                    <td className="p-3 hidden lg:table-cell truncate max-w-[220px]">
-                      {v.page_url}
-                    </td>
-                    <td className="p-3 text-gray-400">
-                      {new Date(v.created_at).toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {/* Visitors Section */}
+        <DataTable
+          title="Recent Visitors"
+          color="text-sky-400"
+          data={visitors}
+          headers={["#", "Name", "Email", "Interest", "Device", "Page URL", "Date"]}
+          renderRow={(v, i) => (
+            <>
+              <td className="p-3">{i + 1}</td>
+              <td className="p-3 font-medium text-sky-300">{v.name}</td>
+              <td className="p-3">{v.email}</td>
+              <td className="p-3">{v.interest}</td>
+              <td className="p-3 hidden md:table-cell">{v.device_type}</td>
+              <td className="p-3 hidden lg:table-cell truncate max-w-[220px]">{v.page_url}</td>
+              <td className="p-3 text-gray-400">{new Date(v.created_at).toLocaleString()}</td>
+            </>
           )}
-        </motion.div>
+        />
+
+        {/* Students Section */}
+        <DataTable
+          title="Registered Students"
+          color="text-amber-400"
+          data={students}
+          headers={["#", "Reg No", "Name", "Email", "Phone", "City", "Joined"]}
+          renderRow={(s, i) => (
+            <>
+              <td className="p-3">{i + 1}</td>
+              <td className="p-3 font-medium text-amber-300">{s.registration_number}</td>
+              <td className="p-3">{s.student_name}</td>
+              <td className="p-3">{s.email}</td>
+              <td className="p-3">{s.phone1}</td>
+              <td className="p-3">{s.city}</td>
+              <td className="p-3 text-gray-400">{new Date(s.created_at).toLocaleDateString()}</td>
+            </>
+          )}
+        />
       </div>
     </div>
   );
 }
 
-// ✅ Reusable StatCard Component
+/* 📊 Reusable StatCard */
 function StatCard({ title, value, icon, color }) {
   return (
     <motion.div
@@ -191,6 +176,49 @@ function StatCard({ title, value, icon, color }) {
         <p className={`text-3xl font-bold ${color}`}>{value}</p>
       </div>
       <div className="text-4xl opacity-70">{icon}</div>
+    </motion.div>
+  );
+}
+
+/* 📋 Reusable DataTable */
+function DataTable({ title, color, data, headers, renderRow }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9 }}
+      className="bg-gray-900/70 border border-gray-800 rounded-3xl shadow-xl p-6 overflow-x-auto"
+    >
+      <div className="flex items-center justify-between mb-4">
+        <h2 className={`text-2xl font-semibold ${color}`}>{title}</h2>
+        <span className="text-gray-400 text-sm">Total: {data.length}</span>
+      </div>
+
+      {data.length === 0 ? (
+        <p className="text-gray-400 text-center py-10">No records found.</p>
+      ) : (
+        <table className="w-full text-sm text-gray-300 border-collapse">
+          <thead className="bg-gray-800/80 text-gray-300">
+            <tr>
+              {headers.map((h, i) => (
+                <th key={i} className="p-3 text-left">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr
+                key={index}
+                className="border-b border-gray-800 hover:bg-gray-800/40 transition-all"
+              >
+                {renderRow(item, index)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </motion.div>
   );
 }
