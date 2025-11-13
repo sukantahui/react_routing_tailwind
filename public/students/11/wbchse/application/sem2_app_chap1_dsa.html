@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ডেটা স্ট্রাকচার ও তার শ্রেণীবিভাগ — Coder & AccoTax</title>
+    <!-- Tailwind CDN (Play) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom CSS */
+      :root{
+        --brand:#0ea5a4; /* teal-500 */
+        --accent:#0f172a; /* slate-900 */
+      }
+      body{font-family: 'Noto Sans Bengali', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+      .lead-bn{font-size:1.05rem;line-height:1.6}
+      .card-shadow{box-shadow:0 8px 20px rgba(2,6,23,0.08)}
+      .accent-underline{background:linear-gradient(90deg,var(--brand),rgba(14,165,164,0.4));height:4px;border-radius:2px}
+      pre{white-space:pre-wrap}
+      /* print-friendly */
+      @media print{
+        nav, .download-bar {display:none}
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+
+    <!-- Header -->
+    <header class="bg-white border-b">
+      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center gap-4">
+        <img src="/mnt/data/Untitled-1 copy.svg" alt="Coder & AccoTax" class="h-14 w-auto" />
+        <div>
+          <h1 class="text-2xl font-semibold">Coder & AccoTax</h1>
+          <p class="text-sm text-slate-600">Author: Sukanta Hui — <a href="https://www.codernaccotax.co.in" class="text-teal-600 hover:underline">www.codernaccotax.co.in</a></p>
+        </div>
+        <nav class="ml-auto hidden md:flex gap-4 items-center text-sm">
+          <a href="#intro" class="text-slate-700 hover:text-teal-600">Introduction</a>
+          <a href="#data-types" class="text-slate-700 hover:text-teal-600">Data Types</a>
+          <a href="#linear" class="text-slate-700 hover:text-teal-600">Linear DS</a>
+          <a href="#non-linear" class="text-slate-700 hover:text-teal-600">Non-Linear DS</a>
+          <a href="#exercises" class="text-slate-700 hover:text-teal-600">Exercises</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-r from-teal-50 to-white py-10">
+      <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+        <div class="md:col-span-2">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">ডেটা স্ট্রাকচার ও তার শ্রেণীবিভাগ</h2>
+          <p class="mt-3 text-slate-700 lead-bn">এই ইউনিটে আমরা ডেটা স্ট্রাকচার-এর সংজ্ঞা, বিভিন্ন ডেটা টাইপ, লিনিয়ার এবং নন-লিনিয়ার স্ট্রাকচারসহ তাদের ব্যবহার শিখবো — উদাহরণ ও ডায়াগ্রামের সাহায্যে।</p>
+          <div class="mt-5 flex gap-3">
+            <a href="#content" class="inline-flex items-center px-4 py-2 bg-teal-600 text-white rounded shadow hover:bg-teal-700">বিস্তারিত পড়ুন</a>
+            <a href="#exercises" class="inline-flex items-center px-4 py-2 border border-teal-600 text-teal-600 rounded hover:bg-teal-50">Exercises</a>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="card-shadow bg-white p-4 rounded">
+            <h3 class="text-lg font-semibold">Quick Links</h3>
+            <ul class="mt-3 space-y-2 text-sm text-slate-700">
+              <li><a href="#data-types" class="hover:underline">Data Types</a></li>
+              <li><a href="#linear" class="hover:underline">Linear Data Structures</a></li>
+              <li><a href="#non-linear" class="hover:underline">Non-Linear Data Structures</a></li>
+              <li><a href="#diagrams" class="hover:underline">Diagrams & Examples</a></li>
+              <li><a href="#exercises" class="hover:underline">Exercises & Answers</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <main id="content" class="max-w-6xl mx-auto px-6 py-10">
+
+      <!-- Table of Contents -->
+      <aside class="mb-8">
+        <div class="bg-white p-4 rounded card-shadow">
+          <h4 class="text-lg font-semibold">Contents</h4>
+          <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+            <a href="#intro" class="text-teal-600 hover:underline">Introduction</a>
+            <a href="#data-types" class="text-teal-600 hover:underline">Data Types</a>
+            <a href="#linear" class="text-teal-600 hover:underline">Linear Data Structures</a>
+            <a href="#linear-array" class="pl-4 text-slate-600 hover:underline">Array</a>
+            <a href="#linear-stack" class="pl-4 text-slate-600 hover:underline">Stack</a>
+            <a href="#linear-queue" class="pl-4 text-slate-600 hover:underline">Queue</a>
+            <a href="#linear-linked" class="pl-4 text-slate-600 hover:underline">Linked List</a>
+            <a href="#non-linear" class="text-teal-600 hover:underline">Non-Linear Data Structures</a>
+            <a href="#diagrams" class="text-teal-600 hover:underline">Diagrams</a>
+            <a href="#exercises" class="text-teal-600 hover:underline">Exercises & Answers</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Introduction -->
+      <section id="intro" class="mb-10">
+        <div class="bg-white p-6 rounded card-shadow">
+          <h3 class="text-2xl font-bold">ভূমিকা (Introduction)</h3>
+          <div class="accent-underline my-3 w-28"></div>
+          <p class="lead-bn">এই অধ্যায়ে আমরা আলোচনা করবো ডেটা স্ট্রাকচার ও তার বিভিন্ন প্রকারভেদ সম্পর্কে। প্রতিদিনের জীবন থেকে লাইব্রেরি ও ফ্রিজ-র মতো উদাহরণগুলোর মাধ্যমে ডেটা স্ট্রাকচারের ধারণা আরও সুস্পষ্ট করা হচ্ছে।</p>
+        </div>
+      </section>
+
+      <!-- Data Types -->
+      <section id="data-types" class="mb-10">
+        <div class="bg-white p-6 rounded card-shadow">
+          <h3 class="text-2xl font-bold">ডেটা টাইপসমূহ (Data Types)</h3>
+          <div class="mt-3 grid md:grid-cols-2 gap-4 text-slate-700">
+            <div>
+              <h4 class="font-semibold">Integer (পূর্ণসংখ্যা)</h4>
+              <p class="text-sm">যে কোনো পূর্ণসংখ্যা, যেমন: 10, -50, 1050</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Floating Point (দশমিক সংখ্যা)</h4>
+              <p class="text-sm">যেমন: 45.02, 5.8, -1.2</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Character (অক্ষর)</h4>
+              <p class="text-sm">অক্ষর বা বিশেষ চিহ্ন: A, Z, 0-9, @, #, $ ইত্যাদি</p>
+            </div>
+            <div>
+              <h4 class="font-semibold">Logical (লজিক্যাল)</h4>
+              <p class="text-sm">True/False, Yes/No, On/Off</p>
+            </div>
+            <div class="md:col-span-2">
+              <h4 class="font-semibold">String (স্ট্রিং)</h4>
+              <p class="text-sm">অক্ষর ও সংখ্যা সমন্বয়ে গঠিত একক ডেটা: "Rajib", "A007", "Computer"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Linear DS -->
+      <section id="linear" class="mb-10">
+        <div class="bg-white p-6 rounded card-shadow">
+          <h3 class="text-2xl font-bold">লিনিয়ার ডেটা স্ট্রাকচার (Linear Data Structure)</h3>
+          <p class="mt-2 text-slate-700">যেখানে উপাদানগুলো একটির পর একটি সাজানো থাকে — যেমন: Array, Stack, Queue, Linked List।</p>
+
+          <!-- Array -->
+          <article id="linear-array" class="mt-6 border-l-4 border-teal-200 pl-4">
+            <h4 class="text-xl font-semibold">অ্যারে (Array)</h4>
+            <p class="text-sm text-slate-700 mt-2">একই ধরনের উপাদানগুলির ধারাবাহিক সংগ্রহ। <strong>Syntax:</strong> <code>int A[10];</code></p>
+            <p class="mt-2 text-sm">Length নির্ণয়: <code>Length = UB - LB + 1</code>.</p>
+
+            <div class="mt-4 bg-slate-50 p-4 rounded">
+              <strong>উদাহরণ:</strong>
+              <pre class="text-sm">A = [11, 12, 13, 14, 15]
+Index: 0  1   2   3   4
+Length = 4 - 0 + 1 = 5</pre>
+            </div>
+          </article>
+
+          <!-- Stack -->
+          <article id="linear-stack" class="mt-6 border-l-4 border-teal-200 pl-4">
+            <h4 class="text-xl font-semibold">স্ট্যাক (Stack)</h4>
+            <p class="mt-2 text-slate-700">LIFO (Last In First Out) — Push ও Pop অপারেশন।</p>
+            <div class="mt-3 flex gap-4 flex-col md:flex-row items-start">
+              <div class="flex-1 bg-slate-50 p-4 rounded">
+                <strong>উদাহরণ:</strong>
+                <pre class="text-sm">Push(A) → [A]
+Push(B) → [A, B]
+Push(C) → [A, B, C]
+Pop()   → C removed → [A, B]</pre>
+              </div>
+              <div class="w-full md:w-48">
+                <!-- simple svg stack -->
+                <svg viewBox="0 0 120 160" class="w-full h-auto">
+                  <rect x="10" y="100" width="100" height="26" rx="4" fill="#e6fffa" stroke="#0ea5a4"/>
+                  <text x="60" y="118" text-anchor="middle" font-size="12" fill="#064e46">A</text>
+                  <rect x="10" y="70" width="100" height="26" rx="4" fill="#cffafe" stroke="#0ea5a4"/>
+                  <text x="60" y="88" text-anchor="middle" font-size="12" fill="#064e46">B</text>
+                  <rect x="10" y="40" width="100" height="26" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+                  <text x="60" y="58" text-anchor="middle" font-size="12" fill="#065f46">C</text>
+                  <text x="60" y="18" text-anchor="middle" font-size="10" fill="#0f172a">Top</text>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Queue -->
+          <article id="linear-queue" class="mt-6 border-l-4 border-teal-200 pl-4">
+            <h4 class="text-xl font-semibold">কিউ (Queue)</h4>
+            <p class="mt-2 text-slate-700">FIFO (First In First Out) — Head ও Tail ধারণা।</p>
+            <div class="mt-3 grid md:grid-cols-2 gap-4">
+              <div class="bg-slate-50 p-4 rounded text-sm">
+                <strong>উদাহরণ:</strong>
+                <pre>Enqueue(1) → [1]
+Enqueue(2) → [1,2]
+Enqueue(3) → [1,2,3]
+Dequeue() → 1 removed → [2,3]</pre>
+              </div>
+              <div class="bg-white p-4 rounded card-shadow">
+                <!-- simple svg queue -->
+                <svg viewBox="0 0 200 80" class="w-full h-auto">
+                  <rect x="10" y="20" width="40" height="40" rx="6" fill="#f0f9ff" stroke="#0369a1"/>
+                  <text x="30" y="45" text-anchor="middle" font-size="12">1</text>
+                  <rect x="60" y="20" width="40" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7"/>
+                  <text x="80" y="45" text-anchor="middle" font-size="12">2</text>
+                  <rect x="110" y="20" width="40" height="40" rx="6" fill="#bae6fd" stroke="#0369a1"/>
+                  <text x="130" y="45" text-anchor="middle" font-size="12">3</text>
+                  <text x="30" y="68" font-size="10">Head</text>
+                  <text x="130" y="68" font-size="10">Tail</text>
+                </svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Linked List -->
+          <article id="linear-linked" class="mt-6 border-l-4 border-teal-200 pl-4">
+            <h4 class="text-xl font-semibold">লিংকড লিস্ট (Linked List)</h4>
+            <p class="mt-2 text-slate-700">নোড-চেইন: প্রতিটি নোডে Data ও Next Address থাকে; Dynamic memory allocation।</p>
+            <div class="mt-3 bg-slate-50 p-4 rounded text-sm">
+              <strong>উদাহরণ (সিঙ্গল লিংকড লিস্ট):</strong>
+              <pre>Start -> [Info: 10 | Next: addr1] -> [Info: 20 | Next: addr2] -> [Info: 30 | Next: NULL]</pre>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Non-linear -->
+      <section id="non-linear" class="mb-10">
+        <div class="bg-white p-6 rounded card-shadow">
+          <h3 class="text-2xl font-bold">নন-লিনিয়ার ডেটা স্ট্রাকচার (Non-Linear)</h3>
+          <p class="mt-2 text-slate-700">অলোমেলো বা হায়ারার্কিক্যালভাবে সাজানো ডেটা — উদাহরণ: Tree, Graph।</p>
+
+          <div id="diagrams" class="mt-6 grid md:grid-cols-2 gap-6">
+            <div class="bg-slate-50 p-4 rounded">
+              <h4 class="font-semibold">Tree (ট্রি)</h4>
+              <p class="text-sm">Root এবং Child নোডের সাথে Hierarchical structure.</p>
+              <!-- simple svg tree -->
+              <svg viewBox="0 0 200 160" class="w-full h-auto mt-2">
+                <circle cx="100" cy="18" r="14" fill="#fef3c7" stroke="#b45309"/>
+                <text x="100" y="22" text-anchor="middle" font-size="12">A</text>
+                <circle cx="60" cy="60" r="12" fill="#fee2e2" stroke="#b91c1c"/>
+                <text x="60" y="64" text-anchor="middle" font-size="11">B</text>
+                <circle cx="140" cy="60" r="12" fill="#e0f2fe" stroke="#0369a1"/>
+                <text x="140" y="64" text-anchor="middle" font-size="11">C</text>
+                <circle cx="40" cy="100" r="10" fill="#f0f9ff" stroke="#0369a1"/>
+                <text x="40" y="103" text-anchor="middle" font-size="10">D</text>
+                <circle cx="80" cy="100" r="10" fill="#f0f9ff" stroke="#0369a1"/>
+                <text x="80" y="103" text-anchor="middle" font-size="10">E</text>
+                <circle cx="120" cy="100" r="10" fill="#f0f9ff" stroke="#0369a1"/>
+                <text x="120" y="103" text-anchor="middle" font-size="10">F</text>
+                <circle cx="160" cy="100" r="10" fill="#f0f9ff" stroke="#0369a1"/>
+                <text x="160" y="103" text-anchor="middle" font-size="10">G</text>
+                <path d="M100 32 L64 52" stroke="#94a3b8" stroke-width="1.2"/>
+                <path d="M100 32 L136 52" stroke="#94a3b8" stroke-width="1.2"/>
+                <path d="M60 72 L44 90" stroke="#94a3b8" stroke-width="1.2"/>
+                <path d="M60 72 L76 90" stroke="#94a3b8" stroke-width="1.2"/>
+                <path d="M140 72 L124 90" stroke="#94a3b8" stroke-width="1.2"/>
+                <path d="M140 72 L156 90" stroke="#94a3b8" stroke-width="1.2"/>
+              </svg>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded">
+              <h4 class="font-semibold">Graph (গ্রাফ)</h4>
+              <p class="text-sm">Vertex ও Edge দ্বারা গঠিত সংযোগী নেটওয়ার্ক।</p>
+              <!-- simple svg graph -->
+              <svg viewBox="0 0 220 140" class="w-full h-auto mt-2">
+                <circle cx="40" cy="40" r="12" fill="#fde68a" stroke="#92400e"/>
+                <text x="40" y="44" text-anchor="middle" font-size="11">A</text>
+                <circle cx="100" cy="20" r="12" fill="#fbcfe8" stroke="#be185d"/>
+                <text x="100" y="24" text-anchor="middle" font-size="11">B</text>
+                <circle cx="150" cy="40" r="12" fill="#dbeafe" stroke="#1e3a8a"/>
+                <text x="150" y="44" text-anchor="middle" font-size="11">C</text>
+                <circle cx="100" cy="80" r="12" fill="#fde68a" stroke="#92400e"/>
+                <text x="100" y="84" text-anchor="middle" font-size="11">D</text>
+                <circle cx="190" cy="90" r="12" fill="#fef3c7" stroke="#b45309"/>
+                <text x="190" y="94" text-anchor="middle" font-size="11">E</text>
+                <path d="M52 36 L92 26" stroke="#64748b"/>
+                <path d="M110 26 L142 36" stroke="#64748b"/>
+                <path d="M58 46 L92 70" stroke="#64748b"/>
+                <path d="M142 48 L184 86" stroke="#64748b"/>
+                <path d="M110 92 L142 52" stroke="#64748b"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercises -->
+      <section id="exercises" class="mb-16">
+        <div class="bg-white p-6 rounded card-shadow">
+          <h3 class="text-2xl font-bold">অনুশীলনী (Exercises)</h3>
+          <p class="mt-2 text-slate-700">(প্রশ্নগুলোর উত্তর পাঠ্যভিত্তিক। নিচে উদাহরণসহ পূর্ণ উত্তর দেয়া আছে — প্রয়োজন হলে আপনি ডাউনলোড করে নিন।)</p>
+
+          <div class="mt-6 grid md:grid-cols-2 gap-6">
+            <div class="bg-teal-50 p-4 rounded">
+              <h4 class="font-semibold">A. সংক্ষিপ্ত উত্তর</h4>
+              <ol class="mt-3 list-decimal pl-6 text-sm space-y-2 text-slate-700">
+                <li>ডেটা কাকে বলে? — যে কোনো বস্তুর সম্পর্কিত তথ্য।</li>
+                <li>ডেটা স্ট্রাকচার কাকে বলে? — ডেটার সংগ্রহ ও সংরক্ষণের পদ্ধতি।</li>
+                <li>চারটি কাজ: Searching, Sorting, Insertion, Deletion।</li>
+                <li>লিনিয়ার ডেটা: উপাদান ক্রমানুসারে সাজানো।</li>
+                <li>নন-লিনিয়ার: এলোমেলো বা হায়ারার্কিক্যাল।</li>
+              </ol>
+            </div>
+            <div class="bg-amber-50 p-4 rounded">
+              <h4 class="font-semibold">B. সংক্ষিপ্ত + উদাহরণ</h4>
+              <p class="text-sm text-slate-700">ইউনিট-ভিত্তিক প্রশ্নগুলোর উত্তর ও পূর্ণ ব্যাখ্যা আপনি চাইলে আমি আলাদাভাবে PDF এ এক্সপোর্ট করে দেব।</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <a href="/mnt/data/ডাটা স্ট্রাকচার ও তার শ্রেণীবিভাগ Sem 2.docx" download class="px-4 py-2 bg-slate-800 text-white rounded hover:bg-slate-900">Download DOCX</a>
+            <a href="#" id="downloadPdf" class="px-4 py-2 border border-teal-600 text-teal-600 rounded">Export PDF (preview)</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer Info -->
+      <div class="mt-8 section-card">
+  <h3 class="text-2xl font-bold">Exercises — Full Answers</h3>
+  <div class="accent"></div>
+  <div class="text-sm leading-6 text-slate-800 space-y-4">
+    <pre class="whitespace-pre-wrap bg-slate-50 p-4 rounded">A. সংক্ষিপ্ত উত্তরমূলক প্রশ্নের উত্তর
+1. ডেটা কাকে বলে? — যে কোনো বস্তুর সম্পর্কিত সহজ তথ্যকে ডেটা বলে।
+2. ডেটা স্ট্রাকচার — ডেটা সংরক্ষণ ও ব্যবস্থাপনার সংগঠিত পদ্ধতি।
+3. চারটি কাজ — Searching, Sorting, Insertion, Deletion।
+4. লিনিয়ার ডেটা — ক্রমানুসারে সাজানো। উদাহরণ: Array।
+5. নন-লিনিয়ার — এলোমেলো/হায়ারার্কিক্যাল। উদাহরণ: Tree।
+6. স্ট্যাক — LIFO কাঠামো।
+7. স্ট্যাক কাজ — Push/Pop একপ্রান্তে।
+8. বিভাগ — Array, Stack, Queue, Linked List।
+9. গ্রাফ — Vertex + Edge।
+10. স্ট্যাক কাজ — LIFO ব্যবস্থাপনা।
+11. কিউ — FIFO কাঠামো।
+12. লিংকড লিস্ট — নোড চেইন।
+13. নন-লিনিয়ার উদাহরণ — Tree।
+14. ট্রি — Root–Child কাঠামো।
+15. গ্রাফ — Vertex–Edge সম্পর্ক।
+16. পার্থক্য — লিনিয়ার সহজ, নন-লিনিয়ার জটিল।
+
+B. উদাহরণসহ উত্তর
+1. ডেটা — Student Age = 16।
+2. স্ট্রাকচার কাজ — Searching, Sorting, Insertion, Deletion।
+3. Searching — খোঁজা; Sorting — সাজানো।
+4. Insertion — যোগ; Deletion — অপসারণ।
+5. Integer — 10, -25, 500।
+6. Logical — True/False।
+7. String — "Hello123"।
+8. Stack — LIFO।
+9. বিভাগ — Array, Stack, Queue, Linked List।
+10. বৈশিষ্ট্য — ক্রমানুসার; Access সহজ।
+
+C. রচনাধর্মী উত্তর
+1. ডেটা স্ট্রাকচার — ডেটা সংগঠন। কাজ — Searching, Sorting, Insertion, Deletion, Merging, Traversing।
+2. ডেটা টাইপ — Integer/Character ভূমিকা।
+3. দুই ভাগ — লিনিয়ার ও নন-লিনিয়ার। বৈশিষ্ট্য — ক্রমানুসার, Access সহজ, মেমরি ব্যবস্থাপনা।
+4. Array — int A[10]; Length = UB–LB+1।
+5. Stack — LIFO ব্যাখ্যা।
+6. Queue — Head/Tail উদাহরণ।
+7. নন-লিনিয়ার — Tree, Graph; তিনটি পার্থক্য।
+8. Tree ও Graph — হায়ারার্কি ও Vertex–Edge।</pre>
+  </div>
+</div>
+<footer class="bg-white border-t mt-8">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div class="flex-1">
+            <h4 class="font-semibold">Coder & AccoTax</h4>
+            <p class="text-sm text-slate-600">Author: Sukanta Hui — <a href="https://www.codernaccotax.co.in" class="text-teal-600">www.codernaccotax.co.in</a></p>
+          </div>
+          <div class="text-sm text-slate-600">© <span id="year"></span> Coder & AccoTax. All rights reserved.</div>
+        </div>
+      </footer>
+
+    </main>
+
+    <script>
+      // small scripts
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // Export to PDF (simple print)
+      document.getElementById('downloadPdf').addEventListener('click', function(e){
+        e.preventDefault();
+        window.print();
+      });
+    </script>
+  </body>
+</html>
