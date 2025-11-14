@@ -12,9 +12,7 @@
 // ===============================================
 
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 import teachers from "../../data/teachers.json";
 
 // 🔹 Local image imports
@@ -36,99 +34,9 @@ const images = {
 };
 
 const Teachers = () => {
-  const location = useLocation();
-  const isStandalone = location.pathname === "/teachers"; // ✅ detect page mode
-
-  // 🧾 JSON-LD Schema (Instructor Listing)
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: teachers.map((teacher, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Person",
-        name: teacher.name,
-        jobTitle: teacher.title,
-        description: teacher.bio,
-        email: teacher.email ? `mailto:${teacher.email}` : undefined,
-        worksFor: {
-          "@type": "Organization",
-          name: "Coder & AccoTax",
-          url: "https://codernaccotax.co.in",
-        },
-      },
-    })),
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codernaccotax.co.in/" },
-      { "@type": "ListItem", "position": 2, "name": "Teachers", "item": "https://codernaccotax.co.in/teachers" }
-    ]
-  };
 
   return (
     <>
-      {/* ==============================
-          🧠 Conditional SEO (Helmet)
-      ============================== */}
-      {isStandalone && (
-        <Helmet>
-          <title>Our Instructors | Coder & AccoTax</title>
-          <meta
-            name="description"
-            content="Meet the expert instructors at Coder & AccoTax — experienced professionals in coding, finance, and data analysis, dedicated to helping you achieve your goals."
-          />
-          <meta
-            name="keywords"
-            content="coder accotax teachers, coding mentors, programming instructors, accounting tutors, web development faculty"
-          />
-          <meta name="author" content="Coder & AccoTax" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="Content-Language" content="en" />
-          <link rel="canonical" href="https://codernaccotax.co.in/teachers" />
-
-          {/* Open Graph */}
-          <meta property="og:title" content="Our Instructors | Coder & AccoTax" />
-          <meta
-            property="og:description"
-            content="Learn from certified and experienced educators at Coder & AccoTax — leaders in coding, web development, and finance education."
-          />
-          <meta
-            property="og:image"
-            content="https://codernaccotax.co.in/og-teachers.png"
-          />
-          <meta property="og:url" content="https://codernaccotax.co.in/teachers" />
-          <meta property="og:type" content="website" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:alt" content="Team of instructors at Coder & AccoTax" />
-          <meta property="og:site_name" content="Coder & AccoTax" />
-
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Our Instructors | Coder & AccoTax" />
-          <meta
-            name="twitter:description"
-            content="Meet our professional teaching team — Coder & AccoTax instructors guiding you toward a successful career."
-          />
-          <meta
-            name="twitter:image"
-            content="https://codernaccotax.co.in/og-teachers.png"
-          />
-          <meta
-            name="twitter:image:alt"
-            content="Team of instructors at Coder & AccoTax"
-          />
-
-          {/* Structured Data */}
-          <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
-          <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        </Helmet>
-      )}
 
       {/* ===============================================
           TEACHERS SECTION

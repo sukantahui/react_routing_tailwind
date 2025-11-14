@@ -1,22 +1,16 @@
 // ===============================================
-// About.jsx
+// About.jsx (Clean Version)
 // -----------------------------------------------
-// Purpose: Display details about Coder & AccoTax institute,
-// including mission, achievements, certification, GitHub repo,
-// and a call-to-action to join courses.
+// Purpose: Display details about Coder & AccoTax
+// — mission, achievements, ISO certificate, GitHub link,
+// — animated counters, CTA to scroll to courses
 //
-// Features:
-// - Animated counters
-// - ISO certificate download
-// - GitHub section (open source / credibility link)
-// - Conditional Helmet for SEO (only on /about route)
-// - Accessibility & semantic HTML
-// - Clean dark gradient UI
+// Notes:
+// - Removed ALL Helmet, Schema, location logic
+// - This is now a pure UI component used inside Home.jsx
 // ===============================================
 
 import React, { useRef, useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { useLocation } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 
 const Counter = ({ target, suffix = "+", duration = 2 }) => {
@@ -48,8 +42,6 @@ const Counter = ({ target, suffix = "+", duration = 2 }) => {
 };
 
 const About = () => {
-  const location = useLocation();
-  const isStandalone = location.pathname === "/about"; // ✅ Conditional Helmet
   const certificateLink = "/docs/iso-certificate.pdf";
   const githubLink = "https://github.com/codernaccotax";
 
@@ -58,110 +50,8 @@ const About = () => {
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
-  // 🧾 JSON-LD Schema
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    name: "Coder & AccoTax",
-    url: "https://codernaccotax.co.in",
-    logo: "https://codernaccotax.co.in/cnat.ico",
-    foundingDate: "1998",
-    description:
-      "Coder & AccoTax is an ISO 9001:2015 certified training institute offering courses in web development, Python, accounting, taxation, and data analysis — 27 years of excellence in professional education.",
-    sameAs: [
-      "https://www.facebook.com/profile.php?id=61561702110617",
-      "https://www.instagram.com/codernaccotax",
-      "https://www.youtube.com/@CodernAccotax",
-      githubLink,
-    ],
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://codernaccotax.co.in/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "About",
-        item: "https://codernaccotax.co.in/about",
-      },
-    ],
-  };
-
   return (
     <>
-      {/* ✅ Conditional Helmet (only for /about route) */}
-      {isStandalone && (
-        <Helmet>
-          <title>
-            About Coder & AccoTax | ISO Certified Coding & Accounting Institute
-          </title>
-          <meta
-            name="description"
-            content="Coder & AccoTax is an ISO 9001:2015 certified institute with 27+ years of experience offering training in coding, accounting, taxation, and data analysis."
-          />
-          <meta
-            name="keywords"
-            content="Coder & AccoTax, ISO certified, coding institute India, accounting courses, taxation training, Python programming, data analysis course, full stack web development"
-          />
-          <meta name="author" content="Coder & AccoTax" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="Content-Language" content="en" />
-          <link rel="canonical" href="https://codernaccotax.co.in/about" />
-
-          {/* Open Graph */}
-          <meta
-            property="og:title"
-            content="About Coder & AccoTax | ISO Certified Institute"
-          />
-          <meta
-            property="og:description"
-            content="Learn about Coder & AccoTax — an ISO 9001:2015 certified institute with 27 years of excellence in coding, accounting, and compliance education."
-          />
-          <meta
-            property="og:image"
-            content="https://codernaccotax.co.in/og-about.png"
-          />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:url"
-            content="https://codernaccotax.co.in/about"
-          />
-          <meta property="og:site_name" content="Coder & AccoTax" />
-          <meta property="og:locale" content="en_IN" />
-
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="About Coder & AccoTax - 27+ Years of Excellence"
-          />
-          <meta
-            name="twitter:description"
-            content="ISO-certified professional training institute offering web development, accounting, taxation, and data analysis courses."
-          />
-          <meta
-            name="twitter:image"
-            content="https://codernaccotax.co.in/og-about.png"
-          />
-
-          {/* JSON-LD Structured Data */}
-          <script type="application/ld+json">
-            {JSON.stringify(schemaMarkup)}
-          </script>
-          <script type="application/ld+json">
-            {JSON.stringify(breadcrumbSchema)}
-          </script>
-        </Helmet>
-      )}
-
       {/* ============================================
           ABOUT SECTION
       ============================================ */}
@@ -214,17 +104,18 @@ const About = () => {
             <p className="text-justify mb-5 leading-relaxed text-gray-300">
               With over{" "}
               <strong className="text-amber-400">27 years of experience</strong>{" "}
-              and <strong className="text-amber-400">5000+ successful learners</strong>, we provide
-              result-driven training guided by expert faculty and digital
-              infrastructure.
+              and{" "}
+              <strong className="text-amber-400">5000+ successful learners</strong>,
+              we provide result-driven training guided by expert faculty and
+              digital infrastructure.
             </p>
 
             <p className="text-justify mb-5 leading-relaxed text-gray-300">
-              Our training blends <strong className="text-amber-400">practical
-              projects</strong>, <strong className="text-amber-400">industry
-              exposure</strong>, and <strong className="text-amber-400">
-              personalized mentorship</strong> to equip students with job-ready
-              skills in technology and finance.
+              Our training blends{" "}
+              <strong className="text-amber-400">practical projects</strong>,{" "}
+              <strong className="text-amber-400">industry exposure</strong>, and{" "}
+              <strong className="text-amber-400">personalized mentorship</strong>{" "}
+              to equip students with job-ready skills in technology and finance.
             </p>
 
             <p className="text-justify mb-5 leading-relaxed text-gray-300">

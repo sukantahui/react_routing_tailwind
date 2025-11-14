@@ -63,8 +63,7 @@ const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const whatsappNumber = "919432456083";
   const courseRefs = useRef({});
-  const location = useLocation();
-  const isStandalone = location.pathname === "/courses"; // ✅ conditional helmet
+
 
   // -----------------------------------------------
   // Toggle logic and scrolling
@@ -102,117 +101,15 @@ const Courses = () => {
       `Hi, I'm interested in the "${title}" course. Could you please share duration, fee details, and admission info?`
     );
 
-  // -----------------------------------------------
-  // 🧾 Schema Markup
-  // -----------------------------------------------
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Coder & AccoTax Courses",
-    description:
-      "A curated list of industry-oriented coding and accounting courses by Coder & AccoTax.",
-    itemListElement: coursesData.flatMap((group) =>
-      group.courses.map((course, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "Course",
-          name: course.title,
-          description: course.desc,
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "Coder & AccoTax",
-            url: "https://codernaccotax.co.in",
-          },
-        },
-      }))
-    ),
-  };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://codernaccotax.co.in/",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Courses",
-        item: "https://codernaccotax.co.in/courses",
-      },
-    ],
-  };
+
+
 
   // -----------------------------------------------
   // 🌐 Render
   // -----------------------------------------------
   return (
     <>
-      {/* ✅ Conditional Helmet: only active on /courses route */}
-      {isStandalone && (
-        <Helmet>
-          <title>Courses | Coder & AccoTax</title>
-          <meta
-            name="description"
-            content="Explore practical, industry-focused courses in Web Development, Python, Java, Accounting, and Data Analysis. Learn from expert instructors at Coder & AccoTax."
-          />
-          <meta
-            name="keywords"
-            content="coding courses, full stack, python, java, accounting, taxation, react, web development, online training"
-          />
-          <meta name="author" content="Coder & AccoTax" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="Content-Language" content="en" />
-          <link rel="canonical" href="https://codernaccotax.co.in/courses" />
-
-          {/* Open Graph */}
-          <meta property="og:title" content="Courses | Coder & AccoTax" />
-          <meta
-            property="og:description"
-            content="Hands-on courses to make you industry-ready. Learn web development, accounting, and data analysis from experts."
-          />
-          <meta
-            property="og:image"
-            content="https://codernaccotax.co.in/og-courses.png"
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://codernaccotax.co.in/courses" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:locale" content="en_IN" />
-          <meta property="og:site_name" content="Coder & AccoTax" />
-
-          {/* Twitter */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Courses | Coder & AccoTax" />
-          <meta
-            name="twitter:description"
-            content="Explore hands-on courses in coding, accounting, and data analysis. Learn job-ready skills with Coder & AccoTax."
-          />
-          <meta
-            name="twitter:image"
-            content="https://codernaccotax.co.in/og-courses.png"
-          />
-          <meta
-            name="twitter:image:alt"
-            content="Coder & AccoTax Courses Banner"
-          />
-
-          {/* Structured Data */}
-          <script type="application/ld+json">
-            {JSON.stringify(schemaMarkup)}
-          </script>
-          <script type="application/ld+json">
-            {JSON.stringify(breadcrumbSchema)}
-          </script>
-        </Helmet>
-      )}
-
       {/* =========================
           COURSES SECTION
       ========================== */}

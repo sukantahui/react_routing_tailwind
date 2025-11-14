@@ -14,9 +14,7 @@
 // ===============================================
 
 import React from "react";
-import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 import services from "../../data/services.json";
 
 // 🔹 Animation variant
@@ -30,103 +28,8 @@ const fadeUp = {
 };
 
 const Services = () => {
-  const location = useLocation();
-  const isStandalone = location.pathname === "/services"; // ✅ Detect standalone page
-
-  // 🧾 JSON-LD Schema for Google Rich Results
-  const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Educational & Financial Services",
-    "provider": {
-      "@type": "Organization",
-      "name": "Coder & AccoTax",
-      "url": "https://codernaccotax.co.in",
-      "logo": "https://codernaccotax.co.in/cnat.ico",
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61561702110617",
-        "https://www.instagram.com/codernaccotax",
-        "https://www.youtube.com/@CodernAccotax"
-      ],
-      "areaServed": "IN",
-      "availableLanguage": ["English"]
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Coder & AccoTax Services Catalog",
-      "itemListElement": services.map((service, index) => ({
-        "@type": "Offer",
-        "position": index + 1,
-        "itemOffered": {
-          "@type": "Service",
-          "name": service.title,
-          "description": service.description
-        }
-      }))
-    }
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codernaccotax.co.in/" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://codernaccotax.co.in/services" }
-    ]
-  };
-
   return (
     <>
-      {/* ==============================
-          🧠 Conditional SEO & Metadata
-      ============================== */}
-      {isStandalone && (
-        <Helmet>
-          <title>Services | Coder & AccoTax</title>
-          <meta
-            name="description"
-            content="Explore Coder & AccoTax's range of technology and financial services — web development, accounting, taxation, and business compliance training."
-          />
-          <meta
-            name="keywords"
-            content="coder accotax services, accounting courses, coding institute, taxation consultancy, business compliance, software training"
-          />
-          <meta name="author" content="Coder & AccoTax" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="Content-Language" content="en" />
-          <link rel="canonical" href="https://codernaccotax.co.in/services" />
-
-          {/* --- Open Graph --- */}
-          <meta property="og:title" content="Our Services | Coder & AccoTax" />
-          <meta
-            property="og:description"
-            content="From coding to compliance — discover how Coder & AccoTax helps students and businesses grow."
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://codernaccotax.co.in/services" />
-          <meta property="og:image" content="https://codernaccotax.co.in/og-services.png" />
-          <meta property="og:image:alt" content="Coder & AccoTax Services Banner - Coding, Accounting, Taxation Training" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:site_name" content="Coder & AccoTax" />
-          <meta property="og:locale" content="en_IN" />
-
-          {/* --- Twitter --- */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Our Services | Coder & AccoTax" />
-          <meta
-            name="twitter:description"
-            content="Explore expert-led coding, finance, and compliance services by Coder & AccoTax."
-          />
-          <meta name="twitter:image" content="https://codernaccotax.co.in/og-services.png" />
-          <meta name="twitter:image:alt" content="Coder & AccoTax Services Banner - Coding, Accounting, Taxation Training" />
-
-          {/* --- Structured Data --- */}
-          <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
-          <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        </Helmet>
-      )}
-
       {/* ===============================================
           SERVICES SECTION
       =============================================== */}

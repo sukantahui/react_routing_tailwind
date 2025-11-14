@@ -32,42 +32,7 @@ const Contact = () => {
   const pageUrl = "https://codernaccotax.co.in/contact";
   const ogImage = "https://codernaccotax.co.in/og-contact.png";
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    url: pageUrl,
-    name: "Contact Coder & AccoTax",
-    description:
-      "Official contact page for Coder & AccoTax – learn web development, accounting, and data analysis.",
-    mainEntity: {
-      "@type": "Organization",
-      name: "Coder & AccoTax",
-      url: "https://codernaccotax.co.in",
-      logo: "https://codernaccotax.co.in/cnat.ico",
-      sameAs: [
-        "https://www.facebook.com/profile.php?id=61561702110617",
-        "https://www.instagram.com/codernaccotax",
-        "https://www.youtube.com/@CodernAccotax",
-      ],
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          telephone: "+91-9432456083",
-          contactType: "Customer Service",
-          areaServed: "IN",
-          availableLanguage: ["English"],
-        },
-      ],
-      address: {
-        "@type": "PostalAddress",
-        streetAddress:
-          "Ground Floor, 25(10/A) Shibtala Road, P.O - Nona Chandan Pukur, Barrackpore",
-        addressLocality: "Kolkata",
-        postalCode: "700122",
-        addressCountry: "IN",
-      },
-    },
-  };
+
 
   // ===========================
   // Visitor Form State & Logic
@@ -121,61 +86,6 @@ const Contact = () => {
 
   return (
     <>
-      {/* =========================
-          SEO / Social Meta (Helmet)
-      ========================== */}
-      {isStandalone && (
-        <Helmet>
-          <title>Contact | Coder & AccoTax</title>
-          <meta
-            name="description"
-            content="Contact Coder & AccoTax for course enquiries, fees, admissions, and support. Message us on WhatsApp, email, or visit our Kolkata institute."
-          />
-          <meta
-            name="keywords"
-            content="contact coder accotax, coder accotax phone, coder accotax email, coding institute contact, accounting training contact"
-          />
-          <meta name="author" content="Coder & AccoTax" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="Content-Language" content="en" />
-          <link rel="canonical" href={pageUrl} />
-
-          {/* --- Open Graph (Facebook / LinkedIn) --- */}
-          <meta property="og:title" content="Contact | Coder & AccoTax" />
-          <meta
-            property="og:description"
-            content="Reach Coder & AccoTax for admissions, course details, or support. Chat on WhatsApp, email, or visit our Kolkata center."
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content={pageUrl} />
-          <meta property="og:image" content={ogImage} />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:site_name" content="Coder & AccoTax" />
-          <meta property="og:locale" content="en_IN" />
-
-          {/* --- Twitter Card --- */}
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta
-            name="twitter:title"
-            content="Contact | Coder & AccoTax"
-          />
-          <meta
-            name="twitter:description"
-            content="Get in touch with Coder & AccoTax. Ask about coding, accounting, and data analysis courses."
-          />
-          <meta name="twitter:image" content={ogImage} />
-          <meta
-            name="twitter:image:alt"
-            content="Coder & AccoTax contact banner"
-          />
-
-          {/* --- Structured Data --- */}
-          <script type="application/ld+json">
-            {JSON.stringify(jsonLd)}
-          </script>
-        </Helmet>
-      )}
 
       {/* =========================
           CONTACT SECTION
