@@ -151,16 +151,16 @@ export default function HomeSEO() {
       {/* =====================================================
           1. BASIC SEO
       ====================================================== */}
-      <title>Coder & AccoTax | Learn Coding, Accounts & Data Analysis Offline and Online</title>
+      <title>Best Coding Institute in Barrackpore | Coder & AccoTax</title>
 
       <meta
         name="description"
-        content="Join Coder & AccoTax to master Web Development, Python, Accounting, and Data Analysis. Learn from certified instructors, earn ISO-recognized certifications, and become job-ready with hands-on projects."
+        content="Join Coder & AccoTax,the best coding institute in Barrackpore, to master Web Development, Python, Accounting, GST and Data Analysis. Learn from certified instructors, earn ISO-recognized certifications, and become job-ready with hands-on projects."
       />
 
       <meta
         name="keywords"
-        content="coding courses, accounting training, web development, python programming, data analysis, full stack developer, taxation classes, online learning India, coder accotax"
+        content="coding institute barrackpore, coding courses, accounting training, web development, python programming, data analysis, full stack developer, taxation classes, online learning India, coder accotax"
       />
 
       <meta name="author" content="Coder & AccoTax" />

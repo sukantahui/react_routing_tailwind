@@ -27,6 +27,10 @@ const Header = () => {
           backgroundImage: `linear-gradient(rgba(10,10,20,0.7), rgba(10,10,20,0.7)), url(${background})`,
         }}
       >
+        {/* 🔥 SEO Primary H1 (Invisible design, visible to Google) */}
+        <h1 className="sr-only">
+          Best Coding & IT Training Institute in Barrackpore
+        </h1>
         {/* 🔹 Animated Background Overlay */}
         <motion.div
           animate={{
