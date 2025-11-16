@@ -18,6 +18,9 @@ import Services from "./Services";
 import Teachers from "./Teachers";
 import Courses from "./Courses";
 import HomeSeo from "../../seo/HomeSeo"
+import LocalSEO from "./LocalSeo";
+import Facilities from "./Facilities";
+import WhyChooseUs from "./WhyChooseUs";
 
 export default function Home() {
   const location = useLocation();
@@ -32,6 +35,9 @@ export default function Home() {
       ============================== */}
       <HomeSeo />
       <Header />
+      <LocalSEO />
+      <Facilities />
+      <WhyChooseUs />
       <About />
       <Courses />
       <Teachers />

@@ -11,28 +11,28 @@ const ComputerApplicationWbbEleven = () => {
 
         <ul className="list-disc pl-6 space-y-3 text-gray-300">
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem1">Semistar 1</Link>
+            <Link to="/study/class11/wbb/computer-application/sem1">Semester 1</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem2">Semistar 2</Link>
+            <Link to="/study/class11/wbb/computer-application/sem2">Semester 2</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
             <Link to="/study/class11/wbb/computer-application/sem3">Semistar 3</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem4">Semistar 4</Link>
+            <Link to="/study/class11/wbb/computer-application/sem4">Semester 4</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem5">Semistar 5</Link>
+            <Link to="/study/class11/wbb/computer-application/sem5">Semester 5</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem6">Semistar 6</Link>
+            <Link to="/study/class11/wbb/computer-application/sem6">Semester 6</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem7">Semistar 7</Link>
+            <Link to="/study/class11/wbb/computer-application/sem7">Semester 7</Link>
           </li>
           <li className="hover:text-blue-400 transition duration-200 cursor-pointer">
-            <Link to="/study/class11/wbb/computer-application/sem8">Semistar 8</Link>
+            <Link to="/study/class11/wbb/computer-application/sem8">Semester 8</Link>
           </li>
 
         </ul>

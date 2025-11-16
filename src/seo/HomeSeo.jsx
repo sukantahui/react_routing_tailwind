@@ -157,6 +157,9 @@ export default function HomeSEO() {
         name="description"
         content="Join Coder & AccoTax,the best coding institute in Barrackpore, to master Web Development, Python, Accounting, GST and Data Analysis. Learn from certified instructors, earn ISO-recognized certifications, and become job-ready with hands-on projects."
       />
+      {/* IMPORTANT SEO CRAWLER DIRECTIVES */}
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="robots" content="index, follow" />
 
       <meta
         name="keywords"
