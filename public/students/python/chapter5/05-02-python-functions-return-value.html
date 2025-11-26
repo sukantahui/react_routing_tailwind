@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Python Functions – Return Values Tutorial | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+ body {font-family: Arial, sans-serif; background:#0b1120; color:#e5e7eb; margin:0; padding:20px;}
+ h1,h2,h3 {color:#38bdf8;}
+ .card {background:#111827; padding:20px; border:1px solid #1f2937; border-radius:12px; margin-bottom:20px;}
+ code {background:#1f2937; padding:3px 6px; border-radius:6px; color:#facc15;}
+ pre {background:#1f2937; padding:12px; border-radius:10px; overflow-x:auto; color:#fcd34d;}
+ .example-title {color:#a855f7; font-weight:bold; margin-top:10px;}
+</style>
+</head>
+<body>
+<h1>Python Function Return Values — Full Tutorial</h1>
+<p><strong>Organisation:</strong> Coder & AccoTax<br>Website: www.codernaccotax.co.in<br>Author: Sukanta Hui</p>
+
+<div class="card">
+<h2>1. Introduction to Return Values</h2>
+<p>When a function completes its task, it can <strong>return</strong> a value back to the caller using the <code>return</code> statement. These return values allow functions to be used inside expressions, calculations, and data-processing tasks.</p>
+</div>
+
+<div class="card">
+<h2>2. Returning a Single Value</h2>
+<p>Syntax:</p>
+<pre>def function_name():
+    return value</pre>
+
+<div class="example-title">Example 1 — Simple Sum</div>
+<pre>def add(a, b):
+    return a + b
+
+result = add(10, 5)
+print(result)  # 15</pre>
+
+<div class="example-title">Example 2 — Returning a String</div>
+<pre>def greet(name):
+    return "Hello, " + name
+
+print(greet("Sukanta"))</pre>
+</div>
+
+<div class="card">
+<h2>3. Returning Multiple Values (Tuples)</h2>
+<p>Python allows returning multiple values, which are automatically packed into a <strong>tuple</strong>.</p>
+
+<div class="example-title">Example 1 — Returning 3 values</div>
+<pre>def calculate(a, b):
+    return a + b, a - b, a * b
+
+result = calculate(10, 5)
+print(result)   # (15, 5, 50)</pre>
+
+<div class="example-title">Example 2 — Unpacking the Returned Tuple</div>
+<pre>sum_v, diff_v, prod_v = calculate(10, 5)
+print(sum_v, diff_v, prod_v)</pre>
+</div>
+
+<div class="card">
+<h2>4. Void Functions vs Value-returning Functions</h2>
+<p>A <strong>void function</strong> performs an action but returns nothing. A <strong>value-returning function</strong> sends data back using <code>return</code>.</p>
+
+<h3>4.1 Void Function</h3>
+<pre>def show_message():
+    print("This is a void function")
+
+print(show_message())
+# Output:
+# This is a void function
+# None</pre>
+
+<h3>4.2 Value-Returning Function</h3>
+<pre>def square(n):
+    return n * n
+
+print(square(6))   # 36</pre>
+</div>
+
+<div class="card">
+<h2>5. Real-world Examples</h2>
+
+<div class="example-title">Example — Function Chaining</div>
+<pre>def multiply(a, b):
+    return a * b
+
+def add_ten(x):
+    return x + 10
+
+print(add_ten(multiply(3, 4)))  # 22</pre>
+
+<div class="example-title">Example — Returning Lists</div>
+<pre>def factors(n):
+    return [i for i in range(1, n+1) if n % i == 0]
+
+print(factors(12))</pre>
+
+<div class="example-title">Example — Returning Dictionaries</div>
+<pre>def student_profile(name, age):
+    return {"name": name, "age": age}
+
+print(student_profile("Sudeshna", 16))</pre>
+</div>
+
+<div class="card">
+<h2>6. Common Mistakes with Return</h2>
+
+<ul>
+<li>Writing code after <code>return</code> (it becomes unreachable)</li>
+<li>Returning inside a loop unintentionally</li>
+<li>Using print() instead of return</li>
+</ul>
+
+<pre>def wrong():
+    return "Done"
+    print("This will never execute")</pre>
+</div>
+
+<div class="card">
+<h2>7. Practice Problems</h2>
+<ol>
+<li>Create a function that returns the largest of 3 numbers.</li>
+<li>Write a function that returns both area and perimeter of a circle.</li>
+<li>Write a function that takes a list and returns the sum and average.</li>
+<li>Create a void function that prints a menu, and a return function that returns the user's choice.</li>
+</ol>
+</div>
+
+<footer>
+<p>© 2025 Coder & AccoTax | Premium Python Tutorial by Sukanta Hui</p>
+</footer>
+
+</body>
+</html>

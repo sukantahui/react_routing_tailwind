@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 3.3 — Loop Control (100 Questions Exercise) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --soft: #0b1120;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --border: #1f2937;
+      --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 32px 22px 80px;
+    }
+
+    /* HEADER */
+    .header {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+        var(--card);
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,0.22);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 800;
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    /* BRAND BOX */
+    .brand-box {
+      margin-top: 20px;
+      background: var(--soft);
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .brand-title2 {
+      color: var(--accent2);
+      font-weight: 600;
+    }
+
+    .brand-box a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .github-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* CARDS */
+    .card {
+      margin-top: 30px;
+      padding: 26px;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--accent);
+    }
+
+    h4 {
+      color: var(--accent2);
+    }
+
+    .example {
+      background: var(--soft);
+      border: 1px dashed var(--border);
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin: 10px 0;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .code {
+      background: #000;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      white-space: pre-wrap;
+      font-size: 13px;
+      margin-top: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+    }
+
+    .answer {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px dashed var(--border);
+      padding-top: 6px;
+    }
+
+    .answer b {
+      color: var(--accent3);
+    }
+
+    .diagram {
+      background: #020617;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      white-space: pre;
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Unit 3.3 — Loop Control Statements (100 Questions Exercise)</h1>
+      <p class="sub">
+        break · continue · pass · Menu-driven loops — Mixed MCQs, output, dry-run, coding, debug, theory with answers and explanations.
+      </p>
+
+      <div class="brand-box">
+        <div>
+          <div class="brand-title">🏢 Organisation</div>
+          Coder &amp; AccoTax<br />
+          🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+        </div>
+        <div>
+          <div class="brand-title2">👨‍🏫 Author</div>
+          Sukanta Hui<br />
+          📞 7003756860<br />
+          ✉️ info@codernaccotax.co.in
+        </div>
+        <div>
+          <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+            View Python Practice Repository
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: MCQs (1–25) -->
+    <div class="card">
+      <h2>Section 1 — MCQs (25 Questions)</h2>
+
+      <!-- Q1 -->
+      <div class="example">
+        <strong>Q1.</strong> The <code>break</code> statement in Python:
+        <br />a) Skips current iteration<br />b) Exits the loop immediately<br />c) Does nothing<br />d) Exits the program
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> <code>break</code> stops the loop at once and control moves to the first statement after the loop.
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="example">
+        <strong>Q2.</strong> The <code>continue</code> statement:
+        <br />a) Exits the loop<br />b) Skips the remaining body for current iteration<br />c) Exits the program<br />d) Restarts the program
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> <code>continue</code> jumps to the next iteration of the loop.
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="example">
+        <strong>Q3.</strong> The <code>pass</code> statement:
+        <br />a) Terminates the loop<br />b) Skips an iteration<br />c) Is a placeholder that does nothing<br />d) Restarts the loop
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> <code>pass</code> is used when a statement is required syntactically but no action is needed.
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="example">
+        <strong>Q4.</strong> Which construct is most commonly used in menu-driven programs?
+        <br />a) if only<br />b) while True with break<br />c) for with break<br />d) try-except
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> Menus usually repeat until user chooses Exit, so an infinite <code>while True</code> with <code>break</code> is natural.
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="example">
+        <strong>Q5.</strong> What happens if <code>break</code> is used inside a nested loop?
+        <br />a) All loops exit<br />b) Only inner loop exits<br />c) Program ends<br />d) It is ignored
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> <code>break</code> only exits the loop where it is written (inner loop if nested).
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="example">
+        <strong>Q6.</strong> Which statement is useful to skip processing for some items in a loop?
+        <br />a) break<br />b) continue<br />c) pass<br />d) return
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> <code>continue</code> skips the rest of the body for that iteration and resumes with next iteration.
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="example">
+        <strong>Q7.</strong> Which of these will create an infinite loop if no break is used?
+        <br />a) <code>for i in range(10)</code><br />b) <code>while i &gt; 0</code> with i not changing<br />c) <code>while True</code><br />d) both (b) and (c)
+        <div class="answer">
+          <b>Answer:</b> (d)<br />
+          <b>Explanation:</b> If the condition never becomes False, loop is infinite. <code>while True</code> is always True; if i never changes, condition remains True.
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="example">
+        <strong>Q8.</strong> In a menu-driven program, which input usually causes loop to terminate?
+        <br />a) 0<br />b) Negative number<br />c) Exit choice (e.g., 4. Exit)<br />d) Any character
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> We design the menu with a specific "Exit" option; when chosen, we call <code>break</code>.
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="example">
+        <strong>Q9.</strong> Which statement is syntactically valid?
+        <br />a) <code>if x &gt; 0: continue</code><br />b) <code>if x &gt; 0: break</code><br />c) <code>if x &gt; 0: pass</code><br />d) all of the above
+        <div class="answer">
+          <b>Answer:</b> (d)<br />
+          <b>Explanation:</b> All three can appear inside a loop body, and are syntactically valid.
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="example">
+        <strong>Q10.</strong> Which control statement is best to use as a reminder to write code later?
+        <br />a) break<br />b) continue<br />c) pass<br />d) stop
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> <code>pass</code> is used as a placeholder where code will be added later.
+        </div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="example">
+        <strong>Q11.</strong> What is the effect of <code>break</code> in a <code>for</code> loop?
+        <br />a) Skips current iteration<br />b) Exits the loop early<br />c) Repeats current iteration<br />d) Resets the loop counter
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> It stops the loop even if items are still left in the sequence.
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="example">
+        <strong>Q12.</strong> In which situation is <code>continue</code> most useful?
+        <br />a) When you want to fully stop the program<br />b) When you want to skip some unwanted cases<br />c) To leave a blank block<br />d) To define functions
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> <code>continue</code> is used to skip processing for certain data values.
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="example">
+        <strong>Q13.</strong> Which of these is NOT a loop control statement in Python?
+        <br />a) break<br />b) next<br />c) continue<br />d) pass
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> Python does not have <code>next</code> as a statement (it is a function for iterators).
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="example">
+        <strong>Q14.</strong> The main purpose of a menu-driven program is:
+        <br />a) To use only if-else<br />b) To provide user multiple choices repeatedly<br />c) To exit immediately<br />d) To show only one message
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> Menu-driven programs present options repeatedly until the user decides to exit.
+        </div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="example">
+        <strong>Q15.</strong> In a <code>while</code> loop with <code>continue</code>, which part is most important to avoid infinite loop?
+        <br />a) print statements<br />b) correct indentation<br />c) updating the loop variable before continue<br />d) using pass
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> If loop variable is not updated, the condition may never change, causing infinite loop.
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="example">
+        <strong>Q16.</strong> Which will you use to “skip processing of Sundays” in a loop of weekdays?
+        <br />a) break<br />b) continue<br />c) pass<br />d) return
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> For Sundays you skip processing but still process other days → use <code>continue</code>.
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="example">
+        <strong>Q17.</strong> To design a loop that runs <strong>until user enters 0</strong>, you typically use:
+        <br />a) <code>for</code> loop with range<br />b) <code>while n != 0</code><br />c) <code>while True</code> and break<br />d) both (b) and (c)
+        <div class="answer">
+          <b>Answer:</b> (d)<br />
+          <b>Explanation:</b> Both are common patterns to run until a sentinel value is entered.
+        </div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="example">
+        <strong>Q18.</strong> What happens if <code>pass</code> is the only statement in a loop body?
+        <br />a) Loop will not execute<br />b) Loop will execute but do nothing in each iteration<br />c) Syntax error<br />d) Program ends
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> Each iteration runs, but <code>pass</code> performs no action.
+        </div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="example">
+        <strong>Q19.</strong> Which statement immediately transfers control outside the loop?
+        <br />a) continue<br />b) stop<br />c) break<br />d) pass
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> <code>break</code> exits the loop instantly.
+        </div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="example">
+        <strong>Q20.</strong> If we want to implement a “Try again / Exit” behavior, we should use:
+        <br />a) Nested if only<br />b) Loop with break when user chooses Exit<br />c) Only print statements<br />d) Only functions
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> The loop allows repeated attempts, and <code>break</code> ends the loop when user exits.
+        </div>
+      </div>
+
+      <!-- Q21 -->
+      <div class="example">
+        <strong>Q21.</strong> Which of these is ideal for “developer placeholder” during coding?
+        <br />a) break<br />b) continue<br />c) pass<br />d) exit()
+        <div class="answer">
+          <b>Answer:</b> (c)<br />
+          <b>Explanation:</b> <code>pass</code> is meant for empty blocks that will be filled later.
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="example">
+        <strong>Q22.</strong> Consider a loop that reads 10 numbers but must stop if -1 is entered. Which is best?
+        <br />a) Use only if<br />b) Use break when number is -1<br />c) Use continue for -1<br />d) Use pass for -1
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> -1 acts as a sentinel to terminate early; <code>break</code> is correct.
+        </div>
+      </div>
+
+      <!-- Q23 -->
+      <div class="example">
+        <strong>Q23.</strong> In a menu, which loop condition is common?
+        <br />a) <code>while choice != 'Exit'</code><br />b) <code>while True</code><br />c) <code>for i in range(100)</code><br />d) both (a) and (b)
+        <div class="answer">
+          <b>Answer:</b> (d)<br />
+          <b>Explanation:</b> We may use a condition on choice or an infinite loop with an explicit break.
+        </div>
+      </div>
+
+      <!-- Q24 -->
+      <div class="example">
+        <strong>Q24.</strong> If we put <code>break</code> before incrementing a counter in <code>while</code>, what happens?
+        <br />a) Counter still increments<br />b) Counter doesn’t increment that time<br />c) Loop repeats forever<br />d) Syntax error
+        <div class="answer">
+          <b>Answer:</b> (b)<br />
+          <b>Explanation:</b> Once <code>break</code> executes, the rest of the body is skipped, so no increment.
+        </div>
+      </div>
+
+      <!-- Q25 -->
+      <div class="example">
+        <strong>Q25.</strong> Which combination correctly describes usage?
+        <br />a) break → exit loop, continue → skip, pass → placeholder<br />b) break → skip, continue → exit, pass → placeholder<br />c) break → placeholder, continue → exit<br />d) all equivalent
+        <div class="answer">
+          <b>Answer:</b> (a)<br />
+          <b>Explanation:</b> That is the correct mapping of behavior.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Output-Based Questions (26–45) -->
+    <div class="card">
+      <h2>Section 2 — Output-Based Questions (20 Questions)</h2>
+
+      <!-- Q26 -->
+      <div class="example">
+        <strong>Q26.</strong> Predict the output:
+        <pre class="code">
+for i in range(5):
+    if i == 3:
+        break
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>0 1 2</code><br />
+          <b>Explanation:</b> Loop prints 0,1,2. When i becomes 3, <code>break</code> stops the loop; 3 is not printed.
+        </div>
+      </div>
+
+      <!-- Q27 -->
+      <div class="example">
+        <strong>Q27.</strong>
+        <pre class="code">
+for i in range(5):
+    if i == 2:
+        continue
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>0 1 3 4</code><br />
+          <b>Explanation:</b> When i=2, <code>continue</code> skips print. Others are printed.
+        </div>
+      </div>
+
+      <!-- Q28 -->
+      <div class="example">
+        <strong>Q28.</strong>
+        <pre class="code">
+for i in range(3):
+    pass
+print(i)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>2</code><br />
+          <b>Explanation:</b> Loop runs with i = 0,1,2. After loop, last value of i is 2.
+        </div>
+      </div>
+
+      <!-- Q29 -->
+      <div class="example">
+        <strong>Q29.</strong>
+        <pre class="code">
+i = 1
+while i <= 5:
+    if i == 4:
+        break
+    print(i, end=" ")
+    i += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 3</code><br />
+          <b>Explanation:</b> Loop prints 1,2,3. When i becomes 4, <code>break</code> executes before print.
+        </div>
+      </div>
+
+      <!-- Q30 -->
+      <div class="example">
+        <strong>Q30.</strong>
+        <pre class="code">
+i = 0
+while i < 5:
+    i += 1
+    if i == 3:
+        continue
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 4 5</code><br />
+          <b>Explanation:</b> i becomes 1,2,3,4,5. For i=3, continue skips print.
+        </div>
+      </div>
+
+      <!-- Q31 -->
+      <div class="example">
+        <strong>Q31.</strong>
+        <pre class="code">
+for ch in "PYTHON":
+    if ch == "H":
+        break
+    print(ch, end="")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>PYT</code><br />
+          <b>Explanation:</b> Prints P,Y,T. When H is found, break stops loop.
+        </div>
+      </div>
+
+      <!-- Q32 -->
+      <div class="example">
+        <strong>Q32.</strong>
+        <pre class="code">
+for ch in "CODER":
+    if ch in "OE":
+        continue
+    print(ch, end="")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>CDR</code><br />
+          <b>Explanation:</b> Skips vowels O and E.
+        </div>
+      </div>
+
+      <!-- Q33 -->
+      <div class="example">
+        <strong>Q33.</strong>
+        <pre class="code">
+for i in range(1, 6):
+    if i == 2 or i == 4:
+        continue
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 3 5</code><br />
+          <b>Explanation:</b> 2 and 4 are skipped due to continue.
+        </div>
+      </div>
+
+      <!-- Q34 -->
+      <div class="example">
+        <strong>Q34.</strong>
+        <pre class="code">
+for i in range(1, 5):
+    for j in range(1, 4):
+        if j == 3:
+            break
+        print(i, j, end="; ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 1; 1 2; 2 1; 2 2; 3 1; 3 2; 4 1; 4 2;</code><br />
+          <b>Explanation:</b> Inner loop prints j=1,2 then breaks at j=3; outer loop repeats.
+        </div>
+      </div>
+
+      <!-- Q35 -->
+      <div class="example">
+        <strong>Q35.</strong>
+        <pre class="code">
+count = 0
+for i in range(1, 6):
+    if i % 2 == 0:
+        count += 1
+        continue
+    print(i, end=" ")
+print("|", count)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 3 5 | 2</code><br />
+          <b>Explanation:</b> Odd numbers printed. Even numbers increase count (2 and 4).
+        </div>
+      </div>
+
+      <!-- Q36 -->
+      <div class="example">
+        <strong>Q36.</strong>
+        <pre class="code">
+for i in range(3):
+    for j in range(3):
+        if i == j:
+            continue
+        print(i, j, end="; ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>0 1; 0 2; 1 0; 1 2; 2 0; 2 1;</code><br />
+          <b>Explanation:</b> Skips pairs where i==j (0,0;1,1;2,2).
+        </div>
+      </div>
+
+      <!-- Q37 -->
+      <div class="example">
+        <strong>Q37.</strong>
+        <pre class="code">
+for i in range(1, 6):
+    print(i, end=" ")
+    if i == 3:
+        break
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 3</code><br />
+          <b>Explanation:</b> Print happens then break when i==3.
+        </div>
+      </div>
+
+      <!-- Q38 -->
+      <div class="example">
+        <strong>Q38.</strong>
+        <pre class="code">
+for i in range(1, 6):
+    if i &lt; 3:
+        pass
+    else:
+        print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>3 4 5</code><br />
+          <b>Explanation:</b> For i=1,2 pass (do nothing); from 3 onwards print.
+        </div>
+      </div>
+
+      <!-- Q39 -->
+      <div class="example">
+        <strong>Q39.</strong>
+        <pre class="code">
+i = 0
+while True:
+    i += 1
+    if i == 3:
+        continue
+    if i == 6:
+        break
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 4 5</code><br />
+          <b>Explanation:</b> When i=3, continue skips print; when i=6, break stops loop.
+        </div>
+      </div>
+
+      <!-- Q40 -->
+      <div class="example">
+        <strong>Q40.</strong>
+        <pre class="code">
+for i in range(1, 4):
+    for j in range(1, 4):
+        if i + j == 4:
+            break
+        print(i, j, end="; ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 1; 1 2; 2 1; 3 1; 3 2;</code><br />
+          <b>Explanation:</b> Break when i+j==4 for each row; inner loop stops early.
+        </div>
+      </div>
+
+      <!-- Q41 -->
+      <div class="example">
+        <strong>Q41.</strong>
+        <pre class="code">
+for i in range(1, 6):
+    if i == 1:
+        pass
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 3 4 5</code><br />
+          <b>Explanation:</b> pass has no effect; all numbers print.
+        </div>
+      </div>
+
+      <!-- Q42 -->
+      <div class="example">
+        <strong>Q42.</strong>
+        <pre class="code">
+for i in range(1, 5):
+    if i == 2:
+        break
+    if i == 3:
+        continue
+    print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1</code><br />
+          <b>Explanation:</b> When i=2, break stops loop before any print of 2,3,4.
+        </div>
+      </div>
+
+      <!-- Q43 -->
+      <div class="example">
+        <strong>Q43.</strong>
+        <pre class="code">
+for i in range(0, 5):
+    if i % 2 == 0:
+        print("E", end=" ")
+        continue
+    print("O", end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>E O E O E</code><br />
+          <b>Explanation:</b> 0,2,4 even → E; 1,3 odd → O.
+        </div>
+      </div>
+
+      <!-- Q44 -->
+      <div class="example">
+        <strong>Q44.</strong>
+        <pre class="code">
+for ch in "LOOP":
+    if ch == "O":
+        continue
+    print(ch, end="-")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>L-P-</code><br />
+          <b>Explanation:</b> Both 'O's skipped; prints L and P with dashes.
+        </div>
+      </div>
+
+      <!-- Q45 -->
+      <div class="example">
+        <strong>Q45.</strong>
+        <pre class="code">
+x = 0
+while x &lt; 4:
+    if x == 2:
+        x += 1
+        continue
+    print(x, end=" ")
+    x += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>0 1 3</code><br />
+          <b>Explanation:</b> When x=2, continue skips print, but x is incremented to 3.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Dry Run / Trace (46–55) -->
+    <div class="card">
+      <h2>Section 3 — Dry Run / Trace Table (10 Questions)</h2>
+      <p>For each, mentally track values and write the final output.</p>
+
+      <!-- Q46 -->
+      <div class="example">
+        <strong>Q46.</strong>
+        <pre class="code">
+i = 1
+while i &lt;= 5:
+    if i == 3:
+        i += 1
+        continue
+    print(i, end=" ")
+    i += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 4 5</code><br />
+          <b>Explanation:</b> At i=3, continue skips print; rest values printed.
+        </div>
+      </div>
+
+      <!-- Q47 -->
+      <div class="example">
+        <strong>Q47.</strong>
+        <pre class="code">
+i = 10
+while i &gt; 0:
+    if i == 6:
+        break
+    print(i, end=" ")
+    i -= 2
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>10 8</code><br />
+          <b>Explanation:</b> i goes 10→8→6; break triggers when i==6 before printing 6.
+        </div>
+      </div>
+
+      <!-- Q48 -->
+      <div class="example">
+        <strong>Q48.</strong>
+        <pre class="code">
+s = "PYTHON"
+i = 0
+while i &lt; len(s):
+    if s[i] == "H":
+        i += 1
+        continue
+    print(s[i], end="")
+    i += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>PYTON</code><br />
+          <b>Explanation:</b> H is skipped; others printed in order.
+        </div>
+      </div>
+
+      <!-- Q49 -->
+      <div class="example">
+        <strong>Q49.</strong>
+        <pre class="code">
+total = 0
+for i in range(1, 6):
+    if i == 4:
+        break
+    total += i
+print(total)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>6</code><br />
+          <b>Explanation:</b> Adds 1+2+3; then break at 4.
+        </div>
+      </div>
+
+      <!-- Q50 -->
+      <div class="example">
+        <strong>Q50.</strong>
+        <pre class="code">
+count = 0
+for i in range(1, 8):
+    if i % 3 == 0:
+        continue
+    count += 1
+print(count)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>5</code><br />
+          <b>Explanation:</b> Numbers 3 and 6 are skipped; others counted → 1,2,4,5,7.
+        </div>
+      </div>
+
+      <!-- Q51 -->
+      <div class="example">
+        <strong>Q51.</strong>
+        <pre class="code">
+for i in range(1,4):
+    for j in range(1,4):
+        if i*j &gt;= 4:
+            break
+        print(i*j, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 1 2 3</code><br />
+          <b>Explanation:</b> Breaks inner loop when product ≥4.
+        </div>
+      </div>
+
+      <!-- Q52 -->
+      <div class="example">
+        <strong>Q52.</strong>
+        <pre class="code">
+n = 0
+while n &lt; 5:
+    print("Hi", end=" ")
+    n += 1
+    if n == 3:
+        break
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>Hi Hi Hi</code><br />
+          <b>Explanation:</b> Loop prints “Hi” for n=1,2,3 then breaks.
+        </div>
+      </div>
+
+      <!-- Q53 -->
+      <div class="example">
+        <strong>Q53.</strong>
+        <pre class="code">
+for i in range(1, 6):
+    if i &lt;= 2:
+        pass
+    else:
+        print(i, end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>3 4 5</code><br />
+          <b>Explanation:</b> pass for 1,2; print from 3 to 5.
+        </div>
+      </div>
+
+      <!-- Q54 -->
+      <div class="example">
+        <strong>Q54.</strong>
+        <pre class="code">
+for i in range(5):
+    for j in range(5):
+        if j == 0:
+            continue
+        if j == 3:
+            break
+        print(j, end=" ")
+    print("|", end=" ")
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>1 2 | 1 2 | 1 2 | 1 2 | 1 2 |</code><br />
+          <b>Explanation:</b> Inner loop always prints 1 and 2, then breaks at 3. Repeated 5 times.
+        </div>
+      </div>
+
+      <!-- Q55 -->
+      <div class="example">
+        <strong>Q55.</strong>
+        <pre class="code">
+i = 0
+while i &lt; 5:
+    if i == 0:
+        i += 2
+        continue
+    print(i, end=" ")
+    i += 2
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>2 4</code><br />
+          <b>Explanation:</b> First, i jumps from 0→2 via continue; then prints 2 and 4.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Conceptual / Theory (56–70) -->
+    <div class="card">
+      <h2>Section 4 — Short Conceptual Questions (15 Questions)</h2>
+
+      <!-- Q56 -->
+      <div class="example">
+        <strong>Q56.</strong> Explain the difference between <code>break</code> and <code>continue</code>.
+        <div class="answer">
+          <b>Answer:</b> <code>break</code> exits the loop completely; <code>continue</code> skips the rest of the current iteration and moves to the next.
+        </div>
+      </div>
+
+      <!-- Q57 -->
+      <div class="example">
+        <strong>Q57.</strong> Why is <code>pass</code> needed in Python?
+        <div class="answer">
+          <b>Answer:</b> Python doesn’t allow empty blocks; <code>pass</code> acts as a placeholder where no action is required yet.
+        </div>
+      </div>
+
+      <!-- Q58 -->
+      <div class="example">
+        <strong>Q58.</strong> Give one real-life example where <code>break</code> is useful in a loop.
+        <div class="answer">
+          <b>Answer:</b> Example: Searching a list of roll numbers; once found, use <code>break</code> to stop further searching.
+        </div>
+      </div>
+
+      <!-- Q59 -->
+      <div class="example">
+        <strong>Q59.</strong> Give one real-life situation where <code>continue</code> is useful.
+        <div class="answer">
+          <b>Answer:</b> Example: Looping through marks but skipping absent students (marked as -1) using <code>continue</code>.
+        </div>
+      </div>
+
+      <!-- Q60 -->
+      <div class="example">
+        <strong>Q60.</strong> Can <code>break</code> be used outside a loop? Why / Why not?
+        <div class="answer">
+          <b>Answer:</b> No. <code>break</code> is only valid inside loops; outside, it causes a syntax error.
+        </div>
+      </div>
+
+      <!-- Q61 -->
+      <div class="example">
+        <strong>Q61.</strong> What happens if we forget to update the loop variable in a <code>while</code> loop with <code>continue</code>?
+        <div class="answer">
+          <b>Answer:</b> The condition may never change, causing an infinite loop because execution keeps skipping the update code.
+        </div>
+      </div>
+
+      <!-- Q62 -->
+      <div class="example">
+        <strong>Q62.</strong> In a menu-driven program, why is <code>while True</code> often preferred?
+        <div class="answer">
+          <b>Answer:</b> It simplifies the condition logic; the loop always runs until an explicit <code>break</code> is executed on Exit choice.
+        </div>
+      </div>
+
+      <!-- Q63 -->
+      <div class="example">
+        <strong>Q63.</strong> Which statement is better for creating "empty function" definitions that will be implemented later?
+        <div class="answer">
+          <b>Answer:</b> Use <code>pass</code> inside the function body as a placeholder.
+        </div>
+      </div>
+
+      <!-- Q64 -->
+      <div class="example">
+        <strong>Q64.</strong> What is a “sentinel value” in loops?
+        <div class="answer">
+          <b>Answer:</b> A special value (like -1 or 0) that indicates "stop now" when entered; often used with <code>break</code>.
+        </div>
+      </div>
+
+      <!-- Q65 -->
+      <div class="example">
+        <strong>Q65.</strong> Why should menus usually validate user input?
+        <div class="answer">
+          <b>Answer:</b> To handle invalid choices gracefully instead of crashing or behaving incorrectly.
+        </div>
+      </div>
+
+      <!-- Q66 -->
+      <div class="example">
+        <strong>Q66.</strong> Can we use <code>continue</code> in a <code>for</code> loop? Explain.
+        <div class="answer">
+          <b>Answer:</b> Yes. On <code>continue</code>, the loop immediately jumps to get the next item from the iterator.
+        </div>
+      </div>
+
+      <!-- Q67 -->
+      <div class="example">
+        <strong>Q67.</strong> What is the main difference between a “counter-controlled” loop and a “menu-driven” loop?
+        <div class="answer">
+          <b>Answer:</b> Counter-controlled loops run fixed number of times; menu-driven loops run until user chooses to exit.
+        </div>
+      </div>
+
+      <!-- Q68 -->
+      <div class="example">
+        <strong>Q68.</strong> Why is <code>pass</code> safer than leaving a block empty?
+        <div class="answer">
+          <b>Answer:</b> Python does not allow empty blocks; <code>pass</code> avoids syntax errors and clearly indicates intentional emptiness.
+        </div>
+      </div>
+
+      <!-- Q69 -->
+      <div class="example">
+        <strong>Q69.</strong> Does <code>break</code> affect code after the loop?
+        <div class="answer">
+          <b>Answer:</b> No. It only stops the loop; code after the loop executes normally.
+        </div>
+      </div>
+
+      <!-- Q70 -->
+      <div class="example">
+        <strong>Q70.</strong> When designing menu options, why is it good to keep “Exit” as last option?
+        <div class="answer">
+          <b>Answer:</b> It’s intuitive for users; they naturally look at the end of menu to exit, improving usability.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Coding / Menu Tasks (71–90) -->
+    <div class="card">
+      <h2>Section 5 — Coding & Menu-Driven Questions (20 Questions)</h2>
+
+      <!-- For coding: give idea/short solution -->
+
+      <!-- Q71 -->
+      <div class="example">
+        <strong>Q71.</strong> Write a program to print numbers from 1 to 50 but stop as soon as the number 17 is reached (do not print beyond 17).
+        <div class="answer">
+          <b>Answer (Idea):</b> Use a <code>for</code> loop and <code>break</code> when i==17.<br />
+          <pre class="code">
+for i in range(1, 51):
+    print(i)
+    if i == 17:
+        break
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q72 -->
+      <div class="example">
+        <strong>Q72.</strong> Write a program to print all odd numbers from 1 to 30 using <code>continue</code>.
+        <div class="answer">
+          <b>Answer (Idea):</b> Skip even numbers with continue.<br />
+          <pre class="code">
+for i in range(1, 31):
+    if i % 2 == 0:
+        continue
+    print(i)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q73 -->
+      <div class="example">
+        <strong>Q73.</strong> Create a menu-driven program for a calculator: Add, Subtract, Exit. Use a loop and <code>break</code> when user chooses Exit.
+        <div class="answer">
+          <b>Answer (Idea):</b> <code>while True</code> with choices 1,2,3 and break on 3.<br />
+          <pre class="code">
+while True:
+    print("\n1.Add  2.Subtract  3.Exit")
+    ch = int(input("Choice: "))
+    if ch == 3:
+        break
+    a = int(input("A: "))
+    b = int(input("B: "))
+    if ch == 1:
+        print("Sum =", a + b)
+    elif ch == 2:
+        print("Diff =", a - b)
+    else:
+        print("Invalid")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q74 -->
+      <div class="example">
+        <strong>Q74.</strong> Write a program to read roll numbers continuously and stop input when 0 is entered.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use infinite loop with sentinel 0 and break.<br />
+          <pre class="code">
+while True:
+    roll = int(input("Enter roll (0 to stop): "))
+    if roll == 0:
+        break
+    print("Got roll:", roll)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q75 -->
+      <div class="example">
+        <strong>Q75.</strong> Using <code>continue</code>, print all numbers from 1 to 20 except multiples of 5.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+for i in range(1, 21):
+    if i % 5 == 0:
+        continue
+    print(i)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q76 -->
+      <div class="example">
+        <strong>Q76.</strong> Create a menu-driven program to manage a list of tasks: Add Task, Show Tasks, Clear All, Exit.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use a list and while True loop.<br />
+          <pre class="code">
+tasks = []
+while True:
+    print("\n1.Add  2.Show  3.Clear  4.Exit")
+    ch = int(input("Choice: "))
+    if ch == 1:
+        t = input("Task: ")
+        tasks.append(t)
+    elif ch == 2:
+        for t in tasks:
+            print("-", t)
+    elif ch == 3:
+        tasks.clear()
+        print("All tasks cleared.")
+    elif ch == 4:
+        break
+    else:
+        print("Invalid")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q77 -->
+      <div class="example">
+        <strong>Q77.</strong> Write a loop that prints characters of a string but stops if a digit is found.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use <code>break</code> when ch.isdigit().<br />
+          <pre class="code">
+s = input("Enter string: ")
+for ch in s:
+    if ch.isdigit():
+        break
+    print(ch, end="")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q78 -->
+      <div class="example">
+        <strong>Q78.</strong> Write a program using <code>continue</code> to print only letters (skip digits) in a mixed string.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+s = input("Enter: ")
+for ch in s:
+    if ch.isdigit():
+        continue
+    print(ch, end="")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q79 -->
+      <div class="example">
+        <strong>Q79.</strong> Write a menu-driven program to repeatedly ask for marks and show grade, until user chooses Exit.
+        <div class="answer">
+          <b>Answer (Idea):</b> Simple grading logic with break on exit.<br />
+          <pre class="code">
+while True:
+    print("\n1.Enter Marks  2.Exit")
+    ch = int(input("Choice: "))
+    if ch == 2:
+        break
+    m = int(input("Marks: "))
+    if m >= 90:
+        print("Grade: A")
+    elif m >= 75:
+        print("Grade: B")
+    else:
+        print("Grade: C")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q80 -->
+      <div class="example">
+        <strong>Q80.</strong> Use <code>pass</code> to define an empty function <code>future_feature()</code> that you will implement later.
+        <div class="answer">
+          <b>Answer:</b>
+          <pre class="code">
+def future_feature():
+    pass
+          </pre>
+          <b>Explanation:</b> Function exists but does nothing yet.
+        </div>
+      </div>
+
+      <!-- Q81 -->
+      <div class="example">
+        <strong>Q81.</strong> Write a loop that keeps taking numbers and prints their sum, but stops if user enters a negative number.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+total = 0
+while True:
+    n = int(input("Enter number (-ve to stop): "))
+    if n < 0:
+        break
+    total += n
+print("Total =", total)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q82 -->
+      <div class="example">
+        <strong>Q82.</strong> Write a program to print all numbers from 1 to 100 except those divisible by 3 or 7.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use <code>continue</code> when divisible by 3 or 7.<br />
+          <pre class="code">
+for i in range(1, 101):
+    if i % 3 == 0 or i % 7 == 0:
+        continue
+    print(i)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q83 -->
+      <div class="example">
+        <strong>Q83.</strong> Create a menu-driven program to perform string operations: length, uppercase, reverse, exit.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+s = input("Enter string: ")
+while True:
+    print("\n1.Length 2.Uppercase 3.Reverse 4.Exit")
+    ch = int(input("Choice: "))
+    if ch == 1:
+        print("Length:", len(s))
+    elif ch == 2:
+        print(s.upper())
+    elif ch == 3:
+        print(s[::-1])
+    elif ch == 4:
+        break
+    else:
+        print("Invalid")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q84 -->
+      <div class="example">
+        <strong>Q84.</strong> Write a program using <code>while</code> that prints natural numbers but stops when sum exceeds 50.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+i = 1
+s = 0
+while True:
+    s += i
+    if s > 50:
+        break
+    print(i, end=" ")
+    i += 1
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q85 -->
+      <div class="example">
+        <strong>Q85.</strong> Using <code>pass</code>, create a loop that you plan to fill with logic later.
+        <div class="answer">
+          <b>Answer:</b>
+          <pre class="code">
+for i in range(10):
+    pass  # TODO: add logic later
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q86 -->
+      <div class="example">
+        <strong>Q86.</strong> Write a program to find the first multiple of 7 in a list and stop checking further elements once found.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use <code>break</code> when multiple found.<br />
+          <pre class="code">
+nums = [5, 11, 14, 20, 28]
+for n in nums:
+    if n % 7 == 0:
+        print("First multiple of 7:", n)
+        break
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q87 -->
+      <div class="example">
+        <strong>Q87.</strong> Write a loop to print characters of a string but skip spaces using <code>continue</code>.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+s = "Hello World"
+for ch in s:
+    if ch == " ":
+        continue
+    print(ch, end="")
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q88 -->
+      <div class="example">
+        <strong>Q88.</strong> Write a menu to repeatedly ask username and password and allow only 3 login attempts.
+        <div class="answer">
+          <b>Answer (Idea):</b> Use a counter with break.<br />
+          <pre class="code">
+correct_user = "admin"
+correct_pass = "1234"
+attempts = 0
+
+while attempts < 3:
+    u = input("User: ")
+    p = input("Pass: ")
+    if u == correct_user and p == correct_pass:
+        print("Login successful")
+        break
+    else:
+        print("Wrong credentials")
+        attempts += 1
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q89 -->
+      <div class="example">
+        <strong>Q89.</strong> Write a program that reads characters until user types 'q'. Do not print 'q'.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+while True:
+    ch = input("Char (q to stop): ")
+    if ch == "q":
+        break
+    print("You typed:", ch)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q90 -->
+      <div class="example">
+        <strong>Q90.</strong> Write a loop that prints multiples of 3 from 1 to 50 but uses <code>continue</code> to skip those also divisible by 5.
+        <div class="answer">
+          <b>Answer (Idea):</b>
+          <pre class="code">
+for i in range(1, 51):
+    if i % 3 == 0:
+        if i % 5 == 0:
+            continue
+        print(i)
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: Debug / Error Spotting (91–100) -->
+    <div class="card">
+      <h2>Section 6 — Debug / Error Spotting (10 Questions)</h2>
+
+      <!-- Q91 -->
+      <div class="example">
+        <strong>Q91.</strong> Find and correct the error:
+        <pre class="code">
+for i in range(5):
+    if i == 2:
+        break;
+    print(i)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Semicolon after break is unnecessary but valid; no logical error. Program prints 0,1.<br />
+          <b>Explanation:</b> Not a syntax error, but semicolon is not Pythonic.
+        </div>
+      </div>
+
+      <!-- Q92 -->
+      <div class="example">
+        <strong>Q92.</strong> What is wrong here?
+        <pre class="code">
+if x > 0:
+    break
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>break</code> cannot be used outside a loop.<br />
+          <b>Explanation:</b> Must be inside for/while; otherwise SyntaxError.
+        </div>
+      </div>
+
+      <!-- Q93 -->
+      <div class="example">
+        <strong>Q93.</strong> Correct the code to skip printing 5:
+        <pre class="code">
+for i in range(1, 10):
+    if i = 5:
+        continue
+    print(i)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Use <code>==</code> instead of <code>=</code>.<br />
+          <pre class="code">
+for i in range(1, 10):
+    if i == 5:
+        continue
+    print(i)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q94 -->
+      <div class="example">
+        <strong>Q94.</strong> Find the logical issue:
+        <pre class="code">
+i = 1
+while i <= 5:
+    if i == 3:
+        continue
+    print(i)
+    i += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Infinite loop when i==3 (never incremented).<br />
+          <b>Fix:</b> Increment i before continue:<br />
+          <pre class="code">
+i = 1
+while i <= 5:
+    if i == 3:
+        i += 1
+        continue
+    print(i)
+    i += 1
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q95 -->
+      <div class="example">
+        <strong>Q95.</strong> Correct the menu loop to exit on choice 4:
+        <pre class="code">
+while True:
+    print("1.Add 2.Sub 3.Mul 4.Exit")
+    ch = int(input("Choice: "))
+    if ch == 4:
+        continue
+    # operation here
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Use <code>break</code> instead of <code>continue</code> for exit choice.<br />
+          <pre class="code">
+if ch == 4:
+    break
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q96 -->
+      <div class="example">
+        <strong>Q96.</strong> Why this code never prints anything?
+        <pre class="code">
+for i in range(5):
+    continue
+    print(i)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> <code>continue</code> jumps to next iteration before <code>print</code>; print is unreachable.<br />
+          <b>Fix:</b> Move print above continue or remove continue.
+        </div>
+      </div>
+
+      <!-- Q97 -->
+      <div class="example">
+        <strong>Q97.</strong> Fix the code to do nothing in if-block but still be valid:
+        <pre class="code">
+for i in range(3):
+    if i == 1:
+        # do later
+    print(i)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Add <code>pass</code> inside if.<br />
+          <pre class="code">
+for i in range(3):
+    if i == 1:
+        pass  # do later
+    print(i)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q98 -->
+      <div class="example">
+        <strong>Q98.</strong> Fix the code to stop when user enters 0:
+        <pre class="code">
+n = 1
+while n != 0:
+    n = int(input("Enter: "))
+    if n == 0:
+        continue
+    print("You entered", n)
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Should break when n==0 not continue.<br />
+          <pre class="code">
+while True:
+    n = int(input("Enter: "))
+    if n == 0:
+        break
+    print("You entered", n)
+          </pre>
+        </div>
+      </div>
+
+      <!-- Q99 -->
+      <div class="example">
+        <strong>Q99.</strong> Why is this menu unreachable?
+        <pre class="code">
+while False:
+    print("Menu")
+    # choices
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Condition is False from start; loop never runs.<br />
+          <b>Fix:</b> Use <code>while True</code> or a condition that can be True.
+        </div>
+      </div>
+
+      <!-- Q100 -->
+      <div class="example">
+        <strong>Q100.</strong> Correct code so that it prints numbers until 5, then exits:
+        <pre class="code">
+i = 1
+while i <= 5:
+    print(i)
+    if i == 5:
+        continue
+    i += 1
+        </pre>
+        <div class="answer">
+          <b>Answer:</b> Should use <code>break</code> or increment before continue. Simplest:<br />
+          <pre class="code">
+i = 1
+while i <= 5:
+    print(i)
+    if i == 5:
+        break
+    i += 1
+          </pre>
+          <b>Explanation:</b> continue at i==5 causes infinite loop; break stops properly.
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Coder &amp; AccoTax — 100-Question Exercise by <strong>Sukanta Hui</strong> ·
+      www.codernaccotax.co.in
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

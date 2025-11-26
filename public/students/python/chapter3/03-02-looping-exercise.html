@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Unit 3.2 — Looping Statements (Exercise Set) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 22px 80px;
+}
+
+/* HEADER */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+    #0f172a;
+  border-radius: 26px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(148,163,184,0.22);
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* BRAND BOX */
+.brand-box {
+  margin-top: 22px;
+  background: var(--soft);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,0.22);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  font-size: 14px;
+}
+
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+
+.brand-box a { color: var(--accent); text-decoration: none; }
+
+.github-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  margin-top: 28px;
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  color: var(--accent);
+}
+
+h4 {
+  color: var(--accent2);
+}
+
+.example {
+  background: var(--soft);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  padding: 14px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+.code {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.diagram {
+  background: #020617;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  white-space: pre;
+  font-family: monospace;
+  color: var(--muted);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 3.2 — Looping Statements (Exercise Set)</h1>
+  <p class="sub">MCQs · Output Questions · Dry Run · Patterns · Coding Tasks</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation:</div>
+      Coder &amp; AccoTax<br>
+      🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+    <div>
+      <div class="brand-title2">👨‍🏫 Author:</div>
+      Sukanta Hui<br>
+      📞 7003756860<br>
+      ✉️ info@codernaccotax.co.in
+    </div>
+    <div>
+      <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank" class="github-btn">View GitHub Repository</a>
+    </div>
+  </div>
+</div>
+
+<!-- MCQs -->
+<div class="card">
+  <h2>1. Multiple Choice Questions (MCQs)</h2>
+  <ol>
+    <li>Which loop in Python is condition-controlled?<br>
+      a) for &nbsp; b) while &nbsp; c) do-while &nbsp; d) None</li>
+
+    <li>What is the output of <code>range(1, 5)</code>?<br>
+      a) 1 2 3 4 5 &nbsp; b) 1 2 3 4 &nbsp; c) 0 1 2 3 4 &nbsp; d) 2 3 4 5</li>
+
+    <li>Which statement stops the loop immediately?<br>
+      a) exit &nbsp; b) break &nbsp; c) continue &nbsp; d) stop</li>
+
+    <li>Which statement skips the current iteration?<br>
+      a) skip &nbsp; b) break &nbsp; c) continue &nbsp; d) next</li>
+
+    <li>Which statement does nothing?<br>
+      a) pass &nbsp; b) break &nbsp; c) continue &nbsp; d) null</li>
+
+    <li>How many times will this loop run?<br>
+<pre class="code">
+for i in range(2, 10, 2):
+    print(i)
+</pre>
+      a) 3 &nbsp; b) 4 &nbsp; c) 5 &nbsp; d) 6
+    </li>
+
+    <li>Which loop is best for fixed number of iterations?<br>
+      a) while &nbsp; b) for &nbsp; c) do-while</li>
+
+    <li>What is the last value printed?<br>
+<pre class="code">
+for i in range(3):
+    print(i)
+</pre>
+      a) 0 &nbsp; b) 1 &nbsp; c) 2 &nbsp; d) 3
+    </li>
+
+    <li>Which loop can generate an infinite loop easily?<br>
+      a) for &nbsp; b) while</li>
+
+    <li>What is the output?<br>
+<pre class="code">
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+</pre>
+      a) 0 1 2 3<br>
+      b) 0 1 2<br>
+      c) 3<br>
+      d) none
+    </li>
+  </ol>
+</div>
+
+<!-- OUTPUT QUESTIONS -->
+<div class="card">
+  <h2>2. Output-Based Questions</h2>
+
+  <div class="example">
+    <strong>Q1</strong>
+    <span class="code">
+i = 1
+while i <= 3:
+    print(i)
+    i += 1
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+    <span class="code">
+for i in range(1, 5):
+    if i % 2 == 0:
+        continue
+    print(i)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+    <span class="code">
+for i in range(2):
+    for j in range(2):
+        print(i, j)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q4</strong>
+    <span class="code">
+s = 0
+for i in range(1, 4):
+    s += i
+print(s)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q5</strong>
+    <span class="code">
+for i in "PY":
+    for j in "12":
+        print(i, j)
+    </span>
+  </div>
+</div>
+
+<!-- DRY RUN -->
+<div class="card">
+  <h2>3. Dry Run / Trace Table Questions</h2>
+
+  <div class="example">
+    <strong>Q1</strong>
+    <span class="code">
+i = 1
+s = 0
+while i <= 4:
+    s = s + i
+    i = i + 1
+print(s)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+    <span class="code">
+for i in range(1, 4):
+    for j in range(1, i+1):
+        print(j, end="")
+    print()
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+    <span class="code">
+x = 5
+while x > 0:
+    print("*" * x)
+    x -= 1
+    </span>
+  </div>
+</div>
+
+<!-- PATTERNS -->
+<div class="card">
+  <h2>4. Pattern-Based Questions</h2>
+
+  <h4>PRINT USING LOOPS</h4>
+
+  <strong>Q1 — Square of stars</strong>
+  <pre class="code">
+*****
+*****
+*****
+*****
+*****
+  </pre>
+
+  <strong>Q2 — Right triangle</strong>
+  <pre class="code">
+*
+**
+***
+****
+*****
+  </pre>
+
+  <strong>Q3 — Number triangle</strong>
+  <pre class="code">
+1
+12
+123
+1234
+  </pre>
+
+  <strong>Q4 — Inverted triangle</strong>
+  <pre class="code">
+*****
+****
+***
+**
+*
+  </pre>
+
+  <strong>Q5 — Pyramid</strong>
+  <pre class="code">
+    *
+   ***
+  *****
+ *******
+*********
+  </pre>
+</div>
+
+<!-- CODING QUESTIONS -->
+<div class="card">
+  <h2>5. Coding Tasks</h2>
+
+  <h3>Easy</h3>
+  <ul>
+    <li>Print numbers 1 to 50 using for loop.</li>
+    <li>Print all even numbers from 1 to 100.</li>
+    <li>Print multiplication table of a number.</li>
+  </ul>
+
+  <h3>Medium</h3>
+  <ul>
+    <li>Count digits of a number.</li>
+    <li>Print sum of all odd numbers between 1 and N.</li>
+    <li>Print numbers 10 to 1 using while loop.</li>
+  </ul>
+
+  <h3>Hard</h3>
+  <ul>
+    <li>Check a palindrome number.</li>
+    <li>Print all primes between 1 and 100.</li>
+    <li>Print full pyramid and inverted pyramid.</li>
+  </ul>
+</div>
+
+<!-- DIAGRAMS -->
+<div class="card">
+  <h2>6. Loop Flow Diagrams (ASCII)</h2>
+
+  <h3>6.1 while loop flow</h3>
+  <div class="diagram">
++-----------+
+|  START    |
++-----+-----+
+      |
+      v
+  [Check cond]
+      |
+   +--+--+
+   |     |
+ True   False
+   |     |
+   v     v
+ [Body]  END
+   |
+   v
+ [Update]
+   |
+   +---> back to condition
+  </div>
+
+  <h3>6.2 for loop flow</h3>
+  <div class="diagram">
+START
+  |
+  v
+[Take first value from range/list]
+  |
+  v
+[Loop Body]
+  |
+  v
+[Next Value Exists?]
+  |        |
+ Yes      No
+  |        |
+  v        v
+Repeat    END
+  </div>
+
+  <h3>6.3 break working</h3>
+  <div class="diagram">
+[Loop]
+  |
+[Condition True]
+  |
+[break?]--Yes-->Exit Loop
+  |
+ No
+  |
+ Continue Loop
+  </div>
+
+</div>
+
+<div class="footer">
+  © <span id="year"></span> Coder &amp; AccoTax — Exercise Set by <strong>Sukanta Hui</strong><br>
+  🌐 www.codernaccotax.co.in
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

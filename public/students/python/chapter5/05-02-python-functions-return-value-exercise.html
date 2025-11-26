@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python Functions (5.2) | Return Values — 100 Exercises | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;} .page{max-width:1100px;margin:auto;padding:32px 16px;} header{padding:28px;border-radius:20px;background:radial-gradient(circle at 0 0,rgba(56,189,248,.3),transparent 60%),radial-gradient(circle at 100% 0,rgba(168,85,247,.25),transparent 60%),#0f172a;border:1px solid #334155;box-shadow:0 0 35px rgba(0,0,0,.5);margin-bottom:32px;} h1{margin:0;font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;} .subtitle{color:#94a3b8;font-size:.95rem;} .badge{display:inline-block;padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;margin-bottom:10px;color:#38bdf8;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;} h2{font-size:1.35rem;color:#bfdbfe;margin-top:30px;display:flex;align-items:center;gap:8px;} h2 span.label{font-size:.75rem;padding:2px 8px;border-radius:999px;border:1px solid #60a5fa;color:#93c5fd;text-transform:uppercase;} h3{font-size:1.1rem;color:#c4b5fd;margin-top:20px;} pre{background:#0a0f1d;border:1px solid #1e3a8a;border-radius:10px;padding:12px;font-size:.9rem;overflow-x:auto;} .box{background:#0f172a;border:1px solid #334155;padding:16px;border-radius:12px;margin:16px 0;} .box-title{font-size:.9rem;color:#7dd3fc;font-weight:bold;margin-bottom:6px;text-transform:uppercase;} .footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;font-size:.85rem;color:#94a3b8;display:flex;justify-content:space-between;flex-wrap:wrap;} ul.exercise-list{padding-left:20px;} ul.exercise-list li{margin-bottom:6px;} .tag{display:inline-block;font-size:.7rem;border-radius:999px;border:1px solid #64748b;padding:2px 8px;color:#cbd5f5;text-transform:uppercase;letter-spacing:.08em;margin-left:6px;}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<div class="badge">Module M3-R5 · Python — Functions</div>
+<h1>5.2 Return Values — 100 Practice Exercises</h1>
+<p class="subtitle">Practice sheet on <strong>return statement</strong>, <strong>single & multiple return values</strong>, and <strong>void vs value-returning functions</strong>. Designed for NIELIT O Level / school-level Python.</p>
+</header>
+
+<section>
+<h2><span class="label">Set A</span> Conceptual & Short Answer Questions</h2>
+<ul class="exercise-list">
+<li>1. What is a return value in a function?</li>
+<li>2. What is the purpose of the <code>return</code> statement in Python?</li>
+<li>3. What does a function return if there is no <code>return</code> statement?</li>
+<li>4. Can a function have more than one <code>return</code> statement? Explain with an example.</li>
+<li>5. What happens to the code written after a <code>return</code> statement inside a function?</li>
+<li>6. Differentiate between <strong>printing a value</strong> and <strong>returning a value</strong> from a function.</li>
+<li>7. Define a <strong>void function</strong> with an example.</li>
+<li>8. Define a <strong>value-returning function</strong> with an example.</li>
+<li>9. Can a function return different data types at different times? Give a simple example.</li>
+<li>10. Why is it generally better to use <code>return</code> instead of only <code>print()</code> inside a function?</li>
+<li>11. What is a tuple? How is it related to returning multiple values?</li>
+<li>12. Write the general syntax of a function with a return value.</li>
+<li>13. Can a function return another function? Conceptually explain.</li>
+<li>14. What will be the type of the value returned when a function returns <code>a, b, c</code>?</li>
+<li>15. How can you capture multiple returned values separately in variables? Give an example.</li>
+<li>16. Why is <code>None</code> printed when we do <code>print(my_void_function())</code>?</li>
+<li>17. What is meant by "early return" in a function?</li>
+<li>18. Can you use <code>return</code> without any value? What does it do?</li>
+<li>19. How does <code>return</code> help in breaking complex problems into smaller functions?</li>
+<li>20. What is the difference between <code>return 0</code> and <code>return None</code>?</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set B</span> MCQ Exercises</h2>
+<ul class="exercise-list">
+<li>21. A function with no <code>return</code> statement returns:<br><span class="tag">MCQ</span>
+<ol type="a">
+<li><code>0</code></li>
+<li><code>None</code></li>
+<li><code>""</code></li>
+<li><code>False</code></li>
+</ol>
+</li>
+<li>22. Which keyword is used to send a value back from a function?<br><span class="tag">MCQ</span>
+<ol type="a"><li><code>break</code></li><li><code>stop</code></li><li><code>return</code></li><li><code>exit</code></li></ol>
+</li>
+<li>23. When a function returns <code>a, b, c</code>, Python actually returns:<br><span class="tag">MCQ</span>
+<ol type="a"><li>A list</li><li>A tuple</li><li>A dictionary</li><li>Three separate values</li></ol>
+</li>
+<li>24. The statement <code>return</code> with no value explicitly returns:<br><span class="tag">MCQ</span>
+<ol type="a"><li><code>0</code></li><li><code>"None"</code> (string)</li><li><code>None</code> (special object)</li><li>Error</li></ol>
+</li>
+<li>25. Which one is a <strong>value-returning</strong> function definition?<br><span class="tag">MCQ</span>
+<ol type="a"><li><code>def f(): print(10)</code></li><li><code>def f(): return 10</code></li><li><code>def f(): pass</code></li><li>Both (a) and (b)</li></ol>
+</li>
+<li>26. What will be the type of value returned by <code>def f(): return 3 &gt; 2</code>?<br><span class="tag">MCQ</span>
+<ol type="a"><li><code>int</code></li><li><code>str</code></li><li><code>bool</code></li><li><code>tuple</code></li></ol>
+</li>
+<li>27. A function that calculates a sum and prints it but does not return it is:<br><span class="tag">MCQ</span>
+<ol type="a"><li>A void function</li><li>A value-returning function</li><li>Not a function</li><li>A recursive function</li></ol>
+</li>
+<li>28. Which of these statements is TRUE?<br><span class="tag">MCQ</span>
+<ol type="a"><li>A function can only return integers.</li><li>A function can return any Python object.</li><li>A function can return maximum one object.</li><li>A function cannot return tuples.</li></ol>
+</li>
+<li>29. After executing <code>return x + y</code>, the function:<br><span class="tag">MCQ</span>
+<ol type="a"><li>continues to next line</li><li>terminates</li><li>jumps to top</li><li>restarts automatically</li></ol>
+</li>
+<li>30. What is printed by: <code>print(type(None))</code>?<br><span class="tag">MCQ</span>
+<ol type="a"><li><code>&lt;class 'NoneType'&gt;</code></li><li><code>&lt;class 'int'&gt;</code></li><li><code>&lt;class 'str'&gt;</code></li><li><code>&lt;class 'bool'&gt;</code></li></ol>
+</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set C</span> Output-based Questions</h2>
+<ul class="exercise-list">
+<li>31. Predict the output:
+<pre><code>def fun():
+    return 5
+
+print(fun())</code></pre>
+</li>
+<li>32. Predict the output:
+<pre><code>def fun():
+    print(5)
+
+print(fun())</code></pre>
+</li>
+<li>33. Predict the output:
+<pre><code>def test():
+    return 2 * 3
+    print("Hello")
+
+print(test())</code></pre>
+</li>
+<li>34. Predict the output:
+<pre><code>def demo():
+    return 10
+
+x = demo()
+print(x + 5)</code></pre>
+</li>
+<li>35. Predict the output:
+<pre><code>def calc(a, b):
+    return a + b, a * b
+
+result = calc(2, 3)
+print(result)</code></pre>
+</li>
+<li>36. Predict the output:
+<pre><code>def calc(a, b):
+    return a + b, a * b
+
+s, p = calc(4, 5)
+print(s, p)</code></pre>
+</li>
+<li>37. Predict the output:
+<pre><code>def check(n):
+    if n % 2 == 0:
+        return "Even"
+    return "Odd"
+
+print(check(7))</code></pre>
+</li>
+<li>38. Predict the output:
+<pre><code>def fun():
+    return
+
+print(fun())</code></pre>
+</li>
+<li>39. Predict the output:
+<pre><code>def sample():
+    return "Python", 3
+
+x = sample()
+print(len(x))</code></pre>
+</li>
+<li>40. Predict the output:
+<pre><code>def mystery(a, b):
+    s = a + b
+    return s
+    s = s * 2
+
+print(mystery(3, 4))</code></pre>
+</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set D</span> Code Writing Exercises</h2>
+<ul class="exercise-list">
+<li>41. Write a function <code>square(n)</code> that returns the square of <code>n</code>.</li>
+<li>42. Write a function <code>cube(n)</code> that returns the cube of <code>n</code>.</li>
+<li>43. Write a function that returns the absolute difference between two numbers.</li>
+<li>44. Write a function that returns the average of three numbers.</li>
+<li>45. Write a function that returns <code>True</code> if a number is even, otherwise <code>False</code>.</li>
+<li>46. Write a function that returns the maximum of two numbers (without using <code>max()</code>).</li>
+<li>47. Write a function that returns the maximum of three numbers.</li>
+<li>48. Write a function that returns the factorial of a number.</li>
+<li>49. Write a function that returns the sum of all elements in a list.</li>
+<li>50. Write a function that returns the largest element in a list.</li>
+<li>51. Write a function that takes a string and returns the number of vowels in it.</li>
+<li>52. Write a function that returns <code>"PASS"</code> if marks ≥ 40, else <code>"FAIL"</code>.</li>
+<li>53. Write a function that takes a number and returns a tuple containing (square, cube).</li>
+<li>54. Write a function that returns both area and circumference of a circle (use <code>3.14</code> for π).</li>
+<li>55. Write a function that takes a list of numbers and returns (sum, average).</li>
+<li>56. Write a function that returns the smallest element of a list, or <code>None</code> if list is empty.</li>
+<li>57. Write a function that returns the reversed version of a given string.</li>
+<li>58. Write a function that returns <code>True</code> if a string is a palindrome, else <code>False</code>.</li>
+<li>59. Write a function that returns a list of even numbers from 1 to <code>n</code>.</li>
+<li>60. Write a function that takes a list and returns a new list with all duplicates removed.</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set E</span> Debugging & Correction</h2>
+<ul class="exercise-list">
+<li>61. Find and correct the error:
+<pre><code>def add(a, b):
+    print a + b
+    return
+</code></pre>
+</li>
+<li>62. Find and correct the error:
+<pre><code>def add(a, b):
+    return a + b
+
+print(add)</code></pre>
+</li>
+<li>63. Find and correct the error:
+<pre><code>def demo():
+    return "Hello"
+    return "Hi"</code></pre>
+</li>
+<li>64. Find and correct the error:
+<pre><code>def result(a, b):
+    if a &gt; b:
+        return a
+    else
+        return b</code></pre>
+</li>
+<li>65. Find and correct the error:
+<pre><code>def check(n):
+    if n % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+
+x = check(4)
+print(x + 1)</code></pre>
+</li>
+<li>66. Find and correct the error:
+<pre><code>def fun(a, b):
+    c = a + b
+
+print(fun(2, 3))</code></pre>
+</li>
+<li>67. Find the logical mistake (no syntax error):
+<pre><code>def divide(a, b):
+    print(a / b)
+
+x = divide(10, 2)
+print(x)</code></pre>
+</li>
+<li>68. Correct the following so that it returns a tuple of (sum, product):
+<pre><code>def calc(a, b):
+    s = a + b
+    p = a * b
+    return s
+    return p</code></pre>
+</li>
+<li>69. Correct the code so that it returns <code>None</code> for negative input, else square of number:
+<pre><code>def safe_square(n):
+    if n &lt; 0:
+        print("Invalid")
+    return n * n</code></pre>
+</li>
+<li>70. Correct the code so that the function returns "Even" or "Odd" instead of printing them:
+<pre><code>def check(num):
+    if num % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")</code></pre>
+</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set F</span> Application-based & Mixed Level</h2>
+<ul class="exercise-list">
+<li>71. Write a function that takes a student's marks in 5 subjects and returns the total and percentage.</li>
+<li>72. Write a function that accepts basic salary and returns (HRA, DA, gross salary).</li>
+<li>73. Write a function that accepts a year and returns <code>True</code> if it is a leap year, else <code>False</code>.</li>
+<li>74. Write a function that takes a temperature in Celsius and returns the equivalent Fahrenheit value.</li>
+<li>75. Write a function that returns the grade (A, B, C, D, F) based on percentage.</li>
+<li>76. Write a function that takes a number and returns the sum of its digits.</li>
+<li>77. Write a function that checks whether a given number is prime, and returns <code>True</code> or <code>False</code>.</li>
+<li>78. Write a function that takes a list of integers and returns a tuple (count_even, count_odd).</li>
+<li>79. Write a function that takes a sentence and returns the number of words in it.</li>
+<li>80. Write a function that takes three sides of a triangle and returns whether the triangle is valid or not.</li>
+<li>81. Write a function that takes principal, rate, and time and returns simple interest.</li>
+<li>82. Write a function that takes a list of numbers and returns a new list containing only positive numbers.</li>
+<li>83. Write a function that takes a string and returns two values: number of vowels and number of consonants.</li>
+<li>84. Write a function that takes a list and returns two lists: one with even numbers and one with odd numbers.</li>
+<li>85. Write a function that converts a given number of seconds into (hours, minutes, seconds).</li>
+<li>86. Write a function that takes a filename and returns its extension (e.g., ".txt").</li>
+<li>87. Write a function that takes a string and returns <code>True</code> if it contains only digits, else <code>False</code>.</li>
+<li>88. Write a function that takes a list of marks and returns the highest, lowest, and average marks.</li>
+<li>89. Write a function that simulates a simple calculator and returns the result based on operator (+, -, *, /).</li>
+<li>90. Write a function that takes a list of names and returns the longest name.</li>
+</ul>
+</section>
+
+<section>
+<h2><span class="label">Set G</span> Higher-order & Thinking Questions</h2>
+<ul class="exercise-list">
+<li>91. Write a function that returns another function (inner function) which multiplies a value by 2.</li>
+<li>92. Write a function <code>compare(a, b)</code> that returns 1 if <code>a &gt; b</code>, -1 if <code>a &lt; b</code>, and 0 if equal.</li>
+<li>93. Write a function that returns <code>True</code> if a list is sorted in ascending order, else <code>False</code>.</li>
+<li>94. Write a function that returns the second largest number in a list (or <code>None</code> if not possible).</li>
+<li>95. Write a function that returns the frequency dictionary for characters in a string.</li>
+<li>96. Write a function that takes a list of (name, marks) tuples and returns the name of the topper.</li>
+<li>97. Write a function that takes a list of numbers and returns <code>True</code> if all are even, else <code>False</code>.</li>
+<li>98. Write a function that takes a list of strings and returns a list of their lengths.</li>
+<li>99. Write a function that takes a number and returns <code>"Positive"</code>, <code>"Negative"</code>, or <code>"Zero"</code>.</li>
+<li>100. Write a function that returns a dictionary with keys "sum", "average", and "count" for a given list of numbers.</li>
+</ul>
+</section>
+
+<footer class="footer">
+<span>© Coder & AccoTax · Python O Level Series — Exercise Sheet</span>
+<span>Author: Sukanta Hui · www.codernaccotax.co.in</span>
+</footer>
+</div>
+</body>
+</html>

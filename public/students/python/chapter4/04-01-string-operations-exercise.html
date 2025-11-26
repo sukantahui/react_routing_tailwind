@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<title>Unit 4.1 — String Operations (Exercise Set) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  --radius: 22px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 22px 80px;
+}
+
+/* HEADER */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+    #0f172a;
+  border-radius: 26px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(148,163,184,0.22);
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* BRAND BOX */
+.brand-box {
+  margin-top: 22px;
+  background: var(--soft);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,0.22);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  font-size: 14px;
+}
+
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+
+.brand-box a { color: var(--accent); text-decoration: none; }
+
+.github-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* SECTION CARD */
+.card {
+  background: var(--card);
+  margin-top: 30px;
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  color: var(--accent);
+}
+
+h4 {
+  color: var(--accent2);
+}
+
+.example {
+  background: var(--soft);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  padding: 14px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+.code {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.diagram {
+  background: #020617;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  white-space: pre;
+  font-family: monospace;
+  color: var(--muted);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 4.1 — String Operations (Exercise Set)</h1>
+  <p class="sub">MCQs · Output Questions · Slicing Practice · Coding Tasks</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation:</div>
+      Coder &amp; AccoTax<br>
+      🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+    <div>
+      <div class="brand-title2">👨‍🏫 Author:</div>
+      Sukanta Hui<br>
+      📞 7003756860<br>
+      ✉️ info@codernaccotax.co.in
+    </div>
+    <div>
+      <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank" class="github-btn">View GitHub Repository</a>
+    </div>
+  </div>
+</div>
+
+<!-- MCQs -->
+<div class="card">
+  <h2>1. Multiple Choice Questions (MCQs)</h2>
+  <ol>
+    <li>Which indexing starts from the right side?<br>a) Reverse indexing b) Negative indexing c) Back indexing d) None</li>
+
+    <li><code>len("Python")</code> gives:<br>a) 5 b) 6 c) 7 d) 0</li>
+
+    <li>Which method splits a string?<br>a) join() b) upper() c) split() d) replace()</li>
+
+    <li><code>"hello".upper()</code> returns:<br>a) Hello b) HELLO c) hello d) Error</li>
+
+    <li><code>"apple".find("p")</code> returns:<br>a) 0 b) 1 c) 2 d) None</li>
+
+    <li><code>"banana".count("an")</code> returns:<br>a) 1 b) 2 c) 3 d) 4</li>
+
+    <li>Which of the following creates a multi-line string?<br>a) '' b) "" c) '''...''' d) All</li>
+
+    <li><code>"-".join(["a", "b", "c"])</code> returns:<br>a) a b c b) a-b-c c) abc d) None</li>
+
+    <li>Which is mutable?<br>a) list b) string c) both d) none</li>
+
+    <li>Which removes spaces from both ends?<br>a) strip() b) split() c) trim() d) clean()</li>
+  </ol>
+</div>
+
+<!-- OUTPUT QUESTIONS -->
+<div class="card">
+  <h2>2. Output-Based Questions</h2>
+
+  <div class="example">
+    <strong>Q1</strong>
+<pre class="code">
+s = "PYTHON"
+print(s[0], s[-1])
+print(s[2:5])
+</pre>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+<pre class="code">
+s = "  Hello World  "
+print(s.strip().upper())
+</pre>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+<pre class="code">
+s = "banana"
+print(s.count("a"))
+print(s.find("na"))
+</pre>
+  </div>
+
+  <div class="example">
+    <strong>Q4</strong>
+<pre class="code">
+text = "Python-Is-Easy"
+parts = text.split("-")
+print(parts)
+print(" ".join(parts))
+</pre>
+  </div>
+
+  <div class="example">
+    <strong>Q5</strong>
+<pre class="code">
+name = "Sukanta"
+course = "Python"
+print(f"{name} learns {course.upper()}")
+</pre>
+  </div>
+</div>
+
+<!-- SLICING PRACTICE -->
+<div class="card">
+  <h2>3. Slicing Practice</h2>
+
+  <h3>Given:</h3>
+  <div class="diagram">
+s = "CODER & ACCOTAX"
+Indexes (+): 0 1 2 3 4 5 ...
+              C O D E R   &
+Indexes (-): -15 -14 ...     -1
+  </div>
+
+  <ol>
+    <li>Print "CODER"</li>
+    <li>Print "ACCOTAX"</li>
+    <li>Reverse the entire string</li>
+    <li>Print characters from index 3 to 8</li>
+    <li>Print every 2nd character</li>
+    <li>Print last 5 characters using negative slicing</li>
+    <li>Print "& ACCO" using slice</li>
+    <li>Print "CR&AO" using steps</li>
+    <li>Print first 5 characters in reverse order</li>
+    <li>Print all characters except first and last</li>
+  </ol>
+</div>
+
+<!-- CODING QUESTIONS -->
+<div class="card">
+  <h2>4. Coding Tasks</h2>
+
+  <h3>Easy</h3>
+  <ul>
+    <li>Input a name and print it in upper(), lower(), title().</li>
+    <li>Count vowels in a string.</li>
+    <li>Remove all spaces from a string.</li>
+  </ul>
+
+  <h3>Moderate</h3>
+  <ul>
+    <li>Input a full name and print first name + last name using split().</li>
+    <li>Replace all spaces with hyphens.</li>
+    <li>Check if a string contains only digits.</li>
+  </ul>
+
+  <h3>Advanced</h3>
+  <ul>
+    <li>Check palindrome string ignoring spaces and case.</li>
+    <li>Print frequency of each character in string.</li>
+    <li>Convert comma-separated numbers into list, then sum them.</li>
+  </ul>
+</div>
+
+<!-- FLOW DIAGRAMS -->
+<div class="card">
+  <h2>5. String Diagram (Indexing & Slicing)</h2>
+
+  <h3>Positive & Negative Indexing</h3>
+  <div class="diagram">
+String:  "PYTHON"
+
+Index +:   P   Y   T   H   O   N
+           0   1   2   3   4   5
+
+Index -:   P   Y   T   H   O   N
+          -6  -5  -4  -3  -2  -1
+  </div>
+
+  <h3>Slicing Flow</h3>
+  <div class="diagram">
+[ start : stop : step ]
+
+Take characters from index = start
+Stop BEFORE index = stop
+Jump using step (default 1)
+  </div>
+</div>
+
+<div class="footer">
+© <span id="year"></span> Coder & AccoTax — Exercise Set by <strong>Sukanta Hui</strong><br>
+🌐 www.codernaccotax.co.in
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

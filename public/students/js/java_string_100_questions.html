@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>100 Questions & Answers on Java String Class — Coder &amp; AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: #0b1120;
+      --bg-soft: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --code: #020617;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 16px 40px;
+    }
+
+    header {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, .22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(168, 85, 247, .28), transparent 60%),
+        #020617;
+      border-radius: 22px;
+      padding: 20px 20px 18px;
+      border: 1px solid rgba(148, 163, 184, .55);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, .9);
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, .6);
+      background: rgba(15, 23, 42, .9);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #facc15, #f97316);
+      box-shadow: 0 0 10px rgba(250, 204, 21, .9);
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(24px, 4vw, 30px);
+      letter-spacing: -.03em;
+      background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 42rem;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, .6);
+      background: rgba(15, 23, 42, .9);
+    }
+
+    .brand-line {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .brand-line strong {
+      color: var(--text);
+    }
+
+    main {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, .12), transparent 60%),
+        #020617;
+      border-radius: 22px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border);
+    }
+
+    h2.section-title {
+      margin: 10px 0 8px;
+      font-size: 18px;
+      letter-spacing: -.02em;
+      color: #e5e7eb;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .qa-group {
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(55, 65, 81, .7);
+    }
+
+    .qa-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .qa-item {
+      margin-bottom: 10px;
+      padding: 10px 10px 9px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, .96);
+      border: 1px solid rgba(31, 41, 55, .9);
+    }
+
+    .qa-head {
+      display: block;
+      text-align: left;
+      gap: 8px;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .qa-label {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .question {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .answer {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .answer strong {
+      color: #bbf7d0;
+    }
+
+    .explanation {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: var(--code);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background: var(--code);
+      border-radius: 10px;
+      border: 1px solid rgba(31, 41, 55, .9);
+      padding: 10px 12px;
+      font-size: 12px;
+      overflow-x: auto;
+      margin: 6px 0 6px;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 10px 16px;
+      border-radius: 16px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px 16px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        JAVA STRING CLASS · 100 Q&amp;A
+      </div>
+      <h1>100 Questions &amp; Answers on Java String Class</h1>
+      <p class="subtitle">
+        A complete board‑oriented and interview‑friendly bank of 100 questions on Java <code>String</code>,
+        with clear answers and short explanations — ready for revision, viva and practice.
+      </p>
+      <div class="meta-row">
+        <span class="pill">Topic: java.lang.String</span>
+        <span class="pill">Level: Class XI–XII &amp; Beginners</span>
+        <span class="pill">Prepared by: Coder &amp; AccoTax · Sukanta Hui</span>
+      </div>
+      <p class="brand-line">
+        📞 +91-7003756860 · 🌐 www.codernaccotax.co.in
+      </p>
+    </header>
+
+    <main>
+      <!-- Group 1: Basics -->
+      <section class="qa-group">
+        <h2 class="section-title">Part A — Basics of String</h2>
+        <p class="section-tag">Fundamental definition, creation and core properties.</p>
+        <ol class="qa-list">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q1</span>
+              <span class="question">What is a String in Java?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> A String is an object of the <code>java.lang.String</code>
+              class that represents an immutable sequence of characters.</div>
+            <div class="explanation">In Java, strings are not primitive; they are reference types stored as objects and
+              provide many built‑in methods for text processing.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q2</span>
+              <span class="question">Which package contains the String class?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> The <code>java.lang</code> package.</div>
+            <div class="explanation">Core classes like <code>String</code>, <code>Math</code>, <code>System</code> etc.
+              are stored in <code>java.lang</code>, which is imported automatically.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q3</span>
+              <span class="question">How do you write a string literal in Java?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> By enclosing characters in double quotes, for example
+              <code>"Hello"</code>.</div>
+            <div class="explanation">Single quotes are used for <code>char</code>, while double quotes create a
+              <code>String</code> literal.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q4</span>
+              <span class="question">Is String a primitive type or a reference type?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> String is a reference type (class type), not a primitive.</div>
+            <div class="explanation">Although we use it very often like a basic type, it is internally an object of the
+              <code>String</code> class.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q5</span>
+              <span class="question">What does “immutable” mean for a String?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Immutable means that once a String object is created, its
+              content cannot be changed.</div>
+            <div class="explanation">Any operation that seems to modify a string (like concatenation) actually creates a
+              new String object with the updated value.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q6</span>
+              <span class="question">Write two common ways to create a String object.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> (1) Using a literal: <code>String s = "Hello";</code> (2) Using
+              <code>new</code>: <code>String s = new String("Hello");</code>.</div>
+            <div class="explanation">Both create String objects but behave differently in terms of memory (SCP vs Heap).
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q7</span>
+              <span class="question">Where are string literals stored?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> In a special memory area called the String Constant Pool (SCP).
+            </div>
+            <div class="explanation">The SCP allows Java to reuse common string literals instead of creating duplicates,
+              which saves memory.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q8</span>
+              <span class="question">Does <code>new String("Hello")</code> always create a new object?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Yes, it creates a new String object in heap memory even if the
+              same literal exists in the pool.</div>
+            <div class="explanation">The literal <code>"Hello"</code> may also be in the SCP, but the <code>new</code>
+              keyword ensures a separate object is created.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q9</span>
+              <span class="question">Can a String hold the value <code>null</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Yes, a String reference can be <code>null</code>, meaning it
+              does not point to any object.</div>
+            <div class="explanation">Using any method on a null String reference will cause a
+              <code>NullPointerException</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q10</span>
+              <span class="question">Write one advantage of making String immutable.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It enables safe sharing and caching of string objects, which
+              improves performance and security.</div>
+            <div class="explanation">Since strings cannot change, the same instance can be reused by many references
+              without risk of accidental modification.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 2: Methods Overview -->
+      <section class="qa-group">
+        <h2 class="section-title">Part B — Core String Methods</h2>
+        <p class="section-tag">Frequently used methods and their purposes.</p>
+        <ol class="qa-list" start="11">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q11</span>
+              <span class="question">Which method returns the length of a String?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>length()</code> method.</div>
+            <div class="explanation">For example, <code>"Hello".length()</code> returns <code>5</code> because the
+              string has 5 characters.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q12</span>
+              <span class="question">What does <code>charAt(int index)</code> do?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns the character present at the given index (0‑based).
+            </div>
+            <div class="explanation">For example, <code>"Java".charAt(1)</code> returns <code>'a'</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q13</span>
+              <span class="question">What does <code>substring(2,5)</code> return for
+                <code>String s = "Programming"</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns <code>"ogr"</code>.</div>
+            <div class="explanation">Index 2 is 'o' and index 4 is 'r'; substring excludes the character at end index 5.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q14</span>
+              <span class="question">Which method is used to compare two strings by content (case‑sensitive)?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>equals(String other)</code>.</div>
+            <div class="explanation"><code>equals()</code> returns <code>true</code> only when the sequences of
+              characters in both strings are exactly the same.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q15</span>
+              <span class="question">How do you compare two strings without considering case?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>equalsIgnoreCase(String other)</code>.</div>
+            <div class="explanation">For example, <code>"JAVA".equalsIgnoreCase("java")</code> returns
+              <code>true</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q16</span>
+              <span class="question">What is returned by <code>compareTo()</code> when two strings are equal?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns <code>0</code>.</div>
+            <div class="explanation">A zero result indicates that both strings are lexicographically equal.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q17</span>
+              <span class="question">Name methods that convert a string to upper‑case and lower‑case.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>toUpperCase()</code> and <code>toLowerCase()</code>.
+            </div>
+            <div class="explanation">They return new String objects; the original string remains unchanged due to
+              immutability.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q18</span>
+              <span class="question">What does the <code>trim()</code> method do?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It removes leading and trailing white spaces from a string.
+            </div>
+            <div class="explanation">It does not remove spaces present in the middle of the string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q19</span>
+              <span class="question">Which method finds the first index of a given character in a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>indexOf(char ch)</code>.</div>
+            <div class="explanation">If the character is absent, it returns <code>-1</code>, which is useful for search
+              logic.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q20</span>
+              <span class="question">Which method replaces all occurrences of a character in a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>replace(char oldChar, char newChar)</code>.</div>
+            <div class="explanation">For example <code>"banana".replace('a','*')</code> returns <code>"b*n*n*"</code>.
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 3: More Methods & Operations -->
+      <section class="qa-group">
+        <h2 class="section-title">Part C — Operations &amp; Common Patterns</h2>
+        <p class="section-tag">More methods, searching, splitting and joining.</p>
+        <ol class="qa-list" start="21">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q21</span>
+              <span class="question">How can you check if a string starts with a particular prefix?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>startsWith(String prefix)</code>.</div>
+            <div class="explanation">Example: <code>"Welcome".startsWith("We")</code> returns <code>true</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q22</span>
+              <span class="question">Which method checks whether a string ends with a particular suffix?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>endsWith(String suffix)</code>.</div>
+            <div class="explanation">Example: <code>"file.txt".endsWith(".txt")</code> returns <code>true</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q23</span>
+              <span class="question">How do you split a sentence into words using space as delimiter?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>String[] words = s.split(" ");</code></div>
+            <div class="explanation"><code>split()</code> returns an array of strings obtained by breaking the original
+              string at each occurrence of the delimiter.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q24</span>
+              <span class="question">What is returned by <code>indexOf("is")</code> for
+                <code>"This is Java"</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns <code>2</code>.</div>
+            <div class="explanation">Indexing starts from 0; <code>'T'</code> is 0, <code>'h'</code> is 1, first
+              <code>'i'</code> of "is" is at index 2.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q25</span>
+              <span class="question">How do you obtain a character array from a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>toCharArray()</code> method.</div>
+            <div class="explanation">Example: <code>char[] ch = s.toCharArray();</code> creates an array of all
+              characters in the string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q26</span>
+              <span class="question">Which method checks whether a string is empty?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>isEmpty()</code>.</div>
+            <div class="explanation">It returns <code>true</code> if the string length is 0; note that <code>null</code>
+              is different from empty string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q27</span>
+              <span class="question">Write the output of <code>"Java".substring(1)</code>.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>"ava"</code>.</div>
+            <div class="explanation">Calling <code>substring(begin)</code> returns all characters from index
+              <code>begin</code> to the end of the string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q28</span>
+              <span class="question">How can you remove all spaces from a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>replace(" ", "")</code>.</div>
+            <div class="explanation">Example: <code>"a b c".replace(" ","")</code> results in <code>"abc"</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q29</span>
+              <span class="question">Which method can convert a value of another type (like int) into a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>String.valueOf()</code>.</div>
+            <div class="explanation">Example: <code>String s = String.valueOf(123);</code> gives <code>"123"</code> as a
+              string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q30</span>
+              <span class="question">What does <code>lastIndexOf('a')</code> return for <code>"banana"</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns <code>5</code>.</div>
+            <div class="explanation">The last 'a' in "banana" appears at index positions 1, 3 and 5; so
+              <code>lastIndexOf</code> returns 5.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 4: equals vs == and Immutability -->
+      <section class="qa-group">
+        <h2 class="section-title">Part D — equals(), == and Immutability</h2>
+        <p class="section-tag">Conceptual understanding and small code‑based questions.</p>
+        <ol class="qa-list" start="31">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q31</span>
+              <span class="question">What does <code>equals()</code> compare in a String?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It compares the <strong>content</strong> (sequence of
+              characters) of two strings.</div>
+            <div class="explanation">If both strings have identical characters in the same order, <code>equals()</code>
+              returns <code>true</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q32</span>
+              <span class="question">What does the <code>==</code> operator compare for String references?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It compares whether two String references point to the
+              <strong>same object</strong> in memory.</div>
+            <div class="explanation">Even if contents are same, <code>==</code> may be <code>false</code> when the
+              references refer to different objects.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q33</span>
+              <span class="question">Consider <code>String a = "Hello"; String b = "Hello";</code> Is
+                <code>a == b</code> true?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Yes, it is <code>true</code>.</div>
+            <div class="explanation">Both <code>a</code> and <code>b</code> refer to the same literal in the String
+              Constant Pool, so their references are equal.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q34</span>
+              <span class="question">Consider <code>String a = "Hello"; String b = new String("Hello");</code> Is
+                <code>a == b</code> true?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> No, it is <code>false</code>.</div>
+            <div class="explanation"><code>a</code> refers to the literal in SCP, while <code>b</code> refers to a heap
+              object created by <code>new</code>; they are different references.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q35</span>
+              <span class="question">In the same example, is <code>a.equals(b)</code> true?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Yes, <code>a.equals(b)</code> is <code>true</code>.</div>
+            <div class="explanation">Both strings have the same sequence of characters "Hello", so their contents are
+              equal.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q36</span>
+              <span class="question">What will be the output of
+                <code>System.out.println("Java" + 10 + 20);</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> The output is <code>Java1020</code>.</div>
+            <div class="explanation">Left‑to‑right evaluation causes "Java" + 10 to form "Java10", then "Java10" + 20
+              gives "Java1020".</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q37</span>
+              <span class="question">What will be the output of
+                <code>System.out.println(10 + 20 + "Java");</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> The output is <code>30Java</code>.</div>
+            <div class="explanation">First 10 + 20 is evaluated as integer addition (30), then 30 is concatenated with
+              "Java".</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q38</span>
+              <span class="question">Why does <code>s.toUpperCase()</code> not change the original string
+                <code>s</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Because String is immutable; <code>toUpperCase()</code> returns
+              a new String object instead.</div>
+            <div class="explanation">The original reference still points to the old content; to keep changes, we must
+              assign the result to a variable.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q39</span>
+              <span class="question">What concept allows the same string literal to be reused in many places without
+                extra memory?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> String Constant Pool (SCP) together with immutability.</div>
+            <div class="explanation">Because strings cannot change, a single instance can be safely reused across the
+              program.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q40</span>
+              <span class="question">Is <code>String s = "";</code> the same as <code>String s = null;</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> No, they are not the same.</div>
+            <div class="explanation"><code>""</code> is an empty string object with length 0, while <code>null</code>
+              means the reference does not point to any object at all.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 5: Small Programs & Outputs -->
+      <section class="qa-group">
+        <h2 class="section-title">Part E — Short Programs &amp; Output‑Based Questions</h2>
+        <p class="section-tag">Trace the code in mind — very common in school and viva.</p>
+        <ol class="qa-list" start="41">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q41</span>
+              <span class="question">What is the output of:<br><code>System.out.println("Hello".length());</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>5</code>.</div>
+            <div class="explanation">There are 5 characters in "Hello": H, e, l, l, o.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q42</span>
+              <span class="question">What is the output of:<br><code>System.out.println("Java".charAt(2));</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>'v'</code>.</div>
+            <div class="explanation">Indices: J=0, a=1, v=2, a=3; so char at index 2 is 'v'.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q43</span>
+              <span class="question">What is printed
+                by:<br><code>System.out.println("Hello".substring(1,4));</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>"ell"</code>.</div>
+            <div class="explanation">Substring from index 1 to 3 gives characters e (1), l (2), l (3).</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q44</span>
+              <span class="question">What is the output
+                of:<br><code>System.out.println("abc".equals("ABC"));</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>false</code>.</div>
+            <div class="explanation"><code>equals()</code> is case‑sensitive; the case of letters is different in the
+              two strings.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q45</span>
+              <span class="question">What is the output
+                of:<br><code>System.out.println("abc".equalsIgnoreCase("ABC"));</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>true</code>.</div>
+            <div class="explanation"><code>equalsIgnoreCase()</code> ignores case differences when comparing characters.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q46</span>
+              <span class="question">What will <code>System.out.println("banana".indexOf('n'));</code> print?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>2</code>.</div>
+            <div class="explanation">The first 'n' occurs at index 2 in "banana".</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q47</span>
+              <span class="question">What will <code>System.out.println("banana".lastIndexOf('n'));</code> print?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>4</code>.</div>
+            <div class="explanation">The last 'n' occurs at index 4 (b=0, a=1, n=2, a=3, n=4, a=5).</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q48</span>
+              <span class="question">What is printed by:<br><code>System.out.println("  Java  ".trim());</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>"Java"</code>.</div>
+            <div class="explanation">The <code>trim()</code> method removes leading and trailing spaces but not inner
+              spaces.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q49</span>
+              <span class="question">What is the output
+                of:<br><code>System.out.println("Java".toUpperCase());</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>"JAVA"</code>.</div>
+            <div class="explanation">All lower‑case letters are converted to upper‑case; a new string is returned.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q50</span>
+              <span class="question">What is printed
+                by:<br><code>System.out.println("JAVA".toLowerCase());</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>"java"</code>.</div>
+            <div class="explanation">All upper‑case letters are converted to lower‑case in the returned string.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 6: Programming Logic Questions -->
+      <section class="qa-group">
+        <h2 class="section-title">Part F — Logic &amp; Short Programs Using Strings</h2>
+        <p class="section-tag">Common exam‑style coding tasks using String methods.</p>
+        <ol class="qa-list" start="51">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q51</span>
+              <span class="question">How would you count the number of vowels in a given string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Loop through the string with <code>length()</code> and
+              <code>charAt()</code>, and count characters that belong to "aeiouAEIOU".</div>
+            <div class="explanation">This uses character checking inside a loop, a very standard board‑level String
+              program.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q52</span>
+              <span class="question">How can you reverse a string without using built‑in reverse methods?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Start from the last index <code>length()-1</code>, append each
+              character to a new string in a loop until index 0.</div>
+            <div class="explanation">This builds the reverse order manually; it is also a good practice question on
+              loops plus strings.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q53</span>
+              <span class="question">How do you check if a string is a palindrome?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Reverse the string and compare original and reversed using
+              <code>equals()</code> or <code>equalsIgnoreCase()</code>.</div>
+            <div class="explanation">If both are equal, the string reads the same forwards and backwards, so it is a
+              palindrome.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q54</span>
+              <span class="question">How can you count words in a sentence using String methods?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>split(" ")</code> to split on spaces and then use
+              <code>length</code> of the resulting array.</div>
+            <div class="explanation">Example: <code>String[] w = s.split(" "); int count = w.length;</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q55</span>
+              <span class="question">How would you count the frequency of a given character inside a string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Traverse the string with a loop, compare each character with
+              the target, and increment a counter when they match.</div>
+            <div class="explanation">This demonstrates basic traversal using <code>charAt()</code> and conditional
+              checking.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q56</span>
+              <span class="question">How can you extract the first letter of each word from a sentence?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Split the sentence using <code>split(" ")</code> and take
+              <code>word.charAt(0)</code> from each word.</div>
+            <div class="explanation">You can concatenate these initials to form an acronym or short code for the
+              sentence.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q57</span>
+              <span class="question">Write a logic to change all vowels in a string to '*'.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use a loop, build a new string: if character is vowel, append
+              '*', else append the original character.</div>
+            <div class="explanation">Because strings are immutable, you constantly build a new result string instead of
+              modifying the original.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q58</span>
+              <span class="question">How can you check if a string only contains digits?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Traverse each character and check with
+              <code>Character.isDigit(ch)</code>; if all are digits, the string is numeric.</div>
+            <div class="explanation">This is often used before converting a string to an integer to avoid exceptions.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q59</span>
+              <span class="question">How do you find the longest word in a sentence?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Split the sentence into words, then loop through the array and
+              track the word with maximum <code>length()</code>.</div>
+            <div class="explanation">This question combines <code>split()</code> and basic loop logic, very common in
+              school projects.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q60</span>
+              <span class="question">How can you swap the case of each letter (upper to lower, lower to upper) in a
+                string?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Loop through the string; if
+              <code>Character.isUpperCase(ch)</code>, convert to lower, else if lower, convert to upper and append to a
+              new string.</div>
+            <div class="explanation">This shows use of character‑wise methods with strings, common in loop exercises.
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 7: StringBuffer / StringBuilder & Advanced -->
+      <section class="qa-group">
+        <h2 class="section-title">Part G — StringBuffer, StringBuilder &amp; Advanced Points</h2>
+        <p class="section-tag">Related classes for mutable strings and conceptual comparisons.</p>
+        <ol class="qa-list" start="61">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q61</span>
+              <span class="question">What is the main limitation of using String for repeated modifications?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Because String is immutable, each modification creates a new
+              object, which can be slow and memory‑consuming.</div>
+            <div class="explanation">In loops or heavy concatenation, using String may lead to performance issues and
+              unnecessary garbage objects.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q62</span>
+              <span class="question">Which two classes are provided by Java for mutable character sequences?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>StringBuffer</code> and <code>StringBuilder</code>.</div>
+            <div class="explanation">They allow modification of the underlying character sequence without creating new
+              objects every time.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q63</span>
+              <span class="question">Which is thread‑safe: StringBuffer or StringBuilder?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>StringBuffer</code> is thread‑safe.</div>
+            <div class="explanation">Its methods are synchronized, making it safe for use in multi‑threaded programs,
+              but slightly slower than StringBuilder.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q64</span>
+              <span class="question">Which is faster in single‑threaded programs: StringBuffer or StringBuilder?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>StringBuilder</code> is generally faster.</div>
+            <div class="explanation">Because it is not synchronized, there is less overhead, making it suitable for
+              single‑threaded use cases.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q65</span>
+              <span class="question">How do you create a StringBuilder with initial text "Java"?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>StringBuilder sb = new StringBuilder("Java");</code>
+            </div>
+            <div class="explanation">Similarly, <code>StringBuffer</code> can be created by
+              <code>new StringBuffer("Java")</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q66</span>
+              <span class="question">Which methods of StringBuilder are commonly used for modification?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>append()</code>, <code>insert()</code>,
+              <code>delete()</code>, <code>reverse()</code>, <code>replace()</code>.</div>
+            <div class="explanation">These methods operate on the same underlying buffer instead of creating new objects
+              each time.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q67</span>
+              <span class="question">How can you convert a StringBuilder back to a String?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use the <code>toString()</code> method.</div>
+            <div class="explanation">Example: <code>String res = sb.toString();</code> returns an immutable String with
+              the builder’s content.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q68</span>
+              <span class="question">In which situation would you prefer String over StringBuilder?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> When the text is not going to change, such as messages, labels,
+              constant values.</div>
+            <div class="explanation">String is simpler, safe, and optimised for constant or rarely‑changing values.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q69</span>
+              <span class="question">What does the <code>capacity()</code> method of StringBuilder return?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It returns the current capacity of the builder’s internal
+              character buffer.</div>
+            <div class="explanation">Capacity may be greater than the current length; it grows automatically as more
+              characters are added.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q70</span>
+              <span class="question">Does the String class have methods like <code>append()</code> and
+                <code>insert()</code>?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> No, these are methods of <code>StringBuffer</code> and
+              <code>StringBuilder</code>, not of String.</div>
+            <div class="explanation">String is immutable, so it focuses on returning new values instead of direct
+              in‑place modification methods.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 8: Conceptual / MCQ / True-False -->
+      <section class="qa-group">
+        <h2 class="section-title">Part H — Mixed Conceptual, MCQ &amp; True / False</h2>
+        <p class="section-tag">Quick‑fire questions for revision and exams.</p>
+        <ol class="qa-list" start="71">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q71</span>
+              <span class="question">True or False: String objects can be changed after they are created.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> False.</div>
+            <div class="explanation">Strings are immutable; modifications always create new objects instead of changing
+              the old one.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q72</span>
+              <span class="question">True or False: <code>String</code> is present in <code>java.util</code>
+                package.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> False.</div>
+            <div class="explanation">The correct package is <code>java.lang</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q73</span>
+              <span class="question">True or False: <code>"abc" == "abc"</code> is always true in Java.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> True, for literals in the same class.</div>
+            <div class="explanation">Both refer to the same literal in the SCP; however, avoid <code>==</code> for
+              general content comparison.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q74</span>
+              <span class="question">True or False: <code>String s = null;</code> means an empty string.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> False.</div>
+            <div class="explanation"><code>null</code> means no object; an empty string would be <code>""</code> with
+              length 0.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q75</span>
+              <span class="question">MCQ: Which of the following is NOT a valid way to declare a String?<br>
+                A) <code>String s = "Java";</code><br>
+                B) <code>String s = new String("Java");</code><br>
+                C) <code>String s = 'J';</code><br>
+                D) <code>String s = null;</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Option C.</div>
+            <div class="explanation">Single quotes denote a <code>char</code>, not a <code>String</code>; the other
+              options are valid declarations.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q76</span>
+              <span class="question">MCQ: Which method would you use to check if two strings are equal ignoring
+                case?<br>
+                A) <code>equals()</code><br>
+                B) <code>equalsIgnoreCase()</code><br>
+                C) <code>compareTo()</code><br>
+                D) <code>match()</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Option B.</div>
+            <div class="explanation"><code>equalsIgnoreCase()</code> is specifically designed for case‑insensitive
+              comparisons.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q77</span>
+              <span class="question">MCQ: The expression <code>"Java" + 5</code> results in:<br>
+                A) Compilation error<br>
+                B) String "Java5"<br>
+                C) Integer 5<br>
+                D) Runtime error</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Option B.</div>
+            <div class="explanation">Number 5 is converted to string and concatenated, giving "Java5".</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q78</span>
+              <span class="question">MCQ: Which of these is a valid String method?<br>
+                A) <code>length</code> (without brackets)<br>
+                B) <code>size()</code><br>
+                C) <code>length()</code><br>
+                D) <code>getLength()</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Option C.</div>
+            <div class="explanation">In Java, <code>length()</code> (with parentheses) is the method that returns the
+              length of a string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q79</span>
+              <span class="question">MCQ: Which expression correctly concatenates two strings s1 and s2?<br>
+                A) <code>s1.concat(s2)</code><br>
+                B) <code>s1 + s2</code><br>
+                C) Both A and B<br>
+                D) None of these</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Option C.</div>
+            <div class="explanation">Both <code>concat()</code> and <code>+</code> create a new String containing the
+              combined text.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q80</span>
+              <span class="question">True or False: After executing <code>s.concat("abc");</code> without assignment,
+                <code>s</code> is changed.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> False.</div>
+            <div class="explanation">Because String is immutable, the result of <code>concat()</code> must be assigned
+              back (e.g. <code>s = s.concat("abc");</code>) to see the change.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 9: Exam-style Theory Questions -->
+      <section class="qa-group">
+        <h2 class="section-title">Part I — Short Theory / Exam‑Style Questions</h2>
+        <p class="section-tag">Direct answer questions often asked in written papers.</p>
+        <ol class="qa-list" start="81">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q81</span>
+              <span class="question">Define a String in one sentence suitable for an exam.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> A String is an immutable object in Java that represents a
+              sequence of characters and is an instance of the <code>java.lang.String</code> class.</div>
+            <div class="explanation">This definition highlights both the object nature and the immutability of strings,
+              which examiners expect.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q82</span>
+              <span class="question">Write any two differences between String and StringBuilder.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> String is immutable while StringBuilder is mutable; String is
+              thread‑safe by design, whereas StringBuilder is not synchronized and faster in single‑threaded scenarios.
+            </div>
+            <div class="explanation">Mentioning immutability and performance/thread‑safety differences usually fetches
+              full marks.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q83</span>
+              <span class="question">Why is it recommended to use <code>equals()</code> instead of <code>==</code> for
+                comparing strings?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Because <code>equals()</code> compares the content, whereas
+              <code>==</code> only compares memory addresses and may give false even when strings look same.</div>
+            <div class="explanation">This is a classic conceptual doubt; using <code>equals()</code> avoids bugs related
+              to different string objects.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q84</span>
+              <span class="question">What is the return type of <code>length()</code> method of String?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>int</code>.</div>
+            <div class="explanation">The number of characters in a string is always represented as an integer in Java.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q85</span>
+              <span class="question">Mention one situation where <code>trim()</code> is very useful.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> When reading input from the user or file, to remove accidental
+              spaces at the beginning and end before comparison.</div>
+            <div class="explanation">Without trimming, extra spaces could cause <code>equals()</code> to return false
+              even though the main text is same.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q86</span>
+              <span class="question">Write the statement to extract the first three characters of the string
+                <code>str</code>.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>String sub = str.substring(0, 3);</code></div>
+            <div class="explanation">This takes characters at indices 0, 1 and 2 (end index 3 is excluded).</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q87</span>
+              <span class="question">How do you check if the string <code>s</code> contains the word "Java"?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>s.contains("Java")</code>.</div>
+            <div class="explanation"><code>contains()</code> returns <code>true</code> if the given sequence is found
+              anywhere inside the string.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q88</span>
+              <span class="question">Write a single statement that converts a string <code>str</code> to upper‑case and
+                stores it back in <code>str</code>.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>str = str.toUpperCase();</code></div>
+            <div class="explanation">Because <code>toUpperCase()</code> returns a new String, we must assign the result
+              back to the variable to keep the change.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q89</span>
+              <span class="question">Explain the role of the String Constant Pool in one or two lines.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> The String Constant Pool is a special memory area where Java
+              stores string literals so that identical strings can be reused instead of creating multiple copies.</div>
+            <div class="explanation">It improves memory efficiency and works correctly because strings are immutable and
+              cannot be modified later.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q90</span>
+              <span class="question">Why is String often used as a key in maps (like HashMap)?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Because String is immutable, its hash code never changes, which
+              makes it safe and reliable to use as a key in hash‑based collections.</div>
+            <div class="explanation">If keys were mutable, changing them after insertion could break the internal
+              hashing logic.</div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Group 10: Final Mixed Practice -->
+      <section class="qa-group">
+        <h2 class="section-title">Part J — Final Mixed Practice</h2>
+        <p class="section-tag">Last 10 questions to quickly revise all key ideas.</p>
+        <ol class="qa-list" start="91">
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q91</span>
+              <span class="question">Write a statement to concatenate strings <code>a</code> and <code>b</code> with a
+                space between them.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>String c = a + " " + b;</code></div>
+            <div class="explanation">The space is added as a literal between the two string variables.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q92</span>
+              <span class="question">How can you safely convert a string containing digits to an integer?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Use <code>Integer.parseInt(s)</code> after optionally checking
+              all characters with <code>isDigit()</code>.</div>
+            <div class="explanation">If the string has non‑digit characters, <code>parseInt()</code> will throw
+              <code>NumberFormatException</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q93</span>
+              <span class="question">Write the output of:<br><code>System.out.println("".length());</code></span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>0</code>.</div>
+            <div class="explanation">An empty string has zero characters, so its length is 0.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q94</span>
+              <span class="question">What exception occurs if you call a method on a String reference that is
+                null?</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>NullPointerException</code>.</div>
+            <div class="explanation">This happens because you try to use a reference that does not point to any actual
+              object in memory.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q95</span>
+              <span class="question">Give an example showing conversion from <code>char[]</code> to String.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong>
+              <code>char[] ch = {'J','a','v','a'}; String s = new String(ch);</code></div>
+            <div class="explanation">The String constructor can take a character array and build a new String from it.
+            </div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q96</span>
+              <span class="question">Give an example showing conversion from String to <code>char[]</code>.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>String s = "Java"; char[] ch = s.toCharArray();</code>
+            </div>
+            <div class="explanation">The resulting array contains each character of the string as an element.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q97</span>
+              <span class="question">Write a one‑line statement to check if a string <code>s</code> is blank (only
+                spaces or empty) in Java 11+.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>boolean b = s.isBlank();</code></div>
+            <div class="explanation"><code>isBlank()</code> returns true if the string is empty or contains only
+              white‑space; in older versions, you can combine <code>trim()</code> and <code>isEmpty()</code>.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q98</span>
+              <span class="question">Explain the purpose of <code>String.valueOf()</code> in one line.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> It converts a value of any primitive type or object to its
+              string representation.</div>
+            <div class="explanation">It is commonly used to create strings from numbers, booleans or characters when
+              concatenating or printing.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q99</span>
+              <span class="question">Write a one‑line code to check if string <code>s</code> starts with "ICSE" ignoring
+                case.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> <code>boolean b = s.toUpperCase().startsWith("ICSE");</code>
+            </div>
+            <div class="explanation">Converting to one common case (upper or lower) before using
+              <code>startsWith()</code> simulates a case‑insensitive check.</div>
+          </li>
+
+          <li class="qa-item">
+            <div class="qa-head">
+              <span class="qa-label">Q100</span>
+              <span class="question">In one sentence, summarize why understanding String is essential in Java.</span>
+            </div>
+            <div class="answer"><strong>Answer:</strong> Because most real‑world Java programs involve input, output,
+              messages and text processing, mastering the String class and its methods is fundamental to effective Java
+              programming.</div>
+            <div class="explanation">Strings appear everywhere—from simple console I/O to web applications—so they form
+              the backbone of everyday coding tasks.</div>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2025 Coder &amp; AccoTax — Premium Java String Q&amp;A Bank</span>
+      <span>Author: Sukanta Hui · Contact: <a href="tel:+917003756860">+91-7003756860</a> · Website: <a
+          href="https://www.codernaccotax.co.in" target="_blank" rel="noopener">www.codernaccotax.co.in</a></span>
+    </footer>
+  </div>
+</body>
+
+</html>

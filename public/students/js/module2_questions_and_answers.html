@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Java Core Basics — Questions, Answers & Explanations | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="50 expert-level Java Core Basic questions with detailed answers and explanations. Topics: data types, variables, operators, control structures, loops, BigInteger, static & final variables, and initialization." />
+
+  <!-- ======== PREMIUM STYLING ======== -->
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #020617;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.16);
+      --accent-2: #a855f7;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0%, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .page { max-width: 1100px; margin: auto; padding: 2rem 1rem 3rem; }
+    header {
+      background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(168,85,247,0.18));
+      border: 1px solid rgba(148,163,184,0.4);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.9);
+      backdrop-filter: blur(14px);
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      background: linear-gradient(120deg, #e5e7eb, #bae6fd, #f9a8d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subtitle { font-size: 0.93rem; color: var(--muted); }
+    .org { margin-top: 0.6rem; color: var(--muted); }
+    .org strong { color: #fff; }
+
+    .contact { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+    .contact a { color: var(--accent); text-decoration: none; }
+
+    .panel {
+      margin-top: 2rem;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.14), rgba(15,23,42,0.97));
+      border-radius: 1.4rem;
+      border: 1px solid rgba(30,64,175,0.75);
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.95);
+    }
+
+    .section-header {
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(30,64,175,0.8);
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.8rem;
+      margin-top: 1.4rem;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    details {
+      background: rgba(2,6,23,0.95);
+      border: 1px solid rgba(30,64,175,0.7);
+      padding: 0.6rem;
+      border-radius: 0.7rem;
+      margin: 0.5rem 0;
+    }
+    summary {
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 0.93rem;
+    }
+    code {
+      background: rgba(15,23,42,0.9);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      border: 1px solid rgba(30,64,175,0.8);
+      font-family: monospace;
+    }
+    pre {
+      background: rgba(0,0,0,0.55);
+      padding: 0.8rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(30,64,175,0.7);
+      overflow-x: auto;
+      font-size: 0.85rem;
+    }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(30,64,175,0.8);
+      font-size: 0.8rem;
+      text-align: center;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Java Core Basics — Questions, Answers & Explanations</h1>
+  <div class="subtitle">Data Types · Variables · Operators · Control Structures · Loops · BigInteger · static & final · Initialization</div>
+  <div class="org">
+    Prepared by <strong>Sukanta Hui</strong><br>
+    <strong>Coder & AccoTax</strong> — Professional IT & Accounts Training
+  </div>
+  <div class="contact">
+    Contact: <strong>+91-7003756860</strong><br>
+    Website: <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+    Email: info@codernaccotax.co.in
+  </div>
+</header>
+
+<section class="panel">
+
+<h2>50 Questions · Detailed Answers · Expert Explanations</h2>
+
+<!-- SECTION 1 – DATA TYPES -->
+<div class="section-header">
+  <div><strong>1. Java Data Types</strong></div>
+  <span>10 Questions</span>
+</div>
+
+<ol>
+<!------------------ Q1 ------------------>
+<li>
+<b>Q1. What are Java’s primitive data types and why are they considered “primitive”?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Java provides 8 primitive data types: <code>byte, short, int, long, float, double, char, boolean</code>.
+They are called “primitive” because they are stored directly as raw values in memory—no objects,
+no metadata, no heap storage, and no reference handling.
+</p>
+<p>
+They form the building blocks of computation. Because primitives are stored in stack frames or CPU registers,
+they are extremely fast compared to objects. They also avoid overhead of garbage collection.
+This low-level behavior is why they are called “primitive”.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q2 ------------------>
+<li>
+<b>Q2. What is the difference between <code>float</code> and <code>double</code>? Why does Java prefer <code>double</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<code>float</code> is a 32-bit single-precision floating-point value, whereas <code>double</code> is 64-bit
+double-precision. <code>double</code> offers far higher accuracy and a larger range of values.
+</p>
+<p>
+Java defaults to <code>double</code> for floating-point literals because:
+<ul>
+<li>It reduces rounding errors</li>
+<li>Better suited for scientific calculations</li>
+<li>The performance difference is negligible on modern CPUs</li>
+</ul>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q3 ------------------>
+<li>
+<b>Q3. Why is <code>char</code> 2 bytes in Java while in many languages it is 1 byte?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Java uses **Unicode** internally, not ASCII. Unicode characters require 16 bits (2 bytes),
+so <code>char</code> was designed as a 2-byte unsigned value.
+</p>
+<p>This allows Java to support internationalization from the start — Hindi, Bengali, Japanese, etc.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q4 ------------------>
+<li>
+<b>Q4. What is the default value of each primitive data type?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Only instance/static variables get default values:
+</p>
+<pre><code>byte → 0
+short → 0
+int → 0
+long → 0L
+float → 0.0f
+double → 0.0d
+char → '\u0000' (null char)
+boolean → false
+</code></pre>
+<p>
+Local variables never get default values; you must initialize them or compiler throws an error.
+This ensures memory safety.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q5 ------------------>
+<li>
+<b>Q5. Explain “type casting” in Java with an example of both widening and narrowing conversion.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p><b>Widening (automatic):</b></p>
+<pre><code>int x = 10;
+long y = x; // widening, safe</code></pre>
+
+<p><b>Narrowing (manual):</b></p>
+<pre><code>long a = 100000;
+int b = (int) a; // may lose data</code></pre>
+
+<p>
+Widening is safe because the destination type can represent all values of the source.
+Narrowing is dangerous because large values may overflow or lose precision.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q6 ------------------>
+<li>
+<b>Q6. Why is <code>boolean</code> not considered numeric in Java?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Java designers intentionally separated boolean logic from numbers to avoid C-style mistakes like:
+<code>if(x = 5)</code>.
+</p>
+<p>
+Boolean has only two values: <code>true</code> or <code>false</code> — no integer conversions allowed.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q7 ------------------>
+<li>
+<b>Q7. Why is <code>String</code> not a primitive data type?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Because Strings are <b>objects</b> that support:
+<ul>
+<li>Methods (length, substring, equals)</li>
+<li>Immutability</li>
+<li>Interning</li>
+<li>Heap storage</li>
+</ul>
+</p>
+<p>
+Primitives cannot have methods; they are low-level storage units.  
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q8 ------------------>
+<li>
+<b>Q8. What is the size of <code>int</code>, <code>long</code>, and does it depend on the machine?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Unlike C/C++, Java sizes are fixed — independent of OS, CPU, or platform.</p>
+<pre><code>int    → 32-bit
+long   → 64-bit
+</code></pre>
+<p>Java ensures true portability across devices, from mobile to supercomputers.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q9 ------------------>
+<li>
+<b>Q9. Why can't primitives store <code>null</code> in Java?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Primitives store raw values and must have definite data.  
+<code>null</code> represents “no object,” which only applies to reference types.</p>
+<p>If primitives supported <code>null</code>, Java would need null-checking everywhere, harming performance and reliability.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q10 ------------------>
+<li>
+<b>Q10. How is memory allocated for primitive vs reference variables in Java?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<b>Primitive variables</b> store values directly in stack frames.</p>
+<p>
+<b>Reference variables</b> store heap addresses pointing to objects, not the object itself.
+</p>
+<p>This distinction is essential for understanding mutability and garbage collection.</p>
+</div>
+</details>
+</li>
+</ol>
+
+<!-- SECTION 2 – VARIABLES -->
+<div class="section-header">
+  <div><strong>2. Variables & Static/Final</strong></div>
+  <span>10 Questions</span>
+</div>
+
+<ol start="11">
+
+<!------------------ Q11 ------------------>
+<li>
+<b>Q11. Explain the three types of variables in Java: local, instance, and static.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<b>Local variable:</b> Declared inside a method; stored in stack; no default value.</p>
+<p>
+<b>Instance variable:</b> Non-static field; one copy per object; stored in heap.</p>
+<p>
+<b>Static variable:</b> Declared with <code>static</code>; one copy per class shared by all objects.
+</p>
+<p>
+Static variables support global/shared values such as counters, configuration, or caching.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q12 ------------------>
+<li>
+<b>Q12. Why must static variables be initialized before use?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Static variables belong to the class. They are initialized during class loading, even before any object is created.
+This ensures consistent values for all objects.</p>
+<p>
+Static initialization order:
+<pre><code>1. Static variables → default values
+2. Static initializers → executed in textual order
+3. Class becomes usable
+</code></pre>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q13 ------------------>
+<li>
+<b>Q13. How do you initialize a <code>static final</code> variable?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+There are two ways:</p>
+<pre><code>static final int X = 100; // Inline initialization</code></pre>
+
+<p>OR</p>
+
+<pre><code>static final int X;
+static {
+    X = computeValue(); // must assign exactly once
+}
+</code></pre>
+
+<p>
+A <code>static final</code> variable must be assigned **exactly once**.  
+This rule ensures compile-time constants remain immutable forever.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q14 ------------------>
+<li>
+<b>Q14. What happens if you do NOT initialize a final variable?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Compiler error:  
+<code>variable might not have been initialized</code>.
+</p>
+<p>
+Every <code>final</code> variable must be assigned once and exactly once:
+<ul>
+<li>Inline</li>
+<li>Inside constructor (for instance final)</li>
+<li>Inside static block (for static final)</li>
+</ul>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q15 ------------------>
+<li>
+<b>Q15. Why is static memory shared across objects?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Static memory belongs to the class, not the object.  
+When the class is loaded, static memory is allocated once.</p>
+<p>This saves memory and ensures shared state — great for counters, caching, or registries.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q16 ------------------>
+<li>
+<b>Q16. Can a static method access instance variables?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>No — static methods do not have <code>this</code>, because they are not part of any object.</p>
+<p>But instance methods CAN access static variables because the class already loaded static memory.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q17 ------------------>
+<li>
+<b>Q17. What is the difference between <code>final</code> variable and <code>final</code> reference?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+A final variable cannot change value.</p>
+<p>
+A final reference cannot reference a new object — but the internal contents of the object can mutate.</p>
+<pre><code>final List<Integer> list = new ArrayList<>();
+list.add(10); // allowed
+list = new ArrayList<>(); // not allowed
+</code></pre>
+</div>
+</details>
+</li>
+
+<!------------------ Q18 ------------------>
+<li>
+<b>Q18. Why does Java prohibit reassigning final variables?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Final ensures **immutability** of binding. It improves:
+<ul>
+<li>Thread safety</li>
+<li>Program correctness</li>
+<li>Optimization (e.g., inlined constants)</li>
+</ul></p>
+</div>
+</details>
+</li>
+
+<!------------------ Q19 ------------------>
+<li>
+<b>Q19. Can constructors initialize final instance variables?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>Yes. Constructor is the primary way to initialize <b>final instance variables</b>.</p>
+<p>Once assigned inside the constructor, the value cannot be modified.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q20 ------------------>
+<li>
+<b>Q20. Can a static block assign a value to non-static final variable?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>No. Static block runs during class loading, but instance final variables belong to each object separately.</p>
+</div>
+</details>
+</li>
+</ol>
+
+
+<!-- SECTION 3 – OPERATORS -->
+<div class="section-header">
+  <div><strong>3. Operators</strong></div>
+  <span>10 Questions</span>
+</div>
+
+<ol start="21">
+
+<!------------------ Q21 ------------------>
+<li>
+<b>Q21. Explain operator precedence with an example.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Operator precedence decides which operator executes first.
+</p>
+<pre><code>int x = 10 + 20 * 2;
+</code></pre>
+<p>
+Multiplication has higher precedence.  
+So expression becomes:
+<pre><code>10 + (20 * 2) = 50
+</code></pre>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q22 ------------------>
+<li>
+<b>Q22. What is the difference between <code>==</code> and <code>equals()</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<code>==</code> → compares memory addresses for objects  
+<code>equals()</code> → compares contents  
+</p>
+<p>For primitives, <code>==</code> compares actual values.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q23 ------------------>
+<li>
+<b>Q23. What is short-circuit evaluation in logical operators?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<code>&&</code> stops evaluating once the first operand is false.  
+<code>||</code> stops once first operand is true.  
+</p>
+<pre><code>if(a != 0 && b/a > 5) { ... }
+</code></pre>
+<p>
+If <code>a == 0</code>, second part never runs → avoids division by zero.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q24 ------------------>
+<li>
+<b>Q24. Explain difference between prefix and postfix increment.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>int x = 5;
+int y = x++; // y=5, x=6
+int z = ++x; // x=7, z=7
+</code></pre>
+<p>
+Postfix returns original value; prefix increments first.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q25 ------------------>
+<li>
+<b>Q25. What is a ternary operator? When is it useful?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>String msg = (age >= 18) ? "Adult" : "Minor";
+</code></pre>
+<p>
+Useful for concise decision-making without writing <code>if-else</code>.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q26 ------------------>
+<li>
+<b>Q26. Explain bitwise AND, OR, XOR with practical examples.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>5 & 3 = 1
+5 | 3 = 7
+5 ^ 3 = 6
+</code></pre>
+<p>
+Used in encryption, hashing, compression, and performance-critical code.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q27 ------------------>
+<li>
+<b>Q27. Explain shift operators <<, >>, >>>.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p><code>&lt;&lt;</code> shifts left (multiplies by 2)</p>
+<p><code>&gt;&gt;</code> arithmetic right shift (keeps sign)</p>
+<p><code>&gt;&gt;&gt;</code> logical right shift (fills with zeros)</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q28 ------------------>
+<li>
+<b>Q28. What is operator overloading? Why does Java not support it?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Java keeps syntax simple and predictable.  
+Operator overloading can make code confusing.
+Only <code>+</code> is overloaded for Strings.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q29 ------------------>
+<li>
+<b>Q29. What's the difference between <code>=</code> and <code>==</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p><code>=</code> assigns values.  
+<code>==</code> compares values or references.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q30 ------------------>
+<li>
+<b>Q30. Explain the use of <code>instanceof</code> operator.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Checks object type before casting.  
+Prevents <code>ClassCastException</code>.</p>
+</div>
+</details>
+</li>
+</ol>
+
+<!-- SECTION 4 – CONTROL STRUCTURES -->
+<div class="section-header">
+  <div><strong>4. Control Structures & Loops</strong></div>
+  <span>10 Questions</span>
+</div>
+
+<ol start="31">
+
+<!------------------ Q31 ------------------>
+<li>
+<b>Q31. Difference between <code>if-else</code> and <code>switch</code>.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Use <code>if</code> when conditions use ranges, relational, or boolean logic.  
+Use <code>switch</code> when selecting from fixed constant cases.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q32 ------------------>
+<li>
+<b>Q32. Why is <code>switch</code> more efficient than multiple <code>if-else</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Compiled as a jump table or lookup table → O(1) access.  
+<code>if-else</code> chain is O(n).
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q33 ------------------>
+<li>
+<b>Q33. Explain infinite loops with an example.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>while(true) {
+    // server listening loop
+}
+</code></pre>
+<p>Useful in servers, background tasks, schedulers.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q34 ------------------>
+<li>
+<b>Q34. What is the difference between <code>break</code> and <code>continue</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<code>break</code> exits loop completely.  
+<code>continue</code> skips current iteration.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q35 ------------------>
+<li>
+<b>Q35. Explain “enhanced for loop” in Java.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>for(int x : arr) {...}
+</code></pre>
+<p>Simplifies iteration but cannot modify array length or fetch index directly.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q36 ------------------>
+<li>
+<b>Q36. How does <code>do-while</code> differ from <code>while</code>?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p><code>do-while</code> executes at least once.  
+<code>while</code> may execute zero times.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q37 ------------------>
+<li>
+<b>Q37. Why should we avoid deep nested loops?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>Nesting increases time complexity exponentially.  
+Better rewrite logic using algorithms or break loops using flags.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q38 ------------------>
+<li>
+<b>Q38. Explain fall-through behavior in switch.</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>Without <code>break</code>, execution continues into next case.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q39 ------------------>
+<li>
+<b>Q39. Why does Java allow multiple <code>catch</code> blocks?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>Each exception type may require different handling logic.</p>
+<p>It increases robustness in error recovery.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q40 ------------------>
+<li>
+<b>Q40. Why is <code>finally</code> needed in try-catch?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Runs regardless of exception → ensures cleanup.
+Used for closing files, DB connections, streams.</p>
+</div>
+</details>
+</li>
+
+</ol>
+
+<!-- SECTION 5 – BIG INTEGER -->
+<div class="section-header">
+  <div><strong>5. BigInteger & Arbitrary Precision</strong></div>
+  <span>5 Questions</span>
+</div>
+
+<ol start="41">
+
+<!------------------ Q41 ------------------>
+<li>
+<b>Q41. Why do we need <code>BigInteger</code> when Java already has long?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<code>long</code> is limited to 64 bits.  
+BigInteger supports **unlimited size** integers — used in:
+<ul>
+<li>cryptography</li>
+<li>huge factorial calculations</li>
+<li>financial calculations</li>
+<li>scientific computing</li>
+</ul>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q42 ------------------>
+<li>
+<b>Q42. How does BigInteger store values internally?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Internally it uses:
+<ul>
+<li>int[] array for digits</li>
+<li>signum variable</li>
+</ul>
+</p>
+<pre><code>BigInteger num = new BigInteger("12345678901234567890");
+</code></pre>
+<p>
+Each element of the array stores a chunk of digits in base-2ⁿ representation.
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q43 ------------------>
+<li>
+<b>Q43. Why is BigInteger slower than primitive operations?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Because:
+<ul>
+<li>Uses heap allocation</li>
+<li>Uses array-based arithmetic</li>
+<li>No hardware-level support</li>
+<li>No CPU instruction for arbitrary precision</li>
+</ul>
+</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q44 ------------------>
+<li>
+<b>Q44. Can BigInteger overflow?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>No. BigInteger grows dynamically as needed.</p>
+<p>Memory is the only limitation.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q45 ------------------>
+<li>
+<b>Q45. How do you add two BigIntegers?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<pre><code>BigInteger a = new BigInteger("9999999999");
+BigInteger b = new BigInteger("1");
+BigInteger c = a.add(b);
+</code></pre>
+<p>BigInteger operations return new objects — they are immutable.</p>
+</div>
+</details>
+</li>
+
+</ol>
+
+<!-- SECTION 6 – FINAL REINFORCEMENT -->
+<div class="section-header">
+  <div><strong>6. Static, Final & Initialization</strong></div>
+  <span>5 Questions</span>
+</div>
+
+<ol start="46">
+
+<!------------------ Q46 ------------------>
+<li>
+<b>Q46. Why does Java require static blocks instead of allowing Java code at top-level?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Static blocks run once during class loading → ideal for complex initialization.</p>
+<p>
+Java does not allow top-level executable code to keep global namespace clean and predictable.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q47 ------------------>
+<li>
+<b>Q47. Can static variables be reinitialized?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Yes, unless they are <code>final</code>.  
+Static variables can be reassigned anytime from any method.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q48 ------------------>
+<li>
+<b>Q48. Why is static memory created even before the main method runs?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+Because static memory belongs to the class itself.  
+The JVM loads the class, initializes static blocks, and THEN calls <code>main()</code>.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q49 ------------------>
+<li>
+<b>Q49. Why are final variables allowed to be initialized in constructors?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+A final instance variable belongs to the object.  
+Constructor is the earliest place where object-specific initialization occurs.</p>
+<p>
+Once assigned in constructor → cannot be changed later.</p>
+</div>
+</details>
+</li>
+
+<!------------------ Q50 ------------------>
+<li>
+<b>Q50. How is the order of static initializers determined?</b>
+<details><summary>Answer & Explanation</summary>
+<div>
+<p>
+<b>Textual order</b> → top to bottom in source code.</p>
+<p>Changing order changes final results.</p>
+</div>
+</details>
+</li>
+
+</ol>
+
+</section>
+
+<footer>
+© <span id="year"></span> Coder & AccoTax | Prepared by Sukanta Hui
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

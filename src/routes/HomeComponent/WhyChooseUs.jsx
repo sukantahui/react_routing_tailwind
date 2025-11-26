@@ -6,6 +6,9 @@
 // ===============================================
 
 import React, { Component } from "react";
+import nandagopalImg from "../../assets/testimonials/nandagopal.png";
+import arnabImg from "../../assets/testimonials/arnab.png";
+import bhaswatiImg from "../../assets/testimonials/bhaswati.png";
 
 class WhyChooseUs extends Component {
   render() {
@@ -118,55 +121,72 @@ class WhyChooseUs extends Component {
           </div>
 
           {/* Fourth Row — Testimonials / Social Proof */}
+          {/* Fourth Row — Testimonials with Photos */}
           <div className="grid md:grid-cols-3 gap-8 mt-10">
 
             {/* Testimonial 1 */}
-            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 hover:border-sky-500 transition shadow-lg">
-              <div className="text-4xl mb-3">⭐</div>
-              <h3 className="text-lg font-semibold text-sky-400 mb-2">Excellent Learning Experience</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                “The best place I've been to.... And as sir says once a student always a student! Whatever coding I've learnt that's just because of sir..... 😊😊😊😊”
+            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 text-center hover:border-sky-500 transition shadow-lg">
+
+              {/* Photo */}
+              <img
+                src={bhaswatiImg}
+                alt="Tamoshree Dey"
+                className="w-20 h-20 object-cover rounded-full mx-auto border-2 border-sky-500 shadow-lg mb-4"
+              />
+
+              <h3 className="text-lg font-semibold text-sky-400 mb-1">Excellent Learning Experience</h3>
+
+              <p className="text-gray-300 text-sm leading-relaxed italic">
+                “Overall experience is very good.I recommended to all my friends and junior, senior to do any computer course from Coder & Acco Tax. Sukanta sir and ma'am very good teachers. Main concern is to they are understand the students very much. Not only study help, students any types help is available..”
               </p>
-              <p className="text-amber-400 text-xs mt-3">— Tamoshree Dey, Web Development Student</p>
+
+              <p className="text-amber-400 text-xs mt-3">— Bhaswati Mukhopadhyay, Professor</p>
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 hover:border-sky-500 transition shadow-lg">
-              <div className="text-4xl mb-3">💬</div>
-              <h3 className="text-lg font-semibold text-sky-400 mb-2">Supportive Faculty</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                “I am Nanda Gopal Sutradhar, a student of this institute. I don’t know what to write, but today I am an Assistant Professor at Swami Vivekananda University — and all the credit goes to my Guru, Sukanta Hui. He is my ideal. Without his guidance, I would not have been able to reach my goal. This is one of the best computer training centres in Barrackpore. I haven’t seen God, but I believe he is my God. I love you very much, sir..❤️❤️❤️.”
+            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 text-center hover:border-sky-500 transition shadow-lg">
+
+              {/* Photo */}
+              <img
+                src={nandagopalImg}
+                alt="Nanda Gopal Sutradhar"
+                className="w-20 h-20 object-cover rounded-full mx-auto border-2 border-sky-500 shadow-lg mb-4"
+              />
+
+              <h3 className="text-lg font-semibold text-sky-400 mb-1">Supportive Faculty</h3>
+
+              <p className="text-gray-300 text-sm leading-relaxed italic">
+                “I am Nanda Gopal Sutradhar, now an Assistant Professor at Swami Vivekananda University.
+                All the credit goes to my Guru, Sukanta Hui. I haven’t seen God,
+                but I believe he is my God.”
               </p>
-              <p className="text-amber-400 text-xs mt-3">— N. G Sutradhar, Assistant Professor</p>
+
+              <p className="text-amber-400 text-xs mt-3">— N. G. Sutradhar, Assistant Professor</p>
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 hover:border-sky-500 transition shadow-lg">
-              <div className="text-4xl mb-3">👌</div>
-              <h3 className="text-lg font-semibold text-sky-400 mb-2">Great Career Guidance</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                “They helped me prepare for interviews and build my resume. I got
-                internship opportunities within weeks.”
-              </p>
-              <p className="text-amber-400 text-xs mt-3">— Sourav Ghosh, Accounting & Taxation Student</p>
-            </div>
-            {/* Google Review Link */}
-            <div className="text-center mt-12">
-              <a
-                href="https://www.google.com/search?q=Coder+%26+AccoTax+Barrackpore&ludocid=3313055389009979952&gsas=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-amber-500 to-sky-600 hover:from-amber-400 hover:to-sky-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-amber-700/20 hover:shadow-sky-600/30 transition-all duration-300"
-              >
-                ⭐ Read More Google Reviews
-              </a>
+            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 text-center hover:border-sky-500 transition shadow-lg">
 
-              <p className="text-gray-400 text-sm mt-3 italic">
-                Verified student reviews on Google — 100% genuine.
+              {/* Photo */}
+              <img
+                src={arnabImg}
+                alt="Arnab Mitra"
+                className="w-20 h-20 object-cover rounded-full mx-auto border-2 border-sky-500 shadow-lg mb-4"
+              />
+
+              <h3 className="text-lg font-semibold text-sky-400 mb-1">Great Career Guidance</h3>
+
+              <p className="text-gray-300 text-sm leading-relaxed italic">
+                “I learnt programming from Sukanta Sir from Class 5 to Class 12.
+                What I learnt here helped me in Computer Science at Jadavpur University.”
               </p>
+
+              <p className="text-amber-400 text-xs mt-3">— Arnab Mitra, Software Engineer, Samsung</p>
             </div>
+            {/* Google Review Link */} <div className="text-center mt-12"> <a href="https://www.google.com/search?sca_esv=b6f45e0d18a3642b&sxsrf=AE3TifMfkN63JykqF6G3iC0_aAIvRqmH7Q:1763303924763&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwii2sOA8_aQAxVDSWwGHUwUGSIQ0bkNegQIJBAE&biw=2560&bih=947&dpr=1&dlnr=1&sei=-uEZabSgNa2useMPrLSykQ4#lrd=0x39f89b8eb3168ac5:0x7666eac9a1c26430,1,,,," target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-amber-500 to-sky-600 hover:from-amber-400 hover:to-sky-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-amber-700/20 hover:shadow-sky-600/30 transition-all duration-300" > ⭐ Read More Google Reviews </a> <p className="text-gray-400 text-sm mt-3 italic"> Verified student reviews on Google — 100% genuine. </p> </div>
 
           </div>
+
 
 
         </div>

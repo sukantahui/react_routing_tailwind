@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python Functions (5.2) | Return Values — 100 Q&A with Explanations | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;}
+.page{max-width:1100px;margin:auto;padding:32px 16px;}
+header{padding:28px;border-radius:20px;background:radial-gradient(circle at 0 0,rgba(56,189,248,.3),transparent 60%),radial-gradient(circle at 100% 0,rgba(168,85,247,.25),transparent 60%),#0f172a;border:1px solid #334155;box-shadow:0 0 35px rgba(0,0,0,.5);margin-bottom:32px;}
+h1{margin:0;font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;}
+.subtitle{color:#94a3b8;font-size:.95rem;}
+.badge{display:inline-block;padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;margin-bottom:10px;color:#38bdf8;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;}
+h2{font-size:1.35rem;color:#bfdbfe;margin-top:30px;display:flex;align-items:center;gap:8px;}
+h2 span.label{font-size:.75rem;padding:2px 8px;border-radius:999px;border:1px solid #60a5fa;color:#93c5fd;text-transform:uppercase;}
+h3{font-size:1.1rem;color:#c4b5fd;margin-top:20px;}
+pre{background:#0a0f1d;border:1px solid #1e3a8a;border-radius:10px;padding:12px;font-size:.9rem;overflow-x:auto;}
+.footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;font-size:.85rem;color:#94a3b8;display:flex;justify-content:space-between;flex-wrap:wrap;}
+.qa-card{background:#0f172a;border:1px solid #334155;padding:14px 16px;border-radius:14px;margin:10px 0;}
+.q-num{font-size:.8rem;color:#9ca3af;text-transform:uppercase;letter-spacing:.15em;}
+.q-text{font-weight:bold;margin:4px 0 6px;}
+.ans-title{font-size:.8rem;color:#bbf7d0;text-transform:uppercase;font-weight:bold;margin-top:6px;}
+.exp-title{font-size:.8rem;color:#7dd3fc;text-transform:uppercase;font-weight:bold;margin-top:6px;}
+.tag{display:inline-block;font-size:.7rem;border-radius:999px;border:1px solid #64748b;padding:2px 8px;color:#cbd5f5;text-transform:uppercase;letter-spacing:.08em;margin-left:6px;}
+ol.mcq{margin-top:4px;margin-bottom:6px;padding-left:20px;font-size:.9rem;}
+ul{margin-top:6px;margin-bottom:6px;}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="badge">Module M3-R5 · Python — Functions</div>
+  <h1>5.2 Return Values — 100 Questions, Answers &amp; Explanations</h1>
+  <p class="subtitle">
+    Fully solved practice set on <strong>return statement</strong>, <strong>single &amp; multiple return values</strong>,
+    and <strong>void vs value-returning functions</strong>. Prepared for NIELIT O Level / School Python by
+    <strong>Coder &amp; AccoTax</strong> (Author: <strong>Sukanta Hui</strong>).
+  </p>
+</header>
+
+<section>
+<h2><span class="label">Set A</span> Conceptual &amp; Short Answer Questions</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q1</div>
+  <div class="q-text">What is a return value in a function?</div>
+  <div class="ans-title">Answer</div>
+  <p>A return value is the data that a function sends back to the caller when it finishes executing.</p>
+  <div class="exp-title">Explanation</div>
+  <p>The caller can store this returned value in a variable or use it directly in an expression.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q2</div>
+  <div class="q-text">What is the purpose of the <code>return</code> statement in Python?</div>
+  <div class="ans-title">Answer</div>
+  <p>The <code>return</code> statement ends the function and sends a value back to the caller.</p>
+  <div class="exp-title">Explanation</div>
+  <p>It is used to give the result of the function’s computation to the part of the program that called it.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q3</div>
+  <div class="q-text">What does a function return if there is no <code>return</code> statement?</div>
+  <div class="ans-title">Answer</div>
+  <p>It returns <code>None</code> automatically.</p>
+  <div class="exp-title">Explanation</div>
+  <p>In Python, every function returns something; if no explicit value is returned, Python returns the special value <code>None</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q4</div>
+  <div class="q-text">Can a function have more than one <code>return</code> statement? Explain with an example.</div>
+  <div class="ans-title">Answer</div>
+  <p>Yes, a function can have multiple <code>return</code> statements, typically inside different branches.</p>
+  <div class="exp-title">Explanation</div>
+  <pre><code>def check(n):
+    if n &gt; 0:
+        return "Positive"
+    else:
+        return "Non-positive"</code></pre>
+  <p>Here, one of the <code>return</code> statements will execute depending on the condition.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q5</div>
+  <div class="q-text">What happens to the code written after a <code>return</code> statement inside a function?</div>
+  <div class="ans-title">Answer</div>
+  <p>It is never executed (unreachable).</p>
+  <div class="exp-title">Explanation</div>
+  <p>Once <code>return</code> runs, the control jumps out of the function immediately.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q6</div>
+  <div class="q-text">Differentiate between printing a value and returning a value from a function.</div>
+  <div class="ans-title">Answer</div>
+  <p><strong>Printing</strong> only shows the value on the screen; <strong>returning</strong> sends the value back to be used in code.</p>
+  <div class="exp-title">Explanation</div>
+  <p>A returned value can be stored, processed, or passed to other functions, but printed output cannot be reused directly.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q7</div>
+  <div class="q-text">Define a void function with an example.</div>
+  <div class="ans-title">Answer</div>
+  <p>A void function does not return any value (implicitly returns <code>None</code>).</p>
+  <div class="exp-title">Explanation</div>
+  <pre><code>def show_msg():
+    print("Hello")</code></pre>
+  <p>This function only prints; it does not return a result.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q8</div>
+  <div class="q-text">Define a value-returning function with an example.</div>
+  <div class="ans-title">Answer</div>
+  <p>A value-returning function uses <code>return</code> to send a result back.</p>
+  <div class="exp-title">Explanation</div>
+  <pre><code>def square(n):
+    return n * n</code></pre>
+  <p>This function returns the square of <code>n</code>, which can be used in expressions.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q9</div>
+  <div class="q-text">Can a function return different data types at different times? Give a simple example.</div>
+  <div class="ans-title">Answer</div>
+  <p>Yes, Python functions can return different types on different paths.</p>
+  <div class="exp-title">Explanation</div>
+  <pre><code>def demo(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return "Negative"</code></pre>
+  <p>Here, the function may return an <code>int</code> or a <code>str</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q10</div>
+  <div class="q-text">Why is it generally better to use <code>return</code> instead of only <code>print()</code> inside a function?</div>
+  <div class="ans-title">Answer</div>
+  <p>Because returned values can be reused, tested, and combined, while printed values are just output.</p>
+  <div class="exp-title">Explanation</div>
+  <p>Using <code>return</code> makes functions more flexible and suitable for modular programming.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q11</div>
+  <div class="q-text">What is a tuple? How is it related to returning multiple values?</div>
+  <div class="ans-title">Answer</div>
+  <p>A tuple is an immutable ordered collection. When a function returns multiple values, Python packs them in a tuple.</p>
+  <div class="exp-title">Explanation</div>
+  <p>Writing <code>return a, b, c</code> actually returns <code>(a, b, c)</code> as a tuple.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q12</div>
+  <div class="q-text">Write the general syntax of a function with a return value.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def function_name(parameters):
+    # statements
+    return expression</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>The <code>return</code> line computes and sends the result back to the caller.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q13</div>
+  <div class="q-text">Can a function return another function? Conceptually explain.</div>
+  <div class="ans-title">Answer</div>
+  <p>Yes, in Python functions are objects, so one function can return another function.</p>
+  <div class="exp-title">Explanation</div>
+  <p>This is used in higher-order functions and closures (e.g. decorators, factory functions).</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q14</div>
+  <div class="q-text">What will be the type of the value returned when a function returns <code>a, b, c</code>?</div>
+  <div class="ans-title">Answer</div>
+  <p>The function returns a tuple.</p>
+  <div class="exp-title">Explanation</div>
+  <p>The values are automatically packed into <code>(a, b, c)</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q15</div>
+  <div class="q-text">How can you capture multiple returned values separately in variables? Give an example.</div>
+  <div class="ans-title">Answer</div>
+  <p>By using tuple unpacking.</p>
+  <div class="exp-title">Explanation</div>
+  <pre><code>def calc(a, b):
+    return a + b, a * b
+
+s, p = calc(3, 4)</code></pre>
+  <p>Here <code>s</code> gets the sum and <code>p</code> gets the product.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q16</div>
+  <div class="q-text">Why is <code>None</code> printed when we do <code>print(my_void_function())</code>?</div>
+  <div class="ans-title">Answer</div>
+  <p>Because a void function returns <code>None</code> by default, and <code>print()</code> displays it.</p>
+  <div class="exp-title">Explanation</div>
+  <p>The function first prints its own message and then <code>print()</code> prints the value it returned, i.e. <code>None</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q17</div>
+  <div class="q-text">What is meant by "early return" in a function?</div>
+  <div class="ans-title">Answer</div>
+  <p>Returning from a function before reaching the last line, often using conditions.</p>
+  <div class="exp-title">Explanation</div>
+  <p>It is used to exit quickly when certain conditions are met, instead of nesting many <code>if</code> blocks.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q18</div>
+  <div class="q-text">Can you use <code>return</code> without any value? What does it do?</div>
+  <div class="ans-title">Answer</div>
+  <p>Yes. It simply exits the function and returns <code>None</code>.</p>
+  <div class="exp-title">Explanation</div>
+  <p><code>return</code> and <code>return None</code> behave the same.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q19</div>
+  <div class="q-text">How does <code>return</code> help in breaking complex problems into smaller functions?</div>
+  <div class="ans-title">Answer</div>
+  <p>Each helper function can return a partial result which another function can reuse.</p>
+  <div class="exp-title">Explanation</div>
+  <p>This encourages modular code where every function solves a small part and returns its result to build the full solution.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q20</div>
+  <div class="q-text">What is the difference between <code>return 0</code> and <code>return None</code>?</div>
+  <div class="ans-title">Answer</div>
+  <p><code>0</code> is an integer value, whereas <code>None</code> is a special object of type <code>NoneType</code>.</p>
+  <div class="exp-title">Explanation</div>
+  <p>They are not the same; comparisons like <code>0 is None</code> are always <code>False</code>.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set B</span> MCQ Exercises</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q21 <span class="tag">MCQ</span></div>
+  <div class="q-text">A function with no <code>return</code> statement returns:</div>
+  <ol class="mcq">
+    <li>a) <code>0</code></li>
+    <li>b) <code>None</code></li>
+    <li>c) <code>""</code></li>
+    <li>d) <code>False</code></li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>b) <code>None</code></strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>Python automatically returns <code>None</code> if no explicit <code>return</code> is given.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q22 <span class="tag">MCQ</span></div>
+  <div class="q-text">Which keyword is used to send a value back from a function?</div>
+  <ol class="mcq">
+    <li>a) <code>break</code></li>
+    <li>b) <code>stop</code></li>
+    <li>c) <code>return</code></li>
+    <li>d) <code>exit</code></li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>c) <code>return</code></strong></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>return</code> is the only keyword that exits a function and sends back a value.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q23 <span class="tag">MCQ</span></div>
+  <div class="q-text">When a function returns <code>a, b, c</code>, Python actually returns:</div>
+  <ol class="mcq">
+    <li>a) A list</li>
+    <li>b) A tuple</li>
+    <li>c) A dictionary</li>
+    <li>d) Three separate values</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>b) A tuple</strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>The values are packed into a tuple <code>(a, b, c)</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q24 <span class="tag">MCQ</span></div>
+  <div class="q-text">The statement <code>return</code> with no value explicitly returns:</div>
+  <ol class="mcq">
+    <li>a) <code>0</code></li>
+    <li>b) <code>"None"</code> (string)</li>
+    <li>c) <code>None</code> (special object)</li>
+    <li>d) Error</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>c) <code>None</code></strong></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>return</code> with nothing is equivalent to <code>return None</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q25 <span class="tag">MCQ</span></div>
+  <div class="q-text">Which one is a value-returning function definition?</div>
+  <ol class="mcq">
+    <li>a) <code>def f(): print(10)</code></li>
+    <li>b) <code>def f(): return 10</code></li>
+    <li>c) <code>def f(): pass</code></li>
+    <li>d) Both (a) and (b)</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>b)</strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>Only <code>return 10</code> sends a value back; just printing is still a void function.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q26 <span class="tag">MCQ</span></div>
+  <div class="q-text">What will be the type of value returned by <code>def f(): return 3 &gt; 2</code>?</div>
+  <ol class="mcq">
+    <li>a) <code>int</code></li>
+    <li>b) <code>str</code></li>
+    <li>c) <code>bool</code></li>
+    <li>d) <code>tuple</code></li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>c) <code>bool</code></strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>The expression <code>3 &gt; 2</code> is a boolean comparison, giving <code>True</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q27 <span class="tag">MCQ</span></div>
+  <div class="q-text">A function that calculates a sum and prints it but does not return it is:</div>
+  <ol class="mcq">
+    <li>a) A void function</li>
+    <li>b) A value-returning function</li>
+    <li>c) Not a function</li>
+    <li>d) A recursive function</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>a) A void function</strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>It doesn’t return a result to the caller, so it is considered void.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q28 <span class="tag">MCQ</span></div>
+  <div class="q-text">Which of these statements is TRUE?</div>
+  <ol class="mcq">
+    <li>a) A function can only return integers.</li>
+    <li>b) A function can return any Python object.</li>
+    <li>c) A function can return maximum one object.</li>
+    <li>d) A function cannot return tuples.</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>b)</strong></p>
+  <div class="exp-title">Explanation</div>
+  <p>Functions can return numbers, strings, lists, dictionaries, tuples, and even other functions.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q29 <span class="tag">MCQ</span></div>
+  <div class="q-text">After executing <code>return x + y</code>, the function:</div>
+  <ol class="mcq">
+    <li>a) continues to next line</li>
+    <li>b) terminates</li>
+    <li>c) jumps to top</li>
+    <li>d) restarts automatically</li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>b) terminates</strong></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>return</code> immediately exits the function and returns control to the caller.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q30 <span class="tag">MCQ</span></div>
+  <div class="q-text">What is printed by: <code>print(type(None))</code>?</div>
+  <ol class="mcq">
+    <li>a) <code>&lt;class 'NoneType'&gt;</code></li>
+    <li>b) <code>&lt;class 'int'&gt;</code></li>
+    <li>c) <code>&lt;class 'str'&gt;</code></li>
+    <li>d) <code>&lt;class 'bool'&gt;</code></li>
+  </ol>
+  <div class="ans-title">Correct Answer</div>
+  <p><strong>a) <code>&lt;class 'NoneType'&gt;</code></strong></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>None</code> is an instance of the built-in type <code>NoneType</code>.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set C</span> Output-based Questions</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q31</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def fun():
+    return 5
+
+print(fun())</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>5</code></p>
+  <div class="exp-title">Explanation</div>
+  <p>The function returns 5, and <code>print()</code> prints it.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q32</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def fun():
+    print(5)
+
+print(fun())</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output:
+<br><code>5</code>
+<br><code>None</code></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>fun()</code> prints 5 and returns <code>None</code>, which is then printed by the outer <code>print()</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q33</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def test():
+    return 2 * 3
+    print("Hello")
+
+print(test())</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>6</code></p>
+  <div class="exp-title">Explanation</div>
+  <p>The <code>print("Hello")</code> line is never reached because of the <code>return</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q34</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def demo():
+    return 10
+
+x = demo()
+print(x + 5)</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>15</code></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>x</code> receives 10, and <code>x + 5</code> is 15.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q35</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def calc(a, b):
+    return a + b, a * b
+
+result = calc(2, 3)
+print(result)</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>(5, 6)</code></p>
+  <div class="exp-title">Explanation</div>
+  <p>The function returns a tuple containing sum and product.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q36</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def calc(a, b):
+    return a + b, a * b
+
+s, p = calc(4, 5)
+print(s, p)</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>9 20</code></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>s</code> gets 4+5=9 and <code>p</code> gets 4*5=20.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q37</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def check(n):
+    if n % 2 == 0:
+        return "Even"
+    return "Odd"
+
+print(check(7))</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>Odd</code></p>
+  <div class="exp-title">Explanation</div>
+  <p>7 is not divisible by 2, so the second <code>return</code> runs.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q38</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def fun():
+    return
+
+print(fun())</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>None</code></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>return</code> with no value returns <code>None</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q39</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def sample():
+    return "Python", 3
+
+x = sample()
+print(len(x))</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>2</code></p>
+  <div class="exp-title">Explanation</div>
+  <p><code>x</code> is a tuple with 2 elements, so its length is 2.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q40</div>
+  <div class="q-text">Predict the output:</div>
+  <pre><code>def mystery(a, b):
+    s = a + b
+    return s
+    s = s * 2
+
+print(mystery(3, 4))</code></pre>
+  <div class="ans-title">Answer</div>
+  <p>Output: <code>7</code></p>
+  <div class="exp-title">Explanation</div>
+  <p>The line <code>s = s * 2</code> is never executed; only the sum is returned.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set D</span> Code Writing Exercises (Model Answers)</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q41</div>
+  <div class="q-text">Write a function <code>square(n)</code> that returns the square of <code>n</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def square(n):
+    return n * n</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We simply multiply the number by itself and return the result.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q42</div>
+  <div class="q-text">Write a function <code>cube(n)</code> that returns the cube of <code>n</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def cube(n):
+    return n * n * n</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Cube is defined as <code>n³</code>, so multiply <code>n</code> three times.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q43</div>
+  <div class="q-text">Write a function that returns the absolute difference between two numbers.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def abs_diff(a, b):
+    if a &gt;= b:
+        return a - b
+    else:
+        return b - a</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We ensure the result is non-negative by subtracting the smaller from the larger.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q44</div>
+  <div class="q-text">Write a function that returns the average of three numbers.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def average3(a, b, c):
+    return (a + b + c) / 3</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Average is sum divided by count (3 here).</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q45</div>
+  <div class="q-text">Write a function that returns <code>True</code> if a number is even, otherwise <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_even(n):
+    return n % 2 == 0</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>The expression <code>n % 2 == 0</code> already gives a boolean value.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q46</div>
+  <div class="q-text">Write a function that returns the maximum of two numbers (without using <code>max()</code>).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def max2(a, b):
+    if a &gt;= b:
+        return a
+    else:
+        return b</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We compare and return whichever is larger.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q47</div>
+  <div class="q-text">Write a function that returns the maximum of three numbers.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def max3(a, b, c):
+    m = a
+    if b &gt; m:
+        m = b
+    if c &gt; m:
+        m = c
+    return m</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We track the current maximum and update it after each comparison.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q48</div>
+  <div class="q-text">Write a function that returns the factorial of a number.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def factorial(n):
+    fact = 1
+    for i in range(1, n+1):
+        fact *= i
+    return fact</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We multiply all numbers from 1 to <code>n</code> and return the result.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q49</div>
+  <div class="q-text">Write a function that returns the sum of all elements in a list.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def list_sum(nums):
+    total = 0
+    for n in nums:
+        total += n
+    return total</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We accumulate each item in a running total.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q50</div>
+  <div class="q-text">Write a function that returns the largest element in a list.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def list_max(nums):
+    if not nums:
+        return None
+    m = nums[0]
+    for n in nums[1:]:
+        if n &gt; m:
+            m = n
+    return m</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We scan through the list and track the maximum value.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q51</div>
+  <div class="q-text">Write a function that takes a string and returns the number of vowels in it.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for ch in s:
+        if ch in vowels:
+            count += 1
+    return count</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We increment count every time we see a vowel character.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q52</div>
+  <div class="q-text">Write a function that returns <code>"PASS"</code> if marks ≥ 40, else <code>"FAIL"</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def result(marks):
+    if marks &gt;= 40:
+        return "PASS"
+    else:
+        return "FAIL"</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We apply the pass condition and return the corresponding string.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q53</div>
+  <div class="q-text">Write a function that takes a number and returns a tuple containing (square, cube).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def sq_cube(n):
+    return n*n, n*n*n</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We return two values separated by comma, which creates a tuple.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q54</div>
+  <div class="q-text">Write a function that returns both area and circumference of a circle (use 3.14 for π).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def circle_ac(r):
+    area = 3.14 * r * r
+    circum = 2 * 3.14 * r
+    return area, circum</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We apply standard formulas and return both values as a tuple.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q55</div>
+  <div class="q-text">Write a function that takes a list of numbers and returns (sum, average).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def sum_avg(nums):
+    if not nums:
+        return 0, 0
+    s = 0
+    for n in nums:
+        s += n
+    return s, s/len(nums)</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We compute the total and divide by count; for empty list we return zeros safely.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q56</div>
+  <div class="q-text">Write a function that returns the smallest element of a list, or <code>None</code> if list is empty.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def list_min(nums):
+    if not nums:
+        return None
+    m = nums[0]
+    for n in nums[1:]:
+        if n &lt; m:
+            m = n
+    return m</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Similar to maximum, but we track the minimum.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q57</div>
+  <div class="q-text">Write a function that returns the reversed version of a given string.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def reverse_str(s):
+    return s[::-1]</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We use slicing with a step of -1 to reverse the string.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q58</div>
+  <div class="q-text">Write a function that returns <code>True</code> if a string is a palindrome, else <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_palindrome(s):
+    return s == s[::-1]</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>A string is palindrome if it reads the same forwards and backwards.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q59</div>
+  <div class="q-text">Write a function that returns a list of even numbers from 1 to <code>n</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def evens_upto(n):
+    evens = []
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            evens.append(i)
+    return evens</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We check each number for evenness and collect it.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q60</div>
+  <div class="q-text">Write a function that takes a list and returns a new list with all duplicates removed.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def remove_duplicates(lst):
+    seen = []
+    for item in lst:
+        if item not in seen:
+            seen.append(item)
+    return seen</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We only append elements that are not already present, preserving order.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set E</span> Debugging &amp; Correction (Model Solutions)</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q61</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def add(a, b):
+    print a + b
+    return</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def add(a, b):
+    print(a + b)
+    return</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>In Python 3, <code>print</code> is a function and requires parentheses.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q62</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def add(a, b):
+    return a + b
+
+print(add)</code></pre>
+  <div class="ans-title">Corrected Usage</div>
+  <pre><code>def add(a, b):
+    return a + b
+
+print(add(2, 3))</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We must call the function with arguments; otherwise <code>print(add)</code> prints the function object, not the result.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q63</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def demo():
+    return "Hello"
+    return "Hi"</code></pre>
+  <div class="ans-title">Discussion / Fix</div>
+  <pre><code>def demo():
+    return "Hello"   # second return is unreachable; remove it</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Only the first <code>return</code> will ever execute; the second one is dead code.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q64</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def result(a, b):
+    if a &gt; b:
+        return a
+    else
+        return b</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def result(a, b):
+    if a &gt; b:
+        return a
+    else:
+        return b</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>The <code>else</code> statement needs a colon at the end.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q65</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def check(n):
+    if n % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")
+
+x = check(4)
+print(x + 1)</code></pre>
+  <div class="ans-title">Problem &amp; Fix</div>
+  <pre><code>def check(n):
+    if n % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+x = check(4)
+print(x)</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>The original function returned <code>None</code>, so <code>x + 1</code> caused an error. We changed it to return a string.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q66</div>
+  <div class="q-text">Find and correct the error:</div>
+  <pre><code>def fun(a, b):
+    c = a + b
+
+print(fun(2, 3))</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def fun(a, b):
+    c = a + b
+    return c
+
+print(fun(2, 3))</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We must <code>return c</code> from the function, otherwise <code>None</code> is printed.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q67</div>
+  <div class="q-text">Find the logical mistake (no syntax error):</div>
+  <pre><code>def divide(a, b):
+    print(a / b)
+
+x = divide(10, 2)
+print(x)</code></pre>
+  <div class="ans-title">Fix</div>
+  <pre><code>def divide(a, b):
+    return a / b
+
+x = divide(10, 2)
+print(x)</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>The function should return the division result, not only print it, so that it can be used later.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q68</div>
+  <div class="q-text">Correct the following so that it returns a tuple of (sum, product):</div>
+  <pre><code>def calc(a, b):
+    s = a + b
+    p = a * b
+    return s
+    return p</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def calc(a, b):
+    s = a + b
+    p = a * b
+    return s, p</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We must return both values in one <code>return</code> statement, not two separate ones.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q69</div>
+  <div class="q-text">Correct the code so that it returns <code>None</code> for negative input, else square of number:</div>
+  <pre><code>def safe_square(n):
+    if n &lt; 0:
+        print("Invalid")
+    return n * n</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def safe_square(n):
+    if n &lt; 0:
+        return None
+    return n * n</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>For negative values we must <strong>return</strong> <code>None</code> instead of printing, and avoid computing square.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q70</div>
+  <div class="q-text">Correct the code so that the function returns "Even" or "Odd" instead of printing them:</div>
+  <pre><code>def check(num):
+    if num % 2 == 0:
+        print("Even")
+    else:
+        print("Odd")</code></pre>
+  <div class="ans-title">Corrected Code</div>
+  <pre><code>def check(num):
+    if num % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We replaced <code>print()</code> with <code>return</code> so the caller gets the result.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set F</span> Application-based &amp; Mixed Level (Model Answers)</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q71</div>
+  <div class="q-text">Write a function that takes a student's marks in 5 subjects and returns the total and percentage.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def total_and_percent(m1, m2, m3, m4, m5):
+    total = m1 + m2 + m3 + m4 + m5
+    percent = total / 5
+    return total, percent</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Total is sum of marks; percentage is total divided by number of subjects.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q72</div>
+  <div class="q-text">Write a function that accepts basic salary and returns (HRA, DA, gross salary).</div>
+  <div class="ans-title">Sample Answer (with sample percentages)</div>
+  <pre><code>def salary_details(basic):
+    hra = 0.20 * basic   # 20% HRA
+    da  = 0.10 * basic   # 10% DA
+    gross = basic + hra + da
+    return hra, da, gross</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Percentages can be adjusted as per rules; we return all three values as a tuple.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q73</div>
+  <div class="q-text">Write a function that accepts a year and returns <code>True</code> if it is a leap year, else <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_leap(year):
+    if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+        return True
+    return False</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We apply the standard leap year conditions and return a boolean.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q74</div>
+  <div class="q-text">Write a function that takes a temperature in Celsius and returns the equivalent Fahrenheit value.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def c_to_f(c):
+    return (c * 9/5) + 32</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We use the conversion formula F = (C × 9/5) + 32.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q75</div>
+  <div class="q-text">Write a function that returns the grade (A, B, C, D, F) based on percentage.</div>
+  <div class="ans-title">Answer (example logic)</div>
+  <pre><code>def grade(percent):
+    if percent &gt;= 80:
+        return "A"
+    elif percent &gt;= 60:
+        return "B"
+    elif percent &gt;= 50:
+        return "C"
+    elif percent &gt;= 40:
+        return "D"
+    else:
+        return "F"</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We use if-elif ladder to map percentage ranges to grade letters.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q76</div>
+  <div class="q-text">Write a function that takes a number and returns the sum of its digits.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def digit_sum(n):
+    n = abs(n)
+    s = 0
+    while n &gt; 0:
+        s += n % 10
+        n //= 10
+    return s</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We repeatedly take the last digit with <code>% 10</code> and remove it with integer division.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q77</div>
+  <div class="q-text">Write a function that checks whether a given number is prime, and returns <code>True</code> or <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_prime(n):
+    if n &lt;= 1:
+        return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0:
+            return False
+    return True</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We test divisors up to √n and return accordingly.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q78</div>
+  <div class="q-text">Write a function that takes a list of integers and returns a tuple (count_even, count_odd).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def count_even_odd(nums):
+    ce = co = 0
+    for n in nums:
+        if n % 2 == 0:
+            ce += 1
+        else:
+            co += 1
+    return ce, co</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We maintain two counters and return both as a tuple.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q79</div>
+  <div class="q-text">Write a function that takes a sentence and returns the number of words in it.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def word_count(sentence):
+    words = sentence.split()
+    return len(words)</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p><code>split()</code> breaks by whitespace; we return the length of the resulting list.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q80</div>
+  <div class="q-text">Write a function that takes three sides of a triangle and returns whether the triangle is valid or not.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_triangle(a, b, c):
+    return (a + b &gt; c) and (a + c &gt; b) and (b + c &gt; a)</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Triangle is valid only if the sum of any two sides is greater than the third side.</p>
+</div>
+</section>
+
+<section>
+<h2><span class="label">Set G</span> Higher-order &amp; Thinking Questions (Model Answers)</h2>
+
+<div class="qa-card">
+  <div class="q-num">Q81</div>
+  <div class="q-text">Write a function that returns another function (inner function) which multiplies a value by 2.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def make_doubler():
+    def doubler(x):
+        return x * 2
+    return doubler</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p><code>make_doubler()</code> returns the inner function object, which can be called later.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q82</div>
+  <div class="q-text">Write a function <code>compare(a, b)</code> that returns 1 if <code>a &gt; b</code>, -1 if <code>a &lt; b</code>, and 0 if equal.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def compare(a, b):
+    if a &gt; b:
+        return 1
+    elif a &lt; b:
+        return -1
+    else:
+        return 0</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We implement three-way comparison and return codes representing the relationship.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q83</div>
+  <div class="q-text">Write a function that returns <code>True</code> if a list is sorted in ascending order, else <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def is_sorted(lst):
+    for i in range(len(lst)-1):
+        if lst[i] &gt; lst[i+1]:
+            return False
+    return True</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>If we ever find a pair out of order, the list is not sorted.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q84</div>
+  <div class="q-text">Write a function that returns the second largest number in a list (or <code>None</code> if not possible).</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def second_largest(lst):
+    if len(lst) &lt; 2:
+        return None
+    unique = sorted(set(lst))
+    if len(unique) &lt; 2:
+        return None
+    return unique[-2]</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We remove duplicates, sort, and take the second last element if it exists.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q85</div>
+  <div class="q-text">Write a function that returns the frequency dictionary for characters in a string.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def char_freq(s):
+    freq = {}
+    for ch in s:
+        freq[ch] = freq.get(ch, 0) + 1
+    return freq</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We count how many times each character appears and return the mapping.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q86</div>
+  <div class="q-text">Write a function that takes a list of (name, marks) tuples and returns the name of the topper.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def topper(records):
+    if not records:
+        return None
+    best_name, best_marks = records[0]
+    for name, marks in records[1:]:
+        if marks &gt; best_marks:
+            best_name, best_marks = name, marks
+    return best_name</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We track the tuple with highest marks and finally return the corresponding name.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q87</div>
+  <div class="q-text">Write a function that takes a list of numbers and returns <code>True</code> if all are even, else <code>False</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def all_even(lst):
+    for n in lst:
+        if n % 2 != 0:
+            return False
+    return True</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We check each number; a single odd number makes the result <code>False</code>.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q88</div>
+  <div class="q-text">Write a function that takes a list of strings and returns a list of their lengths.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def lengths(strings):
+    result = []
+    for s in strings:
+        result.append(len(s))
+    return result</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>Alternatively, list comprehension like <code>[len(s) for s in strings]</code> also works.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q89</div>
+  <div class="q-text">Write a function that takes a number and returns <code>"Positive"</code>, <code>"Negative"</code>, or <code>"Zero"</code>.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def sign(n):
+    if n &gt; 0:
+        return "Positive"
+    elif n &lt; 0:
+        return "Negative"
+    else:
+        return "Zero"</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We classify the number based on its sign and return the appropriate label.</p>
+</div>
+
+<div class="qa-card">
+  <div class="q-num">Q90</div>
+  <div class="q-text">Write a function that returns a dictionary with keys "sum", "average", and "count" for a given list of numbers.</div>
+  <div class="ans-title">Answer</div>
+  <pre><code>def stats(nums):
+    count = len(nums)
+    if count == 0:
+        return {"sum": 0, "average": 0, "count": 0}
+    total = 0
+    for n in nums:
+        total += n
+    avg = total / count
+    return {"sum": total, "average": avg, "count": count}</code></pre>
+  <div class="exp-title">Explanation</div>
+  <p>We compute these three values once and package them in a dictionary for convenient access.</p>
+</div>
+</section>
+
+<footer class="footer">
+  <span>© Coder &amp; AccoTax · Python O Level Series — Fully Solved Exercise Sheet</span>
+  <span>Author: Sukanta Hui · www.codernaccotax.co.in</span>
+</footer>
+</div>
+</body>
+</html>

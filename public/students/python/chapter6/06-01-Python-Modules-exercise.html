@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python 6.1 — Modules | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;padding:20px;} 
+.page{max-width:1100px;margin:auto;} 
+header{padding:25px;background:#0f172a;border:1px solid #334155;border-radius:14px;margin-bottom:25px;} 
+h1{font-size:2.4rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;margin:0;} 
+.subtitle{color:#94a3b8;margin-top:8px;} 
+h2{color:#93c5fd;font-size:1.45rem;margin-top:32px;} 
+h3{color:#c4b5fd;margin-top:18px;} 
+.box{background:#0f172a;border:1px solid #334155;padding:16px;border-radius:12px;margin:16px 0;} 
+pre{background:#0a0f1d;border:1px solid #1e3a8a;padding:12px;border-radius:10px;overflow-x:auto;} 
+.footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;font-size:.9rem;color:#94a3b8;text-align:center;} 
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<p style="font-size:0.9rem;color:#7dd3fc;margin:0 0 10px 0;"><strong>Organisation:</strong> Coder & AccoTax · <strong>Address:</strong> 25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore · <strong>Website:</strong> www.codernaccotax.co.in · <strong>Phone:</strong> 7003756860</p>
+<h1>6.1 Modules</h1>
+<p class="subtitle">Importing modules, built‑in modules, and creating user‑defined modules.</p>
+</header>
+
+<h2>What is a Module?</h2>
+<p>A <strong>module</strong> in Python is simply a file that contains Python code — functions, variables, classes, etc. Modules help keep code <strong>organized, reusable, and structured</strong>.</p>
+
+<div class="box"><strong>Example:</strong> A file named <code>mymath.py</code> with helpful math functions is considered a module.</div>
+
+<h2>Importing Modules</h2>
+<h3>1. Using <code>import</code></h3>
+<pre><code>import math
+print(math.sqrt(25))</code></pre>
+<p>This imports the entire module, so you must use <code>module_name.function</code>.</p>
+
+<h3>2. Using <code>from ... import ...</code></h3>
+<pre><code>from math import sqrt
+print(sqrt(25))</code></pre>
+<p>This imports only the specific function directly.</p>
+
+<h3>3. Importing with Alias</h3>
+<pre><code>import math as m
+print(m.pi)</code></pre>
+
+<h2>Common Built‑in Modules</h2>
+
+<h3>1. <code>math</code> Module</h3>
+<ul>
+<li>Square root: <code>math.sqrt()</code></li>
+<li>Power: <code>math.pow()</code></li>
+<li>Pi value: <code>math.pi</code></li>
+</ul>
+<pre><code>import math
+print(math.sin(math.pi/2))</code></pre>
+
+<h3>2. <code>random</code> Module</h3>
+<ul>
+<li><code>random.randint(a, b)</code> → random integer</li>
+<li><code>random.choice(list)</code> → random element</li>
+<li><code>random.random()</code> → random float (0–1)</li>
+</ul>
+<pre><code>import random
+print(random.randint(1, 10))
+print(random.choice(["red","blue","green"]))</code></pre>
+
+<h3>3. <code>datetime</code> Module</h3>
+<ul>
+<li>Dates and times</li>
+<li>Current date/time</li>
+</ul>
+<pre><code>from datetime import datetime
+now = datetime.now()
+print(now)</code></pre>
+
+<h2>Creating User‑Defined Modules</h2>
+<p>You can create your own Python module. Just create a file with functions.</p>
+
+<h3>Step 1 — Create file: <code>mymodule.py</code></h3>
+<pre><code>def greet(name):
+    return f"Hello {name}!"
+
+def add(a, b):
+    return a + b</code></pre>
+
+<h3>Step 2 — Import into another file</h3>
+<pre><code>import mymodule
+print(mymodule.greet("Sukanta"))
+print(mymodule.add(5, 3))</code></pre>
+
+<h3>Step 3 — Import only specific functions</h3>
+<pre><code>from mymodule import greet
+print(greet("Rahul"))</code></pre>
+
+<div class="box">
+<strong>Why Use Modules?</strong>
+<ul>
+<li>Keeps programs organized</li>
+<li>Makes code reusable</li>
+<li>Easy to maintain and debug</li>
+</ul>
+</div>
+
+<h2>6.1 Module Exercises — 100 Questions</h2>
+<p>Practice questions covering importing modules, built-in modules, creating user modules, and advanced usage.</p>
+
+<h3>Set A — Basic Conceptual (1–20)</h3>
+<ol>
+<li>What is a module in Python?</li>
+<li>How do you import an entire module?</li>
+<li>Write the syntax of <code>from ... import ...</code>.</li>
+<li>What is the difference between <code>import math</code> and <code>from math import sqrt</code>?</li>
+<li>Name any three built-in modules.</li>
+<li>What does the <code>math</code> module provide?</li>
+<li>What does the <code>random</code> module do?</li>
+<li>What is <code>datetime.now()</code> used for?</li>
+<li>Define a user‑defined module.</li>
+<li>Where are Python modules stored internally after importing?</li>
+<li>What is <code>sys.path</code>?</li>
+<li>Why is importing useful?</li>
+<li>What are third‑party modules?</li>
+<li>What is <code>__pycache__</code>?</li>
+<li>Why should modules be used in large projects?</li>
+<li>Can a module contain classes?</li>
+<li>Can a module contain variables?</li>
+<li>What is <code>__name__</code>?</li>
+<li>Explain <code>__main__</code> briefly.</li>
+<li>What is the purpose of <code>__init__.py</code>?</li>
+</ol>
+
+<h3>Set B — MCQs (21–40)</h3>
+<ol start="21">
+<li>Which statement imports only a specific function?<br> A) import math<br>B) from math import sqrt<br>C) import sqrt<br>D) module.sqrt</li>
+<li>Which module provides random numbers?<br>A) sys B) random C) math D) time</li>
+<li>Which function gives current date & time?<br>A) random.now B) math.now C) datetime.now D) date.now</li>
+<li>Which import is correct?<br>A) import math.sqrt<br>B) import sqrt from math<br>C) from math import sqrt<br>D) math import sqrt</li>
+<li><code>math.pi</code> returns:<br>A) 2.14 B) 3.14 C) 1.41 D) None</li>
+<li>Which module helps with date formatting?<br>A) datetime B) math C) os D) string</li>
+<li><code>random.choice()</code> works on:<br>A) strings only B) numbers only C) sequences D) integers only</li>
+<li>Which creates an alias?<br>A) import math alias m<br>B) import math as m<br>C) alias math m<br>D) import m as math</li>
+<li>Where do modules load first?<br>A) sys.modules B) C drive C) internet D) project folder</li>
+<li>Which is a built‑in module?<br>A) numpy B) pandas C) math D) flask</li>
+<li>To generate random number between 1–10:<br>A) random.num(1,10)<br>B) randint(1,10)<br>C) random.randint(1,10)<br>D) random.range(1,10)</li>
+<li>A file becomes a module when:<br>A) Its name begins with mod<br>B) It contains functions<br>C) It is imported<br>D) It is saved with .module</li>
+<li>Which is TRUE?<br>A) Modules reduce code duplication<br>B) Modules slow programs<br>C) Modules hide errors<br>D) Modules are optional in Python</li>
+<li>Which operator accesses a function inside a module?<br>A) -> B) . C) :: D) :</li>
+<li><code>from random import *</code> imports:<br>A) nothing B) only integers C) everything D) only functions</li>
+<li>Which is a valid import?<br>A) import 123<br>B) from math import log
+C) module import time
+D) import random.choice</li>
+<li>Modules help in:<br>A) security B) modularity C) debugging D) all of these</li>
+<li>Python’s standard library contains:<br>A) math B) os C) time D) all</li>
+<li>Which module handles system-level functions?<br>A) random B) sys C) math D) array</li>
+<li><code>__main__</code> is executed when:<br>A) imported B) printed C) run directly D) deleted</li>
+</ol>
+
+<h3>Set C — Output-Based (41–60)</h3>
+<ol start="41">
+<li><pre>import math
+print(math.sqrt(81))</pre></li>
+<li><pre>from math import pow
+print(pow(2,5))</pre></li>
+<li><pre>import random
+print(type(random.random()))</pre></li>
+<li><pre>from datetime import date
+print(date.today())</pre></li>
+<li><pre>import math as m
+print(m.floor(5.9))</pre></li>
+<li><pre>import random
+lst=[10,20,30]
+print(random.choice(lst))</pre></li>
+<li><pre>from math import pi
+print(round(pi,2))</pre></li>
+<li><pre>from datetime import datetime
+print(datetime.now().year)</pre></li>
+<li><pre>import random
+print(random.randint(1,1))</pre></li>
+<li><pre>import math
+print(math.factorial(4))</pre></li>
+<li><pre>from random import randint
+print(randint(5,15))</pre></li>
+<li><pre>from datetime import timedelta
+print(timedelta(days=5))</pre></li>
+<li><pre>import math
+print(math.ceil(-4.2))</pre></li>
+<li><pre>import math
+print(math.sin(math.pi/2))</pre></li>
+<li><pre>import random
+print(len([random.randint(1,3) for _ in range(3)]))</pre></li>
+<li><pre>print(__name__)</pre></li>
+<li><pre>import math
+print(hasattr(math,'sqrt'))</pre></li>
+<li><pre>from datetime import datetime
+print(datetime.now().strftime('%Y'))</pre></li>
+<li><pre>import random
+print(type(random.choice('abc')))</pre></li>
+<li><pre>import math
+print(isinstance(math.pi,float))</pre></li>
+</ol>
+
+<h3>Set D — Coding (61–85)</h3>
+<ol start="61">
+<li>Write code to import the math module and print the square root of 144.</li>
+<li>Import only <code>ceil</code> from math and use it.</li>
+<li>Create a list and print a random element.</li>
+<li>Print today’s date using datetime.</li>
+<li>Create a user‑defined module <code>utils.py</code> with an add() function.</li>
+<li>Write a program to import your <code>utils</code> module and call add().</li>
+<li>Write a program to generate 5 random numbers between 1–100.</li>
+<li>Use math.log() to calculate log base 10 of 100.</li>
+<li>Create a function that prints the current month.</li>
+<li>Create a module named <code>converter.py</code> with km_to_miles().</li>
+<li>Import km_to_miles() in main program.</li>
+<li>Create custom module <code>greetme.py</code> with greet(name).</li>
+<li>Import greet using alias.</li>
+<li>Simulate 3 dice rolls using random.</li>
+<li>Print factorial of numbers 1–5.</li>
+<li>Use datetime to display current time only.</li>
+<li>Create a module <code>mathops.py</code> inside a package.</li>
+<li>Import from package.</li>
+<li>Use isinstance() to check type of random.randint().</li>
+<li>Write a script that prints its own filename using <code>__name__</code>.</li>
+<li>Write a program showing conditional imports.</li>
+<li>Shuffle a list using random.shuffle().</li>
+<li>Use math.pow() to calculate powers from 1 to 5.</li>
+<li>Write a program using <code>strftime</code> to format date.</li>
+<li>Import multiple functions from math in one line.</li>
+</ol>
+
+<h3>Set E — Debugging (86–100)</h3>
+<ol start="86">
+<li>Fix: <pre>import math
+print(srt(25))</pre></li>
+<li>Fix: <pre>from math import sqrt
+print(math.sqrt(25))</pre></li>
+<li>Fix invalid import path.</li>
+<li>Resolve: ModuleNotFoundError for custom module.</li>
+<li>Fix AttributeError for random.chose().</li>
+<li>Fix wrong alias usage.</li>
+<li>Fix datetime mis-typed function.</li>
+<li>Correct missing __init__.py in package.</li>
+<li>Fix import inside function causing error.</li>
+<li>Correct circular import issue.</li>
+<li>Fix wrong import order.</li>
+<li>Resolve duplicate function names.</li>
+<li>Fix misuse of wildcard import.</li>
+<li>Fix conflicting variable names with module.</li>
+<li>Correct module naming guidelines.</li>
+</ol>
+
+<div class="footer">© 2025 Coder & AccoTax · Prepared by Sukanta Hui · www.codernaccotax.co.in</div>
+
+
+<h2>Deep Concepts of Python Modules</h2>
+<p>A module is one of Python’s most powerful organisational features. Below we expand the tutorial with deeper explanations, diagrams, examples, and advanced use‑cases.</p>
+
+<h3>How Python Loads a Module (Internal Working)</h3>
+<div class="box">
+<p>When Python imports a module, the following happens internally:</p>
+<ol>
+<li>Python checks if the module is already loaded in <code>sys.modules</code>.</li>
+<li>If not found → Python searches for the module in the directories listed in <code>sys.path</code>.</li>
+<li>If found → Python compiles it to bytecode (<code>.pyc</code>).</li>
+<li>Python executes the module and loads its namespace.</li>
+</ol>
+</div>
+
+<pre><code>import sys
+print(sys.modules)
+print(sys.path)</code></pre>
+
+<h3>Types of Modules in Python</h3>
+<ul>
+<li><strong>Built‑in Modules</strong> → Already compiled into Python (math, sys, time)</li>
+<li><strong>Standard Library Modules</strong> → Bundled but not preloaded (random, datetime, pathlib)</li>
+<li><strong>Third‑Party Modules</strong> → Installed using pip (numpy, pandas)</li>
+<li><strong>User‑Defined Modules</strong> → Your own .py files</li>
+</ul>
+
+<h2>Advanced Import Techniques</h2>
+
+<h3>Import Everything (Not Recommended)</h3>
+<pre><code>from math import *
+print(sqrt(25))</code></pre>
+<p><strong>Why not recommended?</strong> It pollutes the namespace and may overwrite names unintentionally.</p>
+
+<h3>Selective Import with Alias</h3>
+<pre><code>from datetime import datetime as dt
+print(dt.now())</code></pre>
+
+<h3>Importing Multiple Functions</h3>
+<pre><code>from math import sqrt, sin, tan</code></pre>
+
+<h3>Conditional Import (Performance Optimisation)</h3>
+<pre><code>if need_heavy_math:
+    import numpy as np</code></pre>
+
+<h2>Full Coverage of Built‑in Modules</h2>
+
+<h3>1. math Module — Extended Examples</h3>
+<pre><code>import math
+print(math.factorial(6))
+print(math.ceil(4.2))
+print(math.floor(4.9))
+print(math.log(10, 2))</code></pre>
+
+<h3>2. random Module — Simulations</h3>
+<pre><code>import random
+# Dice roll simulation
+for i in range(5):
+    print(random.randint(1,6))</code></pre>
+
+<h3>3. datetime Module — Formatting</h3>
+<pre><code>from datetime import datetime
+now = datetime.now()
+print(now.strftime("%d-%m-%Y %H:%M:%S"))</code></pre>
+
+<h2>Creating a Package (Folder of Modules)</h2>
+<p>A package is a folder containing modules and an <code>__init__.py</code> file.</p>
+
+<pre><code>mypackage/
+    __init__.py
+    mathops.py
+    stringops.py</code></pre>
+
+<h3>Using a Package</h3>
+<pre><code>from mypackage import mathops
+print(mathops.add(3, 4))</code></pre>
+
+<h2>Using <code>__name__ == "__main__"</code> in Modules</h2>
+<p>This ensures code runs only when the file is run directly, not when imported.</p>
+
+<pre><code>def greet():
+    print("Hello")
+
+if __name__ == "__main__":
+    greet()</code></pre>
+
+<h2>Module Execution Flow (Diagram)</h2>
+<div class="box">
+<strong>Program → import module → Python searches path → loads → executes → stores in sys.modules</strong>
+</div>
+
+<h2>Common Errors When Working with Modules</h2>
+<div class="box">
+<ul>
+<li><strong>ModuleNotFoundError</strong> → Path incorrect</li>
+<li><strong>ImportError</strong> → Name not found in the module</li>
+<li><strong>AttributeError</strong> → Misspelled function or attribute</li>
+</ul>
+</div>
+
+<h2>Practical Mini‑Projects Using Modules</h2>
+
+<h3>1. Random Password Generator</h3>
+<pre><code>import random
+chars = "abcd1234@#%*XYZ"
+password = "".join(random.choice(chars) for _ in range(8))
+print(password)</code></pre>
+
+<h3>2. Age Calculator</h3>
+<pre><code>from datetime import datetime
+birth = datetime(2000, 5, 12)
+today = datetime.now()
+age = today.year - birth.year
+print("Age:", age)</code></pre>
+
+<h3>3. Custom Utility Module</h3>
+<p>Create <code>tools.py</code>:</p>
+<pre><code>def square(n):
+    return n*n
+
+def cube(n):
+    return n*n*n</code></pre>
+<p>Use it:</p>
+<pre><code>import tools
+print(tools.square(4))</code></pre>
+
+<h2>Summary Table</h2>
+<table style="width:100%;border-collapse:collapse;margin-top:20px;">
+<tr style="background:#1e293b;color:#e2e8f0;">
+<th style="border:1px solid #334155;padding:8px;">Module</th>
+<th style="border:1px solid #334155;padding:8px;">Purpose</th>
+<th style="border:1px solid #334155;padding:8px;">Common Functions</th>
+</tr>
+<tr>
+<td style="border:1px solid #334155;padding:8px;">math</td>
+<td style="border:1px solid #334155;padding:8px;">Mathematical operations</td>
+<td style="border:1px solid #334155;padding:8px;">sqrt, ceil, floor, log</td>
+</tr>
+<tr>
+<td style="border:1px solid #334155;padding:8px;">random</td>
+<td style="border:1px solid #334155;padding:8px;">Simulations & randomness</td>
+<td style="border:1px solid #334155;padding:8px;">randint, choice, shuffle</td>
+</tr>
+<tr>
+<td style="border:1px solid #334155;padding:8px;">datetime</td>
+<td style="border:1px solid #334155;padding:8px;">Date & time processing</td>
+<td style="border:1px solid #334155;padding:8px;">now, today, strftime</td>
+</tr>
+</table>
+
+<div class="footer">© 2025 Coder & AccoTax · Prepared by Sukanta Hui · www.codernaccotax.co.in</div>
+</div>
+</body>
+</html>

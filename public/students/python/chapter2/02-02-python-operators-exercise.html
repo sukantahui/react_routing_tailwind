@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Unit 2.2 — Operators in Python (Exercise Set) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  --radius: 22px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 22px 80px;
+}
+
+/* Header */
+.header {
+  background: radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+              radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+              #0f172a;
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(148,163,184,0.25);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.subtext {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.brand-box {
+  margin-top: 20px;
+  background: var(--soft);
+  border: 1px solid rgba(148,163,184,0.2);
+  padding: 18px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  font-size: 14px;
+}
+
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+
+.github-btn {
+  margin-top: 6px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 18px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  color: #fff;
+  text-decoration: none;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+/* Section Cards */
+.card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-top: 28px;
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 23px;
+}
+
+h3 {
+  color: var(--accent);
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.question {
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.code {
+  background: #000;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  white-space: pre-wrap;
+  display: block;
+  margin-top: 8px;
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 2.2 — Operators in Python</h1>
+  <p class="subtext">Exercise File — MCQs, Output Questions, Fill-in-the-Blanks, Coding Tasks</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation</div>
+      Coder &amp; AccoTax<br>
+      🌐 <a href="https://www.codernaccotax.co.in" style="color:var(--accent)">www.codernaccotax.co.in</a>
+    </div>
+
+    <div>
+      <div class="brand-title2">👨‍🏫 Author</div>
+      Sukanta Hui<br>
+      📞 7003756860<br>
+      ✉️ info@codernaccotax.co.in
+    </div>
+
+    <div>
+      <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+        View GitHub Repository
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MCQs -->
+<div class="card">
+  <h2>1. Multiple Choice Questions (MCQs)</h2>
+
+  <h3>Choose the correct option:</h3>
+
+  <ol>
+    <li class="question">What is the result of <code>12 // 5</code>?  
+      a) 2.4 &nbsp;&nbsp; b) 2 &nbsp;&nbsp; c) 3 &nbsp;&nbsp; d) 2.0
+    </li>
+
+    <li class="question">Which operator has the highest precedence?  
+      a) * &nbsp;&nbsp; b) ** &nbsp;&nbsp; c) + &nbsp;&nbsp; d) //
+    </li>
+
+    <li class="question">What will be the output of <code>True and False</code>?  
+      a) True &nbsp;&nbsp; b) False &nbsp;&nbsp; c) Error
+    </li>
+
+    <li class="question">Which is a bitwise operator?  
+      a) and &nbsp;&nbsp; b) in &nbsp;&nbsp; c) ^ &nbsp;&nbsp; d) is
+    </li>
+
+    <li class="question">Which one is identity operator?  
+      a) is &nbsp;&nbsp; b) == &nbsp;&nbsp; c) >= &nbsp;&nbsp; d) or
+    </li>
+
+    <li class="question"><code>a if a > b else b</code> is known as:  
+      a) Membership operator &nbsp;&nbsp; b) Ternary operator  
+      c) Identity operator &nbsp;&nbsp; d) Unary operator
+    </li>
+
+    <li class="question">What does <code>10 % 3</code> return?  
+      a) 1 &nbsp;&nbsp; b) 3 &nbsp;&nbsp; c) 0 &nbsp;&nbsp; d) 10
+    </li>
+
+    <li class="question"><code>"py" in "python"</code> returns —  
+      a) True &nbsp;&nbsp; b) False &nbsp;&nbsp; c) Error  
+    </li>
+
+    <li class="question">Which operator performs exponent?  
+      a) ^ &nbsp;&nbsp; b) exp() &nbsp;&nbsp; c) ** &nbsp;&nbsp; d) pow
+    </li>
+
+    <li class="question">Which result is correct?
+      <code>not (5 > 3)</code>  
+      a) True &nbsp;&nbsp; b) False &nbsp;&nbsp; c) None  
+    </li>
+  </ol>
+</div>
+
+<!-- OUTPUT QUESTIONS -->
+<div class="card">
+  <h2>2. Output Prediction Questions</h2>
+
+  <p class="question">1) What is the output?</p>
+  <span class="code">
+x = 5
+y = 2
+print(x + y * 3)
+  </span>
+
+  <p class="question">2) Predict:</p>
+  <span class="code">
+print(10 // 3)
+print(-10 // 3)
+  </span>
+
+  <p class="question">3)</p>
+  <span class="code">
+a = 5
+b = 3
+print(a & b)
+print(a | b)
+print(a ^ b)
+  </span>
+
+  <p class="question">4)</p>
+  <span class="code">
+text = "PYTHON"
+print("ON" in text)
+print("tho" in text)
+  </span>
+
+  <p class="question">5)</p>
+  <span class="code">
+x = 7
+print(5 < x < 10)
+print(x < 5 or x > 20)
+  </span>
+</div>
+
+<!-- FILL IN THE BLANKS -->
+<div class="card">
+  <h2>3. Fill in the Blanks</h2>
+
+  <ol>
+    <li class="question"><code>__</code> operator is used for exponent in Python.</li>
+    <li class="question"><code>__</code> operator returns remainder of division.</li>
+    <li class="question"><code>__</code> and <code>__</code> are identity operators.</li>
+    <li class="question"><code>in</code> and <code>not in</code> are called ________ operators.</li>
+    <li class="question">Logical NOT of True is ________.</li>
+    <li class="question"><code>a += 5</code> is same as <code>a = a __ 5</code>.</li>
+    <li class="question">Bitwise AND is written as ________.</li>
+  </ol>
+</div>
+
+<!-- CODING TASKS -->
+<div class="card">
+  <h2>4. Coding Practice Questions</h2>
+
+  <h3>Easy Level</h3>
+  <ol>
+    <li class="question">Write a program to input two numbers and print the larger number using relational operator.</li>
+    <li class="question">Take input of a number and print “Even” or “Odd” without using <code>%</code>.</li>
+    <li class="question">Check whether the character entered is a vowel using membership operator.</li>
+  </ol>
+
+  <h3>Moderate Level</h3>
+  <ol>
+    <li class="question">Write a program to calculate electricity bill:  
+      - Use assignment operators  
+      - Apply 3 slabs  
+    </li>
+
+    <li class="question">Write a program to check if a year is leap year using logical operators.</li>
+
+    <li class="question">Input marks of 3 subjects and compute grade using chained comparisons.</li>
+  </ol>
+
+  <h3>Advanced Level</h3>
+  <ol>
+    <li class="question">Simulate a login system using:  
+      - username in list  
+      - password match  
+      - logical operators  
+      - identity check  
+    </li>
+
+    <li class="question">Use bitwise operators to:  
+      - Toggle a flag  
+      - Check even/odd  
+      - Perform left/right shift operations  
+    </li>
+
+    <li class="question">Build a discount calculator using ternary operator.</li>
+  </ol>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  © <span id="year"></span> Coder & AccoTax — Prepared by <strong>Sukanta Hui</strong>  
+  <br>🌐 www.codernaccotax.co.in
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NIELIT O Level – Python Syllabus (M3-R5) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- META -->
+  <meta name="description" content="Premium, structured and modern NIELIT O Level (M3-R5) Python syllabus with detailed topics, branding by Coder & AccoTax, prepared by Sukanta Hui." />
+  <meta name="author" content="Sukanta Hui" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --bg-card: #020617;
+      --bg-elevated: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --accent-soft: rgba(56, 189, 248, 0.08);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #fb7185;
+      --success: #22c55e;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.65);
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, #0f172a 0, transparent 50%),
+        radial-gradient(circle at 80% 0, #1e293b 0, transparent 55%),
+        #020617;
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .page-shell {
+        padding: 32px 24px 64px;
+      }
+    }
+
+    /* Top Gradient Overlay */
+    .background-glow {
+      position: fixed;
+      inset: -200px 0 auto 0;
+      background:
+        radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.13), transparent 55%),
+        radial-gradient(circle at 90% 0, rgba(168, 85, 247, 0.13), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Header */
+    .header-card {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+      backdrop-filter: blur(22px);
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      padding: 14px 18px;
+    }
+
+    @media (min-width: 768px) {
+      .header-card {
+        padding: 18px 24px;
+      }
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8 0, #0f172a 45%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #e5e7eb, #bae6fd);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 12px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .pill-accent {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.25), transparent 60%);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr);
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.1fr);
+        align-items: center;
+      }
+    }
+
+    .hero-main {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.11), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.1), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 22px 20px 22px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero-main {
+        padding: 26px 26px 26px;
+      }
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hero-badge-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #38bdf8, #0f172a 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+      background: linear-gradient(90deg, #e5e7eb, #bae6fd, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta-pill {
+      font-size: 12px;
+      padding: 6px 11px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-pill strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      border: none;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.45);
+    }
+
+    .btn-primary span.icon {
+      font-size: 16px;
+    }
+
+    .btn-ghost {
+      border-radius: var(--radius-full);
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-ghost .pill-dot {
+      width: 7px;
+      height: 7px;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+    }
+
+    .hero-author {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 14px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.35);
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #22c55e, #0f172a 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #e5e7eb;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.85);
+    }
+
+    .hero-author strong {
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    .hero-author a {
+      color: #bfdbfe;
+      font-size: 12px;
+    }
+
+    .hero-side {
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 18px;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(248, 250, 252, 0.02), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-side-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-side-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc-item a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .toc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .toc-label {
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .toc-caption {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .toc-tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #bae6fd;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Content Sections */
+    .content {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr);
+      gap: 24px;
+    }
+
+    @media (min-width: 1000px) {
+      .content {
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
+        align-items: flex-start;
+      }
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-card {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.1), transparent 65%),
+                  rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 18px 16px 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    @media (min-width: 768px) {
+      .section-card {
+        padding: 20px 20px 18px;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-index {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .section-chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #bae6fd;
+    }
+
+    .section-description {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .topic-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (min-width: 650px) {
+      .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .topic-block {
+      border-radius: 14px;
+      padding: 9px 10px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 13px;
+    }
+
+    .topic-block-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .topic-block-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .topic-block-list li {
+      margin-bottom: 2px;
+    }
+
+    /* Right Sidebar (Exam & Project Info) */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-card {
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .info-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .info-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .info-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.35);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .info-value {
+      font-size: 12px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .pill-small {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #bae6fd;
+    }
+
+    .project-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .project-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 30px;
+      padding: 18px 0 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #38bdf8, #0f172a 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e5e7eb;
+    }
+
+    .footer-right a {
+      font-size: 11px;
+      color: #bfdbfe;
+    }
+
+    /* Small utility */
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 6px;
+      padding: 2px 5px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+<div class="background-glow"></div>
+
+<!-- Header -->
+<header class="header-card">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">CA</div>
+      <div class="brand-meta">
+        <div class="brand-title">Coder &amp; AccoTax</div>
+        <div class="brand-subtitle">Practical IT &amp; Programming Training Institute</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="pill pill-accent">
+        <span class="pill-dot"></span>
+        NIELIT O Level · Paper: M3-R5
+      </div>
+      <div class="pill">
+        Python · Programming &amp; Problem Solving
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page-shell">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-badge-row">
+        <div class="hero-badge">
+          <span class="hero-badge-icon">Py</span>
+          Structured Syllabus • Exam Ready
+        </div>
+        <div class="hero-badge">
+          <span class="hero-badge-icon">∞</span>
+          Foundation to Implementation
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        NIELIT O Level – Python Syllabus (M3-R5)
+      </h1>
+      <p class="hero-subtitle">
+        A premium, neatly structured syllabus for <strong>Programming &amp; Problem Solving through Python</strong>
+        aligned with NIELIT O Level curriculum – designed for classroom use, self-study, and course websites.
+      </p>
+
+      <div class="hero-meta-row">
+        <div class="hero-meta-pill">
+          <strong>Level:</strong> O Level (Foundation)
+        </div>
+        <div class="hero-meta-pill">
+          <strong>Language:</strong> Python 3.x
+        </div>
+        <div class="hero-meta-pill">
+          <strong>Prepared by:</strong> Sukanta Hui
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <button class="btn-primary" onclick="document.getElementById('section1').scrollIntoView({behavior:'smooth'})">
+          <span class="icon">↓</span>
+          Start Syllabus Overview
+        </button>
+        <button class="btn-ghost" onclick="window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'})">
+          <span class="pill-dot"></span>
+          See Practical &amp; Project Guidelines
+        </button>
+      </div>
+
+      <div class="hero-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div><strong>Author:</strong> Sukanta Hui · Faculty, Python &amp; Web Technologies</div>
+          <div>Institution: <strong>Coder &amp; AccoTax</strong> · <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">www.codernaccotax.co.in</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOC / Quick Navigation -->
+    <aside class="hero-side">
+      <div class="hero-side-title">Quick Navigation</div>
+      <div class="hero-side-sub">
+        Click on any block below to jump directly to that section of the Python syllabus.
+      </div>
+      <ul class="toc-list">
+        <li class="toc-item">
+          <a href="#section1">
+            <div class="toc-left">
+              <span class="toc-label">1. Programming &amp; Python Basics</span>
+              <span class="toc-caption">Algorithms, flowcharts, intro to Python</span>
+            </div>
+            <span class="toc-tag">Core</span>
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#section2">
+            <div class="toc-left">
+              <span class="toc-label">2. Data Types &amp; Operators</span>
+              <span class="toc-caption">Numbers, strings, lists, expressions</span>
+            </div>
+            <span class="toc-tag">Foundation</span>
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#section3">
+            <div class="toc-left">
+              <span class="toc-label">3. Control Flow</span>
+              <span class="toc-caption">if, loops, break, continue</span>
+            </div>
+            <span class="toc-tag">Logic</span>
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#section5">
+            <div class="toc-left">
+              <span class="toc-label">5. Functions &amp; Modules</span>
+              <span class="toc-caption">User-defined, built-ins, modules</span>
+            </div>
+            <span class="toc-tag">Reusable</span>
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#section7">
+            <div class="toc-left">
+              <span class="toc-label">7. File Handling</span>
+              <span class="toc-caption">Text file processing, read/write</span>
+            </div>
+            <span class="toc-tag">Practical</span>
+          </a>
+        </li>
+        <li class="toc-item">
+          <a href="#practicals">
+            <div class="toc-left">
+              <span class="toc-label">Practicals &amp; Mini Project</span>
+              <span class="toc-caption">Lab work &amp; suggested projects</span>
+            </div>
+            <span class="toc-tag">Lab</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Main Content -->
+  <section class="content">
+    <div class="sections">
+
+      <!-- 1. Basics -->
+      <article class="section-card" id="section1">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 1</span>
+              Introduction to Programming &amp; Python Basics
+            </div>
+            <p class="section-description">
+              Understand problem-solving steps, algorithm design, and how Python fits as a high-level programming language.
+            </p>
+          </div>
+          <span class="section-chip">Fundamental Concepts</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter1/01-01-introduction-to-programming-and-python-basics.html">1.1 Basics of Programming</a> 
+            </div>
+            <ul class="topic-block-list">
+              <li>Definition of program and programming.</li>
+              <li>Concept of <strong>algorithm</strong> and <strong>flowchart</strong>.</li>
+              <li>Problem-solving steps: analysis, design, coding, testing.</li>
+              <li>Structured vs. object-oriented programming (basic idea).</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter1/01-02-introduction-to-python.html">1.2 Introduction to Python</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>What is Python? Features &amp; real-life applications.</li>
+              <li>Python <strong>3.x</strong> installation (IDLE, VS Code / PyCharm).</li>
+              <li>Interactive mode vs. script mode.</li>
+              <li>Concept of <strong>indentation</strong> and its importance.</li>
+              <li>Running simple programs: <span class="kbd">print("Hello, Python")</span>.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter1/01-03-Variables-Identifiers.html">1.3 Variables &amp; Identifiers</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Variables and memory concept (conceptual level).</li>
+              <li>Valid identifiers and naming conventions.</li>
+              <li>Reserved keywords in Python.</li>
+              <li>Single-line &amp; multi-line comments.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter1/01-04-Python-Input-Output-Tutorial.html">1.4 Input / Output Basics</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Using <span class="kbd">input()</span> for user input.</li>
+              <li>Basic formatted output using <span class="kbd">print()</span>.</li>
+              <li>Simple examples combining input, processing, and output.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Data Types & Operators -->
+      <article class="section-card" id="section2">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 2</span>
+              Data Types, Operators &amp; Expressions
+            </div>
+            <p class="section-description">
+              Learn how Python stores values, how expressions are formed, and how results are computed.
+            </p>
+          </div>
+          <span class="section-chip">Core Python</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter2/02-01-python-data-types.html">2.1 Data Types</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Numeric: <strong>int</strong>, <strong>float</strong>, <strong>complex</strong>.</li>
+              <li><strong>bool</strong> – True/False.</li>
+              <li><strong>str</strong> – strings and basic operations.</li>
+              <li>Collection types: <strong>list</strong>, <strong>tuple</strong>, <strong>set</strong>, <strong>dict</strong> (introduction).</li>
+              <li>Type checking &amp; conversion: <span class="kbd">type()</span>, <span class="kbd">int()</span>, <span class="kbd">float()</span>, <span class="kbd">str()</span>.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter2/02-02-python-operators-full.html">2.2 Operators</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Arithmetic: <span class="kbd">+ - * / // % **</span>.</li>
+              <li>Relational / comparison: <span class="kbd">&lt; &gt; &lt;= &gt;= == !=</span>.</li>
+              <li>Logical: <span class="kbd">and</span>, <span class="kbd">or</span>, <span class="kbd">not</span>.</li>
+              <li>Assignment operators &amp; compound assignments.</li>
+              <li>Membership: <span class="kbd">in</span>, <span class="kbd">not in</span> and identity: <span class="kbd">is</span>, <span class="kbd">is not</span>.</li>
+            </ul>
+            <a href="./chapter2/02-02-python-operators-exercise.html">Exercise</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter2/02-03-python-expressions-precedence-full.html">2.3 Expressions</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Forming arithmetic expressions.</li>
+              <li>Operator precedence &amp; associativity.</li>
+              <li>Use of parentheses to control evaluation.</li>
+              <li>Simple expression-based problems (GST, discounts, averages).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Control Flow -->
+      <article class="section-card" id="section3">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 3</span>
+              Control Flow Statements
+            </div>
+            <p class="section-description">
+              Control the flow of execution using decisions and loops to solve real-world problems.
+            </p>
+          </div>
+          <span class="section-chip">Decision &amp; Repetition</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter3/03-01-python-control-statements-full.html">
+                3.1 Conditional Statements
+              </a>
+            </div>
+            <ul class="topic-block-list">
+              <li><span class="kbd">if</span> statement.</li>
+              <li><span class="kbd">if–else</span> and <span class="kbd">nested if</span>.</li>
+              <li><span class="kbd">if–elif–else</span> ladder.</li>
+              <li>Examples: grading system, max of three numbers, commission calculation.</li>
+            </ul>
+            <a href="./chapter3/03-01-python-control-statements-exercise.html">Exercise</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter3/03-02-looping-statements-full.html">3.2 Looping Statements</a>
+            </div>
+            <ul class="topic-block-list">
+              <li><span class="kbd">while</span> loop.</li>
+              <li><span class="kbd">for</span> loop with <span class="kbd">range()</span>.</li>
+              <li>Looping over strings, lists, and ranges.</li>
+              <li>Nested loops (basic patterns and tables).</li>
+            </ul>
+            <a href="./chapter3/03-02-looping-exercise.html">Exercise</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter3/03-03-loop-control.html">3.3 Loop Control</a>
+            </div>
+            <ul class="topic-block-list">
+              <li><span class="kbd">break</span> – immediate exit from loop.</li>
+              <li><span class="kbd">continue</span> – skip current iteration.</li>
+              <li><span class="kbd">pass</span> as a placeholder.</li>
+              <li>Simple menu-driven programs using loops.</li>
+            </ul>
+            <a href="./chapter3/03-03-loop-control-exercise.html">Exercise</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Strings & Lists -->
+      <article class="section-card" id="section4">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 4</span>
+              String &amp; List Processing
+            </div>
+            <p class="section-description">
+              Process and analyze text data and work with lists for collections of values.
+            </p>
+          </div>
+          <span class="section-chip">Data Handling</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter4/04-01-string-operations-full.html">4.1 String Operations</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Creating and indexing strings.</li>
+              <li>Slicing: <span class="kbd">s[start:end:step]</span>.</li>
+              <li>Common methods: <span class="kbd">upper()</span>, <span class="kbd">lower()</span>, <span class="kbd">title()</span>, <span class="kbd">strip()</span>.</li>
+              <li>Searching and replacing: <span class="kbd">find()</span>, <span class="kbd">replace()</span>.</li>
+              <li>Splitting and joining: <span class="kbd">split()</span>, <span class="kbd">join()</span>.</li>
+              <li>Basic string formatting using <span class="kbd">format()</span> and f-strings.</li>
+            </ul>
+            <a href="./chapter4/04-01-string-operations-exercise.html">Exercise</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter4/04-02-list-operations-full.html">4.2 Lists</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Creating lists and accessing elements.</li>
+              <li>List slicing and modification.</li>
+              <li>List methods: <span class="kbd">append()</span>, <span class="kbd">insert()</span>, <span class="kbd">remove()</span>, <span class="kbd">pop()</span>.</li>
+              <li>Sorting and reversing lists.</li>
+              <li>Nested lists and simple 2D list examples (e.g., marks of students).</li>
+              <li>Basic list comprehensions (optional, exam-oriented exposure).</li>
+            </ul>
+            <a href="./chapter4/04-02-list-operations-exercise.html">Exercise</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Functions -->
+      <article class="section-card" id="section5">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 5</span>
+              Functions in Python
+            </div>
+            <p class="section-description">
+              Group reusable logic into functions to keep code structured and maintainable.
+            </p>
+          </div>
+          <span class="section-chip">Reusability</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter5/05-01-python-functions.html">5.1 Defining &amp; Calling Functions</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Syntax of <span class="kbd">def</span> and function header.</li>
+              <li>Positional and keyword arguments.</li>
+              <li>Default arguments.</li>
+              <li>Variable-length arguments: <span class="kbd">*args</span> and <span class="kbd">**kwargs</span> (basic idea).</li>
+            </ul>
+            <a href="./chapter5/05-01-python-functions-exercise.html">Exercise</a>&nbsp&nbsp
+            <a href="./chapter5/05-01-python-functions-exercise-answer.html">Answer</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter5/05-02-python-functions-return-value.html">5.2 Return Values</a>
+              
+            </div>
+            <ul class="topic-block-list">
+              <li><span class="kbd">return</span> statement – returning one value.</li>
+              <li>Returning multiple values as tuples.</li>
+              <li>Void functions vs value-returning functions.</li>
+            </ul>
+            <a href="./chapter5/05-02-python-functions-return-value-exercise.html">Exercise</a>
+            <a href="./chapter5/05-02-python-functions-return-value-exercise-answer.html">Answer</a>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">
+              <a href="./chapter5/05-03-Scope-Variables.html">5.3 Scope of Variables</a>
+            </div>
+            <ul class="topic-block-list">
+              <li>Local vs global variables.</li>
+              <li>The <span class="kbd">global</span> keyword (basic exposure).</li>
+              <li>Good practices for function-based programming.</li>
+            </ul>
+            <a href="./chapter5/05-03-Scope-Variables-exersise.html">Exercise</a>
+            <a href="./chapter5/05-03-Scope-Variables.html">Answer</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Modules & Packages -->
+      <article class="section-card" id="section6">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 6</span>
+              Modules &amp; Packages
+            </div>
+            <p class="section-description">
+              Organize larger programs into multiple files and reuse standard Python libraries.
+            </p>
+          </div>
+          <span class="section-chip">Standard Library</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">6.1 Modules</div>
+            <ul class="topic-block-list">
+              <li>Importing modules using <span class="kbd">import</span> and <span class="kbd">from ... import ...</span>.</li>
+              <li>Common built-in modules:
+                <ul>
+                  <li><span class="kbd">math</span> – basic mathematical functions.</li>
+                  <li><span class="kbd">random</span> – random numbers, simple simulations.</li>
+                  <li><span class="kbd">datetime</span> – date and time basics.</li>
+                </ul>
+              </li>
+              <li>Creating small user-defined modules.</li>
+            </ul>
+            06-01-Python-Modules
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">6.2 Packages (Intro)</div>
+            <ul class="topic-block-list">
+              <li>Concept of package (folder with <span class="kbd">__init__.py</span>).</li>
+              <li>Simple demonstration of importing from a package.</li>
+              <li>Using <span class="kbd">pip</span> to install a third-party package (optional, conceptual).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. File Handling -->
+      <article class="section-card" id="section7">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 7</span>
+              File Handling in Python
+            </div>
+            <p class="section-description">
+              Store and retrieve information using text files – essential for reports, logs, and persistent data.
+            </p>
+          </div>
+          <span class="section-chip">Persistent Data</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">7.1 Text File Operations</div>
+            <ul class="topic-block-list">
+              <li>Opening files with <span class="kbd">open()</span>.</li>
+              <li>File modes: <span class="kbd">"r"</span>, <span class="kbd">"w"</span>, <span class="kbd">"a"</span>, <span class="kbd">"r+"</span> (basic).</li>
+              <li>Reading files: <span class="kbd">read()</span>, <span class="kbd">readline()</span>, <span class="kbd">readlines()</span>.</li>
+              <li>Writing &amp; appending data using <span class="kbd">write()</span> and <span class="kbd">writelines()</span>.</li>
+              <li>Closing files and using <span class="kbd">with</span> context manager (intro).</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">7.2 Simple File Programs</div>
+            <ul class="topic-block-list">
+              <li>Counting characters, words, and lines in a file.</li>
+              <li>Copying content from one file to another.</li>
+              <li>Searching for a word in a text file (simple search).</li>
+              <li>Maintaining a small text-based record (e.g., names and marks).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Data Structures -->
+      <article class="section-card" id="section8">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 8</span>
+              Data Structures: Tuples, Dictionaries &amp; Sets
+            </div>
+            <p class="section-description">
+              Learn Python’s built-in container types that help organize structured information.
+            </p>
+          </div>
+          <span class="section-chip">Structured Data</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">8.1 Tuples</div>
+            <ul class="topic-block-list">
+              <li>Definition and creation of tuples.</li>
+              <li>Tuple indexing and slicing.</li>
+              <li>Immutability concept.</li>
+              <li>Common operations &amp; basic methods.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">8.2 Dictionaries</div>
+            <ul class="topic-block-list">
+              <li>Key-value pairs, creating dictionaries.</li>
+              <li>Accessing, adding, updating and deleting entries.</li>
+              <li>Useful methods: <span class="kbd">keys()</span>, <span class="kbd">values()</span>, <span class="kbd">items()</span>, <span class="kbd">get()</span>.</li>
+              <li>Building simple look-up tables (e.g., code &rarr; description).</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">8.3 Sets</div>
+            <ul class="topic-block-list">
+              <li>Creating sets, uniqueness of elements.</li>
+              <li>Adding and removing elements.</li>
+              <li>Set operations: union, intersection, difference.</li>
+              <li>Simple applications like duplicate removal.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. OOP Basics -->
+      <article class="section-card" id="section9">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 9</span>
+              Basics of Object-Oriented Programming in Python
+            </div>
+            <p class="section-description">
+              Introductory view of classes and objects to connect with higher-level programming concepts.
+            </p>
+          </div>
+          <span class="section-chip">Conceptual</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">9.1 Classes &amp; Objects</div>
+            <ul class="topic-block-list">
+              <li>Concept of class and object.</li>
+              <li>Defining a simple class with attributes and methods.</li>
+              <li>Creating objects and accessing members.</li>
+              <li>Use of <span class="kbd">__init__()</span> as a constructor (simple examples).</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">9.2 Simple Inheritance (Intro)</div>
+            <ul class="topic-block-list">
+              <li>Basic idea of derived class and base class (concept only).</li>
+              <li>Very simple example showing code reuse via inheritance.</li>
+              <li>OOP as a foundation for higher-level courses (Python/Java).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Searching & Sorting -->
+      <article class="section-card" id="section10">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 10</span>
+              Searching &amp; Sorting Algorithms
+            </div>
+            <p class="section-description">
+              Apply Python to implement basic algorithms used in everyday computing tasks.
+            </p>
+          </div>
+          <span class="section-chip">Algorithmic Thinking</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">10.1 Searching</div>
+            <ul class="topic-block-list">
+              <li><strong>Linear search</strong> on lists.</li>
+              <li><strong>Binary search</strong> on sorted lists.</li>
+              <li>Analysis: when linear is sufficient vs when binary is efficient (intuitive understanding).</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">10.2 Sorting</div>
+            <ul class="topic-block-list">
+              <li><strong>Bubble sort</strong> (concept and implementation in Python).</li>
+              <li><strong>Selection sort</strong>.</li>
+              <li><strong>Insertion sort</strong>.</li>
+              <li>Using Python’s built-in <span class="kbd">sort()</span> and <span class="kbd">sorted()</span> for practical purposes.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. Optional Visualization -->
+      <article class="section-card" id="section11">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Unit 11</span>
+              Optional: Simple Data Visualization
+            </div>
+            <p class="section-description">
+              Recommended enrichment topic for labs and project work using a library such as <span class="kbd">matplotlib</span>.
+            </p>
+          </div>
+          <span class="section-chip">Enrichment</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">11.1 Basic Charts</div>
+            <ul class="topic-block-list">
+              <li>Installing and importing <span class="kbd">matplotlib</span> (if allowed in environment).</li>
+              <li>Creating simple line charts from lists.</li>
+              <li>Bar charts for marks or sales data.</li>
+              <li>Pie charts for category-wise representation.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">11.2 Lab Integration</div>
+            <ul class="topic-block-list">
+              <li>Using charts to visualize search/sort performance (basic idea).</li>
+              <li>Turning tabular data into simple plots.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Practicals & Mini Project -->
+      <article class="section-card" id="practicals">
+        <header class="section-header">
+          <div>
+            <div class="section-title">
+              <span class="section-index">Lab Component</span>
+              Practicals &amp; Mini Project (Suggested)
+            </div>
+            <p class="section-description">
+              NIELIT O Level requires hands-on practice. The following lab structure aligns the theory units with practical work.
+            </p>
+          </div>
+          <span class="section-chip">Hands-on Practice</span>
+        </header>
+
+        <div class="topic-grid">
+          <div class="topic-block">
+            <div class="topic-block-title">A. Core Lab Exercises</div>
+            <ul class="topic-block-list">
+              <li>Programs using:
+                <ul>
+                  <li>Conditional statements (result, grade, commission).</li>
+                  <li>Loops (tables, factorial, Fibonacci, prime check).</li>
+                  <li>List and string processing (search, count, reverse).</li>
+                </ul>
+              </li>
+              <li>Number system &amp; calculation based problems (simple).</li>
+              <li>Menu-driven programs for small tasks.</li>
+              <li>File reading and writing tasks.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">B. Mini Project (Choose Any One)</div>
+            <ul class="topic-block-list">
+              <li>Student Marks Processing &amp; Grade Report.</li>
+              <li>Simple Billing / Invoice system.</li>
+              <li>Library record maintenance (issue/return log using a file).</li>
+              <li>Small inventory or stock tracker.</li>
+              <li>Contact directory (name, phone, email) stored in files.</li>
+            </ul>
+          </div>
+
+          <div class="topic-block">
+            <div class="topic-block-title">C. Evaluation Orientation</div>
+            <ul class="topic-block-list">
+              <li>Focus on:
+                <ul>
+                  <li>Correct syntax and indentation.</li>
+                  <li>Logical completeness and test cases.</li>
+                  <li>Clear variable naming and comments.</li>
+                </ul>
+              </li>
+              <li>Encourage students to maintain a practical copy with:
+                <ul>
+                  <li>Problem statement.</li>
+                  <li>Algorithm / flowchart (optional).</li>
+                  <li>Python code and sample I/O.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Sidebar: Exam & Teaching Info -->
+    <aside class="sidebar">
+      <div class="info-card">
+        <div class="info-title">Exam &amp; Teaching Snapshot</div>
+        <div class="info-sub">
+          Use this block as a quick reference while planning classes or revision sessions.
+        </div>
+        <ul class="info-list">
+          <li>
+            <span class="info-label">Suggested Teaching Hours</span>
+            <span class="info-value">40–50 hrs</span>
+          </li>
+          <li>
+            <span class="info-label">Lab / Practical Hours</span>
+            <span class="info-value">30–40 hrs</span>
+          </li>
+          <li>
+            <span class="info-label">Exam Pattern</span>
+            <span class="info-value">Objective + Descriptive</span>
+          </li>
+          <li>
+            <span class="info-label">Programming Language</span>
+            <span class="info-value">Python 3.x</span>
+          </li>
+          <li>
+            <span class="info-label">Difficulty Level</span>
+            <span class="pill-small">Foundation / Beginner</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-title">Suggested Teaching Flow</div>
+        <div class="info-sub">
+          You can follow this flow for a smooth classroom journey from basics to project.
+        </div>
+        <ol class="project-list">
+          <li>Week 1–2: Units 1 &amp; 2 – Basics, data types, expressions.</li>
+          <li>Week 3–4: Units 3 &amp; 4 – Control flow, strings &amp; lists.</li>
+          <li>Week 5–6: Units 5 &amp; 6 – Functions, modules.</li>
+          <li>Week 7: Unit 7 &amp; 8 – Files &amp; data structures.</li>
+          <li>Week 8: Unit 9 &amp; 10 – OOP basics &amp; algorithms.</li>
+          <li>Week 9–10: Lab consolidation &amp; mini project.</li>
+        </ol>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-logo">CA</div>
+      <div>
+        <div>© <span id="year"></span> Coder &amp; AccoTax. Syllabus layout prepared by <strong>Sukanta Hui</strong>.</div>
+        <div>For training &amp; academic use with NIELIT O Level – Python (M3-R5).</div>
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">
+        www.codernaccotax.co.in
+      </a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

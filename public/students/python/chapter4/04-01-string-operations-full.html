@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 4.1 — String Operations in Python | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Details -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="description"
+        content="Complete, book-style chapter on Python String Operations — creating strings, indexing, slicing, string methods, split, join, and formatting (format & f-strings) for NIELIT O Level and Python beginners.">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --soft: #0b1120;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --border: #1f2937;
+      --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 22px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.15), transparent 55%),
+        #0f172a;
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 26px;
+      padding: 32px 28px;
+      margin-bottom: 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtext {
+      color: var(--muted);
+      max-width: 780px;
+      margin: 10px auto 0;
+      font-size: 14px;
+    }
+
+    .brand-box {
+      margin-top: 26px;
+      background: #0b1120;
+      border: 1px solid rgba(148,163,184,0.18);
+      padding: 20px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-title2 {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-box a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand-box a:hover {
+      text-decoration: underline;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-top: 6px;
+      box-shadow: 0 0 12px rgba(56,189,248,0.4);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .github-btn svg {
+      display: block;
+    }
+
+    /* MAIN CONTENT CARD */
+    .card {
+      background: var(--card);
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      color: var(--accent2);
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    h5 {
+      color: #e5e7eb;
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    p,
+    li {
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+      font-size: 13px;
+    }
+
+    .note {
+      background: var(--soft);
+      border-left: 4px solid var(--accent3);
+      padding: 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .example-box {
+      background: var(--soft);
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 14px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .example-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent3);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .code {
+      background: #020617;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      font-size: 13px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    td {
+      color: #e5e7eb;
+    }
+
+    .toc {
+      background: var(--soft);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toc strong {
+      color: #e5e7eb;
+    }
+
+    .diagram {
+      background: #020617;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      white-space: pre;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Unit 4.1 — String Operations in Python</h1>
+      <p class="subtext">
+        A complete, exam-ready chapter on Python strings — creation, indexing, slicing, built-in string methods, split
+        and join, and string formatting using format() and f-strings for NIELIT O Level and modern Python development.
+      </p>
+
+      <div class="brand-box">
+        <div>
+          <div class="brand-title">🏢 Organisation</div>
+          <div>Coder &amp; AccoTax</div>
+          <a href="https://www.codernaccotax.co.in" target="_blank">🌐 www.codernaccotax.co.in</a>
+        </div>
+
+        <div>
+          <div class="brand-title2">👨‍🏫 Author</div>
+          <div>Sukanta Hui</div>
+          <div style="font-size:13px;">📞 7003756860</div>
+          <a href="mailto:info@codernaccotax.co.in">✉️ info@codernaccotax.co.in</a>
+        </div>
+
+        <div style="display:flex; align-items:center;">
+          <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+            <!-- GitHub Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+              <path
+                d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56
+                       0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72
+                       -1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.79 2.73 1.27
+                       3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.29-5.23-5.77
+                       0-1.27.45-2.31 1.2-3.12-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.19
+                       .92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.5 3.17-1.19 3.17-1.19
+                       .63 1.57.23 2.73.11 3.02.75.81 1.19 1.85 1.19 3.12
+                       0 4.49-2.69 5.47-5.25 5.76.42.36.8 1.09.8 2.21
+                       0 1.6-.02 2.88-.02 3.27 0 .31.21.67.8.56
+                       4.57-1.53 7.86-5.86 7.86-10.96C23.5 5.74 18.27.5 12 .5z" />
+            </svg>
+            View GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="card">
+
+      <!-- TOC -->
+      <div class="toc">
+        <strong>In this chapter you will learn:</strong>
+        <ul>
+          <li>What strings are and how to create them</li>
+          <li>Indexing (positive and negative) and slicing strings</li>
+          <li>Important string methods: <code>upper()</code>, <code>lower()</code>, <code>title()</code>, <code>strip()</code>, <code>find()</code>, <code>replace()</code>, <code>split()</code>, <code>join()</code> and more</li>
+          <li>How to format strings using <code>format()</code> and f-strings</li>
+          <li>Common exam-style problems and output-based questions</li>
+        </ul>
+      </div>
+
+      <!-- 1. INTRO -->
+      <h2>1. Introduction to Strings</h2>
+      <p>
+        A <strong>string</strong> in Python is a sequence of characters enclosed within quotes.  
+        Strings are used to store text: names, messages, file paths, etc.
+      </p>
+      <ul>
+        <li>Strings are <strong>immutable</strong> (cannot be changed in-place).</li>
+        <li>Strings are <strong>sequence types</strong> — we can index, slice and iterate over them.</li>
+      </ul>
+
+      <div class="highlight">
+        Examples of strings: <code>"Hello"</code>, <code>'Python'</code>, <code>"123"</code>, <code>"Coder &amp; AccoTax"</code>
+      </div>
+
+      <!-- 2. CREATING STRINGS -->
+      <h2>2. Creating Strings</h2>
+
+      <h3>2.1 Using Single and Double Quotes</h3>
+      <div class="example-box">
+        <span class="code">
+s1 = "Hello Python"
+s2 = 'Welcome to NIELIT O Level'
+print(s1)
+print(s2)
+        </span>
+      </div>
+
+      <h3>2.2 Triple Quotes for Multi-line Strings</h3>
+      <p>Use <code>''' ... '''</code> or <code>""" ... """</code> for multi-line strings.</p>
+      <div class="example-box">
+        <span class="code">
+msg = """This is a
+multi-line string
+in Python."""
+print(msg)
+        </span>
+      </div>
+
+      <h3>2.3 Escape Characters</h3>
+      <p>Some special characters:</p>
+      <ul>
+        <li><code>\n</code> → newline</li>
+        <li><code>\t</code> → tab</li>
+        <li><code>\\</code> → backslash</li>
+        <li><code>\'</code> → single quote</li>
+        <li><code>\"</code> → double quote</li>
+      </ul>
+      <div class="example-box">
+        <span class="code">
+text = "Hello\nWorld\t2025"
+print(text)
+        </span>
+      </div>
+
+      <!-- 3. INDEXING & SLICING -->
+      <h2>3. Indexing &amp; Slicing Strings</h2>
+
+      <p>Each character in a string has a position called an <strong>index</strong>.</p>
+      <ul>
+        <li>Indexing starts from <strong>0</strong> (left to right).</li>
+        <li>Negative indices start from <strong>-1</strong> (right to left).</li>
+      </ul>
+
+      <h3>3.1 Indexing Diagram</h3>
+      <div class="diagram">
+text = "PYTHON"
+
+Index ( + ):   P   Y   T   H   O   N
+               0   1   2   3   4   5
+
+Index ( - ):   P   Y   T   H   O   N
+              -6  -5  -4  -3  -2  -1
+      </div>
+
+      <h3>3.2 Accessing Characters</h3>
+      <div class="example-box">
+        <span class="code">
+text = "PYTHON"
+
+print(text[0])   # P
+print(text[3])   # H
+print(text[-1])  # N
+print(text[-3])  # H
+        </span>
+      </div>
+
+      <h3>3.3 Slicing Strings</h3>
+      <p>Slice syntax:</p>
+      <div class="highlight">
+        <code>substring = s[start : stop : step]</code><br />
+        • <strong>start</strong> → starting index (included)<br />
+        • <strong>stop</strong> → ending index (excluded)<br />
+        • <strong>step</strong> → jump (default 1)
+      </div>
+
+      <h4>Examples</h4>
+      <div class="example-box">
+        <span class="code">
+s = "PYTHON PROGRAM"
+
+print(s[0:6])     # 'PYTHON'
+print(s[7:14])    # 'PROGRAM'
+print(s[:6])      # from start → 'PYTHON'
+print(s[7:])      # from index 7 to end → 'PROGRAM'
+print(s[-7:-1])   # 'PROGRA'
+print(s[::-1])    # reversed string
+        </span>
+      </div>
+
+      <!-- 4. BASIC STRING OPERATIONS -->
+      <h2>4. Basic String Operations</h2>
+      <ul>
+        <li>Concatenation → <code>+</code></li>
+        <li>Repetition → <code>*</code></li>
+        <li>Membership test → <code>in</code>, <code>not in</code></li>
+        <li>Length → <code>len()</code></li>
+      </ul>
+
+      <div class="example-box">
+        <span class="code">
+a = "Hello"
+b = "Python"
+
+print(a + " " + b)   # concatenation
+print(a * 3)         # HelloHelloHello
+print("Py" in b)     # True
+print(len(b))        # 6
+        </span>
+      </div>
+
+      <!-- 5. IMPORTANT STRING METHODS -->
+      <h2>5. Important String Methods</h2>
+
+      <h3>5.1 Changing Case — upper(), lower(), title(), capitalize()</h3>
+      <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td><code>upper()</code></td><td>Converts all characters to uppercase</td></tr>
+        <tr><td><code>lower()</code></td><td>Converts all characters to lowercase</td></tr>
+        <tr><td><code>title()</code></td><td>First letter of each word in uppercase</td></tr>
+        <tr><td><code>capitalize()</code></td><td>First character of string in uppercase, rest lowercase</td></tr>
+      </table>
+
+      <div class="example-box">
+        <span class="code">
+name = "coder & accotax python course"
+
+print(name.upper())
+print(name.lower())
+print(name.title())
+print(name.capitalize())
+        </span>
+      </div>
+
+      <h3>5.2 Removing Spaces — strip(), lstrip(), rstrip()</h3>
+      <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td><code>strip()</code></td><td>Removes spaces from both ends</td></tr>
+        <tr><td><code>lstrip()</code></td><td>Removes spaces from left side</td></tr>
+        <tr><td><code>rstrip()</code></td><td>Removes spaces from right side</td></tr>
+      </table>
+
+      <div class="example-box">
+        <span class="code">
+data = "   Python Programming   "
+
+print("->" + data + "<-")
+print("->" + data.strip() + "<-")
+print("->" + data.lstrip() + "<-")
+print("->" + data.rstrip() + "<-")
+        </span>
+      </div>
+
+      <h3>5.3 Searching in Strings — find(), rfind()</h3>
+      <table>
+        <tr><th>Method</th><th>Description</th></tr>
+        <tr><td><code>find(sub)</code></td><td>Returns first index of substring, or -1 if not found</td></tr>
+        <tr><td><code>rfind(sub)</code></td><td>Returns last index of substring</td></tr>
+      </table>
+
+      <div class="example-box">
+        <span class="code">
+text = "welcome to python programming"
+
+print(text.find("python"))    # index where 'python' starts
+print(text.find("Java"))      # -1 (not found)
+print(text.rfind("o"))        # last index of 'o'
+        </span>
+      </div>
+
+      <h3>5.4 Replacing Text — replace()</h3>
+      <p><code>replace(old, new)</code> returns a new string with replacements done.</p>
+      <div class="example-box">
+        <span class="code">
+msg = "I love Java. Java is powerful."
+
+new_msg = msg.replace("Java", "Python")
+print(new_msg)
+        </span>
+      </div>
+
+      <h3>5.5 Checking Start/End — startswith(), endswith()</h3>
+      <div class="example-box">
+        <span class="code">
+site = "www.codernaccotax.co.in"
+
+print(site.startswith("www"))   # True
+print(site.endswith(".in"))     # True
+print(site.endswith(".com"))    # False
+        </span>
+      </div>
+
+      <h3>5.6 Counting Occurrences — count()</h3>
+      <div class="example-box">
+        <span class="code">
+msg = "banana"
+
+print(msg.count("a"))    # 3
+print(msg.count("an"))   # 2
+        </span>
+      </div>
+
+      <!-- 6. SPLIT & JOIN -->
+      <h2>6. Splitting and Joining Strings</h2>
+
+      <h3>6.1 split()</h3>
+      <p><code>split()</code> breaks a string into a list of substrings based on a separator (default = space).</p>
+
+      <div class="example-box">
+        <span class="code">
+line = "Python is fun to learn"
+
+words = line.split()   # split by space
+print(words)           # ['Python', 'is', 'fun', 'to', 'learn']
+
+date = "2025-11-23"
+parts = date.split("-")
+print(parts)           # ['2025', '11', '23']
+        </span>
+      </div>
+
+      <h3>6.2 join()</h3>
+      <p><code>join()</code> is used on a separator string to join list elements into a string.</p>
+
+      <div class="example-box">
+        <span class="code">
+words = ["Coder", "&", "AccoTax"]
+sentence = " ".join(words)
+print(sentence)    # Coder & AccoTax
+
+date_parts = ["2025", "11", "23"]
+date_str = "-".join(date_parts)
+print(date_str)    # 2025-11-23
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Remember:</strong> <code>"separator".join(list)</code> is the correct pattern.  
+        The list elements must all be strings.
+      </div>
+
+      <!-- 7. STRING FORMATTING -->
+      <h2>7. String Formatting — format() and f-strings</h2>
+
+      <p>
+        String formatting helps you create readable strings by injecting values into templates.
+      </p>
+
+      <h3>7.1 Using format()</h3>
+      <h4>Positional placeholders</h4>
+      <div class="example-box">
+        <span class="code">
+name = "Sukanta"
+course = "Python"
+score = 95
+
+msg = "Student {0} scored {1} in {2}".format(name, score, course)
+print(msg)
+        </span>
+      </div>
+
+      <h4>Named placeholders</h4>
+      <div class="example-box">
+        <span class="code">
+msg = "Welcome {user}, your balance is ₹{bal}".format(user="Rahul", bal=1500)
+print(msg)
+        </span>
+      </div>
+
+      <h3>7.2 Using f-strings (Python 3.6+)</h3>
+      <p>f-strings are the modern and most convenient way to format strings.</p>
+      <div class="example-box">
+        <span class="code">
+name = "Sukanta"
+course = "Python"
+score = 95
+
+msg = f"Student {name} scored {score} in {course}"
+print(msg)
+        </span>
+      </div>
+
+      <h4>Expressions inside f-strings</h4>
+      <div class="example-box">
+        <span class="code">
+a = 5
+b = 3
+
+print(f"{a} + {b} = {a + b}")
+print(f"Square of {a} is {a**2}")
+        </span>
+      </div>
+
+      <h4>Formatting numbers</h4>
+      <div class="example-box">
+        <span class="code">
+pi = 3.1415926535
+
+print(f"Pi rounded to 2 decimals: {pi:.2f}")
+amount = 123456.789
+print(f"Amount = ₹{amount:,.2f}")
+        </span>
+      </div>
+
+      <!-- 8. SMALL STRING PROGRAMS -->
+      <h2>8. Small String Programs (Practice)</h2>
+
+      <h3>8.1 Reverse a string</h3>
+      <div class="example-box">
+        <span class="code">
+s = input("Enter a string: ")
+rev = s[::-1]
+print("Reversed:", rev)
+        </span>
+      </div>
+
+      <h3>8.2 Check palindrome string</h3>
+      <div class="example-box">
+        <span class="code">
+s = input("Enter a string: ")
+
+if s == s[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+        </span>
+      </div>
+
+      <h3>8.3 Count vowels in a string</h3>
+      <div class="example-box">
+        <span class="code">
+s = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+count = 0
+
+for ch in s:
+    if ch in vowels:
+        count += 1
+
+print("Number of vowels:", count)
+        </span>
+      </div>
+
+      <h3>8.4 Remove spaces from a string</h3>
+      <div class="example-box">
+        <span class="code">
+s = input("Enter a string: ")
+
+no_space = s.replace(" ", "")
+print("Without spaces:", no_space)
+        </span>
+      </div>
+
+      <!-- 9. OUTPUT PREDICTION -->
+      <h2>9. Output Prediction — String Operations</h2>
+
+      <div class="example-box">
+        <div class="example-title">Q1</div>
+        <span class="code">
+s = "Python"
+
+print(s[0], s[-1])
+print(s[1:4])
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q2</div>
+        <span class="code">
+text = "  hello PYthon  "
+print(text.strip().upper())
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q3</div>
+        <span class="code">
+s = "banana"
+print(s.count("an"))
+print(s.find("na"))
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q4</div>
+        <span class="code">
+data = "12-11-2025"
+parts = data.split("-")
+print(parts)
+print("/".join(parts))
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q5</div>
+        <span class="code">
+name = "Sukanta"
+course = "Python"
+print("Name:", name, "| Course:", course)
+print(f"{name} is learning {course}")
+        </span>
+      </div>
+
+      <!-- 10. MCQs -->
+      <h2>10. MCQs — String Operations</h2>
+      <ol>
+        <li>
+          Which of the following creates a string in Python?<br />
+          a) <code>name = "Python"</code><br />
+          b) <code>name = 'Python'</code><br />
+          c) <code>name = """Python"""</code><br />
+          d) <strong>All of these</strong>
+        </li>
+        <li>
+          Indexing in strings starts from:<br />
+          a) 1 &nbsp;&nbsp; b) -1 &nbsp;&nbsp; c) 0 &nbsp;&nbsp; d) 2
+        </li>
+        <li>
+          <code>s = "PYTHON"</code><br />
+          What is <code>s[-1]</code>?<br />
+          a) P &nbsp;&nbsp; b) N &nbsp;&nbsp; c) H &nbsp;&nbsp; d) O
+        </li>
+        <li>
+          Which method converts string to uppercase?<br />
+          a) <code>toupper()</code> &nbsp;&nbsp; b) <code>upper()</code> &nbsp;&nbsp; c) <code>toUpperCase()</code> &nbsp;&nbsp; d) <code>caps()</code>
+        </li>
+        <li>
+          <code>" hello ".strip()</code> returns:<br />
+          a) " hello " &nbsp;&nbsp; b) "hello" &nbsp;&nbsp; c) " hello" &nbsp;&nbsp; d) "hello "
+        </li>
+        <li>
+          Which method splits a string into a list?<br />
+          a) <code>divide()</code> &nbsp;&nbsp; b) <code>split()</code> &nbsp;&nbsp; c) <code>token()</code> &nbsp;&nbsp; d) <code>list()</code>
+        </li>
+        <li>
+          Which is correct for joining list into string?<br />
+          a) <code>list.join("-")</code><br />
+          b) <code>"-".join(list)</code><br />
+          c) <code>join(list, "-")</code><br />
+          d) <code>list.join()</code>
+        </li>
+        <li>
+          f-strings are written as:<br />
+          a) <code>"{name}"</code><br />
+          b) <code>f"{name}"</code><br />
+          c) <code>format("{name}")</code><br />
+          d) <code>str("{name}")</code>
+        </li>
+        <li>
+          <code>"banana".count("a")</code> returns:<br />
+          a) 1 &nbsp;&nbsp; b) 2 &nbsp;&nbsp; c) 3 &nbsp;&nbsp; d) 4
+        </li>
+        <li>
+          <code>"Python".find("z")</code> returns:<br />
+          a) 0 &nbsp;&nbsp; b) 1 &nbsp;&nbsp; c) -1 &nbsp;&nbsp; d) Error
+        </li>
+      </ol>
+
+      <h4>Answer Key (MCQs):</h4>
+      <p>1–d, 2–c, 3–b, 4–b, 5–b, 6–b, 7–b, 8–b, 9–c, 10–c</p>
+
+      <!-- 11. CODING PRACTICE -->
+      <h2>11. Coding Practice — String Operations</h2>
+
+      <h3>Easy Level</h3>
+      <ul>
+        <li>Write a program to input a name and print it in uppercase, lowercase and title case.</li>
+        <li>Write a program to check whether a given substring exists inside another string.</li>
+        <li>Write a program to count how many times a given character appears in a string.</li>
+      </ul>
+
+      <h3>Moderate Level</h3>
+      <ul>
+        <li>Write a program to input a full name and print first name and last name separately using <code>split()</code>.</li>
+        <li>Write a program to accept a sentence and print number of words in it.</li>
+        <li>Write a program to replace all spaces in a string with hyphen (<code>-</code>).</li>
+      </ul>
+
+      <h3>Advanced Level</h3>
+      <ul>
+        <li>Write a program to accept a sentence and print all words whose length is greater than 4.</li>
+        <li>Write a program to check whether a string is palindrome ignoring spaces and case (e.g., "Never Odd Or Even").</li>
+        <li>Write a program to format and print a mark-sheet style line using f-strings: <br />Example: <code>Name: Rahul | Subject: Python | Marks: 90</code></li>
+      </ul>
+
+      <!-- SUMMARY -->
+      <h2>12. Summary — Unit 4.1 String Operations</h2>
+      <ul>
+        <li>Strings are sequences of characters and are immutable in Python.</li>
+        <li>We can access characters using positive and negative indexing.</li>
+        <li>Slicing allows us to extract substrings using <code>[start:stop:step]</code>.</li>
+        <li>Important methods include <code>upper()</code>, <code>lower()</code>, <code>title()</code>, <code>strip()</code>, <code>find()</code>, <code>replace()</code>, <code>split()</code> and <code>join()</code>.</li>
+        <li>String formatting can be done using <code>format()</code> and powerful f-strings.</li>
+        <li>Mastering strings is essential for user input, file processing, data cleaning and almost every Python program.</li>
+      </ul>
+
+      <!-- AUTHOR BOX -->
+      <div class="highlight">
+        <strong>Prepared By:</strong> Sukanta Hui<br>
+        Faculty — Python &amp; Web Development<br>
+        <strong>Coder &amp; AccoTax</strong> ·
+        Website: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+        GitHub Resource for Practice:
+        <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">30 Days of Python</a><br>
+        Phone: 7003756860 · Email: info@codernaccotax.co.in
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Coder &amp; AccoTax. Designed &amp; Prepared by <strong>Sukanta Hui</strong>. |
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>

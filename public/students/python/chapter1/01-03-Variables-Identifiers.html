@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Variables & Identifiers (NIELIT O Level) | Coder & AccoTax</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --code: #020617;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 48px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+    }
+
+    header {
+      border-radius: 24px;
+      padding: 28px 24px 32px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.25), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.3), transparent 55%),
+                  radial-gradient(circle at 10% 100%, rgba(249, 115, 22, 0.2), transparent 55%),
+                  #020617;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.8);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0, rgba(15, 23, 42, 0.4), transparent 60%);
+      pointer-events: none;
+    }
+
+    header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin: 10px 0 6px;
+      background: linear-gradient(90deg, #e5e7eb, #bae6fd, #e9d5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 18px;
+      margin-top: 18px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .brand-row {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    a {
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 28px;
+      margin-bottom: 8px;
+      color: #bfdbfe;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2 span.label {
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(96, 165, 250, 0.5);
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      color: #c4b5fd;
+    }
+
+    p {
+      margin: 6px 0 10px;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    ul, ol {
+      margin: 6px 0 14px 20px;
+      padding: 0;
+      font-size: 0.94rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .highlight-box {
+      border-radius: 14px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+
+    .highlight-title {
+      font-size: 0.9rem;
+      color: #7dd3fc;
+      font-weight: 600;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .good-badge, .bad-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-left: 6px;
+    }
+
+    .good-badge {
+      background: rgba(22, 163, 74, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #bbf7d0;
+    }
+
+    .bad-badge {
+      background: rgba(185, 28, 28, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.6);
+      color: #fecaca;
+    }
+
+    pre {
+      margin: 10px 0 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 0 0, #020617, #020617);
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      color: #e5e7eb;
+      white-space: pre;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .exercise-box {
+      border-radius: 16px;
+      border: 1px dashed rgba(148, 163, 184, 0.75);
+      background: radial-gradient(circle at 0 0, rgba(30, 64, 175, 0.22), rgba(15, 23, 42, 0.98));
+      padding: 14px 16px 16px;
+      margin-top: 22px;
+    }
+
+    .exercise-title {
+      font-size: 0.95rem;
+      color: #bfdbfe;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(51, 65, 85, 0.85);
+      font-size: 0.8rem;
+      color: #9ca3af;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer span {
+      opacity: 0.9;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 20px 16px 22px;
+      }
+      .meta-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="badge">
+          <span>Module M3‑R5</span>
+          <span>Python – NIELIT O Level</span>
+        </div>
+        <h1>1.3 Variables &amp; Identifiers in Python</h1>
+        <p class="subtitle">
+          In this lesson, you’ll understand how Python stores data using <strong>variables</strong>, how to choose
+          correct <strong>identifiers</strong>, what <strong>keywords</strong> you must avoid, and how to write
+          <strong>clean comments</strong> in your programs.
+        </p>
+        <div class="meta-grid">
+          <div class="card">
+            <div class="brand-title">Coder &amp; AccoTax — Academic Python Series</div>
+            <div class="brand-row">
+              Author: <strong>Sukanta Hui</strong><br />
+              Website: <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener">www.codernaccotax.co.in</a><br />
+              GitHub (Python Practice): <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank" rel="noopener">30 Days of Python</a><br />
+              Phone: 7003756860 · Email: info@codernaccotax.co.in
+            </div>
+          </div>
+          <div class="card">
+            <div class="section-tag">You will be able to</div>
+            <ul>
+              <li>Explain what a variable is and how it relates to memory.</li>
+              <li>Write valid Python identifiers using proper naming conventions.</li>
+              <li>Recognize and avoid Python reserved keywords.</li>
+              <li>Use single‑line and multi‑line comments to document code.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2><span class="label">1.3.1</span> Variables &amp; the Memory Concept</h2>
+        <p>
+          A <strong>variable</strong> in Python is a <em>named reference</em> to a value stored in memory. When you write a
+          statement like:
+        </p>
+        <pre><code># Example: creating a variable
+age = 18
+name = "Rahul"
+pi   = 3.14159</code></pre>
+        <p>
+          Python internally creates <em>objects</em> for the values <code>18</code>, <code>"Rahul"</code> and
+          <code>3.14159</code> in memory, and the variable names <code>age</code>, <code>name</code> and
+          <code>pi</code> act like <strong>labels</strong> or <strong>tags</strong> attached to those objects.
+        </p>
+
+        <div class="highlight-box">
+          <div class="highlight-title">Conceptual Picture — Box &amp; Label</div>
+          <p>
+            Imagine memory as a cupboard full of small boxes. Each box can store one value. A variable is the label you
+            stick on a box so that you can easily find the value later.
+          </p>
+          <ul>
+            <li>The <strong>box</strong> = memory location / object.</li>
+            <li>The <strong>label</strong> = variable name (identifier).</li>
+            <li>The <strong>thing inside the box</strong> = the actual value (data).</li>
+          </ul>
+        </div>
+
+        <p>Some more examples:</p>
+        <pre><code>roll_no = 25          # integer value
+marks   = 87.5         # floating‑point value
+is_pass = True         # boolean value
+city    = "Kolkata"    # string value
+</code></pre>
+
+        <p>
+          In Python, you do <strong>not</strong> need to declare the type separately (like <code>int</code>,
+          <code>float</code> in C). The type is decided automatically based on the value you assign. This is called
+          <strong>dynamic typing</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="label">1.3.2</span> Identifiers &amp; Naming Rules</h2>
+        <p>
+          An <strong>identifier</strong> is the name you give to variables, functions, classes, modules, etc. Every
+          variable name is therefore an identifier.
+        </p>
+
+        <h3>A. Rules for a Valid Identifier</h3>
+        <div class="two-col">
+          <div>
+            <ul>
+              <li>It can contain: <strong>letters</strong> (a–z, A–Z), <strong>digits</strong> (0–9) and
+                <strong>underscore</strong> (<code>_</code>).</li>
+              <li>It <strong>cannot start</strong> with a digit.</li>
+              <li>No special symbols: <code>@</code>, <code>#</code>, <code>$</code>, <code>%</code>, space, etc.</li>
+              <li>Python is <strong>case‑sensitive</strong>: <code>Age</code> and <code>age</code> are different.</li>
+              <li>It must <strong>not</strong> be a Python keyword (like <code>if</code>, <code>for</code>,
+                <code>class</code>).</li>
+            </ul>
+          </div>
+          <div>
+            <div class="highlight-box">
+              <div class="highlight-title">Valid vs Invalid Examples</div>
+              <pre><code># ✅ Valid identifiers
+student_name
+_roll_no
+marks2025
+PI_VALUE
+
+# ❌ Invalid identifiers
+2ndStudent   # starts with digit
+student-name # minus sign not allowed
+full name    # space not allowed
+class        # keyword, cannot use as name
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <h3>B. Naming Conventions (Best Practices)</h3>
+        <p>
+          While Python allows many styles, following standard naming conventions makes your code easy to read and good
+          for exams and real projects.
+        </p>
+        <ul>
+          <li>Use <strong>meaningful names</strong>:
+            <pre><code># Better
+average_marks = 86.5
+
+# Poor
+x = 86.5</code></pre>
+          </li>
+          <li>For variables and functions, use <strong>snake_case</strong>:
+            <pre><code>total_amount = 1500
+student_count = 42
+</code></pre>
+          </li>
+          <li>For constants, many programmers use <strong>UPPER_SNAKE_CASE</strong>:
+            <pre><code>PI = 3.14159
+MAX_STUDENTS = 60
+</code></pre>
+          </li>
+          <li>Never use single‑letter names like <code>a</code>, <code>b</code>, <code>x</code> in big programs
+            unless it’s a small loop or maths formula.</li>
+        </ul>
+
+        <div class="highlight-box">
+          <div class="highlight-title">Exam Tip</div>
+          <p>
+            A common short question: <em>“Write any two rules of naming identifiers in Python with examples.”</em>
+            Remember at least 3–4 rules + 2 examples of valid and invalid identifiers.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="label">1.3.3</span> Reserved Keywords in Python</h2>
+        <p>
+          <strong>Keywords</strong> are special words that Python reserves for its own use. You
+          <strong>cannot</strong> use them as variable names or identifiers.
+        </p>
+
+        <p>Some commonly used Python keywords are:</p>
+        <div class="pill-list">
+          <span class="pill">if</span>
+          <span class="pill">else</span>
+          <span class="pill">elif</span>
+          <span class="pill">for</span>
+          <span class="pill">while</span>
+          <span class="pill">break</span>
+          <span class="pill">continue</span>
+          <span class="pill">True</span>
+          <span class="pill">False</span>
+          <span class="pill">and</span>
+          <span class="pill">or</span>
+          <span class="pill">not</span>
+          <span class="pill">in</span>
+          <span class="pill">is</span>
+          <span class="pill">None</span>
+          <span class="pill">def</span>
+          <span class="pill">class</span>
+          <span class="pill">return</span>
+          <span class="pill">import</span>
+          <span class="pill">from</span>
+        </div>
+
+        <p>You can see the complete list inside Python using:</p>
+        <pre><code>import keyword
+print(keyword.kwlist)</code></pre>
+
+        <div class="highlight-box">
+          <div class="highlight-title">Keyword Error Example</div>
+          <pre><code># ❌ This will cause an error
+class = "BCA"   # 'class' is a keyword
+
+# ✅ Correct way
+class_name = "BCA"</code></pre>
+          <p>
+            If you try to use a keyword as a variable name, Python will show a <strong>syntax error</strong> while
+            running or even while typing in many IDEs.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="label">1.3.4</span> Comments in Python</h2>
+        <p>
+          <strong>Comments</strong> are notes that you write in your code for explanation. Python ignores comments while
+          executing the program. They are only for humans.
+        </p>
+
+        <h3>A. Single‑Line Comments</h3>
+        <p>
+          A single‑line comment starts with the hash symbol <code>#</code>. Anything after <code>#</code> on that line is
+          treated as a comment.
+        </p>
+        <pre><code># This program calculates the total marks
+physics = 78   # marks in Physics
+chemistry = 82 # marks in Chemistry
+maths = 91     # marks in Mathematics
+
+total = physics + chemistry + maths  # adding all marks
+print("Total =", total)</code></pre>
+
+        <ul>
+          <li>Use single‑line comments to explain <strong>why</strong> you are doing something, not obvious things like
+            <code># add 1 to i</code>.</li>
+        </ul>
+
+        <h3>B. Multi‑Line Comments / Block Comments</h3>
+        <p>
+          Python does not have a special multi‑line comment symbol like some languages. The common practice is to use
+          <strong>triple‑quoted strings</strong> <code>''' ... '''</code> or <code>""" ... """</code> as block
+          comments.
+        </p>
+        <pre><code>""" 
+This is a multi‑line comment.
+You can write explanations, author name,
+creation date, or algorithm steps here.
+"""
+
+print("Welcome to Coder & AccoTax Python tutorial")</code></pre>
+
+        <p>
+          When such a triple‑quoted string is placed at the beginning of a function / class / module, it is called a
+          <strong>docstring</strong> (documentation string). Python can read docstrings at runtime using
+          <code>help()</code>.
+        </p>
+        <pre><code>def add(a, b):
+    """Return the sum of two numbers a and b."""
+    return a + b
+
+help(add)   # shows the docstring as function help</code></pre>
+
+        <div class="highlight-box">
+          <div class="highlight-title">Good Commenting Practice</div>
+          <ul>
+            <li>Write comments for logic, formulas, and non‑obvious decisions.</li>
+            <li>Don’t repeat exactly what the code already clearly says.</li>
+            <li>Keep comments updated if you change the code.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="exercise-box">
+          <div class="exercise-title">Practice Corner — Check Your Understanding</div>
+          <ol>
+            <li>Create variables to store your <em>name</em>, <em>age</em>, <em>course</em>, and
+              <em>percentage</em>. Print them in a single line using <code>print()</code>.</li>
+            <li>Write any <strong>four rules</strong> for naming identifiers in Python with one valid and one invalid
+              example for each.</li>
+            <li>From the list below, circle the identifiers that are invalid and state the reason:
+              <pre><code>_result   
+3marks   
+FullName 
+for      
+student-id
+</code></pre>
+            </li>
+            <li>Write a short program with a <strong>multi‑line comment</strong> at the top describing what the program
+              does.</li>
+            <li>Use Python’s <code>keyword</code> module to print all keywords and count how many there are in the
+              version you are using.</li>
+          </ol>
+          <p style="font-size:0.85rem; color:#cbd5f5; margin-top:6px;">
+            💡 Tip: Practice these in your own environment (IDLE, VS Code, or any online Python editor). For more hands‑on
+            practice, explore small exercises in the GitHub repo: <strong>30 Days of Python</strong> linked above.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© Coder &amp; AccoTax · Python NIELIT O Level Series</span>
+      <span>Author: Sukanta Hui · www.codernaccotax.co.in</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Java Serialization in File Handling – Step by Step</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 20px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto 40px;
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #1e3a8a;
+      border-left: 4px solid #1e3a8a;
+      padding-left: 8px;
+      margin-top: 25px;
+      font-size: 22px;
+    }
+
+    h3 {
+      color: #1f2937;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    ul, ol {
+      margin: 8px 0 8px 20px;
+      font-size: 15px;
+    }
+
+    .highlight-box {
+      background: #eef2ff;
+      border-left: 4px solid #4f46e5;
+      padding: 10px 12px;
+      margin: 15px 0;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .keyword {
+      font-weight: bold;
+      color: #b91c1c;
+    }
+
+    pre {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 12px 14px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 14px;
+      margin: 12px 0;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .step {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      background: #111827;
+      color: #d1d5db;
+      font-size: 13px;
+    }
+
+    footer span {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <!-- ORGANISATION HEADER SECTION -->
+  <div class="org-header">
+    <img src="cnat.png" width="20px" alt="Coder & AccoTax Logo" />
+    <div>
+      <h2>Coder & AccoTax</h2>
+      <p>Website: www.codernaccotax.co.in</p>
+      <p>Author: <strong>Sukanta Hui</strong></p>
+    </div>
+  </div>
+
+  <header>
+    <h1>Java Serialization in File Handling</h1>
+    <p>Understanding what serialization is and why we use it – with simple, Class 12 level examples</p>
+  </header>
+
+  <main>
+    <h2>1. What is Serialization?</h2>
+    <p>
+      In Java, <span class="keyword">serialization</span> is the process of converting an 
+      <strong>object</strong> into a <strong>byte stream</strong> (a sequence of bytes).
+      This byte stream can then be:
+    </p>
+    <ul>
+      <li>Saved into a <strong>file</strong></li>
+      <li>Sent over a <strong>network</strong></li>
+      <li>Stored in a <strong>database</strong></li>
+    </ul>
+    <p>
+      The reverse process is called <span class="keyword">deserialization</span>, where the byte stream is 
+      converted back into the original Java object.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Simple idea:</strong>  
+      Serialization = Object → Bytes  
+      Deserialization = Bytes → Object
+    </div>
+
+    <h2>2. Why is Serialization Required in Java File Handling?</h2>
+    <p>
+      Normally, when you use file handling in Java, you work with
+      <code>FileWriter</code>, <code>FileReader</code>, <code>BufferedReader</code>, <code>PrintWriter</code>, etc.
+      These are good for writing:
+    </p>
+    <ul>
+      <li>Primitive data types (int, double, char, etc.)</li>
+      <li>Strings</li>
+    </ul>
+
+    <p>But what if you want to save a whole object like this?</p>
+    <pre><code>class Student {
+    String name;
+    int roll;
+    double marks;
+}</code></pre>
+
+    <p>Without serialization, you would need to:</p>
+    <ul>
+      <li>Write each field separately to the file.</li>
+      <li>Read them back in the exact same order.</li>
+      <li>Handle problems if the class changes later.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>Serialization makes this easy:</strong><br>
+      You can store and retrieve the <strong>whole object</strong> at once, without manually handling every field.
+    </div>
+
+    <h3>Uses of Serialization in File Handling</h3>
+    <ul>
+      <li>To save the <strong>state of an object</strong> permanently in a file.</li>
+      <li>To create <strong>backups</strong> of objects.</li>
+      <li>To easily store <strong>collections of objects</strong> (like a list of students).</li>
+    </ul>
+
+    <h2>3. Important Rules for Serialization</h2>
+    <ol>
+      <li>The class must implement the <code>java.io.Serializable</code> interface.</li>
+      <li><code>Serializable</code> is a <strong>marker interface</strong> (it has no methods).</li>
+      <li>All <strong>non-transient</strong> fields are saved.</li>
+      <li>Fields marked as <code>transient</code> are <strong>not</strong> saved in the file.</li>
+    </ol>
+
+    <h2>4. Step-by-Step Example (Class 12 Friendly)</h2>
+
+    <div class="highlight-box">
+      <strong>Goal:</strong>  
+      1) Create a <code>Student</code> class.  
+      2) Write a <code>Student</code> object to a file (Serialization).  
+      3) Read it back from the file (Deserialization).
+    </div>
+
+    <h3>Step 1: Create the Student Class</h3>
+    <p>We first make the class <strong>serializable</strong> by implementing <code>Serializable</code>.</p>
+
+    <pre><code>import java.io.Serializable;
+
+class Student implements Serializable {
+    // A unique id for versioning (optional but good practice)
+    private static final long serialVersionUID = 1L;
+
+    String name;
+    int roll;
+    double marks;
+
+    // This will NOT be saved (transient field)
+    transient String password;
+
+    public Student(String name, int roll, double marks, String password) {
+        this.name = name;
+        this.roll = roll;
+        this.marks = marks;
+        this.password = password;
+    }
+
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll: " + roll);
+        System.out.println("Marks: " + marks);
+        System.out.println("Password: " + password);
+    }
+}</code></pre>
+
+    <p><strong>Explanation:</strong></p>
+    <ul>
+      <li><code>implements Serializable</code> → tells Java that this class can be converted to bytes.</li>
+      <li><code>serialVersionUID</code> → used internally by Java for version control of the class.</li>
+      <li><code>transient String password;</code> → this field will <strong>not</strong> be stored in the file.</li>
+    </ul>
+
+    <h3>Step 2: Serialization – Writing Object to a File</h3>
+    <p>
+      We use <code>FileOutputStream</code> to connect to the file and <code>ObjectOutputStream</code> 
+      to write the object.
+    </p>
+
+    <pre><code>import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class SerializeDemo {
+    public static void main(String[] args) {
+        // Create a student object
+        Student s1 = new Student("Sourav", 101, 92.5, "mySecret123");
+
+        try {
+            // 1. Connect to file
+            FileOutputStream fos = new FileOutputStream("student.dat");
+
+            // 2. Wrap it in ObjectOutputStream
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            // 3. Write object
+            oos.writeObject(s1);
+
+            // 4. Close streams
+            oos.close();
+            fos.close();
+
+            System.out.println("Object has been serialized and saved to student.dat");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+
+    <p><strong>What happens here?</strong></p>
+    <ul>
+      <li>The object <code>s1</code> is converted into a byte stream.</li>
+      <li>Those bytes are written to the file <code>student.dat</code>.</li>
+      <li>You don’t manually write <code>name</code>, <code>roll</code>, <code>marks</code>, etc. Java does it for you.</li>
+    </ul>
+
+    <h3>Step 3: Deserialization – Reading Object from a File</h3>
+    <p>
+      Now we read the same object back from the file using <code>FileInputStream</code> and
+      <code>ObjectInputStream</code>.
+    </p>
+
+    <pre><code>import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class DeserializeDemo {
+    public static void main(String[] args) {
+        try {
+            // 1. Connect to file
+            FileInputStream fis = new FileInputStream("student.dat");
+
+            // 2. Wrap it in ObjectInputStream
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            // 3. Read object (typecast needed)
+            Student s2 = (Student) ois.readObject();
+
+            // 4. Close streams
+            ois.close();
+            fis.close();
+
+            System.out.println("Object has been deserialized from student.dat");
+            s2.display();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+
+    <p><strong>Expected output:</strong></p>
+    <pre><code>Object has been deserialized from student.dat
+Name: Sourav
+Roll: 101
+Marks: 92.5
+Password: null</code></pre>
+
+    <p>
+      Note that:
+      <ul>
+        <li><code>name</code>, <code>roll</code>, and <code>marks</code> are restored correctly.</li>
+        <li><code>password</code> is <code>null</code> because it was marked as <code>transient</code>, so it was not serialized.</li>
+      </ul>
+    </p>
+
+    <h2>5. Quick Step-by-Step Summary</h2>
+
+    <div class="step">
+      <strong>Step 1:</strong> Make the class serializable  
+      <br><code>class Student implements Serializable { ... }</code>
+    </div>
+
+    <div class="step">
+      <strong>Step 2:</strong> Create an object  
+      <br><code>Student s1 = new Student("Sourav", 101, 92.5, "mySecret123");</code>
+    </div>
+
+    <div class="step">
+      <strong>Step 3:</strong> Serialize (write object to file)
+      <ul>
+        <li>Create <code>FileOutputStream</code>.</li>
+        <li>Wrap it in <code>ObjectOutputStream</code>.</li>
+        <li>Call <code>writeObject(s1)</code>.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <strong>Step 4:</strong> Deserialize (read object from file)
+      <ul>
+        <li>Create <code>FileInputStream</code>.</li>
+        <li>Wrap it in <code>ObjectInputStream</code>.</li>
+        <li>Call <code>readObject()</code> and typecast to <code>Student</code>.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <strong>Step 5:</strong> Why we need Serialization in File Handling?
+      <ul>
+        <li>To store and retrieve whole objects easily.</li>
+        <li>To avoid writing every field manually.</li>
+        <li>To create backups or save game/application state.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <span>Java File Handling – Serialization Tutorial</span>
+    <span>Prepared for learning and practice (Class 12 Level)</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 2.1 — Python Data Types (Full Chapter) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Details -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="description"
+        content="Full-length detailed chapter on Python Data Types: numbers, boolean, string, list, tuple, set, dictionary, type conversion, and input() for NIELIT O Level and beginner Python learners.">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --soft: #0b1120;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --border: #1f2937;
+      --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 22px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.15), transparent 55%),
+        #0f172a;
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 26px;
+      padding: 32px 28px;
+      margin-bottom: 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtext {
+      color: var(--muted);
+      max-width: 740px;
+      margin: 10px auto 0;
+      font-size: 14px;
+    }
+
+    .brand-box {
+      margin-top: 26px;
+      background: #0b1120;
+      border: 1px solid rgba(148,163,184,0.18);
+      padding: 20px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      text-align: left;
+    }
+
+    .brand-title {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-title2 {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-box a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand-box a:hover {
+      text-decoration: underline;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-top: 6px;
+      box-shadow: 0 0 12px rgba(56,189,248,0.4);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .github-btn svg {
+      display: block;
+    }
+
+    /* MAIN CONTENT CARD */
+    .card {
+      background: var(--card);
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      color: var(--accent2);
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    h5 {
+      color: #e5e7eb;
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    p, li {
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+      font-size: 13px;
+    }
+
+    .note {
+      background: var(--soft);
+      border-left: 4px solid var(--accent3);
+      padding: 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .example-box {
+      background: var(--soft);
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 14px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .example-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent3);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .code {
+      background: #020617;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      font-size: 13px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    td {
+      color: #e5e7eb;
+    }
+
+    .mini-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 2px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .toc {
+      background: var(--soft);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toc strong {
+      color: #e5e7eb;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Unit 2.1 — Python Data Types</h1>
+      <p class="subtext">
+        Deep dive into Python’s core data types — numbers, booleans, strings, collections, type conversion, and user input —
+        tailored for NIELIT O Level and beginner Python learners who want strong fundamentals.
+      </p>
+
+      <div class="brand-box">
+        <div>
+          <div class="brand-title">🏢 Organisation</div>
+          <div>Coder &amp; AccoTax</div>
+          <a href="https://www.codernaccotax.co.in" target="_blank">🌐 www.codernaccotax.co.in</a>
+        </div>
+
+        <div>
+          <div class="brand-title2">👨‍🏫 Author</div>
+          <div>Sukanta Hui</div>
+          <div style="font-size:13px;">📞 7003756860</div>
+          <a href="mailto:info@codernaccotax.co.in">✉️ info@codernaccotax.co.in</a>
+        </div>
+
+        <div style="display:flex; align-items:center;">
+          <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+            <!-- GitHub Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+              <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56
+                       0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72
+                       -1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.79 2.73 1.27
+                       3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.29-5.23-5.77
+                       0-1.27.45-2.31 1.2-3.12-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.19
+                       .92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.5 3.17-1.19 3.17-1.19
+                       .63 1.57.23 2.73.11 3.02.75.81 1.19 1.85 1.19 3.12
+                       0 4.49-2.69 5.47-5.25 5.76.42.36.8 1.09.8 2.21
+                       0 1.6-.02 2.88-.02 3.27 0 .31.21.67.8.56
+                       4.57-1.53 7.86-5.86 7.86-10.96C23.5 5.74 18.27.5 12 .5z"/>
+            </svg>
+            View GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="card">
+
+      <!-- TABLE OF CONTENTS -->
+      <div class="toc">
+        <strong>In this chapter you will learn:</strong>
+        <ul>
+          <li>What data types are and why they matter</li>
+          <li>Numeric types: <strong>int, float, complex</strong></li>
+          <li><strong>Boolean</strong> type and truth values</li>
+          <li><strong>Strings</strong> and basic operations</li>
+          <li>Collection types: <strong>List, Tuple, Set, Dictionary</strong></li>
+          <li><strong>Type conversion</strong> (casting) between data types</li>
+          <li>Taking user input using <strong>input()</strong></li>
+        </ul>
+      </div>
+
+      <h2>1. Introduction to Data Types</h2>
+      <p>
+        In programming, a <strong>data type</strong> describes what kind of value a variable can hold and what operations
+        can be performed on that value. For example, you can add two numbers, but you cannot “add” a number and a list
+        without converting them properly.
+      </p>
+
+      <div class="highlight">
+        <strong>Key idea:</strong> Data types give structure to data. Python automatically decides the data type when
+        you assign a value, because it is a <em>dynamically typed</em> language.
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Quick Example — Different Types in One Program</div>
+        <span class="code">
+roll = 101                # int
+name = "Anita"           # str
+marks = 87.5             # float
+is_pass = True           # bool
+
+print(type(roll))
+print(type(name))
+print(type(marks))
+print(type(is_pass))
+        </span>
+      </div>
+
+      <!-- NUMERIC TYPES -->
+      <h2>2. Numeric Data Types (Numbers)</h2>
+      <p>Python supports three main numeric data types:</p>
+      <ul>
+        <li><strong>int</strong> — integer (whole numbers)</li>
+        <li><strong>float</strong> — decimal / real numbers</li>
+        <li><strong>complex</strong> — complex numbers (<code>a + bj</code> form)</li>
+      </ul>
+
+      <h3>2.1 Integer (int)</h3>
+      <p>
+        Integers are whole numbers without decimal points. They can be positive, negative or zero.  
+        There is no fixed limit on the size of an integer in Python (only limited by memory).
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Examples of int</div>
+        <span class="code">
+a = 10
+b = -250
+c = 0
+big = 98765432123456789
+
+print(a, b, c, big)
+print(type(a))     # &lt;class 'int'&gt;
+        </span>
+      </div>
+
+      <h4>Common integer operations</h4>
+      <ul>
+        <li>Arithmetic: <code>+, -, *, //, %, **</code></li>
+        <li>Use in loops, counters, indices</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Mini Example — Simple Billing</div>
+        <span class="code">
+quantity = 5
+price_per_item = 120
+total = quantity * price_per_item
+
+print("Total amount =", total)
+        </span>
+      </div>
+
+      <h3>2.2 Float (float)</h3>
+      <p>
+        Floats are numbers with a decimal point or in exponent (scientific) notation. Used for measurements, marks with
+        decimal, currency, etc.
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Examples of float</div>
+        <span class="code">
+pi = 3.14159
+gst_rate = 18.0
+distance = 12.5
+big_float = 1.2e3     # 1.2 × 10³ = 1200.0
+
+print(pi, distance, big_float)
+print(type(pi))       # &lt;class 'float'&gt;
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Note:</strong> Floating point values may not be 100% exact in binary representation, so sometimes
+        calculations like <code>0.1 + 0.2</code> may give <code>0.30000000000000004</code>. This is common in many languages.
+      </div>
+
+      <h3>2.3 Complex (complex)</h3>
+      <p>
+        Complex numbers are written in <code>a + bj</code> form, where <code>a</code> is the real part and
+        <code>b</code> is the imaginary part.
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Complex Number Usage</div>
+        <span class="code">
+z1 = 2 + 3j
+z2 = 4 - 5j
+
+print("z1 =", z1)
+print("Real part of z1:", z1.real)
+print("Imag part of z1:", z1.imag)
+
+z3 = z1 + z2
+print("z1 + z2 =", z3)
+        </span>
+      </div>
+
+      <!-- BOOLEAN -->
+      <h2>3. Boolean (bool)</h2>
+      <p>
+        The Boolean data type has only two values: <strong>True</strong> or <strong>False</strong>.  
+        It is mainly used with conditions and decision-making (<code>if</code>, <code>while</code>, etc.).
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Booleans from Comparisons</div>
+        <span class="code">
+x = 10
+y = 20
+
+print(x &lt; y)    # True
+print(x == y)   # False
+print(x != y)   # True
+
+is_valid = (x &lt; y) and (x &gt; 0)
+print(is_valid) # True
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>Truthiness:</strong> In Python, some values are treated as False in boolean context:
+        <code>0</code>, <code>0.0</code>, <code>""</code>, <code>[]</code>, <code>()</code>, <code>{}</code>, <code>None</code>.  
+        Everything else is considered True.
+      </div>
+
+      <!-- STRINGS -->
+      <h2>4. Strings (str)</h2>
+      <p>
+        Strings are sequences of characters used to store text — names, address, messages, etc.  
+        You can use single quotes, double quotes or triple quotes.
+      </p>
+
+      <h3>4.1 Creating and Printing Strings</h3>
+      <div class="example-box">
+        <span class="code">
+title = "Python Programming"
+author = 'Sukanta'
+multi_line = """This is a
+multi-line string."""
+
+print(title)
+print(author)
+print(multi_line)
+        </span>
+      </div>
+
+      <h3>4.2 String Indexing and Slicing</h3>
+      <p>
+        Strings are indexed from 0. You can access individual characters or slices (substrings).
+      </p>
+
+      <div class="example-box">
+        <span class="code">
+name = "CODER ACCOTAX"
+
+print(name[0])       # C
+print(name[1])       # O
+print(name[-1])      # X (last character)
+
+print(name[0:5])     # CODER
+print(name[6:])      # ACCOTAX
+print(name[:5])      # CODER
+        </span>
+      </div>
+
+      <h3>4.3 Common String Operations</h3>
+      <div class="example-box">
+        <div class="mini-title">Important methods:</div>
+        <span class="code">
+s = "  hello Python  "
+
+print(s.upper())        #  HELLO PYTHON  
+print(s.lower())        #  hello python  
+print(s.strip())        # "hello Python" (removes side spaces)
+print(s.replace("Python", "World"))  # "  hello World  "
+
+print("Length:", len(s))  # includes spaces
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Exam Tip:</strong> You will often get questions to find output of string slicing or <code>len()</code>,
+        so practice manually tracing indices.
+      </div>
+
+      <!-- LISTS -->
+      <h2>5. Lists</h2>
+      <p>
+        A <strong>list</strong> is an ordered, mutable collection. You can:
+      </p>
+      <ul>
+        <li>Store multiple values in one variable</li>
+        <li>Allow duplicates</li>
+        <li>Change, add, or remove elements</li>
+      </ul>
+
+      <h3>5.1 Creating Lists</h3>
+      <div class="example-box">
+        <span class="code">
+marks = [78, 85, 90, 66]
+mixed = [10, "Anita", True, 87.5]
+
+print(marks)
+print(mixed)
+        </span>
+      </div>
+
+      <h3>5.2 Accessing and Modifying Lists</h3>
+      <div class="example-box">
+        <span class="code">
+fruits = ["apple", "banana", "mango", "orange"]
+
+print(fruits[0])        # apple
+print(fruits[-1])       # orange
+
+fruits[1] = "grapes"    # modify
+print(fruits)           # ['apple', 'grapes', 'mango', 'orange']
+        </span>
+      </div>
+
+      <h3>5.3 Common List Methods</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [5, 2, 9, 1]
+
+nums.append(7)      # add at end
+nums.insert(1, 10)  # insert 10 at index 1
+nums.sort()         # ascending sort
+nums.reverse()      # reverse order
+
+print(nums)
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>When to use a list?</strong> When you need an ordered collection that you can modify frequently
+        (add/remove/update elements).
+      </div>
+
+      <!-- TUPLES -->
+      <h2>6. Tuples</h2>
+      <p>
+        A <strong>tuple</strong> is like a list, but <strong>immutable</strong> — once created, you cannot change it.
+        Tuples are often used when you want to protect data from accidental modification.
+      </p>
+
+      <h3>6.1 Creating and Using Tuples</h3>
+      <div class="example-box">
+        <span class="code">
+point = (10, 20, 30)
+days = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+print(point[0])     # 10
+print(days[2])      # Wed
+
+# point[1] = 50     # ❌ Error: tuple does not support item assignment
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Use Tuple:</strong> For fixed data like days of week, months, configurations that should not change.
+      </div>
+
+      <!-- SETS -->
+      <h2>7. Sets</h2>
+      <p>
+        A <strong>set</strong> is an unordered collection of unique elements.  
+        Useful for operations like union, intersection, removing duplicates.
+      </p>
+
+      <h3>7.1 Creating Sets</h3>
+      <div class="example-box">
+        <span class="code">
+nums = {10, 20, 30, 20, 10}
+print(nums)           # {10, 20, 30} → duplicates removed
+
+empty_set = set()     # correct way to create empty set
+        </span>
+      </div>
+
+      <h3>7.2 Set Operations</h3>
+      <div class="example-box">
+        <span class="code">
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print("Union:", a | b)         # {1,2,3,4,5,6}
+print("Intersection:", a & b)  # {3,4}
+print("Difference:", a - b)    # {1,2}
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>Important:</strong> Sets are unordered. You cannot access elements by index like <code>s[0]</code>.
+      </div>
+
+      <!-- DICTIONARIES -->
+      <h2>8. Dictionaries</h2>
+      <p>
+        A <strong>dictionary</strong> stores data as <strong>key–value</strong> pairs.  
+        Keys must be unique, values can repeat.
+      </p>
+
+      <h3>8.1 Creating and Accessing Dictionaries</h3>
+      <div class="example-box">
+        <span class="code">
+student = {
+    "name": "Rahul",
+    "roll": 5,
+    "course": "Python",
+    "marks": 88
+}
+
+print(student["name"])
+print(student["marks"])
+
+# add new key
+student["city"] = "Kolkata"
+print(student)
+        </span>
+      </div>
+
+      <h3>8.2 Dictionary Methods</h3>
+      <div class="example-box">
+        <span class="code">
+print(student.keys())      # view all keys
+print(student.values())    # view all values
+print(student.items())     # view (key, value) pairs
+
+# safe access using get()
+print(student.get("name"))       # Rahul
+print(student.get("phone"))      # None (no error)
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Use dictionary:</strong> when you want to store related information about an entity using labels (keys)
+        like student with name, roll, marks, etc.
+      </div>
+
+      <!-- TYPE CONVERSION -->
+      <h2>9. Type Conversion & Casting</h2>
+      <p>
+        Type conversion means converting a value from one data type to another.  
+        Python does some conversions automatically (implicit), but most of the time we use explicit conversion functions.
+      </p>
+
+      <h3>9.1 Common Casting Functions</h3>
+      <ul>
+        <li><code>int(x)</code> — convert to integer</li>
+        <li><code>float(x)</code> — convert to float</li>
+        <li><code>str(x)</code> — convert to string</li>
+        <li><code>list(x)</code> — convert to list</li>
+        <li><code>tuple(x)</code> — convert to tuple</li>
+        <li><code>set(x)</code> — convert to set</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Numeric Casting</div>
+        <span class="code">
+a = "25"
+b = "3.5"
+
+print(int(a))        # 25
+print(float(a))      # 25.0
+print(float(b))      # 3.5
+
+x = 10.9
+print(int(x))        # 10 (fraction removed)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Collection Casting</div>
+        <span class="code">
+s = "ABC"
+print(list(s))       # ['A', 'B', 'C']
+print(tuple(s))      # ('A', 'B', 'C')
+
+my_list = [1, 2, 2, 3]
+print(set(my_list))  # {1, 2, 3} (duplicates removed)
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>Be careful:</strong> If the string doesn’t look like a valid number, <code>int()</code> or <code>float()</code>
+        will raise an error. Example: <code>int("ABC")</code> → ValueError.
+      </div>
+
+      <!-- USER INPUT -->
+      <h2>10. Taking User Input using <code>input()</code></h2>
+      <p>
+        The built-in function <code>input()</code> allows you to take input from the keyboard during program execution.
+        It always returns a string.
+      </p>
+
+      <h3>10.1 Basic Usage</h3>
+      <div class="example-box">
+        <span class="code">
+name = input("Enter your name: ")
+print("Hello", name)
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Important:</strong> <code>input()</code> → always returns data as <strong>str</strong>.  
+        For numeric calculations, convert using <code>int()</code> or <code>float()</code>.
+      </div>
+
+      <h3>10.2 Reading Numeric Input</h3>
+      <div class="example-box">
+        <div class="example-title">Example — Simple Interest</div>
+        <span class="code">
+P = float(input("Enter Principal: "))
+R = float(input("Enter Rate of Interest: "))
+T = float(input("Enter Time (in years): "))
+
+SI = (P * R * T) / 100
+
+print("Simple Interest =", SI)
+        </span>
+      </div>
+
+      <h3>10.3 Reading Multiple Values</h3>
+      <div class="example-box">
+        <span class="code">
+# Enter: 10 20 30
+a, b, c = input("Enter three numbers separated by space: ").split()
+
+# a, b, c are strings here
+a = int(a)
+b = int(b)
+c = int(c)
+
+print("Sum =", a + b + c)
+        </span>
+      </div>
+
+      <!-- MINI EXERCISE SECTION -->
+      <h2>11. Practice Corner — Check Yourself</h2>
+
+      <h3>11.1 Concept Questions (Short Answer)</h3>
+      <ul>
+        <li>Q1. What is the difference between <strong>list</strong> and <strong>tuple</strong>?</li>
+        <li>Q2. Name two differences between <strong>set</strong> and <strong>dictionary</strong>.</li>
+        <li>Q3. Why is <code>input()</code> usually converted using <code>int()</code> or <code>float()</code>?</li>
+        <li>Q4. What will be the data type of the value returned by <code>input()</code>?</li>
+        <li>Q5. Write one example of a complex number in Python.</li>
+      </ul>
+
+      <h3>11.2 Output Prediction</h3>
+      <div class="example-box">
+        <div class="example-title">Exercise — Predict the Output</div>
+        <span class="code">
+x = "Python"
+print(x[0], x[-1])
+print(len(x))
+print(x[1:4])
+
+nums = [2, 4, 6]
+nums.append(8)
+nums[1] = 10
+print(nums)
+
+s = {1, 2, 2, 3, 4}
+print(s)
+
+info = {"name": "Anita", "age": 20}
+print(info.get("age"))
+print(info.get("city"))
+        </span>
+      </div>
+
+      <h3>11.3 Small Programming Tasks</h3>
+      <ul>
+        <li>Write a program to read the radius of a circle and display its area.</li>
+        <li>Read three subject marks and display total and average using <code>input()</code>.</li>
+        <li>Create a dictionary to store details of a book (title, author, price, pages) and print them nicely.</li>
+        <li>Write a program to remove duplicates from a list using a set.</li>
+      </ul>
+
+      <!-- AUTHOR BOX -->
+      <div class="highlight">
+        <strong>Prepared By:</strong> Sukanta Hui<br>
+        Faculty — Python &amp; Web Development<br>
+        <strong>Coder &amp; AccoTax</strong> ·
+        Website: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+        GitHub Resource for Practice:
+        <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">30 Days of Python</a><br>
+        Phone: 7003756860 · Email: info@codernaccotax.co.in
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Coder &amp; AccoTax. Designed &amp; Prepared by <strong>Sukanta Hui</strong>. |
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

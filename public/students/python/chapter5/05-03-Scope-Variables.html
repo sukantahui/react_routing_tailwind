@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Python 5.3 — Scope of Variables (Expanded Premium Tutorial) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;padding:20px;} 
+.page{max-width:1100px;margin:auto;} 
+h1{font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;margin-bottom:10px;} 
+h2{color:#93c5fd;font-size:1.5rem;margin-top:30px;} 
+h3{color:#c4b5fd;margin-top:18px;} 
+.badge{padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;color:#38bdf8;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;display:inline-block;margin-bottom:16px;} 
+.card{background:#0f172a;border:1px solid #334155;border-radius:16px;padding:22px;margin-bottom:24px;box-shadow:0 0 30px rgba(0,0,0,.5);} 
+pre{background:#0a0f1d;border:1px solid #1e3a8a;padding:14px;border-radius:10px;overflow-x:auto;font-size:.92rem;} 
+ul li{margin-bottom:6px;} 
+.table{width:100%;border-collapse:collapse;margin-top:12px;} 
+.table th,.table td{border:1px solid #334155;padding:10px;text-align:left;} 
+.table th{background:#1e293b;} 
+.footer{margin-top:40px;padding-top:20px;border-top:1px solid #475569;color:#94a3b8;font-size:.9rem;} 
+</style>
+</head>
+<body>
+<div class="page">
+<div class="badge">Module M3-R5 · Python Functions</div>
+<h1>5.3 Scope of Variables</h1>
+<p><strong>Organisation:</strong> Coder & AccoTax | <strong>Author:</strong> Sukanta Hui | <strong>Website:</strong> www.codernaccotax.co.in</p>
+
+<div class="card">
+<h2>1. What is Variable Scope?</h2>
+<p><strong>Scope</strong> means: <em>Where a variable can be accessed in a program.</em></p>
+<p>Python divides variable scope into four levels (LEGB rule):</p>
+<ul>
+<li><strong>L – Local:</strong> Inside the current function</li>
+<li><strong>E – Enclosed:</strong> Inside nested functions</li>
+<li><strong>G – Global:</strong> Variables defined at the top level</li>
+<li><strong>B – Built-in:</strong> Keywords, built-in functions (e.g., <code>len</code>, <code>sum</code>)</li>
+</ul>
+<p>In this chapter, we focus on <strong>Local</strong> and <strong>Global</strong> scopes.</p>
+</div>
+
+<div class="card">
+<h2>2. Local Variables (Highly Detailed)</h2>
+<p>A <strong>local variable</strong> is created inside a function and belongs only to that function. It does not exist outside it.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Created when the function starts</li>
+<li>Destroyed when the function ends</li>
+<li>Cannot be accessed outside the function</li>
+<li>Different functions can have variables with the same name without conflict</li>
+</ul>
+
+<h3>Basic Example</h3>
+<pre><code>def message():
+    text = "Hello Students"  # local variable
+    print(text)
+
+message()
+# print(text)  # ❌ ERROR: text is not defined outside the function</code></pre>
+
+<h3>Example with Same Local Variable Name in Two Functions</h3>
+<pre><code>def f1():
+    x = 10
+    print("f1 x =", x)
+
+def f2():
+    x = 20
+    print("f2 x =", x)
+
+f1()
+f2()</code></pre>
+
+<h3>Local Variable is Recreated Every Time</h3>
+<pre><code>def counter():
+    c = 0
+    c += 1
+    return c
+
+print(counter())
+print(counter())
+print(counter())
+# Output: 1 1 1  (not increasing because c resets each time)</code></pre>
+</div>
+
+<div class="card">
+<h2>3. Global Variables (Deep Explanation)</h2>
+<p>A <strong>global variable</strong> is declared outside any function and can be accessed anywhere.</p>
+<p>Properties:</p>
+<ul>
+<li>Exists for the entire program duration</li>
+<li>Shared across all functions (read-only unless <code>global</code> keyword used)</li>
+</ul>
+
+<h3>Basic Example</h3>
+<pre><code>x = 50  # global
+
+def show():
+    print("Inside function:", x)
+
+show()
+print("Outside function:", x)</code></pre>
+
+<h3>Using Global Variable in Multiple Functions</h3>
+<pre><code>count = 0
+
+def inc():
+    print("Counter =", count)
+
+def dec():
+    print("Counter =", count)
+
+inc()
+dec()</code></pre>
+</div>
+
+<div class="card">
+<h2>4. The <code>global</code> Keyword — Detailed</h2>
+<p>To modify a global variable inside a function, we must explicitly declare it with the <code>global</code> keyword.</p>
+
+<h3>Example: Modifying Global Variable</h3>
+<pre><code>x = 10
+
+def change():
+    global x
+    x = 99
+
+change()
+print(x)  # 99</code></pre>
+
+<h3>Why global is needed?</h3>
+<pre><code>x = 5
+
+def test():
+    x = 100   # This is local, does not affect global
+
+print(x)  # Still 5</code></pre>
+
+<h3>Multiple Modification Example</h3>
+<pre><code>total = 0
+
+def add(n):
+    global total
+    total += n
+
+add(10)
+add(5)
+print(total)   # 15</code></pre>
+</div>
+
+<div class="card">
+<h2>5. Local vs Global — Comparison Table</h2>
+<table class="table">
+<tr><th>Feature</th><th>Local</th><th>Global</th></tr>
+<tr><td>Where Declared?</td><td>Inside a function</td><td>Outside all functions</td></tr>
+<tr><td>Access From Function</td><td>✔ Yes</td><td>✔ Yes</td></tr>
+<tr><td>Access From Outside Function</td><td>❌ No</td><td>✔ Yes</td></tr>
+<tr><td>Lifetime</td><td>Function duration only</td><td>Entire program</td></tr>
+<tr><td>Memory Efficiency</td><td>High</td><td>Medium</td></tr>
+<tr><td>Risk of Side Effects</td><td>Low</td><td>High</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>6. Enclosed Scope (Bonus Section)</h2>
+<p>This scope appears in nested functions. A variable in the outer function is available to the inner function.</p>
+
+<h3>Example</h3>
+<pre><code>def outer():
+    x = "Outer Value"
+    
+    def inner():
+        print(x)
+    
+    inner()
+
+outer()</code></pre>
+</div>
+
+<div class="card">
+<h2>7. Best Practices (Highly Expanded)</h2>
+<ul>
+<li><strong>Avoid using global variables for data storage.</strong> Use return values instead.</li>
+<li><strong>Prefer local variables</strong> — safer and easier to debug.</li>
+<li>Use global only for constants:<br><code>PI = 3.14</code>, <code>APP_NAME = "Coder & AccoTax"</code></li>
+<li>Never create too many global variables.</li>
+<li>Use function parameters to pass values instead of globals.</li>
+<li>Use clear naming conventions to avoid conflicts.</li>
+<li>Nested functions can be used for encapsulation (Enclosed scope).</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>8. Real-World Example — Banking System</h2>
+<pre><code>balance = 0
+
+def deposit(amount):
+    global balance
+    balance += amount
+    return balance
+
+def withdraw(amount):
+    global balance
+    if amount <= balance:
+        balance -= amount
+        return balance
+    return "Insufficient Funds"
+
+print(deposit(1000))
+print(withdraw(300))
+print(withdraw(800))</code></pre>
+</div>
+
+<footer class="footer">
+© 2025 Coder & AccoTax · Premium Python Tutorial — Expanded Edition · Prepared by Sukanta Hui
+</footer>
+</div>
+</body>
+</html>

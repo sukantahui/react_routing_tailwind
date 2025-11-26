@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 2.3 — Expressions & Operator Precedence (Full Chapter) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Details -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="description"
+        content="Full-length detailed chapter on Expressions and Operator Precedence in Python: expression types, evaluation, precedence, associativity, step-by-step dry runs, and practice questions for NIELIT O Level and Python learners.">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --soft: #0b1120;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --border: #1f2937;
+      --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 22px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.15), transparent 55%),
+        #0f172a;
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 26px;
+      padding: 32px 28px;
+      margin-bottom: 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.65);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtext {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 10px auto 0;
+      font-size: 14px;
+    }
+
+    .brand-box {
+      margin-top: 26px;
+      background: #0b1120;
+      border: 1px solid rgba(148,163,184,0.18);
+      padding: 20px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-title2 {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-box a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand-box a:hover {
+      text-decoration: underline;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-top: 6px;
+      box-shadow: 0 0 12px rgba(56,189,248,0.4);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .github-btn svg { display: block; }
+
+    /* MAIN CONTENT CARD */
+    .card {
+      background: var(--card);
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      color: var(--accent2);
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    h5 {
+      color: #e5e7eb;
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    p, li {
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+      font-size: 13px;
+    }
+
+    .note {
+      background: var(--soft);
+      border-left: 4px solid var(--accent3);
+      padding: 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .example-box {
+      background: var(--soft);
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 14px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .example-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent3);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .code {
+      background: #020617;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      font-size: 13px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    td { color: #e5e7eb; }
+
+    .toc {
+      background: var(--soft);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toc strong { color: #e5e7eb; }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Unit 2.3 — Expressions & Operator Precedence</h1>
+      <p class="subtext">
+        A full, conceptual and exam-focused chapter on Python expressions and operator precedence —
+        with step-by-step dry runs, mixed-type expressions, precedence tables and practice questions for NIELIT O Level.
+      </p>
+
+      <div class="brand-box">
+        <div>
+          <div class="brand-title">🏢 Organisation</div>
+          <div>Coder &amp; AccoTax</div>
+          <a href="https://www.codernaccotax.co.in" target="_blank">🌐 www.codernaccotax.co.in</a>
+        </div>
+
+        <div>
+          <div class="brand-title2">👨‍🏫 Author</div>
+          <div>Sukanta Hui</div>
+          <div style="font-size:13px;">📞 7003756860</div>
+          <a href="mailto:info@codernaccotax.co.in">✉️ info@codernaccotax.co.in</a>
+        </div>
+
+        <div style="display:flex; align-items:center;">
+          <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+            <!-- GitHub Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+              <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56
+                       0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72
+                       -1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.79 2.73 1.27
+                       3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.29-5.23-5.77
+                       0-1.27.45-2.31 1.2-3.12-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.19
+                       .92-.26 1.9-.39 2.88-.39s1.96.13 2.88..39c2.2-1.5 3.17-1.19 3.17-1.19
+                       .63 1.57.23 2.73.11 3.02.75.81 1.19 1.85 1.19 3.12
+                       0 4.49-2.69 5.47-5.25 5.76.42.36.8 1.09.8 2.21
+                       0 1.6-.02 2.88-.02 3.27 0 .31.21.67.8.56
+                       4.57-1.53 7.86-5.86 7.86-10.96C23.5 5.74 18.27.5 12 .5z"/>
+            </svg>
+            View GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="card">
+
+      <!-- TOC -->
+      <div class="toc">
+        <strong>In this chapter you will learn:</strong>
+        <ul>
+          <li>What expressions are and how they differ from statements</li>
+          <li>Types of expressions: arithmetic, relational, logical, string, mixed-type</li>
+          <li>How Python evaluates expressions step-by-step</li>
+          <li>Operator precedence and associativity in detail</li>
+          <li>How to use parentheses to control evaluation order</li>
+          <li>Common mistakes and exam-style tricky cases</li>
+          <li>Output prediction, MCQs and coding practice questions</li>
+        </ul>
+      </div>
+
+      <!-- 1. Introduction -->
+      <h2>1. Expressions in Python</h2>
+      <p>
+        In Python, an <strong>expression</strong> is any combination of values, variables, operators and function calls
+        that Python can evaluate to produce a <strong>single result</strong>.
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Examples of expressions</div>
+        <span class="code">
+5 + 3              # arithmetic expression → result 8
+x * 10 + 5         # uses variable x
+"Py" + "thon"      # string concatenation → "Python"
+marks > 40         # relational → True or False
+a and b            # logical expression
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>Expression vs Statement:</strong>  
+        • Expression: produces a value. (e.g., <code>5 + 3</code>)  
+        • Statement: performs an action. (e.g., <code>print(5 + 3)</code>, <code>if</code> block, <code>for</code> loop)
+      </div>
+
+      <!-- 2. Basic Expression Structure -->
+      <h2>2. Structure of an Expression</h2>
+      <p>General form:</p>
+      <div class="highlight">
+        <code>operand<sub>1</sub>  operator  operand<sub>2</sub></code>  
+        Example: <code>10 + 20</code>, <code>a * b</code>, <code>x > y</code>
+      </div>
+
+      <p>But expressions can be more complex with multiple operators and parentheses:</p>
+      <div class="example-box">
+        <span class="code">
+total = (basic + hra) - (tax * 2) + bonus
+        </span>
+      </div>
+
+      <!-- 3. Types of Expressions -->
+      <h2>3. Types of Expressions</h2>
+
+      <h3>3.1 Arithmetic Expressions</h3>
+      <p>
+        Use arithmetic operators (<code>+, -, *, /, //, %, **</code>) and evaluate to a numeric result.
+      </p>
+      <div class="example-box">
+        <span class="code">
+a = 10
+b = 3
+expr = a + b * 2 - 4
+print(expr)
+        </span>
+      </div>
+
+      <h3>3.2 Relational (Comparison) Expressions</h3>
+      <p>Use comparison operators (<code>&lt;, &lt;=, &gt;, &gt;=, ==, !=</code>) and result is <strong>True</strong> or <strong>False</strong>.</p>
+      <div class="example-box">
+        <span class="code">
+marks = 72
+print(marks >= 40)    # True
+print(marks < 60)     # False
+        </span>
+      </div>
+
+      <h3>3.3 Logical Expressions</h3>
+      <p>
+        Combine relational expressions using logical operators (<code>and, or, not</code>).
+      </p>
+      <div class="example-box">
+        <span class="code">
+age = 19
+marks = 65
+
+eligible = (age >= 18) and (marks >= 60)
+print(eligible)   # True
+        </span>
+      </div>
+
+      <h3>3.4 Assignment Expressions</h3>
+      <p>
+        Use assignment operators (<code>=, +=, -=, ...</code>). These are usually statements, but they are built around expressions.
+      </p>
+      <div class="example-box">
+        <span class="code">
+x = 10 + 5   # 10 + 5 is an expression, x = 15 is assignment statement
+x += 2       # x = x + 2
+        </span>
+      </div>
+
+      <h3>3.5 String Expressions</h3>
+      <p>Expressions involving strings and string operators like concatenation (+) and repetition (*).</p>
+      <div class="example-box">
+        <span class="code">
+greet = "Hello "
+name = "Sukanta"
+
+msg = greet + name
+print(msg)
+
+line = "-" * 10
+print(line)
+        </span>
+      </div>
+
+      <h3>3.6 Mixed-Type Expressions</h3>
+      <p>
+        When operands in an expression have different numeric types (int, float), Python automatically promotes the lower type.
+      </p>
+
+      <div class="example-box">
+        <span class="code">
+x = 10        # int
+y = 3.5       # float
+
+result = x + y
+print(result)          # 13.5  (float)
+print(type(result))    # &lt;class 'float'&gt;
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Automatic promotion:</strong> int + float → result is float.  
+        But string + int is <strong>not</strong> allowed without casting.
+      </div>
+
+      <!-- 4. Step-by-Step Evaluation -->
+      <h2>4. Evaluating Expressions Step-by-Step (Dry Run)</h2>
+      <p>
+        To understand an expression, we break it into steps following operator precedence and associativity.
+      </p>
+
+      <h3>4.1 Example 1</h3>
+      <div class="example-box">
+        <span class="code">
+a = 10
+b = 3
+c = 2
+
+expr = a + b * c - 4
+print(expr)
+        </span>
+
+        <p><strong>Dry run:</strong></p>
+        <ul>
+          <li>Step 1: Identify highest precedence → <code>*</code></li>
+          <li>Step 2: <code>b * c = 3 * 2 = 6</code></li>
+          <li>Step 3: Now expression becomes <code>a + 6 - 4</code></li>
+          <li>Step 4: Evaluate from left to right for <code>+</code> and <code>-</code> → <code>10 + 6 = 16</code></li>
+          <li>Step 5: <code>16 - 4 = 12</code></li>
+          <li>Final result: <code>expr = 12</code></li>
+        </ul>
+      </div>
+
+      <h3>4.2 Example 2 — With parentheses</h3>
+      <div class="example-box">
+        <span class="code">
+x = 5
+y = 2
+z = 3
+
+expr1 = x + y * z
+expr2 = (x + y) * z
+
+print(expr1)
+print(expr2)
+        </span>
+        <p><strong>Dry run:</strong></p>
+        <ul>
+          <li><code>expr1</code> → <code>5 + 2 * 3</code> → <code>2 * 3 = 6</code> → <code>5 + 6 = 11</code></li>
+          <li><code>expr2</code> → <code>(5 + 2) * 3</code> → <code>5 + 2 = 7</code> → <code>7 * 3 = 21</code></li>
+        </ul>
+      </div>
+
+      <div class="highlight">
+        Same numbers, different grouping → different result.  
+        This is why understanding precedence and parentheses is very important.
+      </div>
+
+      <!-- 5. Operator Precedence -->
+      <h2>5. Operator Precedence in Python</h2>
+      <p>
+        When an expression contains many different operators, Python uses a fixed <strong>precedence order</strong>
+        to decide which parts to evaluate first.
+      </p>
+
+      <h3>5.1 Precedence Table (Common Operators)</h3>
+      <table>
+        <tr>
+          <th>Level</th>
+          <th>Operators</th>
+          <th>Description</th>
+          <th>Associativity</th>
+        </tr>
+        <tr>
+          <td>Highest</td>
+          <td><code>( )</code></td>
+          <td>Parentheses (grouping)</td>
+          <td>–</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>**</code></td>
+          <td>Exponent</td>
+          <td>Right to Left</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>+x, -x, ~x</code></td>
+          <td>Unary plus, unary minus, bitwise NOT</td>
+          <td>Right to Left</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>*, /, //, %</code></td>
+          <td>Multiplication, division, floor division, modulus</td>
+          <td>Left to Right</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>+, -</code></td>
+          <td>Addition, subtraction</td>
+          <td>Left to Right</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Comparison (<code>&lt;, &lt;=, &gt;, &gt;=, ==, !=</code>)</td>
+          <td>Relational operators</td>
+          <td>Left to Right</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>not</code></td>
+          <td>Logical NOT</td>
+          <td>Right to Left</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>and</code></td>
+          <td>Logical AND</td>
+          <td>Left to Right</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><code>or</code></td>
+          <td>Logical OR</td>
+          <td>Left to Right</td>
+        </tr>
+        <tr>
+          <td>Lowest</td>
+          <td><code>=, +=, -=, ...</code></td>
+          <td>Assignment operators</td>
+          <td>Right to Left</td>
+        </tr>
+      </table>
+
+      <h3>5.2 Examples Based on Precedence</h3>
+      <div class="example-box">
+        <span class="code">
+expr = 10 + 5 * 2
+# * before +
+# 5 * 2 = 10, then 10 + 10 = 20
+print(expr)     # 20
+
+expr2 = 10 + 5 * 2 ** 2
+# ** first: 2 ** 2 = 4
+# then *: 5 * 4 = 20
+# then +: 10 + 20 = 30
+print(expr2)    # 30
+        </span>
+      </div>
+
+      <div class="example-box">
+        <span class="code">
+expr3 = 100 / 5 * 2
+# / and * same precedence, evaluated left to right:
+# 100 / 5 = 20.0
+# 20.0 * 2 = 40.0
+print(expr3)     # 40.0
+        </span>
+      </div>
+
+      <!-- 6. Associativity -->
+      <h2>6. Associativity (Direction of Evaluation)</h2>
+      <p>
+        When multiple operators of the <strong>same precedence</strong> appear, Python uses <strong>associativity</strong>
+        (left-to-right or right-to-left) to decide the evaluation order.
+      </p>
+
+      <h3>6.1 Left-to-Right Associativity</h3>
+      <p>Operators like <code>+, -, *, /, //, %</code> are evaluated from left to right.</p>
+
+      <div class="example-box">
+        <span class="code">
+expr = 100 - 20 - 10
+# Left to right:
+# Step 1: 100 - 20 = 80
+# Step 2: 80 - 10  = 70
+print(expr)   # 70
+        </span>
+      </div>
+
+      <h3>6.2 Right-to-Left Associativity</h3>
+      <p>The exponent operator <code>**</code> is right-associative.</p>
+
+      <div class="example-box">
+        <span class="code">
+expr = 2 ** 3 ** 2
+# Evaluated as 2 ** (3 ** 2)
+# 3 ** 2 = 9
+# 2 ** 9 = 512
+print(expr)   # 512
+        </span>
+      </div>
+
+      <div class="note">
+        If you write <code>(2 ** 3) ** 2</code>, result becomes <code>8 ** 2 = 64</code>.  
+        So brackets change the result drastically.
+      </div>
+
+      <!-- 7. Parentheses and Grouping -->
+      <h2>7. Using Parentheses Effectively</h2>
+      <p>
+        Parentheses <code>( )</code> allow you to <strong>override</strong> default precedence and
+        make your intention clear. This also improves readability.
+      </p>
+
+      <div class="example-box">
+        <span class="code">
+a = 4
+b = 3
+c = 2
+
+expr1 = a + b * c          # 4 + 3 * 2 = 10
+expr2 = (a + b) * c        # (4 + 3) * 2 = 14
+
+print(expr1)
+print(expr2)
+        </span>
+      </div>
+
+      <div class="highlight">
+        <strong>Best practice:</strong> When in doubt, use parentheses.  
+        Even if you know precedence, parentheses make your code easier for others to read.
+      </div>
+
+      <!-- 8. Mixed Expressions and Type Behaviour -->
+      <h2>8. Mixed-Type and Boolean Expressions</h2>
+
+      <h3>8.1 Mixing Integers and Floats</h3>
+      <div class="example-box">
+        <span class="code">
+x = 5     # int
+y = 2.0   # float
+
+result = x / y + 3
+print(result)          # 5 / 2.0 = 2.5 → 2.5 + 3 = 5.5
+print(type(result))    # &lt;class 'float'&gt;
+        </span>
+      </div>
+
+      <h3>8.2 Combining Relational and Logical Operators</h3>
+      <div class="example-box">
+        <span class="code">
+a = 10
+b = 5
+c = 3
+
+expr = a > b and b > c
+# a > b → 10 > 5 → True
+# b > c → 5 > 3 → True
+# True and True → True
+print(expr)
+        </span>
+      </div>
+
+      <h3>8.3 Short-Circuit Evaluation (Recap in Expressions)</h3>
+      <p>
+        In <code>and</code> and <code>or</code> expressions, Python may <strong>stop early</strong> without
+        checking all parts if the result is already decided.
+      </p>
+
+      <div class="example-box">
+        <span class="code">
+def test():
+    print("test() called")
+    return True
+
+print(False and test())   # test() is NOT called
+print(True or test())     # test() is NOT called
+        </span>
+      </div>
+
+      <!-- 9. Common Tricky Examples -->
+      <h2>9. Common Tricky Expressions (Important for Exams)</h2>
+
+      <h3>9.1 Tricky Example 1</h3>
+      <div class="example-box">
+        <span class="code">
+x = 2
+y = 3
+z = 4
+
+expr = x + y * z ** 2
+# z ** 2 = 4 ** 2 = 16
+# y * 16 = 3 * 16 = 48
+# x + 48 = 2 + 48 = 50
+print(expr)   # 50
+        </span>
+      </div>
+
+      <h3>9.2 Tricky Example 2</h3>
+      <div class="example-box">
+        <span class="code">
+a = 10
+b = 20
+c = 5
+
+print(a < b and b < c or a == 10)
+# Step 1: (a < b) → True
+# Step 2: (b < c) → 20 < 5 → False
+# Step 3: True and False → False
+# Step 4: a == 10 → True
+# Step 5: False or True → True
+        </span>
+      </div>
+
+      <h3>9.3 Tricky Example 3 — Combining <code>not</code>, <code>and</code>, <code>or</code></h3>
+      <div class="example-box">
+        <span class="code">
+x = 5
+y = 0
+
+expr = not x > 3 or y != 0 and x == 5
+# Step 1: x > 3 → True
+# Step 2: not True → False
+# Step 3: y != 0 → 0 != 0 → False
+# Step 4: x == 5 → True
+# Step 5: False and True → False
+# Step 6: False or False → False
+print(expr)
+        </span>
+      </div>
+
+      <!-- 10. Expression Errors & Pitfalls -->
+      <h2>10. Common Mistakes & Pitfalls</h2>
+      <ul>
+        <li>Using <code>=</code> instead of <code>==</code> in conditions.</li>
+        <li>Forgetting that <code>input()</code> returns string → causes TypeError in numeric expressions.</li>
+        <li>Misunderstanding integer division vs float division.</li>
+        <li>Wrongly grouping conditions without parentheses.</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Example — input() Pitfall</div>
+        <span class="code">
+a = input("Enter a number: ")
+b = input("Enter another number: ")
+
+print(a + b)
+# If a = "10", b = "5"
+# Output: "105" (string concatenation), NOT 15
+        </span>
+      </div>
+
+      <div class="note">
+        Use <code>int()</code> or <code>float()</code> for numeric expressions:
+        <br><code>a = int(input("..."))</code>
+      </div>
+
+      <!-- 11. Practice: Output-Based Questions -->
+      <h2>11. Practice — Output Prediction</h2>
+
+      <div class="example-box">
+        <div class="example-title">Q1</div>
+        <span class="code">
+x = 4
+y = 3
+z = 2
+
+print(x + y * z)
+print((x + y) * z)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q2</div>
+        <span class="code">
+a = 2
+b = 3
+c = 4
+
+expr = a ** b ** c
+print(expr)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q3</div>
+        <span class="code">
+x = 10
+y = 5
+z = 0
+
+print(x > y and z != 0)
+print(not x < y or z == 0)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q4</div>
+        <span class="code">
+x = 5
+print(x * 2 + 3 ** 2)
+print((x * 2 + 3) ** 2)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q5</div>
+        <span class="code">
+a = 10
+b = 20
+c = 30
+
+expr = a < b < c
+print(expr)
+        </span>
+      </div>
+
+      <!-- 12. MCQs -->
+      <h2>12. Sample MCQs — Expressions & Precedence</h2>
+      <ol>
+        <li>
+          What will be the value of <code>2 + 3 * 4</code>?<br/>
+          a) 20 &nbsp;&nbsp; b) 14 &nbsp;&nbsp; c) 24 &nbsp;&nbsp; d) 12
+        </li>
+        <li>
+          Which operator is evaluated first in the expression <code>5 + 4 * 3 ** 2</code>?<br/>
+          a) + &nbsp;&nbsp; b) * &nbsp;&nbsp; c) ** &nbsp;&nbsp; d) All equal
+        </li>
+        <li>
+          The associativity of the <code>**</code> operator is:<br/>
+          a) Left to Right &nbsp;&nbsp; b) Right to Left &nbsp;&nbsp; c) None &nbsp;&nbsp; d) Depends on expression
+        </li>
+        <li>
+          Expression <code>not (5 > 3 and 2 == 2)</code> evaluates to:<br/>
+          a) True &nbsp;&nbsp; b) False &nbsp;&nbsp; c) 0 &nbsp;&nbsp; d) 1
+        </li>
+        <li>
+          In the expression <code>10 / 3 + 2</code>, result type will be:<br/>
+          a) int &nbsp;&nbsp; b) float &nbsp;&nbsp; c) str &nbsp;&nbsp; d) bool
+        </li>
+      </ol>
+
+      <h4>Answer Key:</h4>
+      <p>1–b, 2–c, 3–b, 4–b, 5–b</p>
+
+      <!-- 13. Coding Practice -->
+      <h2>13. Coding Practice — Expressions</h2>
+      <ul>
+        <li>Write a program to calculate the value of the expression <code>(a + b) ** 2</code> for user inputs <code>a</code> and <code>b</code>.</li>
+        <li>Take marks of 3 subjects and calculate total, percentage and grade using expressions and chained comparisons.</li>
+        <li>Write a program to evaluate <code>(x ** 2 + 2*x + 1) / (x + 1)</code> for a given <code>x</code> and print the result.</li>
+        <li>Check whether a number is between 10 and 50 (inclusive) using a single chained comparison expression.</li>
+        <li>Use a ternary expression to print “Positive”, “Negative” or “Zero” based on the number entered by the user.</li>
+      </ul>
+
+      <!-- SUMMARY -->
+      <h2>14. Summary — Expressions & Precedence</h2>
+      <ul>
+        <li>An <strong>expression</strong> is any valid combination of values, variables and operators that produces a result.</li>
+        <li>Types of expressions: arithmetic, relational, logical, string, mixed-type, etc.</li>
+        <li>Operator precedence and associativity decide the order of evaluation.</li>
+        <li>Use parentheses to make expressions clear and avoid logical mistakes.</li>
+        <li>Short-circuit behaviour of <code>and</code> and <code>or</code> can skip parts of expressions.</li>
+        <li>Always be careful with data types when using <code>input()</code> in expressions.</li>
+      </ul>
+
+      <!-- AUTHOR BOX -->
+      <div class="highlight">
+        <strong>Prepared By:</strong> Sukanta Hui<br>
+        Faculty — Python &amp; Web Development<br>
+        <strong>Coder &amp; AccoTax</strong> ·
+        Website: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+        GitHub Resource for Practice:
+        <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">30 Days of Python</a><br>
+        Phone: 7003756860 · Email: info@codernaccotax.co.in
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Coder &amp; AccoTax. Designed &amp; Prepared by <strong>Sukanta Hui</strong>. |
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

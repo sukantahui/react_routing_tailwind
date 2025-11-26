@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 1.2 — Introduction to Python | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- META DETAILS -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+  <meta name="description" content="Detailed premium tutorial on Introduction to Python — installation, features, use-cases, IDLE, VS Code, PyCharm, writing scripts, interactive mode, script mode, indentation, variables, identifiers, keywords, and comments.">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: #1e293b;
+      --radius: 22px;
+      --shadow: 0 20px 45px rgba(0,0,0,0.55);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 28px 20px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(168,85,247,0.15));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 34px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .branding {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .branding a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .branding a:hover {
+      text-decoration: underline;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      margin-bottom: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: 4px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    h3 {
+      color: #38bdf8;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 16px;
+      color: #a855f7;
+      margin-top: 12px;
+    }
+
+    p, li {
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: var(--bg-soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      margin: 12px 0;
+      color: var(--muted);
+    }
+
+    .example-box {
+      background: var(--bg-soft);
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 12px;
+      margin: 12px 0;
+      color: var(--muted);
+    }
+
+    .code {
+      background: #020617;
+      border: 1px solid #1e293b;
+      padding: 8px 12px;
+      border-radius: 10px;
+      display: block;
+      margin-top: 6px;
+      font-family: monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 36px;
+      padding-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Unit 1.2 — Introduction to Python</h1>
+    <p>A complete and deeply explained guide for Python beginners and NIELIT O Level students.</p>
+    <div class="branding">
+      <strong>Coder &amp; AccoTax</strong> • 
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+      Author: <strong>Sukanta Hui</strong> • Ph: <strong>7003756860</strong><br>
+      Email: <a href="mailto:info@codernaccotax.co.in">info@codernaccotax.co.in</a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="card">
+    <h2>1.2 Introduction to Python</h2>
+
+    <h3>What is Python?</h3>
+    <p>
+      Python is a <strong>high-level, general-purpose, interpreted programming language</strong> created by Guido van Rossum in 1991.
+      It is one of the most popular programming languages in the world because of its simplicity, readability, and huge community support.
+    </p>
+
+    <div class="highlight">
+      <strong>Key idea:</strong> Python looks like English and is easy to understand even for absolute beginners.
+    </div>
+
+    <h3>Features of Python</h3>
+    <ul>
+      <li><strong>Simple & readable syntax</strong> (looks like English)</li>
+      <li><strong>Interpreted language</strong> (no need to compile)</li>
+      <li><strong>Platform-independent</strong> (runs on Windows, Linux, Mac)</li>
+      <li><strong>Object-oriented</strong> yet also supports structured programming</li>
+      <li><strong>Large standard library</strong></li>
+      <li><strong>Huge community + easy availability of packages</strong></li>
+      <li><strong>Used in emerging technologies:</strong> AI, ML, Data Science, Web Dev, Automation</li>
+    </ul>
+
+    <h3>Applications of Python</h3>
+    <ul>
+      <li>Web Development (Django, Flask)</li>
+      <li>Machine Learning & AI (TensorFlow, Scikit-learn)</li>
+      <li>Data Science & Data Analysis (Pandas, NumPy)</li>
+      <li>Automation & Scripting</li>
+      <li>Game Development</li>
+      <li>Cybersecurity & Networking</li>
+      <li>Desktop Apps</li>
+      <li>IOT & Robotics</li>
+    </ul>
+
+    <div class="example-box">
+      <strong>Example: A simple Python program</strong>
+      <span class="code">
+print("Welcome to Python Programming!")
+      </span>
+    </div>
+
+    <!-- INSTALLATION -->
+    <h3>Installing Python</h3>
+    <p>Download Python from the official website:</p>
+    <p><a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></p>
+
+    <h4>3 Ways to Write Python Programs</h4>
+    <ul>
+      <li><strong>IDLE</strong> — comes built-in with Python</li>
+      <li><strong>VS Code</strong> — lightweight and popular editor</li>
+      <li><strong>PyCharm</strong> — professional IDE for Python</li>
+    </ul>
+
+    <h3>1. Installing Python in Windows</h3>
+    <ul>
+      <li>Download the setup file</li>
+      <li>Click “Install Now”</li>
+      <li><strong>Important:</strong> Check the option “Add Python to PATH”</li>
+      <li>Wait for installation to complete</li>
+    </ul>
+
+    <h3>2. Installing VS Code</h3>
+    <ul>
+      <li>Download from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></li>
+      <li>Install Python Extension</li>
+    </ul>
+
+    <h3>3. Installing PyCharm</h3>
+    <ul>
+      <li>Download from JetBrains</li>
+      <li>Create a project → Select interpreter → Start coding</li>
+    </ul>
+
+    <!-- MODES -->
+    <h3>Python Interactive Mode vs Script Mode</h3>
+
+    <h4>1. Interactive Mode</h4>
+    <p>Useful for quick testing. Shows output immediately.</p>
+    <div class="example-box">
+      <strong>Example (Interactive Mode):</strong>
+      <span class="code">
+>>> print("Hello")
+Hello
+>>> 5 + 10
+15
+      </span>
+    </div>
+
+    <h4>2. Script Mode</h4>
+    <p>Used for writing full programs in a file.</p>
+    <div class="example-box">
+      <strong>Example (Script Mode):</strong>
+      <span class="code">
+# filename: myprogram.py
+a = 10
+b = 20
+print("Sum =", a + b)
+      </span>
+    </div>
+
+    <div class="highlight">
+      <strong>Important:</strong> Save your file with the extension <code>.py</code>.
+    </div>
+
+    <!-- INDENTATION -->
+    <h3>Understanding Indentation</h3>
+    <p>
+      Python uses <strong>indentation (spaces / tabs)</strong> to define blocks of code.  
+      Indentation is not optional — it is a part of Python’s syntax.
+    </p>
+
+    <div class="example-box">
+      <strong>Correct indentation:</strong>
+      <span class="code">
+if 10 > 5:
+    print("True")
+      </span>
+
+      <strong>Incorrect indentation:</strong>
+      <span class="code">
+if 10 > 5:
+print("True")   # Error!
+      </span>
+    </div>
+
+    <div class="highlight">
+      Use **4 spaces** indentation for clean, error-free code.
+    </div>
+
+    <!-- VARIABLES -->
+    <h3>Variables & Identifiers</h3>
+    <p>
+      A <strong>variable</strong> is a name that stores a value in memory.  
+      An <strong>identifier</strong> is the name given to a variable, function, class, etc.
+    </p>
+
+    <h4>Rules for Identifiers</h4>
+    <ul>
+      <li>Must start with a letter or underscore (_) </li>
+      <li>Cannot start with a number</li>
+      <li>No special characters allowed: @, #, %, etc.</li>
+      <li>Case-sensitive (Age ≠ age)</li>
+      <li>Cannot use Python keywords</li>
+    </ul>
+
+    <div class="example-box">
+      <strong>Examples:</strong>
+      <span class="code">
+name = "Sukanta"
+age = 25
+_total = 450
+RateOfInterest = 8.5
+      </span>
+    </div>
+
+    <!-- KEYWORDS -->
+    <h3>Keywords & Reserved Words</h3>
+    <p>
+      Keywords are special reserved words that have predefined meaning in Python.
+      They <strong>cannot</strong> be used as variable names.
+    </p>
+
+    <div class="example-box">
+      <strong>Some Python Keywords:</strong>
+      <span class="code">
+False, True, None, if, else, elif, while,
+for, break, continue, import, from, class,
+def, return, try, except, finally, global
+      </span>
+    </div>
+
+    <!-- COMMENTS -->
+    <h3>Comments in Python</h3>
+    <p>Comments are notes in the program that Python ignores. They help explain the code.</p>
+
+    <h4>Single-line Comment</h4>
+    <span class="code">
+# This is a comment
+print("Hello Students")
+    </span>
+
+    <h4>Multi-line Comment</h4>
+    <span class="code">
+"""
+This program adds two numbers.
+Author: Sukanta Hui
+"""
+a = 10
+b = 20
+print(a + b)
+    </span>
+
+    <div class="highlight">
+      Comments improve readability and help during debugging.
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="highlight">
+      <strong>Prepared By:</strong> Sukanta Hui<br>
+      Faculty, Programming & Web Development<br>
+      <strong>Coder & AccoTax</strong> |
+      Website: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+      Phone: 7003756860 |
+      Email: <a href="mailto:info@codernaccotax.co.in">info@codernaccotax.co.in</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    © <span id="year"></span> Coder & AccoTax. Designed by <strong>Sukanta Hui</strong>.  
+    Visit: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+  </div>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Java Threading — Beginner to Pro | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Java Threading Tutorial from Beginner to Pro — Theory + Examples, by Coder & AccoTax (Sukanta Hui)" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: #0b1120;
+      --bg-soft: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: #1f2937;
+      --code: #020617;
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    header {
+      background:
+        radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.26), transparent 55%),
+        radial-gradient(circle at 90% 0, rgba(168, 85, 247, 0.26), transparent 55%);
+      border-radius: 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    .logo-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 10%, rgba(56, 189, 248, 0.9), transparent 60%),
+        radial-gradient(circle at 70% 90%, rgba(236, 72, 153, 0.9), transparent 60%);
+      border: 2px solid rgba(248, 250, 252, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #020617;
+      letter-spacing: 0.06em;
+    }
+
+    .brand {
+      flex: 1;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .brand p {
+      margin: 3px 0 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-link {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      background-color: rgba(15, 23, 42, 0.85);
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .meta {
+      text-align: right;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .meta strong {
+      color: var(--accent);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+      }
+
+      .meta {
+        text-align: left;
+      }
+    }
+
+    main {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 3.1fr) minmax(0, 1.1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .content {
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.18), transparent 55%);
+      border-radius: 18px;
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      padding: 18px 18px 22px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-title {
+      margin: 8px 0 4px;
+      font-size: 1.9rem;
+      background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin: 14px 0 6px;
+      color: #e5e7eb;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 4px;
+      color: var(--accent);
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin: 8px 0 2px;
+      color: var(--accent2);
+    }
+
+    p {
+      margin: 3px 0;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 3px 0 6px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin: 2px 0;
+      font-size: 0.94rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .trainer-tip,
+    .note-box,
+    .warning-box,
+    .success-box {
+      border-radius: 10px;
+      padding: 7px 9px;
+      margin: 6px 0;
+      border: 1px solid;
+      font-size: 0.9rem;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .trainer-tip {
+      border-color: rgba(56, 189, 248, 0.7);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    .note-box {
+      border-color: rgba(148, 163, 184, 0.8);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+
+    .warning-box {
+      border-color: rgba(234, 179, 8, 0.9);
+      background-color: rgba(24, 20, 4, 0.97);
+    }
+
+    .success-box {
+      border-color: rgba(34, 197, 94, 0.9);
+      background-color: rgba(5, 46, 22, 0.96);
+    }
+
+    .note-icon {
+      font-size: 1.1rem;
+      margin-top: 1px;
+    }
+
+    code {
+      font-family: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      background-color: rgba(15, 23, 42, 0.95);
+      padding: 1px 4px;
+      border-radius: 4px;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      color: #f97316;
+    }
+
+    .code-block {
+      background-color: var(--code);
+      border-radius: 10px;
+      padding: 9px 10px;
+      border: 1px solid rgba(30, 64, 175, 0.9);
+      margin: 6px 0;
+      overflow-x: auto;
+      font-size: 0.88rem;
+      color: #e5e7eb;
+      white-space: pre;
+    }
+
+    .formula {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background-color: rgba(15, 23, 42, 0.98);
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.86rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      border-color: rgba(56, 189, 248, 0.8);
+      color: #bae6fd;
+    }
+
+    .badge-col {
+      border-color: rgba(168, 85, 247, 0.8);
+      color: #e9d5ff;
+    }
+
+    .trainer-step {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 7px 9px;
+      margin: 6px 0;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 60%);
+      font-size: 0.9rem;
+    }
+
+    .trainer-step strong {
+      color: var(--accent);
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-size: 0.88rem;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 4px 6px;
+      text-align: left;
+    }
+
+    .table th {
+      background: linear-gradient(to right, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+      font-weight: 600;
+    }
+
+    .table caption {
+      caption-side: top;
+      text-align: left;
+      margin-bottom: 3px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    details {
+      margin: 4px 0;
+      border-radius: 10px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background-color: rgba(15, 23, 42, 0.96);
+      padding: 4px 7px;
+      font-size: 0.9rem;
+    }
+
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--accent2);
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .summary-label {
+      font-weight: 600;
+    }
+
+    ol.exercise-list li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 14px 4px 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(30, 64, 175, 0.85);
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-circle">C&A</div>
+      <div class="brand">
+        <h1>Java Threading — Beginner to Pro</h1>
+        <p>Premium Study Note • Theory + Practical • Personal Trainer Edition</p>
+        <a class="site-link" href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          Visit: www.codernaccotax.co.in
+        </a>
+      </div>
+      <div class="meta">
+        <div><strong>Organisation:</strong> Coder &amp; AccoTax</div>
+        <div><strong>Author:</strong> Sukanta Hui</div>
+        <div><strong>Topic:</strong> Java Multithreading</div>
+      </div>
+    </header>
+
+    <main>
+      <!-- MAIN CONTENT -->
+      <section class="content">
+        <span class="pill">From Zero to Expert • Step by Step Trainer</span>
+        <h2 class="hero-title">Java Threading — A Complete Guided Journey</h2>
+        <p class="tagline">
+          In this note, I will train you like a personal tutor: we start from basic definitions, move through theory,
+          then build practical examples and exam/interview confidence.
+        </p>
+
+        <!-- 1. Introduction -->
+        <h2>1. Introduction — What is a Thread?</h2>
+        <p>
+          A <strong>thread</strong> is the smallest independent unit of execution in a program. A Java program (process)
+          can contain one or more threads running concurrently.
+        </p>
+        <ul>
+          <li>A <strong>process</strong> is a running program (with its own memory space).</li>
+          <li>A <strong>thread</strong> is a lightweight sub-process inside a process.</li>
+        </ul>
+
+        <div class="trainer-tip">
+          <div class="note-icon">🎯</div>
+          <div>
+            Think of a process as a company, and threads as employees. One company can have many employees working on
+            different tasks but sharing the same office resources.
+          </div>
+        </div>
+
+        <h3>1.1 Why Do We Need Threads?</h3>
+        <ul>
+          <li>To perform multiple operations at the same time (concurrency).</li>
+          <li>To keep UI responsive while doing background work (e.g., downloading files).</li>
+          <li>To make better use of multi-core CPUs.</li>
+          <li>To handle many client requests in server-side applications.</li>
+        </ul>
+
+        <!-- 2. Multitasking vs Multithreading -->
+        <h2>2. Multitasking vs Multithreading (Theory)</h2>
+        <p><strong>Multitasking</strong> means performing multiple tasks at the same time.</p>
+        <p>Types of multitasking:</p>
+        <ul>
+          <li><strong>Process-based multitasking</strong> — Multiple programs running (e.g., browser, music, editor).</li>
+          <li><strong>Thread-based multitasking</strong> — Multiple threads within the same program.</li>
+        </ul>
+
+        <table class="table">
+          <caption>Process vs Thread (theoretical comparison)</caption>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Process</th>
+              <th>Thread</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Weight</td>
+              <td>Heavyweight</td>
+              <td>Lightweight</td>
+            </tr>
+            <tr>
+              <td>Memory space</td>
+              <td>Separate for each process</td>
+              <td>Shared within the same process</td>
+            </tr>
+            <tr>
+              <td>Creation cost</td>
+              <td>High</td>
+              <td>Low</td>
+            </tr>
+            <tr>
+              <td>Communication</td>
+              <td>Inter-process communication (difficult)</td>
+              <td>Shared memory (easier but needs care)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 3. JVM Memory & Threads -->
+        <h2>3. JVM Memory Model and Threads (Conceptual)</h2>
+        <p>In Java, threads share some memory areas and have their own private areas.</p>
+        <ul>
+          <li><strong>Shared between threads:</strong> Heap, Method Area (class variables, static data).</li>
+          <li><strong>Private to each thread:</strong> Stack, Program Counter (PC), local variables, method calls.</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-icon">💡</div>
+          <div>
+            Because heap is shared, if two threads modify the same object, we may get <strong>race conditions</strong>.
+            This is why synchronization is necessary.
+          </div>
+        </div>
+
+        <!-- 4. Thread Lifecycle -->
+        <h2>4. Thread Life Cycle (Very Important Theory)</h2>
+        <p>A Java thread passes through the following main states:</p>
+        <ul>
+          <li><strong>New</strong> — Thread object is created but <code>start()</code> is not called yet.</li>
+          <li><strong>Runnable</strong> — Thread is ready and eligible to run; waiting for CPU time.</li>
+          <li><strong>Running</strong> — Thread is actually executing instructions on the CPU.</li>
+          <li><strong>Blocked / Waiting / Timed Waiting</strong> — Thread is not running, waiting for some event
+            (lock, I/O, time).</li>
+          <li><strong>Terminated</strong> — Thread’s <code>run()</code> method has completed; thread is dead.</li>
+        </ul>
+
+        <div class="code-block">
+Thread t = new Thread();   // NEW
+t.start();                 // NEW → RUNNABLE
+// When CPU picks the thread: RUNNABLE → RUNNING
+// After run() ends: RUNNING → TERMINATED
+        </div>
+
+        <div class="trainer-step">
+          <strong>Trainer Flow:</strong> In exams, always write: New → Runnable → Running → (Blocked/Waiting) →
+          Terminated. If you draw a diagram, you already score half marks.
+        </div>
+
+        <!-- 5. Creating Threads -->
+        <h2>5. Creating Threads (Practical + Concept)</h2>
+        <p>There are two classic ways to create a thread in Java:</p>
+        <ul>
+          <li>By extending <code>Thread</code> class</li>
+          <li>By implementing <code>Runnable</code> interface</li>
+        </ul>
+
+        <h3>5.1 Extending Thread Class</h3>
+        <p>Theoretical points:</p>
+        <ul>
+          <li>You override <code>run()</code> method.</li>
+          <li>You call <code>start()</code> to begin execution in a new thread.</li>
+          <li>Not recommended if you already need to extend another class (single inheritance limitation).</li>
+        </ul>
+
+        <div class="code-block">
+class MyThread extends Thread {
+  @Override
+  public void run() {
+    System.out.println("Thread running: " + Thread.currentThread().getName());
+  }
+}
+
+public class ThreadDemo1 {
+  public static void main(String[] args) {
+    MyThread t1 = new MyThread();
+    MyThread t2 = new MyThread();
+
+    t1.start();  // starts a new thread
+    t2.start();  // starts another thread
+  }
+}
+        </div>
+
+        <div class="note-box">
+          <div class="note-icon">ℹ️</div>
+          <div>
+            Calling <code>run()</code> directly does <strong>not</strong> create a new thread; it behaves like a normal
+            method call. You must call <code>start()</code>.
+          </div>
+        </div>
+
+        <h3>5.2 Implementing Runnable Interface</h3>
+        <p>Theoretical points:</p>
+        <ul>
+          <li>Runnable separates the task logic from the thread itself.</li>
+          <li>We pass a Runnable object to <code>Thread</code> constructor.</li>
+          <li>This is more flexible and is the preferred approach.</li>
+        </ul>
+
+        <div class="code-block">
+class MyTask implements Runnable {
+  @Override
+  public void run() {
+    System.out.println("Task running in: " + Thread.currentThread().getName());
+  }
+}
+
+public class ThreadDemo2 {
+  public static void main(String[] args) {
+    Runnable task = new MyTask();
+    Thread t1 = new Thread(task, "Worker-1");
+    Thread t2 = new Thread(task, "Worker-2");
+
+    t1.start();
+    t2.start();
+  }
+}
+        </div>
+
+        <div class="trainer-tip">
+          <div class="note-icon">🎓</div>
+          <div>
+            Interview line: “I prefer <code>Runnable</code> because Java supports only single inheritance. Runnable lets
+            me keep my class hierarchy clean and separate task from thread.”
+          </div>
+        </div>
+
+        <h3>5.3 Lambda Expression with Runnable (Modern Java)</h3>
+        <div class="code-block">
+public class LambdaThreadDemo {
+  public static void main(String[] args) {
+    Runnable task = () -> {
+      for (int i = 1; i <= 3; i++) {
+        System.out.println(Thread.currentThread().getName() + " → " + i);
+      }
+    };
+
+    Thread t1 = new Thread(task, "T1");
+    Thread t2 = new Thread(task, "T2");
+    t1.start();
+    t2.start();
+  }
+}
+        </div>
+
+        <!-- 6. Thread Scheduler & Context Switching -->
+        <h2>6. Thread Scheduler & Context Switching (Theory)</h2>
+        <p>
+          The <strong>Thread Scheduler</strong> is part of the JVM/OS that decides which thread runs at a particular
+          time.
+        </p>
+        <ul>
+          <li>Java does <strong>not guarantee</strong> which thread will run first.</li>
+          <li>Execution order may change from run to run.</li>
+        </ul>
+
+        <p><strong>Context switching</strong> is the process of saving the state of one thread and restoring another
+          thread’s state so that CPU can switch between them.</p>
+
+        <div class="warning-box">
+          <div class="note-icon">⚠️</div>
+          <div>
+            If too many threads are created, frequent context switching may reduce performance instead of improving it.
+          </div>
+        </div>
+
+        <!-- 7. Thread Methods -->
+        <h2>7. Important Thread Methods (with Examples)</h2>
+        <ul>
+          <li><code>start()</code> — starts a new thread.</li>
+          <li><code>run()</code> — contains the code that the thread executes.</li>
+          <li><code>sleep(ms)</code> — makes the current thread sleep for given milliseconds.</li>
+          <li><code>join()</code> — waits for another thread to finish.</li>
+          <li><code>isAlive()</code> — checks if thread is still running.</li>
+          <li><code>setName()</code> / <code>getName()</code> — manage thread names.</li>
+        </ul>
+
+        <h3>7.1 Example: sleep() and join()</h3>
+        <div class="code-block">
+class CountdownThread extends Thread {
+  private String taskName;
+
+  CountdownThread(String taskName) {
+    this.taskName = taskName;
+  }
+
+  @Override
+  public void run() {
+    try {
+      for (int i = 3; i >= 1; i--) {
+        System.out.println(taskName + " → " + i);
+        Thread.sleep(500);
+      }
+      System.out.println(taskName + " finished.");
+    } catch (InterruptedException e) {
+      System.out.println(taskName + " interrupted.");
+    }
+  }
+}
+
+public class JoinDemo {
+  public static void main(String[] args) throws InterruptedException {
+    CountdownThread t1 = new CountdownThread("Worker-1");
+    CountdownThread t2 = new CountdownThread("Worker-2");
+
+    t1.start();
+    t2.start();
+
+    t1.join();   // main thread waits for t1
+    t2.join();   // then waits for t2
+
+    System.out.println("Main: All workers finished.");
+  }
+}
+        </div>
+
+        <div class="trainer-step">
+          <strong>Trainer Hint:</strong> In project work, <code>join()</code> is used when the main thread must wait for
+          the completion of worker threads before continuing.
+        </div>
+
+        <!-- 8. Thread Priority & Daemon Threads -->
+        <h2>8. Thread Priority & Daemon Threads (Theory + Example)</h2>
+        <p>Each thread has a priority between 1 and 10:</p>
+        <ul>
+          <li><code>Thread.MIN_PRIORITY = 1</code></li>
+          <li><code>Thread.NORM_PRIORITY = 5</code> (default)</li>
+          <li><code>Thread.MAX_PRIORITY = 10</code></li>
+        </ul>
+
+        <p>Higher priority indicates that a thread is more important, but JVM does <strong>not guarantee</strong> strict
+          priority-based scheduling.</p>
+
+        <h3>8.1 Daemon Threads</h3>
+        <p>A <strong>daemon thread</strong> is a background thread that supports other threads (e.g., garbage collector).
+        </p>
+        <ul>
+          <li>JVM exits when all non-daemon threads finish, even if daemon threads are still running.</li>
+          <li>Mark a thread as daemon using <code>setDaemon(true)</code> before <code>start()</code>.</li>
+        </ul>
+
+        <div class="code-block">
+public class DaemonDemo {
+  public static void main(String[] args) {
+    Thread daemon = new Thread(() -> {
+      while (true) {
+        System.out.println("Daemon working in background...");
+        try {
+          Thread.sleep(700);
+        } catch (InterruptedException e) { }
+      }
+    });
+
+    daemon.setDaemon(true);  // must be set before start
+    daemon.start();
+
+    System.out.println("Main doing some work...");
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) { }
+
+    System.out.println("Main finished. JVM will exit, daemon will stop automatically.");
+  }
+}
+        </div>
+
+        <!-- 9. Synchronization -->
+        <h2>9. Synchronization — Protecting Shared Data</h2>
+        <p>
+          When multiple threads access and modify shared data simultaneously, we can get
+          <strong>race conditions</strong> (incorrect results due to unpredictable interleaving).
+        </p>
+        <p><strong>Synchronization</strong> ensures that only one thread at a time can execute a critical section.</p>
+
+        <h3>9.1 Synchronized Method</h3>
+        <div class="code-block">
+class Counter {
+  private int count = 0;
+
+  public synchronized void increment() {
+    count++;
+  }
+
+  public int getCount() {
+    return count;
+  }
+}
+
+public class SyncDemo {
+  public static void main(String[] args) throws InterruptedException {
+    Counter counter = new Counter();
+
+    Runnable task = () -> {
+      for (int i = 0; i < 1000; i++) {
+        counter.increment();
+      }
+    };
+
+    Thread t1 = new Thread(task);
+    Thread t2 = new Thread(task);
+    t1.start();
+    t2.start();
+
+    t1.join();
+    t2.join();
+
+    System.out.println("Final count: " + counter.getCount()); // Expected 2000
+  }
+}
+        </div>
+
+        <h3>9.2 Synchronized Block</h3>
+        <p>Instead of locking the entire method, you can lock only a part of it:</p>
+        <div class="code-block">
+class Counter {
+  private int count = 0;
+  private final Object lock = new Object();
+
+  public void increment() {
+    synchronized (lock) {
+      count++;
+    }
+  }
+}
+        </div>
+
+        <div class="warning-box">
+          <div class="note-icon">⚠️</div>
+          <div>
+            Too much synchronization can reduce performance and even cause deadlocks if not designed carefully.
+          </div>
+        </div>
+
+        <!-- 10. Inter-thread Communication -->
+        <h2>10. Inter-thread Communication (wait, notify, notifyAll)</h2>
+        <p>Sometimes threads need to coordinate with each other. For this Java provides:</p>
+        <ul>
+          <li><code>wait()</code> — thread releases lock and waits.</li>
+          <li><code>notify()</code> — wakes up one waiting thread.</li>
+          <li><code>notifyAll()</code> — wakes up all waiting threads.</li>
+        </ul>
+        <p>These must be called inside a <code>synchronized</code> block.</p>
+
+        <h3>10.1 Simple Producer–Consumer Example (Conceptual)</h3>
+        <div class="code-block">
+class MessageBox {
+  private String message;
+  private boolean hasMessage = false;
+
+  public synchronized void put(String msg) throws InterruptedException {
+    while (hasMessage) {
+      wait(); // wait until message is taken
+    }
+    message = msg;
+    hasMessage = true;
+    notifyAll(); // notify consumer
+  }
+
+  public synchronized String take() throws InterruptedException {
+    while (!hasMessage) {
+      wait(); // wait until message is produced
+    }
+    hasMessage = false;
+    notifyAll(); // notify producer
+    return message;
+  }
+}
+        </div>
+
+        <!-- 11. Deadlock / Starvation / Livelock -->
+        <h2>11. Deadlock, Starvation, Livelock (Theoretical Concepts)</h2>
+        <h3>11.1 Deadlock</h3>
+        <p>Deadlock occurs when two or more threads are permanently blocked, each waiting for a resource held by the
+          other.</p>
+        <p>Conditions for deadlock:</p>
+        <ul>
+          <li>Mutual exclusion</li>
+          <li>Hold and wait</li>
+          <li>No preemption</li>
+          <li>Circular wait</li>
+        </ul>
+
+        <h3>11.2 Starvation</h3>
+        <p>Starvation occurs when a thread is unable to gain regular access to shared resources and is unable to
+          progress.</p>
+
+        <h3>11.3 Livelock</h3>
+        <p>In livelock, threads keep changing their state in response to other threads without making real progress.</p>
+
+        <!-- 12. Executor Framework -->
+        <h2>12. Executor Framework & Thread Pools (Modern Java)</h2>
+        <p>
+          Instead of manually creating and managing threads, we use the <strong>Executor Framework</strong> to manage
+          a pool of threads.
+        </p>
+
+        <div class="code-block">
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ExecutorDemo {
+  public static void main(String[] args) {
+    ExecutorService pool = Executors.newFixedThreadPool(3);
+
+    Runnable task = () -> {
+      System.out.println("Running in: " + Thread.currentThread().getName());
+    };
+
+    for (int i = 1; i <= 5; i++) {
+      pool.submit(task);
+    }
+
+    pool.shutdown();
+  }
+}
+        </div>
+
+        <div class="success-box">
+          <div class="note-icon">🚀</div>
+          <div>
+            Professional Java applications (web servers, microservices) almost always use thread pools via
+            <code>ExecutorService</code> instead of creating threads manually.
+          </div>
+        </div>
+
+        <!-- 13. Callable & Future -->
+        <h2>13. Callable & Future — Getting Results from Threads</h2>
+        <p><code>Runnable</code> cannot return a result. <code>Callable&lt;V&gt;</code> can return a value and throw checked exceptions.</p>
+
+        <div class="code-block">
+import java.util.concurrent.*;
+
+public class CallableDemo {
+  public static void main(String[] args) throws Exception {
+    ExecutorService pool = Executors.newSingleThreadExecutor();
+
+    Callable<Integer> task = () -> {
+      int sum = 0;
+      for (int i = 1; i <= 10; i++) sum += i;
+      return sum;
+    };
+
+    Future<Integer> future = pool.submit(task);
+    System.out.println("Result from worker: " + future.get()); // waits for result
+
+    pool.shutdown();
+  }
+}
+        </div>
+
+        <!-- 14. Advanced Synchronization Tools -->
+        <h2>14. Advanced Synchronization Tools (Overview)</h2>
+        <ul>
+          <li><strong>ReentrantLock</strong> — more flexible than synchronized, supports fair locking, tryLock(), etc.</li>
+          <li><strong>Semaphore</strong> — controls access to a resource pool using permits.</li>
+          <li><strong>CountDownLatch</strong> — waits until a set of operations complete.</li>
+          <li><strong>CyclicBarrier</strong> — lets multiple threads wait for each other at a common barrier point.</li>
+          <li><strong>Atomic variables</strong> — provide lock-free thread-safe operations (e.g., AtomicInteger).</li>
+        </ul>
+
+        <!-- 15. Short Theory Q&A -->
+        <h2>15. Short Theory Q&A (Exam-Friendly)</h2>
+
+        <ol class="exercise-list">
+          <li>
+            <strong>Q1:</strong> What is a thread?  
+            <details>
+              <summary><span class="summary-label">Show Answer</span></summary>
+              <p>
+                A thread is the smallest unit of execution within a process; it is a lightweight sub-process with its
+                own call stack but sharing memory with other threads in the same process.
+              </p>
+            </details>
+          </li>
+          <li>
+            <strong>Q2:</strong> Differentiate between process-based and thread-based multitasking.  
+            <details>
+              <summary><span class="summary-label">Show Answer</span></summary>
+              <p>
+                Process-based multitasking runs multiple programs simultaneously, each with its own memory space.
+                Thread-based multitasking runs multiple execution paths (threads) within a single program, sharing the
+                same memory space.
+              </p>
+            </details>
+          </li>
+          <li>
+            <strong>Q3:</strong> Why is synchronization needed?  
+            <details>
+              <summary><span class="summary-label">Show Answer</span></summary>
+              <p>
+                Synchronization is needed to protect shared data from concurrent access by multiple threads, preventing
+                race conditions and ensuring data consistency.
+              </p>
+            </details>
+          </li>
+          <li>
+            <strong>Q4:</strong> What is the difference between <code>wait()</code> and <code>sleep()</code>?  
+            <details>
+              <summary><span class="summary-label">Show Answer</span></summary>
+              <p>
+                <code>sleep()</code> is a static method of <code>Thread</code> that pauses the current thread for a
+                specified time without releasing any locks. <code>wait()</code> is a method of <code>Object</code> that
+                must be called inside a synchronized block; it releases the lock and waits until <code>notify()</code>
+                or <code>notifyAll()</code> is called.
+              </p>
+            </details>
+          </li>
+        </ol>
+
+        <!-- 16. MCQ Practice -->
+        <h2>16. MCQ Practice (Quick Check)</h2>
+        <p><strong>1.</strong> Which method actually starts a new thread?</p>
+        <ul>
+          <li>A) <code>run()</code></li>
+          <li>B) <code>start()</code> ✅</li>
+          <li>C) <code>execute()</code></li>
+        </ul>
+
+        <p><strong>2.</strong> Default priority of a Java thread is:</p>
+        <ul>
+          <li>A) 1</li>
+          <li>B) 5 ✅</li>
+          <li>C) 10</li>
+        </ul>
+
+        <p><strong>3.</strong> Which of the following is <strong>not</strong> a thread state?</p>
+        <ul>
+          <li>A) New</li>
+          <li>B) Runnable</li>
+          <li>C) Sleeping ✅ (sleeping is part of timed waiting state)</li>
+        </ul>
+
+        <!-- 17. Interview Pointers -->
+        <h2>17. Interview Notes (Cheat Sheet)</h2>
+        <ul>
+          <li>Always mention race conditions and synchronization when asked about multithreading issues.</li>
+          <li>Explain difference between Runnable and Callable, and why ExecutorService is preferred over raw threads.</li>
+          <li>Be ready to explain deadlock with an example and ways to avoid it (consistent lock ordering, timeouts).</li>
+        </ul>
+
+        <div class="success-box">
+          <div class="note-icon">🎓</div>
+          <div>
+            If you revise this sheet 2–3 times, you will be comfortable for board exams (ISC/CBSE) as well as
+            university-level and interview questions on Java threading.
+          </div>
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="card">
+          <h4>Trainer Roadmap</h4>
+          <ul>
+            <li>✔ Understand what threads are</li>
+            <li>✔ Learn life cycle & states</li>
+            <li>✔ Create threads (Thread & Runnable)</li>
+            <li>✔ Use thread methods (sleep, join)</li>
+            <li>✔ Master synchronization</li>
+            <li>✔ Learn wait/notify</li>
+            <li>✔ Study deadlock & starvation</li>
+            <li>✔ Learn Executor & Callable</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Where is this used?</h4>
+          <ul>
+            <li>• Web servers handling many clients</li>
+            <li>• Banking and stock trading systems</li>
+            <li>• Games & simulation engines</li>
+            <li>• Background tasks (logging, monitoring)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Exam Checklist</h4>
+          <ul>
+            <li>☑ Can draw thread life cycle diagram</li>
+            <li>☑ Can explain synchronized keyword</li>
+            <li>☑ Know difference: wait vs sleep</li>
+            <li>☑ Know at least one deadlock example</li>
+            <li>☑ Can explain ExecutorService</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Suggested Study Flow</h4>
+          <ol style="padding-left:18px;margin:0;">
+            <li>Read theory slowly once.</li>
+            <li>Run 2–3 example programs.</li>
+            <li>Answer short questions from memory.</li>
+            <li>Attempt MCQs without looking.</li>
+            <li>Finally, explain the topic to a friend.</li>
+          </ol>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © Coder &amp; AccoTax • Java Threading — Beginner to Pro (Premium HTML Study Note) • Prepared by
+      <strong>Sukanta Hui</strong> • Website:
+      <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+        www.codernaccotax.co.in
+      </a>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 1.1 — Basics of Programming | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Organisation & Author Meta -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="description" content="Detailed tutorial on Basics of Programming — Program, Algorithm, Flowchart, Problem-Solving Steps, Structured vs Object-Oriented Programming for NIELIT O Level & Python beginners.">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #020617;
+      --bg-card: #020617;
+      --bg-elevated: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --accent-soft: rgba(56, 189, 248, 0.08);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #fb7185;
+      --success: #22c55e;
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.65);
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, #0f172a 0, transparent 55%),
+        radial-gradient(circle at 80% 0, #1e293b 0, transparent 55%),
+        #020617;
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .page-shell {
+        padding: 32px 24px 64px;
+      }
+    }
+
+    .background-glow {
+      position: fixed;
+      inset: -200px 0 auto 0;
+      background:
+        radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 90% 0, rgba(168, 85, 247, 0.16), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER / BRAND */
+    .header-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      padding: 20px 18px 20px;
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: 768px) {
+      .header-card {
+        padding: 24px 26px 22px;
+      }
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8 0, #0f172a 45%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 0.06em;
+      color: #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #e5e7eb, #bae6fd);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right a {
+      color: #bfdbfe;
+      font-weight: 500;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 5px 10px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+    }
+
+    .pill-accent {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.25), transparent 60%);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    /* HERO TITLE */
+    .hero {
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3.1vw, 32px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, #e5e7eb, #bae6fd, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .hero-badges {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--muted);
+    }
+
+    .hero-badge strong {
+      color: #e5e7eb;
+    }
+
+    /* CONTENT CARDS */
+    .section-card {
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.12), transparent 65%),
+                  rgba(15, 23, 42, 0.98);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 20px 18px 18px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (min-width: 768px) {
+      .section-card {
+        padding: 22px 22px 20px;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-index {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .section-chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #bae6fd;
+      white-space: nowrap;
+    }
+
+    .section-description {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 17px;
+      color: #e5e7eb;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    h4 {
+      font-size: 14px;
+      color: #bae6fd;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 4px 0 8px;
+    }
+
+    ul {
+      margin: 4px 0 10px;
+      padding-left: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .highlight-box {
+      margin: 10px 0 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .highlight-box strong {
+      color: #e5e7eb;
+    }
+
+    .example-box {
+      margin: 8px 0 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .example-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #f97316;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      background: #020617;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      display: block;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-top: 4px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 10px;
+      font-size: 13px;
+    }
+
+    th, td {
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.95);
+      color: #e5e7eb;
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    /* AUTHOR BOX */
+    .author-box {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .author-box strong {
+      color: #e5e7eb;
+    }
+
+    .footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .footer a {
+      color: #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+<div class="background-glow"></div>
+
+<div class="page-shell">
+
+  <!-- HEADER / BRAND -->
+  <header class="header-card">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">CA</div>
+        <div class="brand-meta">
+          <div class="brand-title">Coder &amp; AccoTax</div>
+          <div class="brand-subtitle">IT Training • Programming • Accounts &amp; Taxation</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div>
+          <div><strong>Author:</strong> Sukanta Hui</div>
+          <div>Ph: <strong>7003756860</strong></div>
+          <div>Email: <a href="mailto:info@codernaccotax.co.in">info@codernaccotax.co.in</a></div>
+          <div>Website: <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">www.codernaccotax.co.in</a></div>
+        </div>
+        <div>
+          <span class="pill pill-accent">
+            <span class="pill-dot"></span>
+            NIELIT O Level · Unit 1.1
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">Unit 1.1 — Basics of Programming</h1>
+    <p class="hero-subtitle">
+      In this unit, you’ll clearly understand what a program is, how algorithms and flowcharts are used to design solutions,
+      which steps are followed during problem solving, and how structured programming differs from object-oriented programming —
+      with multiple simple, exam-focused examples.
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge"><strong>Target:</strong> NIELIT O Level / Python Beginners</span>
+      <span class="hero-badge"><strong>Focus:</strong> Concept Clarity + Examples</span>
+    </div>
+  </section>
+
+  <!-- 1. WHAT IS A PROGRAM -->
+  <section class="section-card" id="program">
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span class="section-index">1</span>
+          What is a Program?
+        </div>
+        <p class="section-description">
+          A program is the bridge between a real-world problem and the computer. It tells the computer <em>exactly</em> what to do, step by step.
+        </p>
+      </div>
+      <span class="section-chip">Concept + Examples</span>
+    </div>
+
+    <p><strong>Definition:</strong> A <strong>program</strong> is a finite, ordered set of instructions written using a programming language, which the computer can understand and execute to solve a specific problem.</p>
+
+    <div class="highlight-box">
+      <strong>Key idea:</strong> A program is not magic. It is only a collection of instructions like: “do this, then this, then that…”
+    </div>
+
+    <h3>1.1 Features of a Good Program</h3>
+    <ul>
+      <li><strong>Correctness:</strong> Produces correct output for all valid inputs.</li>
+      <li><strong>Clarity:</strong> Easy to read and understand (good variable names, comments).</li>
+      <li><strong>Efficiency:</strong> Uses time and memory properly.</li>
+      <li><strong>Maintainability:</strong> Easy to modify and update later.</li>
+      <li><strong>Reusability:</strong> Common tasks are written as functions/modules.</li>
+    </ul>
+
+    <h3>1.2 Real Life View vs Program</h3>
+    <p>Real-life “instructions” are all around us — cooking recipes, travel directions, exam question papers. A program is the same concept, but for a computer.</p>
+
+    <div class="example-box">
+      <div class="example-label">Example 1 – Simple Interest Program</div>
+      <p><strong>Problem:</strong> Calculate Simple Interest given Principal (P), Rate (R), Time (T).</p>
+      <p><strong>Logic:</strong> SI = (P × R × T) / 100</p>
+      <span class="code">
+# Python-style program idea (for understanding)
+P = input("Enter Principal: ")
+R = input("Enter Rate: ")
+T = input("Enter Time in years: ")
+SI = (P * R * T) / 100
+print("Simple Interest =", SI)
+      </span>
+    </div>
+
+    <div class="example-box">
+      <div class="example-label">Example 2 – Student Passed or Failed</div>
+      <p><strong>Problem:</strong> Read marks and decide whether the student passed (≥ 40) or failed.</p>
+      <span class="code">
+1. Input marks
+2. If marks ≥ 40
+       Print "Pass"
+   Else
+       Print "Fail"
+      </span>
+    </div>
+
+    <div class="example-box">
+      <div class="example-label">Example 3 – Even or Odd</div>
+      <p><strong>Problem:</strong> Check if a number is even or odd.</p>
+      <span class="code">
+1. Input number N
+2. If N % 2 == 0
+       Print "Even"
+   Else
+       Print "Odd"
+      </span>
+    </div>
+  </section>
+
+  <!-- 2. ALGORITHM -->
+  <section class="section-card" id="algorithm">
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span class="section-index">2</span>
+          Algorithm — Step-by-step Solution
+        </div>
+        <p class="section-description">
+          Before writing any program, we design an algorithm — a clear list of steps to solve the problem.
+        </p>
+      </div>
+      <span class="section-chip">Logic Design</span>
+    </div>
+
+    <p><strong>Definition:</strong> An <strong>algorithm</strong> is a finite sequence of well-defined steps that solve a particular problem.</p>
+
+    <h3>2.1 Characteristics of a Good Algorithm</h3>
+    <ul>
+      <li><strong>Input:</strong> Clearly mentions required inputs.</li>
+      <li><strong>Output:</strong> Clearly mentions expected output(s).</li>
+      <li><strong>Definiteness:</strong> Every step is clear and unambiguous.</li>
+      <li><strong>Finiteness:</strong> Algorithm must end after a finite number of steps.</li>
+      <li><strong>Effectiveness:</strong> Each step is simple and can actually be done.</li>
+    </ul>
+
+    <h3>2.2 Algorithm Example 1 — Sum of Two Numbers</h3>
+    <div class="example-box">
+      <div class="example-label">Algorithm: Sum of Two Numbers</div>
+      <span class="code">
+Step 1: Start
+Step 2: Input A
+Step 3: Input B
+Step 4: SUM ← A + B
+Step 5: Print SUM
+Step 6: Stop
+      </span>
+    </div>
+
+    <h3>2.3 Algorithm Example 2 — Largest of Three Numbers</h3>
+    <div class="example-box">
+      <div class="example-label">Algorithm: Largest of Three Numbers (A, B, C)</div>
+      <span class="code">
+Step 1: Start
+Step 2: Input A, B, C
+Step 3: If A ≥ B and A ≥ C, then
+            Largest ← A
+        Else if B ≥ A and B ≥ C, then
+            Largest ← B
+        Else
+            Largest ← C
+Step 4: Print Largest
+Step 5: Stop
+      </span>
+    </div>
+
+    <h3>2.4 Algorithm Example 3 — Factorial of a Number N</h3>
+    <div class="example-box">
+      <div class="example-label">Algorithm: Factorial (N!)</div>
+      <span class="code">
+Step 1: Start
+Step 2: Input N
+Step 3: FACT ← 1
+Step 4: For i from 1 to N do
+            FACT ← FACT × i
+Step 5: Print FACT
+Step 6: Stop
+      </span>
+    </div>
+
+    <h3>2.5 Algorithm Example 4 — Check Prime Number</h3>
+    <div class="example-box">
+      <div class="example-label">Algorithm: Prime Check</div>
+      <span class="code">
+Step 1: Start
+Step 2: Input N
+Step 3: If N &lt; 2 then
+            Print "Not Prime", Stop
+Step 4: Set flag ← 1
+Step 5: For i from 2 to N - 1 do
+            If N mod i = 0 then
+                flag ← 0
+                Break the loop
+Step 6: If flag = 1 then
+            Print "Prime"
+        Else
+            Print "Not Prime"
+Step 7: Stop
+      </span>
+    </div>
+  </section>
+
+  <!-- 3. FLOWCHART -->
+  <section class="section-card" id="flowchart">
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span class="section-index">3</span>
+          Flowchart — Visual Representation of Algorithm
+        </div>
+        <p class="section-description">
+          A flowchart turns an algorithm into a diagram using standard symbols. This makes the logic easy to see and debug.
+        </p>
+      </div>
+      <span class="section-chip">Visual Logic</span>
+    </div>
+
+    <p><strong>Definition:</strong> A <strong>flowchart</strong> is a graphical representation of the sequence of steps in an algorithm, using symbols connected by arrows.</p>
+
+    <h3>3.1 Standard Flowchart Symbols</h3>
+    <table>
+      <tr>
+        <th>Symbol Name</th>
+        <th>Shape (Description)</th>
+        <th>Meaning</th>
+      </tr>
+      <tr>
+        <td>Terminator</td>
+        <td>Oval / Rounded rectangle</td>
+        <td>Start or End of the flowchart</td>
+      </tr>
+      <tr>
+        <td>Process</td>
+        <td>Rectangle</td>
+        <td>Computation / processing step</td>
+      </tr>
+      <tr>
+        <td>Input / Output</td>
+        <td>Parallelogram</td>
+        <td>Taking input or showing output</td>
+      </tr>
+      <tr>
+        <td>Decision</td>
+        <td>Diamond</td>
+        <td>Yes/No or True/False condition check</td>
+      </tr>
+      <tr>
+        <td>Arrow</td>
+        <td>Line with arrow head</td>
+        <td>Shows direction of flow</td>
+      </tr>
+    </table>
+
+    <h3>3.2 Flowchart Example 1 — Sum of Two Numbers (Text Description)</h3>
+    <div class="example-box">
+      <div class="example-label">Flowchart (described)</div>
+      <ul>
+        <li>Start → (Oval)</li>
+        <li>Input A, B → (Parallelogram)</li>
+        <li>SUM = A + B → (Rectangle)</li>
+        <li>Output SUM → (Parallelogram)</li>
+        <li>End → (Oval)</li>
+      </ul>
+    </div>
+
+    <h3>3.3 Flowchart Example 2 — Pass / Fail</h3>
+    <div class="example-box">
+      <div class="example-label">Flowchart (described)</div>
+      <ul>
+        <li>Start</li>
+        <li>Input MARKS</li>
+        <li>Decision: MARKS ≥ 40 ?
+          <ul>
+            <li>Yes → Print "PASS"</li>
+            <li>No → Print "FAIL"</li>
+          </ul>
+        </li>
+        <li>End</li>
+      </ul>
+    </div>
+
+    <h3>3.4 Flowchart Example 3 — Factorial N!</h3>
+    <div class="example-box">
+      <div class="example-label">Flowchart (described)</div>
+      <ul>
+        <li>Start</li>
+        <li>Input N</li>
+        <li>Set FACT = 1, i = 1</li>
+        <li>Decision: i ≤ N ?
+          <ul>
+            <li>Yes:
+              <ul>
+                <li>FACT = FACT × i</li>
+                <li>i = i + 1</li>
+                <li>Go back to decision</li>
+              </ul>
+            </li>
+            <li>No:
+              <ul>
+                <li>Print FACT</li>
+                <li>End</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. PROBLEM-SOLVING STEPS -->
+  <section class="section-card" id="problem-solving">
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span class="section-index">4</span>
+          Standard Problem-Solving Steps in Programming
+        </div>
+        <p class="section-description">
+          All successful programs follow a disciplined approach — understand, plan, design, code, test, and refine.
+        </p>
+      </div>
+      <span class="section-chip">Development Process</span>
+    </div>
+
+    <h3>4.1 General Steps</h3>
+    <ol style="font-size:13px; color:var(--muted); padding-left:20px; margin-top:4px;">
+      <li><strong>Problem Definition:</strong> Clearly describe what needs to be solved.</li>
+      <li><strong>Analysis:</strong> Identify inputs, outputs, constraints, and required processing.</li>
+      <li><strong>Algorithm Design:</strong> Write step-by-step solution in plain language.</li>
+      <li><strong>Flowchart / Pseudocode:</strong> Draw visual or structured representation.</li>
+      <li><strong>Coding:</strong> Convert algorithm into a program (e.g., in Python).</li>
+      <li><strong>Testing:</strong> Run program with different test cases.</li>
+      <li><strong>Debugging:</strong> Find and correct errors (logic, syntax, runtime).</li>
+      <li><strong>Documentation & Maintenance:</strong> Write comments, user guide, and update program when needed.</li>
+    </ol>
+
+    <h3>4.2 Example — Student Result Processing</h3>
+    <p><strong>Problem:</strong> For a student, read marks of 3 subjects, calculate total, percentage and display “Pass/Fail” (Pass if percentage ≥ 40).</p>
+
+    <h4>Step 1: Identify Inputs & Outputs</h4>
+    <ul>
+      <li><strong>Inputs:</strong> Marks in Subject1, Subject2, Subject3.</li>
+      <li><strong>Outputs:</strong> Total marks, Percentage, Result (“Pass” or “Fail”).</li>
+    </ul>
+
+    <h4>Step 2: Algorithm</h4>
+    <div class="example-box">
+      <div class="example-label">Algorithm: Student Result</div>
+      <span class="code">
+Step 1: Start
+Step 2: Input M1, M2, M3
+Step 3: TOTAL ← M1 + M2 + M3
+Step 4: PERCENT ← TOTAL / 3
+Step 5: If PERCENT ≥ 40 then
+            RESULT ← "PASS"
+        Else
+            RESULT ← "FAIL"
+Step 6: Print TOTAL, PERCENT, RESULT
+Step 7: Stop
+      </span>
+    </div>
+
+    <h4>Step 3: Simple Flowchart (Text Description)</h4>
+    <ul>
+      <li>Start</li>
+      <li>Input M1, M2, M3</li>
+      <li>Compute TOTAL, PERCENT</li>
+      <li>Decision: PERCENT ≥ 40 ? → Yes: “PASS” | No: “FAIL”</li>
+      <li>Output TOTAL, PERCENT, RESULT</li>
+      <li>End</li>
+    </ul>
+
+    <h4>Step 4: Rough Python Code (for later unit)</h4>
+    <span class="code">
+M1 = float(input("Enter marks in Subject 1: "))
+M2 = float(input("Enter marks in Subject 2: "))
+M3 = float(input("Enter marks in Subject 3: "))
+
+TOTAL = M1 + M2 + M3
+PERCENT = TOTAL / 3
+
+if PERCENT >= 40:
+    RESULT = "PASS"
+else:
+    RESULT = "FAIL"
+
+print("Total =", TOTAL)
+print("Percentage =", PERCENT)
+print("Result =", RESULT)
+    </span>
+  </section>
+
+  <!-- 5. STRUCTURED VS OOP -->
+  <section class="section-card" id="structured-oop">
+    <div class="section-header">
+      <div>
+        <div class="section-title">
+          <span class="section-index">5</span>
+          Structured Programming vs Object-Oriented Programming
+        </div>
+        <p class="section-description">
+          Both are ways to organize programs. Structured programming focuses on functions; OOP focuses on objects.
+        </p>
+      </div>
+      <span class="section-chip">Programming Paradigms</span>
+    </div>
+
+    <h3>5.1 Structured Programming</h3>
+    <p><strong>Structured programming</strong> is a programming style where the solution is divided into small parts called functions or procedures and uses control structures like <em>sequence, selection, and iteration</em>.</p>
+
+    <ul>
+      <li>Follows a <strong>top-down</strong> approach.</li>
+      <li>Program is mainly a collection of functions.</li>
+      <li>Focus on <strong>how</strong> to solve the problem step by step.</li>
+      <li>Uses constructs like <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>.</li>
+    </ul>
+
+    <div class="example-box">
+      <div class="example-label">Example – Structured Thinking (Pseudo-code)</div>
+      <span class="code">
+main()
+{
+    read marks
+    result = calculate_result(marks)
+    print result
+}
+
+calculate_result(marks)
+{
+    if marks >= 40 then
+        return "PASS"
+    else
+        return "FAIL"
+}
+      </span>
+    </div>
+
+    <h3>5.2 Object-Oriented Programming (OOP)</h3>
+    <p><strong>OOP</strong> organizes the program around <strong>objects</strong> that contain <em>data</em> (attributes) and <em>functions</em> (methods) together.</p>
+
+    <ul>
+      <li>Follows a <strong>bottom-up</strong> approach.</li>
+      <li>Program is a collection of interacting objects.</li>
+      <li>Focus on <strong>who/what</strong> is acting (student, account, car, etc.).</li>
+      <li>Important concepts: <strong>Class, Object, Encapsulation, Inheritance, Polymorphism</strong>.</li>
+    </ul>
+
+    <div class="example-box">
+      <div class="example-label">Example – Simple OOP View (Conceptual)</div>
+      <span class="code">
+Class Student
+    Attributes: name, roll, marks
+    Methods:
+        input_data()
+        calculate_result()
+        display_result()
+
+Object s1 is a Student
+Object s2 is a Student
+      </span>
+    </div>
+
+    <h3>5.3 Differences Between Structured and OOP</h3>
+    <table>
+      <tr>
+        <th>Aspect</th>
+        <th>Structured Programming</th>
+        <th>Object-Oriented Programming</th>
+      </tr>
+      <tr>
+        <td>Basic Unit</td>
+        <td>Function / Procedure</td>
+        <td>Object and Class</td>
+      </tr>
+      <tr>
+        <td>Approach</td>
+        <td>Top-down</td>
+        <td>Bottom-up</td>
+      </tr>
+      <tr>
+        <td>Data Handling</td>
+        <td>Data is often global or shared among functions</td>
+        <td>Data is bundled inside objects (Encapsulation)</td>
+      </tr>
+      <tr>
+        <td>Reusability</td>
+        <td>Limited reuse via functions</td>
+        <td>High reuse via inheritance and composition</td>
+      </tr>
+      <tr>
+        <td>Examples</td>
+        <td>C, Pascal</td>
+        <td>Python, Java, C++, C#</td>
+      </tr>
+    </table>
+
+    <div class="highlight-box">
+      <strong>Important:</strong> Python supports both:
+      <ul style="margin-top:4px;">
+        <li>You can write simple, structured programs using functions only.</li>
+        <li>You can also use full OOP with classes and objects (covered in later units).</li>
+      </ul>
+    </div>
+
+    <!-- AUTHOR BOX -->
+    <div class="author-box">
+      <strong>Prepared By:</strong> Sukanta Hui<br>
+      Faculty — Programming &amp; Web Development<br>
+      <strong>Coder &amp; AccoTax</strong> · 
+      Website: <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">www.codernaccotax.co.in</a><br>
+      Phone: <strong>7003756860</strong> · Email: <a href="mailto:info@codernaccotax.co.in">info@codernaccotax.co.in</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      © <span id="year"></span> Coder &amp; AccoTax. All rights reserved.  
+      Tutorial layout designed for NIELIT O Level &amp; Python foundation.
+    </div>
+    <div>
+      Author: <strong>Sukanta Hui</strong> · 
+      <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">www.codernaccotax.co.in</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

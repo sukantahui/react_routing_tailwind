@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Java Interfaces & Abstract Classes — From Basics to Pro | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Expert-level study note on Java interfaces, abstract classes, and multiple inheritance, with detailed examples, explanations, and best practices. Prepared by Sukanta Hui, Coder & AccoTax." />
+
+<style>
+:root {
+  --bg: #020617;
+  --panel: #020617;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56,189,248,0.16);
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+  background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+  color: var(--text);
+  line-height: 1.7;
+}
+.page {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+header {
+  background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(168,85,247,.22));
+  border-radius: 1.5rem;
+  border: 1px solid rgba(148,163,184,.4);
+  padding: 2rem;
+  box-shadow: 0 20px 45px rgba(15,23,42,.9);
+  backdrop-filter: blur(16px);
+}
+h1 {
+  margin: 0;
+  font-size: 2.3rem;
+  background: linear-gradient(120deg,#e5e7eb,#bae6fd,#f9a8d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.subtitle {
+  margin-top: .5rem;
+  font-size: .95rem;
+  color: var(--muted);
+}
+.org {
+  margin-top: .7rem;
+  font-size: .9rem;
+  color: var(--muted);
+}
+.org strong { color: #f9fafb; }
+.contact {
+  margin-top: .6rem;
+  font-size: .85rem;
+}
+.contact a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.badges {
+  margin-top: .7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.badge {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: .18rem .6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.6);
+  background: radial-gradient(circle at top left, rgba(56,189,248,.18), rgba(15,23,42,1));
+  color: var(--muted);
+}
+
+section.panel {
+  margin-top: 2rem;
+  background: radial-gradient(circle at top left, rgba(56,189,248,.14), rgba(15,23,42,.97));
+  border-radius: 1.4rem;
+  border: 1px solid rgba(30,64,175,.75);
+  padding: 1.6rem 1.3rem 1.8rem;
+  box-shadow: 0 18px 40px rgba(15,23,42,.95);
+}
+h2 {
+  margin-top: .4rem;
+  font-size: 1.4rem;
+  border-left: 3px solid var(--accent);
+  padding-left: .6rem;
+}
+h3 {
+  margin-top: 1.4rem;
+  font-size: 1.15rem;
+}
+h4 {
+  margin-top: 1rem;
+  font-size: 1.02rem;
+}
+p, li {
+  font-size: .95rem;
+}
+p {
+  margin: .3rem 0 .7rem;
+}
+ul, ol {
+  padding-left: 1.2rem;
+}
+.note-box, .tip-box, .warn-box {
+  border-radius: .7rem;
+  padding: .7rem .8rem;
+  font-size: .9rem;
+  margin: .6rem 0 .9rem;
+}
+.note-box {
+  border: 1px solid rgba(56,189,248,.6);
+  background: radial-gradient(circle at top left, rgba(56,189,248,.12), rgba(15,23,42,.96));
+}
+.tip-box {
+  border: 1px solid rgba(52,211,153,.6);
+  background: radial-gradient(circle at top left, rgba(16,185,129,.12), rgba(15,23,42,.96));
+}
+.warn-box {
+  border: 1px solid rgba(248,113,113,.7);
+  background: radial-gradient(circle at top left, rgba(248,113,113,.13), rgba(15,23,42,.96));
+}
+.note-title {
+  font-weight: 600;
+  font-size: .9rem;
+  margin-bottom: .2rem;
+}
+
+code {
+  background: rgba(15,23,42,.96);
+  padding: .12rem .25rem;
+  border-radius: 4px;
+  border: 1px solid rgba(30,64,175,.8);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: .85rem;
+}
+pre {
+  background: rgba(2,6,23,.98);
+  padding: .8rem .9rem;
+  border-radius: .7rem;
+  border: 1px solid rgba(30,64,175,.8);
+  overflow-x: auto;
+  font-size: .85rem;
+  margin: .5rem 0 .8rem;
+}
+pre code {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: .6rem 0 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+th, td {
+  border: 1px solid rgba(51,65,85,.9);
+  padding: .45rem .5rem;
+}
+th {
+  background: rgba(15,23,42,.96);
+}
+tr:nth-child(even) td {
+  background: rgba(15,23,42,.9);
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(30,64,175,.8);
+  text-align: center;
+  font-size: .82rem;
+  color: var(--muted);
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Java Interfaces & Abstract Classes — From Basics to Pro</h1>
+  <div class="subtitle">
+    Interfaces · Abstract Classes · Multiple Inheritance via Interfaces · Default Methods · Design Patterns
+  </div>
+  <div class="org">
+    Prepared by <strong>Sukanta Hui</strong><br />
+    <strong>Coder &amp; AccoTax</strong> — Professional IT &amp; Accounts Training
+  </div>
+  <div class="contact">
+    Contact: <strong>+91-7003756860</strong><br />
+    Website: <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener">www.codernaccotax.co.in</a>
+  </div>
+  <div class="badges">
+    <span class="badge">Board / University Level</span>
+    <span class="badge">Interview &amp; Industry</span>
+    <span class="badge">Concept to Implementation</span>
+  </div>
+</header>
+
+<section class="panel">
+  <h2>1. Why Interfaces & Abstract Classes Matter</h2>
+  <p>
+    In object-oriented design we don’t just store data — we design <b>contracts</b> and <b>families of behavior</b>.
+    In Java, two primary tools for this abstraction are:
+  </p>
+  <ul>
+    <li><b>Interfaces</b>: Define <em>what</em> an object can do (capabilities / contracts).</li>
+    <li><b>Abstract classes</b>: Define a <em>partial implementation</em> and let subclasses complete the details.</li>
+  </ul>
+
+  <div class="note-box">
+    <div class="note-title">Mental Model</div>
+    <p>
+      Think of an <b>interface</b> as a “job description” and an <b>abstract class</b> as a “partially-built machine”.
+      A job description says what roles and responsibilities exist. A partially-built machine already has common parts,
+      but you must add specific modules for different use cases.
+    </p>
+  </div>
+
+  <h2>2. Interfaces — From Basics to Advanced</h2>
+
+  <h3>2.1 Basic Interface Syntax</h3>
+  <p>An interface defines a set of methods that a class <b>must implement</b>.</p>
+
+  <pre><code>interface Printable {
+    void print(); // implicitly public and abstract
+}
+
+class Invoice implements Printable {
+    @Override
+    public void print() {
+        System.out.println("Printing Invoice...");
+    }
+}
+
+class Report implements Printable {
+    @Override
+    public void print() {
+        System.out.println("Printing Report...");
+    }
+}</code></pre>
+
+  <p>
+    Here, <code>Printable</code> is a contract. Both <code>Invoice</code> and <code>Report</code> agree to implement
+    <code>print()</code>. A caller can work with type <code>Printable</code> without knowing the concrete class:
+  </p>
+
+  <pre><code>void printDocument(Printable p) {
+    p.print(); // polymorphic dispatch
+}</code></pre>
+
+  <h3>2.2 Interface Rules (Pre-Java 8 vs Modern Java)</h3>
+  <ul>
+    <li>All methods were historically <code>public abstract</code>.</li>
+    <li>Fields are implicitly <code>public static final</code> (constants).</li>
+    <li>Interfaces cannot have constructors (they are not instantiated directly).</li>
+    <li>From Java 8 onwards, interfaces can also have:
+      <ul>
+        <li><code>default</code> methods (with body)</li>
+        <li><code>static</code> methods</li>
+      </ul>
+    </li>
+    <li>From Java 9 onwards, they can have <code>private</code> helper methods.</li>
+  </ul>
+
+  <h3>2.3 Interfaces as Contracts</h3>
+  <p>
+    Contract design is crucial. For example, Java’s <code>List&lt;E&gt;</code> interface defines operations like
+    <code>add()</code>, <code>remove()</code>, <code>get()</code>, but does not specify the internal structure.
+  </p>
+
+  <div class="tip-box">
+    <div class="note-title">Design Tip</div>
+    <p>
+      When you design an interface, ask: “What behaviors do clients really need?” Not <em>how</em> you will implement
+      them. Keep interfaces small and focused (this is related to the Interface Segregation Principle).
+    </p>
+  </div>
+
+  <h3>2.4 Multiple Inheritance via Interfaces</h3>
+  <p>
+    Java does <b>not</b> support multiple inheritance of classes, but a class can implement multiple interfaces:
+  </p>
+
+  <pre><code>interface Drivable {
+    void drive();
+}
+
+interface Flyable {
+    void fly();
+}
+
+class FlyingCar implements Drivable, Flyable {
+    @Override
+    public void drive() {
+        System.out.println("Driving on road...");
+    }
+    @Override
+    public void fly() {
+        System.out.println("Flying in sky...");
+    }
+}</code></pre>
+
+  <p>
+    This allows a class to claim multiple <b>roles</b> (drive + fly) without inheriting from multiple superclasses.
+    This is Java’s answer to controlled <b>multiple inheritance of behavior</b>.
+  </p>
+
+  <h3>2.5 Default Methods (Java 8+)</h3>
+  <p>
+    A <code>default</code> method in an interface provides a concrete implementation that implementers can use or override.
+  </p>
+
+  <pre><code>interface Loggable {
+    default void log(String message) {
+        System.out.println("[LOG] " + message);
+    }
+}
+
+class Service implements Loggable {
+    void doWork() {
+        log("Starting work");  // inherited default method
+        // real work...
+        log("Finished work");
+    }
+}</code></pre>
+
+  <div class="note-box">
+    <div class="note-title">Why Default Methods?</div>
+    <p>
+      Default methods were introduced to allow library authors (like Java collections) to add new methods to existing
+      interfaces <b>without breaking</b> all existing implementations. They offer a form of “backwards compatible”
+      evolution of APIs.
+    </p>
+  </div>
+
+  <h3>2.6 Static & Private Methods in Interfaces</h3>
+
+  <pre><code>interface MathUtils {
+    static int add(int a, int b) {
+        return a + b;
+    }
+    private static void internalLog(String m) {
+        // helper used only inside interface
+    }
+}</code></pre>
+
+  <ul>
+    <li><code>static</code> methods are called on the interface type: <code>MathUtils.add(3, 5)</code>.</li>
+    <li><code>private</code> methods (Java 9+) are used to clean up code inside the interface itself.</li>
+  </ul>
+
+  <h2>3. Abstract Classes — Partial Implementation</h2>
+
+  <h3>3.1 Basic Abstract Class Syntax</h3>
+  <p>
+    An abstract class is a class that may contain <b>abstract methods</b> (without body) as well as fully implemented methods.
+    It cannot be instantiated directly.
+  </p>
+
+  <pre><code>abstract class Shape {
+    String color;
+
+    Shape(String color) {
+        this.color = color;
+    }
+
+    abstract double area();           // must be implemented by subclasses
+
+    void displayColor() {             // concrete method
+        System.out.println("Color: " + color);
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(String color, double radius) {
+        super(color);                 // calling abstract class constructor
+        this.radius = radius;
+    }
+
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}</code></pre>
+
+  <p>
+    Here, <code>Shape</code> captures the idea that <b>all shapes have a color and an area</b>, but it does not know
+    how the area is calculated. Specific shapes implement the formula.
+  </p>
+
+  <h3>3.2 Abstract Class Features</h3>
+  <ul>
+    <li>Can have instance fields (state) and constructors.</li>
+    <li>Can define both abstract and concrete methods.</li>
+    <li>Can implement interfaces.</li>
+    <li>Subclass must implement all abstract methods or itself be declared <code>abstract</code>.</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>Interface</th>
+        <th>Abstract Class</th>
+      </tr>
+      <tr>
+        <td>Can have constructors</td>
+        <td>No</td>
+        <td><b>Yes</b></td>
+      </tr>
+      <tr>
+        <td>Can hold instance state</td>
+        <td>Only <code>public static final</code> constants</td>
+        <td><b>Yes</b>, normal fields</td>
+      </tr>
+      <tr>
+        <td>Multiple inheritance</td>
+        <td>Class can implement many</td>
+        <td>Class can extend only one</td>
+      </tr>
+      <tr>
+        <td>Use case</td>
+        <td>Pure contract</td>
+        <td>Partial implementation + contract</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>3.3 A Realistic Template Example (Template Method Pattern)</h3>
+
+  <pre><code>abstract class DataExporter {
+
+    // Template method
+    public final void export() {
+        readData();
+        transformData();
+        writeData();
+    }
+
+    // Steps that subclasses can customize
+    abstract void readData();
+    abstract void transformData();
+    abstract void writeData();
+}
+
+class CsvDataExporter extends DataExporter {
+    @Override
+    void readData() {
+        System.out.println("Reading data from CSV file...");
+    }
+    @Override
+    void transformData() {
+        System.out.println("Transforming CSV data...");
+    }
+    @Override
+    void writeData() {
+        System.out.println("Writing data to destination from CSV...");
+    }
+}
+
+class DatabaseDataExporter extends DataExporter {
+    @Override
+    void readData() {
+        System.out.println("Reading data from database...");
+    }
+    @Override
+    void transformData() {
+        System.out.println("Transforming DB data...");
+    }
+    @Override
+    void writeData() {
+        System.out.println("Writing data to destination from DB...");
+    }
+}</code></pre>
+
+  <p>
+    Callers just do:
+  </p>
+
+  <pre><code>DataExporter exporter = new CsvDataExporter();
+exporter.export();</code></pre>
+
+  <p>
+    Here, the <b>algorithm skeleton</b> (export steps) is fixed in the abstract class, but each subclass customizes
+    the details. This is a classic use of abstract classes.
+  </p>
+
+  <h2>4. Interface vs Abstract Class — When to Use What?</h2>
+
+  <h3>4.1 Quick Decision Guide</h3>
+  <ul>
+    <li>Use an <b>interface</b> when:
+      <ul>
+        <li>You want to define a capability/role (e.g., <code>Comparable</code>, <code>Runnable</code>).</li>
+        <li>You expect unrelated classes to implement it (e.g., <code>Dog</code>, <code>Car</code> both <code>Movable</code>).</li>
+        <li>You need multiple inheritance of behavior.</li>
+      </ul>
+    </li>
+    <li>Use an <b>abstract class</b> when:
+      <ul>
+        <li>You have a strong <b>is-a</b> relationship, with a common base implementation.</li>
+        <li>You need to share state (fields) and non-trivial code among subclasses.</li>
+        <li>You want to enforce a specific method call sequence (template method).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>4.2 Combined Example</h3>
+
+  <pre><code>interface Payable {
+    double calculatePay();
+}
+
+abstract class Employee implements Payable {
+    private String name;
+    private double baseSalary;
+
+    Employee(String name, double baseSalary) {
+        this.name = name;
+        this.baseSalary = baseSalary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBaseSalary() {
+        return baseSalary;
+    }
+
+    // Common helper method
+    void printBaseInfo() {
+        System.out.println("Employee: " + name + ", Base Salary: " + baseSalary);
+    }
+}
+
+class FullTimeEmployee extends Employee {
+    private double bonus;
+
+    FullTimeEmployee(String name, double base, double bonus) {
+        super(name, base);
+        this.bonus = bonus;
+    }
+
+    @Override
+    public double calculatePay() {
+        return getBaseSalary() + bonus;
+    }
+}
+
+class PartTimeEmployee extends Employee {
+    private int hoursWorked;
+    private double hourlyRate;
+
+    PartTimeEmployee(String name, double base, int hours, double rate) {
+        super(name, base);
+        this.hoursWorked = hours;
+        this.hourlyRate = rate;
+    }
+
+    @Override
+    public double calculatePay() {
+        return getBaseSalary() + hoursWorked * hourlyRate;
+    }
+}</code></pre>
+
+  <p>
+    Here, <code>Payable</code> is a generic capability, while <code>Employee</code> captures the common
+    implementation details and state for multiple employee types.
+  </p>
+
+  <h2>5. Multiple Inheritance & the Diamond Problem</h2>
+
+  <h3>5.1 The Diamond Problem (Concept)</h3>
+  <p>
+    In multiple inheritance of classes (like C++), you can have:
+  </p>
+
+  <pre><code>   A
+  / \
+ B   C
+  \ /
+   D</code></pre>
+
+  <p>
+    If class <code>A</code> defines a method and classes <code>B</code> and <code>C</code> both inherit and override it,
+    then <code>D</code> (which inherits from both <code>B</code> and <code>C</code>) faces ambiguity — which version to use?
+    This is the <b>diamond problem</b>.
+  </p>
+
+  <h3>5.2 How Java Avoids the Diamond Problem for Classes</h3>
+  <p>
+    Java simply does <b>not allow multiple inheritance of classes</b>:
+  </p>
+
+  <pre><code>class A {}
+class B {}
+
+class C extends A, B { } // ❌ Compilation error</code></pre>
+
+  <p>
+    This design keeps class hierarchies simpler and avoids many complicated rules that languages like C++ must handle.
+  </p>
+
+  <h3>5.3 Multiple Inheritance via Interfaces</h3>
+  <p>
+    Java allows a class to implement multiple interfaces. If two interfaces provide the <b>same default method</b>,
+    we get a <b>default method conflict</b>, which must be resolved explicitly.
+  </p>
+
+  <pre><code>interface A {
+    default void hello() {
+        System.out.println("Hello from A");
+    }
+}
+
+interface B {
+    default void hello() {
+        System.out.println("Hello from B");
+    }
+}
+
+class C implements A, B {
+    @Override
+    public void hello() {
+        // Need to resolve conflict explicitly:
+        A.super.hello();  // or B.super.hello();
+        System.out.println("Hello from C");
+    }
+}</code></pre>
+
+  <p>
+    The compiler forces you to resolve the ambiguity, so the diamond problem is handled in a controlled, explicit way.
+  </p>
+
+  <div class="warn-box">
+    <div class="note-title">Important Rule</div>
+    <p>
+      If a class inherits two conflicting default methods from interfaces, you <b>must</b> override the method and specify
+      which interface’s implementation (if any) you want to call using <code>X.super.methodName()</code>.
+    </p>
+  </div>
+
+  <h2>6. Advanced Interface Patterns</h2>
+
+  <h3>6.1 Functional Interfaces (Single Abstract Method)</h3>
+  <p>
+    A functional interface has exactly one abstract method and can be used with lambda expressions.
+  </p>
+
+  <pre><code>@FunctionalInterface
+interface StringTransformer {
+    String transform(String input);
+}
+
+class UppercaseTransformerDemo {
+    public static void main(String[] args) {
+        // Using lambda
+        StringTransformer toUpper = s -> s.toUpperCase();
+
+        System.out.println(toUpper.transform("hello"));
+    }
+}</code></pre>
+
+  <p>
+    Java’s <code>Runnable</code>, <code>Comparator</code>, <code>Callable</code>, etc., are all functional interfaces.
+  </p>
+
+  <h3>6.2 Marker Interfaces</h3>
+  <p>
+    A marker interface has no methods; it just “marks” a class to give the JVM or frameworks extra information.
+  </p>
+
+  <pre><code>// java.io.Serializable is a classic marker interface
+class Student implements java.io.Serializable {
+    private String name;
+    private int roll;
+}</code></pre>
+
+  <p>
+    Many modern frameworks prefer annotations, but marker interfaces still appear in existing APIs.
+  </p>
+
+  <h3>6.3 Interface Inheritance</h3>
+  <p>
+    Interfaces can extend other interfaces:
+  </p>
+
+  <pre><code>interface Movable {
+    void move();
+}
+
+interface Jumpable {
+    void jump();
+}
+
+// Extending multiple interfaces
+interface Athlete extends Movable, Jumpable {
+    void train();
+}</code></pre>
+
+  <p>
+    Any class implementing <code>Athlete</code> must implement <code>move()</code>, <code>jump()</code> and <code>train()</code>.
+  </p>
+
+  <h2>7. Abstract Classes — Deeper Design Considerations</h2>
+
+  <h3>7.1 Abstract Base with Shared State & Behavior</h3>
+
+  <pre><code>abstract class BankAccount {
+    private String accountNumber;
+    protected double balance;
+
+    BankAccount(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    // Abstract method: subclasses must define specific rules
+    public abstract void withdraw(double amount);
+}
+
+class SavingsAccount extends BankAccount {
+    private double minBalance;
+
+    SavingsAccount(String accNo, double initial, double minBalance) {
+        super(accNo, initial);
+        this.minBalance = minBalance;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance - amount &lt; minBalance) {
+            System.out.println("Withdrawal denied: below minimum balance");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawal successful. New balance: " + balance);
+        }
+    }
+}</code></pre>
+
+  <p>
+    Here, the abstract class holds shared data (<code>balance</code>, <code>accountNumber</code>) and common operations
+    like <code>deposit()</code>, while each account type implements its own withdrawal policy.
+  </p>
+
+  <h3>7.2 Abstract Class Implementing an Interface</h3>
+
+  <pre><code>interface Drawable {
+    void draw();
+}
+
+abstract class AbstractShape implements Drawable {
+    String color;
+
+    AbstractShape(String color) {
+        this.color = color;
+    }
+
+    void describe() {
+        System.out.println("This is a " + color + " shape.");
+    }
+}
+
+class Rectangle extends AbstractShape {
+    Rectangle(String color) {
+        super(color);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle...");
+    }
+}</code></pre>
+
+  <p>
+    <code>AbstractShape</code> ensures that all shapes are <code>Drawable</code>, and also gives shared behavior (<code>describe()</code>).
+  </p>
+
+  <h2>8. Common Pitfalls, Traps & Best Practices</h2>
+
+  <h3>8.1 Pitfall: Using Abstract Class When Interface is Enough</h3>
+  <p>
+    If your base type has no common state and only behavior signatures, prefer an <b>interface</b>. Overusing abstract classes
+    can unnecessarily constrain future designs because Java allows only one superclass.
+  </p>
+
+  <h3>8.2 Pitfall: Massive “God Interface”</h3>
+  <p>
+    Avoid designing a single interface with dozens of methods. Break it into multiple small interfaces according to the
+    <b>Interface Segregation Principle</b> (ISP).
+  </p>
+
+  <div class="tip-box">
+    <div class="note-title">Best Practice</div>
+    <ul>
+      <li>Prefer interfaces for high-level contracts and plugin points.</li>
+      <li>Use abstract classes to share significant code and state across closely related classes.</li>
+      <li>Use composition over deep inheritance trees whenever possible.</li>
+      <li>Keep interface methods cohesive and minimal (“do one thing well”).</li>
+    </ul>
+  </div>
+
+  <h3>8.3 Pitfall: Confusing Overriding & Default Method Conflicts</h3>
+  <p>
+    When implementing multiple interfaces with the same default method, always override the method in your class to make
+    the behavior explicit — even if your override simply delegates to one of the defaults.
+  </p>
+
+  <h3>8.4 Summary Checklist</h3>
+  <ul>
+    <li>Interfaces: <b>what</b> to do (contract).</li>
+    <li>Abstract class: <b>how partially</b> to do it (shared implementation).</li>
+    <li>Multiple inheritance of behavior: via interfaces only.</li>
+    <li>Default methods: use carefully; don’t abuse as “utility classes inside interfaces”.</li>
+    <li>Keep designs flexible — expect future extension and change.</li>
+  </ul>
+
+</section>
+
+<footer>
+  © <span id="year"></span> Coder &amp; AccoTax · Prepared by Sukanta Hui
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

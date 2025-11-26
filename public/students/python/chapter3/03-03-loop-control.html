@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Unit 3.3 — Loop Control Statements | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0,0,0,0.55);
+  --radius: 22px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 22px 80px;
+}
+
+/* HEADER */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+    #0f172a;
+  padding: 32px;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid rgba(148,163,184,0.22);
+  box-shadow: var(--shadow);
+}
+.header h1 {
+  font-size: 32px;
+  margin: 0;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.sub {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* BRAND BOX */
+.brand-box {
+  margin-top: 24px;
+  background: var(--soft);
+  padding: 18px;
+  border: 1px solid rgba(148,163,184,0.22);
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 14px;
+  font-size: 14px;
+}
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+.brand-box a { color: var(--accent); text-decoration: none; }
+
+.github-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  display: inline-block;
+  border-radius: 14px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-top: 26px;
+}
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+h3 { color: var(--accent); }
+h4 { color: var(--accent2); }
+
+.example {
+  background: var(--soft);
+  border: 1px dashed var(--border);
+  padding: 14px;
+  border-radius: 14px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+.code {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.diagram {
+  background: #020617;
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  white-space: pre;
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 3.3 — Loop Control Statements</h1>
+  <p class="sub">break · continue · pass · Menu-Driven Programs</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation:</div>
+      Coder & AccoTax<br>
+      🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+
+    <div>
+      <div class="brand-title2">👨‍🏫 Author:</div>
+      Sukanta Hui<br>
+      📞 7003756860<br>
+      ✉️ info@codernaccotax.co.in
+    </div>
+
+    <div>
+      <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank" class="github-btn">
+        View GitHub Repository
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 1: BREAK -->
+<div class="card">
+<h2>1. break — Immediate Exit From Loop</h2>
+<p>The <strong>break</strong> statement stops the loop immediately, even if the condition is still true.</p>
+
+<h3>Example:</h3>
+<div class="example">
+<pre class="code">
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)
+</pre>
+<strong>Output: 1 2 3 4</strong>
+</div>
+
+<h3>Flow Diagram</h3>
+<div class="diagram">
+[Loop Start]
+    |
+[Check Condition]
+    |
+[Execute Body]
+    |
+[break?]--Yes--> Exit Loop
+    |
+    No
+    |
+Next Iteration
+</div>
+</div>
+
+<!-- 2: CONTINUE -->
+<div class="card">
+<h2>2. continue — Skip Current Iteration</h2>
+<p>The <strong>continue</strong> statement skips the current iteration and moves to the next one.</p>
+
+<h3>Example:</h3>
+<div class="example">
+<pre class="code">
+for i in range(1, 7):
+    if i == 3:
+        continue
+    print(i)
+</pre>
+<b>Output: 1 2 4 5 6</b>
+</div>
+
+<h3>Flow Diagram</h3>
+<div class="diagram">
+[Loop Start]
+   |
+[Execute Body]
+   |
+[continue?]--Yes--> Jump to Next Iteration
+   |
+   No
+   |
+Continue Normally
+</div>
+</div>
+
+<!-- 3: PASS -->
+<div class="card">
+<h2>3. pass — Placeholder Statement</h2>
+<p><strong>pass</strong> does nothing. It is used when a statement is required syntactically but we don’t want any action.</p>
+
+<h3>Example:</h3>
+<div class="example">
+<pre class="code">
+for i in range(5):
+    if i == 2:
+        pass  # TODO: implement later
+    print(i)
+</pre>
+</div>
+</div>
+
+<!-- 4: MENU-DRIVEN PROGRAMS -->
+<div class="card">
+<h2>4. Menu-Driven Programs Using Loops</h2>
+
+<h3>4.1 Simple Calculator Menu</h3>
+<div class="example">
+<pre class="code">
+while True:
+    print("\nMENU")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Exit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 3:
+        print("Exiting...")
+        break          # exit menu loop
+
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+
+    if choice == 1:
+        print("Sum =", a + b)
+    elif choice == 2:
+        print("Difference =", a - b)
+    else:
+        print("Invalid choice")
+</pre>
+</div>
+
+<h3>4.2 Menu: List of Tasks</h3>
+<div class="example">
+<pre class="code">
+tasks = []
+
+while True:
+    print("\n1. Add Task")
+    print("2. Show Tasks")
+    print("3. Exit")
+
+    ch = int(input("Enter choice: "))
+
+    if ch == 1:
+        t = input("Enter task: ")
+        tasks.append(t)
+    elif ch == 2:
+        print("Your Tasks:")
+        for x in tasks:
+            print("-", x)
+    elif ch == 3:
+        break
+    else:
+        print("Invalid option")
+</pre>
+</div>
+</div>
+
+<!-- 5: MCQs -->
+<div class="card">
+<h2>5. MCQs</h2>
+<ol>
+  <li><code>break</code> exits:<br>a) Only current iteration<br>b) Entire loop ✔<br>c) Function<br>d) Program</li>
+
+  <li><code>continue</code> skips:<br>a) Entire loop<br>b) Current iteration ✔<br>c) Next loop<br>d) Program</li>
+
+  <li><code>pass</code> means:<br>a) Stop<br>b) Skip iteration<br>c) Do nothing ✔<br>d) Return</li>
+
+  <li>Which is used in menu-driven programs?<br>a) break ✔<br>b) pass<br>c) import<br>d) exit()</li>
+
+  <li>Which does not affect loop flow?<br>a) break<br>b) continue<br>b) pass ✔</li>
+</ol>
+</div>
+
+<!-- 6: OUTPUT QUESTIONS -->
+<div class="card">
+<h2>6. Output Questions</h2>
+
+<div class="example">
+<strong>Q1</strong>
+<pre class="code">
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+</pre>
+</div>
+
+<div class="example">
+<strong>Q2</strong>
+<pre class="code">
+for i in range(5):
+    if i % 2 == 0:
+        continue
+    print(i)
+</pre>
+</div>
+
+<div class="example">
+<strong>Q3</strong>
+<pre class="code">
+for i in range(4):
+    pass
+print(i)
+</pre>
+</div>
+</div>
+
+<!-- 7: CODING QUESTIONS -->
+<div class="card">
+<h2>7. Coding Tasks</h2>
+
+<h3>Easy</h3>
+<ul>
+  <li>Print numbers 1 to 10 but stop when number reaches 6.</li>
+  <li>Print only odd numbers from 1 to 20 using continue.</li>
+</ul>
+
+<h3>Medium</h3>
+<ul>
+  <li>Create a menu program to keep asking for input until user chooses Exit.</li>
+  <li>Skip names shorter than 5 characters from a list.</li>
+</ul>
+
+<h3>Hard</h3>
+<ul>
+  <li>Create a menu-based Student Management System.</li>
+  <li>Simulate ATM menu: balance, deposit, withdraw, exit.</li>
+</ul>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+© <span id="year"></span> Coder & AccoTax — Prepared by <strong>Sukanta Hui</strong><br>
+🌐 www.codernaccotax.co.in
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

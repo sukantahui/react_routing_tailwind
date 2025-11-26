@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python Functions (5.2) | Return Values | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;} .page{max-width:1100px;margin:auto;padding:32px 16px;} header{padding:28px;border-radius:20px;background:radial-gradient(circle at 0 0,rgba(56,189,248,.3),transparent 60%),radial-gradient(circle at 100% 0,rgba(168,85,247,.25),transparent 60%),#0f172a;border:1px solid #334155;box-shadow:0 0 35px rgba(0,0,0,.5);margin-bottom:32px;} h1{margin:0;font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;} .subtitle{color:#94a3b8;font-size:.95rem;} .badge{display:inline-block;padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;margin-bottom:10px;color:#38bdf8;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;} h2{font-size:1.35rem;color:#bfdbfe;margin-top:30px;display:flex;align-items:center;gap:8px;} h2 span.label{font-size:.75rem;padding:2px 8px;border-radius:999px;border:1px solid #60a5fa;color:#93c5fd;text-transform:uppercase;} h3{font-size:1.1rem;color:#c4b5fd;margin-top:20px;} pre{background:#0a0f1d;border:1px solid #1e3a8a;border-radius:10px;padding:12px;font-size:.9rem;overflow-x:auto;} .box{background:#0f172a;border:1px solid #334155;padding:16px;border-radius:12px;margin:16px 0;} .box-title{font-size:.9rem;color:#7dd3fc;font-weight:bold;margin-bottom:6px;text-transform:uppercase;} .footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;font-size:.85rem;color:#94a3b8;display:flex;justify-content:space-between;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+<div class="badge">Module M3-R5 · Python — Functions</div>
+<h1>5.2 Return Values</h1>
+<p class="subtitle">Learn how functions return data using <strong>return</strong>, how multiple values are returned as tuples, and the difference between void & value-returning functions.</p>
+</header>
+
+<section>
+<h2><span class="label">5.2.1</span> The <code>return</code> Statement</h2>
+<p>The <code>return</code> statement is used to send back a value from a function. Once <code>return</code> executes, the function stops immediately.</p>
+<pre><code>def add(a, b):
+    return a + b
+
+result = add(5, 3)
+print(result)  # 8</code></pre>
+<div class="box"><div class="box-title">Important</div>
+<p>Code after <code>return</code> will never execute.</p></div>
+</section>
+
+<section>
+<h2><span class="label">5.2.2</span> Returning a Single Value</h2>
+<p>A function may return numbers, strings, lists, booleans, or any Python object.</p>
+<pre><code>def greet(name):
+    return "Hello, " + name
+
+print(greet("Sukanta"))</code></pre>
+</section>
+
+<section>
+<h2><span class="label">5.2.3</span> Returning Multiple Values (Tuple)</h2>
+<p>Python allows returning multiple values separated by commas, packed automatically into a tuple.</p>
+<pre><code>def operations(a, b):
+    return a + b, a - b, a * b
+
+x = operations(10, 5)
+print(x)  # (15, 5, 50)</code></pre>
+
+<h3>Tuple Unpacking</h3>
+<pre><code>s, d, m = operations(10, 5)
+print(s, d, m)</code></pre>
+</section>
+
+<section>
+<h2><span class="label">5.2.4</span> Void vs Value-Returning Functions</h2>
+<p>A void function does not return anything. It implicitly returns <code>None</code>.</p>
+
+<h3>Void Function Example</h3>
+<pre><code>def show():
+    print("This is a void function.")
+
+print(show())
+# Output:
+# This is a void function.
+# None</code></pre>
+
+<h3>Value Returning Example</h3>
+<pre><code>def square(n):
+    return n * n
+
+print(square(6))  # 36</code></pre>
+</section>
+
+<section>
+<h2><span class="label">5.2.5</span> Common Mistakes with Return</h2>
+<div class="box"><div class="box-title">Mistake 1 — Using print() Instead of return</div>
+<pre><code>def wrong(a, b):
+    print(a + b)   # prints, does not return</code></pre>
+</div>
+<div class="box"><div class="box-title">Mistake 2 — Unreachable Code</div>
+<pre><code>def test():
+    return 5
+    print("Won't execute")</code></pre>
+</div>
+</section>
+
+<section>
+<h2><span class="label">5.2.6</span> Real-World Examples</h2>
+<div class="box"><div class="box-title">Example — Returning a List</div>
+<pre><code>def factors(n):
+    return [i for i in range(1, n+1) if n % i == 0]
+
+print(factors(12))</code></pre></div>
+
+<div class="box"><div class="box-title">Example — Returning a Dictionary</div>
+<pre><code>def profile(name, age):
+    return {"name": name, "age": age}
+
+print(profile("Sudeshna", 16))</code></pre></div>
+</section>
+
+<section>
+<h2><span class="label">Practice</span></h2>
+<ul>
+<li>Write a function that returns the square & cube of a number.</li>
+<li>Write a function that returns the largest of 3 numbers.</li>
+<li>Create a function that returns area & perimeter of a circle.</li>
+<li>Create a void function that prints a menu.</li>
+</ul>
+</section>
+
+<footer class="footer">
+<span>© Coder & AccoTax · Python O Level Series</span>
+<span>Author: Sukanta Hui · www.codernaccotax.co.in</span>
+</footer>
+</div>
+</body>
+</html>

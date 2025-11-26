@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Python Functions (5.1) — MCQ Answers, Explanations & Solved Exercises | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;} .page{max-width:1100px;margin:auto;padding:32px 16px;} header{padding:28px;border-radius:20px;background:radial-gradient(circle at 0 0,rgba(56,189,248,.3),transparent 60%),radial-gradient(circle at 100% 0,rgba(168,85,247,.25),transparent 60%),#0f172a;border:1px solid #334155;box-shadow:0 0 35px rgba(0,0,0,.5);margin-bottom:32px;} h1{margin:0;font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;} .subtitle{font-size:1rem;color:#94a3b8;} h2{font-size:1.35rem;color:#bfdbfe;margin-top:32px;} h3{font-size:1.1rem;color:#c4b5fd;margin-top:20px;} .box{background:#0f172a;border:1px solid #334155;padding:16px;border-radius:12px;margin:18px 0;} pre{background:#0a0f1d;border:1px solid #1e3a8a;padding:12px;border-radius:10px;overflow-x:auto;font-size:.9rem;} .ans{color:#7dd3fc;font-weight:bold;} .exp{color:#94a3b8;font-size:.95rem;margin-top:6px;} .footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;color:#94a3b8;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<div class='page'>
+<header>
+<h1>Python Functions — Full Answer Key & Explanations</h1>
+<p class='subtitle'>MCQs · Short Answers · Solved Coding Exercises (NIELIT O Level – 5.1)</p>
+</header>
+
+<section>
+<h2>1. MCQ Answers with Explanations</h2>
+<div class='box'>
+<ol>
+<li>
+<strong>Q1.</strong> Which keyword is used to define a function in Python?<br>
+<strong>Answer:</strong> <span class='ans'>c) def</span><br>
+<span class='exp'>Python uses the <code>def</code> keyword to define functions. Other options are not valid Python keywords for function definition.</span>
+</li>
+
+<li>
+<strong>Q2.</strong> What will be the output of the following code?<br>
+<pre><code>def f(a, b):
+    return a + b
+
+print(f(2, 3))</code></pre>
+<strong>Answer:</strong> <span class='ans'>c) 5</span><br>
+<span class='exp'>The function <code>f</code> returns the sum of <code>a</code> and <code>b</code>. So <code>2 + 3 = 5</code>, which is printed.</span>
+</li>
+
+<li>
+<strong>Q3.</strong> Arguments passed in the correct order without using names are called:<br>
+<strong>Answer:</strong> <span class='ans'>b) Positional arguments</span><br>
+<span class='exp'>Positional arguments are matched by their position in the function call. Keyword arguments are matched by parameter name.</span>
+</li>
+
+<li>
+<strong>Q4.</strong> What is the type of the parameter <code>*args</code> inside a function?<br>
+<strong>Answer:</strong> <span class='ans'>c) tuple</span><br>
+<span class='exp'>Python collects all extra positional arguments into a tuple when you use <code>*args</code>.</span>
+</li>
+
+<li>
+<strong>Q5.</strong> What is the type of the parameter <code>**kwargs</code> inside a function?<br>
+<strong>Answer:</strong> <span class='ans'>d) dictionary</span><br>
+<span class='exp'>Python collects all extra keyword arguments into a dictionary when you use <code>**kwargs</code>, with keys as argument names.</span>
+</li>
+
+<li>
+<strong>Q6.</strong> Consider the function definition:<br>
+<pre><code>def fun(a, b=10):
+    pass</code></pre>
+Is this valid in Python?<br>
+<strong>Answer:</strong> <span class='ans'>Yes, it is valid</span><br>
+<span class='exp'>Default arguments are allowed, but they must come <em>after</em> non-default parameters. Here <code>a</code> is non-default and <code>b</code> is default, so the order is correct.</span>
+</li>
+
+<li>
+<strong>Q7.</strong> What is the value returned by a function that has no <code>return</code> statement?<br>
+<strong>Answer:</strong> <span class='ans'>c) None</span><br>
+<span class='exp'>If Python reaches the end of a function without executing a <code>return</code>, it automatically returns <code>None</code>.</span>
+</li>
+
+<li>
+<strong>Q8.</strong> Which built-in function can be used to display the documentation (docstring) of another function?<br>
+<strong>Answer:</strong> <span class='ans'>c) help()</span><br>
+<span class='exp'>The <code>help()</code> function shows the documentation of modules, classes and functions, including their docstrings.</span>
+</li>
+
+<li>
+<strong>Q9.</strong> Which keyword is used to send a value back from a function?<br>
+<strong>Answer:</strong> <span class='ans'>c) return</span><br>
+<span class='exp'><code>return</code> ends the function execution and sends the specified value back to the caller.</span>
+</li>
+
+<li>
+<strong>Q10.</strong> What happens with the following code?<br>
+<pre><code>def f(a, b, c):
+    pass
+
+f(a=10, 20, 30)</code></pre>
+<strong>Answer:</strong> <span class='ans'>It causes an error</span><br>
+<span class='exp'>In a function call, positional arguments must come before keyword arguments. Here, <code>a=10</code> is a keyword argument followed by positional arguments <code>20, 30</code>, so Python raises a <code>SyntaxError</code>.</span>
+</li>
+</ol>
+</div>
+</section>
+
+<section>
+<h2>2. Short Questions — Model Answers</h2>
+<div class='box'>
+<ol>
+<li><strong>What is a function?</strong><br>A reusable block of code that performs a specific task.</li>
+
+<li><strong>Why use functions?</strong><br>To reduce repetition, improve readability, and modularize code.</li>
+
+<li><strong>Syntax of defining a function:</strong><pre><code>def function_name(parameters):
+    statements</code></pre></li>
+
+<li><strong>Difference between parameters and arguments?</strong><br>Parameters = in function definition; Arguments = in function call.</li>
+
+<li><strong>What are positional arguments?</strong><br>Arguments passed in order; position matters.</li>
+
+<li><strong>Keyword arguments:</strong><pre><code>fun(name="Riya", age=20)</code></pre></li>
+
+<li><strong>Default arguments:</strong> Parameters with pre-assigned values.</li>
+
+<li><strong>Why must default arguments come last?</strong><br>Otherwise Python cannot match values correctly.</li>
+
+<li><strong>*args:</strong> Accepts variable-length positional arguments.</li>
+
+<li><strong>**kwargs:</strong> Accepts variable-length keyword arguments.</li>
+
+<li><strong>Return statement:</strong> Sends a result back from a function.</li>
+
+<li><strong>Return multiple values?</strong><br>Yes, Python returns a tuple:<pre><code>return a, b</code></pre></li>
+
+<li><strong>No return?</strong><br>Function returns None.</li>
+
+<li><strong>Variable-length arguments:</strong><br>*args and **kwargs allow flexibility.</li>
+
+<li><strong>Advantage of keyword arguments:</strong><br>Order doesn’t matter; more readable.</li>
+
+<li><strong>Function header:</strong><br>The first line starting with <code>def</code>.</li>
+
+<li><strong>Function call:</strong><br>Executing a function by its name followed by ().</li>
+
+<li><strong>Type of *args:</strong> Tuple.</li>
+
+<li><strong>Difference *args vs **kwargs:</strong><br>*args → values; **kwargs → key-value.</li>
+
+<li><strong>Parameter order:</strong><br>positional → default → *args → keyword-only → **kwargs</li>
+</ol>
+</div>
+</section>
+
+<section>
+<h2>3. Solved Coding Exercises</h2>
+<div class='box'>
+<h3>1. Square of a number</h3>
+<p><strong>Question:</strong> Write a function that returns the square of a number.</p>
+<pre><code>def square(n):
+    return n * n
+
+print(square(5))  # 25</code></pre>
+
+<h3>2. Area of a circle</h3>
+<p><strong>Question:</strong> Create a function <code>area_circle(r)</code> that returns the area of a circle.</p>
+<pre><code>def area_circle(r):
+    return 3.1416 * r * r
+
+print(area_circle(5))</code></pre>
+
+<h3>3. Sum of list elements</h3>
+<p><strong>Question:</strong> Write a function that takes a list and returns the sum of all its elements.</p>
+<pre><code>def sum_list(lst):
+    return sum(lst)
+
+print(sum_list([1, 2, 3]))</code></pre>
+
+<h3>4. Product using *args</h3>
+<p><strong>Question:</strong> Write a function using <code>*args</code> to calculate the product of all numbers passed to it.</p>
+<pre><code>def product(*nums):
+    p = 1
+    for n in nums:
+        p *= n
+    return p
+
+print(product(2, 3, 4))</code></pre>
+
+<h3>5. Print student details (**kwargs)</h3>
+<p><strong>Question:</strong> Write a function using <code>**kwargs</code> to print student details in key: value format.</p>
+<pre><code>def student(**data):
+    for k, v in data.items():
+        print(k, ":", v)
+
+student(name="Riya", age=20, course="O Level")</code></pre>
+
+<h3>6. Sum & average</h3>
+<p><strong>Question:</strong> Create a function that returns both the sum and average of 3 numbers.</p>
+<pre><code>def calc(a, b, c):
+    s = a + b + c
+    avg = s / 3
+    return s, avg
+
+print(calc(5, 10, 15))</code></pre>
+
+<h3>7. Even or odd</h3>
+<p><strong>Question:</strong> Write a function that checks whether a number is even or odd.</p>
+<pre><code>def check(n):
+    if n % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+
+print(check(7))</code></pre>
+
+<h3>8. Celsius to Fahrenheit</h3>
+<p><strong>Question:</strong> Write a function that converts temperature from Celsius to Fahrenheit.</p>
+<pre><code>def convert(c):
+    return (c * 9/5) + 32
+
+print(convert(37))</code></pre>
+
+<h3>9. Count vowels</h3>
+<p><strong>Question:</strong> Write a function that takes a string and returns the number of vowels.</p>
+<pre><code>def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for ch in s:
+        if ch in vowels:
+            count += 1
+    return count
+
+print(count_vowels("Python Programming"))</code></pre>
+
+<h3>10. Largest of 3 numbers</h3>
+<p><strong>Question:</strong> Write a function that returns the largest among 3 numbers.</p>
+<pre><code>def largest(a, b, c):
+    return max(a, b, c)
+
+print(largest(10, 25, 5))</code></pre>
+
+<h3>11. Simple calculator</h3>
+<p><strong>Question:</strong> Write a calculator function that supports +, -, *, / using arguments.</p>
+<pre><code>def calc(a, b, op):
+    if op == '+':
+        return a + b
+    elif op == '-':
+        return a - b
+    elif op == '*':
+        return a * b
+    elif op == '/':
+        return a / b
+    else:
+        return "Invalid operator"
+
+print(calc(10, 5, '*'))</code></pre>
+
+<h3>12. Reverse a string</h3>
+<p><strong>Question:</strong> Write a function that reverses a string.</p>
+<pre><code>def rev(s):
+    return s[::-1]
+
+print(rev("hello"))</code></pre>
+
+<h3>13. Count words in a sentence</h3>
+<p><strong>Question:</strong> Write a function that counts the number of words in a sentence.</p>
+<pre><code>def words(s):
+    return len(s.split())
+
+print(words("I love Python programming"))</code></pre>
+
+<h3>14. Multiplication table</h3>
+<p><strong>Question:</strong> Write a function that prints the multiplication table of a number.</p>
+<pre><code>def table(n):
+    for i in range(1, 11):
+        print(n, 'x', i, '=', n * i)
+
+table(5)</code></pre>
+
+<h3>15. Prime check</h3>
+<p><strong>Question:</strong> Write a function that checks whether a number is prime.</p>
+<pre><code>def is_prime(n):
+    if n &lt; 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+print(is_prime(17))</code></pre>
+
+<h3>16. Default argument</h3>
+<p><strong>Question:</strong> Write a function with a default argument <code>country="India"</code> that prints a welcome message.</p>
+<pre><code>def welcome(country="India"):
+    print("Welcome to", country)
+
+welcome()
+welcome("USA")</code></pre>
+
+<h3>17. Factorial</h3>
+<p><strong>Question:</strong> Write a function that returns the factorial of a number.</p>
+<pre><code>def fact(n):
+    f = 1
+    for i in range(1, n + 1):
+        f *= i
+    return f
+
+print(fact(6))</code></pre>
+
+<h3>18. Remove duplicates from a list</h3>
+<p><strong>Question:</strong> Write a function that removes duplicates from a list and returns the new list.</p>
+<pre><code>def remove_dup(lst):
+    return list(set(lst))
+
+print(remove_dup([1, 2, 2, 3, 3, 3]))</code></pre>
+
+<h3>19. Print keys only (**kwargs)</h3>
+<p><strong>Question:</strong> Write a function that accepts <code>**kwargs</code> and returns all keys.</p>
+<pre><code>def show_keys(**d):
+    return list(d.keys())
+
+print(show_keys(a=1, b=2, c=3))</code></pre>
+
+<h3>20. Simple Interest</h3>
+<p><strong>Question:</strong> Write a function to calculate simple interest.</p>
+<pre><code>def si(p, r, t):
+    return (p * r * t) / 100
+
+print(si(1000, 5, 2))</code></pre>
+</div>
+</section>
+
+<footer class='footer'>
+<span>© Coder & AccoTax · Python O Level Series</span>
+<span>Author: Sukanta Hui · www.codernaccotax.co.in</span>
+</footer>
+</div>
+</body>
+</html>

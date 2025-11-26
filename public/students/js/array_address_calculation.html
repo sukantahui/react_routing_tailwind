@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Array Address Calculation — Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Premium study note: Array Address Calculation from Beginner to Pro — by Coder & AccoTax" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-card: #0b1120;
+      --bg-soft: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --code: #020617;
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      background: radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.2), transparent 50%),
+        radial-gradient(circle at 90% 0, rgba(168, 85, 247, 0.2), transparent 50%);
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.8rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background-color: rgba(15, 23, 42, 0.85);
+    }
+
+    .logo-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 0, rgba(56, 189, 248, 0.8), transparent 60%),
+        radial-gradient(circle at 70% 100%, rgba(236, 72, 153, 0.8), transparent 60%);
+      color: #0b1120;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .brand {
+      flex: 1;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .brand p {
+      margin: 0.1rem 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .brand .site-link {
+      font-size: 0.88rem;
+      margin-top: 0.25rem;
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .meta {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .meta strong {
+      color: var(--accent);
+    }
+
+    main {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .meta {
+        text-align: left;
+      }
+    }
+
+    .content {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 55%);
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      margin: 0 0 0.8rem;
+      color: #e5e7eb;
+    }
+
+    h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+
+    h4 {
+      margin-top: 1.1rem;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      color: var(--accent2);
+    }
+
+    p {
+      margin: 0.3rem 0;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.25rem 0 0.6rem;
+    }
+
+    li {
+      margin: 0.18rem 0;
+      font-size: 0.95rem;
+    }
+
+    .pill {
+      display: inline-block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      margin: 0.4rem 0 0.6rem;
+      background: linear-gradient(to right, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .note-box,
+    .tip-box,
+    .warning-box,
+    .success-box {
+      border-radius: 0.9rem;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.9rem;
+      margin: 0.6rem 0;
+      border: 1px solid;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .note-box {
+      border-color: rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .tip-box {
+      border-color: rgba(56, 189, 248, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .warning-box {
+      border-color: rgba(234, 179, 8, 0.9);
+      background: rgba(24, 20, 4, 0.97);
+    }
+
+    .success-box {
+      border-color: rgba(34, 197, 94, 0.9);
+      background: rgba(5, 46, 22, 0.95);
+    }
+
+    .note-icon {
+      font-size: 1.1rem;
+      margin-top: 0.1rem;
+    }
+
+    code,
+    .formula {
+      font-family: "JetBrains Mono", "Fira Code", Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+    }
+
+    .code-block {
+      background-color: var(--code);
+      border-radius: 0.8rem;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid rgba(30, 64, 175, 0.8);
+      margin: 0.5rem 0;
+      overflow-x: auto;
+      font-size: 0.86rem;
+    }
+
+    .highlight {
+      color: var(--accent3);
+      font-weight: 600;
+    }
+
+    .formula {
+      display: inline-block;
+      padding: 0.15rem 0.35rem;
+      border-radius: 0.4rem;
+      background-color: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      margin: 0.05rem 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 0.4rem 0.5rem;
+      text-align: center;
+    }
+
+    .table th {
+      background: linear-gradient(to right, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+      font-weight: 600;
+    }
+
+    .table caption {
+      caption-side: top;
+      text-align: left;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+    }
+
+    .badge-row {
+      border-color: rgba(56, 189, 248, 0.7);
+      color: #bae6fd;
+    }
+
+    .badge-col {
+      border-color: rgba(168, 85, 247, 0.7);
+      color: #e9d5ff;
+    }
+
+    .trainer-step {
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.7rem 0.8rem;
+      margin: 0.4rem 0;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 60%);
+    }
+
+    .trainer-step strong {
+      color: var(--accent);
+    }
+
+    details {
+      margin: 0.4rem 0;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      background-color: rgba(15, 23, 42, 0.95);
+      padding: 0.5rem 0.7rem;
+    }
+
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--accent2);
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .summary-label {
+      font-weight: 600;
+    }
+
+    .exercise-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding: 1.2rem 1.5rem 1.5rem;
+      border-top: 1px solid rgba(30, 64, 175, 0.8);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      background: radial-gradient(circle at 0 100%, rgba(56, 189, 248, 0.18), transparent 55%);
+      border-radius: 1.5rem 1.5rem 0 0;
+    }
+
+    @media (max-width: 700px) {
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-circle">C&A</div>
+      <div class="brand">
+        <h1>Coder &amp; AccoTax</h1>
+        <p>Premium Study Notes • Programming &amp; Computer Science Training</p>
+        <a class="site-link" href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          Visit: www.codernaccotax.co.in
+        </a>
+      </div>
+      <div class="meta">
+        <div><strong>Title:</strong> Array Address Calculation — Beginner to Pro</div>
+        <div><strong>Prepared by:</strong> Sukanta Hui</div>
+        <div><strong>For:</strong> Coder &amp; AccoTax Learners</div>
+      </div>
+    </header>
+
+    <main>
+      <!-- MAIN CONTENT -->
+      <section class="content">
+        <span class="pill">Personal Trainer Style • Step by Step</span>
+        <h2 class="hero-title">Array Address Calculation — From Beginner to Pro</h2>
+        <p class="tagline">
+          In this guided note, I’ll train you like a personal tutor — we’ll start from the absolute basics of memory and
+          addresses,
+          then move to 1D, 2D, and multi-dimensional arrays, with plenty of examples at every step.
+        </p>
+
+        <!-- SECTION 1 -->
+        <h3>1. Warming Up — What Is an Address?</h3>
+        <p>Before doing any formulas, you must be clear about three words:</p>
+        <ul>
+          <li><strong>Address:</strong> The location of data in memory (like a house number).</li>
+          <li><strong>Base address:</strong> The address of the first element of the array.</li>
+          <li><strong>Word size (w):</strong> Number of bytes per element (e.g., <code>int</code> = 4 bytes).</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-icon">💡</div>
+          <div>
+            <strong>Think like this:</strong> Memory is a long street of houses. The <span class="highlight">base
+              address</span> is the
+            house of <code>A[0]</code>. Every next element is some fixed distance (word size) further down the street.
+          </div>
+        </div>
+
+        <h4>Example 1.1 — Single integer</h4>
+        <p>Suppose a single integer variable <code>x</code> is stored at address <code>1000</code> and an
+          <code>int</code> takes 4 bytes.</p>
+        <p><strong>So:</strong> <code>x</code> occupies addresses 1000, 1001, 1002, 1003.</p>
+
+        <div class="code-block">
+          <strong>Memory view (conceptual):</strong><br />
+          Address: 1000 1001 1002 1003<br />
+          Value: &nbsp;&nbsp;&nbsp;x&nbsp;&nbsp; x&nbsp;&nbsp; x&nbsp;&nbsp; x
+        </div>
+
+        <div class="trainer-step">
+          <strong>Trainer Tip:</strong> Always ask yourself: “How many bytes per element?” This will come in every
+          formula.
+        </div>
+
+        <!-- SECTION 2 -->
+        <h3>2. 1D Array Address Calculation (0-based index)</h3>
+        <p>Most programming languages (C, C++, Java, Python) use <strong>0-based indexing</strong>:</p>
+        <ul>
+          <li>First element → <code>A[0]</code></li>
+          <li>Second element → <code>A[1]</code></li>
+          <li>…</li>
+          <li>(n-th element) → <code>A[n-1]</code></li>
+        </ul>
+
+        <p>The general formula for a 1-D array <code>A[0…n-1]</code> is:</p>
+        <p class="formula">
+          Address(A[i]) = Base(A) + i × w
+        </p>
+        <p>where:</p>
+        <ul>
+          <li><code>Base(A)</code> = address of <code>A[0]</code></li>
+          <li><code>i</code> = index (0, 1, 2, …)</li>
+          <li><code>w</code> = word size = bytes per element</li>
+        </ul>
+
+        <h4>Example 2.1 — 1D int array</h4>
+        <div class="code-block">
+          int A[5]; // A[0], A[1], A[2], A[3], A[4]
+        </div>
+        <p>Assume:</p>
+        <ul>
+          <li><code>Base(A) = 1000</code></li>
+          <li><code>w = 4</code> bytes (int)</li>
+        </ul>
+
+        <p><strong>Find the address of:</strong></p>
+        <ul>
+          <li><code>A[0]</code>: <span class="formula">1000 + 0 × 4 = 1000</span></li>
+          <li><code>A[1]</code>: <span class="formula">1000 + 1 × 4 = 1004</span></li>
+          <li><code>A[2]</code>: <span class="formula">1000 + 2 × 4 = 1008</span></li>
+          <li><code>A[4]</code>: <span class="formula">1000 + 4 × 4 = 1016</span></li>
+        </ul>
+
+        <table class="table">
+          <caption>Example 2.1 — Address table for A[0…4]</caption>
+          <thead>
+            <tr>
+              <th>Index (i)</th>
+              <th>Element</th>
+              <th>Formula</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>A[0]</td>
+              <td>1000 + 0 × 4</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>A[1]</td>
+              <td>1000 + 1 × 4</td>
+              <td>1004</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>A[2]</td>
+              <td>1000 + 2 × 4</td>
+              <td>1008</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>A[3]</td>
+              <td>1000 + 3 × 4</td>
+              <td>1012</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>A[4]</td>
+              <td>1000 + 4 × 4</td>
+              <td>1016</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tip-box">
+          <div class="note-icon">✅</div>
+          <div>
+            In 1-D arrays with 0-based index, just multiply the index by element size and add to base address.
+            Very scoring in exams!
+          </div>
+        </div>
+
+        <h4>Example 2.2 — char array</h4>
+        <p>Now <code>char</code> typically takes <code>w = 1</code> byte.</p>
+        <div class="code-block">
+          char C[6]; // C[0..5]<br />
+          Base(C) = 5000
+        </div>
+        <p><strong>Address of <code>C[3]</code>?</strong></p>
+        <p class="formula">Address(C[3]) = 5000 + 3 × 1 = 5003</p>
+
+        <!-- SECTION 3 -->
+        <h3>3. 1D Array with Non-zero Lower Bound (Theory)</h3>
+        <p>In some textbooks or theoretical questions, arrays are written like:</p>
+        <p><code>A[L…U]</code>, where <code>L</code> = lower bound, <code>U</code> = upper bound.</p>
+        <p>For example, <code>A[1…5]</code> (starts at 1, not 0).</p>
+
+        <p>General formula:</p>
+        <p class="formula">
+          Address(A[i]) = Base(A) + (i − L) × w
+        </p>
+
+        <h4>Example 3.1 — A[1…5]</h4>
+        <p>Given <code>A[1…5]</code>, <code>Base(A) = 2000</code>, <code>w = 4</code> bytes.</p>
+        <ul>
+          <li>Address(A[1]) = 2000 + (1 − 1) × 4 = 2000</li>
+          <li>Address(A[2]) = 2000 + (2 − 1) × 4 = 2004</li>
+          <li>Address(A[5]) = 2000 + (5 − 1) × 4 = 2016</li>
+        </ul>
+
+        <div class="warning-box">
+          <div class="note-icon">⚠️</div>
+          <div>
+            <strong>Exam alert:</strong> If the array lower bound is not 0, you MUST subtract <code>L</code> in the
+            formula.
+            Missing this is a very common mistake.
+          </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <h3>4. 2D Arrays — Visualising the Grid</h3>
+        <p>A 2-D array looks like a matrix.</p>
+        <div class="code-block">
+          int B[3][4]; // 3 rows, 4 columns
+        </div>
+        <p>Conceptually:</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>j=0</th>
+              <th>j=1</th>
+              <th>j=2</th>
+              <th>j=3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>i=0</th>
+              <td>B[0][0]</td>
+              <td>B[0][1]</td>
+              <td>B[0][2]</td>
+              <td>B[0][3]</td>
+            </tr>
+            <tr>
+              <th>i=1</th>
+              <td>B[1][0]</td>
+              <td>B[1][1]</td>
+              <td>B[1][2]</td>
+              <td>B[1][3]</td>
+            </tr>
+            <tr>
+              <th>i=2</th>
+              <td>B[2][0]</td>
+              <td>B[2][1]</td>
+              <td>B[2][2]</td>
+              <td>B[2][3]</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Two popular storage orders:</p>
+        <ul>
+          <li><span class="badge badge-row">Row-major</span> — store row by row (C, C++, Java).</li>
+          <li><span class="badge badge-col">Column-major</span> — store column by column (Fortran, MATLAB by
+            default).</li>
+        </ul>
+
+        <!-- SECTION 5 -->
+        <h3>5. Row-major Address Formula (0-based)</h3>
+        <p>For array <code>B[m][n]</code> with indices:</p>
+        <ul>
+          <li>rows: <code>0…m-1</code></li>
+          <li>columns: <code>0…n-1</code></li>
+        </ul>
+
+        <p>The row-major address formula is:</p>
+        <p class="formula">
+          Address(B[i][j]) = Base(B) + ((i × n) + j) × w
+        </p>
+
+        <h4>Example 5.1 — 3×4 int matrix</h4>
+        <div class="code-block">
+          int B[3][4];<br />
+          Base(B) = 1000, w = 4 bytes (int)
+        </div>
+        <p>Find address of <code>B[2][3]</code> (3rd row, 4th column).</p>
+        <p>
+          Here, <code>m = 3</code>, <code>n = 4</code>, <code>i = 2</code>, <code>j = 3</code>.
+        </p>
+        <p>
+          <span class="formula">
+            Address(B[2][3]) = 1000 + ((2 × 4) + 3) × 4 = 1000 + (8 + 3) × 4 = 1000 + 11 × 4 = 1044
+          </span>
+        </p>
+
+        <h4>Example 5.2 — Fill the address table</h4>
+        <p>For the same array, list addresses of all elements:</p>
+
+        <table class="table">
+          <caption>Row-major addresses of B[3][4]</caption>
+          <thead>
+            <tr>
+              <th>i</th>
+              <th>j</th>
+              <th>Element</th>
+              <th>Formula</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>B[0][0]</td>
+              <td>1000 + ((0×4)+0)×4</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+              <td>B[0][1]</td>
+              <td>1000 + ((0×4)+1)×4</td>
+              <td>1004</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>2</td>
+              <td>B[0][2]</td>
+              <td>1000 + ((0×4)+2)×4</td>
+              <td>1008</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>3</td>
+              <td>B[0][3]</td>
+              <td>1000 + ((0×4)+3)×4</td>
+              <td>1012</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>B[1][0]</td>
+              <td>1000 + ((1×4)+0)×4</td>
+              <td>1016</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>B[1][1]</td>
+              <td>1000 + ((1×4)+1)×4</td>
+              <td>1020</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>B[1][2]</td>
+              <td>1000 + ((1×4)+2)×4</td>
+              <td>1024</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>3</td>
+              <td>B[1][3]</td>
+              <td>1000 + ((1×4)+3)×4</td>
+              <td>1028</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>0</td>
+              <td>B[2][0]</td>
+              <td>1000 + ((2×4)+0)×4</td>
+              <td>1032</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1</td>
+              <td>B[2][1]</td>
+              <td>1000 + ((2×4)+1)×4</td>
+              <td>1036</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+              <td>B[2][2]</td>
+              <td>1000 + ((2×4)+2)×4</td>
+              <td>1040</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>3</td>
+              <td>B[2][3]</td>
+              <td>1000 + ((2×4)+3)×4</td>
+              <td>1044</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="trainer-step">
+          <strong>Trainer Tip:</strong> In row-major, first count how many full rows are before row <code>i</code>.
+          That is <code>i × n</code> elements. Then move <code>j</code> elements within the row. Finally, multiply by
+          <code>w</code>.
+        </div>
+
+        <!-- SECTION 6 -->
+        <h3>6. Column-major Address Formula (0-based)</h3>
+        <p>In column-major order, memory is filled column by column.</p>
+        <p>For <code>B[m][n]</code> with 0-based indices, the formula is:</p>
+        <p class="formula">
+          Address(B[i][j]) = Base(B) + ((j × m) + i) × w
+        </p>
+        <ul>
+          <li><code>j × m</code> → elements in previous full columns</li>
+          <li><code>+ i</code> → elements inside current column</li>
+        </ul>
+
+        <h4>Example 6.1 — Same 3×4 array in column-major</h4>
+        <div class="code-block">
+          int B[3][4];<br />
+          Base(B) = 1000, w = 4
+        </div>
+        <p><strong>Address of <code>B[2][3]</code>?</strong></p>
+        <p>
+          Here, <code>m = 3</code>, <code>n = 4</code>, <code>i = 2</code>, <code>j = 3</code>.
+        </p>
+        <p>
+          <span class="formula">
+            Address(B[2][3]) = 1000 + ((3 × 3) + 2) × 4 = 1000 + (9 + 2) × 4 = 1000 + 11 × 4 = 1044
+          </span>
+        </p>
+        <p>Notice: For this particular element, the numeric result is same as row-major, but the <strong>sequence</strong>
+          of addresses in memory is different.</p>
+
+        <!-- SECTION 7 -->
+        <h3>7. General Formula with Lower Bounds (Row-major)</h3>
+        <p>Theory questions sometimes use general bounds:</p>
+        <p><code>A[Lr…Ur, Lc…Uc]</code> with <code>r</code> = row index, <code>c</code> = column index.</p>
+        <p>Number of columns:</p>
+        <p class="formula">Nc = (Uc − Lc + 1)</p>
+
+        <h4>Row-major general formula:</h4>
+        <p class="formula">
+          Address(A[r][c]) =
+          Base(A) + { (r − Lr) × Nc + (c − Lc) } × w
+        </p>
+
+        <h4>Example 7.1 — Non-zero lower bounds</h4>
+        <p>Let <code>A[2…4, 3…6]</code> be stored in row-major order.</p>
+        <ul>
+          <li><code>Base(A) = 1000</code>, <code>w = 2</code> bytes</li>
+          <li><code>Lr = 2, Lc = 3, Ur = 4, Uc = 6</code></li>
+        </ul>
+        <p>First find <code>Nc</code>:</p>
+        <p class="formula">Nc = (Uc − Lc + 1) = (6 − 3 + 1) = 4</p>
+        <p><strong>Find address of A[3][5]</strong>:</p>
+        <p class="formula">
+          Address(A[3][5]) = 1000 + { (3 − 2) × 4 + (5 − 3) } × 2<br />
+          = 1000 + { (1 × 4) + 2 } × 2<br />
+          = 1000 + (4 + 2) × 2 = 1000 + 6 × 2 = 1012
+        </p>
+
+        <!-- SECTION 8 -->
+        <h3>8. Multi-dimensional Arrays (Pro Level)</h3>
+        <p>For a 3-D array <code>A[x][y][z]</code> in row-major order (0-based), the element <code>A[i][j][k]</code> is:
+        </p>
+        <p class="formula">
+          Address(A[i][j][k]) = Base(A) + { (i × y × z) + (j × z) + k } × w
+        </p>
+        <ul>
+          <li><code>i</code> → which block of <code>y × z</code> matrices</li>
+          <li><code>j</code> → which row inside that block</li>
+          <li><code>k</code> → which column</li>
+        </ul>
+
+        <h4>Example 8.1 — 3D array</h4>
+        <div class="code-block">
+          int X[2][3][4];<br />
+          Base(X) = 2000, w = 4
+        </div>
+        <p><strong>Find address of <code>X[1][2][3]</code>:</strong></p>
+        <p>
+          Here, <code>x = 2</code>, <code>y = 3</code>, <code>z = 4</code>, <code>i = 1</code>, <code>j = 2</code>,
+          <code>k = 3</code>.
+        </p>
+        <p class="formula">
+          Address(X[1][2][3]) = 2000 + { (1 × 3 × 4) + (2 × 4) + 3 } × 4<br />
+          = 2000 + { 12 + 8 + 3 } × 4 = 2000 + 23 × 4 = 2092
+        </p>
+
+        <!-- SECTION 9 -->
+        <h3>9. Reverse Calculation — From Address to Index</h3>
+        <p>Sometimes exam questions give you the address of an element and ask for its index.</p>
+
+        <h4>9.1 1D array (row-major)</h4>
+        <p>Given <code>Address(A[i])</code>, we can find <code>i</code>:</p>
+        <p class="formula">
+          i = (Address(A[i]) − Base(A)) / w
+        </p>
+
+        <h4>Example 9.1 — Find index</h4>
+        <p>Given <code>A[0…9]</code>, <code>Base(A) = 1000</code>, <code>w = 4</code>, and address <code>1016</code>.</p>
+        <p>
+          <span class="formula">
+            i = (1016 − 1000) / 4 = 16 / 4 = 4
+          </span>
+        </p>
+        <p>So this is element <code>A[4]</code>.</p>
+
+        <h4>9.2 2D array (row-major)</h4>
+        <p>We first find the <strong>linear index</strong> (<code>K</code>):</p>
+        <p class="formula">
+          K = (Address − Base) / w
+        </p>
+        <p>Then:</p>
+        <p class="formula">
+          i = K / n &nbsp;&nbsp;&nbsp; (integer division)<br />
+          j = K mod n
+        </p>
+
+        <h4>Example 9.2 — Find (i, j)</h4>
+        <p>For <code>B[3][4]</code> in row-major, <code>Base(B) = 1000</code>, <code>w = 4</code>.
+          Given address <code>1036</code>, find <code>(i, j)</code>.</p>
+        <p>
+          Step 1: <span class="formula">K = (1036 − 1000) / 4 = 36 / 4 = 9</span>
+        </p>
+        <p>
+          Step 2: <span class="formula">
+            i = K / 4 = 9 / 4 = 2 (integer division)<br />
+            j = K mod 4 = 9 mod 4 = 1
+          </span>
+        </p>
+        <p>
+          So the element is <code>B[2][1]</code>.
+        </p>
+
+        <!-- SECTION 10 -->
+        <h3>10. Quick Summary Sheet (Formulas)</h3>
+        <div class="card">
+          <h4>1D Array (A[L…U])</h4>
+          <p class="formula">
+            Address(A[i]) = Base(A) + (i − L) × w
+          </p>
+
+          <h4>2D Array (Row-major, A[Lr…Ur, Lc…Uc])</h4>
+          <p class="formula">
+            Nc = (Uc − Lc + 1)
+          </p>
+          <p class="formula">
+            Address(A[r][c]) = Base(A) + { (r − Lr) × Nc + (c − Lc) } × w
+          </p>
+
+          <h4>2D Array (Column-major)</h4>
+          <p class="formula">
+            Address(A[r][c]) = Base(A) + { (c − Lc) × (Ur − Lr + 1) + (r − Lr) } × w
+          </p>
+
+          <h4>3D Array (Row-major, A[x][y][z])</h4>
+          <p class="formula">
+            Address(A[i][j][k]) = Base(A) + { (i × y × z) + (j × z) + k } × w
+          </p>
+        </div>
+
+        <!-- SECTION 11 -->
+        <h3>11. Practice Zone — Guided Exercises</h3>
+        <p>Now I’ll act as your trainer: first, <strong>you try</strong>, then open the solution.</p>
+
+        <ol class="exercise-list">
+          <li>
+            <strong>Exercise 1 — 1D address</strong><br />
+            Array <code>X[0…7]</code>, <code>Base(X) = 4000</code>, <code>w = 2</code> bytes.<br />
+            Find address of <code>X[5]</code>.
+            <details>
+              <summary><span class="summary-label">Show Solution</span></summary>
+              <p>
+                Using 1D formula:<br />
+                Address(X[5]) = 4000 + 5 × 2 = 4000 + 10 = <strong>4010</strong>.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <strong>Exercise 2 — 1D with non-zero lower bound</strong><br />
+            Array <code>Y[3…10]</code>, <code>Base(Y) = 8000</code>, <code>w = 4</code> bytes.<br />
+            Find address of <code>Y[6]</code>.
+            <details>
+              <summary><span class="summary-label">Show Solution</span></summary>
+              <p>
+                L = 3<br />
+                Address(Y[6]) = 8000 + (6 − 3) × 4 = 8000 + 3 × 4 = 8000 + 12 = <strong>8012</strong>.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <strong>Exercise 3 — 2D row-major</strong><br />
+            Array <code>M[4][5]</code> in row-major, <code>Base(M) = 5000</code>, <code>w = 2</code> bytes.<br />
+            Find address of <code>M[3][2]</code>.
+            <details>
+              <summary><span class="summary-label">Show Solution</span></summary>
+              <p>
+                m = 4, n = 5, i = 3, j = 2<br />
+                Address(M[3][2]) = 5000 + ((3 × 5) + 2) × 2<br />
+                = 5000 + (15 + 2) × 2 = 5000 + 17 × 2 = <strong>5034</strong>.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <strong>Exercise 4 — 2D column-major</strong><br />
+            Array <code>N[3][4]</code> in column-major, <code>Base(N) = 6000</code>, <code>w = 4</code> bytes.<br />
+            Find address of <code>N[1][2]</code>.
+            <details>
+              <summary><span class="summary-label">Show Solution</span></summary>
+              <p>
+                m = 3, n = 4, i = 1, j = 2<br />
+                Column-major formula: Address(N[i][j]) = 6000 + ((j × m) + i) × 4<br />
+                = 6000 + ((2 × 3) + 1) × 4<br />
+                = 6000 + (6 + 1) × 4 = 6000 + 7 × 4 = <strong>6028</strong>.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <strong>Exercise 5 — Reverse 2D (row-major)</strong><br />
+            For <code>P[3][3]</code> (row-major), <code>Base(P) = 9000</code>, <code>w = 4</code> bytes.<br />
+            Which element is at address <code>9048</code>?
+            <details>
+              <summary><span class="summary-label">Show Solution</span></summary>
+              <p>
+                Step 1: K = (9048 − 9000) / 4 = 48 / 4 = 12<br />
+                Step 2: n = 3<br />
+                i = K / 3 = 12 / 3 = 4<br />
+                j = K mod 3 = 12 mod 3 = 0<br />
+                So indices: (4, 0). But P[3][3] only has i = 0..2.<br />
+                <strong>Conclusion:</strong> 9048 is <em>outside</em> this array’s valid range, so this is not a valid
+                element of P.<br />
+                (This type of question checks whether you understand bounds!)
+              </p>
+            </details>
+          </li>
+        </ol>
+
+        <div class="success-box">
+          <div class="note-icon">🎯</div>
+          <div>
+            If you can handle all the exercises above without looking at the solutions, your array address calculation
+            skills are already at a <strong>pro</strong> level.
+          </div>
+        </div>
+      </section>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="card">
+          <h4>Trainer Roadmap</h4>
+          <ul>
+            <li>✔️ Understand memory &amp; word size</li>
+            <li>✔️ Master 1D address formula</li>
+            <li>✔️ Learn 2D (row-major &amp; column-major)</li>
+            <li>✔️ Use general formulas with bounds</li>
+            <li>✔️ Extend to 3D &amp; reverse indexing</li>
+            <li>✔️ Practice exam-style questions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Where is this used?</h4>
+          <ul>
+            <li>• Competitive exams (B.Tech, BCA, CS).</li>
+            <li>• Data structure memory mapping.</li>
+            <li>• Low-level programming &amp; compilers.</li>
+            <li>• Understanding how matrices are stored.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Exam Checklist</h4>
+          <ul>
+            <li>☑ Write formula <em>before</em> calculation.</li>
+            <li>☑ Check lower bounds (0 or not?).</li>
+            <li>☑ Confirm row-major vs column-major.</li>
+            <li>☑ Use correct number of columns (Nc).</li>
+            <li>☑ Use correct word size (w).</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>
+        <strong>Coder &amp; AccoTax</strong><br />
+        Premium educational content for programming, accounts, taxation, and computer science.
+      </div>
+      <div>
+        Author: <strong>Sukanta Hui</strong><br />
+        Website:
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br />
+        This HTML note is designed for direct use as a study resource or embedding into your educational platform.
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<title>Unit 3.3 — Error Handling Basics (Exercise Set) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 22px 80px;
+}
+
+/* HEADER */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.18), transparent 60%),
+    #0f172a;
+  border-radius: 26px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(148,163,184,0.22);
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* BRAND BOX */
+.brand-box {
+  margin-top: 22px;
+  background: var(--soft);
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,0.22);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  font-size: 14px;
+}
+
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+
+.brand-box a { color: var(--accent); text-decoration: none; }
+.brand-box a:hover { text-decoration: underline; }
+
+.github-btn {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  margin-top: 28px;
+  padding: 26px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+h3 {
+  color: var(--accent);
+  margin-top: 18px;
+}
+
+h4 {
+  color: var(--accent2);
+  margin-top: 14px;
+}
+
+.example {
+  background: var(--soft);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  padding: 14px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+.code {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.diagram {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  white-space: pre;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 3.3 — Error Handling Basics (Exercise Set)</h1>
+  <p class="sub">Syntax vs Runtime Errors • Exception Types • try–except</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation</div>
+      Coder &amp; AccoTax<br />
+      🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+    <div>
+      <div class="brand-title2">👨‍🏫 Author</div>
+      Sukanta Hui<br />
+      📞 7003756860<br />
+      ✉️ info@codernaccotax.co.in
+    </div>
+    <div>
+      <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+        View GitHub Repository
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 1. MCQs -->
+<div class="card">
+  <h2>1. Multiple Choice Questions (MCQs)</h2>
+
+  <ol>
+    <li>Which of the following is a <strong>syntax error</strong>?<br>
+      a) Division by zero<br>
+      b) Using <code>if x &gt; 5</code> without colon<br>
+      c) Accessing list index out of range<br>
+      d) Converting "abc" to int
+    </li>
+
+    <li>Which of the following is a <strong>runtime error</strong>?<br>
+      a) Missing bracket<br>
+      b) Misspelling <code>print</code> as <code>prnt</code><br>
+      c) <code>10 / 0</code><br>
+      d) Indentation mistake
+    </li>
+
+    <li>An exception in Python is:<br>
+      a) Another name for function<br>
+      b) A recoverable runtime error<br>
+      c) A syntax error<br>
+      d) A warning message
+    </li>
+
+    <li>Which exception occurs when dividing by zero?<br>
+      a) ValueError<br>
+      b) ZeroDivisionError<br>
+      c) NameError<br>
+      d) TypeError
+    </li>
+
+    <li>Which block is used to <strong>handle</strong> an exception?<br>
+      a) try<br>
+      b) except<br>
+      c) finally<br>
+      d) raise
+    </li>
+
+    <li>Which is correct syntax?<br>
+      a)
+<pre class="code">try:
+    ...
+else:
+    ...</pre>
+      b)
+<pre class="code">try:
+    ...
+except:
+    ...</pre>
+      c)
+<pre class="code">catch:
+    ...
+try:
+    ...</pre>
+      d)
+<pre class="code">exception:
+    ...
+</pre>
+    </li>
+
+    <li>Which exception is raised for invalid literal in <code>int("abc")</code>?<br>
+      a) TypeError<br>
+      b) NameError<br>
+      c) ValueError<br>
+      d) IndexError
+    </li>
+
+    <li>Which block always executes (if present)?<br>
+      a) try<br>
+      b) except<br>
+      c) else<br>
+      d) finally
+    </li>
+
+    <li>Accessing a missing key in dictionary raises:<br>
+      a) KeyError<br>
+      b) IndexError<br>
+      c) NameError<br>
+      d) ValueError
+    </li>
+
+    <li>What is the purpose of exception handling?<br>
+      a) To make code slower<br>
+      b) To stop program always<br>
+      c) To handle errors without stopping program abruptly<br>
+      d) To remove all bugs automatically
+    </li>
+  </ol>
+</div>
+
+<!-- 2. OUTPUT QUESTIONS -->
+<div class="card">
+  <h2>2. Output-Based Questions</h2>
+
+  <div class="example">
+    <strong>Q1</strong>
+    <span class="code">
+try:
+    print(10 / 0)
+except:
+    print("Error!")
+print("Done")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+    <span class="code">
+try:
+    x = int("25")
+    print(x + 5)
+except ValueError:
+    print("Conversion error")
+print("End")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+    <span class="code">
+try:
+    items = [1, 2, 3]
+    print(items[5])
+except IndexError:
+    print("Index problem")
+except:
+    print("Some other error")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q4</strong>
+    <span class="code">
+try:
+    num = int("abc")
+except ValueError:
+    print("Value error!")
+else:
+    print("No error")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q5</strong>
+    <span class="code">
+try:
+    a = 10
+    b = 0
+    c = a / b
+except ZeroDivisionError:
+    print("Divide by zero")
+finally:
+    print("Finished")
+    </span>
+  </div>
+</div>
+
+<!-- 3. DRY RUN TASKS -->
+<div class="card">
+  <h2>3. Dry Run / Trace the Program</h2>
+
+  <div class="example">
+    <strong>Q1</strong> — Step-by-step trace:
+    <span class="code">
+try:
+    n = int(input("Enter number: "))  # assume user enters: 0
+    print("Result:", 10 / n)
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except ValueError:
+    print("Invalid input")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+    <span class="code">
+try:
+    d = {"name": "Ram"}
+    print(d["age"])
+except KeyError:
+    print("Key not found")
+finally:
+    print("End of program")
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+    <span class="code">
+def safe_int(x):
+    try:
+        return int(x)
+    except ValueError:
+        print("Not a number")
+        return 0
+
+v1 = safe_int("10")
+v2 = safe_int("abc")
+print(v1, v2)
+    </span>
+  </div>
+</div>
+
+<!-- 4. CODING QUESTIONS -->
+<div class="card">
+  <h2>4. Coding Practice Questions</h2>
+
+  <h3>Easy</h3>
+  <ol>
+    <li>Write a program to input a number and handle the case when the user enters text instead of number (using <code>try–except</code>).</li>
+    <li>Write a program to divide two numbers entered by the user and handle division by zero.</li>
+    <li>Write a program that opens a file and handles the case when the file does not exist.</li>
+  </ol>
+
+  <h3>Moderate</h3>
+  <ol>
+    <li>Write a function <code>safe_divide(a, b)</code> that returns division result, but prints a message and returns <code>None</code> if <code>b</code> is zero.</li>
+    <li>Create a program that asks the user for an index and prints the element of a list at that index. Handle <code>IndexError</code> and <code>ValueError</code>.</li>
+    <li>Write a small calculator that handles: invalid numbers, division by zero, and any other unexpected errors.</li>
+  </ol>
+
+  <h3>Advanced</h3>
+  <ol>
+    <li>Write a function that reads numbers from a text file (one per line), converts them to integers using <code>try–except</code>, and calculates the sum. Lines that are not valid numbers should be skipped with a warning.</li>
+    <li>Simulate a login system where wrong username or password is handled using custom messages and exceptions for invalid attempts.</li>
+    <li>Implement a robust input function <code>get_int(prompt)</code> that repeatedly asks the user until a valid integer is entered, using <code>while</code> + <code>try–except</code>.</li>
+  </ol>
+</div>
+
+<!-- 5. REAL-LIFE CASE STUDIES -->
+<div class="card">
+  <h2>5. Real-Life Case Study Questions</h2>
+
+  <div class="example">
+    <strong>Case Study 1 — Online Form Input</strong>
+    <p>
+      You are designing an online admission form.  
+      User must enter <strong>age</strong> as a number.
+    </p>
+    <ul>
+      <li>If user enters non-numeric value → show “Invalid age, please enter a number”.</li>
+      <li>If user enters age &lt; 0 → show “Age cannot be negative”.</li>
+      <li>Otherwise, accept and print “Age recorded”.</li>
+    </ul>
+    <p>Write the Python code using <code>try–except</code>.</p>
+  </div>
+
+  <div class="example">
+    <strong>Case Study 2 — Bank Transaction</strong>
+    <p>
+      Program asks user for balance and withdrawal amount.  
+      You must:
+    </p>
+    <ul>
+      <li>Handle non-numeric input</li>
+      <li>Handle insufficient balance using a custom message (no exception required)</li>
+      <li>Ensure the program never crashes</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Case Study 3 — File Reading</strong>
+    <p>
+      You want to read a file <code>"students.txt"</code>.  
+      Requirements:
+    </p>
+    <ul>
+      <li>If file not found → print “File missing, please check path”.</li>
+      <li>Otherwise, print each line.</li>
+      <li>Use <code>finally</code> to display “Process completed”.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 6. FLOWCHARTS / DIAGRAMS -->
+<div class="card">
+  <h2>6. ASCII Diagrams & Flowcharts (Conceptual)</h2>
+
+  <h3>6.1 Flow of try–except</h3>
+  <div class="diagram">
++----------------------------+
+|         START              |
++-------------+--------------+
+              |
+              v
+       [ Code in try ]
+              |
+      +-------+--------+
+      |  Error occurs? |
+      +---+-------+----+
+          |       |
+         Yes      No
+          |       |
+          v       v
+   [ Jump to     [ Skip except ]
+     except ]          |
+          |            |
+          v            v
+        [ Next statement ]
+              |
+              v
+             END
+  </div>
+
+  <h3>6.2 try–except–else</h3>
+  <div class="diagram">
+try block OK (no error) ---> else block runs
+       |
+       +-- if error ---> except block runs (else is skipped)
+  </div>
+
+  <h3>6.3 try–except–finally</h3>
+  <div class="diagram">
++-------------------+
+|       try         |
++---------+---------+
+          |
+   +------+------+
+   |             |
+  OK         Exception
+   |             |
+   v             v
+[Normal flow]  [except]
+   \           /
+    \         /
+     v       v
+     +-------+
+     | finally |
+     +-------+
+        |
+        v
+       END
+  </div>
+
+  <h3>6.4 Simple Exception Hierarchy (Text View)</h3>
+  <div class="diagram">
+BaseException
+    |
+    +-- Exception
+          |
+          +-- ArithmeticError
+          |      |
+          |      +-- ZeroDivisionError
+          |
+          +-- LookupError
+          |      |
+          |      +-- IndexError
+          |      +-- KeyError
+          |
+          +-- ValueError
+          +-- TypeError
+          +-- NameError
+          +-- FileNotFoundError
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  © <span id="year"></span> Coder &amp; AccoTax — Exercise Set by <strong>Sukanta Hui</strong> ·
+  🌐 www.codernaccotax.co.in
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

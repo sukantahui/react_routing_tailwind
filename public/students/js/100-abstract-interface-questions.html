@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>100 Java Abstract Class & Interface Questions with Answers — Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="100 carefully crafted questions with answers and explanations on Java Abstract Classes and Interfaces. Prepared by Coder & AccoTax for academic and interview excellence." />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #030712;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #f97373;
+      --code-bg: #020617;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --radius-xl: 22px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #000 60%);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #38bdf8, #0f172a 55%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4), 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .brand-text-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 5px 12px;
+      color: var(--muted);
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%);
+    }
+
+    .chip span.icon {
+      font-size: 10px;
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.9));
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(8, 47, 73, 0.8);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 18px 40px;
+    }
+
+    .hero {
+      margin-top: 20px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-main {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.98));
+      border-radius: var(--radius-xl);
+      padding: 24px 22px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.8) 0, transparent 55%),
+        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.85) 0, transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.7);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow span.icon {
+      font-size: 9px;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3.1vw, 32px);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span.highlight {
+      background-image: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .badge-soft {
+      border-radius: 999px;
+      padding: 3px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .hero-aside {
+      background: radial-gradient(circle at top, rgba(2, 6, 23, 0.96), #020617);
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(75, 85, 99, 0.75);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .aside-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .org-card {
+      background: linear-gradient(to bottom right, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+      border-radius: 16px;
+      padding: 10px 12px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    .org-name {
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 3px;
+      color: #e5e7eb;
+    }
+
+    .org-meta-line {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .org-meta-line span.label {
+      font-weight: 500;
+      color: #cbd5f5;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 11px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .github-pill {
+      border-color: rgba(56, 189, 248, 0.85);
+      color: #e0f2fe;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 1));
+    }
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .intro-card {
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
+      padding: 12px 14px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .grid-two {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .key-point-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .key-point-list li {
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .key-point-list li::before {
+      content: "◆";
+      position: absolute;
+      left: 0;
+      font-size: 9px;
+      color: var(--accent2);
+      top: 2px;
+    }
+
+    .qa-group {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
+      padding: 14px 14px 10px;
+    }
+
+    .qa-group-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #e5e7eb;
+    }
+
+    .qa-group-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    details.qa-item {
+      border-radius: 14px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 8px 10px;
+      margin-top: 7px;
+      font-size: 13px;
+      transition: border-color 0.16s ease-out, background 0.16s ease-out, box-shadow 0.16s ease-out;
+    }
+
+    details.qa-item[open] {
+      border-color: rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 1));
+    }
+
+    details.qa-item summary {
+      list-style: none;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    details.qa-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .q-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .q-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .q-num {
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .q-hint {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .answer {
+      border-top: 1px dashed rgba(71, 85, 105, 0.9);
+      margin-top: 7px;
+      padding-top: 7px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .answer strong {
+      color: #e5e7eb;
+    }
+
+    .code {
+      background: var(--code-bg);
+      border-radius: 8px;
+      padding: 6px 8px;
+      border: 1px solid rgba(30, 64, 175, 0.7);
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      margin: 6px 0;
+    }
+
+    .mcq-options {
+      margin: 4px 0 5px;
+      padding-left: 15px;
+      font-size: 13px;
+    }
+
+    .mcq-options li {
+      margin-bottom: 2px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 10px;
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    footer {
+      margin-top: 26px;
+      border-top: 1px solid rgba(55, 65, 81, 0.9);
+      padding-top: 12px;
+      padding-bottom: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .footer-left span {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    @media (max-width: 640px) {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">CA</div>
+        <div>
+          <div class="brand-text-title">Coder &amp; AccoTax</div>
+          <div class="brand-text-sub">Premium Java Concept Series — Abstract Class &amp; Interface</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="chip">
+          <span class="icon">★</span>
+          <span>Author: Sukanta Hui</span>
+        </div>
+        <a class="btn-outline" href="#qa-start">Jump to Questions</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-main">
+        <div class="hero-content">
+          <div class="eyebrow">
+            <span class="icon">☕</span>
+            <span>100 Questions • Answers • Explanations • Interview-ready</span>
+          </div>
+          <h1 class="hero-title">
+            Mastering <span class="highlight">Java Abstract Classes &amp; Interfaces</span> with 100 Fully Explained Q&amp;A
+          </h1>
+          <p class="hero-subtitle">
+            This premium set of 100 carefully curated questions covers every critical angle of Java
+            <strong>abstract classes</strong> and <strong>interfaces</strong> — theory, syntax, MCQs, code tracing, and real-world scenarios,
+            crafted for board exams, interviews, and deep conceptual clarity.
+          </p>
+          <div class="hero-meta">
+            <span class="badge-soft">Level: Intermediate → Advanced</span>
+            <span class="badge-soft">Topic: OOP, Abstraction, Interface Design</span>
+            <span class="badge-soft">Format: Question • Answer • Explanation</span>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-aside">
+        <div class="aside-title">Prepared &amp; Published by</div>
+        <div class="org-card">
+          <div class="org-name">Coder &amp; AccoTax</div>
+          <div class="org-meta-line">
+            <span><span class="label">Author:</span> Sukanta Hui</span>
+            <span><span class="label">Phone:</span> 7003756860</span>
+            <span><span class="label">Website:</span> <a href="https://www.codernaccotax.co.in" target="_blank"
+                rel="noreferrer">www.codernaccotax.co.in</a></span>
+            <span><span class="label">GitHub:</span> <a href="https://github.com/sukantahui/30-Days-Of-Python"
+                target="_blank" rel="noreferrer">github.com/sukantahui/30-Days-Of-Python</a></span>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Java Core • OOP</span>
+            <span class="pill">Abstract vs Interface</span>
+            <span class="pill github-pill">Practice-friendly Q&amp;A Set</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Overview &amp; Study Strategy</h2>
+        <div class="section-kicker">HOW TO USE THIS FILE</div>
+      </div>
+      <div class="intro-card">
+        This document is designed as a <strong>self-contained premium guide</strong> on
+        <strong>Java Abstract Classes and Interfaces</strong>. Each question includes:
+        <strong>direct answer</strong> and a short, exam-oriented <strong>explanation</strong>.
+        Use it as:
+        <ul class="key-point-list" style="margin-top:7px;">
+          <li>Last-minute revision before viva / interviews.</li>
+          <li>Reference material while coding or teaching.</li>
+          <li>Practice sheet for students — questions are in collapsible cards.</li>
+        </ul>
+      </div>
+
+      <div class="grid-two">
+        <div class="qa-group">
+          <div class="qa-group-title">Coverage Map</div>
+          <p class="qa-group-sub">What these 100 questions include</p>
+          <ul class="key-point-list">
+            <li>Conceptual Q&amp;A: Abstract classes, interfaces, default &amp; static methods.</li>
+            <li>MCQs with answers &amp; justification.</li>
+            <li>Output-based and code-reading questions for exam practice.</li>
+            <li>Scenario &amp; design questions for real-world thinking.</li>
+          </ul>
+        </div>
+        <div class="qa-group">
+          <div class="qa-group-title">Recommended Approach</div>
+          <p class="qa-group-sub">How to revise effectively</p>
+          <ul class="key-point-list">
+            <li>First pass: Just read the <strong>answers &amp; explanations</strong>.</li>
+            <li>Second pass: Try to answer with the summary hidden, then expand to verify.</li>
+            <li>Final pass: Write 2–3 code snippets implementing your own abstract classes &amp; interfaces.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= Q&A START ======================= -->
+    <section class="section" id="qa-start">
+      <div class="section-header">
+        <h2 class="section-title">100 Questions — Java Abstract Classes &amp; Interfaces</h2>
+        <div class="section-kicker">WITH ANSWERS &amp; EXPLANATIONS</div>
+      </div>
+
+      <!-- GROUP 1: Core Concepts Abstract Classes -->
+      <div class="qa-group">
+        <div class="qa-group-title">Part 1 — Abstract Class Basics (Q1 – Q20)</div>
+        <p class="qa-group-sub">Conceptual questions around the abstract keyword and abstract classes.</p>
+
+        <details class="qa-item" open>
+          <summary>
+            <div>
+              <div class="q-label">Q1</div>
+              <div class="q-text"><span class="q-num">1.</span> What is an abstract class in Java?</div>
+            </div>
+            <div class="q-hint">Core definition</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> An abstract class is a class declared with the <code>abstract</code> keyword that
+              may contain abstract (unimplemented) methods as well as concrete (implemented) methods.</p>
+            <p><em>Explanation:</em> Abstract classes are meant to be <strong>partially implemented templates</strong> that
+              define common structure and behavior, but leave some operations for subclasses to implement.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q2</div>
+              <div class="q-text"><span class="q-num">2.</span> Can we create an object of an abstract class? Why or why not?</div>
+            </div>
+            <div class="q-hint">Object creation</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, we cannot create an object of an abstract class.</p>
+            <p><em>Explanation:</em> An abstract class can contain abstract methods without implementation. Such a
+              partially defined blueprint cannot be instantiated directly; only its concrete subclasses can be created.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q3</div>
+              <div class="q-text"><span class="q-num">3.</span> Can an abstract class have a constructor?</div>
+            </div>
+            <div class="q-hint">Constructor in abstract</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class can have one or more constructors.</p>
+            <p><em>Explanation:</em> Although we cannot instantiate an abstract class directly, its constructor is called
+              when a concrete subclass object is created. Constructors are used to initialize fields defined in the
+              abstract class.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q4</div>
+              <div class="q-text"><span class="q-num">4.</span> Can an abstract class contain only concrete (non-abstract) methods?</div>
+            </div>
+            <div class="q-hint">Zero abstract methods</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class may have only concrete methods and no abstract method.</p>
+            <p><em>Explanation:</em> Declaring a class <code>abstract</code> prevents direct instantiation and signals that
+              it is intended to be subclassed, even if all methods currently have implementations.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q5</div>
+              <div class="q-text"><span class="q-num">5.</span> What happens if a subclass does not implement all abstract methods of its abstract superclass?</div>
+            </div>
+            <div class="q-hint">Subclass requirement</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> The subclass itself must be declared as <code>abstract</code>; otherwise there will
+              be a compile-time error.</p>
+            <p><em>Explanation:</em> Java enforces that any concrete (non-abstract) class must provide implementations for
+              all inherited abstract methods to be instantiable.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q6</div>
+              <div class="q-text"><span class="q-num">6.</span> Can an abstract class be declared <code>final</code>?</div>
+            </div>
+            <div class="q-hint">final vs abstract</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, an abstract class cannot be final.</p>
+            <p><em>Explanation:</em> <code>abstract</code> implies the class must be <strong>extended</strong>, whereas
+              <code>final</code> prevents extension. These two purposes conflict, so Java does not allow an abstract final class.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q7</div>
+              <div class="q-text"><span class="q-num">7.</span> Can abstract methods be declared <code>static</code> or <code>final</code>?</div>
+            </div>
+            <div class="q-hint">Modifiers on abstract methods</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, abstract methods cannot be <code>static</code> or <code>final</code>.</p>
+            <p><em>Explanation:</em> <code>static</code> methods are resolved at class level and cannot be overridden.
+              <code>final</code> methods cannot be overridden either. Abstract methods are specifically meant to be
+              overridden, so combining them with these modifiers is illegal.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q8</div>
+              <div class="q-text"><span class="q-num">8.</span> Can we declare a private abstract method in an abstract class?</div>
+            </div>
+            <div class="q-hint">private + abstract?</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, a method cannot be both <code>private</code> and <code>abstract</code>.</p>
+            <p><em>Explanation:</em> Abstract methods must be visible to subclasses for overriding, while private methods
+              are not inherited or visible to subclasses. Hence this combination is not allowed.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q9</div>
+              <div class="q-text"><span class="q-num">9.</span> Can an abstract class have static methods and static variables?</div>
+            </div>
+            <div class="q-hint">Static members</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, abstract classes can have static methods and static variables.</p>
+            <p><em>Explanation:</em> Abstract classes are still classes; all normal class features (static fields, utility
+              methods, etc.) are allowed in addition to abstract methods.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q10</div>
+              <div class="q-text"><span class="q-num">10.</span> Give a simple example of an abstract class with one abstract and one concrete method.</div>
+            </div>
+            <div class="q-hint">Short code</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              abstract class Shape {<br />
+              &nbsp;&nbsp;abstract double area(); // abstract method<br />
+              &nbsp;&nbsp;void info() { System.out.println("Generic Shape"); } // concrete method<br />
+              }
+            </div>
+            <p><em>Explanation:</em> Here <code>area()</code> has no body and must be implemented by subclasses, while
+              <code>info()</code> provides common behavior reused by all shapes.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q11</div>
+              <div class="q-text"><span class="q-num">11.</span> When would you prefer an abstract class instead of an interface?</div>
+            </div>
+            <div class="q-hint">Design reasoning</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer (summary):</strong> Choose an abstract class when you need <strong>shared state</strong> (fields),
+              <strong>shared implementation</strong> (non-final methods), and a strong
+              <strong>“is-a” relationship</strong> among subclasses.</p>
+            <p><em>Explanation:</em> Abstract classes are ideal when multiple subclasses share common data and logic that
+              should live at a single place, and you want to enforce partial abstraction + code reuse together.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q12</div>
+              <div class="q-text"><span class="q-num">12.</span> Can an abstract class extend a concrete (non-abstract) class?</div>
+            </div>
+            <div class="q-hint">Inheritance chain</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class can extend a concrete class.</p>
+            <p><em>Explanation:</em> Inheritance works normally; the abstract class may add new abstract methods or override
+              existing ones, but it can still reuse the full implementation from the concrete superclass.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q13</div>
+              <div class="q-text"><span class="q-num">13.</span> Can a concrete class have an abstract method?</div>
+            </div>
+            <div class="q-hint">Concrete + abstract?</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, only an abstract class can have abstract methods.</p>
+            <p><em>Explanation:</em> A concrete class promises to be fully implemented and instantiable, so the compiler
+              requires implementations for all methods; it cannot contain any abstract method.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q14</div>
+              <div class="q-text"><span class="q-num">14.</span> What is partial abstraction in context of abstract classes?</div>
+            </div>
+            <div class="q-hint">Theory term</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Partial abstraction means a class hides some details via abstract methods but also
+              provides some concrete implementation.</p>
+            <p><em>Explanation:</em> Abstract classes can mix abstract and non-abstract methods, so part of the behavior is
+              fixed and part is left to subclasses — hence “partial abstraction”.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q15</div>
+              <div class="q-text"><span class="q-num">15.</span> Can we declare an abstract class without any methods at all?</div>
+            </div>
+            <div class="q-hint">Empty abstract type</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, we can.</p>
+            <p><em>Explanation:</em> Such a class still cannot be instantiated, but it can be used as a marker or base type
+              for future extension. It expresses intent that no direct objects of that type should exist.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q16</div>
+              <div class="q-text"><span class="q-num">16.</span> Explain dynamic method dispatch using an abstract class reference.</div>
+            </div>
+            <div class="q-hint">Polymorphism</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer (summary):</strong> An abstract class reference can point to objects of concrete subclasses
+              and, at runtime, the overridden subclass method is invoked.</p>
+            <p><em>Explanation:</em> This is classic runtime polymorphism: the method call is resolved based on the actual
+              object type, not the reference type. Abstract classes are frequently used in such polymorphic APIs.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q17</div>
+              <div class="q-text"><span class="q-num">17.</span> Can an abstract class implement an interface without implementing all its methods?</div>
+            </div>
+            <div class="q-hint">Abstract + interface</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class can implement an interface and still leave some or all
+              interface methods unimplemented.</p>
+            <p><em>Explanation:</em> Because the class is abstract, it is not required to implement all interface methods.
+              Concrete subclasses must provide the remaining implementations before they become instantiable.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q18</div>
+              <div class="q-text"><span class="q-num">18.</span> Can an abstract class contain <code>final</code> methods?</div>
+            </div>
+            <div class="q-hint">final methods inside</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class can contain final methods.</p>
+            <p><em>Explanation:</em> A final method in an abstract class provides behavior that cannot be changed by
+              subclasses, while other methods may still be abstract and require overriding. This is useful to fix certain
+              critical logic.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q19</div>
+              <div class="q-text"><span class="q-num">19.</span> Show a small example where an abstract class defines a template method.</div>
+            </div>
+            <div class="q-hint">Template pattern</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              abstract class DataExporter {<br />
+              &nbsp;&nbsp;public final void export() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;readData();<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;format();<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;writeFile();<br />
+              &nbsp;&nbsp;}<br />
+              &nbsp;&nbsp;abstract void readData();<br />
+              &nbsp;&nbsp;abstract void format();<br />
+              &nbsp;&nbsp;abstract void writeFile();<br />
+              }
+            </div>
+            <p><em>Explanation:</em> The final method <code>export()</code> defines the algorithm skeleton (template).
+              Subclasses provide concrete implementations for the abstract steps.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q20</div>
+              <div class="q-text"><span class="q-num">20.</span> What happens if we remove the <code>abstract</code> keyword from a class that still contains an abstract method?</div>
+            </div>
+            <div class="q-hint">Compiler rule</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> The code will not compile; the compiler will report that the class must be declared
+              abstract or implement all abstract methods.</p>
+            <p><em>Explanation:</em> Java requires consistency: either the class declares <code>abstract</code> or it fully
+              implements every method. You cannot have abstract methods in a non-abstract class.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- GROUP 2: Interface Basics -->
+      <div class="qa-group">
+        <div class="qa-group-title">Part 2 — Interface Basics (Q21 – Q40)</div>
+        <p class="qa-group-sub">Interface fundamentals, default, static, and private methods.</p>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q21</div>
+              <div class="q-text"><span class="q-num">21.</span> What is an interface in Java?</div>
+            </div>
+            <div class="q-hint">Definition</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> An interface is a complete abstraction in Java that specifies a contract through
+              abstract, default, static, and (from Java 9) private methods, without holding instance state.</p>
+            <p><em>Explanation:</em> Interfaces define <strong>what</strong> a class must do, not <strong>how</strong> it must
+              do it. Classes implement interfaces to provide concrete behavior.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q22</div>
+              <div class="q-text"><span class="q-num">22.</span> What are the default modifiers of fields declared in an interface?</div>
+            </div>
+            <div class="q-hint">Interface fields</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> All interface fields are implicitly
+              <code>public static final</code>.</p>
+            <p><em>Explanation:</em> They act as constants shared by all implementing classes. Even if you omit the modifiers,
+              the compiler treats them as public static final.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q23</div>
+              <div class="q-text"><span class="q-num">23.</span> What are the default modifiers of methods in a pre–Java 8 interface?</div>
+            </div>
+            <div class="q-hint">Before Java 8</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> By default, they are <code>public abstract</code>.</p>
+            <p><em>Explanation:</em> Before Java 8, interfaces could only contain abstract methods with public visibility.
+              Implementing classes had to override and provide bodies for them.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q24</div>
+              <div class="q-text"><span class="q-num">24.</span> Can an interface have a constructor?</div>
+            </div>
+            <div class="q-hint">Constructor in interface?</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, interfaces cannot have constructors.</p>
+            <p><em>Explanation:</em> Interfaces do not have instance state and cannot be instantiated on their own, so
+              constructors are not allowed. Implementing classes control object creation.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q25</div>
+              <div class="q-text"><span class="q-num">25.</span> Can an interface extend another interface? Can it extend multiple?</div>
+            </div>
+            <div class="q-hint">Interface inheritance</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an interface can extend one or more interfaces.</p>
+            <p><em>Explanation:</em> This is how Java supports <strong>multiple inheritance of type</strong>. An interface
+              can combine contracts from multiple parent interfaces using <code>extends A, B, C</code>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q26</div>
+              <div class="q-text"><span class="q-num">26.</span> Which keyword is used in a class to implement an interface?</div>
+            </div>
+            <div class="q-hint">Syntax</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> The <code>implements</code> keyword.</p>
+            <p><em>Explanation:</em> Example: <code>class Dog implements Animal { ... }</code>. A class can implement one or
+              more interfaces separated by commas.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q27</div>
+              <div class="q-text"><span class="q-num">27.</span> What is a default method in an interface (introduced in Java 8)?</div>
+            </div>
+            <div class="q-hint">Default methods</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> A default method is an interface method with a body, declared using the
+              <code>default</code> keyword.</p>
+            <p><em>Explanation:</em> Default methods allow interfaces to provide a standard implementation without breaking
+              existing implementing classes. Classes may override them if needed.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q28</div>
+              <div class="q-text"><span class="q-num">28.</span> What is a static method in an interface and how is it called?</div>
+            </div>
+            <div class="q-hint">Static in interface</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> A static interface method is a utility-like method with a body, called using the
+              interface name (e.g., <code>MyInterface.util()</code>).</p>
+            <p><em>Explanation:</em> Static methods are not inherited by implementing classes and cannot be overridden; they
+              belong to the interface type itself.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q29</div>
+              <div class="q-text"><span class="q-num">29.</span> From which Java version are private methods in interfaces allowed, and why were they introduced?</div>
+            </div>
+            <div class="q-hint">Java 9+</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Private methods in interfaces are allowed from Java 9 onwards.</p>
+            <p><em>Explanation:</em> They were introduced to share common code between default and static methods inside the
+              same interface, without exposing that helper logic to implementing classes.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q30</div>
+              <div class="q-text"><span class="q-num">30.</span> Can a class implement multiple interfaces? What does this achieve?</div>
+            </div>
+            <div class="q-hint">Multiple inheritance</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, a class can implement multiple interfaces.</p>
+            <p><em>Explanation:</em> This is how Java supports <strong>multiple inheritance of behavior</strong>. The class
+              promises to fulfill contracts of all implemented interfaces, while still extending only one superclass.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q31</div>
+              <div class="q-text"><span class="q-num">31.</span> Can an interface extend a class in Java?</div>
+            </div>
+            <div class="q-hint">Illegal?</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, an interface cannot extend a class.</p>
+            <p><em>Explanation:</em> An interface can only extend one or more interfaces. Classes and interfaces form
+              separate inheritance hierarchies in Java.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q32</div>
+              <div class="q-text"><span class="q-num">32.</span> What happens if a class does not implement all methods of an interface?</div>
+            </div>
+            <div class="q-hint">Compiler requirement</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> The class must be declared <code>abstract</code>; otherwise a compile-time error occurs.</p>
+            <p><em>Explanation:</em> Same rule as abstract classes: any concrete class must provide implementations for all
+              inherited abstract methods to be instantiable.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q33</div>
+              <div class="q-text"><span class="q-num">33.</span> Can an interface have a <code>main()</code> method?</div>
+            </div>
+            <div class="q-hint">Entry point</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an interface can declare a <code>public static void main(String[] args)</code>
+              method.</p>
+            <p><em>Explanation:</em> Since <code>main</code> is static, it belongs to the interface type and can be invoked
+              like <code>MyInterface.main(args)</code>; the JVM can use it as an entry point if configured.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q34</div>
+              <div class="q-text"><span class="q-num">34.</span> What is a functional interface?</div>
+            </div>
+            <div class="q-hint">@FunctionalInterface</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> A functional interface is an interface with exactly one abstract method.</p>
+            <p><em>Explanation:</em> It may contain default and static methods but only a single abstract method. Functional
+              interfaces are the target types for lambda expressions in Java (e.g., <code>Runnable</code>, <code>Comparator</code>).</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q35</div>
+              <div class="q-text"><span class="q-num">35.</span> Example: Declare a functional interface and implement it using a lambda.</div>
+            </div>
+            <div class="q-hint">Short code</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              @FunctionalInterface<br />
+              interface Adder {<br />
+              &nbsp;&nbsp;int add(int a, int b);<br />
+              }<br /><br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;Adder ad = (x, y) -&gt; x + y;<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(ad.add(3, 4));<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><em>Explanation:</em> Because <code>Adder</code> has only one abstract method, we can use a lambda as its
+              implementation.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q36</div>
+              <div class="q-text"><span class="q-num">36.</span> Can interface methods be <code>protected</code>?</div>
+            </div>
+            <div class="q-hint">Access level</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> No, interface methods cannot be protected.</p>
+            <p><em>Explanation:</em> Interface abstract methods are implicitly public. Reducing visibility would violate
+              the contract rule that implementations must be at least as accessible as the declared method.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q37</div>
+              <div class="q-text"><span class="q-num">37.</span> Can a variable declared inside an interface method be modified?</div>
+            </div>
+            <div class="q-hint">Local vs field</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Local variables inside methods are normal variables and can be modified.</p>
+            <p><em>Explanation:</em> The rule <code>public static final</code> applies only to <strong>fields declared at
+                interface level</strong>, not to local variables inside methods.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q38</div>
+              <div class="q-text"><span class="q-num">38.</span> Can an interface contain nested types (classes or interfaces)?</div>
+            </div>
+            <div class="q-hint">Nested type</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an interface can contain nested interfaces, classes, enums, etc.</p>
+            <p><em>Explanation:</em> These nested types are implicitly <code>public static</code>. This is often used to
+              define constants or helper types associated with the main interface.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q39</div>
+              <div class="q-text"><span class="q-num">39.</span> Why are interface fields implicitly final?</div>
+            </div>
+            <div class="q-hint">Design reason</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Because interfaces are meant to specify constants, not per-instance mutable state.</p>
+            <p><em>Explanation:</em> Allowing mutable instance fields would blur the line between interfaces and classes.
+              Final constants keep interfaces focused on contracts instead of state management.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q40</div>
+              <div class="q-text"><span class="q-num">40.</span> Show a simple example of an interface with a default and static method.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface Logger {<br />
+              &nbsp;&nbsp;default void info(String msg) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("[INFO] " + msg);<br />
+              &nbsp;&nbsp;}<br /><br />
+              &nbsp;&nbsp;static void banner() {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Coder &amp; AccoTax Logger");<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><em>Explanation:</em> <code>info</code> is a default method inherited by implementing classes, while
+              <code>banner</code> is called as <code>Logger.banner()</code>.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- GROUP 3: Abstract vs Interface + MCQs -->
+      <div class="qa-group">
+        <div class="qa-group-title">Part 3 — Abstract vs Interface &amp; MCQs (Q41 – Q60)</div>
+        <p class="qa-group-sub">Comparison plus exam-style multiple-choice questions with explanation.</p>
+
+        <!-- Comparison conceptual -->
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q41</div>
+              <div class="q-text"><span class="q-num">41.</span> List three key differences between an abstract class and an interface (modern Java).</div>
+            </div>
+            <div class="q-hint">Comparison</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer (summary):</strong></p>
+            <ul class="mcq-options">
+              <li>Abstract classes can hold instance state (non-final fields); interfaces cannot (only constants).</li>
+              <li>A class can extend only one abstract class but implement multiple interfaces.</li>
+              <li>Abstract classes support constructors; interfaces do not.</li>
+            </ul>
+            <p><em>Explanation:</em> These differences impact design: abstract classes are for shared implementation + state,
+              interfaces for flexible contracts and multiple inheritance of type.</p>
+          </div>
+        </details>
+
+        <!-- MCQs 42–50 (9 questions) -->
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q42</div>
+              <div class="q-text"><span class="q-num">42.</span> MCQ: Which keyword is used to declare an abstract class?</div>
+            </div>
+            <div class="q-hint">MCQ</div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. <code>interface</code></li>
+              <li>B. <code>abstract</code></li>
+              <li>C. <code>implements</code></li>
+              <li>D. <code>extends</code></li>
+            </ul>
+            <p><strong>Correct option:</strong> B</p>
+            <p><em>Explanation:</em> The <code>abstract</code> keyword is applied to classes and methods to indicate
+              incompleteness.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q43</div>
+              <div class="q-text"><span class="q-num">43.</span> MCQ: All fields declared in an interface are by default:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. <code>private</code></li>
+              <li>B. <code>public static final</code></li>
+              <li>C. <code>protected</code></li>
+              <li>D. <code>static</code> only</li>
+            </ul>
+            <p><strong>Correct option:</strong> B</p>
+            <p><em>Explanation:</em> Interface fields are constants accessible via <code>InterfaceName.FIELD</code>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q44</div>
+              <div class="q-text"><span class="q-num">44.</span> MCQ: Which Java version introduced default methods in interfaces?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Java 6</li>
+              <li>B. Java 7</li>
+              <li>C. Java 8</li>
+              <li>D. Java 11</li>
+            </ul>
+            <p><strong>Correct option:</strong> C</p>
+            <p><em>Explanation:</em> Default methods were introduced in Java 8 to evolve interfaces safely.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q45</div>
+              <div class="q-text"><span class="q-num">45.</span> MCQ: A concrete class implementing an interface must:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Override all abstract methods</li>
+              <li>B. Use the <code>extends</code> keyword</li>
+              <li>C. Be declared abstract</li>
+              <li>D. Have a no-arg constructor</li>
+            </ul>
+            <p><strong>Correct option:</strong> A</p>
+            <p><em>Explanation:</em> A non-abstract class must provide implementations for all abstract methods inherited
+              from interfaces.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q46</div>
+              <div class="q-text"><span class="q-num">46.</span> MCQ: Which of the following is NOT allowed in an interface?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Abstract methods</li>
+              <li>B. Default methods</li>
+              <li>C. Constructors</li>
+              <li>D. Static methods</li>
+            </ul>
+            <p><strong>Correct option:</strong> C</p>
+            <p><em>Explanation:</em> Interfaces cannot have constructors because they cannot be instantiated directly.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q47</div>
+              <div class="q-text"><span class="q-num">47.</span> MCQ: Which statement is TRUE about abstract classes?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. They cannot have constructors.</li>
+              <li>B. They must contain at least one abstract method.</li>
+              <li>C. They can’t have static methods.</li>
+              <li>D. They can contain both abstract and concrete methods.</li>
+            </ul>
+            <p><strong>Correct option:</strong> D</p>
+            <p><em>Explanation:</em> Options A, B, C are false; abstract classes are quite flexible.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q48</div>
+              <div class="q-text"><span class="q-num">48.</span> MCQ: A class can extend:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Only one class</li>
+              <li>B. Multiple classes</li>
+              <li>C. Only one interface</li>
+              <li>D. Multiple interfaces but no class</li>
+            </ul>
+            <p><strong>Correct option:</strong> A</p>
+            <p><em>Explanation:</em> Java supports <strong>single inheritance</strong> for classes, but a class may implement
+              multiple interfaces.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q49</div>
+              <div class="q-text"><span class="q-num">49.</span> MCQ: Which method type was introduced in Java 9 for interfaces?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Private methods</li>
+              <li>B. Protected methods</li>
+              <li>C. Final methods</li>
+              <li>D. Synchronized methods</li>
+            </ul>
+            <p><strong>Correct option:</strong> A</p>
+            <p><em>Explanation:</em> Private interface methods are used as helpers for default and static methods.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q50</div>
+              <div class="q-text"><span class="q-num">50.</span> MCQ: A class implementing two interfaces with only abstract methods is an example of:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>A. Single inheritance</li>
+              <li>B. Multiple inheritance of type</li>
+              <li>C. Multilevel inheritance</li>
+              <li>D. Hybrid inheritance</li>
+            </ul>
+            <p><strong>Correct option:</strong> B</p>
+            <p><em>Explanation:</em> Interfaces allow multiple inheritance at the type (contract) level, not at the
+              implementation level.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- GROUP 4: Output / Code-based -->
+      <div class="qa-group">
+        <div class="qa-group-title">Part 4 — Output &amp; Code-based Questions (Q61 – Q80)</div>
+        <p class="qa-group-sub">Trace the code or reason about compilation and runtime behavior.</p>
+
+        <!-- We'll number from 61 to 80; keep each short. -->
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q61</div>
+              <div class="q-text"><span class="q-num">61.</span> Predict the output:</div>
+            </div>
+            <div class="q-hint">Interface constant</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface A { int X = 10; }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(A.X);<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>10</code></p>
+            <p><em>Explanation:</em> <code>X</code> is a public static final constant; it is accessed via the interface name.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q62</div>
+              <div class="q-text"><span class="q-num">62.</span> What is the output?</div>
+            </div>
+            <div class="q-hint">Default method</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface A {<br />
+              &nbsp;&nbsp;default void show() { System.out.println("A"); }<br />
+              }<br />
+              class B implements A { }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;new B().show();<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>A</code></p>
+            <p><em>Explanation:</em> Class <code>B</code> inherits the default implementation directly from interface
+              <code>A</code>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q63</div>
+              <div class="q-text"><span class="q-num">63.</span> What will be printed?</div>
+            </div>
+            <div class="q-hint">Abstract constructor</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              abstract class A {<br />
+              &nbsp;&nbsp;A() { System.out.println("Hi"); }<br />
+              &nbsp;&nbsp;abstract void f();<br />
+              }<br />
+              class B extends A {<br />
+              &nbsp;&nbsp;void f() { System.out.println("Bye"); }<br />
+              }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;new B();<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong></p>
+            <pre>Hi</pre>
+            <p><em>Explanation:</em> Constructor of <code>A</code> runs when <code>B</code> is instantiated. Method
+              <code>f()</code> is not called, so "Bye" is not printed.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q64</div>
+              <div class="q-text"><span class="q-num">64.</span> Predict the output:</div>
+            </div>
+            <div class="q-hint">Static interface method</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface I {<br />
+              &nbsp;&nbsp;static void greet() { System.out.println("Hello"); }<br />
+              }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;I.greet();<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>Hello</code></p>
+            <p><em>Explanation:</em> Static methods in interfaces are called using the interface name directly.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q65</div>
+              <div class="q-text"><span class="q-num">65.</span> Will this code compile?</div>
+            </div>
+            <div class="q-hint">Unimplemented abstract</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              abstract class A { abstract void m(); }<br />
+              class B extends A { }<br />
+            </div>
+            <p><strong>Answer:</strong> No, it will not compile.</p>
+            <p><em>Explanation:</em> Class <code>B</code> is concrete but does not implement the inherited abstract method
+              <code>m()</code>. It must either implement it or be declared abstract.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q66</div>
+              <div class="q-text"><span class="q-num">66.</span> What will be printed?</div>
+            </div>
+            <div class="q-hint">Multiple default methods</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface X { default int a() { return 7; } }<br />
+              interface Y { default int a() { return 8; } }<br />
+              class Z implements X, Y {<br />
+              &nbsp;&nbsp;public int a() { return X.super.a(); }<br />
+              }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(new Z().a());<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>7</code></p>
+            <p><em>Explanation:</em> Because <code>Z</code> explicitly resolves the conflict using
+              <code>X.super.a()</code>, value 7 is returned.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q67</div>
+              <div class="q-text"><span class="q-num">67.</span> Does this compile?</div>
+            </div>
+            <div class="q-hint">Private + abstract?</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              abstract class A {<br />
+              &nbsp;&nbsp;private abstract void m();<br />
+              }
+            </div>
+            <p><strong>Answer:</strong> No, compilation error.</p>
+            <p><em>Explanation:</em> An abstract method must be overridable in subclasses, but a private method is not
+              visible or inheritable, so this combination is illegal.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q68</div>
+              <div class="q-text"><span class="q-num">68.</span> What is the output and why?</div>
+            </div>
+            <div class="q-hint">Field hiding</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface A { int x = 5; }<br />
+              class B { int x = 10; }<br />
+              class C extends B implements A {<br />
+              &nbsp;&nbsp;void print() { System.out.println(x); }<br />
+              }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) { new C().print(); }<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>10</code></p>
+            <p><em>Explanation:</em> Unqualified <code>x</code> refers to the instance field from class <code>B</code>. To
+              access the interface constant we would use <code>A.x</code>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q69</div>
+              <div class="q-text"><span class="q-num">69.</span> Does this program compile and what does it print?</div>
+            </div>
+            <div class="q-hint">Polymorphism</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface Animal { void sound(); }<br />
+              abstract class Dog implements Animal {<br />
+              &nbsp;&nbsp;public void sound() { System.out.println("Woof"); }<br />
+              }<br />
+              class StreetDog extends Dog { }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;Animal a = new StreetDog();<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;a.sound();<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Output:</strong> <code>Woof</code></p>
+            <p><em>Explanation:</em> <code>StreetDog</code> inherits the concrete implementation of <code>sound()</code>
+              from <code>Dog</code>. The call is resolved at runtime via dynamic dispatch.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q70</div>
+              <div class="q-text"><span class="q-num">70.</span> Will this compile?</div>
+            </div>
+            <div class="q-hint">Interface constant reassignment</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              interface C { int VAL = 100; }<br />
+              class Test {<br />
+              &nbsp;&nbsp;public static void main(String[] args) {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;C.VAL = 200;<br />
+              &nbsp;&nbsp;}<br />
+              }
+            </div>
+            <p><strong>Answer:</strong> No, compilation error.</p>
+            <p><em>Explanation:</em> <code>VAL</code> is <code>public static final</code> (a constant). Final fields cannot
+              be reassigned after initialization.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- GROUP 5: Fill-in-the-blank + Scenario -->
+      <div class="qa-group">
+        <div class="qa-group-title">Part 5 — Fill-in-the-Blank &amp; Design Questions (Q81 – Q100)</div>
+        <p class="qa-group-sub">Short syntax checks and higher-level design scenarios.</p>
+
+        <!-- Fill-in-the-blank 81–88 -->
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q81</div>
+              <div class="q-text"><span class="q-num">81.</span> Fill in the blank to declare an abstract class:</div>
+            </div>
+            <div class="q-hint">Keyword</div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              ________ class Vehicle { abstract void move(); }
+            </div>
+            <p><strong>Answer:</strong> <code>abstract</code></p>
+            <p><em>Explanation:</em> The <code>abstract</code> keyword is required because the class contains an abstract method.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q82</div>
+              <div class="q-text"><span class="q-num">82.</span> Fill in the blank to declare an interface:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              ________ Drawable { void draw(); }
+            </div>
+            <p><strong>Answer:</strong> <code>interface</code></p>
+            <p><em>Explanation:</em> We declare <code>interface Drawable</code> so that classes can implement
+              <code>draw()</code>.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q83</div>
+              <div class="q-text"><span class="q-num">83.</span> Complete the line so class <code>Circle</code> implements interface <code>Shape</code>:</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <div class="code">
+              class Circle ________ Shape { /* ... */ }
+            </div>
+            <p><strong>Answer:</strong> <code>implements</code></p>
+            <p><em>Explanation:</em> For interfaces we use <code>implements</code>, not <code>extends</code>, in the class
+              header.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q84</div>
+              <div class="q-text"><span class="q-num">84.</span> Interface fields are automatically <code>public</code>, <code>static</code> and ________.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> <code>final</code></p>
+            <p><em>Explanation:</em> They are constants; their value cannot be changed after declaration.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q85</div>
+              <div class="q-text"><span class="q-num">85.</span> Default methods in interfaces were introduced in Java ________.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Java 8</p>
+            <p><em>Explanation:</em> Java 8 modernized interfaces to support default implementations.</p>
+          </div>
+        </details>
+
+        <!-- Scenario / Design 86–100 -->
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q86</div>
+              <div class="q-text"><span class="q-num">86.</span> You want to model different payment types (Card, UPI, Wallet) that must implement <code>pay()</code>. Should you use an abstract class or interface?</div>
+            </div>
+            <div class="q-hint">Design</div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> Use an <strong>interface</strong>, e.g. <code>PaymentMethod</code> with
+              method <code>pay()</code>.</p>
+            <p><em>Explanation:</em> Each payment type may come from different class hierarchies, and we want a flexible
+              contract. An interface avoids forcing a common superclass and supports multiple implementations across the system.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q87</div>
+              <div class="q-text"><span class="q-num">87.</span> You need a base class with fields <code>id</code>, <code>name</code> and some
+                common methods, plus a few abstract methods. Which should you choose?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> Use an <strong>abstract class</strong>.</p>
+            <p><em>Explanation:</em> We need shared state (fields) and common implementation, which are best provided via an
+              abstract class rather than an interface.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q88</div>
+              <div class="q-text"><span class="q-num">88.</span> When is it a bad idea to use an “interface of constants” (only static final fields, no methods)?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> It is considered bad design in most cases.</p>
+            <p><em>Explanation:</em> Constant-only interfaces pollute the implementing class’s API and do not represent a
+              behavioral contract. Use separate <code>final</code> utility classes or enums instead.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q89</div>
+              <div class="q-text"><span class="q-num">89.</span> How can interfaces help in achieving loose coupling in large applications?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> Code depends on <strong>interfaces</strong> instead of specific implementations.</p>
+            <p><em>Explanation:</em> Clients refer to abstractions (e.g. <code>Repository</code>, <code>Service</code>) and
+              concrete classes can be swapped via configuration or dependency injection without changing client code.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q90</div>
+              <div class="q-text"><span class="q-num">90.</span> Two interfaces define the same default method <code>log()</code>. A class implements both. How do you resolve the conflict?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> Override <code>log()</code> in the class and call the desired default
+              implementation explicitly using <code>InterfaceName.super.log()</code>.</p>
+            <p><em>Explanation:</em> The compiler forces you to resolve ambiguous default methods when multiple inherited
+              defaults have the same signature.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q91</div>
+              <div class="q-text"><span class="q-num">91.</span> Why might you convert some abstract classes in an old codebase into interfaces with default methods?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> To gain <strong>flexibility</strong> and allow classes to inherit from another superclass while still sharing behavior.</p>
+            <p><em>Explanation:</em> Interfaces with default methods let classes keep their existing superclass but still
+              share common behavior via the interface, making the design more modular.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q92</div>
+              <div class="q-text"><span class="q-num">92.</span> Explain how the Template Method pattern typically uses abstract classes.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Suggested Answer:</strong> The abstract class defines a final “template” method with the algorithm
+              steps and declares some steps as abstract.</p>
+            <p><em>Explanation:</em> Subclasses override only the abstract steps, customizing parts of the algorithm while
+              keeping the overall flow controlled by the base class.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q93</div>
+              <div class="q-text"><span class="q-num">93.</span> Give one real-world example where using an interface is clearly better than using an abstract class.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Example Answer:</strong> The <code>Comparable&lt;T&gt;</code> interface.</p>
+            <p><em>Explanation:</em> Many classes from completely different hierarchies (String, Integer, custom domain
+              classes) need to be comparable, but they cannot share a common superclass. An interface solves this cleanly.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q94</div>
+              <div class="q-text"><span class="q-num">94.</span> Give one real-world example where an abstract class is better than an interface.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Example Answer:</strong> An abstract <code>HttpServlet</code>-style class with common request-handling logic.</p>
+            <p><em>Explanation:</em> All subclasses share substantial state and behavior (request/response handling,
+              lifecycle methods). Abstract classes are better to centralize that shared implementation.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q95</div>
+              <div class="q-text"><span class="q-num">95.</span> Can an abstract class implement multiple interfaces? Why would you do that?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Yes, an abstract class can implement multiple interfaces.</p>
+            <p><em>Explanation:</em> This is useful when the abstract class provides partial implementations for several
+              related contracts, letting subclasses inherit a lot of ready-made behavior while still adding their own.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q96</div>
+              <div class="q-text"><span class="q-num">96.</span> What is meant by “programming to an interface, not an implementation”?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> It means writing code that depends on abstract types (interfaces or abstract
+              classes), not concrete classes.</p>
+            <p><em>Explanation:</em> This keeps the code flexible: concrete implementations can be changed, replaced, or
+              mocked for testing without changing client code.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q97</div>
+              <div class="q-text"><span class="q-num">97.</span> If you have a sealed hierarchy in Java 17, how might abstract classes and interfaces participate?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer (summary):</strong> You can declare a sealed abstract class or sealed interface that restricts
+              which subclasses or implementors are allowed.</p>
+            <p><em>Explanation:</em> This combines the ideas of abstraction (abstract/interface) with controlled extensibility
+              (sealed), giving strong modeling of fixed hierarchies such as AST nodes or domain events.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q98</div>
+              <div class="q-text"><span class="q-num">98.</span> How does using interfaces help unit testing?</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <p><strong>Answer:</strong> Interfaces allow you to inject <strong>mock implementations</strong> during tests.</p>
+            <p><em>Explanation:</em> Instead of hard-coding concrete classes, your code depends on interfaces, so you can
+              provide fake or mock objects that simulate behavior and make automated tests easier and more reliable.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q99</div>
+              <div class="q-text"><span class="q-num">99.</span> Mention three situations where you clearly prefer an abstract class over an interface.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>When you need shared instance fields among subclasses.</li>
+              <li>When you have a lot of common implementation to reuse.</li>
+              <li>When you want to provide a template method that should not be overridden.</li>
+            </ul>
+            <p><em>Explanation:</em> These cases depend heavily on shared code and state, which are strengths of abstract
+              classes.</p>
+          </div>
+        </details>
+
+        <details class="qa-item">
+          <summary>
+            <div>
+              <div class="q-label">Q100</div>
+              <div class="q-text"><span class="q-num">100.</span> Mention three situations where you clearly prefer an interface over an abstract class.</div>
+            </div>
+          </summary>
+          <div class="answer">
+            <ul class="mcq-options">
+              <li>When multiple unrelated classes must share the same contract.</li>
+              <li>When you want to support multiple inheritance of behavior.</li>
+              <li>When you design APIs that should remain flexible and loosely coupled.</li>
+            </ul>
+            <p><em>Explanation:</em> Interfaces shine as thin, flexible contracts that can be implemented by many different
+              classes without changing their class hierarchy.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <span>© <span id="year-span">2025</span> Coder &amp; AccoTax. All rights reserved.</span>
+      <span>Prepared by <strong>Sukanta Hui</strong> • Phone: 7003756860</span>
+      <span>Website: <a href="https://www.codernaccotax.co.in" target="_blank" rel="noreferrer">www.codernaccotax.co.in</a></span>
+    </div>
+    <div class="footer-right">
+      <span>Study Resource: <strong>100 Java Abstract &amp; Interface Q&amp;A</strong></span><br />
+      <span>GitHub practice repository: <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank"
+          rel="noreferrer">github.com/sukantahui/30-Days-Of-Python</a></span><br />
+      <span style="font-size:10px;color:#6b7280;">Designed for learning &amp; classroom use — Coder &amp; AccoTax.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Small helper to keep year dynamic if you reuse this template
+    (function () {
+      var y = new Date().getFullYear();
+      var el = document.getElementById("year-span");
+      if (el) el.textContent = y;
+    })();
+  </script>
+</body>
+
+</html>

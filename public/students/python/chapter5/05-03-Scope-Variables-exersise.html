@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python 5.3 — Scope of Variables | 100 Exercises | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;padding:20px;} 
+.page{max-width:1100px;margin:auto;} 
+h1{font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;} 
+h2{color:#93c5fd;font-size:1.4rem;margin-top:30px;} 
+.badge{padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;color:#38bdf8;font-size:.75rem;text-transform:uppercase;display:inline-block;margin-bottom:16px;} 
+.exercise-list li{margin-bottom:8px;} 
+.footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;color:#94a3b8;font-size:.9rem;} 
+</style>
+</head>
+<body>
+<div class="page">
+<div class="badge">Module M3-R5 · Python Functions</div>
+<h1>5.3 Scope of Variables — 100 Premium Exercises</h1>
+<p><strong>Organisation:</strong> Coder & AccoTax | <strong>Author:</strong> Sukanta Hui | <strong>Website:</strong> www.codernaccotax.co.in</p>
+
+<h2>Set A — Conceptual Questions (1–25)</h2>
+<ol class="exercise-list">
+<li>Define variable scope in Python.</li>
+<li>What is a local variable?</li>
+<li>What is a global variable?</li>
+<li>Explain the LEGB rule.</li>
+<li>Why can't local variables be accessed outside the function?</li>
+<li>What happens if a local and global variable have the same name?</li>
+<li>What is variable shadowing?</li>
+<li>Define enclosed scope with an example.</li>
+<li>What is the lifetime of a local variable?</li>
+<li>What is the lifetime of a global variable?</li>
+<li>Explain why using too many global variables is bad.</li>
+<li>What is the role of indentation in defining scope?</li>
+<li>Why is global scope risky?</li>
+<li>Explain with an example how a nested function accesses enclosed variables.</li>
+<li>What is the difference between built‑in and global scope?</li>
+<li>Explain the term namespace.</li>
+<li>What are side effects of global variables?</li>
+<li>Why is it better to use return instead of modifying global variables?</li>
+<li>Give an example of a program that needs a global variable.</li>
+<li>Does a loop create a new scope in Python?</li>
+<li>Does an if-statement create a new scope?</li>
+<li>What happens if you declare a variable inside try block? What is its scope?</li>
+<li>What is a constant? How should constants be stored?</li>
+<li>Explain the difference between variable scope and variable lifetime.</li>
+<li>Explain how recursive functions use local scope.</li>
+</ol>
+
+<h2>Set B — MCQs (26–40)</h2>
+<ol class="exercise-list" start="26">
+<li>Local variables are created:<br>A. At program start<br>B. When function is called<br>C. When Python starts<br>D. Never</li>
+<li>Global variables are destroyed:<br>A. When function ends<br>B. When program ends<br>C. Immediately after use<br>D. Never</li>
+<li>Which scope has the highest priority inside a function?<br>A. Global<br>B. Local<br>C. Enclosed<br>D. Built-in</li>
+<li>Which keyword is used to modify global variables inside a function?<br>A. global<br>B. modify<br>C. scope<br>D. set</li>
+<li>Which one is TRUE?<br>A. Local variables override global variables<br>B. Global variables override local variables<br>C. Both are equal<br>D. None</li>
+<li>Which of the following creates a new scope?<br>A. if statement<br>B. for loop<br>C. function<br>D. variable assignment</li>
+<li>Which scope comes second in priority according to LEGB?<br>A. Global<br>B. Local<br>C. Enclosed<br>D. Built-in</li>
+<li>Built-in functions are stored in which scope?<br>A. Global<br>B. Local<br>C. Built-in<br>D. Enclosed</li>
+<li>What will happen if a variable is used before assignment inside a function?<br>A. Program runs<br>B. Global version is used<br>C. Error appears<br>D. Python guesses value</li>
+<li>Which is an example of a global variable?<br>A. Defined inside a function<br>B. Defined inside a loop<br>C. Defined outside all functions<br>D. Defined inside if-block</li>
+<li>Enclosed scope belongs to:<br>A. Inner function<br>B. Outer function<br>C. Built-in module<br>D. None</li>
+<li>Changing a global variable without ‘global’ keyword leads to:<br>A. No change<br>B. Error<br+C. Local variable creation<br+D. Program exit</li>
+<li>What does LEGB stand for?<br>A. Local-Enclosed-Global-Built-in<br>B. Logic-Environment-Global-Basic<br>C. Local-End-Global-Block<br>D. None</li>
+<li>Which is the widest scope?<br>A. Local<br>B. Global<br>C. Enclosed<br>D. Built-in</li>
+<li>Which is NOT recommended?<br>A. Using return for data transfer<br+B. Using many global variables<br+C. Using local variables<br+D. Using constants in global</li>
+</ol>
+
+<h2>Set C — Output-based Questions (41–60)</h2>
+<ol class="exercise-list" start="41">
+<li>
+<pre> x = 10
+ def show():
+     print(x)
+ show()</pre></li>
+<li>
+<pre> x = 5
+ def f():
+     x = 20
+     print(x)
+ f()
+ print(x)</pre></li>
+<li>
+<pre> x = 7
+ def test():
+     print(x+3)
+ test()</pre></li>
+<li>
+<pre> def fun():
+     y = 4
+     return y
+ print(fun())</pre></li>
+<li>
+<pre> def outer():
+     a = 10
+     def inner():
+         print(a)
+     inner()
+ outer()</pre></li>
+<li>
+<pre> a = 1
+ def f():
+     a = a + 1
+     print(a)
+ f()</pre></li>
+<li>
+<pre> a = 1
+ def f():
+     global a
+     a = a + 3
+ f()
+ print(a)</pre></li>
+<li>
+<pre> def sample():
+     x = 10
+ print(x)</pre></li>
+<li>
+<pre> x = 2
+ def show():
+     print(x*x)
+ show()</pre></li>
+<li>
+<pre> x = 50
+ def f1():
+     x = 25
+     print(x)
+ f1()
+ print(x)</pre></li>
+<li>
+<pre> def f():
+     for i in range(3):
+         x = i
+     print(x)
+ f()</pre></li>
+<li>
+<pre> def f():
+     if True:
+         a = 5
+     print(a)
+ f()</pre></li>
+<li>
+<pre> x = 100
+ def f():
+     print(x)
+ f()</pre></li>
+<li>
+<pre> def calc():
+     a = 5
+     b = 10
+ print(a)</pre></li>
+<li>
+<pre> def multiple():
+     a = 5
+     b = 6
+     return a*b
+ print(multiple())</pre></li>
+<li>
+<pre> def outer():
+     a = 'Hi'
+     def inner():
+         a = 'Hello'
+         print(a)
+     inner()
+ outer()</pre></li>
+<li>
+<pre> val = 10
+ def test():
+     print(val)
+     val = 5
+ test()</pre></li>
+<li>
+<pre> count = 0
+ def inc():
+     global count
+     count += 1
+ inc()
+ print(count)</pre></li>
+<li>
+<pre> def scope():
+     for i in range(5):
+         pass
+     print(i)
+ scope()</pre></li>
+<li>
+<pre> a = 10
+ def f():
+     print(a*2)
+ f()</pre></li>
+</ol>
+
+<h2>Set D — Code Writing (61–85)</h2>
+<ol class="exercise-list" start="61">
+<li>Write a program to demonstrate local and global variables together.</li>
+<li>Create a function that uses a local variable to store a message and print it.</li>
+<li>Write a program where a local variable shadows a global variable.</li>
+<li>Create a nested function and print enclosed variable.</li>
+<li>Modify a global variable using the global keyword.</li>
+<li>Write a function that returns two values using only local variables.</li>
+<li>Write a program to show that local variables reset every function call.</li>
+<li>Write a function to check variable shadowing.</li>
+<li>Write a program using 2 functions sharing the same global variable.</li>
+<li>Write a nested-function example with different variable names.</li>
+<li>Write a function with if-block variables; check their scope.</li>
+<li>Write a function that uses a loop variable and print it outside the loop.</li>
+<li>Write a function that prints built-in variable names using dir(__builtins__).</li>
+<li>Write a function demonstrating difference between modifying global vs returning values.</li>
+<li>Create a global counter using global keyword inside a function.</li>
+<li>Write a function with two inner functions that both use enclosed scope.</li>
+<li>Create 3 functions accessing one global constant.</li>
+<li>Write a simple calculator using no global variables.</li>
+<li>Demonstrate how function parameters act like local variables.</li>
+<li>Write a program where a function overwrites a global variable (using global keyword).</li>
+<li>Write a banking simulation using global balance.</li>
+<li>Write a program showing variable lifetime inside function.</li>
+<li>Create a function returning values from enclosed scope.</li>
+<li>Create a function to demonstrate LEGB resolution order.</li>
+<li>Write a program that compares global and enclosed variables with same name.</li>
+</ol>
+
+<h2>Set E — Debugging & Error Fixing (86–100)</h2>
+<ol class="exercise-list" start="86">
+<li>Fix: accessing local variable outside its scope.</li>
+<li>Fix: modifying global variable without global keyword.</li>
+<li>Fix: using variable before assignment.</li>
+<li>Fix: print value of loop iterator defined inside function.</li>
+<li>Fix: nested function unable to access variable from outer function.</li>
+<li>Fix: program crashes because global variable name is overwritten locally.</li>
+<li>Fix: NameError caused by shadowed global variable.</li>
+<li>Fix: incorrect LEGB example.</li>
+<li>Fix: code where global is unnecessarily used.</li>
+<li>Fix: list variable used inside function but modified globally by mistake.</li>
+<li>Fix: missing global keyword in counter program.</li>
+<li>Fix: mis-indented function leading to wrong scope.</li>
+<li>Fix: variable confusion due to same name in loop and function parameter.</li>
+<li>Fix: nested function returning wrong value due to shadowing.</li>
+<li>Fix: variable referred before assignment inside if-block.</li>
+</ol>
+
+<div class="footer">© 2025 Coder & AccoTax · Python O Level Series — Prepared by Sukanta Hui</div>
+</div>
+</body>
+</html>

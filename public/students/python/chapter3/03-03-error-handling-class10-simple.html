@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<title>Error Handling — Simple Notes (Class 10 Level) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --border: #1f2937;
+  --shadow: 0 20px 40px rgba(0,0,0,0.55);
+  --radius: 22px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 900px;
+  margin: auto;
+  padding: 24px 18px 60px;
+}
+
+/* HEADER */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.2), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.2), transparent 60%),
+    #0f172a;
+  padding: 24px;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid rgba(148,163,184,0.25);
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* BRAND */
+.brand {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.brand a { color: var(--accent); text-decoration: none; }
+
+/* CARD */
+.card {
+  background: var(--card);
+  margin-top: 22px;
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  font-size: 20px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h3 {
+  color: var(--accent);
+  font-size: 16px;
+  margin-top: 14px;
+}
+
+.simple {
+  font-size: 14px;
+}
+
+.code {
+  background: #000;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.highlight {
+  background: var(--soft);
+  border-left: 4px solid var(--accent);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 10px 0;
+}
+
+.diagram {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+  white-space: pre;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.footer {
+  margin-top: 30px;
+  padding-top: 16px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="header">
+  <h1>Error Handling in Python</h1>
+  <p class="sub">Simple Notes for Class 10 Level</p>
+  <div class="brand">
+    <strong>Coder &amp; AccoTax</strong> • Author: <strong>Sukanta Hui</strong><br />
+    🌐 <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a> ·
+    GitHub: <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">30 Days of Python</a>
+  </div>
+</div>
+
+<div class="card simple">
+  <h2>1. What is an Error?</h2>
+  <p>
+    When Python cannot understand or cannot run our code properly, it shows an <strong>error message</strong>.  
+    If we do not handle errors, our program <strong>stops in the middle</strong>.
+  </p>
+
+  <div class="highlight">
+    In real life, if we make a mistake in a form, the teacher asks us to correct it.  
+    Similarly, Python shows errors so that we can correct the program.
+  </div>
+
+  <h3>Types of Errors (Basic)</h3>
+  <ul>
+    <li><strong>Syntax Error</strong> – we break Python’s grammar rules.</li>
+    <li><strong>Runtime Error</strong> – error while program is running (like divide by zero).</li>
+  </ul>
+
+  <h3>Example: Syntax Error</h3>
+  <div class="code">
+if x &gt; 5
+    print("Hello")
+  </div>
+  <p>Here we forgot <strong>:</strong> after <code>if x &gt; 5</code>.</p>
+
+  <h3>Example: Runtime Error</h3>
+  <div class="code">
+print(10 / 0)   # division by zero
+  </div>
+</div>
+
+<div class="card simple">
+  <h2>2. What is an Exception?</h2>
+  <p>
+    An <strong>exception</strong> is a special type of runtime error in Python.  
+    Example: <code>ZeroDivisionError</code>, <code>ValueError</code>, <code>IndexError</code>.
+  </p>
+
+  <div class="highlight">
+    We can <strong>handle</strong> these exceptions using <code>try</code> and <code>except</code> so the program does not crash.
+  </div>
+
+  <h3>Simple Example (without handling)</h3>
+  <div class="code">
+a = int("abc")   # ValueError
+print(a)
+  </div>
+</div>
+
+<div class="card simple">
+  <h2>3. Using try–except (Simple)</h2>
+
+  <h3>Basic idea</h3>
+  <p>We put risky code inside <code>try</code>. If error occurs, Python jumps to <code>except</code>.</p>
+
+  <div class="code">
+try:
+    # risky code
+    a = int(input("Enter a number: "))
+    print("You entered:", a)
+except:
+    print("Something went wrong!")
+  </div>
+
+  <h3>Flowchart of try–except (Simple)</h3>
+  <div class="diagram">
+START
+  |
+  v
+ try block
+  |
+  +-- No error? --> go to NEXT LINE after except
+  |
+  +-- Error? ----> jump to except
+                    |
+                    v
+                 print message
+                    |
+                    v
+                  END
+  </div>
+</div>
+
+<div class="card simple">
+  <h2>4. Small Examples</h2>
+
+  <h3>Example 1 — Handle invalid input</h3>
+  <div class="code">
+try:
+    age = int(input("Enter your age: "))
+    print("Your age is", age)
+except:
+    print("Please enter a number only!")
+  </div>
+
+  <h3>Example 2 — Handle division by zero</h3>
+  <div class="code">
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+    print("Result =", a / b)
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+except ValueError:
+    print("Enter numbers only!")
+  </div>
+</div>
+
+<div class="card simple">
+  <h2>5. Quick Revision Points</h2>
+  <ul>
+    <li>Syntax error → Python cannot read the code.</li>
+    <li>Runtime error / exception → error while running.</li>
+    <li><code>try</code> → block where we put risky code.</li>
+    <li><code>except</code> → block that runs if error happens.</li>
+    <li>Using error handling makes our program more <strong>safe</strong> and <strong>user-friendly</strong>.</li>
+  </ul>
+</div>
+
+<div class="card simple">
+  <h2>6. Small Practice Questions</h2>
+
+  <h3>Answer in copy</h3>
+  <ol>
+    <li>What is the difference between syntax error and runtime error?</li>
+    <li>Write a simple example of <code>try–except</code>.</li>
+    <li>What happens if we do not handle errors?</li>
+  </ol>
+
+  <h3>Write programs</h3>
+  <ol>
+    <li>Write a program to input two numbers and print division result. Handle division by zero.</li>
+    <li>Write a program to input age. If user enters something else (like "abc"), show a friendly message.</li>
+  </ol>
+</div>
+
+<div class="footer">
+  © <span id="year"></span> Coder &amp; AccoTax · Simple Notes by <strong>Sukanta Hui</strong>
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

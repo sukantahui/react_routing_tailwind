@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<title>Unit 2.3 — Expressions & Precedence (Exercises) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+:root {
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #a855f7;
+  --accent3: #f97316;
+  --border: #1f2937;
+  --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+  --radius: 22px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 22px 80px;
+}
+
+/* Header */
+.header {
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%),
+    radial-gradient(circle at top right, rgba(168,85,247,0.15), transparent 60%),
+    #0f172a;
+  padding: 32px;
+  text-align: center;
+  border-radius: 24px;
+  border: 1px solid rgba(148,163,184,0.25);
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.brand-box {
+  margin-top: 20px;
+  background: var(--soft);
+  border: 1px solid rgba(148,163,184,0.2);
+  padding: 18px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  font-size: 14px;
+}
+
+.brand-title { color: var(--accent); font-weight: 600; }
+.brand-title2 { color: var(--accent2); font-weight: 600; }
+
+.github-btn {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  border-radius: 14px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  margin-top: 26px;
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2 {
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 23px;
+}
+
+h3 {
+  color: var(--accent);
+  margin-top: 20px;
+}
+
+.code {
+  background: #000;
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.example {
+  background: var(--soft);
+  border: 1px dashed var(--border);
+  padding: 14px;
+  border-radius: 12px;
+  margin: 12px 0;
+  color: var(--muted);
+}
+
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  color: var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Unit 2.3 — Expressions & Precedence</h1>
+  <p class="sub">Complete Exercise Set — MCQs, Output Questions, Dry Runs & Coding Practice</p>
+
+  <div class="brand-box">
+    <div>
+      <div class="brand-title">🏢 Organisation</div>
+      Coder &amp; AccoTax<br>
+      🌐 <a href="https://www.codernaccotax.co.in" style="color:var(--accent)">www.codernaccotax.co.in</a>
+    </div>
+
+    <div>
+      <div class="brand-title2">👨‍🏫 Author</div>
+      Sukanta Hui<br>
+      📞 7003756860<br>
+      ✉️ info@codernaccotax.co.in
+    </div>
+
+    <div>
+      <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">View GitHub Repository</a>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: MCQs -->
+<div class="card">
+  <h2>1. Multiple Choice Questions (MCQs)</h2>
+
+  <ol>
+    <li>Which operator has the highest precedence?<br>
+      a) * &nbsp; b) ** &nbsp; c) + &nbsp; d) //
+    </li>
+
+    <li>The expression <code>2 + 3 * 4</code> evaluates to:<br>
+      a) 20 &nbsp; b) 14 &nbsp; c) 24 &nbsp; d) 12
+    </li>
+
+    <li>Associativity of <code>**</code> is:<br>
+      a) Left → Right &nbsp; b) Right → Left &nbsp; c) None
+    </li>
+
+    <li><code>not (5 > 3)</code> gives:<br>
+      a) True &nbsp; b) False &nbsp; c) Error
+    </li>
+
+    <li><code>10 / 4 + 1</code> is of type:<br>
+      a) int &nbsp; b) float &nbsp; c) str
+    </li>
+
+    <li>Which will be evaluated first?<br>
+      <code>5 + 4 / 2 ** 2</code><br>
+      a) + &nbsp; b) / &nbsp; c) ** &nbsp; d) all equal
+    </li>
+
+    <li><code>(5 < 10 < 15)</code> evaluates to:<br>
+      a) True &nbsp; b) False &nbsp; c) Error
+    </li>
+
+    <li>Which expression is valid?<br>
+      a) 10 &lt;&gt; 5 &nbsp; b) 10 != 5 &nbsp; c) 10 =&gt; 5
+    </li>
+
+    <li><code>not True or False</code> is:<br>
+      a) True &nbsp; b) False
+    </li>
+
+    <li>The expression <code>10 // 3</code> gives:<br>
+      a) 3.3 &nbsp; b) 3 &nbsp; c) 4
+    </li>
+  </ol>
+</div>
+
+<!-- SECTION 2: Output Based -->
+<div class="card">
+  <h2>2. Output Prediction Questions</h2>
+
+  <div class="example">
+    <strong>Q1</strong>
+    <span class="code">
+x = 5
+y = 2
+print(x + y * 3)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q2</strong>
+    <span class="code">
+print(10 // 3)
+print(-10 // 3)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q3</strong>
+    <span class="code">
+a = 2
+b = 3
+c = 2
+print(a ** b ** c)
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q4</strong>
+    <span class="code">
+print(not (5 > 3 and 2 == 2))
+    </span>
+  </div>
+
+  <div class="example">
+    <strong>Q5</strong>
+    <span class="code">
+x = 10
+y = 5
+z = 0
+print(x > y and z != 0)
+print(not x < y or z == 0)
+    </span>
+  </div>
+</div>
+
+<!-- SECTION 3: Fill in the blanks -->
+<div class="card">
+  <h2>3. Fill in the Blanks</h2>
+  <ol>
+    <li>Exponent operator in Python is __________.</li>
+    <li>Operators of same precedence are evaluated using __________.</li>
+    <li>Logical NOT has __________ associativity.</li>
+    <li>Expression inside brackets <code>( )</code> is evaluated __________.</li>
+    <li><code>10 / 4</code> always results in __________ type.</li>
+    <li>Chained comparison like <code>a &lt; b &lt; c</code> returns __________.</li>
+    <li><code>not True</code> equals __________.</li>
+  </ol>
+</div>
+
+<!-- SECTION 4: Dry run tasks -->
+<div class="card">
+  <h2>4. Dry Run the Following Expressions</h2>
+
+  <div class="example">
+    <span class="code">
+a = 4
+b = 3
+c = 2
+print(a + b * c ** 2)
+    </span>
+  </div>
+
+  <div class="example">
+    <span class="code">
+x = 6
+y = 2
+print(x / y + x // y)
+    </span>
+  </div>
+
+  <div class="example">
+    <span class="code">
+p = 10
+q = 5
+r = 0
+print(p > q and q > r or r == 0)
+    </span>
+  </div>
+</div>
+
+<!-- SECTION 5: Coding questions -->
+<div class="card">
+  <h2>5. Coding Practice Questions</h2>
+
+  <h3>Easy Level</h3>
+  <ol>
+    <li>Take two numbers and evaluate <code>(a + b) / 2</code>.</li>
+    <li>Evaluate <code>x ** 2 + 2*x + 1</code> for input <code>x</code>.</li>
+    <li>Check if a number lies between 10 and 50 using chained expression.</li>
+  </ol>
+
+  <h3>Medium Level</h3>
+  <ol>
+    <li>Input 3 subject marks. Calculate Total, Percentage and Grade using expressions.</li>
+    <li>Use expressions to compute the final bill amount:  
+        <ul>
+          <li>GST = 18%</li>
+          <li>Discount = 10%</li>
+        </ul>
+    </li>
+    <li>Evaluate <code>(a + b) * (a - b)</code> using user input.</li>
+  </ol>
+
+  <h3>Advanced Level</h3>
+  <ol>
+    <li>Simulate a login system using expressions for:  
+      <ul>
+        <li>username check</li>
+        <li>password check</li>
+        <li>boolean expression for authentication</li>
+      </ul>
+    </li>
+    <li>Build a marks evaluator using nested expressions & logical operators.</li>
+    <li>Evaluate a complicated expression and p

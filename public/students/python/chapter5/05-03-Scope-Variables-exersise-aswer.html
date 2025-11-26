@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Python 5.3 — Scope of Variables | Full Questions + Answers + Explanations | Coder & AccoTax</title>
+<style>
+body{margin:0;background:#020617;color:#e5e7eb;font-family:Arial,Helvetica,sans-serif;line-height:1.7;padding:20px;} 
+.page{max-width:1100px;margin:auto;} 
+h1{font-size:2.3rem;background:linear-gradient(90deg,#e0f2fe,#f3e8ff);-webkit-background-clip:text;color:transparent;} 
+h2{color:#93c5fd;font-size:1.4rem;margin-top:30px;} 
+h3{color:#c4b5fd;margin-top:20px;} 
+.badge{padding:6px 12px;border:1px solid #38bdf8;border-radius:999px;color:#38bdf8;font-size:.75rem;text-transform:uppercase;display:inline-block;margin-bottom:16px;} 
+.qa{padding:18px;margin-bottom:20px;background:#0f172a;border:1px solid #334155;border-radius:12px;} 
+.question{font-weight:bold;color:#7dd3fc;margin-bottom:8px;} 
+.answer{margin-top:6px;padding:10px;background:#0a0f1d;border:1px solid #1e3a8a;border-radius:10px;} 
+pre{background:#0a0f1d;border:1px solid #1e3a8a;padding:12px;border-radius:10px;overflow-x:auto;} 
+.footer{margin-top:40px;border-top:1px solid #475569;padding-top:10px;font-size:.9rem;color:#94a3b8;} 
+</style>
+</head>
+<body>
+<div class="page">
+<div class="badge">Module M3-R5 · Python Functions</div>
+<h1>5.3 Scope of Variables — 100 Questions + Answers + Explanations</h1>
+<p><strong>Organisation:</strong> Coder & AccoTax | <strong>Author:</strong> Sukanta Hui | <strong>Website:</strong> www.codernaccotax.co.in</p>
+
+<h2>SET A — Conceptual Questions (1–25)</h2>
+<div class="qa"><div class="question">1. Define variable scope in Python.</div><div class="answer">Scope means the region of a program where a variable can be accessed or used.</div></div>
+<div class="qa"><div class="question">2. What is a local variable?</div><div class="answer">A variable declared inside a function, accessible only there.</div></div>
+<div class="qa"><div class="question">3. What is a global variable?</div><div class="answer">Declared outside all functions and accessible anywhere.</div></div>
+<div class="qa"><div class="question">4. Explain the LEGB rule.</div><div class="answer">Python looks for variables in Local → Enclosed → Global → Built-in order.</div></div>
+<div class="qa"><div class="question">5. Why can't local variables be accessed outside the function?</div><div class="answer">Because they are destroyed once the function execution ends.</div></div>
+<div class="qa"><div class="question">6. What happens if local and global variable names match?</div><div class="answer">Local variable shadows the global inside the function.</div></div>
+<div class="qa"><div class="question">7. Define variable shadowing.</div><div class="answer">When a local variable hides a global variable of the same name.</div></div>
+<div class="qa"><div class="question">8. Explain enclosed scope.</div><div class="answer">Variable in outer function accessible to inner function.</div></div>
+<div class="qa"><div class="question">9. What is the lifetime of a local variable?</div><div class="answer">From function start to function end.</div></div>
+<div class="qa"><div class="question">10. Lifetime of global variables?</div><div class="answer">Exists until program ends.</div></div>
+<div class="qa"><div class="question">11. Why are global variables risky?</div><div class="answer">They cause unintended side effects across functions.</div></div>
+<div class="qa"><div class="question">12. Does indentation affect scope?</div><div class="answer">Yes, indentation defines function blocks which create scope.</div></div>
+<div class="qa"><div class="question">13. Explain why global scope is dangerous.</div><div class="answer">A single change can affect entire program behavior.</div></div>
+<div class="qa"><div class="question">14. How does a nested function access outer variable?</div><div class="answer">Via enclosed scope (the E in LEGB).</div></div>
+<div class="qa"><div class="question">15. Built‑in vs Global scope?</div><div class="answer">Built‑in contains Python defaults like print(); global contains user-defined variables.</div></div>
+<div class="qa"><div class="question">16. What is namespace?</div><div class="answer">A container mapping variable names to values.</div></div>
+<div class="qa"><div class="question">17. Side effects of globals?</div><div class="answer">Unexpected interactions between functions.</div></div>
+<div class="qa"><div class="question">18. Why use return instead of modifying globals?</div><div class="answer">It ensures clean, reusable, and modular code.</div></div>
+<div class="qa"><div class="question">19. Example where global is needed.</div><div class="answer">Game score, configuration flags, constants.</div></div>
+<div class="qa"><div class="question">20. Does loop create new scope?</div><div class="answer">No, loop variables exist in same function scope.</div></div>
+<div class="qa"><div class="question">21. Do if-blocks create scope?</div><div class="answer">No, Python does not create block scopes.</div></div>
+<div class="qa"><div class="question">22. try-block scope?</div><div class="answer">Same as surrounding function.</div></div>
+<div class="qa"><div class="question">23. Constants and scope?</div><div class="answer">Declared globally using uppercase names.</div></div>
+<div class="qa"><div class="question">24. Scope vs Lifetime?</div><div class="answer">Scope = where accessible; Lifetime = duration in memory.</div></div>
+<div class="qa"><div class="question">25. Recursion & scope?</div><div class="answer">Each recursive call has its own local scope.</div></div>
+
+<h2>SET B — MCQs (26–40)</h2>
+<div class="qa"><div class="question">26. Local variables are created when:</div><div class="answer">B — When function is called</div></div>
+<div class="qa"><div class="question">27. Global variables are destroyed when:</div><div class="answer">B — When program ends</div></div>
+<div class="qa"><div class="question">28. Which has highest priority in LEGB?</div><div class="answer">B — Local</div></div>
+<div class="qa"><div class="question">29. Keyword to modify global?</div><div class="answer">A — global</div></div>
+<div class="qa"><div class="question">30. Which is TRUE?</div><div class="answer">A — Local overrides global</div></div>
+<div class="qa"><div class="question">31. Which creates new scope?</div><div class="answer">C — function</div></div>
+<div class="qa"><div class="question">32. Second level in LEGB?</div><div class="answer">C — Enclosed</div></div>
+<div class="qa"><div class="question">33. Built‑in scope stores:</div><div class="answer">C — Built-in functions</div></div>
+<div class="qa"><div class="question">34. Using variable before assignment?</div><div class="answer">C — Error</div></div>
+<div class="qa"><div class="question">35. Example of global variable?</div><div class="answer">C — Defined outside all functions</div></div>
+<div class="qa"><div class="question">36. Enclosed scope belongs to:</div><div class="answer">B — Outer function</div></div>
+<div class="qa"><div class="question">37. Changing global without keyword:</div><div class="answer">C — Creates local variable</div></div>
+<div class="qa"><div class="question">38. LEGB stands for:</div><div class="answer">A — Local-Enclosed-Global-Built-in</div></div>
+<div class="qa"><div class="question">39. Widest scope?</div><div class="answer">D — Built‑in</div></div>
+<div class="qa"><div class="question">40. Not recommended?</div><div class="answer">B — Many globals</div></div>
+
+<h2>SET C — Output-Based (41–60)</h2>
+<div class="qa"><div class="question">41.</div><div class="answer">Output: 10</div></div>
+<div class="qa"><div class="question">42.</div><div class="answer">25 then 5</div></div>
+<div class="qa"><div class="question">43.</div><div class="answer">10</div></div>
+<div class="qa"><div class="question">44.</div><div class="answer">4</div></div>
+<div class="qa"><div class="question">45.</div><div class="answer">10</div></div>
+<div class="qa"><div class="question">46.</div><div class="answer">Error (referencing before assignment)</div></div>
+<div class="qa"><div class="question">47.</div><div class="answer">4</div></div>
+<div class="qa"><div class="question">48.</div><div class="answer">Error — x is undefined</div></div>
+<div class="qa"><div class="question">49.</div><div class="answer">4</div></div>
+<div class="qa"><div class="question">50.</div><div class="answer">25, then 50</div></div>
+<div class="qa"><div class="question">51.</div><div class="answer">2</div></div>
+<div class="qa"><div class="question">52.</div><div class="answer">5</div></div>
+<div class="qa"><div class="question">53.</div><div class="answer">100</div></div>
+<div class="qa"><div class="question">54.</div><div class="answer">Error — a not defined</div></div>
+<div class="qa"><div class="question">55.</div><div class="answer">30</div></div>
+<div class="qa"><div class="question">56.</div><div class="answer">Hello</div></div>
+<div class="qa"><div class="question">57.</div><div class="answer">Error</div></div>
+<div class="qa"><div class="question">58.</div><div class="answer">1</div></div>
+<div class="qa"><div class="question">59.</div><div class="answer">4</div></div>
+<div class="qa"><div class="question">60.</div><div class="answer">20</div></div>
+
+<h2>SET D — Code Writing (61–85)</h2>
+<div class="qa"><div class="question">61.</div><div class="answer"><pre>g = 5
+def f():
+    l = 10
+    print(g, l)</pre></div></div>
+<div class="qa"><div class="question">62.</div><div class="answer">Local message variable inside function.</div></div>
+<div class="qa"><div class="question">63.</div><div class="answer">Local shadows global variable.</div></div>
+<div class="qa"><div class="question">64.</div><div class="answer">Nested function accesses outer variable.</div></div>
+<div class="qa"><div class="question">65.</div><div class="answer">Use global keyword.</div></div>
+<div class="qa"><div class="question">66.</div><div class="answer">Return values instead of globals.</div></div>
+<div class="qa"><div class="question">67.</div><div class="answer">Local resets each call.</div></div>
+<div class="qa"><div class="question">68.</div><div class="answer">Check shadowing behaviour.</div></div>
+<div class="qa"><div class="question">69.</div><div class="answer">Multiple functions using same global.</div></div>
+<div class="qa"><div class="question">70.</div><div class="answer">Nested function with different vars.</div></div>
+<div class="qa"><div class="question">71.</div><div class="answer">If-block vars still in function scope.</div></div>
+<div class="qa"><div class="question">72.</div><div class="answer">Loop variables accessible after loop.</div></div>
+<div class="qa"><div class="question">73.</div><div class="answer">dir(__builtins__) prints built-ins.</div></div>
+<div class="qa"><div class="question">74.</div><div class="answer">Return vs modify global comparison.</div></div>
+<div class="qa"><div class="question">75.</div><div class="answer">Global counter example.</div></div>
+<div class="qa"><div class="question">76.</div><div class="answer">Two inner functions share enclosed scope.</div></div>
+<div class="qa"><div class="question">77.</div><div class="answer">Three functions using same constant.</div></div>
+<div class="qa"><div class="question">78.</div><div class="answer">Calculator without globals.</div></div>
+<div class="qa"><div class="question">79.</div><div class="answer">Parameters behave as locals.</div></div>
+<div class="qa"><div class="question">80.</div><div class="answer">Overwrite global using global keyword.</div></div>
+<div class="qa"><div class="question">81.</div><div class="answer">Banking using global balance.</div></div>
+<div class="qa"><div class="question">82.</div><div class="answer">Local destroyed after function ends.</div></div>
+<div class="qa"><div class="question">83.</div><div class="answer">Return enclosed variable.</div></div>
+<div class="qa"><div class="question">84.</div><div class="answer">Show LEGB resolution.</div></div>
+<div class="qa"><div class="question">85.</div><div class="answer">Compare global vs enclosed.</div></div>
+
+<h2>SET E — Debugging (86–100)</h2>
+<div class="qa"><div class="question">86.</div><div class="answer">Fix: access variable by moving it outside function.</div></div>
+<div class="qa"><div class="question">87.</div><div class="answer">Add global keyword.</div></div>
+<div class="qa"><div class="question">88.</div><div class="answer">Define variable before using.</div></div>
+<div class="qa"><div class="question">89.</div><div class="answer">Loop variable works fine; print inside scope.</div></div>
+<div class="qa"><div class="question">90.</div><div class="answer">Fix outer variable usage in nested function.</div></div>
+<div class="qa"><div class="question">91.</div><div class="answer">Rename conflicting variables.</div></div>
+<div class="qa"><div class="question">92.</div><div class="answer">Correct LEGB implementation.</div></div>
+<div class="qa"><div class="question">93.</div><div class="answer">Remove unnecessary global keyword.</div></div>
+<div class="qa"><div class="question">94.</div><div class="answer">Pass list via function parameters.</div></div>
+<div class="qa"><div class="question">95.</div><div class="answer">Add missing global in counter.</div></div>
+<div class="qa"><div class="question">96.</div><div class="answer">Fix incorrect indentation.</div></div>
+<div class="qa"><div class="question">97.</div><div class="answer">Rename shadowed variables.</div></div>
+<div class="qa"><div class="question">98.</div><div class="answer">Correct nested variable reference.</div></div>
+<div class="qa"><div class="question">99.</div><div class="answer">Define variable before if-block.</div></div>
+<div class="qa"><div class="question">100.</div><div class="answer">Fix LEGB misuse.</div></div>
+
+<div class="footer">© 2025 Coder & AccoTax · Python O Level Series — Prepared by Sukanta Hui</div>
+</div>
+</body>
+</html>

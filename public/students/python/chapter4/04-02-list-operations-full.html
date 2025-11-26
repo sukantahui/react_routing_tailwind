@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 4.2 — List Operations in Python | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Details -->
+  <meta name="author" content="Sukanta Hui">
+  <meta name="publisher" content="Coder & AccoTax">
+  <meta name="website" content="https://www.codernaccotax.co.in">
+  <meta name="contact" content="7003756860 | info@codernaccotax.co.in">
+  <meta name="description"
+        content="Complete, book-style chapter on Python List Operations — creating lists, indexing, slicing, list methods, sorting, reversing, nested lists and basic list comprehensions for NIELIT O Level and Python beginners.">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --soft: #0b1120;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #f97316;
+      --border: #1f2937;
+      --shadow: 0 25px 45px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 22px 60px;
+    }
+
+    /* HEADER */
+    .header {
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.15), transparent 55%),
+        #0f172a;
+      border: 1px solid rgba(148,163,184,0.25);
+      border-radius: 26px;
+      padding: 32px 28px;
+      margin-bottom: 34px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtext {
+      color: var(--muted);
+      max-width: 780px;
+      margin: 10px auto 0;
+      font-size: 14px;
+    }
+
+    .brand-box {
+      margin-top: 26px;
+      background: #0b1120;
+      border: 1px solid rgba(148,163,184,0.18);
+      padding: 20px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .brand-title {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-title2 {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .brand-box a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .brand-box a:hover {
+      text-decoration: underline;
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 14px;
+      margin-top: 6px;
+      box-shadow: 0 0 12px rgba(56,189,248,0.4);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .github-btn svg {
+      display: block;
+    }
+
+    /* MAIN CONTENT CARD */
+    .card {
+      background: var(--card);
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      background: linear-gradient(to right, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    h3 {
+      color: var(--accent);
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      color: var(--accent2);
+      font-size: 16px;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    h5 {
+      color: #e5e7eb;
+      font-size: 15px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    p,
+    li {
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 14px 0;
+      font-size: 13px;
+    }
+
+    .note {
+      background: var(--soft);
+      border-left: 4px solid var(--accent3);
+      padding: 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .example-box {
+      background: var(--soft);
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 14px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .example-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent3);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .code {
+      background: #020617;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      font-size: 13px;
+      margin-top: 6px;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    th,
+    td {
+      border: 1px solid #1f2937;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    td {
+      color: #e5e7eb;
+    }
+
+    .toc {
+      background: var(--soft);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .toc strong {
+      color: #e5e7eb;
+    }
+
+    .diagram {
+      background: #020617;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      white-space: pre;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Unit 4.2 — List Operations in Python</h1>
+      <p class="subtext">
+        A complete, exam-ready chapter on Python lists — creation, indexing, slicing, list methods (append, insert,
+        remove, pop), sorting, reversing, nested lists and basic list comprehensions with examples and exercises.
+      </p>
+
+      <div class="brand-box">
+        <div>
+          <div class="brand-title">🏢 Organisation</div>
+          <div>Coder &amp; AccoTax</div>
+          <a href="https://www.codernaccotax.co.in" target="_blank">🌐 www.codernaccotax.co.in</a>
+        </div>
+
+        <div>
+          <div class="brand-title2">👨‍🏫 Author</div>
+          <div>Sukanta Hui</div>
+          <div style="font-size:13px;">📞 7003756860</div>
+          <a href="mailto:info@codernaccotax.co.in">✉️ info@codernaccotax.co.in</a>
+        </div>
+
+        <div style="display:flex; align-items:center;">
+          <a class="github-btn" href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">
+            <!-- GitHub Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 24 24">
+              <path
+                d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.1.79-.25.79-.56
+                       0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.36-1.3-1.72-1.3-1.72
+                       -1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.79 2.73 1.27
+                       3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.29-5.23-5.77
+                       0-1.27.45-2.31 1.2-3.12-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.19
+                       .92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.5 3.17-1.19 3.17-1.19
+                       .63 1.57.23 2.73.11 3.02.75.81 1.19 1.85 1.19 3.12
+                       0 4.49-2.69 5.47-5.25 5.76.42.36.8 1.09.8 2.21
+                       0 1.6-.02 2.88-.02 3.27 0 .31.21.67.8.56
+                       4.57-1.53 7.86-5.86 7.86-10.96C23.5 5.74 18.27.5 12 .5z" />
+            </svg>
+            View GitHub Repository
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="card">
+
+      <!-- TOC -->
+      <div class="toc">
+        <strong>In this chapter you will learn:</strong>
+        <ul>
+          <li>What lists are and why they are important</li>
+          <li>How to create and access list elements</li>
+          <li>Indexing and slicing with positive and negative indices</li>
+          <li>Important list methods: <code>append()</code>, <code>insert()</code>, <code>remove()</code>, <code>pop()</code>, <code>sort()</code>, <code>reverse()</code>, <code>extend()</code>, <code>clear()</code> etc.</li>
+          <li>Working with nested lists (2D lists)</li>
+          <li>Basics of list comprehensions</li>
+          <li>Common programs, MCQs and coding practice questions</li>
+        </ul>
+      </div>
+
+      <!-- 1. INTRO -->
+      <h2>1. Introduction to Lists</h2>
+      <p>
+        A <strong>list</strong> in Python is an ordered collection of items.  
+        Items can be of different types (int, float, string, even other lists).
+      </p>
+      <ul>
+        <li>Lists are <strong>mutable</strong> — we can change, add or remove items.</li>
+        <li>Lists are written using square brackets <code>[ ]</code>.</li>
+        <li>Lists are sequence types: support indexing, slicing and iteration.</li>
+      </ul>
+
+      <div class="highlight">
+        Examples of lists: <code>[1, 2, 3]</code>, <code>["Apple", "Banana", "Mango"]</code>, <code>[10, "Python", 3.5]</code>
+      </div>
+
+      <!-- 2. CREATING LISTS -->
+      <h2>2. Creating Lists</h2>
+
+      <h3>2.1 Empty list and list with values</h3>
+      <div class="example-box">
+        <span class="code">
+empty_list = []
+numbers = [10, 20, 30, 40]
+fruits = ["apple", "banana", "mango"]
+mixed  = [10, "Python", 3.14, True]
+
+print(empty_list)
+print(numbers)
+print(fruits)
+print(mixed)
+        </span>
+      </div>
+
+      <h3>2.2 Using list() constructor</h3>
+      <div class="example-box">
+        <span class="code">
+s = "PYTHON"
+chars = list(s)
+print(chars)   # ['P', 'Y', 'T', 'H', 'O', 'N']
+        </span>
+      </div>
+
+      <!-- 3. INDEXING & SLICING -->
+      <h2>3. Indexing &amp; Slicing Lists</h2>
+
+      <p>
+        Like strings, list items can be accessed using indices.
+      </p>
+      <ul>
+        <li>Indexing starts at 0 from the left.</li>
+        <li>Negative indices start at -1 from the right.</li>
+      </ul>
+
+      <h3>3.1 Indexing Diagram</h3>
+      <div class="diagram">
+nums = [10, 20, 30, 40, 50]
+
+Index (+):   0   1   2   3   4
+             10  20  30  40  50
+
+Index (-):  -5  -4  -3  -2  -1
+             10  20  30  40  50
+      </div>
+
+      <h3>3.2 Accessing items</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 40, 50]
+
+print(nums[0])    # 10
+print(nums[2])    # 30
+print(nums[-1])   # 50
+print(nums[-3])   # 30
+        </span>
+      </div>
+
+      <h3>3.3 Slicing lists</h3>
+      <p>Slice syntax: <code>sub_list = list[start : stop : step]</code></p>
+
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 40, 50, 60]
+
+print(nums[1:4])    # [20, 30, 40]
+print(nums[:3])     # [10, 20, 30]
+print(nums[3:])     # [40, 50, 60]
+print(nums[-3:])    # [40, 50, 60]
+print(nums[::2])    # [10, 30, 50]
+print(nums[::-1])   # reversed list
+        </span>
+      </div>
+
+      <!-- 4. BASIC LIST OPERATIONS -->
+      <h2>4. Basic List Operations</h2>
+      <ul>
+        <li>Concatenation → <code>+</code></li>
+        <li>Repetition → <code>*</code></li>
+        <li>Membership test → <code>in</code>, <code>not in</code></li>
+        <li>Length → <code>len()</code></li>
+      </ul>
+
+      <div class="example-box">
+        <span class="code">
+a = [1, 2, 3]
+b = [4, 5]
+
+print(a + b)        # [1, 2, 3, 4, 5]
+print(a * 3)        # [1, 2, 3, 1, 2, 3, 1, 2, 3]
+print(2 in a)       # True
+print(len(b))       # 2
+        </span>
+      </div>
+
+      <!-- 5. IMPORTANT LIST METHODS -->
+      <h2>5. Important List Methods</h2>
+
+      <h3>5.1 append() — add at end</h3>
+      <div class="example-box">
+        <span class="code">
+fruits = ["apple", "banana"]
+fruits.append("mango")
+print(fruits)   # ['apple', 'banana', 'mango']
+        </span>
+      </div>
+
+      <h3>5.2 insert() — insert at specific index</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 40, 50]
+nums.insert(2, 30)
+print(nums)   # [10, 20, 30, 40, 50]
+        </span>
+      </div>
+
+      <h3>5.3 remove() — remove by value</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 20, 40]
+nums.remove(20)    # removes first 20
+print(nums)        # [10, 30, 20, 40]
+        </span>
+      </div>
+
+      <h3>5.4 pop() — remove by index (and return)</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 40]
+x = nums.pop(2)   # removes element at index 2
+print("Removed:", x)
+print("List:", nums)
+        </span>
+      </div>
+
+      <h3>5.5 clear() — empty the list</h3>
+      <div class="example-box">
+        <span class="code">
+items = [1, 2, 3]
+items.clear()
+print(items)    # []
+        </span>
+      </div>
+
+      <h3>5.6 extend() — add multiple elements</h3>
+      <div class="example-box">
+        <span class="code">
+a = [1, 2, 3]
+b = [4, 5]
+a.extend(b)
+print(a)   # [1, 2, 3, 4, 5]
+        </span>
+      </div>
+
+      <h3>5.7 index() and count()</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 10, 30, 10]
+
+print(nums.index(20))   # 1
+print(nums.count(10))   # 3
+        </span>
+      </div>
+
+      <h3>5.8 sort() and reverse()</h3>
+      <p><code>sort()</code> arranges elements in ascending order (by default). <code>reverse()</code> reverses the list.</p>
+
+      <div class="example-box">
+        <span class="code">
+nums = [40, 10, 30, 20]
+
+nums.sort()
+print(nums)   # [10, 20, 30, 40]
+
+nums.reverse()
+print(nums)   # [40, 30, 20, 10]
+        </span>
+      </div>
+
+      <div class="note">
+        <strong>Note:</strong> <code>sort()</code> and <code>reverse()</code> change the list in-place and return <code>None</code>.
+      </div>
+
+      <!-- 6. LISTS & LOOPS -->
+      <h2>6. Lists with Loops</h2>
+
+      <h3>6.1 Traversing a list</h3>
+      <div class="example-box">
+        <span class="code">
+fruits = ["apple", "banana", "mango"]
+
+for item in fruits:
+    print("I like", item)
+        </span>
+      </div>
+
+      <h3>6.2 Using index with range()</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 40]
+
+for i in range(len(nums)):
+    print("Index:", i, "Value:", nums[i])
+        </span>
+      </div>
+
+      <!-- 7. NESTED LISTS -->
+      <h2>7. Nested Lists (2D Lists)</h2>
+
+      <p>
+        A nested list is a list containing other lists.  
+        Useful for representing matrices or tabular data.
+      </p>
+
+      <h3>7.1 Example — 2x3 matrix</h3>
+      <div class="example-box">
+        <span class="code">
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+print(matrix[0])      # [1, 2, 3]
+print(matrix[1][2])   # 6
+        </span>
+      </div>
+
+      <h3>7.2 Traversing a 2D list</h3>
+      <div class="example-box">
+        <span class="code">
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+for row in matrix:
+    for value in row:
+        print(value, end=" ")
+    print()
+        </span>
+      </div>
+
+      <!-- 8. BASIC LIST COMPREHENSIONS -->
+      <h2>8. Basic List Comprehensions</h2>
+      <p>
+        A <strong>list comprehension</strong> provides a concise way to create lists.
+      </p>
+      <div class="highlight">
+        <code>new_list = [expression for item in iterable if condition]</code>
+      </div>
+
+      <h3>8.1 Generate list of squares</h3>
+      <div class="example-box">
+        <span class="code">
+squares = [x*x for x in range(1, 6)]
+print(squares)   # [1, 4, 9, 16, 25]
+        </span>
+      </div>
+
+      <h3>8.2 Filter even numbers</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = [n for n in nums if n % 2 == 0]
+print(evens)   # [2, 4, 6, 8, 10]
+        </span>
+      </div>
+
+      <h3>8.3 Convert strings to upper case</h3>
+      <div class="example-box">
+        <span class="code">
+names = ["sukanta", "rahul", "neha"]
+upper_names = [name.upper() for name in names]
+print(upper_names)
+        </span>
+      </div>
+
+      <!-- 9. SMALL LIST PROGRAMS -->
+      <h2>9. Small Programs Using Lists</h2>
+
+      <h3>9.1 Sum and average of list elements</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [10, 20, 30, 40, 50]
+
+total = sum(nums)
+avg = total / len(nums)
+
+print("Sum =", total)
+print("Average =", avg)
+        </span>
+      </div>
+
+      <h3>9.2 Find maximum and minimum value</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [12, 5, 33, 7, 18]
+
+print("Max:", max(nums))
+print("Min:", min(nums))
+        </span>
+      </div>
+
+      <h3>9.3 Remove duplicates from a list</h3>
+      <div class="example-box">
+        <span class="code">
+nums = [1, 2, 2, 3, 4, 4, 5]
+unique = []
+
+for n in nums:
+    if n not in unique:
+        unique.append(n)
+
+print("Original:", nums)
+print("Unique:", unique)
+        </span>
+      </div>
+
+      <h3>9.4 List of squares using loop</h3>
+      <div class="example-box">
+        <span class="code">
+squares = []
+for x in range(1, 6):
+    squares.append(x*x)
+print(squares)
+        </span>
+      </div>
+
+      <!-- 10. OUTPUT PREDICTION -->
+      <h2>10. Output Prediction — List Operations</h2>
+
+      <div class="example-box">
+        <div class="example-title">Q1</div>
+        <span class="code">
+a = [10, 20, 30, 40]
+print(a[0], a[-1])
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q2</div>
+        <span class="code">
+lst = [1, 2, 3, 4, 5]
+print(lst[1:4])
+print(lst[::2])
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q3</div>
+        <span class="code">
+nums = [5, 3, 8, 1]
+nums.sort()
+nums.reverse()
+print(nums)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q4</div>
+        <span class="code">
+x = [1, 2, 3]
+y = x
+y.append(4)
+print(x)
+print(y)
+        </span>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Q5</div>
+        <span class="code">
+matrix = [
+    [1, 2],
+    [3, 4]
+]
+
+print(matrix[0][1])
+print(matrix[1])
+        </span>
+      </div>
+
+      <!-- 11. MCQs -->
+      <h2>11. MCQs — List Operations</h2>
+      <ol>
+        <li>
+          Which of the following defines a list?<br />
+          a) <code>(1, 2, 3)</code><br />
+          b) <code>[1, 2, 3]</code><br />
+          c) <code>{"a": 1}</code><br />
+          d) <code>"1, 2, 3"</code>
+        </li>
+        <li>
+          Lists in Python are:<br />
+          a) Immutable<br />
+          b) Mutable<br />
+          c) Both<br />
+          d) None
+        </li>
+        <li>
+          Which method adds an element at the end?<br />
+          a) <code>insert()</code><br />
+          b) <code>append()</code><br />
+          c) <code>extend()</code><br />
+          d) <code>add()</code>
+        </li>
+        <li>
+          <code>a = [10, 20, 30]; a.insert(1, 15)</code> gives:<br />
+          a) [10, 15, 20, 30]<br />
+          b) [15, 10, 20, 30]<br />
+          c) [10, 20, 30, 15]<br />
+          d) [10, 15, 30]
+        </li>
+        <li>
+          Which removes element by <strong>value</strong>?<br />
+          a) <code>pop()</code><br />
+          b) <code>remove()</code><br />
+          c) <code>del</code><br />
+          d) <code>clear()</code>
+        </li>
+        <li>
+          <code>nums = [3, 1, 4]; nums.sort()</code> results in:<br />
+          a) [4, 3, 1]<br />
+          b) [1, 3, 4]<br />
+          c) [3, 4, 1]<br />
+          d) Error
+        </li>
+        <li>
+          <code>lst = [1, 2, 3]; lst * 2</code> gives:<br />
+          a) [1, 2, 3, 1, 2, 3]<br />
+          b) [2, 4, 6]<br />
+          c) [1, 2, 3, 2]<br />
+          d) Error
+        </li>
+        <li>
+          Nested list structure is:<br />
+          a) <code>[1, 2, 3]</code><br />
+          b) <code>[[1, 2], [3, 4]]</code><br />
+          c) <code>{"a": [1, 2]}</code><br />
+          d) <code>("a", "b")</code>
+        </li>
+        <li>
+          <code>[x for x in range(5)]</code> creates:<br />
+          a) [0, 1, 2, 3, 4]<br />
+          b) [1, 2, 3, 4, 5]<br />
+          c) [5, 4, 3, 2, 1]<br />
+          d) [0, 1, 2, 3, 4, 5]
+        </li>
+        <li>
+          Which statement is true?<br />
+          a) Lists cannot hold mixed types<br />
+          b) Lists can hold only strings<br />
+          c) Lists can hold different data types<br />
+          d) Lists and strings are the same
+        </li>
+      </ol>
+
+      <h4>Answer Key (MCQs):</h4>
+      <p>1–b, 2–b, 3–b, 4–a, 5–b, 6–b, 7–a, 8–b, 9–a, 10–c</p>
+
+      <!-- 12. CODING PRACTICE -->
+      <h2>12. Coding Practice — List Operations</h2>
+
+      <h3>Easy Level</h3>
+      <ul>
+        <li>Create a list of 5 integers and print them.</li>
+        <li>Input 5 numbers from user and store in a list, then print the sum of the numbers.</li>
+        <li>Print all even numbers from a given list.</li>
+      </ul>
+
+      <h3>Moderate Level</h3>
+      <ul>
+        <li>Write a program to find the second largest number in a list.</li>
+        <li>Write a program to separate even and odd numbers from a list into two different lists.</li>
+        <li>Write a program to merge two lists and remove duplicates.</li>
+      </ul>
+
+      <h3>Advanced Level</h3>
+      <ul>
+        <li>Create a 3x3 matrix using nested lists and print its transpose.</li>
+        <li>Use list comprehension to create a list of squares of only even numbers from 1 to 50.</li>
+        <li>Given a list of strings, create a new list that contains only strings whose length is greater than 4.</li>
+      </ul>
+
+      <!-- SUMMARY -->
+      <h2>13. Summary — Unit 4.2 List Operations</h2>
+      <ul>
+        <li>Lists are ordered, mutable sequences — ideal for collections of items.</li>
+        <li>Indexing and slicing work similarly to strings but with mutable elements.</li>
+        <li>Key methods to remember: <code>append()</code>, <code>insert()</code>, <code>remove()</code>, <code>pop()</code>, <code>sort()</code>, <code>reverse()</code>, <code>extend()</code>, <code>clear()</code>.</li>
+        <li>Nested lists are used for 2D data like matrices.</li>
+        <li>List comprehensions provide a compact way to build lists from expressions and conditions.</li>
+        <li>Lists are heavily used in real-world Python programs — mastering them is essential.</li>
+      </ul>
+
+      <!-- AUTHOR BOX -->
+      <div class="highlight">
+        <strong>Prepared By:</strong> Sukanta Hui<br>
+        Faculty — Python &amp; Web Development<br>
+        <strong>Coder &amp; AccoTax</strong> ·
+        Website: <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+        GitHub Resource for Practice:
+        <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank">30 Days of Python</a><br>
+        Phone: 7003756860 · Email: info@codernaccotax.co.in
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Coder &amp; AccoTax. Designed &amp; Prepared by <strong>Sukanta Hui</strong>. |
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
