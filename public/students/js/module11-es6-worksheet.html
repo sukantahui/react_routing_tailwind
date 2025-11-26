@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 11 — Modern JavaScript (ES6+ Features) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 11 — Modern JavaScript (ES6+ Features)</h1>
+    <p class="header-sub">
+      Use up-to-date JavaScript syntax and features used in modern codebases — from
+      <code>let</code>/<code>const</code> to destructuring, spread/rest, enhanced objects, and
+      safe property access with optional chaining.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Intermediate → Advanced</div>
+      <div class="badge">ES6+ Syntax</div>
+      <div class="badge">Modern JavaScript</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+  <!-- 1. Intro -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · Why ES6+ Matters</div>
+    <h2>1. Modern JavaScript — Why It’s Important</h2>
+    <p class="lead">
+      ES6 (also called ES2015) and later versions introduced features that make code
+      cleaner, safer, and easier to reason about. Modern projects, frameworks, and
+      interviews expect you to be comfortable with these features.
+    </p>
+
+    <ul>
+      <li><strong>Cleaner syntax</strong> → less boilerplate, more readable code.</li>
+      <li><strong>More expressive</strong> → destructuring, spread, rest.</li>
+      <li><strong>Safer</strong> → <code>let</code>/<code>const</code>, optional chaining, <code>??</code>.</li>
+      <li><strong>Modern patterns</strong> → used heavily in React, Node.js, etc.</li>
+    </ul>
+
+    <div class="note">
+      For students: this module is a bridge from “traditional JavaScript” to the way
+      JavaScript is actually written in modern companies and projects.
+    </div>
+  </article>
+
+  <!-- 2. let & const vs var -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · let &amp; const vs var</div>
+    <h2>2. <code>let</code> &amp; <code>const</code> vs <code>var</code> (In Depth)</h2>
+    <p class="lead">
+      <code>var</code> is function-scoped and has tricky hoisting behavior.  
+      <code>let</code> and <code>const</code> are block-scoped and safer for modern code.
+    </p>
+
+    <h3>2.1 Scope Difference</h3>
+    <pre><code>if (true) {
+  var x = 10;
+  let y = 20;
+}
+
+console.log(x); // 10  (var is function-scoped, leaks out of block)
+// console.log(y); // ReferenceError: y is not defined</code></pre>
+
+    <h3>2.2 Re-declaration &amp; Re-assignment</h3>
+    <pre><code>var a = 1;
+var a = 2; // allowed (but confusing!)
+
+let b = 1;
+// let b = 2; // ❌ not allowed, same scope re-declaration
+
+const c = 1;
+// c = 2; // ❌ not allowed, const cannot be re-assigned</code></pre>
+
+    <h3>2.3 Temporal Dead Zone (Concept)</h3>
+    <pre><code>// console.log(v); // undefined (due to hoisting)
+var v = 5;
+
+// console.log(l); // ReferenceError (temporal dead zone)
+let l = 10;</code></pre>
+
+    <div class="tip">
+      Practical rule:
+      <ul>
+        <li>Use <strong><code>const</code></strong> by default.</li>
+        <li>Use <strong><code>let</code></strong> when you intentionally need to reassign.</li>
+        <li>Avoid <strong><code>var</code></strong> in modern code.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 3. Template literals -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · Template Literals</div>
+    <h2>3. Template Literals &amp; String Methods</h2>
+    <p class="lead">
+      Template literals make string building easier and support embedded expressions and multi-line strings.
+    </p>
+
+    <h3>3.1 Basic Usage</h3>
+    <pre><code>const name = "Sukanta";
+const course = "JavaScript";
+
+const message = `Hello ${name}, welcome to the ${course} module!`;
+console.log(message);</code></pre>
+
+    <h3>3.2 Multi-line Strings</h3>
+    <pre><code>const multiLine = `
+Coder &amp; AccoTax
+JavaScript From Basic to Pro
+Batch: Evening
+`;
+
+console.log(multiLine);</code></pre>
+
+    <h3>3.3 Useful String Methods with Template Literals</h3>
+    <pre><code>const title = "  modern javascript ES6+  ";
+
+console.log(title.trim());        // remove spaces at both ends
+console.log(title.toUpperCase()); // MODERN JAVASCRIPT ES6+
+console.log(title.includes("ES6")); // true
+console.log(title.replace("ES6+", "Features"));</code></pre>
+
+    <div class="note">
+      Combine template literals with string methods for clean, readable UI messages and logs.
+    </div>
+  </article>
+
+  <!-- 4. Destructuring -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · Destructuring</div>
+    <h2>4. Destructuring Arrays &amp; Objects</h2>
+    <p class="lead">
+      Destructuring lets you “unpack” values from arrays and objects into variables in a compact way.
+    </p>
+
+    <h3>4.1 Array Destructuring</h3>
+    <pre><code>const marks = [80, 85, 90];
+
+const [math, science, english] = marks;
+
+console.log(math, science, english); // 80 85 90</code></pre>
+
+    <h3>4.2 Skipping Values</h3>
+    <pre><code>const [first,, third] = [10, 20, 30];
+console.log(first, third); // 10 30</code></pre>
+
+    <h3>4.3 Default Values</h3>
+    <pre><code>const [a = 1, b = 2] = [5];
+console.log(a, b); // 5 2</code></pre>
+
+    <h3>4.4 Object Destructuring</h3>
+    <pre><code>const student = {
+  name: "Amit",
+  course: "JavaScript",
+  city: "Barrackpore"
+};
+
+const { name, course } = student;
+console.log(name, course); // Amit JavaScript</code></pre>
+
+    <h3>4.5 Renaming &amp; Defaults</h3>
+    <pre><code>const { city: hometown = "Kolkata" } = student;
+
+console.log(hometown); // Barrackpore</code></pre>
+
+    <h3>4.6 Nested Destructuring</h3>
+    <pre><code>const centre = {
+  name: "Coder &amp; AccoTax",
+  address: {
+    city: "Barrackpore",
+    state: "West Bengal"
+  }
+};
+
+const {
+  address: { city, state }
+} = centre;
+
+console.log(city, state); // Barrackpore West Bengal</code></pre>
+
+    <div class="tip">
+      Destructuring is heavily used in React (e.g., <code>const { useState } = React;</code>)
+      and when working with API responses.
+    </div>
+  </article>
+
+  <!-- 5. Spread & Rest -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Spread &amp; Rest</div>
+    <h2>5. Spread <code>...</code> &amp; Rest <code>...</code> Operators</h2>
+    <p class="lead">
+      The same <code>...</code> syntax behaves as <strong>spread</strong> (expand) or
+      <strong>rest</strong> (collect) depending on where it’s used.
+    </p>
+
+    <h3>5.1 Spread in Arrays</h3>
+    <pre><code>const arr1 = [1, 2, 3];
+const arr2 = [4, 5];
+
+const combined = [...arr1, ...arr2];
+console.log(combined); // [1, 2, 3, 4, 5]</code></pre>
+
+    <h3>5.2 Copying Arrays (Shallow Copy)</h3>
+    <pre><code>const original = [10, 20, 30];
+const copy = [...original];
+
+copy.push(40);
+console.log(original); // [10, 20, 30]
+console.log(copy);     // [10, 20, 30, 40]</code></pre>
+
+    <h3>5.3 Spread in Objects</h3>
+    <pre><code>const baseStudent = { course: "JavaScript", centre: "Coder &amp; AccoTax" };
+const specific    = { name: "Neha", city: "Kolkata" };
+
+const fullProfile = { ...baseStudent, ...specific };
+console.log(fullProfile);
+// { course: "JavaScript", centre: "...", name: "Neha", city: "Kolkata" }</code></pre>
+
+    <h3>5.4 Rest Parameters in Functions</h3>
+    <pre><code>function sum(...numbers) {
+  return numbers.reduce((total, n) =&gt; total + n, 0);
+}
+
+console.log(sum(1, 2, 3));       // 6
+console.log(sum(10, 20, 30, 40)); // 100</code></pre>
+
+    <h3>5.5 Rest in Destructuring</h3>
+    <pre><code>const [first, ...others] = [10, 20, 30, 40];
+console.log(first);   // 10
+console.log(others);  // [20, 30, 40]</code></pre>
+
+    <div class="note">
+      Spread: “take this array/object and spread its items/properties”.  
+      Rest: “collect the remaining items/properties into an array/object”.
+    </div>
+  </article>
+
+  <!-- 6. Default params & enhanced object literals -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Defaults &amp; Enhanced Objects</div>
+    <h2>6. Default Parameters &amp; Enhanced Object Literals</h2>
+
+    <h3>6.1 Default Parameters</h3>
+    <pre><code>function greet(name = "Student", course = "JavaScript") {
+  console.log(`Hello ${name}, welcome to ${course}!`);
+}
+
+greet();                          // Student, JavaScript
+greet("Amit");                    // Amit, JavaScript
+greet("Neha", "ES6+ Features");   // Neha, ES6+ Features</code></pre>
+
+    <h3>6.2 Property Shorthand</h3>
+    <pre><code>const name = "Sukanta";
+const topic = "ES6";
+
+const courseInfo = {
+  name,   // same as name: name
+  topic,  // same as topic: topic
+  level: "Intermediate"
+};
+
+console.log(courseInfo);</code></pre>
+
+    <h3>6.3 Method Shorthand</h3>
+    <pre><code>const utils = {
+  log(message) {
+    console.log("[LOG]", message);
+  },
+  error(message) {
+    console.error("[ERROR]", message);
+  }
+};
+
+utils.log("Hello");</code></pre>
+
+    <h3>6.4 Computed Property Names</h3>
+    <pre><code>const key = "courseName";
+
+const obj = {
+  [key]: "JavaScript From Basic to Pro",
+  ["batch-" + 1]: "Evening"
+};
+
+console.log(obj.courseName); // JavaScript From Basic to Pro
+console.log(obj["batch-1"]); // Evening</code></pre>
+
+    <div class="tip">
+      Enhanced object literals make configurations and data models more compact,
+      especially in frameworks and API clients.
+    </div>
+  </article>
+
+  <!-- 7. Optional chaining & nullish coalescing -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · Safer Access</div>
+    <h2>7. Optional Chaining <code>?.</code> &amp; Nullish Coalescing <code>??</code></h2>
+    <p class="lead">
+      These features help you safely access deeply nested properties and provide default values
+      only when something is <code>null</code> or <code>undefined</code>.
+    </p>
+
+    <h3>7.1 The Problem</h3>
+    <pre><code>const student = {
+  name: "Amit",
+  contact: {
+    email: "amit@example.com"
+  }
+};
+
+// console.log(student.contact.phone.number); // ❌ TypeError if phone is undefined</code></pre>
+
+    <h3>7.2 Optional Chaining <code>?.</code></h3>
+    <pre><code>console.log(student.contact?.phone?.number); // undefined (no error)</code></pre>
+
+    <p>
+      If anything before <code>?.</code> is <code>null</code> or <code>undefined</code>,
+      the whole expression safely becomes <code>undefined</code> instead of throwing an error.
+    </p>
+
+    <h3>7.3 Nullish Coalescing <code>??</code></h3>
+    <pre><code>const inputMarks = 0;
+
+const defaultMarks1 = inputMarks || 50;
+console.log(defaultMarks1); // 50 (0 is treated as falsy)
+
+const defaultMarks2 = inputMarks ?? 50;
+console.log(defaultMarks2); // 0 (0 is NOT null or undefined)</code></pre>
+
+    <p>
+      <code>??</code> only falls back when the left side is <code>null</code> or <code>undefined</code>,
+      not for <code>0</code>, <code>""</code>, or <code>false</code>.
+    </p>
+
+    <h3>7.4 Combining Both</h3>
+    <pre><code>const centre = {
+  name: "Coder &amp; AccoTax",
+  address: null
+};
+
+const city = centre.address?.city ?? "City not set";
+console.log(city); // "City not set"</code></pre>
+
+    <div class="note">
+      These two operators are extremely common in real-world codebases, especially when working with
+      APIs where some properties may be missing.
+    </div>
+  </article>
+
+  <!-- 8. Summary & practice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Summary & Practice</div>
+    <h2>8. Summary &amp; Practice Tasks</h2>
+
+    <h3>8.1 Concept Checklist</h3>
+    <ul>
+      <li>Use <code>let</code> &amp; <code>const</code> correctly and avoid <code>var</code>.</li>
+      <li>Build readable strings with template literals.</li>
+      <li>Use destructuring with arrays and objects (with defaults &amp; renaming).</li>
+      <li>Apply spread for copying/merging and rest for collecting values.</li>
+      <li>Write cleaner objects with shorthand properties, methods, and computed keys.</li>
+      <li>Access nested properties safely with <code>?.</code> and use <code>??</code> for sensible defaults.</li>
+    </ul>
+
+    <h3>8.2 Practice Exercises</h3>
+    <ol>
+      <li>
+        Rewrite a piece of older code that uses <code>var</code> into <code>let</code>/<code>const</code>,
+        explaining which variables should be <code>const</code>.
+      </li>
+      <li>
+        Create a function <code>courseIntro(name, course, centre)</code> with default parameters
+        and return a formatted template-literal string describing the student.
+      </li>
+      <li>
+        Given an array of marks, use array destructuring to extract first two marks into variables
+        and the rest into another array.
+      </li>
+      <li>
+        Merge two objects <code>studentBase</code> and <code>extraInfo</code> using spread and log the result.
+      </li>
+      <li>
+        Create a <code>createCourse</code> function that takes parameters and returns an object using
+        property shorthand and method shorthand.
+      </li>
+      <li>
+        Given a nested object from an API (e.g., <code>response.data.user.profile.city</code>),
+        access <code>city</code> safely using optional chaining with a default value via <code>??</code>.
+      </li>
+      <li>
+        Use rest parameters to build a <code>multiplyAll(...nums)</code> function that multiplies
+        all given numbers.
+      </li>
+    </ol>
+
+    <p class="note">
+      Encourage students to keep a playground file, for example:
+      <code>module11-es6-playground.js</code>, where they try each feature in isolation.
+    </p>
+  </article>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+  <div class="side-card">
+    <h2>ES6+ Quick Reference</h2>
+    <ul>
+      <li><strong>Variables:</strong> <code>let</code>, <code>const</code> (block scoped)</li>
+      <li><strong>Strings:</strong> backticks <code>`...${}...`</code> for templates</li>
+      <li><strong>Destructuring:</strong> <code>const {a,b} = obj;</code></li>
+      <li><strong>Spread:</strong> <code>[...arr]</code>, <code>{...obj}</code></li>
+      <li><strong>Rest:</strong> <code>function f(...args) {}</code></li>
+      <li><strong>Objects:</strong> shorthand props, method shorthand, computed keys</li>
+      <li><strong>Safe access:</strong> <code>obj?.prop?.nested</code></li>
+      <li><strong>Defaults:</strong> <code>a ?? b</code> (only for null/undefined)</li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Teacher Notes for Module 11</h2>
+    <ul>
+      <li>Start from existing “old style” code and refactor it with ES6+ features.</li>
+      <li>Relate destructuring &amp; spread to real use-cases (API data, React props).</li>
+      <li>Visually show scope with diagrams for <code>var</code> vs <code>let</code>/<code>const</code>.</li>
+      <li>Give lots of small, focused exercises instead of one big project here.</li>
+      <li>Revisit these features in later modules (APIs, projects) so they become natural.</li>
+    </ul>
+  </div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    This ES6+ module prepares students to read and write modern JavaScript as used in today’s frameworks and production code.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

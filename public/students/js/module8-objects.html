@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 8 — Objects & Basic OOP in JavaScript | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 8 — Objects &amp; Basic OOP in JavaScript</h1>
+    <p class="header-sub">
+      Understand objects — the core data structure of JavaScript — and build up to object-oriented
+      programming using constructor functions, prototypes, and modern ES6 classes.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Intermediate → Advanced</div>
+      <div class="badge">Objects</div>
+      <div class="badge">OOP &amp; Prototypes</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+  <!-- 1. Object basics -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · What is an Object?</div>
+    <h2>1. Objects — The Heart of JavaScript</h2>
+    <p class="lead">
+      An object is a collection of <strong>key–value pairs</strong>. Keys are called
+      <em>properties</em>, and when a property holds a function, it’s called a <em>method</em>.
+    </p>
+
+    <h3>1.1 Object Literal Syntax</h3>
+    <pre><code>const student = {
+  name: "Amit",
+  age: 18,
+  course: "JavaScript",
+  isActive: true,
+  greet: function () {
+    console.log("Hello, I am " + this.name);
+  }
+};
+
+console.log(student.name); // "Amit"
+student.greet();           // "Hello, I am Amit"</code></pre>
+
+    <div class="note">
+      Mentally read an object as: “student has a name, age, course, isActive flag, and a greet behavior”.
+    </div>
+  </article>
+
+  <!-- 2. Dot vs bracket notation -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · Accessing Properties</div>
+    <h2>2. Dot Notation vs Bracket Notation</h2>
+
+    <h3>2.1 Dot Notation (Most Common)</h3>
+    <pre><code>console.log(student.name);
+student.age = 19;
+console.log(student.age);</code></pre>
+
+    <h3>2.2 Bracket Notation (Dynamic or Special Keys)</h3>
+    <pre><code>console.log(student["course"]);
+
+const key = "isActive";
+console.log(student[key]); // same as student.isActive</code></pre>
+
+    <h3>2.3 When Brackets Are Required</h3>
+    <pre><code>const fees = {
+  "course-fee": 5000,
+  "gst%": 18
+};
+
+// fees.course-fee ❌ (invalid)
+console.log(fees["course-fee"]); // ✅</code></pre>
+
+    <div class="tip">
+      Rule of thumb: use <strong>dot notation</strong> generally; switch to
+      <strong>bracket notation</strong> for dynamic keys or keys with spaces/special characters.
+    </div>
+  </article>
+
+  <!-- 3. Nested objects & arrays of objects -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · Nested Structures</div>
+    <h2>3. Nested Objects &amp; Arrays of Objects</h2>
+
+    <h3>3.1 Nested Object</h3>
+    <pre><code>const centre = {
+  name: "Coder &amp; AccoTax",
+  address: {
+    line1: "25(10/A) Shibtala Road",
+    city: "Barrackpore",
+    state: "West Bengal"
+  },
+  courses: ["JavaScript", "Python", "Accounts"]
+};
+
+console.log(centre.address.city);      // "Barrackpore"
+console.log(centre.courses[0]);        // "JavaScript"</code></pre>
+
+    <h3>3.2 Array of Objects</h3>
+    <pre><code>const students = [
+  { name: "Amit",  marks: 85 },
+  { name: "Neha",  marks: 92 },
+  { name: "Rahul", marks: 76 }
+];
+
+for (let s of students) {
+  console.log(`${s.name} scored ${s.marks}`);
+}</code></pre>
+
+    <div class="note">
+      Nested objects + arrays are the basis of real data structures (API responses, database records, etc.).
+    </div>
+  </article>
+
+  <!-- 4. this keyword basics -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · this Keyword (Basics)</div>
+    <h2>4. <code>this</code> Keyword — Basic Understanding</h2>
+    <p class="lead">
+      <code>this</code> usually refers to “the object that is calling the method”.
+      In an object method, <code>this</code> is a very natural way to refer to that object.
+    </p>
+
+    <h3>4.1 <code>this</code> Inside a Method</h3>
+    <pre><code>const student1 = {
+  name: "Neha",
+  course: "JavaScript",
+  greet() {
+    console.log("Hello, I am " + this.name);
+  }
+};
+
+student1.greet(); // "Hello, I am Neha"</code></pre>
+
+    <h3>4.2 Arrow Functions &amp; <code>this</code> (Basic Warning)</h3>
+    <pre><code>const student2 = {
+  name: "Rahul",
+  greet: () => {
+    console.log("Hello, I am " + this.name);
+  }
+};
+
+student2.greet(); // "Hello, I am undefined" (in most cases)</code></pre>
+
+    <div class="warning">
+      Arrow functions do <strong>not</strong> have their own <code>this</code>.  
+      For object methods, prefer normal function syntax (<code>greet() { ... }</code>).
+    </div>
+  </article>
+
+  <!-- 5. Constructor functions & new -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Constructor Functions</div>
+    <h2>5. Constructor Functions &amp; <code>new</code> Keyword</h2>
+    <p class="lead">
+      Constructor functions are regular functions used with <code>new</code> to create
+      multiple similar objects.
+    </p>
+
+    <h3>5.1 Defining a Constructor</h3>
+    <pre><code>function Student(name, course) {
+  this.name = name;
+  this.course = course;
+  this.greet = function () {
+    console.log("Hi, I am " + this.name);
+  };
+}
+
+const s1 = new Student("Amit", "JavaScript");
+const s2 = new Student("Neha", "Python");
+
+s1.greet(); // "Hi, I am Amit"
+s2.greet(); // "Hi, I am Neha"</code></pre>
+
+    <h3>5.2 What <code>new</code> Does (Conceptually)</h3>
+    <ul>
+      <li>Creates a new empty object: <code>{}</code></li>
+      <li>Sets its internal prototype to <code>Student.prototype</code></li>
+      <li>Calls <code>Student</code> with <code>this</code> pointing to that new object</li>
+      <li>Returns the new object (if you don’t return anything manually)</li>
+    </ul>
+
+    <div class="note">
+      Constructor function names usually start with a capital letter (e.g., <code>Student</code>, <code>Course</code>).
+    </div>
+  </article>
+
+  <!-- 6. Prototype & prototype chain -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Prototype Chain</div>
+    <h2>6. Prototypes &amp; the Prototype Chain</h2>
+    <p class="lead">
+      Every object in JavaScript has an internal link to another object known as its <em>prototype</em>.
+      Methods are usually stored on the prototype so that all instances can share them.
+    </p>
+
+    <h3>6.1 Moving Methods to the Prototype</h3>
+    <pre><code>function Student(name, course) {
+  this.name = name;
+  this.course = course;
+}
+
+// one shared method for all students
+Student.prototype.greet = function () {
+  console.log("Hi, I am " + this.name);
+};
+
+const s1 = new Student("Amit", "JavaScript");
+const s2 = new Student("Neha", "Python");
+
+s1.greet();
+s2.greet();</code></pre>
+
+    <h3>6.2 Inspecting Prototypes</h3>
+    <pre><code>console.log(Object.getPrototypeOf(s1) === Student.prototype); // true
+console.log(s1.__proto__ === Student.prototype);              // true (legacy but useful to see)</code></pre>
+
+    <div class="tip">
+      When a property is not found on the object itself, JavaScript looks up the prototype chain:
+      <code>object → object.__proto__ → ... → Object.prototype → null</code>.
+    </div>
+  </article>
+
+  <!-- 7. ES6 classes -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · ES6 Classes</div>
+    <h2>7. ES6 Classes — Modern OOP Syntax</h2>
+    <p class="lead">
+      ES6 <code>class</code> syntax is a cleaner way to write constructor + prototype patterns.
+      Under the hood, it still uses prototypes.
+    </p>
+
+    <h3>7.1 Basic Class</h3>
+    <pre><code>class Student {
+  constructor(name, course) {
+    this.name = name;
+    this.course = course;
+  }
+
+  greet() {
+    console.log(`Hi, I am ${this.name} from ${this.course}`);
+  }
+}
+
+const s1 = new Student("Amit", "JavaScript");
+s1.greet();</code></pre>
+
+    <h3>7.2 Static Methods</h3>
+    <pre><code>class MathUtils {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(MathUtils.add(2, 3)); // 5</code></pre>
+
+    <div class="note">
+      Static methods belong to the class itself, not to individual instances.
+      You call them as <code>ClassName.method()</code>, not on an object.
+    </div>
+  </article>
+
+  <!-- 8. Inheritance with classes -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Inheritance</div>
+    <h2>8. Inheritance with <code>extends</code> &amp; <code>super</code></h2>
+    <p class="lead">
+      Inheritance allows one class to reuse and extend the behavior of another.
+    </p>
+
+    <h3>8.1 Base &amp; Derived Class</h3>
+    <pre><code>class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  introduce() {
+    console.log(`I am ${this.name}.`);
+  }
+}
+
+class Student extends Person {
+  constructor(name, course) {
+    super(name); // call Person constructor
+    this.course = course;
+  }
+
+  introduce() {
+    // override method
+    console.log(`I am ${this.name}, studying ${this.course}.`);
+  }
+}
+
+const p = new Person("Sourav");
+const s = new Student("Neha", "JavaScript");
+
+p.introduce(); // I am Sourav.
+s.introduce(); // I am Neha, studying JavaScript.</code></pre>
+
+    <div class="tip">
+      <code>super()</code> must be called in the subclass constructor <strong>before</strong> using
+      <code>this</code>. Overriding lets you change or extend behavior in derived classes.
+    </div>
+  </article>
+
+  <!-- 9. Getters, setters, private fields -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 9 · Encapsulation</div>
+    <h2>9. Getters, Setters &amp; Private Fields</h2>
+    <p class="lead">
+      Encapsulation means hiding internal details and exposing a clean interface.
+      ES6+ classes support getters, setters, and private fields for this.
+    </p>
+
+    <h3>9.1 Getters &amp; Setters</h3>
+    <pre><code>class Account {
+  constructor(owner, balance) {
+    this.owner = owner;
+    this._balance = balance;
+  }
+
+  get balance() {
+    return this._balance;
+  }
+
+  set balance(amount) {
+    if (amount &lt; 0) {
+      console.log("Balance cannot be negative.");
+      return;
+    }
+    this._balance = amount;
+  }
+}
+
+const acc = new Account("Amit", 1000);
+console.log(acc.balance);  // uses getter
+acc.balance = 1500;        // uses setter
+console.log(acc.balance);</code></pre>
+
+    <h3>9.2 Private Fields (Modern JS)</h3>
+    <pre><code>class SecureAccount {
+  #balance; // private field
+
+  constructor(owner, balance) {
+    this.owner = owner;
+    this.#balance = balance;
+  }
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const sa = new SecureAccount("Neha", 2000);
+sa.deposit(500);
+console.log(sa.getBalance()); // 2500
+// sa.#balance ❌ Syntax error: cannot access private field</code></pre>
+
+    <div class="warning">
+      Private fields (<code>#field</code>) are not supported in very old browsers, but are standard in modern JavaScript.
+    </div>
+  </article>
+
+  <!-- 10. Factory functions & mixins -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 10 · Patterns</div>
+    <h2>10. Factory Functions &amp; Mixins (Patterns)</h2>
+
+    <h3>10.1 Factory Function</h3>
+    <p>A function that returns a new object, without using <code>new</code>.</p>
+    <pre><code>function createStudent(name, course) {
+  return {
+    name,
+    course,
+    greet() {
+      console.log(`Hi, I am ${this.name}`);
+    }
+  };
+}
+
+const st1 = createStudent("Amit", "JS");
+st1.greet();</code></pre>
+
+    <h3>10.2 Simple Mixin</h3>
+    <p>Mixin = object that contains methods which can be copied into other objects.</p>
+    <pre><code>const canLog = {
+  log() {
+    console.log(`[LOG]`, this);
+  }
+};
+
+const obj = { name: "Test" };
+Object.assign(obj, canLog);
+
+obj.log(); // [LOG] { name: "Test", log: [Function] }</code></pre>
+
+    <div class="note">
+      In real projects, you see a mix of classes, factory functions, and composition patterns.
+      Teach this gradually — focus on understanding, not memorising patterns.
+    </div>
+  </article>
+
+  <!-- 11. this binding, call/apply/bind -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 11 · this Binding</div>
+    <h2>11. <code>this</code> Binding, <code>call</code>, <code>apply</code>, <code>bind</code></h2>
+    <p class="lead">
+      Sometimes you want to control which object <code>this</code> refers to when calling a function.
+      For that, JavaScript provides <code>call</code>, <code>apply</code>, and <code>bind</code>.
+    </p>
+
+    <h3>11.1 Example Setup</h3>
+    <pre><code>function introduce(city) {
+  console.log(`I am ${this.name} from ${city}.`);
+}
+
+const person = { name: "Amit" };</code></pre>
+
+    <h3>11.2 <code>call</code> — Pass Arguments One by One</h3>
+    <pre><code>introduce.call(person, "Kolkata");</code></pre>
+
+    <h3>11.3 <code>apply</code> — Pass Arguments as Array</h3>
+    <pre><code>introduce.apply(person, ["Barrackpore"]);</code></pre>
+
+    <h3>11.4 <code>bind</code> — Create a New Function with Fixed <code>this</code></h3>
+    <pre><code>const introductionsForAmit = introduce.bind(person);
+introductionsForAmit("Delhi");
+introductionsForAmit("Mumbai");</code></pre>
+
+    <div class="tip">
+      <code>call</code> and <code>apply</code> execute immediately with a chosen <code>this</code>.  
+      <code>bind</code> returns a new function that remembers the chosen <code>this</code>.
+    </div>
+  </article>
+
+  <!-- 12. Summary & practice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 12 · Summary & Practice</div>
+    <h2>12. Summary &amp; Practice Tasks</h2>
+
+    <h3>12.1 Concept Checklist</h3>
+    <ul>
+      <li>Create and use object literals with properties and methods.</li>
+      <li>Access and update data using dot and bracket notation.</li>
+      <li>Model real data with nested objects and arrays of objects.</li>
+      <li>Explain what <code>this</code> refers to inside an object method.</li>
+      <li>Use constructor functions with <code>new</code>.</li>
+      <li>Understand how prototypes share methods across instances.</li>
+      <li>Use ES6 classes, static methods, and inheritance.</li>
+      <li>Apply getters, setters, and private fields for encapsulation.</li>
+      <li>Understand factory functions and mixin basics.</li>
+      <li>Control <code>this</code> using <code>call</code>, <code>apply</code>, and <code>bind</code>.</li>
+    </ul>
+
+    <h3>12.2 Practice Exercises</h3>
+    <ol>
+      <li>
+        Create an object <code>course</code> with properties:
+        <code>title</code>, <code>duration</code>, <code>fee</code>, and a method
+        <code>describe()</code> that prints a nice sentence.
+      </li>
+      <li>
+        Create an array of 5 student objects (<code>name</code>, <code>marks</code>).
+        Use a loop to print the names of students who scored &gt;= 80.
+      </li>
+      <li>
+        Write a constructor function <code>Book(title, author, price)</code> with:
+        <ul>
+          <li>properties: <code>title</code>, <code>author</code>, <code>price</code></li>
+          <li>a prototype method <code>getDetails()</code></li>
+        </ul>
+      </li>
+      <li>
+        Convert the <code>Book</code> constructor into an ES6 <code>class</code>
+        with a method and one static helper (e.g., <code>comparePrice(book1, book2)</code>).
+      </li>
+      <li>
+        Create a base class <code>Person</code> and a subclass <code>Teacher</code> with additional
+        property <code>subject</code>. Override an <code>introduce()</code> method.
+      </li>
+      <li>
+        Implement a <code>BankAccount</code> class with private balance and public methods:
+        <code>deposit()</code>, <code>withdraw()</code>, <code>getBalance()</code>.
+      </li>
+      <li>
+        Make a simple factory function <code>createUser(name, role)</code> that returns user objects
+        with a <code>describe()</code> method.
+      </li>
+      <li>
+        Create a standalone function and use <code>call</code> / <code>apply</code> / <code>bind</code>
+        to make it work with different objects as <code>this</code>.
+      </li>
+    </ol>
+
+    <p class="note">
+      Encourage students to maintain a dedicated file
+      <code>module8-objects-oop.js</code> and experiment with all examples live in the browser console or VS Code.
+    </p>
+  </article>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+  <div class="side-card">
+    <h2>Quick Reference — Object &amp; OOP</h2>
+    <ul>
+      <li><strong>Literal:</strong> <code>{ ... }</code> for simple structs</li>
+      <li><strong>Constructor:</strong> function + <code>new</code> for many similar objects</li>
+      <li><strong>Class:</strong> modern syntax for constructor + prototype</li>
+      <li><strong>Prototype:</strong> shared methods &amp; inheritance chain</li>
+      <li><strong><code>this</code>:</strong> usually “who called the method”</li>
+      <li><strong>Encapsulation:</strong> getters, setters, private fields</li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Teacher Notes for Module 8</h2>
+    <ul>
+      <li>Start from simple objects (name, marks, course).</li>
+      <li>Use diagrams to show prototype chains and class relationships.</li>
+      <li>Focus on intuition: “objects hold data + behavior together”.</li>
+      <li>Show both constructor/prototype and class syntax; emphasise that classes are syntax sugar.</li>
+      <li>Revisit this module later during project building to reinforce OOP concepts.</li>
+    </ul>
+  </div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    Use this same footer across all JavaScript modules to keep your branding consistent.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 5 — Functions in JavaScript | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:2rem;line-height:1.25;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.96rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{
+      display:grid;grid-template-columns:2.2fr 1fr;gap:22px;
+    }
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;margin-bottom:20px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+    h2{color:#dbeafe;margin-bottom:8px;font-size:1.15rem;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    p{margin-bottom:8px;font-size:0.92rem;}
+    .lead{font-size:0.95rem;color:var(--muted);margin-bottom:14px;}
+
+    ul,ol{margin-left:18px;margin-bottom:12px;font-size:0.9rem;}
+    li{margin-bottom:4px;}
+
+    /* LABEL */
+    .step-label{display:flex;align-items:center;gap:6px;font-size:0.76rem;text-transform:uppercase;
+      letter-spacing:0.14em;color:var(--accent);margin-bottom:4px;}
+    .step-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
+      box-shadow:0 0 14px rgba(56,189,248,.9);}
+
+    /* CODE */
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px 14px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;margin:10px 0;font-size:0.84rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      border-radius:12px;padding:10px 12px;margin:10px 0;font-size:0.82rem;
+    }
+    .note{border:1px dashed rgba(148,163,184,0.6);color:var(--muted);background:rgba(15,23,42,0.8);}
+    .tip{border:1px solid rgba(34,197,94,0.7);background:rgba(22,163,74,0.12);color:#bbf7d0;}
+    .warning{border:1px solid rgba(248,113,113,0.7);background:rgba(127,29,29,0.4);color:#fecaca;}
+
+    .inline-tag{
+      display:inline-block;padding:2px 8px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);font-size:0.7rem;
+      color:var(--accent2);text-transform:uppercase;margin-left:4px;
+    }
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.18),transparent 55%),
+        rgba(15,23,42,0.98);
+      padding:18px;border-radius:22px;border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);margin-bottom:18px;
+    }
+    .side-card h2{font-size:1.04rem;color:#e0f2fe;margin-bottom:6px;}
+    .side-list{list-style:none;margin-left:0;}
+    .side-list li{margin-bottom:6px;font-size:0.85rem;color:var(--muted);}
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;border-radius:22px;padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 6 · Functions in JavaScript</h1>
+    <p class="header-sub">
+      Learn how to group logic into reusable blocks using function declarations, expressions,
+      arrow functions, parameters, return values, and scope — a key step from beginner to pro.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Reusable Code</div>
+      <div class="badge">Function Types</div>
+      <div class="badge">Scope &amp; Return</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT COLUMN -->
+<section>
+
+  <!-- 1. What is a function -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · Why Functions?</div>
+    <h2>1. What Is a Function?</h2>
+    <p class="lead">
+      A function is a reusable block of code designed to perform a specific task. Instead of
+      copying the same logic many times, you define it once and call it whenever needed.
+    </p>
+
+    <h3>1.1 Real-Life Analogy</h3>
+    <ul>
+      <li>A “print invoice” function in billing software</li>
+      <li>A “calculate tax” function in accounting</li>
+      <li>A “send OTP” function in a login system</li>
+    </ul>
+
+    <p>In JavaScript, a simple function looks like this:</p>
+    <pre><code>function greet() {
+  console.log("Hello from Coder &amp; AccoTax!");
+}
+
+greet(); // calling/invoking the function</code></pre>
+
+    <div class="note">
+      Defining a function <strong>does nothing by itself</strong> until you call it.
+      Think of the definition as writing a recipe, and the call as cooking the dish.
+    </div>
+  </article>
+
+  <!-- 2. Function declaration -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · Function Declarations</div>
+    <h2>2. Function Declarations (Named Functions)</h2>
+
+    <h3>2.1 Syntax</h3>
+    <pre><code>function functionName() {
+  // function body
+}</code></pre>
+
+    <h3>2.2 Example: Simple Greeting</h3>
+    <pre><code>function sayHello() {
+  console.log("Hello, student!");
+}
+
+sayHello();
+sayHello();</code></pre>
+
+    <h3>2.3 Functions with Parameters</h3>
+    <p>
+      Parameters act like variables inside the function. You pass <strong>arguments</strong> when calling the function.
+    </p>
+    <pre><code>function greetStudent(name) {
+  console.log("Welcome, " + name + "!");
+}
+
+greetStudent("Sukanta");
+greetStudent("Rahul");</code></pre>
+
+    <h3>2.4 Multiple Parameters</h3>
+    <pre><code>function add(a, b) {
+  console.log("Sum =", a + b);
+}
+
+add(10, 5);
+add(100, 250);</code></pre>
+
+    <div class="tip">
+      Train students to read function signatures aloud:
+      <code>add(a, b)</code> → “add takes two parameters, a and b”.
+    </div>
+  </article>
+
+  <!-- 3. Return values -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · Return Values</div>
+    <h2>3. Returning Values from Functions</h2>
+    <p class="lead">
+      A function can <strong>return</strong> a value using the <code>return</code> keyword.
+      The returned value can be stored in a variable or used in expressions.
+    </p>
+
+    <h3>3.1 Basic Return</h3>
+    <pre><code>function multiply(a, b) {
+  return a * b;
+}
+
+let result = multiply(4, 5);
+console.log("Result =", result);</code></pre>
+
+    <h3>3.2 Multiple Returns via Objects</h3>
+    <p>JavaScript functions return only one value, but that value can be an object.</p>
+    <pre><code>function calculateMarks(m1, m2, m3) {
+  let total = m1 + m2 + m3;
+  let average = total / 3;
+  return {
+    total: total,
+    average: average
+  };
+}
+
+let report = calculateMarks(80, 90, 85);
+console.log("Total =", report.total);
+console.log("Average =", report.average);</code></pre>
+
+    <div class="note">
+      <strong>Important:</strong> As soon as JavaScript encounters <code>return</code>,
+      it exits the function immediately — any code after <code>return</code> will not run.
+    </div>
+
+    <h3>3.3 Early Return Pattern</h3>
+    <pre><code>function divide(a, b) {
+  if (b === 0) {
+    console.log("Cannot divide by zero.");
+    return; // stop here
+  }
+  console.log("Result =", a / b);
+}
+
+divide(10, 0);
+divide(10, 2);</code></pre>
+  </article>
+
+  <!-- 4. Function expressions -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · Function Expressions</div>
+    <h2>4. Function Expressions</h2>
+    <p class="lead">
+      A function expression is a function stored inside a variable. It does not require a name of its own.
+    </p>
+
+    <h3>4.1 Syntax</h3>
+    <pre><code>const add = function (a, b) {
+  return a + b;
+};
+
+console.log(add(3, 4));</code></pre>
+
+    <h3>4.2 Anonymous Functions</h3>
+    <p>The function above has no name (anonymous); it’s accessed through the variable <code>add</code>.</p>
+
+    <h3>4.3 Difference vs Declarations (Concept)</h3>
+    <ul>
+      <li><strong>Function declarations</strong> are hoisted — you can call them before their definition.</li>
+      <li><strong>Function expressions</strong> are not available before the line where they are defined.</li>
+    </ul>
+
+    <pre><code>// Declaration
+hello(); // works
+
+function hello() {
+  console.log("Hi!");
+}
+
+// Expression
+greet(); // ❌ error: cannot access before initialization
+
+const greet = function () {
+  console.log("Hello!");
+};</code></pre>
+
+    <div class="warning">
+      For teaching, you can prefer function declarations at first,
+      then gradually introduce expressions and hoisting.
+    </div>
+  </article>
+
+  <!-- 5. Arrow functions -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Arrow Functions</div>
+    <h2>5. Arrow Functions (Modern JavaScript)</h2>
+    <p class="lead">
+      Arrow functions are a shorter syntax introduced in ES6. They are very common in modern JavaScript,
+      especially with arrays and callbacks.
+    </p>
+
+    <h3>5.1 Basic Syntax</h3>
+    <pre><code>const square = (n) =&gt; {
+  return n * n;
+};
+
+console.log(square(5));</code></pre>
+
+    <h3>5.2 Short Form (Implicit Return)</h3>
+    <pre><code>const cube = n =&gt; n * n * n;
+
+console.log(cube(3));</code></pre>
+
+    <h3>5.3 Arrow with Multiple Parameters</h3>
+    <pre><code>const add = (a, b) =&gt; a + b;
+console.log(add(10, 20));</code></pre>
+
+    <h3>5.4 When Not to Use Arrow Functions (Basic Idea)</h3>
+    <ul>
+      <li>As methods inside objects when you need <code>this</code> (covered later in OOP module).</li>
+      <li>When using <code>arguments</code> object (arrow functions don’t have their own <code>arguments</code>).</li>
+    </ul>
+
+    <div class="note">
+      For beginners, treat arrow functions as a <strong>shorter way</strong> to write simple functions.
+      Deep <code>this</code> behavior can be explained in advanced modules.
+    </div>
+  </article>
+
+  <!-- 6. Default & rest parameters -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Parameters Variations</div>
+    <h2>6. Default Parameters & Rest Parameters</h2>
+
+    <h3>6.1 Default Parameters</h3>
+    <pre><code>function welcome(name = "Student") {
+  console.log("Welcome,", name);
+}
+
+welcome("Sukanta"); // Welcome, Sukanta
+welcome();          // Welcome, Student</code></pre>
+
+    <h3>6.2 Rest Parameters (Collect Many Arguments)</h3>
+    <pre><code>function sumAll(...numbers) {
+  let total = 0;
+  for (let n of numbers) {
+    total += n;
+  }
+  return total;
+}
+
+console.log(sumAll(1, 2, 3));        // 6
+console.log(sumAll(5, 10, 15, 20));  // 50</code></pre>
+
+    <div class="tip">
+      Use rest parameters when you don’t know in advance how many arguments
+      will be passed to the function.
+    </div>
+  </article>
+
+  <!-- 7. Scope basics -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · Scope</div>
+    <h2>7. Variable Scope with Functions</h2>
+    <p class="lead">
+      Scope defines where a variable is accessible. Functions create their own scope.
+    </p>
+
+    <h3>7.1 Local vs Global Scope</h3>
+    <pre><code>let globalMessage = "I am global";
+
+function showMessages() {
+  let localMessage = "I am local";
+  console.log(globalMessage); // accessible
+  console.log(localMessage);  // accessible
+}
+
+showMessages();
+
+console.log(globalMessage);   // accessible
+// console.log(localMessage); // ❌ error: not defined</code></pre>
+
+    <h3>7.2 Block Scope with <code>let</code> and <code>const</code></h3>
+    <pre><code>if (true) {
+  let a = 10;
+  const b = 20;
+  console.log(a, b); // works
+}
+
+// console.log(a, b); // ❌ not accessible outside block</code></pre>
+
+    <div class="note">
+      Teach students: <code>let</code> and <code>const</code> are <strong>block-scoped</strong>
+      (between <code>{ }</code>), while functions themselves create function scope.
+    </div>
+  </article>
+
+  <!-- 8. Functions + arrays (small intro) -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Functions + Arrays</div>
+    <h2>8. Functions with Arrays (Preview of Higher-Order Thinking)</h2>
+    <p class="lead">
+      Functions are often passed into other functions — this idea is the base of
+      higher-order functions and functional programming.
+    </p>
+
+    <h3>8.1 Example: Apply a Discount</h3>
+    <pre><code>const prices = [100, 200, 300];
+
+function applyGST(price) {
+  return price * 1.18;
+}
+
+for (let p of prices) {
+  console.log("With GST:", applyGST(p));
+}</code></pre>
+
+    <h3>8.2 Example: Simple Callback with <code>forEach</code></h3>
+    <pre><code>const students = ["Amit", "Neha", "Sourav"];
+
+students.forEach(function (name) {
+  console.log("Hello,", name);
+});</code></pre>
+
+    <p class="note">
+      You will explore array methods (<code>map</code>, <code>filter</code>, <code>reduce</code>)
+      in the Arrays module. Here, just introduce the idea that functions can be
+      passed around like values.
+    </p>
+  </article>
+
+  <!-- 9. Summary & exercises -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 9 · Summary & Practice</div>
+    <h2>9. Summary & Practice Tasks</h2>
+    <p class="lead">
+      After this module, students should be able to write and use functions comfortably,
+      reason about parameters, return values, and understand basic scope.
+    </p>
+
+    <h3>9.1 Concept Checklist</h3>
+    <ul>
+      <li>Explain what a function is and why it is useful.</li>
+      <li>Write function declarations with parameters and return values.</li>
+      <li>Use function expressions and understand the difference from declarations.</li>
+      <li>Write arrow functions with and without implicit returns.</li>
+      <li>Use default parameters and rest parameters.</li>
+      <li>Understand the difference between global, local, and block scope.</li>
+    </ul>
+
+    <h3>9.2 Practice Exercises</h3>
+    <ol>
+      <li>
+        Write a function <code>square(n)</code> that returns the square of a number.
+        Call it for 2, 5, and 10 and print results.
+      </li>
+      <li>
+        Write a function <code>isEligibleForVote(age)</code> that returns <code>true</code> if age ≥ 18,
+        else <code>false</code>. Test with different ages.
+      </li>
+      <li>
+        Write a function <code>calculateSimpleInterest(p, r, t)</code> and return the interest.
+      </li>
+      <li>
+        Use an arrow function <code>max(a, b)</code> that returns the larger of the two numbers.
+      </li>
+      <li>
+        Create a function <code>printTable(n)</code> that prints the multiplication table of <code>n</code>
+        from 1 to 10 using a loop.
+      </li>
+      <li>
+        Create a function <code>sumAll(...nums)</code> using rest parameters and test with different
+        sets of numbers.
+      </li>
+      <li>
+        Demonstrate scope: create a global variable, a local variable, and a block-scoped variable,
+        and try to access them from different places.
+      </li>
+    </ol>
+
+    <p class="note">
+      Encourage students to keep all function examples in a separate <code>module-5-functions.js</code>
+      file and link it to an HTML practice page for this module.
+    </p>
+  </article>
+
+</section>
+
+<!-- RIGHT COLUMN (SIDEBAR) -->
+<aside>
+  <div class="side-card">
+    <h2>Teacher Notes for Module 5</h2>
+    <ul class="side-list">
+      <li>• Emphasize functions as “building blocks” of all real projects.</li>
+      <li>• Ask students to convert repeated code into functions.</li>
+      <li>• Use many practical examples (fees, GST, grades, login).</li>
+      <li>• Slowly introduce arrow functions once basics are clear.</li>
+      <li>• Use diagrams to explain scope visually.</li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Next Module Preview</h2>
+    <p>In the next module (Module 6), you can cover:</p>
+    <ul class="side-list">
+      <li>• Arrays in depth</li>
+      <li>• Common array methods (push, pop, splice, slice)</li>
+      <li>• Iterating arrays with loops &amp; <code>forEach</code></li>
+      <li>• Intro to <code>map</code>, <code>filter</code>, <code>reduce</code></li>
+    </ul>
+    <p style="margin-top:8px;">
+      This will naturally extend the idea of functions into data processing patterns.
+    </p>
+  </div>
+</aside>
+
+</main>
+
+<!-- FOOTER (NO HEADING TEXT) -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    Footer is common across modules — keeping your brand consistent on every JavaScript page.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

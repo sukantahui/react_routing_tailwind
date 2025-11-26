@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Getting Started with JavaScript | Module 1 — Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --code-bg: #020617;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px 16px 40px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      border-radius: 24px;
+      padding: 20px 24px;
+      margin-bottom: 22px;
+      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.16), transparent 55%),
+                  radial-gradient(circle at 100% 0, rgba(168,85,247,0.2), transparent 55%),
+                  rgba(15,23,42,0.96);
+      border: 1px solid rgba(148,163,184,0.4);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(56,189,248,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      background: rgba(15,23,42,0.95);
+      box-shadow: 0 0 24px rgba(56,189,248,0.6);
+    }
+
+    .header-main {
+      flex: 1 1 260px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      background: linear-gradient(90deg, #e0f2fe, #f9a8d4, #bfdbfe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .header-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.85);
+    }
+
+    .mode-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      color: var(--muted);
+      text-align: center;
+      min-width: 150px;
+    }
+
+    /* Layout */
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
+      gap: 22px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: rgba(15,23,42,0.97);
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      padding: 20px 20px 22px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: #dbeafe;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin: 14px 0 6px;
+      color: #bfdbfe;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      font-size: 0.96rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .step-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .step-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(56,189,248,1);
+    }
+
+    ul, ol {
+      margin-left: 18px;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    strong {
+      color: #e5e7eb;
+    }
+
+    /* Code blocks */
+    pre {
+      background: var(--code-bg);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      overflow-x: auto;
+      border: 1px solid rgba(31,41,55,0.9);
+      margin: 8px 0 10px;
+    }
+
+    code {
+      font-family: "Fira Code", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px dashed rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
+      margin: 8px 0 10px;
+    }
+
+    .tip {
+      font-size: 0.82rem;
+      color: #bbf7d0;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(34,197,94,0.7);
+      background: rgba(22,163,74,0.1);
+      margin: 8px 0 10px;
+    }
+
+    .warning {
+      font-size: 0.82rem;
+      color: #fecaca;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(248,113,113,0.7);
+      background: rgba(127,29,29,0.4);
+      margin: 8px 0 10px;
+    }
+
+    .inline-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      color: var(--accent2);
+      margin-left: 4px;
+    }
+
+    /* Sidebar */
+    .side-card {
+      background: radial-gradient(circle at top, rgba(56,189,248,0.17), transparent 55%),
+                  rgba(15,23,42,0.98);
+      border-radius: 22px;
+      border: 1px solid rgba(55,65,81,0.95);
+      padding: 18px 18px 16px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom: 16px;
+    }
+
+    .side-card h2 {
+      font-size: 1.02rem;
+      color: #e0f2fe;
+      margin-bottom: 6px;
+    }
+
+    .side-card p, .side-card li {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .side-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .side-list li {
+      margin-bottom: 5px;
+    }
+
+    .kbd {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(148,163,184,0.8);
+      font-size: 0.78rem;
+      font-family: inherit;
+      background: rgba(15,23,42,0.9);
+    }
+
+    /* Footer / Organisation details */
+    footer {
+      margin-top: 26px;
+      border-radius: 22px;
+      padding: 16px 18px;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: linear-gradient(120deg, rgba(15,23,42,0.97), rgba(15,23,42,0.9));
+    }
+
+    .org-heading {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent3);
+      margin-bottom: 6px;
+    }
+
+    .org-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 700px) {
+      .org-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .org-name {
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 2px;
+    }
+
+    .org-sub {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .org-small {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="logo-circle">C&amp;A</div>
+      <div class="header-main">
+        <h1>Module 1 · Getting Started with JavaScript</h1>
+        <p class="header-sub">
+          A step-by-step, expert-level introduction to what JavaScript is, how it runs inside the browser,
+          and how to write your very first programs correctly.
+        </p>
+        <div class="badge-row">
+          <div class="badge">Absolute Beginner Friendly</div>
+          <div class="badge">Browser + VS Code</div>
+          <div class="badge">Hands-on Examples</div>
+        </div>
+      </div>
+      <div class="mode-pill">
+        Dark Mode Active<br />
+        Background: #020617
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- LEFT COLUMN: THEORY + EXAMPLES -->
+      <section>
+        <!-- Section 1 -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 1 · Understand What JavaScript Is
+          </div>
+          <h2>1. What Exactly Is JavaScript?</h2>
+          <p class="lead">
+            JavaScript is a <strong>high-level, interpreted programming language</strong> that runs primarily in the browser
+            and controls the behavior of web pages. Think of HTML as the <strong>skeleton</strong>, CSS as the <strong>clothes &amp; colors</strong>,
+            and JavaScript as the <strong>brain &amp; muscles</strong> that make everything move and respond.
+          </p>
+
+          <h3>1.1 The “Big Three” of Frontend</h3>
+          <ul>
+            <li><strong>HTML</strong> — defines <em>what</em> is on the page (headings, paragraphs, forms, buttons).</li>
+            <li><strong>CSS</strong> — defines <em>how</em> those things look (colors, spacing, fonts, layout).</li>
+            <li><strong>JavaScript</strong> — defines <em>how</em> the page behaves (interactions, animations, logic).</li>
+          </ul>
+
+          <p>
+            When a browser loads a webpage:
+          </p>
+          <ol>
+            <li>It downloads the HTML file.</li>
+            <li>It downloads and applies CSS files.</li>
+            <li>It downloads and executes JavaScript files <em>step by step</em>.</li>
+          </ol>
+
+          <div class="note">
+            <strong>Expert note:</strong> JavaScript is single-threaded and uses an event loop to manage tasks.
+            We will explore the event loop in the Asynchronous JavaScript module. For now, remember:
+            the browser executes JavaScript code one line at a time, from top to bottom in each script.
+          </div>
+
+          <h3>1.2 Where Can JavaScript Run?</h3>
+          <ul>
+            <li><strong>In the browser</strong> — this is our starting point. Every modern browser has a built-in JS engine.</li>
+            <li><strong>On the server</strong> using Node.js — this allows JavaScript to build backend APIs.</li>
+            <li><strong>In tools &amp; scripts</strong> — bundlers, CLIs, automation tools also use JavaScript.</li>
+          </ul>
+
+          <p>
+            In this course, we start with <strong>browser-based JavaScript</strong> and later introduce the idea of Node.js.
+          </p>
+        </article>
+
+        <!-- Section 2: How browser sees JS -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 2 · See How Browsers Treat HTML, CSS, JS
+          </div>
+          <h2>2. How Does the Browser Use JavaScript?</h2>
+          <p class="lead">
+            The browser converts your HTML into a tree structure called the <strong>DOM (Document Object Model)</strong>,
+            and JavaScript can read and modify this tree in real time.
+          </p>
+
+          <h3>2.1 A Mental Model of a Web Page</h3>
+          <p>Consider this simple HTML page:</p>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome!&lt;/h1&gt;
+    &lt;p&gt;Learning JavaScript with Coder &amp;amp; AccoTax.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+          <p>When the browser loads this file, internally it builds a structure like:</p>
+          <ul>
+            <li><code>document</code> (the entire page)</li>
+            <li>inside it: <code>html</code> element</li>
+            <li>inside it: <code>head</code> and <code>body</code> elements</li>
+            <li>inside <code>body</code>: <code>h1</code> and <code>p</code> elements</li>
+          </ul>
+
+          <p>
+            JavaScript can access this structure using the global <code>document</code> object and change text, styles,
+            or even add/remove elements dynamically.
+          </p>
+
+          <div class="tip">
+            <strong>Teaching tip:</strong> When explaining DOM, always relate it to a “family tree” diagram —
+            parent, child, and sibling relationships between elements.
+          </div>
+        </article>
+
+        <!-- Section 3: Setup environment -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 3 · Set Up Your Environment
+          </div>
+          <h2>3. Tools You Need to Start Coding</h2>
+          <p class="lead">
+            You do not need any heavy tools to start JavaScript. A browser and a code editor are enough.
+          </p>
+
+          <h3>3.1 Browser (JavaScript Engine)</h3>
+          <p>Use any modern browser (Chrome, Edge, Firefox, Brave, etc.). They all have:</p>
+          <ul>
+            <li>A powerful <strong>JavaScript engine</strong> (e.g., V8 in Chrome).</li>
+            <li>Built-in <strong>Developer Tools</strong> to see logs and debug code.</li>
+          </ul>
+
+          <h3>3.2 Code Editor</h3>
+          <p>
+            We will use <strong>VS Code</strong>, but any text editor works. VS Code advantages:
+          </p>
+          <ul>
+            <li>Syntax highlighting for HTML, CSS, JavaScript.</li>
+            <li>Extensions for auto-format, snippets, live server, etc.</li>
+            <li>Integrated terminal (later useful for Node.js).</li>
+          </ul>
+
+          <h3>3.3 Folder Structure for This Module</h3>
+          <p>Create a folder for your JavaScript course, for example:</p>
+          <pre><code>javascript-course/
+  module-1-getting-started/
+    index.html
+    script.js          (we will create this in Step 7)
+</code></pre>
+
+          <div class="note">
+            Keep all files for each module in separate folders. This habit prepares students for
+            larger project structures later.
+          </div>
+        </article>
+
+        <!-- Section 4: First Script - inline/internal -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 4 · Write Your First JavaScript Program
+          </div>
+          <h2>4. Creating the First HTML + JavaScript File</h2>
+          <p class="lead">
+            In this step, we will write a complete HTML file with JavaScript inside it and open it in the browser.
+          </p>
+
+          <h3>4.1 Create <code>index.html</code></h3>
+          <p>Inside <code>module-1-getting-started</code>, create a new file named <code>index.html</code> with this content:</p>
+
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Getting Started with JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;JavaScript – Getting Started&lt;/h1&gt;
+  &lt;p&gt;This page is created for students of Coder &amp;amp; AccoTax.&lt;/p&gt;
+
+  &lt;script&gt;
+    // This is our first JavaScript code
+    alert("Welcome to JavaScript!");
+    console.log("This message is from JavaScript.");
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+          <h3>4.2 Understand Each Part</h3>
+          <ul>
+            <li><code>&lt;script&gt; ... &lt;/script&gt;</code> tells the browser: “Now execute JavaScript code.”</li>
+            <li><code>alert(...)</code> shows a popup message on the page.</li>
+            <li><code>console.log(...)</code> prints a message to the browser’s console (for developers).</li>
+            <li><code>//</code> starts a single-line comment in JavaScript.</li>
+          </ul>
+
+          <div class="warning">
+            If you see nothing happening, check:
+            <ul>
+              <li>Did you save the file as <strong>index.html</strong> (not <code>index.html.txt</code>)?</li>
+              <li>Did you open it in a real browser (not in VS Code’s preview only)?</li>
+            </ul>
+          </div>
+
+          <h3>4.3 Run the Page in the Browser</h3>
+          <ol>
+            <li>Open the folder in your file manager.</li>
+            <li>Double-click <code>index.html</code> (or right-click → Open with → your browser).</li>
+            <li>You should see the webpage with the heading and paragraph.</li>
+            <li>An alert box “Welcome to JavaScript!” should appear.</li>
+          </ol>
+
+          <p class="tip">
+            After closing the alert, open the Developer Tools console and you will see the
+            <code>console.log("This message is from JavaScript.")</code> output.
+          </p>
+        </article>
+
+        <!-- Section 5: DevTools -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 5 · Use the Browser Console Like a Pro
+          </div>
+          <h2>5. Exploring JavaScript in the Browser Console</h2>
+          <p class="lead">
+            The console is a safe playground where you can experiment with JavaScript without editing files.
+          </p>
+
+          <h3>5.1 Opening Developer Tools</h3>
+          <ul>
+            <li>In Chrome/Edge: Press <span class="kbd">F12</span> or <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">I</span>.</li>
+            <li>Click the <strong>Console</strong> tab.</li>
+          </ul>
+
+          <h3>5.2 Try These Commands Step by Step</h3>
+          <p>Type each line one by one in the console and press Enter:</p>
+          <pre><code>&gt; 2 + 3
+5
+
+&gt; "Hello" + " " + "World"
+"Hello World"
+
+&gt; let name = "Sukanta";
+&gt; name
+"Sukanta"
+
+&gt; console.log("Learning JS with Coder &amp; AccoTax");
+Learning JS with Coder &amp; AccoTax
+
+&gt; alert("Console can also call alert boxes!");
+</code></pre>
+
+          <p>
+            Every line starting with <code>&gt;</code> is what <em>you</em> type. The next line is the output from JavaScript.
+          </p>
+
+          <div class="note">
+            <strong>Expert practice:</strong> Ask students to try simple math, string concatenation, and small expressions in the console
+            before writing them inside a <code>&lt;script&gt;</code> tag.
+          </div>
+        </article>
+
+        <!-- Section 6: External JS file -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 6 · Move JavaScript into a Separate File
+          </div>
+          <h2>6. External JavaScript File (Best Practice)</h2>
+          <p class="lead">
+            For professional projects, we almost never keep all JavaScript directly inside HTML. We separate it into <strong>.js files</strong>.
+          </p>
+
+          <h3>6.1 Create <code>script.js</code></h3>
+          <p>Inside the same folder, create a new file called <code>script.js</code>:</p>
+
+          <pre><code>// file: script.js
+
+// Show a welcome message
+alert("Welcome to JavaScript (from an external file)!");
+
+// Log some information in the console
+console.log("This is script.js speaking.");
+
+// A small calculation example
+let a = 10;
+let b = 5;
+let sum = a + b;
+console.log("a =", a, ", b =", b, ", sum =", sum);
+
+// A simple greeting function
+function greetStudent(name) {
+  console.log("Hello, " + name + "! Keep learning JavaScript.");
+}
+
+// Call the function
+greetStudent("Coder &amp; AccoTax Student");
+</code></pre>
+
+          <h3>6.2 Link <code>script.js</code> From <code>index.html</code></h3>
+          <p>
+            Now remove the old inline script from <code>index.html</code> and instead link the external file at the end of
+            the <code>&lt;body&gt;</code>:
+          </p>
+
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Getting Started with JavaScript&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;JavaScript – Getting Started&lt;/h1&gt;
+  &lt;p&gt;This page is created for students of Coder &amp;amp; AccoTax.&lt;/p&gt;
+
+  &lt;!-- Link external JavaScript file --&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+          <p>
+            Reload the page. You should see the new alert message and the console logs from <code>script.js</code>.
+          </p>
+
+          <div class="tip">
+            <strong>Best practice:</strong> Place the <code>&lt;script&gt;</code> tag just before the closing <code>&lt;/body&gt;</code> tag.
+            This ensures the HTML is loaded before JavaScript starts accessing it.
+          </div>
+        </article>
+
+        <!-- Section 7: Common mistakes -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 7 · Debug Common Beginner Errors
+          </div>
+          <h2>7. Typical Errors in “Getting Started” Phase</h2>
+          <p class="lead">
+            Teaching students to read error messages early saves a lot of frustration later.
+          </p>
+
+          <h3>7.1 File Not Found</h3>
+          <p>If you see something like <code>Failed to load resource: net::ERR_FILE_NOT_FOUND</code>:</p>
+          <ul>
+            <li>Check that <code>script.js</code> is in the same folder as <code>index.html</code>.</li>
+            <li>Check the spelling: <code>src="script.js"</code> must match the exact filename.</li>
+          </ul>
+
+          <h3>7.2 Syntax Errors</h3>
+          <p>Example mistake:</p>
+          <pre><code>// WRONG
+let a = 10
+let b = 5;
+console.log(a + b);
+</code></pre>
+          <p>
+            Missing semicolons usually don’t break JavaScript by themselves, but other syntax errors do.
+            Consider this:
+          </p>
+          <pre><code>// WRONG
+let a = 10;
+let b = 5
+console.log(a + b;;
+</code></pre>
+
+          <p>
+            Here, the extra <code>;</code> and missing parenthesis will cause a syntax error.
+            The console will show you the line number and a brief message.
+          </p>
+
+          <div class="warning">
+            Always check the <strong>line number</strong> and <strong>file name</strong> in the error message.
+            Teach students to read errors instead of ignoring them.
+          </div>
+
+          <h3>7.3 Using Console for Debugging</h3>
+          <p>
+            If your logic is not working, you can insert <code>console.log()</code> statements to see values:
+          </p>
+          <pre><code>let marks = 80;
+let result;
+
+if (marks &gt;= 90) {
+  result = "Excellent";
+} else if (marks &gt;= 75) {
+  result = "Very Good";
+} else {
+  result = "Keep Trying";
+}
+
+console.log("Marks:", marks);
+console.log("Result:", result);
+</code></pre>
+
+          <p>
+            If the result is not what you expect, <code>console.log()</code> helps you see where the logic went wrong.
+          </p>
+        </article>
+
+        <!-- Section 8: Summary & checklist -->
+        <article class="card">
+          <div class="step-label">
+            <span class="step-dot"></span>
+            Step 8 · Recap & Practice Tasks
+          </div>
+          <h2>8. Summary of This Module</h2>
+          <p class="lead">
+            Before moving to the next module, make sure your students can comfortably perform all tasks in this checklist.
+          </p>
+
+          <h3>8.1 Concept Checklist</h3>
+          <ul>
+            <li>Explain the role of JavaScript compared to HTML and CSS.</li>
+            <li>Describe where JavaScript runs (browser, Node.js conceptually).</li>
+            <li>Open the browser console and run simple JavaScript commands.</li>
+            <li>Create an HTML file and embed JavaScript using <code>&lt;script&gt;</code> tags.</li>
+            <li>Separate JavaScript into an external <code>.js</code> file and link it correctly.</li>
+            <li>Read basic error messages from the console and fix simple syntax mistakes.</li>
+          </ul>
+
+          <h3>8.2 Practice Exercises (For Students)</h3>
+          <ol>
+            <li>
+              Create a page that shows an alert:
+              <ul>
+                <li>Message: “Hello, I am starting JavaScript with Coder &amp; AccoTax!”.</li>
+                <li>Also log the same message in the console.</li>
+              </ul>
+            </li>
+            <li>
+              In <code>script.js</code>, declare two variables: <code>firstName</code> and <code>courseName</code>.
+              Log a sentence like: “Sukanta is learning JavaScript.” using <code>console.log()</code>.
+            </li>
+            <li>
+              Create a function <code>square(number)</code> that logs the square of a number.
+              Call it for values 2, 5, and 10.
+            </li>
+            <li>
+              Intentionally create a syntax error (e.g., remove a parenthesis), reload the page,
+              read the error in the console, and then fix it. This builds confidence with errors.
+            </li>
+          </ol>
+
+          <p class="note">
+            In future pages of this website, each module can have a dedicated
+            <span class="inline-tag">Theory</span>
+            and
+            <span class="inline-tag">Practice</span>
+            section using this same dark layout and footer structure.
+          </p>
+        </article>
+      </section>
+
+      <!-- RIGHT COLUMN: TEACHER NOTES / QUICK NAV -->
+      <aside>
+        <div class="side-card">
+          <h2>Teacher Notes for Module 1</h2>
+          <p>
+            This module is designed to build confidence, not complexity. Focus on:
+          </p>
+          <ul class="side-list">
+            <li>• Showing students visual results quickly (alerts, console).</li>
+            <li>• Building a habit of reading &amp; understanding error messages.</li>
+            <li>• Establishing clean folder and file structure from day one.</li>
+            <li>• Teaching the difference between “HTML view” and “console view”.</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Coming Next</h2>
+          <p>
+            In the next page (Module 2: JavaScript Syntax &amp; Basics), you can cover:
+          </p>
+          <ul class="side-list">
+            <li>• Variables (<code>let</code>, <code>const</code>, <code>var</code>) in depth</li>
+            <li>• Primitive data types &amp; <code>typeof</code></li>
+            <li>• Comments &amp; basic expressions</li>
+          </ul>
+          <p style="margin-top:8px;">
+            Keep the same dark theme and organisation footer at the bottom, so that the entire
+            JavaScript website feels consistent and professional.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ORGANISATION DETAILS (MUST BE ON EVERY PAGE) -->
+    <footer>
+      <div class="org-heading">Organisation Details · Visible on Every Page</div>
+      <div class="org-grid">
+        <div>
+          <div class="org-name">Coder &amp; AccoTax</div>
+          <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+          <div>
+            25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br />
+            West Bengal, India
+          </div>
+        </div>
+        <div>
+          <div><strong>Website:</strong> <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">www.codernaccotax.co.in</a></div>
+          <div><strong>Phone:</strong> +91 7003756860</div>
+          <div><strong>Course Author:</strong> Sukanta Hui</div>
+          <div><strong>JavaScript Track:</strong> Basic to Pro · Classroom &amp; Online Support</div>
+        </div>
+      </div>
+      <div class="org-small">
+        ✦ Copy this footer into all future JavaScript lesson pages (Syntax, Loops, DOM, Projects, etc.)
+        so that your organisation details stay consistent across the whole website.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

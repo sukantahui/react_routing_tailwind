@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 15 — Modules, Tooling & NPM | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:4px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;margin-top:16px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:12px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+      color:#e2e8f0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+      font-size:0.9rem;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 15 — Modules, Tooling &amp; NPM (Overview)</h1>
+      <p class="header-sub">
+        Learn how JavaScript is structured in real-world projects using ES modules, Node.js tooling,
+        NPM packages, and modern bundlers like Vite/Webpack.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Pro Level</div>
+        <div class="badge">ES Modules</div>
+        <div class="badge">Node.js · NPM · Tooling</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · #020617</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- LEFT SECTION -->
+    <section>
+
+      <!-- PART 1: ES Modules -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 1 · Native ES Modules</div>
+        <h2>1. ES Modules: <code>import</code> &amp; <code>export</code></h2>
+        <p class="lead">
+          ES Modules allow JavaScript files to import and export functions, variables, and classes.
+          This is the recommended way to structure modern JavaScript applications.
+        </p>
+
+        <h3>1.1 Named Exports</h3>
+        <pre><code>// math.js
+export const add = (a, b) =&gt; a + b;
+export const sub = (a, b) =&gt; a - b;</code></pre>
+
+        <pre><code>// main.js
+import { add, sub } from "./math.js";
+console.log(add(10, 5));</code></pre>
+
+        <h3>1.2 Default Export</h3>
+        <pre><code>// logger.js
+export default function log(msg) {
+  console.log("LOG:", msg);
+}</code></pre>
+
+        <pre><code>// app.js
+import log from "./logger.js";
+log("Hello");</code></pre>
+
+        <h3>1.3 Mixing Exports</h3>
+        <pre><code>// config.js
+export const API_URL = "https://api.example.com";
+export default { version: "1.0", mode: "dark" };</code></pre>
+
+        <h3>1.4 Importing Everything</h3>
+        <pre><code>import * as utils from "./utils.js";
+utils.sayHello();</code></pre>
+
+        <div class="note">
+          ES modules only run via HTTP (Live Server / real server).  
+          They do NOT load directly via <code>file://</code>.
+        </div>
+      </article>
+
+      <!-- PART 2: Folder structure -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 2 · Folder Structure</div>
+        <h2>2. Folder Structure for Small-Medium Projects</h2>
+
+        <pre><code>project/
+  index.html
+  css/
+    styles.css
+  js/
+    main.js
+    utils.js
+    api/
+      auth.js
+      posts.js
+  assets/
+    images/
+    icons/</code></pre>
+
+        <ul>
+          <li><strong>Single Responsibility:</strong> each file has one purpose.</li>
+          <li><strong>Group by feature:</strong> posts, auth, users, UI components.</li>
+          <li><strong>Use modules:</strong> keep functions small, reusable, clean.</li>
+        </ul>
+
+        <div class="tip">
+          Naming rule: keep file names meaningful — <code>dom.js</code>, <code>storage.js</code>, <code>api.js</code>.
+        </div>
+      </article>
+
+      <!-- PART 3: Node.js & NPM Overview -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 3 · Node + NPM</div>
+        <h2>3. What Is Node.js &amp; NPM? (Conceptual Overview)</h2>
+        <p class="lead">
+          Node.js lets us run JavaScript outside the browser.  
+          NPM is the world’s largest library registry for JavaScript packages.
+        </p>
+
+        <h3>3.1 Node.js — Why It Matters</h3>
+        <ul>
+          <li>Allows JavaScript to run in terminal/server.</li>
+          <li>Used for tooling, bundlers, backend development.</li>
+          <li>Enables frameworks like React, Express, Vue.</li>
+        </ul>
+
+        <h3>3.2 NPM — Node Package Manager</h3>
+        <ul>
+          <li>Install libraries like axios, lodash, dayjs.</li>
+          <li>Manages dependencies for your project.</li>
+          <li>Runs scripts (dev, build, test).</li>
+        </ul>
+
+        <h3>3.3 Initializing NPM</h3>
+        <pre><code>npm init -y</code></pre>
+
+        <div class="note">
+          This creates <code>package.json</code> → a file that stores project dependencies and scripts.
+        </div>
+      </article>
+
+      <!-- PART 4: Installing npm packages -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 4 · Installing Packages</div>
+        <h2>4. Installing &amp; Using Simple NPM Packages</h2>
+
+        <h3>4.1 Install a Package</h3>
+        <pre><code>npm install axios</code></pre>
+
+        <h3>4.2 Use It in an ES Module</h3>
+        <pre><code>import axios from "axios";
+
+async function loadPosts() {
+  const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  console.log(res.data);
+}</code></pre>
+
+        <h3>4.3 Installing Dev Dependencies</h3>
+        <pre><code>npm install -D prettier eslint</code></pre>
+
+        <div class="tip">
+          Use devDependencies for tools that don't run in final production code.
+        </div>
+      </article>
+
+      <!-- PART 5: Bundlers -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 5 · Bundlers</div>
+        <h2>5. Intro to Bundlers: Vite &amp; Webpack</h2>
+
+        <p class="lead">
+          Bundlers take your modular JavaScript and assets, optimize them, and prepare them
+          for deployment.
+        </p>
+
+        <h3>5.1 Why Bundlers?</h3>
+        <ul>
+          <li>Combine many JS files into a single optimized bundle.</li>
+          <li>Minify code and remove unused parts (tree shaking).</li>
+          <li>Handle CSS, images, fonts, JSON, and more.</li>
+          <li>Provide fast dev environment with hot-reload.</li>
+        </ul>
+
+        <h3>5.2 Vite (Recommended for Beginners)</h3>
+        <pre><code>npm create vite@latest myapp</code></pre>
+
+        <p>Ultra-fast dev server, simple config, ES module based.</p>
+
+        <h3>5.3 Webpack (Traditional, Powerful)</h3>
+        <pre><code>npm install webpack webpack-cli</code></pre>
+
+        <p>Highly customizable, used in enterprise environments.</p>
+
+        <div class="note">
+          In your course, introduce Vite first → then show Webpack conceptually.
+        </div>
+      </article>
+
+      <!-- SUMMARY -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Summary</div>
+        <h2>6. Summary &amp; Practice Tasks</h2>
+
+        <h3>6.1 Module Summary</h3>
+        <ul>
+          <li>Use ES modules (<code>import/export</code>) for structured code.</li>
+          <li>Create clean folder structures for projects.</li>
+          <li>Node.js runs JS outside the browser.</li>
+          <li>NPM installs packages and manages dependencies.</li>
+          <li>Bundlers (Vite/Webpack) optimize JavaScript for production.</li>
+        </ul>
+
+        <h3>6.2 Practice Exercises</h3>
+        <ol>
+          <li>Create <code>math.js</code> with <code>add()</code>, <code>sub()</code> and import into <code>main.js</code>.</li>
+          <li>Initialize an NPM project and install <code>axios</code>.</li>
+          <li>Use axios to load fake API data and log into console.</li>
+          <li>Create a small project with folder structure taught above.</li>
+          <li>Install Vite and create your first Vite project.</li>
+        </ol>
+      </article>
+
+    </section>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside>
+      <div class="side-card">
+        <h2>Modules Quick Reference</h2>
+        <ul>
+          <li><code>export const x</code></li>
+          <li><code>export default</code></li>
+          <li><code>import { x }</code></li>
+          <li><code>import * as all</code></li>
+          <li><code>import x from</code></li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>NPM Quick Reference</h2>
+        <ul>
+          <li><code>npm init -y</code></li>
+          <li><code>npm install package</code></li>
+          <li><code>npm install -D devtool</code></li>
+          <li><code>npm run dev</code> (via scripts)</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>Teacher Notes</h2>
+        <ul>
+          <li>Show ES modules live with 2 simple files.</li>
+          <li>Use VS Code + Live Server for demos.</li>
+          <li>Show how NPM installs <code>node_modules</code>.</li>
+          <li>Demonstrate Vite dev server — students love it.</li>
+        </ul>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      Module 15 gives students real-world skills to structure projects, use modules, manage packages,
+      and understand bundlers — preparing them for professional development workflows.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

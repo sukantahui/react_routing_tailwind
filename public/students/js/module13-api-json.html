@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 13 — Working with APIs & JSON | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;margin-top:16px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    .tag-chip{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      font-size:0.68rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      color:var(--muted);
+      margin-right:4px;
+    }
+
+    .mini-header{
+      font-size:0.82rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--accent2);
+      margin-bottom:4px;
+    }
+
+    .api-card{
+      border-radius:14px;
+      border:1px solid rgba(55,65,81,0.9);
+      padding:10px 12px;
+      margin:8px 0;
+      background:rgba(15,23,42,0.9);
+      font-size:0.85rem;
+    }
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+      font-size:0.9rem;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 13 — Working with APIs &amp; JSON</h1>
+      <p class="header-sub">
+        Connect your frontend to external data sources and services using JSON and the <code>fetch()</code> API.
+        Learn how to send requests, parse responses, handle errors, and render dynamic data on the page.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Advanced</div>
+        <div class="badge">APIs &amp; JSON</div>
+        <div class="badge">fetch() · GET &amp; POST</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · #020617</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- LEFT: MAIN CONTENT -->
+    <section>
+
+      <!-- 1. What is API & JSON -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 1 · Foundations</div>
+        <h2>1. What Are APIs &amp; JSON?</h2>
+        <p class="lead">
+          In modern frontend development, your JavaScript rarely works alone. It usually talks to a
+          <strong>backend</strong> or a <strong>public API</strong> over HTTP, and they exchange data using
+          <strong>JSON</strong>.
+        </p>
+
+        <h3>1.1 API in Simple Words</h3>
+        <ul>
+          <li><strong>API</strong> → Application Programming Interface.</li>
+          <li>In web context: a URL you call to get or send data (e.g. <code>/api/students</code>).</li>
+          <li>Your JavaScript is the <em>client</em>, server (or service) is the <em>provider</em>.</li>
+        </ul>
+
+        <div class="api-card">
+          <span class="mini-header">Example API endpoints</span><br />
+          <strong>GET</strong> <code>/api/students</code> → returns list of students (JSON)<br />
+          <strong>POST</strong> <code>/api/students</code> → create a new student (send JSON body)<br />
+          <strong>GET</strong> <code>/api/students/5</code> → details of student with id=5
+        </div>
+
+        <h3>1.2 What Is JSON?</h3>
+        <ul>
+          <li><strong>JSON:</strong> JavaScript Object Notation.</li>
+          <li>Text format for structured data, based on JavaScript object syntax.</li>
+          <li>Easy to read for humans and easy to parse for machines.</li>
+        </ul>
+
+        <pre><code>{
+  "name": "Coder & AccoTax",
+  "city": "Barrackpore",
+  "courses": ["JavaScript", "Python", "Accounts"],
+  "active": true,
+  "students": 120
+}</code></pre>
+
+        <div class="note">
+          Inside JS, JSON becomes normal objects and arrays. But when sent over network, it is plain text.
+        </div>
+      </article>
+
+      <!-- 2. JSON.parse & JSON.stringify -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 2 · JSON in JavaScript</div>
+        <h2>2. Reading &amp; Writing JSON</h2>
+        <p class="lead">
+          Two main tools: <code>JSON.parse()</code> and <code>JSON.stringify()</code>.
+        </p>
+
+        <h3>2.1 Converting JSON Text → JavaScript Object</h3>
+        <pre><code>const jsonText = '{"name":"Amit","course":"JavaScript","marks":90}';
+
+const student = JSON.parse(jsonText); // now a real object
+console.log(student.name);   // Amit
+console.log(student.course); // JavaScript</code></pre>
+
+        <h3>2.2 Converting JS Object → JSON Text</h3>
+        <pre><code>const course = {
+  title: "JavaScript from Basic to Pro",
+  centre: "Coder & AccoTax",
+  online: true
+};
+
+const json = JSON.stringify(course);
+console.log(json);
+// {"title":"JavaScript from Basic to Pro","centre":"Coder & AccoTax","online":true}</code></pre>
+
+        <h3>2.3 Pretty JSON (For Debugging)</h3>
+        <pre><code>const pretty = JSON.stringify(course, null, 2);
+console.log(pretty);
+/*
+{
+  "title": "JavaScript from Basic to Pro",
+  "centre": "Coder & AccoTax",
+  "online": true
+}
+*/</code></pre>
+
+        <div class="warning">
+          JSON limitations:
+          <ul>
+            <li>No functions, <code>undefined</code>, or comments allowed.</li>
+            <li>Keys and string values must use double quotes <code>" "</code>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 3. fetch basics (GET) -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 3 · fetch() GET</div>
+        <h2>3. <code>fetch()</code> Basics — GET Requests</h2>
+        <p class="lead">
+          <code>fetch(url)</code> is the main function to call APIs from the browser. It returns a Promise
+          that resolves to a <code>Response</code> object.
+        </p>
+
+        <h3>3.1 First Example with <code>.then()</code></h3>
+        <pre><code>fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(response =&gt; response.json())      // convert JSON text to JS object
+  .then(data =&gt; {
+    console.log("Post title:", data.title);
+  })
+  .catch(error =&gt; {
+    console.error("Request failed:", error);
+  });</code></pre>
+
+        <h3>3.2 Same Example with <code>async/await</code></h3>
+        <pre><code>async function loadPost(id) {
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+    const data = await response.json();
+    console.log("Post:", data);
+  } catch (err) {
+    console.error("Network error:", err);
+  }
+}
+
+loadPost(1);</code></pre>
+
+        <div class="tip">
+          For your students: Start with <code>.then()</code>, then convert the same code to
+          <code>async/await</code> to show how readable it becomes.
+        </div>
+      </article>
+
+      <!-- 4. HTTP methods & POST -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 4 · HTTP Methods</div>
+        <h2>4. HTTP Methods: GET vs POST (With JSON)</h2>
+        <p class="lead">
+          The most common methods you use from frontend:
+        </p>
+        <ul>
+          <li><strong>GET</strong> → retrieve data (no body).</li>
+          <li><strong>POST</strong> → send data to create something.</li>
+          <li>(Later you’ll also see PUT, PATCH, DELETE.)</li>
+        </ul>
+
+        <h3>4.1 Sending a JSON Body with POST</h3>
+        <pre><code>async function createPost() {
+  const newPost = {
+    title: "My first API post",
+    body: "Learning APIs & JSON at Coder & AccoTax",
+    userId: 1
+  };
+
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newPost)
+      }
+    );
+
+    const data = await response.json();
+    console.log("Created:", data);
+  } catch (err) {
+    console.error("Error creating post:", err);
+  }
+}</code></pre>
+
+        <div class="warning">
+          Key points:
+          <ul>
+            <li>Always set <code>"Content-Type": "application/json"</code> when sending JSON.</li>
+            <li>Use <code>JSON.stringify()</code> for the request body.</li>
+          </ul>
+        </div>
+
+        <h3>4.2 Checking for HTTP Errors</h3>
+        <pre><code>async function safeFetch(url, options = {}) {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    // response.status in 400–599 range
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return response.json();
+}</code></pre>
+
+        <p>
+          Now you can use <code>safeFetch</code> everywhere and handle errors with <code>try...catch</code>.
+        </p>
+      </article>
+
+      <!-- 5. Displaying data on page -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 5 · UI Binding</div>
+        <h2>5. Displaying API Data on the Page</h2>
+        <p class="lead">
+          Now we connect APIs to the DOM: convert JSON into HTML elements for users to see.
+        </p>
+
+        <h3>5.1 HTML Skeleton (List of Posts)</h3>
+        <pre><code>&lt;div id="posts-app"&gt;
+  &lt;h2&gt;Latest Posts&lt;/h2&gt;
+  &lt;button id="load-posts"&gt;Load Posts&lt;/button&gt;
+  &lt;div id="posts-status"&gt;&lt;/div&gt;
+  &lt;ul id="posts-list"&gt;&lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>5.2 JavaScript to Render Posts</h3>
+        <pre><code>const loadBtn    = document.getElementById("load-posts");
+const statusBox  = document.getElementById("posts-status");
+const postsList  = document.getElementById("posts-list");
+
+function setStatus(message) {
+  statusBox.textContent = message;
+}
+
+function renderPosts(posts) {
+  postsList.innerHTML = ""; // clear previous
+  posts.forEach(post =&gt; {
+    const li = document.createElement("li");
+    li.innerHTML = `&lt;strong&gt;${post.title}&lt;/strong&gt;&lt;br&gt;${post.body}`;
+    postsList.appendChild(li);
+  });
+}
+
+async function loadPosts() {
+  try {
+    setStatus("Loading...");
+    postsList.innerHTML = "";
+
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_limit=5"
+    );
+    if (!response.ok) throw new Error("HTTP " + response.status);
+
+    const data = await response.json();
+    renderPosts(data);
+    setStatus("Loaded successfully");
+  } catch (err) {
+    setStatus("Error loading posts");
+    postsList.innerHTML = 
+      `&lt;li style="color:#f97373"&gt;${err.message}&lt;/li&gt;`;
+  }
+}
+
+loadBtn.addEventListener("click", loadPosts);</code></pre>
+
+        <div class="note">
+          Teaching point: separate <code>renderPosts</code> (UI logic) from data fetching logic for better structure.
+        </div>
+      </article>
+
+      <!-- 6. Mini project -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Mini Project</div>
+        <h2>6. Mini Project — Public API List with Search &amp; Filter</h2>
+        <p class="lead">
+          Build a small app that loads a list of items from a public API, shows them in cards, and
+          lets the user search/filter locally. This is a perfect mid-level project.
+        </p>
+
+        <h3>6.1 HTML Layout</h3>
+        <pre><code>&lt;div id="api-app"&gt;
+  &lt;h2&gt;Courses from Public API&lt;/h2&gt;
+  &lt;div class="controls"&gt;
+    &lt;input id="search-input" placeholder="Search by title..." /&gt;
+    &lt;button id="reload-btn"&gt;Reload&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="api-status"&gt;&lt;/div&gt;
+  &lt;div id="cards-container"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <p>
+          You may point this to any “fake” or demo API that returns an array of objects
+          (e.g. posts/products/courses).
+        </p>
+
+        <h3>6.2 Basic Styling for Cards (Optional)</h3>
+        <pre><code>&lt;style&gt;
+  #api-app {
+    margin-top: 10px;
+  }
+  #api-app .controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  #api-app input {
+    flex: 1;
+    padding: 6px 8px;
+    border-radius: 999px;
+    border: 1px solid #1f2937;
+    background: #020617;
+    color: #e5e7eb;
+  }
+  #api-app button {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #38bdf8;
+    background: #0b1120;
+    color: #e0f2fe;
+    cursor: pointer;
+  }
+  #api-app button:hover {
+    background: #082f49;
+  }
+  .course-card {
+    border-radius: 14px;
+    border: 1px solid #1f2937;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    background: #020617;
+  }
+  .course-card h4 {
+    margin: 0 0 4px 0;
+    color: #e5e7eb;
+  }
+  .course-card p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.85rem;
+  }
+&lt;/style&gt;</code></pre>
+
+        <h3>6.3 JavaScript Logic (Medium-Level)</h3>
+        <pre><code>const searchInput = document.getElementById("search-input");
+const reloadBtn   = document.getElementById("reload-btn");
+const statusSpan  = document.getElementById("api-status");
+const cardsBox    = document.getElementById("cards-container");
+
+let allCourses = []; // will store full list from API
+
+function setApiStatus(text) {
+  statusSpan.textContent = text;
+}
+
+function createCourseCard(course) {
+  // Assuming API returns fields like title, description, category
+  return `
+    &lt;div class="course-card"&gt;
+      &lt;h4&gt;${course.title}&lt;/h4&gt;
+      &lt;p&gt;${course.description || "No description provided."}&lt;/p&gt;
+      &lt;p style="margin-top:4px;font-size:0.8rem;"&gt;
+        &lt;strong&gt;Category:&lt;/strong&gt; ${course.category || "General"}
+      &lt;/p&gt;
+    &lt;/div&gt;
+  `;
+}
+
+function renderCourses(list) {
+  if (!list.length) {
+    cardsBox.innerHTML =
+      `&lt;p style="color:#9ca3af"&gt;No courses match your search.&lt;/p&gt;`;
+    return;
+  }
+  cardsBox.innerHTML = list.map(createCourseCard).join("");
+}
+
+function applyFilter() {
+  const query = searchInput.value.toLowerCase().trim();
+  if (!query) {
+    renderCourses(allCourses);
+    return;
+  }
+  const filtered = allCourses.filter(course =&gt;
+    course.title.toLowerCase().includes(query)
+  );
+  renderCourses(filtered);
+}
+
+async function loadCourses() {
+  try {
+    setApiStatus("Loading...");
+    cardsBox.innerHTML = "";
+
+    // Example endpoint (replace with your own API if needed)
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_limit=12"
+    );
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    // Adapt JSONPlaceholder fields to our course structure
+    allCourses = data.map(item =&gt; ({
+      title: item.title,
+      description: item.body,
+      category: "API Demo"
+    }));
+
+    renderCourses(allCourses);
+    setApiStatus(`Loaded ${allCourses.length} items`);
+  } catch (err) {
+    setApiStatus("Error while loading");
+    cardsBox.innerHTML = 
+      `&lt;p style="color:#f97373"&gt;${err.message}&lt;/p&gt;`;
+  }
+}
+
+// EVENT HANDLERS
+reloadBtn.addEventListener("click", loadCourses);
+searchInput.addEventListener("input", applyFilter);
+
+// Initial load on page open
+loadCourses();</code></pre>
+
+        <div class="tip">
+          Extension ideas:
+          <ul>
+            <li>Add a dropdown filter by category (if API provides categories).</li>
+            <li>Add pagination buttons or “Load more”.</li>
+            <li>Show a “No results” message clearly when filter matches 0 items.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 7. Summary & practice -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 7 · Summary & Practice</div>
+        <h2>7. Summary &amp; Practice Tasks</h2>
+
+        <h3>7.1 Concept Checklist</h3>
+        <ul>
+          <li>What JSON is, and how to use <code>JSON.parse()</code> / <code>JSON.stringify()</code>.</li>
+          <li>The idea of an HTTP API endpoint (GET vs POST).</li>
+          <li>Using <code>fetch()</code> to perform GET and POST requests.</li>
+          <li>How to check <code>response.ok</code> and <code>response.status</code>.</li>
+          <li>Rendering API data into DOM elements (lists/cards).</li>
+          <li>Adding search/filter on top of loaded data.</li>
+        </ul>
+
+        <h3>7.2 Practice Exercises</h3>
+        <ol>
+          <li>
+            Take a simple JS object and convert it to JSON string, then back to object using
+            <code>JSON.stringify</code> and <code>JSON.parse</code>.
+          </li>
+          <li>
+            Use <code>fetch()</code> to load any single item (e.g. <code>/posts/1</code>) and show the title in a
+            paragraph on your page.
+          </li>
+          <li>
+            Modify the mini project to show only items whose title length is less than 40 characters.
+          </li>
+          <li>
+            Add a “Clear” button that resets the search box and shows all items again.
+          </li>
+          <li>
+            Create a small form (title + description) and send a POST request to a test API (like JSONPlaceholder),
+            logging the returned object to console.
+          </li>
+          <li>
+            Implement a <code>loadWithRetry(url, attempts)</code> function that retries fetching a URL if it fails.
+          </li>
+        </ol>
+
+        <div class="note">
+          Suggestion: pair this module with practice worksheets (MCQs + output tracing) on JSON &amp; fetch(),
+          similar to Module 11, for strong exam preparation.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside>
+
+      <div class="side-card">
+        <h2>APIs &amp; JSON Quick Reference</h2>
+        <ul>
+          <li><strong>JSON → JS:</strong> <code>JSON.parse(text)</code></li>
+          <li><strong>JS → JSON:</strong> <code>JSON.stringify(obj)</code></li>
+          <li><strong>GET:</strong> <code>fetch(url)</code></li>
+          <li><strong>POST JSON:</strong><br />
+            <code>fetch(url, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(data) })</code>
+          </li>
+          <li><strong>Check error:</strong> <code>if (!response.ok) throw ...</code></li>
+          <li><strong>Parse JSON:</strong> <code>const data = await response.json();</code></li>
+          <li><strong>Pattern:</strong> “Fetch → Parse → Render in DOM → Handle errors”.</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>Teacher Notes for Module 13</h2>
+        <ul>
+          <li>Show the JSON response in browser network tab and map it to JS objects.</li>
+          <li>Use one public API throughout the class so students don’t get lost.</li>
+          <li>Build the mini project <em>live</em>, step-by-step (HTML → fetch → render → search).</li>
+          <li>Emphasize separation: data fetching vs DOM rendering functions.</li>
+          <li>Relate this module to Module 12 (async/await) so students see how they connect.</li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- FOOTER: ORGANISATION DETAILS -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      This module teaches students how to connect JavaScript frontends to real-world APIs using JSON and fetch().
+      It belongs to the “JavaScript from Basic to Pro” series for Coder &amp; AccoTax.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

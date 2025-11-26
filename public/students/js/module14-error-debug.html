@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 14 — Error Handling, Debugging & Best Practices | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;margin-top:16px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    .tag-chip{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      font-size:0.68rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      color:var(--muted);
+      margin-right:4px;
+    }
+
+    .diagram{
+      font-family:"Fira Code",Consolas,monospace;
+      font-size:0.8rem;
+      background:#020617;
+      border-radius:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      padding:10px 12px;
+      white-space:pre;
+      margin:10px 0;
+      color:#e5e7eb;
+    }
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+      font-size:0.9rem;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 14 — Error Handling, Debugging &amp; Best Practices</h1>
+      <p class="header-sub">
+        Learn how to read errors, handle them gracefully with <code>try...catch</code>, use DevTools
+        effectively, and write JavaScript that is easier to debug, maintain and scale.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Advanced</div>
+        <div class="badge">Error Handling</div>
+        <div class="badge">Debugging &amp; Clean Code</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · #020617</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- LEFT: MAIN CONTENT -->
+    <section>
+
+      <!-- 1. Mindset -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 1 · Mindset</div>
+        <h2>1. Why Error Handling &amp; Debugging Matter</h2>
+        <p class="lead">
+          Professional JavaScript is not just about “making it work once”. It’s about handling failures,
+          finding bugs quickly, and writing code that is safe, predictable, and readable.
+        </p>
+
+        <ul>
+          <li><strong>Errors will happen</strong> — network failures, bad input, logic mistakes.</li>
+          <li><strong>Good code</strong> anticipates errors and responds gracefully.</li>
+          <li><strong>Debugging skills</strong> save hours of frustration for you and your team.</li>
+        </ul>
+
+        <div class="note">
+          This module ties together language features (errors), tools (DevTools), and practices (clean code).
+        </div>
+      </article>
+
+      <!-- 2. try/catch/finally -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 2 · Language Feature</div>
+        <h2>2. <code>try...catch</code> &amp; <code>finally</code> Blocks</h2>
+        <p class="lead">
+          JavaScript provides <code>try</code>, <code>catch</code> and <code>finally</code> to handle runtime errors
+          without crashing the entire program.
+        </p>
+
+        <h3>2.1 Basic <code>try...catch</code></h3>
+        <pre><code>try {
+  // Code that might throw an error
+  const result = riskyFunction();
+  console.log("Result:", result);
+} catch (error) {
+  console.error("Something went wrong:", error.message);
+}</code></pre>
+
+        <ul>
+          <li><code>try</code> → contains the code that may throw an error.</li>
+          <li><code>catch</code> → handles the error object.</li>
+          <li>If no error happens, <code>catch</code> is skipped.</li>
+        </ul>
+
+        <h3>2.2 Adding <code>finally</code></h3>
+        <pre><code>try {
+  openConnection();
+  // do work
+} catch (error) {
+  console.error("Error:", error);
+} finally {
+  closeConnection(); // runs whether error happened or not
+}</code></pre>
+
+        <div class="tip">
+          Use <code>finally</code> for cleanup: closing connections, hiding loaders, resetting UI state, etc.
+        </div>
+      </article>
+
+      <!-- 3. Throwing errors & custom errors -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 3 · Throwing Errors</div>
+        <h2>3. Throwing Custom Errors</h2>
+        <p class="lead">
+          Sometimes <em>you</em> want to signal that something is wrong: invalid input, missing data, etc.
+          You can use <code>throw</code> to create your own errors.
+        </p>
+
+        <h3>3.1 Simple <code>throw</code></h3>
+        <pre><code>function divide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero");
+  }
+  return a / b;
+}
+
+try {
+  console.log(divide(10, 0));
+} catch (error) {
+  console.error("Division failed:", error.message);
+}</code></pre>
+
+        <h3>3.2 Custom Error Class</h3>
+        <pre><code>class ValidationError extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = "ValidationError";
+    this.field = field;
+  }
+}
+
+function validateStudent(student) {
+  if (!student.name) {
+    throw new ValidationError("Name is required", "name");
+  }
+  if (student.marks &lt; 0 || student.marks &gt; 100) {
+    throw new ValidationError("Marks must be 0-100", "marks");
+  }
+}
+
+try {
+  validateStudent({ name: "", marks: 120 });
+} catch (error) {
+  if (error instanceof ValidationError) {
+    console.error(`Validation failed on ${error.field}: ${error.message}`);
+  } else {
+    console.error("Unknown error:", error);
+  }
+}</code></pre>
+
+        <div class="note">
+          Using custom error types helps you distinguish between <em>expected</em> errors
+          (e.g. validation) and <em>unexpected</em> bugs.
+        </div>
+      </article>
+
+      <!-- 4. Common runtime errors -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 4 · Understanding Errors</div>
+        <h2>4. Common Runtime Errors &amp; How to Read Them</h2>
+        <p class="lead">
+          Every JavaScript developer must learn to calmly read error messages. They are not enemies;
+          they are clues.
+        </p>
+
+        <h3>4.1 Typical Error Types</h3>
+        <ul>
+          <li><strong>ReferenceError:</strong> using a variable that is not defined.</li>
+          <li><strong>TypeError:</strong> using a value in an invalid way (e.g. calling something that is not a function).</li>
+          <li><strong>SyntaxError:</strong> code cannot even be parsed (missing brace, wrong punctuation).</li>
+          <li><strong>RangeError:</strong> value not in allowed range (e.g. invalid array length).</li>
+          <li><strong>Error:</strong> generic error, often thrown by your own code.</li>
+        </ul>
+
+        <h3>4.2 Examples</h3>
+
+        <strong>ReferenceError</strong>
+        <pre><code>console.log(total); // total is not declared anywhere
+// Uncaught ReferenceError: total is not defined</code></pre>
+
+        <strong>TypeError</strong>
+        <pre><code>const x = 5;
+x(); // trying to call a number like a function
+// Uncaught TypeError: x is not a function</code></pre>
+
+        <strong>SyntaxError</strong>
+        <pre><code>// Missing closing brace:
+if (x &gt; 5) {
+  console.log("Hello");
+// Uncaught SyntaxError: Unexpected end of input</code></pre>
+
+        <div class="tip">
+          Train students to look at:
+          <ol>
+            <li>Error type (ReferenceError, TypeError, ...)</li>
+            <li>Error message (e.g. “x is not a function”)</li>
+            <li>File name and line number → open that line in editor/DevTools.</li>
+          </ol>
+        </div>
+      </article>
+
+      <!-- 5. DevTools debugging -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 5 · DevTools</div>
+        <h2>5. Debugging with Browser DevTools</h2>
+        <p class="lead">
+          The browser DevTools (Chrome, Firefox, Edge) are powerful tools to inspect variables,
+          step through code, and understand what is happening at runtime.
+        </p>
+
+        <h3>5.1 Console for Quick Checks</h3>
+        <ul>
+          <li><code>console.log()</code> — print values.</li>
+          <li><code>console.error()</code> — highlight errors.</li>
+          <li><code>console.warn()</code> — warnings.</li>
+          <li><code>console.table()</code> — nice tables for arrays/objects.</li>
+        </ul>
+
+        <pre><code>console.log("Current user:", user);
+console.table(students);
+console.error("Unexpected state:", state);</code></pre>
+
+        <h3>5.2 Breakpoints</h3>
+        <ol>
+          <li>Open DevTools → Sources tab.</li>
+          <li>Open your JS file.</li>
+          <li>Click on a line number to set a <strong>breakpoint</strong>.</li>
+          <li>Reload the page; execution will pause at that line.</li>
+        </ol>
+
+        <div class="diagram">
+Debugger controls:
+- Continue ►
+- Step over ⤵ (run next line, skip inside functions)
+- Step into ↳ (go inside function calls)
+- Step out ↰ (finish current function and return)
+        </div>
+
+        <h3>5.3 Watch Expressions &amp; Call Stack</h3>
+        <ul>
+          <li><strong>Watch:</strong> add variables/expressions to watch how values change at each step.</li>
+          <li><strong>Call stack:</strong> see which functions were called to reach current line.</li>
+        </ul>
+
+        <div class="note">
+          Classroom idea: show the same bug first with <code>console.log</code>, then fix it again using a breakpoint
+          and watch expressions, so students see both approaches.
+        </div>
+      </article>
+
+      <!-- 6. Best practices -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 6 · Best Practices</div>
+        <h2>6. Coding Style, Naming &amp; File Structure</h2>
+        <p class="lead">
+          Good style doesn’t make your program “more correct”, but it makes it easier to debug, maintain,
+          and collaborate on — which directly reduces bugs.
+        </p>
+
+        <h3>6.1 Naming Conventions</h3>
+        <ul>
+          <li>Use <strong>clear, descriptive</strong> names: <code>totalMarks</code>, <code>studentCount</code>.</li>
+          <li>Functions → verbs: <code>calculateTotal()</code>, <code>loadStudents()</code>.</li>
+          <li>Booleans → yes/no: <code>isLoggedIn</code>, <code>hasAccess</code>.</li>
+          <li>Constants → ALL_CAPS only for truly fixed values (e.g. <code>API_BASE_URL</code>).</li>
+        </ul>
+
+        <h3>6.2 Consistent Formatting</h3>
+        <ul>
+          <li>Use consistent indentation (2 or 4 spaces).</li>
+          <li>Keep lines reasonably short and readable.</li>
+          <li>Use semicolons consistently or follow a clear style rule.</li>
+        </ul>
+
+        <pre><code>// Good
+function calculateAverage(marks) {
+  if (!marks.length) return 0;
+  const sum = marks.reduce((acc, m) =&gt; acc + m, 0);
+  return sum / marks.length;
+}</code></pre>
+
+        <h3>6.3 Basic File Structure for a Small Project</h3>
+        <pre><code>project/
+  index.html
+  assets/
+    styles.css
+  js/
+    app.js
+    api.js       // all API related functions
+    utils.js     // small helper functions
+    validation.js</code></pre>
+
+        <ul>
+          <li>Group related logic in separate files: API, utilities, DOM handlers, etc.</li>
+          <li>Keep each file focused on one responsibility.</li>
+        </ul>
+
+        <h3>6.4 Defensive Programming</h3>
+        <ul>
+          <li>Validate inputs (e.g. check if string is empty, number is in range).</li>
+          <li>Use <code>if (!data) throw new Error("Data missing")</code> where appropriate.</li>
+          <li>Handle missing properties safely (with optional chaining, defaults).</li>
+        </ul>
+
+        <pre><code>function getFirstStudentName(classroom) {
+  if (!classroom || !classroom.students || classroom.students.length === 0) {
+    throw new Error("No students found");
+  }
+  return classroom.students[0].name;
+}</code></pre>
+
+        <div class="tip">
+          Combining defensive checks + meaningful error messages makes bugs easier to find and fix.
+        </div>
+      </article>
+
+      <!-- 7. Summary & practice -->
+      <article class="card">
+        <div class="step-label"><span class="step-dot"></span>Step 7 · Summary & Practice</div>
+        <h2>7. Summary &amp; Practice Tasks</h2>
+
+        <h3>7.1 Concept Checklist</h3>
+        <ul>
+          <li>Using <code>try...catch</code> and <code>finally</code> to handle errors.</li>
+          <li>Throwing custom errors and defining error classes.</li>
+          <li>Recognising common runtime errors: ReferenceError, TypeError, SyntaxError, RangeError.</li>
+          <li>Using DevTools: breakpoints, step over/into, watch, call stack.</li>
+          <li>Using the console effectively for logging and debugging.</li>
+          <li>Writing clean, well-structured, defensive JavaScript.</li>
+        </ul>
+
+        <h3>7.2 Practice Exercises</h3>
+        <ol>
+          <li>
+            Take a function that can fail (e.g. division, JSON parsing) and wrap it in <code>try...catch</code>,
+            logging a user-friendly message instead of crashing.
+          </li>
+          <li>
+            Create a <code>StudentError</code> class extending <code>Error</code> and use it in a student validation function.
+          </li>
+          <li>
+            Intentionally create a ReferenceError and a TypeError in a small file, run them in the browser, and observe the
+            messages + line numbers.
+          </li>
+          <li>
+            Use DevTools to set a breakpoint in a loop and inspect a variable as it changes on each iteration.
+          </li>
+          <li>
+            Refactor a messy function: rename variables to clearer names, extract small helper functions, and format properly.
+          </li>
+          <li>
+            Design a simple file structure for a mini project (HTML + JS + CSS) following the guidelines in this module.
+          </li>
+        </ol>
+
+        <div class="note">
+          Suggestion: combine this module with a real bug-fixing lab — give students a broken script and ask them to fix it
+          using DevTools and the techniques from this chapter.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside>
+
+      <div class="side-card">
+        <h2>Error Handling Quick Reference</h2>
+        <ul>
+          <li><strong>try/catch:</strong> wrap code that may throw.</li>
+          <li><strong>finally:</strong> cleanup that must always run.</li>
+          <li><strong>throw:</strong> <code>throw new Error("message")</code>.</li>
+          <li><strong>Custom error:</strong> <code>class MyError extends Error { ... }</code></li>
+          <li><strong>Common types:</strong> ReferenceError, TypeError, SyntaxError, RangeError.</li>
+          <li><strong>DevTools:</strong> use breakpoints instead of 100 logs.</li>
+          <li><strong>Console:</strong> <code>log</code>, <code>error</code>, <code>warn</code>, <code>table</code>.</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h2>Teacher Notes for Module 14</h2>
+        <ul>
+          <li>Start by showing 2–3 real error messages and reading them slowly with the class.</li>
+          <li>Demonstrate a bug, then fix it twice: once with logs, once with breakpoints.</li>
+          <li>Encourage students to <em>never ignore</em> red errors in the console.</li>
+          <li>Review one of the previous modules’ code and improve its style and error handling live.</li>
+          <li>End with a small “debugging challenge” where students fix an intentionally broken script.</li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- FOOTER: ORGANISATION DETAILS -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      This module helps students build professional-level skills in error handling, debugging and
+      writing clean JavaScript — an essential part of the “JavaScript from Basic to Pro” course.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 10 — Events & User Interaction | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 10 — Events &amp; User Interaction</h1>
+    <p class="header-sub">
+      Make your pages respond to clicks, key presses, form submissions, and more. This is where
+      your JavaScript starts feeling truly “alive” and interactive.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Intermediate</div>
+      <div class="badge">Events</div>
+      <div class="badge">User Interaction</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+  <!-- 1. Event basics -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · What is an Event?</div>
+    <h2>1. Events — The Bridge Between User &amp; JavaScript</h2>
+    <p class="lead">
+      An <strong>event</strong> is anything that happens in the browser: a mouse click,
+      a key press, a form submission, page load, scrolling, etc.  
+      Event handling is how your JavaScript reacts to those actions.
+    </p>
+
+    <h3>1.1 Common Event Types</h3>
+    <ul>
+      <li><code>click</code> — when the user clicks a button, link, etc.</li>
+      <li><code>input</code> — when the content of an input field changes.</li>
+      <li><code>submit</code> — when a form is submitted.</li>
+      <li><code>keyup</code> / <code>keydown</code> — keyboard interactions.</li>
+      <li>Mouse events: <code>mouseenter</code>, <code>mouseleave</code>, <code>mousemove</code>.</li>
+    </ul>
+
+    <div class="note">
+      Almost every interactive feature on a webpage starts with:  
+      “When the user does X (event), run Y (JavaScript function).”
+    </div>
+  </article>
+
+  <!-- 2. addEventListener -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · addEventListener</div>
+    <h2>2. Listening to Events with <code>addEventListener</code></h2>
+    <p class="lead">
+      <code>addEventListener</code> is the modern standard way to attach handlers to events.
+    </p>
+
+    <h3>2.1 Basic Pattern</h3>
+    <pre><code>element.addEventListener("event-name", handlerFunction);</code></pre>
+
+    <h3>2.2 Example: Click Event</h3>
+    <pre><code>&lt;button id="click-me"&gt;Click Me&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("click-me");
+
+  function handleClick() {
+    console.log("Button was clicked!");
+  }
+
+  btn.addEventListener("click", handleClick);
+&lt;/script&gt;</code></pre>
+
+    <h3>2.3 Removing a Listener</h3>
+    <p>To remove a listener, the handler must be a named function (not an anonymous arrow directly inside).</p>
+    <pre><code>btn.removeEventListener("click", handleClick);</code></pre>
+
+    <div class="tip">
+      Avoid inline HTML events like <code>onclick="..."</code> in modern code.  
+      Prefer <code>addEventListener</code> for cleaner separation of HTML &amp; JS.
+    </div>
+  </article>
+
+  <!-- 3. input, keyup, mouse -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · Different Event Types</div>
+    <h2>3. Input, Keyboard &amp; Mouse Events</h2>
+
+    <h3>3.1 Live Input Feedback</h3>
+    <pre><code>&lt;input id="name-input" placeholder="Type your name" /&gt;
+&lt;p id="preview"&gt;Preview will appear here&lt;/p&gt;
+
+&lt;script&gt;
+  const nameInput = document.getElementById("name-input");
+  const preview   = document.getElementById("preview");
+
+  nameInput.addEventListener("input", () =&gt; {
+    preview.textContent = "Hello, " + nameInput.value;
+  });
+&lt;/script&gt;</code></pre>
+
+    <h3>3.2 Keyup (e.g., search as you type)</h3>
+    <pre><code>const searchBox = document.getElementById("search");
+
+searchBox.addEventListener("keyup", (event) =&gt; {
+  console.log("Key pressed:", event.key);
+});</code></pre>
+
+    <h3>3.3 Mouse Events</h3>
+    <pre><code>const box = document.getElementById("hover-box");
+
+box.addEventListener("mouseenter", () =&gt; {
+  box.textContent = "Mouse inside";
+});
+
+box.addEventListener("mouseleave", () =&gt; {
+  box.textContent = "Mouse left";
+});</code></pre>
+
+    <div class="note">
+      These examples help students “see” events: show logs in the console and change simple text on screen.
+    </div>
+  </article>
+
+  <!-- 4. Event object & propagation -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · Event Object & Propagation</div>
+    <h2>4. The Event Object &amp; Propagation (Bubbling &amp; Capturing)</h2>
+    <p class="lead">
+      When an event happens, the browser passes an <strong>event object</strong> to your handler.
+      It contains details like: which key, which mouse button, which element, etc.
+    </p>
+
+    <h3>4.1 Using the Event Object</h3>
+    <pre><code>const btn = document.getElementById("log-event");
+
+btn.addEventListener("click", (event) =&gt; {
+  console.log("Event type:", event.type);
+  console.log("Target element:", event.target);
+});</code></pre>
+
+    <h3>4.2 Event Bubbling Basics</h3>
+    <pre><code>&lt;div id="outer"&gt;
+  &lt;button id="inner"&gt;Click me&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  const outer = document.getElementById("outer");
+  const inner = document.getElementById("inner");
+
+  outer.addEventListener("click", () =&gt; {
+    console.log("Outer DIV clicked (bubbling)");
+  });
+
+  inner.addEventListener("click", () =&gt; {
+    console.log("Inner BUTTON clicked");
+  });
+&lt;/script&gt;</code></pre>
+
+    <p>
+      When you click the button, the click event first fires on the button, then “bubbles”
+      up to its parent (the div), and then further up to the document.
+    </p>
+
+    <h3>4.3 Stopping Propagation (Intro)</h3>
+    <pre><code>inner.addEventListener("click", (event) =&gt; {
+  console.log("Inner BUTTON clicked only");
+  event.stopPropagation(); // prevent event from reaching outer
+});</code></pre>
+
+    <div class="tip">
+      For beginners, focus on understanding that events move from the target element outward.
+      Explain capturing only at a very conceptual level.
+    </div>
+  </article>
+
+  <!-- 5. Form handling & validation -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Form Handling</div>
+    <h2>5. Form Handling &amp; Simple Validation</h2>
+    <p class="lead">
+      Forms are the main way users send data: login, signup, contact forms, etc.
+      JavaScript can validate data before sending it to the server.
+    </p>
+
+    <h3>5.1 Example Form</h3>
+    <pre><code>&lt;form id="signup-form"&gt;
+  &lt;input id="email" type="email" placeholder="Email" /&gt;
+  &lt;input id="password" type="password" placeholder="Password" /&gt;
+  &lt;button type="submit"&gt;Sign Up&lt;/button&gt;
+  &lt;p id="error-msg" style="color:#f87171;"&gt;&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+
+    <h3>5.2 Handling <code>submit</code> Event</h3>
+    <pre><code>const form     = document.getElementById("signup-form");
+const email    = document.getElementById("email");
+const password = document.getElementById("password");
+const errorMsg = document.getElementById("error-msg");
+
+form.addEventListener("submit", (event) =&gt; {
+  event.preventDefault(); // stop default page refresh
+
+  if (!email.value.includes("@")) {
+    errorMsg.textContent = "Please enter a valid email address.";
+    return;
+  }
+
+  if (password.value.length &lt; 6) {
+    errorMsg.textContent = "Password must be at least 6 characters.";
+    return;
+  }
+
+  errorMsg.textContent = "";
+  console.log("Form is valid. Ready to send to server.");
+});</code></pre>
+
+    <div class="warning">
+      Always call <code>event.preventDefault()</code> if you want to handle form submission
+      manually in JavaScript.
+    </div>
+  </article>
+
+  <!-- 6. Modal component -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Component 1: Modal</div>
+    <h2>6. Building an Interactive Modal</h2>
+    <p class="lead">
+      A modal is a dialog box that appears on top of the page. It’s commonly used for alerts,
+      forms, and confirmations.
+    </p>
+
+    <h3>6.1 HTML Structure</h3>
+    <pre><code>&lt;button id="open-modal"&gt;Open Modal&lt;/button&gt;
+
+&lt;div id="overlay" class="hidden"&gt;
+  &lt;div id="modal"&gt;
+    &lt;h3&gt;Welcome&lt;/h3&gt;
+    &lt;p&gt;This is a simple modal window.&lt;/p&gt;
+    &lt;button id="close-modal"&gt;Close&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <p>In CSS (concept):</p>
+    <ul>
+      <li><code>#overlay</code> → fixed position, full screen, dark background.</li>
+      <li><code>.hidden</code> → <code>display:none;</code></li>
+    </ul>
+
+    <h3>6.2 JavaScript Logic</h3>
+    <pre><code>const openModalBtn  = document.getElementById("open-modal");
+const closeModalBtn = document.getElementById("close-modal");
+const overlay       = document.getElementById("overlay");
+
+openModalBtn.addEventListener("click", () =&gt; {
+  overlay.classList.remove("hidden");
+});
+
+closeModalBtn.addEventListener("click", () =&gt; {
+  overlay.classList.add("hidden");
+});
+
+// Optional: close when clicking outside the modal
+overlay.addEventListener("click", (event) =&gt; {
+  if (event.target === overlay) {
+    overlay.classList.add("hidden");
+  }
+});</code></pre>
+
+    <div class="note">
+      This introduces students to a common pattern:
+      “Add a class to show something, remove a class to hide it.”
+    </div>
+  </article>
+
+  <!-- 7. Accordion component -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · Component 2: Accordion</div>
+    <h2>7. Building an Accordion (Expandable Sections)</h2>
+
+    <h3>7.1 HTML Structure</h3>
+    <pre><code>&lt;div class="accordion-item"&gt;
+  &lt;button class="accordion-header"&gt;What is JavaScript?&lt;/button&gt;
+  &lt;div class="accordion-body hidden"&gt;
+    JavaScript is a programming language for the web...
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="accordion-item"&gt;
+  &lt;button class="accordion-header"&gt;What is DOM?&lt;/button&gt;
+  &lt;div class="accordion-body hidden"&gt;
+    DOM stands for Document Object Model...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>7.2 JavaScript Logic</h3>
+    <pre><code>const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header =&gt; {
+  header.addEventListener("click", () =&gt; {
+    const body = header.nextElementSibling;
+    body.classList.toggle("hidden");
+  });
+});</code></pre>
+
+    <div class="tip">
+      Extend this to:
+      <ul>
+        <li>Close other sections when one opens.</li>
+        <li>Change the icon (➕ / ➖) based on open/close state.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 8. Tabs component -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Component 3: Tabs</div>
+    <h2>8. Building Tabs for Switching Content</h2>
+
+    <h3>8.1 HTML Structure</h3>
+    <pre><code>&lt;div class="tabs"&gt;
+  &lt;button class="tab-btn active" data-tab="overview"&gt;Overview&lt;/button&gt;
+  &lt;button class="tab-btn" data-tab="syllabus"&gt;Syllabus&lt;/button&gt;
+  &lt;button class="tab-btn" data-tab="faq"&gt;FAQ&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="tab-content" id="overview"&gt;
+  JavaScript course overview content...
+&lt;/div&gt;
+&lt;div class="tab-content hidden" id="syllabus"&gt;
+  Detailed syllabus content...
+&lt;/div&gt;
+&lt;div class="tab-content hidden" id="faq"&gt;
+  Frequently asked questions...
+&lt;/div&gt;</code></pre>
+
+    <h3>8.2 JavaScript Logic</h3>
+    <pre><code>const tabButtons = document.querySelectorAll(".tab-btn");
+const tabPanels  = document.querySelectorAll(".tab-content");
+
+tabButtons.forEach(btn =&gt; {
+  btn.addEventListener("click", () =&gt; {
+    const targetId = btn.dataset.tab;
+
+    // 1. Update active button
+    tabButtons.forEach(b =&gt; b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // 2. Show correct panel
+    tabPanels.forEach(panel =&gt; {
+      if (panel.id === targetId) {
+        panel.classList.remove("hidden");
+      } else {
+        panel.classList.add("hidden");
+      }
+    });
+  });
+});</code></pre>
+
+    <div class="note">
+      Tabs teach:
+      <ul>
+        <li>Using <code>data-*</code> attributes for configuration.</li>
+        <li>Working with groups of elements.</li>
+        <li>Adding/removing classes for UI state.</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 9. Summary & practice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 9 · Summary & Practice</div>
+    <h2>9. Summary &amp; Practice Tasks</h2>
+
+    <h3>9.1 Concept Checklist</h3>
+    <ul>
+      <li>Attach handlers using <code>addEventListener</code>, remove using <code>removeEventListener</code>.</li>
+      <li>Use <code>click</code>, <code>input</code>, <code>keyup</code>, <code>submit</code>, and mouse events.</li>
+      <li>Read the event object to get details (type, target, key, etc.).</li>
+      <li>Understand basic bubbling and how <code>stopPropagation()</code> works.</li>
+      <li>Handle form submission and perform simple validations.</li>
+      <li>Build interactive UI components: modal, accordion, tabs.</li>
+    </ul>
+
+    <h3>9.2 Practice Exercises</h3>
+    <ol>
+      <li>
+        Create a “Like” button that toggles between “Like” and “Unlike” when clicked, and keeps a count of total likes.
+      </li>
+      <li>
+        Build a live search filter: as the user types in an input, filter a list of course names below.
+      </li>
+      <li>
+        Add validation to a contact form: name required, email must contain <code>@</code>, message at least 10 characters.
+      </li>
+      <li>
+        Extend the modal example to close when the ESC key is pressed (use <code>keydown</code> event on <code>document</code>).
+      </li>
+      <li>
+        Create an accordion with at least 3 questions. Make sure only one can be open at a time.
+      </li>
+      <li>
+        Build tabs for “Beginner / Intermediate / Advanced” course content using the tab logic from this module.
+      </li>
+    </ol>
+
+    <p class="note">
+      Suggest keeping all examples in a dedicated file
+      <code>module10-events-interaction.js</code> and running them inside a practice HTML page.
+    </p>
+  </article>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+  <div class="side-card">
+    <h2>Events Quick Reference</h2>
+    <ul>
+      <li><strong>Attach:</strong> <code>element.addEventListener("click", handler)</code></li>
+      <li><strong>Remove:</strong> <code>element.removeEventListener("click", handler)</code></li>
+      <li><strong>Mouse:</strong> <code>click</code>, <code>dblclick</code>, <code>mouseenter</code>, <code>mouseleave</code></li>
+      <li><strong>Keyboard:</strong> <code>keydown</code>, <code>keyup</code></li>
+      <li><strong>Form:</strong> <code>submit</code>, <code>input</code>, <code>change</code></li>
+      <li><strong>Event object:</strong> <code>event.type</code>, <code>event.target</code>, <code>event.key</code></li>
+      <li><strong>Control flow:</strong> <code>event.preventDefault()</code>, <code>event.stopPropagation()</code></li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Teacher Notes for Module 10</h2>
+    <ul>
+      <li>Start with simple clicks, then move to input and submit events.</li>
+      <li>Use browser console to log <code>event</code> objects and explore their properties.</li>
+      <li>Draw diagrams of bubbling: button → div → document.</li>
+      <li>Show wrong patterns (inline <code>onclick</code>) vs clean patterns (<code>addEventListener</code>).</li>
+      <li>End the module by building a tiny “Event Playground” page with several small demos.</li>
+    </ul>
+  </div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    Use this Events module along with the DOM module to build complete interactive pages in your JavaScript course.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

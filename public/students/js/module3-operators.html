@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 3 — Operators & Expressions | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 3 — Operators & Expressions</h1>
+    <p class="header-sub">
+      Learn to perform calculations, comparisons, logical evaluations, and work with values using expressions.
+      A crucial step toward mastering JavaScript logic.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Operators</div>
+      <div class="badge">Expressions</div>
+      <div class="badge">Core Concepts</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+<!-- Section 1 -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 1 · Introduction</div>
+  <h2>1. What Are Operators?</h2>
+  <p class="lead">
+    Operators are symbols that tell JavaScript to perform a specific action — such as arithmetic,
+    comparison, logical evaluation, or assignment. They allow you to build expressions that
+    calculate values or make decisions.
+  </p>
+
+  <h3>Expression Example</h3>
+  <pre><code>let result = 10 + 5 * 2;</code></pre>
+
+  <p>This expression uses an arithmetic operator (<code>+</code>, <code>*</code>) and returns <strong>20</strong>.</p>
+</div>
+
+<!-- Section 2: Arithmetic -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 2 · Arithmetic Operators</div>
+  <h2>2. Arithmetic Operators</h2>
+
+  <ul>
+    <li><code>+</code> (Addition)</li>
+    <li><code>-</code> (Subtraction)</li>
+    <li><code>*</code> (Multiplication)</li>
+    <li><code>/</code> (Division)</li>
+    <li><code>%</code> (Modulus — remainder)</li>
+    <li><code>**</code> (Exponentiation)</li>
+  </ul>
+
+  <h3>Examples</h3>
+  <pre><code>console.log(10 + 5);   // 15
+console.log(10 - 3);   // 7
+console.log(4 * 5);    // 20
+console.log(20 / 4);   // 5
+console.log(10 % 3);   // 1
+console.log(2 ** 4);   // 16</code></pre>
+
+  <div class="note">Use <code>%</code> often for odd/even checks!</div>
+</div>
+
+<!-- Section 3: Assignment Operators -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 3 · Assignment</div>
+  <h2>3. Assignment & Compound Assignment Operators</h2>
+
+  <p>The assignment operator (<code>=</code>) stores a value in a variable.</p>
+
+  <pre><code>let x = 10;</code></pre>
+
+  <h3>Compound Assignment</h3>
+  <pre><code>x += 5;   // x = x + 5
+x -= 3;   // x = x - 3
+x *= 2;   // x = x * 2
+x /= 4;   // x = x / 4
+x %= 3;   // x = x % 3</code></pre>
+
+  <div class="tip">Compound assignments make your code shorter and cleaner.</div>
+</div>
+
+<!-- Section 4: Comparison operators -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 4 · Comparison</div>
+  <h2>4. Comparison Operators</h2>
+
+  <p>These return <strong>true</strong> or <strong>false</strong>.</p>
+
+  <ul>
+    <li><code>==</code> — Equal (loose)</li>
+    <li><code>===</code> — Equal (strict)</li>
+    <li><code>!=</code> — Not equal (loose)</li>
+    <li><code>!==</code> — Not equal (strict)</li>
+    <li><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+  </ul>
+
+  <h3>Examples</h3>
+  <pre><code>console.log(5 == "5");   // true
+console.log(5 === "5");  // false
+console.log(5 != "5");   // false
+console.log(5 !== "5");  // true</code></pre>
+
+  <div class="warning">
+    ALWAYS prefer <code>===</code> & <code>!==</code> to avoid unexpected type conversion.
+  </div>
+</div>
+
+<!-- Section 5: Logical Operators -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 5 · Logical Operators</div>
+  <h2>5. Logical Operators</h2>
+
+  <ul>
+    <li><code>&&</code> — Logical AND</li>
+    <li><code>||</code> — Logical OR</li>
+    <li><code>!</code> — Logical NOT</li>
+  </ul>
+
+  <h3>Examples</h3>
+  <pre><code>console.log(true && false); // false
+console.log(true || false); // true
+console.log(!true);         // false</code></pre>
+
+  <div class="tip">Logical operators are extremely important for conditionals and loops.</div>
+</div>
+
+<!-- Section 6: String concatenation -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 6 · String Operations</div>
+  <h2>6. String Concatenation & Template Literals</h2>
+
+  <h3>6.1 Concatenation</h3>
+  <pre><code>let name = "Sukanta";
+console.log("Hello " + name);</code></pre>
+
+  <h3>6.2 Template Literals</h3>
+  <pre><code>console.log(`Hello ${name}, welcome!`);</code></pre>
+
+  <div class="note">Template literals are easier to read and support multiline strings.</div>
+</div>
+
+<!-- Section 7: Operator Precedence -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 7 · Precedence</div>
+  <h2>7. Operator Precedence & Parentheses</h2>
+
+  <h3>Example</h3>
+  <pre><code>console.log(10 + 5 * 2);   // 20
+console.log((10 + 5) * 2); // 30</code></pre>
+
+  <p>
+    <strong>Multiplication</strong> runs before <strong>Addition</strong>.  
+    Use parentheses to override precedence.
+  </p>
+</div>
+
+<!-- Section 8: Practice -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 8 · Practice</div>
+  <h2>8. Practice Questions</h2>
+
+  <ol>
+    <li>What is the result of <code>7 % 3</code>?</li>
+    <li>Predict output: <code>console.log(5 == "5")</code></li>
+    <li>Predict output: <code>console.log(5 === "5")</code></li>
+    <li>Write an expression that checks if a number is between 10 and 20.</li>
+    <li>Rewrite <code>x = x + 10</code> using compound assignment.</li>
+    <li>Use template literal to print: <em>"My score is 95"</em></li>
+    <li>Predict: <code>(10 + 2) * 5 - 3</code></li>
+  </ol>
+</div>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+<div class="side-card">
+  <h2>Quick Recap</h2>
+  <ul>
+    <li>Arithmetic → +, -, *, /, %, **</li>
+    <li>Comparison → always produce true/false</li>
+    <li>Logical → control flow decisions</li>
+    <li>Use <code>===</code> instead of <code>==</code></li>
+    <li>Template literals are modern & clean</li>
+  </ul>
+</div>
+
+<div class="side-card">
+  <h2>Teacher Notes</h2>
+  <ul>
+    <li>Give students real-life logic problems</li>
+    <li>Show differences of == vs === live</li>
+    <li>Use console and experiments frequently</li>
+    <li>Make them solve small arithmetic tasks</li>
+    <li>Operator precedence ≈ mathematics</li>
+  </ul>
+</div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">Footer auto-included for branding consistency.</div>
+</footer>
+
+</div>
+</body>
+</html>

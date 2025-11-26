@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 4 — Loops & Iteration in JavaScript | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:2rem;line-height:1.25;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.96rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{
+      display:grid;grid-template-columns:2.2fr 1fr;gap:22px;
+    }
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;margin-bottom:20px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+    h2{color:#dbeafe;margin-bottom:8px;font-size:1.15rem;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    p{margin-bottom:8px;font-size:0.92rem;}
+    .lead{font-size:0.95rem;color:var(--muted);margin-bottom:14px;}
+
+    ul,ol{margin-left:18px;margin-bottom:12px;font-size:0.9rem;}
+    li{margin-bottom:4px;}
+
+    /* LABEL */
+    .step-label{display:flex;align-items:center;gap:6px;font-size:0.76rem;text-transform:uppercase;
+      letter-spacing:0.14em;color:var(--accent);margin-bottom:4px;}
+    .step-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
+      box-shadow:0 0 14px rgba(56,189,248,.9);}
+
+    /* CODE */
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px 14px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;margin:10px 0;font-size:0.84rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      border-radius:12px;padding:10px 12px;margin:10px 0;font-size:0.82rem;
+    }
+    .note{border:1px dashed rgba(148,163,184,0.6);color:var(--muted);background:rgba(15,23,42,0.8);}
+    .tip{border:1px solid rgba(34,197,94,0.7);background:rgba(22,163,74,0.12);color:#bbf7d0;}
+    .warning{border:1px solid rgba(248,113,113,0.7);background:rgba(127,29,29,0.4);color:#fecaca;}
+
+    .inline-tag{
+      display:inline-block;padding:2px 8px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);font-size:0.7rem;
+      color:var(--accent2);text-transform:uppercase;margin-left:4px;
+    }
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.18),transparent 55%),
+        rgba(15,23,42,0.98);
+      padding:18px;border-radius:22px;border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);margin-bottom:18px;
+    }
+    .side-card h2{font-size:1.04rem;color:#e0f2fe;margin-bottom:6px;}
+    .side-list{list-style:none;margin-left:0;}
+    .side-list li{margin-bottom:6px;font-size:0.85rem;color:var(--muted);}
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;border-radius:22px;padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 5 · Loops & Iteration in JavaScript</h1>
+    <p class="header-sub">
+      Learn how JavaScript repeats tasks efficiently using <code>for</code>, <code>while</code>,
+      <code>do…while</code>, and advanced loop patterns. Build strong logic through repetition techniques.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Loops</div>
+      <div class="badge">Iteration</div>
+      <div class="badge">Logic Building</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT COLUMN CONTENT -->
+<section>
+
+<!-- Section 1 -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 1 · What Are Loops?</div>
+  <h2>1. Why Loops Are Needed</h2>
+  <p class="lead">
+    A loop lets you repeat a block of code multiple times without rewriting it. Loops are essential
+    for tasks like printing tables, processing arrays, repeating calculations, or checking inputs.
+  </p>
+
+  <h3>1.1 Without Loops</h3>
+  <pre><code>console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);</code></pre>
+
+  <h3>1.2 With a Loop</h3>
+  <pre><code>for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}</code></pre>
+
+  <div class="tip">Loops save time, reduce errors, and make code look professional.</div>
+</div>
+
+<!-- Section 2: for loop -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 2 · for Loop</div>
+  <h2>2. The <code>for</code> Loop — Most Common Loop</h2>
+
+  <h3>2.1 Syntax</h3>
+  <pre><code>for (initialization; condition; update) {
+  // code to repeat
+}</code></pre>
+
+  <h3>2.2 Example: Print 1–10</h3>
+  <pre><code>for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}</code></pre>
+
+  <h3>2.3 Example: Print Even Numbers</h3>
+  <pre><code>for (let i = 2; i <= 20; i += 2) {
+  console.log(i);
+}</code></pre>
+
+  <h3>2.4 Example: Square of Each Number</h3>
+  <pre><code>for (let n = 1; n <= 5; n++) {
+  console.log(n * n);
+}</code></pre>
+</div>
+
+<!-- Section 3: while loop -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 3 · while Loop</div>
+  <h2>3. The <code>while</code> Loop — When Count Is Not Fixed</h2>
+  <p class="lead">
+    Use <code>while</code> when you don’t know how many times the loop should run in advance.
+  </p>
+
+  <h3>3.1 Syntax</h3>
+  <pre><code>while (condition) {
+  // repeated code
+}</code></pre>
+
+  <h3>3.2 Example: Print 1–5</h3>
+  <pre><code>let i = 1;
+
+while (i <= 5) {
+  console.log(i);
+  i++;
+}</code></pre>
+
+  <h3>3.3 Example: Keep Asking Until User Input</h3>
+  <p>(Concept demonstration)</p>
+  <pre><code>let entered = "";
+
+while (!entered) {
+  entered = prompt("Enter your name:");
+}
+
+console.log("Welcome,", entered);</code></pre>
+
+  <div class="warning">Always update the variable inside <code>while</code>, or the loop becomes infinite.</div>
+</div>
+
+<!-- Section 4: do..while -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 4 · do…while</div>
+  <h2>4. The <code>do…while</code> Loop — Runs at Least Once</h2>
+
+  <pre><code>do {
+  // repeated code
+} while (condition);</code></pre>
+
+  <h3>4.1 Example</h3>
+  <pre><code>let num = 1;
+
+do {
+  console.log(num);
+  num++;
+} while (num <= 5);</code></pre>
+
+  <div class="note">
+    <code>do…while</code> is useful when you need the loop to run at least once,
+    such as showing a menu to the user.
+  </div>
+</div>
+
+<!-- Section 5: break & continue -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 5 · Loop Control</div>
+  <h2>5. Loop Control: break & continue</h2>
+
+  <h3>5.1 break — Stop the Loop Immediately</h3>
+  <pre><code>for (let i = 1; i <= 10; i++) {
+  if (i === 5) break;
+  console.log(i);
+}</code></pre>
+  <p>Stops at 4.</p>
+
+  <h3>5.2 continue — Skip the Current Iteration</h3>
+  <pre><code>for (let i = 1; i <= 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}</code></pre>
+  <p>Prints 1, 2, 4, 5.</p>
+</div>
+
+<!-- Section 6: Nested loops -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 6 · Nested Loops</div>
+  <h2>6. Nested Loops — Loop Inside Loop</h2>
+
+  <h3>6.1 Multiplication Table</h3>
+  <pre><code>for (let i = 1; i <= 5; i++) {
+  for (let j = 1; j <= 10; j++) {
+    console.log(`${i} × ${j} = ${i * j}`);
+  }
+}</code></pre>
+
+  <h3>6.2 Pattern Printing (Pyramid)</h3>
+  <pre><code>for (let row = 1; row <= 5; row++) {
+  let stars = "";
+  for (let col = 1; col <= row; col++) {
+    stars += "* ";
+  }
+  console.log(stars);
+}</code></pre>
+
+  <div class="tip">Loop-based patterns drastically improve logical thinking.</div>
+</div>
+
+<!-- Section 7: Loops with arrays -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 7 · Arrays + Loops</div>
+  <h2>7. Using Loops with Arrays</h2>
+
+  <pre><code>let marks = [78, 85, 92, 60];
+
+for (let i = 0; i < marks.length; i++) {
+  console.log("Mark:", marks[i]);
+}</code></pre>
+
+  <h3>7.1 Sum of Array</h3>
+  <pre><code>let sum = 0;
+
+for (let i = 0; i < marks.length; i++) {
+  sum += marks[i];
+}
+
+console.log("Total =", sum);</code></pre>
+</div>
+
+<!-- Section 8: Summary -->
+<div class="card">
+  <div class="step-label"><span class="step-dot"></span>Step 8 · Summary & Practice</div>
+  <h2>8. Summary & Practice Exercises</h2>
+
+  <h3>8.1 Summary</h3>
+  <ul>
+    <li>Use <code>for</code> for fixed counts.</li>
+    <li>Use <code>while</code> when count is unknown.</li>
+    <li>Use <code>do…while</code> to execute at least once.</li>
+    <li><code>break</code> stops loops early.</li>
+    <li><code>continue</code> skips one iteration.</li>
+    <li>Nested loops create tables & patterns.</li>
+    <li>Loops are powerful with arrays.</li>
+  </ul>
+
+  <h3>8.2 Practice Exercises</h3>
+  <ol>
+    <li>Print numbers 1–100 using a <code>for</code> loop.</li>
+    <li>Print all even numbers between 1–50.</li>
+    <li>Use <code>while</code> to print numbers from 10 down to 1.</li>
+    <li>Create a multiplication table for 9.</li>
+    <li>Print a triangle pattern using nested loops.</li>
+    <li>Sum all elements of an array using a loop.</li>
+    <li>Use <code>break</code> to stop a loop when the number becomes 13.</li>
+  </ol>
+</div>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+  <div class="side-card">
+    <h2>Teacher Notes for Module 4</h2>
+    <ul class="side-list">
+      <li>• Start loops by drawing flowcharts.</li>
+      <li>• Give many pattern problems for logic building.</li>
+      <li>• Explain infinite loops using live examples.</li>
+      <li>• Practice break/continue with real-life problems.</li>
+      <li>• Combine loops with decision making.</li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Next Module Preview</h2>
+    <p>Module 5 covers:</p>
+    <ul class="side-list">
+      <li>• Functions (declaration & expression)</li>
+      <li>• Parameters & arguments</li>
+      <li>• Return values</li>
+      <li>• Arrow functions</li>
+      <li>• Scope in detail</li>
+    </ul>
+    <p style="margin-top:8px;">A major step toward clean, reusable code.</p>
+  </div>
+</aside>
+
+</main>
+
+<!-- FOOTER (NO HEADING) -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    Footer auto-included — consistent branding across all modules.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

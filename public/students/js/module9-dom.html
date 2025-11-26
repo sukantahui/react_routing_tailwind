@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 9 — DOM (Document Object Model) Basics | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 9 — DOM (Document Object Model) Basics</h1>
+    <p class="header-sub">
+      Connect JavaScript with HTML to make interactive web pages — from basic DOM concepts
+      to practical mini-projects like counters and show/hide sections.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Basic → Expert</div>
+      <div class="badge">DOM &amp; UI</div>
+      <div class="badge">Interactive Web</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+  <!-- 1. What is DOM -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · Understanding the DOM</div>
+    <h2>1. What is the DOM?</h2>
+    <p class="lead">
+      The <strong>DOM (Document Object Model)</strong> is a tree-like representation of your HTML page
+      that JavaScript can read and change. It turns elements like <code>&lt;h1&gt;</code>, <code>&lt;div&gt;</code>,
+      and <code>&lt;button&gt;</code> into objects that you can access and modify.
+    </p>
+
+    <h3>1.1 Basic Idea</h3>
+    <ul>
+      <li>Browser reads your HTML file.</li>
+      <li>Browser builds a <strong>DOM tree</strong> in memory.</li>
+      <li>JavaScript talks to this tree: find nodes, change them, create/remove them.</li>
+    </ul>
+
+    <h3>1.2 Simple HTML → DOM Tree (Concept)</h3>
+    <pre><code>&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+
+    <p>This becomes a tree:</p>
+    <ul>
+      <li><code>document</code></li>
+      <li>→ <code>html</code></li>
+      <li>→ <code>body</code></li>
+      <li>→ <code>h1</code>, <code>p</code> as children of body</li>
+    </ul>
+
+    <div class="note">
+      Teach students to open DevTools → “Elements” tab and see the live DOM.
+      It is the visual representation of the same tree.
+    </div>
+  </article>
+
+  <!-- 2. Selecting elements -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · Selecting Elements</div>
+    <h2>2. Selecting Elements from the DOM</h2>
+    <p class="lead">
+      To change the page, first you must <strong>select</strong> an element.
+      Think of this as “get a reference” to something on the page.
+    </p>
+
+    <h3>2.1 Example HTML</h3>
+    <pre><code>&lt;h1 id="title"&gt;Welcome to DOM&lt;/h1&gt;
+&lt;p class="tagline"&gt;Learn DOM step by step.&lt;/p&gt;
+&lt;button id="change-btn"&gt;Change Title&lt;/button&gt;</code></pre>
+
+    <h3>2.2 <code>getElementById()</code></h3>
+    <pre><code>const title = document.getElementById("title");
+console.log(title);</code></pre>
+
+    <h3>2.3 <code>querySelector()</code> &amp; <code>querySelectorAll()</code></h3>
+    <pre><code>const tagline = document.querySelector(".tagline"); // first match
+const button  = document.querySelector("#change-btn"); // like getElementById
+
+const allParagraphs = document.querySelectorAll("p"); // NodeList of all &lt;p&gt;
+allParagraphs.forEach(p =&gt; console.log(p.textContent));</code></pre>
+
+    <div class="tip">
+      For modern JavaScript, <code>querySelector</code> and <code>querySelectorAll</code> are flexible and powerful.
+      They accept any CSS selector (e.g., <code>".class"</code>, <code>"#id"</code>, <code>"div span"</code>).
+    </div>
+  </article>
+
+  <!-- 3. Changing content & styles -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · Content & Styles</div>
+    <h2>3. Changing Content &amp; Styles Dynamically</h2>
+    <p class="lead">
+      Once you have a reference to an element, you can change its content and styling using
+      properties like <code>textContent</code>, <code>innerHTML</code>, and <code>style</code>.
+    </p>
+
+    <h3>3.1 Changing Text</h3>
+    <pre><code>const title = document.getElementById("title");
+
+title.textContent = "DOM Basics with Coder &amp; AccoTax";</code></pre>
+
+    <h3>3.2 Changing HTML Inside an Element</h3>
+    <pre><code>const tagline = document.querySelector(".tagline");
+
+tagline.innerHTML = "Learn &lt;strong&gt;DOM&lt;/strong&gt; step by step.";</code></pre>
+
+    <div class="warning">
+      <code>innerHTML</code> can inject HTML and is powerful, but can be dangerous if used with
+      user input (security: XSS). For simple text changes, prefer <code>textContent</code>.
+    </div>
+
+    <h3>3.3 Styling Elements</h3>
+    <pre><code>title.style.color = "#38bdf8";
+title.style.backgroundColor = "#020617";
+title.style.padding = "8px 12px";</code></pre>
+
+    <h3>3.4 Using <code>classList</code> (Cleaner for CSS)</h3>
+    <pre><code>title.classList.add("highlight");   // add a CSS class
+title.classList.remove("old-title"); // remove a class
+title.classList.toggle("hidden");    // add if not present, remove if present</code></pre>
+
+    <div class="tip">
+      Best practice: keep visual styling in CSS classes and use <code>classList</code> in JavaScript
+      to switch classes on or off.
+    </div>
+  </article>
+
+  <!-- 4. Creating, appending, removing elements -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · Creating &amp; Removing</div>
+    <h2>4. Creating, Appending &amp; Removing Elements</h2>
+
+    <h3>4.1 Creating &amp; Appending</h3>
+    <pre><code>const list = document.querySelector("#todo-list");
+
+const li = document.createElement("li");
+li.textContent = "Learn DOM basics";
+
+list.appendChild(li);</code></pre>
+
+    <h3>4.2 <code>append</code> vs <code>appendChild</code> (Concept)</h3>
+    <pre><code>list.append("Text node", li); // append can take multiple nodes/strings</code></pre>
+
+    <h3>4.3 Removing Elements</h3>
+    <pre><code>// Modern way
+li.remove();
+
+// Older way
+list.removeChild(list.firstElementChild);</code></pre>
+
+    <div class="note">
+      Teaching idea: build a dynamic list where clicking a button adds a new &lt;li&gt; with text.
+    </div>
+  </article>
+
+  <!-- 5. Attributes, classes, data-* -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Attributes &amp; Data</div>
+    <h2>5. Working with Attributes, Classes &amp; Data-Attributes</h2>
+
+    <h3>5.1 Attributes</h3>
+    <pre><code>&lt;img id="logo" src="logo.png" alt="Coder &amp; AccoTax logo"&gt;</code></pre>
+
+    <pre><code>const logo = document.getElementById("logo");
+
+console.log(logo.getAttribute("src"));
+logo.setAttribute("alt", "Coder &amp; AccoTax JavaScript Course");</code></pre>
+
+    <h3>5.2 Classes with <code>className</code> &amp; <code>classList</code></h3>
+    <pre><code>logo.className = "logo-img rounded";
+logo.classList.add("shadow");
+logo.classList.remove("rounded");</code></pre>
+
+    <h3>5.3 Data Attributes &amp; <code>dataset</code></h3>
+    <pre><code>&lt;button id="enroll-btn" data-course="javascript" data-level="basic"&gt;
+  Enroll Now
+&lt;/button&gt;</code></pre>
+
+    <pre><code>const enrollBtn = document.getElementById("enroll-btn");
+
+console.log(enrollBtn.dataset.course); // "javascript"
+console.log(enrollBtn.dataset.level);  // "basic"</code></pre>
+
+    <div class="tip">
+      <code>data-*</code> attributes let you attach small bits of data to elements in a clean way,
+      which JavaScript can easily read through <code>dataset</code>.
+    </div>
+  </article>
+
+  <!-- 6. Mini Project: Counter -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Mini-Project 1</div>
+    <h2>6. DOM Mini-Project — Click Counter</h2>
+    <p class="lead">
+      Build a simple counter that increases or decreases when buttons are clicked.
+      This shows real interaction between HTML, CSS, and JavaScript.
+    </p>
+
+    <h3>6.1 HTML Structure</h3>
+    <pre><code>&lt;div id="counter-box"&gt;
+  &lt;h2&gt;Counter&lt;/h2&gt;
+  &lt;div id="count-display"&gt;0&lt;/div&gt;
+  &lt;button id="decrement"&gt;-&lt;/button&gt;
+  &lt;button id="increment"&gt;+&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>6.2 JavaScript Logic</h3>
+    <pre><code>const display   = document.getElementById("count-display");
+const incButton = document.getElementById("increment");
+const decButton = document.getElementById("decrement");
+
+let count = 0;
+
+function updateDisplay() {
+  display.textContent = count;
+}
+
+incButton.addEventListener("click", () =&gt; {
+  count++;
+  updateDisplay();
+});
+
+decButton.addEventListener("click", () =&gt; {
+  count--;
+  updateDisplay();
+});</code></pre>
+
+    <div class="note">
+      Extend this in class:  
+      • Add a “Reset” button  
+      • Prevent the count from going below 0  
+      • Change color based on positive/negative value
+    </div>
+  </article>
+
+  <!-- 7. Mini Project: Show/Hide -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · Mini-Project 2</div>
+    <h2>7. DOM Mini-Project — Show / Hide Details</h2>
+    <p class="lead">
+      A very common UI pattern: clicking a button to show or hide extra content (FAQ,
+      “Read more”, etc.).
+    </p>
+
+    <h3>7.1 HTML Structure</h3>
+    <pre><code>&lt;div class="faq-item"&gt;
+  &lt;button id="toggle-details"&gt;Show Details&lt;/button&gt;
+  &lt;div id="details" style="display:none;"&gt;
+    JavaScript DOM lets you control HTML structure, content, and styles dynamically.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>7.2 JavaScript Logic</h3>
+    <pre><code>const toggleBtn = document.getElementById("toggle-details");
+const details   = document.getElementById("details");
+
+toggleBtn.addEventListener("click", () =&gt; {
+  const isHidden = details.style.display === "none";
+
+  if (isHidden) {
+    details.style.display = "block";
+    toggleBtn.textContent = "Hide Details";
+  } else {
+    details.style.display = "none";
+    toggleBtn.textContent = "Show Details";
+  }
+});</code></pre>
+
+    <div class="tip">
+      Professional improvement: instead of inline <code>style="display:none;"</code>,
+      hide via CSS class (e.g., <code>.hidden { display:none; }</code>) and toggle that class with
+      <code>classList.toggle("hidden")</code>.
+    </div>
+  </article>
+
+  <!-- 8. Summary & practice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Summary & Practice</div>
+    <h2>8. Summary &amp; Practice Tasks</h2>
+
+    <h3>8.1 Concept Checklist</h3>
+    <ul>
+      <li>Understand the DOM as a tree of nodes representing HTML.</li>
+      <li>Use <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code>.</li>
+      <li>Change text, HTML, styles, and classes dynamically.</li>
+      <li>Create, append, and remove elements using JavaScript.</li>
+      <li>Work with attributes, classes, and data-attributes.</li>
+      <li>Build simple interactive features like counters and show/hide sections.</li>
+    </ul>
+
+    <h3>8.2 Practice Exercises</h3>
+    <ol>
+      <li>
+        Create an HTML list of tasks and use JavaScript to:
+        <ul>
+          <li>Add a new task when a button is clicked.</li>
+          <li>Remove the last task when another button is clicked.</li>
+        </ul>
+      </li>
+      <li>
+        Build a “Change Theme” button that toggles a <code>dark-mode</code> class on the
+        <code>&lt;body&gt;</code> element.
+      </li>
+      <li>
+        Create a simple “character counter” for a text input: show how many characters
+        the user has typed in real time under the input.
+      </li>
+      <li>
+        Use <code>data-*</code> attributes on buttons (e.g., <code>data-color</code>) and change
+        the background color of a box based on which button is clicked.
+      </li>
+      <li>
+        Create an FAQ section with multiple questions. Clicking on a question should
+        show/hide the answer below it.
+      </li>
+    </ol>
+
+    <p class="note">
+      Keep a dedicated practice file like <code>module9-dom-basics.html</code> +
+      <code>module9-dom.js</code> and link them. Let students experiment directly in the browser.
+    </p>
+  </article>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+  <div class="side-card">
+    <h2>DOM Method Quick Reference</h2>
+    <ul>
+      <li><strong>Select:</strong> <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code></li>
+      <li><strong>Content:</strong> <code>textContent</code>, <code>innerHTML</code></li>
+      <li><strong>Styles:</strong> <code>style</code>, <code>classList.add/remove/toggle</code></li>
+      <li><strong>Create:</strong> <code>document.createElement</code></li>
+      <li><strong>Insert:</strong> <code>appendChild</code>, <code>append</code>, <code>prepend</code></li>
+      <li><strong>Remove:</strong> <code>element.remove()</code>, <code>parent.removeChild()</code></li>
+      <li><strong>Attributes:</strong> <code>getAttribute</code>, <code>setAttribute</code>, <code>dataset</code></li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Teacher Notes for Module 9</h2>
+    <ul>
+      <li>Always keep the HTML, CSS, and JS code side by side when teaching.</li>
+      <li>Ask students to open DevTools → “Elements” and “Console” panels together.</li>
+      <li>Show live edits in DevTools and compare with JavaScript-driven changes.</li>
+      <li>Let students modify text and styles from the console to build confidence.</li>
+      <li>Use lots of tiny experiments before full mini-projects.</li>
+    </ul>
+  </div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    This DOM module page follows the same dark-mode layout as other JavaScript modules for a consistent learning experience.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

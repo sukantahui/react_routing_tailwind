@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 7 — Arrays & Essential Data Structures | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{display:grid;grid-template-columns:2.2fr 1fr;gap:22px;}
+    @media(max-width:900px){main{grid-template-columns:1fr;}}
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;margin:14px 0 6px;font-size:1rem;}
+    .lead{color:var(--muted);margin-bottom:14px;}
+    p{font-size:0.93rem;margin-bottom:8px;}
+
+    ul,ol{margin-left:18px;margin-bottom:10px;font-size:0.93rem;}
+    li{margin-bottom:4px;}
+
+    .step-label{
+      display:flex;align-items:center;gap:6px;
+      font-size:0.78rem;text-transform:uppercase;letter-spacing:0.12em;
+      color:var(--accent);margin-bottom:4px;
+    }
+    .step-dot{
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 14px rgba(56,189,248,0.9);
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;padding:12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;margin:10px 0;font-size:0.85rem;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .note,.tip,.warning{
+      padding:10px 12px;border-radius:12px;font-size:0.84rem;margin:10px 0;
+    }
+    .note{color:var(--muted);border:1px dashed rgba(148,163,184,0.6);}
+    .tip{background:rgba(22,163,74,0.18);border:1px solid rgba(34,197,94,0.7);color:#bbf7d0;}
+    .warning{background:rgba(127,29,29,0.38);border:1px solid rgba(248,113,113,0.7);color:#fecaca;}
+
+    /* SIDEBAR */
+    .side-card{
+      background:radial-gradient(circle at top,rgba(56,189,248,0.14),transparent 55%),
+      rgba(15,23,42,0.94);
+      border-radius:22px;padding:18px;
+      border:1px solid rgba(55,65,81,0.9);
+      box-shadow:0 22px 50px rgba(0,0,0,0.75);
+      margin-bottom:18px;
+    }
+    .side-card h2{color:#e0f2fe;font-size:1.04rem;margin-bottom:6px;}
+    .side-card ul{list-style:none;margin-left:0;color:var(--muted);}
+    .side-card li{margin-bottom:6px;font-size:0.9rem;}
+
+    /* FOOTER */
+    footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 7 — Arrays &amp; Essential Data Structures</h1>
+    <p class="header-sub">
+      Work with lists of data, master core array methods, and get a first look at powerful
+      data structures like <code>Set</code> and <code>Map</code> — essential skills for real-world JavaScript.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Intermediate</div>
+      <div class="badge">Arrays</div>
+      <div class="badge">Data Structures</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Mode · #020617</div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LEFT CONTENT -->
+<section>
+
+  <!-- 1. Intro to arrays -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 1 · Why Arrays?</div>
+    <h2>1. Arrays — Why Do We Need Them?</h2>
+    <p class="lead">
+      An array is an ordered list of values. Instead of using 10 different variables for 10 marks,
+      you store them in a single array. Arrays are the foundation for storing and processing collections
+      of data in JavaScript.
+    </p>
+
+    <h3>1.1 Creating Arrays</h3>
+    <pre><code>// Using array literal (recommended)
+let marks = [78, 85, 92, 67, 88];
+
+// Using Array constructor (less common for beginners)
+let numbers = new Array(10, 20, 30);</code></pre>
+
+    <h3>1.2 Indexing & Length</h3>
+    <pre><code>let students = ["Amit", "Neha", "Rohit"];
+
+console.log(students[0]); // "Amit"  (first element)
+console.log(students[1]); // "Neha"
+console.log(students[2]); // "Rohit"
+
+console.log(students.length); // 3</code></pre>
+
+    <div class="note">
+      Array indices start from <strong>0</strong>, not 1. Last index is <code>length - 1</code>.
+    </div>
+  </article>
+
+  <!-- 2. Basic methods: push, pop, shift, unshift -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 2 · Basic Operations</div>
+    <h2>2. Core Array Methods: Add &amp; Remove Elements</h2>
+    <p class="lead">
+      These methods let you add or remove elements from the beginning or end of the array.
+    </p>
+
+    <h3>2.1 <code>push()</code> — Add at the End</h3>
+    <pre><code>let fruits = ["Apple", "Banana"];
+
+fruits.push("Mango");
+console.log(fruits); // ["Apple", "Banana", "Mango"]</code></pre>
+
+    <h3>2.2 <code>pop()</code> — Remove from the End</h3>
+    <pre><code>let lastFruit = fruits.pop();
+console.log(lastFruit); // "Mango"
+console.log(fruits);    // ["Apple", "Banana"]</code></pre>
+
+    <h3>2.3 <code>unshift()</code> — Add at the Beginning</h3>
+    <pre><code>fruits.unshift("Orange");
+console.log(fruits); // ["Orange", "Apple", "Banana"]</code></pre>
+
+    <h3>2.4 <code>shift()</code> — Remove from the Beginning</h3>
+    <pre><code>let firstFruit = fruits.shift();
+console.log(firstFruit); // "Orange"
+console.log(fruits);     // ["Apple", "Banana"]</code></pre>
+
+    <div class="tip">
+      <code>push</code>/<code>pop</code> work at the end (fast); <code>unshift</code>/<code>shift</code> work at the start
+      (slower for big arrays, but fine for learning &amp; small projects).
+    </div>
+  </article>
+
+  <!-- 3. Splice & slice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 3 · splice vs slice</div>
+    <h2>3. <code>splice()</code> &amp; <code>slice()</code> — Editing &amp; Copying</h2>
+
+    <h3>3.1 <code>splice()</code> — Change the Original Array</h3>
+    <p>Syntax: <code>array.splice(startIndex, deleteCount, ...itemsToAdd)</code></p>
+
+    <pre><code>let numbers = [10, 20, 30, 40, 50];
+
+// Remove 2 elements from index 1
+let removed = numbers.splice(1, 2);
+console.log(numbers); // [10, 40, 50]
+console.log(removed); // [20, 30]
+
+// Insert elements without removing
+numbers.splice(1, 0, 25, 35);
+console.log(numbers); // [10, 25, 35, 40, 50]</code></pre>
+
+    <h3>3.2 <code>slice()</code> — Copy Part of the Array</h3>
+    <p>Syntax: <code>array.slice(startIndex, endIndex)</code> (end index is not included).</p>
+
+    <pre><code>let marks = [60, 70, 80, 90];
+
+let topTwo = marks.slice(2);      // from index 2 to end
+console.log(topTwo);              // [80, 90]
+
+let mid = marks.slice(1, 3);      // index 1 and 2
+console.log(mid);                 // [70, 80]</code></pre>
+
+    <div class="warning">
+      <strong><code>splice</code></strong> modifies the original array.<br />
+      <strong><code>slice</code></strong> returns a new array, leaving the original unchanged.
+    </div>
+  </article>
+
+  <!-- 4. Iteration: loops vs forEach -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 4 · Iteration</div>
+    <h2>4. Iterating Over Arrays: Loops &amp; <code>forEach</code></h2>
+    <p class="lead">
+      Iteration means “going through every element one by one”.
+      We can do this with classic loops or with array helper methods.
+    </p>
+
+    <h3>4.1 Traditional <code>for</code> Loop</h3>
+    <pre><code>let students = ["Amit", "Neha", "Sourav"];
+
+for (let i = 0; i &lt; students.length; i++) {
+  console.log(i, students[i]);
+}</code></pre>
+
+    <h3>4.2 <code>for...of</code> — Simpler Iteration</h3>
+    <pre><code>for (let name of students) {
+  console.log(name);
+}</code></pre>
+
+    <h3>4.3 <code>forEach()</code> — Array Method for Iteration</h3>
+    <pre><code>students.forEach(function(name, index) {
+  console.log(index, name);
+});
+
+// Arrow function style
+students.forEach((name, index) => {
+  console.log(`${index}: ${name}`);
+});</code></pre>
+
+    <div class="note">
+      <code>forEach</code> is great for printing or doing side effects.
+      It does not return a new array — it always returns <code>undefined</code>.
+    </div>
+  </article>
+
+  <!-- 5. Transforming arrays: map, filter, reduce -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 5 · Transformation</div>
+    <h2>5. Transforming Arrays: <code>map</code>, <code>filter</code>, <code>reduce</code></h2>
+    <p class="lead">
+      These are “higher-order” methods — they take a function as an argument and produce new results
+      from existing arrays. This is very important for modern JavaScript.
+    </p>
+
+    <h3>5.1 <code>map()</code> — Transform Each Value</h3>
+    <p>Creates a new array with the results of applying a function to every element.</p>
+    <pre><code>let prices = [100, 200, 300];
+
+// Add 18% GST to every price
+let pricesWithGST = prices.map(price => price * 1.18);
+
+console.log(pricesWithGST); // [118, 236, 354]</code></pre>
+
+    <h3>5.2 <code>filter()</code> — Keep Some Values</h3>
+    <p>Creates a new array with only the elements that match a condition.</p>
+    <pre><code>let marks = [35, 55, 68, 92, 40];
+
+// Keep only passing marks (>= 40)
+let passed = marks.filter(m => m >= 40);
+console.log(passed); // [55, 68, 92, 40]</code></pre>
+
+    <h3>5.3 <code>reduce()</code> — Combine to a Single Value</h3>
+    <p>Combines all elements into one result (sum, product, etc.).</p>
+    <pre><code>let total = marks.reduce((accumulator, current) => {
+  return accumulator + current;
+}, 0);  // 0 is the initial value
+
+console.log("Total marks:", total);</code></pre>
+
+    <div class="tip">
+      A very common pattern:
+      <ul>
+        <li><code>filter</code> → narrow down data</li>
+        <li><code>map</code> → transform each item</li>
+        <li><code>reduce</code> → summarise everything</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 6. Searching: indexOf, includes, find -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 6 · Search &amp; Check</div>
+    <h2>6. Searching &amp; Checking in Arrays</h2>
+
+    <h3>6.1 <code>indexOf()</code> — Find Position</h3>
+    <pre><code>let cities = ["Kolkata", "Delhi", "Mumbai"];
+
+console.log(cities.indexOf("Kolkata")); // 0
+console.log(cities.indexOf("Pune"));    // -1 (not found)</code></pre>
+
+    <h3>6.2 <code>includes()</code> — Is It Present?</h3>
+    <pre><code>console.log(cities.includes("Mumbai")); // true
+console.log(cities.includes("Pune"));   // false</code></pre>
+
+    <h3>6.3 <code>find()</code> — Find First Matching Element</h3>
+    <pre><code>let students = [
+  { name: "Amit", marks: 80 },
+  { name: "Neha", marks: 92 },
+  { name: "Rohit", marks: 65 }
+];
+
+let topper = students.find(s => s.marks > 90);
+
+console.log(topper); // { name: "Neha", marks: 92 }</code></pre>
+
+    <div class="note">
+      <code>includes</code> is great for simple arrays of primitive values (numbers/strings).  
+      <code>find</code> is powerful for arrays of objects.
+    </div>
+  </article>
+
+  <!-- 7. Intro to Set and Map -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 7 · Set &amp; Map</div>
+    <h2>7. Intro to <code>Set</code> &amp; <code>Map</code></h2>
+    <p class="lead">
+      <code>Set</code> and <code>Map</code> are modern data structures in JavaScript:
+      <strong>Set</strong> for unique values, <strong>Map</strong> for key–value pairs.
+    </p>
+
+    <h3>7.1 <code>Set</code> — Collection of Unique Values</h3>
+    <pre><code>let numbers = [1, 2, 2, 3, 4, 4, 5];
+
+let uniqueSet = new Set(numbers);
+console.log(uniqueSet);           // Set(5) {1, 2, 3, 4, 5}
+
+// Convert Set back to array
+let uniqueArray = [...uniqueSet];
+console.log(uniqueArray);         // [1, 2, 3, 4, 5]</code></pre>
+
+    <h3>7.2 <code>Map</code> — Key–Value Storage</h3>
+    <pre><code>let fees = new Map();
+
+fees.set("Amit", 5000);
+fees.set("Neha", 6000);
+
+console.log(fees.get("Neha")); // 6000
+console.log(fees.has("Amit")); // true
+
+fees.delete("Amit");
+console.log(fees.has("Amit")); // false</code></pre>
+
+    <div class="tip">
+      For teaching:  
+      <strong>Array</strong> → simple ordered list  
+      <strong>Set</strong> → unique list  
+      <strong>Map</strong> → “dictionary” of key → value
+    </div>
+  </article>
+
+  <!-- 8. Summary & Practice -->
+  <article class="card">
+    <div class="step-label"><span class="step-dot"></span>Step 8 · Summary & Practice</div>
+    <h2>8. Summary & Practice Tasks</h2>
+
+    <h3>8.1 What Students Should Now Be Able to Do</h3>
+    <ul>
+      <li>Create arrays and access elements by index.</li>
+      <li>Use <code>push</code>, <code>pop</code>, <code>shift</code>, <code>unshift</code>.</li>
+      <li>Modify arrays with <code>splice</code>, copy parts with <code>slice</code>.</li>
+      <li>Iterate using loops and <code>forEach</code>.</li>
+      <li>Transform arrays with <code>map</code>, <code>filter</code>, <code>reduce</code>.</li>
+      <li>Search using <code>indexOf</code>, <code>includes</code>, <code>find</code>.</li>
+      <li>Understand basic idea of <code>Set</code> &amp; <code>Map</code>.</li>
+    </ul>
+
+    <h3>8.2 Practice Exercises</h3>
+    <ol>
+      <li>Create an array of 10 student marks. Print all marks using a <code>for</code> loop.</li>
+      <li>Use <code>push</code> and <code>unshift</code> to add elements at both ends.</li>
+      <li>Use <code>splice</code> to remove 2 elements from the middle of an array.</li>
+      <li>Given an array of prices, use <code>map</code> to add 10% tax to each price.</li>
+      <li>Given an array of marks, use <code>filter</code> to get only marks ≥ 75.</li>
+      <li>Use <code>reduce</code> to find the total and average of an array of test scores.</li>
+      <li>Use <code>includes</code> to check if a city is in a <code>cities</code> array.</li>
+      <li>Use a <code>Set</code> to remove duplicates from <code>[1,2,2,3,3,4,5]</code>.</li>
+      <li>Create a <code>Map</code> of student name → fee, then:
+        <ul>
+          <li>Check if a student exists using <code>has</code>.</li>
+          <li>Get a fee using <code>get</code>.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <p class="note">
+      Encourage students to keep all these examples in a dedicated file:
+      <code>module7-arrays-practice.js</code> and experiment by changing data.
+    </p>
+  </article>
+
+</section>
+
+<!-- SIDEBAR -->
+<aside>
+
+  <div class="side-card">
+    <h2>Quick Reference — Array Methods</h2>
+    <ul>
+      <li><strong>Adding:</strong> <code>push()</code>, <code>unshift()</code></li>
+      <li><strong>Removing:</strong> <code>pop()</code>, <code>shift()</code>, <code>splice()</code></li>
+      <li><strong>Copy part:</strong> <code>slice()</code></li>
+      <li><strong>Loop:</strong> <code>for</code>, <code>for...of</code>, <code>forEach()</code></li>
+      <li><strong>Transform:</strong> <code>map()</code>, <code>filter()</code>, <code>reduce()</code></li>
+      <li><strong>Search:</strong> <code>indexOf()</code>, <code>includes()</code>, <code>find()</code></li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h2>Teacher Notes for Module 7</h2>
+    <ul>
+      <li>Use real data: fees, marks, names, products.</li>
+      <li>Visually draw arrays with indices on the board.</li>
+      <li>Slowly introduce <code>map</code>, <code>filter</code>, <code>reduce</code> with simple tasks.</li>
+      <li>Ask students to convert raw loops into these helper methods.</li>
+      <li>Show how <code>Set</code> removes duplicates in a single step.</li>
+    </ul>
+  </div>
+
+</aside>
+
+</main>
+
+<!-- FOOTER (ORG DETAILS, NO HEADING) -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+
+  <div class="org-small">
+    This footer should be reused on all JavaScript course pages for consistent branding.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
