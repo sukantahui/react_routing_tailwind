@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 2 – Test Part 3 (Q51–75) | JS Syntax & Basics | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;--card:#0f172a;--accent:#38bdf8;--accent2:#a855f7;
+      --accent3:#22c55e;--text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000 100%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      padding:30px 20px 60px;line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+    header{
+      padding:22px;background:rgba(15,23,42,0.95);border-radius:24px;
+      border:1px solid rgba(148,163,184,0.35);margin-bottom:24px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.55);
+    }
+    h1{
+      font-size:2rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .sub{color:var(--muted);font-size:0.95rem;}
+    .card{
+      background:rgba(15,23,42,0.97);border-radius:20px;border:1px solid var(--border);
+      padding:18px 18px 6px;box-shadow:0 14px 38px rgba(0,0,0,0.55);
+    }
+    h2{font-size:1.3rem;color:var(--accent);margin-bottom:10px;}
+    h3{font-size:1rem;color:#bfdbfe;margin:12px 0 6px;}
+    pre{
+      background:var(--card);border-radius:10px;border:1px solid rgba(31,41,55,0.9);
+      padding:10px 12px;font-size:0.9rem;overflow-x:auto;
+    }
+    button.toggle-btn{
+      background:var(--accent);color:#000;border:none;padding:6px 12px;
+      border-radius:10px;font-size:0.82rem;cursor:pointer;margin:4px 0 10px;
+      transition:0.25s;
+    }
+    button.toggle-btn:hover{background:#7dd3fc;}
+    .answer-box{
+      display:none;background:rgba(34,197,94,0.08);border-radius:12px;
+      border:1px solid rgba(34,197,94,0.4);padding:10px 12px;font-size:0.86rem;
+      color:#bbf7d0;margin-bottom:8px;
+    }
+    footer{
+      margin-top:26px;padding:16px;border-radius:18px;
+      background:rgba(15,23,42,0.9);border:1px solid rgba(55,65,81,0.85);
+      font-size:0.85rem;color:var(--muted);
+    }
+  </style>
+  <script>
+    function toggleAnswer(id){
+      const el=document.getElementById(id);
+      el.style.display = (el.style.display==="block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Module 2 – Test (Part 3)</h1>
+  <div class="sub">JavaScript Syntax & Basics · Questions 51–75</div>
+  <div class="sub">Focus: template literals, type conversion, operators, small programs.</div>
+</header>
+
+<div class="card">
+  <h2>Questions 51–75</h2>
+
+  <!-- Q51 -->
+  <h3>51. Rewrite using a template literal:</h3>
+  <p><code>"Hello " + user + ", your score is " + score</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q51')">Show Answer &amp; Explanation</button>
+  <div id="q51" class="answer-box">
+<pre><code>`Hello ${user}, your score is ${score}`</code></pre>
+    <strong>Explanation:</strong> Backticks and <code>${...}</code> give cleaner, readable string building.
+  </div>
+
+  <!-- Q52 -->
+  <h3>52. What is the output?</h3>
+<pre><code>let user = "Rahul";
+let city = "Kolkata";
+console.log(`Welcome ${user} from ${city}`);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q52')">Show Answer &amp; Explanation</button>
+  <div id="q52" class="answer-box">
+    <strong>Answer:</strong> <code>"Welcome Rahul from Kolkata"</code><br/>
+    <strong>Explanation:</strong> Both variables are interpolated inside the template literal.
+  </div>
+
+  <!-- Q53 -->
+  <h3>53. Identify the bug:</h3>
+<pre><code>let name = "Rita";
+console.log('Hello, ${name}');
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q53')">Show Answer &amp; Explanation</button>
+  <div id="q53" class="answer-box">
+    <strong>Answer:</strong> Wrong quotes<br/>
+    <strong>Explanation:</strong> Template placeholders <code>${name}</code> only work with backticks, not single quotes.
+  </div>
+
+  <!-- Q54 -->
+  <h3>54. Fix the above code.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q54')">Show Answer &amp; Explanation</button>
+  <div id="q54" class="answer-box">
+<pre><code>let name = "Rita";
+console.log(`Hello, ${name}`);
+</code></pre>
+  </div>
+
+  <!-- Q55 -->
+  <h3>55. Output?</h3>
+<pre><code>let x = 5;
+let y = 2;
+console.log(`Result: ${x ** y}`);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q55')">Show Answer &amp; Explanation</button>
+  <div id="q55" class="answer-box">
+    <strong>Answer:</strong> <code>"Result: 25"</code><br/>
+    <strong>Explanation:</strong> <code>5 ** 2 = 25</code>, then embedded in the template literal.
+  </div>
+
+  <!-- Q56 -->
+  <h3>56. What does this print?</h3>
+<pre><code>console.log("5" - "2");
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q56')">Show Answer &amp; Explanation</button>
+  <div id="q56" class="answer-box">
+    <strong>Answer:</strong> <code>3</code><br/>
+    <strong>Explanation:</strong> <code>-</code> forces numeric conversion of both strings.
+  </div>
+
+  <!-- Q57 -->
+  <h3>57. What does this print?</h3>
+<pre><code>console.log("5" + "2");
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q57')">Show Answer &amp; Explanation</button>
+  <div id="q57" class="answer-box">
+    <strong>Answer:</strong> <code>"52"</code><br/>
+    <strong>Explanation:</strong> With strings, <code>+</code> concatenates.
+  </div>
+
+  <!-- Q58 -->
+  <h3>58. Predict the output:</h3>
+<pre><code>console.log("5" - 2, "5" + 2);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q58')">Show Answer &amp; Explanation</button>
+  <div id="q58" class="answer-box">
+    <strong>Answer:</strong> <code>3 "52"</code><br/>
+    <strong>Explanation:</strong> Left: numeric subtraction → <code>3</code>. Right: string concatenation → <code>"52"</code>.
+  </div>
+
+  <!-- Q59 -->
+  <h3>59. Type of each?</h3>
+<pre><code>typeof "5"        // ?
+typeof 5          // ?
+typeof true       // ?
+typeof 123n       // ?
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q59')">Show Answer &amp; Explanation</button>
+  <div id="q59" class="answer-box">
+    <strong>Answer:</strong> <code>"string"</code>, <code>"number"</code>, <code>"boolean"</code>, <code>"bigint"</code><br/>
+  </div>
+
+  <!-- Q60 -->
+  <h3>60. Write code to log the data type of variable <code>value</code>.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q60')">Show Answer &amp; Explanation</button>
+  <div id="q60" class="answer-box">
+<pre><code>console.log(typeof value);
+</code></pre>
+    <strong>Explanation:</strong> <code>typeof</code> operator returns a string representing the type.
+  </div>
+
+  <!-- Q61 -->
+  <h3>61. What is printed?</h3>
+<pre><code>let a = 10;
+let b = 3;
+console.log(a % b);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q61')">Show Answer &amp; Explanation</button>
+  <div id="q61" class="answer-box">
+    <strong>Answer:</strong> <code>1</code><br/>
+    <strong>Explanation:</strong> Remainder of <code>10 / 3</code> is <code>1</code>.
+  </div>
+
+  <!-- Q62 -->
+  <h3>62. True or False: <code>console.log</code> is only for debugging and not part of JS syntax rules.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q62')">Show Answer &amp; Explanation</button>
+  <div id="q62" class="answer-box">
+    <strong>Answer:</strong> True<br/>
+    <strong>Explanation:</strong> It’s an environment-provided function (like in browsers or Node), not a language keyword.
+  </div>
+
+  <!-- Q63 -->
+  <h3>63. Complete the expression to convert input string <code>s</code> to number:</h3>
+  <p><code>let n = ____________;</code> (using Number)</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q63')">Show Answer &amp; Explanation</button>
+  <div id="q63" class="answer-box">
+<pre><code>let n = Number(s);
+</code></pre>
+  </div>
+
+  <!-- Q64 -->
+  <h3>64. Complete to convert number <code>n</code> to string:</h3>
+  <p><code>let s = ____________;</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q64')">Show Answer &amp; Explanation</button>
+  <div id="q64" class="answer-box">
+<pre><code>let s = String(n);
+</code></pre>
+  </div>
+
+  <!-- Q65 -->
+  <h3>65. True or False: <code>parseInt("10px")</code> returns 10.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q65')">Show Answer &amp; Explanation</button>
+  <div id="q65" class="answer-box">
+    <strong>Answer:</strong> True<br/>
+    <strong>Explanation:</strong> <code>parseInt</code> reads numeric prefix until a non-digit character.
+  </div>
+
+  <!-- Q66 -->
+  <h3>66. What will <code>Number("10px")</code> return?</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q66')">Show Answer &amp; Explanation</button>
+  <div id="q66" class="answer-box">
+    <strong>Answer:</strong> <code>NaN</code><br/>
+    <strong>Explanation:</strong> <code>Number</code> requires the entire string to be numeric.
+  </div>
+
+  <!-- Q67 -->
+  <h3>67. Which operator is NOT logical?</h3>
+  <p>A. <code>&amp;&amp;</code> &nbsp; B. <code>||</code> &nbsp; C. <code>!</code> &nbsp; D. <code>??</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q67')">Show Answer &amp; Explanation</button>
+  <div id="q67" class="answer-box">
+    <strong>Answer:</strong> D (kind of trick: <code>??</code> is nullish coalescing, not a classic boolean logic operator)<br/>
+  </div>
+
+  <!-- Q68 -->
+  <h3>68. Output?</h3>
+<pre><code>console.log( true && false );
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q68')">Show Answer &amp; Explanation</button>
+  <div id="q68" class="answer-box">
+    <strong>Answer:</strong> <code>false</code>
+  </div>
+
+  <!-- Q69 -->
+  <h3>69. Output?</h3>
+<pre><code>console.log( true || false );
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q69')">Show Answer &amp; Explanation</button>
+  <div id="q69" class="answer-box">
+    <strong>Answer:</strong> <code>true</code>
+  </div>
+
+  <!-- Q70 -->
+  <h3>70. Output?</h3>
+<pre><code>console.log( !false );
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q70')">Show Answer &amp; Explanation</button>
+  <div id="q70" class="answer-box">
+    <strong>Answer:</strong> <code>true</code>
+  </div>
+
+  <!-- Q71 -->
+  <h3>71. Fill in: “If <code>a</code> is null or undefined, use 100 else use <code>a</code>”</h3>
+  <p><code>let final = a ?? 100;</code> – Is this correct?</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q71')">Show Answer &amp; Explanation</button>
+  <div id="q71" class="answer-box">
+    <strong>Answer:</strong> Yes<br/>
+    <strong>Explanation:</strong> <code>??</code> uses the right-hand value only if left is <code>null</code> or <code>undefined</code>.
+  </div>
+
+  <!-- Q72 -->
+  <h3>72. Simple output program: What is printed?</h3>
+<pre><code>let celsius = 30;
+let fahrenheit = (celsius * 9/5) + 32;
+console.log(fahrenheit);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q72')">Show Answer &amp; Explanation</button>
+  <div id="q72" class="answer-box">
+    <strong>Answer:</strong> <code>86</code>
+  </div>
+
+  <!-- Q73 -->
+  <h3>73. Predict:</h3>
+<pre><code>let radius = 3;
+const PI = 3.1416;
+console.log(PI * radius * radius);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q73')">Show Answer &amp; Explanation</button>
+  <div id="q73" class="answer-box">
+    <strong>Answer:</strong> Approximately <code>28.2744</code><br/>
+  </div>
+
+  <!-- Q74 -->
+  <h3>74. True or False: A <code>const</code> variable’s object contents can still be changed.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q74')">Show Answer &amp; Explanation</button>
+  <div id="q74" class="answer-box">
+    <strong>Answer:</strong> True<br/>
+    <strong>Explanation:</strong> <code>const</code> prevents reassignment of the binding, not mutation of the object.
+  </div>
+
+  <!-- Q75 -->
+  <h3>75. Short code: Create <code>const GST = 18</code> and log final price for <code>mrp = 100</code>.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q75')">Show Answer &amp; Explanation</button>
+  <div id="q75" class="answer-box">
+<pre><code>const GST = 18;
+let mrp = 100;
+let finalPrice = mrp + (mrp * GST / 100);
+console.log(finalPrice); // 118
+</code></pre>
+  </div>
+
+</div>
+
+<footer>
+  <strong>Coder & AccoTax</strong> · JavaScript Track · Part 3 (Q51–75)<br/>
+  www.codernaccotax.co.in
+</footer>
+
+</div>
+</body>
+</html>

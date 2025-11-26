@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Module 2 — JavaScript Syntax & Basics | Coder & AccoTax</title>
@@ -16,7 +17,11 @@
       --code-bg: #0f172a;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -26,282 +31,533 @@
       line-height: 1.7;
     }
 
-    .page { max-width: 1100px; margin: auto; }
+    .page {
+      max-width: 1100px;
+      margin: auto;
+    }
 
     /* HEADER */
     header {
-      padding: 20px 24px; border-radius: 24px; margin-bottom: 22px;
-      border: 1px solid rgba(148,163,184,0.35);
-      background: radial-gradient(circle at 0 0, rgba(56,189,248,0.18), transparent 55%),
-                  radial-gradient(circle at 100% 0, rgba(168,85,247,0.2), transparent 55%),
-                  rgba(15,23,42,0.96);
-      display:flex; flex-wrap:wrap; gap:18px; align-items:center;
+      padding: 20px 24px;
+      border-radius: 24px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(168, 85, 247, 0.2), transparent 55%),
+        rgba(15, 23, 42, 0.96);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
     }
 
     .logo-circle {
-      width:52px; height:52px; border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-size:0.75rem; font-weight:700; letter-spacing:0.1em;
-      background:rgba(15,23,42,0.95);
-      border:2px solid rgba(56,189,248,0.9);
-      box-shadow:0 0 22px rgba(56,189,248,0.6);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      background: rgba(15, 23, 42, 0.95);
+      border: 2px solid rgba(56, 189, 248, 0.9);
+      box-shadow: 0 0 22px rgba(56, 189, 248, 0.6);
     }
 
     h1 {
-      font-size:2rem; line-height:1.25;
-      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
-      -webkit-background-clip:text; color:transparent;
-      margin-bottom:6px;
+      font-size: 2rem;
+      line-height: 1.25;
+      background: linear-gradient(90deg, #e0f2fe, #f9a8d4, #bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 6px;
     }
 
-    .header-sub { font-size:0.95rem; color:var(--muted); }
-    .badge-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .header-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
 
     .badge {
-      padding:4px 10px; border-radius:999px; font-size:0.7rem;
-      border:1px solid rgba(148,163,184,0.6);
-      text-transform:uppercase; background:rgba(15,23,42,0.85);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      text-transform: uppercase;
+      background: rgba(15, 23, 42, 0.85);
     }
 
     .mode-pill {
-      padding:6px 12px; border-radius:999px; border:1px solid rgba(148,163,184,0.6);
-      font-size:0.75rem; text-align:center; color:var(--muted);
-      min-width:150px; background:rgba(15,23,42,0.9);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      text-align: center;
+      color: var(--muted);
+      min-width: 150px;
+      background: rgba(15, 23, 42, 0.9);
     }
 
     /* MAIN LAYOUT */
     main {
-      display:grid; grid-template-columns:2.2fr 1fr; gap:22px;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 22px;
     }
-    @media(max-width:900px){ main{ grid-template-columns:1fr; } }
+
+    @media(max-width:900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .card {
-      background:rgba(15,23,42,0.97);
-      border:1px solid var(--border); border-radius:22px;
-      padding:20px; margin-bottom:20px;
-      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
     }
 
-    h2 { color:#dbeafe; margin-bottom:8px; font-size:1.15rem; }
-    h3 { color:#bfdbfe; margin:14px 0 6px; font-size:1rem; }
+    h2 {
+      color: #dbeafe;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
 
-    p { margin-bottom:8px; font-size:0.92rem; }
-    .lead { color:var(--muted); font-size:0.95rem; margin-bottom:12px; }
+    h3 {
+      color: #bfdbfe;
+      margin: 14px 0 6px;
+      font-size: 1rem;
+    }
 
-    ul, ol { margin-left:18px; margin-bottom:12px; font-size:0.9rem; }
-    li { margin-bottom:4px; }
+    p {
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    ul,
+    ol {
+      margin-left: 18px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
 
     /* LABELS */
     .step-label {
-      display:flex; align-items:center; gap:6px;
-      font-size:0.75rem; letter-spacing:0.14em;
-      text-transform:uppercase; color:var(--accent);
-      margin-bottom:4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
     }
+
     .step-dot {
-      width:6px; height:6px; background:var(--accent);
-      border-radius:50%; box-shadow:0 0 14px rgba(56,189,248,.9);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px rgba(56, 189, 248, .9);
     }
 
     /* CODE */
     pre {
-      background:var(--code-bg); color:#e5e7eb;
-      padding:12px 14px; border-radius:12px; margin:10px 0;
-      border:1px solid rgba(31,41,55,0.9); overflow-x:auto;
-      font-size:0.84rem;
+      background: var(--code-bg);
+      color: #e5e7eb;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin: 10px 0;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      overflow-x: auto;
+      font-size: 0.84rem;
     }
-    code { font-family: "Fira Code", Consolas, monospace; }
 
-    .note, .tip, .warning {
-      border-radius:12px; padding:10px 12px; margin:10px 0; font-size:0.82rem;
+    code {
+      font-family: "Fira Code", Consolas, monospace;
     }
-    .note { border:1px dashed rgba(148,163,184,0.6); color:var(--muted); background:rgba(15,23,42,0.85); }
-    .tip { border:1px solid rgba(34,197,94,0.7); background:rgba(22,163,74,0.12); color:#bbf7d0; }
-    .warning { border:1px solid rgba(248,113,113,0.7); background:rgba(127,29,29,0.4); color:#fecaca; }
+
+    .note,
+    .tip,
+    .warning {
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 0.82rem;
+    }
+
+    .note {
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .tip {
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      background: rgba(22, 163, 74, 0.12);
+      color: #bbf7d0;
+    }
+
+    .warning {
+      border: 1px solid rgba(248, 113, 113, 0.7);
+      background: rgba(127, 29, 29, 0.4);
+      color: #fecaca;
+    }
 
     .inline-tag {
-      display:inline-block; padding:2px 8px; border-radius:999px;
-      border:1px solid rgba(148,163,184,0.6); font-size:0.7rem;
-      color:var(--accent2); margin-left:4px; text-transform:uppercase;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.7rem;
+      color: var(--accent2);
+      margin-left: 4px;
+      text-transform: uppercase;
     }
 
     /* SIDEBAR */
     .side-card {
-      background:radial-gradient(circle at top, rgba(56,189,248,0.18),transparent 55%),
-                 rgba(15,23,42,0.98);
-      padding:18px; border-radius:22px;
-      border:1px solid rgba(55,65,81,0.9);
-      box-shadow:0 22px 50px rgba(0,0,0,0.75);
-      margin-bottom:18px;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 55%),
+        rgba(15, 23, 42, 0.98);
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75);
+      margin-bottom: 18px;
     }
 
     .side-card h2 {
-      color:#e0f2fe; margin-bottom:6px; font-size:1.04rem;
+      color: #e0f2fe;
+      margin-bottom: 6px;
+      font-size: 1.04rem;
     }
-    .side-list { list-style:none; margin-left:0; }
-    .side-list li { margin-bottom:6px; font-size:0.85rem; color:var(--muted); }
+
+    .side-list {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    .side-list li {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
 
     /* FOOTER */
     footer {
-      margin-top:24px; padding:18px; border-radius:22px;
-      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
-      border:1px solid rgba(55,65,81,0.9);
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.92));
+      border: 1px solid rgba(55, 65, 81, 0.9);
     }
+
     .org-heading {
-      font-size:0.78rem; color:var(--accent3);
-      letter-spacing:0.18em; margin-bottom:6px; text-transform:uppercase;
+      font-size: 0.78rem;
+      color: var(--accent3);
+      letter-spacing: 0.18em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
     }
+
     .org-grid {
-      display:grid; grid-template-columns:2fr 1.4fr; gap:12px;
-      font-size:0.85rem;
+      display: grid;
+      grid-template-columns: 2fr 1.4fr;
+      gap: 12px;
+      font-size: 0.85rem;
     }
-    @media(max-width:700px){ .org-grid{ grid-template-columns:1fr; } }
-    .org-name { font-weight:700; margin-bottom:2px; }
-    .org-sub { color:var(--muted); margin-bottom:8px; }
-    footer a { color:var(--accent); text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    .org-small { margin-top:8px; font-size:0.75rem; color:#64748b; }
+
+    @media(max-width:700px) {
+      .org-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .org-name {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .org-sub {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .org-small {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #64748b;
+    }
   </style>
 </head>
 
 <body>
-<div class="page">
+  <div class="page">
 
-<!-- HEADER -->
-<header>
-  <div class="logo-circle">C&A</div>
-  <div class="header-main">
-    <h1>Module 2 · JavaScript Syntax & Basics</h1>
-    <p class="header-sub">
-      A deep, expert-level foundation on how JavaScript is written, interpreted, stored,
-      and executed. Covers variables, data types, expressions, comments & the real fundamentals.
-    </p>
+    <!-- HEADER -->
+    <header>
+      <div class="logo-circle">C&A</div>
+      <div class="header-main">
+        <h1>Module 2 · JavaScript Syntax & Basics</h1>
+        <p class="header-sub">
+          A deep, expert-level foundation on how JavaScript is written, interpreted, stored,
+          and executed. Covers variables, data types, expressions, comments & the real fundamentals.
+        </p>
 
-    <div class="badge-row">
-      <div class="badge">Expert Syntax</div>
-      <div class="badge">var / let / const</div>
-      <div class="badge">Data Types Deep Dive</div>
+        <div class="badge-row">
+          <div class="badge">Expert Syntax</div>
+          <div class="badge">var / let / const</div>
+          <div class="badge">Data Types Deep Dive</div>
+        </div>
+      </div>
+      <div class="mode-pill">Dark Mode Active</div>
+    </header>
+
+    <!-- TEST LINKS SECTION -->
+    <div class="card" style="
+        margin-top: 20px;
+        border: 1px solid rgba(56,189,248,0.35);
+        background: radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%),
+                    radial-gradient(circle at bottom right, rgba(168,85,247,0.15), transparent 60%),
+                    rgba(15,23,42,0.95);">
+
+      <h2
+        style="font-size:1.4rem; margin-bottom:12px; background:linear-gradient(90deg,#38bdf8,#a855f7); -webkit-background-clip:text; color:transparent;">
+        ✨ Test Your Knowledge — 100 Questions Practice
+      </h2>
+
+      <p class="lead" style="margin-bottom:18px; color:#9ca3af;">
+        Boost your JavaScript confidence! Solve all 4 parts of the Module-2 Test Series.
+        Each test contains <strong>25 questions with answers & explanations</strong>, unlocked on click.
+      </p>
+
+      <div style="
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  ">
+
+        <!-- Test 1 -->
+        <a href="module2-js-basics-test-part1.html" style="
+      text-decoration:none;
+      background:rgba(15,23,42,0.9);
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(56,189,248,0.4);
+      display:block;
+      box-shadow:0 8px 20px rgba(0,0,0,0.55);
+      transition:0.25s;
+    " onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='rgba(56,189,248,0.9)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(56,189,248,0.4)'">
+          <h3 style="color:#bfdbfe; margin-bottom:6px;">🧪 Test Part 1 — Basics & Syntax</h3>
+          <p style="color:#9ca3af; font-size:0.9rem;">25 MCQs + Output + Explanations</p>
+          <div style="margin-top:6px; color:#38bdf8; font-weight:600;">Start Test →</div>
+        </a>
+
+        <!-- Test 2 -->
+        <a href="module2-js-basics-test-part2.html" style="
+      text-decoration:none;
+      background:rgba(15,23,42,0.9);
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(168,85,247,0.4);
+      display:block;
+      box-shadow:0 8px 20px rgba(0,0,0,0.55);
+      transition:0.25s;
+    " onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='rgba(168,85,247,0.9)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(168,85,247,0.4)'">
+          <h3 style="color:#bfdbfe; margin-bottom:6px;">🧪 Test Part 2 — Variables & Data Types</h3>
+          <p style="color:#9ca3af; font-size:0.9rem;">25 MCQs + Coding Challenges</p>
+          <div style="margin-top:6px; color:#a855f7; font-weight:600;">Start Test →</div>
+        </a>
+
+        <!-- Test 3 -->
+        <a href="module2-js-basics-test-part3.html" style="
+      text-decoration:none;
+      background:rgba(15,23,42,0.9);
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(34,197,94,0.4);
+      display:block;
+      box-shadow:0 8px 20px rgba(0,0,0,0.55);
+      transition:0.25s;
+    " onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='rgba(34,197,94,0.9)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(34,197,94,0.4)'">
+          <h3 style="color:#bfdbfe; margin-bottom:6px;">🧪 Test Part 3 — Operators & Conversion</h3>
+          <p style="color:#9ca3af; font-size:0.9rem;">25 Mixed Questions</p>
+          <div style="margin-top:6px; color:#22c55e; font-weight:600;">Start Test →</div>
+        </a>
+
+        <!-- Test 4 -->
+        <a href="module2-js-basics-test-part4.html" style="
+      text-decoration:none;
+      background:rgba(15,23,42,0.9);
+      padding:14px;
+      border-radius:18px;
+      border:1px solid rgba(249,115,22,0.4);
+      display:block;
+      box-shadow:0 8px 20px rgba(0,0,0,0.55);
+      transition:0.25s;
+    " onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='rgba(249,115,22,0.9)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.borderColor='rgba(249,115,22,0.4)'">
+          <h3 style="color:#bfdbfe; margin-bottom:6px;">🧪 Test Part 4 — Full Mixed MCQs</h3>
+          <p style="color:#9ca3af; font-size:0.9rem;">Final 25-Question Assessment</p>
+          <div style="margin-top:6px; color:#fb923c; font-weight:600;">Start Test →</div>
+        </a>
+
+      </div>
     </div>
-  </div>
-  <div class="mode-pill">Dark Mode Active</div>
-</header>
 
-<!-- MAIN -->
-<main>
 
-<!-- LEFT SECTION -->
-<section>
+    <!-- MAIN -->
+    <main>
 
-<!-------------------------------------->
-<!-- PART 1 — JavaScript Syntax Rules -->
-<!-------------------------------------->
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 1 · JavaScript Syntax Essentials</div>
-  <h2>1. Understanding JavaScript Syntax (The Language Rules)</h2>
-  <p class="lead">
-    Syntax refers to the set of rules that define how JavaScript code must be written for the engine to understand it.
-    Mastering syntax is the first step to writing clean, predictable programs.
-  </p>
+      <!-- LEFT SECTION -->
+      <section>
 
-  <h3>1.1 JavaScript Is Case-Sensitive</h3>
-  <pre><code>// These are all different identifiers
+        <!-------------------------------------->
+        <!-- PART 1 — JavaScript Syntax Rules -->
+        <!-------------------------------------->
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 1 · JavaScript Syntax Essentials</div>
+          <h2>1. Understanding JavaScript Syntax (The Language Rules)</h2>
+          <p class="lead">
+            Syntax refers to the set of rules that define how JavaScript code must be written for the engine to
+            understand it.
+            Mastering syntax is the first step to writing clean, predictable programs.
+          </p>
+
+          <h3>1.1 JavaScript Is Case-Sensitive</h3>
+          <pre><code>// These are all different identifiers
 let Name = "A";
 let name = "B";
 let NAME = "C";
 </code></pre>
-  <p><strong>Strict rule:</strong> Never mix uppercase/lowercase by accident.</p>
+          <p><strong>Strict rule:</strong> Never mix uppercase/lowercase by accident.</p>
 
-  <h3>1.2 Statements End with Semicolons (Optional but Recommended)</h3>
-  <p>JavaScript allows missing semicolons, but professionals always use them.</p>
-  <pre><code>let a = 10;
+          <h3>1.2 Statements End with Semicolons (Optional but Recommended)</h3>
+          <p>JavaScript allows missing semicolons, but professionals always use them.</p>
+          <pre><code>let a = 10;
 let b = 5;
 console.log(a + b);
 </code></pre>
 
-  <div class="tip">
-    Encourage all students to write semicolons consistently — this avoids auto-insertion bugs.
-  </div>
+          <div class="tip">
+            Encourage all students to write semicolons consistently — this avoids auto-insertion bugs.
+          </div>
 
-  <h3>1.3 Whitespace Doesn't Matter, But Formatting Does</h3>
-  <pre><code>// All valid JS
+          <h3>1.3 Whitespace Doesn't Matter, But Formatting Does</h3>
+          <pre><code>// All valid JS
 let x=10;
 let y = 10;
 let z     =     10;
 </code></pre>
 
-  <p><strong>But professionals follow spacing conventions</strong> (one space around operators, indentation inside blocks).</p>
+          <p><strong>But professionals follow spacing conventions</strong> (one space around operators, indentation
+            inside blocks).</p>
 
-  <h3>1.4 Blocks Are Written Inside Curly Braces { }</h3>
-  <pre><code>if (true) {
+          <h3>1.4 Blocks Are Written Inside Curly Braces { }</h3>
+          <pre><code>if (true) {
   console.log("Inside block");
 }
 </code></pre>
 
-</div>
+        </div>
 
 
-<!----------------------------------->
-<!-- PART 2 — Comments in JS       -->
-<!----------------------------------->
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 2 · Comments</div>
-  <h2>2. Writing Comments in JavaScript</h2>
+        <!----------------------------------->
+        <!-- PART 2 — Comments in JS       -->
+        <!----------------------------------->
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 2 · Comments</div>
+          <h2>2. Writing Comments in JavaScript</h2>
 
-  <h3>2.1 Single-Line Comment</h3>
-  <pre><code>// This is a comment
+          <h3>2.1 Single-Line Comment</h3>
+          <pre><code>// This is a comment
 console.log("Hello");
 </code></pre>
 
-  <h3>2.2 Multi-Line Comment</h3>
-  <pre><code>/*
+          <h3>2.2 Multi-Line Comment</h3>
+          <pre><code>/*
   This is
   a multi-line
   comment
 */
 </code></pre>
 
-  <div class="note">
-    Comments help explain complex logic — essential for teamwork & long-term coding.
-  </div>
-</div>
+          <div class="note">
+            Comments help explain complex logic — essential for teamwork & long-term coding.
+          </div>
+        </div>
 
 
-<!------------------------------------------>
-<!-- PART 3 — Variables: var / let / const -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 3 · Variables</div>
-  <h2>3. Variables — var, let & const in Depth</h2>
-  <p class="lead">
-    A variable stores data. Choosing the right keyword (var, let, const) is fundamental
-    to avoiding bugs related to scope and unexpected changes.
-  </p>
+        <!------------------------------------------>
+        <!-- PART 3 — Variables: var / let / const -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 3 · Variables</div>
+          <h2>3. Variables — var, let & const in Depth</h2>
+          <p class="lead">
+            A variable stores data. Choosing the right keyword (var, let, const) is fundamental
+            to avoiding bugs related to scope and unexpected changes.
+          </p>
 
-  <h3>3.1 Declaring with <code>let</code></h3>
-  <p>Use <code>let</code> when the value will change later.</p>
+          <h3>3.1 Declaring with <code>let</code></h3>
+          <p>Use <code>let</code> when the value will change later.</p>
 
-  <pre><code>let score = 10;
+          <pre><code>let score = 10;
 score = 20;  // allowed
 </code></pre>
 
-  <h3>3.2 Declaring with <code>const</code></h3>
-  <p>Use <code>const</code> when the value will NOT change.</p>
+          <h3>3.2 Declaring with <code>const</code></h3>
+          <p>Use <code>const</code> when the value will NOT change.</p>
 
-  <pre><code>const pi = 3.1416;
+          <pre><code>const pi = 3.1416;
 // pi = 10; ❌ ERROR
 </code></pre>
 
-  <h3>3.3 Declaring with <code>var</code> (Old & Avoided)</h3>
-  <pre><code>var a = 10;
+          <h3>3.3 Declaring with <code>var</code> (Old & Avoided)</h3>
+          <pre><code>var a = 10;
 var a = 20; // allowed ❌ (dangerous)
 </code></pre>
 
-  <div class="warning">
-    Never teach beginners to use <code>var</code>. It causes hoisting & scope confusion.
-  </div>
+          <div class="warning">
+            Never teach beginners to use <code>var</code>. It causes hoisting & scope confusion.
+          </div>
 
-  <h3>3.4 Redeclaration vs Reassignment</h3>
-  <pre><code>// let
+          <h3>3.4 Redeclaration vs Reassignment</h3>
+          <pre><code>// let
 let x = 5;
 // let x = 10; ❌ redeclare not allowed
 x = 10;      // ✔ reassignment allowed
@@ -311,8 +567,8 @@ const y = 5;
 // y = 10; ❌ cannot reassign
 </code></pre>
 
-  <h3>3.5 Example — Real-Life Variable Use</h3>
-  <pre><code>let age = 16;
+          <h3>3.5 Example — Real-Life Variable Use</h3>
+          <pre><code>let age = 16;
 let passingMarks = 35;
 let studentMarks = 60;
 
@@ -322,58 +578,146 @@ if (studentMarks >= passingMarks) {
   console.log("Try Again");
 }
 </code></pre>
-</div>
+        </div>
 
 
-<!------------------------------------------>
-<!-- PART 4 — Data Types in JavaScript    -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 4 · Data Types</div>
-  <h2>4. JavaScript Data Types (Primitive + Reference)</h2>
+        <!------------------------------------------>
+        <!-- PART 4 — Data Types in JavaScript    -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 4 · Data Types</div>
+          <h2>4. JavaScript Data Types (Primitive + Reference)</h2>
 
-  <h3>4.1 Primitive Types</h3>
-  <ul>
-    <li><strong>number</strong> — numeric values</li>
-    <li><strong>string</strong> — text</li>
-    <li><strong>boolean</strong> — true/false</li>
-    <li><strong>null</strong> — empty on purpose</li>
-    <li><strong>undefined</strong> — not yet assigned</li>
-    <li><strong>symbol</strong> — unique identifiers</li>
-    <li><strong>bigint</strong> — extremely large numbers</li>
-  </ul>
+          <h3>4.1 Primitive Types</h3>
+          <ul>
+            <li><strong>number</strong> — numeric values</li>
+            <li><strong>string</strong> — text</li>
+            <li><strong>boolean</strong> — true/false</li>
+            <li><strong>null</strong> — empty on purpose</li>
+            <li><strong>undefined</strong> — not yet assigned</li>
+            <li><strong>symbol</strong> — unique identifiers</li>
+            <li><strong>bigint</strong> — extremely large numbers</li>
+          </ul>
 
-  <h3>4.2 Examples of Primitive Types</h3>
-  <pre><code>let age = 20;               // number
-let name = "Sukanta";       // string
-let isStudent = true;       // boolean
-let phone = null;           // null
-let address;                // undefined
-let uniqueID = Symbol();    // symbol
-let big = 12345678901234567890n;  // bigint
+
+          <h3>4.4 Understanding <code>Symbol()</code> — The Hidden Unique Identifier</h3>
+          <p>
+            <code>Symbol()</code> is a special primitive type used to create <strong>unique identifiers</strong>.
+            Even if two symbols have the same description, they are always different.
+          </p>
+
+          <pre><code>let s1 = Symbol("id");
+let s2 = Symbol("id");
+
+console.log(s1 === s2);  // false (they are always unique)
 </code></pre>
 
-  <h3>4.3 Check Type Using <code>typeof</code></h3>
-  <pre><code>console.log(typeof age);       // "number"
-console.log(typeof name);      // "string"
-console.log(typeof phone);     // "object"  (special behavior)
-console.log(typeof big);       // "bigint"
+          <p><strong>Why is Symbol used?</strong></p>
+          <ul>
+            <li>To create hidden object keys</li>
+            <li>To avoid key collisions in objects</li>
+            <li>To add metadata that won’t accidentally overwrite existing properties</li>
+          </ul>
+
+          <pre><code>let user = {
+  name: "Rita"
+};
+
+let secretKey = Symbol("password");
+user[secretKey] = "myPass123";   // hidden property
+
+console.log(user); // Symbol key won’t show in normal logs
 </code></pre>
 
-  <div class="tip">Teach students early: <code>typeof null</code> returns “object” — this is a known historical bug in JS.</div>
-</div>
+          <div class="note">
+            Symbols are mostly used in advanced JavaScript (framework internals, libraries, private properties).
+          </div>
 
 
-<!------------------------------------------>
-<!-- PART 5 — Expressions & Operators     -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 5 · Expressions</div>
-  <h2>5. Expressions & Operators</h2>
-  <p>An expression is anything that returns a value.</p>
+          <h3>4.2 Examples of Primitive Types</h3>
+          <pre>
+            <code>let age = 20;               // number
+                let name = "Sukanta";       // string
+                let isStudent = true;       // boolean
+                let phone = null;           // null
+                let address;                // undefined
+                let uniqueID = Symbol();    // symbol
+                let big = 12345678901234567890n;  // bigint
+            </code>
+          </pre>
 
-  <h3>5.1 Arithmetic Operators</h3>
-  <pre><code>10 + 5    // 15  
+          <h3>4.3 Check Type Using <code>typeof</code></h3>
+          <pre>
+              <code>
+                console.log(typeof age);       // "number"
+                console.log(typeof name);      // "string"
+                console.log(typeof phone);     // "object"  (special behavior)
+                console.log(typeof big);       // "bigint"
+              </code>
+          </pre>
+
+          <div class="tip">Teach students early: <code>typeof null</code> returns “object” — this is a known historical
+            bug in JS.</div>
+        </div>
+
+        <h3>4.4 What Exactly Is <code>typeof</code> in JavaScript?</h3>
+        <div class="tip" style="margin-top:10px;">
+          <strong>Important:</strong> <code>typeof</code> is <em>not</em> a function.
+          It is a <strong>unary operator</strong> — just like <code>+</code>, <code>-</code>, <code>!</code>,
+          <code>delete</code>, etc.
+        </div>
+
+        <p>
+          Many learners confuse <code>typeof()</code> as a function because they often see it written with
+          parentheses. But the parentheses are optional — they only group the value, not call a function.
+        </p>
+
+        <pre>
+            <code>
+              typeof 10;        // "number"
+              typeof (10);      // "number" (same, parentheses just group)
+              typeof "Hello";   // "string"
+            </code>
+        </pre>
+
+        <h4 style="color:#bfdbfe;">Why is <code>typeof</code> an operator?</h4>
+        <ul>
+          <li>It works on a single operand (unary).</li>
+          <li>It does not need parentheses.</li>
+          <li>It has operator precedence rules (functions do not).</li>
+          <li>It always returns a <strong>string</strong> describing the type.</li>
+        </ul>
+
+        <h4 style="color:#bfdbfe;">Examples</h4>
+        <pre><code>typeof undefined;   // "undefined"
+typeof true;        // "boolean"
+typeof {};          // "object"
+typeof [];          // "object" (arrays are objects)
+typeof Symbol();    // "symbol"
+</code></pre>
+
+        <div class="note">
+          <strong>Remember:</strong> <code>typeof null</code> returns <code>"object"</code>.
+          This is a historical bug in JavaScript that cannot be fixed for compatibility reasons.
+        </div>
+
+        <div class="tip" style="margin-top:12px;">
+          Think of <code>typeof</code> as “a language operator that inspects the raw type of a value,”
+          not as a function call.
+        </div>
+
+
+
+        <!------------------------------------------>
+        <!-- PART 5 — Expressions & Operators     -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 5 · Expressions</div>
+          <h2>5. Expressions & Operators</h2>
+          <p>An expression is anything that returns a value.</p>
+
+          <h3>5.1 Arithmetic Operators</h3>
+          <pre><code>10 + 5    // 15  
 10 - 5    // 5  
 10 * 5    // 50  
 10 / 5    // 2  
@@ -381,173 +725,175 @@ console.log(typeof big);       // "bigint"
 2 ** 3    // 8  (power)
 </code></pre>
 
-  <h3>5.2 String Expressions</h3>
-  <pre><code>"Hello" + " World"        // "Hello World"
+          <h3>5.2 String Expressions</h3>
+          <pre><code>"Hello" + " World"        // "Hello World"
 let a = 10;
 "Score: " + a               // "Score: 10"
 </code></pre>
 
-  <h3>5.3 Template Literals (Modern Best Practice)</h3>
-  <pre><code>let name = "Sukanta";
+          <h3>5.3 Template Literals (Modern Best Practice)</h3>
+          <pre><code>let name = "Sukanta";
 console.log(`Hello, ${name}!`);
 </code></pre>
 
-  <h3>5.4 Comparison</h3>
-  <pre><code>5 == "5"     // true  (loose equality)
+          <h3>5.4 Comparison</h3>
+          <pre><code>5 == "5"     // true  (loose equality)
 5 === "5"    // false (strict equality)
 </code></pre>
 
-  <div class="warning">
-    ALWAYS use <code>===</code> and <code>!==</code> to avoid bugs caused by type coercion.
-  </div>
-</div>
+          <div class="warning">
+            ALWAYS use <code>===</code> and <code>!==</code> to avoid bugs caused by type coercion.
+          </div>
+        </div>
 
 
-<!------------------------------------------>
-<!-- PART 6 — Type Conversion             -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 6 · Type Conversion</div>
-  <h2>6. Type Conversion (Explicit & Implicit)</h2>
+        <!------------------------------------------>
+        <!-- PART 6 — Type Conversion             -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 6 · Type Conversion</div>
+          <h2>6. Type Conversion (Explicit & Implicit)</h2>
 
-  <h3>6.1 Explicit Conversion</h3>
-  <pre><code>Number("10")    // 10
+          <h3>6.1 Explicit Conversion</h3>
+          <pre><code>Number("10")    // 10
 String(500)      // "500"
 Boolean(0)       // false
 </code></pre>
 
-  <h3>6.2 Implicit Conversion</h3>
-  <pre><code>"10" * 2     // 20  
+          <h3>6.2 Implicit Conversion</h3>
+          <pre><code>"10" * 2     // 20  
 "10" + 2     // "102" (string concatenation)
 true + 5     // 6
 </code></pre>
 
-  <div class="note">
-    Teach students that JavaScript tries to “guess” types — this is powerful but dangerous.
-  </div>
-</div>
+          <div class="note">
+            Teach students that JavaScript tries to “guess” types — this is powerful but dangerous.
+          </div>
+        </div>
 
 
-<!------------------------------------------>
-<!-- PART 7 — Practical Examples          -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 7 · Practical Examples</div>
-  <h2>7. Real-World Syntax Examples</h2>
+        <!------------------------------------------>
+        <!-- PART 7 — Practical Examples          -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 7 · Practical Examples</div>
+          <h2>7. Real-World Syntax Examples</h2>
 
-  <h3>7.1 Temperature Converter</h3>
-  <pre><code>let celsius = 25;
+          <h3>7.1 Temperature Converter</h3>
+          <pre><code>let celsius = 25;
 let fahrenheit = (celsius * 9/5) + 32;
 
 console.log(`Temp = ${fahrenheit}°F`);
 </code></pre>
 
-  <h3>7.2 Simple Greeting</h3>
-  <pre><code>let user = "Rahul";
+          <h3>7.2 Simple Greeting</h3>
+          <pre><code>let user = "Rahul";
 console.log("Welcome, " + user);
 </code></pre>
 
-  <h3>7.3 Area of a Circle</h3>
-  <pre><code>const pi = 3.1416;
+          <h3>7.3 Area of a Circle</h3>
+          <pre><code>const pi = 3.1416;
 let r = 5;
 
 console.log(pi * r * r);
 </code></pre>
-</div>
+        </div>
 
 
-<!------------------------------------------>
-<!-- PART 8 — Summary + Exercises         -->
-<!------------------------------------------>
-<div class="card">
-  <div class="step-label"><span class="step-dot"></span>Step 8 · Summary</div>
-  <h2>8. Summary & Student Exercises</h2>
+        <!------------------------------------------>
+        <!-- PART 8 — Summary + Exercises         -->
+        <!------------------------------------------>
+        <div class="card">
+          <div class="step-label"><span class="step-dot"></span>Step 8 · Summary</div>
+          <h2>8. Summary & Student Exercises</h2>
 
-  <h3>✔ What Students Must Know Before Module 3</h3>
-  <ul>
-    <li>How to write valid JS syntax</li>
-    <li>Difference between var, let & const</li>
-    <li>All primitive data types</li>
-    <li>Basic operators and expressions</li>
-    <li>Template literals</li>
-    <li>Type conversion rules</li>
-  </ul>
+          <h3>✔ What Students Must Know Before Module 3</h3>
+          <ul>
+            <li>How to write valid JS syntax</li>
+            <li>Difference between var, let & const</li>
+            <li>All primitive data types</li>
+            <li>Basic operators and expressions</li>
+            <li>Template literals</li>
+            <li>Type conversion rules</li>
+          </ul>
 
-  <h3>📝 Exercises</h3>
-  <ol>
-    <li>Create variables for name, age, and city. Log a sentence using template literals.</li>
-    <li>Convert 45°C to Fahrenheit using a formula.</li>
-    <li>Try:
-      <pre><code>"5" + 5
+          <h3>📝 Exercises</h3>
+          <ol>
+            <li>Create variables for name, age, and city. Log a sentence using template literals.</li>
+            <li>Convert 45°C to Fahrenheit using a formula.</li>
+            <li>Try:
+              <pre><code>"5" + 5
 "5" - 5
 true + "5"
 </code></pre>
-      Why do these give different outputs?</li>
+              Why do these give different outputs?
+            </li>
 
-    <li>Create a <code>const</code> for a fixed GST rate and calculate the final price of a product.</li>
-  </ol>
+            <li>Create a <code>const</code> for a fixed GST rate and calculate the final price of a product.</li>
+          </ol>
 
-  <p class="note">
-    Students should attempt all exercises and review mistakes using <code>console.log()</code>.
-  </p>
-</div>
+          <p class="note">
+            Students should attempt all exercises and review mistakes using <code>console.log()</code>.
+          </p>
+        </div>
 
-</section>
+      </section>
 
 
-<!-- SIDEBAR -->
-<aside>
+      <!-- SIDEBAR -->
+      <aside>
 
-  <div class="side-card">
-    <h2>Teacher Notes for Module 2</h2>
-    <ul class="side-list">
-      <li>• Emphasize <code>let</code> & <code>const</code> over <code>var</code>.</li>
-      <li>• Use real-life examples to explain variables.</li>
-      <li>• Frequently demonstrate <code>typeof</code> in console.</li>
-      <li>• Ask students to intentionally cause errors & fix them.</li>
-    </ul>
+        <div class="side-card">
+          <h2>Teacher Notes for Module 2</h2>
+          <ul class="side-list">
+            <li>• Emphasize <code>let</code> & <code>const</code> over <code>var</code>.</li>
+            <li>• Use real-life examples to explain variables.</li>
+            <li>• Frequently demonstrate <code>typeof</code> in console.</li>
+            <li>• Ask students to intentionally cause errors & fix them.</li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h2>Next Module Preview</h2>
+          <p>
+            Module 3 covers:
+          </p>
+          <ul class="side-list">
+            <li>• If/else branching</li>
+            <li>• Logical operators</li>
+            <li>• Switch-case</li>
+            <li>• Practical decision tools</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="org-heading">Organisation Details</div>
+      <div class="org-grid">
+        <div>
+          <div class="org-name">Coder & AccoTax</div>
+          <div class="org-sub">Coding, Accounts & Taxation Learning Hub</div>
+          25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+          West Bengal, India
+        </div>
+
+        <div>
+          <strong>Website:</strong> <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+          <strong>Phone:</strong> +91 7003756860<br>
+          <strong>Course Author:</strong> Sukanta Hui<br>
+          <strong>JS Track:</strong> Beginner → Pro
+        </div>
+      </div>
+      <div class="org-small">
+        Copy this footer into every module page for consistent branding across your JS website.
+      </div>
+    </footer>
+
   </div>
-
-  <div class="side-card">
-    <h2>Next Module Preview</h2>
-    <p>
-      Module 3 covers:
-    </p>
-    <ul class="side-list">
-      <li>• If/else branching</li>
-      <li>• Logical operators</li>
-      <li>• Switch-case</li>
-      <li>• Practical decision tools</li>
-    </ul>
-  </div>
-
-</aside>
-
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="org-heading">Organisation Details</div>
-  <div class="org-grid">
-    <div>
-      <div class="org-name">Coder & AccoTax</div>
-      <div class="org-sub">Coding, Accounts & Taxation Learning Hub</div>
-      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
-      West Bengal, India
-    </div>
-
-    <div>
-      <strong>Website:</strong> <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
-      <strong>Phone:</strong> +91 7003756860<br>
-      <strong>Course Author:</strong> Sukanta Hui<br>
-      <strong>JS Track:</strong> Beginner → Pro
-    </div>
-  </div>
-  <div class="org-small">
-    Copy this footer into every module page for consistent branding across your JS website.
-  </div>
-</footer>
-
-</div>
 </body>
+
 </html>

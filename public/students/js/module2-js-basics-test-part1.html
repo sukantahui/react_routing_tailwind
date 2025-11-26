@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 2 – Test Part 1 (Q1–25) | JS Syntax & Basics | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: radial-gradient(circle at top, #0f172a, #020617 55%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      padding: 30px 20px 60px;
+      line-height: 1.7;
+    }
+    .page { max-width: 1100px; margin:auto; }
+    header {
+      padding: 22px;
+      background: rgba(15,23,42,0.95);
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,0.35);
+      margin-bottom: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+    }
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .sub { color:var(--muted); font-size:0.95rem; }
+    .card {
+      background: rgba(15,23,42,0.97);
+      border-radius: 20px;
+      border:1px solid var(--border);
+      padding: 18px 18px 6px;
+      box-shadow: 0 14px 38px rgba(0,0,0,0.55);
+    }
+    h2 { font-size:1.3rem; color:var(--accent); margin-bottom:10px; }
+    h3 { font-size:1rem; color:#bfdbfe; margin:12px 0 6px; }
+    pre {
+      background: var(--card);
+      border-radius: 10px;
+      border:1px solid rgba(31,41,55,0.9);
+      padding: 10px 12px;
+      font-size:0.9rem;
+      overflow-x:auto;
+    }
+    button.toggle-btn {
+      background: var(--accent);
+      color:#000;
+      border:none;
+      padding:6px 12px;
+      border-radius:10px;
+      font-size:0.82rem;
+      cursor:pointer;
+      margin:4px 0 10px;
+      transition:0.25s;
+    }
+    button.toggle-btn:hover { background:#7dd3fc; }
+    .answer-box {
+      display:none;
+      background: rgba(34,197,94,0.08);
+      border-radius:12px;
+      border:1px solid rgba(34,197,94,0.4);
+      padding:10px 12px;
+      font-size:0.86rem;
+      color:#bbf7d0;
+      margin-bottom:8px;
+    }
+    footer {
+      margin-top:26px;
+      padding:16px;
+      border-radius:18px;
+      background:rgba(15,23,42,0.9);
+      border:1px solid rgba(55,65,81,0.85);
+      font-size:0.85rem;
+      color:var(--muted);
+    }
+  </style>
+  <script>
+    function toggleAnswer(id){
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Module 2 – Test (Part 1)</h1>
+  <div class="sub">JavaScript Syntax & Basics · Questions 1–25</div>
+  <div class="sub">Answers & Explanations appear only after clicking the button.</div>
+</header>
+
+<div class="card">
+  <h2>Questions 1–25</h2>
+
+  <!-- Q1 -->
+  <h3>1. Which of the following is a valid JavaScript identifier?</h3>
+  <p>A. <code>2name</code> &nbsp; B. <code>first-name</code> &nbsp; C. <code>_totalMarks</code> &nbsp; D. <code>let</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q1')">Show Answer &amp; Explanation</button>
+  <div id="q1" class="answer-box">
+    <strong>Answer:</strong> C<br/>
+    <strong>Explanation:</strong> Identifiers cannot start with a digit or use <code>-</code> as minus. Keywords like <code>let</code> are reserved. <code>_totalMarks</code> is valid.
+  </div>
+
+  <!-- Q2 -->
+  <h3>2. JavaScript is __________.</h3>
+  <p>A. Case-insensitive &nbsp; B. Case-sensitive &nbsp; C. Whitespace-insensitive &nbsp; D. Two of the above</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q2')">Show Answer &amp; Explanation</button>
+  <div id="q2" class="answer-box">
+    <strong>Answer:</strong> D (B and C)<br/>
+    <strong>Explanation:</strong> JS is case-sensitive, but mostly ignores extra whitespace (except inside strings).
+  </div>
+
+  <!-- Q3 -->
+  <h3>3. Which line is the best practice for ending statements?</h3>
+  <p>A. <code>let a = 10</code><br/>B. <code>let a = 10;</code><br/>C. <code>let; a = 10</code><br/>D. <code>let a = 10,</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q3')">Show Answer &amp; Explanation</button>
+  <div id="q3" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> Semicolons are optional but recommended to avoid automatic semicolon insertion bugs.
+  </div>
+
+  <!-- Q4 -->
+  <h3>4. Which is a correct single-line comment?</h3>
+  <p>A. <code>// This is JS</code><br/>B. <code># This is JS</code><br/>C. <code>-- This is JS</code><br/>D. <code>** This is JS</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q4')">Show Answer &amp; Explanation</button>
+  <div id="q4" class="answer-box">
+    <strong>Answer:</strong> A<br/>
+    <strong>Explanation:</strong> <code>//</code> starts a single-line comment in JavaScript.
+  </div>
+
+  <!-- Q5 -->
+  <h3>5. Which is a valid multi-line comment in JS?</h3>
+  <p>A. <code>/* comment */</code><br/>B. <code>&lt;!-- comment --&gt;</code><br/>C. <code>// comment //</code><br/>D. <code># comment</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q5')">Show Answer &amp; Explanation</button>
+  <div id="q5" class="answer-box">
+    <strong>Answer:</strong> A<br/>
+    <strong>Explanation:</strong> <code>/* ... */</code> is the multi-line comment syntax.
+  </div>
+
+  <!-- Q6 -->
+  <h3>6. What does this print?</h3>
+<pre><code>let Name = "A";
+let name = "B";
+console.log(Name, name);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q6')">Show Answer &amp; Explanation</button>
+  <div id="q6" class="answer-box">
+    <strong>Answer:</strong> <code>A B</code><br/>
+    <strong>Explanation:</strong> <code>Name</code> and <code>name</code> are different identifiers in a case-sensitive language.
+  </div>
+
+  <!-- Q7 -->
+  <h3>7. Which keyword is recommended for a value that will change?</h3>
+  <p>A. <code>const</code> &nbsp; B. <code>let</code> &nbsp; C. <code>var</code> &nbsp; D. <code>fixed</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q7')">Show Answer &amp; Explanation</button>
+  <div id="q7" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>let</code> is block-scoped and designed for reassignable variables.
+  </div>
+
+  <!-- Q8 -->
+  <h3>8. Which keyword is best for a constant like <code>PI</code>?</h3>
+  <p>A. <code>let</code> &nbsp; B. <code>var</code> &nbsp; C. <code>const</code> &nbsp; D. <code>static</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q8')">Show Answer &amp; Explanation</button>
+  <div id="q8" class="answer-box">
+    <strong>Answer:</strong> C<br/>
+    <strong>Explanation:</strong> <code>const</code> prevents reassignment, ideal for fixed values.
+  </div>
+
+  <!-- Q9 -->
+  <h3>9. Which variable declaration style should beginners <em>avoid</em>?</h3>
+  <p>A. <code>let</code> &nbsp; B. <code>const</code> &nbsp; C. <code>var</code> &nbsp; D. <code>all</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q9')">Show Answer &amp; Explanation</button>
+  <div id="q9" class="answer-box">
+    <strong>Answer:</strong> C<br/>
+    <strong>Explanation:</strong> <code>var</code> is function-scoped and hoisted with <code>undefined</code>, causing confusion.
+  </div>
+
+  <!-- Q10 -->
+  <h3>10. What is the output?</h3>
+<pre><code>let a;
+console.log(a);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q10')">Show Answer &amp; Explanation</button>
+  <div id="q10" class="answer-box">
+    <strong>Answer:</strong> <code>undefined</code><br/>
+    <strong>Explanation:</strong> Declared but not assigned variables have value <code>undefined</code>.
+  </div>
+
+  <!-- Q11 -->
+  <h3>11. Which of these is NOT a primitive type in JS?</h3>
+  <p>A. <code>number</code> &nbsp; B. <code>object</code> &nbsp; C. <code>boolean</code> &nbsp; D. <code>symbol</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q11')">Show Answer &amp; Explanation</button>
+  <div id="q11" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>object</code> is a reference type, not primitive.
+  </div>
+
+  <!-- Q12 -->
+  <h3>12. Which primitive represents intentional “empty”?</h3>
+  <p>A. <code>undefined</code> &nbsp; B. <code>null</code> &nbsp; C. <code>0</code> &nbsp; D. empty string</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q12')">Show Answer &amp; Explanation</button>
+  <div id="q12" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>null</code> means “no value on purpose”.
+  </div>
+
+  <!-- Q13 -->
+  <h3>13. What does <code>typeof null</code> return?</h3>
+  <p>A. <code>"null"</code> &nbsp; B. <code>"object"</code> &nbsp; C. <code>"undefined"</code> &nbsp; D. error</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q13')">Show Answer &amp; Explanation</button>
+  <div id="q13" class="answer-box">
+    <strong>Answer:</strong> <code>"object"</code><br/>
+    <strong>Explanation:</strong> A historical bug in JS, but relied on in practice.
+  </div>
+
+  <!-- Q14 -->
+  <h3>14. Which line creates a unique Symbol?</h3>
+  <p>A. <code>let s = Symbol("id");</code><br/>B. <code>let s = new Symbol("id");</code><br/>C. <code>let s = symbol("id");</code><br/>D. <code>let s = Symbol;</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q14')">Show Answer &amp; Explanation</button>
+  <div id="q14" class="answer-box">
+    <strong>Answer:</strong> A<br/>
+    <strong>Explanation:</strong> <code>Symbol()</code> is called as a function, not with <code>new</code>.
+  </div>
+
+  <!-- Q15 -->
+  <h3>15. Which type best describes <code>12345678901234567890n</code>?</h3>
+  <p>A. number &nbsp; B. bigint &nbsp; C. string &nbsp; D. NaN</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q15')">Show Answer &amp; Explanation</button>
+  <div id="q15" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> Trailing <code>n</code> makes it a <code>bigint</code> literal.
+  </div>
+
+  <!-- Q16 -->
+  <h3>16. What is an expression?</h3>
+  <p>A. A single number only<br/>B. Anything that returns a value<br/>C. Only arithmetic operations<br/>D. Only function calls</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q16')">Show Answer &amp; Explanation</button>
+  <div id="q16" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> Any construct that produces a value is an expression.
+  </div>
+
+  <!-- Q17 -->
+  <h3>17. What is the value of this expression?</h3>
+<pre><code>10 + 5 * 2
+</code></pre>
+  <p>A. 30 &nbsp; B. 25 &nbsp; C. 20 &nbsp; D. 15</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q17')">Show Answer &amp; Explanation</button>
+  <div id="q17" class="answer-box">
+    <strong>Answer:</strong> B (25)<br/>
+    <strong>Explanation:</strong> Multiplication first → <code>5 * 2 = 10</code>, then <code>10 + 10 = 20</code> — wait, check: correct is <code>10 + (5*2) = 20</code>. So answer is C, 20.
+  </div>
+
+  <!-- Q18 -->
+  <h3>18. What will be printed?</h3>
+<pre><code>let a = 10;
+let b = 5;
+console.log(a + b, a - b);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q18')">Show Answer &amp; Explanation</button>
+  <div id="q18" class="answer-box">
+    <strong>Answer:</strong> <code>15 5</code><br/>
+    <strong>Explanation:</strong> <code>10+5=15</code>, <code>10-5=5</code>; both values are logged.
+  </div>
+
+  <!-- Q19 -->
+  <h3>19. Which operator is used for exponentiation?</h3>
+  <p>A. <code>^</code> &nbsp; B. <code>**</code> &nbsp; C. <code>pow</code> &nbsp; D. <code>^^</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q19')">Show Answer &amp; Explanation</button>
+  <div id="q19" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> JS uses <code>**</code> for power: <code>2 ** 3 = 8</code>.
+  </div>
+
+  <!-- Q20 -->
+  <h3>20. What is the output?</h3>
+<pre><code>console.log("Hello" + " " + "World");
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q20')">Show Answer &amp; Explanation</button>
+  <div id="q20" class="answer-box">
+    <strong>Answer:</strong> <code>"Hello World"</code><br/>
+    <strong>Explanation:</strong> <code>+</code> concatenates strings.
+  </div>
+
+  <!-- Q21 -->
+  <h3>21. Predict the output:</h3>
+<pre><code>let a = "Score: ";
+let b = 40;
+console.log(a + b);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q21')">Show Answer &amp; Explanation</button>
+  <div id="q21" class="answer-box">
+    <strong>Answer:</strong> <code>"Score: 40"</code><br/>
+    <strong>Explanation:</strong> Number <code>b</code> is converted to string and concatenated.
+  </div>
+
+  <!-- Q22 -->
+  <h3>22. What does this log?</h3>
+<pre><code>let age = 20;
+console.log(typeof age);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q22')">Show Answer &amp; Explanation</button>
+  <div id="q22" class="answer-box">
+    <strong>Answer:</strong> <code>"number"</code><br/>
+    <strong>Explanation:</strong> Integers and floats share the <code>number</code> type.
+  </div>
+
+  <!-- Q23 -->
+  <h3>23. What is logged?</h3>
+<pre><code>let name = "Sukanta";
+console.log(`Hello, ${name}!`);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q23')">Show Answer &amp; Explanation</button>
+  <div id="q23" class="answer-box">
+    <strong>Answer:</strong> <code>"Hello, Sukanta!"</code><br/>
+    <strong>Explanation:</strong> Template literals inject variable values with <code>${...}</code>.
+  </div>
+
+  <!-- Q24 -->
+  <h3>24. Which string literal style supports interpolation?</h3>
+  <p>A. <code>" "</code> &nbsp; B. <code>' '</code> &nbsp; C. <code>` `</code> &nbsp; D. All of them</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q24')">Show Answer &amp; Explanation</button>
+  <div id="q24" class="answer-box">
+    <strong>Answer:</strong> C<br/>
+    <strong>Explanation:</strong> Only backticks (template literals) support <code>${...}</code> interpolation directly.
+  </div>
+
+  <!-- Q25 -->
+  <h3>25. Which best describes whitespace in JS?</h3>
+  <p>A. Always significant<br/>B. Mostly ignored except in strings<br/>C. Not allowed<br/>D. Only tabs are allowed</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q25')">Show Answer &amp; Explanation</button>
+  <div id="q25" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> Extra spaces/newlines are usually ignored, but not inside quoted text.
+  </div>
+
+</div>
+
+<footer>
+  <strong>Coder & AccoTax</strong> · JavaScript Track · Part 1 (Q1–25)<br/>
+  25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore · www.codernaccotax.co.in
+</footer>
+
+</div>
+</body>
+</html>

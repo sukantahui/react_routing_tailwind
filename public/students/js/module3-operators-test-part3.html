@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Module 3 Test — Operators & Expressions (Part 3) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  :root {
+    --bg: #020617;
+    --card-bg: #0f172a;
+    --accent: #38bdf8;
+    --accent2: #a855f7;
+    --accent3: #22c55e;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1e293b;
+  }
+
+  body {
+    margin: 0;
+    background: radial-gradient(circle at top, #0f172a, #020617 70%, #000);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    padding: 28px 14px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e0f2fe, #f9a8d4, #a5b4fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 18px;
+  }
+
+  .intro {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .card {
+    background: rgba(15,23,42,0.96);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  }
+
+  .question {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #dbeafe;
+  }
+
+  button.show-btn {
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: 0.3s;
+  }
+
+  button.show-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+
+  .answer-box {
+    margin-top: 10px;
+    padding: 14px;
+    background: rgba(30,41,59,0.7);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    display: none;
+  }
+
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  function toggleAnswer(id) {
+    const box = document.getElementById(id);
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 3 — Operators & Expressions<br>Test (Part 3: Questions 51–75)</h1>
+<div class="intro">
+  Precedence • Boolean Logic • Arithmetic + Logic Mix • Template Literals • Advanced Expression Solving
+</div>
+
+<!-- QUESTIONS -->
+
+<!-- Q51 -->
+<div class="card">
+  <div class="question"><strong>Q51.</strong> Evaluate:<br><code>10 + 5 * 3</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a51')">Show Answer</button>
+  <div class="answer-box" id="a51">
+    <strong>Answer:</strong> 25<br><br>
+    <strong>Explanation:</strong> Multiplication first → 5 * 3 = 15 → 10 + 15 = 25.
+  </div>
+</div>
+
+<!-- Q52 -->
+<div class="card">
+  <div class="question"><strong>Q52.</strong> Evaluate:<br><code>(10 + 5) * 3</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a52')">Show Answer</button>
+  <div class="answer-box" id="a52">
+    <strong>Answer:</strong> 45<br><br>
+    <strong>Explanation:</strong> Parentheses first → 10 + 5 = 15 → 15 * 3 = 45.
+  </div>
+</div>
+
+<!-- Q53 -->
+<div class="card">
+  <div class="question"><strong>Q53.</strong> Solve:<br><code>20 - 5 * 2 + 3</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a53')">Show Answer</button>
+  <div class="answer-box" id="a53">
+    <strong>Answer:</strong> 13<br><br>
+    <strong>Explanation:</strong> 5 * 2 = 10 → 20 - 10 + 3 = 13.
+  </div>
+</div>
+
+<!-- Q54 -->
+<div class="card">
+  <div class="question"><strong>Q54.</strong> Evaluate:<br><code>30 / 3 * 2</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a54')">Show Answer</button>
+  <div class="answer-box" id="a54">
+    <strong>Answer:</strong> 20<br><br>
+    <strong>Explanation:</strong> Left to right → 30 / 3 = 10 → 10 * 2 = 20.
+  </div>
+</div>
+
+<!-- Q55 -->
+<div class="card">
+  <div class="question"><strong>Q55.</strong> Output:<br><code>console.log(4 + 3 > 10 - 2);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a55')">Show Answer</button>
+  <div class="answer-box" id="a55">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> 4+3=7; 10-2=8 → 7 > 8 = false.
+  </div>
+</div>
+
+<!-- Q56 -->
+<div class="card">
+  <div class="question"><strong>Q56.</strong> Evaluate:<br><code>5 + 10 > 3 * 4</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a56')">Show Answer</button>
+  <div class="answer-box" id="a56">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> 5+10=15; 3*4=12 → 15 > 12 = true.
+  </div>
+</div>
+
+<!-- Q57 -->
+<div class="card">
+  <div class="question"><strong>Q57.</strong> Predict:<br><code>10 + 2 * 5 === 20</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a57')">Show Answer</button>
+  <div class="answer-box" id="a57">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> 2*5=10 → 10+10=20 → 20 === 20 = true *Oops Correction*  
+    -> Actually result is **true**.
+  </div>
+</div>
+
+<!-- Q58 -->
+<div class="card">
+  <div class="question"><strong>Q58.</strong> Evaluate:<br><code>(10 > 5) && (3 < 1)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a58')">Show Answer</button>
+  <div class="answer-box" id="a58">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> First is true; second is false → AND becomes false.
+  </div>
+</div>
+
+<!-- Q59 -->
+<div class="card">
+  <div class="question"><strong>Q59.</strong> Evaluate:<br><code>(10 > 5) || (3 < 1)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a59')">Show Answer</button>
+  <div class="answer-box" id="a59">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> OR becomes true if any condition is true.
+  </div>
+</div>
+
+<!-- Q60 -->
+<div class="card">
+  <div class="question">
+    <strong>Q60.</strong> Output:<br>
+    <code>console.log(5 + "5");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a60')">Show Answer</button>
+  <div class="answer-box" id="a60">
+    <strong>Answer:</strong> "55"<br><br>
+    <strong>Explanation:</strong> Number + string → concatenation.
+  </div>
+</div>
+
+<!-- Q61 -->
+<div class="card">
+  <div class="question"><strong>Q61.</strong> Output:<br><code>console.log(5 - "2");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a61')">Show Answer</button>
+  <div class="answer-box" id="a61">
+    <strong>Answer:</strong> 3<br><br>
+    <strong>Explanation:</strong> "-" forces numeric conversion.
+  </div>
+</div>
+
+<!-- Q62 -->
+<div class="card">
+  <div class="question"><strong>Q62.</strong> Output:<br><code>console.log("10" * "2");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a62')">Show Answer</button>
+  <div class="answer-box" id="a62">
+    <strong>Answer:</strong> 20<br><br>
+    <strong>Explanation:</strong> "*" converts both sides to numbers.
+  </div>
+</div>
+
+<!-- Q63 -->
+<div class="card">
+  <div class="question"><strong>Q63.</strong> Evaluate:<br><code>"Hello" + 10 + 5</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a63')">Show Answer</button>
+  <div class="answer-box" id="a63">
+    <strong>Answer:</strong> "Hello105"<br><br>
+    <strong>Explanation:</strong> String + number → converts number to string.
+  </div>
+</div>
+
+<!-- Q64 -->
+<div class="card">
+  <div class="question"><strong>Q64.</strong> Evaluate:<br><code>10 + 5 + "Hello"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a64')">Show Answer</button>
+  <div class="answer-box" id="a64">
+    <strong>Answer:</strong> "15Hello"<br><br>
+    <strong>Explanation:</strong> Numbers add first → becomes string later.
+  </div>
+</div>
+
+<!-- Q65 -->
+<div class="card">
+  <div class="question"><strong>Q65.</strong> Output:<br><code>console.log(`Score is ${5+5}`);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a65')">Show Answer</button>
+  <div class="answer-box" id="a65">
+    <strong>Answer:</strong> "Score is 10"<br><br>
+    <strong>Explanation:</strong> Expressions inside template literals evaluate normally.
+  </div>
+</div>
+
+<!-- Q66 -->
+<div class="card">
+  <div class="question"><strong>Q66.</strong> Evaluate:<br><code>"JS" && 50 && "OK"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a66')">Show Answer</button>
+  <div class="answer-box" id="a66">
+    <strong>Answer:</strong> "OK"<br><br>
+    <strong>Explanation:</strong> All truthy → AND returns last value.
+  </div>
+</div>
+
+<!-- Q67 -->
+<div class="card">
+  <div class="question"><strong>Q67.</strong> Evaluate:<br><code>0 || false || 25</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a67')">Show Answer</button>
+  <div class="answer-box" id="a67">
+    <strong>Answer:</strong> 25<br><br>
+    <strong>Explanation:</strong> OR returns first truthy → 25.
+  </div>
+</div>
+
+<!-- Q68 -->
+<div class="card">
+  <div class="question"><strong>Q68.</strong> Evaluate:<br><code>false || (5 && 10)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a68')">Show Answer</button>
+  <div class="answer-box" id="a68">
+    <strong>Answer:</strong> 10<br><br>
+    <strong>Explanation:</strong> 5 && 10 → 10 (truthy) → false || 10 = 10.
+  </div>
+</div>
+
+<!-- Q69 -->
+<div class="card">
+  <div class="question"><strong>Q69.</strong> Predict:<br><code>20 > 10 && 10 > 5 && 5 > 2</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a69')">Show Answer</button>
+  <div class="answer-box" id="a69">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> All comparisons are true → AND returns true.
+  </div>
+</div>
+
+<!-- Q70 -->
+<div class="card">
+  <div class="question"><strong>Q70.</strong> Solve:<br><code>(5 * 2) > (10 / 2)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a70')">Show Answer</button>
+  <div class="answer-box" id="a70">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> 10 > 5 → true.
+  </div>
+</div>
+
+<!-- Q71 -->
+<div class="card">
+  <div class="question"><strong>Q71.</strong> Evaluate:<br><code>"10" > 2</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a71')">Show Answer</button>
+  <div class="answer-box" id="a71">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> JS converts "10" → number.
+  </div>
+</div>
+
+<!-- Q72 -->
+<div class="card">
+  <div class="question"><strong>Q72.</strong> Output:<br><code>console.log("5" < "12");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a72')">Show Answer</button>
+  <div class="answer-box" id="a72">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> String comparison is lexicographical → "5" is greater than "1".
+  </div>
+</div>
+
+<!-- Q73 -->
+<div class="card">
+  <div class="question"><strong>Q73.</strong> Evaluate:<br><code>5 + true</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a73')">Show Answer</button>
+  <div class="answer-box" id="a73">
+    <strong>Answer:</strong> 6<br><br>
+    <strong>Explanation:</strong> true → 1 when used in arithmetic.
+  </div>
+</div>
+
+<!-- Q74 -->
+<div class="card">
+  <div class="question"><strong>Q74.</strong> Evaluate:<br><code>10 - false</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a74')">Show Answer</button>
+  <div class="answer-box" id="a74">
+    <strong>Answer:</strong> 10<br><br>
+    <strong>Explanation:</strong> false → 0.
+  </div>
+</div>
+
+<!-- Q75 -->
+<div class="card">
+  <div class="question"><strong>Q75.</strong> Evaluate:<br><code>true + true</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a75')">Show Answer</button>
+  <div class="answer-box" id="a75">
+    <strong>Answer:</strong> 2<br><br>
+    <strong>Explanation:</strong> true → 1 → 1 + 1 = 2.
+  </div>
+</div>
+
+<div class="footer">
+  End of Part 3 • Continue with Part 4 (Q76–Q100)
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Module 3 Test — Operators & Expressions (Part 2) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  :root {
+    --bg: #020617;
+    --card-bg: #0f172a;
+    --accent: #38bdf8;
+    --accent2: #a855f7;
+    --accent3: #22c55e;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1e293b;
+  }
+
+  body {
+    margin: 0;
+    background: radial-gradient(circle at top, #0f172a, #020617 70%, #000);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    padding: 28px 14px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e0f2fe, #f9a8d4, #a5b4fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 18px;
+  }
+
+  .intro {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .card {
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  }
+
+  .question {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #dbeafe;
+  }
+
+  button.show-btn {
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: 0.3s;
+  }
+
+  button.show-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+
+  .answer-box {
+    margin-top: 10px;
+    padding: 14px;
+    background: rgba(30, 41, 59, 0.7);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    display: none;
+  }
+
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+  function toggleAnswer(id) {
+    const box = document.getElementById(id);
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 3 — Operators & Expressions<br>Test (Part 2: Questions 26–50)</h1>
+<div class="intro">
+  Premium Practice Test • Logical Operators • Comparison Logic • Template Literals • Boolean Evaluation
+</div>
+
+<!-- QUESTION TEMPLATES -->
+<!-- Each card contains: Question + Button + Hidden Answer -->
+
+<!-- Q26 -->
+<div class="card">
+  <div class="question"><strong>Q26.</strong> What is the output of:<br><code>console.log(true && true && false);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a26')">Show Answer</button>
+  <div class="answer-box" id="a26">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> AND (<code>&&</code>) returns true only if all values are true.  
+    Since the last value is false → entire expression is false.
+  </div>
+</div>
+
+<!-- Q27 -->
+<div class="card">
+  <div class="question"><strong>Q27.</strong> Evaluate:<br><code>true || false || false</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a27')">Show Answer</button>
+  <div class="answer-box" id="a27">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> OR (<code>||</code>) stops early (“short-circuiting”) when it finds the first true.
+  </div>
+</div>
+
+<!-- Q28 -->
+<div class="card">
+  <div class="question"><strong>Q28.</strong> What is the result of:<br><code>!false && true</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a28')">Show Answer</button>
+  <div class="answer-box" id="a28">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> <code>!false</code> becomes true → <code>true && true</code> → true.
+  </div>
+</div>
+
+<!-- Q29 -->
+<div class="card">
+  <div class="question"><strong>Q29.</strong> Predict the output:<br><code>console.log(!(5 > 2));</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a29')">Show Answer</button>
+  <div class="answer-box" id="a29">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> 5 > 2 is true → <code>!true</code> gives false.
+  </div>
+</div>
+
+<!-- Q30 -->
+<div class="card">
+  <div class="question"><strong>Q30.</strong> Evaluate:<br><code>10 > 5 || 5 > 20</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a30')">Show Answer</button>
+  <div class="answer-box" id="a30">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> First condition is true → OR stops immediately.
+  </div>
+</div>
+
+<!-- Q31 -->
+<div class="card">
+  <div class="question"><strong>Q31.</strong> What does this return?<br><code>false && (10 / 0)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a31')">Show Answer</button>
+  <div class="answer-box" id="a31">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> AND short-circuits at the first false → second part never runs.
+  </div>
+</div>
+
+<!-- Q32 -->
+<div class="card">
+  <div class="question"><strong>Q32.</strong> Evaluate:<br><code>true || (5 / 0)</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a32')">Show Answer</button>
+  <div class="answer-box" id="a32">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> OR short-circuits when true appears → division never executes.
+  </div>
+</div>
+
+<!-- Q33 -->
+<div class="card">
+  <div class="question"><strong>Q33.</strong> Output of:<br><code>console.log(!("hello"));</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a33')">Show Answer</button>
+  <div class="answer-box" id="a33">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> "hello" is truthy → !truthy = false.
+  </div>
+</div>
+
+<!-- Q34 -->
+<div class="card">
+  <div class="question"><strong>Q34.</strong> Is <code>""</code> truthy or falsy?</div>
+  <button class="show-btn" onclick="toggleAnswer('a34')">Show Answer</button>
+  <div class="answer-box" id="a34">
+    <strong>Answer:</strong> falsy<br><br>
+    <strong>Explanation:</strong> Empty string is one of JavaScript’s built-in falsy values.
+  </div>
+</div>
+
+<!-- Q35 -->
+<div class="card">
+  <div class="question"><strong>Q35.</strong> Evaluate:<br><code>0 || 25</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a35')">Show Answer</button>
+  <div class="answer-box" id="a35">
+    <strong>Answer:</strong> 25<br><br>
+    <strong>Explanation:</strong> 0 is falsy → OR returns the next value.
+  </div>
+</div>
+
+<!-- Q36 -->
+<div class="card">
+  <div class="question"><strong>Q36.</strong> What is:<br><code>"" && "JS"</code>?</div>
+  <button class="show-btn" onclick="toggleAnswer('a36')">Show Answer</button>
+  <div class="answer-box" id="a36">
+    <strong>Answer:</strong> "" (empty string)<br><br>
+    <strong>Explanation:</strong> AND returns the first falsy value.
+  </div>
+</div>
+
+<!-- Q37 -->
+<div class="card">
+  <div class="question"><strong>Q37.</strong> Output of:<br><code>console.log("Hi" && 0);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a37')">Show Answer</button>
+  <div class="answer-box" id="a37">
+    <strong>Answer:</strong> 0<br><br>
+    <strong>Explanation:</strong> AND returns first falsy → 0 is falsy.
+  </div>
+</div>
+
+<!-- Q38 -->
+<div class="card">
+  <div class="question"><strong>Q38.</strong> Evaluate:<br><code>true && "JS"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a38')">Show Answer</button>
+  <div class="answer-box" id="a38">
+    <strong>Answer:</strong> "JS"<br><br>
+    <strong>Explanation:</strong> AND returns last value if all are truthy.
+  </div>
+</div>
+
+<!-- Q39 -->
+<div class="card">
+  <div class="question"><strong>Q39.</strong> Result of:<br><code>false || "Hello"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a39')">Show Answer</button>
+  <div class="answer-box" id="a39">
+    <strong>Answer:</strong> "Hello"<br><br>
+    <strong>Explanation:</strong> OR returns first truthy → "Hello".
+  </div>
+</div>
+
+<!-- Q40 -->
+<div class="card">
+  <div class="question"><strong>Q40.</strong> Evaluate:<br><code>!0</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a40')">Show Answer</button>
+  <div class="answer-box" id="a40">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> 0 is falsy → !falsy = true.
+  </div>
+</div>
+
+<!-- Q41 -->
+<div class="card">
+  <div class="question"><strong>Q41.</strong> Output:<br><code>console.log(!" ")</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a41')">Show Answer</button>
+  <div class="answer-box" id="a41">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> A space (" ") is truthy → !truthy = false.
+  </div>
+</div>
+
+<!-- Q42 -->
+<div class="card">
+  <div class="question"><strong>Q42.</strong> What is the result?<br><code>5 > 2 && 2 > 10</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a42')">Show Answer</button>
+  <div class="answer-box" id="a42">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> Second comparison is false → entire AND is false.
+  </div>
+</div>
+
+<!-- Q43 -->
+<div class="card">
+  <div class="question"><strong>Q43.</strong> Evaluate:<br><code>5 === "5" || 10 > 2</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a43')">Show Answer</button>
+  <div class="answer-box" id="a43">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> First is false, but second is true → OR returns true.
+  </div>
+</div>
+
+<!-- Q44 -->
+<div class="card">
+  <div class="question"><strong>Q44.</strong> Output:<br><code>console.log(!null);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a44')">Show Answer</button>
+  <div class="answer-box" id="a44">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> null is falsy → !falsy = true.
+  </div>
+</div>
+
+<!-- Q45 -->
+<div class="card">
+  <div class="question"><strong>Q45.</strong> Which is truthy?<br><code>0, "", "0", null</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a45')">Show Answer</button>
+  <div class="answer-box" id="a45">
+    <strong>Answer:</strong> "0"<br><br>
+    <strong>Explanation:</strong> Non-empty strings are truthy even if they contain "0".
+  </div>
+</div>
+
+<!-- Q46 -->
+<div class="card">
+  <div class="question"><strong>Q46.</strong> Evaluate:<br><code>(5 && 10) || 0</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a46')">Show Answer</button>
+  <div class="answer-box" id="a46">
+    <strong>Answer:</strong> 10<br><br>
+    <strong>Explanation:</strong> 5 && 10 → both truthy → returns 10.  
+    Then 10 || 0 → returns 10.
+  </div>
+</div>
+
+<!-- Q47 -->
+<div class="card">
+  <div class="question"><strong>Q47.</strong> Result of:<br><code>(0 && 10) || 20</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a47')">Show Answer</button>
+  <div class="answer-box" id="a47">
+    <strong>Answer:</strong> 20<br><br>
+    <strong>Explanation:</strong> 0 && 10 → returns 0 (falsy).  
+    Then 0 || 20 → returns 20.
+  </div>
+</div>
+
+<!-- Q48 -->
+<div class="card">
+  <div class="question"><strong>Q48.</strong> What does this give?<br><code>"JS" || false</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a48')">Show Answer</button>
+  <div class="answer-box" id="a48">
+    <strong>Answer:</strong> "JS"<br><br>
+    <strong>Explanation:</strong> OR returns first truthy → "JS".
+  </div>
+</div>
+
+<!-- Q49 -->
+<div class="card">
+  <div class="question"><strong>Q49.</strong> Evaluate:<br><code>!undefined</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a49')">Show Answer</button>
+  <div class="answer-box" id="a49">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> undefined is falsy → !falsy = true.
+  </div>
+</div>
+
+<!-- Q50 -->
+<div class="card">
+  <div class="question"><strong>Q50.</strong> Output:<br><code>console.log(10 && "Hello" && true);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a50')">Show Answer</button>
+  <div class="answer-box" id="a50">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> All truthy → AND returns last value.
+  </div>
+</div>
+
+<div class="footer">
+  End of Part 2 • Continue with Part 3 (Q51–Q75)
+</div>
+
+</div>
+</body>
+</html>

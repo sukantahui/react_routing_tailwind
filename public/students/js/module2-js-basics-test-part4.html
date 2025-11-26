@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 2 Test – Part D (Q76–100) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: radial-gradient(circle at top, #0f172a, #020617 55%, #000 100%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      padding: 30px 20px 80px;
+      line-height: 1.7;
+    }
+    .page { max-width: 1100px; margin: auto; }
+    header {
+      padding: 22px;
+      background: rgba(15,23,42,0.95);
+      border-radius: 24px;
+      border: 1px solid rgba(148,163,184,0.35);
+      margin-bottom: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+    }
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 4px;
+    }
+    .sub { color: var(--muted); font-size: 0.9rem; }
+    .card {
+      background: rgba(15,23,42,0.97);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+    }
+    h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 1rem;
+      color: #bfdbfe;
+      margin: 12px 0 6px;
+    }
+    pre {
+      background: var(--card);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(31,41,55,0.9);
+      overflow-x: auto;
+      font-size: 0.9rem;
+      margin: 8px 0;
+    }
+    .answer-box {
+      display: none;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.4);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-top: 8px;
+      color: #bbf7d0;
+      font-size: 0.9rem;
+    }
+    button.toggle-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 5px 11px;
+      border-radius: 10px;
+      margin-top: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+    button.toggle-btn:hover {
+      background: #7dd3fc;
+      transform: translateY(-1px);
+    }
+    footer {
+      margin-top: 30px;
+      padding: 16px;
+      background: rgba(15,23,42,0.9);
+      border-radius: 18px;
+      border: 1px solid rgba(55,65,81,0.85);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+
+  <script>
+    function toggleAnswer(id) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <h1>Module 2 Test — Part 4 (Q76–100)</h1>
+    <div class="sub">JavaScript Syntax & Basics · Coder & AccoTax</div>
+    <div class="sub">Answers & Explanations appear only when you click the button.</div>
+  </header>
+
+  <div class="card">
+    <h2>Questions 76 – 100</h2>
+
+    <!-- Q76 -->
+    <div>
+      <h3>76. Output?</h3>
+      <pre><code>let x = 10;
+let y = 3;
+console.log(x % y);</code></pre>
+      <p>A. <code>1</code> &nbsp; B. <code>3</code> &nbsp; C. <code>0</code> &nbsp; D. <code>NaN</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q76')">Show Answer & Explanation</button>
+      <div id="q76" class="answer-box">
+        <strong>Answer:</strong> A<br>
+        <strong>Explanation:</strong> The remainder of <code>10 ÷ 3</code> is <code>1</code>.
+      </div>
+    </div>
+
+    <!-- Q77 -->
+    <div>
+      <h3>77. Output?</h3>
+      <pre><code>let x = 2;
+let y = 3;
+console.log(x ** y * 2);</code></pre>
+      <p>A. <code>8</code> &nbsp; B. <code>16</code> &nbsp; C. <code>12</code> &nbsp; D. <code>10</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q77')">Show Answer & Explanation</button>
+      <div id="q77" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> <code>2 ** 3 = 8</code>, then <code>8 * 2 = 16</code>.
+      </div>
+    </div>
+
+    <!-- Q78 -->
+    <div>
+      <h3>78. Output?</h3>
+      <pre><code>let a = 10;
+let b = 5;
+console.log(a / b + a * b);</code></pre>
+      <p>A. <code>12</code> &nbsp; B. <code>52</code> &nbsp; C. <code>50</code> &nbsp; D. <code>2</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q78')">Show Answer & Explanation</button>
+      <div id="q78" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> <code>10 / 5 = 2</code>, <code>10 * 5 = 50</code>, total <code>52</code>.
+      </div>
+    </div>
+
+    <!-- Q79 -->
+    <div>
+      <h3>79. Output?</h3>
+      <pre><code>console.log(5 == "5" && 5 === "5");</code></pre>
+      <p>A. <code>true</code> &nbsp; B. <code>false</code> &nbsp; C. <code>"true"</code> &nbsp; D. Error</p>
+      <button class="toggle-btn" onclick="toggleAnswer('q79')">Show Answer & Explanation</button>
+      <div id="q79" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> First part is <code>true</code>, second is <code>false</code>; <code>true && false</code> → <code>false</code>.
+      </div>
+    </div>
+
+    <!-- Q80 -->
+    <div>
+      <h3>80. Output?</h3>
+      <pre><code>console.log(5 == "5" || 5 === "5");</code></pre>
+      <p>A. <code>true</code> &nbsp; B. <code>false</code> &nbsp; C. <code>"true"</code> &nbsp; D. Error</p>
+      <button class="toggle-btn" onclick="toggleAnswer('q80')">Show Answer & Explanation</button>
+      <div id="q80" class="answer-box">
+        <strong>Answer:</strong> A<br>
+        <strong>Explanation:</strong> <code>||</code> is OR; at least one side is true.
+      </div>
+    </div>
+
+    <!-- Q81 -->
+    <div>
+      <h3>81. Output?</h3>
+      <pre><code>let a = 0;
+console.log(!a);</code></pre>
+      <p>A. <code>0</code> &nbsp; B. <code>1</code> &nbsp; C. <code>true</code> &nbsp; D. <code>false</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q81')">Show Answer & Explanation</button>
+      <div id="q81" class="answer-box">
+        <strong>Answer:</strong> C<br>
+        <strong>Explanation:</strong> <code>0</code> is falsy; <code>!0</code> becomes <code>true</code>.
+      </div>
+    </div>
+
+    <!-- Q82 -->
+    <div>
+      <h3>82. Write a short snippet that logs <code>"Passed"</code> if <code>marks</code> ≥ 35, otherwise <code>"Failed"</code>.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q82')">Show Answer & Explanation</button>
+      <div id="q82" class="answer-box">
+        <pre><code>let marks = 40; // example
+if (marks >= 35) {
+  console.log("Passed");
+} else {
+  console.log("Failed");
+}</code></pre>
+        <strong>Explanation:</strong> Uses a simple <code>if/else</code> decision based on comparison.
+      </div>
+    </div>
+
+    <!-- Q83 -->
+    <div>
+      <h3>83. Write a single expression (no <code>if</code>) that evaluates to <code>"Passed"</code> or <code>"Failed"</code> using the ternary operator.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q83')">Show Answer & Explanation</button>
+      <div id="q83" class="answer-box">
+        <pre><code>let marks = 40;
+let result = marks >= 35 ? "Passed" : "Failed";</code></pre>
+        <strong>Explanation:</strong> Ternary operator: <code>condition ? valueIfTrue : valueIfFalse</code>.
+      </div>
+    </div>
+
+    <!-- Q84 -->
+    <div>
+      <h3>84. Output?</h3>
+      <pre><code>let language = "JS";
+console.log(`I am learning ${language}.`);</code></pre>
+      <p>A. <code>I am learning language.</code> &nbsp; B. <code>I am learning JS.</code> &nbsp; C. <code>`I am learning JS.`</code> &nbsp; D. Error</p>
+      <button class="toggle-btn" onclick="toggleAnswer('q84')">Show Answer & Explanation</button>
+      <div id="q84" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> Template literal inserts the variable’s value.
+      </div>
+    </div>
+
+    <!-- Q85 -->
+    <div>
+      <h3>85. Correct the error:</h3>
+      <pre><code>console.log("Today is ${day}");</code></pre>
+      <p>Assume <code>let day = "Sunday";</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q85')">Show Answer & Explanation</button>
+      <div id="q85" class="answer-box">
+        <pre><code>console.log(`Today is ${day}`);</code></pre>
+        <strong>Explanation:</strong> Template literals must use backticks, not double quotes, for interpolation.
+      </div>
+    </div>
+
+    <!-- Q86 -->
+    <div>
+      <h3>86. Write a piece of code that declares <code>price</code> and <code>quantity</code> and logs the total bill.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q86')">Show Answer & Explanation</button>
+      <div id="q86" class="answer-box">
+        <pre><code>let price = 100;
+let quantity = 3;
+let total = price * quantity;
+console.log(total);</code></pre>
+        <strong>Explanation:</strong> Basic arithmetic expression using <code>*</code>.
+      </div>
+    </div>
+
+    <!-- Q87 -->
+    <div>
+      <h3>87. Output?</h3>
+      <pre><code>let text = "Score: " + 50;
+console.log(text);</code></pre>
+      <p>A. <code>50</code> &nbsp; B. <code>"Score: 50"</code> &nbsp; C. <code>NaN</code> &nbsp; D. Error</p>
+      <button class="toggle-btn" onclick="toggleAnswer('q87')">Show Answer & Explanation</button>
+      <div id="q87" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> Concatenation of string and number yields a string.
+      </div>
+    </div>
+
+    <!-- Q88 -->
+    <div>
+      <h3>88. Create a <code>const</code> for <code>DISCOUNT</code> = 10 and compute the final price from base price 500 after discount (simple percentage).</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q88')">Show Answer & Explanation</button>
+      <div id="q88" class="answer-box">
+        <pre><code>const DISCOUNT = 10;
+let base = 500;
+let finalPrice = base - (base * DISCOUNT / 100);
+console.log(finalPrice);</code></pre>
+        <strong>Explanation:</strong> Applies percentage discount: <code>price - price × rate / 100</code>.
+      </div>
+    </div>
+
+    <!-- Q89 -->
+    <div>
+      <h3>89. Output?</h3>
+      <pre><code>let value = "100";
+value = Number(value);
+console.log(typeof value);</code></pre>
+      <p>A. <code>"string"</code> &nbsp; B. <code>"number"</code> &nbsp; C. <code>"object"</code> &nbsp; D. <code>"bigint"</code></p>
+      <button class="toggle-btn" onclick="toggleAnswer('q89')">Show Answer & Explanation</button>
+      <div id="q89" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> <code>Number()</code> converts the string to a number.
+      </div>
+    </div>
+
+    <!-- Q90 -->
+    <div>
+      <h3>90. Output?</h3>
+      <pre><code>let isMember = false;
+console.log(isMember ? "Discount" : "No Discount");</code></pre>
+      <p>A. <code>"Discount"</code> &nbsp; B. <code>"No Discount"</code> &nbsp; C. <code>true</code> &nbsp; D. Error</p>
+      <button class="toggle-btn" onclick="toggleAnswer('q90')">Show Answer & Explanation</button>
+      <div id="q90" class="answer-box">
+        <strong>Answer:</strong> B<br>
+        <strong>Explanation:</strong> The condition is false, so ternary returns the second value.
+      </div>
+    </div>
+
+    <!-- Q91 -->
+    <div>
+      <h3>91. Define in one line: What is a JavaScript variable?</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q91')">Show Answer & Explanation</button>
+      <div id="q91" class="answer-box">
+        <strong>Answer (Sample):</strong> A variable is a named container used to store data that can be used and changed in a program.
+      </div>
+    </div>
+
+    <!-- Q92 -->
+    <div>
+      <h3>92. Define in one line: What is a primitive data type?</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q92')">Show Answer & Explanation</button>
+      <div id="q92" class="answer-box">
+        <strong>Answer (Sample):</strong> A primitive data type is a basic, indivisible value such as number, string, boolean, null, undefined, symbol, or bigint.
+      </div>
+    </div>
+
+    <!-- Q93 -->
+    <div>
+      <h3>93. Define in one line: What is type coercion?</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q93')">Show Answer & Explanation</button>
+      <div id="q93" class="answer-box">
+        <strong>Answer (Sample):</strong> Type coercion is the automatic conversion of one data type to another during expression evaluation.
+      </div>
+    </div>
+
+    <!-- Q94 -->
+    <div>
+      <h3>94. Give an example of implicit type coercion in JavaScript.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q94')">Show Answer & Explanation</button>
+      <div id="q94" class="answer-box">
+        <pre><code>"5" * 2   // becomes 10
+"5" + 2   // becomes "52"</code></pre>
+        <strong>Explanation:</strong> In the first case, strings are converted to numbers; in the second, number is converted to string.
+      </div>
+    </div>
+
+    <!-- Q95 -->
+    <div>
+      <h3>95. Write a line of code that safely compares value and type of <code>5</code> and <code>"5"</code>.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q95')">Show Answer & Explanation</button>
+      <div id="q95" class="answer-box">
+        <pre><code>console.log(5 === "5");</code></pre>
+        <strong>Explanation:</strong> <code>===</code> compares both type and value without coercion.
+      </div>
+    </div>
+
+    <!-- Q96 -->
+    <div>
+      <h3>96. Create a simple greeting function using expressions only (no function keyword) and assign it to a <code>const</code> variable.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q96')">Show Answer & Explanation</button>
+      <div id="q96" class="answer-box">
+        <pre><code>const greet = (name) => `Hello, ${name}!`;</code></pre>
+        <strong>Explanation:</strong> This is a function expression using an arrow function that returns a string.
+      </div>
+    </div>
+
+    <!-- Q97 -->
+    <div>
+      <h3>97. True or False: Every valid JavaScript program is made of statements and expressions.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q97')">Show Answer & Explanation</button>
+      <div id="q97" class="answer-box">
+        <strong>Answer:</strong> True<br>
+        <strong>Explanation:</strong> JS code is composed of statements (actions) and expressions (value-producing pieces).
+      </div>
+    </div>
+
+    <!-- Q98 -->
+    <div>
+      <h3>98. Which of the following is a pure expression?</h3>
+      <p>A. <code>let x = 10;</code><br>
+         B. <code>x = x + 1;</code><br>
+         C. <code>2 + 3</code><br>
+         D. <code>if (x &gt; 5) { x++; }</code>
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('q98')">Show Answer & Explanation</button>
+      <div id="q98" class="answer-box">
+        <strong>Answer:</strong> C<br>
+        <strong>Explanation:</strong> <code>2 + 3</code> produces a value without side effects; others modify state or declare variables.
+      </div>
+    </div>
+
+    <!-- Q99 -->
+    <div>
+      <h3>99. Why is it good practice to use meaningful variable names?</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q99')">Show Answer & Explanation</button>
+      <div id="q99" class="answer-box">
+        <strong>Answer (Sample):</strong> Meaningful names make code self-explanatory, easier to read, maintain and debug.
+      </div>
+    </div>
+
+    <!-- Q100 -->
+    <div>
+      <h3>100. In one or two lines, summarize what a beginner must master from this module before learning conditions and loops.</h3>
+      <button class="toggle-btn" onclick="toggleAnswer('q100')">Show Answer & Explanation</button>
+      <div id="q100" class="answer-box">
+        <strong>Answer (Sample):</strong><br>
+        They should understand how to declare variables with <code>let</code> and <code>const</code>, know all basic data types, write and read simple expressions, use <code>console.log()</code>, and be comfortable with type conversion and template literals.<br>
+        <strong>Explanation:</strong> These are the foundations on which decision-making and looping concepts are built.
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Coder &amp; AccoTax · Module 2 Test – Part D (Questions 76–100)<br>
+    25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore · www.codernaccotax.co.in
+  </footer>
+
+</div>
+</body>
+</html>

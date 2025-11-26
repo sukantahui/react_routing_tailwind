@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 3 Test — Operators & Expressions (Part 4) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  :root {
+    --bg: #020617;
+    --card-bg: #0f172a;
+    --accent: #38bdf8;
+    --accent2: #a855f7;
+    --accent3: #22c55e;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1e293b;
+  }
+
+  body {
+    margin: 0;
+    background: radial-gradient(circle at top, #0f172a, #020617 70%, #000);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    padding: 28px 14px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #e0f2fe, #f9a8d4, #a5b4fc);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 18px;
+  }
+
+  .intro {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .card {
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  }
+
+  .question {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #dbeafe;
+  }
+
+  button.show-btn {
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: 0.3s;
+  }
+
+  button.show-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+
+  .answer-box {
+    margin-top: 10px;
+    padding: 14px;
+    background: rgba(30, 41, 59, 0.75);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    display: none;
+  }
+
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+  }
+</style>
+
+<script>
+function toggleAnswer(id) {
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 3 — Operators & Expressions<br>Test (Part 4: Questions 76–100)</h1>
+<div class="intro">
+  Final Module Test • Advanced Evaluations • Coercion • Chained Logic • Real-world Expression Practice
+</div>
+
+<!-- Q76 -->
+<div class="card">
+  <div class="question"><strong>Q76.</strong> Evaluate:<br><code>3 + 4 + "5"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a76')">Show Answer</button>
+  <div class="answer-box" id="a76">
+    <strong>Answer:</strong> "75"<br><br>
+    <strong>Explanation:</strong> First 3+4=7 (number), then 7 + "5" → string.
+  </div>
+</div>
+
+<!-- Q77 -->
+<div class="card">
+  <div class="question"><strong>Q77.</strong> Evaluate:<br><code>"5" + 3 + 4</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a77')">Show Answer</button>
+  <div class="answer-box" id="a77">
+    <strong>Answer:</strong> "534"<br><br>
+    <strong>Explanation:</strong> String first → whole chain becomes string.
+  </div>
+</div>
+
+<!-- Q78 -->
+<div class="card">
+  <div class="question"><strong>Q78.</strong> Output:<br><code>console.log(10 > 5 > 1);</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a78')">Show Answer</button>
+  <div class="answer-box" id="a78">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> (10 > 5) → true → true > 1 → false.
+  </div>
+</div>
+
+<!-- Q79 -->
+<div class="card">
+  <div class="question"><strong>Q79.</strong> What is:<br><code>(10 > 5) && (5 > 3)</code>?</div>
+  <button class="show-btn" onclick="toggleAnswer('a79')">Show Answer</button>
+  <div class="answer-box" id="a79">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> Both comparisons are true.
+  </div>
+</div>
+
+<!-- Q80 -->
+<div class="card">
+  <div class="question"><strong>Q80.</strong> What is:<br><code>(10 > 5) && (3 > 5)</code>?</div>
+  <button class="show-btn" onclick="toggleAnswer('a80')">Show Answer</button>
+  <div class="answer-box" id="a80">
+    <strong>Answer:</strong> false<br><br>
+    <strong>Explanation:</strong> Second condition is false.
+  </div>
+</div>
+
+<!-- Q81 -->
+<div class="card">
+  <div class="question"><strong>Q81.</strong> Evaluate:<br><code>true || false && false</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a81')">Show Answer</button>
+  <div class="answer-box" id="a81">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> && runs first → false && false = false → true || false = true.
+  </div>
+</div>
+
+<!-- Q82 -->
+<div class="card">
+  <div class="question"><strong>Q82.</strong> Evaluate:<br><code>false && true || true</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a82')">Show Answer</button>
+  <div class="answer-box" id="a82">
+    <strong>Answer:</strong> true<br><br>
+    <strong>Explanation:</strong> false && true = false → false || true = true.
+  </div>
+</div>
+
+<!-- Q83 -->
+<div class="card">
+  <div class="question"><strong>Q83.</strong> Evaluate:<br><code>0 && "JS"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a83')">Show Answer</button>
+  <div class="answer-box" id="a83">
+    <strong>Answer:</strong> 0<br><br>
+    <strong>Explanation:</strong> AND returns first falsy value.
+  </div>
+</div>
+
+<!-- Q84 -->
+<div class="card">
+  <div class="question"><strong>Q84.</strong> Evaluate:<br><code>"" || "JavaScript"</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a84')">Show Answer</button>
+  <div class="answer-box

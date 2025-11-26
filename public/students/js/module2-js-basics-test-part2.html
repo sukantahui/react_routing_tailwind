@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 2 – Test Part 2 (Q26–50) | JS Syntax & Basics | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617; --card:#0f172a; --accent:#38bdf8; --accent2:#a855f7;
+      --accent3:#22c55e; --text:#e5e7eb; --muted:#9ca3af; --border:#1f2937;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      background: radial-gradient(circle at top,#0f172a,#020617 55%,#000 100%);
+      color:var(--text);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      padding:30px 20px 60px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+    header{
+      padding:22px;background:rgba(15,23,42,0.95);border-radius:24px;
+      border:1px solid rgba(148,163,184,0.35);margin-bottom:24px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.55);
+    }
+    h1{
+      font-size:2rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .sub{color:var(--muted);font-size:0.95rem;}
+    .card{
+      background:rgba(15,23,42,0.97);border-radius:20px;border:1px solid var(--border);
+      padding:18px 18px 6px;box-shadow:0 14px 38px rgba(0,0,0,0.55);
+    }
+    h2{font-size:1.3rem;color:var(--accent);margin-bottom:10px;}
+    h3{font-size:1rem;color:#bfdbfe;margin:12px 0 6px;}
+    pre{
+      background:var(--card);border-radius:10px;border:1px solid rgba(31,41,55,0.9);
+      padding:10px 12px;font-size:0.9rem;overflow-x:auto;
+    }
+    button.toggle-btn{
+      background:var(--accent);color:#000;border:none;padding:6px 12px;
+      border-radius:10px;font-size:0.82rem;cursor:pointer;margin:4px 0 10px;
+      transition:0.25s;
+    }
+    button.toggle-btn:hover{background:#7dd3fc;}
+    .answer-box{
+      display:none;background:rgba(34,197,94,0.08);border-radius:12px;
+      border:1px solid rgba(34,197,94,0.4);padding:10px 12px;font-size:0.86rem;
+      color:#bbf7d0;margin-bottom:8px;
+    }
+    footer{
+      margin-top:26px;padding:16px;border-radius:18px;
+      background:rgba(15,23,42,0.9);border:1px solid rgba(55,65,81,0.85);
+      font-size:0.85rem;color:var(--muted);
+    }
+  </style>
+  <script>
+    function toggleAnswer(id){
+      const el=document.getElementById(id);
+      el.style.display = (el.style.display==="block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <h1>Module 2 – Test (Part 2)</h1>
+  <div class="sub">JavaScript Syntax & Basics · Questions 26–50</div>
+  <div class="sub">Answers & Explanations appear only after clicking.</div>
+</header>
+
+<div class="card">
+  <h2>Questions 26–50</h2>
+
+  <!-- Q26 -->
+  <h3>26. Which statement about <code>var</code> is TRUE?</h3>
+  <p>
+    A. It is block-scoped<br/>
+    B. It is function-scoped<br/>
+    C. It cannot be redeclared<br/>
+    D. It throws error on hoisting
+  </p>
+  <button class="toggle-btn" onclick="toggleAnswer('q26')">Show Answer &amp; Explanation</button>
+  <div id="q26" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>var</code> is scoped to the nearest function, not to blocks like <code>if</code> or <code>for</code>.
+  </div>
+
+  <!-- Q27 -->
+  <h3>27. What is the output?</h3>
+<pre><code>if (true) {
+  var x = 5;
+}
+console.log(x);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q27')">Show Answer &amp; Explanation</button>
+  <div id="q27" class="answer-box">
+    <strong>Answer:</strong> <code>5</code><br/>
+    <strong>Explanation:</strong> <code>var</code> leaks out of block to the function/global scope.
+  </div>
+
+  <!-- Q28 -->
+  <h3>28. What is the output?</h3>
+<pre><code>if (true) {
+  let y = 10;
+}
+console.log(y);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q28')">Show Answer &amp; Explanation</button>
+  <div id="q28" class="answer-box">
+    <strong>Answer:</strong> ReferenceError<br/>
+    <strong>Explanation:</strong> <code>y</code> is block-scoped; it doesn't exist outside the <code>if</code> block.
+  </div>
+
+  <!-- Q29 -->
+  <h3>29. What is logged?</h3>
+<pre><code>console.log(a);
+var a = 10;
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q29')">Show Answer &amp; Explanation</button>
+  <div id="q29" class="answer-box">
+    <strong>Answer:</strong> <code>undefined</code><br/>
+    <strong>Explanation:</strong> <code>var</code> is hoisted and initialized with <code>undefined</code> before execution.
+  </div>
+
+  <!-- Q30 -->
+  <h3>30. What happens here?</h3>
+<pre><code>console.log(b);
+let b = 20;
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q30')">Show Answer &amp; Explanation</button>
+  <div id="q30" class="answer-box">
+    <strong>Answer:</strong> ReferenceError<br/>
+    <strong>Explanation:</strong> <code>let</code> is hoisted but not initialized; accessing it before the line creates a temporal dead zone error.
+  </div>
+
+  <!-- Q31 -->
+  <h3>31. Which comparison is safest for equality?</h3>
+  <p>A. <code>==</code> &nbsp; B. <code>===</code> &nbsp; C. <code>=</code> &nbsp; D. <code>!==</code></p>
+  <button class="toggle-btn" onclick="toggleAnswer('q31')">Show Answer &amp; Explanation</button>
+  <div id="q31" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>===</code> avoids type coercion and checks both type and value.
+  </div>
+
+  <!-- Q32 -->
+  <h3>32. What is the result?</h3>
+<pre><code>5 == "5"
+</code></pre>
+  <p>A. true &nbsp; B. false &nbsp; C. TypeError &nbsp; D. undefined</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q32')">Show Answer &amp; Explanation</button>
+  <div id="q32" class="answer-box">
+    <strong>Answer:</strong> A (true)<br/>
+    <strong>Explanation:</strong> <code>==</code> converts the string to number then compares.
+  </div>
+
+  <!-- Q33 -->
+  <h3>33. What is the result?</h3>
+<pre><code>5 === "5"
+</code></pre>
+  <p>A. true &nbsp; B. false &nbsp; C. TypeError &nbsp; D. NaN</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q33')">Show Answer &amp; Explanation</button>
+  <div id="q33" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> Types are different (number vs string), so strict equality fails.
+  </div>
+
+  <!-- Q34 -->
+  <h3>34. Evaluate:</h3>
+<pre><code>"10" * 2
+</code></pre>
+  <p>A. "102" &nbsp; B. 20 &nbsp; C. NaN &nbsp; D. "20"</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q34')">Show Answer &amp; Explanation</button>
+  <div id="q34" class="answer-box">
+    <strong>Answer:</strong> B (20)<br/>
+    <strong>Explanation:</strong> <code>*</code> forces numeric conversion of the string.
+  </div>
+
+  <!-- Q35 -->
+  <h3>35. Evaluate:</h3>
+<pre><code>"10" + 2
+</code></pre>
+  <p>A. "12" &nbsp; B. "102" &nbsp; C. 12 &nbsp; D. 102</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q35')">Show Answer &amp; Explanation</button>
+  <div id="q35" class="answer-box">
+    <strong>Answer:</strong> B<br/>
+    <strong>Explanation:</strong> <code>+</code> with a string performs concatenation, not addition.
+  </div>
+
+  <!-- Q36 -->
+  <h3>36. What is the output?</h3>
+<pre><code>console.log(Boolean(0));
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q36')">Show Answer &amp; Explanation</button>
+  <div id="q36" class="answer-box">
+    <strong>Answer:</strong> <code>false</code><br/>
+    <strong>Explanation:</strong> In JS, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, and <code>false</code> are falsy.
+  </div>
+
+  <!-- Q37 -->
+  <h3>37. What does this print?</h3>
+<pre><code>console.log(Boolean("0"));
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q37')">Show Answer &amp; Explanation</button>
+  <div id="q37" class="answer-box">
+    <strong>Answer:</strong> <code>true</code><br/>
+    <strong>Explanation:</strong> Non-empty strings are truthy, even "0".
+  </div>
+
+  <!-- Q38 -->
+  <h3>38. Explicit conversion to number:</h3>
+<pre><code>Number("50")
+</code></pre>
+  <p>A. 50 &nbsp; B. "50" &nbsp; C. NaN &nbsp; D. Error</p>
+  <button class="toggle-btn" onclick="toggleAnswer('q38')">Show Answer &amp; Explanation</button>
+  <div id="q38" class="answer-box">
+    <strong>Answer:</strong> A<br/>
+    <strong>Explanation:</strong> <code>Number("50")</code> converts the string to a numeric value.
+  </div>
+
+  <!-- Q39 -->
+  <h3>39. What is the output?</h3>
+<pre><code>console.log(String(500));
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q39')">Show Answer &amp; Explanation</button>
+  <div id="q39" class="answer-box">
+    <strong>Answer:</strong> <code>"500"</code><br/>
+    <strong>Explanation:</strong> <code>String()</code> converts a value to string.
+  </div>
+
+  <!-- Q40 -->
+  <h3>40. What is logged?</h3>
+<pre><code>console.log(typeof Symbol("id"));
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q40')">Show Answer &amp; Explanation</button>
+  <div id="q40" class="answer-box">
+    <strong>Answer:</strong> <code>"symbol"</code><br/>
+    <strong>Explanation:</strong> A Symbol has primitive type <code>symbol</code>.
+  </div>
+
+  <!-- Q41 -->
+  <h3>41. True or False: <code>BigInt</code> and <code>number</code> can be mixed directly in arithmetic.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q41')">Show Answer &amp; Explanation</button>
+  <div id="q41" class="answer-box">
+    <strong>Answer:</strong> False<br/>
+    <strong>Explanation:</strong> You cannot mix <code>bigint</code> with <code>number</code> directly; it throws a TypeError.
+  </div>
+
+  <!-- Q42 -->
+  <h3>42. True or False: <code>typeof NaN</code> is <code>"number"</code>.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q42')">Show Answer &amp; Explanation</button>
+  <div id="q42" class="answer-box">
+    <strong>Answer:</strong> True<br/>
+    <strong>Explanation:</strong> NaN is a special numeric value meaning “not a number”.
+  </div>
+
+  <!-- Q43 -->
+  <h3>43. Evaluate:</h3>
+<pre><code>true + 5
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q43')">Show Answer &amp; Explanation</button>
+  <div id="q43" class="answer-box">
+    <strong>Answer:</strong> <code>6</code><br/>
+    <strong>Explanation:</strong> <code>true</code> becomes 1 in numeric context → <code>1 + 5 = 6</code>.
+  </div>
+
+  <!-- Q44 -->
+  <h3>44. Evaluate:</h3>
+<pre><code>false + "5"
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q44')">Show Answer &amp; Explanation</button>
+  <div id="q44" class="answer-box">
+    <strong>Answer:</strong> <code>"false5"</code><br/>
+    <strong>Explanation:</strong> With <code>+</code> and a string, <code>false</code> becomes <code>"false"</code> and concatenates.
+  </div>
+
+  <!-- Q45 -->
+  <h3>45. Which gives <code>true</code>?</h3>
+  <p>
+    A. <code>0 === false</code><br/>
+    B. <code>"" === false</code><br/>
+    C. <code>Boolean("") === false</code><br/>
+    D. <code>null === undefined</code>
+  </p>
+  <button class="toggle-btn" onclick="toggleAnswer('q45')">Show Answer &amp; Explanation</button>
+  <div id="q45" class="answer-box">
+    <strong>Answer:</strong> C<br/>
+    <strong>Explanation:</strong> <code>Boolean("")</code> is <code>false</code>; strict equality is then <code>true</code>.
+  </div>
+
+  <!-- Q46 -->
+  <h3>46. Output?</h3>
+<pre><code>console.log(typeof 123n);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q46')">Show Answer &amp; Explanation</button>
+  <div id="q46" class="answer-box">
+    <strong>Answer:</strong> <code>"bigint"</code><br/>
+    <strong>Explanation:</strong> Numeric literals with <code>n</code> suffix are BigInt.
+  </div>
+
+  <!-- Q47 -->
+  <h3>47. Output?</h3>
+<pre><code>let secret = Symbol("token");
+let obj = {};
+obj[secret] = 123;
+console.log(obj[secret]);
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q47')">Show Answer &amp; Explanation</button>
+  <div id="q47" class="answer-box">
+    <strong>Answer:</strong> <code>123</code><br/>
+    <strong>Explanation:</strong> Symbol keys work like hidden properties but still accessible via the same Symbol reference.
+  </div>
+
+  <!-- Q48 -->
+  <h3>48. True or False: Two Symbols with the same description are equal.</h3>
+  <button class="toggle-btn" onclick="toggleAnswer('q48')">Show Answer &amp; Explanation</button>
+  <div id="q48" class="answer-box">
+    <strong>Answer:</strong> False<br/>
+    <strong>Explanation:</strong> <code>Symbol("id") === Symbol("id")</code> is always false; each Symbol is unique.
+  </div>
+
+  <!-- Q49 -->
+  <h3>49. Evaluate:</h3>
+<pre><code>Number("hello")
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q49')">Show Answer &amp; Explanation</button>
+  <div id="q49" class="answer-box">
+    <strong>Answer:</strong> <code>NaN</code><br/>
+    <strong>Explanation:</strong> Non-numeric string cannot be converted to a valid number.
+  </div>
+
+  <!-- Q50 -->
+  <h3>50. Evaluate:</h3>
+<pre><code>Boolean("hello")
+</code></pre>
+  <button class="toggle-btn" onclick="toggleAnswer('q50')">Show Answer &amp; Explanation</button>
+  <div id="q50" class="answer-box">
+    <strong>Answer:</strong> <code>true</code><br/>
+    <strong>Explanation:</strong> Any non-empty string is truthy.
+  </div>
+
+</div>
+
+<footer>
+  <strong>Coder & AccoTax</strong> · JavaScript Track · Part 2 (Q26–50)<br/>
+  www.codernaccotax.co.in
+</footer>
+
+</div>
+</body>
+</html>
