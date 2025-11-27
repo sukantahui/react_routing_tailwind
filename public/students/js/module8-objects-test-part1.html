@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 8 — Objects & OOP Test (Part 1) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --bg:#020617;
+      --accent-gold:#facc15;
+      --accent-green:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --card:#020617;
+      --code-bg:#0b1120;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    header{
+      padding:20px 24px;
+      border-radius:24px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(250,204,21,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(34,197,94,0.25),transparent 55%),
+        rgba(15,23,42,0.97);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(250,204,21,0.95);
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+      background:#020617;
+      box-shadow:0 0 24px rgba(250,204,21,0.75);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#facc15,#bbf7d0,#facc15);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+    .badge{
+      font-size:0.7rem;text-transform:uppercase;
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.76rem;min-width:150px;text-align:center;
+      color:var(--muted);background:rgba(15,23,42,0.9);
+    }
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:20px;
+      margin-bottom:20px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+    .card h2{
+      font-size:1.2rem;
+      margin-bottom:6px;
+      background:linear-gradient(90deg,#facc15,#22c55e);
+      -webkit-background-clip:text;color:transparent;
+    }
+    .lead{color:var(--muted);font-size:0.95rem;margin-bottom:12px;}
+
+    .q-card{
+      border-radius:16px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:14px 14px 12px;
+      margin-bottom:14px;
+      background:linear-gradient(135deg,rgba(15,23,42,0.98),rgba(5,12,30,0.98));
+    }
+    .q-header{
+      display:flex;gap:8px;align-items:flex-start;margin-bottom:6px;
+    }
+    .q-number{
+      font-weight:700;
+      color:var(--accent-gold);
+      font-size:0.9rem;
+      min-width:34px;
+    }
+    .q-title{font-size:0.95rem;}
+    .q-body{margin-left:34px;font-size:0.9rem;}
+    .q-body ul{margin-left:18px;margin-top:4px;}
+    .q-body li{margin-bottom:3px;}
+    pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      padding:10px;
+      font-size:0.82rem;
+      border:1px solid rgba(30,64,175,0.8);
+      overflow-x:auto;
+      margin-top:6px;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      font-size:0.84rem;
+      background:rgba(5,46,22,0.9);
+      border:1px solid rgba(34,197,94,0.7);
+      color:#bbf7d0;
+    }
+    .ans-label{
+      font-weight:700;
+      color:var(--accent-gold);
+    }
+
+    .btn-toggle{
+      margin-top:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(250,204,21,0.7);
+      background:rgba(24,24,27,0.9);
+      color:var(--text);
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .btn-toggle span{font-size:0.9rem;}
+    .btn-toggle:hover{
+      background:rgba(250,204,21,0.1);
+      box-shadow:0 0 16px rgba(250,204,21,0.4);
+    }
+
+    footer{
+      margin-top:26px;
+      border-radius:22px;
+      padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent-gold);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 8 — Objects &amp; OOP Test · Part 1</h1>
+    <p class="header-sub">
+      25 questions focused on object literals, properties, dot vs bracket notation, 
+      nested objects, and arrays of objects.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Module 8</div>
+      <div class="badge">Objects Basics</div>
+      <div class="badge">25 Questions</div>
+    </div>
+  </div>
+  <div class="mode-pill">Gold &amp; Emerald Theme</div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Part 1 — Object Basics &amp; Property Access</h2>
+    <p class="lead">
+      Answer the following questions. Click on <em>“Show Answer &amp; Explanation”</em> under each question 
+      to reveal the correct option and reasoning.
+    </p>
+
+    <!-- Q1 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q1.</div>
+        <div class="q-title">Which of the following best defines a JavaScript object?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. A collection of indexed values only</li>
+          <li>B. A collection of key–value pairs, where keys are strings or Symbols</li>
+          <li>C. A collection of only functions</li>
+          <li>D. A special type of array</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q1')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q1" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          A JavaScript object is a flexible collection of key–value pairs. Keys are typically strings 
+          (or Symbols) and values can be of any type including numbers, strings, arrays, or functions.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q2.</div>
+        <div class="q-title">Which is the correct way to define an object using literal syntax?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>// Choose the valid object literal
+</code></pre>
+        <ul>
+          <li>A. <code>const user = ( name: "Amit", age: 20 );</code></li>
+          <li>B. <code>const user = [ name: "Amit", age: 20 ];</code></li>
+          <li>C. <code>const user = { name: "Amit", age: 20 };</code></li>
+          <li>D. <code>const user = object(name = "Amit", age = 20);</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q2')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q2" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          Object literals are written using curly braces <code>{ }</code> with key–value pairs inside. 
+          Option C is the correct syntax.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q3.</div>
+        <div class="q-title">Consider the object below. What will be logged?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const course = {
+  title: "JavaScript",
+  duration: "3 months",
+  fee: 5000
+};
+
+console.log(course.title);
+</code></pre>
+        <ul>
+          <li>A. <code>undefined</code></li>
+          <li>B. <code>"title"</code></li>
+          <li>C. <code>"JavaScript"</code></li>
+          <li>D. Error at runtime</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q3')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q3" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          <code>course.title</code> accesses the <code>title</code> property of the object, whose value 
+          is the string <code>"JavaScript"</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q4.</div>
+        <div class="q-title">Which statement about dot vs bracket notation is correct?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. Both notations are identical; there is never any difference.</li>
+          <li>B. Bracket notation is required for dynamic property names.</li>
+          <li>C. Dot notation is required for dynamic property names.</li>
+          <li>D. You cannot read properties using bracket notation.</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q4')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q4" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          When the property name is stored in a variable (dynamic key), you must use bracket notation 
+          like <code>obj[key]</code>. Dot notation only works with fixed identifiers.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q5.</div>
+        <div class="q-title">What is the result of the following code?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = {
+  name: "Neha",
+  "course-name": "JavaScript Basic to Pro"
+};
+
+console.log(student.course-name);
+</code></pre>
+        <ul>
+          <li>A. <code>"JavaScript Basic to Pro"</code></li>
+          <li>B. <code>NaN</code></li>
+          <li>C. A ReferenceError</li>
+          <li>D. SyntaxError</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q5')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q5" class="answer">
+          <span class="ans-label">Correct Answer: B (at runtime)</span><br>
+          <code>student.course-name</code> is parsed as <code>student.course - name</code> 
+          (subtraction). <code>student.course</code> is <code>undefined</code> and 
+          <code>name</code> refers to the global <code>name</code> (often empty string), 
+          leading to <code>NaN</code>. The correct way is <code>student["course-name"]</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q6.</div>
+        <div class="q-title">How do you dynamically access a property whose name is stored in a variable?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const key = "fee";
+const course = { title: "JS", fee: 5000 };
+</code></pre>
+        <ul>
+          <li>A. <code>course.key</code></li>
+          <li>B. <code>course["key"]</code></li>
+          <li>C. <code>course(key)</code></li>
+          <li>D. <code>course[key]</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q6')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q6" class="answer">
+          <span class="ans-label">Correct Answer: D</span><br>
+          Bracket notation allows using a variable: <code>course[key]</code> accesses the property 
+          whose name is stored in <code>key</code>, i.e. <code>"fee"</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q7.</div>
+        <div class="q-title">What will the following code print?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const centre = {
+  name: "Coder &amp; AccoTax",
+  address: {
+    city: "Barrackpore",
+    state: "West Bengal"
+  }
+};
+
+console.log(centre.address.city);
+</code></pre>
+        <ul>
+          <li>A. <code>undefined</code></li>
+          <li>B. <code>"address"</code></li>
+          <li>C. <code>"Barrackpore"</code></li>
+          <li>D. An error</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q7')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q7" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          <code>centre.address</code> is the nested object, and <code>centre.address.city</code> 
+          gives <code>"Barrackpore"</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q8.</div>
+        <div class="q-title">Which code correctly defines an array of student objects?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. <code>const students = { "Amit", "Neha" };</code></li>
+          <li>B. <code>const students = [ "Amit" = 80, "Neha" = 90 ];</code></li>
+          <li>C. <code>const students = [ { name: "Amit", marks: 80 }, { name: "Neha", marks: 90 } ];</code></li>
+          <li>D. <code>const students = ( name: "Amit", marks: 80 );</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q8')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q8" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          An array of objects is written with <code>[ ]</code> containing multiple <code>{ }</code> 
+          object literals.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q9.</div>
+        <div class="q-title">Output of iterating over an array of objects using <code>for...of</code>:</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const students = [
+  { name: "Amit", marks: 85 },
+  { name: "Neha", marks: 92 }
+];
+
+for (let s of students) {
+  console.log(s.name);
+}
+</code></pre>
+        <ul>
+          <li>A. Logs the whole objects twice</li>
+          <li>B. Logs <code>"Amit"</code> then <code>"Neha"</code></li>
+          <li>C. Logs indexes 0 and 1</li>
+          <li>D. Throws an error</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q9')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q9" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          <code>for...of</code> iterates over array elements. Each <code>s</code> is a student object, 
+          so <code>s.name</code> prints the names.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q10.</div>
+        <div class="q-title">What is the type of <code>typeof {}</code> in JavaScript?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. <code>"array"</code></li>
+          <li>B. <code>"object"</code></li>
+          <li>C. <code>"function"</code></li>
+          <li>D. <code>"map"</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q10')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q10" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          For a plain object literal <code>{}</code>, <code>typeof</code> returns 
+          the string <code>"object"</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q11.</div>
+        <div class="q-title">Which statement will correctly add a new property <code>fee</code> to <code>course</code>?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const course = { title: "JS" };
+</code></pre>
+        <ul>
+          <li>A. <code>course.fee = 5000;</code></li>
+          <li>B. <code>course("fee") = 5000;</code></li>
+          <li>C. <code>course.add("fee", 5000);</code></li>
+          <li>D. <code>course-&gt;fee = 5000;</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q11')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q11" class="answer">
+          <span class="ans-label">Correct Answer: A</span><br>
+          Properties can be added by assignment using dot notation: 
+          <code>course.fee = 5000;</code> or bracket notation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q12.</div>
+        <div class="q-title">Which of the following deletes the <code>age</code> property from <code>student</code>?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Amit", age: 18 };
+</code></pre>
+        <ul>
+          <li>A. <code>remove student.age;</code></li>
+          <li>B. <code>delete student.age;</code></li>
+          <li>C. <code>student.age = null;</code></li>
+          <li>D. <code>student.age.delete();</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q12')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q12" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          The <code>delete</code> operator removes a property from an object. Setting to 
+          <code>null</code> only changes its value, not its existence.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q13.</div>
+        <div class="q-title">What will be logged in the following code?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Neha", marks: 90 };
+console.log("Result" in student);
+</code></pre>
+        <ul>
+          <li>A. <code>true</code></li>
+          <li>B. <code>false</code></li>
+          <li>C. <code>"Result"</code></li>
+          <li>D. <code>undefined</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q13')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q13" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          The <code>in</code> operator checks if a property key exists. <code>"Result"</code> is 
+          not a property of <code>student</code>, so the result is <code>false</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q14.</div>
+        <div class="q-title">Which loop is commonly used to iterate over an object's own enumerable properties?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. <code>for</code></li>
+          <li>B. <code>for...of</code></li>
+          <li>C. <code>for...in</code></li>
+          <li>D. <code>while</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q14')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q14" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          <code>for...in</code> iterates over enumerable property keys of an object. 
+          <code>for...of</code> is for iterable values (like arrays, strings).
+        </div>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q15.</div>
+        <div class="q-title">Predict the output of this snippet:</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Amit" };
+student.course = "JavaScript";
+student.name = "Rahul";
+
+console.log(student.name, student.course);
+</code></pre>
+        <ul>
+          <li>A. <code>"Amit" "JavaScript"</code></li>
+          <li>B. <code>"Rahul" "JavaScript"</code></li>
+          <li>C. <code>"Rahul" undefined</code></li>
+          <li>D. Error</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q15')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q15" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          The name property is reassigned to <code>"Rahul"</code>, and a new property <code>course</code> 
+          is added, so both values are available.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q16.</div>
+        <div class="q-title">What will <code>console.log(Object.keys(student))</code> print?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Neha", marks: 95, active: true };
+console.log(Object.keys(student));
+</code></pre>
+        <ul>
+          <li>A. <code>["Neha", 95, true]</code></li>
+          <li>B. <code>["name", "marks", "active"]</code></li>
+          <li>C. <code>["student"]</code></li>
+          <li>D. <code>[]</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q16')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q16" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          <code>Object.keys</code> returns an array of the object's own enumerable property names.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q17.</div>
+        <div class="q-title">Which expression safely reads a deeply nested property with bracket notation?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const centre = {
+  address: {
+    city: "Barrackpore"
+  }
+};
+</code></pre>
+        <ul>
+          <li>A. <code>centre["address"]["city"]</code></li>
+          <li>B. <code>centre["address"].city()</code></li>
+          <li>C. <code>centre.city.address</code></li>
+          <li>D. <code>centre(address, city)</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q17')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q17" class="answer">
+          <span class="ans-label">Correct Answer: A</span><br>
+          Both dot and bracket can be combined; here the fully bracketed 
+          <code>centre["address"]["city"]</code> is valid.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q18.</div>
+        <div class="q-title">Identify the error, if any:</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const obj = {};
+obj["full name"] = "Amit Kumar";
+
+console.log(obj.full name);
+</code></pre>
+        <ul>
+          <li>A. No error, prints <code>"Amit Kumar"</code></li>
+          <li>B. SyntaxError at <code>obj.full name</code></li>
+          <li>C. ReferenceError: full is not defined</li>
+          <li>D. <code>undefined</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q18')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q18" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          <code>obj.full name</code> is invalid syntax; property names with spaces must be accessed 
+          using bracket notation: <code>obj["full name"]</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q19.</div>
+        <div class="q-title">What does <code>Object.values(course)</code> return?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const course = { title: "JS", fee: 5000, duration: "3 months" };
+</code></pre>
+        <ul>
+          <li>A. <code>["title","fee","duration"]</code></li>
+          <li>B. <code>["JS", 5000, "3 months"]</code></li>
+          <li>C. <code>[["title","JS"],["fee",5000],["duration","3 months"]]</code></li>
+          <li>D. <code>[]</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q19')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q19" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          <code>Object.values</code> returns an array of values of the object's own enumerable properties.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q20.</div>
+        <div class="q-title">What is logged here?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Neha", marks: 90 };
+student.marks = student.marks + 5;
+
+console.log(student.marks);
+</code></pre>
+        <ul>
+          <li>A. <code>90</code></li>
+          <li>B. <code>95</code></li>
+          <li>C. <code>undefined</code></li>
+          <li>D. <code>NaN</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q20')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q20" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          The property <code>marks</code> is updated from 90 to 95 by simple arithmetic.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q21.</div>
+        <div class="q-title">Which method converts an object into an array of <code>[key, value]</code> pairs?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. <code>Object.keys()</code></li>
+          <li>B. <code>Object.values()</code></li>
+          <li>C. <code>Object.entries()</code></li>
+          <li>D. <code>Object.toArray()</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q21')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q21" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          <code>Object.entries()</code> returns an array of <code>[key, value]</code> pairs.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q22.</div>
+        <div class="q-title">Which of these is NOT a good reason to group data into objects?</div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. It keeps related data and behavior together.</li>
+          <li>B. It allows modelling real-world entities.</li>
+          <li>C. It makes code more organised and readable.</li>
+          <li>D. It guarantees faster execution time in all cases.</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q22')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q22" class="answer">
+          <span class="ans-label">Correct Answer: D</span><br>
+          Objects improve structure and readability but do not guarantee faster performance 
+          in every situation.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q23.</div>
+        <div class="q-title">Output?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const a = { value: 10 };
+const b = a;
+b.value = 20;
+
+console.log(a.value);
+</code></pre>
+        <ul>
+          <li>A. <code>10</code></li>
+          <li>B. <code>20</code></li>
+          <li>C. <code>undefined</code></li>
+          <li>D. Error</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q23')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q23" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          Both <code>a</code> and <code>b</code> reference the same object in memory. 
+          Changing via <code>b</code> also affects <code>a</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q24.</div>
+        <div class="q-title">Which spread syntax correctly clones a simple object?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>const student = { name: "Amit", marks: 80 };
+</code></pre>
+        <ul>
+          <li>A. <code>const copy = student;</code></li>
+          <li>B. <code>const copy = clone(student);</code></li>
+          <li>C. <code>const copy = { ...student };</code></li>
+          <li>D. <code>const copy = new Object(student);</code></li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q24')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q24" class="answer">
+          <span class="ans-label">Correct Answer: C</span><br>
+          The spread operator creates a shallow copy: <code>{ ...student }</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-number">Q25.</div>
+        <div class="q-title">
+          Concept check: Why are arrays of objects so common in applications?
+        </div>
+      </div>
+      <div class="q-body">
+        <ul>
+          <li>A. Because JavaScript does not support any other type of array.</li>
+          <li>B. Because each object can represent a “record” like a student, product, or invoice.</li>
+          <li>C. Because arrays cannot store primitive values.</li>
+          <li>D. Because objects cannot be stored individually.</li>
+        </ul>
+        <button class="btn-toggle" onclick="toggleAnswer('q25')">
+          <span>🔍 Show Answer &amp; Explanation</span>
+        </button>
+        <div id="q25" class="answer">
+          <span class="ans-label">Correct Answer: B</span><br>
+          Arrays of objects naturally model lists of entities (students, orders, courses), 
+          which is exactly how most real-world data is structured.
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Basic → Pro Level
+    </div>
+  </div>
+  <div class="org-small">
+    Part 1 · Objects &amp; OOP Question Series — Coder &amp; AccoTax.
+  </div>
+</footer>
+
+<script>
+  function toggleAnswer(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(el.style.display === "none" || el.style.display === ""){
+      el.style.display = "block";
+    }else{
+      el.style.display = "none";
+    }
+  }
+</script>
+
+</div>
+</body>
+</html>

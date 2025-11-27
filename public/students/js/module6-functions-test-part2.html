@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 6 — Functions in JavaScript | Test Part 2 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --accent4:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    h1{
+      font-size:2rem;
+      text-align:center;
+      margin-bottom:8px;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+      margin-bottom:18px;
+    }
+
+    .info-bar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin-bottom:20px;
+    }
+    .info-pill{
+      padding:6px 14px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(15,23,42,0.9);
+      font-size:0.8rem;
+      color:var(--muted);
+    }
+
+    .test-wrapper{
+      background:rgba(15,23,42,0.96);
+      border-radius:24px;
+      border:1px solid rgba(30,64,175,0.7);
+      box-shadow:0 24px 60px rgba(0,0,0,0.7);
+      padding:20px;
+      margin-top:10px;
+    }
+
+    .test-intro{
+      background:radial-gradient(circle at 0 0,rgba(56,189,248,0.16),transparent 55%),
+                 radial-gradient(circle at 100% 0,rgba(168,85,247,0.18),transparent 55%),
+                 rgba(15,23,42,0.95);
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,0.4);
+      padding:14px 16px;
+      margin-bottom:18px;
+    }
+    .test-intro h2{
+      font-size:1.2rem;
+      margin-bottom:6px;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .test-intro p{font-size:0.9rem;color:var(--muted);}
+    .test-intro ul{
+      margin-left:18px;
+      margin-top:4px;
+      font-size:0.86rem;
+      color:#cbd5f5;
+    }
+
+    .question-card{
+      border-radius:18px;
+      border:1px solid rgba(30,64,175,0.7);
+      background:radial-gradient(circle at top left,rgba(56,189,248,0.12),transparent 55%),
+                 rgba(15,23,42,0.96);
+      padding:14px 16px;
+      margin-bottom:14px;
+      box-shadow:0 14px 32px rgba(0,0,0,0.65);
+    }
+
+    .q-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:6px;
+    }
+    .q-number{
+      font-size:0.8rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    .q-tag{
+      font-size:0.7rem;
+      padding:3px 9px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      color:var(--accent2);
+      text-transform:uppercase;
+    }
+
+    .q-text{
+      font-size:0.92rem;
+      margin-bottom:6px;
+    }
+    .options{
+      margin-left:18px;
+      margin-bottom:8px;
+      font-size:0.9rem;
+    }
+    .options li{margin-bottom:3px;}
+
+    pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;
+      font-size:0.83rem;
+      margin:6px 0 8px;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .reveal-btn{
+      margin-top:4px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:radial-gradient(circle at 0 0,rgba(56,189,248,0.2),transparent 60%),
+                 rgba(15,23,42,0.98);
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .reveal-btn span{font-size:0.9rem;}
+    .reveal-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 10px 28px rgba(56,189,248,0.5);
+      border-color:rgba(129,230,217,0.9);
+    }
+
+    .answer-box{
+      margin-top:8px;
+      border-radius:12px;
+      padding:9px 11px;
+      background:rgba(15,23,42,0.98);
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.85rem;
+    }
+    .answer-box strong{color:var(--accent3);}
+    .answer-label{
+      font-size:0.78rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    .difficulty{
+      font-size:0.72rem;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      color:#e5e7eb;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.8);
+    }
+
+    .difficulty.easy{border-color:rgba(34,197,94,0.7);}
+    .difficulty.medium{border-color:rgba(56,189,248,0.7);}
+    .difficulty.hard{border-color:rgba(249,115,22,0.8);}
+
+    .question-meta{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size:0.78rem;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;border-radius:22px;padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <h1>Module 6 · Functions in JavaScript — Test Part 2</h1>
+  <p class="subtitle">
+    25 Mixed Questions · Function Declarations, Expressions, Arrow Functions, Return, Parameters & Scope
+  </p>
+
+  <div class="info-bar">
+    <div class="info-pill">Module 6 · Functions</div>
+    <div class="info-pill">Part 2 · Mixed Practice</div>
+    <div class="info-pill">Answers & Explanations Reveal on Click</div>
+  </div>
+
+  <div class="test-wrapper">
+
+    <div class="test-intro">
+      <h2>✨ Part 2 — Real-World Function Applications</h2>
+      <p>
+        This set focuses on <strong>using</strong> functions in slightly more realistic situations:
+        discounts, grading, validation, and small utilities.
+      </p>
+      <ul>
+        <li>Q1–10: MCQ & Output-based</li>
+        <li>Q11–20: Debugging & “What will happen?” style</li>
+        <li>Q21–25: Small logic-building questions</li>
+      </ul>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 1</div>
+          <div class="q-text">
+            Which function signature is best suited for calculating simple interest
+            in a reusable way?
+          </div>
+        </div>
+        <span class="difficulty easy">Easy</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function simpleInterest()</code></li>
+        <li>B. <code>function simpleInterest(p, r, t)</code></li>
+        <li>C. <code>function simpleInterest(amount)</code></li>
+        <li>D. <code>function simpleInterest(p)</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(1)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-1" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Simple interest depends on <code>principal (p)</code>, <code>rate (r)</code>,
+          and <code>time (t)</code>. A reusable function should accept all three
+          as parameters: <code>simpleInterest(p, r, t)</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 2</div>
+          <div class="q-text">
+            What will the following code print in the console?
+          </div>
+        </div>
+        <span class="difficulty easy">Easy</span>
+      </div>
+
+      <pre><code>function greet(name) {
+  console.log("Hello " + name);
+}
+
+let result = greet("Sukanta");
+console.log(result);</code></pre>
+
+      <ul class="options">
+        <li>A. <code>Hello Sukanta</code> then <code>Hello Sukanta</code></li>
+        <li>B. <code>Hello Sukanta</code> then <code>undefined</code></li>
+        <li>C. <code>undefined</code> then <code>Hello Sukanta</code></li>
+        <li>D. Only <code>undefined</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(2)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-2" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>greet("Sukanta")</code> prints <code>Hello Sukanta</code> but does not
+          return anything, so <code>result</code> becomes <code>undefined</code>.
+          The second <code>console.log(result)</code> prints <code>undefined</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 3</div>
+          <div class="q-text">
+            Which of the following is a valid arrow function that returns the square of a number?
+          </div>
+        </div>
+        <span class="difficulty easy">Easy</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>const square = n =&gt; { n * n };</code></li>
+        <li>B. <code>const square = n =&gt; return n * n;</code></li>
+        <li>C. <code>const square = (n) =&gt; n * n;</code></li>
+        <li>D. <code>square =&gt; (n) { return n * n; }</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(3)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-3" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          For a single-expression arrow function with <strong>implicit return</strong>, you write
+          <code>(n) =&gt; n * n</code>.  
+          Option A misses <code>return</code> inside <code>{ }</code>,  
+          Option B is invalid syntax,  
+          Option D is not a valid arrow function structure.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 4</div>
+          <div class="q-text">
+            What gets logged to the console?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function add(a, b) {
+  return a + b;
+}
+
+console.log( add(2) );</code></pre>
+
+      <ul class="options">
+        <li>A. <code>NaN</code></li>
+        <li>B. <code>2</code></li>
+        <li>C. <code>undefined</code></li>
+        <li>D. It throws an error</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(4)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-4" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          The second parameter <code>b</code> becomes <code>undefined</code>.
+          So it computes <code>2 + undefined</code> which is <code>NaN</code> in JavaScript.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 5</div>
+          <div class="q-text">
+            Which function is best for providing a default greeting when name is not passed?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function greet(name) { console.log("Hello " + name); }</code></li>
+        <li>B. <code>function greet(name = "Student") { console.log("Hello " + name); }</code></li>
+        <li>C. <code>function greet() { let name = "Student"; }</code></li>
+        <li>D. <code>const greet = name =&gt; "Hello Student";</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(5)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-5" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Using <strong>default parameter</strong> <code>name = "Student"</code> ensures that
+          if no argument is passed, <code>"Student"</code> is used automatically while still
+          accepting custom names when provided.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 6</div>
+          <div class="q-text">
+            What will this code print?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>const discountPrice = function (price, discount) {
+  return price - (price * discount);
+};
+
+console.log(discountPrice(1000, 0.2));</code></pre>
+
+      <ul class="options">
+        <li>A. <code>800</code></li>
+        <li>B. <code>200</code></li>
+        <li>C. <code>1000.2</code></li>
+        <li>D. <code>NaN</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(6)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-6" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          <code>price * discount</code> is <code>1000 * 0.2 = 200</code>.  
+          So the return value is <code>1000 - 200 = 800</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 7</div>
+          <div class="q-text">
+            Identify the correct statement about this function:
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function printBill(name, amount) {
+  console.log(`Customer: ${name}, Amount: ₹${amount}`);
+}</code></pre>
+
+      <ul class="options">
+        <li>A. It returns a string containing the bill details.</li>
+        <li>B. It prints bill details but returns <code>undefined</code>.</li>
+        <li>C. It causes an error because of backticks.</li>
+        <li>D. It cannot accept numbers as <code>amount</code>.</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(7)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-7" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          The function only calls <code>console.log()</code> and has no
+          <code>return</code> statement. Therefore it prints the string
+          and returns <code>undefined</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 8</div>
+          <div class="q-text">
+            What is logged by the following code?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function test(x) {
+  if (!x) {
+    return "No value";
+  }
+  return "Value is " + x;
+}
+
+console.log(test(0));</code></pre>
+
+      <ul class="options">
+        <li>A. <code>Value is 0</code></li>
+        <li>B. <code>No value</code></li>
+        <li>C. <code>undefined</code></li>
+        <li>D. It throws error</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(8)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-8" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          In JavaScript, <code>0</code> is a <strong>falsy</strong> value.  
+          Condition <code>if (!x)</code> becomes true for <code>x = 0</code>,  
+          so <code>"No value"</code> is returned.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 9</div>
+          <div class="q-text">
+            Which function definition is best if you want to accept an unknown number of marks
+            and compute their total?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function total(marks)</code></li>
+        <li>B. <code>function total(...marks)</code></li>
+        <li>C. <code>function total([marks])</code></li>
+        <li>D. <code>function total(m1, m2, m3)</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(9)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-9" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Rest parameter syntax <code>...marks</code> collects any number of arguments
+          into an array, ideal when the count of marks is not fixed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 10</div>
+          <div class="q-text">
+            What will be the output?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function mystery(a, b = 2) {
+  return a * b;
+}
+
+console.log(mystery(5));
+console.log(mystery(5, 3));</code></pre>
+
+      <ul class="options">
+        <li>A. <code>10</code> and <code>15</code></li>
+        <li>B. <code>7</code> and <code>8</code></li>
+        <li>C. <code>5</code> and <code>3</code></li>
+        <li>D. <code>NaN</code> and <code>15</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(10)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-10" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          Default parameter <code>b = 2</code> is used in the first call,
+          so <code>5 * 2 = 10</code>.  
+          In the second call, <code>b</code> is <code>3</code>, so <code>5 * 3 = 15</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 11</div>
+          <div class="q-text">
+            Consider:
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function isPassed(marks) {
+  if (marks &gt;= 40) {
+    return true;
+  }
+}
+
+console.log(isPassed(35));</code></pre>
+
+      <ul class="options">
+        <li>A. <code>true</code></li>
+        <li>B. <code>false</code></li>
+        <li>C. <code>undefined</code></li>
+        <li>D. It throws an error</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(11)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-11" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          For <code>marks = 35</code>, the condition fails and the function reaches the end
+          without returning anything. JavaScript returns <code>undefined</code> by default.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 12</div>
+          <div class="q-text">
+            You want a function <code>applyGST(price)</code> that returns price + 18% GST.
+            Which implementation is correct?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function applyGST(price){ price * 1.18; }</code></li>
+        <li>B. <code>function applyGST(price){ return price * 1.18; }</code></li>
+        <li>C. <code>function applyGST(price){ console.log(price * 1.18); }</code></li>
+        <li>D. <code>const applyGST = price =&gt; { price + 18; };</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(12)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-12" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          To <strong>return</strong> the GST-applied price, you must use
+          <code>return price * 1.18</code>. Option A misses <code>return</code>,  
+          Option C only logs, not returns, and D adds 18 instead of 18%.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 13</div>
+          <div class="q-text">
+            Find the output:
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>let msg = "Outside";
+
+function show() {
+  let msg = "Inside";
+  console.log(msg);
+}
+
+show();
+console.log(msg);</code></pre>
+
+      <ul class="options">
+        <li>A. <code>Inside</code> then <code>Inside</code></li>
+        <li>B. <code>Outside</code> then <code>Inside</code></li>
+        <li>C. <code>Inside</code> then <code>Outside</code></li>
+        <li>D. Error due to redeclaration</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(13)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-13" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          Inside the function, the <code>msg</code> variable is <strong>local</strong> to the function,
+          so <code>Inside</code> is printed. Outside, the global <code>msg</code> is used,
+          which is <code>Outside</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 14</div>
+          <div class="q-text">
+            Which of the following <strong>will throw an error</strong>?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <pre><code>// A
+hello();
+function hello() { console.log("Hi"); }
+
+// B
+greet();
+const greet = function(){ console.log("Hello"); };</code></pre>
+
+      <ul class="options">
+        <li>A. Only A throws error</li>
+        <li>B. Only B throws error</li>
+        <li>C. Both A and B throw error</li>
+        <li>D. Neither A nor B throw error</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(14)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-14" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Function <strong>declarations</strong> (A) are hoisted, so calling <code>hello()</code> before
+          its definition works.  
+          <code>const greet</code> is in the temporal dead zone before its definition,
+          so calling <code>greet()</code> before that causes a runtime error.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 15</div>
+          <div class="q-text">
+            What does this function return?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function calcGrade(marks) {
+  if (marks &gt;= 90) {
+    return "A+";
+  }
+  return "Others";
+}
+
+let g = calcGrade(92);</code></pre>
+
+      <ul class="options">
+        <li>A. <code>"A+"</code></li>
+        <li>B. <code>"Others"</code></li>
+        <li>C. <code>undefined</code></li>
+        <li>D. Error due to missing else</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(15)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-15" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          For <code>marks = 92</code>, the <code>if</code> condition is true,
+          so the function immediately returns <code>"A+"</code>.  
+          The line <code>return "Others";</code> is not executed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 16</div>
+          <div class="q-text">
+            You want a function <code>logIn()</code> that just prints
+            “Logged in” and does not return anything.  
+            Which statement is most accurate?
+          </div>
+        </div>
+        <span class="difficulty easy">Easy</span>
+      </div>
+
+      <ul class="options">
+        <li>A. Such a function always returns <code>null</code>.</li>
+        <li>B. Such a function returns <code>undefined</code> by default.</li>
+        <li>C. Such a function is invalid in JavaScript.</li>
+        <li>D. Such a function must explicitly use <code>return;</code>.</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(16)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-16" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          If a function does not have any <code>return</code> statement,
+          JavaScript automatically returns <code>undefined</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 17</div>
+          <div class="q-text">
+            What will be printed?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <pre><code>let total = 0;
+
+function addToTotal(value) {
+  total += value;
+}
+
+addToTotal(5);
+addToTotal(10);
+console.log(total);</code></pre>
+
+      <ul class="options">
+        <li>A. <code>0</code></li>
+        <li>B. <code>5</code></li>
+        <li>C. <code>10</code></li>
+        <li>D. <code>15</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(17)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-17" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: D</strong></p>
+        <p>
+          <code>total</code> is a global variable.  
+          First call: <code>total</code> becomes <code>5</code>.  
+          Second call: <code>total</code> becomes <code>15</code>.  
+          Finally <code>15</code> is printed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 18</div>
+          <div class="q-text">
+            Choose the best function to check if a string is empty or only spaces.
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function isEmpty(str){ return !str; }</code></li>
+        <li>B. <code>function isEmpty(str){ return str === ""; }</code></li>
+        <li>C. <code>function isEmpty(str){ return str.trim() === ""; }</code></li>
+        <li>D. <code>function isEmpty(str){ return str == " "; }</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(18)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-18" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          <code>str.trim()</code> removes spaces from both ends, so <code>""</code> after trim
+          means the string was empty or only spaces.  
+          A & B fail for strings like <code>"   "</code>, and D only checks a single space.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 19</div>
+          <div class="q-text">
+            What is the output?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <pre><code>function f(x) {
+  return x * 2;
+}
+
+function g(x) {
+  return f(x) + 3;
+}
+
+console.log(g(4));</code></pre>
+
+      <ul class="options">
+        <li>A. <code>8</code></li>
+        <li>B. <code>11</code></li>
+        <li>C. <code>13</code></li>
+        <li>D. <code>undefined</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(19)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-19" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>f(4)</code> is <code>8</code>.  
+          Then <code>g(4)</code> is <code>8 + 3 = 11</code>, so <code>11</code> is printed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 20</div>
+          <div class="q-text">
+            Which function is most appropriate to generate a line like
+            <code>"Student: Rahul | Marks: 85"</code> and give it back to the caller?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <ul class="options">
+        <li>A. <code>function line(name, marks){ console.log(...); }</code></li>
+        <li>B. <code>function line(name, marks){ return "Student: " + name + " | Marks: " + marks; }</code></li>
+        <li>C. <code>const line = (name, marks) =&gt; console.log(...);</code></li>
+        <li>D. <code>function line(){ return "Student: Rahul | Marks: 85"; }</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(20)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-20" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          The function should <strong>return</strong> a string and be reusable for different
+          names and marks. Option B does both.  
+          A and C only log, D is hard-coded for a specific student.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 21</div>
+          <div class="q-text">
+            Fill in the blank to correctly define this arrow function:
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>const isAdult = _____ age =&gt; age &gt;= 18;</code></pre>
+
+      <ul class="options">
+        <li>A. <code>function</code></li>
+        <li>B. <code>(</code></li>
+        <li>C. <code>( ) =&gt;</code></li>
+        <li>D. Nothing is needed</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(21)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-21" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: D</strong></p>
+        <p>
+          For a single parameter in an arrow function, parentheses are optional:
+          <code>age =&gt; age &gt;= 18</code> is valid.  
+          So nothing is needed in the blank.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 22</div>
+          <div class="q-text">
+            What will <code>console.log(output);</code> print?
+          </div>
+        </div>
+        <span class="difficulty medium">Medium</span>
+      </div>
+
+      <pre><code>function label(name = "Guest", city = "Kolkata") {
+  return `${name} from ${city}`;
+}
+
+let output = label("Sukanta");
+console.log(output);</code></pre>
+
+      <ul class="options">
+        <li>A. <code>"Sukanta from Kolkata"</code></li>
+        <li>B. <code>"Guest from Kolkata"</code></li>
+        <li>C. <code>"Sukanta from undefined"</code></li>
+        <li>D. <code>"Guest from undefined"</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(22)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-22" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          First argument <code>"Sukanta"</code> overrides <code>name</code>,  
+          <code>city</code> uses its default value <code>"Kolkata"</code>.  
+          So the function returns <code>"Sukanta from Kolkata"</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 23</div>
+          <div class="q-text">
+            You want to quickly log all items of an array using a function.
+            Which combination is best?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <pre><code>const students = ["Amit", "Neha", "Sourav"];</code></pre>
+
+      <ul class="options">
+        <li>A. <code>students.forEach(console.log);</code></li>
+        <li>B. <code>students.forEach(name =&gt; console.log(name));</code></li>
+        <li>C. <code>function log(name){ console.log(name); } log(students);</code></li>
+        <li>D. <code>forEach(students, console.log);</code></li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(23)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-23" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Option B clearly defines a callback arrow function and logs each name.  
+          Option A may work but passes <code>console.log</code> directly (not ideal for teaching).  
+          C tries to pass the entire array once, D is not valid syntax.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 24</div>
+          <div class="q-text">
+            What is the main advantage of using functions in a billing system or learning app?
+          </div>
+        </div>
+        <span class="difficulty easy">Easy</span>
+      </div>
+
+      <ul class="options">
+        <li>A. They make JavaScript faster as a language.</li>
+        <li>B. They allow reuse of logic and reduce code repetition.</li>
+        <li>C. They completely remove the need for variables.</li>
+        <li>D. They eliminate all errors in the program.</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(24)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-24" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Functions group logic into reusable units. You write once and use many times,
+          which reduces duplication and makes maintenance easier.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div>
+          <div class="q-number">Question 25</div>
+          <div class="q-text">
+            A function should calculate the final price after discount and GST.
+            Which high-level design is best?
+          </div>
+        </div>
+        <span class="difficulty hard">Hard</span>
+      </div>
+
+      <ul class="options">
+        <li>A. One long function that does everything, no parameters.</li>
+        <li>B. A function <code>applyDiscount(price, discount)</code> and another <code>applyGST(price)</code> used together.</li>
+        <li>C. Only one function <code>finalPrice()</code> that uses <code>prompt()</code> internally.</li>
+        <li>D. No functions, just write all logic in <code>main.js</code>.</li>
+      </ul>
+
+      <button class="reveal-btn" onclick="toggleAnswer(25)">
+        <span>👀 Show / Hide Answer</span>
+      </button>
+      <div id="answer-25" class="answer-box" style="display:none;">
+        <div class="answer-label">Answer & Explanation</div>
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Splitting into small, reusable functions (like <code>applyDiscount</code> and <code>applyGST</code>)
+          encourages clean design and reuse. You can then combine them to compute final prices
+          in different situations.
+        </p>
+      </div>
+    </div>
+
+  </div><!-- /test-wrapper -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      This test file is part of the Module 6 — Functions in JavaScript series on Coder &amp; AccoTax.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleAnswer(num) {
+    const box = document.getElementById("answer-" + num);
+    if (!box) return;
+    box.style.display = box.style.display === "none" || box.style.display === "" ? "block" : "none";
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 5 — Loops & Iteration Test (Part 1) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.25;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;
+      background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    main{margin-top:18px;}
+    .intro-card{
+      background:rgba(15,23,42,0.97);
+      border-radius:22px;
+      border:1px solid rgba(56,189,248,0.5);
+      padding:18px 20px;
+      margin-bottom:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.65);
+    }
+    .intro-card h2{
+      font-size:1.2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:8px;
+    }
+    .intro-card p{color:var(--muted);font-size:0.93rem;}
+
+    .question-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:16px 18px;
+      margin-bottom:14px;
+      box-shadow:0 16px 38px rgba(0,0,0,0.6);
+      position:relative;
+      overflow:hidden;
+    }
+    .question-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      background:linear-gradient(120deg,rgba(56,189,248,0.4),rgba(168,85,247,0.25),rgba(34,197,94,0.25));
+      opacity:0;
+      transition:opacity .25s ease;
+      z-index:-1;
+    }
+    .question-card:hover::before{opacity:1;}
+    .question-card:hover{border-color:rgba(56,189,248,0.7);}
+
+    .q-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:6px;
+    }
+    .q-number{
+      font-size:0.8rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    .q-tag{
+      font-size:0.7rem;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      color:var(--accent2);
+      text-transform:uppercase;
+    }
+    .q-text{font-size:0.94rem;margin-bottom:6px;}
+    pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      border:1px solid rgba(31,41,55,0.9);
+      padding:10px 12px;
+      margin:8px 0;
+      font-size:0.84rem;
+      overflow-x:auto;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+    .options{margin-left:18px;margin-top:4px;font-size:0.9rem;margin-bottom:8px;}
+    .options li{margin-bottom:3px;}
+
+    .reveal-btn{
+      margin-top:6px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:rgba(15,23,42,0.9);
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      transition:all .2s ease;
+    }
+    .reveal-btn:hover{
+      background:linear-gradient(90deg,rgba(56,189,248,0.18),rgba(168,85,247,0.2));
+      transform:translateY(-1px);
+      box-shadow:0 8px 20px rgba(15,23,42,0.9);
+    }
+
+    .answer-box{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(34,197,94,0.7);
+      background:rgba(22,163,74,0.14);
+      font-size:0.86rem;
+      color:#bbf7d0;
+    }
+    .answer-box p{margin-bottom:4px;}
+
+    footer{
+      margin-top:26px;border-radius:22px;padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 5 · Loops & Iteration — Test Series (Part 1)</h1>
+      <p class="header-sub">
+        25 exam-style questions on <code>for</code>, <code>while</code>, <code>do…while</code>,
+        basic loop logic, and output prediction. Answers + explanations unlock on click.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Loops</div>
+        <div class="badge">Iteration</div>
+        <div class="badge">Exam Practice</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Practice Ready</div>
+  </header>
+
+  <main>
+    <section class="intro-card">
+      <h2>🔥 Part 1 — Fundamentals & Classic Output Questions</h2>
+      <p>
+        Attempt all questions on your own first. Then click
+        <strong>“Show Answer &amp; Explanation”</strong> to verify your understanding.
+        Focus on how the loop moves — initialization → condition → body → update.
+      </p>
+    </section>
+
+    <!-- Q1 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q1 · Concept</span>
+        <span class="q-tag">for loop basics</span>
+      </div>
+      <p class="q-text">
+        Which part of the <code>for</code> loop is executed <strong>only once</strong>?
+      </p>
+      <pre><code>for (part1; part2; part3) {
+  // body
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>part1</code> only</li>
+        <li>B. <code>part2</code> only</li>
+        <li>C. <code>part3</code> only</li>
+        <li>D. All three parts run on every iteration</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a1')">Show Answer &amp; Explanation</button>
+      <div id="a1" class="answer-box">
+        <p><strong>Correct Answer: A</strong></p>
+        <p><strong>Explanation:</strong> In a <code>for</code> loop, <em>initialization</em> (part1)
+          runs once at the start. Then each cycle: condition (part2) → body → update (part3).</p>
+      </div>
+    </section>
+
+    <!-- Q2 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q2 · Output</span>
+        <span class="q-tag">for loop</span>
+      </div>
+      <p class="q-text">What will this code print?</p>
+      <pre><code>for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>1 2</code></li>
+        <li>B. <code>1 2 3</code></li>
+        <li>C. <code>0 1 2</code></li>
+        <li>D. Infinite loop</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a2')">Show Answer &amp; Explanation</button>
+      <div id="a2" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> <code>i</code> starts at 1, runs while
+          <code>i &lt;= 3</code>, then increments. So <code>1, 2, 3</code> are printed.</p>
+      </div>
+    </section>
+
+    <!-- Q3 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q3 · Output</span>
+        <span class="q-tag">for loop</span>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>for (let i = 5; i > 0; i--) {
+  console.log(i);
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>5 4 3 2 1</code></li>
+        <li>B. <code>1 2 3 4 5</code></li>
+        <li>C. <code>4 3 2 1 0</code></li>
+        <li>D. No output</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a3')">Show Answer &amp; Explanation</button>
+      <div id="a3" class="answer-box">
+        <p><strong>Correct Answer: A</strong></p>
+        <p><strong>Explanation:</strong> The loop starts at 5 and decrements until
+          <code>i</code> becomes 0. Last valid value is 1, so prints 5 → 1.</p>
+      </div>
+    </section>
+
+    <!-- Q4 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q4 · Concept</span>
+        <span class="q-tag">while loop</span>
+      </div>
+      <p class="q-text">
+        Which loop is best when the number of iterations is <strong>not known in advance</strong>?
+      </p>
+      <ul class="options">
+        <li>A. <code>for</code> loop</li>
+        <li>B. <code>while</code> loop</li>
+        <li>C. <code>do…while</code> loop only</li>
+        <li>D. No loop is suitable</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a4')">Show Answer &amp; Explanation</button>
+      <div id="a4" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> <code>while</code> is typically used when
+          you keep looping until a condition changes (e.g., user input), not a fixed count.</p>
+      </div>
+    </section>
+
+    <!-- Q5 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q5 · Output</span>
+        <span class="q-tag">while loop</span>
+      </div>
+      <p class="q-text">What will be printed?</p>
+      <pre><code>let i = 1;
+
+while (i < 4) {
+  console.log(i);
+  i++;
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>1 2</code></li>
+        <li>B. <code>1 2 3</code></li>
+        <li>C. <code>2 3 4</code></li>
+        <li>D. Infinite loop</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a5')">Show Answer &amp; Explanation</button>
+      <div id="a5" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> Values printed: 1, 2, 3. When <code>i</code> becomes 4
+          the condition <code>i &lt; 4</code> is false so the loop stops.</p>
+      </div>
+    </section>
+
+    <!-- Q6 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q6 · Output</span>
+        <span class="q-tag">do…while</span>
+      </div>
+      <p class="q-text">What does this code output?</p>
+      <pre><code>let n = 5;
+
+do {
+  console.log(n);
+  n++;
+} while (n < 5);</code></pre>
+      <ul class="options">
+        <li>A. No output</li>
+        <li>B. <code>5</code></li>
+        <li>C. <code>5 6</code></li>
+        <li>D. Infinite loop</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a6')">Show Answer &amp; Explanation</button>
+      <div id="a6" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> <code>do…while</code> runs the body once
+          before checking the condition. So 5 is printed once, then <code>n</code> becomes 6 and
+          the loop stops.</p>
+      </div>
+    </section>
+
+    <!-- Q7 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q7 · Concept</span>
+        <span class="q-tag">syntax</span>
+      </div>
+      <p class="q-text">Which of the following is a correct <code>for</code> loop syntax?</p>
+      <ul class="options">
+        <li>A. <code>for i = 0 to 10 { }</code></li>
+        <li>B. <code>for (let i = 0; i &lt; 10; i++) { }</code></li>
+        <li>C. <code>for (i &lt; 10; i++) { }</code></li>
+        <li>D. <code>for (let i = 0; i++; i &lt; 10) { }</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a7')">Show Answer &amp; Explanation</button>
+      <div id="a7" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> JavaScript requires the pattern
+          <code>for (initialization; condition; update)</code> with semicolons.</p>
+      </div>
+    </section>
+
+    <!-- Q8 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q8 · Output</span>
+        <span class="q-tag">step value</span>
+      </div>
+      <p class="q-text">What will this print?</p>
+      <pre><code>for (let i = 0; i <= 10; i += 5) {
+  console.log(i);
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>0 1 2 3 4 5 6 7 8 9 10</code></li>
+        <li>B. <code>0 5 10</code></li>
+        <li>C. <code>5 10</code></li>
+        <li>D. <code>0 10</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a8')">Show Answer &amp; Explanation</button>
+      <div id="a8" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> <code>i</code> takes values 0, 5, 10 then becomes 15,
+          failing the condition.</p>
+      </div>
+    </section>
+
+    <!-- Q9 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q9 · Concept</span>
+        <span class="q-tag">infinite loop</span>
+      </div>
+      <p class="q-text">
+        Which of the following will cause an <strong>infinite loop</strong>?
+      </p>
+      <ul class="options">
+        <li>A. <code>for (let i = 0; i &lt; 5; i++)</code></li>
+        <li>B. <code>while (false)</code></li>
+        <li>C. <code>while (true)</code> with no <code>break</code></li>
+        <li>D. <code>for (let i = 10; i &gt; 0; i--)</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a9')">Show Answer &amp; Explanation</button>
+      <div id="a9" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> <code>while (true)</code> never becomes false, so unless you
+          manually <code>break</code>, it will never stop.</p>
+      </div>
+    </section>
+
+    <!-- Q10 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q10 · Output</span>
+        <span class="q-tag">off-by-one</span>
+      </div>
+      <p class="q-text">Predict the output:</p>
+      <pre><code>for (let i = 1; i < 4; i++) {
+  console.log("i =", i);
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>i = 1</code> only</li>
+        <li>B. <code>i = 1</code> and <code>i = 2</code></li>
+        <li>C. <code>i = 1</code>, <code>i = 2</code>, <code>i = 3</code></li>
+        <li>D. <code>i = 0</code> to <code>i = 3</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a10')">Show Answer &amp; Explanation</button>
+      <div id="a10" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> Loop runs while <code>i &lt; 4</code>, so
+          <code>i</code> takes values 1, 2, 3.</p>
+      </div>
+    </section>
+
+    <!-- Q11 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q11 · Logic</span>
+        <span class="q-tag">even numbers</span>
+      </div>
+      <p class="q-text">
+        You want to print all even numbers from 2 to 20 (inclusive). Which loop header is correct?
+      </p>
+      <ul class="options">
+        <li>A. <code>for (let i = 2; i &lt;= 20; i += 2)</code></li>
+        <li>B. <code>for (let i = 0; i &lt;= 20; i++)</code></li>
+        <li>C. <code>for (let i = 1; i &lt; 20; i += 3)</code></li>
+        <li>D. <code>for (let i = 20; i &gt; 0; i--)</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a11')">Show Answer &amp; Explanation</button>
+      <div id="a11" class="answer-box">
+        <p><strong>Correct Answer: A</strong></p>
+        <p><strong>Explanation:</strong> Start at 2, repeatedly add 2, and stop at 20 —
+          exactly the even numbers in the range.</p>
+      </div>
+    </section>
+
+    <!-- Q12 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q12 · Output</span>
+        <span class="q-tag">sum</span>
+      </div>
+      <p class="q-text">What is the final value of <code>sum</code>?</p>
+      <pre><code>let sum = 0;
+for (let i = 1; i <= 4; i++) {
+  sum += i;
+}
+console.log(sum);</code></pre>
+      <ul class="options">
+        <li>A. 4</li>
+        <li>B. 6</li>
+        <li>C. 10</li>
+        <li>D. 16</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a12')">Show Answer &amp; Explanation</button>
+      <div id="a12" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> <code>1 + 2 + 3 + 4 = 10</code>.</p>
+      </div>
+    </section>
+
+    <!-- Q13 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q13 · Output</span>
+        <span class="q-tag">while</span>
+      </div>
+      <p class="q-text">What will this code output?</p>
+      <pre><code>let count = 3;
+while (count) {
+  console.log(count);
+  count--;
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>3 2 1</code></li>
+        <li>B. <code>2 1 0</code></li>
+        <li>C. <code>3 2 1 0</code></li>
+        <li>D. Infinite loop</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a13')">Show Answer &amp; Explanation</button>
+      <div id="a13" class="answer-box">
+        <p><strong>Correct Answer: A</strong></p>
+        <p><strong>Explanation:</strong> In the condition, <code>count</code> is converted to
+          boolean. 3, 2, 1 are truthy; 0 is falsy, so loop stops after printing 1.</p>
+      </div>
+    </section>
+
+    <!-- Q14 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q14 · Concept</span>
+        <span class="q-tag">do…while</span>
+      </div>
+      <p class="q-text">
+        Which statement about <code>do…while</code> is true?
+      </p>
+      <ul class="options">
+        <li>A. The condition is checked before the first run.</li>
+        <li>B. The body may never execute.</li>
+        <li>C. The body always executes at least once.</li>
+        <li>D. It cannot be used with numbers.</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a14')">Show Answer &amp; Explanation</button>
+      <div id="a14" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> <code>do…while</code> executes the body first,
+          then checks the condition, guaranteeing at least one run.</p>
+      </div>
+    </section>
+
+    <!-- Q15 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q15 · Output</span>
+        <span class="q-tag">off-by-one</span>
+      </div>
+      <p class="q-text">Predict the output:</p>
+      <pre><code>for (let i = 0; i < 3; i++) {
+  console.log("Hello");
+}</code></pre>
+      <ul class="options">
+        <li>A. No output</li>
+        <li>B. "Hello" once</li>
+        <li>C. "Hello" twice</li>
+        <li>D. "Hello" three times</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a15')">Show Answer &amp; Explanation</button>
+      <div id="a15" class="answer-box">
+        <p><strong>Correct Answer: D</strong></p>
+        <p><strong>Explanation:</strong> <code>i</code> takes values 0, 1, 2 — three iterations.</p>
+      </div>
+    </section>
+
+    <!-- Q16 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q16 · Concept</span>
+        <span class="q-tag">loop body</span>
+      </div>
+      <p class="q-text">
+        In a <code>for</code> loop, where do you typically place the logic you want to repeat?
+      </p>
+      <ul class="options">
+        <li>A. Inside the parentheses <code>()</code></li>
+        <li>B. Inside the loop body <code>{ }</code></li>
+        <li>C. After the loop ends</li>
+        <li>D. Before the loop starts</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a16')">Show Answer &amp; Explanation</button>
+      <div id="a16" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> The code between <code>{ }</code> is the loop body
+          that repeats every iteration.</p>
+      </div>
+    </section>
+
+    <!-- Q17 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q17 · Output</span>
+        <span class="q-tag">step size</span>
+      </div>
+      <p class="q-text">What will be printed?</p>
+      <pre><code>for (let i = 10; i >= 0; i -= 5) {
+  console.log(i);
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>10 9 8 7 6 5 4 3 2 1 0</code></li>
+        <li>B. <code>10 5 0</code></li>
+        <li>C. <code>10 5</code></li>
+        <li>D. <code>5 0</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a17')">Show Answer &amp; Explanation</button>
+      <div id="a17" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> Values: 10, 5, 0, then -5 (loop ends).</p>
+      </div>
+    </section>
+
+    <!-- Q18 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q18 · Logic</span>
+        <span class="q-tag">multiples</span>
+      </div>
+      <p class="q-text">
+        You need to print the multiples of 3 from 3 to 30. Which of these loops is correct?
+      </p>
+      <ul class="options">
+        <li>A. <code>for (let i = 3; i &lt;= 30; i += 3)</code></li>
+        <li>B. <code>for (let i = 3; i &lt; 30; i++)</code></li>
+        <li>C. <code>while (i &lt;= 30) { i += 3; }</code> with <code>i = 1</code></li>
+        <li>D. <code>for (let i = 30; i &gt; 3; i -= 1)</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a18')">Show Answer &amp; Explanation</button>
+      <div id="a18" class="answer-box">
+        <p><strong>Correct Answer: A</strong></p>
+        <p><strong>Explanation:</strong> Starting at 3 and adding 3 each time
+          exactly lists the multiples of 3 up to 30.</p>
+      </div>
+    </section>
+
+    <!-- Q19 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q19 · Output</span>
+        <span class="q-tag">no body</span>
+      </div>
+      <p class="q-text">What will this code print?</p>
+      <pre><code>for (let i = 0; i < 3; i++);
+{
+  console.log("Hi");
+}</code></pre>
+      <ul class="options">
+        <li>A. "Hi" printed 3 times</li>
+        <li>B. "Hi" printed 4 times</li>
+        <li>C. "Hi" printed once</li>
+        <li>D. Syntax error</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a19')">Show Answer &amp; Explanation</button>
+      <div id="a19" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> The semicolon ends the loop, so the
+          block below is a normal block executed once, printing "Hi" once.</p>
+      </div>
+    </section>
+
+    <!-- Q20 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q20 · Concept</span>
+        <span class="q-tag">loop choice</span>
+      </div>
+      <p class="q-text">
+        You need to repeat a menu until the user chooses “Exit”. Which loop is most natural?
+      </p>
+      <ul class="options">
+        <li>A. <code>for</code></li>
+        <li>B. <code>while</code></li>
+        <li>C. <code>do…while</code></li>
+        <li>D. Either <code>while</code> or <code>do…while</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a20')">Show Answer &amp; Explanation</button>
+      <div id="a20" class="answer-box">
+        <p><strong>Correct Answer: D</strong></p>
+        <p><strong>Explanation:</strong> Both <code>while</code> and <code>do…while</code>
+          are suitable for “repeat until some condition” patterns. In many menu cases,
+          <code>do…while</code> is nice because it shows the menu at least once.</p>
+      </div>
+    </section>
+
+    <!-- Q21 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q21 · Output</span>
+        <span class="q-tag">condition</span>
+      </div>
+      <p class="q-text">What will be printed?</p>
+      <pre><code>let i = 10;
+
+while (i > 10) {
+  console.log(i);
+  i--;
+}</code></pre>
+      <ul class="options">
+        <li>A. <code>10 9 8 ...</code> up to 1</li>
+        <li>B. <code>10</code> only</li>
+        <li>C. No output</li>
+        <li>D. Infinite loop</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a21')">Show Answer &amp; Explanation</button>
+      <div id="a21" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> The condition is <code>i &gt; 10</code>,
+          but <code>i</code> starts at 10. Condition is false immediately, so the loop never runs.</p>
+      </div>
+    </section>
+
+    <!-- Q22 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q22 · Logic</span>
+        <span class="q-tag">sum 1–100</span>
+      </div>
+      <p class="q-text">
+        Which code correctly calculates the sum from 1 to 100 (inclusive)?
+      </p>
+      <ul class="options">
+        <li>A. <code>for (let i = 0; i &lt; 100; i++) sum += i;</code></li>
+        <li>B. <code>for (let i = 1; i &lt;= 100; i++) sum += i;</code></li>
+        <li>C. <code>for (let i = 1; i &lt; 100; i++) sum += i;</code></li>
+        <li>D. <code>for (let i = 0; i &lt;= 100; i++) sum++;</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a22')">Show Answer &amp; Explanation</button>
+      <div id="a22" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> We need 1 through 100. So start at 1, go
+          while <code>i &lt;= 100</code>, and accumulate <code>i</code> into <code>sum</code>.</p>
+      </div>
+    </section>
+
+    <!-- Q23 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q23 · Output</span>
+        <span class="q-tag">nested trace</span>
+      </div>
+      <p class="q-text">What will be printed?</p>
+      <pre><code>for (let i = 1; i <= 2; i++) {
+  for (let j = 1; j <= 3; j++) {
+    console.log(i, j);
+  }
+}</code></pre>
+      <ul class="options">
+        <li>A. (1,1) (1,2) (1,3)</li>
+        <li>B. (1,1) (2,1) (3,1)</li>
+        <li>C. (1,1) (1,2) (1,3) (2,1) (2,2) (2,3)</li>
+        <li>D. (1,1) (2,2) (3,3)</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a23')">Show Answer &amp; Explanation</button>
+      <div id="a23" class="answer-box">
+        <p><strong>Correct Answer: C</strong></p>
+        <p><strong>Explanation:</strong> For <code>i = 1</code>, inner loop prints
+          (1,1) (1,2) (1,3); for <code>i = 2</code>, it prints (2,1) (2,2) (2,3).</p>
+      </div>
+    </section>
+
+    <!-- Q24 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q24 · Concept</span>
+        <span class="q-tag">loop variable</span>
+      </div>
+      <p class="q-text">
+        Why is it safer to use <code>let i = 0;</code> instead of <code>i = 0;</code> inside a loop?
+      </p>
+      <ul class="options">
+        <li>A. <code>let</code> is faster</li>
+        <li>B. <code>let</code> ensures block scope, preventing accidental reuse outside</li>
+        <li>C. <code>i = 0;</code> is invalid JavaScript</li>
+        <li>D. Both are identical everywhere</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a24')">Show Answer &amp; Explanation</button>
+      <div id="a24" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> <code>let</code> declares a block-scoped variable.
+          Using plain <code>i = 0</code> can accidentally use or create a global variable.</p>
+      </div>
+    </section>
+
+    <!-- Q25 -->
+    <section class="question-card">
+      <div class="q-top">
+        <span class="q-number">Q25 · Logic</span>
+        <span class="q-tag">exam style</span>
+      </div>
+      <p class="q-text">
+        You want to display numbers from 50 down to 1 using a loop. Which header is best?
+      </p>
+      <ul class="options">
+        <li>A. <code>for (let i = 1; i &lt;= 50; i++)</code></li>
+        <li>B. <code>for (let i = 50; i &gt;= 1; i--)</code></li>
+        <li>C. <code>while (i &gt; 1)</code> with <code>i = 0</code></li>
+        <li>D. <code>do { } while (50)</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleAnswer('a25')">Show Answer &amp; Explanation</button>
+      <div id="a25" class="answer-box">
+        <p><strong>Correct Answer: B</strong></p>
+        <p><strong>Explanation:</strong> Start from 50 and decrement by 1 until 1 is reached.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+    <div class="org-small">
+      Module 5 — Loops &amp; Iteration · Test Series (Part 1 of 4) · Use in class, lab, or self-practice.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleAnswer(id){
+    var box = document.getElementById(id);
+    if(!box) return;
+    if(box.style.display === "none" || box.style.display === ""){
+      box.style.display = "block";
+    } else {
+      box.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>

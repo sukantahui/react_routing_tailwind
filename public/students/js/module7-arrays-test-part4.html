@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 7 — Arrays & Data Structures Test · Part 4 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --bg-soft:#020617;
+      --accent:#fb923c;         /* Orange accent for Part 4 */
+      --accent2:#38bdf8;
+      --accent3:#a855f7;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a 0,#020617 55%,#000 100%);
+      color:var(--text);
+      padding:20px 14px 36px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      border-radius:24px;
+      padding:20px 22px;
+      margin-bottom:22px;
+      border:1px solid rgba(248,171,84,0.6);
+      background:
+        radial-gradient(circle at 0 0,rgba(251,146,60,0.25),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(56,189,248,0.22),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      box-shadow:0 22px 60px rgba(0,0,0,0.75);
+    }
+    .logo-circle{
+      width:56px;height:56px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.12em;
+      background:rgba(15,23,42,0.98);
+      border:2px solid rgba(251,146,60,0.95);
+      box-shadow:0 0 22px rgba(251,146,60,0.85);
+    }
+    h1{
+      font-size:1.9rem;
+      line-height:1.25;
+      background:linear-gradient(90deg,#fed7aa,#f97316,#bfdbfe);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{
+      font-size:0.95rem;
+      color:var(--muted);
+      max-width:700px;
+    }
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+    .badge{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(248,171,84,0.8);
+      background:rgba(15,23,42,0.9);
+      font-size:0.7rem;
+      text-transform:uppercase;
+    }
+    .mode-pill{
+      margin-left:auto;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.92);
+      font-size:0.78rem;
+      color:var(--muted);
+      min-width:150px;
+      text-align:center;
+    }
+
+    /* INFO BAR */
+    .info-bar{
+      margin-bottom:18px;
+      border-radius:18px;
+      padding:10px 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      border:1px solid rgba(148,163,184,0.45);
+      background:linear-gradient(90deg,rgba(15,23,42,0.95),rgba(30,64,175,0.7));
+      font-size:0.85rem;
+    }
+    .pill{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(248,171,84,0.7);
+      color:#fed7aa;
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .info-bar span{color:#e5e7eb;}
+
+    /* QUESTION CARDS */
+    .card{
+      background:rgba(15,23,42,0.97);
+      border-radius:20px;
+      border:1px solid var(--border);
+      padding:16px 18px 14px;
+      margin-bottom:16px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.7);
+    }
+    .q-header{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .q-title{
+      font-size:0.98rem;
+      font-weight:600;
+      color:#e5e7eb;
+    }
+    .q-meta{
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:var(--muted);
+    }
+    .q-body{margin-top:6px;font-size:0.92rem;color:#e5e7eb;}
+    .q-body pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;
+      font-size:0.82rem;
+      margin-top:8px;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .options{margin-top:6px;margin-left:18px;font-size:0.9rem;}
+    .options li{margin-bottom:2px;}
+
+    button.reveal-btn{
+      margin-top:8px;
+      border:none;
+      border-radius:999px;
+      padding:6px 14px;
+      font-size:0.8rem;
+      cursor:pointer;
+      background:radial-gradient(circle at 0 0,rgba(251,146,60,0.45),transparent 55%),
+                 rgba(15,23,42,1);
+      color:#fed7aa;
+      border:1px solid rgba(248,171,84,0.9);
+      box-shadow:0 0 14px rgba(251,146,60,0.7);
+      transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;
+      white-space:nowrap;
+    }
+    button.reveal-btn:hover{
+      transform:translateY(-1px) scale(1.02);
+      box-shadow:0 0 22px rgba(251,146,60,0.9);
+    }
+
+    .explanation{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(15,23,42,0.95);
+      border:1px solid rgba(148,163,184,0.7);
+      font-size:0.86rem;
+      display:none;
+    }
+    .explanation strong{color:#fed7aa;}
+
+    .badge-small{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      color:var(--accent2);
+      margin-left:6px;
+    }
+
+    /* SECTION TITLE */
+    .section-label{
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--muted);
+      margin-top:6px;
+    }
+    .section-heading{
+      margin-bottom:10px;
+      font-size:1.05rem;
+      color:#fee2c5;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;
+      border-radius:22px;
+      padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){
+      .org-grid{grid-template-columns:1fr;}
+      .q-header{flex-direction:column;}
+    }
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent2);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+  <script>
+    function toggleExplanation(id, btn) {
+      const box = document.getElementById(id);
+      if (!box) return;
+      const isHidden = (box.style.display === "" || box.style.display === "none");
+      if (isHidden) {
+        box.style.display = "block";
+        if (btn) btn.textContent = "Hide Answer & Explanation";
+      } else {
+        box.style.display = "none";
+        if (btn) btn.textContent = "Show Answer & Explanation";
+      }
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 7 · Arrays &amp; Data Structures — Test Part&nbsp;4</h1>
+      <p class="header-sub">
+        Final mixed assessment for Arrays, Higher-Order Methods, Search, Set &amp; Map.
+        Answers &amp; explanations stay hidden until you click — perfect for self-evaluation or classroom quizzes.
+      </p>
+      <div class="badge-row">
+        <div class="badge">25 Questions</div>
+        <div class="badge">Mixed Difficulty</div>
+        <div class="badge">Answers on Click</div>
+      </div>
+    </div>
+    <div class="mode-pill">Module 7 · Part 4 · Orange Theme</div>
+  </header>
+
+  <!-- INFO BAR -->
+  <div class="info-bar">
+    <div class="pill">Arrays · map / filter / reduce · Set · Map</div>
+    <span>🧪 <strong>Use this as a final practice set</strong> after finishing the Arrays &amp; Data Structures module.</span>
+  </div>
+
+  <!-- SECTION: OUTPUT QUESTIONS -->
+  <div class="section-label">Section A</div>
+  <div class="section-heading">Output-Based Questions (1–8)</div>
+
+  <!-- Q1 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q1 · Output</div>
+        <div class="q-title">What will be the output of the following code?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const nums = [1, 2, 3, 4];
+const result = nums.map(n =&gt; n * 2).filter(n =&gt; n &gt; 4);
+console.log(result);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp1', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp1" class="explanation">
+        <p><strong>Answer:</strong> <code>[6, 8]</code></p>
+        <p><strong>Explanation:</strong> 
+          <code>map</code> first converts <code>[1,2,3,4]</code> → <code>[2,4,6,8]</code>.  
+          Then <code>filter(n &gt; 4)</code> keeps only <code>6</code> and <code>8</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q2 · Output</div>
+        <div class="q-title">What gets printed in the console?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const marks = [40, 55, 60, 75];
+
+const result = marks.reduce((acc, m) =&gt; acc + m, 0);
+console.log("Total:", result);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp2', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp2" class="explanation">
+        <p><strong>Answer:</strong> <code>Total: 230</code></p>
+        <p><strong>Explanation:</strong> 
+          Sum is <code>40 + 55 + 60 + 75 = 230</code>.  
+          <code>reduce</code> starts from <code>0</code> and keeps adding each mark to <code>acc</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q3 · Output</div>
+        <div class="q-title">Predict the output carefully.</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const arr = [1, 2, 3];
+const arr2 = arr;
+arr2.push(4);
+
+console.log(arr);
+console.log(arr2);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp3', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp3" class="explanation">
+        <p><strong>Answer:</strong> Both log <code>[1, 2, 3, 4]</code></p>
+        <p><strong>Explanation:</strong> 
+          <code>arr2</code> references the <strong>same array object</strong> as <code>arr</code>.  
+          So <code>push(4)</code> modifies that shared array, affecting both variables.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q4 · Output</div>
+        <div class="q-title">What does this print?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const cities = ["Kolkata", "Delhi", "Pune", "Kolkata"];
+
+console.log(cities.indexOf("Kolkata"));
+console.log(cities.lastIndexOf("Kolkata"));</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp4', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp4" class="explanation">
+        <p><strong>Answer:</strong> <code>0</code> and <code>3</code></p>
+        <p><strong>Explanation:</strong> 
+          <code>indexOf</code> → first occurrence (index 0).  
+          <code>lastIndexOf</code> → last occurrence (index 3).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q5 · Output</div>
+        <div class="q-title">What will <code>console.log</code> show?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const data = [1, 2, 3, 4, 5];
+
+const part = data.slice(1, 4);
+data.splice(2, 1);
+
+console.log(part);
+console.log(data);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp5', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp5" class="explanation">
+        <p><strong>Answer:</strong></p>
+        <ul>
+          <li><code>part</code> → <code>[2, 3, 4]</code></li>
+          <li><code>data</code> → <code>[1, 2, 4, 5]</code></li>
+        </ul>
+        <p><strong>Explanation:</strong> 
+          <code>slice(1,4)</code> copies elements at indices 1,2,3 → <code>[2,3,4]</code>.  
+          Then <code>splice(2,1)</code> removes the element at index 2 (value 3) from the original <code>data</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q6 · Output</div>
+        <div class="q-title">What does this log?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const arr = [10, 20, 30];
+
+arr.forEach((val, index) =&gt; {
+  console.log(index, val * 2);
+});</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp6', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp6" class="explanation">
+        <p><strong>Answer:</strong></p>
+<pre><code>0 20
+1 40
+2 60</code></pre>
+        <p><strong>Explanation:</strong> <code>forEach</code> visits index 0,1,2.  
+          It prints index and value×2: <code>10×2=20</code>, <code>20×2=40</code>, <code>30×2=60</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q7 · Output</div>
+        <div class="q-title">Predict the final value of <code>sum</code>.</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const nums = [5, 7, 9];
+
+let sum = 0;
+for (let n of nums) {
+  if (n === 7) continue;
+  sum += n;
+}
+console.log(sum);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp7', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp7" class="explanation">
+        <p><strong>Answer:</strong> <code>14</code></p>
+        <p><strong>Explanation:</strong> 
+          Loop goes through 5, 7, 9.  
+          When <code>n === 7</code>, <code>continue</code> skips addition.  
+          So <code>sum = 5 + 9 = 14</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="card">
+    <div class="q-header">
+      <div>
+        <div class="q-meta">Q8 · Output</div>
+        <div class="q-title">What will be printed?</div>
+      </div>
+    </div>
+    <div class="q-body">
+<pre><code>const set = new Set();
+set.add("JS");
+set.add("JS");
+set.add("Python");
+
+console.log(set.size);</code></pre>
+      <button class="reveal-btn" onclick="toggleExplanation('exp8', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp8" class="explanation">
+        <p><strong>Answer:</strong> <code>2</code></p>
+        <p><strong>Explanation:</strong> 
+          <code>Set</code> keeps only unique values.  
+          Adding "JS" twice still stores it once, plus "Python" → total 2 entries.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: MCQs -->
+  <div class="section-label">Section B</div>
+  <div class="section-heading">Conceptual MCQs (9–16)</div>
+
+  <!-- Q9 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q9 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which method is BEST suited to remove duplicates from an array of primitive values?
+      </div>
+      <ul class="options">
+        <li>A. <code>Array.prototype.filter()</code> alone</li>
+        <li>B. <code>Array.prototype.map()</code> alone</li>
+        <li>C. Convert to <code>Set</code> and back to array</li>
+        <li>D. Use <code>reduce()</code> only</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp9', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp9" class="explanation">
+        <p><strong>Correct Option:</strong> C</p>
+        <p><strong>Explanation:</strong> 
+          The standard modern pattern is <code>[...new Set(arr)]</code> which automatically removes duplicates.
+          Options A and D can do it with extra logic, but C is cleanest and most direct.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q10 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which statement about <code>map()</code> is TRUE?
+      </div>
+      <ul class="options">
+        <li>A. It always changes the original array.</li>
+        <li>B. It returns a new array with transformed values.</li>
+        <li>C. It can only be used on numeric arrays.</li>
+        <li>D. It stops after the first element that matches a condition.</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp10', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp10" class="explanation">
+        <p><strong>Correct Option:</strong> B</p>
+        <p><strong>Explanation:</strong> 
+          <code>map()</code> does <strong>not</strong> mutate the original array; it builds a new one
+          with the return values of the callback for each element.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q11 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which method is BEST when you want to keep only those elements that satisfy a condition?
+      </div>
+      <ul class="options">
+        <li>A. <code>map()</code></li>
+        <li>B. <code>filter()</code></li>
+        <li>C. <code>reduce()</code></li>
+        <li>D. <code>forEach()</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp11', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp11" class="explanation">
+        <p><strong>Correct Option:</strong> B</p>
+        <p><strong>Explanation:</strong> 
+          <code>filter()</code> returns a new array with only the elements for which
+          the callback returns <code>true</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q12 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which of the following is the MOST appropriate use of <code>reduce()</code>?
+      </div>
+      <ul class="options">
+        <li>A. To convert an array of marks into total marks.</li>
+        <li>B. To find all marks above 80.</li>
+        <li>C. To convert each mark to a grade symbol.</li>
+        <li>D. To simply log all marks to console.</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp12', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp12" class="explanation">
+        <p><strong>Correct Option:</strong> A</p>
+        <p><strong>Explanation:</strong> 
+          <code>reduce()</code> combines many values into a single result (like sum).
+          B is more suitable for <code>filter()</code>, C for <code>map()</code>, D for <code>forEach()</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q13 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        In a <code>Map</code>, what can be used as a key?
+      </div>
+      <ul class="options">
+        <li>A. Only strings</li>
+        <li>B. Only numbers</li>
+        <li>C. Any value (objects, functions, etc.)</li>
+        <li>D. Only booleans</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp13', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp13" class="explanation">
+        <p><strong>Correct Option:</strong> C</p>
+        <p><strong>Explanation:</strong> 
+          <code>Map</code> allows keys of any type — primitives or objects.  
+          This is more flexible than plain objects where keys are usually strings/symbols.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q14 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which method checks quickly whether a <code>Set</code> contains a given value?
+      </div>
+      <ul class="options">
+        <li>A. <code>set.indexOf(value)</code></li>
+        <li>B. <code>set.has(value)</code></li>
+        <li>C. <code>set.includes(value)</code></li>
+        <li>D. <code>set.contains(value)</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp14', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp14" class="explanation">
+        <p><strong>Correct Option:</strong> B</p>
+        <p><strong>Explanation:</strong> 
+          <code>Set</code> provides <code>has()</code> to check membership.  
+          <code>indexOf</code> and <code>includes</code> are array methods, not <code>Set</code> methods.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q15 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which combination correctly describes the return values?
+      </div>
+      <ul class="options">
+        <li>A. <code>map()</code> → array, <code>filter()</code> → single value</li>
+        <li>B. <code>map()</code> → array, <code>reduce()</code> → single value</li>
+        <li>C. <code>filter()</code> → single value, <code>reduce()</code> → array</li>
+        <li>D. All three always return arrays</li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp15', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp15" class="explanation">
+        <p><strong>Correct Option:</strong> B</p>
+        <p><strong>Explanation:</strong> 
+          Both <code>map()</code> and <code>filter()</code> return arrays;  
+          <code>reduce()</code> returns a single value of any type (number, object, etc.).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q16 · MCQ</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Which method is most suitable to find the <strong>first</strong> student with marks &gt; 90
+        from an array of student objects?
+      </div>
+      <ul class="options">
+        <li>A. <code>filter()</code></li>
+        <li>B. <code>find()</code></li>
+        <li>C. <code>map()</code></li>
+        <li>D. <code>reduce()</code></li>
+      </ul>
+      <button class="reveal-btn" onclick="toggleExplanation('exp16', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp16" class="explanation">
+        <p><strong>Correct Option:</strong> B</p>
+        <p><strong>Explanation:</strong> 
+          <code>find()</code> returns the <strong>first element</strong> that matches the condition,
+          which is exactly what we need here.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: CODING QUESTIONS -->
+  <div class="section-label">Section C</div>
+  <div class="section-heading">Short Coding Questions (17–21)</div>
+
+  <!-- Q17 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q17 · Coding</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Write a function <code>getEvenNumbers(arr)</code> that takes an array of integers and returns
+        a new array containing only even numbers using <code>filter()</code>.
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp17', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp17" class="explanation">
+        <p><strong>Example Solution:</strong></p>
+<pre><code>function getEvenNumbers(arr) {
+  return arr.filter(n =&gt; n % 2 === 0);
+}
+
+// Example:
+console.log(getEvenNumbers([1,2,3,4,5,6])); // [2,4,6]</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>filter</code> keeps elements where the condition is true — here, numbers divisible by 2.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q18 · Coding</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Write a function <code>calculateAverage(arr)</code> that returns the average of numeric values
+        in the array using <code>reduce()</code>.
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp18', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp18" class="explanation">
+        <p><strong>Example Solution:</strong></p>
+<pre><code>function calculateAverage(arr) {
+  if (arr.length === 0) return 0;
+  const total = arr.reduce((sum, n) =&gt; sum + n, 0);
+  return total / arr.length;
+}
+
+// Example:
+console.log(calculateAverage([10, 20, 30])); // 20</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>reduce()</code> gives total; divide by <code>length</code> for average.
+          Always handle the empty-array case safely.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q19 · Coding</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Write a function <code>toUppercaseNames(names)</code> that takes an array of strings and returns
+        a new array with all names converted to uppercase using <code>map()</code>.
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp19', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp19" class="explanation">
+        <p><strong>Example Solution:</strong></p>
+<pre><code>function toUppercaseNames(names) {
+  return names.map(name =&gt; name.toUpperCase());
+}
+
+// Example:
+console.log(toUppercaseNames(["amit", "neha"])); 
+// ["AMIT","NEHA"]</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>map</code> calls the callback for each item and returns a new array of results.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q20 · Coding</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Write a function <code>removeCity(cities, cityName)</code> that returns a new array with all
+        occurrences of <code>cityName</code> removed, using <code>filter()</code>.
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp20', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp20" class="explanation">
+        <p><strong>Example Solution:</strong></p>
+<pre><code>function removeCity(cities, cityName) {
+  return cities.filter(city =&gt; city !== cityName);
+}
+
+// Example:
+console.log(removeCity(
+  ["Kolkata","Delhi","Kolkata"],
+  "Kolkata"
+)); 
+// ["Delhi"]</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>filter</code> retains only values that are <strong>not</strong> equal to <code>cityName</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q21 · Coding</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        Write a function <code>getUniqueStudents(list)</code> that takes an array of student names
+        (with duplicates) and returns a new array containing only unique names using <code>Set</code>.
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp21', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp21" class="explanation">
+        <p><strong>Example Solution:</strong></p>
+<pre><code>function getUniqueStudents(list) {
+  return [...new Set(list)];
+}
+
+// Example:
+console.log(
+  getUniqueStudents(["Amit","Neha","Amit","Sourav"])
+);
+// ["Amit","Neha","Sourav"]</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>Set</code> automatically removes duplicates; spread syntax converts it back to an array.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: REAL-WORLD SCENARIOS -->
+  <div class="section-label">Section D</div>
+  <div class="section-heading">Real-World Scenarios (22–25)</div>
+
+  <!-- Q22 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q22 · Scenario</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        You have an array of fees paid by students: <code>[5000, 7000, 4500, 8000]</code>.  
+        You want a new array where each fee includes 18% GST.  
+        <br/>Which combination of method and callback expression is MOST appropriate?
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp22', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp22" class="explanation">
+        <p><strong>Recommended Solution:</strong> Use <code>map()</code>:</p>
+<pre><code>const fees = [5000, 7000, 4500, 8000];
+const feesWithGST = fees.map(fee =&gt; fee * 1.18);</code></pre>
+        <p><strong>Explanation:</strong> 
+          Each item transforms independently → perfect for <code>map()</code>.  
+          Other methods (<code>filter</code>, <code>reduce</code>) do not fit this transformation pattern.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q23 · Scenario</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        You maintain a <code>Map</code> <code>studentFees</code> where key = student name, value = total fee paid.  
+        Which operations would you use to:
+        <br/>1) Check if "Neha" has paid, and  
+        <br/>2) Get the fee paid by "Neha"?
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp23', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp23" class="explanation">
+        <p><strong>Suggested Code:</strong></p>
+<pre><code>const studentFees = new Map();
+studentFees.set("Amit", 5000);
+studentFees.set("Neha", 6000);
+
+const hasNeha = studentFees.has("Neha");  // 1)
+const nehaFee = studentFees.get("Neha");  // 2)</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>has(key)</code> checks existence; <code>get(key)</code> retrieves the stored value.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q24 · Scenario</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        You have an array of objects:
+      </div>
+<pre><code>const courses = [
+  { id: 1, title: "JS Basics", price: 999 },
+  { id: 2, title: "JS Pro",    price: 1999 },
+  { id: 3, title: "Python",    price: 1499 }
+];</code></pre>
+      <p>
+        You want an array of just course titles (e.g., <code>["JS Basics","JS Pro","Python"]</code>).  
+        Which method and callback should you use?
+      </p>
+      <button class="reveal-btn" onclick="toggleExplanation('exp24', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp24" class="explanation">
+        <p><strong>Recommended Solution:</strong></p>
+<pre><code>const titles = courses.map(course =&gt; course.title);</code></pre>
+        <p><strong>Explanation:</strong> 
+          You are transforming each object into one property → ideal for <code>map()</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="card">
+    <div class="q-header">
+      <div class="q-meta">Q25 · Scenario (Mini Logic)</div>
+    </div>
+    <div class="q-body">
+      <div class="q-title">
+        You store daily attendance percentages in an array:  
+        <code>[92, 80, 75, 60, 85, 50, 95]</code>.  
+        You want to know:
+        <br/>1) How many days attendance was below 75.  
+        <br/>2) The average attendance.  
+        <br/>Which array methods would you combine and how?
+      </div>
+      <button class="reveal-btn" onclick="toggleExplanation('exp25', this)">
+        Show Answer &amp; Explanation
+      </button>
+      <div id="exp25" class="explanation">
+        <p><strong>Example Approach:</strong></p>
+<pre><code>const attendance = [92, 80, 75, 60, 85, 50, 95];
+
+// 1) Count days below 75
+const lowDays = attendance.filter(val =&gt; val &lt; 75).length;
+
+// 2) Average
+const total = attendance.reduce((sum, val) =&gt; sum + val, 0);
+const average = total / attendance.length;
+
+console.log("Days below 75:", lowDays);
+console.log("Average attendance:", average);</code></pre>
+        <p><strong>Explanation:</strong> 
+          <code>filter()</code> + <code>length</code> → count based on condition.  
+          <code>reduce()</code> → sum, then divide for average.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Beginner → Pro · Arrays Mastery
+      </div>
+    </div>
+
+    <div class="org-small">
+      Use this Part&nbsp;4 test after completing all Array lessons in Module&nbsp;7.
+      You can host this file directly on your website or share it with students as an interactive practice sheet.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

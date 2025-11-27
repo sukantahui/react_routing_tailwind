@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Module 9 — DOM Test Part 3 | Creating & Manipulating Elements</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+  :root {
+    --bg:#020617;
+    --accent:#38bdf8;
+    --accent2:#a855f7;
+    --accent3:#22c55e;
+    --accent4:#facc15;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --border:#1f2937;
+    --card-bg:#0f172a;
+  }
+
+  body {
+    margin:0;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+    color:var(--text);
+    padding:24px;
+    line-height:1.7;
+  }
+
+  .page { max-width:1100px; margin:auto; }
+
+  h1 {
+    font-size:2rem;
+    background:linear-gradient(90deg,#facc15,#a855f7);
+    -webkit-background-clip:text;
+    color:transparent;
+  }
+
+  .card {
+    background:rgba(15,23,42,0.97);
+    padding:20px;
+    border-radius:18px;
+    border:1px solid rgba(148,163,184,0.35);
+    margin-bottom:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.55);
+  }
+
+  .q-box {
+    margin-bottom:18px;
+    padding:14px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(148,163,184,0.25);
+    border-radius:14px;
+  }
+
+  .answer {
+    display:none;
+    margin-top:10px;
+    padding:12px;
+    background:rgba(56,189,248,0.08);
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+  }
+
+  button.reveal {
+    margin-top:10px;
+    padding:6px 12px;
+    background:linear-gradient(90deg,#facc15,#22c55e);
+    border:none;
+    color:#000;
+    font-weight:600;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.25s;
+  }
+  button.reveal:hover {
+    transform:scale(1.05);
+  }
+
+  footer{
+    margin-top:35px;
+    padding:20px;
+    background:rgba(15,23,42,0.92);
+    border-radius:18px;
+    border:1px solid rgba(55,65,81,0.8);
+  }
+</style>
+
+<script>
+function showAnswer(id){
+  const box = document.getElementById(id);
+  box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</head>
+<body>
+<div class="page">
+
+<h1>Module 9 — DOM Test Part 3<br>Creating, Appending & Removing Elements</h1>
+
+<p style="color:var(--muted); margin-bottom:20px;">
+  25 Questions • DOM Manipulation • Click to Reveal Answers
+</p>
+
+<!-- QUESTIONS START -->
+<div class="card">
+
+<!-- Q1 -->
+<div class="q-box">
+  <strong>1. Which method is used to create a new HTML element in JavaScript?</strong>
+  <p>A. document.makeElement()<br>
+     B. document.create()<br>
+     C. document.createElement()<br>
+     D. element.newNode()</p>
+
+  <button class="reveal" onclick="showAnswer('a1')">Show Answer</button>
+  <div id="a1" class="answer">
+    <strong>Correct:</strong> C  
+    <br><strong>Explanation:</strong> The method <code>document.createElement()</code> is used to create any new DOM element.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-box">
+  <strong>2. Which method adds a child node at the end of a parent element?</strong>
+  <p>A. append<br>B. appendChild<br>C. addChild<br>D. insertLast</p>
+
+  <button class="reveal" onclick="showAnswer('a2')">Show Answer</button>
+  <div id="a2" class="answer">
+    <strong>Correct:</strong> B  
+    <br><strong>Explanation:</strong> <code>appendChild()</code> always appends a single node at the end.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-box">
+  <strong>3. What is the main difference between <code>append</code> and <code>appendChild</code>?</strong>
+  <p>A. append can add multiple nodes or text<br>
+     B. appendChild only adds text<br>
+     C. append deletes previous children<br>
+     D. appendChild supports multiple children at once</p>
+
+  <button class="reveal" onclick="showAnswer('a3')">Show Answer</button>
+  <div id="a3" class="answer">
+    <strong>Correct:</strong> A  
+    <br><strong>Explanation:</strong> <code>append()</code> can insert text + multiple nodes. <code>appendChild()</code> only accepts <strong>one node</strong>.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="q-box">
+  <strong>4. What is the output of this?</strong>
+<pre><code>const li = document.createElement("li");
+li.textContent = "JS";
+console.log(li);</code></pre>
+  <p>A. &lt;li&gt;&lt;/li&gt;<br>
+     B. li object<br>
+     C. "JS"<br>
+     D. &lt;li&gt;JS&lt;/li&gt;</p>
+
+  <button class="reveal" onclick="showAnswer('a4')">Show Answer</button>
+  <div id="a4" class="answer">
+    <strong>Correct:</strong> B  
+    <br><strong>Explanation:</strong> Console shows an element object, not rendered HTML.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="q-box">
+  <strong>5. Which method removes an element from the DOM (modern way)?</strong>
+  <p>A. removeNode()<br>
+     B. delete()<br>
+     C. element.remove()<br>
+     D. removeElement()</p>
+
+  <button class="reveal" onclick="showAnswer('a5')">Show Answer</button>
+  <div id="a5" class="answer">
+    <strong>Correct:</strong> C  
+    <br><strong>Explanation:</strong> <code>element.remove()</code> is the modern removal method.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="q-box">
+  <strong>6. What does this add?</strong>
+<pre><code>list.append("New Item");</code></pre>
+  <p>A. A new li element<br>
+     B. A text node<br>
+     C. Nothing<br>
+     D. It throws an error</p>
+
+  <button class="reveal" onclick="showAnswer('a6')">Show Answer</button>
+  <div id="a6" class="answer">
+    <strong>Correct:</strong> B  
+    <br><strong>Explanation:</strong> Passing a string creates a <strong>text node</strong>.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="q-box">
+  <strong>7. Which inserts an item at the START of a list?</strong>
+  <p>A. appendChild<br>
+     B. append<br>
+     C. prepend<br>
+     D. insertBefore</p>
+
+  <button class="reveal" onclick="showAnswer('a7')">Show Answer</button>
+  <div id="a7" class="answer">
+    <strong>Correct:</strong> C  
+    <br><strong>Explanation:</strong> <code>prepend()</code> inserts content at the top.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="q-box">
+  <strong>8. Output?</strong>
+<pre><code>const box = document.createElement("div");
+box.innerHTML = "&lt;span&gt;Hi&lt;/span&gt;";
+console.log(box.textContent);</code></pre>
+  <p>A. "&lt;span&gt;Hi&lt;/span&gt;"<br>
+     B. "Hi"<br>
+     C. undefined<br>
+     D. "&lt;div&gt;Hi&lt;/div&gt;"</p>
+
+  <button class="reveal" onclick="showAnswer('a8')">Show Answer</button>
+  <div id="a8" class="answer">
+    <strong>Correct:</strong> B  
+    <br><strong>Explanation:</strong> textContent returns only plain text inside elements.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="q-box">
+  <strong>9. Which creates a new &lt;p&gt; element?</strong>
+<pre><code>let p = ______ ;</code></pre>
+
+  <p>A. document.make("p")<br>
+     B. document.createElement("p")<br>
+     C. new Element("p")<br>
+     D. create.p()</p>
+
+  <button class="reveal" onclick="showAnswer('a9')">Show Answer</button>
+  <div id="a9" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="q-box">
+  <strong>10. What does this do?</strong>
+<pre><code>item.removeChild(item.firstChild);</code></pre>
+  <p>A. Removes the first element<br>
+     B. Removes the last element<br>
+     C. Removes the first child node<br>
+     D. Deletes entire item</p>
+
+  <button class="reveal" onclick="showAnswer('a10')">Show Answer</button>
+  <div id="a10" class="answer">
+    <strong>Correct:</strong> C  
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="q-box">
+  <strong>11. Output?</strong>
+<pre><code>const btn = document.createElement("button");
+btn.textContent = "Click";
+btn.id = "main";
+console.log(btn.id);</code></pre>
+  <p>A. undefined<br>B. null<br>C. "Click"<br>D. "main"</p>
+
+  <button class="reveal" onclick="showAnswer('a11')">Show Answer</button>
+  <div id="a11" class="answer">
+    <strong>Correct:</strong> D  
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="q-box">
+  <strong>12. What does appendChild return?</strong>
+  <p>A. Nothing<br>
+     B. The node appended<br>
+     C. The parent element<br>
+     D. A boolean</p>
+
+  <button class="reveal" onclick="showAnswer('a12')">Show Answer</button>
+  <div id="a12" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="q-box">
+  <strong>13. Which is TRUE?</strong>
+  <p>A. You cannot remove created elements<br>
+     B. innerHTML removes all children<br>
+     C. createElement must be appended to appear<br>
+     D. appendChild auto-styles the element</p>
+
+  <button class="reveal" onclick="showAnswer('a13')">Show Answer</button>
+  <div id="a13" class="answer">
+    <strong>Correct:</strong> C  
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="q-box">
+  <strong>14. What appears in the page?</strong>
+<pre><code>list.appendChild(document.createElement("li"));</code></pre>
+  <p>A. Empty li<br>B. Error<br>C. Nothing<br>D. undefined</p>
+
+  <button class="reveal" onclick="showAnswer('a14')">Show Answer</button>
+  <div id="a14" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="q-box">
+  <strong>15. Output?</strong>
+<pre><code>let el = document.createElement("p");
+el.textContent = 10 + 20 + "Hi";
+console.log(el.textContent);</code></pre>
+  <p>A. "30Hi"<br>B. "1020Hi"<br>C. "Hi"<br>D. Error</p>
+
+  <button class="reveal" onclick="showAnswer('a15')">Show Answer</button>
+  <div id="a15" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="q-box">
+  <strong>16. Which is best for adding HTML structure?</strong>
+  <p>A. textContent<br>
+     B. innerHTML<br>
+     C. appendChild<br>
+     D. removeChild</p>
+
+  <button class="reveal" onclick="showAnswer('a16')">Show Answer</button>
+  <div id="a16" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="q-box">
+  <strong>17. What happens?</strong>
+<pre><code>const item = document.createElement("li");
+item.innerHTML = "&lt;b&gt;Hello&lt;/b&gt;";
+console.log(item.innerHTML);</code></pre>
+  <p>A. &lt;b&gt;Hello&lt;/b&gt;<br>B. Hello<br>C. null<br>D. Error</p>
+
+  <button class="reveal" onclick="showAnswer('a17')">Show Answer</button>
+  <div id="a17" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="q-box">
+  <strong>18. Output?</strong>
+<pre><code>let div = document.createElement("div");
+div.append("A","B");
+console.log(div.textContent);</code></pre>
+  <p>A. "AB"<br>B. ["A","B"]<br>C. undefined<br>D. "A B"</p>
+
+  <button class="reveal" onclick="showAnswer('a18')">Show Answer</button>
+  <div id="a18" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="q-box">
+  <strong>19. Which removes ALL inner content?</strong>
+  <p>A. element.clear()<br>
+     B. element.textContent = ""<br>
+     C. element.remove()<br>
+     D. appendChild(null)</p>
+
+  <button class="reveal" onclick="showAnswer('a19')">Show Answer</button>
+  <div id="a19" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="q-box">
+  <strong>20. What does prepend NOT allow?</strong>
+  <p>A. Adding text<br>
+     B. Adding HTML<br>
+     C. Adding multiple nodes<br>
+     D. Adding before first child</p>
+
+  <button class="reveal" onclick="showAnswer('a20')">Show Answer</button>
+  <div id="a20" class="answer">
+    <strong>Correct:</strong> B  
+    <br><strong>Explanation:</strong> prepend does NOT parse HTML. You must use innerHTML.
+  </div>
+</div>
+
+<!-- Q21 -->
+<div class="q-box">
+  <strong>21. Output?</strong>
+<pre><code>const el = document.createElement("h2");
+el.textContent = "Coder";
+el.textContent += " & AccoTax";
+console.log(el.textContent);</code></pre>
+  <p>A. "Coder"<br>B. "Coder & AccoTax"<br>C. undefined<br>D. Error</p>
+
+  <button class="reveal" onclick="showAnswer('a21')">Show Answer</button>
+  <div id="a21" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q22 -->
+<div class="q-box">
+  <strong>22. Which clone method copies children too?</strong>
+  <p>A. cloneNode(true)<br>
+     B. cloneNode(false)<br>
+     C. cloneChildNodes()<br>
+     D. copyElement()</p>
+
+  <button class="reveal" onclick="showAnswer('a22')">Show Answer</button>
+  <div id="a22" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q23 -->
+<div class="q-box">
+  <strong>23. Output?</strong>
+<pre><code>let el = document.createElement("div");
+el.innerHTML = "&lt;p&gt;Hi&lt;/p&gt;";
+console.log(el.firstChild.nodeName);</code></pre>
+  <p>A. "div"<br>B. "p"<br>C. "text"<br>D. undefined</p>
+
+  <button class="reveal" onclick="showAnswer('a23')">Show Answer</button>
+  <div id="a23" class="answer">
+    <strong>Correct:</strong> B  
+  </div>
+</div>
+
+<!-- Q24 -->
+<div class="q-box">
+  <strong>24. Which inserts AFTER last child?</strong>
+  <p>A. append<br>B. prepend<br>C. before<br>D. insert()</p>
+
+  <button class="reveal" onclick="showAnswer('a24')">Show Answer</button>
+  <div id="a24" class="answer">
+    <strong>Correct:</strong> A  
+  </div>
+</div>
+
+<!-- Q25 -->
+<div class="q-box">
+  <strong>25. What does this produce?</strong>
+<pre><code>let ul = document.createElement("ul");
+ul.innerHTML = "&lt;li&gt;One&lt;/li&gt;&lt;li&gt;Two&lt;/li&gt;";
+console.log(ul.children.length);</code></pre>
+  <p>A. 0<br>B. 1<br>C. 2<br>D. undefined</p>
+
+  <button class="reveal" onclick="showAnswer('a25')">Show Answer</button>
+  <div id="a25" class="answer">
+    <strong>Correct:</strong> C  
+  </div>
+</div>
+
+</div>
+<!-- QUESTIONS END -->
+
+<footer>
+  <strong>Coder & AccoTax — JavaScript DOM Test Series</strong><br>
+  25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+  Website: www.codernaccotax.co.in | Phone: 7003756860
+</footer>
+
+</div>
+</body>
+</html>

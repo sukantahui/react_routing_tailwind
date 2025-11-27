@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 6 — Functions Test (Part 4 · Final Mixed) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --accent4:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    header{
+      padding:20px 24px;
+      border-radius:24px;
+      margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:2rem;line-height:1.25;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;
+      background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.75rem;text-align:center;
+      min-width:150px;
+      color:var(--muted);
+      background:rgba(15,23,42,0.9);
+    }
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:18px 18px 16px;
+      margin-bottom:18px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+    .intro-card{
+      border:1px solid rgba(56,189,248,0.5);
+      background:
+        radial-gradient(circle at top left,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at bottom right,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.98);
+    }
+    h2{color:#dbeafe;font-size:1.12rem;margin-bottom:6px;}
+    h3{color:#bfdbfe;font-size:1rem;margin:10px 0 4px;}
+    p{font-size:0.92rem;margin-bottom:6px;}
+    .lead{color:var(--muted);font-size:0.94rem;margin-bottom:10px;}
+
+    .q-meta{
+      font-size:0.78rem;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:4px;
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow-x:auto;
+      font-size:0.84rem;
+      margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .reveal-btn{
+      margin-top:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.8);
+      background:rgba(15,23,42,0.9);
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:0.22s;
+    }
+    .reveal-btn span{
+      font-size:0.9rem;
+    }
+    .reveal-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 18px rgba(56,189,248,0.55);
+      background:rgba(15,23,42,1);
+    }
+
+    .answer{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(34,197,94,0.7);
+      background:rgba(22,163,74,0.09);
+      font-size:0.86rem;
+      color:#bbf7d0;
+    }
+    .answer strong{color:#4ade80;}
+    .hidden{display:none;}
+
+    ul{margin-left:18px;margin-bottom:8px;font-size:0.9rem;}
+    li{margin-bottom:4px;}
+
+    footer{
+      margin-top:26px;
+      border-radius:22px;
+      padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:900px){
+      main{display:block;}
+    }
+    @media(max-width:700px){
+      .org-grid{grid-template-columns:1fr;}
+    }
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 6 · Functions in JavaScript — Final Test (Part 4)</h1>
+      <p class="header-sub">
+        Grand mixed assessment on function declarations, expressions, arrow functions, parameters,
+        return values, rest/default parameters, and scope. 25 questions with hidden answers &amp; explanations.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Final Assessment</div>
+        <div class="badge">25 Questions</div>
+        <div class="badge">Answers on Click</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Study Friendly</div>
+  </header>
+
+  <!-- INTRO CARD -->
+  <section class="card intro-card">
+    <h2>✨ How to Use This Test</h2>
+    <p class="lead">
+      This is the final mixed test for <strong>Module 6 — Functions</strong>.
+      Don’t peek too early — try to solve each question on your own, then click
+      <em>“Show Answer &amp; Explanation”</em>.
+    </p>
+    <ul>
+      <li><strong>Total:</strong> 25 questions</li>
+      <li><strong>Mix:</strong> Output tracing, MCQs, coding logic, real-world scenarios &amp; advanced puzzles</li>
+      <li><strong>Goal:</strong> Be fully confident with functions before moving to Arrays &amp; Advanced JS</li>
+    </ul>
+  </section>
+
+  <!-- Q1 -->
+  <section class="card">
+    <div class="q-meta">Q1 · Output Tracing — Basic Return</div>
+    <h2>What will be logged in the console?</h2>
+    <pre><code>function add(a, b) {
+  return a + b;
+}
+
+function printSum(x, y) {
+  console.log(add(x, y));
+}
+
+printSum(4, 6);</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a1')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a1" class="answer hidden">
+      <p><strong>Answer:</strong> <code>10</code></p>
+      <p>
+        <code>add(4, 6)</code> returns <code>4 + 6 = 10</code>.  
+        <code>printSum(4, 6)</code> calls <code>add(4, 6)</code> and logs the returned value, so the output is <code>10</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q2 -->
+  <section class="card">
+    <div class="q-meta">Q2 · Output Tracing — Early Return</div>
+    <h2>What will this code print?</h2>
+    <pre><code>function checkPass(marks) {
+  if (marks &lt; 0 || marks &gt; 100) {
+    console.log("Invalid");
+    return;
+  }
+
+  if (marks &gt;= 40) {
+    console.log("Pass");
+    return;
+  }
+
+  console.log("Fail");
+}
+
+checkPass(120);
+checkPass(75);
+checkPass(35);</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a2')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a2" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Invalid
+Pass
+Fail</code></pre>
+      <p>
+        For <code>120</code> → first <code>if</code> true → prints <code>"Invalid"</code>, returns.<br>
+        For <code>75</code> → second <code>if</code> true → prints <code>"Pass"</code>, returns.<br>
+        For <code>35</code> → first <code>if</code> false, second false → prints <code>"Fail"</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q3 -->
+  <section class="card">
+    <div class="q-meta">Q3 · Output Tracing — Function Expression</div>
+    <h2>What is the output?</h2>
+    <pre><code>const greet = function(name) {
+  return "Hello " + name;
+};
+
+console.log(greet("Neha"));
+console.log(typeof greet);</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a3')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a3" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Hello Neha
+function</code></pre>
+      <p>
+        <code>greet("Neha")</code> returns the string <code>"Hello Neha"</code>, which is logged.<br>
+        <code>greet</code> is a function expression stored in a constant, and <code>typeof greet</code> is <code>"function"</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q4 -->
+  <section class="card">
+    <div class="q-meta">Q4 · Output Tracing — Arrow + Implicit Return</div>
+    <h2>Predict the output:</h2>
+    <pre><code>const twice = n =&gt; n * 2;
+const thrice = n =&gt; { return n * 3; };
+
+console.log(twice(5), thrice(5));</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a4')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a4" class="answer hidden">
+      <p><strong>Answer:</strong> <code>10 15</code></p>
+      <p>
+        <code>twice(5)</code> → implicit return <code>5 * 2 = 10</code>.<br>
+        <code>thrice(5)</code> → explicit <code>return 5 * 3 = 15</code>.  
+        Both values are logged in a single line: <code>10 15</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q5 -->
+  <section class="card">
+    <div class="q-meta">Q5 · Output Tracing — Default Parameters</div>
+    <h2>What gets printed?</h2>
+    <pre><code>function welcome(name = "Student", course = "JS") {
+  console.log(`Welcome ${name} to ${course}!`);
+}
+
+welcome("Sukanta", "Functions");
+welcome("Rahul");
+welcome();</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a5')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a5" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Welcome Sukanta to Functions!
+Welcome Rahul to JS!
+Welcome Student to JS!</code></pre>
+      <p>
+        Missing arguments use default values: <code>name = "Student"</code>, <code>course = "JS"</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q6 -->
+  <section class="card">
+    <div class="q-meta">Q6 · Output Tracing — Rest Parameters</div>
+    <h2>What is logged?</h2>
+    <pre><code>function countArgs(...values) {
+  console.log("Count:", values.length);
+}
+
+countArgs(1, 2);
+countArgs("A", "B", "C");
+countArgs();</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a6')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a6" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Count: 2
+Count: 3
+Count: 0</code></pre>
+      <p>
+        Rest parameter <code>...values</code> collects arguments into an array.  
+        Its <code>length</code> shows how many arguments were passed each time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q7 -->
+  <section class="card">
+    <div class="q-meta">Q7 · Output Tracing — Scope &amp; Shadowing</div>
+    <h2>What will this print?</h2>
+    <pre><code>let message = "Global";
+
+function show() {
+  let message = "Local";
+  console.log("Inside:", message);
+}
+
+show();
+console.log("Outside:", message);</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a7')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a7" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Inside: Local
+Outside: Global</code></pre>
+      <p>
+        The inner <code>message</code> declared with <code>let</code> inside the function
+        shadows the global variable only inside that function.  
+        Outside, the global value <code>"Global"</code> is still intact.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q8 -->
+  <section class="card">
+    <div class="q-meta">Q8 · Output Tracing — Calling Functions in Order</div>
+    <h2>Predict the exact output sequence:</h2>
+    <pre><code>function first() {
+  console.log("First");
+}
+
+function second() {
+  console.log("Second");
+  first();
+}
+
+function third() {
+  first();
+  console.log("Third");
+}
+
+second();
+third();</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a8')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a8" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Second
+First
+First
+Third</code></pre>
+      <p>
+        <code>second()</code> → logs <code>"Second"</code>, calls <code>first()</code> → <code>"First"</code>.  
+        <code>third()</code> → calls <code>first()</code> → <code>"First"</code>, then logs <code>"Third"</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q9 -->
+  <section class="card">
+    <div class="q-meta">Q9 · MCQ — Function Declaration</div>
+    <h2>Which of the following is a valid <strong>function declaration</strong> in JavaScript?</h2>
+    <ul>
+      <li>A) <code>const hello() = { console.log("Hi"); }</code></li>
+      <li>B) <code>function hello() { console.log("Hi"); }</code></li>
+      <li>C) <code>let hello =&gt; console.log("Hi");</code></li>
+      <li>D) <code>hello function() { console.log("Hi"); }</code></li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a9')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a9" class="answer hidden">
+      <p><strong>Correct Option:</strong> B</p>
+      <p>
+        <code>function hello() { ... }</code> is the correct syntax for a function declaration.  
+        Options A, C, and D are syntactically invalid.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q10 -->
+  <section class="card">
+    <div class="q-meta">Q10 · MCQ — Function Expression</div>
+    <h2>Which option correctly creates a <strong>function expression</strong> stored in a variable?</h2>
+    <ul>
+      <li>A) <code>const sum = function(a, b) { return a + b; };</code></li>
+      <li>B) <code>function sum = (a, b) { return a + b; };</code></li>
+      <li>C) <code>sum(a, b) = { return a + b; };</code></li>
+      <li>D) <code>let function sum(a, b) { return a + b; };</code></li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a10')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a10" class="answer hidden">
+      <p><strong>Correct Option:</strong> A</p>
+      <p>
+        Option A is the correct function expression: an anonymous function assigned to <code>sum</code>.  
+        The others are invalid JavaScript syntax.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q11 -->
+  <section class="card">
+    <div class="q-meta">Q11 · MCQ — Arrow Functions</div>
+    <h2>Which arrow function correctly returns the product of two numbers?</h2>
+    <ul>
+      <li>A) <code>const prod = (a, b) =&gt; { a * b };</code></li>
+      <li>B) <code>const prod = a, b =&gt; a * b;</code></li>
+      <li>C) <code>const prod = (a, b) =&gt; a * b;</code></li>
+      <li>D) <code>prod(a, b) =&gt; { return a * b };</code></li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a11')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a11" class="answer hidden">
+      <p><strong>Correct Option:</strong> C</p>
+      <p>
+        For a concise arrow function, <code>(a, b) =&gt; a * b</code> implicitly returns <code>a * b</code>.  
+        Option A lacks <code>return</code> inside the braces, B has incorrect parameter syntax, D is invalid.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q12 -->
+  <section class="card">
+    <div class="q-meta">Q12 · MCQ — Default Parameters Concept</div>
+    <h2>Which statement about <strong>default parameters</strong> is TRUE?</h2>
+    <ul>
+      <li>A) Default parameters must always come first.</li>
+      <li>B) Default parameters are only allowed in arrow functions.</li>
+      <li>C) Default parameters are used when an argument is <code>undefined</code> or missing.</li>
+      <li>D) JavaScript does not support default parameters.</li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a12')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a12" class="answer hidden">
+      <p><strong>Correct Option:</strong> C</p>
+      <p>
+        A parameter’s default value is used when the argument is not provided or explicitly <code>undefined</code>.  
+        A and B are false; D is obviously false.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q13 -->
+  <section class="card">
+    <div class="q-meta">Q13 · MCQ — Rest Parameters</div>
+    <h2>What does the <code>...nums</code> syntax represent in a function parameter list?</h2>
+    <ul>
+      <li>A) Spread operator only for arrays</li>
+      <li>B) Rest parameter, collecting remaining arguments into an array</li>
+      <li>C) Comment syntax</li>
+      <li>D) Deprecated feature</li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a13')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a13" class="answer hidden">
+      <p><strong>Correct Option:</strong> B</p>
+      <p>
+        Inside a parameter list, <code>...nums</code> is a <strong>rest parameter</strong> that collects all remaining
+        arguments into an array called <code>nums</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q14 -->
+  <section class="card">
+    <div class="q-meta">Q14 · MCQ — Scope</div>
+    <h2>Which variables are <strong>block scoped</strong> in JavaScript?</h2>
+    <ul>
+      <li>A) Only <code>var</code></li>
+      <li>B) Only <code>let</code></li>
+      <li>C) <code>let</code> and <code>const</code></li>
+      <li>D) <code>var</code>, <code>let</code> and <code>const</code></li>
+    </ul>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a14')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a14" class="answer hidden">
+      <p><strong>Correct Option:</strong> C</p>
+      <p>
+        <code>let</code> and <code>const</code> are block-scoped (limited to <code>{ }</code>).  
+        <code>var</code> is function-scoped and ignores block boundaries.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q15 -->
+  <section class="card">
+    <div class="q-meta">Q15 · Coding Logic — Describe Function Behavior</div>
+    <h2>What does the following function compute?</h2>
+    <pre><code>function netFee(fee, discountPercent) {
+  if (discountPercent &lt;= 0) {
+    return fee;
+  }
+  const discountAmount = fee * (discountPercent / 100);
+  return fee - discountAmount;
+}</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a15')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a15" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <p>
+        It calculates the <strong>net fee after a percentage discount</strong> is applied.<br>
+        If discount ≤ 0, it returns the original fee; otherwise it subtracts the discount amount from the fee.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q16 -->
+  <section class="card">
+    <div class="q-meta">Q16 · Coding Logic — Return vs Console</div>
+    <h2>What will be printed?</h2>
+    <pre><code>function showTotal(a, b) {
+  return a + b;
+}
+
+console.log(showTotal(3, 7));</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a16')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a16" class="answer hidden">
+      <p><strong>Answer:</strong> <code>10</code></p>
+      <p>
+        The function <code>showTotal</code> returns <code>a + b</code>.  
+        <code>console.log(showTotal(3, 7))</code> logs the returned value, which is <code>10</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q17 -->
+  <section class="card">
+    <div class="q-meta">Q17 · Coding Logic — Fix the Bug</div>
+    <h2>This function is supposed to return the area of a circle, but it prints <code>undefined</code>. Why?</h2>
+    <pre><code>function areaOfCircle(r) {
+  const pi = 3.1416;
+  console.log(pi * r * r);
+}
+
+let result = areaOfCircle(5);
+console.log(result);</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a17')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a17" class="answer hidden">
+      <p><strong>Answer &amp; Fix:</strong></p>
+      <p>
+        The function <strong>logs</strong> the area but does not <strong>return</strong> it, so <code>result</code> becomes
+        <code>undefined</code>.<br>
+        Fix:
+      </p>
+      <pre><code>function areaOfCircle(r) {
+  const pi = 3.1416;
+  return pi * r * r;
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Q18 -->
+  <section class="card">
+    <div class="q-meta">Q18 · Coding Logic — Using Rest</div>
+    <h2>What will <code>console.log</code> print?</h2>
+    <pre><code>function average(...nums) {
+  if (nums.length === 0) return 0;
+  let sum = 0;
+  for (let n of nums) {
+    sum += n;
+  }
+  return sum / nums.length;
+}
+
+console.log(average(10, 20, 30));</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a18')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a18" class="answer hidden">
+      <p><strong>Answer:</strong> <code>20</code></p>
+      <p>
+        Sum = <code>10 + 20 + 30 = 60</code>.  
+        <code>60 / 3 = 20</code>, so the function returns <code>20</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q19 -->
+  <section class="card">
+    <div class="q-meta">Q19 · Coding Logic — Arrow &amp; Conditional</div>
+    <h2>What does this arrow function return for <code>(45)</code> and for <code>(80)</code>?</h2>
+    <pre><code>const gradeStatus = marks =&gt; {
+  return marks &gt;= 50 ? "Pass" : "Fail";
+};</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a19')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a19" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <ul>
+        <li><code>gradeStatus(45)</code> → <code>"Fail"</code></li>
+        <li><code>gradeStatus(80)</code> → <code>"Pass"</code></li>
+      </ul>
+      <p>
+        The ternary operator checks whether <code>marks &gt;= 50</code> and returns <code>"Pass"</code> or <code>"Fail"</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q20 -->
+  <section class="card">
+    <div class="q-meta">Q20 · Coding Logic — Returning an Object</div>
+    <h2>What does this function return when called as <code>createUser("Amit", "Beginner")</code>?</h2>
+    <pre><code>function createUser(name, level) {
+  return {
+    name: name,
+    level: level,
+    active: true
+  };
+}</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a20')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a20" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>{
+  name: "Amit",
+  level: "Beginner",
+  active: true
+}</code></pre>
+      <p>
+        The function returns an object with properties from parameters and <code>active: true</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q21 -->
+  <section class="card">
+    <div class="q-meta">Q21 · Real-World Scenario — Fee Calculator</div>
+    <h2>
+      You are writing a billing function <code>calculateBill(amount, gstPercent)</code>.
+      It should return the final amount after adding GST.  
+      For <code>amount = 1000</code> and <code>gstPercent = 18</code>, what should it return?
+    </h2>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a21')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a21" class="answer hidden">
+      <p><strong>Answer:</strong> <code>1180</code></p>
+      <p>
+        GST amount = <code>1000 × 18/100 = 180</code>.  
+        Final amount = <code>1000 + 180 = 1180</code>.  
+        Your function should compute and return this value, not just log it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q22 -->
+  <section class="card">
+    <div class="q-meta">Q22 · Real-World Scenario — Login Message</div>
+    <h2>
+      Design a function <code>loginMessage(isLoggedIn)</code> that returns
+      <code>"Welcome back!"</code> if <code>isLoggedIn</code> is true,  
+      otherwise returns <code>"Please log in."</code>.  
+      What is the simplest implementation using a ternary operator?
+    </h2>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a22')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a22" class="answer hidden">
+      <p><strong>Possible Answer:</strong></p>
+      <pre><code>function loginMessage(isLoggedIn) {
+  return isLoggedIn ? "Welcome back!" : "Please log in.";
+}</code></pre>
+      <p>
+        Ternary operator is perfect for simple two-way decisions and can be returned directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q23 -->
+  <section class="card">
+    <div class="q-meta">Q23 · Real-World Scenario — Attendance Check</div>
+    <h2>
+      Write the logic (in words) for a function <code>canSitForExam(attendance, hasClearedFees)</code>:  
+      A student can sit for the exam only if attendance ≥ 75 and fees are cleared.  
+      What should the function return in the passing case and failing case?
+    </h2>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a23')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a23" class="answer hidden">
+      <p><strong>Answer (Logic):</strong></p>
+      <p>
+        The function should return <code>true</code> if
+        <code>attendance &gt;= 75</code> <strong>AND</strong> <code>hasClearedFees === true</code>,  
+        otherwise it should return <code>false</code>.
+      </p>
+      <pre><code>function canSitForExam(attendance, hasClearedFees) {
+  return attendance &gt;= 75 &amp;&amp; hasClearedFees;
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- Q24 -->
+  <section class="card">
+    <div class="q-meta">Q24 · Advanced Logic — Inner Function (Closure Idea)</div>
+    <h2>What will be logged?</h2>
+    <pre><code>function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log("Count:", count);
+  }
+
+  inner();
+  inner();
+}
+
+outer();</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a24')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a24" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>Count: 1
+Count: 2</code></pre>
+      <p>
+        Inner function <code>inner</code> has access to <code>count</code> defined in <code>outer</code>.  
+        Each call increments and logs it: first <code>1</code>, then <code>2</code>.  
+        This demonstrates the idea of functions “remembering” variables from their outer scope.
+      </p>
+    </div>
+  </section>
+
+  <!-- Q25 -->
+  <section class="card">
+    <div class="q-meta">Q25 · Advanced Logic — Function Returning Function</div>
+    <h2>What gets logged?</h2>
+    <pre><code>function makeMultiplier(factor) {
+  return function (n) {
+    return n * factor;
+  };
+}
+
+const double = makeMultiplier(2);
+const triple = makeMultiplier(3);
+
+console.log(double(10));
+console.log(triple(10));</code></pre>
+
+    <button class="reveal-btn" onclick="toggleAnswer('a25')">
+      <span>🔍 Show Answer &amp; Explanation</span>
+    </button>
+    <div id="a25" class="answer hidden">
+      <p><strong>Answer:</strong></p>
+      <pre><code>20
+30</code></pre>
+      <p>
+        <code>makeMultiplier(2)</code> returns a function that multiplies by 2 → <code>double(10) = 20</code>.  
+        <code>makeMultiplier(3)</code> returns a function that multiplies by 3 → <code>triple(10) = 30</code>.  
+        This is a classic closure pattern: inner functions remember <code>factor</code>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      This is the Final Mixed Test (Part 4) for Module 6 — Functions.  
+      Use it as a revision sheet before moving to Arrays, Objects &amp; DOM in the next modules.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleAnswer(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle("hidden");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 4 Test — Decision Making (Part 4: Q76–100) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  :root {
+    --bg:#020617;
+    --accent:#38bdf8;
+    --accent2:#a855f7;
+    --accent3:#22c55e;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --border:#1e293b;
+  }
+
+  body {
+    margin:0;
+    background:radial-gradient(circle at top,#0f172a,#020617 70%,#000);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--text);
+    padding:32px 16px;
+    line-height:1.7;
+  }
+
+  .page { max-width:1000px; margin:auto; }
+
+  h1 {
+    text-align:center;
+    font-size:2rem;
+    background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#a5b4fc);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:20px;
+  }
+
+  .intro { text-align:center; color:var(--muted); margin-bottom:25px; }
+
+  .card {
+    background:rgba(15,23,42,0.97);
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.55);
+  }
+
+  .question { color:#dbeafe; font-size:1rem; margin-bottom:10px; }
+
+  .show-btn {
+    background:linear-gradient(90deg,#38bdf8,#a855f7);
+    border:none;
+    color:white;
+    padding:8px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.25s;
+  }
+  .show-btn:hover { opacity:0.88; transform:scale(1.03); }
+
+  .answer-box {
+    display:none;
+    background:rgba(30,41,59,0.75);
+    padding:14px;
+    margin-top:10px;
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+  }
+
+  footer {
+    margin-top:40px;
+    padding:20px;
+    background:rgba(15,23,42,0.95);
+    border-radius:18px;
+    border:1px solid var(--border);
+  }
+  .org-grid {
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:10px;
+  }
+  @media(max-width:700px){ .org-grid{ grid-template-columns:1fr; } }
+
+  .org-name { font-weight:700; }
+  footer a { color:var(--accent); }
+  .org-small {
+    margin-top:10px;
+    font-size:0.8rem;
+    color:var(--muted);
+  }
+</style>
+
+<script>
+  function toggleAnswer(id){
+    const box=document.getElementById(id);
+    box.style.display = box.style.display==="block" ? "none" : "block";
+  }
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 4 — Decision Making Test<br>Part 4 (Q76–100)</h1>
+<div class="intro">Final 25 questions · nested logic · switch chains · advanced conditions</div>
+
+
+<!-- Q76 -->
+<div class="card">
+  <div class="question">
+    <strong>Q76.</strong> Output?<br>
+    <pre><code>let a = 0;
+if (!a) console.log("Zero");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a76')">Show Answer</button>
+  <div class="answer-box" id="a76">
+    <strong>Answer:</strong> Zero<br><br>
+    <strong>Explanation:</strong> 0 is falsy → !0 is true.
+  </div>
+</div>
+
+<!-- Q77 -->
+<div class="card">
+  <div class="question">
+    <strong>Q77.</strong> Predict result:<br>
+    <pre><code>let x = 50;
+if (x > 40)
+  if (x < 60) console.log("Valid");
+  else console.log("Out of range");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a77')">Show Answer</button>
+  <div class="answer-box" id="a77">
+    <strong>Answer:</strong> Valid<br><br>
+    <strong>Explanation:</strong> Both conditions true.
+  </div>
+</div>
+
+<!-- Q78 -->
+<div class="card">
+  <div class="question">
+    <strong>Q78.</strong> Output?<br>
+    <pre><code>let s = "0";
+if (s) console.log("Truthy");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a78')">Show Answer</button>
+  <div class="answer-box" id="a78">
+    <strong>Answer:</strong> Truthy<br><br>
+    <strong>Explanation:</strong> String "0" is non-empty.
+  </div>
+</div>
+
+<!-- Q79 -->
+<div class="card">
+  <div class="question">
+    <strong>Q79.</strong> Ternary result?<br>
+    <pre><code>let marks = 42;
+let res = marks>=40 ? "Pass" : "Fail";
+console.log(res);</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a79')">Show Answer</button>
+  <div class="answer-box" id="a79">
+    <strong>Answer:</strong> Pass<br><br>
+    <strong>Explanation:</strong> 42≥40 true.
+  </div>
+</div>
+
+<!-- Q80 -->
+<div class="card">
+  <div class="question">
+    <strong>Q80.</strong> Switch output?<br>
+    <pre><code>let mode="offline";
+switch(mode){
+  case "online": console.log("Web Class"); break;
+  case "offline": console.log("Classroom"); break;
+  default: console.log("N/A");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a80')">Show Answer</button>
+  <div class="answer-box" id="a80">
+    <strong>Answer:</strong> Classroom<br><br>
+    <strong>Explanation:</strong> Matches "offline".
+  </div>
+</div>
+
+<!-- Q81 -->
+<div class="card">
+  <div class="question">
+    <strong>Q81.</strong> Output?<br>
+    <pre><code>let a = undefined;
+if (!a) console.log("Missing");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a81')">Show Answer</button>
+  <div class="answer-box" id="a81">
+    <strong>Answer:</strong> Missing<br><br>
+    <strong>Explanation:</strong> undefined is falsy.
+  </div>
+</div>
+
+<!-- Q82 -->
+<div class="card">
+  <div class="question">
+    <strong>Q82.</strong> Which message prints?<br>
+    <pre><code>let n = 30;
+if (n>50) console.log("High");
+else if (n>20) console.log("Medium");
+else console.log("Low");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a82')">Show Answer</button>
+  <div class="answer-box" id="a82">
+    <strong>Answer:</strong> Medium<br><br>
+    <strong>Explanation:</strong> n>20 is true.
+  </div>
+</div>
+
+<!-- Q83 -->
+<div class="card">
+  <div class="question">
+    <strong>Q83.</strong> Output?<br>
+    <pre><code>let val = [];
+if(val) console.log("Truthy array");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a83')">Show Answer</button>
+  <div class="answer-box" id="a83">
+    <strong>Answer:</strong> Truthy array<br><br>
+    <strong>Explanation:</strong> Empty array is truthy.
+  </div>
+</div>
+
+<!-- Q84 -->
+<div class="card">
+  <div class="question">
+    <strong>Q84.</strong> Switch with no break?<br>
+    <pre><code>let x=2;
+switch(x){
+  case 1: console.log("One");
+  case 2: console.log("Two");
+  case 3: console.log("Three");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a84')">Show Answer</button>
+  <div class="answer-box" id="a84">
+    <strong>Answer:</strong> Two<br>Three<br><br>
+    <strong>Explanation:</strong> Fall-through starts at case 2.
+  </div>
+</div>
+
+<!-- Q85 -->
+<div class="card">
+  <div class="question">
+    <strong>Q85.</strong> Output?<br>
+    <pre><code>let loggedIn=false;
+console.log(loggedIn?"Welcome":"Please login");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a85')">Show Answer</button>
+  <div class="answer-box" id="a85">
+    <strong>Answer:</strong> Please login<br><br>
+    <strong>Explanation:</strong> Condition false.
+  </div>
+</div>
+
+<!-- Q86 -->
+<div class="card">
+  <div class="question">
+    <strong>Q86.</strong> Output?<br>
+    <pre><code>let c = "JS";
+if(c && c[0]==="J") console.log("Match");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a86')">Show Answer</button>
+  <div class="answer-box" id="a86">
+    <strong>Answer:</strong> Match<br><br>
+    <strong>Explanation:</strong> Truthy AND correct check.
+  </div>
+</div>
+
+<!-- Q87 -->
+<div class="card">
+  <div class="question">
+    <strong>Q87.</strong> Output?<br>
+    <pre><code>let a="hello";
+if(a.length>3) console.log("Long");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a87')">Show Answer</button>
+  <div class="answer-box" id="a87">
+    <strong>Answer:</strong> Long<br><br>
+    <strong>Explanation:</strong> Length 5.
+  </div>
+</div>
+
+<!-- Q88 -->
+<div class="card">
+  <div class="question">
+    <strong>Q88.</strong> Multi-condition?<br>
+    <pre><code>let s=70;
+if(s>=90) console.log("A");
+else if(s>=80) console.log("B");
+else if(s>=70) console.log("C");
+else console.log("D");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a88')">Show Answer</button>
+  <div class="answer-box" id="a88">
+    <strong>Answer:</strong> C<br><br>
+    <strong>Explanation:</strong> 70≥70 is true.
+  </div>
+</div>
+
+<!-- Q89 -->
+<div class="card">
+  <div class="question">
+    <strong>Q89.</strong> Output?<br>
+    <pre><code>let a = "";
+if(!a) console.log("Empty string");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a89')">Show Answer</button>
+  <div class="answer-box" id="a89">
+    <strong>Answer:</strong> Empty string<br><br>
+    <strong>Explanation:</strong> "" falsy → !"" true.
+  </div>
+</div>
+
+<!-- Q90 -->
+<div class="card">
+  <div class="question">
+    <strong>Q90.</strong> Predict output:<br>
+    <pre><code>let num=15;
+console.log(num%2===0?"Even":"Odd");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a90')">Show Answer</button>
+  <div class="answer-box" id="a90">
+    <strong>Answer:</strong> Odd<br><br>
+    <strong>Explanation:</strong> 15%2=1.
+  </div>
+</div>
+
+<!-- Q91 -->
+<div class="card">
+  <div class="question">
+    <strong>Q91.</strong> Nested ternary:<br>
+    <pre><code>let age=10;
+let res = age>=18?"Adult":age>=13?"Teen":"Child";
+console.log(res);</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a91')">Show Answer</button>
+  <div class="answer-box" id="a91">
+    <strong>Answer:</strong> Child<br><br>
+    <strong>Explanation:</strong> Both conditions false → last option.
+  </div>
+</div>
+
+<!-- Q92 -->
+<div class="card">
+  <div class="question">
+    <strong>Q92.</strong> switch logic?<br>
+    <pre><code>let p="silver";
+switch(p){
+  case "gold": console.log("Premium"); break;
+  case "silver":
+  case "bronze": console.log("Standard"); break;
+  default: console.log("Basic");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a92')">Show Answer</button>
+  <div class="answer-box" id="a92">
+    <strong>Answer:</strong> Standard<br><br>
+    <strong>Explanation:</strong> silver falls in grouped case.
+  </div>
+</div>
+
+<!-- Q93 -->
+<div class="card">
+  <div class="question">
+    <strong>Q93.</strong> Output?<br>
+    <pre><code>let val=null;
+if(val===null) console.log("Null found");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a93')">Show Answer</button>
+  <div class="answer-box" id="a93">
+    <strong>Answer:</strong> Null found<br><br>
+    <strong>Explanation:</strong> Strict null check.
+  </div>
+</div>
+
+<!-- Q94 -->
+<div class="card">
+  <div class="question">
+    <strong>Q94.</strong> Trick falsy:<br>
+    <pre><code>let x = NaN;
+if(x) console.log("True"); else console.log("False");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a94')">Show Answer</button>
+  <div class="answer-box" id="a94">
+    <strong>Answer:</strong> False<br><br>
+    <strong>Explanation:</strong> NaN is falsy.
+  </div>
+</div>
+
+<!-- Q95 -->
+<div class="card">
+  <div class="question">
+    <strong>Q95.</strong> Output?<br>
+    <pre><code>let t=2;
+if(t===1) console.log("One");
+else if(t===2) console.log("Two");
+else console.log("Other");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a95')">Show Answer</button>
+  <div class="answer-box" id="a95">
+    <strong>Answer:</strong> Two<br><br>
+    <strong>Explanation:</strong> t===2.
+  </div>
+</div>
+
+<!-- Q96 -->
+<div class="card">
+  <div class="question">
+    <strong>Q96.</strong> Condition with &&:<br>
+    <pre><code>let a=5,b=15;
+if(a<10 && b>10) console.log("OK");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a96')">Show Answer</button>
+  <div class="answer-box" id="a96">
+    <strong>Answer:</strong> OK<br><br>
+    <strong>Explanation:</strong> Both true.
+  </div>
+</div>
+
+<!-- Q97 -->
+<div class="card">
+  <div class="question">
+    <strong>Q97.</strong> Nested if:<br>
+    <pre><code>let a=10;
+if(a>5){
+  if(a<15) console.log("Range OK");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a97')">Show Answer</button>
+  <div class="answer-box" id="a97">
+    <strong>Answer:</strong> Range OK<br><br>
+    <strong>Explanation:</strong> Both conditions true.
+  </div>
+</div>
+
+<!-- Q98 -->
+<div class="card">
+  <div class="question">
+    <strong>Q98.</strong> Output?<br>
+    <pre><code>let str="JS";
+console.log(str ? "Exists" : "Missing");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a98')">Show Answer</button>
+  <div class="answer-box" id="a98">
+    <strong>Answer:</strong> Exists<br><br>
+    <strong>Explanation:</strong> Non-empty string is truthy.
+  </div>
+</div>
+
+<!-- Q99 -->
+<div class="card">
+  <div class="question">
+    <strong>Q99.</strong> Output?<br>
+    <pre><code>let x=" ";
+if(x.trim()==="") console.log("Blank");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a99')">Show Answer</button>
+  <div class="answer-box" id="a99">
+    <strong>Answer:</strong> Blank<br><br>
+    <strong>Explanation:</strong> " ".trim() → "".
+  </div>
+</div>
+
+<!-- Q100 -->
+<div class="card">
+  <div class="question">
+    <strong>Q100.</strong> Final question:<br>
+    <pre><code>let attendance=78, paid=true;
+if(attendance>=75 && paid) console.log("Eligible");
+else console.log("Not Eligible");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a100')">Show Answer</button>
+  <div class="answer-box" id="a100">
+    <strong>Answer:</strong> Eligible<br><br>
+    <strong>Explanation:</strong> Both conditions satisfied.
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong> <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui
+    </div>
+  </div>
+  <div class="org-small">
+    Premium JavaScript Test · Module 4 · Part 4 (Q76–100)
+  </div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 8 — Objects & OOP | Test Part 3 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#facc15;
+      --accent2:#34d399;
+      --accent3:#38bdf8;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.4);
+      box-shadow:0 0 28px rgba(250,204,21,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#facc15,#34d399,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#feeaa3;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(52,211,153,0.35);
+      box-shadow:0 0 18px rgba(52,211,153,0.22);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#facc15,#34d399);
+      color:#000;
+      box-shadow:0 0 16px rgba(250,204,21,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(52,211,153,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(250,204,21,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent3);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 8 — Objects &amp; Basic OOP  
+      <span style="font-size:1.1rem;display:block;margin-top:4px;">
+        Test Part 3 · Classes, Inheritance &amp; Prototype Chain
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 carefully designed questions mixing output prediction, conceptual reasoning, and
+      exam-style MCQs focused on <strong>ES6 classes</strong>, <strong>inheritance</strong>,
+      <strong>method overriding</strong>, <strong>static members</strong>, and the
+      <strong>prototype chain</strong>.
+    </p>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="card">
+    <h2>Section A — Output &amp; Short Logic</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What will be the output?
+      <pre><code>class A {
+  x = 10;
+}
+
+class B extends A {
+  y = 20;
+}
+
+const obj = new B();
+console.log(obj.x, obj.y);</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b> <code>10 20</code><br>
+        <b>Explanation:</b> Class <code>B</code> extends <code>A</code>, so instances of <code>B</code> get
+        both fields: <code>x</code> from <code>A</code> and <code>y</code> from <code>B</code>.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> What will this code print?
+      <pre><code>class A {
+  constructor() {
+    this.value = 5;
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.value *= 2;
+  }
+}
+
+console.log(new B().value);</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b> <code>10</code><br>
+        <b>Explanation:</b> Parent constructor sets <code>value = 5</code>. Child multiplies it by 2,
+        so final value is 10.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Predict the output:
+      <pre><code>class Base {
+  greet() { return "Hello"; }
+}
+
+class Child extends Base {
+  greet() { return super.greet() + " World"; }
+}
+
+console.log(new Child().greet());</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b> <code>"Hello World"</code><br>
+        <b>Explanation:</b> <code>Child</code> overrides <code>greet()</code> but still calls the parent
+        method using <code>super.greet()</code>, then concatenates <code>" World"</code>.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> What is printed?
+      <pre><code>class A {
+  say() { return "A"; }
+}
+class B extends A {
+  say() { return "B"; }
+}
+class C extends B {}
+
+console.log(new C().say());</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> <code>"B"</code><br>
+        <b>Explanation:</b> The lookup order is: instance → <code>C.prototype</code> → <code>B.prototype</code> →
+        <code>A.prototype</code>. C does not override <code>say()</code>, so B’s version is used.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> What will be logged?
+      <pre><code>class P {
+  constructor() { this.name = "Parent"; }
+}
+class C extends P {
+  constructor() {
+    super();
+    console.log(this.name);
+  }
+}
+
+new C();</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b> <code>Parent</code><br>
+        <b>Explanation:</b> <code>super()</code> calls <code>P</code>'s constructor and sets
+        <code>this.name</code>. Then <code>console.log(this.name)</code> prints <code>Parent</code>.
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> What is the output?
+      <pre><code>class A {
+  static x = 10;
+}
+
+class B extends A {}
+
+console.log(B.x);</code></pre>
+
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Answer:</b> <code>10</code><br>
+        <b>Explanation:</b> Static properties belong to the class itself, and are inherited by
+        subclasses. So <code>B.x</code> is 10.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> What does this display?
+      <pre><code>class A {
+  get data() { return 50; }
+}
+
+class B extends A {}
+
+console.log(new B().data);</code></pre>
+
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Answer:</b> <code>50</code><br>
+        <b>Explanation:</b> Getters behave like inherited methods. <code>B</code> does not override
+        <code>data</code>, so the getter from <code>A</code> is used.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Find the output:
+      <pre><code>class Counter {
+  constructor() {
+    this.count = 0;
+  }
+  inc() {
+    this.count++;
+  }
+}
+
+const c1 = new Counter();
+const c2 = new Counter();
+
+c1.inc();
+c1.inc();
+c2.inc();
+
+console.log(c1.count, c2.count);</code></pre>
+
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Answer:</b> <code>2 1</code><br>
+        <b>Explanation:</b> Each instance has its own <code>count</code>. c1 is incremented twice,
+        c2 once.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> What will be the output?
+      <pre><code>class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  introduce() {
+    console.log("I am " + this.name);
+  }
+}
+
+class Student extends Person {
+  introduce() {
+    console.log("Student: " + this.name);
+  }
+}
+
+const p = new Person("Amit");
+const s = new Student("Neha");
+
+p.introduce();
+s.introduce();</code></pre>
+
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Answer:</b><br>
+        <code>I am Amit</code><br>
+        <code>Student: Neha</code><br>
+        <b>Explanation:</b> <code>Student</code> overrides <code>introduce()</code>. So each object
+        uses its own class’s method.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Output?
+      <pre><code>class A {
+  constructor() {
+    this.value = 1;
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.value = 2;
+  }
+}
+
+class C extends B {
+  constructor() {
+    super();
+    this.value = 3;
+  }
+}
+
+console.log(new C().value);</code></pre>
+
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Answer:</b> <code>3</code><br>
+        <b>Explanation:</b> Each constructor overwrites <code>value</code>. The last one (C) wins.
+      </div>
+    </div>
+
+  </div><!-- end card section A -->
+
+  <!-- SECTION 2 -->
+  <div class="card">
+    <h2>Section B — MCQs on Classes, Static &amp; Inheritance</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Which of the following is <strong>true</strong> about ES6 classes in JavaScript?<br><br>
+      A. Classes completely replace prototypes internally.  
+      B. Classes are syntax sugar over prototype-based inheritance.  
+      C. Classes are only available in TypeScript, not JavaScript.  
+      D. Classes cannot have constructors.
+      <br><br>
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> ES6 classes are syntactic sugar on top of the existing prototype system;
+        JavaScript is still prototype-based under the hood.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> In a subclass constructor, what must be done before using <code>this</code>?<br><br>
+      A. Nothing, you can use <code>this</code> directly.  
+      B. Call <code>super()</code>.  
+      C. Declare <code>this</code> with <code>let</code>.  
+      D. Use <code>super(this)</code>.
+      <br><br>
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> In a derived class, you must call <code>super()</code> before accessing
+        <code>this</code>, otherwise JavaScript throws a ReferenceError.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> How do you correctly define a static method inside an ES6 class?<br><br>
+      A. <code>function static add(a,b){...}</code> inside class body  
+      B. <code>add static(a,b){...}</code>  
+      C. <code>static add(a,b){...}</code>  
+      D. <code>add(a,b) static {...}</code>
+      <br><br>
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Syntax is <code>static methodName(...) { ... }</code>.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Consider:
+      <pre><code>class A {
+  static show() { console.log("A"); }
+}
+class B extends A {}
+
+B.show();</code></pre>
+      What happens?<br><br>
+      A. Error, static methods are not inherited.  
+      B. Logs <code>"A"</code>.  
+      C. Logs <code>"B"</code>.  
+      D. Nothing is printed.
+      <br><br>
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Static methods are inherited by subclasses; <code>B.show()</code>
+        calls <code>A.show()</code>.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Which keyword is used to call the parent class constructor inside a child class?<br><br>
+      A. <code>this()</code>  
+      B. <code>parent()</code>  
+      C. <code>super()</code>  
+      D. <code>base()</code>
+      <br><br>
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> <code>super()</code> is used in subclass constructors to invoke
+        the parent class constructor.
+      </div>
+    </div>
+
+  </div><!-- end card section B -->
+
+  <!-- SECTION 3 -->
+  <div class="card">
+    <h2>Section C — Prototype Chain &amp; Advanced Behaviour</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b> What will be logged?
+      <pre><code>class A {
+  greet() { console.log("Hello from A"); }
+}
+
+class B extends A {}
+
+const obj = new B();
+console.log(Object.getPrototypeOf(obj) === B.prototype);</code></pre>
+
+      <button onclick="toggleAns('a16')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a16">
+        <b>Answer:</b> <code>true</code><br>
+        <b>Explanation:</b> For class instances, <code>Object.getPrototypeOf(obj)</code> returns
+        the prototype (here <code>B.prototype</code>) where instance methods are stored.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b> Consider:
+      <pre><code>class A {}
+class B extends A {}
+
+const b = new B();
+
+console.log(
+  Object.getPrototypeOf(Object.getPrototypeOf(b)) === A.prototype
+);</code></pre>
+
+      What is printed?<br><br>
+      <button onclick="toggleAns('a17')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a17">
+        <b>Answer:</b> <code>true</code><br>
+        <b>Explanation:</b> The chain is:  
+        <code>b → B.prototype → A.prototype → Object.prototype → null</code>.  
+        So the prototype of <code>B.prototype</code> is indeed <code>A.prototype</code>.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b> What will be logged?
+      <pre><code>class A {
+  greet() { console.log("A"); }
+}
+
+class B extends A {
+  greet() { console.log("B"); }
+}
+
+const a = new A();
+const b = new B();
+
+a.greet();
+b.greet();
+A.prototype.greet.call(b);</code></pre>
+
+      <button onclick="toggleAns('a18')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a18">
+        <b>Answer:</b><br>
+        <code>A</code><br>
+        <code>B</code><br>
+        <code>A</code><br>
+        <b>Explanation:</b> First call uses A’s method on <code>a</code>. Second uses B’s
+        overridden method on <code>b</code>. Third manually calls <code>A.prototype.greet</code> with
+        <code>b</code> as <code>this</code>.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b> What will be the result?
+      <pre><code>class A {
+  constructor() {
+    this.items = [];
+  }
+}
+
+class B extends A {}
+
+const b1 = new B();
+const b2 = new B();
+
+b1.items.push(1);
+b2.items.push(2);
+
+console.log(b1.items, b2.items);</code></pre>
+
+      <button onclick="toggleAns('a19')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a19">
+        <b>Answer:</b> <code>[1] [2]</code><br>
+        <b>Explanation:</b> <code>items</code> is created in the constructor, so each instance
+        gets its own separate array. They do not share the same array.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b> What is printed?
+      <pre><code>class A {
+  static count = 0;
+  constructor() {
+    A.count++;
+  }
+}
+
+class B extends A {}
+
+new A();
+new B();
+new B();
+
+console.log(A.count);</code></pre>
+
+      <button onclick="toggleAns('a20')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a20">
+        <b>Answer:</b> <code>3</code><br>
+        <b>Explanation:</b> Every time the constructor of <code>A</code> (or a subclass that
+        doesn’t override the constructor) runs, it increments <code>A.count</code>. Total: 3.
+      </div>
+    </div>
+
+  </div><!-- end card section C -->
+
+  <!-- SECTION 4 -->
+  <div class="card">
+    <h2>Section D — Conceptual &amp; Short Answer Style</h2>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> In the context of classes and objects, what is
+      <strong>method overriding</strong>?
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        Method overriding is when a subclass provides its own implementation of a method
+        that already exists in its parent class. The method name and parameters are the same,
+        but the subclass changes the behaviour. When the method is called on the subclass instance,
+        the overridden version runs.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> Explain the difference between an <strong>instance method</strong>
+      and a <strong>static method</strong> in ES6 classes.
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer:</b><br>
+        An instance method is called on objects created from the class
+        (e.g. <code>obj.method()</code>) and can access instance data via <code>this</code>.<br>
+        A static method belongs to the class itself (e.g. <code>ClassName.method()</code>),
+        is declared with the <code>static</code> keyword, and is typically used for
+        utility or helper logic that doesn’t depend on a particular instance.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> What is the <strong>prototype chain</strong> and how does it relate to
+      ES6 classes?
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        The prototype chain is the linked structure JavaScript uses to perform property and
+        method lookup. When you access a property on an object, JS first looks on the object
+        itself, then on its prototype, then on that prototype’s prototype, and so on until
+        <code>Object.prototype</code> and <code>null</code>.<br>
+        ES6 classes still use this system internally; class methods are stored on
+        <code>ClassName.prototype</code>, and inheritance is implemented by linking prototypes.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> Why is it usually better to put methods on the prototype (or inside the
+      class body) instead of recreating them in the constructor for every object?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        If you define methods inside the constructor, every object gets its own separate copy
+        of those functions in memory. When methods are on the prototype (or defined in the
+        ES6 class body), all instances share the same function. This saves memory and keeps
+        behaviour consistent across objects.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> For a project at <strong>Coder &amp; AccoTax</strong>, you model
+      students using a base class <code>Person</code> and subclasses like <code>Student</code>
+      and <code>Teacher</code>. Give one practical advantage of using inheritance in this case.
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        Inheritance lets you put common properties and methods (like <code>name</code>,
+        <code>phone</code>, <code>introduce()</code>) in the <code>Person</code> base class
+        and reuse them in <code>Student</code> and <code>Teacher</code>.  
+        This avoids duplication and makes it easy to add or change shared behaviour in one place
+        while still allowing each subclass to add its own specific properties
+        (course, subject, salary, etc.) or override methods when needed.
+      </div>
+    </div>
+
+  </div><!-- end card section D -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Objects &amp; OOP · Test Part 3
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 3 of the complete <strong>Module 8 — Objects &amp; Basic OOP</strong>
+      practice test series on your JavaScript course portal.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

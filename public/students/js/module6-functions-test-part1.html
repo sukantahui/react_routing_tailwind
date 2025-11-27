@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 6 — Functions in JavaScript | Test Part 1 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+      --danger:#f97316;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;
+      border-radius:24px;
+      margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.2),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+      flex-shrink:0;
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN */
+    main{margin-top:8px;}
+    .intro-card,
+    .question-card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:18px 18px 16px;
+      margin-bottom:16px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    .intro-title{
+      font-size:1.1rem;
+      color:#dbeafe;
+      margin-bottom:6px;
+    }
+    .intro-text{font-size:0.9rem;color:var(--muted);}
+
+    /* QUESTION CARD */
+    .q-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+      margin-bottom:6px;
+    }
+    .q-number{
+      font-size:0.8rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    .q-tag{
+      font-size:0.68rem;
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      color:var(--accent2);
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .q-title{
+      font-size:0.98rem;
+      color:#e5e7eb;
+      margin-bottom:6px;
+    }
+    .q-body{
+      font-size:0.9rem;
+      color:#e5e7eb;
+      margin-bottom:8px;
+    }
+
+    ul.options{
+      list-style:none;
+      margin-left:0;
+      margin-bottom:10px;
+      font-size:0.9rem;
+    }
+    ul.options li{
+      margin-bottom:4px;
+    }
+
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;
+      font-size:0.82rem;
+      margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .show-btn{
+      margin-top:6px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.8);
+      background:linear-gradient(120deg,rgba(15,23,42,0.95),rgba(15,23,42,0.9));
+      color:var(--accent);
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:0.2s;
+    }
+    .show-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 18px rgba(56,189,248,0.5);
+    }
+
+    .answer-box{
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(15,23,42,0.98);
+      border:1px dashed rgba(148,163,184,0.65);
+      font-size:0.84rem;
+      display:none;
+    }
+    .answer-label{
+      font-weight:600;
+      color:var(--accent3);
+      margin-bottom:4px;
+    }
+    .explanation-label{
+      font-weight:600;
+      margin-top:6px;
+      margin-bottom:2px;
+      color:#bfdbfe;
+    }
+
+    .difficulty-chip{
+      font-size:0.7rem;
+      padding:1px 8px;
+      border-radius:999px;
+      border:1px solid rgba(234,179,8,0.6);
+      color:#fde68a;
+      background:rgba(113,63,18,0.45);
+      margin-left:6px;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:24px;
+      border-radius:22px;
+      padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 6 · Functions in JavaScript — Test Part 1</h1>
+      <p class="header-sub">
+        25 practice questions on function basics, declarations, parameters &amp; return values.
+        Answers and explanations stay hidden until you click — perfect for self-evaluation.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Functions Basics</div>
+        <div class="badge">Parameters &amp; Return</div>
+        <div class="badge">Mixed Difficulty</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Practice Series</div>
+  </header>
+
+  <!-- INTRO -->
+  <main>
+    <section class="intro-card">
+      <div class="intro-title">How to Use This Test</div>
+      <p class="intro-text">
+        • Total: <strong>25 questions</strong> (MCQs + Output + Conceptual).<br>
+        • Try to answer first, then click <em>“Show Answer &amp; Explanation”</em> to reveal the solution.<br>
+        • This is <strong>Part 1 of 4</strong> for the Functions Module (Module 6) — complete all parts to reach 100/100.
+      </p>
+    </section>
+
+    <!-- Q1 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q1 · Concept Check</div>
+        <div class="q-tag">Definition</div>
+      </div>
+      <div class="q-title">What is the main purpose of a function in JavaScript?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. To store multiple values in a single variable</li>
+          <li>B. To repeat a block of code for a fixed number of times</li>
+          <li>C. To group reusable logic into a named block that can be called whenever needed</li>
+          <li>D. To style the web page using JavaScript</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q1')">Show Answer &amp; Explanation ▾</button>
+      <div id="q1" class="answer-box">
+        <div class="answer-label">Answer: C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          A function represents a <strong>reusable block of code</strong> that performs a specific task.
+          You define it once and then call it from multiple places. Options A and B describe arrays and loops,
+          not functions. Styling is done using CSS, not primarily via functions (option D).
+        </p>
+      </div>
+    </section>
+
+    <!-- Q2 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q2 · Syntax</div>
+        <div class="q-tag">Function Declaration</div>
+      </div>
+      <div class="q-title">Which of the following is a correct function declaration?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. <code>function greet { console.log("Hi"); }</code></li>
+          <li>B. <code>function greet() console.log("Hi");</code></li>
+          <li>C. <code>function greet() { console.log("Hi"); }</code></li>
+          <li>D. <code>greet function() { console.log("Hi"); }</code></li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q2')">Show Answer &amp; Explanation ▾</button>
+      <div id="q2" class="answer-box">
+        <div class="answer-label">Answer: C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The correct syntax is <code>function name() { ... }</code>. Option C follows this.
+          Option A misses parentheses, B misses curly braces, and D has incorrect keyword order.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q3 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q3 · Output Prediction</div>
+        <div class="q-tag">Call vs Definition</div>
+      </div>
+      <div class="q-title">What will be the output of the following code?</div>
+      <pre><code>function show() {
+  console.log("Coder &amp; AccoTax");
+}
+
+show();</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q3')">Show Answer &amp; Explanation ▾</button>
+      <div id="q3" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p><code>Coder &amp; AccoTax</code></p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The function <code>show</code> logs a message. It is then called with <code>show();</code>,
+          so the message is printed once. Defining alone doesn’t output; calling does.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q4 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q4 · Parameters</div>
+        <div class="q-tag">Concept</div>
+      </div>
+      <div class="q-title">In a function definition, what are <em>parameters</em>?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. The values we pass when calling the function</li>
+          <li>B. The variables listed in the function’s parentheses during definition</li>
+          <li>C. The return type of a function</li>
+          <li>D. The number of times a function is executed</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q4')">Show Answer &amp; Explanation ▾</button>
+      <div id="q4" class="answer-box">
+        <div class="answer-label">Answer: B</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          Parameters are <strong>placeholders</strong> declared in the function definition
+          (inside parentheses). The actual values passed during function call are called
+          <strong>arguments</strong> (option A).
+        </p>
+      </div>
+    </section>
+
+    <!-- Q5 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q5 · Arguments</div>
+        <div class="q-tag">Basics</div>
+      </div>
+      <div class="q-title">Given the function below, which part represents the <em>arguments</em>?</div>
+      <pre><code>function add(a, b) {
+  return a + b;
+}
+
+add(3, 7);</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q5')">Show Answer &amp; Explanation ▾</button>
+      <div id="q5" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>The values <code>3</code> and <code>7</code> in the call <code>add(3, 7)</code> are the arguments.</p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          <code>a</code> and <code>b</code> are parameters; the actual values you pass
+          to the function — <code>3</code> and <code>7</code> — are called arguments.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q6 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q6 · Return Value</div>
+        <div class="q-tag">Output</div>
+      </div>
+      <div class="q-title">What will be logged to the console?</div>
+      <pre><code>function multiply(a, b) {
+  return a * b;
+}
+
+let result = multiply(4, 5);
+console.log(result);</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q6')">Show Answer &amp; Explanation ▾</button>
+      <div id="q6" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p><code>20</code></p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          <code>multiply(4, 5)</code> returns <code>4 * 5 = 20</code>, which is stored in
+          <code>result</code> and then printed.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q7 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q7 · MCQ</div>
+        <div class="q-tag">Return</div>
+      </div>
+      <div class="q-title">What happens if a function does not have a <code>return</code> statement?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. It returns <code>0</code></li>
+          <li>B. It returns <code>undefined</code></li>
+          <li>C. It throws an error</li>
+          <li>D. It always returns <code>true</code></li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q7')">Show Answer &amp; Explanation ▾</button>
+      <div id="q7" class="answer-box">
+        <div class="answer-label">Answer: B</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          In JavaScript, if a function finishes without encountering a <code>return</code>,
+          the result of the call is <code>undefined</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q8 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q8 · Output Prediction</div>
+        <div class="q-tag">Return vs Console</div>
+      </div>
+      <div class="q-title">What will be the output?</div>
+      <pre><code>function test() {
+  console.log("Inside");
+}
+
+let x = test();
+console.log(x);</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q8')">Show Answer &amp; Explanation ▾</button>
+      <div id="q8" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          First line: <code>Inside</code><br>
+          Second line: <code>undefined</code>
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          <code>test()</code> logs <code>"Inside"</code> but doesn’t return anything,
+          so <code>x</code> becomes <code>undefined</code>. Printing <code>x</code> shows <code>undefined</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q9 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q9 · Concept</div>
+        <div class="q-tag">Hoisting</div>
+      </div>
+      <div class="q-title">Which type of function can be safely called <em>before</em> its definition in the code?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. Function expressions stored in <code>const</code></li>
+          <li>B. Arrow functions stored in <code>let</code></li>
+          <li>C. Function declarations</li>
+          <li>D. None of the above</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q9')">Show Answer &amp; Explanation ▾</button>
+      <div id="q9" class="answer-box">
+        <div class="answer-label">Answer: C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          <strong>Function declarations</strong> are hoisted with their definitions, so you can
+          call them before they appear in the source. Function expressions and arrow functions
+          in <code>const</code>/<code>let</code> are not fully hoisted in the same way.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q10 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q10 · Code Reading</div>
+        <div class="q-tag">Easy</div>
+      </div>
+      <div class="q-title">What does this function do?</div>
+      <pre><code>function greetStudent(name) {
+  return "Welcome, " + name + "!";
+}</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q10')">Show Answer &amp; Explanation ▾</button>
+      <div id="q10" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          It returns a greeting message like <code>"Welcome, Rahul!"</code> for the given name.
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The function concatenates <code>"Welcome, "</code>, the passed <code>name</code>,
+          and an exclamation mark, then returns the resulting string.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q11 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q11 · Function Expression</div>
+        <div class="q-tag">Medium</div>
+      </div>
+      <div class="q-title">Which of the following is a valid function expression?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. <code>const f = function(a, b) { return a - b; };</code></li>
+          <li>B. <code>function f = (a, b) { return a - b; };</code></li>
+          <li>C. <code>let function = (a, b) =&gt; a - b;</code></li>
+          <li>D. <code>f(a, b) =&gt; { return a - b; }</code></li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q11')">Show Answer &amp; Explanation ▾</button>
+      <div id="q11" class="answer-box">
+        <div class="answer-label">Answer: A</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          Option A stores an anonymous function into a constant variable — this is a valid
+          function expression. Options B, C, and D have incorrect syntax or use reserved keywords wrongly.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q12 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q12 · Arrow Function</div>
+        <div class="q-tag">Syntax</div>
+      </div>
+      <div class="q-title">Convert this function into an equivalent arrow function:</div>
+      <pre><code>function square(n) {
+  return n * n;
+}</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q12')">Show Answer &amp; Explanation ▾</button>
+      <div id="q12" class="answer-box">
+        <div class="answer-label">Answer (one possible):</div>
+        <pre><code>const square = n =&gt; n * n;</code></pre>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          For a single parameter, parentheses are optional, and when the body is a
+          single expression, you can omit <code>return</code> and braces to use implicit return.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q13 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q13 · Default Parameter</div>
+        <div class="q-tag">Medium</div>
+      </div>
+      <div class="q-title">What will this code print?</div>
+      <pre><code>function welcome(name = "Student") {
+  console.log("Welcome,", name);
+}
+
+welcome("Sukanta");
+welcome();</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q13')">Show Answer &amp; Explanation ▾</button>
+      <div id="q13" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          <code>Welcome, Sukanta</code><br>
+          <code>Welcome, Student</code>
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          First call uses the passed argument. Second call uses the default parameter
+          value <code>"Student"</code> because no argument is provided.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q14 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q14 · Rest Parameter</div>
+        <div class="q-tag">Concept</div>
+      </div>
+      <div class="q-title">Which syntax correctly uses the rest parameter?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. <code>function sum(...a, b) { }</code></li>
+          <li>B. <code>function sum(a, ...b) { }</code></li>
+          <li>C. <code>function sum(a, b...) { }</code></li>
+          <li>D. <code>function ...sum(a, b) { }</code></li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q14')">Show Answer &amp; Explanation ▾</button>
+      <div id="q14" class="answer-box">
+        <div class="answer-label">Answer: B</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The rest parameter <code>...b</code> must be the <strong>last</strong> parameter in the list.
+          Option B is correct; A puts rest in front, which is invalid.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q15 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q15 · Short Program</div>
+        <div class="q-tag">Hands-on</div>
+      </div>
+      <div class="q-title">
+        Write a function <code>isEven(n)</code> that returns <code>true</code> if a number is even, else <code>false</code>.
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q15')">Show Answer &amp; Explanation ▾</button>
+      <div id="q15" class="answer-box">
+        <div class="answer-label">Sample Answer:</div>
+        <pre><code>function isEven(n) {
+  return n % 2 === 0;
+}</code></pre>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          A number is even if it leaves remainder 0 when divided by 2.
+          Using <code>=== 0</code> ensures strict equality check.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q16 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q16 · Scope</div>
+        <div class="q-tag">Concept</div>
+      </div>
+      <div class="q-title">What is the scope of a variable declared with <code>let</code> inside a function?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. Global scope</li>
+          <li>B. Block scope (inside current block only)</li>
+          <li>C. Function scope (entire function)</li>
+          <li>D. It has no scope</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q16')">Show Answer &amp; Explanation ▾</button>
+      <div id="q16" class="answer-box">
+        <div class="answer-label">Answer: C (within the function body blocks)</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          A variable declared with <code>let</code> inside a function is not accessible outside the function.
+          Inside, it still respects block scope, but from outside point of view, it is limited to the function.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q17 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q17 · Output Prediction</div>
+        <div class="q-tag">Medium</div>
+      </div>
+      <div class="q-title">What will be printed?</div>
+      <pre><code>let message = "Global";
+
+function show() {
+  let message = "Local";
+  console.log(message);
+}
+
+show();
+console.log(message);</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q17')">Show Answer &amp; Explanation ▾</button>
+      <div id="q17" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          First: <code>Local</code><br>
+          Second: <code>Global</code>
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The inner <code>message</code> shadows the global one inside the function.
+          Outside, the global variable is printed.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q18 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q18 · MCQ</div>
+        <div class="q-tag">Return</div>
+      </div>
+      <div class="q-title">Which statement about <code>return</code> is true?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. A function can have only one <code>return</code> statement.</li>
+          <li>B. The <code>return</code> statement must always be the last line of a function.</li>
+          <li>C. Once <code>return</code> is executed, the function stops immediately.</li>
+          <li>D. <code>return</code> is optional in JavaScript functions and has no effect.</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q18')">Show Answer &amp; Explanation ▾</button>
+      <div id="q18" class="answer-box">
+        <div class="answer-label">Answer: C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          A function can have multiple <code>return</code> statements in different branches.
+          But whenever one is executed, control leaves the function immediately.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q19 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q19 · Code Reading</div>
+        <div class="q-tag">Medium</div>
+      </div>
+      <div class="q-title">What is logged?</div>
+      <pre><code>function calc(p, r = 0.1) {
+  return p * r;
+}
+
+console.log(calc(1000));
+console.log(calc(1000, 0.2));</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q19')">Show Answer &amp; Explanation ▾</button>
+      <div id="q19" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          <code>100</code><br>
+          <code>200</code>
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          First call uses default rate 0.1 → 1000 × 0.1 = 100.
+          Second call overrides default with 0.2 → 1000 × 0.2 = 200.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q20 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q20 · Short Program</div>
+        <div class="q-tag">Hands-on</div>
+      </div>
+      <div class="q-title">
+        Write an arrow function <code>addGST(amount)</code> that returns <code>amount * 1.18</code>.
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q20')">Show Answer &amp; Explanation ▾</button>
+      <div id="q20" class="answer-box">
+        <div class="answer-label">Sample Answer:</div>
+        <pre><code>const addGST = amount =&gt; amount * 1.18;</code></pre>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          Single parameter → can omit parentheses. Single expression → implicit return.
+          This arrow function returns the amount including 18% GST.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q21 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q21 · Output Prediction</div>
+        <div class="q-tag">Tricky</div>
+      </div>
+      <div class="q-title">What will this code print?</div>
+      <pre><code>console.log(typeof add);
+
+function add(a, b) {
+  return a + b;
+}</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q21')">Show Answer &amp; Explanation ▾</button>
+      <div id="q21" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p><code>"function"</code></p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          Function declarations are hoisted along with their definitions. So when
+          <code>typeof add</code> runs, <code>add</code> is already known as a function.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q22 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q22 · MCQ</div>
+        <div class="q-tag">Naming</div>
+      </div>
+      <div class="q-title">Which is a good naming convention for a function in JavaScript?</div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. <code>DoCalculation()</code></li>
+          <li>B. <code>do_calculation()</code></li>
+          <li>C. <code>doCalculation()</code></li>
+          <li>D. <code>DOCALCULATION()</code></li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q22')">Show Answer &amp; Explanation ▾</button>
+      <div id="q22" class="answer-box">
+        <div class="answer-label">Answer: C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          JavaScript convention is <strong>camelCase</strong> for functions and variables.
+          Option C follows camelCase: <code>doCalculation</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q23 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q23 · Short Program</div>
+        <div class="q-tag">Practice</div>
+      </div>
+      <div class="q-title">
+        Write a function <code>greetCourse(courseName)</code> that returns:
+        <br><code>"Welcome to " + courseName + " course!"</code>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q23')">Show Answer &amp; Explanation ▾</button>
+      <div id="q23" class="answer-box">
+        <div class="answer-label">Sample Answer:</div>
+        <pre><code>function greetCourse(courseName) {
+  return "Welcome to " + courseName + " course!";
+}</code></pre>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          Simple string concatenation. Could also be done with template literals:
+          <code>`Welcome to ${courseName} course!`</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q24 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q24 · Output Prediction</div>
+        <div class="q-tag">Important</div>
+      </div>
+      <div class="q-title">What is the output?</div>
+      <pre><code>function sum(a, b) {
+  console.log(a + b);
+}
+
+let x = sum(2, 3);
+console.log(x);</code></pre>
+      <button class="show-btn" onclick="toggleAnswer('q24')">Show Answer &amp; Explanation ▾</button>
+      <div id="q24" class="answer-box">
+        <div class="answer-label">Answer:</div>
+        <p>
+          First line: <code>5</code><br>
+          Second line: <code>undefined</code>
+        </p>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          The function logs the sum but does not <code>return</code> it.
+          So <code>x</code> becomes <code>undefined</code>, and printing <code>x</code>
+          shows <code>undefined</code>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Q25 -->
+    <section class="question-card">
+      <div class="q-header">
+        <div class="q-number">Q25 · Concept Mix</div>
+        <div class="q-tag">Revision</div>
+      </div>
+      <div class="q-title">
+        Which of the following statements are true about functions in JavaScript?<span class="difficulty-chip">Multi-select (Think)</span>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li>A. A function can be stored in a variable.</li>
+          <li>B. A function can be passed as an argument to another function.</li>
+          <li>C. A function can be returned from another function.</li>
+          <li>D. A function must always be named.</li>
+        </ul>
+      </div>
+      <button class="show-btn" onclick="toggleAnswer('q25')">Show Answer &amp; Explanation ▾</button>
+      <div id="q25" class="answer-box">
+        <div class="answer-label">Answers: A, B, C</div>
+        <div class="explanation-label">Explanation:</div>
+        <p>
+          In JavaScript, functions are <strong>first-class citizens</strong>: they can be stored in variables,
+          passed as arguments, and returned from other functions. Anonymous functions (without names) are also allowed,
+          so D is false.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      This test file belongs to the <strong>Module 6 — Functions in JavaScript</strong> series.
+      Use it along with classroom sessions &amp; practice JS files for maximum benefit.
+    </div>
+  </footer>
+</div>
+
+<script>
+  function toggleAnswer(id) {
+    const box = document.getElementById(id);
+    if (!box) return;
+    const isVisible = box.style.display === "block";
+    box.style.display = isVisible ? "none" : "block";
+  }
+</script>
+</body>
+</html>

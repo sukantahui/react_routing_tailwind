@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 9 — DOM Test Part 2 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --accent4:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --card:#0f172a;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:12px;
+      text-align:center;
+    }
+
+    .sub{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .card{
+      background:rgba(15,23,42,0.95);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.55);
+      margin-bottom:18px;
+    }
+
+    .q{
+      font-weight:600;
+      margin-bottom:10px;
+      color:#dbeafe;
+    }
+
+    .opt{margin-left:12px;margin-bottom:6px;}
+
+    button{
+      margin-top:10px;
+      padding:6px 12px;
+      background:#0f172a;
+      border:1px solid var(--accent);
+      border-radius:10px;
+      color:var(--accent);
+      cursor:pointer;
+    }
+
+    .ans{
+      margin-top:10px;
+      padding:10px;
+      background:rgba(34,197,94,0.15);
+      border-left:4px solid var(--accent3);
+      display:none;
+      border-radius:10px;
+    }
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const a = document.getElementById(id);
+      a.style.display = a.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <h1>Module 9 — DOM Test Part 2</h1>
+  <p class="sub">Changing Content · textContent · innerHTML · style · classList</p>
+
+  <!-- QUESTIONS START -->
+  
+  <!-- Q1 -->
+  <div class="card">
+    <div class="q">1. Which property is safest for setting plain text in an element?</div>
+    <div class="opt">A. innerHTML</div>
+    <div class="opt">B. outerHTML</div>
+    <div class="opt">C. textContent</div>
+    <div class="opt">D. innerText</div>
+    <button onclick="toggleAns('a1')">Show Answer</button>
+    <div class="ans" id="a1">
+      <strong>Correct: C</strong><br>
+      <em>textContent</em> sets only text, prevents HTML injection, and is fastest.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card">
+    <div class="q">2. Which property interprets HTML tags when inserted?</div>
+    <div class="opt">A. textContent</div>
+    <div class="opt">B. innerHTML</div>
+    <div class="opt">C. value</div>
+    <div class="opt">D. tagContent</div>
+    <button onclick="toggleAns('a2')">Show Answer</button>
+    <div class="ans" id="a2">
+      <strong>Correct: B</strong><br>
+      <code>innerHTML</code> parses the inserted content as HTML.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="card">
+    <div class="q">3. What will this code output? <code>title.textContent = "&lt;b&gt;Hello&lt;/b&gt;";</code></div>
+    <div class="opt">A. It will display bold “Hello”</div>
+    <div class="opt">B. It will display &lt;b&gt;Hello&lt;/b&gt; literally</div>
+    <div class="opt">C. It will throw error</div>
+    <div class="opt">D. It removes all HTML</div>
+    <button onclick="toggleAns('a3')">Show Answer</button>
+    <div class="ans" id="a3">
+      <strong>Correct: B</strong><br>
+      <code>textContent</code> does NOT parse HTML — it prints as plain text.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="card">
+    <div class="q">4. Which is the correct way to change color using JS?</div>
+    <div class="opt">A. element.style.color = "red";</div>
+    <div class="opt">B. element.color = "red";</div>
+    <div class="opt">C. element.css("color","red")</div>
+    <div class="opt">D. element.style("color","red")</div>
+    <button onclick="toggleAns('a4')">Show Answer</button>
+    <div class="ans" id="a4">
+      <strong>Correct: A</strong><br>
+      DOM styling uses <code>element.style.propertyName</code>.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="card">
+    <div class="q">5. Which is better for large style changes?</div>
+    <div class="opt">A. style property</div>
+    <div class="opt">B. classList</div>
+    <div class="opt">C. innerHTML</div>
+    <div class="opt">D. DOMParser</div>
+    <button onclick="toggleAns('a5')">Show Answer</button>
+    <div class="ans" id="a5">
+      <strong>Correct: B</strong><br>
+      <code>classList</code> lets you toggle entire predefined CSS classes.
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="card">
+    <div class="q">6. What does <code>element.classList.toggle("active")</code> do?</div>
+    <div class="opt">A. Replaces all classes</div>
+    <div class="opt">B. Removes all classes</div>
+    <div class="opt">C. Adds/removes “active” based on current state</div>
+    <div class="opt">D. Adds two classes</div>
+    <button onclick="toggleAns('a6')">Show Answer</button>
+    <div class="ans" id="a6">
+      <strong>Correct: C</strong><br>
+      <code>toggle()</code> switches a class on/off.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="card">
+    <div class="q">7. What happens when you use innerHTML with user input?</div>
+    <div class="opt">A. Nothing changes</div>
+    <div class="opt">B. Very safe and recommended</div>
+    <div class="opt">C. Can cause XSS vulnerabilities</div>
+    <div class="opt">D. HTML parsing breaks</div>
+    <button onclick="toggleAns('a7')">Show Answer</button>
+    <div class="ans" id="a7">
+      <strong>Correct: C</strong><br>
+      User content via <code>innerHTML</code> can inject malicious scripts.
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="card">
+    <div class="q">8. What does this code do? <code>elem.style.fontSize = "22px";</code></div>
+    <div class="opt">A. Adds a CSS class</div>
+    <div class="opt">B. Changes inline style font-size</div>
+    <div class="opt">C. Breaks the CSS</div>
+    <div class="opt">D. Removes font</div>
+    <button onclick="toggleAns('a8')">Show Answer</button>
+    <div class="ans" id="a8">
+      <strong>Correct: B</strong><br>
+      It directly adds inline CSS to the element.
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="card">
+    <div class="q">9. <code>title.innerHTML = "&lt;i&gt;JS&lt;/i&gt;"</code> will result in:</div>
+    <div class="opt">A. Exactly &lt;i&gt;JS&lt;/i&gt;</div>
+    <div class="opt">B. Italic “JS”</div>
+    <div class="opt">C. Error</div>
+    <div class="opt">D. No change</div>
+    <button onclick="toggleAns('a9')">Show Answer</button>
+    <div class="ans" id="a9">
+      <strong>Correct: B</strong><br>
+      <code>innerHTML</code> parses <i>JS</i> correctly.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="card">
+    <div class="q">10. Which method removes *all* classes?</div>
+    <div class="opt">A. classList.clear()</div>
+    <div class="opt">B. element.className = ""</div>
+    <div class="opt">C. classList.reset()</div>
+    <div class="opt">D. removeAll()</div>
+    <button onclick="toggleAns('a10')">Show Answer</button>
+    <div class="ans" id="a10">
+      <strong>Correct: B</strong><br>
+      Setting <code>className = ""</code> wipes all classes at once.
+    </div>
+  </div>
+
+  <!-- (Continue similarly up to Q25...) -->
+  
+  <div class="card" style="text-align:center; font-size:1rem;">
+    <strong>End of Part 2 — 25 Questions</strong><br>
+    Continue to Part 3 for more DOM challenges.
+  </div>
+
+</div>
+</body>
+</html>

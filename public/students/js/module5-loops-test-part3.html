@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 5 — Loops & Iteration · Test Part 3 (Hard) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --accent4:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.22),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.75rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.25;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.9);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    main{margin-top:16px;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.97);
+      border-radius:22px;
+      padding:18px 20px;
+      border:1px solid var(--border);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:18px;
+    }
+
+    /* QUESTION CARDS */
+    .question-card{
+      background:rgba(15,23,42,0.97);
+      border-radius:20px;
+      padding:18px 18px 14px;
+      border:1px solid rgba(55,65,81,0.95);
+      box-shadow:0 16px 40px rgba(0,0,0,0.65);
+      margin-bottom:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .question-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at -10% -10%,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 110% 110%,rgba(168,85,247,0.16),transparent 55%);
+      opacity:0.85;
+      pointer-events:none;
+    }
+    .q-inner{position:relative;z-index:1;}
+
+    .q-header{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:10px;margin-bottom:8px;
+    }
+    .q-left{display:flex;align-items:center;gap:10px;}
+    .q-badge{
+      width:32px;height:32px;border-radius:12px;
+      background:linear-gradient(135deg,#38bdf8,#a855f7);
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.8rem;font-weight:700;
+      box-shadow:0 0 14px rgba(56,189,248,0.75);
+    }
+    .q-title{
+      font-size:1rem;color:#e5e7eb;font-weight:600;
+    }
+    .q-tag{
+      font-size:0.7rem;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      color:var(--accent2);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .q-body{font-size:0.9rem;color:var(--muted);margin-bottom:8px;}
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid rgba(31,41,55,0.95);
+      overflow-x:auto;
+      font-size:0.82rem;
+      margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .q-options{margin:6px 0 6px 18px;font-size:0.9rem;}
+    .q-options li{margin-bottom:3px;}
+
+    .q-btn{
+      margin-top:6px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:rgba(15,23,42,0.9);
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:0.22s;
+    }
+    .q-btn span.icon{font-size:0.9rem;}
+    .q-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 0 18px rgba(56,189,248,0.7);
+      background:rgba(15,23,42,1);
+    }
+
+    .answer{
+      margin-top:8px;
+      font-size:0.86rem;
+      border-radius:12px;
+      padding:9px 11px;
+      background:rgba(15,23,42,0.96);
+      border:1px dashed rgba(148,163,184,0.7);
+      color:#e5e7eb;
+      display:none;
+    }
+    .answer strong{color:#bef264;}
+
+    .answer-title{
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:#38bdf8;
+      margin-bottom:4px;
+    }
+
+    .difficulty-pill{
+      font-size:0.7rem;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(248,113,113,0.7);
+      color:#fecaca;
+      background:rgba(127,29,29,0.35);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;border-radius:22px;padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+
+    @media(max-width:700px){
+      .q-header{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 5 · Loops &amp; Iteration — Test Part 3 (Hard)</h1>
+      <p class="header-sub">
+        25 hard-level questions to test your mastery of <strong>for</strong>, <strong>while</strong>,
+        <strong>do…while</strong>, <strong>nested loops</strong>, <strong>break</strong>, and <strong>continue</strong>.
+        Perfect for board exams and entrance preparation.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Loops · Hard Level</div>
+        <div class="badge">Output Tracing</div>
+        <div class="badge">Logic &amp; Patterns</div>
+      </div>
+    </div>
+    <div class="mode-pill">
+      <div>Dark Practice Mode</div>
+      <div style="font-size:0.7rem;margin-top:2px;">Answers unlock on click</div>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro-card">
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:6px;">
+      This is <strong>Part 3</strong> of the Loops Test Series for Module 5. Difficulty:
+      <span class="difficulty-pill">Hard</span>
+    </p>
+    <ul style="margin-left:18px;font-size:0.9rem;">
+      <li>Q1–Q10: Output based (nested / tricky loops)</li>
+      <li>Q11–Q20: Loop logic, patterns, arrays</li>
+      <li>Q21–Q25: Conceptual &amp; MCQ traps (break, continue, infinite loops)</li>
+    </ul>
+    <p style="font-size:0.88rem;color:var(--muted);margin-top:4px;">
+      Try each question <strong>yourself first</strong>. Then click
+      <em>“Show Answer + Explanation”</em> to reveal detailed reasoning.
+    </p>
+  </section>
+
+  <!-- QUESTIONS -->
+  <main>
+
+    <!-- Q1 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q1</div>
+            <div class="q-title">Output — Nested loop with skip and break</div>
+          </div>
+          <span class="q-tag">Output · Nested for</span>
+        </div>
+        <p class="q-body">What is the output of the following code?</p>
+        <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  for (let j = 1; j &lt;= 4; j++) {
+    if (j === 2) continue;
+    if (i === 3 &amp;&amp; j === 3) break;
+    console.log(i, j);
+  }
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q1')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q1">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Output:</strong></p>
+          <pre><code>1 1
+1 3
+1 4
+2 1
+2 3
+2 4
+3 1</code></pre>
+          <p>
+            For each <code>i</code>, we loop <code>j = 1…4</code>. When <code>j === 2</code>,
+            <code>continue</code> skips logging. When <code>i === 3</code> and <code>j === 3</code>,
+            <code>break</code> stops the <strong>inner loop</strong> only.
+            So for <code>i = 3</code> we log <code>3 1</code>, skip <code>j = 2</code>,
+            and at <code>j = 3</code> we break — no <code>3 3</code> or <code>3 4</code>.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q2</div>
+            <div class="q-title">Output — while with update in condition</div>
+          </div>
+          <span class="q-tag">Output · while</span>
+        </div>
+        <p class="q-body">Predict the output:</p>
+        <pre><code>let i = 0;
+
+while (++i &lt; 5) {
+  console.log("i =", i);
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q2')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q2">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>i = 1
+i = 2
+i = 3
+i = 4</code></pre>
+          <p>
+            <code>++i</code> increments <code>i</code> <strong>before</strong> the comparison.
+            Sequence: start <code>i = 0</code> → check <code>++i &lt; 5</code>:
+          </p>
+          <ul>
+            <li>Loop 1: <code>i = 1</code> (&lt;5) → logs 1</li>
+            <li>Loop 2: <code>i = 2</code> (&lt;5) → logs 2</li>
+            <li>Loop 3: <code>i = 3</code> (&lt;5) → logs 3</li>
+            <li>Loop 4: <code>i = 4</code> (&lt;5) → logs 4</li>
+            <li>Loop 5: <code>i = 5</code> (not &lt;5) → stop</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q3</div>
+            <div class="q-title">Output — do…while with post-decrement</div>
+          </div>
+          <span class="q-tag">Output · do…while</span>
+        </div>
+        <p class="q-body">What does this code print?</p>
+        <pre><code>let n = 3;
+
+do {
+  console.log("n =", n);
+} while (n-- &gt; 0);</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q3')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q3">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>n = 3
+n = 2
+n = 1
+n = 0</code></pre>
+          <p>
+            <code>do…while</code> runs the body <strong>before</strong> checking the condition.
+            The condition uses <code>n--</code> (post-decrement), so comparison happens
+            with the <strong>old value</strong>, then <code>n</code> is reduced:
+          </p>
+          <ul>
+            <li>After first body: <code>n = 3</code> printed, condition <code>3 &gt; 0</code> → true, then <code>n = 2</code></li>
+            <li>Print 2 → check <code>2 &gt; 0</code> → true, then <code>n = 1</code></li>
+            <li>Print 1 → check <code>1 &gt; 0</code> → true, then <code>n = 0</code></li>
+            <li>Print 0 → check <code>0 &gt; 0</code> → false, then <code>n = -1</code> and stop.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q4</div>
+            <div class="q-title">Output — for loop with missing parts</div>
+          </div>
+          <span class="q-tag">Output · for</span>
+        </div>
+        <p class="q-body">Find the output:</p>
+        <pre><code>let i = 0;
+
+for (; i &lt; 4; ) {
+  console.log(i);
+  i += 2;
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q4')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q4">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>0
+2</code></pre>
+          <p>
+            The <code>for</code> loop uses only the condition part; initialization and update
+            happen outside/inside. Start <code>i = 0</code>:
+          </p>
+          <ul>
+            <li>Check <code>0 &lt; 4</code> → log 0 → <code>i = 2</code></li>
+            <li>Check <code>2 &lt; 4</code> → log 2 → <code>i = 4</code></li>
+            <li>Check <code>4 &lt; 4</code> → false → stop.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q5</div>
+            <div class="q-title">Output — break inside nested loops</div>
+          </div>
+          <span class="q-tag">Output · nested</span>
+        </div>
+        <p class="q-body">What is printed?</p>
+        <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  for (let j = 1; j &lt;= 3; j++) {
+    if (i + j === 4) {
+      console.log("hit", i, j);
+      break;
+    }
+    console.log(i, j);
+  }
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q5')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q5">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>1 1
+1 2
+hit 1 3
+2 1
+hit 2 2
+3 1
+hit 3 1</code></pre>
+          <p>
+            For each <code>i</code>, <code>j</code> starts from 1:
+          </p>
+          <ul>
+            <li><code>i=1</code>: (1,1) → log; (1,2) → log; (1,3) → sum 4 → log <code>hit 1 3</code> then <strong>break inner</strong></li>
+            <li><code>i=2</code>: (2,1) → log; (2,2) → sum 4 → hit + break → no (2,3)</li>
+            <li><code>i=3</code>: (3,1) → sum 4 → hit + break → no further <code>j</code>.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q6</div>
+            <div class="q-title">Output — continue with odd/even mix</div>
+          </div>
+          <span class="q-tag">Output · for</span>
+        </div>
+        <p class="q-body">What will be printed?</p>
+        <pre><code>for (let i = 1; i &lt;= 7; i++) {
+  if (i % 2 === 0) continue;
+  if (i &gt; 5) break;
+  console.log(i);
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q6')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q6">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>1
+3
+5</code></pre>
+          <p>
+            Only odd numbers are allowed by the first <code>if</code>. Then, if the number
+            is greater than 5, we <code>break</code>. So:
+          </p>
+          <ul>
+            <li>i = 1 → odd &lt;= 5 → prints 1</li>
+            <li>i = 2 → even → skipped</li>
+            <li>i = 3 → prints 3</li>
+            <li>i = 4 → skipped</li>
+            <li>i = 5 → prints 5</li>
+            <li>i = 6 → even → skipped</li>
+            <li>i = 7 → odd but &gt; 5 so break before printing → loop stops at 7.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q7</div>
+            <div class="q-title">Output — tricky index update</div>
+          </div>
+          <span class="q-tag">Output · arrays</span>
+        </div>
+        <p class="q-body">Find the output:</p>
+        <pre><code>let arr = [2, 4, 6, 8, 10];
+let sum = 0;
+
+for (let i = 0; i &lt; arr.length; ) {
+  sum += arr[i];
+  i += 2;
+}
+
+console.log(sum);</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q7')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q7">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Output:</strong> <code>18</code></p>
+          <p>
+            We are manually updating <code>i += 2</code>, so we only add elements at index
+            0, 2 and 4:
+          </p>
+          <ul>
+            <li>i=0 → sum = 2</li>
+            <li>i=2 → sum = 2 + 6 = 8</li>
+            <li>i=4 → sum = 8 + 10 = 18</li>
+            <li>i=6 → condition fails → loop ends</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q8</div>
+            <div class="q-title">Output — nested loop count</div>
+          </div>
+          <span class="q-tag">Output · count</span>
+        </div>
+        <p class="q-body">What does this code print?</p>
+        <pre><code>let count = 0;
+
+for (let i = 1; i &lt;= 4; i++) {
+  for (let j = i; j &lt;= 4; j++) {
+    count++;
+  }
+}
+
+console.log(count);</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q8')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q8">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Output:</strong> <code>10</code></p>
+          <p>
+            For each <code>i</code>, <code>j</code> runs from <code>i</code> to 4:
+          </p>
+          <ul>
+            <li>i = 1: j = 1,2,3,4 → 4 times</li>
+            <li>i = 2: j = 2,3,4 → 3 times</li>
+            <li>i = 3: j = 3,4 → 2 times</li>
+            <li>i = 4: j = 4 → 1 time</li>
+          </ul>
+          <p>Total = 4 + 3 + 2 + 1 = <strong>10</strong>.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q9</div>
+            <div class="q-title">Output — reverse counting with while</div>
+          </div>
+          <span class="q-tag">Output · while</span>
+        </div>
+        <p class="q-body">Predict the output:</p>
+        <pre><code>let x = 5;
+
+while (x--) {
+  console.log("X =", x);
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q9')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q9">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>X = 4
+X = 3
+X = 2
+X = 1
+X = 0</code></pre>
+          <p>
+            The condition uses <code>x--</code> (post-decrement). As long as the
+            <strong>old value</strong> of <code>x</code> is non-zero, the loop runs.
+            After the condition, <code>x</code> is already decremented before logging.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q10</div>
+            <div class="q-title">Output — nested continue</div>
+          </div>
+          <span class="q-tag">Output · nested</span>
+        </div>
+        <p class="q-body">What is printed?</p>
+        <pre><code>for (let i = 1; i &lt;= 3; i++) {
+  for (let j = 1; j &lt;= 3; j++) {
+    if (i === j) continue;
+    console.log(`${i}-${j}`);
+  }
+}</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q10')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q10">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>1-2
+1-3
+2-1
+2-3
+3-1
+3-2</code></pre>
+          <p>
+            We skip when <code>i === j</code>, so diagonal pairs (1-1, 2-2, 3-3)
+            are skipped; all others are printed in the nested loop order.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q11</div>
+            <div class="q-title">Logic — Sum of digits using loop</div>
+          </div>
+          <span class="q-tag">Logic · while</span>
+        </div>
+        <p class="q-body">
+          Write the <strong>missing part</strong> so that this code correctly calculates
+          the sum of the digits of <code>num</code>.
+        </p>
+        <pre><code>let num = 9876;
+let sum = 0;
+
+while (num &gt; 0) {
+  let digit = ___________;
+  sum += digit;
+  num = Math.floor(num / 10);
+}
+
+console.log(sum); // should print 30</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q11')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q11">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Fill in:</strong> <code>num % 10</code></p>
+          <p>
+            <code>num % 10</code> gives the last digit of <code>num</code>. Then
+            <code>Math.floor(num / 10)</code> removes the last digit. Repeating this
+            in a loop adds all digits: 9 + 8 + 7 + 6 = <strong>30</strong>.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q12</div>
+            <div class="q-title">Logic — Counting multiples</div>
+          </div>
+          <span class="q-tag">Logic · for</span>
+        </div>
+        <p class="q-body">
+          You have a number <code>limit = 100</code>.  
+          Write a loop that counts how many numbers between 1 and 100 are
+          divisible by both 2 and 5.  
+          What should the final <code>count</code> be?
+        </p>
+        <button class="q-btn" onclick="toggleAnswer('q12')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q12">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct count:</strong> <code>10</code></p>
+          <p>Sample loop:</p>
+          <pre><code>let limit = 100;
+let count = 0;
+
+for (let i = 1; i &lt;= limit; i++) {
+  if (i % 2 === 0 &amp;&amp; i % 5 === 0) {
+    count++;
+  }
+}</code></pre>
+          <p>
+            Numbers divisible by both 2 and 5 are multiples of 10:
+            10, 20, 30, …, 100 → 10 numbers.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q13</div>
+            <div class="q-title">Logic — Factorial using for loop</div>
+          </div>
+          <span class="q-tag">Logic · factorial</span>
+        </div>
+        <p class="q-body">
+          Complete the loop so that it calculates <code>n!</code> (factorial of n).
+        </p>
+        <pre><code>let n = 6;
+let fact = 1;
+
+for (let i = 1; i &lt;= n; i++) {
+  // complete this line
+  ______________________;
+}
+
+console.log(fact); // should be 720</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q13')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q13">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Fill in:</strong> <code>fact *= i;</code></p>
+          <p>
+            Factorial is the repeated product 1 × 2 × 3 × … × n, which is exactly
+            a multiplicative accumulation inside a loop.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q14</div>
+            <div class="q-title">Logic — Checking for a prime number</div>
+          </div>
+          <span class="q-tag">Logic · prime</span>
+        </div>
+        <p class="q-body">
+          Briefly describe a loop-based approach to check if <code>n</code> is prime
+          (greater than 1 and divisible only by 1 and itself).
+        </p>
+
+        <button class="q-btn" onclick="toggleAnswer('q14')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q14">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p>A common approach:</p>
+          <pre><code>let n = 29;
+let isPrime = n &gt; 1;
+
+for (let i = 2; i * i &lt;= n; i++) {
+  if (n % i === 0) {
+    isPrime = false;
+    break;
+  }
+}</code></pre>
+          <p>
+            We try dividing <code>n</code> by all numbers from 2 to <code>√n</code>.
+            If any divisor is found, <code>n</code> is not prime.  
+            Using <code>i * i &lt;= n</code> instead of <code>i &lt;= n</code> makes the loop faster.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q15</div>
+            <div class="q-title">Logic — Count vowels in a string</div>
+          </div>
+          <span class="q-tag">Logic · string</span>
+        </div>
+        <p class="q-body">
+          Write a <em>for loop idea</em> to count the number of vowels (a, e, i, o, u)
+          in a string <code>str</code>.
+        </p>
+
+        <button class="q-btn" onclick="toggleAnswer('q15')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q15">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>let str = "Coder And AccoTax";
+let count = 0;
+let vowels = "aeiouAEIOU";
+
+for (let i = 0; i &lt; str.length; i++) {
+  if (vowels.includes(str[i])) {
+    count++;
+  }
+}</code></pre>
+          <p>
+            We loop over each character and check if it is in a set of vowels.
+            The <code>includes()</code> method simplifies membership checking.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q16</div>
+            <div class="q-title">Logic — Pattern: inverted right triangle</div>
+          </div>
+          <span class="q-tag">Pattern · nested</span>
+        </div>
+        <p class="q-body">
+          Using nested loops, print the following pattern (for <code>n = 4</code>):
+        </p>
+        <pre><code>****
+***
+**
+*</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q16')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q16">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>let n = 4;
+
+for (let row = 1; row &lt;= n; row++) {
+  let line = "";
+  for (let col = row; col &lt;= n; col++) {
+    line += "*";
+  }
+  console.log(line);
+}</code></pre>
+          <p>
+            The outer loop controls the row; the inner loop decides how many stars
+            to print. For row 1 we print 4 stars, row 2 → 3 stars, etc.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q17</div>
+            <div class="q-title">Logic — Sum of even numbers in an array</div>
+          </div>
+          <span class="q-tag">Logic · arrays</span>
+        </div>
+        <p class="q-body">
+          A student wrote this code to sum only the even numbers in an array, but it's incomplete.
+          Fill the missing condition.
+        </p>
+        <pre><code>let nums = [3, 8, 11, 14, 20];
+let sum = 0;
+
+for (let i = 0; i &lt; nums.length; i++) {
+  if (______________) {
+    sum += nums[i];
+  }
+}
+
+console.log(sum); // should print 42</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q17')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q17">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Fill in:</strong> <code>nums[i] % 2 === 0</code></p>
+          <p>
+            Only even numbers (8, 14, 20) are added:
+            8 + 14 + 20 = <strong>42</strong>.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q18</div>
+            <div class="q-title">Logic — Find first negative number</div>
+          </div>
+          <span class="q-tag">Logic · break</span>
+        </div>
+        <p class="q-body">
+          Using a loop, find the <strong>first negative number</strong> in the array and stop
+          immediately after finding it.
+        </p>
+        <pre><code>let nums = [5, 7, -3, 10, -8];
+let firstNegative = null;
+
+// complete the loop</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q18')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q18">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>for (let i = 0; i &lt; nums.length; i++) {
+  if (nums[i] &lt; 0) {
+    firstNegative = nums[i];
+    break;
+  }
+}</code></pre>
+          <p>
+            We use <code>break</code> as soon as we find the first negative value.
+            This makes the loop efficient because it doesn't scan the full array
+            after the answer is found.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q19</div>
+            <div class="q-title">Logic — Check palindrome number</div>
+          </div>
+          <span class="q-tag">Logic · while</span>
+        </div>
+        <p class="q-body">
+          Explain how you can use a <code>while</code> loop to check whether a given
+          integer <code>n</code> is a palindrome (reads same forwards and backwards).
+        </p>
+
+        <button class="q-btn" onclick="toggleAnswer('q19')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q19">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <pre><code>let n = 12321;
+let original = n;
+let reversed = 0;
+
+while (n &gt; 0) {
+  let digit = n % 10;
+  reversed = reversed * 10 + digit;
+  n = Math.floor(n / 10);
+}
+
+let isPalindrome = (original === reversed);</code></pre>
+          <p>
+            The loop builds <code>reversed</code> by repeatedly taking the last digit
+            of <code>n</code>. If the reversed number equals the original,
+            it is a palindrome.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q20</div>
+            <div class="q-title">Logic — Nested loop time complexity</div>
+          </div>
+          <span class="q-tag">Concept · nested</span>
+        </div>
+        <p class="q-body">
+          Consider this code (assume <code>n</code> is large):  
+        </p>
+        <pre><code>for (let i = 0; i &lt; n; i++) {
+  for (let j = 0; j &lt; n; j++) {
+    // constant time work
+  }
+}</code></pre>
+        <p class="q-body">Roughly how many times does the inner body run in terms of <code>n</code>?</p>
+
+        <button class="q-btn" onclick="toggleAnswer('q20')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q20">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p>
+            The inner body runs approximately <strong>n × n = n²</strong> times.
+            For every value of <code>i</code> (n possibilities), <code>j</code> also
+            runs through n iterations.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q21 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q21</div>
+            <div class="q-title">MCQ — Infinite loop identification</div>
+          </div>
+          <span class="q-tag">MCQ · while</span>
+        </div>
+        <p class="q-body">
+          Which of the following loops will cause an <strong>infinite loop</strong>?
+        </p>
+        <pre><code>A)  let i = 0;
+    while (i &lt; 5) {
+      console.log(i);
+      i++;
+    }
+
+B)  let i = 0;
+    while (i &lt; 5) {
+      console.log(i);
+    }
+
+C)  for (let i = 0; i &lt; 5; i++) {
+      console.log(i);
+    }</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q21')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q21">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct option:</strong> <code>B</code></p>
+          <p>
+            In B, <code>i</code> is never updated, so <code>i &lt; 5</code> is always true.
+            A and C both increment <code>i</code>, so they stop after 5 iterations.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q22 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q22</div>
+            <div class="q-title">MCQ — Effect of continue</div>
+          </div>
+          <span class="q-tag">MCQ · continue</span>
+        </div>
+        <p class="q-body">What does <code>continue</code> do in a <code>for</code> loop?</p>
+        <ol class="q-options" type="A">
+          <li>Stops the entire loop immediately.</li>
+          <li>Skips the rest of the current iteration and goes to the next iteration.</li>
+          <li>Restarts the loop from the beginning.</li>
+          <li>Throws an error.</li>
+        </ol>
+
+        <button class="q-btn" onclick="toggleAnswer('q22')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q22">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct option:</strong> <code>B</code></p>
+          <p>
+            <code>continue</code> skips the remaining statements in the current iteration
+            and jumps to the next iteration (which in a <code>for</code> loop means
+            executing the update part, then re-checking the condition).
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q23 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q23</div>
+            <div class="q-title">MCQ — Loop selection</div>
+          </div>
+          <span class="q-tag">MCQ · concept</span>
+        </div>
+        <p class="q-body">
+          You must show a menu to the user at least once and then repeat it
+          until the user chooses “Exit”. Which loop is the <strong>most natural</strong> choice?
+        </p>
+        <ol class="q-options" type="A">
+          <li><code>for</code> loop</li>
+          <li><code>while</code> loop</li>
+          <li><code>do…while</code> loop</li>
+          <li>Any loop is same here</li>
+        </ol>
+
+        <button class="q-btn" onclick="toggleAnswer('q23')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q23">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct option:</strong> <code>C</code> — <code>do…while</code></p>
+          <p>
+            <code>do…while</code> guarantees that the body (menu) runs at least once,
+            then repeats based on the condition. This perfectly matches the “show once,
+            then repeat until exit” requirement.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q24 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q24</div>
+            <div class="q-title">MCQ — Off-by-one error</div>
+          </div>
+          <span class="q-tag">MCQ · bug</span>
+        </div>
+        <p class="q-body">
+          You want to print numbers from 1 to 5 (inclusive). Which loop header is correct?
+        </p>
+        <pre><code>A)  for (let i = 1; i &lt; 5; i++)
+B)  for (let i = 1; i &lt;= 5; i++)
+C)  for (let i = 0; i &lt;= 5; i++)
+D)  for (let i = 0; i &lt; 5; i++)</code></pre>
+
+        <button class="q-btn" onclick="toggleAnswer('q24')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q24">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct option:</strong> <code>B</code></p>
+          <p>
+            B prints <code>1, 2, 3, 4, 5</code>.  
+            A stops at 4, C prints 0 to 5, and D prints 0 to 4.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Q25 -->
+    <article class="question-card">
+      <div class="q-inner">
+        <div class="q-header">
+          <div class="q-left">
+            <div class="q-badge">Q25</div>
+            <div class="q-title">MCQ — Where does break apply?</div>
+          </div>
+          <span class="q-tag">MCQ · break</span>
+        </div>
+        <p class="q-body">
+          In nested loops, a plain <code>break</code> statement (without label) will:
+        </p>
+        <ol class="q-options" type="A">
+          <li>Stop both inner and outer loops.</li>
+          <li>Stop only the inner-most loop in which it appears.</li>
+          <li>Skip the current iteration and continue with the next.</li>
+          <li>Restart the outer loop from the beginning.</li>
+        </ol>
+
+        <button class="q-btn" onclick="toggleAnswer('q25')">
+          <span class="icon">👁️</span><span>Show Answer + Explanation</span>
+        </button>
+        <div class="answer" id="q25">
+          <div class="answer-title">Answer &amp; Explanation</div>
+          <p><strong>Correct option:</strong> <code>B</code></p>
+          <p>
+            A normal <code>break</code> always exits the <strong>nearest (innermost)</strong>
+            loop that contains it. The outer loop continues with its next iteration (if any).
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level · Loops Test Series (Part 3 of 4)
+      </div>
+    </div>
+
+    <div class="org-small">
+      Use this file as <strong>module5-loops-test-part3.html</strong> along with Part 1, Part 2 &amp; Part 4
+      to complete the 100-question practice set for Loops &amp; Iteration.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleAnswer(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+  }
+</script>
+</body>
+</html>

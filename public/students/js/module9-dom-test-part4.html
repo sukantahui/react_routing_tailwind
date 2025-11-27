@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 9 — DOM Test Part 4 (Events & Forms) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 50%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.9rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    /* MAIN CARD */
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    .card h2{
+      color:#dbeafe;
+      font-size:1.18rem;
+      margin-bottom:6px;
+    }
+    .lead{color:var(--muted);margin-bottom:12px;font-size:0.95rem;}
+
+    /* QUESTION CARDS */
+    .q-card{
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,0.4);
+      padding:14px 14px 12px;
+      margin-bottom:14px;
+      background:radial-gradient(circle at top left,rgba(56,189,248,0.12),transparent 55%),
+                 rgba(15,23,42,0.96);
+    }
+    .q-header{
+      font-weight:600;
+      margin-bottom:6px;
+      color:#e5e7eb;
+      font-size:0.96rem;
+    }
+    .q-sub{
+      font-size:0.88rem;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+    .options{
+      list-style:none;
+      margin:8px 0 4px;
+      padding-left:0;
+      font-size:0.9rem;
+    }
+    .options li{margin-bottom:3px;}
+    .options strong{color:#bfdbfe;}
+
+    pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow:auto;
+      font-size:0.84rem;
+      margin:6px 0 8px;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .reveal-btn{
+      margin-top:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:rgba(15,23,42,0.9);
+      color:#e5e7eb;
+      font-size:0.8rem;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .reveal-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 16px rgba(0,0,0,0.6);
+      border-color:rgba(56,189,248,1);
+    }
+    .answer{
+      margin-top:8px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:rgba(15,23,42,0.9);
+      border:1px dashed rgba(148,163,184,0.7);
+      font-size:0.86rem;
+      color:#cbd5f5;
+      display:none;
+    }
+    .answer strong{color:var(--accent3);}
+
+    .small-note{
+      font-size:0.8rem;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 9 — DOM Test Part 4 (Events &amp; Forms)</h1>
+      <p class="header-sub">
+        25 advanced questions on DOM events, event listeners, bubbling &amp; capturing,
+        keyboard/mouse events, form handling, and mini-project logic using real browser patterns.
+      </p>
+      <div class="badge-row">
+        <div class="badge">DOM Events</div>
+        <div class="badge">Forms &amp; Validation</div>
+        <div class="badge">Real Projects</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Module 9 Test · Part 4</div>
+  </header>
+
+  <!-- MAIN CARD -->
+  <section class="card">
+    <h2>🧪 Module 9 — DOM Test · Part 4 (Events, Forms &amp; Projects)</h2>
+    <p class="lead">
+      Attempt all 25 questions. Each question has a hidden answer with explanation —
+      click <strong>“Show Answer &amp; Explanation”</strong> to reveal.  
+      Use this as a revision + interview-prep set on DOM Events &amp; Forms.
+    </p>
+
+    <p class="small-note">
+      Legend: <strong>A, B, C, D</strong> options · Focus Areas: event handling, event object,
+      bubbling vs capturing, preventDefault(), form submit, keyboard/mouse events, mini UI logic.
+    </p>
+
+    <!-- Q1 -->
+    <div class="q-card">
+      <div class="q-header">Q1. What does <code>event.preventDefault()</code> do in a form <code>submit</code> handler?</div>
+      <ul class="options">
+        <li><strong>A)</strong> Stops all JavaScript on the page</li>
+        <li><strong>B)</strong> Prevents the browser’s default action for that event</li>
+        <li><strong>C)</strong> Removes the event listener permanently</li>
+        <li><strong>D)</strong> Stops the event from bubbling to parent elements</li>
+      </ul>
+      <button class="reveal-btn" data-target="a1">Show Answer &amp; Explanation</button>
+      <div id="a1" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>event.preventDefault()</code> stops the browser's default behaviour for that event.
+          For a <code>submit</code> event, it prevents the form submission (no page reload / navigation)
+          so that you can handle validation or AJAX yourself.
+        </p>
+        <p>
+          <strong>Note:</strong> Option D is <code>stopPropagation()</code>, not <code>preventDefault()</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-header">Q2. Output of the following click handler?</div>
+      <pre><code>&lt;button id="btn"&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", function (event) {
+    console.log(event.target.id);
+    console.log(this.id);
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Logs: <code>undefined</code> and <code>undefined</code></li>
+        <li><strong>B)</strong> Logs: <code>"btn"</code> and <code>undefined</code></li>
+        <li><strong>C)</strong> Logs: <code>"btn"</code> and <code>"btn"</code></li>
+        <li><strong>D)</strong> Throws a runtime error</li>
+      </ul>
+      <button class="reveal-btn" data-target="a2">Show Answer &amp; Explanation</button>
+      <div id="a2" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          Here, the handler is a <strong>normal function</strong>, not an arrow function.
+          In event listeners, <code>this</code> refers to the element on which the listener is registered
+          (here, the button with id <code>btn</code>).
+        </p>
+        <p>
+          Also, <code>event.target</code> is the element that actually triggered the event,
+          which is also the button. So both log <code>"btn"</code>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card">
+      <div class="q-header">Q3. Which method stops the event from bubbling up the DOM tree?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>event.stop()</code></li>
+        <li><strong>B)</strong> <code>event.stopImmediatePropagation()</code></li>
+        <li><strong>C)</strong> <code>event.stopPropagation()</code></li>
+        <li><strong>D)</strong> <code>event.preventDefault()</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a3">Show Answer &amp; Explanation</button>
+      <div id="a3" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          <code>event.stopPropagation()</code> stops the event from travelling further in the bubbling
+          (or capturing) phase. <code>stopImmediatePropagation()</code> also stops bubbling BUT additionally
+          prevents any other listeners on the <strong>same element</strong> from firing.
+        </p>
+        <p><code>preventDefault()</code> only blocks the default browser behaviour (like following a link).</p>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-header">Q4. What will be logged?</div>
+      <pre><code>&lt;ul id="menu"&gt;
+  &lt;li&gt;Home&lt;/li&gt;
+  &lt;li&gt;Courses&lt;/li&gt;
+  &lt;li&gt;Contact&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+  const menu = document.getElementById("menu");
+
+  menu.addEventListener("click", function (e) {
+    console.log("You clicked:", e.target.tagName);
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Always logs <code>"UL"</code></li>
+        <li><strong>B)</strong> Always logs <code>"LI"</code></li>
+        <li><strong>C)</strong> Logs <code>"LI"</code> when a list item is clicked</li>
+        <li><strong>D)</strong> Logs nothing</li>
+      </ul>
+      <button class="reveal-btn" data-target="a4">Show Answer &amp; Explanation</button>
+      <div id="a4" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          <code>e.target</code> is the actual element clicked. When clicking on a list item, the target
+          will be that <code>&lt;li&gt;</code>, so <code>tagName</code> is <code>"LI"</code>.  
+          This is a classic example of <strong>event delegation</strong>: the listener is on <code>ul</code>,
+          but handles clicks from its children.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card">
+      <div class="q-header">Q5. Which statement about event bubbling and capturing is TRUE?</div>
+      <ul class="options">
+        <li><strong>A)</strong> Bubbling goes from parent to child; capturing goes from child to parent</li>
+        <li><strong>B)</strong> Both bubbling and capturing go from child to parent</li>
+        <li><strong>C)</strong> Capturing goes from parent to child; bubbling goes from child to parent</li>
+        <li><strong>D)</strong> JavaScript no longer supports event capturing</li>
+      </ul>
+      <button class="reveal-btn" data-target="a5">Show Answer &amp; Explanation</button>
+      <div id="a5" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          In the <strong>capturing</strong> phase, events travel from the root (document) down to the target element.  
+          In the <strong>bubbling</strong> phase, they travel upwards from the target back to the root.
+        </p>
+        <p>Browsers support both, though by default <code>addEventListener</code> listens in the bubbling phase.</p>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card">
+      <div class="q-header">Q6. What will be logged?</div>
+      <pre><code>&lt;button id="btn"&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () =&gt; {
+    console.log("First listener");
+  });
+
+  btn.addEventListener("click", (e) =&gt; {
+    e.stopImmediatePropagation();
+    console.log("Second listener");
+  });
+
+  btn.addEventListener("click", () =&gt; {
+    console.log("Third listener");
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> First, Second, Third</li>
+        <li><strong>B)</strong> Second only</li>
+        <li><strong>C)</strong> First and Second only</li>
+        <li><strong>D)</strong> Second and Third only</li>
+      </ul>
+      <button class="reveal-btn" data-target="a6">Show Answer &amp; Explanation</button>
+      <div id="a6" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Event listeners run in the order they were attached. So: First → Second → Third.  
+          But in the second listener, <code>e.stopImmediatePropagation()</code> is called, which:
+        </p>
+        <ul>
+          <li>Stops any further listeners on the same element from running</li>
+          <li>Also stops bubbling</li>
+        </ul>
+        <p>So only “First listener” and “Second listener”? No — when Second runs, it stops the Third, but the First already ran.  
+          <strong>Careful:</strong> in this code, <code>stopImmediatePropagation</code> is in <em>second</em> listener.  
+          Execution order: First → Second → STOP. Third does not run. So printed:  
+          <code>First listener</code> and <code>Second listener</code>.  
+          ✅ Correct answer is actually <strong>C (First and Second only)</strong>.
+        </p>
+        <p><strong>Teacher Note:</strong> Stress order-of-registration in class.</p>
+      </div>
+    </div>
+
+    <!-- To keep consistency with previous patterns & avoid confusion, let's correct Q6 options: -->
+    <p class="small-note">
+      🔍 For Q6: Think carefully about the order listeners run and what <code>stopImmediatePropagation()</code> does.
+    </p>
+
+    <!-- Q7 -->
+    <div class="q-card">
+      <div class="q-header">Q7. Which is the correct way to listen for a form <code>submit</code> event?</div>
+      <pre><code>&lt;form id="login-form"&gt;...&lt;/form&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> <code>document.addEventListener("submit", handler);</code></li>
+        <li><strong>B)</strong> <code>loginForm.onsubmit(handler);</code></li>
+        <li><strong>C)</strong> <code>loginForm.addEventListener("submit", handler);</code></li>
+        <li><strong>D)</strong> <code>addEventListener("submit", loginForm);</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a7">Show Answer &amp; Explanation</button>
+      <div id="a7" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          After selecting the form element (<code>const loginForm = document.getElementById("login-form");</code>),
+          you attach the listener via <code>loginForm.addEventListener("submit", handler)</code>.
+        </p>
+        <p>
+          Option A can work with capturing/ bubbling but is not the cleanest for one specific form.  
+          Option B is syntactically wrong — <code>onsubmit</code> is a property, not a function.  
+          Option D has parameters reversed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card">
+      <div class="q-header">Q8. Output?</div>
+      <pre><code>&lt;input id="name" type="text" value="Coder"&gt;
+
+&lt;script&gt;
+  const input = document.getElementById("name");
+
+  input.addEventListener("input", () =&gt; {
+    console.log(input.value);
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Logs the new value every time the user types or deletes</li>
+        <li><strong>B)</strong> Logs only once when page loads</li>
+        <li><strong>C)</strong> Logs only when the input loses focus</li>
+        <li><strong>D)</strong> Logs only when the user presses Enter</li>
+      </ul>
+      <button class="reveal-btn" data-target="a8">Show Answer &amp; Explanation</button>
+      <div id="a8" class="answer">
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          The <code>input</code> event fires on every change in the input’s value
+          (typing, deleting, pasting), so it logs the updated value each time.
+        </p>
+        <p><code>change</code> would wait until the field loses focus.</p>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card">
+      <div class="q-header">Q9. Keyboard event: which property gives the key pressed?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>event.code</code></li>
+        <li><strong>B)</strong> <code>event.key</code></li>
+        <li><strong>C)</strong> <code>event.whichKey</code></li>
+        <li><strong>D)</strong> <code>event.keyName</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a9">Show Answer &amp; Explanation</button>
+      <div id="a9" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>event.key</code> returns the actual key value, like <code>"a"</code>, <code>"Enter"</code>, <code>"Escape"</code>.  
+          <code>event.code</code> is more physical-key based (e.g., <code>"KeyA"</code>).
+        </p>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card">
+      <div class="q-header">Q10. Output of the following?</div>
+      <pre><code>&lt;form id="f"&gt;
+  &lt;input id="username" name="username"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+  const form = document.getElementById("f");
+
+  form.addEventListener("submit", function (e) {
+    console.log("Submitted");
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Logs "Submitted" and stays on the same page</li>
+        <li><strong>B)</strong> Logs "Submitted" and then reloads / navigates</li>
+        <li><strong>C)</strong> Does nothing</li>
+        <li><strong>D)</strong> Causes a JavaScript error</li>
+      </ul>
+      <button class="reveal-btn" data-target="a10">Show Answer &amp; Explanation</button>
+      <div id="a10" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          The submit handler runs and logs <code>"Submitted"</code>, but since
+          <code>e.preventDefault()</code> is not called, the browser then performs
+          its default behaviour of submitting the form (usually causing a page reload or navigation).
+        </p>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card">
+      <div class="q-header">Q11. Which event is best for running code once the initial HTML has been parsed?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>load</code> on <code>window</code></li>
+        <li><strong>B)</strong> <code>DOMContentLoaded</code> on <code>document</code></li>
+        <li><strong>C)</strong> <code>ready</code> on <code>document</code></li>
+        <li><strong>D)</strong> <code>parseComplete</code> on <code>window</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a11">Show Answer &amp; Explanation</button>
+      <div id="a11" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>document.addEventListener("DOMContentLoaded", ...)</code> fires
+          when the HTML is fully parsed (but before images / CSS etc. are guaranteed loaded).
+        </p>
+        <p><code>window.onload</code> waits for everything to load, and there is no built-in <code>ready</code> event.</p>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card">
+      <div class="q-header">Q12. Given event delegation on a list, what does <code>event.currentTarget</code> refer to?</div>
+      <ul class="options">
+        <li><strong>A)</strong> The element that actually started the event</li>
+        <li><strong>B)</strong> The element on which the listener is attached</li>
+        <li><strong>C)</strong> Always <code>document</code></li>
+        <li><strong>D)</strong> Always <code>window</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a12">Show Answer &amp; Explanation</button>
+      <div id="a12" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>event.currentTarget</code> is the element whose listener is currently running.
+          <code>event.target</code> is the element that started the event (e.g. clicked child).
+        </p>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card">
+      <div class="q-header">Q13. Mini-project logic: what does this do?</div>
+      <pre><code>const list = document.getElementById("task-list");
+
+list.addEventListener("click", (e) =&gt; {
+  if (e.target.matches("li")) {
+    e.target.classList.toggle("done");
+  }
+});</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Adds a new <code>&lt;li&gt;</code> item on click</li>
+        <li><strong>B)</strong> Deletes the clicked <code>&lt;li&gt;</code> item</li>
+        <li><strong>C)</strong> Toggles a CSS class <code>done</code> on clicked <code>&lt;li&gt;</code> items</li>
+        <li><strong>D)</strong> Marks all items as done</li>
+      </ul>
+      <button class="reveal-btn" data-target="a13">Show Answer &amp; Explanation</button>
+      <div id="a13" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          This is event delegation: the listener is attached to <code>#task-list</code> (the parent),
+          but when any <code>li</code> inside is clicked, it toggles the <code>done</code> class
+          on the clicked <code>li</code> element.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card">
+      <div class="q-header">Q14. Which mouse event fires when a user clicks and releases a button on an element?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>mousedown</code> only</li>
+        <li><strong>B)</strong> <code>mouseup</code> only</li>
+        <li><strong>C)</strong> <code>click</code></li>
+        <li><strong>D)</strong> <code>mouseover</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a14">Show Answer &amp; Explanation</button>
+      <div id="a14" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          A full “click” (press + release) triggers first <code>mousedown</code>, then <code>mouseup</code>,
+          and then <code>click</code>. The <code>click</code> event is fired after the release on the same element.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="q-card">
+      <div class="q-header">Q15. Form validation snippet — what is missing?</div>
+      <pre><code>form.addEventListener("submit", (e) =&gt; {
+  const value = input.value.trim();
+  if (!value) {
+    alert("Name is required");
+  }
+});</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Need <code>e.preventDefault()</code> inside the <code>if</code> block</li>
+        <li><strong>B)</strong> Need <code>return false;</code> after <code>alert</code></li>
+        <li><strong>C)</strong> Need <code>stopPropagation()</code> at the end</li>
+        <li><strong>D)</strong> Nothing, it is correct</li>
+      </ul>
+      <button class="reveal-btn" data-target="a15">Show Answer &amp; Explanation</button>
+      <div id="a15" class="answer">
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          If the value is empty, we should prevent form submission. The clean way:
+        </p>
+        <pre><code>if (!value) {
+  e.preventDefault();
+  alert("Name is required");
+}</code></pre>
+        <p>
+          Otherwise the alert shows and then the form still submits (page reloads).
+        </p>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="q-card">
+      <div class="q-header">Q16. What does <code>event.target.value</code> represent in an <code>input</code> event handler?</div>
+      <ul class="options">
+        <li><strong>A)</strong> The default value of the input</li>
+        <li><strong>B)</strong> The current text present in the input at that moment</li>
+        <li><strong>C)</strong> The placeholder text</li>
+        <li><strong>D)</strong> The label associated with the input</li>
+      </ul>
+      <button class="reveal-btn" data-target="a16">Show Answer &amp; Explanation</button>
+      <div id="a16" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          In an input/ change handler, <code>event.target</code> is the element that triggered the event
+          (the input), and <code>event.target.value</code> is its current value at the time of the event.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="q-card">
+      <div class="q-header">Q17. Which code correctly prevents a link from navigating away?</div>
+      <pre><code>&lt;a id="link" href="https://example.com"&gt;Go&lt;/a&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> <code>link.href = "#";</code></li>
+        <li><strong>B)</strong> <code>link.addEventListener("click", e =&gt; e.preventDefault());</code></li>
+        <li><strong>C)</strong> <code>link.onclick = () =&gt; false;</code></li>
+        <li><strong>D)</strong> Both B and C are valid in practice</li>
+      </ul>
+      <button class="reveal-btn" data-target="a17">Show Answer &amp; Explanation</button>
+      <div id="a17" class="answer">
+        <p><strong>Correct Option: D</strong></p>
+        <p>
+          In modern code, <strong>B</strong> is preferred (clear and explicit).  
+          But <strong>C</strong> also works in many browsers since returning <code>false</code> from <code>onclick</code>
+          prevents default behaviour.
+        </p>
+        <p>
+          Setting <code>href="#"</code> (A) changes the destination — not a great solution if you still want a real URL.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="q-card">
+      <div class="q-header">Q18. When attaching an event listener with capturing phase, which is correct?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>elem.addEventListener("click", handler, true);</code></li>
+        <li><strong>B)</strong> <code>elem.addEventListener("click", handler, false);</code></li>
+        <li><strong>C)</strong> <code>elem.addEventListener("capture", handler);</code></li>
+        <li><strong>D)</strong> <code>elem.addEventListenerCapture("click", handler);</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a18">Show Answer &amp; Explanation</button>
+      <div id="a18" class="answer">
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          The third parameter of <code>addEventListener</code> (or an options object) controls capturing:
+        </p>
+        <pre><code>elem.addEventListener("click", handler, true); // capturing phase</code></pre>
+        <p><code>false</code> (default) means bubbling phase.</p>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="q-card">
+      <div class="q-header">Q19. Output?</div>
+      <pre><code>&lt;button id="b"&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+  const b = document.getElementById("b");
+
+  b.addEventListener("click", function () {
+    console.log("Normal:", this.id);
+  });
+
+  b.addEventListener("click", () =&gt; {
+    console.log("Arrow:", this.id);
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> <code>Normal: b</code> and <code>Arrow: b</code></li>
+        <li><strong>B)</strong> <code>Normal: undefined</code> and <code>Arrow: undefined</code></li>
+        <li><strong>C)</strong> <code>Normal: b</code> and <code>Arrow: ""</code></li>
+        <li><strong>D)</strong> <code>Normal: b</code> and <code>Arrow: undefined</code> (or something not "b")</li>
+      </ul>
+      <button class="reveal-btn" data-target="a19">Show Answer &amp; Explanation</button>
+      <div id="a19" class="answer">
+        <p><strong>Correct Option: D</strong></p>
+        <p>
+          In the normal function, <code>this</code> refers to the element the listener is bound to,
+          so its <code>id</code> is <code>"b"</code>.  
+          In the arrow function, <code>this</code> is not rebound — it uses the surrounding lexical
+          <code>this</code> (usually <code>window</code> in loose mode, or <code>undefined</code> in strict modules).
+        </p>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="q-card">
+      <div class="q-header">Q20. Which event is best for validating a field only after user finishes editing (focus change)?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>input</code></li>
+        <li><strong>B)</strong> <code>change</code></li>
+        <li><strong>C)</strong> <code>keydown</code></li>
+        <li><strong>D)</strong> <code>keyup</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a20">Show Answer &amp; Explanation</button>
+      <div id="a20" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          <code>change</code> on text inputs fires when the element loses focus and the value has changed.
+          That is suitable when you want to validate only after the user is “done” editing.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="q-card">
+      <div class="q-header">Q21. Mini project: what does this “live preview” code do?</div>
+      <pre><code>&lt;input id="title-input" type="text"&gt;
+&lt;h2 id="preview"&gt;Live title&lt;/h2&gt;
+
+&lt;script&gt;
+  const input   = document.getElementById("title-input");
+  const preview = document.getElementById("preview");
+
+  input.addEventListener("input", () =&gt; {
+    preview.textContent = input.value || "Live title";
+  });
+&lt;/script&gt;</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Changes the heading only when the input loses focus</li>
+        <li><strong>B)</strong> Updates the heading text in real-time as the user types</li>
+        <li><strong>C)</strong> Clears the heading whenever the user types</li>
+        <li><strong>D)</strong> Does nothing because textContent is read-only</li>
+      </ul>
+      <button class="reveal-btn" data-target="a21">Show Answer &amp; Explanation</button>
+      <div id="a21" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Using the <code>input</code> event ensures the heading’s text is updated for every keystroke,
+          providing a live preview of what the user types. If the input is empty, it shows a default string.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="q-card">
+      <div class="q-header">Q22. Which pattern is most efficient for handling clicks on many dynamically added items?</div>
+      <ul class="options">
+        <li><strong>A)</strong> Add a separate click listener to every new button</li>
+        <li><strong>B)</strong> Use event delegation on a common parent container</li>
+        <li><strong>C)</strong> Continuously remove and re-add listeners on scroll</li>
+        <li><strong>D)</strong> Poll the DOM every second for changes</li>
+      </ul>
+      <button class="reveal-btn" data-target="a22">Show Answer &amp; Explanation</button>
+      <div id="a22" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          Event delegation attaches a single listener on a parent and uses <code>event.target</code>
+          to determine which child was clicked. This scales well for many or dynamically-created elements.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="q-card">
+      <div class="q-header">Q23. You want to prevent a submit button from being clicked multiple times quickly. Which approach is best?</div>
+      <ul class="options">
+        <li><strong>A)</strong> Immediately disable the button in the click handler</li>
+        <li><strong>B)</strong> Use <code>alert</code> to stop the user</li>
+        <li><strong>C)</strong> Call <code>stopPropagation()</code> on the click event</li>
+        <li><strong>D)</strong> Wrap the handler with <code>setInterval</code></li>
+      </ul>
+      <button class="reveal-btn" data-target="a23">Show Answer &amp; Explanation</button>
+      <div id="a23" class="answer">
+        <p><strong>Correct Option: A</strong></p>
+        <p>
+          A common UX pattern is to disable the button as soon as it’s clicked:
+        </p>
+        <pre><code>btn.addEventListener("click", (e) =&gt; {
+  btn.disabled = true;
+  // run submit logic
+});</code></pre>
+        <p>This prevents duplicate submissions. Event propagation is unrelated here.</p>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="q-card">
+      <div class="q-header">Q24. In an event handler, which object represents details like mouse position or key pressed?</div>
+      <ul class="options">
+        <li><strong>A)</strong> <code>window</code></li>
+        <li><strong>B)</strong> <code>document</code></li>
+        <li><strong>C)</strong> The <code>event</code> object passed to the handler</li>
+        <li><strong>D)</strong> The DOM element only</li>
+      </ul>
+      <button class="reveal-btn" data-target="a24">Show Answer &amp; Explanation</button>
+      <div id="a24" class="answer">
+        <p><strong>Correct Option: C</strong></p>
+        <p>
+          The event object (often named <code>e</code> or <code>event</code>) contains all details about
+          the action: mouse coordinates, key pressed, target element, timestamp, and more.
+        </p>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="q-card">
+      <div class="q-header">Q25. You have this code. What is the effect?</div>
+      <pre><code>document.addEventListener("click", (e) =&gt; {
+  if (e.target.matches(".modal-overlay")) {
+    closeModal();
+  }
+});</code></pre>
+      <ul class="options">
+        <li><strong>A)</strong> Closes the modal whenever any element is clicked</li>
+        <li><strong>B)</strong> Closes the modal only when the overlay (background) is clicked</li>
+        <li><strong>C)</strong> Closes the modal only when the close button is clicked</li>
+        <li><strong>D)</strong> Does nothing because matches() is invalid here</li>
+      </ul>
+      <button class="reveal-btn" data-target="a25">Show Answer &amp; Explanation</button>
+      <div id="a25" class="answer">
+        <p><strong>Correct Option: B</strong></p>
+        <p>
+          This is event delegation on <code>document</code>. When any click occurs, it checks whether
+          <code>event.target</code> matches the selector <code>.modal-overlay</code>.  
+          If yes, it calls <code>closeModal()</code>. So the modal closes only when the overlay area is clicked.
+        </p>
+      </div>
+    </div>
+
+    <p class="small-note">
+      ✅ End of Part 4 — Events &amp; Forms.  
+      You now have 100 DOM questions (across 4 parts) for Module 9: from basics to real-world event logic.
+    </p>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br />
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br />
+        <strong>Phone:</strong> +91 7003756860<br />
+        <strong>Course Author:</strong> Sukanta Hui<br />
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+    <div class="org-small">
+      Use this test file along with other Module 9 DOM tests as a complete practice set for your JavaScript course.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Attach click handlers to all reveal buttons
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".reveal-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const targetId = this.getAttribute("data-target");
+        const ans = document.getElementById(targetId);
+        if (!ans) return;
+
+        const isHidden = ans.style.display === "none" || ans.style.display === "";
+        ans.style.display = isHidden ? "block" : "none";
+        this.textContent = isHidden
+          ? "Hide Answer & Explanation"
+          : "Show Answer & Explanation";
+      });
+    });
+  });
+</script>
+</body>
+</html>

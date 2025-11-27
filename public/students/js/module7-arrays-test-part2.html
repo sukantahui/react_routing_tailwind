@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 7 — Arrays Test Part 2 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#a855f7; /* PURPLE THEME FOR PART 2 */
+      --accent2:#38bdf8;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page { max-width:1100px; margin:auto; }
+
+    .card {
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+      margin-bottom:24px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    h1 {
+      font-size:1.9rem;
+      text-align:center;
+      margin-bottom:20px;
+      background:linear-gradient(90deg,#c084fc,#e9d5ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    h2 {
+      font-size:1.25rem;
+      color:#e0e7ff;
+      margin-bottom:12px;
+    }
+
+    pre {
+      background:var(--code-bg);
+      border:1px solid rgba(31,41,55,0.8);
+      padding:14px;
+      border-radius:12px;
+      overflow:auto;
+      margin:10px 0;
+      font-size:0.9rem;
+    }
+
+    .q-block {
+      margin-bottom:22px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(148,163,184,0.25);
+    }
+
+    button {
+      margin-top:10px;
+      padding:6px 14px;
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:0.9rem;
+      transition:0.25s;
+    }
+    button:hover { transform:scale(1.05); }
+
+    .ans {
+      margin-top:10px;
+      padding:12px;
+      background:rgba(56,189,248,0.12);
+      border-left:4px solid var(--accent);
+      border-radius:8px;
+      display:none;
+      font-size:0.9rem;
+    }
+
+    footer {
+      margin-top:35px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.90));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.9rem;
+    }
+    footer a { color:var(--accent2); text-decoration:none; }
+  </style>
+
+  <script>
+    function toggle(id){
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 7 — Arrays Test Part 2</h1>
+
+<!-- ===================== OUTPUT QUESTIONS ====================== -->
+<div class="card">
+<h2>🔵 Part A — Output Questions (8)</h2>
+
+<!-- Q1 -->
+<div class="q-block">
+  <p><strong>1) What will be the output?</strong></p>
+<pre><code>let arr = [10, 20, 30, 40];
+arr.splice(1, 2);
+console.log(arr);</code></pre>
+
+  <button onclick="toggle('a1')">Show Answer</button>
+  <div id="a1" class="ans">
+    Output → <code>[10, 40]</code><br><br>
+    <b>Explanation:</b> splice(1,2) removes 20 and 30.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+  <p><strong>2) Predict the output:</strong></p>
+<pre><code>let nums = [5, 10, 15];
+let x = nums.slice(1);
+console.log(nums, x);</code></pre>
+
+  <button onclick="toggle('a2')">Show Answer</button>
+  <div id="a2" class="ans">
+    <b>Output:</b> <code>[5,10,15]  [10,15]</code><br><br>
+    slice() does NOT modify original array.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+<pre><code>let arr = [2,4,6];
+let r = arr.map(n => n * 2);
+console.log(r);</code></pre>
+
+<button onclick="toggle('a3')">Show Answer</button>
+<div id="a3" class="ans">
+  <b>Output:</b> [4, 8, 12]<br>
+  map applies the callback to each element.
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+<pre><code>let arr = [1,2,3,4];
+let r = arr.filter(n => n % 2 === 0);
+console.log(r);</code></pre>
+
+<button onclick="toggle('a4')">Show Answer</button>
+<div id="a4" class="ans">
+  Output → [2, 4]
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+<pre><code>let marks = [50,60,70];
+let total = marks.reduce((a,b)=>a+b, 0);
+console.log(total);</code></pre>
+
+<button onclick="toggle('a5')">Show Answer</button>
+<div id="a5" class="ans">
+  <b>Output:</b> 180
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+<pre><code>let a = ["A", "B", "C"];
+a.pop();
+a.unshift("Z");
+console.log(a);</code></pre>
+
+<button onclick="toggle('a6')">Show Answer</button>
+<div id="a6" class="ans">
+  Output → ["Z", "A", "B"]
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+<pre><code>let x = [3,6,9];
+let y = x.find(n => n > 5);
+console.log(y);</code></pre>
+
+<button onclick="toggle('a7')">Show Answer</button>
+<div id="a7" class="ans">
+  Output → 6
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+<pre><code>let arr = [1,2,3];
+arr.splice(1,0,99);
+console.log(arr);</code></pre>
+
+<button onclick="toggle('a8')">Show Answer</button>
+<div id="a8" class="ans">
+  Output → [1, 99, 2, 3]
+</div>
+</div>
+
+</div> <!-- END OUTPUT -->
+
+
+<!-- ===================== MCQ QUESTIONS ====================== -->
+<div class="card">
+<h2>🟣 Part B — MCQ Questions (8)</h2>
+
+<div class="q-block">
+<p><strong>9) Which method adds at the beginning?</strong></p>
+<p>A) push  &nbsp; B) pop  &nbsp; C) unshift  &nbsp; D) shift</p>
+<button onclick="toggle('a9')">Show Answer</button>
+<div id="a9" class="ans">
+  Correct → <b>C) unshift</b>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>10) Which method creates a NEW array?</strong></p>
+<p>A) splice  B) slice  C) pop  D) shift</p>
+<button onclick="toggle('a10')">Show Answer</button>
+<div id="a10" class="ans">
+  Correct → <b>B) slice</b>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>11) filter() returns:</strong></p>
+<p>A) Number  B) Boolean  C) New array  D) Undefined</p>
+<button onclick="toggle('a11')">Show Answer</button>
+<div id="a11" class="ans">
+  Correct → C) New array
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>12) includes() returns:</strong></p>
+<p>A) number  B) string  C) boolean  D) object</p>
+<button onclick="toggle('a12')">Show Answer</button>
+<div id="a12" class="ans">
+  C) boolean
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>13) indexOf("X") returns what if not found?</strong></p>
+<p>A) undefined  B) null  C) -1  D) false</p>
+<button onclick="toggle('a13')">Show Answer</button>
+<div id="a13" class="ans">C) -1</div>
+</div>
+
+<div class="q-block">
+<p><strong>14) Which method transforms each element?</strong></p>
+<p>A) reduce  B) map  C) filter  D) find</p>
+<button onclick="toggle('a14')">Show Answer</button>
+<div id="a14" class="ans">B) map</div>
+</div>
+
+<div class="q-block">
+<p><strong>15) reduce() takes:</strong></p>
+<p>A) only value  B) only index  
+C) accumulator + current value  D) nothing</p>
+<button onclick="toggle('a15')">Show Answer</button>
+<div id="a15" class="ans">C) accumulator + current value</div>
+</div>
+
+<div class="q-block">
+<p><strong>16) find() returns:</strong></p>
+<p>A) Index  B) Boolean  C) First matched value  D) Array</p>
+<button onclick="toggle('a16')">Show Answer</button>
+<div id="a16" class="ans">C) First matched value</div>
+</div>
+
+</div> <!-- END MCQ -->
+
+
+<!-- ===================== CODING QUESTIONS ====================== -->
+<div class="card">
+<h2>🟡 Part C — Coding Questions (5)</h2>
+
+<div class="q-block">
+<p><strong>17) Write a function that returns only even numbers from an array.</strong></p>
+<button onclick="toggle('a17')">Show Answer</button>
+<div id="a17" class="ans">
+<pre><code>function getEvens(arr){
+  return arr.filter(n => n % 2 === 0);
+}</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>18) Write code to insert 100 at index 2 using splice().</strong></p>
+<button onclick="toggle('a18')">Show Answer</button>
+<div id="a18" class="ans">
+<pre><code>arr.splice(2, 0, 100);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>19) Convert all names to uppercase using map().</strong></p>
+<button onclick="toggle('a19')">Show Answer</button>
+<div id="a19" class="ans">
+<pre><code>let result = names.map(n => n.toUpperCase());</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>20) Find the total marks using reduce().</strong></p>
+<button onclick="toggle('a20')">Show Answer</button>
+<div id="a20" class="ans">
+<pre><code>let total = marks.reduce((a,b)=>a+b, 0);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>21) Write a forEach loop to print every element with its index.</strong></p>
+<button onclick="toggle('a21')">Show Answer</button>
+<div id="a21" class="ans">
+<pre><code>arr.forEach((val, i)=>{
+  console.log(i, val);
+});</code></pre>
+</div>
+</div>
+
+</div> <!-- END CODING -->
+
+
+<!-- ===================== REAL-WORLD QUESTIONS ====================== -->
+<div class="card">
+<h2>🟠 Part D — Real-World Scenario Questions (4)</h2>
+
+<div class="q-block">
+<p><strong>22) A fees array contains values. Apply 18% GST using map().</strong></p>
+<button onclick="toggle('a22')">Show Answer</button>
+<div id="a22" class="ans">
+<pre><code>let gstFees = fees.map(f => f * 1.18);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>23) Given marks array, filter students who scored ≥ 75.</strong></p>
+<button onclick="toggle('a23')">Show Answer</button>
+<div id="a23" class="ans">
+<pre><code>let toppers = marks.filter(m => m >= 75);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>24) Convert duplicate product IDs into a unique list using Set.</strong></p>
+<button onclick="toggle('a24')">Show Answer</button>
+<div id="a24" class="ans">
+<pre><code>let unique = [...new Set(ids)];</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>25) Search for a student's fee using Map.</strong></p>
+<button onclick="toggle('a25')">Show Answer</button>
+<div id="a25" class="ans">
+<pre><code>let fee = feesMap.get("Amit");</code></pre>
+</div>
+</div>
+
+</div> <!-- END REAL-WORLD -->
+
+
+<!-- FOOTER -->
+<footer>
+  <strong>Coder & AccoTax</strong> — Arrays Test Series (Module 7)<br>
+  25(10/A) Shibtala Road, Barrackpore ·  
+  <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a>  
+</footer>
+
+</div>
+</body>
+</html>

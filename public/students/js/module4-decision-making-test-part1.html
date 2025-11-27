@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 4 Test — Decision Making (Part 1: Q1–25) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  :root {
+    --bg: #020617;
+    --accent: #38bdf8;
+    --accent2: #a855f7;
+    --accent3: #22c55e;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1e293b;
+    --card-bg: #0f172a;
+  }
+
+  body {
+    margin:0;
+    background: radial-gradient(circle at top, #0f172a, #020617 70%, #000);
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color: var(--text);
+    padding: 30px 15px;
+    line-height: 1.7;
+  }
+
+  .page { max-width: 1000px; margin:auto; }
+
+  h1 {
+    text-align:center;
+    font-size:2rem;
+    background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#a5b4fc);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:15px;
+  }
+
+  .intro {
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:30px;
+  }
+
+  .card {
+    background:rgba(15,23,42,0.97);
+    border:1px solid var(--border);
+    padding:18px;
+    margin-bottom:20px;
+    border-radius:18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.55);
+  }
+
+  .question { color:#dbeafe; font-size:1rem; margin-bottom:10px; }
+
+  .show-btn {
+    background: linear-gradient(90deg,#38bdf8,#a855f7);
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.25s;
+  }
+  .show-btn:hover { opacity:0.85; transform:scale(1.03); }
+
+  .answer-box {
+    display:none;
+    background:rgba(30,41,59,0.7);
+    padding:14px;
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+    margin-top:10px;
+  }
+
+  footer {
+    margin-top:40px;
+    padding:20px;
+    background:rgba(15,23,42,0.95);
+    border-radius:18px;
+    border:1px solid var(--border);
+    font-size:0.9rem;
+  }
+  .org-grid {
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:10px;
+  }
+  @media(max-width:700px){ .org-grid{ grid-template-columns:1fr; } }
+  .org-name { font-weight:700; }
+  footer a { color:var(--accent); }
+  .org-small { margin-top:10px; color:var(--muted); font-size:0.8rem; }
+</style>
+
+<script>
+function toggleAnswer(id){
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 4 — Decision Making<br>Test Part 1 (Q1–25)</h1>
+<div class="intro">if · else · else-if · nested logic · switch · truthy/falsy</div>
+
+<!-- Q1 -->
+<div class="card">
+  <div class="question"><strong>Q1.</strong> What will this print?<br><code>if (true) console.log("Hello");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a1')">Show Answer</button>
+  <div class="answer-box" id="a1">
+    <strong>Answer:</strong> Hello<br><br>
+    <strong>Explanation:</strong> Condition is true, so the statement executes.
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="card">
+  <div class="question"><strong>Q2.</strong> Output?<br><code>if (false) console.log("A"); else console.log("B");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a2')">Show Answer</button>
+  <div class="answer-box" id="a2">
+    <strong>Answer:</strong> B<br><br>
+    <strong>Explanation:</strong> false makes if skip, else runs.
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="card">
+  <div class="question"><strong>Q3.</strong> What is printed?<br><code>let x=10;<br>if (x>5) console.log("Yes");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a3')">Show Answer</button>
+  <div class="answer-box" id="a3">
+    <strong>Answer:</strong> Yes<br><br>
+    <strong>Explanation:</strong> x>5 is true.
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="card">
+  <div class="question"><strong>Q4.</strong> Output?<br><code>if (0) console.log("Hi"); else console.log("Bye");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a4')">Show Answer</button>
+  <div class="answer-box" id="a4">
+    <strong>Answer:</strong> Bye<br><br>
+    <strong>Explanation:</strong> 0 is falsy.
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="card">
+  <div class="question"><strong>Q5.</strong> What logs?<br><code>if ("") console.log("X"); else console.log("Y");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a5')">Show Answer</button>
+  <div class="answer-box" id="a5">
+    <strong>Answer:</strong> Y<br><br>
+    <strong>Explanation:</strong> Empty string is falsy.
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="card">
+  <div class="question"><strong>Q6.</strong> What prints?<br><code>if ("hello") console.log("Run");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a6')">Show Answer</button>
+  <div class="answer-box" id="a6">
+    <strong>Answer:</strong> Run<br><br>
+    <strong>Explanation:</strong> Non-empty strings are truthy.
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="card">
+  <div class="question"><strong>Q7.</strong> Predict output:<br><code>let a = 5;<br>if (a===5) console.log("OK");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a7')">Show Answer</button>
+  <div class="answer-box" id="a7">
+    <strong>Answer:</strong> OK<br><br>
+    <strong>Explanation:</strong> Strict equality matches exactly.
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="card">
+  <div class="question"><strong>Q8.</strong> What logs?<br><code>let x;<br>if (x) console.log("A"); else console.log("B");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a8')">Show Answer</button>
+  <div class="answer-box" id="a8">
+    <strong>Answer:</strong> B<br><br>
+    <strong>Explanation:</strong> undefined is falsy.
+  </div>
+</div>
+
+<!-- Q9 -->
+<div class="card">
+  <div class="question"><strong>Q9.</strong> Output?<br><code>if (null) console.log("1"); else console.log("2");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a9')">Show Answer</button>
+  <div class="answer-box" id="a9">
+    <strong>Answer:</strong> 2<br><br>
+    <strong>Explanation:</strong> null is falsy.
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="card">
+  <div class="question"><strong>Q10.</strong> Output?<br><code>if (NaN) console.log("T"); else console.log("F");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a10')">Show Answer</button>
+  <div class="answer-box" id="a10">
+    <strong>Answer:</strong> F<br><br>
+    <strong>Explanation:</strong> NaN is falsy.
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="card">
+  <div class="question"><strong>Q11.</strong> Evaluate:<br><code>if (5=="5") console.log("Same");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a11')">Show Answer</button>
+  <div class="answer-box" id="a11">
+    <strong>Answer:</strong> Same<br><br>
+    <strong>Explanation:</strong> == converts types (not recommended).
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="card">
+  <div class="question"><strong>Q12.</strong> What logs?<br><code>if (5==="5") console.log("Yes"); else console.log("No");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a12')">Show Answer</button>
+  <div class="answer-box" id="a12">
+    <strong>Answer:</strong> No<br><br>
+    <strong>Explanation:</strong> Types differ in strict comparison.
+  </div>
+</div>
+
+<!-- Q13 -->
+<div class="card">
+  <div class="question"><strong>Q13.</strong> Output?<br><code>if (true && false) console.log("A"); else console.log("B");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a13')">Show Answer</button>
+  <div class="answer-box" id="a13">
+    <strong>Answer:</strong> B<br><br>
+    <strong>Explanation:</strong> true && false = false.
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="card">
+  <div class="question"><strong>Q14.</strong> Output?<br><code>if (false || true) console.log("Hi");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a14')">Show Answer</button>
+  <div class="answer-box" id="a14">
+    <strong>Answer:</strong> Hi<br><br>
+    <strong>Explanation:</strong> OR returns true if any operand true.
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="card">
+  <div class="question"><strong>Q15.</strong> Evaluate:<br><code>if (!false) console.log("Run");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a15')">Show Answer</button>
+  <div class="answer-box" id="a15">
+    <strong>Answer:</strong> Run<br><br>
+    <strong>Explanation:</strong> !false = true.
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="card">
+  <div class="question"><strong>Q16.</strong> What will print?<br><code>let a=10;<br>if(a>5 && a<20) console.log("OK");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a16')">Show Answer</button>
+  <div class="answer-box" id="a16">
+    <strong>Answer:</strong> OK<br><br>
+    <strong>Explanation:</strong> Both conditions true.
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="card">
+  <div class="question"><strong>Q17.</strong> Output?<br><code>let x=5;<br>if(x==5) console.log("Match");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a17')">Show Answer</button>
+  <div class="answer-box" id="a17">
+    <strong>Answer:</strong> Match<br><br>
+    <strong>Explanation:</strong> Loose match returns true.
+  </div>
+</div>
+
+<!-- Q18 -->
+<div class="card">
+  <div class="question"><strong>Q18.</strong> Output?<br><code>if("0") console.log("Yes");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a18')">Show Answer</button>
+  <div class="answer-box" id="a18">
+    <strong>Answer:</strong> Yes<br><br>
+    <strong>Explanation:</strong> "0" is non-empty → truthy.
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="card">
+  <div class="question"><strong>Q19.</strong> Predict:<br><code>if (5>10) console.log("X"); else console.log("Y");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a19')">Show Answer</button>
+  <div class="answer-box" id="a19">
+    <strong>Answer:</strong> Y<br><br>
+    <strong>Explanation:</strong> 5>10 is false.
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="card">
+  <div class="question"><strong>Q20.</strong> Output?<br><code>if (10>=10) console.log("Equal");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a20')">Show Answer</button>
+  <div class="answer-box" id="a20">
+    <strong>Answer:</strong> Equal<br><br>
+    <strong>Explanation:</strong> >= includes equality.
+  </div>
+</div>
+
+<!-- Q21 -->
+<div class="card">
+  <div class="question"><strong>Q21.</strong> What prints?<br><code>let x=2;<br>if(x%2===0) console.log("Even");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a21')">Show Answer</button>
+  <div class="answer-box" id="a21">
+    <strong>Answer:</strong> Even<br><br>
+    <strong>Explanation:</strong> 2%2 = 0.
+  </div>
+</div>
+
+<!-- Q22 -->
+<div class="card">
+  <div class="question"><strong>Q22.</strong> Output?<br><code>let a=7;<br>if(a%2===1) console.log("Odd");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a22')">Show Answer</button>
+  <div class="answer-box" id="a22">
+    <strong>Answer:</strong> Odd<br><br>
+    <strong>Explanation:</strong> 7%2=1.
+  </div>
+</div>
+
+<!-- Q23 -->
+<div class="card">
+  <div class="question"><strong>Q23.</strong> Evaluate:<br><code>if(false || false) console.log("Run"); else console.log("Skip");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a23')">Show Answer</button>
+  <div class="answer-box" id="a23">
+    <strong>Answer:</strong> Skip<br><br>
+    <strong>Explanation:</strong> false || false = false.
+  </div>
+</div>
+
+<!-- Q24 -->
+<div class="card">
+  <div class="question"><strong>Q24.</strong> Output?<br><code>if(!"") console.log("Empty");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a24')">Show Answer</button>
+  <div class="answer-box" id="a24">
+    <strong>Answer:</strong> Empty<br><br>
+    <strong>Explanation:</strong> "" is falsy → !"": true.
+  </div>
+</div>
+
+<!-- Q25 -->
+<div class="card">
+  <div class="question"><strong>Q25.</strong> What prints?<br><code>if(5!==6) console.log("True");</code></div>
+  <button class="show-btn" onclick="toggleAnswer('a25')">Show Answer</button>
+  <div class="answer-box" id="a25">
+    <strong>Answer:</strong> True<br><br>
+    <strong>Explanation:</strong> 5!==6 → true.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui
+    </div>
+  </div>
+  <div class="org-small">Premium JavaScript Test · Module 4 · Part 1</div>
+</footer>
+
+</div>
+</body>
+</html>

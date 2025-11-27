@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 7 — Arrays & Data Structures Test Part 1 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --danger:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a 0,#020617 55%,#000 100%);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    header{
+      padding:20px 24px;
+      border-radius:24px;
+      margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+      background:rgba(15,23,42,0.95);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 20px rgba(56,189,248,0.7);
+    }
+    h1{
+      font-size:1.9rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+    .tagline{color:var(--muted);font-size:0.96rem;}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;text-transform:uppercase;
+      background:rgba(15,23,42,0.85);
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.65);
+      font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+      background:rgba(15,23,42,0.92);
+    }
+
+    .intro-card,.question-card{
+      background:rgba(15,23,42,0.97);
+      border-radius:22px;
+      border:1px solid var(--border);
+      padding:18px 18px 16px;
+      margin-bottom:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.65);
+    }
+    .intro-title{
+      font-size:1.15rem;
+      color:#dbeafe;
+      margin-bottom:6px;
+    }
+    .intro-text{color:var(--muted);font-size:0.93rem;}
+
+    .q-meta{
+      font-size:0.75rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:6px;
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .q-type-pill{
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      font-size:0.7rem;
+      text-transform:uppercase;
+      color:var(--accent2);
+    }
+    .q-title{
+      font-size:0.97rem;
+      margin-bottom:6px;
+      color:#e5e7eb;
+    }
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;
+      border:1px solid rgba(31,41,55,0.9);
+      padding:10px 12px;
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0 10px;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .options{
+      margin-top:4px;
+      margin-bottom:8px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px 14px;
+      font-size:0.9rem;
+    }
+    @media(max-width:700px){
+      .options{grid-template-columns:1fr;}
+    }
+    .option-label{
+      padding:6px 8px;
+      border-radius:999px;
+      border:1px solid rgba(55,65,81,0.9);
+      background:rgba(15,23,42,0.9);
+      color:var(--muted);
+    }
+
+    .answer{
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px dashed rgba(56,189,248,0.5);
+      background:rgba(15,23,42,0.9);
+      font-size:0.87rem;
+      display:none;
+    }
+    .answer strong{color:#e0f2fe;}
+
+    .btn-toggle{
+      margin-top:4px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.8);
+      background:linear-gradient(90deg,rgba(56,189,248,0.15),rgba(168,85,247,0.1));
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .btn-toggle span{font-size:1rem;}
+    .btn-toggle:hover{
+      background:linear-gradient(90deg,rgba(56,189,248,0.28),rgba(168,85,247,0.25));
+    }
+
+    footer{
+      margin-top:24px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){
+      .org-grid{grid-template-columns:1fr;}
+    }
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="logo-circle">C&A</div>
+  <div>
+    <h1>Module 7 Test · Arrays &amp; Data Structures (Part 1)</h1>
+    <p class="tagline">
+      25 Questions on Array Basics, Indexing, Length &amp; Core Methods (push, pop, shift, unshift).
+      Answers and explanations are hidden until you click.
+    </p>
+    <div class="badge-row">
+      <div class="badge">Arrays Basics</div>
+      <div class="badge">Index &amp; Length</div>
+      <div class="badge">Core Methods</div>
+    </div>
+  </div>
+  <div class="mode-pill">Dark Test Mode · Premium UI</div>
+</header>
+
+<section class="intro-card">
+  <div class="intro-title">How to Use This Test</div>
+  <p class="intro-text">
+    • Read the question carefully and try to answer mentally or on paper first.<br>
+    • Then click <strong>“Show Answer &amp; Explanation”</strong> to reveal the correct option and reasoning.<br>
+    • Use this as a self-check tool while studying Module 7 — Arrays &amp; Essential Data Structures.
+  </p>
+</section>
+
+<!-- Q1–Q25 -->
+<section>
+
+  <!-- Q1 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q1 · Concept</span>
+      <span class="q-type-pill">Single correct</span>
+    </div>
+    <div class="q-title">
+      Which of the following best describes a JavaScript array?
+    </div>
+    <div class="options">
+      <div class="option-label">A) A fixed-size collection of only numbers</div>
+      <div class="option-label">B) An ordered list that can store multiple values of any type</div>
+      <div class="option-label">C) A key–value pair collection like an object</div>
+      <div class="option-label">D) A special variable that can store only strings</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q1')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q1">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> In JavaScript, an array is an ordered list that can store
+        multiple values of <em>any</em> type (numbers, strings, objects, etc.) in a single variable.
+        It is not fixed-size and is different from objects and maps.</p>
+    </div>
+  </article>
+
+  <!-- Q2 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q2 · Output</span>
+      <span class="q-type-pill">Indexing</span>
+    </div>
+    <div class="q-title">What will be printed in the console?</div>
+    <pre><code>let nums = [10, 20, 30, 40];
+console.log(nums[2]);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 10</div>
+      <div class="option-label">B) 20</div>
+      <div class="option-label">C) 30</div>
+      <div class="option-label">D) 40</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q2')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q2">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> Arrays are 0-indexed. <code>nums[0]</code> is 10, <code>nums[1]</code> is 20,
+        <code>nums[2]</code> is 30, <code>nums[3]</code> is 40.</p>
+    </div>
+  </article>
+
+  <!-- Q3 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q3 · Concept</span>
+      <span class="q-type-pill">length property</span>
+    </div>
+    <div class="q-title">
+      If <code>let arr = [1, 2, 3, 4, 5];</code> what is the value of <code>arr.length</code>?
+    </div>
+    <div class="options">
+      <div class="option-label">A) 4</div>
+      <div class="option-label">B) 5</div>
+      <div class="option-label">C) 6</div>
+      <div class="option-label">D) Undefined</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q3')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q3">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> <code>length</code> returns the number of elements in the array.
+        Here there are 5 elements, so <code>arr.length === 5</code>.</p>
+    </div>
+  </article>
+
+  <!-- Q4 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q4 · Output</span>
+      <span class="q-type-pill">push()</span>
+    </div>
+    <div class="q-title">What will this code output?</div>
+    <pre><code>let fruits = ["Apple", "Banana"];
+fruits.push("Mango");
+console.log(fruits.length);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 1</div>
+      <div class="option-label">B) 2</div>
+      <div class="option-label">C) 3</div>
+      <div class="option-label">D) 4</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q4')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q4">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> Initially 2 elements (<code>Apple</code>, <code>Banana</code>).
+        <code>push("Mango")</code> adds one more at the end, so length becomes 3.</p>
+    </div>
+  </article>
+
+  <!-- Q5 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q5 · Concept</span>
+      <span class="q-type-pill">Core methods</span>
+    </div>
+    <div class="q-title">
+      Which method removes the <strong>last</strong> element from an array and returns it?
+    </div>
+    <div class="options">
+      <div class="option-label">A) shift()</div>
+      <div class="option-label">B) unshift()</div>
+      <div class="option-label">C) pop()</div>
+      <div class="option-label">D) splice()</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q5')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q5">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> <code>pop()</code> removes and returns the last element.
+        <code>shift()</code> works at the beginning, <code>unshift()</code> adds at the beginning,
+        <code>splice()</code> can remove/insert at any index.</p>
+    </div>
+  </article>
+
+  <!-- Q6 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q6 · Output</span>
+      <span class="q-type-pill">shift()</span>
+    </div>
+    <div class="q-title">What is logged to the console?</div>
+    <pre><code>let arr = [5, 10, 15];
+let x = arr.shift();
+console.log(x, arr);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 5 [10, 15]</div>
+      <div class="option-label">B) 10 [5, 15]</div>
+      <div class="option-label">C) 15 [5, 10]</div>
+      <div class="option-label">D) 5 [5, 10, 15]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q6')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q6">
+      <p><strong>Correct Answer:</strong> A</p>
+      <p><strong>Explanation:</strong> <code>shift()</code> removes and returns the first element.
+        So <code>x = 5</code> and array becomes <code>[10, 15]</code>.</p>
+    </div>
+  </article>
+
+  <!-- Q7 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q7 · Concept</span>
+      <span class="q-type-pill">Indexing</span>
+    </div>
+    <div class="q-title">
+      For <code>let names = ["A", "B", "C", "D"];</code> which index gives the last element?
+    </div>
+    <div class="options">
+      <div class="option-label">A) names[3]</div>
+      <div class="option-label">B) names[4]</div>
+      <div class="option-label">C) names[names.length]</div>
+      <div class="option-label">D) names[-1]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q7')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q7">
+      <p><strong>Correct Answer:</strong> A</p>
+      <p><strong>Explanation:</strong> There are 4 elements, indices 0–3. Last element is at index
+        <code>length - 1</code> → <code>4 - 1 = 3</code>.</p>
+    </div>
+  </article>
+
+  <!-- Q8 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q8 · Output</span>
+      <span class="q-type-pill">Sparse array</span>
+    </div>
+    <div class="q-title">What will be printed?</div>
+    <pre><code>let arr = [];
+arr[2] = "JS";
+console.log(arr.length);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 0</div>
+      <div class="option-label">B) 1</div>
+      <div class="option-label">C) 2</div>
+      <div class="option-label">D) 3</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q8')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q8">
+      <p><strong>Correct Answer:</strong> D</p>
+      <p><strong>Explanation:</strong> Setting index 2 creates a sparse array:
+        indices 0 and 1 become empty (undefined). Length is highest index + 1 ⇒ <code>2 + 1 = 3</code>.</p>
+    </div>
+  </article>
+
+  <!-- Q9 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q9 · Concept</span>
+      <span class="q-type-pill">typeof</span>
+    </div>
+    <div class="q-title">
+      What is the result of <code>typeof []</code> in JavaScript?
+    </div>
+    <div class="options">
+      <div class="option-label">A) "array"</div>
+      <div class="option-label">B) "object"</div>
+      <div class="option-label">C) "list"</div>
+      <div class="option-label">D) "undefined"</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q9')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q9">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> Due to JavaScript's design, <code>typeof []</code> is <code>"object"</code>.
+        Arrays are special kind of objects; use <code>Array.isArray()</code> to check if something is an array.</p>
+    </div>
+  </article>
+
+  <!-- Q10 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q10 · Output</span>
+      <span class="q-type-pill">unshift()</span>
+    </div>
+    <div class="q-title">What does the following log?</div>
+    <pre><code>let items = ["Pen", "Pencil"];
+items.unshift("Eraser");
+console.log(items);</code></pre>
+    <div class="options">
+      <div class="option-label">A) ["Pen", "Pencil", "Eraser"]</div>
+      <div class="option-label">B) ["Eraser", "Pen", "Pencil"]</div>
+      <div class="option-label">C) ["Eraser", "Pencil"]</div>
+      <div class="option-label">D) ["Pen", "Eraser", "Pencil"]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q10')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q10">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> <code>unshift()</code> adds an element at the start of the array.
+        So new array is <code>["Eraser","Pen","Pencil"]</code>.</p>
+    </div>
+  </article>
+
+  <!-- Q11 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q11 · Concept</span>
+      <span class="q-type-pill">MCQ</span>
+    </div>
+    <div class="q-title">
+      Which statement about arrays is <strong>true</strong>?
+    </div>
+    <div class="options">
+      <div class="option-label">A) Arrays in JS can store only numbers</div>
+      <div class="option-label">B) Array length cannot change once defined</div>
+      <div class="option-label">C) Arrays can store mixed data types and length is dynamic</div>
+      <div class="option-label">D) Arrays start indexing from 1</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q11')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q11">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> JavaScript arrays are dynamic and can hold values of any type in the same array.</p>
+    </div>
+  </article>
+
+  <!-- Q12 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q12 · Output</span>
+      <span class="q-type-pill">Index out of range</span>
+    </div>
+    <div class="q-title">Predict the output:</div>
+    <pre><code>let arr = [1, 2, 3];
+console.log(arr[5]);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 3</div>
+      <div class="option-label">B) 5</div>
+      <div class="option-label">C) 0</div>
+      <div class="option-label">D) undefined</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q12')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q12">
+      <p><strong>Correct Answer:</strong> D</p>
+      <p><strong>Explanation:</strong> Accessing an index that does not exist returns <code>undefined</code>,
+        not an error and not 0.</p>
+    </div>
+  </article>
+
+  <!-- Q13 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q13 · Small Code</span>
+      <span class="q-type-pill">Counting</span>
+    </div>
+    <div class="q-title">
+      Which option correctly prints all elements of <code>arr</code> one by one?
+    </div>
+    <pre><code>let arr = [10, 20, 30];</code></pre>
+    <div class="options">
+      <div class="option-label">A) <code>for (let i = 1; i &lt;= arr.length; i++) console.log(arr[i]);</code></div>
+      <div class="option-label">B) <code>for (let i = 0; i &lt; arr.length; i++) console.log(arr[i]);</code></div>
+      <div class="option-label">C) <code>for (let i in arr) console.log(i);</code></div>
+      <div class="option-label">D) <code>console.log(arr.length());</code></div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q13')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q13">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> Correct loop: start index 0, go while <code>i &lt; length</code>, and print <code>arr[i]</code>.
+        Option A starts from 1 and misses the first element and accesses undefined at the end.</p>
+    </div>
+  </article>
+
+  <!-- Q14 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q14 · Output</span>
+      <span class="q-type-pill">push/pop</span>
+    </div>
+    <div class="q-title">What will be logged?</div>
+    <pre><code>let stack = [];
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.pop();
+console.log(stack);</code></pre>
+    <div class="options">
+      <div class="option-label">A) [1]</div>
+      <div class="option-label">B) [1, 2]</div>
+      <div class="option-label">C) [2, 3]</div>
+      <div class="option-label">D) [3]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q14')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q14">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> After pushing 1,2,3 array is [1,2,3]. <code>pop()</code> removes 3 ⇒ [1,2].</p>
+    </div>
+  </article>
+
+  <!-- Q15 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q15 · Concept</span>
+      <span class="q-type-pill">Real-life</span>
+    </div>
+    <div class="q-title">
+      You want to store the daily attendance of 30 students for one day. What is the best approach?
+    </div>
+    <div class="options">
+      <div class="option-label">A) Create 30 separate variables</div>
+      <div class="option-label">B) Store all in a single number</div>
+      <div class="option-label">C) Store them in an array of 30 items</div>
+      <div class="option-label">D) Use only an object with one property</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q15')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q15">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> An array is perfect for storing an ordered list of similar values
+        like attendance data for multiple students.</p>
+    </div>
+  </article>
+
+  <!-- Q16 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q16 · Output</span>
+      <span class="q-type-pill">length change</span>
+    </div>
+    <div class="q-title">What will be output?</div>
+    <pre><code>let arr = [1, 2, 3, 4];
+arr.length = 2;
+console.log(arr);</code></pre>
+    <div class="options">
+      <div class="option-label">A) [1, 2]</div>
+      <div class="option-label">B) [3, 4]</div>
+      <div class="option-label">C) [1, 2, 3, 4]</div>
+      <div class="option-label">D) Error</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q16')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q16">
+      <p><strong>Correct Answer:</strong> A</p>
+      <p><strong>Explanation:</strong> Reducing <code>length</code> truncates the array. Only first two elements remain.</p>
+    </div>
+  </article>
+
+  <!-- Q17 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q17 · Output</span>
+      <span class="q-type-pill">length increase</span>
+    </div>
+    <div class="q-title">What does this print?</div>
+    <pre><code>let arr = [1, 2];
+arr.length = 5;
+console.log(arr.length);</code></pre>
+    <div class="options">
+      <div class="option-label">A) 2</div>
+      <div class="option-label">B) 3</div>
+      <div class="option-label">C) 5</div>
+      <div class="option-label">D) Error</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q17')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q17">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> Extending <code>length</code> adds empty slots; array becomes sparse but length is 5.</p>
+    </div>
+  </article>
+
+  <!-- Q18 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q18 · Output</span>
+      <span class="q-type-pill">includes()</span>
+    </div>
+    <div class="q-title">What is the result?</div>
+    <pre><code>let cities = ["Kolkata", "Delhi", "Mumbai"];
+console.log(cities.includes("Delhi"));</code></pre>
+    <div class="options">
+      <div class="option-label">A) "Delhi"</div>
+      <div class="option-label">B) true</div>
+      <div class="option-label">C) false</div>
+      <div class="option-label">D) 1</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q18')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q18">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> <code>includes()</code> returns a boolean indicating whether the element exists.</p>
+    </div>
+  </article>
+
+  <!-- Q19 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q19 · Output</span>
+      <span class="q-type-pill">indexOf()</span>
+    </div>
+    <div class="q-title">What will be logged?</div>
+    <pre><code>let arr = ["JS", "Python", "C++"];
+console.log(arr.indexOf("Java")); </code></pre>
+    <div class="options">
+      <div class="option-label">A) 0</div>
+      <div class="option-label">B) 1</div>
+      <div class="option-label">C) -1</div>
+      <div class="option-label">D) undefined</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q19')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q19">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> <code>indexOf</code> returns <code>-1</code> if the element is not found.</p>
+    </div>
+  </article>
+
+  <!-- Q20 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q20 · Scenario</span>
+      <span class="q-type-pill">Real-world</span>
+    </div>
+    <div class="q-title">
+      You have an array <code>feesPaid</code> containing names of students who paid the fees.
+      Which is the best method to check if "Riya" has paid?
+    </div>
+    <div class="options">
+      <div class="option-label">A) feesPaid.indexOf("Riya") === 0</div>
+      <div class="option-label">B) feesPaid.length === "Riya"</div>
+      <div class="option-label">C) feesPaid.includes("Riya")</div>
+      <div class="option-label">D) feesPaid["Riya"]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q20')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q20">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> <code>includes()</code> clearly expresses “is this value present?”.</p>
+    </div>
+  </article>
+
+  <!-- Q21 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q21 · Output</span>
+      <span class="q-type-pill">for...of</span>
+    </div>
+    <div class="q-title">What is printed?</div>
+    <pre><code>let arr = [2, 4];
+for (let value of arr) {
+  console.log(value * 2);
+}</code></pre>
+    <div class="options">
+      <div class="option-label">A) 2 4</div>
+      <div class="option-label">B) 4 8</div>
+      <div class="option-label">C) 8</div>
+      <div class="option-label">D) 2 8</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q21')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q21">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> Iteration values are 2 and 4, multiplied by 2 gives 4 and 8.</p>
+    </div>
+  </article>
+
+  <!-- Q22 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q22 · Concept</span>
+      <span class="q-type-pill">MCQ</span>
+    </div>
+    <div class="q-title">
+      Which method adds one or more elements at the end of the array <em>and returns the new length</em>?
+    </div>
+    <div class="options">
+      <div class="option-label">A) push()</div>
+      <div class="option-label">B) pop()</div>
+      <div class="option-label">C) shift()</div>
+      <div class="option-label">D) unshift()</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q22')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q22">
+      <p><strong>Correct Answer:</strong> A</p>
+      <p><strong>Explanation:</strong> <code>push()</code> adds at the end and returns the new length.</p>
+    </div>
+  </article>
+
+  <!-- Q23 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q23 · Output</span>
+      <span class="q-type-pill">Combo</span>
+    </div>
+    <div class="q-title">Predict the final array:</div>
+    <pre><code>let arr = [1, 2];
+arr.push(3);
+arr.unshift(0);
+arr.pop();
+console.log(arr);</code></pre>
+    <div class="options">
+      <div class="option-label">A) [1, 2, 3]</div>
+      <div class="option-label">B) [0, 1, 2]</div>
+      <div class="option-label">C) [0, 2]</div>
+      <div class="option-label">D) [1, 2]</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q23')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q23">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> Start [1,2] → push(3) ⇒ [1,2,3] → unshift(0) ⇒ [0,1,2,3] → pop() ⇒ [0,1,2].</p>
+    </div>
+  </article>
+
+  <!-- Q24 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q24 · Scenario</span>
+      <span class="q-type-pill">Design</span>
+    </div>
+    <div class="q-title">
+      You have an array <code>students</code>. Which is the best way to print “Welcome &lt;name&gt;” for each?
+    </div>
+    <div class="options">
+      <div class="option-label">A) Write 10 console.log lines manually</div>
+      <div class="option-label">B) Use a loop over the array and log a message for each element</div>
+      <div class="option-label">C) Only log students[0]</div>
+      <div class="option-label">D) Convert array to a single string and log once</div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q24')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q24">
+      <p><strong>Correct Answer:</strong> B</p>
+      <p><strong>Explanation:</strong> A loop is the correct scalable approach for processing each element.</p>
+    </div>
+  </article>
+
+  <!-- Q25 -->
+  <article class="question-card">
+    <div class="q-meta">
+      <span>Q25 · Concept</span>
+      <span class="q-type-pill">Summary</span>
+    </div>
+    <div class="q-title">
+      Which combination correctly matches methods with their main action?
+    </div>
+    <div class="options">
+      <div class="option-label">
+        A) push → add at start, pop → remove at end
+      </div>
+      <div class="option-label">
+        B) unshift → add at end, shift → remove at start
+      </div>
+      <div class="option-label">
+        C) push → add at end, shift → remove at start
+      </div>
+      <div class="option-label">
+        D) pop → add at end, unshift → remove at start
+      </div>
+    </div>
+    <button class="btn-toggle" onclick="toggleAnswer('q25')">
+      <span>💡</span> Show Answer &amp; Explanation
+    </button>
+    <div class="answer" id="q25">
+      <p><strong>Correct Answer:</strong> C</p>
+      <p><strong>Explanation:</strong> push → add at end, pop → remove at end, unshift → add at start,
+        shift → remove at start.</p>
+    </div>
+  </article>
+
+</section>
+
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Module 7 · Arrays &amp; Data Structures
+    </div>
+  </div>
+  <div class="org-small">
+    Use this test with the Module 7 theory page for a complete practice experience.
+  </div>
+</footer>
+
+</div>
+
+<script>
+  function toggleAnswer(id){
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = (el.style.display === "none" || el.style.display === "") ? "block" : "none";
+  }
+</script>
+</body>
+</html>

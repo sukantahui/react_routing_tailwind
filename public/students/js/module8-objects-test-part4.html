@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 8 — Objects & OOP | Test Part 4 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#facc15;
+      --accent2:#34d399;
+      --accent3:#38bdf8;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.4);
+      box-shadow:0 0 28px rgba(250,204,21,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#facc15,#34d399,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#feeaa3;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(52,211,153,0.35);
+      box-shadow:0 0 18px rgba(52,211,153,0.22);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#facc15,#34d399);
+      color:#000;
+      box-shadow:0 0 16px rgba(250,204,21,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(52,211,153,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(250,204,21,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent3);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 8 — Objects &amp; Basic OOP  
+      <span style="font-size:1.1rem;display:block;margin-top:4px;">
+        Test Part 4 · Encapsulation, Private Fields, call/apply/bind, Mixins
+      </span>
+    </h1>
+    <p class="intro-sub">
+      Final 25 advanced-level questions covering <strong>encapsulation</strong>,
+      <strong>private fields</strong>, <strong>getters/setters</strong>,
+      <strong>factory patterns</strong>, <strong>mixins</strong>,
+      and the powerful <strong>call/apply/bind</strong> techniques.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; Encapsulation Questions</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What is printed?
+      <pre><code>class Bank {
+  #balance = 1000;
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const acc = new Bank();
+console.log(acc.getBalance());</code></pre>
+
+      <button onclick="toggleAns('p1')">Show Answer</button>
+      <div class="answer" id="p1">
+        <b>Answer:</b> <code>1000</code><br>
+        <b>Explanation:</b> <code>#balance</code> is a private field.
+        It is accessible only inside class methods.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output?
+      <pre><code>class Account {
+  #pin = 4444;
+  reveal() {
+    return this.pin;
+  }
+}
+
+const a = new Account();
+console.log(a.reveal());</code></pre>
+
+      <button onclick="toggleAns('p2')">Show Answer</button>
+      <div class="answer" id="p2">
+        <b>Answer:</b> <code>undefined</code><br>
+        <b>Explanation:</b> <code>this.pin</code> is different from private <code>#pin</code>.
+        Only <code>this.#pin</code> would work.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Predict the output:
+      <pre><code>class User {
+  constructor(name) {
+    this._name = name;
+  }
+  get name() {
+    return this._name.toUpperCase();
+  }
+}
+
+const u = new User("amit");
+console.log(u.name);</code></pre>
+
+      <button onclick="toggleAns('p3')">Show Answer</button>
+      <div class="answer" id="p3">
+        <b>Answer:</b> <code>AMIT</code><br>
+        Getter transforms the stored value.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Output?
+      <pre><code>class Data {
+  set value(v) {
+    this._v = v * 2;
+  }
+  get value() {
+    return this._v;
+  }
+}
+
+const d = new Data();
+d.value = 6;
+console.log(d.value);</code></pre>
+
+      <button onclick="toggleAns('p4')">Show Answer</button>
+      <div class="answer" id="p4">
+        <b>Answer:</b> <code>12</code><br>
+        Setter doubles the input before storing.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> What is printed?
+      <pre><code>class Person {
+  constructor(n) {
+    this.name = n;
+  }
+  introduce() {
+    console.log("I am " + this.name);
+  }
+}
+
+const obj = { name: "Neha" };
+Person.prototype.introduce.call(obj);</code></pre>
+
+      <button onclick="toggleAns('p5')">Show Answer</button>
+      <div class="answer" id="p5">
+        <b>Answer:</b> <code>I am Neha</code><br>
+        <code>call()</code> forces <code>this</code> to refer to <code>obj</code>.
+      </div>
+    </div>
+
+  </div><!-- End Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — MCQs on Private Fields, call/apply/bind, Factory & Mixins</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Private fields start with:
+      <br><br>
+      A. <code>@</code>  
+      B. <code>#</code>  
+      C. <code>_</code>  
+      D. <code>$</code>
+      <br><br>
+      <button onclick="toggleAns('p6')">Show Answer</button>
+      <div class="answer" id="p6">
+        <b>Correct:</b> B<br>
+        Private fields always begin with <code>#</code>.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> Which statement is TRUE?
+      <br><br>
+      A. Private fields are inherited by subclasses.  
+      B. Private fields cannot be accessed outside the class body.  
+      C. Private fields can be accessed using <code>this["#field"]</code>.  
+      D. Private fields are stored on <code>prototype</code>.
+      <br><br>
+      <button onclick="toggleAns('p7')">Show Answer</button>
+      <div class="answer" id="p7">
+        <b>Correct:</b> B
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> <code>call()</code> differs from <code>apply()</code> because:
+      <br><br>
+      A. <code>call()</code> executes later  
+      B. <code>apply()</code> takes arguments as an array  
+      C. <code>call()</code> cannot bind <code>this</code>  
+      D. Both are identical
+      <br><br>
+      <button onclick="toggleAns('p8')">Show Answer</button>
+      <div class="answer" id="p8">
+        <b>Correct:</b> B
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> <code>bind()</code> :
+      <br><br>
+      A. Immediately calls the function  
+      B. Returns a new function with fixed <code>this</code>  
+      C. Deletes prototype chain  
+      D. Is same as <code>super()</code>
+      <br><br>
+      <button onclick="toggleAns('p9')">Show Answer</button>
+      <div class="answer" id="p9">
+        <b>Correct:</b> B
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> A factory function:
+      <br><br>
+      A. Must use <code>new</code>  
+      B. Returns a new object  
+      C. Does not return anything  
+      D. Replaces classes completely
+      <br><br>
+      <button onclick="toggleAns('p10')">Show Answer</button>
+      <div class="answer" id="p10">
+        <b>Correct:</b> B
+      </div>
+    </div>
+
+  </div><!-- End Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — Output on call/apply/bind, Mixins, Factory Functions</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Output?
+      <pre><code>function show() { console.log(this.n); }
+const obj = { n: 99 };
+
+show.call(obj);</code></pre>
+
+      <button onclick="toggleAns('p11')">Show Answer</button>
+      <div class="answer" id="p11">
+        <b>Answer:</b> <code>99</code>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> What prints?
+      <pre><code>const obj = { n: 5 };
+function add(x,y){ console.log(this.n + x + y); }
+
+add.apply(obj,[3,7]);</code></pre>
+
+      <button onclick="toggleAns('p12')">Show Answer</button>
+      <div class="answer" id="p12">
+        <b>Answer:</b> <code>15</code>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> What is printed?
+      <pre><code>const obj = { n: 4 };
+function mul(x){ console.log(this.n * x); }
+
+const fn = mul.bind(obj);
+fn(5);</code></pre>
+
+      <button onclick="toggleAns('p13')">Show Answer</button>
+      <div class="answer" id="p13">
+        <b>Answer:</b> <code>20</code>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Output?
+      <pre><code>const canLog = {
+  log() { console.log("LOG:", this.msg); }
+};
+
+const obj = { msg: "Hello" };
+Object.assign(obj, canLog);
+obj.log();</code></pre>
+
+      <button onclick="toggleAns('p14')">Show Answer</button>
+      <div class="answer" id="p14">
+        <b>Answer:</b> <code>LOG: Hello</code>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Factory function output:
+      <pre><code>function makeUser(n) {
+  return { name:n, greet(){ return "Hi " + this.name; } };
+}
+
+console.log(makeUser("Amit").greet());</code></pre>
+
+      <button onclick="toggleAns('p15')">Show Answer</button>
+      <div class="answer" id="p15">
+        <b>Answer:</b> <code>Hi Amit</code>
+      </div>
+    </div>
+
+  </div><!-- End Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Conceptual & Real-World OOP Problems</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      Why are private fields useful in real-world applications?
+      <br><br>
+      <button onclick="toggleAns('p16')">Show Answer</button>
+      <div class="answer" id="p16">
+        Private fields prevent unauthorized code from modifying internal values.
+        This is crucial for banking apps, billing systems, authentication tokens, etc.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      Give one real example of using <code>bind()</code>.
+      <br><br>
+      <button onclick="toggleAns('p17')">Show Answer</button>
+      <div class="answer" id="p17">
+        When passing object methods as callbacks (e.g. event handlers), <code>bind()</code>
+        ensures the method retains its correct <code>this</code>.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      Explain why getters/setters help in validation.
+      <br><br>
+      <button onclick="toggleAns('p18')">Show Answer</button>
+      <div class="answer" id="p18">
+        Setters allow you to intercept values before storing them, so you can validate,
+        sanitize, or transform user input.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      Why are factory functions sometimes better than classes?
+      <br><br>
+      <button onclick="toggleAns('p19')">Show Answer</button>
+      <div class="answer" id="p19">
+        They offer flexibility, simpler syntax, and can close over variables
+        without needing <code>this</code> or <code>new</code>.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      When would you use a mixin?
+      <br><br>
+      <button onclick="toggleAns('p20')">Show Answer</button>
+      <div class="answer" id="p20">
+        When you want to add capabilities to multiple unrelated classes,
+        without changing their inheritance structure.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      What does <strong>encapsulation</strong> help achieve?
+      <br><br>
+      <button onclick="toggleAns('p21')">Show Answer</button>
+      <div class="answer" id="p21">
+        It hides internal details and exposes a clean public interface,
+        reducing accidental misuse and making maintenance easier.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      Why is directly modifying object properties usually discouraged?
+      <br><br>
+      <button onclick="toggleAns('p22')">Show Answer</button>
+      <div class="answer" id="p22">
+        It breaks encapsulation and may lead to inconsistent or invalid state.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      In an OOP student management system for Coder & AccoTax,
+      what advantage does using classes provide?
+      <br><br>
+      <button onclick="toggleAns('p23')">Show Answer</button>
+      <div class="answer" id="p23">
+        It organizes student data + behavior together, supports reusability,
+        inheritance, and easier long-term maintenance.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      What is the difference between composition and inheritance?
+      <br><br>
+      <button onclick="toggleAns('p24')">Show Answer</button>
+      <div class="answer" id="p24">
+        Inheritance creates an "is-a" relationship (Student is a Person).  
+        Composition creates a "has-a" relationship (Car has an Engine).
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      Which OOP feature prevents external modification of sensitive data?
+      <br><br>
+      <button onclick="toggleAns('p25')">Show Answer</button>
+      <div class="answer" id="p25">
+        <b>Encapsulation</b> (via private fields, getters/setters).
+      </div>
+    </div>
+
+  </div><!-- End Part 4 -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module-8 Objects &amp; OOP — Part 4
+      </div>
+    </div>
+    <div class="org-small">
+      This completes the 4-Part, 100-Question Test Series for Module-8.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

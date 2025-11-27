@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 6 — Functions in JavaScript · Test Part 3 (Ultra Mixed Hardcore) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Save as: module6-functions-test-part3.html -->
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --accent4:#f97316;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+      --card-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a 0,#020617 55%,#000 100%);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;
+      border-radius:24px;
+      margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.18),transparent 55%),
+        rgba(15,23,42,0.97);
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(15,23,42,0.98);
+      border:2px solid rgba(56,189,248,0.9);
+      box-shadow:0 0 22px rgba(56,189,248,0.7);
+      font-weight:700;font-size:0.76rem;letter-spacing:0.14em;
+    }
+    h1{
+      font-size:1.8rem;
+      line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{
+      font-size:0.94rem;
+      color:var(--muted);
+      max-width:620px;
+    }
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+    .badge{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.7rem;
+      background:rgba(15,23,42,0.88);
+      text-transform:uppercase;
+    }
+    .mode-pill{
+      margin-left:auto;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:0.75rem;
+      color:var(--muted);
+      min-width:150px;
+      text-align:center;
+      background:rgba(15,23,42,0.9);
+    }
+
+    /* INTRO CARD */
+    .intro-card{
+      margin-top:18px;
+      margin-bottom:20px;
+      padding:16px 18px;
+      border-radius:20px;
+      border:1px solid rgba(56,189,248,0.4);
+      background:
+        radial-gradient(circle at top left,rgba(56,189,248,0.14),transparent 55%),
+        radial-gradient(circle at bottom right,rgba(168,85,247,0.18),transparent 60%),
+        rgba(15,23,42,0.97);
+      box-shadow:0 18px 40px rgba(0,0,0,0.6);
+    }
+    .intro-title{
+      font-size:1.15rem;
+      margin-bottom:6px;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    .intro-text{
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+
+    /* QUESTION CARD */
+    .question-card{
+      background:rgba(15,23,42,0.97);
+      border-radius:20px;
+      border:1px solid var(--border);
+      padding:16px 18px;
+      margin-bottom:16px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.55);
+    }
+    .q-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+      margin-bottom:6px;
+    }
+    .q-num{
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      color:var(--accent);
+    }
+    .q-tag{
+      font-size:0.7rem;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      padding:2px 8px;
+      color:var(--accent2);
+    }
+    .q-text{
+      font-size:0.93rem;
+      margin-bottom:6px;
+    }
+    pre{
+      background:var(--code-bg);
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid rgba(31,41,55,0.9);
+      overflow-x:auto;
+      font-size:0.82rem;
+      margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    .options{margin-top:4px;margin-left:18px;font-size:0.9rem;}
+    .options li{margin-bottom:3px;}
+
+    .answer-btn{
+      margin-top:10px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:linear-gradient(120deg,rgba(15,23,42,0.9),rgba(15,23,42,0.96));
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
+    }
+    .answer-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 22px rgba(56,189,248,0.45);
+      background:linear-gradient(120deg,rgba(15,23,42,0.95),rgba(15,23,42,1));
+    }
+    .answer{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px dashed rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.9);
+      font-size:0.86rem;
+      display:none;
+    }
+    .answer strong{color:#bef264;}
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;
+      border-radius:22px;
+      padding:18px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){
+      .org-grid{grid-template-columns:1fr;}
+    }
+    .org-name{font-weight:700;margin-bottom:2px;}
+    .org-sub{color:var(--muted);margin-bottom:8px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+
+  <script>
+    function toggleAnswer(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.style.display = (el.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 6 — Functions in JavaScript · Test Part 3</h1>
+      <p class="header-sub">
+        Ultra mixed hardcore set — deep focus on return traps, scope puzzles, arrow functions,
+        default/rest parameters & real-world function logic.
+      </p>
+      <div class="badge-row">
+        <div class="badge">25 Advanced Questions</div>
+        <div class="badge">Answer Hidden · Click to Reveal</div>
+        <div class="badge">Functions · Scope · Arrow</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Practice Series</div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro-card">
+    <div class="intro-title">🔥 Part 3 — Ultra Mixed Hardcore Practice</div>
+    <p class="intro-text">
+      Attempt all questions seriously before clicking “Show Answer &amp; Explanation”.
+      This set is designed to expose subtle misunderstandings about
+      <strong>return</strong>, <strong>scope</strong>, <strong>arrow functions</strong>,
+      <strong>default / rest parameters</strong>, and <strong>callbacks</strong>.
+    </p>
+  </section>
+
+  <!-- QUESTIONS -->
+  <main>
+
+    <!-- Q1 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q1 · Return &amp; Unreachable Code</div>
+        <div class="q-tag">Concept</div>
+      </div>
+      <p class="q-text">What is the output of the following code?</p>
+      <pre><code>function test() {
+  console.log("A");
+  return "Done";
+  console.log("B");
+}
+
+console.log(test());</code></pre>
+      <ul class="options">
+        <li>A) A then B then Done</li>
+        <li>B) A then Done</li>
+        <li>C) Done only</li>
+        <li>D) A only</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          The function logs <code>"A"</code>, then hits <code>return "Done"</code>.
+          As soon as <code>return</code> executes, the function exits and
+          <code>console.log("B")</code> is never reached (unreachable code).
+          The outer <code>console.log</code> prints the returned value <code>"Done"</code>.
+          So the console shows:
+        </p>
+        <pre><code>A
+Done</code></pre>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q2 · Function Expression Timing</div>
+        <div class="q-tag">Expression &amp; Hoisting</div>
+      </div>
+      <p class="q-text">What happens when this code runs?</p>
+      <pre><code>sayHi();
+
+const sayHi = function () {
+  console.log("Hello!");
+};</code></pre>
+      <ul class="options">
+        <li>A) Prints “Hello!”</li>
+        <li>B) ReferenceError: sayHi is not defined</li>
+        <li>C) TypeError: sayHi is not a function</li>
+        <li>D) Nothing happens</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          <code>sayHi</code> is a <strong>const function expression</strong>. The variable
+          <code>sayHi</code> is hoisted but not initialized before its declaration line.
+          When we call <code>sayHi()</code> above its definition, we are in the
+          <strong>temporal dead zone</strong> of the <code>const</code> variable.
+          The engine sees <code>sayHi</code> but it’s not yet a function value, which leads to:
+          <code>TypeError: sayHi is not a function</code> at runtime in many environments.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q3 · Arrow Function Return</div>
+        <div class="q-tag">Arrow · Syntax</div>
+      </div>
+      <p class="q-text">What does the following code log?</p>
+      <pre><code>const calc = (a, b) =&gt; {
+  a + b;
+};
+
+console.log(calc(3, 4));</code></pre>
+      <ul class="options">
+        <li>A) 7</li>
+        <li>B) undefined</li>
+        <li>C) NaN</li>
+        <li>D) Throws an error</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          In arrow functions with a <strong>block body</strong> (<code>{ }</code>),
+          you must explicitly use <code>return</code>.  
+          Here, <code>a + b;</code> is executed but its value is not returned.
+          If a function doesn’t return anything explicitly, JavaScript returns <code>undefined</code>.
+        </p>
+        <p>Correct version for 7 would be:</p>
+        <pre><code>const calc = (a, b) =&gt; {
+  return a + b;
+};</code></pre>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q4 · Implicit Return</div>
+        <div class="q-tag">Arrow · One-Liner</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>const double = n =&gt; n * 2;
+
+console.log(double(5));</code></pre>
+      <ul class="options">
+        <li>A) 10</li>
+        <li>B) 25</li>
+        <li>C) undefined</li>
+        <li>D) Error: missing return</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <p><strong>Correct Answer: A</strong></p>
+        <p>
+          For single-expression arrow functions without curly braces,
+          the expression value is <strong>implicitly returned</strong>.
+          So <code>n =&gt; n * 2</code> returns <code>n * 2</code>. With <code>n = 5</code>,
+          the result is <code>10</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q5 · Default Parameter</div>
+        <div class="q-tag">Default Param</div>
+      </div>
+      <p class="q-text">What is logged to the console?</p>
+      <pre><code>function welcome(name = "Student") {
+  console.log("Welcome,", name);
+}
+
+welcome("Sukanta");
+welcome();</code></pre>
+      <ul class="options">
+        <li>A) “Welcome, Sukanta” and then error</li>
+        <li>B) “Welcome, Sukanta” and “Welcome, Student”</li>
+        <li>C) “Welcome, Sukanta” and “Welcome, undefined”</li>
+        <li>D) Only “Welcome, Sukanta”</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          When called with <code>"Sukanta"</code>, the parameter <code>name</code> becomes
+          <code>"Sukanta"</code>.  
+          When called with no argument, the default value <code>"Student"</code> is used.  
+          So we get:
+        </p>
+        <pre><code>Welcome, Sukanta
+Welcome, Student</code></pre>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q6 · Rest Parameter Sum</div>
+        <div class="q-tag">Rest Param</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>function sumAll(...nums) {
+  let total = 0;
+  for (let n of nums) {
+    total += n;
+  }
+  return total;
+}
+
+console.log(sumAll(2, 4, 6));</code></pre>
+      <ul class="options">
+        <li>A) 2</li>
+        <li>B) 4</li>
+        <li>C) 6</li>
+        <li>D) 12</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <p><strong>Correct Answer: D</strong></p>
+        <p>
+          The rest parameter <code>...nums</code> collects all arguments into an array
+          <code>[2, 4, 6]</code>. The loop adds them:
+          <code>0 + 2 + 4 + 6 = 12</code>. So the output is <code>12</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q7 · Scope Inside Function</div>
+        <div class="q-tag">Scope</div>
+      </div>
+      <p class="q-text">What will happen when this code runs?</p>
+      <pre><code>let x = 10;
+
+function demo() {
+  let y = 20;
+  console.log(x, y);
+}
+
+demo();
+console.log(y);</code></pre>
+      <ul class="options">
+        <li>A) Prints “10 20” then “20”</li>
+        <li>B) Prints “10 20” then ReferenceError</li>
+        <li>C) ReferenceError before anything prints</li>
+        <li>D) Prints “10 undefined” then “undefined”</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          Inside the function, both <code>x</code> and <code>y</code> are accessible, so
+          <code>console.log(x, y)</code> prints <code>10 20</code>.  
+          Outside the function, <code>y</code> is not defined (it is local to <code>demo</code>),
+          so <code>console.log(y)</code> causes a <code>ReferenceError</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q8 · Block Scope with let</div>
+        <div class="q-tag">Scope · Block</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>let a = 5;
+
+if (true) {
+  let a = 10;
+  console.log("Inside:", a);
+}
+
+console.log("Outside:", a);</code></pre>
+      <ul class="options">
+        <li>A) Inside: 10 and Outside: 10</li>
+        <li>B) Inside: 10 and Outside: 5</li>
+        <li>C) Inside: 5 and Outside: 10</li>
+        <li>D) Inside: 5 and Outside: 5</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          <code>let</code> is <strong>block-scoped</strong>.  
+          The <code>a</code> inside the <code>if</code> block is a different variable than
+          the outer <code>a</code>.  
+          So inside: <code>a = 10</code>, outside: <code>a = 5</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q9 · Function Returning Object</div>
+        <div class="q-tag">Return · Object</div>
+      </div>
+      <p class="q-text">What does this code print?</p>
+      <pre><code>function makeUser(name, age) {
+  return {
+    name: name,
+    age: age,
+    isAdult: age >= 18
+  };
+}
+
+let u = makeUser("Rita", 17);
+console.log(u.isAdult);</code></pre>
+      <ul class="options">
+        <li>A) "true"</li>
+        <li>B) true</li>
+        <li>C) false</li>
+        <li>D) "false"</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          The function returns an object with <code>isAdult</code> as
+          <code>age &gt;= 18</code>. For <code>age = 17</code>, this expression evaluates to
+          boolean <code>false</code>.  
+          So <code>u.isAdult</code> is <code>false</code>, and the console prints <code>false</code>
+          (a boolean, not a string).
+        </p>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q10 · Overwriting Functions</div>
+        <div class="q-tag">Declaration</div>
+      </div>
+      <p class="q-text">What is the final output?</p>
+      <pre><code>function greet() {
+  console.log("Hello from first version");
+}
+
+function greet() {
+  console.log("Hello from second version");
+}
+
+greet();</code></pre>
+      <ul class="options">
+        <li>A) Hello from first version</li>
+        <li>B) Hello from second version</li>
+        <li>C) Both messages one after another</li>
+        <li>D) Error: duplicate function</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          Function declarations with the same name result in the <strong>last one overwriting</strong>
+          the previous ones in the same scope.  
+          After parsing, only the second <code>greet</code> exists.  
+          So calling <code>greet()</code> prints:  
+          <code>"Hello from second version"</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q11 · Callback with forEach</div>
+        <div class="q-tag">Callback</div>
+      </div>
+      <p class="q-text">What does this code log?</p>
+      <pre><code>const students = ["Amit", "Neha", "Sourav"];
+
+students.forEach(function (name) {
+  console.log("Hello,", name);
+});</code></pre>
+      <ul class="options">
+        <li>A) "Hello, AmitNehaSourav"</li>
+        <li>B) "Hello, Amit", "Hello, Neha", "Hello, Sourav"</li>
+        <li>C) Only "Hello,"</li>
+        <li>D) Error: forEach not a function</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          <code>forEach</code> runs the callback once for each element.
+          So it prints three lines:
+        </p>
+        <pre><code>Hello, Amit
+Hello, Neha
+Hello, Sourav</code></pre>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q12 · Early Return Guard</div>
+        <div class="q-tag">Pattern</div>
+      </div>
+      <p class="q-text">What is printed?</p>
+      <pre><code>function printGST(price) {
+  if (price &lt;= 0) {
+    console.log("Invalid price");
+    return;
+  }
+  console.log("GST =", price * 0.18);
+}
+
+printGST(-100);
+printGST(1000);</code></pre>
+      <ul class="options">
+        <li>A) "Invalid price" only</li>
+        <li>B) "GST = -18" and "GST = 180"</li>
+        <li>C) "Invalid price" and "GST = 180"</li>
+        <li>D) Nothing is printed</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          For <code>-100</code>, the guard <code>if (price &lt;= 0)</code> triggers,
+          printing <code>"Invalid price"</code> and returning early.  
+          For <code>1000</code>, it skips the guard and prints <code>"GST = 180"</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q13 · Function as Argument</div>
+        <div class="q-tag">Higher-Order</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>function applyTwice(fn, value) {
+  return fn(fn(value));
+}
+
+function inc(x) {
+  return x + 1;
+}
+
+console.log(applyTwice(inc, 5));</code></pre>
+      <ul class="options">
+        <li>A) 5</li>
+        <li>B) 6</li>
+        <li>C) 7</li>
+        <li>D) 8</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          First call: <code>fn(value)</code> → <code>inc(5) = 6</code>.  
+          Second call: <code>fn(6)</code> → <code>inc(6) = 7</code>.  
+          So <code>applyTwice(inc, 5)</code> returns <code>7</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q14 · Missing Arguments</div>
+        <div class="q-tag">Parameters</div>
+      </div>
+      <p class="q-text">What is logged?</p>
+      <pre><code>function area(width, height) {
+  return width * height;
+}
+
+console.log(area(5));</code></pre>
+      <ul class="options">
+        <li>A) 0</li>
+        <li>B) 5</li>
+        <li>C) NaN</li>
+        <li>D) undefined</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          <code>area(5)</code> means <code>width=5</code> and <code>height=undefined</code>.  
+          The multiplication <code>5 * undefined</code> becomes <code>NaN</code>.
+        </p>
+        <p>
+          To avoid this, you could use a default parameter, e.g.
+          <code>function area(width, height = 1) { ... }</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q15 · Nested Functions & Scope</div>
+        <div class="q-tag">Scope · Nested</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>function outer() {
+  let message = "Outer";
+
+  function inner() {
+    let innerMsg = "Inner";
+    console.log(message);
+  }
+
+  inner();
+  console.log(innerMsg);
+}
+
+outer();</code></pre>
+      <ul class="options">
+        <li>A) "Outer" then "Inner"</li>
+        <li>B) "Outer" then ReferenceError</li>
+        <li>C) ReferenceError before printing anything</li>
+        <li>D) Only "Inner"</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          <code>inner()</code> can access <code>message</code> from <code>outer</code>, so
+          it prints <code>"Outer"</code>.  
+          But <code>innerMsg</code> is local to <code>inner</code>, not visible in
+          <code>outer</code>, so <code>console.log(innerMsg)</code> throws a
+          <code>ReferenceError</code> after the first print.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q16 · Arrow in Object Method</div>
+        <div class="q-tag">Arrow · Method</div>
+      </div>
+      <p class="q-text">
+        In basic teaching, why is it usually <strong>not recommended</strong> to use arrow functions
+        as object methods that rely on <code>this</code>?
+      </p>
+      <ul class="options">
+        <li>A) Arrow functions are slower</li>
+        <li>B) Arrow functions cannot return values</li>
+        <li>C) Arrow functions do not have their own <code>this</code></li>
+        <li>D) Arrow functions cannot be stored in objects</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a16')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a16">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          Arrow functions do <strong>not</strong> have their own <code>this</code> binding;
+          they use the <code>this</code> value from the surrounding scope (lexical this).
+          For object methods where students expect <code>this</code> to refer to the object itself,
+          a normal function is safer.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q17 · Order of Logs</div>
+        <div class="q-tag">Call Flow</div>
+      </div>
+      <p class="q-text">What is the sequence of outputs?</p>
+      <pre><code>function first() {
+  console.log("First");
+}
+
+function second() {
+  console.log("Second");
+  first();
+  console.log("Second end");
+}
+
+second();</code></pre>
+      <ul class="options">
+        <li>A) First → Second → Second end</li>
+        <li>B) Second → First → Second end</li>
+        <li>C) Second end → Second → First</li>
+        <li>D) Second → Second end → First</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a17')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a17">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          Call <code>second()</code> first:
+        </p>
+        <ol>
+          <li><code>"Second"</code></li>
+          <li>Calls <code>first()</code> → prints <code>"First"</code></li>
+          <li>Back to <code>second</code>, prints <code>"Second end"</code></li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q18 · Function Returning Function</div>
+        <div class="q-tag">Higher-Order</div>
+      </div>
+      <p class="q-text">What is printed?</p>
+      <pre><code>function createMultiplier(factor) {
+  return function (n) {
+    return n * factor;
+  };
+}
+
+const double = createMultiplier(2);
+console.log(double(7));</code></pre>
+      <ul class="options">
+        <li>A) 2</li>
+        <li>B) 7</li>
+        <li>C) 14</li>
+        <li>D) Error: factor not defined</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a18')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a18">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          <code>createMultiplier(2)</code> returns a function that multiplies its input by 2.  
+          So <code>double(7)</code> returns <code>14</code>.  
+          This is a classic closure example: the inner function remembers <code>factor</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q19 · Rest with Other Params</div>
+        <div class="q-tag">Rest Param</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>function logInfo(title, ...items) {
+  console.log(title, "count:", items.length);
+}
+
+logInfo("Marks", 78, 80, 91);</code></pre>
+      <ul class="options">
+        <li>A) Marks count: 1</li>
+        <li>B) Marks count: 2</li>
+        <li>C) Marks count: 3</li>
+        <li>D) Error: rest must be first</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a19')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a19">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          <code>title</code> takes the first argument (<code>"Marks"</code>),
+          and <code>items</code> (rest parameter) collects the remaining arguments:
+          <code>[78, 80, 91]</code>.  
+          So <code>items.length</code> is <code>3</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q20 · Function in Variable</div>
+        <div class="q-tag">Expression</div>
+      </div>
+      <p class="q-text">What is printed?</p>
+      <pre><code>let f = function (x) {
+  return x * x;
+};
+
+let g = f;
+f = null;
+
+console.log(typeof g, g(4));</code></pre>
+      <ul class="options">
+        <li>A) "function", 16</li>
+        <li>B) "object", 16</li>
+        <li>C) "function", error</li>
+        <li>D) "undefined", error</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a20')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a20">
+        <p><strong>Correct Answer: A</strong></p>
+        <p>
+          <code>f</code> holds the function, then <code>g = f</code> copies the reference.
+          Setting <code>f = null</code> does not affect <code>g</code>.  
+          So <code>g</code> is still a function.  
+          <code>typeof g</code> is <code>"function"</code> and <code>g(4)</code> is <code>16</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q21 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q21 · Missing return in Some Path</div>
+        <div class="q-tag">Return Trap</div>
+      </div>
+      <p class="q-text">What does <code>compute(5)</code> log?</p>
+      <pre><code>function compute(n) {
+  if (n &gt; 10) {
+    return n * 2;
+  }
+  // no else
+}
+
+console.log(compute(5));</code></pre>
+      <ul class="options">
+        <li>A) 10</li>
+        <li>B) 0</li>
+        <li>C) undefined</li>
+        <li>D) Error: missing return</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a21')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a21">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          For <code>n = 5</code>, the condition <code>n &gt; 10</code> is false,
+          so the <code>if</code> block is skipped and no <code>return</code> executes.
+          In that case, JavaScript returns <code>undefined</code> by default.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q22 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q22 · Function Declarations Hoisting</div>
+        <div class="q-tag">Hoisting</div>
+      </div>
+      <p class="q-text">What happens here?</p>
+      <pre><code>hello();
+
+function hello() {
+  console.log("Hi from hoisted function");
+}</code></pre>
+      <ul class="options">
+        <li>A) Error: cannot access before initialization</li>
+        <li>B) Nothing prints</li>
+        <li>C) Prints “Hi from hoisted function”</li>
+        <li>D) ReferenceError: hello is not defined</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a22')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a22">
+        <p><strong>Correct Answer: C</strong></p>
+        <p>
+          Function <strong>declarations</strong> are hoisted with their body,
+          so you can safely call <code>hello()</code> before its definition
+          in the source code. It prints:
+          <code>"Hi from hoisted function"</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q23 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q23 · Arrow Function with Default</div>
+        <div class="q-tag">Arrow · Default</div>
+      </div>
+      <p class="q-text">What is the output?</p>
+      <pre><code>const greet = (name = "Student") =&gt; `Hello, ${name}!`;
+
+console.log(greet("Neha"));
+console.log(greet());</code></pre>
+      <ul class="options">
+        <li>A) "Hello, Neha!" and "Hello, Student!"</li>
+        <li>B) "Hello, Neha!" and undefined</li>
+        <li>C) "Hello, Neha!" only</li>
+        <li>D) Error due to default with arrow</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a23')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a23">
+        <p><strong>Correct Answer: A</strong></p>
+        <p>
+          Arrow functions fully support default parameters.
+          So the first call uses <code>"Neha"</code>, and the second call
+          uses the default <code>"Student"</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q24 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q24 · Simple Real-Life Function</div>
+        <div class="q-tag">Scenario</div>
+      </div>
+      <p class="q-text">
+        You have a function used in fee calculation:
+      </p>
+      <pre><code>function applyDiscount(amount, discountPercent = 10) {
+  return amount - (amount * discountPercent / 100);
+}
+
+console.log(applyDiscount(10000));
+console.log(applyDiscount(10000, 20));</code></pre>
+      <p class="q-text">What are the two printed values?</p>
+      <ul class="options">
+        <li>A) 9000 and 8000</li>
+        <li>B) 10000 and 8000</li>
+        <li>C) 9000 and 10000</li>
+        <li>D) 8000 and 9000</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a24')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a24">
+        <p><strong>Correct Answer: A</strong></p>
+        <p>
+          First call uses default <code>discountPercent = 10</code>, so
+          <code>10000 - 1000 = 9000</code>.  
+          Second call uses <code>20%</code>, so
+          <code>10000 - 2000 = 8000</code>.
+        </p>
+      </div>
+    </article>
+
+    <!-- Q25 -->
+    <article class="question-card">
+      <div class="q-header">
+        <div class="q-num">Q25 · Trick with return + newline</div>
+        <div class="q-tag">Syntax Trap</div>
+      </div>
+      <p class="q-text">What does this function return?</p>
+      <pre><code>function getUser() {
+  return
+  {
+    name: "Amit"
+  };
+}
+
+console.log(getUser());</code></pre>
+      <ul class="options">
+        <li>A) { name: "Amit" }</li>
+        <li>B) undefined</li>
+        <li>C) Error: unexpected token</li>
+        <li>D) "Amit"</li>
+      </ul>
+      <button class="answer-btn" onclick="toggleAnswer('a25')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a25">
+        <p><strong>Correct Answer: B</strong></p>
+        <p>
+          Because of JavaScript’s <strong>automatic semicolon insertion</strong>,
+          the line with <code>return</code> is treated as <code>return;</code>  
+          The object on the next line is never returned; it becomes a separate statement.
+          So the function returns <code>undefined</code>.  
+        </p>
+        <p>Correct version:</p>
+        <pre><code>function getUser() {
+  return {
+    name: "Amit"
+  };
+}</code></pre>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Functions · Intermediate → Pro
+      </div>
+    </div>
+
+    <div class="org-small">
+      This is Test Part 3 (Ultra Mixed Hardcore) for Module 6 — Functions in JavaScript.
+      Use it as a revision drill before moving to Arrays &amp; Higher-Order Functions.
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Module 9 – DOM Test Part 1 | Selecting Elements | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  :root {
+    --bg:#020617;
+    --accent:#38bdf8;
+    --accent2:#a855f7;
+    --accent3:#22c55e;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --border:#1f2937;
+    --card-bg:#0f172a;
+  }
+
+  body{
+    margin:0;
+    background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--text);
+    padding:24px 16px 40px;
+    line-height:1.7;
+  }
+  .page{max-width:1100px;margin:auto;}
+
+  h1{
+    font-size:2rem;
+    background:linear-gradient(90deg,#38bdf8,#a855f7);
+    -webkit-background-clip:text;color:transparent;
+    margin-bottom:14px;
+  }
+
+  .card{
+    background:rgba(15,23,42,0.97);
+    border:1px solid rgba(148,163,184,0.3);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.55);
+    margin-bottom:22px;
+  }
+
+  .q-box{
+    background:rgba(255,255,255,0.03);
+    padding:14px;border-radius:14px;
+    border:1px solid rgba(148,163,184,0.25);
+    margin-bottom:12px;
+  }
+  .q-box:hover{
+    border-color:var(--accent);
+  }
+  .question{
+    font-weight:600;
+    color:#dbeafe;
+  }
+  .options{margin-top:8px;margin-left:12px;}
+  .options div{margin-bottom:6px;}
+
+  .ans-btn{
+    margin-top:10px;
+    padding:8px 12px;
+    background:rgba(56,189,248,0.15);
+    border:1px solid rgba(56,189,248,0.5);
+    color:var(--accent);
+    border-radius:8px;
+    cursor:pointer;
+    font-size:0.85rem;
+  }
+
+  .answer{
+    margin-top:10px;
+    display:none;
+    padding:10px;
+    border-radius:10px;
+    background:rgba(34,197,94,0.12);
+    border:1px solid rgba(34,197,94,0.4);
+    color:#bbf7d0;
+    font-size:0.9rem;
+  }
+</style>
+
+<script>
+function showAns(id){
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 9 — DOM Test Part 1<br>Selecting Elements</h1>
+
+<div class="card">
+<p class="lead" style="color:var(--muted);">
+25 Questions on querySelector, getElementById, querySelectorAll, NodeList, element selection behaviour.
+Click each answer button to reveal explanation.
+</p>
+</div>
+
+<!-- QUESTIONS START -->
+
+<!-- Template for each question:
+<div class="q-box">
+  <div class="question">1. text...</div>
+  <div class="options">
+    <div>A. ...</div>
+    <div>B. ...</div>
+    <div>C. ...</div>
+    <div>D. ...</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans1')">Show Answer</button>
+  <div class="answer" id="ans1">Answer: C<br>Explanation: ...</div>
+</div>
+-->
+
+<!-- Q1 -->
+<div class="q-box">
+  <div class="question">1. Which method selects an element by its ID?</div>
+  <div class="options">
+    <div>A. query()</div>
+    <div>B. querySelector()</div>
+    <div>C. getElementById()</div>
+    <div>D. getById()</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans1')">Show Answer</button>
+  <div class="answer" id="ans1">Answer: C<br>Explanation: getElementById("id") is the dedicated method to find elements by ID.</div>
+</div>
+
+<!-- Q2 -->
+<div class="q-box">
+  <div class="question">2. querySelector(".title") returns:</div>
+  <div class="options">
+    <div>A. All elements with class="title"</div>
+    <div>B. First matching element</div>
+    <div>C. All &lt;h1&gt; elements</div>
+    <div>D. Only IDs</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans2')">Show Answer</button>
+  <div class="answer" id="ans2">Answer: B<br>Explanation: querySelector returns only the first matching element.</div>
+</div>
+
+<!-- Q3 -->
+<div class="q-box">
+  <div class="question">3. querySelectorAll("p") returns:</div>
+  <div class="options">
+    <div>A. Array</div>
+    <div>B. NodeList</div>
+    <div>C. Object</div>
+    <div>D. HTMLCollection</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans3')">Show Answer</button>
+  <div class="answer" id="ans3">Answer: B<br>Explanation: querySelectorAll always returns a static NodeList.</div>
+</div>
+
+<!-- Q4 -->
+<div class="q-box">
+  <div class="question">4. Which selector is valid for querySelector?</div>
+  <div class="options">
+    <div>A. "#box .item"</div>
+    <div>B. ".class1.class2"</div>
+    <div>C. "ul > li"</div>
+    <div>D. All of these</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans4')">Show Answer</button>
+  <div class="answer" id="ans4">Answer: D<br>Explanation: querySelector supports full CSS selector syntax.</div>
+</div>
+
+<!-- Q5 -->
+<div class="q-box">
+  <div class="question">5. getElementById returns:</div>
+  <div class="options">
+    <div>A. NodeList</div>
+    <div>B. HTMLCollection</div>
+    <div>C. Single element or null</div>
+    <div>D. Always undefined</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans5')">Show Answer</button>
+  <div class="answer" id="ans5">Answer: C<br>Explanation: ID is unique; method returns the matching element or null.</div>
+</div>
+
+<!-- Q6 -->
+<div class="q-box">
+  <div class="question">6. Which is TRUE about NodeList?</div>
+  <div class="options">
+    <div>A. It is always live</div>
+    <div>B. It is static when returned by querySelectorAll</div>
+    <div>C. It is an array</div>
+    <div>D. It has map()</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans6')">Show Answer</button>
+  <div class="answer" id="ans6">Answer: B<br>Explanation: NodeLists from querySelectorAll are static, not live.</div>
+</div>
+
+<!-- Q7 -->
+<div class="q-box">
+  <div class="question">7. Which method supports CSS combinators?</div>
+  <div class="options">
+    <div>A. getElementById</div>
+    <div>B. getElementsByTagName</div>
+    <div>C. querySelector</div>
+    <div>D. getElementsByClassName</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans7')">Show Answer</button>
+  <div class="answer" id="ans7">Answer: C<br>Explanation: querySelector can use full CSS combinator syntax.</div>
+</div>
+
+<!-- Q8 -->
+<div class="q-box">
+  <div class="question">8. document.querySelector("#box") selects:</div>
+  <div class="options">
+    <div>A. All elements with id="box"</div>
+    <div>B. First element with id="box"</div>
+    <div>C. All .box classes</div>
+    <div>D. Nothing</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans8')">Show Answer</button>
+  <div class="answer" id="ans8">Answer: B<br>Explanation: IDs are unique, querySelector returns the first match.</div>
+</div>
+
+<!-- Q9 -->
+<div class="q-box">
+  <div class="question">9. Which returns a LIVE collection?</div>
+  <div class="options">
+    <div>A. getElementsByClassName</div>
+    <div>B. querySelectorAll</div>
+    <div>C. NodeList</div>
+    <div>D. Array.from()</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans9')">Show Answer</button>
+  <div class="answer" id="ans9">Answer: A<br>Explanation: HTMLCollection is live; querySelectorAll NodeLists are static.</div>
+</div>
+
+<!-- Q10 -->
+<div class="q-box">
+  <div class="question">10. Which is correct?</div>
+  <div class="options">
+    <div>A. NodeList supports forEach()</div>
+    <div>B. NodeList supports map()</div>
+    <div>C. NodeList supports filter()</div>
+    <div>D. NodeList supports reduce()</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans10')">Show Answer</button>
+  <div class="answer" id="ans10">Answer: A<br>Explanation: Modern NodeLists have forEach but not array methods like map.</div>
+</div>
+
+<!-- Q11 -->
+<div class="q-box">
+  <div class="question">11. querySelector("div p") selects:</div>
+  <div class="options">
+    <div>A. All p inside any div</div>
+    <div>B. Only first p inside first div</div>
+    <div>C. All divs</div>
+    <div>D. First div</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans11')">Show Answer</button>
+  <div class="answer" id="ans11">Answer: B<br>Explanation: querySelector returns only the first match of the full selector.</div>
+</div>
+
+<!-- Q12 -->
+<div class="q-box">
+  <div class="question">12. Which returns multiple results?</div>
+  <div class="options">
+    <div>A. getElementById</div>
+    <div>B. querySelector</div>
+    <div>C. querySelectorAll</div>
+    <div>D. textContent</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans12')">Show Answer</button>
+  <div class="answer" id="ans12">Answer: C<br>Explanation: querySelectorAll returns all matching nodes.</div>
+</div>
+
+<!-- Q13 -->
+<div class="q-box">
+  <div class="question">13. getElementsByTagName("p") returns:</div>
+  <div class="options">
+    <div>A. NodeList</div>
+    <div>B. HTMLCollection</div>
+    <div>C. Array</div>
+    <div>D. Object</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans13')">Show Answer</button>
+  <div class="answer" id="ans13">Answer: B<br>Explanation: getElementsByTagName returns a live HTMLCollection.</div>
+</div>
+
+<!-- Q14 -->
+<div class="q-box">
+  <div class="question">14. CSS selector "#id .item" means:</div>
+  <div class="options">
+    <div>A. Select an ID</div>
+    <div>B. Select all .item inside #id</div>
+    <div>C. Select only first item inside #id</div>
+    <div>D. Select #id and .item</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans14')">Show Answer</button>
+  <div class="answer" id="ans14">Answer: B<br>Explanation: The selector finds all .item elements that are descendants of #id.</div>
+</div>
+
+<!-- Q15 -->
+<div class="q-box">
+  <div class="question">15. document.body is:</div>
+  <div class="options">
+    <div>A. NodeList</div>
+    <div>B. HTML element</div>
+    <div>C. Text node</div>
+    <div>D. Array</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans15')">Show Answer</button>
+  <div class="answer" id="ans15">Answer: B<br>Explanation: document.body directly references the body element.</div>
+</div>
+
+<!-- Q16 -->
+<div class="q-box">
+  <div class="question">16. Which method allows advanced CSS selectors?</div>
+  <div class="options">
+    <div>A. getElementsByTagName</div>
+    <div>B. querySelector</div>
+    <div>C. getElementById</div>
+    <div>D. innerText</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans16')">Show Answer</button>
+  <div class="answer" id="ans16">Answer: B</div>
+</div>
+
+<!-- Q17 -->
+<div class="q-box">
+  <div class="question">17. NodeList is:</div>
+  <div class="options">
+    <div>A. Array</div>
+    <div>B. Array-like object</div>
+    <div>C. String</div>
+    <div>D. HTMLElement</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans17')">Show Answer</button>
+  <div class="answer" id="ans17">Answer: B<br>Explanation: NodeList is array-like but not a true array.</div>
+</div>
+
+<!-- Q18 -->
+<div class="q-box">
+  <div class="question">18. querySelector("#a, .b") selects:</div>
+  <div class="options">
+    <div>A. Only #a</div>
+    <div>B. First match among #a or .b</div>
+    <div>C. All matches</div>
+    <div>D. Only classes</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans18')">Show Answer</button>
+  <div class="answer" id="ans18">Answer: B<br>Explanation: querySelector returns the first match of any selector group.</div>
+</div>
+
+<!-- Q19 -->
+<div class="q-box">
+  <div class="question">19. Which is fastest for selecting one element by ID?</div>
+  <div class="options">
+    <div>A. querySelector</div>
+    <div>B. getElementById</div>
+    <div>C. querySelectorAll</div>
+    <div>D. getElementsByClassName</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans19')">Show Answer</button>
+  <div class="answer" id="ans19">Answer: B<br>Explanation: getElementById is optimized for ID lookup.</div>
+</div>
+
+<!-- Q20 -->
+<div class="q-box">
+  <div class="question">20. document.querySelectorAll("div")[0] gives:</div>
+  <div class="options">
+    <div>A. First &lt;div&gt;</div>
+    <div>B. Last &lt;div&gt;</div>
+    <div>C. All divs</div>
+    <div>D. Error</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans20')">Show Answer</button>
+  <div class="answer" id="ans20">Answer: A<br>Explanation: querySelectorAll returns NodeList, indexable like an array.</div>
+</div>
+
+<!-- Q21 -->
+<div class="q-box">
+  <div class="question">21. NodeList.forEach() works on:</div>
+  <div class="options">
+    <div>A. all browsers ever made</div>
+    <div>B. modern browsers</div>
+    <div>C. no browsers</div>
+    <div>D. IE6 only</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans21')">Show Answer</button>
+  <div class="answer" id="ans21">Answer: B</div>
+</div>
+
+<!-- Q22 -->
+<div class="q-box">
+  <div class="question">22. document.querySelector("p span") finds:</div>
+  <div class="options">
+    <div>A. first span inside any p</div>
+    <div>B. all spans</div>
+    <div>C. all p elements</div>
+    <div>D. null always</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans22')">Show Answer</button>
+  <div class="answer" id="ans22">Answer: A</div>
+</div>
+
+<!-- Q23 -->
+<div class="q-box">
+  <div class="question">23. getElementsByClassName returns:</div>
+  <div class="options">
+    <div>A. static NodeList</div>
+    <div>B. live HTMLCollection</div>
+    <div>C. Array</div>
+    <div>D. object</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans23')">Show Answer</button>
+  <div class="answer" id="ans23">Answer: B</div>
+</div>
+
+<!-- Q24 -->
+<div class="q-box">
+  <div class="question">24. If no element matches selector?</div>
+  <div class="options">
+    <div>A. Error thrown</div>
+    <div>B. undefined</div>
+    <div>C. null for querySelector</div>
+    <div>D. empty string</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans24')">Show Answer</button>
+  <div class="answer" id="ans24">Answer: C</div>
+</div>
+
+<!-- Q25 -->
+<div class="q-box">
+  <div class="question">25. querySelectorAll(".item").length returns:</div>
+  <div class="options">
+    <div>A. number of items</div>
+    <div>B. array of items</div>
+    <div>C. string</div>
+    <div>D. null</div>
+  </div>
+  <button class="ans-btn" onclick="showAns('ans25')">Show Answer</button>
+  <div class="answer" id="ans25">Answer: A</div>
+</div>
+
+<!-- END QUESTIONS -->
+
+</div>
+</body>
+</html>

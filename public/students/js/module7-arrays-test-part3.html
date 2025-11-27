@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 7 — Arrays Test Part 3 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#22c55e; /* GREEN THEME FOR PART 3 */
+      --accent2:#38bdf8;
+      --accent3:#a855f7;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#0f172a;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page { max-width:1100px; margin:auto; }
+
+    .card {
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:22px;
+      margin-bottom:24px;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+    }
+
+    h1 {
+      font-size:1.9rem;
+      text-align:center;
+      margin-bottom:20px;
+      background:linear-gradient(90deg,#4ade80,#bbf7d0);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    h2 {
+      font-size:1.25rem;
+      color:#e0e7ff;
+      margin-bottom:12px;
+    }
+
+    pre {
+      background:var(--code-bg);
+      border:1px solid rgba(31,41,55,0.8);
+      padding:14px;
+      border-radius:12px;
+      overflow:auto;
+      margin:10px 0;
+      font-size:0.9rem;
+    }
+
+    .q-block {
+      margin-bottom:22px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(148,163,184,0.25);
+    }
+
+    button {
+      margin-top:10px;
+      padding:6px 14px;
+      background:var(--accent);
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:0.9rem;
+      transition:0.25s;
+    }
+    button:hover { transform:scale(1.05); }
+
+    .ans {
+      margin-top:10px;
+      padding:12px;
+      background:rgba(34,197,94,0.15);
+      border-left:4px solid var(--accent);
+      border-radius:8px;
+      display:none;
+      font-size:0.9rem;
+    }
+
+    footer {
+      margin-top:35px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.90));
+      border:1px solid rgba(55,65,81,0.9);
+      font-size:0.9rem;
+    }
+    footer a { color:var(--accent2); text-decoration:none; }
+  </style>
+
+  <script>
+    function toggle(id){
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 7 — Arrays Test Part 3</h1>
+
+<!-- ===================== PART A OUTPUT ====================== -->
+<div class="card">
+<h2>🟢 Part A — Output Questions (8)</h2>
+
+<!-- Q1 -->
+<div class="q-block">
+<p><strong>1) What is the output?</strong></p>
+<pre><code>let arr = [1,2,3,4,5];
+let x = arr.filter(n => n > 3).map(n => n * 2);
+console.log(x);</code></pre>
+<button onclick="toggle('a1')">Show Answer</button>
+<div id="a1" class="ans">
+<b>Output:</b> [8, 10]<br>
+Filtered → [4,5], then doubled.
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="q-block">
+<pre><code>let nums = [10,20,30];
+let r = nums.reduce((a,b)=>a+b) / nums.length;
+console.log(r);</code></pre>
+<button onclick="toggle('a2')">Show Answer</button>
+<div id="a2" class="ans">
+<b>Output:</b> 20 (average of numbers)
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="q-block">
+<pre><code>let x = ["A","B","C","D"];
+console.log(x.slice(1,3));</code></pre>
+<button onclick="toggle('a3')">Show Answer</button>
+<div id="a3" class="ans">
+Output → ["B","C"]
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="q-block">
+<pre><code>let z = [5,10,15];
+z.splice(1,0,100);
+console.log(z);</code></pre>
+<button onclick="toggle('a4')">Show Answer</button>
+<div id="a4" class="ans">
+Output → [5,100,10,15]
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="q-block">
+<pre><code>let a = [2,4,6,8];
+let f = a.find(n => n > 6);
+console.log(f);</code></pre>
+<button onclick="toggle('a5')">Show Answer</button>
+<div id="a5" class="ans">
+Output → 8
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="q-block">
+<pre><code>let arr = [1,2,3];
+arr.push(4);
+arr.shift();
+console.log(arr);</code></pre>
+<button onclick="toggle('a6')">Show Answer</button>
+<div id="a6" class="ans">
+Output → [2,3,4]
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="q-block">
+<pre><code>let nums = [3,9,12];
+console.log(nums.includes(9));</code></pre>
+<button onclick="toggle('a7')">Show Answer</button>
+<div id="a7" class="ans">
+Output → true
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="q-block">
+<pre><code>let x = [1,2,3,4];
+console.log(x.indexOf(10));</code></pre>
+<button onclick="toggle('a8')">Show Answer</button>
+<div id="a8" class="ans">
+Output → -1
+</div>
+</div>
+
+</div> <!-- END PART A -->
+
+
+
+<!-- ===================== PART B MCQ ====================== -->
+<div class="card">
+<h2>🟢 Part B — MCQ Questions (8)</h2>
+
+<div class="q-block">
+<p><strong>9) Which method returns a NEW array and does NOT modify original?</strong></p>
+<p>A) splice  B) slice  C) pop  D) shift</p>
+<button onclick="toggle('a9')">Show Answer</button>
+<div id="a9" class="ans">B) slice</div>
+</div>
+
+<div class="q-block">
+<p><strong>10) filter() callback must return:</strong></p>
+<p>A) number  B) boolean  C) string  D) array</p>
+<button onclick="toggle('a10')">Show Answer</button>
+<div id="a10" class="ans">B) boolean</div>
+</div>
+
+<div class="q-block">
+<p><strong>11) Which finds FIRST matching value?</strong></p>
+<p>A) find  B) indexOf  C) includes  D) reduce</p>
+<button onclick="toggle('a11')">Show Answer</button>
+<div id="a11" class="ans">A) find</div>
+</div>
+
+<div class="q-block">
+<p><strong>12) reduce() can return:</strong></p>
+<p>A) Only number  B) array  C) any data type  D) only boolean</p>
+<button onclick="toggle('a12')">Show Answer</button>
+<div id="a12" class="ans">C) any data type</div>
+</div>
+
+<div class="q-block">
+<p><strong>13) "for...of" is used for:</strong></p>
+<p>A) objects  B) arrays  C) DOM  D) JSON only</p>
+<button onclick="toggle('a13')">Show Answer</button>
+<div id="a13" class="ans">B) arrays</div>
+</div>
+
+<div class="q-block">
+<p><strong>14) Which method always returns undefined?</strong></p>
+<p>A) forEach  B) map  C) filter  D) slice</p>
+<button onclick="toggle('a14')">Show Answer</button>
+<div id="a14" class="ans">A) forEach</div>
+</div>
+
+<div class="q-block">
+<p><strong>15) Set removes:</strong></p>
+<p>A) odd numbers  B) strings  C) duplicates  D) undefined</p>
+<button onclick="toggle('a15')">Show Answer</button>
+<div id="a15" class="ans">C) duplicates</div>
+</div>
+
+<div class="q-block">
+<p><strong>16) Map stores data as:</strong></p>
+<p>A) list  B) index-value  C) key-value  D) number-key</p>
+<button onclick="toggle('a16')">Show Answer</button>
+<div id="a16" class="ans">C) key-value</div>
+</div>
+
+</div> <!-- END PART B -->
+
+
+
+<!-- ===================== PART C CODING ====================== -->
+<div class="card">
+<h2>🟢 Part C — Coding Questions (5)</h2>
+
+<div class="q-block">
+<p><strong>17) Write code to double every element using map().</strong></p>
+<button onclick="toggle('a17')">Show Answer</button>
+<div id="a17" class="ans">
+<pre><code>let doubled = arr.map(n => n * 2);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>18) Remove element at index 3 using splice().</strong></p>
+<button onclick="toggle('a18')">Show Answer</button>
+<div id="a18" class="ans">
+<pre><code>arr.splice(3, 1);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>19) Use reduce() to find product of all numbers.</strong></p>
+<button onclick="toggle('a19')">Show Answer</button>
+<div id="a19" class="ans">
+<pre><code>let product = arr.reduce((a,b) => a*b, 1);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>20) Use includes() to check if "Kolkata" exists in cities array.</strong></p>
+<button onclick="toggle('a20')">Show Answer</button>
+<div id="a20" class="ans">
+<pre><code>cities.includes("Kolkata");</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>21) Convert all prices to prices + 10 using map().</strong></p>
+<button onclick="toggle('a21')">Show Answer</button>
+<div id="a21" class="ans">
+<pre><code>let updated = prices.map(p => p + 10);</code></pre>
+</div>
+</div>
+
+</div> <!-- END PART C -->
+
+
+
+<!-- ===================== PART D REAL-WORLD ====================== -->
+<div class="card">
+<h2>🟢 Part D — Real-World Scenario Questions (4)</h2>
+
+<div class="q-block">
+<p><strong>22) Extract all students who passed (marks ≥ 40).</strong></p>
+<button onclick="toggle('a22')">Show Answer</button>
+<div id="a22" class="ans">
+<pre><code>let passed = marks.filter(m => m >= 40);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>23) Convert duplicate phone numbers into a unique list.</strong></p>
+<button onclick="toggle('a23')">Show Answer</button>
+<div id="a23" class="ans">
+<pre><code>let unique = [...new Set(numbers)];</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>24) From product array, extract all products with price ≥ 500.</strong></p>
+<button onclick="toggle('a24')">Show Answer</button>
+<div id="a24" class="ans">
+<pre><code>let expensive = products.filter(p => p.price >= 500);</code></pre>
+</div>
+</div>
+
+<div class="q-block">
+<p><strong>25) Use Map to store student → attendance and get Neha’s attendance.</strong></p>
+<button onclick="toggle('a25')">Show Answer</button>
+<div id="a25" class="ans">
+<pre><code>let att = attendanceMap.get("Neha");</code></pre>
+</div>
+</div>
+
+</div> <!-- END PART D -->
+
+
+<footer>
+  <strong>Coder & AccoTax</strong> — Module 7 Arrays Test Series<br>
+  Barrackpore · <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a>
+</footer>
+
+</div>
+</body>
+</html>

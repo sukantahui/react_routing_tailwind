@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Module 4 Test — Decision Making (Part 2: Q26–50) | Coder & AccoTax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  :root {
+    --bg:#020617;
+    --accent:#38bdf8;
+    --accent2:#a855f7;
+    --accent3:#22c55e;
+    --text:#e5e7eb;
+    --muted:#94a3b8;
+    --border:#1e293b;
+  }
+
+  body {
+    margin:0;
+    background:radial-gradient(circle at top,#0f172a,#020617 70%,#000);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    color:var(--text);
+    padding:30px 15px;
+    line-height:1.7;
+  }
+
+  .page { max-width:1000px; margin:auto; }
+
+  h1 {
+    text-align:center;
+    font-size:2rem;
+    background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#a5b4fc);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:15px;
+  }
+
+  .intro {
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:30px;
+  }
+
+  .card {
+    background:rgba(15,23,42,0.97);
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:18px;
+    margin-bottom:18px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.55);
+  }
+
+  .question { color:#dbeafe; font-size:1rem; margin-bottom:10px; }
+
+  .show-btn {
+    background: linear-gradient(90deg,#38bdf8,#a855f7);
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.25s;
+  }
+  .show-btn:hover { opacity:0.88; transform:scale(1.03); }
+
+  .answer-box {
+    display:none;
+    background:rgba(30,41,59,0.7);
+    padding:14px;
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+    margin-top:10px;
+  }
+
+  footer {
+    margin-top:40px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(15,23,42,0.95);
+    border:1px solid var(--border);
+  }
+
+  .org-grid {
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:12px;
+  }
+  @media(max-width:700px){ .org-grid{ grid-template-columns:1fr; } }
+
+  .org-name { font-weight:700; }
+  footer a { color:var(--accent); }
+  .org-small { color:var(--muted); font-size:0.8rem; margin-top:8px; }
+</style>
+
+<script>
+  function toggleAnswer(id){
+    const box = document.getElementById(id);
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+</script>
+</head>
+
+<body>
+<div class="page">
+
+<h1>Module 4 — Decision Making Test<br>Part 2 (Q26–50)</h1>
+<div class="intro">else-if ladders · nested if · logical checks · multi-way branching</div>
+
+
+<!-- Q26 -->
+<div class="card">
+  <div class="question">
+    <strong>Q26.</strong> What prints?<br>
+    <code>let age = 20;<br>if (age > 18) console.log("Adult");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a26')">Show Answer</button>
+  <div class="answer-box" id="a26">
+    <strong>Answer:</strong> Adult<br><br>
+    <strong>Explanation:</strong> age > 18 is true.
+  </div>
+</div>
+
+<!-- Q27 -->
+<div class="card">
+  <div class="question">
+    <strong>Q27.</strong> Output?<br>
+    <code>let score = 40;<br>if (score >= 50) console.log("Pass"); else console.log("Fail");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a27')">Show Answer</button>
+  <div class="answer-box" id="a27">
+    <strong>Answer:</strong> Fail<br><br>
+    <strong>Explanation:</strong> 40 ≥ 50 is false.
+  </div>
+</div>
+
+<!-- Q28 -->
+<div class="card">
+  <div class="question">
+    <strong>Q28.</strong> Output of ladder?<br>
+    <pre><code>let m = 72;
+if (m >= 90) console.log("A+");
+else if (m >= 80) console.log("A");
+else if (m >= 70) console.log("B");
+else console.log("C");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a28')">Show Answer</button>
+  <div class="answer-box" id="a28">
+    <strong>Answer:</strong> B<br><br>
+    <strong>Explanation:</strong> First true condition is m ≥ 70.
+  </div>
+</div>
+
+<!-- Q29 -->
+<div class="card">
+  <div class="question">
+    <strong>Q29.</strong> Output?<br>
+    <pre><code>let temp = 15;
+if (temp > 30) console.log("Hot");
+else if (temp > 20) console.log("Warm");
+else console.log("Cold");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a29')">Show Answer</button>
+  <div class="answer-box" id="a29">
+    <strong>Answer:</strong> Cold<br><br>
+    <strong>Explanation:</strong> 15 is not >20.
+  </div>
+</div>
+
+<!-- Q30 -->
+<div class="card">
+  <div class="question">
+    <strong>Q30.</strong> What prints?<br>
+    <pre><code>let x = 5;
+if (x > 10) console.log("A");
+else if (x > 7) console.log("B");
+else console.log("C");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a30')">Show Answer</button>
+  <div class="answer-box" id="a30">
+    <strong>Answer:</strong> C<br><br>
+    <strong>Explanation:</strong> none of the if/else-if conditions are true.
+  </div>
+</div>
+
+<!-- Q31 -->
+<div class="card">
+  <div class="question">
+    <strong>Q31.</strong> Predict output:<br>
+    <pre><code>let n = 0;
+if (n) console.log("Non-zero"); else console.log("Zero");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a31')">Show Answer</button>
+  <div class="answer-box" id="a31">
+    <strong>Answer:</strong> Zero<br><br>
+    <strong>Explanation:</strong> 0 is falsy.
+  </div>
+</div>
+
+<!-- Q32 -->
+<div class="card">
+  <div class="question">
+    <strong>Q32.</strong> What will print?<br>
+    <code>if ("JS") console.log("Works");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a32')">Show Answer</button>
+  <div class="answer-box" id="a32">
+    <strong>Answer:</strong> Works<br><br>
+    <strong>Explanation:</strong> Non-empty string is truthy.
+  </div>
+</div>
+
+<!-- Q33 -->
+<div class="card">
+  <div class="question">
+    <strong>Q33.</strong> What is printed?<br>
+    <pre><code>let a = -5;
+if (a) console.log("True");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a33')">Show Answer</button>
+  <div class="answer-box" id="a33">
+    <strong>Answer:</strong> True<br><br>
+    <strong>Explanation:</strong> All non-zero numbers are truthy (including negative).
+  </div>
+</div>
+
+<!-- Q34 -->
+<div class="card">
+  <div class="question">
+    <strong>Q34.</strong> Output?<br>
+    <pre><code>let u = undefined;
+if (!u) console.log("Empty");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a34')">Show Answer</button>
+  <div class="answer-box" id="a34">
+    <strong>Answer:</strong> Empty<br><br>
+    <strong>Explanation:</strong> undefined is falsy → !undefined = true.
+  </div>
+</div>
+
+<!-- Q35 -->
+<div class="card">
+  <div class="question">
+    <strong>Q35.</strong> Ternary output?<br>
+    <code>(10 > 5) ? console.log("YES") : console.log("NO");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a35')">Show Answer</button>
+  <div class="answer-box" id="a35">
+    <strong>Answer:</strong> YES<br><br>
+    <strong>Explanation:</strong> Condition is true.
+  </div>
+</div>
+
+<!-- Q36 -->
+<div class="card">
+  <div class="question">
+    <strong>Q36.</strong> Ternary evaluation:<br>
+    <code>(3 === "3") ? "Match" : "Mismatch"</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a36')">Show Answer</button>
+  <div class="answer-box" id="a36">
+    <strong>Answer:</strong> Mismatch<br><br>
+    <strong>Explanation:</strong> strict mismatch.
+  </div>
+</div>
+
+<!-- Q37 -->
+<div class="card">
+  <div class="question">
+    <strong>Q37.</strong> Output?<br>
+    <pre><code>let loggedIn = false;
+console.log(loggedIn ? "Welcome" : "Login required");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a37')">Show Answer</button>
+  <div class="answer-box" id="a37">
+    <strong>Answer:</strong> Login required<br><br>
+    <strong>Explanation:</strong> false → second value executes.
+  </div>
+</div>
+
+<!-- Q38 -->
+<div class="card">
+  <div class="question">
+    <strong>Q38.</strong> Switch output:<br>
+    <pre><code>let day = 2;
+switch(day){
+  case 1: console.log("Mon"); break;
+  case 2: console.log("Tue"); break;
+  default: console.log("Other");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a38')">Show Answer</button>
+  <div class="answer-box" id="a38">
+    <strong>Answer:</strong> Tue<br><br>
+    <strong>Explanation:</strong> case 2 matched.
+  </div>
+</div>
+
+<!-- Q39 -->
+<div class="card">
+  <div class="question">
+    <strong>Q39.</strong> Switch result?<br>
+    <pre><code>let mode = "upi";
+switch(mode){
+  case "cash": console.log("Cash"); break;
+  case "upi": console.log("Online"); break;
+  default: console.log("Other");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a39')">Show Answer</button>
+  <div class="answer-box" id="a39">
+    <strong>Answer:</strong> Online<br><br>
+    <strong>Explanation:</strong> mode matches "upi".
+  </div>
+</div>
+
+<!-- Q40 -->
+<div class="card">
+  <div class="question">
+    <strong>Q40.</strong> Jump through missing break?<br>
+    <pre><code>let c = 1;
+switch(c){
+  case 1: console.log("A");
+  case 2: console.log("B");
+  break;
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a40')">Show Answer</button>
+  <div class="answer-box" id="a40">
+    <strong>Answer:</strong> A<br>B<br><br>
+    <strong>Explanation:</strong> Missing break causes fall-through.
+  </div>
+</div>
+
+<!-- Q41 -->
+<div class="card">
+  <div class="question">
+    <strong>Q41.</strong> Output?<br>
+    <pre><code>let v = 3;
+switch(v){
+  case 1:
+  case 2:
+  case 3: console.log("Group"); break;
+  default: console.log("Other");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a41')">Show Answer</button>
+  <div class="answer-box" id="a41">
+    <strong>Answer:</strong> Group<br><br>
+    <strong>Explanation:</strong> Combined cases 1,2,3.
+  </div>
+</div>
+
+<!-- Q42 -->
+<div class="card">
+  <div class="question">
+    <strong>Q42.</strong> Nested if output?<br>
+    <pre><code>let marks = 85;
+let income = 200000;
+if (marks >= 80) {
+  if (income <= 300000) console.log("Eligible");
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a42')">Show Answer</button>
+  <div class="answer-box" id="a42">
+    <strong>Answer:</strong> Eligible<br><br>
+    <strong>Explanation:</strong> Both nested conditions true.
+  </div>
+</div>
+
+<!-- Q43 -->
+<div class="card">
+  <div class="question">
+    <strong>Q43.</strong> What prints?<br>
+    <pre><code>let paid = true;
+if (paid) console.log("Access"); else console.log("Blocked");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a43')">Show Answer</button>
+  <div class="answer-box" id="a43">
+    <strong>Answer:</strong> Access<br><br>
+    <strong>Explanation:</strong> paid is true.
+  </div>
+</div>
+
+<!-- Q44 -->
+<div class="card">
+  <div class="question">
+    <strong>Q44.</strong> Output?<br>
+    <pre><code>let cat = "referral";
+let d;
+if(cat==="early") d=20;
+else if(cat==="referral") d=10;
+else d=0;
+console.log(d);</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a44')">Show Answer</button>
+  <div class="answer-box" id="a44">
+    <strong>Answer:</strong> 10<br><br>
+    <strong>Explanation:</strong> Matches second condition.
+  </div>
+</div>
+
+<!-- Q45 -->
+<div class="card">
+  <div class="question">
+    <strong>Q45.</strong> Trick question:<br>
+    <code>if (x = 5) console.log("Run");</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a45')">Show Answer</button>
+  <div class="answer-box" id="a45">
+    <strong>Answer:</strong> Run<br><br>
+    <strong>Explanation:</strong> x=5 is assignment and becomes truthy → mistake.
+  </div>
+</div>
+
+<!-- Q46 -->
+<div class="card">
+  <div class="question">
+    <strong>Q46.</strong> Correct way to compare?<br>
+    <code>if (x === 5) console.log("Equal")</code>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a46')">Show Answer</button>
+  <div class="answer-box" id="a46">
+    <strong>Answer:</strong> Use === for strict comparison<br><br>
+    <strong>Explanation:</strong> Avoid = which assigns value.
+  </div>
+</div>
+
+<!-- Q47 -->
+<div class="card">
+  <div class="question">
+    <strong>Q47.</strong> Output?<br>
+    <pre><code>let val = "";
+if (!val) console.log("Empty");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a47')">Show Answer</button>
+  <div class="answer-box" id="a47">
+    <strong>Answer:</strong> Empty<br><br>
+    <strong>Explanation:</strong> "" is falsy → !"" is true.
+  </div>
+</div>
+
+<!-- Q48 -->
+<div class="card">
+  <div class="question">
+    <strong>Q48.</strong> Output?<br>
+    <pre><code>let age = 17;
+console.log(age>=18 ? "Adult" : "Minor");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a48')">Show Answer</button>
+  <div class="answer-box" id="a48">
+    <strong>Answer:</strong> Minor<br><br>
+    <strong>Explanation:</strong> 17 < 18.
+  </div>
+</div>
+
+<!-- Q49 -->
+<div class="card">
+  <div class="question">
+    <strong>Q49.</strong> Evaluate:<br>
+    <pre><code>let role="admin";
+switch(role){
+  case "student": console.log("Access limited"); break;
+  case "admin": console.log("Full access"); break;
+}</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a49')">Show Answer</button>
+  <div class="answer-box" id="a49">
+    <strong>Answer:</strong> Full access<br><br>
+    <strong>Explanation:</strong> case matches "admin".
+  </div>
+</div>
+
+<!-- Q50 -->
+<div class="card">
+  <div class="question">
+    <strong>Q50.</strong> What prints?<br>
+    <pre><code>let x=10,y=20;
+if(x<y && y<30) console.log("Valid");</code></pre>
+  </div>
+  <button class="show-btn" onclick="toggleAnswer('a50')">Show Answer</button>
+  <div class="answer-box" id="a50">
+    <strong>Answer:</strong> Valid<br><br>
+    <strong>Explanation:</strong> Both conditions true.
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong> <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui
+    </div>
+  </div>
+  <div class="org-small">Premium JavaScript Test · Module 4 · Part 2</div>
+</footer>
+
+</div>
+</body>
+</html>
