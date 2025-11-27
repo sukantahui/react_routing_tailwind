@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 11 — ES6+ Features Test Part 2 | Destructuring | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#e0f2fe;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;
+      box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);
+      font-size:0.86rem;
+    }
+
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 11 — ES6+ Features  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 2 · Destructuring Arrays, Objects, Nested, Rest, Defaults
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 high-quality questions covering <strong>array & object destructuring</strong>,
+      <strong>nested</strong> unpacking, <strong>default values</strong>,
+      <strong>rest operator</strong>, and practical ES6 usage exactly as used in React, APIs,
+      Node, and modern JavaScript.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output Questions (Destructuring)</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What is the output?
+      <pre><code>const nums = [10, 20, 30];
+const [a, b] = nums;
+console.log(a, b);</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b> <code>10 20</code><br>
+        The first two items are unpacked into variables.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output?
+      <pre><code>const marks = [50];
+const [x = 10, y = 20] = marks;
+console.log(x, y);</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b> <code>50 20</code><br>
+        x gets the value 50; y uses its default value 20.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Output?
+      <pre><code>const arr = [1, 2, 3, 4];
+const [first, , third] = arr;
+console.log(first, third);</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b> <code>1 3</code><br>
+        The second value is skipped.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Output?
+      <pre><code>const student = { name:"Amit", city:"Kolkata" };
+const { city } = student;
+console.log(city);</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> Kolkata
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Output?
+      <pre><code>const user = { name:"Neha" };
+const { city = "Unknown" } = user;
+console.log(city);</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b> Unknown  
+        Property missing → default applied.
+      </div>
+    </div>
+
+  </div><!-- /Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — MCQs (Destructuring Concepts)</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Which syntax renames a destructured property?
+      <br><br>
+      A. <code>{ name → n }</code><br>
+      B. <code>{ name: n }</code><br>
+      C. <code>{ name = n }</code><br>
+      D. <code>{ rename(name, n) }</code><br>
+
+      <button onclick="toggleAns('a6')">Show Answer</button>
+      <div class="answer" id="a6">
+        <b>Correct:</b> B  
+        <code>{ name: n }</code> stores <code>name</code>’s value in variable <code>n</code>.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> What does the rest operator <code>...</code> do in destructuring?
+      <br><br>
+      A. Spreads values <br>
+      B. Collects remaining values into an array/object<br>
+      C. Deletes unused values<br>
+      D. Freezes the variable<br>
+
+      <button onclick="toggleAns('a7')">Show Answer</button>
+      <div class="answer" id="a7">
+        <b>Correct:</b> B  
+        Rest collects remaining values (e.g., <code>const [...others]</code>).
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Destructuring is mainly used in:
+      <br><br>
+      A. React props<br>
+      B. API responses<br>
+      C. Function parameters<br>
+      D. All of the above<br>
+
+      <button onclick="toggleAns('a8')">Show Answer</button>
+      <div class="answer" id="a8">
+        <b>Correct:</b> D  
+        Widely used in modern JS workflows.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> What happens?
+      <pre><code>const person = null;
+const { a } = person;</code></pre>
+
+      <button onclick="toggleAns('a9')">Show Answer</button>
+      <div class="answer" id="a9">
+        ❌ <b>Error:</b> Cannot destructure null  
+        You must check object existence.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Which syntax extracts nested properties?
+      <br><br>
+      A. <code>{ x.y.z }</code><br>
+      B. <code>{ x:{y:{z}} }</code><br>
+      C. <code>{ x > y > z }</code><br>
+      D. <code>{ z(y(x)) }</code><br>
+
+      <button onclick="toggleAns('a10')">Show Answer</button>
+      <div class="answer" id="a10">
+        <b>Correct:</b> B  
+        Nested destructuring syntax.
+      </div>
+    </div>
+
+  </div><!-- /Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — Practical Coding Questions</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Extract the first two values and the rest:
+      <pre><code>const data = [10, 20, 30, 40, 50];
+// a = ?, b = ?, others = ?
+</code></pre>
+
+      <button onclick="toggleAns('a11')">Show Answer</button>
+      <div class="answer" id="a11">
+        <pre><code>const [a, b, ...others] = data;</code></pre>
+        a = 10, b = 20, others = [30, 40, 50]
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Extract <code>city</code> from nested object:
+      <pre><code>const centre = {
+  name:"Coder & AccoTax",
+  address:{ city:"Barrackpore", pin:700120 }
+};</code></pre>
+
+      <button onclick="toggleAns('a12')">Show Answer</button>
+      <div class="answer" id="a12">
+        <pre><code>const { address:{ city } } = centre;</code></pre>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Swap two variables using destructuring.
+      <pre><code>let a = 5, b = 10;</code></pre>
+
+      <button onclick="toggleAns('a13')">Show Answer</button>
+      <div class="answer" id="a13">
+        <pre><code>[a, b] = [b, a];</code></pre>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Fill code to extract only the <code>course</code> and <code>city</code>:
+      <pre><code>const profile = {
+  name:"Amit",
+  course:"ES6",
+  city:"Kolkata"
+};
+</code></pre>
+
+      <button onclick="toggleAns('a14')">Show Answer</button>
+      <div class="answer" id="a14">
+        <pre><code>const { course, city } = profile;</code></pre>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Assign default value:
+      <pre><code>const { marks = 80 } = {};  
+console.log(marks);</code></pre>
+
+      <button onclick="toggleAns('a15')">Show Answer</button>
+      <div class="answer" id="a15">
+        <b>Answer:</b> 80  
+        Default value used since property missing.
+      </div>
+    </div>
+
+  </div><!-- /Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Short Explanations</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      Why is destructuring heavily used with API responses?
+
+      <button onclick="toggleAns('a16')">Show Answer</button>
+      <div class="answer" id="a16">
+        It allows quick extraction of required properties from large objects,
+        making code shorter, clearer, and easier to maintain.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      Explain array rest operator in one line.
+
+      <button onclick="toggleAns('a17')">Show Answer</button>
+      <div class="answer" id="a17">
+        It collects remaining elements of the array into a new array.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      Why is renaming useful in object destructuring?
+
+      <button onclick="toggleAns('a18')">Show Answer</button>
+      <div class="answer" id="a18">
+        It avoids naming conflicts and gives more meaningful variable names.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      What problem does default destructuring solve?
+
+      <button onclick="toggleAns('a19')">Show Answer</button>
+      <div class="answer" id="a19">
+        It prevents undefined values when the property is missing.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      How do you safely destructure a nested property?
+
+      <button onclick="toggleAns('a20')">Show Answer</button>
+      <div class="answer" id="a20">
+        Check object existence first, or use optional chaining before destructuring.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      Give an example of destructuring inside function parameters.
+
+      <button onclick="toggleAns('a21')">Show Answer</button>
+      <div class="answer" id="a21">
+        <pre><code>function show({name, city}) {
+  console.log(name, city);
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      What’s the difference between spread and rest?
+
+      <button onclick="toggleAns('a22')">Show Answer</button>
+      <div class="answer" id="a22">
+        Spread expands values; rest collects values.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      Why is destructuring essential in React?
+
+      <button onclick="toggleAns('a23')">Show Answer</button>
+      <div class="answer" id="a23">
+        It simplifies extracting props and state variables, making components cleaner.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      Explain nested destructuring in one sentence.
+
+      <button onclick="toggleAns('a24')">Show Answer</button>
+      <div class="answer" id="a24">
+        It allows extracting values from inside nested objects or arrays in one step.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      A student asks: “Why use destructuring when I can manually access values?”  
+      Give a short mentor-style reply.
+
+      <button onclick="toggleAns('a25')">Show Answer</button>
+      <div class="answer" id="a25">
+        Destructuring makes code cleaner, reduces repetition, avoids mistakes in property
+        access, and matches modern coding patterns used in frameworks like React.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>Module:</strong> 11 — ES6+ Features · Test Part 2
+      </div>
+    </div>
+
+    <div class="org-small">
+      Part 2 of the Module 11 ES6+ Test Series — Destructuring & Rest Patterns.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

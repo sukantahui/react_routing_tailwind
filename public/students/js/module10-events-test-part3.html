@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 10 — Events | Test Part 3 | Mouse Events & Event Object | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#facc15;
+      --accent2:#34d399;
+      --accent3:#38bdf8;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.4);
+      box-shadow:0 0 28px rgba(250,204,21,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#facc15,#34d399,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#feeaa3;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(52,211,153,0.35);
+      box-shadow:0 0 18px rgba(52,211,153,0.22);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#facc15,#34d399);
+      color:#000;
+      box-shadow:0 0 16px rgba(250,204,21,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(52,211,153,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(250,204,21,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent3);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 10 — Events  
+      <span style="font-size:1.1rem;display:block;margin-top:4px;">
+        Test Part 3 · Mouse Events & Event Object
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 premium-level questions focusing on <strong>click events, mousemove, mouseenter,
+      mouseleave, buttons, coordinates, preventDefault</strong> and <strong>event bubbling,
+      capturing, delegation</strong>.
+    </p>
+  </div>
+
+
+<!-- SECTION A -->
+<div class="card">
+  <h2>Section A — Output & Behavior Prediction</h2>
+
+  <!-- Q1 -->
+  <div class="qbox">
+    <b>Q1.</b> What will happen when the button is clicked?
+    <pre><code>&lt;button id="btn"&gt;Click&lt;/button&gt;
+
+document.getElementById("btn").addEventListener("click", function(){
+  console.log("Clicked!");
+});</code></pre>
+
+    <button onclick="toggleAns('a1')">Show Answer & Explanation</button>
+    <div class="answer" id="a1">
+      <b>Answer:</b> Logs <code>"Clicked!"</code>  
+      <b>Explanation:</b> A simple click event listener on the button triggers the callback.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="qbox">
+    <b>Q2.</b> Predict the output:
+    <pre><code>&lt;div id="box"&gt;Hello&lt;/div&gt;
+
+document.getElementById("box").onclick = () =&gt; console.log("Div clicked");</code></pre>
+
+    <button onclick="toggleAns('a2')">Show Answer & Explanation</button>
+    <div class="answer" id="a2">
+      <b>Answer:</b> <code>"Div clicked"</code>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="qbox">
+    <b>Q3.</b> What logs on double-click?
+    <pre><code>document.addEventListener("dblclick", () =&gt; console.log("Double!"));</code></pre>
+
+    <button onclick="toggleAns('a3')">Show Answer & Explanation</button>
+    <div class="answer" id="a3">
+      <b>Answer:</b> Logs <code>"Double!"</code> when user double-clicks anywhere.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="qbox">
+    <b>Q4.</b> What will console.log print?
+    <pre><code>&lt;div id="a"&gt;
+  &lt;button id="b"&gt;Click&lt;/button&gt;
+&lt;/div&gt;
+
+document.getElementById("a").addEventListener("click", () =&gt; {
+  console.log("A");
+});
+document.getElementById("b").addEventListener("click", () =&gt; {
+  console.log("B");
+});</code></pre>
+
+    <button onclick="toggleAns('a4')">Show Answer & Explanation</button>
+    <div class="answer" id="a4">
+      <b>Answer:</b>  
+      <code>B</code><br>
+      <code>A</code><br>
+      <b>Explanation:</b> Click on button → button handler fires → event bubbles to parent div.
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="qbox">
+    <b>Q5.</b> Output?
+    <pre><code>document.addEventListener("contextmenu", e =&gt; {
+  e.preventDefault();
+  console.log("Right click blocked");
+});</code></pre>
+
+    <button onclick="toggleAns('a5')">Show Answer & Explanation</button>
+    <div class="answer" id="a5">
+      <b>Answer:</b> Right-click menu is blocked + logs message.
+    </div>
+  </div>
+
+</div><!-- end section A -->
+
+
+<!-- SECTION B -->
+<div class="card">
+  <h2>Section B — MCQs on Mouse Events</h2>
+
+  <!-- Q6 -->
+  <div class="qbox">
+    <b>Q6.</b> Which event fires when the mouse pointer enters an element?
+    <br><br>
+    A. mouseover<br>
+    B. mouseenter<br>
+    C. mousein<br>
+    D. hover<br><br>
+    <button onclick="toggleAns('a6')">Show Answer</button>
+    <div class="answer" id="a6">
+      <b>Correct:</b> B  
+      <b>Explanation:</b> <code>mouseenter</code> does not bubble; <code>mouseover</code> does.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="qbox">
+    <b>Q7.</b> Which mouse event gives continuous values while moving?
+    <br><br>
+    A. mousemove<br>
+    B. mouseover<br>
+    C. mouseenter<br>
+    D. mousewheel<br><br>
+
+    <button onclick="toggleAns('a7')">Show Answer</button>
+    <div class="answer" id="a7">
+      <b>Correct:</b> A  
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="qbox">
+    <b>Q8.</b> Which property returns mouse position relative to the viewport?
+    <br><br>
+    A. event.clientX<br>
+    B. event.pageX<br>
+    C. event.screenX<br>
+    D. event.offsetX<br><br>
+
+    <button onclick="toggleAns('a8')">Show Answer</button>
+    <div class="answer" id="a8">
+      <b>Correct:</b> A  
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="qbox">
+    <b>Q9.</b> event.button value for left-click?
+    <br><br>
+    A. 0  
+    B. 1  
+    C. 2  
+    D. None<br><br>
+
+    <button onclick="toggleAns('a9')">Show Answer</button>
+    <div class="answer" id="a9">
+      <b>Correct:</b> A  
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="qbox">
+    <b>Q10.</b> Which event fires when mouse leaves element?
+    <br><br>
+    A. mouseleave  
+    B. mouseexit  
+    C. mouseout  
+    D. both A and C<br><br>
+
+    <button onclick="toggleAns('a10')">Show Answer</button>
+    <div class="answer" id="a10">
+      <b>Correct:</b> D  
+    </div>
+  </div>
+
+</div><!-- end B -->
+
+
+<!-- SECTION C -->
+<div class="card">
+  <h2>Section C — Event Bubbling, Delegation, Capturing</h2>
+
+  <!-- Q11 -->
+  <div class="qbox">
+    <b>Q11.</b> What is event bubbling?
+    <br><br>
+    <button onclick="toggleAns('a11')">Show Answer</button>
+    <div class="answer" id="a11">
+      Event goes from target → parent → document.
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="qbox">
+    <b>Q12.</b> Which option correctly attaches listener during capturing?
+    <pre><code>element.addEventListener("click", handler, ???)</code></pre>
+
+    A. true  
+    B. false  
+    C. "capture"  
+    D. "bubble"<br><br>
+
+    <button onclick="toggleAns('a12')">Show Answer</button>
+    <div class="answer" id="a12">
+      <b>Correct:</b> A (or {capture:true})
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="qbox">
+    <b>Q13.</b> Event delegation benefits?
+    <br><br>
+    A. Fewer listeners  
+    B. More performance  
+    C. Handles future elements  
+    D. All of these<br><br>
+
+    <button onclick="toggleAns('a13')">Show Answer</button>
+    <div class="answer" id="a13">
+      <b>Correct:</b> D
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="qbox">
+    <b>Q14.</b> event.stopPropagation() does what?
+    <br><br>
+    <button onclick="toggleAns('a14')">Show Answer</button>
+    <div class="answer" id="a14">
+      Stops event from bubbling further up.
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="qbox">
+    <b>Q15.</b> event.target refers to:
+    <br><br>
+    <button onclick="toggleAns('a15')">Show Answer</button>
+    <div class="answer" id="a15">
+      The actual element clicked.
+    </div>
+  </div>
+
+</div><!-- end section C -->
+
+
+<!-- SECTION D -->
+<div class="card">
+  <h2>Section D — Mini Logical Questions</h2>
+
+  <!-- Q16 -->
+  <div class="qbox">
+    <b>Q16.</b> What prints?
+    <pre><code>&lt;div id="d"&gt;
+  &lt;button&gt;X&lt;/button&gt;
+&lt;/div&gt;
+
+document.getElementById("d").addEventListener("click", (e) =&gt; {
+  console.log(e.target.tagName);
+});</code></pre>
+
+    <button onclick="toggleAns('a16')">Show Answer</button>
+    <div class="answer" id="a16">
+      <b>Answer:</b> <code>"BUTTON"</code>
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="qbox">
+    <b>Q17.</b> Button is inside a link. What happens?
+    <pre><code>&lt;a href="https://google.com"&gt;
+  &lt;button id="b"&gt;Click&lt;/button&gt;
+&lt;/a&gt;
+
+document.getElementById("b").addEventListener("click", e =&gt; {
+  e.preventDefault();
+});</code></pre>
+
+    <button onclick="toggleAns('a17')">Show Answer</button>
+    <div class="answer" id="a17">
+      Clicking button will NOT open link.
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="qbox">
+    <b>Q18.</b> What does event.clientY mean?
+    <br><br>
+    <button onclick="toggleAns('a18')">Show Answer</button>
+    <div class="answer" id="a18">
+      Vertical mouse position relative to viewport.
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="qbox">
+    <b>Q19.</b> Which is true?
+    <br><br>
+    A. mouseenter bubbles  
+    B. mouseover doesn't bubble  
+    C. mouseenter doesn't bubble  
+    D. mouseout never fires<br><br>
+
+    <button onclick="toggleAns('a19')">Show Answer</button>
+    <div class="answer" id="a19">
+      <b>Correct:</b> C  
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="qbox">
+    <b>Q20.</b> event.currentTarget refers to:
+    <br><br>
+    <button onclick="toggleAns('a20')">Show Answer</button>
+    <div class="answer" id="a20">
+      The element whose listener is currently running.
+    </div>
+  </div>
+
+</div><!-- end section D -->
+
+
+<!-- SECTION E -->
+<div class="card">
+  <h2>Section E — Conceptual Short Answers</h2>
+
+  <!-- Q21 -->
+  <div class="qbox">
+    <b>Q21.</b> Explain difference between event.target and event.currentTarget.
+    <br><br>
+    <button onclick="toggleAns('a21')">Show Answer</button>
+    <div class="answer" id="a21">
+      <b>event.target:</b> where the event originated.  
+      <b>event.currentTarget:</b> the element whose listener is executing.
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="qbox">
+    <b>Q22.</b> What is preventDefault used for?
+    <br><br>
+    <button onclick="toggleAns('a22')">Show Answer</button>
+    <div class="answer" id="a22">
+      Stops browser’s default action like opening links or submitting forms.
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="qbox">
+    <b>Q23.</b> Why is event delegation useful in dynamic lists?
+    <br><br>
+    <button onclick="toggleAns('a23')">Show Answer</button>
+    <div class="answer" id="a23">
+      Parent handles clicks even for newly added child elements.
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="qbox">
+    <b>Q24.</b> Explain mouseover vs mouseenter.
+    <br><br>
+    <button onclick="toggleAns('a24')">Show Answer</button>
+    <div class="answer" id="a24">
+      <b>mouseover:</b> bubbles + fires repeatedly.  
+      <b>mouseenter:</b> does NOT bubble + fires once on entry.
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="qbox">
+    <b>Q25.</b> Why use passive event listeners for scroll/touch?
+    <br><br>
+    <button onclick="toggleAns('a25')">Show Answer</button>
+    <div class="answer" id="a25">
+      They improve performance by signalling the browser that event won't be blocked.
+    </div>
+  </div>
+
+</div><!-- end section E -->
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="org-grid">
+    <div>
+      <div class="org-name">Coder &amp; AccoTax</div>
+      <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+      25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+      West Bengal, India
+    </div>
+    <div>
+      <strong>Website:</strong>
+      <a href="https://www.codernaccotax.co.in" target="_blank">www.codernaccotax.co.in</a><br>
+      <strong>Phone:</strong> +91 7003756860<br>
+      <strong>Course Author:</strong> Sukanta Hui<br>
+      <strong>JavaScript Track:</strong> Module 10 — Events · Test Part 3
+    </div>
+  </div>
+
+  <div class="org-small">
+    This file belongs to the premium JavaScript Test Series under Coder &amp; AccoTax.
+  </div>
+</div>
+
+</div><!-- page -->
+</body>
+</html>

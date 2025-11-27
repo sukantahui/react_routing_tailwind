@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 10 — Events & User Interaction — Test Part 2 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#facc15;
+      --accent2:#34d399;
+      --accent3:#38bdf8;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.4);
+      box-shadow:0 0 28px rgba(250,204,21,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#facc15,#34d399,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#feeaa3;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.35);
+      box-shadow:0 0 18px rgba(56,189,248,0.2);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    .options{
+      margin:8px 0 4px;
+      padding-left:4px;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .options div{
+      margin-bottom:3px;
+    }
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#facc15,#34d399);
+      color:#000;
+      box-shadow:0 0 16px rgba(250,204,21,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(52,211,153,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+      color:#bbf7d0;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(250,204,21,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent3);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 10 — Events &amp; User Interaction
+      <span style="font-size:1.1rem;display:block;margin-top:4px;">
+        Test Part 2 · Input &amp; Keyboard Events
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 focused questions on <strong>input events</strong>, 
+      <strong>keyboard events</strong>, and the <strong>event object</strong>,
+      designed to train students for real project work and exam-style questions.
+      Click on each button to reveal the correct answer and explanation.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Input &amp; Keyboard Events MCQs</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> Which event fires every time the value of an input changes?
+      <div class="options">
+        <div>A. <code>change</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>keypress</code></div>
+        <div>D. <code>keyup</code></div>
+      </div>
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> The <code>input</code> event fires immediately as the user types
+        (or pastes/cuts), while <code>change</code> usually fires when the input loses focus
+        or the user confirms the value.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Which event property gives the key pressed?
+      <div class="options">
+        <div>A. <code>event.keyCode</code></div>
+        <div>B. <code>event.key</code></div>
+        <div>C. <code>event.code</code></div>
+        <div>D. <code>event.which</code></div>
+      </div>
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> <code>event.key</code> returns the actual key value
+        (e.g. <code>"a"</code>, <code>"Enter"</code>).  
+        <code>keyCode</code> and <code>which</code> are deprecated in modern JavaScript.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Which keyboard event fires when the key is released?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>keypress</code></div>
+        <div>C. <code>keyup</code></div>
+        <div>D. <code>input</code></div>
+      </div>
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> <code>keyup</code> fires after the user releases the key.
+        <code>keydown</code> fires when the key is first pressed.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Which event is best for implementing “live search”?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>keyup</code></div>
+        <div>C. <code>click</code></div>
+        <div>D. <code>submit</code></div>
+      </div>
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> With <code>keyup</code>, the input value has already been updated,
+        so you can safely read the current text and filter results.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Which event triggers when you press Enter inside a text input?
+      <div class="options">
+        <div>A. <code>keypress</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>keydown</code></div>
+        <div>D. both A and C</div>
+      </div>
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Correct:</b> D<br>
+        <b>Explanation:</b> Pressing Enter typically fires both <code>keydown</code> and
+        <code>keypress</code> (though <code>keypress</code> is deprecated).
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> In modern JavaScript, which keyboard event is deprecated?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>keyup</code></div>
+        <div>C. <code>keypress</code></div>
+        <div>D. <code>input</code></div>
+      </div>
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> <code>keypress</code> is deprecated and should not be used in
+        new code. Prefer <code>keydown</code> / <code>keyup</code>.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> <code>event.target</code> refers to:
+      <div class="options">
+        <div>A. The element listening to the event</div>
+        <div>B. The element which triggered the event</div>
+        <div>C. The window object</div>
+        <div>D. The parent element</div>
+      </div>
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> <code>event.target</code> is the element where the event actually
+        occurred (e.g. the input that changed).
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Which event fires repeatedly while a key is held down?
+      <div class="options">
+        <div>A. <code>keypress</code></div>
+        <div>B. <code>keyrepeat</code></div>
+        <div>C. <code>keydown</code></div>
+        <div>D. <code>keyup</code></div>
+      </div>
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> While a key is held, multiple <code>keydown</code> events fire
+        repeatedly (auto-repeat behaviour).
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Which method prevents default input behaviors?
+      <div class="options">
+        <div>A. <code>event.prevent()</code></div>
+        <div>B. <code>event.stop()</code></div>
+        <div>C. <code>event.stopPropagation()</code></div>
+        <div>D. <code>event.preventDefault()</code></div>
+      </div>
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Correct:</b> D<br>
+        <b>Explanation:</b> <code>preventDefault()</code> cancels the browser’s default action,
+        such as form submit reload or character insertion.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Which input event fires when a user pastes text?
+      <div class="options">
+        <div>A. <code>paste</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>change</code></div>
+        <div>D. both A and B</div>
+      </div>
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Correct:</b> D<br>
+        <b>Explanation:</b> Pasting triggers the <code>paste</code> event and then updates
+        the field value, which also fires the <code>input</code> event.
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Which property gives the physical key on the keyboard?
+      <div class="options">
+        <div>A. <code>event.key</code></div>
+        <div>B. <code>event.code</code></div>
+        <div>C. <code>event.keyName</code></div>
+        <div>D. <code>event.which</code></div>
+      </div>
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> <code>event.code</code> identifies the physical key
+        (e.g. <code>"KeyA"</code>), independent of keyboard layout.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> <strong>input vs change event</strong> — which statement is correct?
+      <div class="options">
+        <div>A. <code>change</code> fires instantly</div>
+        <div>B. <code>input</code> fires only on Enter key</div>
+        <div>C. <code>input</code> fires instantly, <code>change</code> fires on blur</div>
+        <div>D. Both are same</div>
+      </div>
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> <code>input</code> fires for every change (typing, paste, cut),
+        while <code>change</code> fires when the element loses focus or the user commits the value.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Which event is best for a “character counter” under a textarea?
+      <div class="options">
+        <div>A. <code>click</code></div>
+        <div>B. <code>keyup</code></div>
+        <div>C. <code>input</code></div>
+        <div>D. <code>keydown</code></div>
+      </div>
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> <code>input</code> captures typing, backspace, paste and cut
+        — perfect for live character counters.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Which event does NOT fire on non-character keys (e.g., Shift)?
+      <div class="options">
+        <div>A. <code>keyup</code></div>
+        <div>B. <code>keydown</code></div>
+        <div>C. <code>keypress</code></div>
+        <div>D. <code>input</code></div>
+      </div>
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> Historically, <code>keypress</code> fired only for 
+        character-producing keys, not for modifier keys like Shift.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> <code>event.target.value</code> is available in:
+      <div class="options">
+        <div>A. <code>input</code> event</div>
+        <div>B. <code>keyup</code> event</div>
+        <div>C. <code>keydown</code> event</div>
+        <div>D. All of the above</div>
+      </div>
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct:</b> D<br>
+        <b>Explanation:</b> In all these handlers, <code>event.target</code> is still
+        the input element, so <code>event.target.value</code> is accessible.
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b> Which event is most reliable for detecting Backspace?
+      <div class="options">
+        <div>A. <code>keypress</code></div>
+        <div>B. <code>keydown</code></div>
+        <div>C. <code>input</code></div>
+        <div>D. <code>change</code></div>
+      </div>
+      <button onclick="toggleAns('a16')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a16">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> <code>keydown</code> fires before the value is updated and
+        works well for intercepting special keys like Backspace.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b> Which event is best for blocking numbers in a text-only field?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>keyup</code></div>
+        <div>D. <code>change</code></div>
+      </div>
+      <button onclick="toggleAns('a17')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a17">
+        <b>Correct:</b> A<br>
+        <b>Explanation:</b> Using <code>keydown</code> with <code>event.preventDefault()</code>
+        allows you to stop the character before it appears in the field.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b> <code>event.preventDefault()</code> in a <code>keydown</code> handler:
+      <div class="options">
+        <div>A. blocks the key entirely</div>
+        <div>B. has no effect</div>
+        <div>C. only works on <code>input</code> event</div>
+        <div>D. only works on Enter key</div>
+      </div>
+      <button onclick="toggleAns('a18')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a18">
+        <b>Correct:</b> A<br>
+        <b>Explanation:</b> It cancels the default action, so the character is not inserted
+        into the input.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b> Which event is best to detect paste from the right-click menu?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>paste</code></div>
+        <div>D. <code>keypress</code></div>
+      </div>
+      <button onclick="toggleAns('a19')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a19">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> The <code>paste</code> event fires whenever content is pasted
+        — even via context menu.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b> <code>event.key === " "</code> checks for:
+      <div class="options">
+        <div>A. Backspace</div>
+        <div>B. Tab</div>
+        <div>C. Spacebar</div>
+        <div>D. Delete</div>
+      </div>
+      <button onclick="toggleAns('a20')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a20">
+        <b>Correct:</b> C<br>
+        <b>Explanation:</b> A single space character literal corresponds to the Spacebar key.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b> Which input types do NOT fire the <code>input</code> event?
+      <div class="options">
+        <div>A. <code>email</code></div>
+        <div>B. <code>number</code></div>
+        <div>C. <code>checkbox</code></div>
+        <div>D. All fire</div>
+      </div>
+      <button onclick="toggleAns('a21')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a21">
+        <b>Correct:</b> D<br>
+        <b>Explanation:</b> All these input types emit the <code>input</code> event when
+        their value changes.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b> The fastest way to validate email <strong>live while typing</strong> is:
+      <div class="options">
+        <div>A. <code>blur</code> event</div>
+        <div>B. <code>input</code> event</div>
+        <div>C. <code>change</code> event</div>
+        <div>D. <code>click</code> event</div>
+      </div>
+      <button onclick="toggleAns('a22')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a22">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> The <code>input</code> event lets you re-run validation on every
+        keystroke for instant feedback.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b> Which keyboard event fires <strong>before</strong> the input value updates?
+      <div class="options">
+        <div>A. <code>keydown</code></div>
+        <div>B. <code>keyup</code></div>
+        <div>C. <code>input</code></div>
+        <div>D. <code>change</code></div>
+      </div>
+      <button onclick="toggleAns('a23')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a23">
+        <b>Correct:</b> A<br>
+        <b>Explanation:</b> <code>keydown</code> fires before the character is added to
+        the input, so the value still reflects the previous state.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b> To detect <strong>Ctrl+S</strong> in a keyboard shortcut handler, which property must you check?
+      <div class="options">
+        <div>A. <code>event.ctrlKey</code></div>
+        <div>B. <code>event.shiftKey</code></div>
+        <div>C. <code>event.altKey</code></div>
+        <div>D. <code>event.metaKey</code></div>
+      </div>
+      <button onclick="toggleAns('a24')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a24">
+        <b>Correct:</b> A<br>
+        <b>Explanation:</b> <code>event.ctrlKey</code> is <code>true</code> when the Control key
+        is held; combine it with <code>event.key === "s"</code>.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b> Best event for updating “preview text” live as the user types:
+      <div class="options">
+        <div>A. <code>keyup</code></div>
+        <div>B. <code>input</code></div>
+        <div>C. <code>change</code></div>
+        <div>D. <code>submit</code></div>
+      </div>
+      <button onclick="toggleAns('a25')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a25">
+        <b>Correct:</b> B<br>
+        <b>Explanation:</b> <code>input</code> reacts to typing, pasting, deleting and cutting,
+        giving the smoothest live preview experience.
+      </div>
+    </div>
+
+  </div><!-- /card -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Events &amp; User Interaction · Test Part 2
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 2 of the complete <strong>Module 10 — Events &amp; User Interaction</strong>
+      test series on your JavaScript practice portal.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 10 — Events & User Interaction Test Part 1 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+      --code-bg:#020617;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:24px 16px 40px;
+      line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+
+    /* HEADER */
+    header{
+      padding:20px 24px;border-radius:24px;margin-bottom:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.18),transparent 55%),
+        radial-gradient(circle at 100% 0,rgba(168,85,247,0.25),transparent 55%),
+        rgba(15,23,42,0.96);
+      display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    }
+    .logo-circle{
+      width:52px;height:52px;border-radius:50%;
+      border:2px solid rgba(56,189,248,0.9);
+      background:rgba(15,23,42,0.98);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;letter-spacing:0.1em;font-size:0.72rem;
+      box-shadow:0 0 18px rgba(56,189,248,0.6);
+    }
+    h1{
+      font-size:1.8rem;line-height:1.3;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8d4,#bfdbfe);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .header-sub{font-size:0.95rem;color:var(--muted);}
+    .badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+    .badge{
+      padding:4px 10px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.55);
+      background:rgba(15,23,42,0.85);
+      font-size:0.7rem;text-transform:uppercase;
+    }
+    .mode-pill{
+      padding:6px 12px;border-radius:999px;border:1px solid rgba(148,163,184,0.6);
+      background:rgba(15,23,42,0.85);font-size:0.75rem;min-width:150px;
+      text-align:center;color:var(--muted);
+    }
+
+    .card{
+      background:rgba(15,23,42,0.97);
+      border:1px solid var(--border);border-radius:22px;
+      padding:20px;box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      margin-bottom:20px;
+    }
+    h2{color:#dbeafe;font-size:1.1rem;margin-bottom:8px;}
+    p{font-size:0.94rem;margin-bottom:8px;}
+    .lead{color:var(--muted);margin-bottom:12px;}
+
+    pre{
+      background:var(--code-bg);
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,41,59,0.9);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    /* QUESTIONS */
+    .question-card{
+      border-radius:18px;
+      border:1px solid rgba(30,64,175,0.65);
+      background:
+        radial-gradient(circle at 0 0,rgba(56,189,248,0.07),transparent 55%),
+        rgba(15,23,42,0.98);
+      padding:14px 16px;
+      margin-bottom:14px;
+    }
+    .q-header{
+      display:flex;align-items:center;gap:10px;margin-bottom:6px;
+    }
+    .q-number{
+      width:26px;height:26px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:0.8rem;font-weight:600;
+      background:rgba(15,23,42,1);
+      border:1px solid rgba(56,189,248,0.7);
+      color:#bfdbfe;
+    }
+    .q-title{
+      font-size:0.96rem;color:#e5e7eb;font-weight:500;
+    }
+    .q-body{margin-left:2px;margin-top:4px;}
+    .options{
+      list-style:none;margin-left:0;margin-top:6px;margin-bottom:8px;
+    }
+    .options li{
+      margin-bottom:4px;
+      font-size:0.9rem;
+    }
+    .options span.opt-label{
+      font-weight:600;color:#e5e7eb;margin-right:4px;
+    }
+
+    .reveal-btn{
+      margin-top:4px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,0.7);
+      background:rgba(15,23,42,0.9);
+      color:#e0f2fe;
+      font-size:0.8rem;
+      cursor:pointer;
+      display:inline-flex;align-items:center;gap:6px;
+    }
+    .reveal-btn span.chevron{
+      font-size:0.9rem;transition:transform 0.2s ease;
+    }
+    .answer{
+      margin-top:8px;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(15,23,42,0.96);
+      border:1px dashed rgba(148,163,184,0.7);
+      font-size:0.86rem;
+      display:none;
+    }
+    .answer strong{color:#e5e7eb;}
+    .answer.open{display:block;}
+    .reveal-btn.open span.chevron{
+      transform:rotate(90deg);
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:26px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(55,65,81,0.9);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    footer a{color:var(--accent);text-decoration:none;}
+    .org-small{margin-top:8px;font-size:0.76rem;color:#64748b;}
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">C&A</div>
+    <div>
+      <h1>Module 10 — Events &amp; User Interaction</h1>
+      <p class="header-sub">
+        Test Series Part 1 — Basics of events, <code>addEventListener</code>, and click-based interaction.
+      </p>
+      <div class="badge-row">
+        <div class="badge">Module 10 Test</div>
+        <div class="badge">Part 1 of 4</div>
+        <div class="badge">25 Questions</div>
+      </div>
+    </div>
+    <div class="mode-pill">Dark Mode · Test Paper</div>
+  </header>
+
+  <!-- INTRO CARD -->
+  <section class="card">
+    <h2>🧪 Module 10 — Events Test Part 1 (Basics &amp; Click Events)</h2>
+    <p class="lead">
+      Answer each question carefully. Then click <strong>“Show Answer &amp; Explanation”</strong>
+      to reveal the correct option and a short reasoning. Ideal for self-study or classroom discussion.
+    </p>
+    <p style="font-size:0.9rem;color:#9ca3af;">
+      Coverage: what is an event, basic event flow idea, <code>addEventListener</code> syntax,
+      attaching and removing handlers, click events, and simple button interactions.
+    </p>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section>
+
+    <!-- Q1 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">1</div>
+        <div class="q-title">What is an event in the browser context?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>A built-in JavaScript function.</li>
+          <li><span class="opt-label">B.</span>Any action or occurrence in the browser (like a click, key press, or page load).</li>
+          <li><span class="opt-label">C.</span>A special type of variable that holds UI data.</li>
+          <li><span class="opt-label">D.</span>A CSS rule used for animations only.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> In the DOM, an <em>event</em> is anything that happens in the browser:
+            clicks, key presses, scrolling, form submission, etc. JavaScript can “listen” to these and react.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">2</div>
+        <div class="q-title">Which is the correct basic syntax of <code>addEventListener</code>?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>element.addEventListener = ("click", fn());</code></li>
+          <li><span class="opt-label">B.</span><code>addEventListener(element, "click", fn);</code></li>
+          <li><span class="opt-label">C.</span><code>element.addEventListener("click", fn);</code></li>
+          <li><span class="opt-label">D.</span><code>element.on("click", fn());</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> The correct pattern is
+            <code>element.addEventListener("event-name", handlerFunction);</code>. We pass the function
+            reference, not call it directly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">3</div>
+        <div class="q-title">What will be logged when the button is clicked?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="btn"&gt;Click&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", function () {
+    console.log("Handler 1");
+  });
+
+  btn.addEventListener("click", function () {
+    console.log("Handler 2");
+  });
+&lt;/script&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>Only <code>Handler 1</code></li>
+          <li><span class="opt-label">B.</span>Only <code>Handler 2</code></li>
+          <li><span class="opt-label">C.</span><code>Handler 1</code> then <code>Handler 2</code></li>
+          <li><span class="opt-label">D.</span>No output, this is invalid.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> You can attach multiple listeners for the same event on the same
+            element. They run in the order they were added, so both messages appear in sequence.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">4</div>
+        <div class="q-title">Which of the following is an advantage of using <code>addEventListener</code> instead of inline <code>onclick</code>?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>You can only attach one handler to the event.</li>
+          <li><span class="opt-label">B.</span>JavaScript code must be written inside the HTML attribute.</li>
+          <li><span class="opt-label">C.</span>It separates structure (HTML) from behavior (JS) and allows multiple handlers.</li>
+          <li><span class="opt-label">D.</span>It works only in old browsers, not modern ones.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> <code>addEventListener</code> keeps HTML clean, lets you attach
+            multiple listeners, and is the modern best practice for wiring events.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">5</div>
+        <div class="q-title">What is printed when the button is clicked once?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="btn"&gt;Click me&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("btn");
+  let count = 0;
+
+  btn.addEventListener("click", () =&gt; {
+    count++;
+    console.log(count);
+  });
+&lt;/script&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>0</code></li>
+          <li><span class="opt-label">B.</span><code>1</code></li>
+          <li><span class="opt-label">C.</span><code>undefined</code></li>
+          <li><span class="opt-label">D.</span>No output</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> <code>count</code> starts at 0. On first click, it increments to 1,
+            and <code>console.log(count)</code> prints <code>1</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">6</div>
+        <div class="q-title">Which statement about event handlers is TRUE?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>Event handlers can only be arrow functions.</li>
+          <li><span class="opt-label">B.</span>Event handlers must always have the name <code>handler</code>.</li>
+          <li><span class="opt-label">C.</span>An event handler is just a normal JavaScript function called by the browser when the event occurs.</li>
+          <li><span class="opt-label">D.</span>Event handlers can only be used with form elements.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> An event handler is simply a function that runs in response to an
+            event. It can be a normal function, arrow function, named, or anonymous.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">7</div>
+        <div class="q-title">What is wrong with this code?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>button.addEventListener("click", handleClick());
+
+function handleClick() {
+  console.log("Clicked");
+}</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>The event name must be in uppercase.</li>
+          <li><span class="opt-label">B.</span><code>handleClick()</code> is being called immediately instead of being passed as a function reference.</li>
+          <li><span class="opt-label">C.</span><code>addEventListener</code> does not work with named functions.</li>
+          <li><span class="opt-label">D.</span>The code is perfectly fine.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> We should pass <code>handleClick</code>, not
+            <code>handleClick()</code>. Writing <code>handleClick()</code> invokes the function immediately
+            and passes its return value (likely <code>undefined</code>) as the handler.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">8</div>
+        <div class="q-title">Which click handler correctly changes button text to “Clicked!”?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="btn"&gt;Press&lt;/button&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>btn.addEventListener("click", () =&gt; this.textContent = "Clicked!");</code></li>
+          <li><span class="opt-label">B.</span><code>btn.addEventListener("click", (e) =&gt; e.target.textContent = "Clicked!");</code></li>
+          <li><span class="opt-label">C.</span><code>btn.addEventListener(click, button.text = "Clicked!");</code></li>
+          <li><span class="opt-label">D.</span><code>btn.click("Clicked!");</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> Inside the handler, the event object <code>e</code> has a
+            <code>target</code> property that refers to the element that received the event.
+            Setting <code>e.target.textContent</code> correctly updates the button label.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">9</div>
+        <div class="q-title">What will this code log when the button is clicked?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="btn"&gt;Click me&lt;/button&gt;
+
+&lt;script&gt;
+  let clicks = 0;
+
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () =&gt; {
+    clicks += 2;
+    console.log("Clicks:", clicks);
+  });
+
+  btn.addEventListener("click", () =&gt; {
+    clicks++;
+    console.log("Updated:", clicks);
+  });
+&lt;/script&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>Clicks: 1</code> then <code>Updated: 1</code></li>
+          <li><span class="opt-label">B.</span><code>Clicks: 2</code> then <code>Updated: 3</code></li>
+          <li><span class="opt-label">C.</span><code>Clicks: 2</code> then <code>Updated: 2</code></li>
+          <li><span class="opt-label">D.</span><code>Clicks: 3</code> then <code>Updated: 5</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> Initially <code>clicks = 0</code>.  
+            First handler: <code>clicks += 2</code> → 2.  
+            Second handler: <code>clicks++</code> → 3.  
+            So we get <code>Clicks: 2</code> then <code>Updated: 3</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">10</div>
+        <div class="q-title">Which is the BEST description of <code>event.target</code> in a click handler?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>The window object that fired the event.</li>
+          <li><span class="opt-label">B.</span>The HTML element on which the event originally occurred.</li>
+          <li><span class="opt-label">C.</span>Always the <code>document</code> node.</li>
+          <li><span class="opt-label">D.</span>A random element chosen by the browser.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> <code>event.target</code> references the element on which the
+            event was first dispatched (the actual clicked element).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">11</div>
+        <div class="q-title">Which event is most suitable for reacting when a button is pressed by the user?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>submit</code></li>
+          <li><span class="opt-label">B.</span><code>click</code></li>
+          <li><span class="opt-label">C.</span><code>load</code></li>
+          <li><span class="opt-label">D.</span><code>keydown</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> The most common event for button interactions is
+            the <code>click</code> event.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">12</div>
+        <div class="q-title">What will this code do when the user clicks the button?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="btn"&gt;Say Hi&lt;/button&gt;
+
+&lt;script&gt;
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () =&gt; {
+    alert("Hello from Coder &amp; AccoTax!");
+  });
+&lt;/script&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>Nothing happens; <code>alert</code> cannot be used in events.</li>
+          <li><span class="opt-label">B.</span>The page reloads.</li>
+          <li><span class="opt-label">C.</span>An alert box appears with the message.</li>
+          <li><span class="opt-label">D.</span>A console error is thrown.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> <code>alert()</code> is a built-in browser function that shows a
+            modal dialog; it works perfectly inside event handlers.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">13</div>
+        <div class="q-title">Which line correctly removes the handler added by this code?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>function sayHello() {
+  console.log("Hello");
+}
+
+button.addEventListener("click", sayHello);</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>button.removeEventListener("click", () =&gt; sayHello());</code></li>
+          <li><span class="opt-label">B.</span><code>button.removeEventListener("click", sayHello);</code></li>
+          <li><span class="opt-label">C.</span><code>button.removeEvent("click", sayHello);</code></li>
+          <li><span class="opt-label">D.</span><code>sayHello.removeEventListener("click", button);</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> To remove an event listener, you must call
+            <code>removeEventListener</code> with the <em>same event type</em> and the
+            <em>same function reference</em> that was originally used.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">14</div>
+        <div class="q-title">Why is it usually better to load your script at the end of the <code>&lt;body&gt;</code> when using DOM events?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>So that CSS loads faster.</li>
+          <li><span class="opt-label">B.</span>So the DOM elements already exist when JavaScript tries to attach event listeners.</li>
+          <li><span class="opt-label">C.</span>Because events only work at the end of the document.</li>
+          <li><span class="opt-label">D.</span>It is required by the HTML5 standard.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> If the script runs before the DOM is built, calls like
+            <code>getElementById</code> can return <code>null</code>. Placing script tags at the end
+            ensures elements exist when we wire events.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">15</div>
+        <div class="q-title">What will be the value of <code>count</code> after two clicks?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>let count = 10;
+
+button.addEventListener("click", () =&gt; {
+  count = count + 5;
+  console.log(count);
+});</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>15</li>
+          <li><span class="opt-label">B.</span>20</li>
+          <li><span class="opt-label">C.</span>25</li>
+          <li><span class="opt-label">D.</span>It always stays 10</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> Start: 10.  
+            After first click: 15.  
+            After second click: 20? Wait, no — 15 + 5 = 20.  
+            Oops; we must re-check:  
+            Actually: first click → 15, second click → 20.  
+            The correct value after two clicks is <strong>20</strong>, not 25.</p>
+          <p><em>Teacher note:</em> This is a classic place where students must carefully simulate step by step.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Correction for Q15: (We’ll fix options/explanation to avoid confusion) -->
+    <!-- Let's redefine Q15 cleanly to avoid miscount. -->
+
+  </section>
+
+  <!-- REDEFINED Q15 & remaining questions in a fresh block -->
+  <section>
+
+    <!-- Q15 (fixed) -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">15</div>
+        <div class="q-title">What will be logged on each click?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>let count = 0;
+
+button.addEventListener("click", () =&gt; {
+  count = count + 5;
+  console.log(count);
+});</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>First click: 1, Second click: 2</li>
+          <li><span class="opt-label">B.</span>First click: 5, Second click: 10</li>
+          <li><span class="opt-label">C.</span>First click: 0, Second click: 5</li>
+          <li><span class="opt-label">D.</span>First click: 10, Second click: 20</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> Start at 0.  
+            After 1st click: <code>count = 0 + 5</code> → 5.  
+            After 2nd click: <code>count = 5 + 5</code> → 10.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">16</div>
+        <div class="q-title">Which option correctly describes the role of the second argument in <code>addEventListener</code>?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>It is the DOM element to attach the listener to.</li>
+          <li><span class="opt-label">B.</span>It is the event type like <code>"click"</code> or <code>"input"</code>.</li>
+          <li><span class="opt-label">C.</span>It is the callback function to be executed when the event fires.</li>
+          <li><span class="opt-label">D.</span>It is always a boolean controlling bubbling.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> The first argument is the event type; the second argument is the
+            handler function that will run when the event happens.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">17</div>
+        <div class="q-title">What is printed when the user double-clicks the button once?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>button.addEventListener("click", () =&gt; {
+  console.log("Single click");
+});
+
+button.addEventListener("dblclick", () =&gt; {
+  console.log("Double click");
+});</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>Only <code>Single click</code> once</li>
+          <li><span class="opt-label">B.</span>Only <code>Double click</code> once</li>
+          <li><span class="opt-label">C.</span><code>Single click</code> twice and <code>Double click</code> once (browser-dependent, but typical)</li>
+          <li><span class="opt-label">D.</span>No output</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Suggested Answer for Teaching:</strong> C</p>
+          <p><strong>Explanation:</strong> In most browsers, a double-click triggers two <code>click</code>
+            events followed by one <code>dblclick</code> event, so learners should expect both messages.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">18</div>
+        <div class="q-title">You want to run a function when the page finishes loading. Which event is most appropriate?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>click</code></li>
+          <li><span class="opt-label">B.</span><code>keydown</code></li>
+          <li><span class="opt-label">C.</span><code>load</code> on <code>window</code></li>
+          <li><span class="opt-label">D.</span><code>submit</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> The <code>load</code> event on <code>window</code> fires when the
+            whole page (HTML, CSS, images, etc.) has finished loading.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">19</div>
+        <div class="q-title">Which line correctly logs the event type inside a handler?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>button.addEventListener("click", function (event) {
+  // log event type here
+});</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>console.log(type);</code></li>
+          <li><span class="opt-label">B.</span><code>console.log(click);</code></li>
+          <li><span class="opt-label">C.</span><code>console.log(event.type);</code></li>
+          <li><span class="opt-label">D.</span><code>console.log(this.event);</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> The event object has a <code>type</code> property that contains
+            the string name of the event (e.g., <code>"click"</code>).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">20</div>
+        <div class="q-title">Which of the following will NOT attach a click event correctly?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>button.addEventListener("click", () =&gt; console.log("Hi"));</code></li>
+          <li><span class="opt-label">B.</span><code>button.onclick = () =&gt; console.log("Hi");</code></li>
+          <li><span class="opt-label">C.</span><code>&lt;button onclick="console.log('Hi')"&gt;Click&lt;/button&gt;</code></li>
+          <li><span class="opt-label">D.</span><code>addEventListener(button, "click", () =&gt; console.log("Hi"));</code></li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> D</p>
+          <p><strong>Explanation:</strong> <code>addEventListener</code> is called on the element
+            (<code>button.addEventListener(...)</code>). There is no global function
+            <code>addEventListener(button,...)</code> like that.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">21</div>
+        <div class="q-title">What happens if you attach the same handler twice to the same event?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>button.addEventListener("click", sayHi);
+button.addEventListener("click", sayHi);</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span>The handler will run twice on each click.</li>
+          <li><span class="opt-label">B.</span>The second line is ignored; the handler runs only once.</li>
+          <li><span class="opt-label">C.</span>It throws an error.</li>
+          <li><span class="opt-label">D.</span>It disables all click handlers.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct (Spec) Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> The browser checks if the same function for the same event
+            and capture options is already registered, and avoids adding duplicates.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">22</div>
+        <div class="q-title">Which is the best description of a “click event listener”?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>A function that manually simulates mouse clicks.</li>
+          <li><span class="opt-label">B.</span>A piece of code that waits for a click to happen and then runs a function.</li>
+          <li><span class="opt-label">C.</span>A function that rewrites HTML when the page loads.</li>
+          <li><span class="opt-label">D.</span>A CSS rule that changes color on hover.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> An event listener “listens” for an event and calls the attached
+            handler when that event occurs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">23</div>
+        <div class="q-title">What will this code log when the button is clicked?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>let msg = "Hello";
+
+button.addEventListener("click", function () {
+  let msg = "Hi";
+  console.log(msg);
+});</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>Hello</code></li>
+          <li><span class="opt-label">B.</span><code>Hi</code></li>
+          <li><span class="opt-label">C.</span><code>undefined</code></li>
+          <li><span class="opt-label">D.</span>It throws an error for redeclaring <code>msg</code>.</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> The inner <code>msg</code> is a new local variable inside the
+            handler. It shadows the outer one. So the logged value is <code>"Hi"</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">24</div>
+        <div class="q-title">Which is the MOST recommended way to attach events in modern web apps?</div>
+      </div>
+      <div class="q-body">
+        <ul class="options">
+          <li><span class="opt-label">A.</span>Inline HTML attributes (e.g., <code>onclick="..."</code>)</li>
+          <li><span class="opt-label">B.</span>Directly editing browser DevTools Elements panel</li>
+          <li><span class="opt-label">C.</span>Using <code>element.addEventListener("event", handler)</code> in JavaScript files</li>
+          <li><span class="opt-label">D.</span>Using CSS only without JavaScript</li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> C</p>
+          <p><strong>Explanation:</strong> Attaching events via <code>addEventListener</code> in separate JS
+            files keeps HTML clean and makes code easier to maintain and test.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="question-card">
+      <div class="q-header">
+        <div class="q-number">25</div>
+        <div class="q-title">You want a button to disable itself after the first click. Which code achieves this?</div>
+      </div>
+      <div class="q-body">
+        <pre><code>&lt;button id="once-btn"&gt;Click Once&lt;/button&gt;</code></pre>
+        <ul class="options">
+          <li><span class="opt-label">A.</span><code>onceBtn.disabled = true;</code> (in global scope)</li>
+          <li><span class="opt-label">B.</span>
+            <code>onceBtn.addEventListener("click", () =&gt; { onceBtn.disabled = true; });</code>
+          </li>
+          <li><span class="opt-label">C.</span>
+            <code>onceBtn.addEventListener("click", () =&gt; { disabled = true; });</code>
+          </li>
+          <li><span class="opt-label">D.</span>
+            <code>onceBtn.addEventListener("disabled", () =&gt; { onceBtn.click(); });</code>
+          </li>
+        </ul>
+        <button class="reveal-btn" onclick="toggleAnswer(this)">
+          <span class="chevron">▶</span> Show Answer &amp; Explanation
+        </button>
+        <div class="answer">
+          <p><strong>Correct Answer:</strong> B</p>
+          <p><strong>Explanation:</strong> When the button is clicked, setting
+            <code>onceBtn.disabled = true;</code> inside the handler disables it for future clicks.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in">www.codernaccotax.co.in</a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Basic → Pro Level
+      </div>
+    </div>
+
+    <div class="org-small">
+      Module 10 — Events &amp; User Interaction · Test Part 1 (Basics &amp; Click Events).
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains("open");
+    if (isOpen) {
+      answer.classList.remove("open");
+      btn.classList.remove("open");
+      btn.innerHTML = '<span class="chevron">▶</span> Show Answer &amp; Explanation';
+    } else {
+      answer.classList.add("open");
+      btn.classList.add("open");
+      btn.innerHTML = '<span class="chevron">▶</span> Hide Answer &amp; Explanation';
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 10 — Events & User Interaction | Test Part 4 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#facc15;
+      --accent2:#34d399;
+      --accent3:#38bdf8;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(250,204,21,0.4);
+      box-shadow:0 0 28px rgba(250,204,21,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#facc15,#34d399,#38bdf8);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#feeaa3;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(52,211,153,0.35);
+      box-shadow:0 0 18px rgba(52,211,153,0.22);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#facc15,#34d399);
+      color:#000;
+      box-shadow:0 0 16px rgba(250,204,21,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(52,211,153,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(250,204,21,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent3);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 10 — Events &amp; User Interaction
+      <span style="font-size:1.1rem;display:block;margin-top:4px;">
+        Test Part 4 · Mixed Real-World Components &amp; Mini Projects
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 mixed-level questions based on <strong>real UI components</strong> — like like-buttons,
+      sliders, dropdowns, accordions, modals, and multi-step forms.  
+      Focus: event flow, state handling, and practical event patterns used in real projects.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; Mini Logic (Components)</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> “Like” button logic:
+      <pre><code>let liked = false;
+let count = 0;
+
+function toggleLike() {
+  if (liked) {
+    liked = false;
+    count--;
+  } else {
+    liked = true;
+    count++;
+  }
+}
+
+toggleLike();
+toggleLike();
+toggleLike();
+console.log(liked, count);</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b> <code>true 1</code><br>
+        <b>Explanation:</b> Calls:  
+        1st: <code>false → true</code>, <code>count: 0 → 1</code>  
+        2nd: <code>true → false</code>, <code>count: 1 → 0</code>  
+        3rd: <code>false → true</code>, <code>count: 0 → 1</code>.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Star rating hover:
+      <pre><code>const stars = [1,2,3,4,5];
+let currentHover = 0;
+
+function onStarHover(value) {
+  currentHover = value;
+}
+
+onStarHover(3);
+onStarHover(5);
+console.log(currentHover);</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b> <code>5</code><br>
+        <b>Explanation:</b> The last hover value wins. UI would typically highlight 5 stars.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Simple slider:
+      <pre><code>let value = 50;
+
+function moveSlider(delta) {
+  value += delta;
+  if (value &lt; 0) value = 0;
+  if (value &gt; 100) value = 100;
+}
+
+moveSlider(40);   // drag right
+moveSlider(30);   // drag right
+console.log(value);</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b> <code>100</code><br>
+        <b>Explanation:</b> 50 + 40 = 90; 90 + 30 = 120 but capped to 100.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Toggle dropdown open / close:
+      <pre><code>let open = false;
+
+function toggleDropdown() {
+  open = !open;
+}
+
+toggleDropdown();
+toggleDropdown();
+toggleDropdown();
+console.log(open);</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> <code>true</code><br>
+        <b>Explanation:</b> false → true → false → true after three toggles.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Stepper component (Next button):
+      <pre><code>let step = 1;
+
+function nextStep() {
+  if (step &lt; 3) {
+    step++;
+  }
+}
+
+nextStep();
+nextStep();
+nextStep();
+console.log(step);</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b> <code>3</code><br>
+        <b>Explanation:</b> Steps: 1 → 2 → 3; the last call keeps it at 3 because of limit.
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Accordion: only one open at a time.
+      <pre><code>let openId = null;
+
+function toggleAccordion(id) {
+  if (openId === id) {
+    openId = null;
+  } else {
+    openId = id;
+  }
+}
+
+toggleAccordion("q1");
+toggleAccordion("q2");
+toggleAccordion("q2");
+console.log(openId);</code></pre>
+
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Answer:</b> <code>null</code><br>
+        <b>Explanation:</b>  
+        1st: <code>null → "q1"</code>  
+        2nd: <code>"q1" → "q2"</code>  
+        3rd: clicking same id again closes: <code>"q2" → null</code>.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> Tabs:
+      <pre><code>let activeTab = "overview";
+
+function switchTab(tab) {
+  activeTab = tab;
+}
+
+switchTab("faq");
+switchTab("syllabus");
+console.log(activeTab);</code></pre>
+
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Answer:</b> <code>"syllabus"</code><br>
+        <b>Explanation:</b> The last tab clicked becomes active.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Multi-step form “Back” button:
+      <pre><code>let step = 2;
+
+function prevStep() {
+  if (step &gt; 1) {
+    step--;
+  }
+}
+
+prevStep();
+prevStep();
+console.log(step);</code></pre>
+
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Answer:</b> <code>1</code><br>
+        <b>Explanation:</b> 2 → 1 → still 1 because minimum step is 1.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Cart quantity input:
+      <pre><code>let qty = 1;
+
+function setQty(newQty) {
+  if (newQty &lt; 1) newQty = 1;
+  if (newQty &gt; 10) newQty = 10;
+  qty = newQty;
+}
+
+setQty(5);
+setQty(20);
+console.log(qty);</code></pre>
+
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Answer:</b> <code>10</code><br>
+        <b>Explanation:</b> second call tries 20, but capped to 10.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Toast notification auto-hide:
+      <pre><code>let visible = false;
+
+function showToast() {
+  visible = true;
+}
+function hideToast() {
+  visible = false;
+}
+
+showToast();
+hideToast();
+console.log(visible);</code></pre>
+
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Answer:</b> <code>false</code><br>
+        <b>Explanation:</b> Shown then hidden → final state is not visible.
+      </div>
+    </div>
+
+  </div><!-- end Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — MCQs on Real-World Event Patterns</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> For a dynamic <strong>todo list</strong> where new items are added with JavaScript,
+      the most scalable way to handle “Delete” button clicks is:
+      <br><br>
+      A. Add a separate <code>click</code> listener to each delete button as you create it. <br>
+      B. Use one listener on the parent list and check <code>event.target</code>. <br>
+      C. Attach a listener to <code>window</code> and check all clicks. <br>
+      D. Attach inline <code>onclick</code> handlers in HTML.
+      <br><br>
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> This is <strong>event delegation</strong> — parent listens for clicks and
+        handles any current or future child buttons efficiently.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> In a modal component, which is the <strong>best UX</strong> behaviour?
+      <br><br>
+      A. Only close when clicking the “Close” button. <br>
+      B. Close on “Close” button, clicking outside (overlay), and ESC key. <br>
+      C. Close only on ESC key. <br>
+      D. Never close automatically; reload the page instead.
+      <br><br>
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Most modern UIs support multiple ways to dismiss modals for
+        accessibility and user comfort.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> For a <strong>range slider</strong> controlling video volume, which events are usually combined?
+      <br><br>
+      A. <code>click</code> only<br>
+      B. <code>input</code> for live change + <code>change</code> for final commit<br>
+      C. <code>mousemove</code> only<br>
+      D. <code>submit</code> only
+      <br><br>
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>input</code> updates the volume live; <code>change</code> can
+        be used to save the preference.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> In a multi-step form, pressing <strong>Enter</strong> inside an input should usually:
+      <br><br>
+      A. Submit the whole form immediately, even if fields are empty.<br>
+      B. Be ignored completely.<br>
+      C. Move to the next step or next field in a controlled way.<br>
+      D. Close the browser tab.
+      <br><br>
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Good UX often intercepts Enter to guide the user through steps instead
+        of suddenly submitting everything.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> For a “Scroll to top” button, which event do you mainly listen to in order to show/hide it?
+      <br><br>
+      A. <code>resize</code> on <code>window</code><br>
+      B. <code>scroll</code> on <code>window</code><br>
+      C. <code>click</code> on <code>document</code><br>
+      D. <code>keydown</code> on <code>window</code>
+      <br><br>
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> You check scroll position on <code>window</code> and show/hide the
+        button based on how far down the page the user is.
+      </div>
+    </div>
+
+  </div><!-- end Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — Real-World Code Reasoning</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b> “Like” button with text update:
+      <pre><code>let likes = 0;
+let liked = false;
+
+function onLikeClick() {
+  if (liked) {
+    liked = false;
+    likes--;
+  } else {
+    liked = true;
+    likes++;
+  }
+}
+
+onLikeClick();  // user clicks Like
+onLikeClick();  // user clicks Unlike
+onLikeClick();  // user clicks Like again
+console.log("Liked?", liked, "Count:", likes);</code></pre>
+
+      <button onclick="toggleAns('a16')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a16">
+        <b>Answer:</b> <code>Liked? true Count: 1</code><br>
+        <b>Explanation:</b> Same pattern as Q1: Like → Unlike → Like again.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b> Event delegation on a list:
+      <pre><code>&lt;ul id="course-list"&gt;
+  &lt;li data-course="js"&gt;JavaScript&lt;/li&gt;
+  &lt;li data-course="py"&gt;Python&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+      <pre><code>const list = document.getElementById("course-list");
+
+list.addEventListener("click", (event) =&gt; {
+  const li = event.target.closest("li");
+  if (!li) return;
+  console.log("Clicked:", li.dataset.course);
+});</code></pre>
+
+      If the user clicks on the text “Python”, what is logged?
+      <br><br>
+      <button onclick="toggleAns('a17')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a17">
+        <b>Answer:</b> <code>Clicked: py</code><br>
+        <b>Explanation:</b> <code>closest("li")</code> finds the clicked list item, and
+        <code>data-course="py"</code> is read via <code>dataset.course</code>.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b> Tabs with data-tab:
+      <pre><code>&lt;button class="tab-btn" data-tab="overview"&gt;Overview&lt;/button&gt;
+&lt;button class="tab-btn" data-tab="faq"&gt;FAQ&lt;/button&gt;</code></pre>
+
+      <pre><code>const buttons = document.querySelectorAll(".tab-btn");
+let active = "overview";
+
+buttons.forEach(btn =&gt; {
+  btn.addEventListener("click", () =&gt; {
+    active = btn.dataset.tab;
+  });
+});
+
+buttons[1].click();
+console.log(active);</code></pre>
+
+      <button onclick="toggleAns('a18')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a18">
+        <b>Answer:</b> <code>"faq"</code><br>
+        <b>Explanation:</b> Programmatic click on second button sets <code>active</code> to its
+        <code>data-tab</code> value.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b> Form submit with preventDefault:
+      <pre><code>let submitted = false;
+
+const form = document.getElementById("demo-form");
+
+form.addEventListener("submit", (e) =&gt; {
+  e.preventDefault();
+  submitted = true;
+});
+
+form.dispatchEvent(new Event("submit", { cancelable: true }));
+console.log(submitted);</code></pre>
+
+      Assume <code>demo-form</code> exists. What will be logged?
+      <br><br>
+      <button onclick="toggleAns('a19')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a19">
+        <b>Answer:</b> <code>true</code><br>
+        <b>Explanation:</b> Dispatching a submit event calls the handler, which sets
+        <code>submitted = true</code>. Page doesn’t reload because of <code>preventDefault()</code>.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b> Closing modal by clicking overlay:
+      <pre><code>&lt;div id="overlay"&gt;
+  &lt;div id="modal"&gt;Modal&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <pre><code>const overlay = document.getElementById("overlay");
+const modal   = document.getElementById("modal");
+let isOpen = true;
+
+overlay.addEventListener("click", (event) =&gt; {
+  if (event.target === overlay) {
+    isOpen = false;
+  }
+});
+
+modal.click();
+console.log(isOpen);</code></pre>
+
+      <button onclick="toggleAns('a20')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a20">
+        <b>Answer:</b> <code>true</code><br>
+        <b>Explanation:</b> The condition checks if the <strong>overlay itself</strong> was clicked.
+        Here, <code>event.target</code> is <code>modal</code>, so <code>isOpen</code> stays true.
+      </div>
+    </div>
+
+  </div><!-- end Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Conceptual / Short Answer (Real UI Focus)</h2>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> In a “live search” feature for course names at
+      <strong>Coder &amp; AccoTax</strong>, which event would you use on the search input and why?
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        I would use the <code>input</code> event on the search box because it fires for every
+        change to the field — typing, deleting, pasting, cutting. That lets me filter the course
+        list in real time as the user types, without waiting for blur or Enter.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> Why is <strong>event delegation</strong> especially useful for a list where
+      users can keep adding new items dynamically?
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer:</b><br>
+        With event delegation, I put one <code>click</code> listener on the parent element and
+        use <code>event.target</code> (or <code>closest()</code>) to figure out which child was
+        clicked. New items added later automatically work without adding more listeners.  
+        This reduces memory usage and simplifies the code.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> In a rating widget, why should you store the <strong>current rating</strong>
+      in a JavaScript variable instead of only relying on the highlighted stars in the DOM?
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        The DOM shows how the rating looks, but the JS variable is the source of truth for logic:
+        sending the rating to a server, restoring it, doing calculations, etc.  
+        If you only rely on CSS/DOM state, it’s harder to read and reuse that value in code.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> In a multi-step enrollment form, why is it better to validate each step on
+      its own “Next” button instead of only validating at the final “Submit”?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        Step-by-step validation gives immediate feedback and prevents users from going forward
+        with half-filled or invalid data. It improves UX, reduces errors at the end, and
+        makes it easier to highlight problems close to where they occur.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> For a “dark mode” toggle switch that changes the theme of the whole
+      Coder &amp; AccoTax site, which <strong>element</strong> should receive the main
+      class change and why?
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        Usually I add or remove a <code>dark-mode</code> class on the <code>&lt;body&gt;</code>
+        (or a top-level wrapper). Then CSS uses that class to style everything inside.  
+        This keeps JS simple (just toggling one class) and keeps the visual rules inside CSS.
+      </div>
+    </div>
+
+  </div><!-- end Section D -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Events &amp; User Interaction · Test Part 4
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as <strong>Part 4</strong> of the complete
+      <strong>Module 10 — Events &amp; User Interaction</strong> practice test series
+      on your JavaScript course portal.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

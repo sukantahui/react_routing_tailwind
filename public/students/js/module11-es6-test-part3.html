@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 11 — ES6+ Features Test Part 3 | Spread, Rest & Enhanced Objects | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#e0f2fe;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;
+      box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 11 — ES6+ Features  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 3 · Spread, Rest & Enhanced Object Literals
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 output, MCQ, practical and conceptual questions from 
+      <strong>spread operator</strong>, <strong>rest parameters</strong>, 
+      <strong>object merging</strong>, <strong>array copying</strong>, 
+      <strong>default parameters</strong>, and 
+      <strong>enhanced object literals</strong>.
+    </p>
+  </div>
+
+  <!-- ===================== SECTION A ===================== -->
+  <div class="card">
+    <h2>Section A — Output Questions (Spread, Rest, Object Literals)</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> Predict the output:
+      <pre><code>const arr1 = [1, 2];
+const arr2 = [3, 4];
+const result = [...arr1, ...arr2];
+console.log(result);</code></pre>
+
+      <button onclick="toggleAns('p3_a1')">Show Answer</button>
+      <div class="answer" id="p3_a1">
+        <b>Answer:</b> <code>[1, 2, 3, 4]</code><br>
+        Spread expands arrays into individual elements.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output?
+      <pre><code>const base = { a: 1, b: 2 };
+const extra = { b: 5, c: 10 };
+const combined = { ...base, ...extra };
+console.log(combined);</code></pre>
+
+      <button onclick="toggleAns('p3_a2')">Show Answer</button>
+      <div class="answer" id="p3_a2">
+        <b>Answer:</b> <code>{ a: 1, b: 5, c: 10 }</code><br>
+        Properties in <code>extra</code> override those in <code>base</code>.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> What does this log?
+      <pre><code>function sum(...nums) {
+  return nums.reduce((a, c) => a + c, 0);
+}
+console.log(sum(1, 2, 3));</code></pre>
+
+      <button onclick="toggleAns('p3_a3')">Show Answer</button>
+      <div class="answer" id="p3_a3">
+        <b>Answer:</b> <code>6</code><br>
+        Rest collects all parameters into an array.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Output?
+      <pre><code>const [first, ...others] = [10, 20, 30, 40];
+console.log(first);
+console.log(others);</code></pre>
+
+      <button onclick="toggleAns('p3_a4')">Show Answer</button>
+      <div class="answer" id="p3_a4">
+        <code>10</code><br>
+        <code>[20, 30, 40]</code>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Output?
+      <pre><code>const obj = { x: 1, y: 2 };
+const clone = { ...obj };
+clone.x = 99;
+console.log(obj.x);</code></pre>
+
+      <button onclick="toggleAns('p3_a5')">Show Answer</button>
+      <div class="answer" id="p3_a5">
+        <b>Answer:</b> <code>1</code><br>
+        Spread creates a shallow copy—modifying clone does not affect original.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== SECTION B ===================== -->
+  <div class="card">
+    <h2>Section B — MCQs on Spread, Rest & Enhanced Objects</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Spread operator is used to:
+      <br><br>
+      A. Merge arrays  
+      B. Copy objects  
+      C. Expand iterable elements  
+      D. All of the above  
+      <br><br>
+      <button onclick="toggleAns('p3_a6')">Show Answer</button>
+      <div class="answer" id="p3_a6"><b>Correct:</b> D</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> Rest operator is used to:
+      <br><br>
+      A. Collect remaining values  
+      B. Spread arrays  
+      C. Duplicate keys  
+      D. Create deep copy  
+      <br><br>
+      <button onclick="toggleAns('p3_a7')">Show Answer</button>
+      <div class="answer" id="p3_a7"><b>Correct:</b> A</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Which is a valid rest parameter?
+      <br><br>
+      A. <code>function fn(...a)</code>  
+      B. <code>function fn(a..., b)</code>  
+      C. <code>function fn(..a)</code>  
+      D. None  
+      <br><br>
+      <button onclick="toggleAns('p3_a8')">Show Answer</button>
+      <div class="answer" id="p3_a8"><b>Correct:</b> A</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Enhanced object literal feature includes:
+      <br><br>
+      A. Property shorthand  
+      B. Method shorthand  
+      C. Computed property names  
+      D. All  
+      <br><br>
+      <button onclick="toggleAns('p3_a9')">Show Answer</button>
+      <div class="answer" id="p3_a9"><b>Correct:</b> D</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Which operator merges objects?
+      <br><br>
+      A. <code>&amp;&amp;</code>  
+      B. <code>??</code>  
+      C. <code>...</code>  
+      D. <code>||</code>  
+      <br><br>
+      <button onclick="toggleAns('p3_a10')">Show Answer</button>
+      <div class="answer" id="p3_a10"><b>Correct:</b> C</div>
+    </div>
+
+  </div>
+
+  <!-- ===================== SECTION C ===================== -->
+  <div class="card">
+    <h2>Section C — Practical Coding Questions</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Rewrite this using spread:
+      <pre><code>const a = [1,2];
+const b = [3,4];
+const c = a.concat(b);</code></pre>
+
+      <button onclick="toggleAns('p3_a11')">Show Answer</button>
+      <div class="answer" id="p3_a11">
+        <code>const c = [...a, ...b];</code>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Create a function <code>multiplyAll(...nums)</code> that multiplies all parameters.
+
+      <button onclick="toggleAns('p3_a12')">Show Answer</button>
+      <div class="answer" id="p3_a12">
+<pre><code>function multiplyAll(...nums){
+  return nums.reduce((a,b)=>a*b,1);
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Using enhanced object literals, create:
+      <pre><code>{ name, course, print() }</code></pre>
+
+      <button onclick="toggleAns('p3_a13')">Show Answer</button>
+      <div class="answer" id="p3_a13">
+<pre><code>const obj = {
+  name,
+  course,
+  print(){
+    console.log(name, course);
+  }
+};</code></pre>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Use rest to extract first two marks.
+
+      <pre><code>const marks = [80, 90, 95, 88];</code></pre>
+
+      <button onclick="toggleAns('p3_a14')">Show Answer</button>
+      <div class="answer" id="p3_a14">
+<pre><code>const [m1, m2, ...others] = marks;</code></pre>
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Merge two objects with spread:
+      <pre><code>const base = {course:"JS"};
+const extra = {student:"Amit"};</code></pre>
+
+      <button onclick="toggleAns('p3_a15')">Show Answer</button>
+      <div class="answer" id="p3_a15">
+<code>const full = { ...base, ...extra };</code>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== SECTION D ===================== -->
+  <div class="card">
+    <h2>Section D — Conceptual Questions</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b> Why is spread safer than <code>Object.assign()</code> for copying objects?
+      <button onclick="toggleAns('p3_a16')">Show Answer</button>
+      <div class="answer" id="p3_a16">
+        Because spread syntax is cleaner and avoids mutating the target object.
+        <code>Object.assign()</code> mutates the first argument.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b> Explain the difference between spread and rest in one sentence.
+      <button onclick="toggleAns('p3_a17')">Show Answer</button>
+      <div class="answer" id="p3_a17">
+        Spread expands values; rest collects values.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b> Why use method shorthand in objects?
+      <button onclick="toggleAns('p3_a18')">Show Answer</button>
+      <div class="answer" id="p3_a18">
+        It makes code shorter, cleaner, and is the modern ES6 standard for object methods.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b> What happens if two objects merged via spread have the same key?
+      <button onclick="toggleAns('p3_a19')">Show Answer</button>
+      <div class="answer" id="p3_a19">
+        The value from the later object overrides the earlier one.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b> Why is rest parameter useful in functions?
+      <button onclick="toggleAns('p3_a20')">Show Answer</button>
+      <div class="answer" id="p3_a20">
+        It allows functions to accept unlimited arguments without using <code>arguments</code> object.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b> Can rest be used in object destructuring?
+      <button onclick="toggleAns('p3_a21')">Show Answer</button>
+      <div class="answer" id="p3_a21">
+<pre><code>const {a, ...rest} = obj;</code></pre>
+Yes, it collects remaining properties.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b> Why is spread often used in React?
+      <button onclick="toggleAns('p3_a22')">Show Answer</button>
+      <div class="answer" id="p3_a22">
+        It helps easily clone state, pass props, and update nested objects immutably.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b> Example of computed property name?
+      <button onclick="toggleAns('p3_a23')">Show Answer</button>
+      <div class="answer" id="p3_a23">
+<pre><code>const key="name";
+const obj={ [key]:"Amit" };</code></pre>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b> Give a real-life use of spread in arrays.
+      <button onclick="toggleAns('p3_a24')">Show Answer</button>
+      <div class="answer" id="p3_a24">
+        Copying arrays before modifying them to maintain immutability.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b> Why are ES6 spread/rest essential for modern JS developers?
+      <button onclick="toggleAns('p3_a25')">Show Answer</button>
+      <div class="answer" id="p3_a25">
+        They simplify merging, cloning, parameter handling, and make code more expressive,
+        especially in frameworks like React, Node.js, and modern API design.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 11 — ES6+ Features · Test Part 3
+      </div>
+    </div>
+
+    <div class="org-small">
+      This is Part 3 of the complete <strong>Module 11 — ES6+ Test Series</strong>
+      used in the JavaScript From Basic to Pro course.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

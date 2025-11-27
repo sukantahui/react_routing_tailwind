@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 11 — ES6+ Features Test Part 4 | Optional Chaining, Nullish Coalescing & Mixed ES6 | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#e0f2fe;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;
+      box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 11 — ES6+ Features  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 4 · Optional Chaining, Nullish Coalescing & Mixed ES6 Revision
+      </span>
+    </h1>
+    <p class="intro-sub">
+      Final 25-question revision set for <strong>Module 11</strong>, focusing on
+      <strong>optional chaining (?.)</strong>, <strong>nullish coalescing (??)</strong>,
+      and <strong>mixed ES6+ patterns</strong> used in modern JavaScript and frameworks.
+    </p>
+  </div>
+
+  <!-- =============== SECTION A =============== -->
+  <div class="card">
+    <h2>Section A — Output Questions (Optional Chaining &amp; ??)</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> Predict the output:
+      <pre><code>const student = {
+  name: "Amit",
+  contact: {
+    email: "amit@example.com"
+  }
+};
+
+console.log(student.contact?.email);
+console.log(student.address?.city);</code></pre>
+
+      <button onclick="toggleAns('p4_a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a1">
+        <b>Answer:</b><br>
+        <code>"amit@example.com"</code><br>
+        <code>undefined</code><br>
+        <b>Explanation:</b> <code>contact</code> exists, so <code>email</code> is read normally.
+        <code>address</code> is <code>undefined</code>, so <code>address?.city</code> becomes
+        <code>undefined</code> without throwing an error.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> What will this log?
+      <pre><code>const marks = null;
+const finalMarks = marks ?? 50;
+console.log(finalMarks);</code></pre>
+
+      <button onclick="toggleAns('p4_a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a2">
+        <b>Answer:</b> <code>50</code><br>
+        <b>Explanation:</b> <code>??</code> uses right side only if left is
+        <code>null</code> or <code>undefined</code>. Here it is <code>null</code>, so 50 is used.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Predict the output:
+      <pre><code>const input = 0;
+
+const a = input || 100;
+const b = input ?? 100;
+
+console.log(a, b);</code></pre>
+
+      <button onclick="toggleAns('p4_a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a3">
+        <b>Answer:</b> <code>100 0</code><br>
+        <b>Explanation:</b> <code>||</code> treats <code>0</code> as falsy and chooses 100.
+        <code>??</code> only treats <code>null/undefined</code> as “empty”, so it keeps 0.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> What is logged?
+      <pre><code>const centre = {
+  name: "Coder &amp; AccoTax",
+  address: {
+    city: "Barrackpore"
+  }
+};
+
+console.log(centre.address?.city ?? "City NA");
+console.log(centre.branch?.city ?? "City NA");</code></pre>
+
+      <button onclick="toggleAns('p4_a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a4">
+        <b>Answer:</b><br>
+        <code>"Barrackpore"</code><br>
+        <code>"City NA"</code><br>
+        <b>Explanation:</b> First time, city exists. Second time, <code>branch</code> is
+        <code>undefined</code>, optional chaining returns <code>undefined</code>, then
+        <code>??</code> uses the fallback.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> What is printed?
+      <pre><code>const config = {
+  theme: null
+};
+
+const theme = config.theme ?? "dark";
+console.log(theme);</code></pre>
+
+      <button onclick="toggleAns('p4_a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a5">
+        <b>Answer:</b> <code>"dark"</code><br>
+        <b>Explanation:</b> theme is explicitly <code>null</code>, so <code>??</code> uses
+        default "dark".
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== SECTION B =============== -->
+  <div class="card">
+    <h2>Section B — MCQs on Optional Chaining &amp; Nullish Coalescing</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Optional chaining <code>?.</code> helps you:
+      <br><br>
+      A. Avoid TypeError when accessing nested properties  
+      B. Automatically create missing objects  
+      C. Deep clone objects  
+      D. Compare two objects  
+      <br><br>
+      <button onclick="toggleAns('p4_a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a6">
+        <b>Correct:</b> A<br>
+        It safely returns <code>undefined</code> instead of throwing an error.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> <code>a ?? b</code> returns:
+      <br><br>
+      A. <code>b</code> if <code>a</code> is falsy  
+      B. <code>a</code> if <code>a</code> is not null/undefined, else <code>b</code>  
+      C. <code>b</code> if <code>a</code> is 0  
+      D. Always <code>b</code>  
+      <br><br>
+      <button onclick="toggleAns('p4_a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a7">
+        <b>Correct:</b> B
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> Which is valid usage of optional chaining?
+      <br><br>
+      A. <code>obj?.prop</code>  
+      B. <code>obj?.method()</code>  
+      C. <code>arr?.[0]</code>  
+      D. All of the above  
+      <br><br>
+      <button onclick="toggleAns('p4_a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a8">
+        <b>Correct:</b> D
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Which statement about <code>||</code> vs <code>??</code> is true?
+      <br><br>
+      A. Both treat 0 and "" as empty  
+      B. <code>??</code> is same as <code>||</code>  
+      C. <code>||</code> checks falsy values; <code>??</code> only checks null/undefined  
+      D. <code>||</code> only works with numbers  
+      <br><br>
+      <button onclick="toggleAns('p4_a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a9">
+        <b>Correct:</b> C
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Optional chaining can be used:
+      <br><br>
+      A. Only with objects  
+      B. With objects, arrays and functions  
+      C. Only in React  
+      D. Only in Node.js  
+      <br><br>
+      <button onclick="toggleAns('p4_a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a10">
+        <b>Correct:</b> B
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== SECTION C =============== -->
+  <div class="card">
+    <h2>Section C — Mixed ES6+ Coding &amp; Refactoring</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Refactor using optional chaining &amp; ??:
+      <pre><code>// Original:
+const city = student 
+  && student.address 
+  && student.address.city 
+    ? student.address.city 
+    : "City Not Available";</code></pre>
+
+      <button onclick="toggleAns('p4_a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a11">
+<pre><code>const city = student?.address?.city ?? "City Not Available";</code></pre>
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Complete this to get a safe mobile number:
+      <pre><code>const mobile = user /* ??? */ "Not Provided";</code></pre>
+      It should read <code>user.contact.phone</code> safely with a default `"Not Provided"`.
+
+      <button onclick="toggleAns('p4_a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a12">
+<pre><code>const mobile = user?.contact?.phone ?? "Not Provided";</code></pre>
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Rewrite to keep 0 as a valid input:
+      <pre><code>const discount = userInput || 10;</code></pre>
+      Use <code>??</code> so 0 is not replaced.
+
+      <button onclick="toggleAns('p4_a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a13">
+<pre><code>const discount = userInput ?? 10;</code></pre>
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> Using destructuring + default parameters, complete:
+      <pre><code>function showCourse({ name, course = "JavaScript" } /* ??? */) {
+  console.log(`${name} - ${course}`);
+}</code></pre>
+      It should work with missing <code>course</code> field.
+
+      <button onclick="toggleAns('p4_a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a14">
+        The function parameter is already correct:<br>
+<pre><code>function showCourse({ name, course = "JavaScript" } = {}) {
+  console.log(`${name} - ${course}`);
+}</code></pre>
+        Add <code>= {}</code> to handle when no object is passed at all.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Fill the blanks to merge two config objects with spread:
+      <pre><code>const defaultConfig = { theme: "dark", lang: "en" };
+const userConfig = { lang: "bn" };
+
+const finalConfig = { /* ??? */ };
+</code></pre>
+
+      <button onclick="toggleAns('p4_a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="p4_a15">
+<pre><code>const finalConfig = { ...defaultConfig, ...userConfig };</code></pre>
+        So final language becomes "bn".
+      </div>
+    </div>
+  </div>
+
+  <!-- =============== SECTION D =============== -->
+  <div class="card">
+    <h2>Section D — Conceptual &amp; Short Answer (Exam Style)</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      <b>Question:</b> Why is <strong>optional chaining</strong> very helpful when working with API responses in real projects?
+      <button onclick="toggleAns('p4_a16')">Show Sample Answer</button>
+      <div class="answer" id="p4_a16">
+        <b>Sample Answer:</b><br>
+        API responses often have missing or nested fields. Optional chaining lets you
+        safely access deep properties without checking each level manually. It avoids
+        <code>TypeError: Cannot read properties of undefined</code> and keeps the code cleaner,
+        especially when dealing with dynamic or partially available data.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      <b>Question:</b> Explain with an example why <code>a ?? b</code> is safer than <code>a || b</code> when 0 is a valid value.
+      <button onclick="toggleAns('p4_a17')">Show Sample Answer</button>
+      <div class="answer" id="p4_a17">
+        <b>Sample Answer:</b><br>
+        <code>||</code> treats 0 as falsy. So <code>0 || 10</code> becomes 10, which may be wrong if 0 is a valid value.<br>
+        <code>??</code> only treats <code>null</code> and <code>undefined</code> as “empty”.  
+        Example: <code>const marks = 0; const result = marks ?? 50;</code>  
+        Here <code>result</code> is 0, which is what we want.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      <b>Question:</b> For a dashboard at Coder &amp; AccoTax, you receive:
+      <pre><code>response.data.user.profile.city</code></pre>
+      Sometimes <code>user</code> or <code>profile</code> is missing. Show how you’d safely read
+      <code>city</code> with a default `"Unknown City"` using ES6+.
+      <button onclick="toggleAns('p4_a18')">Show Sample Answer</button>
+      <div class="answer" id="p4_a18">
+<pre><code>const city = response?.data?.user?.profile?.city ?? "Unknown City";</code></pre>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      <b>Question:</b> Briefly describe how <strong>destructuring</strong>, <strong>spread</strong> and <strong>rest</strong> together
+      make your JavaScript code more expressive.
+      <button onclick="toggleAns('p4_a19')">Show Sample Answer</button>
+      <div class="answer" id="p4_a19">
+        <b>Sample Answer:</b><br>
+        Destructuring lets us unpack values directly into variables, making code shorter.
+        Spread lets us easily copy and merge arrays/objects without mutation.
+        Rest lets us collect “the rest” of the values into an array or object, which is
+        great for flexible function parameters. Together they replace a lot of manual
+        loops and if-conditions with clean, declarative code.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      <b>Question:</b> In the JavaScript course at Coder &amp; AccoTax, why is it important for students
+      to understand <code>?.</code> and <code>??</code> before they move to React or Node.js?
+      <button onclick="toggleAns('p4_a20')">Show Sample Answer</button>
+      <div class="answer" id="p4_a20">
+        <b>Sample Answer:</b><br>
+        Modern frameworks and Node.js codebases use these operators everywhere for safe
+        property access and defaults. If a student doesn’t understand <code>?.</code> and
+        <code>??</code>, they will struggle to read and debug real-world code. Mastering
+        them early makes the transition to React, APIs and backend projects much smoother.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> Write a small code snippet that uses <strong>template literals</strong>,
+      <strong>destructuring</strong> and <strong>optional chaining</strong> together.
+      <button onclick="toggleAns('p4_a21')">Show Sample Answer</button>
+      <div class="answer" id="p4_a21">
+<pre><code>const student = {
+  name: "Neha",
+  course: { title: "ES6+ Features" }
+};
+
+const { name, course } = student;
+const title = course?.title ?? "Unknown Course";
+
+console.log(`Student: ${name}, Course: ${title}`);</code></pre>
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> What is one danger of “over-using” optional chaining?
+      <button onclick="toggleAns('p4_a22')">Show Sample Answer</button>
+      <div class="answer" id="p4_a22">
+        <b>Sample Answer:</b><br>
+        Over-using optional chaining can hide real bugs. If you always write
+        <code>obj?.prop?.subProp</code>, you might silently get <code>undefined</code> instead of
+        noticing that some part of your data is never set correctly. Use it thoughtfully
+        where missing data is expected, not to hide all errors.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> Compare default parameters and <code>??</code> for providing default values.
+      When would you use each?
+      <button onclick="toggleAns('p4_a23')">Show Sample Answer</button>
+      <div class="answer" id="p4_a23">
+        <b>Sample Answer:</b><br>
+        Default parameters provide defaults when arguments are <code>undefined</code> or not passed.
+        <code>??</code> provides defaults at expression level when a value is <code>null</code> or
+        <code>undefined</code>. Use default parameters in function signatures to set normal
+        defaults; use <code>??</code> inside function bodies or other expressions when data comes
+        from variables, APIs or calculations.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> Give a short example where <code>||</code> gives a wrong default,
+      but <code>??</code> is correct for a marks field.
+      <button onclick="toggleAns('p4_a24')">Show Sample Answer</button>
+      <div class="answer" id="p4_a24">
+<pre><code>const marks = 0;
+
+// Wrong: 0 replaced with 50
+const m1 = marks || 50;   // 50
+
+// Correct: 0 is kept
+const m2 = marks ?? 50;   // 0</code></pre>
+        <b>Explanation:</b> A student can actually get 0 marks, so 0 is valid and
+        should not be replaced by the default.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> Imagine you are preparing students at Coder &amp; AccoTax for interviews.
+      How would you summarise <strong>Module 11 (ES6+)</strong> in 3–4 lines to show its importance?
+      <button onclick="toggleAns('p4_a25')">Show Sample Answer</button>
+      <div class="answer" id="p4_a25">
+        <b>Sample Answer:</b><br>
+        Module 11 teaches the modern JavaScript that companies actually use:
+        <code>let/const</code>, template literals, destructuring, spread/rest, enhanced
+        objects, optional chaining and <code>??</code>. These features appear in almost
+        every React, Node.js and frontend project. Knowing them well makes your code
+        shorter, safer, easier to read, and helps you clear technical interviews
+        confidently.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 11 — ES6+ Features · Test Part 4
+      </div>
+    </div>
+    <div class="org-small">
+      This is Part 4 of the complete <strong>Module 11 — Modern JavaScript (ES6+)</strong>
+      practice test series for your JavaScript From Basic to Pro course.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
