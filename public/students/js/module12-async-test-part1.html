@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 12 — Async JS Test Part 1 | Sync vs Async & Event Loop Basics | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#e0f2fe;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;
+      box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 12 — Asynchronous JavaScript  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 1 · Sync vs Async, Event Loop &amp; setTimeout Basics
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 questions to check your understanding of <strong>synchronous vs asynchronous</strong> code,
+      the <strong>event loop</strong>, the <strong>call stack</strong>, and basic <code>setTimeout</code>
+      behaviour used in real browser programs.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; Order of Execution</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What is the output order?
+      <pre><code>console.log("A");
+console.log("B");
+console.log("C");</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b><br>
+        <code>A</code><br>
+        <code>B</code><br>
+        <code>C</code><br>
+        <b>Explanation:</b> All three statements are <strong>synchronous</strong> and run top-to-bottom.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Predict the output:
+      <pre><code>console.log("Start");
+setTimeout(() =&gt; {
+  console.log("Timeout");
+}, 0);
+console.log("End");</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b><br>
+        <code>Start</code><br>
+        <code>End</code><br>
+        <code>Timeout</code><br>
+        <b>Explanation:</b> The <code>setTimeout</code> callback goes to the Web APIs + callback queue
+        and runs <strong>after</strong> the current call stack is empty.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> What is printed?
+      <pre><code>setTimeout(() =&gt; console.log("One"), 100);
+setTimeout(() =&gt; console.log("Two"), 0);
+console.log("Three");</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer (typical):</b><br>
+        <code>Three</code><br>
+        <code>Two</code><br>
+        <code>One</code><br>
+        <b>Explanation:</b> Sync <code>console.log("Three")</code> first, then 0 ms timeout,
+        then 100 ms timeout. Exact timing may vary but order is usually this.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> What will you see?
+      <pre><code>console.log("Start");
+
+setTimeout(() =&gt; {
+  console.log("Inside timeout");
+}, 2000);
+
+for (let i = 0; i &lt; 3; i++) {
+  console.log("Loop", i);
+}
+
+console.log("End");</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer (order):</b><br>
+        <code>Start</code><br>
+        <code>Loop 0</code><br>
+        <code>Loop 1</code><br>
+        <code>Loop 2</code><br>
+        <code>End</code><br>
+        (after ~2s) <code>Inside timeout</code><br>
+        <b>Explanation:</b> The loop and <code>End</code> are synchronous. The timeout callback
+        runs later via the event loop.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> What is printed?
+      <pre><code>setTimeout(() =&gt; console.log("A"), 0);
+setTimeout(() =&gt; console.log("B"), 0);
+console.log("C");</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer (typical):</b><br>
+        <code>C</code><br>
+        <code>A</code><br>
+        <code>B</code><br>
+        <b>Explanation:</b> Sync <code>C</code> first, then queued callbacks run in the order
+        they were scheduled.
+      </div>
+    </div>
+
+  </div><!-- /Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — Concept MCQs: Sync vs Async & Event Loop</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> JavaScript in the browser is:
+      <br><br>
+      A. Multi-threaded by default. <br>
+      B. Single-threaded with an event loop. <br>
+      C. Single-threaded and cannot do async. <br>
+      D. Only asynchronous, never synchronous.
+      <br><br>
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> JavaScript runs on a <strong>single main thread</strong> plus
+        async Web APIs and an <strong>event loop</strong> to coordinate tasks.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> The <strong>call stack</strong> is:
+      <br><br>
+      A. A queue where async callbacks wait. <br>
+      B. The structure that tracks which function is currently running. <br>
+      C. The browser’s network layer. <br>
+      D. A list of resolved promises.
+      <br><br>
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> The call stack holds the active function frames
+        (who called whom) during execution.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> The <strong>callback queue</strong> mainly holds:
+      <br><br>
+      A. Microtasks of promises. <br>
+      B. Tasks like <code>setTimeout</code>, DOM events, etc. <br>
+      C. Only synchronous functions. <br>
+      D. Data from localStorage.
+      <br><br>
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Macrotasks (timers, DOM events) go to the callback queue and are
+        executed when the stack is empty.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> The <strong>microtask queue</strong> is mainly used for:
+      <br><br>
+      A. <code>setInterval</code>. <br>
+      B. DOM events. <br>
+      C. Promise <code>.then()</code>/<code>.catch()</code> callbacks. <br>
+      D. <code>alert()</code> dialogs.
+      <br><br>
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Promise reactions are scheduled as <strong>microtasks</strong>
+        and run before callbacks in the normal queue.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> The event loop’s main responsibility is to:
+      <br><br>
+      A. Execute synchronous code faster. <br>
+      B. Move tasks from queues to the call stack when it is free. <br>
+      C. Compile JavaScript to machine code. <br>
+      D. Render HTML and CSS on screen.
+      <br><br>
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> The event loop checks if the call stack is empty, then
+        pushes microtasks/macrotasks into it.
+      </div>
+    </div>
+
+  </div><!-- /Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — setTimeout &amp; Long Tasks</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Which statement about <code>setTimeout(fn, 0)</code> is true?
+      <br><br>
+      A. It guarantees execution exactly at 0 ms. <br>
+      B. It runs immediately before any synchronous code. <br>
+      C. It schedules <code>fn</code> to run after current call stack is finished. <br>
+      D. It blocks the main thread until 0 ms.
+      <br><br>
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> 0 ms is the <em>minimum delay</em>; the callback runs later,
+        after current work and microtasks.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> A “long-running synchronous loop” on the main thread will:
+      <br><br>
+      A. Make the browser smoother. <br>
+      B. Delay timer callbacks and UI updates. <br>
+      C. Execute in the background thread. <br>
+      D. Automatically become async.
+      <br><br>
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> While the call stack is busy, no callbacks or rendering can run.
+        The page appears frozen.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Output?
+      <pre><code>console.log("A");
+setTimeout(() =&gt; console.log("B"), 10);
+setTimeout(() =&gt; console.log("C"), 0);
+console.log("D");</code></pre>
+
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Answer (typical):</b><br>
+        <code>A</code><br>
+        <code>D</code><br>
+        <code>C</code><br>
+        <code>B</code><br>
+        <b>Explanation:</b> Sync logs first (<code>A</code>, <code>D</code>), then 0-ms callback,
+        then 10-ms callback.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> A function passed to <code>setTimeout</code> is usually called:
+      <br><br>
+      A. Immediately, before setTimeout returns. <br>
+      B. As a callback when the timer finishes and event loop schedules it. <br>
+      C. Only if there are no other scripts. <br>
+      D. Only on page reload.
+      <br><br>
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> The callback is invoked asynchronously when its timer expires
+        and the stack is free.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> If you want to run a task “after rendering”, which is the best option?
+      <br><br>
+      A. Put code directly after heavy loop. <br>
+      B. Use <code>setTimeout(fn, 0)</code> so it runs on next macrotask. <br>
+      C. Use <code>alert()</code>. <br>
+      D. Use only synchronous for-loops.
+      <br><br>
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> A 0-ms timeout allows the browser to repaint and then run your callback.
+      </div>
+    </div>
+
+  </div><!-- /Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Short Answer &amp; Conceptual</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      <b>Question:</b> In your own words, explain “JavaScript is single-threaded but non-blocking”.
+      <br><br>
+      <button onclick="toggleAns('a16')">Show Sample Answer</button>
+      <div class="answer" id="a16">
+        <b>Sample Answer:</b><br>
+        There is only one main thread executing JavaScript, so only one piece of code
+        runs at a time. But we use asynchronous APIs (timers, network, etc.) plus the
+        event loop so that long tasks can happen in the background while the main thread
+        continues with other work instead of waiting and blocking.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      <b>Question:</b> For a Coder &amp; AccoTax web app, why is it dangerous to put a huge 
+      <code>for</code> loop (e.g. 1e9 iterations) directly in button click handler?
+      <br><br>
+      <button onclick="toggleAns('a17')">Show Sample Answer</button>
+      <div class="answer" id="a17">
+        <b>Sample Answer:</b><br>
+        A very large synchronous loop will block the main thread. During that time, the UI
+        cannot update, the user cannot click anything, and even timers and network callbacks
+        are delayed. The page feels frozen or “not responding”.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      <b>Question:</b> Name the main components usually shown in an event loop diagram for JavaScript.
+      <br><br>
+      <button onclick="toggleAns('a18')">Show Sample Answer</button>
+      <div class="answer" id="a18">
+        <b>Sample Answer:</b><br>
+        Typical components are: <strong>Call Stack</strong>, <strong>Web APIs (or Browser APIs)</strong>,
+        <strong>Callback Queue</strong> (or Task Queue), <strong>Microtask Queue</strong> (for promises),
+        and the <strong>Event Loop</strong> which moves tasks into the call stack.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      <b>Question:</b> If a student says “setTimeout(…, 0) means run instantly”, how would you correct them?
+      <br><br>
+      <button onclick="toggleAns('a19')">Show Sample Answer</button>
+      <div class="answer" id="a19">
+        <b>Sample Answer:</b><br>
+        I would explain that 0 ms is the minimum delay, but the callback is still queued as
+        an asynchronous task. It only runs <strong>after</strong> the current call stack and
+        pending microtasks are done, so it is never truly “instant”.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      <b>Question:</b> Why is understanding the event loop important before learning Promises and async/await?
+      <br><br>
+      <button onclick="toggleAns('a20')">Show Sample Answer</button>
+      <div class="answer" id="a20">
+        <b>Sample Answer:</b><br>
+        Promises and async/await are built on top of the event loop. To predict when 
+        <code>.then</code> or <code>await</code> results will run compared to other callbacks,
+        you must understand how the call stack, microtasks, and callback queue interact.
+        Otherwise async code will feel “magical” and confusing.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> In a quiz app for Coder &amp; AccoTax, why might you use <code>setTimeout</code> after
+      showing a correct answer?
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        You can delay the next question by 1–2 seconds using <code>setTimeout</code> so students
+        have time to read the feedback (“Correct!”) before the UI changes to the next question.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> Does JavaScript execute asynchronous code in parallel on multiple CPUs?
+      Briefly explain.
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer:</b><br>
+        Normal browser JavaScript runs on one main thread. Asynchronous behaviour comes from
+        browser APIs and scheduling via the event loop, not from multiple JavaScript threads.
+        Some operations (like network I/O) may use other system threads internally, but JS
+        code itself is single-threaded.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> Why is it better to break a large task into chunks using <code>setTimeout</code> or other async patterns?
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        Breaking the work into smaller async chunks gives the browser a chance to repaint and
+        process user events in between, so the UI stays responsive instead of freezing for a long time.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> In Module 12, what does “non-blocking” practically mean for the user of a web application?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        It means the user can still scroll, click, and see updates while the app is waiting
+        for network responses or timers, because those waits don’t lock the main thread.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> Give one real-life example (from apps or websites) where async behaviour is clearly visible.
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        When you search on a site and see a spinner (“Loading...”) while results are fetched.
+        You can often still type or scroll while the data is coming from the server. The search
+        request is asynchronous.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 12 — Async JS · Test Part 1
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 1 of the complete <strong>Module 12 — Asynchronous JavaScript</strong>
+      practice test series on your JavaScript course portal.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>C Programming — Full Tutorial Roadmap (Beginner to Pro) | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #020617;
+      --bg-soft: #020617;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --code-bg: #020617;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px 16px 40px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.28), transparent 55%);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      background: linear-gradient(90deg, #e0f2fe, #f9a8ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0.5rem auto 0;
+      font-size: 0.98rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 1.4fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%);
+      background-color: rgba(15, 23, 42, 0.95);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      padding: 18px 18px 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .card + .card {
+      margin-top: 12px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #bfdbfe;
+    }
+
+    h2 span.index {
+      font-size: 0.85rem;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 4px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.93rem;
+      color: #cbd5f5;
+      margin: 2px 0;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent3);
+      font-size: 0.9rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    .org-card {
+      background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.28), transparent 55%);
+      background-color: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 18px 18px 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .org-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .org-sub {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .org-details {
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      margin-bottom: 6px;
+    }
+
+    .org-details span.label {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+    }
+
+    .highlight-box {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 26px auto 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      border-top: 1px solid rgba(30, 64, 175, 0.5);
+      padding-top: 10px;
+    }
+
+    .github-badge {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.25), transparent 55%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent4);
+      margin-bottom: 2px;
+    }
+    /* MODULE BUTTON */
+    .module-link {
+      margin-top: 12px;
+    }
+
+    .module-btn {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--btn-bg);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease-in-out;
+    }
+
+    .module-btn:hover {
+      background: rgba(56, 189, 248, 0.32);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span>📚 C Programming Roadmap</span>
+        <span>Beginner → Pro Level</span>
+      </div>
+      <h1>C Programming — Full Tutorial Roadmap</h1>
+      <p class="subtitle">
+        A complete, structured journey through C — from your very first <code>printf</code> to advanced memory, pointers,
+        and real-world projects. Designed for classroom teaching, self-study, and exam preparation.
+      </p>
+    </header>
+
+    <div class="layout">
+      <!-- LEFT: MAIN TOPIC LIST -->
+      <main>
+        <!-- 1. Introduction -->
+        <section class="card">
+          <div class="section-label">Module 1</div>
+          <h2><span class="index">1.</span> Introduction to C Programming</h2>
+          <p class="tagline">Getting comfortable with the language, tools, and basic structure.</p>
+          <div class="pill-row">
+            <div class="pill">What is C?</div>
+            <div class="pill">History</div>
+            <div class="pill">Features</div>
+            <div class="pill">First program</div>
+          </div>
+          <ul>
+            <li>What is C? Why C is called a middle-level and foundational language.</li>
+            <li>History & importance of C in system programming and competitive programming.</li>
+            <li>Key features of C: portability, efficiency, low-level access.</li>
+            <li>Basic structure of a C program — header files, <code>main()</code>, statements & blocks.</li>
+            <li>Compiling & running C programs using different compilers/IDEs.</li>
+            <li>Writing your first C program and understanding every line.</li>
+            <li>Single-line & multi-line comments in C.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-1/index.html">Open Module 1 →</a>
+          </div>
+        </section>
+
+        <!-- 2. Variables & Data Types -->
+        <section class="card">
+          <div class="section-label">Module 2</div>
+          <h2><span class="index">2.</span> Variables, Constants & Data Types</h2>
+          <p class="tagline">Learning how data lives in memory and how C represents it.</p>
+          <div class="pill-row">
+            <div class="pill">Variables</div>
+            <div class="pill">Keywords</div>
+            <div class="pill">Basic types</div>
+            <div class="pill">Constants</div>
+          </div>
+          <ul>
+            <li>Concept of variables and how memory is allocated.</li>
+            <li>C keywords and naming rules for identifiers.</li>
+            <li>Basic data types: <code>int</code>, <code>float</code>, <code>double</code>, <code>char</code>.</li>
+            <li>Signed vs unsigned, short vs long integers.</li>
+            <li>Constants using <code>const</code> and <code>#define</code>.</li>
+            <li>Type conversion and explicit casting.</li>
+            <li>Basic input/output with <code>printf()</code> and <code>scanf()</code>.</li>
+          </ul>
+
+          <div class="module-link">
+            <a class="module-btn" href="./module-2/index.html">Open Module 2 →</a>
+          </div>
+        </section>
+
+        <!-- 3. Operators & Expressions -->
+        <section class="card">
+          <div class="section-label">Module 3</div>
+          <h2><span class="index">3.</span> Operators & Expressions</h2>
+          <p class="tagline">Building logic using operators and expressions.</p>
+          <div class="pill-row">
+            <div class="pill">Arithmetic</div>
+            <div class="pill">Relational</div>
+            <div class="pill">Logical</div>
+            <div class="pill">Bitwise</div>
+          </div>
+          <ul>
+            <li>Arithmetic operators and basic calculations.</li>
+            <li>Relational & logical operators for decision making.</li>
+            <li>Increment and decrement operators — prefix vs postfix.</li>
+            <li>Assignment and compound assignment operators.</li>
+            <li>Conditional / ternary operator.</li>
+            <li>Bitwise operators and simple bit tricks.</li>
+            <li>Operator precedence & associativity with examples.</li>
+          </ul>
+
+          <div class="module-link">
+            <a class="module-btn" href="./module-3/index.html">Open Module 3: Operators & Expressions →</a>
+          </div>
+        </section>
+
+        <!-- 4. Control Statements -->
+        <section class="card">
+          <div class="section-label">Module 4</div>
+          <h2><span class="index">4.</span> Control Statements (Decision Making)</h2>
+          <p class="tagline">Teaching C to take decisions like a human.</p>
+          <div class="pill-row">
+            <div class="pill">if / else</div>
+            <div class="pill">Nested if</div>
+            <div class="pill">switch</div>
+            <div class="pill">break / continue</div>
+          </div>
+          <ul>
+            <li>Simple <code>if</code> statement with basic conditions.</li>
+            <li><code>if-else</code> and nested <code>if-else</code> for multi-way decisions.</li>
+            <li>Using <code>switch-case</code> for menu-like choices.</li>
+            <li>Role of <code>break</code> and fall-through in <code>switch</code>.</li>
+            <li>Common decision-making patterns and examples.</li>
+          </ul>
+
+          <div class="module-link">
+            <a class="module-btn" href="./module-4/index.html">Open Module 4: Control Statements →</a>
+          </div>
+        </section>
+
+        <!-- 5. Loops -->
+        <section class="card">
+          <div class="section-label">Module 5</div>
+          <h2><span class="index">5.</span> Looping Statements</h2>
+          <p class="tagline">Repeating tasks effectively with loops.</p>
+          <div class="pill-row">
+            <div class="pill">for</div>
+            <div class="pill">while</div>
+            <div class="pill">do-while</div>
+            <div class="pill">Nested loops</div>
+          </div>
+          <ul>
+            <li><code>for</code> loop and its variations.</li>
+            <li><code>while</code> loop and use cases.</li>
+            <li><code>do-while</code> loop and input-based repetition.</li>
+            <li>Nested loops: patterns, tables, grids.</li>
+            <li>Loop control: <code>break</code> and <code>continue</code>.</li>
+            <li>Simple menu-driven programs using loops.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-5/index.html">Open Module 5: Looping Statements →</a>
+          </div>
+        </section>
+
+        <!-- 6. Arrays -->
+        <section class="card">
+          <div class="section-label">Module 6</div>
+          <h2><span class="index">6.</span> Arrays</h2>
+          <p class="tagline">Managing collections of values with array structures.</p>
+          <div class="pill-row">
+            <div class="pill">1D arrays</div>
+            <div class="pill">2D arrays</div>
+            <div class="pill">Multi-dimensional</div>
+          </div>
+          <ul>
+            <li>Introduction to arrays and their memory layout.</li>
+            <li>Declaring, initializing and accessing 1D arrays.</li>
+            <li>2D arrays (matrices) — row-wise & column-wise access.</li>
+            <li>Basic operations: sum, max/min, searching.</li>
+            <li>Introduction to multi-dimensional arrays.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-6/index.html">Open Module 6: Managing collections of values with array structures →</a>
+          </div>
+        </section>
+
+        <!-- 7. Strings -->
+        <section class="card">
+          <div class="section-label">Module 7</div>
+          <h2><span class="index">7.</span> Strings</h2>
+          <p class="tagline">Working with text data using character arrays.</p>
+          <div class="pill-row">
+            <div class="pill">char arrays</div>
+            <div class="pill">Library functions</div>
+            <div class="pill">String manipulation</div>
+          </div>
+          <ul>
+            <li>Strings as character arrays terminated by <code>'\0'</code>.</li>
+            <li>Input & output of strings using different functions.</li>
+            <li>Standard string functions: <code>strlen</code>, <code>strcpy</code>, <code>strcat</code>, <code>strcmp</code>, etc.</li>
+            <li>Manual implementation of simple string functions.</li>
+            <li>Common string manipulation problems.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-7/index.html">Open Module 7: Strings →</a>
+          </div>
+        </section>
+
+        <!-- 8. Functions -->
+        <section class="card">
+          <div class="section-label">Module 8</div>
+          <h2><span class="index">8.</span> Functions in C</h2>
+          <p class="tagline">Breaking big problems into smaller reusable pieces.</p>
+          <div class="pill-row">
+            <div class="pill">User-defined</div>
+            <div class="pill">Call by value</div>
+            <div class="pill">Call by reference</div>
+            <div class="pill">Recursion</div>
+          </div>
+          <ul>
+            <li>Declaring, defining and calling functions.</li>
+            <li>Function prototype and parameter passing.</li>
+            <li>Call by value vs call by reference (using pointers).</li>
+            <li>Return values and returning multiple values (via pointers).</li>
+            <li>Recursion basics: factorial, Fibonacci, etc.</li>
+            <li>Recursion vs iteration — advantages and limitations.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-8/index.html">Open Module 8: Functions in C →</a>
+          </div>
+        </section>
+
+        <!-- 9. Pointers -->
+        <section class="card">
+          <div class="section-label">Module 9</div>
+          <h2><span class="index">9.</span> Pointers (Core Concept)</h2>
+          <p class="tagline">Understanding addresses, memory and powerful indirection.</p>
+          <div class="pill-row">
+            <div class="pill">Address-of & dereference</div>
+            <div class="pill">Pointer arithmetic</div>
+            <div class="pill">Pointers & arrays</div>
+          </div>
+          <ul>
+            <li>What is a pointer? Pointer declaration & initialization.</li>
+            <li>Address-of (<code>&amp;</code>) and dereference (<code>*</code>) operators.</li>
+            <li>Pointer arithmetic and array traversal with pointers.</li>
+            <li>Pointers to arrays and arrays of pointers.</li>
+            <li>Pointers with functions (for call by reference).</li>
+            <li>Pointers with strings.</li>
+            <li>Double pointers and typical use cases.</li>
+            <li>Common pointer errors & how to avoid them.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-9/index.html">Open Module 9: Pointers (Core Concept) →</a>
+          </div>
+        </section>
+
+        <!-- 10. Dynamic Memory -->
+        <section class="card">
+          <div class="section-label">Module 10</div>
+          <h2><span class="index">10.</span> Dynamic Memory Allocation</h2>
+          <p class="tagline">Creating flexible data structures at runtime.</p>
+          <div class="pill-row">
+            <div class="pill">malloc</div>
+            <div class="pill">calloc</div>
+            <div class="pill">realloc</div>
+            <div class="pill">free</div>
+          </div>
+          <ul>
+            <li>Static vs dynamic memory allocation.</li>
+            <li>Using <code>malloc()</code> and <code>calloc()</code> to allocate memory at runtime.</li>
+            <li>Resizing memory using <code>realloc()</code>.</li>
+            <li>Releasing memory with <code>free()</code> and avoiding memory leaks.</li>
+            <li>Simple real-life dynamic array / list examples.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-10/index.html">Open Module 10: Dynamic Memory Allocation →</a>
+          </div>
+        </section>
+
+        <!-- 11. Structures & Unions -->
+        <section class="card">
+          <div class="section-label">Module 11</div>
+          <h2><span class="index">11.</span> Structures & Unions</h2>
+          <p class="tagline">Combining related data into meaningful records.</p>
+          <div class="pill-row">
+            <div class="pill">struct</div>
+            <div class="pill">Array of struct</div>
+            <div class="pill">union</div>
+          </div>
+          <ul>
+            <li>Defining and using <code>struct</code> types.</li>
+            <li>Array of structures — student records, employee list, etc.</li>
+            <li>Nested structures and complex records.</li>
+            <li>Pointer to structures and <code>-></code> operator.</li>
+            <li>Difference between <code>struct</code> and <code>union</code> with examples.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-11/index.html">Open Module 11: Structures & Unions →</a>
+          </div>
+        </section>
+
+        <!-- 12. File Handling -->
+        <section class="card">
+          <div class="section-label">Module 12</div>
+          <h2><span class="index">12.</span> File Handling in C</h2>
+          <p class="tagline">Saving and loading data from the real world (files).</p>
+          <div class="pill-row">
+            <div class="pill">FILE*</div>
+            <div class="pill">Text files</div>
+            <div class="pill">Binary files</div>
+          </div>
+          <ul>
+            <li>Understanding <code>FILE*</code> and file pointers.</li>
+            <li>Opening and closing files with <code>fopen()</code> and <code>fclose()</code>.</li>
+            <li>Reading and writing text files: <code>fprintf</code>, <code>fscanf</code>, <code>fgets</code>, <code>fputs</code>.</li>
+            <li>Introduction to binary file operations.</li>
+            <li>Random access using <code>fseek()</code> and <code>ftell()</code>.</li>
+            <li>Small projects: student database, contact book, etc.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-12/index.html">Open Module 12: File Handling in C →</a>
+          </div>
+        </section>
+
+        <!-- 13. Storage Classes -->
+        <section class="card">
+          <div class="section-label">Module 13</div>
+          <h2><span class="index">13.</span> Storage Classes & Scope</h2>
+          <p class="tagline">Controlling lifetime and visibility of variables.</p>
+          <div class="pill-row">
+            <div class="pill">auto</div>
+            <div class="pill">static</div>
+            <div class="pill">extern</div>
+            <div class="pill">register</div>
+          </div>
+          <ul>
+            <li>Scope and lifetime of variables.</li>
+            <li>Automatic variables (<code>auto</code>).</li>
+            <li>Static variables and their use cases.</li>
+            <li>External variables (<code>extern</code>) and multi-file programs.</li>
+            <li>Register variables and performance note.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-13/index.html">Open Module 13: Storage Classes & Scope →</a>
+          </div>
+        </section>
+
+        <!-- 14. Preprocessor -->
+        <section class="card">
+          <div class="section-label">Module 14</div>
+          <h2><span class="index">14.</span> Preprocessor & Macros</h2>
+          <p class="tagline">Preparing code before compilation.</p>
+          <div class="pill-row">
+            <div class="pill">#define</div>
+            <div class="pill">Macros</div>
+            <div class="pill">Header files</div>
+          </div>
+          <ul>
+            <li>Role of the C preprocessor.</li>
+            <li>Object-like and function-like macros using <code>#define</code>.</li>
+            <li><code>#include</code> and header file management.</li>
+            <li>Conditional compilation: <code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#else</code>, <code>#endif</code>.</li>
+            <li>Creating and using user-defined header files.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-14/index.html">Open Module 14: Preprocessor & Macros →</a>
+          </div>
+        </section>
+
+        <!-- 15. Advanced C -->
+        <section class="card">
+          <div class="section-label">Module 15</div>
+          <h2><span class="index">15.</span> Advanced C Programming</h2>
+          <p class="tagline">Going deeper into professional-level C concepts.</p>
+          <div class="pill-row">
+            <div class="pill">Enums</div>
+            <div class="pill">typedef</div>
+            <div class="pill">Function pointers</div>
+          </div>
+          <ul>
+            <li>Command-line arguments (<code>argc</code> and <code>argv</code>).</li>
+            <li>Enumerations with <code>enum</code>.</li>
+            <li>Type aliases using <code>typedef</code>.</li>
+            <li>Bit-fields and memory-efficient flags.</li>
+            <li>Function pointers and callback functions.</li>
+            <li>Modular programming — organizing large projects.</li>
+          </ul>
+
+          <div class="module-link">
+            <a class="module-btn" href="./module-15/index.html">Open Module 15: Advanced C Programming →</a>
+          </div>
+        </section>
+
+        <!-- 16. Data Structures -->
+        <section class="card">
+          <div class="section-label">Module 16</div>
+          <h2><span class="index">16.</span> Data Structures with C (Pro Level)</h2>
+          <p class="tagline">Using C to build classic data structures.</p>
+          <div class="pill-row">
+            <div class="pill">Stack</div>
+            <div class="pill">Queue</div>
+            <div class="pill">Linked list</div>
+          </div>
+          <ul>
+            <li>Implementing stacks using arrays & linked lists.</li>
+            <li>Implementing queues and circular queues.</li>
+            <li>Introduction to singly linked lists and basic operations.</li>
+            <li>Simple searching & sorting (linear, binary search, bubble sort, etc.).</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-16/index.html">Open Module 16: Data Structures with C (Pro Level) →</a>
+          </div>
+        </section>
+
+        <!-- 17. Projects -->
+        <section class="card">
+          <div class="section-label">Module 17</div>
+          <h2><span class="index">17.</span> Mini Projects (Beginner → Advanced)</h2>
+          <p class="tagline">Applying all concepts in real programs.</p>
+          <ul>
+            <li>Basic calculator using functions.</li>
+            <li>Student result / management system (file-based).</li>
+            <li>Banking or billing management mini project.</li>
+            <li>Contact manager using structures and files.</li>
+            <li>Simple console games: tic-tac-toe, number guessing, etc.</li>
+            <li>Library management system using file handling.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-17/index.html">Open Module 17: Mini Projects (Beginner → Advanced) →</a>
+          </div>
+        </section>
+
+        <!-- 18. Practice -->
+        <section class="card">
+          <div class="section-label">Module 18</div>
+          <h2><span class="index">18.</span> Full Practice & Exam Preparation</h2>
+          <p class="tagline">Mastery through questions, answers and explanations.</p>
+          <ul>
+            <li>200+ MCQs covering all chapters (basic to tricky).</li>
+            <li>100+ output prediction questions.</li>
+            <li>100+ coding exercises of varying difficulty.</li>
+            <li>Chapter-wise worksheets and revision sheets.</li>
+            <li>Previous-year style model question papers.</li>
+          </ul>
+          <div class="module-link">
+            <a class="module-btn" href="./module-18/index.html">Open Module 18: Full Practice & Exam Preparation →</a>
+          </div>
+          <div class="highlight-box">
+            Teacher Note: For each module, you can create a separate HTML lesson file + separate exercise file
+            (MCQs, output questions, coding practice) following the same dark premium style.
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT: ORG + META -->
+      <aside>
+        <div class="org-card">
+          <div class="section-label">Institution</div>
+          <div class="org-title">Coder &amp; AccoTax</div>
+          <div class="org-sub">Premium C Programming Tutorial Series for School &amp; College Students</div>
+
+          <div class="org-details">
+            <span class="label">Address:</span>
+            25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore
+          </div>
+          <div class="org-details">
+            <span class="label">Website:</span>
+            <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener">
+              www.codernaccotax.co.in
+            </a>
+          </div>
+          <div class="org-details">
+            <span class="label">Phone:</span> 7003756860
+          </div>
+
+          <div class="chip-list">
+            <div class="chip">C from Zero to Pro</div>
+            <div class="chip">Concept + Practice</div>
+            <div class="chip">Classroom Friendly</div>
+            <div class="chip">Exam Oriented</div>
+          </div>
+
+          <div class="highlight-box">
+            This roadmap page is only the index. Each topic can later become a full lesson page
+            with theory, examples, solved problems, and practice sets—keeping the same dark mode
+            premium look.
+          </div>
+        </div>
+
+        <div class="org-card" style="margin-top: 16px;">
+          <div class="section-label">Extra Resource</div>
+          <p class="org-sub">
+            Explore additional code practice and daily exercises from our GitHub repository.
+          </p>
+          <div class="github-badge">
+            <span>💻 GitHub:</span>
+            <a href="https://github.com/sukantahui/30-Days-Of-Python" target="_blank" rel="noopener">
+              github.com/sukantahui/30-Days-Of-Python
+            </a>
+          </div>
+          <p class="org-details" style="margin-top: 10px;">
+            You can adapt many Python practice patterns from this repo into C exercises for your students.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>© Coder &amp; AccoTax — C Programming Tutorial Roadmap</div>
+      <div>Designed for dark mode classroom presentations & self-study.</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 2 — Variables, Constants & Data Types | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56, 189, 248, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617 55%, #000);
+      color: var(--text);
+      padding: 20px 16px 40px;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, .4);
+      background: rgba(56, 189, 248, .18);
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      background: linear-gradient(90deg, #e0f2fe, #f9a8ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 8px auto;
+      font-size: .97rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(148, 163, 184, .25);
+      padding: 20px 20px 24px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .9);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .index {
+      font-size: .85rem;
+      color: var(--accent);
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 5px;
+      color: #d1d5db;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent3);
+    }
+
+    pre {
+      background: #0a1220;
+      padding: 14px;
+      border-radius: 10px;
+      overflow: auto;
+      font-size: .9rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      margin-top: 10px;
+    }
+
+    .nav-back {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 8px 14px;
+      background: var(--btn-bg);
+      border: 1px solid rgba(56, 189, 248, .5);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    .nav-back:hover {
+      background: rgba(56, 189, 248, .3);
+    }
+
+    .org-card {
+      margin-top: 30px;
+      background: var(--bg-card);
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, .3);
+    }
+
+    footer {
+      margin-top: 22px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(30, 58, 138, .5);
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <div class="badge">Module 2 — Variables & Data Types</div>
+      <h1>Variables, Constants & Data Types</h1>
+      <p class="subtitle">
+        Learn how C stores data in memory, how variables work, and how data types define memory size and behavior.
+      </p>
+    </header>
+
+      <!-- SECTION 0 -->
+  <section class="card">
+    <h2><span class="index">0.</span> Tokens in C</h2>
+    <p class="tagline">
+      A <b>token</b> is the smallest meaningful unit in a C program — similar to a word in a sentence.
+      The compiler breaks your source code into tokens before understanding it.
+    </p>
+
+    <p style="color:var(--muted); font-size:.9rem; margin-bottom:8px;">
+      Common token categories in C:
+    </p>
+
+    <ul>
+      <li><b>1. Keywords</b> – Reserved words that have a special meaning in C and cannot be used as identifiers.<br>
+        Examples: <code>int</code>, <code>float</code>, <code>if</code>, <code>else</code>, <code>return</code>, <code>for</code>
+      </li>
+
+      <li><b>2. Identifiers</b> – Names given by the programmer to variables, functions, arrays, structures, etc.<br>
+        Examples: <code>age</code>, <code>sum</code>, <code>totalMarks</code>, <code>calculateAverage</code>
+      </li>
+
+      <li><b>3. Constants / Literals</b> – Fixed values that do not change during program execution.<br>
+        Examples:<br>
+        • Integer literal: <code>10</code>, <code>-25</code><br>
+        • Floating literal: <code>3.14</code>, <code>0.001</code><br>
+        • Character literal: <code>'A'</code>, <code>'9'</code><br>
+        • <b>String literal</b>: <code>"Hello"</code>, <code>"Coder &amp; AccoTax"</code>
+      </li>
+
+      <li><b>4. Operators</b> – Symbols that perform operations on variables and values.<br>
+        Examples: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>==</code>, <code>&amp;&amp;</code>, <code>||</code>
+      </li>
+
+      <li><b>5. Punctuators (Special Symbols)</b> – Symbols that define structure and separation in C code.<br>
+        Examples: <code>;</code>, <code>,</code>, <code>()</code>, <code>{}</code>, <code>[]</code>, <code>#</code>
+      </li>
+    </ul>
+
+    <h3 style="color:#93c5fd; margin-top:12px;">Example: Tokens inside a C statement</h3>
+
+    <pre>
+int total = price + 10;
+    </pre>
+
+    <p style="color:var(--muted); font-size:.9rem;">
+      Breakdown:<br>
+      <b>int</b>  → keyword<br>
+      <b>total</b> → identifier (variable name)<br>
+      <b>=</b>     → assignment operator<br>
+      <b>price</b> → identifier<br>
+      <b>+</b>     → arithmetic operator<br>
+      <b>10</b>    → integer literal (constant)<br>
+      <b>;</b>     → punctuator (statement terminator)
+    </p>
+
+    <p style="color:var(--muted); font-size:.9rem; margin-top:6px;">
+      Understanding tokens first makes it easier to learn variables, data types, operators and full C syntax in the next sections.
+    </p>
+  </section>
+
+
+
+    <!-- SECTION 1 -->
+    <section class="card">
+      <h2><span class="index">1.</span> What is a Variable?</h2>
+      <p class="tagline">A variable is a named memory location that can store data.</p>
+      <ul>
+        <li>Variables allow storing values that can change during program execution.</li>
+        <li>Each variable has a name, type, and memory address.</li>
+        <li>C is statically typed — type is declared before use.</li>
+      </ul>
+
+      <pre>
+// Example
+int age = 20;
+float price = 99.5;
+char grade = 'A';
+    </pre>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="card">
+      <h2><span class="index">2.</span> Rules for Naming Variables</h2>
+      <p class="tagline">C follows strict rules for identifiers.</p>
+      <ul>
+        <li>Can contain letters, digits, and underscore (_).</li>
+        <li>Cannot start with a digit.</li>
+        <li>No spaces or special characters allowed.</li>
+        <li>C is case-sensitive: <code>Age</code> and <code>age</code> are different.</li>
+        <li>Keywords cannot be used (e.g., int, float, return).</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="card">
+      <h2><span class="index">3.</span> Data Types in C</h2>
+      <p class="tagline">Used to declare the type and size of data.</p>
+      <ul>
+        <li><b>int</b> – Integer values</li>
+        <li><b>float</b> – Single-precision decimal</li>
+        <li><b>double</b> – Double-precision decimal</li>
+        <li><b>char</b> – Single character</li>
+      </ul>
+
+      <pre>
+// Example
+int marks = 85;
+float height = 5.11;
+double salary = 50500.75;
+char letter = 'Z';
+    </pre>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="card">
+      <h2><span class="index">4.</span> Constants in C</h2>
+      <p class="tagline">Values that do not change during execution.</p>
+      <ul>
+        <li>Defined using <code>const</code> keyword.</li>
+        <li>Or using <code>#define</code> macro.</li>
+      </ul>
+
+      <pre>
+// Using const
+const int max = 100;
+
+// Using #define
+#define PI 3.14
+    </pre>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="card">
+      <h2><span class="index">5.</span> Basic Input & Output</h2>
+      <p class="tagline">Using printf() and scanf().</p>
+      <ul>
+        <li><code>printf()</code> is used to display output.</li>
+        <li><code>scanf()</code> is used for taking input from user.</li>
+      </ul>
+
+      <pre>
+int age;
+printf("Enter your age: ");
+scanf("%d", &age);
+printf("You entered: %d", age);
+    </pre>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="card">
+      <h2><span class="index">6.</span> Format Specifiers in C</h2>
+      <p class="tagline">Format specifiers tell printf() and scanf() the type of data to print or read.</p>
+
+      <ul>
+        <li>C does not automatically know the type of variable during input/output.</li>
+        <li>Format specifiers act as instructions for how the data should be interpreted.</li>
+        <li>They ensure correct reading and printing of memory values.</li>
+      </ul>
+
+      <pre>
+// Examples
+printf("%d", age);       // prints integer
+printf("%f", height);    // prints float
+printf("%c", grade);     // prints character
+printf("%s", name);      // prints string
+
+scanf("%d", &age);       // reads integer
+scanf("%f", &height);    // reads float
+    </pre>
+
+      <h3 style="color:#93c5fd; margin-top:12px;">Common Format Specifiers</h3>
+      <ul>
+        <li><b>%d</b> – Integer (int)</li>
+        <li><b>%f</b> – Floating number (float)</li>
+        <li><b>%lf</b> – Double</li>
+        <li><b>%c</b> – Character</li>
+        <li><b>%s</b> – String (char array)</li>
+        <li><b>%u</b> – Unsigned integer</li>
+        <li><b>%x / %X</b> – Hexadecimal output</li>
+        <li><b>%p</b> – Pointer (address)</li>
+      </ul>
+
+      <pre>
+// Example: formatted output
+int a = 10;
+float b = 5.6732;
+
+printf("A = %d, B = %.2f", a, b);
+// Output: A = 10, B = 5.67
+    </pre>
+
+      <p style="color:var(--muted); margin-top:6px;">
+        <b>Note:</b> Format specifiers are essential because C treats each data type differently in memory.
+        Without them, printf() and scanf() cannot correctly interpret the data.
+      </p>
+    </section>
+
+
+    <!-- Back Button -->
+    <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+
+    <!-- ORG CARD -->
+    <div class="org-card">
+      <h3>Coder & AccoTax</h3>
+      <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+      <p>Website: www.codernaccotax.co.in</p>
+      <p>Phone: 7003756860</p>
+    </div>
+
+    <footer>
+      © Coder & AccoTax — Module 2 (Variables & Data Types)
+    </footer>
+
+  </div>
+</body>
+
+</html>

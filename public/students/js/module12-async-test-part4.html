@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 12 — Async JS Test Part 4 | async/await & fetch() | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Same CSS as before -->
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      margin:0;padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+    h1,h2,h3{margin:0;padding:0;}
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;padding:18px 20px;margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+    .card h2{font-size:1.2rem;color:#e0f2fe;margin-bottom:8px;}
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;font-size:0.95rem;
+    }
+    pre{
+      background:#020617;border-radius:10px;padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;font-size:0.85rem;margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+    button{
+      margin-top:8px;padding:7px 13px;border-radius:999px;
+      border:none;cursor:pointer;font-weight:600;font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+    .answer{
+      display:none;margin-top:8px;padding:10px 11px;
+      border-radius:10px;background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;font-size:0.9rem;
+    }
+    .footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans=document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display==="block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 12 — Asynchronous JavaScript  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 4 · async/await, try...catch &amp; fetch()
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 questions focused on <strong>async functions</strong>, <strong>await</strong>,
+      <strong>error handling with try...catch</strong>, <strong>fetch()</strong>,
+      and <strong>parallel vs sequential</strong> requests.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; async/await Basics</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> Output?
+      <pre><code>async function demo() {
+  return 5;
+}
+
+demo().then(v =&gt; console.log(v));</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b> <code>5</code><br>
+        <b>Explanation:</b> An <code>async</code> function always returns a Promise.
+        <code>return 5</code> is like <code>Promise.resolve(5)</code>.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output order?
+      <pre><code>async function run() {
+  console.log("A");
+  await Promise.resolve();
+  console.log("B");
+}
+console.log("C");
+run();
+console.log("D");</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b><br>
+        <code>C</code><br>
+        <code>A</code><br>
+        <code>D</code><br>
+        <code>B</code><br>
+        <b>Explanation:</b> <code>await</code> yields to microtask queue; <code>B</code> runs later.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Output?
+      <pre><code>async function getNumber() {
+  return 10;
+}
+(async () =&gt; {
+  const n = await getNumber();
+  console.log(n * 2);
+})();</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b> <code>20</code><br>
+        <b>Explanation:</b> <code>await getNumber()</code> gives 10; then 10 * 2 = 20.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Output?
+      <pre><code>async function f() {
+  throw new Error("Failed");
+}
+
+f().catch(err =&gt; console.log("Error:", err.message));</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> <code>Error: Failed</code><br>
+        <b>Explanation:</b> Throwing inside an async function rejects the returned Promise.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Output order?
+      <pre><code>async function test() {
+  console.log("1");
+  await new Promise(res =&gt; setTimeout(res, 0));
+  console.log("2");
+}
+console.log("3");
+test();
+console.log("4");</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b><br>
+        <code>3</code><br>
+        <code>1</code><br>
+        <code>4</code><br>
+        <code>2</code><br>
+        <b>Explanation:</b> The <code>await</code> yields until the timeout resolves; the rest runs later.
+      </div>
+    </div>
+
+  </div><!-- /Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — MCQs on async/await &amp; Error Handling</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> Mark the <strong>true</strong> statement:
+      <br><br>
+      A. <code>async</code> functions always return a value, not a Promise. <br>
+      B. <code>async</code> functions always return a Promise. <br>
+      C. <code>await</code> can be used anywhere in the code. <br>
+      D. <code>await</code> only works inside <code>setTimeout</code>.<br><br>
+
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>async function</code> returns a Promise implicitly.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> <code>await</code> can only be used:
+      <br><br>
+      A. Inside an <code>async</code> function (or top-level in supported environments). <br>
+      B. In any normal function. <br>
+      C. In CSS files. <br>
+      D. In HTML only.<br><br>
+
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Correct Option:</b> A<br>
+        <b>Explanation:</b> In classic JS, <code>await</code> requires an <code>async</code> context.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> In async/await, how do you usually catch errors?
+      <br><br>
+      A. Only via <code>.catch()</code>. <br>
+      B. Using <code>try...catch</code> blocks around <code>await</code>. <br>
+      C. Errors are ignored automatically. <br>
+      D. With <code>while</code> loops.<br><br>
+
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>try...catch</code> is the standard way around <code>await</code> calls.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> What does <code>await</code> actually wait for?
+      <br><br>
+      A. Only timers. <br>
+      B. Any Promise to settle (fulfill or reject). <br>
+      C. Synchronous values only. <br>
+      D. CSS animations.<br><br>
+
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>await</code> pauses function execution until the Promise settles.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> Which is a benefit of async/await compared to <code>.then()</code> chains?
+      <br><br>
+      A. Async/await is faster in all cases. <br>
+      B. Code looks more like synchronous code and is easier to read. <br>
+      C. It removes the need for Promises entirely. <br>
+      D. It works only in Node.js, not browser.<br><br>
+
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Async/await is syntax sugar over Promises for readability.
+      </div>
+    </div>
+  </div><!-- /Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — fetch(), HTTP Errors &amp; Parallel vs Sequential</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> What does <code>fetch(url)</code> return?
+      <br><br>
+      A. The JSON data directly. <br>
+      B. A Promise that resolves to a <code>Response</code> object. <br>
+      C. An array of URLs. <br>
+      D. A callback function.<br><br>
+
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> You then call <code>response.json()</code> (also returns a Promise).
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Which statement about <code>fetch()</code> is true?
+      <br><br>
+      A. It rejects the Promise on any HTTP error (404, 500). <br>
+      B. It only rejects on network errors, not on HTTP status. <br>
+      C. It never rejects. <br>
+      D. It returns XML only.<br><br>
+
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Need to check <code>response.ok</code> or <code>status</code> manually.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Choose the correct async/await pattern with fetch:
+      <br><br>
+      A.
+      <pre><code>const data = fetch(url).json();</code></pre>
+      B.
+      <pre><code>const data = await url.json();</code></pre>
+      C.
+      <pre><code>const res = await fetch(url);
+const data = await res.json();</code></pre>
+      D.
+      <pre><code>await fetch(url, res);</code></pre>
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Both <code>fetch</code> and <code>res.json()</code> are async.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> You have:
+      <pre><code>async function loadA() { ... }
+async function loadB() { ... }</code></pre>
+      For <strong>parallel</strong> execution, which is best?
+      <br><br>
+      A.
+      <pre><code>const a = await loadA();
+const b = await loadB();</code></pre>
+      B.
+      <pre><code>const [a, b] = await Promise.all([loadA(), loadB()]);</code></pre>
+      C.
+      <pre><code>await Promise.race([loadA(), loadB()]);</code></pre>
+      D.
+      <pre><code>loadA(); loadB();</code></pre>
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>Promise.all</code> waits for both; they run at the same time.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> In a weather app (Module 12 project), where should you show “Loading...” text?
+      <br><br>
+      A. Before calling fetch, and clear it when data or error arrives. <br>
+      B. Only after <code>await fetch</code>. <br>
+      C. Only after <code>await res.json()</code>. <br>
+      D. Never show it; users will understand.<br><br>
+
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct Option:</b> A<br>
+        <b>Explanation:</b> Indicate loading state while waiting for the Promise to settle.
+      </div>
+    </div>
+  </div><!-- /Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Short Answer &amp; Design with async/await + fetch</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      <b>Question:</b> Convert this Promise-based function to async/await style:
+      <pre><code>function loadData() {
+  return fetch("/api/data")
+    .then(res =&gt; res.json())
+    .then(json =&gt; console.log(json))
+    .catch(err =&gt; console.error(err));
+}</code></pre>
+
+      <button onclick="toggleAns('a16')">Show Sample Answer</button>
+      <div class="answer" id="a16">
+        <b>Sample Answer:</b><br>
+        <pre><code>async function loadData() {
+  try {
+    const res = await fetch("/api/data");
+    const json = await res.json();
+    console.log(json);
+  } catch (err) {
+    console.error(err);
+  }
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      <b>Question:</b> Show a small example of <code>try...catch</code> around <code>await fetch</code> with an HTTP status check.
+      <br><br>
+      <button onclick="toggleAns('a17')">Show Sample Answer</button>
+      <div class="answer" id="a17">
+        <b>Sample Answer:</b><br>
+        <pre><code>async function getPost(id) {
+  try {
+    const res = await fetch(`/posts/${id}`);
+    if (!res.ok) {
+      throw new Error("HTTP " + res.status);
+    }
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error("Failed:", err.message);
+  }
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      <b>Question:</b> For a Coder &amp; AccoTax exam dashboard, you must load:
+      <ul>
+        <li>Student profile</li>
+        <li>Exam list</li>
+        <li>Previous results</li>
+      </ul>
+      Show a short async/await function that loads all three in parallel using <code>Promise.all</code>.
+      <br><br>
+      <button onclick="toggleAns('a18')">Show Sample Answer</button>
+      <div class="answer" id="a18">
+        <b>Sample Answer:</b><br>
+        <pre><code>async function loadExamDashboard() {
+  try {
+    const [profile, exams, results] = await Promise.all([
+      fetch("/api/profile").then(r =&gt; r.json()),
+      fetch("/api/exams").then(r =&gt; r.json()),
+      fetch("/api/results").then(r =&gt; r.json())
+    ]);
+    console.log(profile, exams, results);
+  } catch (err) {
+    console.error("Dashboard error:", err);
+  }
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      <b>Question:</b> Explain “sequential vs parallel awaits” using one simple example in your own words.
+      <br><br>
+      <button onclick="toggleAns('a19')">Show Sample Answer</button>
+      <div class="answer" id="a19">
+        <b>Sample Answer:</b><br>
+        Sequential awaits wait for task A, then start task B. Parallel awaits start A and B together
+        and then <code>await Promise.all</code>; this is faster if A and B are independent.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      <b>Question:</b> Why should we avoid putting a heavy <code>for</code> loop <em>before</em> an <code>await fetch()</code>
+      in an async function?
+      <br><br>
+      <button onclick="toggleAns('a20')">Show Sample Answer</button>
+      <div class="answer" id="a20">
+        <b>Sample Answer:</b><br>
+        The heavy loop will block the main thread and delay the fetch call from starting,
+        making the UI feel frozen before the network request even begins.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> How can you reuse a generic <code>getJSON(url)</code> helper in many parts of your app?
+      Write a short async/await version of <code>getJSON</code>.
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        <pre><code>async function getJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("HTTP " + res.status);
+  }
+  return res.json();
+}</code></pre>
+        Then call <code>await getJSON("/api/students")</code>, <code>await getJSON("/api/courses")</code>, etc.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> Why is it a good teaching idea (for Coder &amp; AccoTax teachers) to first show the Promise version
+      and then the async/await version of the same fetch example?
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer:</b><br>
+        Students see that async/await is just a nicer way to write the same Promise logic.
+        It removes the “magic feeling” and strengthens their understanding of Promises.
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> Create a small async function <code>delay(ms)</code> using Promises and show how to use <code>await delay</code>.
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        <pre><code>function delay(ms) {
+  return new Promise(resolve =&gt; setTimeout(resolve, ms));
+}
+
+async function demo() {
+  console.log("Wait...");
+  await delay(1000);
+  console.log("Done after 1s");
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> In your Module 12 project “Random Students”, how does async/await help make the code easier compared to nested <code>.then</code> calls?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        Async/await lets us write the logic top to bottom: <code>const res = await fetch(...); const data = await res.json();</code>.
+        There is no nesting, and we can use <code>try...catch</code> like normal synchronous error handling.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> One-line summary: how does async/await complete the story of Module 12?
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        Async/await is the modern, readable way to use Promises, giving us callback-style
+        clarity with Promise power for real-world async tasks like fetch, timers, and APIs.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 12 — Async JS · Test Part 4
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 4 of the complete <strong>Module 12 — Asynchronous JavaScript</strong>
+      practice test series on your JavaScript course portal.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

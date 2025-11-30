@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 13 — Storage Classes & Scope in C | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56,189,248,0.18);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{ max-width:1100px; margin:auto; }
+
+    header{text-align:center;margin-bottom:28px;}
+
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:2.35rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:760px;
+      margin:8px auto;
+      font-size:.97rem;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      padding:20px 20px 24px;
+      border-radius:18px;
+      margin-bottom:20px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.2rem;
+      color:#bfdbfe;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .index{ font-size:.90rem; color:var(--accent); }
+
+    .tagline{ color:var(--muted); margin-bottom:10px; }
+
+    ul{ list-style:none; }
+    li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:6px;
+      color:#d1d5db;
+    }
+    li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--accent3);
+    }
+
+    pre{
+      background:#0a1220;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:.9rem;
+      line-height:1.6;
+      color:#e2e8f0;
+      margin-top:10px;
+    }
+
+    .nav-back{
+      margin-top:20px;
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.5);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:600;
+    }
+
+    .nav-back:hover{
+      background:rgba(56,189,248,.3);
+    }
+
+    .org-card{
+      margin-top:30px;
+      background:var(--bg-card);
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.3);
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(30,58,138,.5);
+      color:var(--muted);
+      font-size:.85rem;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="badge">Module 13 — Storage Classes & Scope</div>
+    <h1>Storage Classes & Scope in C</h1>
+    <p class="subtitle">
+      Storage classes decide how long a variable exists, where it is stored,  
+      and where it can be accessed. Mastering them is crucial for professional C programming.
+    </p>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="card">
+    <h2><span class="index">1.</span> What Are Storage Classes?</h2>
+    <p class="tagline">They define four things about a variable:</p>
+
+    <ul>
+      <li><b>Scope:</b> Where the variable is accessible</li>
+      <li><b>Lifetime:</b> How long the variable exists in memory</li>
+      <li><b>Visibility:</b> Where it can be used in the program</li>
+      <li><b>Memory Location:</b> Where it is stored (stack, data segment, CPU register)</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="card">
+    <h2><span class="index">2.</span> auto (Default)</h2>
+    <p class="tagline">Local variables inside functions.</p>
+
+    <ul>
+      <li>Default storage class</li>
+      <li>Scope: Block/function</li>
+      <li>Lifetime: Until function ends</li>
+      <li>Stored in: Stack</li>
+    </ul>
+
+    <pre>
+void test() {
+    auto int x = 10;  // same as: int x = 10;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="card">
+    <h2><span class="index">3.</span> static</h2>
+    <p class="tagline">Remembers value between function calls.</p>
+
+    <ul>
+      <li>Scope: Local to block/function</li>
+      <li>Lifetime: Entire program</li>
+      <li>Stored in: Data segment</li>
+    </ul>
+
+    <pre>
+void counter() {
+    static int count = 0;
+    count++;
+    printf("%d ", count);
+}
+
+int main() {
+    counter(); // 1
+    counter(); // 2
+    counter(); // 3
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="card">
+    <h2><span class="index">4.</span> extern</h2>
+    <p class="tagline">Used for global variables across multiple files.</p>
+
+    <ul>
+      <li>Declares a variable without creating memory</li>
+      <li>Used in multi-file projects</li>
+      <li>Lifetime: Entire program</li>
+      <li>Stored in: Data segment</li>
+    </ul>
+
+    <pre>
+// File1.c
+int a = 10;
+
+// File2.c
+extern int a;
+printf("%d", a);
+    </pre>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="card">
+    <h2><span class="index">5.</span> register</h2>
+    <p class="tagline">Request compiler to store variable in CPU register.</p>
+
+    <ul>
+      <li>Fastest access</li>
+      <li>May or may not be stored in register (compiler decides)</li>
+      <li>Cannot take address using <code>&amp;</code></li>
+    </ul>
+
+    <pre>
+register int i;
+for(i = 0; i < 10000; i++);
+    </pre>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="card">
+    <h2><span class="index">6.</span> Scope Types</h2>
+
+    <ul>
+      <li><b>Block scope</b> – variables inside braces</li>
+      <li><b>Function scope</b> – labels</li>
+      <li><b>File scope</b> – global variables</li>
+    </ul>
+
+    <pre>
+int x = 10; // file scope
+
+void test() {
+    int y = 20; // block scope
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="card">
+    <h2><span class="index">7.</span> Lifetime Summary Table</h2>
+
+    <pre>
+Storage Class   Lifetime       Scope        Memory
+--------------------------------------------------------
+auto            Function       Block        Stack
+static          Program        Local/Global Data Segment
+extern          Program        Global       Data Segment
+register        Function       Block        CPU Register
+    </pre>
+  </section>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+
+  <!-- ORG CARD -->
+  <div class="org-card">
+    <h3>Coder & AccoTax</h3>
+    <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+    <p>Website: www.codernaccotax.co.in</p>
+    <p>Phone: 7003756860</p>
+  </div>
+
+  <footer>
+    © Coder & AccoTax — Module 13 (Storage Classes & Scope)
+  </footer>
+
+</div>
+</body>
+</html>

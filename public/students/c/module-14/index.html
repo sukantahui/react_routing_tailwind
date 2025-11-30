@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 14 — Preprocessor & Macros in C | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56,189,248,0.18);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{ max-width:1100px; margin:auto; }
+
+    header{text-align:center;margin-bottom:28px;}
+
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:2.35rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:760px;
+      margin:8px auto;
+      font-size:.97rem;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      padding:20px 20px 24px;
+      border-radius:18px;
+      margin-bottom:20px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.2rem;
+      color:#bfdbfe;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .index{ font-size:.90rem; color:var(--accent); }
+
+    .tagline{ color:var(--muted); margin-bottom:10px; }
+
+    ul{ list-style:none; }
+    li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:6px;
+      color:#d1d5db;
+    }
+    li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--accent3);
+    }
+
+    pre{
+      background:#0a1220;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:.9rem;
+      line-height:1.6;
+      color:#e2e8f0;
+      margin-top:10px;
+    }
+
+    .nav-back{
+      margin-top:20px;
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.5);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:600;
+    }
+
+    .nav-back:hover{
+      background:rgba(56,189,248,.3);
+    }
+
+    .org-card{
+      margin-top:30px;
+      background:var(--bg-card);
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.3);
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(30,58,138,.5);
+      color:var(--muted);
+      font-size:.85rem;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="badge">Module 14 — Preprocessor & Macros</div>
+    <h1>Preprocessor & Macros in C</h1>
+    <p class="subtitle">
+      The C preprocessor processes code before compilation.  
+      Learn macros, header files, conditional compilation, and user-defined directives.
+    </p>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="card">
+    <h2><span class="index">1.</span> What is a Preprocessor?</h2>
+    <p class="tagline">A tool that modifies code before actual compilation.</p>
+
+    <ul>
+      <li>Handles macros</li>
+      <li>Includes header files</li>
+      <li>Performs conditional compilation</li>
+      <li>Textual substitutions</li>
+    </ul>
+
+    <pre>
+#include &lt;stdio.h&gt;
+#define PI 3.14
+    </pre>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="card">
+    <h2><span class="index">2.</span> #define (Object-like Macros)</h2>
+
+    <pre>
+#define MAX 100
+#define PI 3.14159
+
+int arr[MAX];
+printf("%f", PI);
+    </pre>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="card">
+    <h2><span class="index">3.</span> Function-like Macros</h2>
+    <p class="tagline">Behave like inline functions.</p>
+
+    <pre>
+#define square(x)  ((x)*(x))
+
+printf("%d", square(5)); // 25
+    </pre>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="card">
+    <h2><span class="index">4.</span> #include — Header Files</h2>
+
+    <p class="tagline">Used to include libraries and user-defined headers.</p>
+
+    <ul>
+      <li><code>#include &lt;stdio.h&gt;</code> → system header</li>
+      <li><code>#include "myfile.h"</code> → user header in same directory</li>
+    </ul>
+
+    <pre>
+// myfile.h
+void greet();
+
+// main.c
+#include "myfile.h"
+    </pre>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="card">
+    <h2><span class="index">5.</span> Conditional Compilation</h2>
+    <p class="tagline">Compile specific parts of code based on conditions.</p>
+
+    <pre>
+#define DEBUG 1
+
+#if DEBUG
+    printf("Debug mode ON");
+#endif
+    </pre>
+
+    <pre>
+#ifdef WINDOWS
+    // windows-specific code
+#else
+    // linux code
+#endif
+    </pre>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="card">
+    <h2><span class="index">6.</span> #undef</h2>
+    <p class="tagline">Used to remove a macro definition.</p>
+
+    <pre>
+#define LIMIT 50
+#undef LIMIT
+    </pre>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="card">
+    <h2><span class="index">7.</span> Predefined Macros</h2>
+
+    <pre>
+printf("%s", __FILE__);   // file name
+printf("%d", __LINE__);   // current line number
+printf("%s", __DATE__);   // compile date
+printf("%s", __TIME__);   // compile time
+    </pre>
+  </section>
+
+  <!-- SECTION 8 -->
+  <section class="card">
+    <h2><span class="index">8.</span> Creating User-Defined Header Files</h2>
+
+    <pre>
+// mathutils.h
+int add(int a, int b){
+    return a + b;
+}
+
+// main.c
+#include "mathutils.h"
+printf("%d", add(3, 7));
+    </pre>
+  </section>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+
+  <!-- ORG CARD -->
+  <div class="org-card">
+    <h3>Coder & AccoTax</h3>
+    <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+    <p>Website: www.codernaccotax.co.in</p>
+    <p>Phone: 7003756860</p>
+  </div>
+
+  <footer>
+    © Coder & AccoTax — Module 14 (Preprocessor & Macros)
+  </footer>
+
+</div>
+</body>
+</html>

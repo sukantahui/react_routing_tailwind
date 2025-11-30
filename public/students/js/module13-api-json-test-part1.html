@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 13 — Test Part 1 | JSON Basics & Parsing | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body{
+      margin:0; padding:20px;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      font-family:system-ui,Arial;
+      color:#e5e7eb;
+      line-height:1.6;
+    }
+    .page{max-width:1000px;margin:auto;}
+
+    h1{
+      font-size:1.9rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+    .sub{color:#9ca3af; margin-bottom:20px;}
+
+    .card{
+      background:rgba(15,23,42,0.94);
+      padding:18px 20px;
+      border-radius:18px;
+      border:1px solid rgba(56,189,248,0.35);
+      margin-bottom:22px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.55);
+    }
+
+    .q{
+      margin-bottom:12px;
+      font-weight:600;
+      color:#e2e8f0;
+    }
+    .opt{
+      margin-left:12px;
+      margin-bottom:4px;
+      cursor:pointer;
+      color:#cbd5e1;
+    }
+
+    .ans{
+      margin-top:10px;
+      padding:10px;
+      border-radius:12px;
+      background:rgba(34,197,94,0.15);
+      border:1px solid rgba(34,197,94,0.55);
+      color:#bbf7d0;
+      display:none;
+      font-size:0.9rem;
+    }
+
+    button{
+      margin-top:8px;
+      padding:6px 14px;
+      border-radius:10px;
+      border:1px solid #38bdf8;
+      background:#0f172a;
+      color:#e0f2fe;
+      cursor:pointer;
+    }
+    button:hover{
+      background:#082f49;
+    }
+  </style>
+
+  <script>
+    function showAns(id){
+      const box = document.getElementById(id);
+      box.style.display = (box.style.display === "none") ? "block" : "none";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <h1>Module 13 — Test Part 1</h1>
+  <div class="sub">JSON Basics · JSON.parse · JSON.stringify · Rules of JSON</div>
+
+  <!-- QUESTION CARDS START -->
+
+  <!-- Q1 -->
+  <div class="card">
+    <div class="q">1. What does JSON stand for?</div>
+    <div class="opt">a) Java Source Object Notation</div>
+    <div class="opt">b) JavaScript Oriented Network</div>
+    <div class="opt">c) JavaScript Object Notation</div>
+    <div class="opt">d) Java Syntax Object Notation</div>
+
+    <button onclick="showAns('ans1')">Show Answer</button>
+    <div class="ans" id="ans1">
+      ✔ Correct: <strong>c</strong><br>
+      JSON = JavaScript Object Notation, a lightweight format for data exchange.
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="card">
+    <div class="q">2. JSON is primarily used for:</div>
+    <div class="opt">a) Styling web pages</div>
+    <div class="opt">b) Data storage & data exchange</div>
+    <div class="opt">c) Server hosting</div>
+    <div class="opt">d) Creating animations</div>
+
+    <button onclick="showAns('ans2')">Show Answer</button>
+    <div class="ans" id="ans2">
+      ✔ Correct: <strong>b</strong><br>
+      JSON is mainly used to send and receive structured data across systems.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="card">
+    <div class="q">3. Which is valid JSON?</div>
+    <div class="opt">a) {name:'Amit', age:22}</div>
+    <div class="opt">b) {"name":"Amit","age":22}</div>
+    <div class="opt">c) ['Amit',22]</div>
+    <div class="opt">d) (name:"Amit")</div>
+
+    <button onclick="showAns('ans3')">Show Answer</button>
+    <div class="ans" id="ans3">
+      ✔ Correct: <strong>b</strong><br>
+      JSON requires double quotes around keys and string values.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="card">
+    <div class="q">4. Which function converts JSON text into a JavaScript object?</div>
+    <div class="opt">a) JSON.object()</div>
+    <div class="opt">b) parse.JSON()</div>
+    <div class="opt">c) JSON.parse()</div>
+    <div class="opt">d) JSON.toJS()</div>
+
+    <button onclick="showAns('ans4')">Show Answer</button>
+    <div class="ans" id="ans4">
+      ✔ Correct: <strong>c</strong>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="card">
+    <div class="q">5. What does JSON.stringify() do?</div>
+    <div class="opt">a) Converts JavaScript object → JSON string</div>
+    <div class="opt">b) Converts JSON → JS object</div>
+    <div class="opt">c) Saves JSON to the server</div>
+    <div class="opt">d) Encrypts JSON</div>
+
+    <button onclick="showAns('ans5')">Show Answer</button>
+    <div class="ans" id="ans5">
+      ✔ Correct: <strong>a</strong>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="card">
+    <div class="q">6. Which of these is NOT allowed in JSON?</div>
+    <div class="opt">a) Strings</div>
+    <div class="opt">b) Numbers</div>
+    <div class="opt">c) Booleans</div>
+    <div class="opt">d) Functions</div>
+
+    <button onclick="showAns('ans6')">Show Answer</button>
+    <div class="ans" id="ans6">
+      ✔ Correct: <strong>d</strong><br>
+      JSON cannot contain functions or undefined values.
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="card">
+    <div class="q">7. What is the output of JSON.stringify({x:10, y:20})?</div>
+    <div class="opt">a) {x:10, y:20}</div>
+    <div class="opt">b) '{"x":10,"y":20}'</div>
+    <div class="opt">c) '[x:10,y:20]'</div>
+    <div class="opt">d) ["x","y"]</div>
+
+    <button onclick="showAns('ans7')">Show Answer</button>
+    <div class="ans" id="ans7">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="card">
+    <div class="q">8. JSON keys must always be:</div>
+    <div class="opt">a) Single quoted</div>
+    <div class="opt">b) Double quoted</div>
+    <div class="opt">c) Without quotes</div>
+    <div class="opt">d) Template literals</div>
+
+    <button onclick="showAns('ans8')">Show Answer</button>
+    <div class="ans" id="ans8">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="card">
+    <div class="q">9. What will JSON.parse('true') return?</div>
+    <div class="opt">a) "true"</div>
+    <div class="opt">b) true</div>
+    <div class="opt">c) {true}</div>
+    <div class="opt">d) Error</div>
+
+    <button onclick="showAns('ans9')">Show Answer</button>
+    <div class="ans" id="ans9">
+      ✔ Correct: <strong>b</strong><br>
+      JSON booleans convert to JS booleans.
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="card">
+    <div class="q">10. Which is valid JSON array?</div>
+    <div class="opt">a) {1,2,3}</div>
+    <div class="opt">b) ["A","B","C"]</div>
+    <div class="opt">c) ["A",'B',"C"]</div>
+    <div class="opt">d) (1,2,3)</div>
+
+    <button onclick="showAns('ans10')">Show Answer</button>
+    <div class="ans" id="ans10">
+      ✔ Correct: <strong>b</strong><br>
+      JSON requires all strings to use double quotes only.
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="card">
+    <div class="q">11. What is wrong in: {"name":"Amit", age:20}?</div>
+    <div class="opt">a) name uses double quotes</div>
+    <div class="opt">b) age is a number</div>
+    <div class="opt">c) age key is not in double quotes</div>
+    <div class="opt">d) JSON cannot have numbers</div>
+
+    <button onclick="showAns('ans11')">Show Answer</button>
+    <div class="ans" id="ans11">
+      ✔ Correct: <strong>c</strong>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="card">
+    <div class="q">12. JSON is mainly used in:</div>
+    <div class="opt">a) Network communication</div>
+    <div class="opt">b) Browser rendering</div>
+    <div class="opt">c) CSS styling</div>
+    <div class="opt">d) Audio processing</div>
+
+    <button onclick="showAns('ans12')">Show Answer</button>
+    <div class="ans" id="ans12">
+      ✔ Correct: <strong>a</strong>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="card">
+    <div class="q">13. JSON supports comments.</div>
+    <div class="opt">a) True</div>
+    <div class="opt">b) False</div>
+
+    <button onclick="showAns('ans13')">Show Answer</button>
+    <div class="ans" id="ans13">
+      ✔ Correct: <strong>b</strong><br>
+      JSON never allows comments.
+    </div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="card">
+    <div class="q">14. What will JSON.parse('"Hello"') return?</div>
+    <div class="opt">a) Hello</div>
+    <div class="opt">b) "Hello"</div>
+    <div class="opt">c) ["Hello"]</div>
+    <div class="opt">d) Error</div>
+
+    <button onclick="showAns('ans14')">Show Answer</button>
+    <div class="ans" id="ans14">
+      ✔ Correct: <strong>a</strong>
+    </div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="card">
+    <div class="q">15. JSON can store:</div>
+    <div class="opt">a) Objects</div>
+    <div class="opt">b) Arrays</div>
+    <div class="opt">c) Nested structures</div>
+    <div class="opt">d) All of the above</div>
+
+    <button onclick="showAns('ans15')">Show Answer</button>
+    <div class="ans" id="ans15">
+      ✔ Correct: <strong>d</strong>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="card">
+    <div class="q">16. What is the output?<br><pre>{"a":1,"b":2}.a</pre></div>
+    <div class="opt">a) 1</div>
+    <div class="opt">b) Syntax error</div>
+    <div class="opt">c) undefined</div>
+    <div class="opt">d) "a"</div>
+
+    <button onclick="showAns('ans16')">Show Answer</button>
+    <div class="ans" id="ans16">
+      ✔ Correct: <strong>b</strong><br>
+      JSON is not JS code; you cannot access properties inside JSON text.
+    </div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="card">
+    <div class="q">17. JSON data type NOT supported:</div>
+    <div class="opt">a) null</div>
+    <div class="opt">b) array</div>
+    <div class="opt">c) undefined</div>
+    <div class="opt">d) boolean</div>
+
+    <button onclick="showAns('ans17')">Show Answer</button>
+    <div class="ans" id="ans17">
+      ✔ Correct: <strong>c</strong>
+    </div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="card">
+    <div class="q">18. Pretty JSON uses:</div>
+    <div class="opt">a) JSON.pretty()</div>
+    <div class="opt">b) JSON.stringify(obj, null, 2)</div>
+    <div class="opt">c) JSON.format()</div>
+    <div class="opt">d) print.JSON()</div>
+
+    <button onclick="showAns('ans18')">Show Answer</button>
+    <div class="ans" id="ans18">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="card">
+    <div class="q">19. What is the output of JSON.parse('123')?</div>
+    <div class="opt">a) "123"</div>
+    <div class="opt">b) 123</div>
+    <div class="opt">c) NaN</div>
+    <div class="opt">d) Error</div>
+
+    <button onclick="showAns('ans19')">Show Answer</button>
+    <div class="ans" id="ans19">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="card">
+    <div class="q">20. JSON keys must be:</div>
+    <div class="opt">a) numbers only</div>
+    <div class="opt">b) always strings</div>
+    <div class="opt">c) can be functions</div>
+    <div class="opt">d) can be booleans</div>
+
+    <button onclick="showAns('ans20')">Show Answer</button>
+    <div class="ans" id="ans20">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="card">
+    <div class="q">21. What is invalid JSON?</div>
+    <div class="opt">a) {"name":"Amit"}</div>
+    <div class="opt">b) {"age":20}</div>
+    <div class="opt">c) {"active":true}</div>
+    <div class="opt">d) {"name": "Amit",}</div>
+
+    <button onclick="showAns('ans21')">Show Answer</button>
+    <div class="ans" id="ans21">
+      ✔ Correct: <strong>d</strong><br>
+      Trailing commas are not allowed.
+    </div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="card">
+    <div class="q">22. JSON cannot contain:</div>
+    <div class="opt">a) nested arrays</div>
+    <div class="opt">b) nested objects</div>
+    <div class="opt">c) undefined</div>
+    <div class="opt">d) null</div>
+
+    <button onclick="showAns('ans22')">Show Answer</button>
+    <div class="ans" id="ans22">
+      ✔ Correct: <strong>c</strong>
+    </div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="card">
+    <div class="q">23. What will JSON.parse('{}') produce?</div>
+    <div class="opt">a) null</div>
+    <div class="opt">b) empty object {}</div>
+    <div class="opt">c) []</div>
+    <div class="opt">d) Error</div>
+
+    <button onclick="showAns('ans23')">Show Answer</button>
+    <div class="ans" id="ans23">
+      ✔ Correct: <strong>b</strong>
+    </div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="card">
+    <div class="q">24. JSON strings must use:</div>
+    <div class="opt">a) double quotes</div>
+    <div class="opt">b) single quotes</div>
+    <div class="opt">c) either</div>
+    <div class="opt">d) backticks</div>
+
+    <button onclick="showAns('ans24')">Show Answer</button>
+    <div class="ans" id="ans24">
+      ✔ Correct: <strong>a</strong>
+    </div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="card">
+    <div class="q">25. Which method is used to safely send data in APIs?</div>
+    <div class="opt">a) JSON.write()</div>
+    <div class="opt">b) JSON.stringify()</div>
+    <div class="opt">c) parse.JSON()</div>
+    <div class="opt">d) jsonConvert()</div>
+
+    <button onclick="showAns('ans25')">Show Answer</button>
+    <div class="ans" id="ans25">
+      ✔ Correct: <strong>b</strong><br>
+      JSON.stringify sends robust, valid JSON through APIs.
+    </div>
+  </div>
+
+  <!-- END -->
+</div>
+</body>
+</html>

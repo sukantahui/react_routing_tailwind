@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 6 — Arrays in C | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56,189,248,0.18);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{ max-width:1100px; margin:auto; }
+
+    header{text-align:center;margin-bottom:28px;}
+
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:2.35rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:760px;
+      margin:8px auto;
+      font-size:.97rem;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      padding:20px 20px 24px;
+      border-radius:18px;
+      margin-bottom:20px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.2rem;
+      color:#bfdbfe;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .index{ font-size:.90rem; color:var(--accent); }
+
+    .tagline{ color:var(--muted); margin-bottom:10px; }
+
+    ul{ list-style:none; }
+    li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:6px;
+      color:#d1d5db;
+    }
+    li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--accent3);
+    }
+
+    pre{
+      background:#0a1220;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:.9rem;
+      line-height:1.6;
+      color:#e2e8f0;
+      margin-top:10px;
+    }
+
+    .nav-back{
+      margin-top:20px;
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.5);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:600;
+      margin-right:8px;
+    }
+
+    .nav-back:hover{
+      background:rgba(56,189,248,.3);
+    }
+
+    .org-card{
+      margin-top:30px;
+      background:var(--bg-card);
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.3);
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(30,58,138,.5);
+      color:var(--muted);
+      font-size:.85rem;
+      text-align:center;
+    }
+
+    .note{
+      margin-top:10px;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px dashed rgba(148,163,184,.7);
+      background:rgba(15,23,42,.9);
+      font-size:.88rem;
+      color:var(--muted);
+    }
+
+    .warn{
+      margin-top:10px;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid rgba(248,113,113,.7);
+      background:rgba(30,64,75,.6);
+      font-size:.88rem;
+      color:#fecaca;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="badge">Module 6 — Arrays</div>
+    <h1>Arrays in C</h1>
+    <p class="subtitle">
+      Arrays store multiple values of the same type in contiguous memory locations. In this module, you’ll learn
+      fixed-size arrays, memory layout, traversal techniques, common operations, pointer relationships, 2D matrices,
+      dynamic arrays using <code>malloc()</code>, and best practices used in real projects.
+    </p>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="card">
+    <h2><span class="index">1.</span> What is an Array?</h2>
+    <p class="tagline">A fixed-size collection of similar elements stored sequentially in memory.</p>
+
+    <ul>
+      <li>Stores multiple values of the <b>same data type</b> under a single name.</li>
+      <li>Size is fixed at declaration time (cannot grow or shrink at runtime).</li>
+      <li>Each element is accessed using an <b>index</b> starting from 0.</li>
+      <li>No automatic bounds checking — accessing invalid index is a bug.</li>
+      <li>Fast random access: element at index <code>i</code> can be accessed in O(1) time.</li>
+      <li>Good cache performance due to <b>contiguous storage</b>.</li>
+    </ul>
+
+    <h3 style="color:#a5b4fc;margin-top:14px;">📌 Arrays Store Elements in Contiguous Memory</h3>
+    <p style="color:#d1d5db;">
+      The most important property of a C array is that all elements are stored in
+      <b>contiguous (continuous) memory locations</b>. Each element sits immediately
+      next to the previous one in RAM.
+    </p>
+
+    <ul>
+      <li>Address difference between two elements = <code>sizeof(type)</code>.</li>
+      <li>Element address formula: <code>base_address + index * sizeof(type)</code>.</li>
+      <li>Enables pointer arithmetic and fast iteration.</li>
+    </ul>
+
+    <pre>
+// Example: int usually takes 4 bytes
+int a[5] = {10, 20, 30, 40, 50};
+
+// Suppose &a[0] is 1000 (for explanation)
+Index :   0    1    2    3    4
+Value :  10   20   30   40   50
+
+Address:
+a[0] → 1000
+a[1] → 1004   (1000 + 1 * 4)
+a[2] → 1008   (1000 + 2 * 4)
+a[3] → 1012
+a[4] → 1016
+    </pre>
+
+    <div class="note">
+      In interviews, “What does contiguous memory mean for arrays?” is a very
+      common question. Emphasise that indices are implemented using this formula.
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="card">
+    <h2><span class="index">2.</span> Declaring & Initializing Arrays</h2>
+    <p class="tagline">Different ways to create and initialize arrays with examples.</p>
+
+    <pre>
+// 1. Declaration only → contains garbage values (uninitialized local array)
+int a[5];
+
+// 2. Declaration + full initialization
+int b[5] = {10, 20, 30, 40, 50};
+
+// 3. Partial initialization → remaining elements become 0
+int c[5] = {1, 2}; 
+// c = {1, 2, 0, 0, 0}
+
+// 4. Automatic size detection
+int d[] = {4, 5, 6};  // size = 3
+
+// 5. All zeros (common trick)
+int z[10] = {0};      // all 10 elements become 0
+
+// 6. Initialization of char array
+char vowels[5] = {'a','e','i','o','u'};
+    </pre>
+
+    <div class="note">
+      For <b>global</b> or <b>static</b> arrays, uninitialized elements are automatically set to 0.
+      For <b>local</b> (automatic) arrays, uninitialized elements contain garbage values.
+    </div>
+
+    <div class="warn">
+      ❗ Incorrect: <code>int n; int arr[n];</code> is not valid in old C standards.
+      It is a variable-length array (VLA) in C99, but not supported by all compilers.
+      Prefer fixed size or dynamic memory (<code>malloc</code>) for portability.
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="card">
+    <h2><span class="index">3.</span> Accessing Array Elements</h2>
+    <p class="tagline">Using index numbers to read/write values.</p>
+
+    <pre>
+int numbers[3] = {10, 20, 30};
+
+printf("%d\n", numbers[0]);  // prints 10
+numbers[2] = 99;
+printf("%d\n", numbers[2]);  // prints 99
+
+// Reading values from user
+for(int i = 0; i < 3; i++) {
+    printf("Enter element %d: ", i);
+    scanf("%d", &numbers[i]);
+}
+    </pre>
+
+    <div class="warn">
+      ❗ Accessing <code>numbers[3]</code> or any index &lt; 0 or ≥ size is <b>undefined behaviour</b>.
+      The compiler will not give an error, but your program may crash or print garbage.
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="card">
+    <h2><span class="index">4.</span> Traversing Arrays</h2>
+    <p class="tagline">Looping through array elements in different ways.</p>
+
+    <h3 style="color:#a5b4fc;">Forward Traversal</h3>
+    <pre>
+int arr[5] = {1, 2, 3, 4, 5};
+
+for(int i = 0; i < 5; i++) {
+    printf("%d ", arr[i]);
+}
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">Reverse Traversal</h3>
+    <pre>
+for(int i = 4; i >= 0; i--) {
+    printf("%d ", arr[i]);
+}
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">Traversal with While Loop</h3>
+    <pre>
+int i = 0;
+while(i < 5) {
+    printf("%d ", arr[i]);
+    i++;
+}
+    </pre>
+
+    <div class="note">
+      For teaching, show students how changing the loop condition or increment
+      wrongly can create <b>infinite loops</b> or <b>index out-of-range</b> errors.
+    </div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="card">
+    <h2><span class="index">5.</span> Common Array Operations</h2>
+    <p class="tagline">Standard operations performed using loops.</p>
+
+    <h3 style="color:#a5b4fc;">5.1 Sum & Average</h3>
+    <pre>
+int arr[5] = {10, 20, 30, 40, 50};
+int sum = 0;
+
+for(int i = 0; i < 5; i++)
+    sum += arr[i];
+
+float avg = sum / 5.0;
+
+printf("Sum = %d, Average = %.2f", sum, avg);
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">5.2 Maximum Element</h3>
+    <pre>
+int max = arr[0];
+for(int i = 1; i < 5; i++) {
+    if(arr[i] > max)
+        max = arr[i];
+}
+printf("Max = %d", max);
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">5.3 Linear Search</h3>
+    <pre>
+int key = 30, found = 0;
+for(int i = 0; i < 5; i++) {
+    if(arr[i] == key) {
+        printf("Found at index %d\n", i);
+        found = 1;
+        break;
+    }
+}
+if(!found) {
+    printf("Not found\n");
+}
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">5.4 Copying Arrays</h3>
+    <pre>
+int src[5] = {1, 2, 3, 4, 5};
+int dest[5];
+
+for(int i = 0; i < 5; i++) {
+    dest[i] = src[i];
+}
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">5.5 Reversing an Array (In-place)</h3>
+    <pre>
+int start = 0, end = 4;
+while(start < end) {
+    int temp      = arr[start];
+    arr[start]    = arr[end];
+    arr[end]      = temp;
+    start++;
+    end--;
+}
+    </pre>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="card">
+    <h2><span class="index">6.</span> 2D Arrays (Matrix)</h2>
+    <p class="tagline">2D arrays represent tables or matrices. C stores them in row-major order.</p>
+
+    <pre>
+int matrix[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+printf("%d\n", matrix[1][2]); // prints 6
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">Reading & Printing a 2×3 Matrix</h3>
+    <pre>
+int a[2][3];
+
+printf("Enter 6 elements:\n");
+for(int i=0; i<2; i++) {
+    for(int j=0; j<3; j++) {
+        scanf("%d", &a[i][j]);
+    }
+}
+
+printf("Matrix is:\n");
+for(int i=0; i<2; i++) {
+    for(int j=0; j<3; j++) {
+        printf("%d ", a[i][j]);
+    }
+    printf("\n");
+}
+    </pre>
+
+    <h3 style="color:#a5b4fc;margin-top:10px;">Row-Major Memory Layout (Concept)</h3>
+    <pre>
+// Logical layout:
+[ [1, 2, 3],
+  [4, 5, 6] ]
+
+// Row-major physical order in memory:
+1  2  3  4  5  6
+    </pre>
+
+    <div class="note">
+      In C, matrices are widely used for marksheets, images (pixel grids),
+      games (board representation), and mathematical algorithms.
+    </div>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="card">
+    <h2><span class="index">7.</span> Multi-Dimensional Arrays</h2>
+    <p class="tagline">Arrays of arrays of arrays… used for 3D data like 3D grids or multiple matrices.</p>
+
+    <pre>
+int arr3D[2][3][4];  
+// Total elements = 2 * 3 * 4 = 24
+// Access example:
+arr3D[1][2][3] = 99;
+    </pre>
+
+    <div class="note">
+      Practically, 1D and 2D arrays cover 90% of beginner-level problems.
+      3D arrays appear in advanced simulations, graphics, or scientific code.
+    </div>
+  </section>
+
+  <!-- SECTION 8 -->
+  <section class="card">
+    <h2><span class="index">8.</span> Arrays & Pointers Relationship</h2>
+    <p class="tagline">In expressions, the array name often behaves like a pointer to its first element.</p>
+
+    <ul>
+      <li><code>a</code> → value is “address of <code>a[0]</code>” in most expressions.</li>
+      <li><code>a == &a[0]</code> (value is same, type is different).</li>
+      <li>Pointer arithmetic: <code>*(a + i)</code> is same as <code>a[i]</code>.</li>
+    </ul>
+
+    <pre>
+int a[5] = {10,20,30,40,50};
+
+printf("%p\n", (void*)a);       // base address
+printf("%p\n", (void*)&a[0]);   // same address
+
+printf("%d\n", *(a + 2));       // 30
+printf("%d\n", a[2]);           // 30
+    </pre>
+
+    <div class="warn">
+      ❗ <code>a</code> is not a normal pointer variable. You <b>cannot</b> do:
+      <pre style="margin-top:6px;">
+a = a + 1;   // ❌ Error: array type is not assignable
+      </pre>
+      To move through an array, use a separate pointer:
+      <pre style="margin-top:6px;">
+int *p = a;
+p = p + 1;   // ✅ allowed
+      </pre>
+    </div>
+  </section>
+
+  <!-- SECTION 9 -->
+  <section class="card">
+    <h2><span class="index">9.</span> Dynamic Arrays (malloc)</h2>
+    <p class="tagline">Used when array size is not known at compile time.</p>
+
+    <pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    // Allocate memory for n integers
+    int *ptr = (int*) malloc(n * sizeof(int));
+    if(ptr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    printf("Enter %d integers:\n", n);
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &ptr[i]);   // same as *(ptr + i)
+    }
+
+    printf("You entered:\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);   // important to avoid memory leak
+    return 0;
+}
+    </pre>
+
+    <div class="note">
+      Dynamic arrays are very useful in real applications (reading data from file,
+      variable number of students, etc.), where size is not fixed.
+    </div>
+  </section>
+
+  <!-- SECTION 10 -->
+  <section class="card">
+    <h2><span class="index">10.</span> Common Mistakes & Best Practices</h2>
+    <p class="tagline">Professional tips that prevent bugs in array-based programs.</p>
+
+    <ul>
+      <li>Avoid accessing beyond the array size (<code>0</code> to <code>size-1</code> only).</li>
+      <li>Always initialize arrays before use (especially local arrays).</li>
+      <li>While using loops, check starting index, ending condition, and increment carefully.</li>
+      <li>When using <code>malloc</code>, always check for <code>NULL</code> and call <code>free()</code> later.</li>
+      <li>Prefer meaningful names like <code>marks[ ]</code>, <code>prices[ ]</code> instead of <code>a[ ]</code>, <code>b[ ]</code>.</li>
+    </ul>
+
+    <div class="note">
+      Teacher Tip: Ask students to dry-run small array programs on paper.
+      This builds very strong logic for loops and indexing.
+    </div>
+  </section>
+
+  <!-- BACK BUTTONS -->
+  <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+  <a href="../exercises/module-6/" class="nav-back">Go to Exercises</a>
+
+  <!-- ORG CARD -->
+  <div class="org-card">
+    <h3>Coder & AccoTax</h3>
+    <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+    <p>Website: www.codernaccotax.co.in</p>
+    <p>Phone: 7003756860</p>
+  </div>
+
+  <footer>
+    © Coder & AccoTax — Module 6 (Arrays in C)
+  </footer>
+
+</div>
+</body>
+</html>

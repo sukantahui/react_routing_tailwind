@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 12 — Async JS Test Part 2 | Callbacks & Callback Hell | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      margin:0;
+      padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+
+    h1,h2,h3{margin:0;padding:0;}
+
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;
+      padding:18px 20px;
+      margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:6px;
+    }
+
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;
+      margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+
+    .card h2{
+      font-size:1.2rem;
+      color:#e0f2fe;
+      margin-bottom:8px;
+    }
+
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;
+      border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    pre{
+      background:#020617;
+      border-radius:10px;
+      padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;
+      font-size:0.85rem;
+      margin:8px 0;
+    }
+
+    code{font-family:"Fira Code",Consolas,monospace;}
+
+    button{
+      margin-top:8px;
+      padding:7px 13px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;
+      box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+
+    .answer{
+      display:none;
+      margin-top:8px;
+      padding:10px 11px;
+      border-radius:10px;
+      background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;
+      font-size:0.9rem;
+    }
+
+    .footer{
+      margin-top:28px;
+      padding:18px;
+      border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);
+      font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;
+      grid-template-columns:2fr 1.4fr;
+      gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans = document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display === "block") ? "none" : "block";
+    }
+  </script>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 12 — Asynchronous JavaScript  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 2 · Callbacks, Error-First Style &amp; Callback Hell
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 questions focused on <strong>callbacks</strong>, <strong>error-first patterns</strong>,
+      and how nested callbacks create <strong>callback hell</strong> before Promises and async/await.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; Basic Callbacks</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What will be printed?
+      <pre><code>function sayHello(callback) {
+  console.log("Preparing...");
+  callback();
+}
+
+sayHello(() =&gt; {
+  console.log("Hello from callback");
+});</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b><br>
+        <code>Preparing...</code><br>
+        <code>Hello from callback</code><br>
+        <b>Explanation:</b> The callback is a normal function passed as an argument and called inside <code>sayHello</code>.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output?
+      <pre><code>function doLater(callback) {
+  setTimeout(callback, 500);
+}
+
+console.log("Start");
+doLater(() =&gt; console.log("Inside callback"));
+console.log("End");</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b><br>
+        <code>Start</code><br>
+        <code>End</code><br>
+        (after ~500ms) <code>Inside callback</code><br>
+        <b>Explanation:</b> <code>setTimeout</code> is async; the callback runs after the delay via event loop.
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> What is printed?
+      <pre><code>function greet(name, cb) {
+  cb(`Hello, ${name}`);
+}
+
+greet("Neha", (msg) =&gt; console.log(msg));</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b> <code>Hello, Neha</code><br>
+        <b>Explanation:</b> Callback receives the message string and logs it.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> What will be logged?
+      <pre><code>function add(a, b, cb) {
+  const result = a + b;
+  cb(result);
+}
+
+add(2, 3, (sum) =&gt; {
+  console.log("Sum is", sum);
+});</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> <code>Sum is 5</code><br>
+        <b>Explanation:</b> The callback receives <code>result</code> = 5 and logs it.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> What is printed?
+      <pre><code>function first(cb) {
+  console.log("First");
+  cb();
+}
+
+function second() {
+  console.log("Second");
+}
+
+first(second);</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b><br>
+        <code>First</code><br>
+        <code>Second</code><br>
+        <b>Explanation:</b> <code>second</code> is passed by reference as callback and executed inside <code>first</code>.
+      </div>
+    </div>
+
+  </div><!-- /Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — Error-First Callbacks &amp; Patterns (MCQs)</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> In Node.js-style error-first callbacks, the usual signature is:
+      <br><br>
+      A. <code>(data, error)</code><br>
+      B. <code>(error, data)</code><br>
+      C. <code>(result)</code><br>
+      D. <code>(status, code, data)</code><br><br>
+
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Standard pattern is <code>callback(error, data)</code>. Error comes first.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> Which is a correct error-first callback usage?
+      <br><br>
+      A.
+      <pre><code>cb(data, null);</code></pre>
+      B.
+      <pre><code>cb(null, data);</code></pre>
+      C.
+      <pre><code>cb(error);</code></pre>
+      D.
+      <pre><code>cb();</code></pre>
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> On success: <code>cb(null, data)</code>; on error: <code>cb(error)</code> or <code>cb(error, null)</code>.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> What is a <strong>callback</strong>?
+      <br><br>
+      A. A function that returns another function. <br>
+      B. A function passed into another function to be called later. <br>
+      C. A special reserved word. <br>
+      D. Only functions used with <code>setTimeout</code>.<br><br>
+
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Callback = function passed as argument to be executed at a later time.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Which code snippet <strong>correctly</strong> calls an error-first callback on error?
+      <br><br>
+      A.
+      <pre><code>if (err) cb(null, err);</code></pre>
+      B.
+      <pre><code>if (err) cb(err, null);</code></pre>
+      C.
+      <pre><code>if (err) cb();</code></pre>
+      D.
+      <pre><code>if (err) cb(result);</code></pre>
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Error-first style: error as first argument when something goes wrong.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> A main disadvantage of heavy callback usage is:
+      <br><br>
+      A. Code becomes too fast. <br>
+      B. It disables async behaviours. <br>
+      C. Nested callbacks become hard to read and maintain. <br>
+      D. It is not supported by browsers.<br><br>
+
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Callback hell = deeply nested callbacks → poor readability & error handling.
+      </div>
+    </div>
+  </div><!-- /Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — Callback Hell &amp; Nested Flows</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> Consider:
+      <pre><code>loginUser("student", (user) =&gt; {
+  getCourses(user.id, (courses) =&gt; {
+    getCourseDetails(courses[0], (details) =&gt; {
+      console.log(details);
+    });
+  });
+});</code></pre>
+      This pattern is commonly called:
+      <br><br>
+      A. Promise chaining <br>
+      B. Callback hell <br>
+      C. Event bubbling <br>
+      D. Synchronous recursion<br><br>
+
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Multiple nested callbacks = “pyramid of doom” or callback hell.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Output?
+      <pre><code>setTimeout(() =&gt; {
+  console.log("Step 1");
+  setTimeout(() =&gt; {
+    console.log("Step 2");
+  }, 500);
+}, 500);</code></pre>
+
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Answer (timing):</b><br>
+        After ~0.5s: <code>Step 1</code><br>
+        After ~1.0s total: <code>Step 2</code><br>
+        <b>Explanation:</b> The second timeout is scheduled inside the first callback.
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Which is a better practice to reduce callback hell?
+      <br><br>
+      A. Make all callbacks global variables. <br>
+      B. Use Promises or async/await instead. <br>
+      C. Avoid async tasks entirely. <br>
+      D. Increase indentation width.<br><br>
+
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> Promises and async/await help flatten nested flows into readable chains.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> In a callback-based API, where should you usually handle errors?
+      <br><br>
+      A. Inside the callback, checking the <code>error</code> argument. <br>
+      B. Using <code>try...catch</code> around <code>setTimeout</code>. <br>
+      C. In CSS. <br>
+      D. In HTML only.<br><br>
+
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> A<br>
+        <b>Explanation:</b> With error-first callbacks, you check <code>if (error) {...}</code> inside the callback.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Identify the problem in this code:
+      <pre><code>doTask1((data1) =&gt; {
+  doTask2((data2) =&gt; {
+    doTask3((data3) =&gt; {
+      // ...
+    });
+  });
+});</code></pre>
+
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Answer:</b><br>
+        Error handling and control flow are unclear; nesting makes it hard to read and maintain.
+        This is an example of callback hell, especially when you add real error checks.
+      </div>
+    </div>
+  </div><!-- /Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Short Answer &amp; Design Questions</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      <b>Question:</b> Define a “callback” in one sentence suitable for your Module 12 notes.
+      <br><br>
+      <button onclick="toggleAns('a16')">Show Sample Answer</button>
+      <div class="answer" id="a16">
+        <b>Sample Answer:</b><br>
+        A callback is a function that is passed to another function and is executed later,
+        usually when some work is finished or an event happens.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      <b>Question:</b> In an error-first callback <code>callback(err, data)</code>, what do you typically do if
+      <code>err</code> is not <code>null</code>?
+      <br><br>
+      <button onclick="toggleAns('a17')">Show Sample Answer</button>
+      <div class="answer" id="a17">
+        <b>Sample Answer:</b><br>
+        You immediately handle the error (log, show message, or return) and <strong>do not</strong>
+        use <code>data</code>, because the operation failed.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      <b>Question:</b> Give one real example from Coder &amp; AccoTax where callbacks might be used
+      in the front-end JavaScript.
+      <br><br>
+      <button onclick="toggleAns('a18')">Show Sample Answer</button>
+      <div class="answer" id="a18">
+        <b>Sample Answer:</b><br>
+        When a student clicks “Submit Test”, a callback function can be passed to handle what
+        happens after the server response arrives (show marks, correct answers, etc.).
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      <b>Question:</b> Why is callback hell especially problematic when you add error handling?
+      <br><br>
+      <button onclick="toggleAns('a19')">Show Sample Answer</button>
+      <div class="answer" id="a19">
+        <b>Sample Answer:</b><br>
+        Each nested level needs its own <code>if (err)</code> checks, making the code grow sideways
+        and downwards. It becomes very difficult to follow which errors belong to which step.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      <b>Question:</b> How can you slightly reduce the visual “pyramid of doom” even if you still use callbacks?
+      <br><br>
+      <button onclick="toggleAns('a20')">Show Sample Answer</button>
+      <div class="answer" id="a20">
+        <b>Sample Answer:</b><br>
+        Move callback functions out into named functions instead of writing them inline. This reduces
+        indentation and makes each step reusable.
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> Why did JavaScript need a better abstraction than callbacks for async flows?
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        Complex async logic with callbacks quickly becomes messy, with deep nesting and scattered
+        error handling. Promises and async/await provide structured, composable tools for sequencing
+        tasks and handling errors.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> In an exam system, you need to: (1) authenticate student, (2) load questions,
+      (3) load previous attempts. How would this look in “callback hell style”?
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer (pseudo):</b><br>
+        <pre><code>loginStudent(user, pass, (err, student) =&gt; {
+  if (err) return handleErr(err);
+  loadQuestions(student.id, (err, questions) =&gt; {
+    if (err) return handleErr(err);
+    loadAttempts(student.id, (err, attempts) =&gt; {
+      if (err) return handleErr(err);
+      showExam(questions, attempts);
+    });
+  });
+});</code></pre>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> What is the “inversion of control” issue in callbacks?
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        You give control of when and how your callback runs to someone else’s function or library.
+        If that code calls your callback multiple times or in the wrong order, you may get bugs.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> How do Promises help with inversion of control problems?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        With Promises, you get a value-like object that you can chain and handle yourself
+        (<code>.then</code>, <code>.catch</code>) instead of handing over your callback directly to another API.
+        This makes the flow more predictable.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> In your Module 12 notes for Coder &amp; AccoTax, how would you summarise this part
+      in one line?
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        Callbacks are the original way to handle async work in JavaScript, but too many nested
+        callbacks create callback hell, which Promises and async/await try to solve.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER / ORGANISATION DETAILS -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 12 — Async JS · Test Part 2
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 2 of the complete <strong>Module 12 — Asynchronous JavaScript</strong>
+      practice test series on your JavaScript course portal.
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

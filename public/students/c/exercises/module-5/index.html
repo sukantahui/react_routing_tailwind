@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 5 — Looping Statements | Exercises | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root{
+      --bg:#020617;--bg-card:#0f172a;--accent:#38bdf8;
+      --accent2:#a855f7;--accent3:#22c55e;--accent4:#f97316;
+      --text:#e5e7eb;--muted:#9ca3af;--border:#1f2937;
+      --btn-bg:rgba(56,189,248,.18);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{max-width:1100px;margin:auto;}
+    header{text-align:center;margin-bottom:26px;}
+
+    .badge{
+      display:inline-block;padding:4px 12px;border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.8rem;color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    h1{
+      font-size:2.2rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:780px;margin:8px auto;
+      font-size:.95rem;text-align:center;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      border-radius:18px;
+      padding:18px 18px 20px;
+      margin-bottom:18px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.1rem;color:#bfdbfe;margin-bottom:6px;
+      display:flex;align-items:center;gap:8px;
+    }
+
+    .index{font-size:.9rem;color:var(--accent);}
+    .tagline{font-size:.9rem;color:var(--muted);margin-bottom:10px;}
+
+    .q-block{margin-bottom:10px;font-size:.9rem;}
+    .q-title{font-weight:600;margin-bottom:2px;}
+
+    .options{margin-left:14px;font-size:.88rem;}
+    .options div{margin-bottom:1px;}
+
+    pre{
+      background:#020617;border-radius:10px;
+      padding:12px;margin-top:8px;font-size:.88rem;overflow:auto;
+    }
+
+    .nav-back{
+      display:inline-block;margin-top:18px;
+      padding:7px 13px;border-radius:8px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.6);
+      color:var(--accent);text-decoration:none;
+      font-size:.83rem;font-weight:600;
+    }
+
+    .nav-back:hover{background:rgba(56,189,248,.3);}
+
+    .org-card{
+      margin-top:26px;background:var(--bg-card);
+      border-radius:18px;border:1px solid rgba(148,163,184,.3);
+      padding:16px;font-size:.86rem;
+    }
+
+    footer{
+      margin-top:20px;padding-top:8px;
+      border-top:1px solid rgba(30,64,175,.5);
+      font-size:.8rem;color:var(--muted);text-align:center;
+    }
+
+    .ans{font-size:.88rem;color:var(--muted);margin-bottom:3px;}
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="badge">Module 5 — Exercise Set</div>
+    <h1>Looping Statements — Practice</h1>
+    <p class="subtitle">
+      Practice questions covering <b>for, while, do-while, nested loops</b>,  
+      and common loop-based logic problems such as tables, patterns, and counters.
+    </p>
+  </header>
+
+  <!-- MCQs -->
+  <section class="card">
+    <h2><span class="index">A.</span> Multiple Choice Questions</h2>
+    <p class="tagline">Choose the correct answer.</p>
+
+    <div class="q-block">
+      <div class="q-title">1. Which loop guarantees at least one execution?</div>
+      <div class="options">
+        <div>A) for</div>
+        <div>B) while</div>
+        <div>C) do-while</div>
+        <div>D) nested loop</div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">2. The loop that continues until a condition becomes false is:</div>
+      <div class="options">
+        <div>A) switch loop</div>
+        <div>B) while loop</div>
+        <div>C) break loop</div>
+        <div>D) continue loop</div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">3. Which of the following can cause an infinite loop?</div>
+      <div class="options">
+        <div>A) Missing increment/decrement</div>
+        <div>B) Wrong condition</div>
+        <div>C) Always-true condition</div>
+        <div>D) All of these</div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">4. The <code>break</code> statement:</div>
+      <div class="options">
+        <div>A) Skips next iteration</div>
+        <div>B) Exits loop immediately</div>
+        <div>C) Repeats loop twice</div>
+        <div>D) Does nothing</div>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">5. Which loop is best for counting iterations?</div>
+      <div class="options">
+        <div>A) if loop</div>
+        <div>B) while</div>
+        <div>C) do-while</div>
+        <div>D) for</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTPUT QUESTIONS -->
+  <section class="card">
+    <h2><span class="index">B.</span> Output Based Questions</h2>
+
+    <div class="q-block">
+      <div class="q-title">1.</div>
+      <pre>
+int i;
+for(i = 1; i <= 5; i++)
+    printf("%d ", i);
+      </pre>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">2.</div>
+      <pre>
+int i = 1;
+while(i < 5){
+    printf("%d ", i);
+    i++;
+}
+      </pre>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">3.</div>
+      <pre>
+int i = 5;
+do{
+    printf("%d ", i);
+    i--;
+}while(i >= 3);
+      </pre>
+    </div>
+
+    <div class="q-block">
+      <div class="q-title">4.</div>
+      <pre>
+for(int i=1;i<=3;i++){
+    for(int j=1;j<=2;j++){
+        printf("%d%d ", i, j);
+    }
+}
+      </pre>
+    </div>
+  </section>
+
+  <!-- CODING QUESTIONS -->
+  <section class="card">
+    <h2><span class="index">C.</span> Coding Practice</h2>
+
+    <ul>
+      <li>1. Write a program to print numbers from 1 to 100.</li>
+      <li>2. Write a program to display the multiplication table of a number.</li>
+      <li>3. Write a program to find the sum of first <code>n</code> natural numbers.</li>
+      <li>4. Write a program to count digits in an integer.</li>
+      <li>5. Write a program to print a pattern:
+        <pre>
+*
+* *
+* * *
+* * * *
+        </pre>
+      </li>
+      <li>6. Write a program to print all even numbers between 1 and 50.</li>
+      <li>7. Write a program to reverse a number using a loop.</li>
+      <li>8. Write a menu-driven loop program for:
+        <br>1. Factorial  
+        <br>2. Sum of digits  
+        <br>3. Prime or not  
+      </li>
+    </ul>
+  </section>
+
+  <!-- ANSWER KEY -->
+  <section class="card">
+    <h2><span class="index">D.</span> Answer Key (Quick Check)</h2>
+
+    <div class="ans"><b>MCQ Answers:</b></div>
+    <div class="ans">1. C &nbsp; 2. B &nbsp; 3. D &nbsp; 4. B &nbsp; 5. D</div>
+
+    <div class="ans" style="margin-top:8px;"><b>Output:</b></div>
+    <div class="ans">1. 1 2 3 4 5</div>
+    <div class="ans">2. 1 2 3 4</div>
+    <div class="ans">3. 5 4 3</div>
+    <div class="ans">4. 11 12 21 22 31 32</div>
+  </section>
+
+  <a href="../index.html" class="nav-back">← Back to Exercises Index</a>
+
+  <div class="org-card">
+    Coder &amp; AccoTax — C Programming Exercise Book<br/>
+    25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore<br/>
+    Website: www.codernaccotax.co.in | Phone: 7003756860
+  </div>
+
+  <footer>
+    © Coder &amp; AccoTax — Module 5 Exercise Set (Looping Statements)
+  </footer>
+
+</div>
+</body>
+</html>

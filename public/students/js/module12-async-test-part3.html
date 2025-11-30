@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 12 — Async JS Test Part 3 | Promises & Promise Chaining | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Same CSS as Part 1/2 -->
+  <style>
+    :root{
+      --bg:#020617;
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --accent3:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --border:#1f2937;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      margin:0;padding:20px;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);line-height:1.7;
+    }
+    .page{max-width:1100px;margin:auto;}
+    h1,h2,h3{margin:0;padding:0;}
+    .intro-card{
+      background:rgba(15,23,42,0.96);
+      border-radius:22px;padding:18px 20px;margin-bottom:22px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 28px rgba(56,189,248,0.18);
+    }
+    .intro-title{
+      font-size:2rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7,#22c55e);
+      -webkit-background-clip:text;color:transparent;
+      margin-bottom:6px;
+    }
+    .intro-sub{color:var(--muted);font-size:0.98rem;}
+    .card{
+      background:rgba(15,23,42,0.96);
+      border-radius:20px;border:1px solid rgba(148,163,184,0.35);
+      padding:18px 18px 16px;margin-bottom:22px;
+      box-shadow:0 0 24px rgba(15,23,42,0.85);
+    }
+    .card h2{font-size:1.2rem;color:#e0f2fe;margin-bottom:8px;}
+    .qbox{
+      background:rgba(15,23,42,0.92);
+      padding:14px 14px 12px;border-radius:14px;
+      border:1px solid rgba(56,189,248,0.45);
+      box-shadow:0 0 18px rgba(56,189,248,0.18);
+      margin-bottom:14px;font-size:0.95rem;
+    }
+    pre{
+      background:#020617;border-radius:10px;padding:10px 12px;
+      border:1px solid rgba(30,64,175,0.7);
+      overflow-x:auto;font-size:0.85rem;margin:8px 0;
+    }
+    code{font-family:"Fira Code",Consolas,monospace;}
+    button{
+      margin-top:8px;padding:7px 13px;border-radius:999px;
+      border:none;cursor:pointer;font-weight:600;font-size:0.85rem;
+      background:linear-gradient(90deg,#38bdf8,#a855f7);
+      color:#000;box-shadow:0 0 16px rgba(56,189,248,0.45);
+      transition:0.25s;
+    }
+    button:hover{
+      transform:scale(1.06) translateY(-1px);
+      box-shadow:0 0 22px rgba(168,85,247,0.55);
+    }
+    .answer{
+      display:none;margin-top:8px;padding:10px 11px;
+      border-radius:10px;background:rgba(22,163,74,0.16);
+      border-left:4px solid #22c55e;font-size:0.9rem;
+    }
+    .footer{
+      margin-top:28px;padding:18px;border-radius:22px;
+      background:linear-gradient(120deg,rgba(15,23,42,0.97),rgba(15,23,42,0.92));
+      border:1px solid rgba(56,189,248,0.4);font-size:0.86rem;
+    }
+    .org-grid{
+      display:grid;grid-template-columns:2fr 1.4fr;gap:12px;
+    }
+    @media(max-width:700px){.org-grid{grid-template-columns:1fr;}}
+    .org-name{font-weight:700;}
+    .org-sub{color:var(--muted);margin-bottom:6px;}
+    .org-small{margin-top:8px;font-size:0.78rem;color:#64748b;}
+    .footer a{color:var(--accent);text-decoration:none;}
+    .footer a:hover{text-decoration:underline;}
+  </style>
+
+  <script>
+    function toggleAns(id){
+      const ans=document.getElementById(id);
+      if(!ans) return;
+      ans.style.display = (ans.style.display==="block") ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+<div class="page">
+
+  <!-- INTRO -->
+  <div class="intro-card">
+    <h1 class="intro-title">
+      Module 12 — Asynchronous JavaScript  
+      <span style="font-size:1.05rem;display:block;margin-top:4px;">
+        Test Part 3 · Promises, Chaining &amp; Promise.all()
+      </span>
+    </h1>
+    <p class="intro-sub">
+      25 questions focused on <strong>Promise states</strong>, <strong>.then()</strong>,
+      <strong>.catch()</strong>, <strong>.finally()</strong>, chaining, and
+      <strong>Promise.all / race / allSettled / any</strong>.
+    </p>
+  </div>
+
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A — Output &amp; Basic Promises</h2>
+
+    <!-- Q1 -->
+    <div class="qbox">
+      <b>Q1.</b> What is printed?
+      <pre><code>const p = new Promise((resolve, reject) =&gt; {
+  resolve("Done");
+});
+
+p.then(msg =&gt; console.log(msg));</code></pre>
+
+      <button onclick="toggleAns('a1')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a1">
+        <b>Answer:</b> <code>Done</code><br>
+        <b>Explanation:</b> Promise is fulfilled immediately with "Done"; <code>.then</code> logs it.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qbox">
+      <b>Q2.</b> Output order?
+      <pre><code>console.log("Start");
+
+const p = new Promise((resolve) =&gt; {
+  console.log("Inside executor");
+  resolve("Resolved");
+});
+
+p.then(v =&gt; console.log("Then:", v));
+
+console.log("End");</code></pre>
+
+      <button onclick="toggleAns('a2')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a2">
+        <b>Answer:</b><br>
+        <code>Start</code><br>
+        <code>Inside executor</code><br>
+        <code>End</code><br>
+        <code>Then: Resolved</code><br>
+        <b>Explanation:</b> Executor runs synchronously. <code>.then</code> callback is async (microtask).
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qbox">
+      <b>Q3.</b> Output?
+      <pre><code>const p = Promise.resolve(42);
+
+p.then(v =&gt; console.log("Value:", v));
+console.log("After");</code></pre>
+
+      <button onclick="toggleAns('a3')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a3">
+        <b>Answer:</b><br>
+        <code>After</code><br>
+        <code>Value: 42</code><br>
+        <b>Explanation:</b> Even resolved promises schedule <code>.then</code> as a microtask → runs after sync code.
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qbox">
+      <b>Q4.</b> Output?
+      <pre><code>const p = new Promise((resolve, reject) =&gt; {
+  reject("Error happened");
+});
+
+p.catch(err =&gt; console.log("Caught:", err));</code></pre>
+
+      <button onclick="toggleAns('a4')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a4">
+        <b>Answer:</b> <code>Caught: Error happened</code><br>
+        <b>Explanation:</b> The promise is rejected, <code>.catch</code> receives the error reason.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qbox">
+      <b>Q5.</b> Predict the output:
+      <pre><code>Promise.resolve("Hi")
+  .finally(() =&gt; console.log("Finally"))
+  .then(v =&gt; console.log("Value:", v));</code></pre>
+
+      <button onclick="toggleAns('a5')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a5">
+        <b>Answer:</b><br>
+        <code>Finally</code><br>
+        <code>Value: Hi</code><br>
+        <b>Explanation:</b> <code>.finally</code> runs before the next <code>.then</code> in the chain.
+      </div>
+    </div>
+
+  </div><!-- /Section A -->
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B — Promise States &amp; Methods (MCQs)</h2>
+
+    <!-- Q6 -->
+    <div class="qbox">
+      <b>Q6.</b> A Promise can be in which states?
+      <br><br>
+      A. started, stopped, paused <br>
+      B. new, old, done <br>
+      C. pending, fulfilled, rejected <br>
+      D. waiting, active, dead<br><br>
+
+      <button onclick="toggleAns('a6')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a6">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> Official Promise states: pending → fulfilled or rejected.
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qbox">
+      <b>Q7.</b> Which method is used to handle a rejected Promise?
+      <br><br>
+      A. <code>.then()</code><br>
+      B. <code>.error()</code><br>
+      C. <code>.catch()</code><br>
+      D. <code>.reject()</code><br><br>
+
+      <button onclick="toggleAns('a7')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a7">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> <code>.catch(onRejected)</code> handles rejections.
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qbox">
+      <b>Q8.</b> <code>Promise.resolve(5)</code> creates:
+      <br><br>
+      A. A pending promise. <br>
+      B. A promise immediately fulfilled with 5. <br>
+      C. A promise immediately rejected with 5. <br>
+      D. A synchronous value, not a promise.<br><br>
+
+      <button onclick="toggleAns('a8')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a8">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>Promise.resolve(x)</code> returns a fulfilled Promise with value x.
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qbox">
+      <b>Q9.</b> Which method always runs, whether the Promise is fulfilled or rejected?
+      <br><br>
+      A. <code>.then()</code><br>
+      B. <code>.catch()</code><br>
+      C. <code>.finally()</code><br>
+      D. <code>.when()</code><br><br>
+
+      <button onclick="toggleAns('a9')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a9">
+        <b>Correct Option:</b> C<br>
+        <b>Explanation:</b> <code>.finally()</code> runs after the Promise settles, regardless of outcome.
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="qbox">
+      <b>Q10.</b> In a <code>.then(onFulfilled, onRejected)</code> call, the second argument:
+      <br><br>
+      A. Is ignored by JavaScript. <br>
+      B. Is the rejection handler. <br>
+      C. Is the <code>.finally</code> callback. <br>
+      D. Must always be <code>null</code>.<br><br>
+
+      <button onclick="toggleAns('a10')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a10">
+        <b>Correct Option:</b> B<br>
+        <b>Explanation:</b> <code>.then(successHandler, errorHandler)</code> pattern uses second parameter for errors.
+      </div>
+    </div>
+  </div><!-- /Section B -->
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C — Chaining &amp; Combining Promises</h2>
+
+    <!-- Q11 -->
+    <div class="qbox">
+      <b>Q11.</b> What is printed?
+      <pre><code>Promise.resolve(2)
+  .then(x =&gt; x + 3)
+  .then(x =&gt; console.log(x));</code></pre>
+
+      <button onclick="toggleAns('a11')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a11">
+        <b>Answer:</b> <code>5</code><br>
+        <b>Explanation:</b> Each <code>.then</code> returns a new Promise with the returned value.
+      </div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="qbox">
+      <b>Q12.</b> Output?
+      <pre><code>Promise.resolve("A")
+  .then(v =&gt; {
+    console.log(v);
+    return "B";
+  })
+  .then(v =&gt; console.log(v));</code></pre>
+
+      <button onclick="toggleAns('a12')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a12">
+        <b>Answer:</b><br>
+        <code>A</code><br>
+        <code>B</code><br>
+        <b>Explanation:</b> First <code>.then</code> logs "A" and returns "B", next <code>.then</code> logs "B".
+      </div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="qbox">
+      <b>Q13.</b> Output?
+      <pre><code>Promise.reject("Oops")
+  .then(v =&gt; console.log("Then:", v))
+  .catch(err =&gt; console.log("Catch:", err));</code></pre>
+
+      <button onclick="toggleAns('a13')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a13">
+        <b>Answer:</b> <code>Catch: Oops</code><br>
+        <b>Explanation:</b> Rejected Promise skips <code>.then</code> and goes to <code>.catch</code>.
+      </div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="qbox">
+      <b>Q14.</b> What does <code>Promise.all([p1, p2, p3])</code> do?
+      <br><br>
+      A. Resolves when all Promises are fulfilled, or rejects if any one rejects. <br>
+      B. Resolves as soon as the first Promise resolves. <br>
+      C. Ignores rejections. <br>
+      D. Only works with <code>fetch</code>.<br><br>
+
+      <button onclick="toggleAns('a14')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a14">
+        <b>Correct Option:</b> A<br>
+        <b>Explanation:</b> <code>Promise.all</code> is “all or nothing”.
+      </div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="qbox">
+      <b>Q15.</b> Which combinator is best when you want “first successful result”?
+      <br><br>
+      A. <code>Promise.all</code><br>
+      B. <code>Promise.race</code><br>
+      C. <code>Promise.allSettled</code><br>
+      D. <code>Promise.any</code><br><br>
+
+      <button onclick="toggleAns('a15')">Show Answer &amp; Explanation</button>
+      <div class="answer" id="a15">
+        <b>Correct Option:</b> D<br>
+        <b>Explanation:</b> <code>Promise.any</code> resolves with the first fulfilled Promise,
+        ignoring rejections until all fail.
+      </div>
+    </div>
+  </div><!-- /Section C -->
+
+  <!-- SECTION D -->
+  <div class="card">
+    <h2>Section D — Short Answer &amp; Design with Promises</h2>
+
+    <!-- Q16 -->
+    <div class="qbox">
+      <b>Q16.</b>  
+      <b>Question:</b> Describe in one or two lines what a Promise represents in JavaScript.
+      <br><br>
+      <button onclick="toggleAns('a16')">Show Sample Answer</button>
+      <div class="answer" id="a16">
+        <b>Sample Answer:</b><br>
+        A Promise represents a value that will be available now, later, or never.
+        It is a placeholder for the eventual result (or error) of an asynchronous operation.
+      </div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="qbox">
+      <b>Q17.</b>  
+      <b>Question:</b> Why is Promise chaining considered easier to read than deeply nested callbacks?
+      <br><br>
+      <button onclick="toggleAns('a17')">Show Sample Answer</button>
+      <div class="answer" id="a17">
+        <b>Sample Answer:</b><br>
+        With Promise chaining, each step is on the same indentation level and flows top-to-bottom
+        instead of going diagonally to the right like nested callbacks.
+      </div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="qbox">
+      <b>Q18.</b>  
+      <b>Question:</b> In Coder &amp; AccoTax dashboard, you want to load “profile”, “courses”, and “notifications”
+      at the same time before showing the page. Which Promise feature would you use and why?
+      <br><br>
+      <button onclick="toggleAns('a18')">Show Sample Answer</button>
+      <div class="answer" id="a18">
+        <b>Sample Answer:</b><br>
+        I would use <code>Promise.all([profilePromise, coursePromise, notifPromise])</code> so that all
+        three requests run in parallel and I wait until all of them are ready.
+      </div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="qbox">
+      <b>Q19.</b>  
+      <b>Question:</b> Why is it important to return a Promise inside <code>.then</code> when doing sequential async tasks?
+      <br><br>
+      <button onclick="toggleAns('a19')">Show Sample Answer</button>
+      <div class="answer" id="a19">
+        <b>Sample Answer:</b><br>
+        Returning a Promise from <code>.then</code> allows the next <code>.then</code> in the chain to
+        wait for that Promise. Without returning, the next step might run too early.
+      </div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="qbox">
+      <b>Q20.</b>  
+      <b>Question:</b> Show a small code snippet that uses <code>Promise.allSettled</code> to log the status
+      of three Promises.
+      <br><br>
+      <button onclick="toggleAns('a20')">Show Sample Answer</button>
+      <div class="answer" id="a20">
+        <b>Sample Answer:</b><br>
+        <pre><code>Promise.allSettled([p1, p2, p3])
+  .then(results =&gt; {
+    results.forEach(r =&gt; {
+      console.log(r.status, r.value || r.reason);
+    });
+  });</code></pre>
+      </div>
+    </div>
+
+    <!-- Q21 -->
+    <div class="qbox">
+      <b>Q21.</b>  
+      <b>Question:</b> In Module 12, we say “Promise callbacks are microtasks”. Practically, what does it change
+      in execution order compared to <code>setTimeout</code>?
+      <br><br>
+      <button onclick="toggleAns('a21')">Show Sample Answer</button>
+      <div class="answer" id="a21">
+        <b>Sample Answer:</b><br>
+        Promise callbacks run before timer callbacks when the call stack is empty. So a resolved Promise
+        <code>.then</code> usually runs before a <code>setTimeout(..., 0)</code> callback.
+      </div>
+    </div>
+
+    <!-- Q22 -->
+    <div class="qbox">
+      <b>Q22.</b>  
+      <b>Question:</b> Show how to convert an error-first callback API <code>doWork(cb)</code> into a Promise-based
+      function <code>doWorkPromise()</code>.
+      <br><br>
+      <button onclick="toggleAns('a22')">Show Sample Answer</button>
+      <div class="answer" id="a22">
+        <b>Sample Answer:</b><br>
+        <pre><code>function doWorkPromise() {
+  return new Promise((resolve, reject) =&gt; {
+    doWork((err, result) =&gt; {
+      if (err) reject(err);
+      else resolve(result);
+    });
+  });
+}</code></pre>
+      </div>
+    </div>
+
+    <!-- Q23 -->
+    <div class="qbox">
+      <b>Q23.</b>  
+      <b>Question:</b> Why might you still see callbacks and Promises together in real code?
+      <br><br>
+      <button onclick="toggleAns('a23')">Show Sample Answer</button>
+      <div class="answer" id="a23">
+        <b>Sample Answer:</b><br>
+        Many older libraries expose callback-based APIs, while newer code prefers Promises.
+        We often wrap callback APIs in Promises to use them with async/await.
+      </div>
+    </div>
+
+    <!-- Q24 -->
+    <div class="qbox">
+      <b>Q24.</b>  
+      <b>Question:</b> How would you briefly explain Promise chaining to a new student at Coder &amp; AccoTax?
+      <br><br>
+      <button onclick="toggleAns('a24')">Show Sample Answer</button>
+      <div class="answer" id="a24">
+        <b>Sample Answer:</b><br>
+        Promise chaining is a way to run asynchronous steps one after another by returning a
+        Promise from each <code>.then</code>, instead of nesting callbacks.
+      </div>
+    </div>
+
+    <!-- Q25 -->
+    <div class="qbox">
+      <b>Q25.</b>  
+      <b>Question:</b> Write one line that summarises why Promises are important for Module 12.
+      <br><br>
+      <button onclick="toggleAns('a25')">Show Sample Answer</button>
+      <div class="answer" id="a25">
+        <b>Sample Answer:</b><br>
+        Promises give us a standard, chainable way to represent and combine asynchronous operations,
+        forming the foundation for async/await.
+      </div>
+    </div>
+
+  </div><!-- /Section D -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="org-grid">
+      <div>
+        <div class="org-name">Coder &amp; AccoTax</div>
+        <div class="org-sub">Coding, Accounts &amp; Taxation Learning Hub</div>
+        25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore<br>
+        West Bengal, India
+      </div>
+      <div>
+        <strong>Website:</strong>
+        <a href="https://www.codernaccotax.co.in" target="_blank" rel="noopener noreferrer">
+          www.codernaccotax.co.in
+        </a><br>
+        <strong>Phone:</strong> +91 7003756860<br>
+        <strong>Course Author:</strong> Sukanta Hui<br>
+        <strong>JavaScript Track:</strong> Module 12 — Async JS · Test Part 3
+      </div>
+    </div>
+    <div class="org-small">
+      Use this file as Part 3 of the complete <strong>Module 12 — Asynchronous JavaScript</strong>
+      practice test series on your JavaScript course portal.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 1 — Introduction to C Programming | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56,189,248,0.18);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{ max-width:1100px; margin:auto; }
+
+    header{text-align:center;margin-bottom:28px;}
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:2.3rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:760px;
+      margin:8px auto;
+      font-size:.97rem;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      padding:20px 20px 24px;
+      border-radius:18px;
+      margin-bottom:20px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.2rem;
+      color:#bfdbfe;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .index{ font-size:.85rem; color:var(--accent); }
+
+    .tagline{ color:var(--muted); margin-bottom:10px; }
+
+    ul{ list-style:none; }
+    li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:5px;
+      color:#d1d5db;
+    }
+    li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--accent3);
+    }
+
+    .nav-back{
+      margin-top:20px;
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.5);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:600;
+    }
+    .nav-back:hover{
+      background:rgba(56,189,248,.3);
+    }
+
+    .org-card{
+      margin-top:30px;
+      background:var(--bg-card);
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.3);
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(30,58,138,.5);
+      color:var(--muted);
+      font-size:.85rem;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="badge">Module 1 — Introduction to C</div>
+    <h1>Introduction to C Programming</h1>
+    <p class="subtitle">
+      This module introduces the foundation of C—its history, features, structure, and the process of writing and compiling your first program.
+    </p>
+  </header>
+
+  <!-- MODULE CONTENT -->
+  <section class="card">
+    <h2><span class="index">1.</span> What is C Programming?</h2>
+    <p class="tagline">A powerful, fast, and foundational programming language.</p>
+    <ul>
+      <li>C is a general-purpose, procedural programming language.</li>
+      <li>Created by Dennis Ritchie at Bell Labs in 1972.</li>
+      <li>Forms the base of many modern languages (C++, Java, Python indirectly).</li>
+      <li>Used in OS development, embedded systems, system programming.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="index">2.</span> Key Features of C</h2>
+    <p class="tagline">Why C remains relevant even today.</p>
+    <ul>
+      <li>Fast and efficient.</li>
+      <li>Low-level memory access.</li>
+      <li>Portable & machine independent.</li>
+      <li>Rich library of built-in functions.</li>
+      <li>Powerful pointer manipulation.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="index">3.</span> Structure of a C Program</h2>
+    <p class="tagline">Every C program follows a clean format.</p>
+    <ul>
+      <li>Header files (e.g., <code>#include &lt;stdio.h&gt;</code>)</li>
+      <li>The <code>main()</code> function</li>
+      <li>Declarations & statements</li>
+      <li>Return statement</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2><span class="index">4.</span> Writing Your First C Program</h2>
+    <p class="tagline">The famous Hello World program.</p>
+    <pre style="background:#0a1220;padding:14px;border-radius:10px;color:#e2e8f0;overflow:auto;">
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+    </pre>
+  </section>
+
+  <section class="card">
+    <h2><span class="index">5.</span> Compilation & Execution Process</h2>
+    <p class="tagline">How the C code becomes an executable program.</p>
+    <ul>
+      <li>Preprocessing</li>
+      <li>Compilation</li>
+      <li>Assembly</li>
+      <li>Linking</li>
+      <li>Execution</li>
+    </ul>
+  </section>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+
+  <!-- ORG DETAILS -->
+  <div class="org-card">
+    <h3>Coder & AccoTax</h3>
+    <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+    <p>Website: www.codernaccotax.co.in</p>
+    <p>Phone: 7003756860</p>
+  </div>
+
+  <footer>
+    © Coder & AccoTax — Module 1 (Introduction to C)
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Module 15 — Advanced C Programming | Coder & AccoTax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent3: #22c55e;
+      --accent4: #f97316;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --btn-bg: rgba(56,189,248,0.18);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body{
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      background:radial-gradient(circle at top,#0f172a,#020617 55%,#000);
+      color:var(--text);
+      padding:20px 16px 40px;
+      line-height:1.7;
+    }
+
+    .page{ max-width:1100px; margin:auto; }
+
+    header{text-align:center;margin-bottom:28px;}
+
+    .badge{
+      display:inline-block;
+      padding:4px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.4);
+      background:rgba(56,189,248,.18);
+      font-size:.82rem;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    h1{
+      font-size:2.35rem;
+      background:linear-gradient(90deg,#e0f2fe,#f9a8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:760px;
+      margin:8px auto;
+      font-size:.97rem;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border:1px solid rgba(148,163,184,.25);
+      padding:20px 20px 24px;
+      border-radius:18px;
+      margin-bottom:20px;
+      box-shadow:0 18px 40px rgba(15,23,42,.9);
+    }
+
+    h2{
+      font-size:1.2rem;
+      color:#bfdbfe;
+      margin-bottom:4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .index{ font-size:.90rem; color:var(--accent); }
+
+    .tagline{ color:var(--muted); margin-bottom:10px; }
+
+    ul{ list-style:none; }
+    li{
+      padding-left:18px;
+      position:relative;
+      margin-bottom:6px;
+      color:#d1d5db;
+    }
+    li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--accent3);
+    }
+
+    pre{
+      background:#0a1220;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:.9rem;
+      line-height:1.6;
+      color:#e2e8f0;
+      margin-top:10px;
+    }
+
+    .nav-back{
+      margin-top:20px;
+      display:inline-block;
+      padding:8px 14px;
+      background:var(--btn-bg);
+      border:1px solid rgba(56,189,248,.5);
+      border-radius:8px;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:.85rem;
+      font-weight:600;
+    }
+
+    .nav-back:hover{ background:rgba(56,189,248,.3); }
+
+    .org-card{
+      margin-top:30px;
+      background:var(--bg-card);
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(148,163,184,.3);
+    }
+
+    footer{
+      margin-top:22px;
+      padding-top:10px;
+      border-top:1px solid rgba(30,58,138,.5);
+      color:var(--muted);
+      font-size:.85rem;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <div class="badge">Module 15 — Advanced C Programming</div>
+    <h1>Advanced C Programming</h1>
+    <p class="subtitle">
+      Explore advanced C concepts including enums, typedef, function pointers,  
+      command-line arguments, bit-fields, and modular programming.
+    </p>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="card">
+    <h2><span class="index">1.</span> Command Line Arguments</h2>
+    <p class="tagline">Pass values to a program during execution.</p>
+
+    <pre>
+int main(int argc, char *argv[]) {
+    printf("Arguments count: %d\n", argc);
+    printf("First argument: %s\n", argv[1]);
+}
+    </pre>
+
+    <ul>
+      <li><code>argc</code> → number of arguments</li>
+      <li><code>argv</code> → array of string arguments</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="card">
+    <h2><span class="index">2.</span> Enumerations (enum)</h2>
+    <p class="tagline">User-defined type for naming constant integer values.</p>
+
+    <pre>
+enum Day { MON, TUE, WED, THU, FRI, SAT, SUN };
+
+enum Day today = WED;
+printf("%d", today); // 2
+    </pre>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="card">
+    <h2><span class="index">3.</span> typedef</h2>
+    <p class="tagline">Creates aliases for existing types.</p>
+
+    <pre>
+typedef unsigned long UL;
+
+UL population = 7800000000;
+    </pre>
+
+    <pre>
+// struct alias
+typedef struct {
+    int roll;
+    char name[20];
+} Student;
+
+Student s1;
+    </pre>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="card">
+    <h2><span class="index">4.</span> Bit-fields</h2>
+    <p class="tagline">Store data efficiently in limited memory.</p>
+
+    <pre>
+struct flags {
+    unsigned int bold : 1;
+    unsigned int italic : 1;
+    unsigned int underline : 1;
+};
+
+struct flags f = {1, 0, 1};
+    </pre>
+
+    <ul>
+      <li>Used in embedded systems</li>
+      <li>Memory-efficient representation</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="card">
+    <h2><span class="index">5.</span> Function Pointers</h2>
+    <p class="tagline">Store addresses of functions and call them dynamically.</p>
+
+    <pre>
+void greet() {
+    printf("Hello Students!");
+}
+
+void (*fp)() = greet;
+
+fp();  // calls greet()
+    </pre>
+
+    <pre>
+// Function pointer with parameters
+int add(int a, int b){ return a + b; }
+
+int (*ptr)(int,int) = add;
+
+printf("%d", ptr(3,4));  // 7
+    </pre>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="card">
+    <h2><span class="index">6.</span> Callback Functions</h2>
+    <p class="tagline">Passing a function as an argument to another function.</p>
+
+    <pre>
+void process(int (*fn)(int, int)) {
+    printf("%d", fn(5, 3));
+}
+
+int multiply(int a, int b) { return a * b; }
+
+process(multiply);  // callback
+    </pre>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="card">
+    <h2><span class="index">7.</span> Modular Programming</h2>
+    <p class="tagline">Break large projects into multiple files.</p>
+
+    <pre>
+// mathutils.c
+int add(int a, int b){ return a + b; }
+
+// mathutils.h
+int add(int a, int b);
+
+// main.c
+#include "mathutils.h"
+printf("%d", add(4, 6));
+    </pre>
+
+    <ul>
+      <li>Better maintainability</li>
+      <li>Team-friendly</li>
+      <li>Enhances readability</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 8 -->
+  <section class="card">
+    <h2><span class="index">8.</span> Memory Layout of a C Program</h2>
+
+    <ul>
+      <li><b>Text Segment</b> — code</li>
+      <li><b>Data Segment</b> — global & static variables</li>
+      <li><b>Heap</b> — dynamic memory</li>
+      <li><b>Stack</b> — function calls & local variables</li>
+    </ul>
+
+    <pre>
+int globalVar;      // data segment
+static int s = 10;  // data segment
+
+void func() {
+    int x = 5;      // stack
+    int *p = malloc(sizeof(int)); // heap
+}
+    </pre>
+  </section>
+
+  <!-- BACK BUTTON -->
+  <a href="../index.html" class="nav-back">← Back to Roadmap</a>
+
+  <!-- ORG CARD -->
+  <div class="org-card">
+    <h3>Coder & AccoTax</h3>
+    <p>25(10/A) Shibtala Road, PO - N. C. Pukur, Barrackpore</p>
+    <p>Website: www.codernaccotax.co.in</p>
+    <p>Phone: 7003756860</p>
+  </div>
+
+  <footer>
+    © Coder & AccoTax — Module 15 (Advanced C Programming)
+  </footer>
+
+</div>
+</body>
+</html>
