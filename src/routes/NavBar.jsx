@@ -1,124 +1,106 @@
-import { useState, useEffect } from "react";
+import React, { Component } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { motion, AnimatePresence } from "framer-motion";
 import cnat from "../assets/cnat.png";
 
-export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-  const [activeHash, setActiveHash] = useState(location.hash);
+// Wrapper so that class component can use `location`
+function withLocation(ComponentWithLocation) {
+  return function Wrapper(props) {
+    const location = useLocation();
+    return <ComponentWithLocation {...props} location={location} />;
+  };
+}
 
-  useEffect(() => {
-    setActiveHash(location.hash);
-  }, [location]);
+class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      servicesOpen: false,
+      activeHash: props.location.hash || "",
+    };
+  }
 
-  const activeColors = {
-    home: "from-sky-600 to-purple-600",
-    about: "from-green-500 to-lime-500",
-    courses: "from-pink-500 to-rose-500",
-    teachers: "from-amber-500 to-orange-500",
-    services: "from-indigo-500 to-blue-500",
-    contact: "from-emerald-500 to-teal-500",
-    login: "from-red-500 to-pink-500",
+  componentDidUpdate(prevProps) {
+    if (prevProps.location !== this.props.location) {
+      this.setState({ activeHash: this.props.location.hash });
+    }
+  }
+
+  toggleMenu = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+      servicesOpen: false,
+    });
   };
 
-  // 🔹 Minimalist link style — no glow or shadow
-  const linkClass = (key, isActive = false) =>
-    `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${
-      isActive
+  toggleServices = () => {
+    this.setState({ servicesOpen: !this.state.servicesOpen });
+  };
+
+  closeMobileMenu = () => {
+    this.setState({ isOpen: false, servicesOpen: false });
+  };
+
+  linkClass = (key, isActive) => {
+    const activeColors = {
+      home: "from-sky-600 to-purple-600",
+      about: "from-green-500 to-lime-500",
+      courses: "from-pink-500 to-rose-500",
+      teachers: "from-amber-500 to-orange-500",
+      services: "from-indigo-500 to-blue-500",
+      contact: "from-emerald-500 to-teal-500",
+      login: "from-red-500 to-pink-500",
+    };
+
+    return `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${isActive
         ? `bg-gradient-to-r ${activeColors[key]} text-white`
         : "text-gray-300 hover:text-white hover:bg-gray-800/70"
-    }`;
+      }`;
+  };
 
-  return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      // 🖤 Flat, matte, dark gradient — no blur or extra shadow
-      className="sticky top-0 z-50 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 border-b border-gray-800"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="flex items-center justify-between py-3 sm:py-4">
-          {/* 🔹 Brand */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
-          >
-            <img
-              src={cnat}
-              alt="Coder & AccoTax Logo"
-              className="w-8 h-8 sm:w-9 sm:h-9"
-            />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 whitespace-nowrap">
-              Coder & AccoTax
-            </span>
-          </motion.div>
+  render() {
+    const { location } = this.props;
+    const { isOpen, servicesOpen, activeHash } = this.state;
+    const isHome = location.pathname === "/";
 
-          {/* 🔹 Mobile Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="sm:hidden text-gray-300 text-2xl focus:outline-none"
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? "✕" : "☰"}
-          </button>
+    return (
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="sticky top-0 z-50 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 border-b border-gray-800"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="flex items-center justify-between py-3 sm:py-4">
 
-          {/* 🔹 Desktop Menu */}
-          <nav className="hidden sm:flex items-center gap-2 md:gap-3">
-            {!isHome && (
-              <NavLink to="/" className={({ isActive }) => linkClass("home", isActive)}>
-                Home
-              </NavLink>
-            )}
-
-            {isHome && (
-              <>
-                <HashLink smooth to="/#about" className={linkClass("about", activeHash === "#about")}>
-                  About
-                </HashLink>
-                <HashLink smooth to="/#courses" className={linkClass("courses", activeHash === "#courses")}>
-                  Courses
-                </HashLink>
-                <HashLink smooth to="/#teachers" className={linkClass("teachers", activeHash === "#teachers")}>
-                  Teachers
-                </HashLink>
-                <HashLink smooth to="/#services" className={linkClass("services", activeHash === "#services")}>
-                  Services
-                </HashLink>
-                <HashLink smooth to="/#contact" className={linkClass("contact", activeHash === "#contact")}>
-                  Contact
-                </HashLink>
-              </>
-            )}
-
-            <NavLink to="/services/type-test" className={({ isActive }) => linkClass("login", isActive)}>
-              Type Test
-            </NavLink>
-
-            <NavLink to="/login" className={({ isActive }) => linkClass("login", isActive)}>
-              Login
-            </NavLink>
-          </nav>
-        </div>
-
-        {/* 🔹 Mobile Menu */}
-        <AnimatePresence>
-          {isOpen && (
+            {/* BRAND */}
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="sm:hidden flex flex-col gap-2 pb-4"
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
             >
+              <img src={cnat} alt="Coder & AccoTax Logo" className="w-8 h-8 sm:w-9 sm:h-9" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 whitespace-nowrap">
+                Coder & AccoTax
+              </span>
+            </motion.div>
+
+            {/* MOBILE TOGGLE */}
+            <button
+              onClick={this.toggleMenu}
+              className="sm:hidden text-gray-300 text-2xl focus:outline-none"
+              aria-label="Toggle navigation"
+            >
+              {isOpen ? "✕" : "☰"}
+            </button>
+
+            {/* DESKTOP MENU */}
+            <nav className="hidden sm:flex items-center gap-2 md:gap-3">
               {!isHome && (
                 <NavLink
                   to="/"
-                  className={({ isActive }) => linkClass("home", isActive)}
-                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) => this.linkClass("home", isActive)}
                 >
                   Home
                 </NavLink>
@@ -126,60 +108,182 @@ export default function NavBar() {
 
               {isHome && (
                 <>
-                  <HashLink
-                    smooth
-                    to="/#about"
-                    className={linkClass("about", activeHash === "#about")}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")}>
                     About
                   </HashLink>
-                  <HashLink
-                    smooth
-                    to="/#courses"
-                    className={linkClass("courses", activeHash === "#courses")}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")}>
                     Courses
                   </HashLink>
-                  <HashLink
-                    smooth
-                    to="/#teachers"
-                    className={linkClass("teachers", activeHash === "#teachers")}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")}>
                     Teachers
                   </HashLink>
-                  <HashLink
-                    smooth
-                    to="/#services"
-                    className={linkClass("services", activeHash === "#services")}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")}>
                     Services
                   </HashLink>
-                  <HashLink
-                    smooth
-                    to="/#contact"
-                    className={linkClass("contact", activeHash === "#contact")}
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")}>
                     Contact
                   </HashLink>
                 </>
               )}
 
+              
+              {/* DESKTOP DROPDOWN */}
+              <div className="relative">
+                <button
+                  onClick={this.toggleServices}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full flex items-center gap-1 transition"
+                >
+                  Tools ▾
+                </button>
+
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
+                    >
+                      {/* Typing Test */}
+                      <NavLink
+                        to="/tools/type-test"
+                        onClick={this.toggleServices}
+                        className={({ isActive }) => this.linkClass("type-test", isActive)}
+                      >
+                        Typing Test
+                      </NavLink>
+
+                      {/* Typing Learn (NEW) */}
+                      <NavLink
+                        to="/tools/typing-learn"
+                        onClick={this.toggleServices}
+                        className={({ isActive }) => this.linkClass("typing-learn", isActive)}
+                      >
+                        Typing Learn
+                      </NavLink>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+
+              {/* LOGIN */}
               <NavLink
                 to="/login"
-                className={({ isActive }) => linkClass("login", isActive)}
-                onClick={() => setIsOpen(false)}
+                className={({ isActive }) => this.linkClass("login", isActive)}
               >
                 Login
               </NavLink>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.header>
-  );
+            </nav>
+          </div>
+
+          {/* MOBILE MENU */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="sm:hidden flex flex-col gap-2 pb-4"
+              >
+                {!isHome && (
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) => this.linkClass("home", isActive)}
+                    onClick={this.closeMobileMenu}
+                  >
+                    Home
+                  </NavLink>
+                )}
+
+                {isHome && (
+                  <>
+                    <HashLink
+                      smooth
+                      to="/#about"
+                      className={this.linkClass("about", activeHash === "#about")}
+                      onClick={this.closeMobileMenu}
+                    >
+                      About
+                    </HashLink>
+
+                    <HashLink
+                      smooth
+                      to="/#courses"
+                      className={this.linkClass("courses", activeHash === "#courses")}
+                      onClick={this.closeMobileMenu}
+                    >
+                      Courses
+                    </HashLink>
+
+                    <HashLink
+                      smooth
+                      to="/#teachers"
+                      className={this.linkClass("teachers", activeHash === "#teachers")}
+                      onClick={this.closeMobileMenu}
+                    >
+                      Teachers
+                    </HashLink>
+
+                    <HashLink
+                      smooth
+                      to="/#services"
+                      className={this.linkClass("services", activeHash === "#services")}
+                      onClick={this.closeMobileMenu}
+                    >
+                      Services
+                    </HashLink>
+
+                    <HashLink
+                      smooth
+                      to="/#contact"
+                      className={this.linkClass("contact", activeHash === "#contact")}
+                      onClick={this.closeMobileMenu}
+                    >
+                      Contact
+                    </HashLink>
+                  </>
+                )}
+
+                {/* MOBILE DROPDOWN */}
+                <div className="flex flex-col">
+                  <button
+                    onClick={this.toggleServices}
+                    className="text-gray-300 hover:text-white hover:bg-gray-800/70 px-4 py-2 rounded-full text-left"
+                  >
+                    Tools ▾
+                  </button>
+
+                  {servicesOpen && (
+                    <div className="ml-4 flex flex-col">
+                      <NavLink
+                        to="/services/type-test"
+                        className={({ isActive }) => this.linkClass("login", isActive)}
+                        onClick={this.closeMobileMenu}
+                      >
+                        Typing Test
+                      </NavLink>
+                    </div>
+                  )}
+                </div>
+
+                {/* LOGIN */}
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) => this.linkClass("login", isActive)}
+                  onClick={this.closeMobileMenu}
+                >
+                  Login
+                </NavLink>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.header>
+    );
+  }
 }
+
+export default withLocation(NavBar);

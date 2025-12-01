@@ -17,6 +17,7 @@ import TypingTest from '../components/TypingTest';
 import Bca from '../components/study/bca/Bca';
 import JavaChapters from '../components/GeneralSubjects/java/JavaChapters';
 import IntroductionToJava from '../components/GeneralSubjects/java/IntroductionToJava';
+import TypingLearn from '../components/typing-app/TypingLearn';
 
 
 // ⬇️ Import Study component
@@ -77,7 +78,8 @@ export default function AppRoutes() {
       <Route path="/study/bca" element={<Bca />} />
       <Route path="/study/bca/java" element={<JavaChapters />} />
       <Route path="/study/bca/java/chapter-1" element={<IntroductionToJava />} />
-      <Route path="/services/type-test" element={<TypingTest />} />
+      <Route path="/tools/type-test" element={<TypingTest />} />
+      <Route path="/tools/typing-learn" element={<TypingLearn />} />
     
 
       <Route path="*" element={<NotFound />} />
