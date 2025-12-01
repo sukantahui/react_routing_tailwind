@@ -94,6 +94,10 @@ export default function NavBar() {
               </>
             )}
 
+            <NavLink to="/services/type-test" className={({ isActive }) => linkClass("login", isActive)}>
+              Type Test
+            </NavLink>
+
             <NavLink to="/login" className={({ isActive }) => linkClass("login", isActive)}>
               Login
             </NavLink>

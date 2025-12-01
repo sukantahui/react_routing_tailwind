@@ -13,7 +13,7 @@ import ClassElevenWbb from '../components/study/class_11/wbb/ClassElevenWbb';
 import ComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/ComputerApplicationWbbEleven';
 import SemTwoComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/semester2/SemTwoComputerApplicationWbbEleven';
 import DataStructureSemTwoComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/semester2/chapters/DataStructureSemTwoComputerApplicationWbbEleven';
-
+import TypingTest from '../components/TypingTest';
 import Bca from '../components/study/bca/Bca';
 import JavaChapters from '../components/GeneralSubjects/java/JavaChapters';
 import IntroductionToJava from '../components/GeneralSubjects/java/IntroductionToJava';
@@ -77,6 +77,7 @@ export default function AppRoutes() {
       <Route path="/study/bca" element={<Bca />} />
       <Route path="/study/bca/java" element={<JavaChapters />} />
       <Route path="/study/bca/java/chapter-1" element={<IntroductionToJava />} />
+      <Route path="/services/type-test" element={<TypingTest />} />
     
 
       <Route path="*" element={<NotFound />} />

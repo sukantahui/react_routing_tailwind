@@ -151,15 +151,15 @@ export default function HomeSEO() {
       {/* =====================================================
           1. BASIC SEO
       ====================================================== */}
-      <title>Best Coding Institute in Barrackpore | Coder & AccoTax</title>
+      <title>Best Coding Institute in Barrackpore | Coder & AccoTax | ISO 9001:2015 Certified</title>
 
       <meta
         name="description"
-        content="Join Coder & AccoTax,the best coding institute in Barrackpore, to master Web Development, Python, Accounting, GST and Data Analysis. Learn from certified instructors, earn ISO-recognized certifications, and become job-ready with hands-on projects."
+        content="Join Coder & AccoTax,the best coding institute and Computer Training Institute in Barrackpore, to master Web Development, Python, Accounting, GST and Data Analysis. Learn from certified instructors, earn ISO-recognized certifications, and become job-ready with hands-on projects."
       />
       {/* IMPORTANT SEO CRAWLER DIRECTIVES */}
       <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="robots" content="index, follow" />
+    
 
       <meta
         name="keywords"
@@ -167,10 +167,8 @@ export default function HomeSEO() {
       />
 
       <meta name="author" content="Coder & AccoTax" />
-      <meta
-        name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1, noarchive, notranslate"/>
+
       <meta name="rating" content="General" />
       <meta name="revisit-after" content="7 days" />
       <meta httpEquiv="Content-Language" content="en" />
