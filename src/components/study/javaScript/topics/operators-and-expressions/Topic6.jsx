@@ -1,28 +1,30 @@
 import React from "react";
+import CodeBlock from "../../../../../common/CodeBlock";
 
 export default function Topic6() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
 
       <h2 className="text-xl font-semibold text-sky-300">
         Basic Input & Output: console, alert & prompt
       </h2>
 
       <p className="text-slate-300 text-sm">
-        JavaScript offers simple ways to interact with users and display messages.
+        JavaScript provides simple ways to show messages and collect input from users.
       </p>
 
-      <pre className="bg-slate-800 p-3 rounded-xl text-sky-300 text-sm">
-{`console.log("Hello Console!"); // Output
+      <CodeBlock
+        code={`console.log("Hello Console!");   // Output message
 
-alert("Welcome!");              // Popup message (browser only)
+alert("Welcome!");                 // Popup message (browser only)
 
-let name = prompt("Enter name:");
+let name = prompt("Enter name:");  // Ask user for input
 console.log("Hello " + name);`}
-      </pre>
+        language="javascript"
+      />
 
       <p className="text-slate-400 text-sm">
-        <strong>Note:</strong> `prompt` and `alert` do NOT work in Node.js.
+        <strong>Note:</strong> <code>alert</code> and <code>prompt</code> do not work in Node.js.
       </p>
 
     </div>

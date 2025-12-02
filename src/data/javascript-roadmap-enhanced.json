@@ -610,7 +610,9 @@
             "Event object basics and target property",
             "Event bubbling and capturing (intro, conceptual)",
             "Form handling and simple validation with JavaScript",
-            "Building components: modal popup, tabs, accordion"
+            "Building components: modal popup, tabs, accordion",
+            "Keyboard Events — keydown, keyup & keypress",
+            "Building a Custom Virtual Keyboard"
           ],
           "learningOutcomes": [
             "Attach and manage event listeners for user-driven actions",
@@ -681,7 +683,12 @@
             "Destructuring arrays and objects",
             "Spread and rest operators",
             "Enhanced object literals and computed properties",
-            "Optional chaining and nullish coalescing (??) – overview"
+            "Optional chaining and nullish coalescing (??) – overview",
+            "Default Parameters in JavaScript Functions",
+            "Rest Parameters (...args)",
+            "Spread Operator (...values)",
+            "ES6 Modules — import & export",
+            "ES6 Practice Set"
           ],
           "learningOutcomes": [
             "Write cleaner, modern JavaScript using ES6+ syntax",
@@ -745,7 +752,8 @@
             "Promises: states (pending, fulfilled, rejected), then, catch, finally",
             "Creating and consuming promises",
             "async/await syntax and error handling with try/catch",
-            "Common patterns with async functions"
+            "Common patterns with async functions",
+            "Practice Set"
           ],
           "learningOutcomes": [
             "Explain how asynchronous code differs from synchronous code",

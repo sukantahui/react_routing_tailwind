@@ -1,0 +1,532 @@
+{
+  "title": "JavaScript Async Practice Set — Promises, Callbacks, Async/Await",
+  "author": "Sukanta Hui · Coder & AccoTax · Barrackpore",
+  "sections": [
+    {
+      "type": "mcq",
+      "title": "MCQ — Async Fundamentals (30 Questions)",
+      "questions": [
+        {
+          "q": "JavaScript is:",
+          "options": ["Multi-threaded", "Single-threaded", "Depends on browser", "Depends on CPU"],
+          "answer": "Single-threaded",
+          "explanation": "JS has one call-stack but can run async tasks using event loop."
+        },
+        {
+          "q": "Which executes later?",
+          "options": ["console.log()", "setTimeout(callback, 0)", "for loop", "variable assignment"],
+          "answer": "setTimeout(callback, 0)",
+          "explanation": "Even 0ms timeout waits for the call-stack to clear."
+        },
+        {
+          "q": "Callbacks run when:",
+          "options": ["Function starts", "Timer completes", "Event loop moves them from queue", "Browser refreshes"],
+          "answer": "Event loop moves them from queue",
+          "explanation": "Callback queue → event loop → call stack."
+        },
+        {
+          "q": "What is Callback Hell?",
+          "options": ["Too many callbacks", "Nested callbacks making code unreadable", "Infinite loops", "Slow callbacks"],
+          "answer": "Nested callbacks making code unreadable",
+          "explanation": "Deep nesting = poor readability."
+        },
+        {
+          "q": "A Promise in ES6 has how many states?",
+          "options": ["1", "2", "3", "4"],
+          "answer": "3",
+          "explanation": "Pending, Fulfilled, Rejected."
+        },
+        {
+          "q": "Which handles fulfilled Promise?",
+          "options": ["catch()", "then()", "finally()", "resolve()"],
+          "answer": "then()",
+          "explanation": "then() executes when promise resolves."
+        },
+        {
+          "q": "Which handles rejected Promise?",
+          "options": ["then()", "catch()", "final()", "await"],
+          "answer": "catch()",
+          "explanation": "catch() handles errors in Promises."
+        },
+        {
+          "q": "async function automatically returns:",
+          "options": ["Nothing", "Callback", "Promise", "Generator"],
+          "answer": "Promise",
+          "explanation": "Every async function returns a Promise."
+        },
+        {
+          "q": "await can be used only inside:",
+          "options": ["Any function", "async function", "then()", "catch()"],
+          "answer": "async function",
+          "explanation": "await can appear only inside async function body."
+        },
+        {
+          "q": "What does Promise.all() do?",
+          "options": ["Runs promises sequentially", "Runs promises in parallel", "Rejects all promises", "Cancels promises"],
+          "answer": "Runs promises in parallel",
+          "explanation": "Promise.all waits until all promises resolve or one rejects."
+        },
+
+        {
+          "q": "Which Promise method ALWAYS runs?",
+          "options": ["then()", "catch()", "finally()", "resolve()"],
+          "answer": "finally()",
+          "explanation": "finally() runs regardless of success or failure."
+        },
+        {
+          "q": "Which is TRUE about Promises?",
+          "options": ["Once settled, state cannot change", "Always synchronous", "Can be cancelled", "None of these"],
+          "answer": "Once settled, state cannot change",
+          "explanation": "A Promise is immutable once fulfilled or rejected."
+        },
+        {
+          "q": "What happens if await rejects and you do NOT catch it?",
+          "options": ["Ignored", "Compiler error", "Unhandled Promise rejection", "Nothing"],
+          "answer": "Unhandled Promise rejection",
+          "explanation": "Unhandled rejections may crash the program."
+        },
+        {
+          "q": "The event loop:",
+          "options": ["Executes network requests", "Moves tasks from queue to stack", "Creates threads", "Runs CSS animations"],
+          "answer": "Moves tasks from queue to stack",
+          "explanation": "It manages async execution flow."
+        },
+        {
+          "q": "Promise.resolve() returns:",
+          "options": ["Rejected promise", "Pending promise", "Fulfilled promise", "Callback"],
+          "answer": "Fulfilled promise",
+          "explanation": "It creates an already-resolved Promise."
+        },
+
+        {
+          "q": "Promise rejection is handled using:",
+          "options": ["catch()", "except()", "fallback()", "reject()"],
+          "answer": "catch()",
+          "explanation": "catch handles errors."
+        },
+        {
+          "q": "setInterval is:",
+          "options": ["Synchronous", "Asynchronous", "Promise-based", "Blocking"],
+          "answer": "Asynchronous",
+          "explanation": "Timers run via browser APIs."
+        },
+        {
+          "q": "Which is an async API?",
+          "options": ["setTimeout", "console.log", "Math.random", "parseInt"],
+          "answer": "setTimeout",
+          "explanation": "Timers run asynchronously."
+        },
+        {
+          "q": "Which method waits for the FIRST resolved Promise?",
+          "options": ["Promise.first()", "Promise.race()", "Promise.any()", "Promise.wait()"],
+          "answer": "Promise.race()",
+          "explanation": "race() wins by first settled promise."
+        },
+        {
+          "q": "Promise.any() returns:",
+          "options": ["First fulfilled promise", "First rejected promise", "All promises", "Errors only"],
+          "answer": "First fulfilled promise",
+          "explanation": "Ignores rejected ones until a success appears."
+        },
+
+        {
+          "q": "Error in async/await is caught using:",
+          "options": ["await", "try/catch", "catch only", "throw only"],
+          "answer": "try/catch",
+          "explanation": "await must be wrapped in try/catch for safe error handling."
+        },
+        {
+          "q": "Promise chains avoid:",
+          "options": ["Callbacks", "Callback Hell", "setTimeout", "console.log"],
+          "answer": "Callback Hell",
+          "explanation": "Chaining makes async flow linear."
+        },
+        {
+          "q": "Which executes first?",
+          "options": ["console.log('A')", "Promise.then(...)"],
+          "answer": "console.log('A')",
+          "explanation": "Then callbacks go to microtask queue."
+        },
+        {
+          "q": "Microtasks include:",
+          "options": ["setTimeout", "setInterval", "Promise.then callbacks", "Web workers"],
+          "answer": "Promise.then callbacks",
+          "explanation": "Microtasks = Promise jobs."
+        },
+        {
+          "q": "Async functions simplify:",
+          "options": ["Loops", "DOM", "Asynchronous flow", "Math calculations"],
+          "answer": "Asynchronous flow",
+          "explanation": "async/await flattens nested Promises."
+        },
+
+        {
+          "q": "Which resolves after all settle (fulfilled or rejected)?",
+          "options": ["Promise.all()", "Promise.allSettled()", "Promise.any()", "Promise.final()"],
+          "answer": "Promise.allSettled()",
+          "explanation": "allSettled waits regardless of success/failure."
+        },
+        {
+          "q": "fetch() is:",
+          "options": ["Synchronous", "Asynchronous Promise-based", "Blocking", "Deprecated"],
+          "answer": "Asynchronous Promise-based",
+          "explanation": "fetch returns a Promise."
+        },
+        {
+          "q": "JSON parsing in async fetch is done with:",
+          "options": ["res.data()", "res.json()", "res.toJSON()", "JSON.read()"],
+          "answer": "res.json()",
+          "explanation": "json() also returns a Promise."
+        },
+        {
+          "q": "Which queue has higher priority?",
+          "options": ["Callback queue", "Microtask queue", "Render queue", "CSS queue"],
+          "answer": "Microtask queue",
+          "explanation": "Microtasks run before normal callbacks."
+        },
+        {
+          "q": "Async tasks run via:",
+          "options": ["Call stack", "Web APIs", "HTML parser", "Node tree"],
+          "answer": "Web APIs",
+          "explanation": "Timers, network tasks run outside JS engine."
+        }
+      ]
+    },
+
+    {
+      "type": "output",
+      "title": "Output-Based Questions (20)",
+      "questions": [
+        {
+          "q": "console.log('A'); setTimeout(() => console.log('B'), 0); console.log('C');",
+          "answer": "A, C, B",
+          "explanation": "Timeout callback runs after call-stack clear."
+        },
+        {
+          "q": "Promise.resolve().then(() => console.log('P')); console.log('S');",
+          "answer": "S, P",
+          "explanation": "Microtask runs after sync code."
+        },
+
+        {
+          "q": "setTimeout(()=>console.log('1'),1000); setTimeout(()=>console.log('2'),0); console.log('3');",
+          "answer": "3, 2, 1",
+          "explanation": "0ms still enters queue."
+        },
+        {
+          "q": "async function f(){ return 10; } f().then(console.log);",
+          "answer": "10",
+          "explanation": "Async returns resolved Promise."
+        },
+        {
+          "q": "console.log('Start'); Promise.resolve('Hi').then(console.log); console.log('End');",
+          "answer": "Start, End, Hi",
+          "explanation": "Microtask runs last."
+        },
+
+        {
+          "q": "async function f(){ return Promise.resolve(5); } console.log(await f());",
+          "answer": "5",
+          "explanation": "await unwraps Promise."
+        },
+        {
+          "q": "Promise.reject('Err').catch(console.log);",
+          "answer": "Err",
+          "explanation": "catch handles rejection."
+        },
+        {
+          "q": "let p = Promise.resolve(1); p.then(x=>x+1).then(console.log);",
+          "answer": "2",
+          "explanation": "Chained value passes forward."
+        },
+        {
+          "q": "async function test(){ throw 'Oops'; } test().catch(console.log);",
+          "answer": "Oops",
+          "explanation": "async throw converts to rejected Promise."
+        },
+        {
+          "q": "Promise.all([Promise.resolve(1), Promise.resolve(2)]) .then(console.log);",
+          "answer": "[1,2]",
+          "explanation": "All must resolve."
+        },
+
+        {
+          "q": "Promise.race([Promise.resolve('A'), Promise.resolve('B')]).then(console.log);",
+          "answer": "A or B",
+          "explanation": "First resolved wins."
+        },
+        {
+          "q": "console.log('Start'); setTimeout(()=>console.log('Timer'),0); Promise.resolve().then(()=>console.log('Promise'));",
+          "answer": "Start, Promise, Timer",
+          "explanation": "Microtasks run before callbacks."
+        },
+        {
+          "q": "async function go(){ let r = await Promise.reject('No'); } go().catch(console.log);",
+          "answer": "No",
+          "explanation": "Rejected Promise caught outside."
+        },
+        {
+          "q": "console.log(typeof(async()=>{}));",
+          "answer": "\"function\"",
+          "explanation": "Async functions are functions returning Promise."
+        },
+        {
+          "q": "async function f(){ await 0; console.log(1); } console.log(2); f(); console.log(3);",
+          "answer": "2, 3, 1",
+          "explanation": "await delays execution."
+        },
+
+        {
+          "q": "Promise.resolve().then(()=>console.log('X')); console.log('Y');",
+          "answer": "Y, X",
+          "explanation": "Sync first, then microtask."
+        },
+        {
+          "q": "setTimeout(()=>console.log('Later')); console.log('Now');",
+          "answer": "Now, Later",
+          "explanation": "Timeout runs after stack clear."
+        },
+        {
+          "q": "async function f(){ return 'Done'; } console.log(await f());",
+          "answer": "Done",
+          "explanation": "await unwraps resolved value."
+        },
+        {
+          "q": "async function f(){ return Promise.resolve('OK'); } f().then(console.log);",
+          "answer": "OK",
+          "explanation": "Promise resolved."
+        },
+        {
+          "q": "Promise.reject('X').finally(()=>console.log('F')).catch(console.log);",
+          "answer": "F, X",
+          "explanation": "finally first, then catch."
+        }
+      ]
+    },
+
+    {
+      "type": "coding",
+      "title": "Coding Exercises (20)",
+      "questions": [
+        {
+          "q": "Write a function delay(ms) that returns a Promise resolving after ms milliseconds.",
+          "solution": "const delay = ms => new Promise(res => setTimeout(res, ms));"
+        },
+        {
+          "q": "Create a function getStudent(name) that resolves with {name, centre:'Coder & AccoTax'} after 1 second.",
+          "solution": "function getStudent(name){ return new Promise(res => setTimeout(()=>res({name, centre:'Coder & AccoTax'}),1000)); }"
+        },
+        {
+          "q": "Convert: load(() => console.log('Done')); to Promises.",
+          "solution": "function load(){ return Promise.resolve('Done'); } load().then(console.log);"
+        },
+        {
+          "q": "Write an async function that awaits delay(1000) and logs 'Finished'.",
+          "solution": "async function run(){ await delay(1000); console.log('Finished'); }"
+        },
+        {
+          "q": "Create fetchMarks(name) returning Promise resolving {name, marks:95}.",
+          "solution": "const fetchMarks = name => Promise.resolve({name,marks:95});"
+        },
+
+        {
+          "q": "Create async function showMarks(name) that logs fetched marks.",
+          "solution": "async function showMarks(n){ const d = await fetchMarks(n); console.log(d); }"
+        },
+        {
+          "q": "Write an async function that waits for two delays in sequence.",
+          "solution": "async function seq(){ await delay(500); await delay(500); }"
+        },
+        {
+          "q": "Use Promise.all to load marks for Ritaja, Mounita, Kaustav.",
+          "solution": "Promise.all([fetchMarks('Ritaja'), fetchMarks('Mounita'), fetchMarks('Kaustav')]).then(console.log);"
+        },
+        {
+          "q": "Write safeAsync(fn) that returns {ok:true,result} or {ok:false,error}.",
+          "solution": "async function safeAsync(fn){ try{ return {ok:true,result:await fn()}; } catch(e){ return {ok:false,error:e}; } }"
+        },
+        {
+          "q": "Write retry(fn, attempts) that retries async function.",
+          "solution": "async function retry(fn, n){ for(let i=0;i<n;i++){ try{return await fn();}catch(e){ if(i===n-1)throw e; } } }"
+        },
+
+        {
+          "q": "Convert Promise chain into async/await.",
+          "solution": "// use async function and await each Promise"
+        },
+        {
+          "q": "Fetch 3 profiles using Promise.allSettled.",
+          "solution": "Promise.allSettled([p1,p2,p3]).then(console.log);"
+        },
+        {
+          "q": "Create waitForData returning Promise resolving random number after 300ms.",
+          "solution": "const waitForData = ()=>new Promise(res=>setTimeout(()=>res(Math.random()),300));"
+        },
+        {
+          "q": "Make async function compute() that awaits waitForData twice.",
+          "solution": "async function compute(){ let a=await waitForData(); let b=await waitForData(); console.log(a+b); }"
+        },
+        {
+          "q": "Write async function loadStudentDashboard(name) that loads profile & marks sequentially.",
+          "solution": "async function loadStudentDashboard(n){ const p=await getProfile(n); const m=await getMarks(n); console.log(p,m); }"
+        },
+
+        {
+          "q": "Handle fetch errors using try/catch.",
+          "solution": "async function load(){ try{ await fetch('/x'); }catch(e){ console.log('Error'); } }"
+        },
+        {
+          "q": "Write function wrap(promise) that returns an array [err,data].",
+          "solution": "const wrap=p=>p.then(d=>[null,d]).catch(e=>[e]);"
+        },
+        {
+          "q": "Write a function timeoutPromise(p,ms). If p doesn’t resolve in ms, reject.",
+          "solution": "function timeoutPromise(p,ms){ return Promise.race([p,new Promise((_,rej)=>setTimeout(()=>rej('Timeout'),ms))]); }"
+        },
+        {
+          "q": "Write async function loadTwoParallel() running two async tasks at once.",
+          "solution": "async function loadTwoParallel(){ const [a,b]=await Promise.all([f1(),f2()]); console.log(a,b); }"
+        },
+        {
+          "q": "Simulate login → fetchProfile → fetchMarks using async/await.",
+          "solution": "async function flow(){ await login(); await fetchProfile(); await fetchMarks(); }"
+        }
+      ]
+    },
+
+    {
+      "type": "coding-advanced",
+      "title": "Debugging & Fix-the-Code (15)",
+      "questions": [
+        {
+          "q": "Fix: await can be used outside async function.",
+          "solution": "Wrap inside async function."
+        },
+        {
+          "q": "Fix: Promise.resolve(5).then(x=>{ x+1; }).then(console.log)",
+          "solution": "return x+1;"
+        },
+        {
+          "q": "Fix: setTimeout(console.log('Hi'),1000)",
+          "solution": "setTimeout(()=>console.log('Hi'),1000)"
+        },
+        {
+          "q": "Fix: load().catch(err).then(console.log)",
+          "solution": "load().then(console.log).catch(err)"
+        },
+        {
+          "q": "Fix missing catch in async: async function f(){ await g(); }",
+          "solution": "try/catch around await g()"
+        },
+        {
+          "q": "Fix: Promise.all([p1,p2,p3]).then(console.log).catch(console.log)",
+          "solution": "Correct already—but add individual error checks if needed."
+        },
+        {
+          "q": "Fix: async ()=>{ throw error } is not handled",
+          "solution": "Call with .catch()"
+        },
+        {
+          "q": "Fix: Promise.reject('X').then(console.log)",
+          "solution": "Add .catch(console.log)"
+        },
+        {
+          "q": "Fix Promise chain missing return",
+          "solution": "return nextPromise"
+        },
+        {
+          "q": "Fix double await: await await p",
+          "solution": "await p"
+        },
+
+        {
+          "q": "Fix callback hell using Promises",
+          "solution": "Convert nested callbacks to Promise chain"
+        },
+        {
+          "q": "Fix async recursion without await",
+          "solution": "Add await recursiveCall()"
+        },
+        {
+          "q": "Fix fetch error not handled",
+          "solution": "Wrap in try/catch"
+        },
+        {
+          "q": "Fix chaining async without returning",
+          "solution": "return inside then()"
+        },
+        {
+          "q": "Fix incorrect Promise.race usage",
+          "solution": "Pass an array: Promise.race([p1,p2])"
+        }
+      ]
+    },
+
+    {
+      "type": "mini-projects",
+      "title": "Mini Async Projects (15)",
+      "projects": [
+        {
+          "title": "Student Dashboard Loader",
+          "description": "Load profile + marks of students (Ritaja, Mounita, Swadeep) using async/await."
+        },
+        {
+          "title": "Batch Result Fetcher",
+          "description": "Fetch 10 students' marks in parallel (Promise.all)."
+        },
+        {
+          "title": "Retry-Based Login System",
+          "description": "Try login() upto 3 times using retry pattern."
+        },
+        {
+          "title": "Timeout-Protected API Request",
+          "description": "Reject a fetch if it doesn't return within 3 seconds."
+        },
+        {
+          "title": "Parallel Teacher Info Loader",
+          "description": "Load data for teachers (Sukanta Hui, Tanusree Hui, Chandan Das)."
+        },
+        {
+          "title": "Attendance Sync System",
+          "description": "Update multiple attendance logs in parallel."
+        },
+        {
+          "title": "Async Search Suggestion Engine",
+          "description": "Debounce input → fetch suggestions using async."
+        },
+        {
+          "title": "Marks Analyzer (Async)",
+          "description": "Fetch marks then compute average."
+        },
+        {
+          "title": "Student Ranking System",
+          "description": "Fetch marks for multiple students then produce rank list."
+        },
+        {
+          "title": "Progress Loader Simulation",
+          "description": "Show loading% using intervals + Promises."
+        },
+        {
+          "title": "API Wrapper Utility",
+          "description": "Create wrapper fetchJSON(url) that returns safeAsync result."
+        },
+        {
+          "title": "Dashboard Sequential Steps",
+          "description": "login → load profile → load marks → load notifications."
+        },
+        {
+          "title": "Microtask vs Macrotask Demo",
+          "description": "Show order of Promise and setTimeout."
+        },
+        {
+          "title": "Async Quiz Autograder",
+          "description": "Fetch answers → evaluate student score asynchronously."
+        },
+        {
+          "title": "Batch Fetch with AllSettled",
+          "description": "Fetch student statuses & show summary."
+        }
+      ]
+    }
+  ]
+}

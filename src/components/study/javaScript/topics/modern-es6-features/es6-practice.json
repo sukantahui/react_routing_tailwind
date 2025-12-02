@@ -1,0 +1,519 @@
+{
+  "title": "ES6 Practice Set — From Beginner to Expert",
+  "author": "Sukanta Hui · Coder & AccoTax Barrackpore",
+  "sections": [
+    {
+      "type": "mcq",
+      "title": "MCQ — ES6 Fundamentals",
+      "questions": [
+        {
+          "q": "Which one is TRUE about let?",
+          "options": ["It is function-scoped", "It is blocked-scoped", "It allows redeclaration", "It is same as var"],
+          "answer": "It is blocked-scoped",
+          "explanation": "let is always block scoped, unlike var which is function scoped."
+        },
+        {
+          "q": "What will be the output of: console.log(typeof Symbol())?",
+          "options": ["'object'", "'symbol'", "'function'", "'undefined'"],
+          "answer": "'symbol'",
+          "explanation": "ES6 introduced symbol as a new primitive datatype."
+        },
+        {
+          "q": "Template literals allow:",
+          "options": ["Multi-line strings", "String interpolation", "Embedding expressions", "All of these"],
+          "answer": "All of these",
+          "explanation": "Template literals support multi-line text and ${} interpolation."
+        },
+        {
+          "q": "Which operator creates a copy of an array?",
+          "options": ["===", "...", "=>", "::"],
+          "answer": "...",
+          "explanation": "The spread operator expands or copies iterable values."
+        },
+        {
+          "q": "What will be logged: console.log([...\"ABC\"])?",
+          "options": ["['ABC']", "['A','B','C']", "['A BC']", "Error"],
+          "answer": "['A','B','C']",
+          "explanation": "Strings are iterable; spread breaks them into characters."
+        },
+
+        {
+          "q": "Which declaration does NOT allow reassignment?",
+          "options": ["var", "let", "const", "All of them allow reassignment"],
+          "answer": "const",
+          "explanation": "Variables declared with const cannot be reassigned."
+        },
+        {
+          "q": "What happens if you access a let variable before declaration?",
+          "options": ["undefined", "ReferenceError", "null", "0"],
+          "answer": "ReferenceError",
+          "explanation": "let and const are in the Temporal Dead Zone before declaration."
+        },
+        {
+          "q": "Which of the following is a valid arrow function?",
+          "options": ["(a,b) -> a+b", "a,b => a+b", "(a,b) => a + b", "=> a+b"],
+          "answer": "(a,b) => a + b",
+          "explanation": "Arrow functions use => with parameter list in parentheses."
+        },
+        {
+          "q": "Arrow functions do NOT have their own:",
+          "options": ["this", "parameters", "return", "scope"],
+          "answer": "this",
+          "explanation": "Arrow functions inherit this from their surrounding lexical scope."
+        },
+        {
+          "q": "Which is TRUE about const with objects?",
+          "options": ["Object properties can't change", "You cannot reassign the variable", "Object is frozen automatically", "It behaves same as let"],
+          "answer": "You cannot reassign the variable",
+          "explanation": "const prevents reassignment but properties of objects can still change."
+        },
+
+        {
+          "q": "Which syntax correctly defines a default parameter?",
+          "options": ["function f(a=5) {}", "function f(default a=5) {}", "function f(a:5) {}", "function f(a==5) {}"],
+          "answer": "function f(a=5) {}",
+          "explanation": "ES6 default parameters are defined using = in the parameter list."
+        },
+        {
+          "q": "Which is NOT a feature of template literals?",
+          "options": ["Backtick-based", "Can embed variables", "Must use + for concatenation", "Supports multi-line text"],
+          "answer": "Must use + for concatenation",
+          "explanation": "Template literals remove the need for + in most string concatenations."
+        },
+        {
+          "q": "Which is valid destructuring of an array?",
+          "options": ["let [a,b] = [1,2];", "let {a,b} = [1,2];", "let (a,b) = [1,2];", "let a,b = [1,2];"],
+          "answer": "let [a,b] = [1,2];",
+          "explanation": "Array destructuring uses [ ] brackets."
+        },
+        {
+          "q": "Which is valid object destructuring?",
+          "options": ["let {name} = student;", "let [name] = student;", "let (name) = student;", "destruct student as {name};"],
+          "answer": "let {name} = student;",
+          "explanation": "Object destructuring uses { } with property names."
+        },
+        {
+          "q": "Which statement is TRUE about spread and rest?",
+          "options": ["Both must be used only in arrays", "Spread expands values, rest collects values", "Spread collects values, rest expands values", "Both mean the same thing"],
+          "answer": "Spread expands values, rest collects values",
+          "explanation": "Spread expands into separate values, rest groups them into an array."
+        },
+
+        {
+          "q": "What does the rest parameter syntax look like?",
+          "options": ["*args", "...args", "args...", "rest(args)"],
+          "answer": "...args",
+          "explanation": "Rest parameters are declared using ... followed by a name."
+        },
+        {
+          "q": "Which keyword is used to export a function from a module?",
+          "options": ["module", "export", "import", "from"],
+          "answer": "export",
+          "explanation": "export exposes a function, variable, or class from a module."
+        },
+        {
+          "q": "How do you import a default export?",
+          "options": ["import {name} from './file.js';", "import name from './file.js';", "import default from './file.js';", "require('./file.js')"],
+          "answer": "import name from './file.js';",
+          "explanation": "Default exports are imported without { } and can use any name."
+        },
+        {
+          "q": "Which is a correct named import?",
+          "options": ["import myFunc from { './file.js' };", "import { myFunc } from './file.js';", "import './file.js' as myFunc;", "using myFunc from './file.js';"],
+          "answer": "import { myFunc } from './file.js';",
+          "explanation": "Named imports use { } with the exported identifier name."
+        },
+        {
+          "q": "What is the typeof an arrow function?",
+          "options": ["'object'", "'function'", "'arrow'", "'lambda'"],
+          "answer": "'function'",
+          "explanation": "Arrow functions are still functions and typeof returns 'function'."
+        },
+
+        {
+          "q": "Which of these is NOT an ES6 feature?",
+          "options": ["let and const", "Arrow functions", "Template literals", "alert()"],
+          "answer": "alert()",
+          "explanation": "alert existed long before ES6."
+        },
+        {
+          "q": "Which will correctly clone an object person?",
+          "options": ["let copy = person;", "let copy = {...person};", "let copy = [person];", "let copy = clone(person);"],
+          "answer": "let copy = {...person};",
+          "explanation": "Spread with {...} creates a shallow copy of an object."
+        },
+        {
+          "q": "What does optional chaining operator look like?",
+          "options": ["?.", "??", "::", "?:"] ,
+          "answer": "?.",
+          "explanation": "Optional chaining uses the ?. syntax to safely access nested values."
+        },
+        {
+          "q": "Nullish coalescing operator is used for:",
+          "options": ["Equality check", "Looping", "Providing default when value is null or undefined", "Declaring variables"],
+          "answer": "Providing default when value is null or undefined",
+          "explanation": "?? returns the right side only if left side is null or undefined."
+        },
+        {
+          "q": "Which for-loop is best for iterating over array values?",
+          "options": ["for", "for...in", "for...of", "while"],
+          "answer": "for...of",
+          "explanation": "for...of iterates over values of an iterable like array."
+        },
+
+        {
+          "q": "Which loop is generally NOT recommended for arrays?",
+          "options": ["for", "for...in", "for...of", "forEach"],
+          "answer": "for...in",
+          "explanation": "for...in iterates over keys and is more suited for objects."
+        },
+        {
+          "q": "Map and Set were introduced in:",
+          "options": ["ES3", "ES5", "ES6", "ES2019"],
+          "answer": "ES6",
+          "explanation": "Map and Set are new collection types added in ES6."
+        },
+        {
+          "q": "Which method is used to combine array elements into a single value?",
+          "options": ["map()", "filter()", "reduce()", "forEach()"],
+          "answer": "reduce()",
+          "explanation": "Array.prototype.reduce accumulates values into a single result."
+        },
+        {
+          "q": "What is true about arrow functions and this?",
+          "options": ["They have their own this", "They use global this only", "They capture this from outer scope", "They don't allow this keyword"],
+          "answer": "They capture this from outer scope",
+          "explanation": "Arrow functions are lexically bound to the this of their surrounding scope."
+        },
+        {
+          "q": "Which syntax creates a class in ES6?",
+          "options": ["class Student {}", "function class Student {}", "Student = class {}", "new class Student"],
+          "answer": "class Student {}",
+          "explanation": "ES6 introduced the class keyword for constructor-based OOP."
+        },
+
+        {
+          "q": "How do you create a Promise?",
+          "options": ["new Promise()", "Promise()", "promise {}", "create Promise"],
+          "answer": "new Promise()",
+          "explanation": "A Promise is created with the new Promise(executor) syntax."
+        },
+        {
+          "q": "Which method is used to handle a fulfilled Promise?",
+          "options": ["finally()", "done()", "then()", "resolve()"],
+          "answer": "then()",
+          "explanation": "then() is called when a Promise is fulfilled."
+        },
+        {
+          "q": "Which array method returns a new array with elements that pass a condition?",
+          "options": ["map()", "filter()", "reduce()", "forEach()"],
+          "answer": "filter()",
+          "explanation": "filter() keeps only elements where the callback returns true."
+        },
+        {
+          "q": "Which array method transforms each element and returns a new array?",
+          "options": ["forEach()", "map()", "find()", "some()"],
+          "answer": "map()",
+          "explanation": "map() applies a function to each element and returns a new array."
+        },
+        {
+          "q": "Which statement is TRUE about const arrays?",
+          "options": ["You cannot change its elements", "You cannot reassign the whole array variable", "You cannot read from it", "It behaves exactly like let"],
+          "answer": "You cannot reassign the whole array variable",
+          "explanation": "Elements can be modified, but the const variable cannot point to a new array."
+        }
+      ]
+    },
+
+    {
+      "type": "output",
+      "title": "Output-Based Questions",
+      "questions": [
+        {
+          "q": "const x = { name: 'Ritaja' }; const y = { ...x }; x.name = 'Mounita'; console.log(y.name);",
+          "answer": "Ritaja",
+          "explanation": "Spread creates a shallow copy, so y is independent."
+        },
+        {
+          "q": "let a = 10; { let a = 20; console.log(a); } console.log(a);",
+          "answer": "20\n10",
+          "explanation": "Inner block has separate let variable."
+        },
+        {
+          "q": "console.log(`2 + 3 = ${2 + 3}`);",
+          "answer": "2 + 3 = 5",
+          "explanation": "Template literals allow expression evaluation."
+        },
+        {
+          "q": "const arr = [1,2]; const newArr = [...arr, 3]; console.log(newArr);",
+          "answer": "[1, 2, 3]",
+          "explanation": "Spread appends elements."
+        },
+
+        {
+          "q": "let x = 5; if (true) { let x = 7; } console.log(x);",
+          "answer": "5",
+          "explanation": "Inner let x is separate; outer x remains 5."
+        },
+        {
+          "q": "const name = 'Kaustav'; const msg = `Hello ${name}!`; console.log(msg);",
+          "answer": "Hello Kaustav!",
+          "explanation": "Template literal inserts the value of name."
+        },
+        {
+          "q": "const nums = [1,2,3]; const [a,b] = nums; console.log(a,b);",
+          "answer": "1 2",
+          "explanation": "First two elements are destructured into a and b."
+        },
+        {
+          "q": "const student = { name: 'Susmita', city: 'Barrackpore' }; const {city} = student; console.log(city);",
+          "answer": "Barrackpore",
+          "explanation": "Object destructuring extracts city property."
+        },
+        {
+          "q": "const a = [1,2]; const b = a; b.push(3); console.log(a);",
+          "answer": "[1, 2, 3]",
+          "explanation": "a and b reference the same array."
+        },
+        {
+          "q": "const a = [1,2]; const b = [...a]; b.push(3); console.log(a);",
+          "answer": "[1, 2]",
+          "explanation": "Spread creates a new array; original a is unchanged."
+        },
+        {
+          "q": "function show(name = 'Student'){ console.log(name); } show('Ritaja'); show();",
+          "answer": "Ritaja\nStudent",
+          "explanation": "Default parameter is used only when no argument is passed."
+        },
+        {
+          "q": "const centre = 'Coder & AccoTax'; const city = 'Barrackpore'; console.log(`${centre} - ${city}`);",
+          "answer": "Coder & AccoTax - Barrackpore",
+          "explanation": "Template literal combines both variables."
+        },
+        {
+          "q": "const marks = [80,90,100]; const [top, ...rest] = marks; console.log(top, rest);",
+          "answer": "100 [ ] or 80 [90,100] (depending on code variant)",
+          "explanation": "Here with [80,90,100], top=80 and rest=[90,100]."
+        },
+        {
+          "q": "console.log(0 ?? 50); console.log(null ?? 50);",
+          "answer": "0\n50",
+          "explanation": "?? only falls back for null or undefined, not for 0."
+        },
+        {
+          "q": "const student = { name:'Pranjali' }; console.log(student.address?.city);",
+          "answer": "undefined",
+          "explanation": "Optional chaining returns undefined when address is missing instead of throwing error."
+        },
+        {
+          "q": "const data = { scores:{ js:95 } }; console.log(data.scores?.js ?? 'NA');",
+          "answer": "95",
+          "explanation": "scores.js exists, so ?? returns 95."
+        },
+        {
+          "q": "const teacher = { name:'Sukanta', greet(){ return 'Hello'; } }; console.log(teacher.greet?.());",
+          "answer": "Hello",
+          "explanation": "Optional chaining calls greet safely."
+        },
+        {
+          "q": "const list = ['A','B','C']; for(const item of list){ console.log(item); }",
+          "answer": "A\nB\nC",
+          "explanation": "for...of iterates over each value."
+        },
+        {
+          "q": "const arr = [1,2,3]; console.log(arr.map(n => n*2));",
+          "answer": "[2, 4, 6]",
+          "explanation": "map multiplies each element by 2."
+        },
+        {
+          "q": "const arr = [1,2,3,4]; console.log(arr.filter(n => n % 2 === 0));",
+          "answer": "[2, 4]",
+          "explanation": "filter keeps only even numbers."
+        }
+      ]
+    },
+
+    {
+      "type": "coding",
+      "title": "Coding Exercises (Short)",
+      "questions": [
+        {
+          "q": "Create an arrow function that returns square of a number.",
+          "solution": "const square = n => n * n;"
+        },
+        {
+          "q": "Use destructuring to extract city and phone from the object {name:'Kaustav', city:'Barrackpore', phone:7003}.",
+          "solution": "const student = {name:'Kaustav', city:'Barrackpore', phone:7003}; const { city, phone } = student;"
+        },
+        {
+          "q": "Write a function that merges two arrays using spread.",
+          "solution": "function merge(a, b) { return [...a, ...b]; }"
+        },
+        {
+          "q": "Convert this function to arrow: function greet(name){ return 'Hello '+name; }",
+          "solution": "const greet = name => 'Hello ' + name;"
+        },
+
+        {
+          "q": "Create an arrow function that returns the sum of two numbers.",
+          "solution": "const add = (a, b) => a + b;"
+        },
+        {
+          "q": "Write a function using default parameters that prints 'Hello Student' when name is not provided.",
+          "solution": "function sayHello(name = 'Student') { console.log('Hello ' + name); }"
+        },
+        {
+          "q": "Write code to destructure first and second elements from an array scores.",
+          "solution": "const [first, second] = scores;"
+        },
+        {
+          "q": "Destructure name and course from object {name:'Susmita', course:'ES6'} into variables n and c.",
+          "solution": "const { name: n, course: c } = {name:'Susmita', course:'ES6'};"
+        },
+        {
+          "q": "Create a new array allStudents by merging batch1 and batch2 using spread.",
+          "solution": "const allStudents = [...batch1, ...batch2];"
+        },
+        {
+          "q": "Use rest parameter to collect all arguments into an array named nums.",
+          "solution": "function collect(...nums) { return nums; }"
+        },
+        {
+          "q": "Create a function that logs 'Coder & AccoTax, Barrackpore' using a template literal.",
+          "solution": "function showCentre() { console.log(`Coder & AccoTax, Barrackpore`); }"
+        },
+        {
+          "q": "Write a function printStudent({name, city}) using destructuring in parameters.",
+          "solution": "function printStudent({ name, city }) { console.log(name + ' - ' + city); }"
+        },
+        {
+          "q": "Write an arrow function that takes an array and returns a new array with each element doubled using map.",
+          "solution": "const doubleArray = arr => arr.map(n => n * 2);"
+        },
+        {
+          "q": "Create a short code snippet using optional chaining: console.log student.address.city safely.",
+          "solution": "console.log(student.address?.city);"
+        },
+        {
+          "q": "Use nullish coalescing to assign defaultMarks as 50 if marks is null or undefined.",
+          "solution": "const defaultMarks = marks ?? 50;"
+        },
+        {
+          "q": "Write a small function that takes name and score and returns a template literal: `${name} scored ${score}`.",
+          "solution": "const makeResult = (name, score) => `${name} scored ${score}`;"
+        },
+        {
+          "q": "Write a function to clone an object student using spread.",
+          "solution": "function cloneStudent(student) { return { ...student }; }"
+        },
+        {
+          "q": "Write a snippet that imports a named function getResult from './results.js'.",
+          "solution": "import { getResult } from './results.js';"
+        },
+        {
+          "q": "Write a snippet that exports a default arrow function sayHi.",
+          "solution": "const sayHi = () => 'Hi'; export default sayHi;"
+        },
+        {
+          "q": "Write a snippet that creates a class Student with a constructor(name) and a method greet().",
+          "solution": "class Student { constructor(name){ this.name = name; } greet(){ console.log('Hello ' + this.name); } }"
+        }
+      ]
+    },
+
+    {
+      "type": "coding-advanced",
+      "title": "Advanced Coding / Debugging",
+      "questions": [
+        {
+          "q": "Write a function using rest parameters that returns sum of ANY number of values.",
+          "solution": "const sum = (...nums) => nums.reduce((a, b) => a + b, 0);"
+        },
+        {
+          "q": "Create a function that takes a student object and returns: \"Name: X | City: Y\" using template literals.",
+          "solution": "const info = ({name, city}) => `Name: ${name} | City: ${city}`;"
+        },
+        {
+          "q": "Use destructuring + spread to update a property inside nested object.",
+          "solution": "const updated = {...obj, marks:{...obj.marks, math:95}};"
+        },
+
+        {
+          "q": "Fix the bug: const add = (a,b) => { a + b; }; // should return the sum",
+          "solution": "const add = (a,b) => a + b;"
+        },
+        {
+          "q": "Fix the bug: const student = {name:'Ritaja', city:'Barrackpore'}; const {n, c} = student; // n and c should have name and city",
+          "solution": "const { name: n, city: c } = student;"
+        },
+        {
+          "q": "Fix the bug: const arr = [1,2,3]; const copy = arr; copy.push(4); // copy should not modify original",
+          "solution": "const copy = [...arr];"
+        },
+        {
+          "q": "Write a function that safely reads user.profile.name using optional chaining.",
+          "solution": "function getUserName(user){ return user.profile?.name ?? 'No Name'; }"
+        },
+        {
+          "q": "Convert function Student(name){ this.name=name; } Student.prototype.greet = function(){ console.log('Hi '+this.name); } to an ES6 class.",
+          "solution": "class Student { constructor(name){ this.name = name; } greet(){ console.log('Hi ' + this.name); } }"
+        },
+        {
+          "q": "Create a small module studentService.js that exports getTopper as a named export and centre as a default export.",
+          "solution": "export function getTopper(list){ return list[0]; } const centre = 'Coder & AccoTax'; export default centre;"
+        },
+        {
+          "q": "Given const marks = [88,92,95,70], write a function using filter and map: keep marks >= 80 and then add 5 grace marks.",
+          "solution": "const processMarks = marks => marks.filter(m => m >= 80).map(m => m + 5);"
+        }
+      ]
+    },
+
+    {
+      "type": "mini-projects",
+      "title": "Mini Projects (ES6 Only)",
+      "projects": [
+        {
+          "title": "Student Result Formatter",
+          "description": "Create a result formatting module using export & import. Include student names like Ritaja, Devangshu, Susmita etc."
+        },
+        {
+          "title": "Expense Combiner",
+          "description": "Combine multiple expense lists using spread and calculate totals."
+        },
+        {
+          "title": "Teacher Directory Module",
+          "description": "Using default + named exports, maintain a list of teachers (e.g., Sukanta Hui, Tanusree Hui, Mounita Bhandari)."
+        },
+        {
+          "title": "Attendance Tracker with Rest & Spread",
+          "description": "Build a simple function markAttendance(teacher, ...students) that logs which teacher took attendance and which students were present."
+        },
+        {
+          "title": "Batch Allocation Tool",
+          "description": "Use arrays, destructuring and spread to allocate students into different JavaScript batches at Coder & AccoTax."
+        },
+        {
+          "title": "Marks Analyzer",
+          "description": "Given an array of marks, use map, filter and reduce to compute highest, lowest and average scores."
+        },
+        {
+          "title": "Profile Card Generator",
+          "description": "Take a student object and create different string profiles using template literals and destructuring."
+        },
+        {
+          "title": "Module-Based Utility Library",
+          "description": "Create multiple small files exporting helpers like add(), average(), formatName(), then re-export them from an index.js."
+        },
+        {
+          "title": "Optional Chaining Safe Viewer",
+          "description": "Simulate an API response and use optional chaining to safely print nested fields like user.profile.address.city without runtime errors."
+        },
+        {
+          "title": "Result Dashboard Skeleton",
+          "description": "Prepare a basic JS-only dashboard structure (no UI framework) where ES6 classes manage Student and Teacher data with modules and imports."
+        }
+      ]
+    }
+  ]
+}
