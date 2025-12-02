@@ -18,6 +18,9 @@ import Bca from '../components/study/bca/Bca';
 import JavaChapters from '../components/GeneralSubjects/java/JavaChapters';
 import IntroductionToJava from '../components/GeneralSubjects/java/IntroductionToJava';
 import TypingLearn from '../components/typing-app/TypingLearn';
+import JavaScriptRoadmap from '../components/study/javaScript/JavaScriptRoadmap';
+import JavaScriptModuleView from '../components/study/javaScript/JavaScriptModuleView';
+import JavaScriptTopicView from '../components/study/javaScript/JavaScriptTopicView';
 
 
 // ⬇️ Import Study component
@@ -80,7 +83,12 @@ export default function AppRoutes() {
       <Route path="/study/bca/java/chapter-1" element={<IntroductionToJava />} />
       <Route path="/tools/type-test" element={<TypingTest />} />
       <Route path="/tools/typing-learn" element={<TypingLearn />} />
-    
+
+      {/* <Route path="/tutorial/js" element={<JavaScriptRoadmap />} /> */}
+      <Route path="/javascript/roadmap" element={<JavaScriptRoadmap />} />
+      <Route path="/javascript/module/:slug" element={<JavaScriptModuleView />} />
+      <Route path="/javascript/topic/:moduleSlug/:topicIndex"  element={<JavaScriptTopicView />}
+      />
 
       <Route path="*" element={<NotFound />} />
     </Routes>

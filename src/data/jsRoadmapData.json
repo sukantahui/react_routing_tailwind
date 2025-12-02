@@ -1,0 +1,477 @@
+{
+  "trackId": "javascript-basic-to-ultra-expert",
+  "trackTitle": "JavaScript from Basic to Ultra Expert",
+  "description": "A complete JavaScript learning path from absolute beginner to ultra expert, designed for classroom and self-paced learners.",
+  "segments": [
+    {
+      "segmentId": "basic",
+      "title": "Segment 1 – Core Foundations (Beginner)",
+      "level": "Beginner",
+      "summary": "Start from zero and build a rock-solid foundation in JavaScript, syntax, data types, and basic problem solving.",
+      "modules": [
+        {
+          "moduleId": "js-intro",
+          "slug": "getting-started-with-javascript",
+          "title": "Getting Started with JavaScript",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["what-is-js", "setup", "first-script"],
+          "topics": [
+            "What is JavaScript and where it runs (browser, server, tools)",
+            "Role of JavaScript in modern web development",
+            "HTML, CSS, JS – how they work together",
+            "Setting up the environment: browser, code editor (VS Code), Live Server",
+            "Running code in the browser console and in script files",
+            "Understanding console.log and basic debugging messages"
+          ],
+          "learningOutcomes": [
+            "Explain what JavaScript is and why it is used",
+            "Set up a basic development environment",
+            "Execute simple JavaScript in the browser console and external files"
+          ],
+          "prerequisites": []
+        },
+        {
+          "moduleId": "syntax-basics",
+          "slug": "javascript-syntax-and-basics",
+          "title": "JavaScript Syntax, Variables & Data Types",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": ["syntax", "variables", "data-types"],
+          "topics": [
+            "Statements, semicolons, indentation and code style",
+            "Comments: single-line and multi-line",
+            "Variables: var, let, const – differences and best practices",
+            "Identifiers and naming conventions (camelCase, PascalCase, snake_case)",
+            "Primitive data types: number, string, boolean, null, undefined, symbol, bigint (overview)",
+            "typeof operator and basic type checking",
+            "Type conversion: implicit vs explicit (Number(), String(), Boolean())"
+          ],
+          "learningOutcomes": [
+            "Declare and use variables correctly with let and const",
+            "Identify and work with primitive JavaScript data types",
+            "Apply good naming and formatting practices in simple scripts"
+          ],
+          "prerequisites": ["js-intro"]
+        },
+        {
+          "moduleId": "operators-expressions",
+          "slug": "operators-and-expressions",
+          "title": "Operators, Expressions & Basic Logic",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["operators", "logic", "expressions"],
+          "topics": [
+            "Arithmetic operators (+, -, *, /, %, **)",
+            "Assignment and compound assignment operators",
+            "Comparison operators (== vs ===, != vs !==, >, <, >=, <=)",
+            "Logical operators (&&, ||, !)",
+            "String concatenation and template literals",
+            "Operator precedence and parentheses",
+            "Basic input/output patterns using prompt (optional), alert (optional) and console"
+          ],
+          "learningOutcomes": [
+            "Use operators to calculate values and compare expressions",
+            "Write simple logical conditions using comparison and logical operators",
+            "Use template literals to build readable strings"
+          ],
+          "prerequisites": ["syntax-basics"]
+        },
+        {
+          "moduleId": "control-flow",
+          "slug": "control-flow-conditions",
+          "title": "Control Flow & Decision Making",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["if-else", "switch", "ternary"],
+          "topics": [
+            "if, else-if, else structures",
+            "Nested if statements and readability concerns",
+            "Conditional (ternary) operator and inline decisions",
+            "switch statement: cases, default, break and fall-through",
+            "Common real-world examples: grading system, discounts, login checks"
+          ],
+          "learningOutcomes": [
+            "Use if-else and switch statements to control program flow",
+            "Choose appropriate conditional structures for a given problem",
+            "Implement small logic-based programs from text descriptions"
+          ],
+          "prerequisites": ["operators-expressions"]
+        },
+        {
+          "moduleId": "loops-basics",
+          "slug": "loops-and-iteration",
+          "title": "Loops & Basic Iteration",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["loops", "while", "for"],
+          "topics": [
+            "while loop and loop conditions",
+            "do...while loop and its use cases",
+            "for loop: counters, ranges and common patterns",
+            "Loop control: break and continue",
+            "Building simple patterns: sums, factorial, multiplication tables",
+            "Intro to for...of and for...in (overview)"
+          ],
+          "learningOutcomes": [
+            "Write basic loops to repeat tasks",
+            "Use break and continue correctly to control loop execution",
+            "Solve classic looping problems like sums, factorial and tables"
+          ],
+          "prerequisites": ["control-flow"]
+        }
+      ]
+    },
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 – Practical JavaScript (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Move from basic scripts to real-world development with functions, arrays, objects, and DOM interaction.",
+      "modules": [
+        {
+          "moduleId": "functions-core",
+          "slug": "functions-basics",
+          "title": "Functions & Reusable Logic",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["functions", "parameters", "return"],
+          "topics": [
+            "Function declarations vs function expressions",
+            "Parameters, arguments and default parameters",
+            "Return values and early returns",
+            "Function scope basics: local vs global variables",
+            "Arrow functions and concise syntax",
+            "Pure functions vs side effects (intro idea)"
+          ],
+          "learningOutcomes": [
+            "Define and call functions with different types of parameters",
+            "Refactor repeated code into reusable functions",
+            "Use arrow functions correctly in simple scenarios"
+          ],
+          "prerequisites": ["loops-basics"]
+        },
+        {
+          "moduleId": "arrays-core",
+          "slug": "arrays-and-methods",
+          "title": "Arrays & Essential Array Methods",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["arrays", "array-methods"],
+          "topics": [
+            "Creating arrays, indexing and length",
+            "Mutating methods: push, pop, shift, unshift, splice",
+            "Non-mutating methods: slice, concat",
+            "Searching: indexOf, includes, find, findIndex",
+            "Iterating arrays with for, for-of and forEach",
+            "Intro to higher-order methods: map, filter, reduce (light overview)"
+          ],
+          "learningOutcomes": [
+            "Store lists of values and access them efficiently",
+            "Use common array methods to add, remove and search items",
+            "Choose appropriate iteration patterns for array processing"
+          ],
+          "prerequisites": ["functions-core"]
+        },
+        {
+          "moduleId": "objects-core",
+          "slug": "objects-and-basic-oop",
+          "title": "Objects & Basic Object-Oriented Concepts",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["objects", "oop-basics"],
+          "topics": [
+            "Object literals: keys, values, methods",
+            "Accessing properties: dot vs bracket notation",
+            "Nested objects and arrays of objects",
+            "The this keyword (beginner-level understanding)",
+            "Constructor functions and the new keyword (overview)",
+            "ES6 class syntax, constructor, methods and basic inheritance (conceptual)"
+          ],
+          "learningOutcomes": [
+            "Model real-world entities using objects",
+            "Work with nested object structures",
+            "Understand the idea of classes and instances in JavaScript"
+          ],
+          "prerequisites": ["arrays-core"]
+        },
+        {
+          "moduleId": "dom-basics",
+          "slug": "dom-basics",
+          "title": "DOM (Document Object Model) Basics",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": ["dom", "browser"],
+          "topics": [
+            "What is the DOM? Nodes, elements and the tree structure",
+            "Selecting elements: getElementById, querySelector, querySelectorAll",
+            "Changing text, HTML and styles dynamically",
+            "Creating, appending and removing elements",
+            "Working with attributes, classes and data-* attributes",
+            "Mini projects: counter, show/hide password, FAQ toggle"
+          ],
+          "learningOutcomes": [
+            "Select and manipulate elements on a web page with JavaScript",
+            "Build small interactive UI components without libraries",
+            "Understand how JavaScript connects to HTML structure"
+          ],
+          "prerequisites": ["objects-core"]
+        },
+        {
+          "moduleId": "events-interaction",
+          "slug": "events-and-user-interaction",
+          "title": "Events & User Interaction",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["events", "interaction"],
+          "topics": [
+            "Event types: click, input, change, submit, keyup, keydown, mouse events",
+            "addEventListener and removing event listeners",
+            "Event object basics and target property",
+            "Event bubbling and capturing (intro, conceptual)",
+            "Form handling and simple validation with JavaScript",
+            "Building components: modal popup, tabs, accordion"
+          ],
+          "learningOutcomes": [
+            "Attach and manage event listeners for user-driven actions",
+            "Create interactive UI components using events and DOM",
+            "Implement basic client-side form validation"
+          ],
+          "prerequisites": ["dom-basics"]
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 – Modern & Advanced JavaScript",
+      "level": "Advanced",
+      "summary": "Deepen your understanding with modern ES6+ features, asynchronous programming, APIs and more complex patterns.",
+      "modules": [
+        {
+          "moduleId": "modern-js",
+          "slug": "modern-es6-features",
+          "title": "Modern JavaScript (ES6+ Essentials)",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": ["es6", "modern-js"],
+          "topics": [
+            "let and const in depth: block scope and temporal dead zone",
+            "Template literals for strings and multiline text",
+            "Destructuring arrays and objects",
+            "Spread and rest operators",
+            "Enhanced object literals and computed properties",
+            "Optional chaining and nullish coalescing (??) – overview"
+          ],
+          "learningOutcomes": [
+            "Write cleaner, modern JavaScript using ES6+ syntax",
+            "Use destructuring and spread to simplify array and object handling",
+            "Recognize legacy vs modern patterns in existing code"
+          ],
+          "prerequisites": ["events-interaction"]
+        },
+        {
+          "moduleId": "async-core",
+          "slug": "asynchronous-javascript",
+          "title": "Asynchronous JavaScript: Callbacks, Promises & Async/Await",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["async", "promises", "async-await"],
+          "topics": [
+            "Synchronous vs asynchronous code",
+            "JavaScript runtime overview: call stack, task queue (conceptual)",
+            "Callbacks and the problem of callback hell",
+            "Promises: states (pending, fulfilled, rejected), then, catch, finally",
+            "Creating and consuming promises",
+            "async/await syntax and error handling with try/catch",
+            "Common patterns with async functions"
+          ],
+          "learningOutcomes": [
+            "Explain how asynchronous code differs from synchronous code",
+            "Use Promises and async/await to handle async operations",
+            "Refactor callback-based code into cleaner async patterns"
+          ],
+          "prerequisites": ["modern-js"]
+        },
+        {
+          "moduleId": "apis-json",
+          "slug": "working-with-apis-and-json",
+          "title": "Working with APIs & JSON",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": ["apis", "json", "http"],
+          "topics": [
+            "What is JSON? Syntax and common patterns",
+            "Parsing and stringifying JSON with JSON.parse and JSON.stringify",
+            "HTTP basics: methods (GET, POST), status codes (overview)",
+            "Using fetch() to call public APIs",
+            "Handling responses, errors and loading states",
+            "Mini project: fetch data from a public API and display it in the DOM"
+          ],
+          "learningOutcomes": [
+            "Work confidently with JSON data structures",
+            "Call and handle responses from REST APIs using fetch",
+            "Display remote data on a web page with proper loading and error states"
+          ],
+          "prerequisites": ["async-core"]
+        },
+        {
+          "moduleId": "error-handling",
+          "slug": "error-handling-and-debugging",
+          "title": "Error Handling, Debugging & Code Quality",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": ["errors", "debugging", "best-practices"],
+          "topics": [
+            "Types of errors: syntax, runtime and logical errors",
+            "try, catch, finally and throwing custom errors",
+            "Reading and understanding common error messages",
+            "Using browser DevTools: breakpoints, stepping, watch, call stack",
+            "Basic code quality practices: naming, comments, small functions",
+            "Introduction to linters and formatters (ESLint, Prettier) – conceptual"
+          ],
+          "learningOutcomes": [
+            "Identify and fix common JavaScript errors",
+            "Use try/catch to handle errors gracefully",
+            "Debug code effectively using browser DevTools"
+          ],
+          "prerequisites": ["apis-json"]
+        },
+        {
+          "moduleId": "storage-and-browser",
+          "slug": "browser-storage-and-utilities",
+          "title": "Browser Storage & Useful Browser APIs",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": ["localstorage", "browser-apis"],
+          "topics": [
+            "localStorage and sessionStorage: storing simple data",
+            "JSON with storage: saving and loading objects",
+            "Basic date and time handling with Date object",
+            "Intro to timers: setTimeout and setInterval",
+            "Conceptual overview of other browser APIs (Geolocation, History, etc.)"
+          ],
+          "learningOutcomes": [
+            "Persist small pieces of data in the browser",
+            "Use timers to schedule simple repeated or delayed tasks",
+            "Recognize common browser APIs and where to use them"
+          ],
+          "prerequisites": ["apis-json"]
+        }
+      ]
+    },
+    {
+      "segmentId": "ultra-expert",
+      "title": "Segment 4 – Ultra Expert JavaScript & Ecosystem",
+      "level": "Ultra Expert",
+      "summary": "Master-level topics that prepare you to work on large-scale applications, optimize performance, and design clean architectures.",
+      "modules": [
+        {
+          "moduleId": "deep-js-internals",
+          "slug": "javascript-internals-and-advanced-concepts",
+          "title": "JavaScript Internals & Advanced Concepts",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": ["scope", "closures", "prototypes"],
+          "topics": [
+            "Execution context and lexical environment (conceptual but deep)",
+            "Scope chain, shadowing and variable lookup",
+            "Closures in depth and practical use cases",
+            "Prototypal inheritance model and prototype chain",
+            "this binding rules: global, function, method, arrow functions, call/apply/bind",
+            "Hoisting for variables and functions – advanced view"
+          ],
+          "learningOutcomes": [
+            "Explain how JavaScript executes code under the hood at a conceptual level",
+            "Use closures intentionally for encapsulation and factories",
+            "Debug tricky issues involving this, scope and hoisting"
+          ],
+          "prerequisites": ["modern-js"]
+        },
+        {
+          "moduleId": "patterns-architecture",
+          "slug": "patterns-and-architecture",
+          "title": "Design Patterns & Application Architecture in JavaScript",
+          "level": "Ultra Expert",
+          "estimatedHours": 7,
+          "tags": ["design-patterns", "architecture"],
+          "topics": [
+            "Modular JavaScript and separation of concerns",
+            "Common design patterns: Module, Revealing Module, Factory, Singleton (concept-level)",
+            "Event-driven patterns and pub/sub (concepts and simple implementation)",
+            "State management basics and thinking in data flow",
+            "Organizing larger codebases: folders, modules, naming",
+            "Introduction to SOLID principles in a JavaScript context (overview)"
+          ],
+          "learningOutcomes": [
+            "Recognize and apply basic design patterns in JavaScript projects",
+            "Organize code for larger applications with clear separation of concerns",
+            "Reason about state and data flow in complex UIs"
+          ],
+          "prerequisites": ["deep-js-internals"]
+        },
+        {
+          "moduleId": "tooling-and-build",
+          "slug": "tooling-and-build-systems",
+          "title": "Tooling, Bundling & Build Systems",
+          "level": "Ultra Expert",
+          "estimatedHours": 5,
+          "tags": ["npm", "bundlers", "tooling"],
+          "topics": [
+            "Node.js and npm as a developer tool (CLI basics)",
+            "package.json, scripts and semantic versioning (concepts)",
+            "Using simple npm scripts for development tasks",
+            "Conceptual overview of bundlers (Vite, Webpack, Parcel)",
+            "Transpilation and compatibility: Babel and targets (high-level view)"
+          ],
+          "learningOutcomes": [
+            "Use npm scripts to automate basic development workflows",
+            "Understand where bundlers fit into modern JavaScript development",
+            "Read and reason about package.json and dependency trees"
+          ],
+          "prerequisites": ["apis-json"]
+        },
+        {
+          "moduleId": "performance-and-optimization",
+          "slug": "performance-and-optimization",
+          "title": "Performance, Optimization & Best Practices",
+          "level": "Ultra Expert",
+          "estimatedHours": 5,
+          "tags": ["performance", "optimization"],
+          "topics": [
+            "Measuring performance with DevTools (Performance tab, Lighthouse overview)",
+            "Big-O thinking in a JavaScript-friendly way (high-level)",
+            "Optimizing loops, DOM access and API calls",
+            "Debouncing and throttling concepts for event-heavy UIs",
+            "Avoiding common pitfalls: memory leaks, unnecessary timers, unused listeners"
+          ],
+          "learningOutcomes": [
+            "Identify JavaScript bottlenecks in small to medium projects",
+            "Apply debouncing and throttling to improve UX",
+            "Write more efficient code with awareness of performance trade-offs"
+          ],
+          "prerequisites": ["storage-and-browser"]
+        },
+        {
+          "moduleId": "projects-and-interviews",
+          "slug": "projects-and-interview-prep",
+          "title": "Capstone Projects, Testing & Interview Preparation",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": ["projects", "interviews", "testing"],
+          "topics": [
+            "Designing and planning capstone projects (e.g., dashboard, SPA, complex form)",
+            "Breaking large problems into small deliverables and milestones",
+            "Introduction to testing concepts: unit tests and integration tests (framework-agnostic)",
+            "Common JavaScript interview questions: theory and coding",
+            "Building a personal revision sheet and portfolio checklist"
+          ],
+          "learningOutcomes": [
+            "Plan and execute a multi-module JavaScript project",
+            "Prepare confidently for JavaScript interviews and assessments",
+            "Understand where testing fits into a professional JavaScript workflow"
+          ],
+          "prerequisites": ["patterns-architecture"]
+        }
+      ]
+    }
+  ]
+}

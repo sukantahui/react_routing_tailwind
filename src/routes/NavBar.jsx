@@ -18,6 +18,7 @@ class NavBar extends Component {
     this.state = {
       isOpen: false,
       servicesOpen: false,
+      tutorialsOpen: false,   // ⭐ NEW
       activeHash: props.location.hash || "",
     };
   }
@@ -32,15 +33,30 @@ class NavBar extends Component {
     this.setState({
       isOpen: !this.state.isOpen,
       servicesOpen: false,
+      tutorialsOpen: false, // close tutorials when menu toggles
     });
   };
 
   toggleServices = () => {
-    this.setState({ servicesOpen: !this.state.servicesOpen });
+    this.setState({
+      servicesOpen: !this.state.servicesOpen,
+      tutorialsOpen: false, // keep only one dropdown open
+    });
+  };
+
+  toggleTutorials = () => {       // ⭐ NEW
+    this.setState({
+      tutorialsOpen: !this.state.tutorialsOpen,
+      servicesOpen: false,
+    });
   };
 
   closeMobileMenu = () => {
-    this.setState({ isOpen: false, servicesOpen: false });
+    this.setState({
+      isOpen: false,
+      servicesOpen: false,
+      tutorialsOpen: false,
+    });
   };
 
   linkClass = (key, isActive) => {
@@ -50,19 +66,21 @@ class NavBar extends Component {
       courses: "from-pink-500 to-rose-500",
       teachers: "from-amber-500 to-orange-500",
       services: "from-indigo-500 to-blue-500",
+      tutorials: "from-yellow-500 to-amber-500", // ⭐ NEW color
       contact: "from-emerald-500 to-teal-500",
       login: "from-red-500 to-pink-500",
     };
 
-    return `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${isActive
+    return `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${
+      isActive
         ? `bg-gradient-to-r ${activeColors[key]} text-white`
         : "text-gray-300 hover:text-white hover:bg-gray-800/70"
-      }`;
+    }`;
   };
 
   render() {
     const { location } = this.props;
-    const { isOpen, servicesOpen, activeHash } = this.state;
+    const { isOpen, servicesOpen, tutorialsOpen, activeHash } = this.state;
     const isHome = location.pathname === "/";
 
     return (
@@ -108,26 +126,15 @@ class NavBar extends Component {
 
               {isHome && (
                 <>
-                  <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")}>
-                    About
-                  </HashLink>
-                  <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")}>
-                    Courses
-                  </HashLink>
-                  <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")}>
-                    Teachers
-                  </HashLink>
-                  <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")}>
-                    Services
-                  </HashLink>
-                  <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")}>
-                    Contact
-                  </HashLink>
+                  <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")}>About</HashLink>
+                  <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")}>Courses</HashLink>
+                  <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")}>Teachers</HashLink>
+                  <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")}>Services</HashLink>
+                  <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")}>Contact</HashLink>
                 </>
               )}
 
-              
-              {/* DESKTOP DROPDOWN */}
+              {/* ===================== DESKTOP DROPDOWN #1 - TOOLS ===================== */}
               <div className="relative">
                 <button
                   onClick={this.toggleServices}
@@ -145,40 +152,48 @@ class NavBar extends Component {
                       transition={{ duration: 0.2 }}
                       className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
-                      {/* Typing Test */}
-                      <NavLink
-                        to="/tools/type-test"
-                        onClick={this.toggleServices}
-                        className={({ isActive }) => this.linkClass("type-test", isActive)}
-                      >
-                        Typing Test
-                      </NavLink>
+                      <NavLink to="/tools/type-test" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Test</NavLink>
 
-                      {/* Typing Learn (NEW) */}
-                      <NavLink
-                        to="/tools/typing-learn"
-                        onClick={this.toggleServices}
-                        className={({ isActive }) => this.linkClass("typing-learn", isActive)}
-                      >
-                        Typing Learn
-                      </NavLink>
+                      <NavLink to="/tools/typing-learn" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Learn</NavLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
+              {/* ===================== DESKTOP DROPDOWN #2 - TUTORIALS ⭐ NEW ===================== */}
+              <div className="relative">
+                <button
+                  onClick={this.toggleTutorials}
+                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full flex items-center gap-1 transition"
+                >
+                  Tutorials ▾
+                </button>
+
+                <AnimatePresence>
+                  {tutorialsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
+                    >
+                      <NavLink to="/tutorial/js" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>JavaScript</NavLink>
+
+                      <NavLink to="/tutorials/python" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Python</NavLink>
+
+                      <NavLink to="/tutorials/c" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>C Programming</NavLink>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* LOGIN */}
-              <NavLink
-                to="/login"
-                className={({ isActive }) => this.linkClass("login", isActive)}
-              >
-                Login
-              </NavLink>
+              <NavLink to="/login" className={({ isActive }) => this.linkClass("login", isActive)}>Login</NavLink>
             </nav>
           </div>
 
-          {/* MOBILE MENU */}
+          {/* ===================== MOBILE MENU ===================== */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -188,66 +203,24 @@ class NavBar extends Component {
                 transition={{ duration: 0.3 }}
                 className="sm:hidden flex flex-col gap-2 pb-4"
               >
+
                 {!isHome && (
-                  <NavLink
-                    to="/"
-                    className={({ isActive }) => this.linkClass("home", isActive)}
-                    onClick={this.closeMobileMenu}
-                  >
+                  <NavLink to="/" className={({ isActive }) => this.linkClass("home", isActive)} onClick={this.closeMobileMenu}>
                     Home
                   </NavLink>
                 )}
 
                 {isHome && (
                   <>
-                    <HashLink
-                      smooth
-                      to="/#about"
-                      className={this.linkClass("about", activeHash === "#about")}
-                      onClick={this.closeMobileMenu}
-                    >
-                      About
-                    </HashLink>
-
-                    <HashLink
-                      smooth
-                      to="/#courses"
-                      className={this.linkClass("courses", activeHash === "#courses")}
-                      onClick={this.closeMobileMenu}
-                    >
-                      Courses
-                    </HashLink>
-
-                    <HashLink
-                      smooth
-                      to="/#teachers"
-                      className={this.linkClass("teachers", activeHash === "#teachers")}
-                      onClick={this.closeMobileMenu}
-                    >
-                      Teachers
-                    </HashLink>
-
-                    <HashLink
-                      smooth
-                      to="/#services"
-                      className={this.linkClass("services", activeHash === "#services")}
-                      onClick={this.closeMobileMenu}
-                    >
-                      Services
-                    </HashLink>
-
-                    <HashLink
-                      smooth
-                      to="/#contact"
-                      className={this.linkClass("contact", activeHash === "#contact")}
-                      onClick={this.closeMobileMenu}
-                    >
-                      Contact
-                    </HashLink>
+                    <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")} onClick={this.closeMobileMenu}>About</HashLink>
+                    <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")} onClick={this.closeMobileMenu}>Courses</HashLink>
+                    <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")} onClick={this.closeMobileMenu}>Teachers</HashLink>
+                    <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")} onClick={this.closeMobileMenu}>Services</HashLink>
+                    <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")} onClick={this.closeMobileMenu}>Contact</HashLink>
                   </>
                 )}
 
-                {/* MOBILE DROPDOWN */}
+                {/* MOBILE DROPDOWN #1 - Tools */}
                 <div className="flex flex-col">
                   <button
                     onClick={this.toggleServices}
@@ -258,28 +231,41 @@ class NavBar extends Component {
 
                   {servicesOpen && (
                     <div className="ml-4 flex flex-col">
-                      <NavLink
-                        to="/services/type-test"
-                        className={({ isActive }) => this.linkClass("login", isActive)}
-                        onClick={this.closeMobileMenu}
-                      >
-                        Typing Test
-                      </NavLink>
+                      <NavLink to="/tools/type-test" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Test</NavLink>
+                      <NavLink to="/tools/typing-learn" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Learn</NavLink>
+                    </div>
+                  )}
+                </div>
+
+                {/* MOBILE DROPDOWN #2 - Tutorials ⭐ NEW */}
+                <div className="flex flex-col">
+                  <button
+                    onClick={this.toggleTutorials}
+                    className="text-gray-300 hover:text-white hover:bg-gray-800/70 px-4 py-2 rounded-full text-left"
+                  >
+                    Tutorials ▾
+                  </button>
+
+                  {tutorialsOpen && (
+                    <div className="ml-4 flex flex-col">
+                      <NavLink to="/tutorials/javascript" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>JavaScript</NavLink>
+
+                      <NavLink to="/tutorials/python" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Python</NavLink>
+
+                      <NavLink to="/tutorials/c" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
                     </div>
                   )}
                 </div>
 
                 {/* LOGIN */}
-                <NavLink
-                  to="/login"
-                  className={({ isActive }) => this.linkClass("login", isActive)}
-                  onClick={this.closeMobileMenu}
-                >
+                <NavLink to="/login" className={({ isActive }) => this.linkClass("login", isActive)} onClick={this.closeMobileMenu}>
                   Login
                 </NavLink>
+
               </motion.div>
             )}
           </AnimatePresence>
+
         </div>
       </motion.header>
     );

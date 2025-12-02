@@ -379,12 +379,27 @@ export default class TypingLearn extends Component {
       // 🎯 Completion popup
       showCompletionModal: false,
       lastResult: null,
+
+      // 🌟 Global progress
+      totalXP: 0,
+      level: 1,
+      completedLessonsCount: 0,
+      totalPracticeTime: 0, // seconds
+      streak: 0,
+      weakKeys: [],
+
+      // 🔍 Session mistake tracking
+      sessionMistakes: {},
     };
   }
 
   // ------------------------------------------------
   // Lifecycle
   // ------------------------------------------------
+  componentDidMount() {
+    this.loadGlobalStats();
+  }
+
   componentWillUnmount() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
@@ -406,7 +421,73 @@ export default class TypingLearn extends Component {
     return `${m}:${s}`;
   };
 
-  // localStorage: best time per lesson
+  computeWeakKeys = (mistakeMap) => {
+    const entries = Object.entries(mistakeMap || {});
+    if (!entries.length) return [];
+    entries.sort((a, b) => b[1] - a[1]);
+    return entries.slice(0, 5).map(([key]) => key);
+  };
+
+  // Load global stats from localStorage
+  loadGlobalStats = () => {
+    let totalXP = 0;
+    let totalPracticeTime = 0;
+    let completedLessonsCount = 0;
+    let streak = 0;
+    let weakKeys = [];
+
+    try {
+      const xp = localStorage.getItem("typingLearn_totalXP");
+      const tt = localStorage.getItem("typingLearn_totalTime");
+      const cl = localStorage.getItem("typingLearn_completedLessons");
+      const st = localStorage.getItem("typingLearn_streak");
+      const mm = localStorage.getItem("typingLearn_mistakeMap");
+
+      if (xp) totalXP = parseInt(xp, 10) || 0;
+      if (tt) totalPracticeTime = parseInt(tt, 10) || 0;
+      if (cl) completedLessonsCount = parseInt(cl, 10) || 0;
+      if (st) streak = parseInt(st, 10) || 0;
+
+      let mistakeMap = {};
+      if (mm) {
+        try {
+          mistakeMap = JSON.parse(mm) || {};
+        } catch (e) {
+          mistakeMap = {};
+        }
+      }
+      weakKeys = this.computeWeakKeys(mistakeMap);
+    } catch (e) {
+      // Ignore storage errors
+    }
+
+    const level = 1 + Math.floor(totalXP / 500);
+
+    this.setState({
+      totalXP,
+      totalPracticeTime,
+      completedLessonsCount,
+      streak,
+      level,
+      weakKeys,
+    });
+  };
+
+  // Per-lesson best time (already used in overview)
+  getBestTimeForLesson = (lessonId) => {
+    const key = `typingLearn_bestTime_${lessonId}`;
+    try {
+      const stored = localStorage.getItem(key);
+      if (stored !== null) {
+        const v = parseInt(stored, 10);
+        return isNaN(v) ? null : v;
+      }
+    } catch (err) {
+      return null;
+    }
+    return null;
+  };
+
   updateBestTimeForLesson = (lessonId, currentTime) => {
     const key = `typingLearn_bestTime_${lessonId}`;
     let bestTime = null;
@@ -439,7 +520,6 @@ export default class TypingLearn extends Component {
         localStorage.setItem(key, String(currentTime));
       }
     } catch (err) {
-      // localStorage might be unavailable, just ignore
       bestTime = null;
       isNewRecord = false;
     }
@@ -447,18 +527,118 @@ export default class TypingLearn extends Component {
     return { bestTime, isNewRecord };
   };
 
-  getBestTimeForLesson = (lessonId) => {
-    const key = `typingLearn_bestTime_${lessonId}`;
+  // XP earned per lesson
+  calculateXPEarned = (accuracy, textLength, timeSeconds) => {
+    if (!timeSeconds || timeSeconds <= 0) return 0;
+    const speedFactor = textLength / timeSeconds; // chars per second
+    const base = Math.max(5, Math.round(speedFactor * 3));
+    const accuracyFactor = accuracy / 100;
+    const xp = Math.round(base * accuracyFactor * 5);
+    return Math.max(10, xp);
+  };
+
+  // Update global stats on completion
+  updateGlobalStats = (lessonId, xpEarned, sessionTime, sessionMistakes) => {
+    let totalXP = 0;
+    let totalPracticeTime = 0;
+    let completedLessonsCount = 0;
+    let streak = 0;
+    let lastPracticeDate = null;
+    let mistakeMap = {};
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const todayDate = new Date(todayStr);
+
     try {
-      const stored = localStorage.getItem(key);
-      if (stored !== null) {
-        const v = parseInt(stored, 10);
-        return isNaN(v) ? null : v;
+      totalXP = parseInt(localStorage.getItem("typingLearn_totalXP") || "0", 10);
+      totalPracticeTime = parseInt(
+        localStorage.getItem("typingLearn_totalTime") || "0",
+        10
+      );
+      completedLessonsCount = parseInt(
+        localStorage.getItem("typingLearn_completedLessons") || "0",
+        10
+      );
+      streak = parseInt(
+        localStorage.getItem("typingLearn_streak") || "0",
+        10
+      );
+      lastPracticeDate = localStorage.getItem("typingLearn_lastPracticeDate");
+
+      const mm = localStorage.getItem("typingLearn_mistakeMap");
+      if (mm) {
+        try {
+          mistakeMap = JSON.parse(mm) || {};
+        } catch (e) {
+          mistakeMap = {};
+        }
       }
-    } catch (err) {
-      return null;
+    } catch (e) {
+      // ignore
     }
-    return null;
+
+    // Update base counters
+    totalXP += xpEarned;
+    totalPracticeTime += sessionTime;
+    completedLessonsCount += 1;
+
+    // Update streak
+    if (!lastPracticeDate) {
+      streak = 1;
+    } else {
+      const lastDate = new Date(lastPracticeDate);
+      const diffMs = todayDate - lastDate;
+      const diffDays = diffMs / (1000 * 60 * 60 * 24);
+
+      if (diffDays >= 0 && diffDays < 1) {
+        // same day → streak unchanged
+      } else if (diffDays >= 1 && diffDays < 2) {
+        // yesterday
+        streak = streak + 1;
+      } else {
+        // gap > 1 day
+        streak = 1;
+      }
+    }
+
+    // Merge mistakes
+    const updatedMistakeMap = { ...mistakeMap };
+    Object.entries(sessionMistakes || {}).forEach(([ch, count]) => {
+      updatedMistakeMap[ch] = (updatedMistakeMap[ch] || 0) + count;
+    });
+
+    // Save back to localStorage
+    try {
+      localStorage.setItem("typingLearn_totalXP", String(totalXP));
+      localStorage.setItem(
+        "typingLearn_totalTime",
+        String(totalPracticeTime)
+      );
+      localStorage.setItem(
+        "typingLearn_completedLessons",
+        String(completedLessonsCount)
+      );
+      localStorage.setItem("typingLearn_streak", String(streak));
+      localStorage.setItem("typingLearn_lastPracticeDate", todayStr);
+      localStorage.setItem(
+        "typingLearn_mistakeMap",
+        JSON.stringify(updatedMistakeMap)
+      );
+    } catch (e) {
+      // ignore storage errors
+    }
+
+    const weakKeys = this.computeWeakKeys(updatedMistakeMap);
+    const level = 1 + Math.floor(totalXP / 500);
+
+    return {
+      totalXP,
+      totalPracticeTime,
+      completedLessonsCount,
+      streak,
+      weakKeys,
+      level,
+    };
   };
 
   // ------------------------------------------------
@@ -496,11 +676,27 @@ export default class TypingLearn extends Component {
     // prevent typing beyond target text length
     const value = rawValue.slice(0, target.length);
 
+    const prevLength = this.state.input.length;
     let correct = 0;
     const len = Math.min(value.length, target.length);
 
     for (let i = 0; i < len; i++) {
       if (value[i] === target[i]) correct++;
+    }
+
+    // track new character mistake for weak key detection
+    if (value.length > prevLength) {
+      const index = value.length - 1;
+      const typedChar = value[index];
+      const targetChar = target[index];
+      if (typedChar && targetChar && typedChar !== targetChar) {
+        this.setState((prev) => {
+          const map = { ...prev.sessionMistakes };
+          const key = targetChar;
+          map[key] = (map[key] || 0) + 1;
+          return { sessionMistakes: map };
+        });
+      }
     }
 
     const alreadyCompleted = this.state.lessonCompleted;
@@ -530,15 +726,31 @@ export default class TypingLearn extends Component {
   };
 
   handleLessonCompletion = () => {
-    const { correctChars, totalChars, timer, currentLessonIndex } = this.state;
+    const {
+      correctChars,
+      totalChars,
+      timer,
+      currentLessonIndex,
+      sessionMistakes,
+    } = this.state;
     const lesson = this.getCurrentLesson();
 
     const accuracy =
       totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
 
-    const { bestTime, isNewRecord } = this.updateBestTimeForLesson(
-      lesson.id,
+    const { bestTime } = this.updateBestTimeForLesson(lesson.id, timer);
+
+    const xpEarned = this.calculateXPEarned(
+      accuracy,
+      lesson.text.length,
       timer
+    );
+
+    const globalStats = this.updateGlobalStats(
+      lesson.id,
+      xpEarned,
+      timer,
+      sessionMistakes
     );
 
     this.setState({
@@ -550,8 +762,20 @@ export default class TypingLearn extends Component {
         time: timer,
         chars: totalChars,
         bestTime,
-        isNewRecord,
+        xpEarned,
+        totalXP: globalStats.totalXP,
+        level: globalStats.level,
+        streak: globalStats.streak,
       },
+      // sync global stats to UI
+      totalXP: globalStats.totalXP,
+      level: globalStats.level,
+      completedLessonsCount: globalStats.completedLessonsCount,
+      totalPracticeTime: globalStats.totalPracticeTime,
+      streak: globalStats.streak,
+      weakKeys: globalStats.weakKeys,
+      // reset session mistakes for next lesson
+      sessionMistakes: {},
     });
   };
 
@@ -566,6 +790,7 @@ export default class TypingLearn extends Component {
       lessonCompleted: false,
       showCompletionModal: false,
       lastResult: null,
+      sessionMistakes: {},
     });
   };
 
@@ -583,6 +808,7 @@ export default class TypingLearn extends Component {
       lessonCompleted: false,
       showCompletionModal: false,
       lastResult: null,
+      sessionMistakes: {},
     });
   };
 
@@ -657,6 +883,13 @@ export default class TypingLearn extends Component {
       timer,
       showCompletionModal,
       lastResult,
+      totalXP,
+      level,
+      completedLessonsCount,
+      totalPracticeTime,
+      streak,
+      weakKeys,
+      sessionMistakes,
     } = this.state;
 
     const lesson = this.getCurrentLesson();
@@ -685,6 +918,20 @@ export default class TypingLearn extends Component {
 
     const isLastLesson = currentLessonIndex === LESSONS.length - 1;
 
+    // XP progress to next level
+    const xpPerLevel = 500;
+    const xpIntoLevel = totalXP % xpPerLevel;
+    const xpPercent = Math.min(
+      100,
+      Math.round((xpIntoLevel / xpPerLevel) * 100)
+    );
+
+    // Session weak keys (top 3)
+    const sessionWeakKeys = Object.entries(sessionMistakes)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([ch]) => (ch === " " ? "Space" : ch.toUpperCase()));
+
     return (
       <div
         className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6 md:p-10"
@@ -697,13 +944,13 @@ export default class TypingLearn extends Component {
         {/* PAGE HEADER */}
         <div className="w-full max-w-5xl mb-8">
           <h1 className="text-3xl md:text-4xl font-extrabold text-sky-400">
-            Typing Learning Lab
+            CNAT Typing Learning Lab
           </h1>
           <p className="mt-2 text-gray-300 text-sm md:text-base">
             Practice-based typing lessons with real-world style content. Move
             through Beginner, Intermediate, Advanced, and Expert levels at your
-            own pace. Time taken for each lesson is recorded and your best
-            performance is saved.
+            own pace. Your time, accuracy, XP, and weak keys are tracked to help
+            you improve like a pro.
           </p>
         </div>
 
@@ -820,10 +1067,92 @@ export default class TypingLearn extends Component {
                 </span>
               </div>
             </div>
+
+            {/* Session weak keys */}
+            {(sessionWeakKeys.length > 0 || weakKeys.length > 0) && (
+              <div className="mt-3 text-xs text-gray-400">
+                {sessionWeakKeys.length > 0 && (
+                  <p className="mb-1">
+                    Session weak keys:{" "}
+                    <span className="text-rose-300 font-semibold">
+                      {sessionWeakKeys.join(", ")}
+                    </span>
+                  </p>
+                )}
+                {weakKeys.length > 0 && (
+                  <p>
+                    All-time weak keys:{" "}
+                    <span className="text-rose-300 font-semibold">
+                      {weakKeys
+                        .map((k) => (k === " " ? "Space" : k.toUpperCase()))
+                        .join(", ")}
+                    </span>
+                  </p>
+                )}
+              </div>
+            )}
           </div>
 
-          {/* RIGHT: KEYBOARD + LESSON LIST */}
+          {/* RIGHT: PROGRESS + KEYBOARD + LESSON LIST */}
           <div className="space-y-5">
+            {/* Progress Overview */}
+            <div className="bg-gray-800/90 border border-gray-700 rounded-2xl p-4 shadow-xl">
+              <h3 className="text-sm font-semibold text-gray-200 mb-3">
+                Your Progress Overview
+              </h3>
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="bg-gray-900/70 rounded-xl p-3 border border-gray-700">
+                  <p className="text-gray-400 text-[11px] mb-1">Level</p>
+                  <p className="text-lg font-bold text-sky-300">Lv. {level}</p>
+                </div>
+                <div className="bg-gray-900/70 rounded-xl p-3 border border-gray-700">
+                  <p className="text-gray-400 text-[11px] mb-1">Total XP</p>
+                  <p className="text-lg font-bold text-emerald-300">
+                    {totalXP}
+                  </p>
+                </div>
+                <div className="bg-gray-900/70 rounded-xl p-3 border border-gray-700">
+                  <p className="text-gray-400 text-[11px] mb-1">
+                    Lessons Completed
+                  </p>
+                  <p className="text-lg font-bold text-amber-300">
+                    {completedLessonsCount}
+                  </p>
+                </div>
+                <div className="bg-gray-900/70 rounded-xl p-3 border border-gray-700">
+                  <p className="text-gray-400 text-[11px] mb-1">
+                    Total Practice Time
+                  </p>
+                  <p className="text-lg font-bold text-lime-300">
+                    {this.formatTime(totalPracticeTime)}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-3">
+                <p className="text-[11px] text-gray-400 mb-1 flex items-center justify-between">
+                  <span>XP to next level</span>
+                  <span className="text-sky-300 font-semibold">
+                    {xpPercent}%
+                  </span>
+                </p>
+                <div className="w-full h-2 rounded-full bg-gray-900 overflow-hidden border border-gray-700">
+                  <div
+                    className="h-full bg-gradient-to-r from-sky-500 to-emerald-400"
+                    style={{ width: `${xpPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              <p className="text-[11px] text-gray-400 mt-3">
+                Streak:{" "}
+                <span className="text-emerald-300 font-semibold">
+                  {streak} day{streak === 1 ? "" : "s"}
+                </span>{" "}
+                of practice. Try not to break the chain!
+              </p>
+            </div>
+
             {/* On-screen Keyboard */}
             <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-2">
@@ -850,16 +1179,16 @@ export default class TypingLearn extends Component {
 
               <div className="space-y-5 max-h-80 overflow-y-auto pr-2">
                 {["Beginner", "Intermediate", "Advanced", "Expert"].map(
-                  (level) => {
+                  (levelLabel) => {
                     const groupLessons = LESSONS.filter(
-                      (l) => l.level === level
+                      (l) => l.level === levelLabel
                     );
                     if (groupLessons.length === 0) return null;
 
                     return (
-                      <div key={level}>
+                      <div key={levelLabel}>
                         <h4 className="text-xs font-bold uppercase tracking-wide text-sky-400 mb-2 pl-1">
-                          {level} Lessons ({groupLessons.length})
+                          {levelLabel} Lessons ({groupLessons.length})
                         </h4>
 
                         <div className="space-y-2">
@@ -929,12 +1258,6 @@ export default class TypingLearn extends Component {
                 {lastResult.lessonTitle}
               </p>
 
-              {lastResult.isNewRecord && (
-                <p className="text-xs text-emerald-400 text-center mb-2">
-                  🎉 New best time for this lesson!
-                </p>
-              )}
-
               <div className="grid grid-cols-2 gap-4 mt-2 mb-4 text-sm">
                 <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
                   <p className="text-gray-400 text-xs mb-1">Time Taken</p>
@@ -949,7 +1272,9 @@ export default class TypingLearn extends Component {
                   </p>
                 </div>
                 <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">Typed Characters</p>
+                  <p className="text-gray-400 text-xs mb-1">
+                    Typed Characters
+                  </p>
                   <p className="text-lg font-bold text-sky-300">
                     {lastResult.chars}
                   </p>
@@ -964,9 +1289,35 @@ export default class TypingLearn extends Component {
                 </div>
               </div>
 
+              <div className="mb-4 text-xs text-center text-gray-300 space-y-1">
+                <p>
+                  XP earned this lesson:{" "}
+                  <span className="text-emerald-300 font-semibold">
+                    {lastResult.xpEarned}
+                  </span>
+                  , Total XP:{" "}
+                  <span className="text-sky-300 font-semibold">
+                    {lastResult.totalXP}
+                  </span>
+                  .
+                </p>
+                <p>
+                  Current Level:{" "}
+                  <span className="text-sky-300 font-semibold">
+                    Lv. {lastResult.level}
+                  </span>{" "}
+                  • Streak:{" "}
+                  <span className="text-emerald-300 font-semibold">
+                    {lastResult.streak} day
+                    {lastResult.streak === 1 ? "" : "s"}
+                  </span>
+                </p>
+              </div>
+
               <p className="text-xs text-gray-400 text-center mb-4">
                 Aim to reduce your time while keeping accuracy above{" "}
                 <span className="text-emerald-300 font-semibold">90%</span>.
+                Strong accuracy with shorter times will give you more XP.
               </p>
 
               <div className="flex flex-wrap justify-center gap-3 mt-2">
