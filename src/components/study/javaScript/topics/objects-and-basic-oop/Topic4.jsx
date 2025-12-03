@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "../../../../../common/CodeBlock";
+import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 
 export default function Topic4() {
   return (
