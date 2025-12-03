@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 
-export default function EditableCodeBlockWithConsole({
+export default function EditableCodeBlock({
   initialCode = "",
   language = "javascript",
 }) {
@@ -14,43 +14,59 @@ export default function EditableCodeBlockWithConsole({
   };
 
   // ------------------------------------------
-  // RUN CODE WITH CUSTOM CONSOLE CAPTURE
+  // FORMAT ANY VALUE FOR CLEAN CONSOLE OUTPUT
+  // ------------------------------------------
+  const formatValue = (value) => {
+    try {
+      if (typeof value === "object") {
+        return JSON.stringify(value, null, 2); // Pretty JSON
+      }
+      return String(value);
+    } catch {
+      return String(value);
+    }
+  };
+
+  // ------------------------------------------
+  // RUN CODE WITH CAPTURED CONSOLE.LOG + ERROR
   // ------------------------------------------
   const runCode = () => {
     setError("");
-    setConsoleOutput([]); // clear console before run
+    setConsoleOutput([]);
 
-    const capturedLogs = [];
+    const captured = [];
     const originalLog = console.log;
     const originalError = console.error;
 
-    // Intercept console.log
+    // Override console.log
     console.log = (...args) => {
-      capturedLogs.push({ type: "log", message: args.join(" ") });
+      const formatted = args.map(formatValue).join(" ");
+      captured.push({ type: "log", message: formatted });
       originalLog(...args);
     };
 
-    // Intercept console.error
+    // Override console.error
     console.error = (...args) => {
-      capturedLogs.push({ type: "error", message: args.join(" ") });
+      const formatted = args.map(formatValue).join(" ");
+      captured.push({ type: "error", message: formatted });
       originalError(...args);
     };
 
     try {
       // eslint-disable-next-line no-eval
       eval(editorRef.current.getValue());
-      setConsoleOutput(capturedLogs);
+      setConsoleOutput(captured);
     } catch (err) {
       setError("Runtime Error: " + err.message);
     }
 
-    // Restore original console functions
+    // Restore original console
     console.log = originalLog;
     console.error = originalError;
   };
 
   // ------------------------------------------
-  // FORMAT CODE (using global Prettier)
+  // FORMAT CODE (USING GLOBAL PRETTIER)
   // ------------------------------------------
   const formatCode = () => {
     try {
@@ -69,15 +85,19 @@ export default function EditableCodeBlockWithConsole({
     }
   };
 
-  const copyCode = () =>
+  // ------------------------------------------
+  // COPY CODE TO CLIPBOARD
+  // ------------------------------------------
+  const copyCode = () => {
     navigator.clipboard
       .writeText(editorRef.current.getValue())
       .then(() => alert("Copied!"));
+  };
 
   return (
     <div className="border border-slate-700 rounded-xl bg-slate-900 overflow-hidden">
 
-      {/* HEADER BUTTONS */}
+      {/* --- HEADER BUTTONS --- */}
       <div className="flex items-center justify-between bg-slate-800 px-3 py-2 text-xs">
         <span className="text-slate-400 font-semibold">Editable Code</span>
 
@@ -105,7 +125,7 @@ export default function EditableCodeBlockWithConsole({
         </div>
       </div>
 
-      {/* MONACO EDITOR */}
+      {/* --- MONACO EDITOR --- */}
       <Editor
         height="260px"
         defaultLanguage={language}
@@ -120,14 +140,14 @@ export default function EditableCodeBlockWithConsole({
         }}
       />
 
-      {/* ERROR PANEL */}
+      {/* --- ERROR PANEL --- */}
       {error && (
         <div className="bg-red-900/40 border-t border-red-600 px-3 py-2 text-red-300 text-xs">
           ⚠ {error}
         </div>
       )}
 
-      {/* CONSOLE OUTPUT PANEL */}
+      {/* --- CONSOLE OUTPUT PANEL --- */}
       <div className="bg-black border-t border-slate-700 px-3 py-2 h-40 overflow-auto text-xs">
         <p className="text-slate-400 mb-1">Console Output:</p>
 
@@ -136,14 +156,14 @@ export default function EditableCodeBlockWithConsole({
         )}
 
         {consoleOutput.map((item, index) => (
-          <div
+          <pre
             key={index}
-            className={`${
+            className={`whitespace-pre-wrap ${
               item.type === "error" ? "text-red-400" : "text-emerald-300"
             }`}
           >
             {item.message}
-          </div>
+          </pre>
         ))}
       </div>
     </div>
