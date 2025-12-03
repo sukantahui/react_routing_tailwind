@@ -8,7 +8,7 @@ export default function Topic1() {
       {/* PAGE TITLE */}
       <header className="space-y-2">
         <h1 className="text-2xl font-bold text-sky-300">
-          Type 1 — Introduction to Advanced Array Methods with Objects
+          Introduction to Advanced Array Methods with Objects
         </h1>
         <p className="text-slate-300 text-sm">
           In this topic, we explore how JavaScript’s most powerful array methods work with{" "}

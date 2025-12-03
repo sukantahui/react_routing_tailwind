@@ -11,7 +11,7 @@ export default function Topic0() {
       {/* ------------------------------ */}
       <section className="space-y-3">
         <h2 className="text-2xl font-semibold text-sky-300">
-          Topic 0 — Working with Arrays of Objects
+          Working with Arrays of Objects
         </h2>
 
         <p className="text-slate-300 text-sm">
