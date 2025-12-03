@@ -1,92 +1,104 @@
-import React, { useState, useEffect } from "react";
-import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.css";
-import "prismjs/components/prism-javascript";
+import React, { useState } from "react";
 
 export default function EditableCodeBlock({
   initialCode = "",
-  language = "javascript",
-  fileName = "example.js",
+  height = "180px",
 }) {
   const [code, setCode] = useState(initialCode);
-  const [copied, setCopied] = useState(false);
   const [output, setOutput] = useState("");
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [code]);
+  const [error, setError] = useState("");
 
   const copyCode = () => {
     navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1000);
+    alert("Copied to clipboard!");
   };
+
+  const formatCode = async () => {
+    try {
+      const prettier = await import(
+        "https://cdn.jsdelivr.net/npm/prettier@3.2.5/standalone.mjs"
+      );
+      const parserBabel = await import(
+        "https://cdn.jsdelivr.net/npm/prettier@3.2.5/plugins/babel.mjs"
+      );
+      const parserEstree = await import(
+        "https://cdn.jsdelivr.net/npm/prettier@3.2.5/plugins/estree.mjs"
+      );
+
+      const formatted = await prettier.format(code, {
+        parser: "babel",
+        plugins: [parserBabel, parserEstree],
+      });
+
+      setCode(formatted);
+      setError("");
+    } catch (err) {
+      setError("Prettier Error: " + err.message);
+    }
+  };
+
 
   const runCode = () => {
     try {
-      let captured = "";
+      let logs = [];
+      const originalLog = console.log;
 
-      const fakeConsole = {
-        log: (...args) => (captured += args.join(" ") + "\n"),
-        error: (...args) => (captured += "ERROR: " + args.join(" ") + "\n"),
-      };
+      console.log = (...args) => logs.push(args.join(" "));
+      eval(code);
+      console.log = originalLog;
 
-      const fn = new Function("console", code);
-      fn(fakeConsole);
-
-      setOutput(captured || "(no output)");
+      setOutput(logs.join("\n"));
+      setError("");
     } catch (err) {
-      setOutput("❌ Error: " + err.message);
+      setError(err.message);
+      setOutput("");
     }
   };
 
   return (
-    <div className="my-6">
-
-      {/* File header */}
-      <div className="flex justify-between bg-slate-800 px-3 py-2 rounded-t-xl text-xs text-slate-300 border border-slate-700">
-        <span>{fileName}</span>
-        <span className="uppercase">{language}</span>
+    <div className="bg-slate-900 p-4 border border-slate-800 rounded-xl space-y-3">
+      <div className="flex justify-between items-center text-xs">
+        <span className="text-sky-300 font-semibold">Editable Code</span>
+        <div className="flex gap-2">
+          <button
+            onClick={copyCode}
+            className="px-2 py-1 rounded bg-slate-700 hover:bg-slate-600 text-white"
+          >
+            Copy
+          </button>
+          <button
+            onClick={formatCode}
+            className="px-2 py-1 rounded bg-emerald-700 hover:bg-emerald-600 text-white"
+          >
+            Format
+          </button>
+          <button
+            onClick={runCode}
+            className="px-2 py-1 rounded bg-indigo-700 hover:bg-indigo-600 text-white"
+          >
+            Run
+          </button>
+        </div>
       </div>
 
-      {/* Editable area */}
       <textarea
+        className="w-full bg-slate-950 text-slate-200 font-mono p-3 rounded border border-slate-700 text-sm"
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        spellCheck={false}
-        className="w-full h-40 font-mono text-sm p-4 bg-slate-950 text-slate-200 border-x border-b border-slate-700 rounded-b-xl focus:outline-none"
+        spellCheck="false"
+        style={{ height }}
       />
 
-      {/* Buttons */}
-      <div className="flex gap-2 mt-3">
-        <button
-          onClick={copyCode}
-          className="px-3 py-1 bg-slate-700 text-white rounded hover:bg-slate-600 text-xs"
-        >
-          {copied ? "Copied!" : "Copy"}
-        </button>
-
-        <button
-          onClick={runCode}
-          className="px-3 py-1 bg-emerald-700 text-white rounded hover:bg-emerald-600 text-xs"
-        >
-          Run Code
-        </button>
+      <div className="bg-slate-800 rounded p-3 text-sm border border-slate-700 font-mono text-slate-200">
+        <p className="text-sky-300 font-semibold mb-1">Output:</p>
+        {error ? (
+          <pre className="text-red-400 whitespace-pre-wrap">{error}</pre>
+        ) : (
+          <pre className="whitespace-pre-wrap">
+            {output || "// Run the code to see output"}
+          </pre>
+        )}
       </div>
-
-      {/* Highlighted preview */}
-      <pre className="mt-3 rounded-xl bg-slate-900 p-4 overflow-auto border border-slate-700">
-        <code className={`language-${language}`}>{code}</code>
-      </pre>
-
-      {/* Output window */}
-      {output && (
-        <div className="mt-3 bg-black text-green-300 p-3 rounded-lg text-xs whitespace-pre-wrap border border-slate-700">
-          <strong className="text-sky-300">Output:</strong>
-          <br />
-          {output}
-        </div>
-      )}
     </div>
   );
 }
