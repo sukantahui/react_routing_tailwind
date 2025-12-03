@@ -817,7 +817,8 @@
             "HTTP basics: methods (GET, POST), status codes (overview)",
             "Using fetch() to call public APIs",
             "Handling responses, errors and loading states",
-            "Mini project: fetch data from a public API and display it in the DOM"
+            "Mini project: fetch data from a public API and display it in the DOM",
+            "Exercise"
           ],
           "learningOutcomes": [
             "Work confidently with JSON data structures",
@@ -880,7 +881,9 @@
             "Reading and understanding common error messages",
             "Using browser DevTools: breakpoints, stepping, watch, call stack",
             "Basic code quality practices: naming, comments, small functions",
-            "Introduction to linters and formatters (ESLint, Prettier) – conceptual"
+            "Introduction to linters and formatters (ESLint, Prettier) – conceptual",
+            "Introduction to Linters & Formatters (ESLint & Prettier)",
+            "Exercise"
           ],
           "learningOutcomes": [
             "Identify and fix common JavaScript errors",

@@ -4,6 +4,10 @@ import AppRoutes from "./routes/AppRoutes";
 import NavBar from "./routes/NavBar";
 import AuthNavBar from "./routes/AuthNavBar"; // 🆕 Logged-in navbar
 
+import "prismjs/themes/prism-tomorrow.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers";
+
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

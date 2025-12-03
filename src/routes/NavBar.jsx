@@ -178,7 +178,7 @@ class NavBar extends Component {
                       transition={{ duration: 0.2 }}
                       className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
-                      <NavLink to="/tutorial/js" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>JavaScript</NavLink>
+                      <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>JavaScript</NavLink>
 
                       <NavLink to="/tutorials/python" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Python</NavLink>
 

@@ -1,0 +1,736 @@
+{
+    "title": "Error Handling & Debugging Practice Set — From Basic to Expert",
+    "author": "Sukanta Hui · Coder & AccoTax, Barrackpore",
+    "sections": [
+        {
+            "type": "mcq",
+            "title": "MCQ — Fundamentals of Errors & Debugging (40 Questions)",
+            "questions": [
+                {
+                    "q": "Which is NOT a type of JavaScript error?",
+                    "options": [
+                        "Syntax Error",
+                        "Runtime Error",
+                        "Logical Error",
+                        "Processor Error"
+                    ],
+                    "answer": "Processor Error",
+                    "explanation": "JavaScript does not have processor-level errors."
+                },
+                {
+                    "q": "When does a Syntax Error occur?",
+                    "options": [
+                        "At execution time",
+                        "Before execution begins",
+                        "After execution completes",
+                        "Only in React"
+                    ],
+                    "answer": "Before execution begins",
+                    "explanation": "Syntax errors prevent the code from running."
+                },
+                {
+                    "q": "Which error is thrown when accessing a property of undefined?",
+                    "options": [
+                        "ReferenceError",
+                        "TypeError",
+                        "RangeError",
+                        "SyntaxError"
+                    ],
+                    "answer": "TypeError",
+                    "explanation": "Undefined.property leads to TypeError."
+                },
+                {
+                    "q": "Which error occurs when using a variable that is not defined?",
+                    "options": [
+                        "SyntaxError",
+                        "ReferenceError",
+                        "TypeError",
+                        "URIError"
+                    ],
+                    "answer": "ReferenceError",
+                    "explanation": "Undefined variables cause ReferenceError."
+                },
+                {
+                    "q": "Which block always executes?",
+                    "options": [
+                        "try",
+                        "catch",
+                        "finally",
+                        "throw"
+                    ],
+                    "answer": "finally",
+                    "explanation": "finally runs regardless of errors."
+                },
+                {
+                    "q": "What is the output of console.log(x) if x is undeclared?",
+                    "options": [
+                        "undefined",
+                        "null",
+                        "ReferenceError",
+                        "TypeError"
+                    ],
+                    "answer": "ReferenceError",
+                    "explanation": "Accessing undeclared variables throws ReferenceError."
+                },
+                {
+                    "q": "Which method displays an error stack trace?",
+                    "options": [
+                        "console.error()",
+                        "console.log()",
+                        "console.trace()",
+                        "console.dir()"
+                    ],
+                    "answer": "console.trace()",
+                    "explanation": "console.trace prints the call stack."
+                },
+                {
+                    "q": "What does throw do?",
+                    "options": [
+                        "Stops execution immediately",
+                        "Skips catch block",
+                        "Creates a warning",
+                        "Silently fails"
+                    ],
+                    "answer": "Stops execution immediately",
+                    "explanation": "throw halts the function until caught."
+                },
+                {
+                    "q": "try must be followed by:",
+                    "options": [
+                        "catch",
+                        "finally",
+                        "catch or finally",
+                        "throw"
+                    ],
+                    "answer": "catch or finally",
+                    "explanation": "Either is enough."
+                },
+                {
+                    "q": "JSON.parse throws which error for invalid JSON?",
+                    "options": [
+                        "SyntaxError",
+                        "TypeError",
+                        "ReferenceError",
+                        "RangeError"
+                    ],
+                    "answer": "SyntaxError",
+                    "explanation": "Invalid JSON format always causes SyntaxError."
+                },
+                {
+                    "q": "Which error occurs when a number is out of range?",
+                    "options": [
+                        "RangeError",
+                        "TypeError",
+                        "URIError",
+                        "EvalError"
+                    ],
+                    "answer": "RangeError",
+                    "explanation": "RangeError occurs for numeric invalid ranges."
+                },
+                {
+                    "q": "Which JavaScript function allows manual error throwing?",
+                    "options": [
+                        "raise",
+                        "throw",
+                        "error()",
+                        "panic()"
+                    ],
+                    "answer": "throw",
+                    "explanation": "throw keyword triggers an exception."
+                },
+                {
+                    "q": "Which tool helps set breakpoints?",
+                    "options": [
+                        "console.log",
+                        "Browser DevTools",
+                        "alert()",
+                        "prompt()"
+                    ],
+                    "answer": "Browser DevTools",
+                    "explanation": "Breakpoints exist inside developer tools."
+                },
+                {
+                    "q": "What does debugger keyword do?",
+                    "options": [
+                        "Stops code",
+                        "Prints errors",
+                        "Opens DevTools if available",
+                        "Creates a log"
+                    ],
+                    "answer": "Opens DevTools if available",
+                    "explanation": "debugger acts like a manual breakpoint."
+                },
+                {
+                    "q": "Which error occurs when using decodeURI on malformed URI?",
+                    "options": [
+                        "URIError",
+                        "TypeError",
+                        "SyntaxError",
+                        "RangeError"
+                    ],
+                    "answer": "URIError",
+                    "explanation": "Malformed URI results in URIError."
+                },
+                {
+                    "q": "Which method is best for identifying variable values during debugging?",
+                    "options": [
+                        "alert()",
+                        "console.log()",
+                        "prompt()",
+                        "confirm()"
+                    ],
+                    "answer": "console.log()",
+                    "explanation": "console.log is preferred for debugging."
+                },
+                {
+                    "q": "Which part of DevTools shows call stack?",
+                    "options": [
+                        "Network tab",
+                        "Sources tab",
+                        "Elements tab",
+                        "Console tab"
+                    ],
+                    "answer": "Sources tab",
+                    "explanation": "Call stack appears under Sources."
+                },
+                {
+                    "q": "Which is NOT recommended for clean code?",
+                    "options": [
+                        "Small functions",
+                        "Clear comments",
+                        "Meaningful names",
+                        "Deeply nested conditions"
+                    ],
+                    "answer": "Deeply nested conditions",
+                    "explanation": "Deep nesting reduces readability."
+                },
+                {
+                    "q": "Which tool formats your code?",
+                    "options": [
+                        "ESLint",
+                        "Prettier",
+                        "Webpack",
+                        "Babel"
+                    ],
+                    "answer": "Prettier",
+                    "explanation": "Prettier handles formatting."
+                },
+                {
+                    "q": "Which tool detects code issues?",
+                    "options": [
+                        "ESLint",
+                        "PostCSS",
+                        "Sass",
+                        "Webpack"
+                    ],
+                    "answer": "ESLint",
+                    "explanation": "ESLint identifies code problems and bad patterns."
+                },
+                {
+                    "q": "Which error type is thrown when calling a non-function value?",
+                    "options": [
+                        "TypeError",
+                        "SyntaxError",
+                        "ReferenceError",
+                        "RangeError"
+                    ],
+                    "answer": "TypeError",
+                    "explanation": "Calling non-functions (like 5()) throws TypeError."
+                },
+                {
+                    "q": "Which statement stops further execution inside try?",
+                    "options": [
+                        "return",
+                        "throw",
+                        "break",
+                        "continue"
+                    ],
+                    "answer": "throw",
+                    "explanation": "throw interrupts flow immediately."
+                },
+                {
+                    "q": "Which error is thrown when using too much recursion?",
+                    "options": [
+                        "TypeError",
+                        "RangeError",
+                        "StackOverflowError",
+                        "ReferenceError"
+                    ],
+                    "answer": "RangeError",
+                    "explanation": "Excess recursion leads to RangeError."
+                },
+                {
+                    "q": "Which of the following helps detect infinite loops during debugging?",
+                    "options": [
+                        "console.time()",
+                        "Breakpoints",
+                        "console.table()",
+                        "alert()"
+                    ],
+                    "answer": "Breakpoints",
+                    "explanation": "Breakpoints help stop execution at defined points."
+                },
+                {
+                    "q": "What is the purpose of catch(e)?",
+                    "options": [
+                        "To skip errors",
+                        "To handle thrown errors",
+                        "To format code",
+                        "To remove stack trace"
+                    ],
+                    "answer": "To handle thrown errors",
+                    "explanation": "catch receives the thrown error object."
+                },
+                {
+                    "q": "Which of the following DOES NOT throw an error?",
+                    "options": [
+                        "console.log(unknownVar)",
+                        "JSON.parse('abc')",
+                        "let a = 10; let a = 20;",
+                        "'5' * 'hi'"
+                    ],
+                    "answer": "'5' * 'hi'",
+                    "explanation": "This produces NaN but no error."
+                },
+                {
+                    "q": "Which error occurs when trying to mutate a frozen object?",
+                    "options": [
+                        "TypeError",
+                        "SyntaxError",
+                        "RangeError",
+                        "EvalError"
+                    ],
+                    "answer": "TypeError",
+                    "explanation": "Object.freeze makes object immutable; mutation causes TypeError in strict mode."
+                },
+                {
+                    "q": "What does e.message contain?",
+                    "options": [
+                        "Error line number",
+                        "The message part of the Error",
+                        "Complete stack trace",
+                        "The browser version"
+                    ],
+                    "answer": "The message part of the Error",
+                    "explanation": "Error objects have a message property."
+                },
+                {
+                    "q": "What happens if a promise rejects without catch?",
+                    "options": [
+                        "Silent fail",
+                        "Unhandled Promise Rejection",
+                        "SyntaxError",
+                        "Nothing"
+                    ],
+                    "answer": "Unhandled Promise Rejection",
+                    "explanation": "Browsers warn when a rejection is not handled."
+                },
+                {
+                    "q": "Which method groups logs together?",
+                    "options": [
+                        "console.stack()",
+                        "console.group()",
+                        "console.merge()",
+                        "console.box()"
+                    ],
+                    "answer": "console.group()",
+                    "explanation": "console.group visually groups logs."
+                },
+                {
+                    "q": "Which debugger feature shows variable values at each step?",
+                    "options": [
+                        "Timeline",
+                        "Watch panel",
+                        "Network tab",
+                        "Audit tab"
+                    ],
+                    "answer": "Watch panel",
+                    "explanation": "Watch lets you observe variables."
+                },
+                {
+                    "q": "Which of the following improves code readability?",
+                    "options": [
+                        "Long functions",
+                        "Meaningless variable names",
+                        "Consistent indentation",
+                        "Deep nesting"
+                    ],
+                    "answer": "Consistent indentation",
+                    "explanation": "Indentation makes code easier to read."
+                },
+                {
+                    "q": "Which is recommended for naming variables?",
+                    "options": [
+                        "Short names always",
+                        "camelCase",
+                        "ALLCAPS",
+                        "Random symbols"
+                    ],
+                    "answer": "camelCase",
+                    "explanation": "camelCase is the standard naming style in JS."
+                },
+                {
+                    "q": "Which command formats code with Prettier?",
+                    "options": [
+                        "npm run pretty",
+                        "prettier --write .",
+                        "format --all",
+                        "node prettier.js"
+                    ],
+                    "answer": "prettier --write .",
+                    "explanation": "This formats all files in the project."
+                },
+                {
+                    "q": "Which error happens when using eval() on bad code?",
+                    "options": [
+                        "SyntaxError",
+                        "RangeError",
+                        "ReferenceError",
+                        "URIError"
+                    ],
+                    "answer": "SyntaxError",
+                    "explanation": "eval evaluates strings as code; invalid code = SyntaxError."
+                },
+                {
+                    "q": "What is stack trace?",
+                    "options": [
+                        "List of functions called",
+                        "Memory dump",
+                        "Variable list",
+                        "List of errors"
+                    ],
+                    "answer": "List of functions called",
+                    "explanation": "Stack trace shows the execution path."
+                },
+                {
+                    "q": "Which best describes logical error?",
+                    "options": [
+                        "Code stops",
+                        "Browser crashes",
+                        "Output is incorrect",
+                        "File not found"
+                    ],
+                    "answer": "Output is incorrect",
+                    "explanation": "Logical errors produce wrong output without crashing."
+                },
+                {
+                    "q": "Which tool auto-fixes lint errors?",
+                    "options": [
+                        "ESLint --fix",
+                        "Prettier format",
+                        "Webpack dev server",
+                        "Node REPL"
+                    ],
+                    "answer": "ESLint --fix",
+                    "explanation": "ESLint can fix certain issues automatically."
+                },
+                {
+                    "q": "Which part of DevTools shows event listeners?",
+                    "options": [
+                        "Network",
+                        "Elements",
+                        "Sources",
+                        "Application"
+                    ],
+                    "answer": "Elements",
+                    "explanation": "Event listeners can be inspected under Elements panel."
+                },
+                {
+                    "q": "Which statement is TRUE?",
+                    "options": [
+                        "Errors should always be ignored",
+                        "Debugging is optional",
+                        "Clean code reduces bugs",
+                        "console.log should be used in production"
+                    ],
+                    "answer": "Clean code reduces bugs",
+                    "explanation": "Readable, clean code reduces mistakes and debugging time."
+                }
+            ]
+        },
+        {
+            "type": "output",
+            "title": "Output-Based Debugging Questions (20 Questions)",
+            "questions": [
+                {
+                    "q": "try {\n throw 'Error from Ritaja'; \n}catch(e){\n console.log(e); \n}",
+                    "answer": "Error from Ritaja",
+                    "explanation": "The thrown string is caught and logged."
+                },
+                {
+                    "q": "try {\n throw 'Error from Ritaja'; \n} catch(e) {\n console.log(e); \n}",
+                    "answer": "Handled",
+                    "explanation": "Accessing property of undefined triggers TypeError."
+                },
+                {
+                    "q": "try {\n  JSON.parse('{name: \\\"Ritaja\\\"}');\n} catch(e) {\n  console.log('JSON Error');\n}",
+                    "answer": "JSON Error",
+                    "explanation": "{name:...} is not valid JSON."
+                },
+                {
+                    "q": "try {\n  let a = 10;\n  let a = 20;\n} catch(e) {\n  console.log('Duplicate');\n}",
+                    "answer": "Duplicate",
+                    "explanation": "Redeclaring let variables throws SyntaxError."
+                },
+                {
+                    "q": "try {\n  throw new Error('Fail');\n} catch(e) {\n  console.log(e.message);\n}",
+                    "answer": "Fail",
+                    "explanation": "Error.message prints the message string."
+                },
+                {
+                    "q": "try {\n  Number.toFixed(2);\n} catch(e) {\n  console.log('Type Issue');\n}",
+                    "answer": "Type Issue",
+                    "explanation": "Number.toFixed is invalid; should be (123).toFixed."
+                },
+                {
+                    "q": "try {\n  let x = null;\n  x.name = 'Dev';\n} catch(e) {\n  console.log('Null Error');\n}",
+                    "answer": "Null Error",
+                    "explanation": "Accessing properties of null causes TypeError."
+                },
+                {
+                    "q": "try {\n  decodeURI('%');\n} catch(e) {\n  console.log('URI Fail');\n}",
+                    "answer": "URI Fail",
+                    "explanation": "% alone is invalid URI."
+                },
+                {
+                    "q": "try {\n  const x = y;\n} catch(e) {\n  console.log('Ref');\n}",
+                    "answer": "Ref",
+                    "explanation": "y is not defined → ReferenceError."
+                },
+                {
+                    "q": "try {\n  const arr = new Array(-5);\n} catch(e) {\n  console.log('Range');\n}",
+                    "answer": "Range",
+                    "explanation": "Negative array size → RangeError."
+                },
+                {
+                    "q": "try {\n  (function f(){ f(); })();\n} catch(e) {\n  console.log('Stack');\n}",
+                    "answer": "Stack",
+                    "explanation": "Infinite recursion causes RangeError (stack overflow)."
+                },
+                {
+                    "q": "try {\n  JSON.parse('true');\n  console.log('OK');\n} catch(e) {\n  console.log('Bad');\n}",
+                    "answer": "true",
+                    "explanation": "true is valid JSON."
+                },
+                {
+                    "q": "try {\n  let obj = {};\n  Object.freeze(obj);\n  obj.a = 10;\n  console.log(obj.a);\n} catch(e) {\n  console.log('Stop');\n}",
+                    "answer": "undefined",
+                    "explanation": "Mutation silently fails (non-strict mode)."
+                },
+                {
+                    "q": "try {\n  throw 123;\n} catch(e) {\n  console.log(typeof e);\n}",
+                    "answer": "number",
+                    "explanation": "You can throw any value, even a number."
+                },
+                {
+                    "q": "try {\n  console.log(a);\n} catch(e) {\n  console.log(e instanceof ReferenceError);\n}",
+                    "answer": "true",
+                    "explanation": "a is not defined; ReferenceError."
+                },
+                {
+                    "q": "try {\n  JSON.parse('[1,2,3]');\n  console.log('OK');\n} catch(e) {\n  console.log('ERR');\n}",
+                    "answer": "OK",
+                    "explanation": "Valid JSON array."
+                },
+                {
+                    "q": "try {\n  let x = 10;\n  x();\n} catch(e) {\n  console.log('X');\n}",
+                    "answer": "X",
+                    "explanation": "10() is not a function → TypeError."
+                },
+                {
+                    "q": "try {\n  undefined++;\n} catch(e) {\n  console.log('Bad');\n}",
+                    "answer": "NaN",
+                    "explanation": "undefined++ results in NaN, not an error."
+                },
+                {
+                    "q": "try {\n  throw new TypeError('Oops');\n} catch(e) {\n  console.log(e.name);\n}",
+                    "answer": "TypeError",
+                    "explanation": "Error.name contains the type of error."
+                },
+                {
+                    "q": "try {\n  eval('let let = 5');\n} catch(e) {\n  console.log('Eval');\n}",
+                    "answer": "Eval",
+                    "explanation": "Invalid identifier inside eval triggers SyntaxError."
+                }
+            ]
+        },
+        {
+            "type": "coding",
+            "title": "Coding Exercises (20 Questions)",
+            "questions": [
+                {
+                    "q": "Write a try-catch that safely parses JSON and prints 'Invalid JSON' on failure.",
+                    "solution": "try {\n  const obj = JSON.parse(text);\n} catch(e) {\n  console.log('Invalid JSON');\n}"
+                },
+                {
+                    "q": "Create a function safeDivide(a,b) that throws an error if b is 0.",
+                    "solution": "function safeDivide(a, b) {\n  if (b === 0) throw new Error('Cannot divide by zero');\n  return a / b;\n}"
+                },
+                {
+                    "q": "Write a try-catch that prints the error message when JSON.parse fails.",
+                    "solution": "try {\n  JSON.parse(data);\n} catch(e) {\n  console.log(e.message);\n}"
+                },
+                {
+                    "q": "Write code that throws 'Underage' if age < 18.",
+                    "solution": "if (age < 18) {\n  throw new Error('Underage');\n}"
+                },
+                {
+                    "q": "Wrap a block in try-catch-finally where finally prints 'Done'.",
+                    "solution": "try {\n  risky();\n} catch(e) {\n  console.log(e);\n} finally {\n  console.log('Done');\n}"
+                },
+                {
+                    "q": "Validate that student.name exists. Throw 'No name' if missing.",
+                    "solution": "if (!student.name) {\n  throw new Error('No name');\n}"
+                },
+                {
+                    "q": "Write code that catches errors and stores them inside an array logErrors[].",
+                    "solution": "try {\n  run();\n} catch(e) {\n  logErrors.push(e);\n}"
+                },
+                {
+                    "q": "Write a function getJSON(text) that returns parsed JSON or null on error.",
+                    "solution": "function getJSON(t) {\n  try {\n    return JSON.parse(t);\n  } catch(e) {\n    return null;\n  }\n}"
+                },
+                {
+                    "q": "Write code to try running greet(), and if it errors, print 'Fail'.",
+                    "solution": "try {\n  greet();\n} catch(e) {\n  console.log('Fail');\n}"
+                },
+                {
+                    "q": "Create a function safeCall(fn) that executes fn() inside try-catch.",
+                    "solution": "function safeCall(fn) {\n  try {\n    return fn();\n  } catch(e) {\n    console.log(e);\n  }\n}"
+                },
+                {
+                    "q": "Write code to check if marks < 0 or > 100; throw 'Invalid marks'.",
+                    "solution": "if (marks < 0 || marks > 100) {\n  throw 'Invalid marks';\n}"
+                },
+                {
+                    "q": "Catch TypeError thrown by obj.method() when method is not a function.",
+                    "solution": "try {\n  obj.method();\n} catch(e) {\n  if (e instanceof TypeError) {\n    console.log('Type Error');\n  }\n}"
+                },
+                {
+                    "q": "Write a function mustBeNumber(n) that throws if n is not a number.",
+                    "solution": "function mustBeNumber(n) {\n  if (typeof n !== 'number') {\n    throw 'Not a number';\n  }\n}"
+                },
+                {
+                    "q": "Catching and printing only error.name inside catch block.",
+                    "solution": "try {\n  risky();\n} catch(e) {\n  console.log(e.name);\n}"
+                },
+                {
+                    "q": "Convert this to try-catch: const x = JSON.parse(userInput).name;",
+                    "solution": "let x;\ntry {\n  x = JSON.parse(userInput).name;\n} catch(e) {\n  x = null;\n}"
+                },
+                {
+                    "q": "Write code that continues program even after catching error.",
+                    "solution": "try {\n  fail();\n} catch(e) {\n  console.log('Handled');\n}\n\nconsole.log('Continue');"
+                },
+                {
+                    "q": "Write a function parseOrDefault(str,def) that returns def when parsing fails.",
+                    "solution": "function parseOrDefault(s, d) {\n  try {\n    return JSON.parse(s);\n  } catch(e) {\n    return d;\n  }\n}"
+                },
+                {
+                    "q": "Throw an error when username length is below 3 characters.",
+                    "solution": "if (username.length < 3) {\n  throw new Error('Too short');\n}"
+                },
+                {
+                    "q": "Wrap a risky API call in try-catch and log e.stack.",
+                    "solution": "try {\n  apiCall();\n} catch(e) {\n  console.log(e.stack);\n}"
+                },
+                {
+                    "q": "Throw a custom Error('Missing field: phone') if phone is undefined.",
+                    "solution": "if (!data.phone) {\n  throw new Error('Missing field: phone');\n}"
+                }
+            ]
+        },
+        {
+            "type": "coding-advanced",
+            "title": "Advanced Coding Challenges (10 Questions)",
+            "questions": [
+                {
+                    "q": "Create a higher-order function wrapErrors(fn) that returns a new function which always runs fn inside try-catch and logs error name + message.",
+                    "solution": "function wrapErrors(fn) {\n  return (...args) => {\n    try {\n      return fn(...args);\n    } catch (e) {\n      console.log(e.name + ': ' + e.message);\n    }\n  };\n}"
+                },
+                {
+                    "q": "Write a function safeJSONPath(obj, path) that returns null if any step in the path throws an error (e.g., obj.a.b.c).",
+                    "solution": "function safeJSONPath(o, p) {\n  try {\n    return p.split('.').reduce((x, k) => x[k], o);\n  } catch (e) {\n    return null;\n  }\n}"
+                },
+                {
+                    "q": "Write customError(msg) that returns a new Error with timestamp included in the message.",
+                    "solution": "function customError(msg) {\n  return new Error(msg + ' @ ' + Date.now());\n}"
+                },
+                {
+                    "q": "Create a function retry(fn, attempts) that retries executing fn() until success or attempts run out.",
+                    "solution": "function retry(fn, n) {\n  while (n--) {\n    try {\n      return fn();\n    } catch (e) {\n      if (n === 0) throw e;\n    }\n  }\n}"
+                },
+                {
+                    "q": "Write async function safeFetch(url) that returns {data:null,error:e} on failure.",
+                    "solution": "async function safeFetch(u) {\n  try {\n    const res = await fetch(u);\n    return { data: await res.json(), error: null };\n  } catch (e) {\n    return { data: null, error: e };\n  }\n}"
+                },
+                {
+                    "q": "Write validateMarks(obj) that throws errors for missing fields and returns true if valid. Student names like Ritaja or Swadeep may be passed.",
+                    "solution": "function validateMarks(s) {\n  if (!s.name) throw 'Missing name';\n  if (!s.marks) throw 'Missing marks';\n  if (s.marks < 0 || s.marks > 100) throw 'Invalid marks';\n  return true;\n}"
+                },
+                {
+                    "q": "Create logError(e) that pushes error info into localStorage under key 'errorLog'.",
+                    "solution": "function logError(e) {\n  let log = JSON.parse(localStorage.getItem('errorLog') || '[]');\n  log.push({ msg: e.message, time: Date.now() });\n  localStorage.setItem('errorLog', JSON.stringify(log));\n}"
+                },
+                {
+                    "q": "Write function ensureNumber(x) that converts x to number or throws 'Conversion failed'.",
+                    "solution": "function ensureNumber(x) {\n  const n = Number(x);\n  if (isNaN(n)) throw 'Conversion failed';\n  return n;\n}"
+                },
+                {
+                    "q": "Create safeExecutor(tasks) where tasks is an array of functions. It should run each inside try-catch and collect results + errors.",
+                    "solution": "function safeExecutor(t) {\n  return t.map(fn => {\n    try {\n      return { ok: true, result: fn() };\n    } catch (e) {\n      return { ok: false, error: e };\n    }\n  });\n}"
+                },
+                {
+                    "q": "Write timedTry(fn, ms) that runs fn() and throws 'Timeout' if it doesn't finish within ms milliseconds (simulate with setTimeout).",
+                    "solution": "function timedTry(fn, ms) {\n  return new Promise((res, rej) => {\n    const timer = setTimeout(() => rej('Timeout'), ms);\n    try {\n      res(fn());\n      clearTimeout(timer);\n    } catch (e) {\n      rej(e);\n    }\n  });\n}"
+                }
+            ]
+        },
+        {
+            "type": "mini-projects",
+            "title": "Mini Projects — Realistic Debugging Scenarios (10 Projects)",
+            "projects": [
+                {
+                    "title": "Student Marks Validator with Error Log",
+                    "description": "Create a module that validates marks for students like Ritaja, Swadeep, Mounita and logs errors (negative, NaN, missing) into an array stored in localStorage."
+                },
+                {
+                    "title": "Form Input Sanitizer",
+                    "description": "Build a form where invalid inputs (empty fields, wrong formats) throw custom errors and highlight the specific field that failed."
+                },
+                {
+                    "title": "JSON-based Settings Loader",
+                    "description": "Load user settings from JSON stored in localStorage. If parsing fails, revert to default settings and save backup JSON with timestamp."
+                },
+                {
+                    "title": "API Fetch Debug Panel",
+                    "description": "Create a small dashboard that fetches data from a fake API. On failure, show detailed debugging info (error name, message, stack) and allow retry."
+                },
+                {
+                    "title": "Student Registration Debugger",
+                    "description": "Validate student registration fields (name, age, phone, city). Throw meaningful errors and show friendly UI messages. Use names like Kaustav or Susmita."
+                },
+                {
+                    "title": "Custom Error Reporter Service",
+                    "description": "Create a service that catches all try-catch errors from multiple modules and stores them in a 'globalErrorLog' with timestamps."
+                },
+                {
+                    "title": "LocalStorage JSON Debugger",
+                    "description": "Simulate corrupted JSON in localStorage. Attempt to parse it safely and replace it with a valid structure when errors are detected."
+                },
+                {
+                    "title": "Recursive Function Safety Wrapper",
+                    "description": "Create a tool that wraps functions and catches RangeErrors caused by infinite recursion, then logs the depth before failure."
+                },
+                {
+                    "title": "Form Stepper with Error-Recovery",
+                    "description": "Build a multi-step form (like for Coder & AccoTax admission). On errors, highlight which step failed and allow graceful back navigation."
+                },
+                {
+                    "title": "Debug Mode Switch for a Web App",
+                    "description": "Implement a debug mode toggle. When enabled, all errors in the app show stack traces, logs, timestamps, and suggestions for correction."
+                }
+            ]
+        }
+    ]
+}
