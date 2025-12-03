@@ -1,5 +1,6 @@
 import React from "react";
 import CodeBlock from "../../../../../common/CodeBlock";
+import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 
 export default function Topic5() {
   return (
@@ -54,16 +55,12 @@ export default function Topic5() {
           <p className="font-semibold text-slate-200 text-sm">
             Example 1 — Double each number
           </p>
-          <CodeBlock
-            code={`const nums = [1, 200, 3, 4];
-
-const doubled = nums.map(function (n) {
-  return n * 2;
-});
-
-console.log(doubled); // [2, 4, 6, 8]`}
-            language="javascript"
-          />
+          <EditableCodeBlock
+  initialCode={`const nums = [1,2,3];
+const doubled = nums.map(n => n*2);
+console.log(doubled);`}
+  language="javascript"
+/>
         </div>
 
         {/* Example 2 */}

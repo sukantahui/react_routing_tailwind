@@ -615,6 +615,9 @@
   .h-36 {
     height: calc(var(--spacing) * 36);
   }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
   .h-\[2px\] {
     height: 2px;
   }
@@ -1000,6 +1003,10 @@
   .border-\[10px\] {
     border-style: var(--tw-border-style);
     border-width: 10px;
+  }
+  .border-x {
+    border-inline-style: var(--tw-border-style);
+    border-inline-width: 1px;
   }
   .border-t {
     border-top-style: var(--tw-border-style);
@@ -2347,6 +2354,9 @@
     &::placeholder {
       color: transparent;
     }
+  }
+  .caret-white {
+    caret-color: var(--color-white);
   }
   .opacity-0 {
     opacity: 0%;
