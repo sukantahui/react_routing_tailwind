@@ -458,7 +458,8 @@
             "Non-mutating methods: slice, concat",
             "Searching: indexOf, includes, find, findIndex",
             "Iterating arrays with for, for-of and forEach",
-            "Intro to higher-order methods: map, filter, reduce (light overview)"
+            "Intro to higher-order methods: map, filter, reduce (light overview)",
+            "Exercise"
           ],
           "learningOutcomes": [
             "Store lists of values and access them efficiently",

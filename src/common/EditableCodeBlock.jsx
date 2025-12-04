@@ -19,14 +19,19 @@ export default class EditableCodeBlock extends Component {
       fontSize: 14,
       theme: "vs-dark",
       showConsole: true,
+
+      // Split view
+      showSplitView: false,
+      previewCode: "",
     };
 
     this.editorRef = null;
+    this.monaco = null;
     this.decorations = [];
   }
 
   // ------------------------------------------------------
-  // EDITOR MOUNT + AUTO HEIGHT + AUTO RUN HANDLERS
+  // EDITOR MOUNT + AUTO HEIGHT + AUTO RUN
   // ------------------------------------------------------
   handleEditorDidMount = (editor, monaco) => {
     this.editorRef = editor;
@@ -34,14 +39,15 @@ export default class EditableCodeBlock extends Component {
 
     this.updateEditorHeight();
 
-    // Auto resize on content change
+    // Auto-resize on content size change
     editor.onDidContentSizeChange(() => {
       this.updateEditorHeight();
     });
 
-    // Auto-run mode
+    // Auto-run on content change (with debounce)
     editor.onDidChangeModelContent(() => {
       if (!this.state.autoRun) return;
+
       clearTimeout(this.state.typingTimer);
       const timer = setTimeout(() => this.runCode(), 1000);
       this.setState({ typingTimer: timer });
@@ -63,7 +69,7 @@ export default class EditableCodeBlock extends Component {
   };
 
   // ------------------------------------------------------
-  // FORMAT VALUE FOR CLEAN OUTPUT
+  // FORMAT ANY VALUE FOR CLEAN CONSOLE OUTPUT
   // ------------------------------------------------------
   formatValue = (value) => {
     try {
@@ -77,7 +83,33 @@ export default class EditableCodeBlock extends Component {
   };
 
   // ------------------------------------------------------
-  // RUN CODE + CAPTURE LOGS + ERROR HIGHLIGHT
+  // UPDATE SPLIT VIEW PREVIEW (IFRAME)
+  // ------------------------------------------------------
+  updatePreview = () => {
+    if (!this.editorRef) return;
+
+    const code = this.editorRef.getValue();
+
+    const html = `
+      <html>
+        <body style="font-family: monospace; padding: 10px;">
+          <script>
+            try {
+              ${code}
+            } catch (err) {
+              document.body.innerHTML =
+                '<pre style="color:red;">' + err.toString() + '</pre>';
+            }
+          <\/script>
+        </body>
+      </html>
+    `;
+
+    this.setState({ previewCode: html });
+  };
+
+  // ------------------------------------------------------
+  // RUN CODE WITH CAPTURED CONSOLE.LOG + ERROR HIGHLIGHT
   // ------------------------------------------------------
   runCode = () => {
     this.setState({ error: "", consoleOutput: [], errorLine: null });
@@ -103,8 +135,18 @@ export default class EditableCodeBlock extends Component {
       eval(this.editorRef.getValue());
       this.setState({ consoleOutput: captured });
 
-      // clear previous error highlight
-      this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
+      // Clear previous error highlight
+      if (this.editorRef && this.decorations.length && this.monaco) {
+        this.decorations = this.editorRef.deltaDecorations(
+          this.decorations,
+          []
+        );
+      }
+
+      // Update preview for split view
+      if (this.state.showSplitView) {
+        this.updatePreview();
+      }
     } catch (err) {
       const stack = err.stack || "";
       const match = stack.match(/<anonymous>:(\d+):/);
@@ -115,7 +157,7 @@ export default class EditableCodeBlock extends Component {
         errorLine: line,
       });
 
-      if (line) {
+      if (line && this.editorRef && this.monaco) {
         this.decorations = this.editorRef.deltaDecorations([], [
           {
             range: new this.monaco.Range(line, 1, line, 1),
@@ -126,6 +168,11 @@ export default class EditableCodeBlock extends Component {
           },
         ]);
       }
+
+      // Also show error in preview when split view is ON
+      if (this.state.showSplitView) {
+        this.updatePreview();
+      }
     }
 
     console.log = originalLog;
@@ -133,7 +180,7 @@ export default class EditableCodeBlock extends Component {
   };
 
   // ------------------------------------------------------
-  // CODE FORMATTER (PRETTIER)
+  // FORMAT CODE (USING GLOBAL PRETTIER)
   // ------------------------------------------------------
   formatCode = () => {
     try {
@@ -154,9 +201,11 @@ export default class EditableCodeBlock extends Component {
   };
 
   // ------------------------------------------------------
-  // COPY CODE
+  // COPY CODE TO CLIPBOARD
   // ------------------------------------------------------
   copyCode = () => {
+    if (!this.editorRef) return;
+
     navigator.clipboard
       .writeText(this.editorRef.getValue())
       .then(() => alert("Copied!"));
@@ -166,6 +215,8 @@ export default class EditableCodeBlock extends Component {
   // RESET CODE TO ORIGINAL
   // ------------------------------------------------------
   resetCode = () => {
+    if (!this.editorRef) return;
+
     this.editorRef.setValue(this.props.initialCode);
     this.runCode();
   };
@@ -190,6 +241,8 @@ export default class EditableCodeBlock extends Component {
       fontSize,
       theme,
       showConsole,
+      showSplitView,
+      previewCode,
     } = this.state;
 
     const { initialCode, language } = this.props;
@@ -200,20 +253,16 @@ export default class EditableCodeBlock extends Component {
           ${isFullscreen ? "fixed inset-0 z-[9999] p-4" : ""}
         `}
       >
-        {/* ------------------------------------------------------ */}
-        {/* HEADER BUTTONS */}
-        {/* ------------------------------------------------------ */}
+        {/* HEADER */}
         <div className="flex items-center justify-between bg-slate-800 px-3 py-2 text-xs">
-
-          <span className="text-slate-400 font-semibold">
-            Editable Code
-          </span>
+          <span className="text-slate-400 font-semibold">Editable Code</span>
 
           <div className="flex flex-wrap gap-2">
-
             {/* LINE NUMBER TOGGLE */}
             <button
-              onClick={() => this.setState({ showLineNumbers: !showLineNumbers })}
+              onClick={() =>
+                this.setState({ showLineNumbers: !showLineNumbers })
+              }
               className="px-2 py-1 rounded bg-indigo-600 text-white hover:bg-indigo-700"
             >
               Lines
@@ -232,7 +281,9 @@ export default class EditableCodeBlock extends Component {
             {/* THEME TOGGLE */}
             <button
               onClick={() =>
-                this.setState({ theme: theme === "vs-dark" ? "light" : "vs-dark" })
+                this.setState({
+                  theme: theme === "vs-dark" ? "light" : "vs-dark",
+                })
               }
               className="px-2 py-1 rounded bg-yellow-600 text-white hover:bg-yellow-700"
             >
@@ -241,13 +292,17 @@ export default class EditableCodeBlock extends Component {
 
             {/* FONT SIZE */}
             <button
-              onClick={() => this.setState({ fontSize: fontSize + 2 })}
+              onClick={() =>
+                this.setState({ fontSize: Math.min(fontSize + 2, 32) })
+              }
               className="px-2 py-1 rounded bg-blue-600 text-white"
             >
               A+
             </button>
             <button
-              onClick={() => this.setState({ fontSize: fontSize - 2 })}
+              onClick={() =>
+                this.setState({ fontSize: Math.max(fontSize - 2, 8) })
+              }
               className="px-2 py-1 rounded bg-blue-600 text-white"
             >
               A-
@@ -300,41 +355,65 @@ export default class EditableCodeBlock extends Component {
             >
               Console
             </button>
+
+            {/* SPLIT VIEW TOGGLE */}
+            <button
+              onClick={() =>
+                this.setState(
+                  { showSplitView: !showSplitView },
+                  () => showSplitView && this.updatePreview()
+                )
+              }
+              className="px-2 py-1 rounded bg-teal-600 text-white hover:bg-teal-700"
+            >
+              {showSplitView ? "Hide Preview" : "Split View"}
+            </button>
           </div>
         </div>
 
-        {/* ------------------------------------------------------ */}
-        {/* MONACO EDITOR */}
-        {/* ------------------------------------------------------ */}
-        <Editor
-          height={editorHeight}
-          defaultLanguage={language}
-          defaultValue={initialCode}
-          theme={theme}
-          onMount={this.handleEditorDidMount}
-          options={{
-            fontSize,
-            minimap: { enabled: false },
-            automaticLayout: true,
-            scrollBeyondLastLine: false,
-            lineNumbers: showLineNumbers ? "on" : "off",
-            scrollbar: { vertical: "hidden" },
-            padding: { top: 20, bottom: 20 },
-          }}
-        />
+        {/* MAIN AREA: EDITOR + OPTIONAL PREVIEW */}
+        <div className={`flex w-full ${showSplitView ? "gap-2" : ""}`}>
+          {/* LEFT — CODE EDITOR */}
+          <div className={showSplitView ? "w-1/2" : "w-full"}>
+            <Editor
+              height={editorHeight}
+              defaultLanguage={language}
+              defaultValue={initialCode}
+              theme={theme}
+              onMount={this.handleEditorDidMount}
+              options={{
+                fontSize,
+                minimap: { enabled: false },
+                automaticLayout: true,
+                scrollBeyondLastLine: false,
+                lineNumbers: showLineNumbers ? "on" : "off",
+                scrollbar: { vertical: "hidden" },
+                padding: { top: 20, bottom: 20 },
+              }}
+            />
+          </div>
 
-        {/* ------------------------------------------------------ */}
+          {/* RIGHT — LIVE PREVIEW (IF SPLIT VIEW ENABLED) */}
+          {showSplitView && (
+            <div className="w-1/2 border-l border-slate-700 bg-slate-950">
+              <iframe
+                title="preview"
+                srcDoc={previewCode}
+                sandbox="allow-scripts"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          )}
+        </div>
+
         {/* ERROR PANEL */}
-        {/* ------------------------------------------------------ */}
         {error && (
           <div className="bg-red-900/40 border-t border-red-600 px-3 py-2 text-red-300 text-xs">
             ⚠ {error}
           </div>
         )}
 
-        {/* ------------------------------------------------------ */}
-        {/* CONSOLE OUTPUT */}
-        {/* ------------------------------------------------------ */}
+        {/* CONSOLE OUTPUT PANEL */}
         {showConsole && (
           <div className="bg-black border-t border-slate-700 px-3 py-2 h-40 overflow-auto text-xs">
             <p className="text-slate-400 mb-1">Console Output:</p>

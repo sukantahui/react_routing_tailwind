@@ -1,0 +1,997 @@
+{
+  "title": "Array Methods Exercises (Topic0–Topic5)",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Topic0",
+      "type": "mcq",
+      "question": "What is the index of the first element in a JavaScript array?",
+      "options": ["-1", "0", "1", "Depends on browser"],
+      "answer": "0",
+      "explanation": "JavaScript arrays are zero-indexed, so the first element is at index 0."
+    },
+    {
+      "id": 2,
+      "topic": "Topic0",
+      "type": "mcq",
+      "question": "What does the length property of an array represent?",
+      "options": [
+        "The highest index used",
+        "The number of elements in the array",
+        "Always 1 greater than the last index",
+        "Size in bytes"
+      ],
+      "answer": "The number of elements in the array",
+      "explanation": "length shows how many elements are stored in the array."
+    },
+    {
+      "id": 3,
+      "topic": "Topic0",
+      "type": "output",
+      "question": "What is the output of this code?",
+      "code": "const arr = [\"JS\", \"Python\", \"C\"];\n console.log(arr[1]);",
+      "answer": "Python",
+      "explanation": "Index 1 is the second element in the array: \"Python\"."
+    },
+    {
+      "id": 4,
+      "topic": "Topic0",
+      "type": "mcq",
+      "question": "Which of the following correctly creates an empty array?",
+      "options": [
+        "const arr = {};",
+        "const arr = [];",
+        "const arr = empty();",
+        "const arr = ();"
+      ],
+      "answer": "const arr = [];",
+      "explanation": "Square brackets [] are used to create array literals."
+    },
+    {
+      "id": 5,
+      "topic": "Topic0",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const nums = [10, 20, 30, 40]; console.log(nums.length);",
+      "answer": "4",
+      "explanation": "There are 4 elements, so length is 4."
+    },
+    {
+      "id": 6,
+      "topic": "Topic0",
+      "type": "mcq",
+      "question": "How do you access the last element of an array arr?",
+      "options": [
+        "arr.last()",
+        "arr[arr.length]",
+        "arr[arr.length - 1]",
+        "arr[-1]"
+      ],
+      "answer": "arr[arr.length - 1]",
+      "explanation": "The last index is length - 1."
+    },
+    {
+      "id": 7,
+      "topic": "Topic0",
+      "type": "output",
+      "question": "What will be logged?",
+      "code": "const cities = [\"Barrackpore\", \"Kolkata\"]; console.log(cities[5]);",
+      "answer": "undefined",
+      "explanation": "Accessing an index that does not exist returns undefined."
+    },
+    {
+      "id": 8,
+      "topic": "Topic0",
+      "type": "mcq",
+      "question": "Which statement about arrays is true?",
+      "options": [
+        "They can only store numbers",
+        "They can store mixed data types",
+        "They must be fixed size",
+        "They are 1-indexed"
+      ],
+      "answer": "They can store mixed data types",
+      "explanation": "JavaScript arrays can hold different types: numbers, strings, booleans, objects, etc."
+    },
+    {
+      "id": 9,
+      "topic": "Topic0",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const data = [\"Coder & AccoTax\", 1977, true]; console.log(typeof data[2]);",
+      "answer": "boolean",
+      "explanation": "The third element is true, which is a boolean."
+    },
+    {
+      "id": 10,
+      "topic": "Topic0",
+      "type": "code",
+      "question": "Write code to create an array subjects with values \"JS\", \"Python\", \"C\" and log the first subject.",
+      "answer": "const subjects = [\"JS\", \"Python\", \"C\"]; console.log(subjects[0]);",
+      "explanation": "Create an array literal and access index 0 for the first value."
+    },
+
+    {
+      "id": 11,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "Which method adds one element at the end of an array and returns the new length?",
+      "options": ["push()", "pop()", "shift()", "unshift()"],
+      "answer": "push()",
+      "explanation": "push() appends to the end and returns the new length."
+    },
+    {
+      "id": 12,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "What does pop() return?",
+      "options": [
+        "The new length",
+        "The removed last element",
+        "undefined always",
+        "The first element"
+      ],
+      "answer": "The removed last element",
+      "explanation": "pop() removes and returns the last element of the array."
+    },
+    {
+      "id": 13,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1, 2, 3]; const x = nums.push(4); console.log(x, nums);",
+      "answer": "4 [1, 2, 3, 4]",
+      "explanation": "push returns new length 4, and nums becomes [1,2,3,4]."
+    },
+    {
+      "id": 14,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [\"a\", \"b\"]; const first = arr.shift(); console.log(first, arr.length);",
+      "answer": "a 1",
+      "explanation": "shift removes and returns the first element \"a\"; length becomes 1."
+    },
+    {
+      "id": 15,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "Which pair is correct for adding/removing at the beginning of an array?",
+      "options": [
+        "push/remove",
+        "add/removeFirst",
+        "unshift()/shift()",
+        "shift()/unshift() only for strings"
+      ],
+      "answer": "unshift()/shift()",
+      "explanation": "unshift adds at beginning, shift removes from beginning."
+    },
+    {
+      "id": 16,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What is the result?",
+      "code": "const arr = [\"apple\", \"banana\", \"mango\"]; const removed = arr.splice(1, 2); console.log(removed, arr);",
+      "answer": "[\"banana\", \"mango\"] [\"apple\"]",
+      "explanation": "splice(1,2) removes 2 elements from index 1."
+    },
+    {
+      "id": 17,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "What is the return type of splice()?",
+      "options": [
+        "Number (new length)",
+        "Boolean",
+        "Array of removed elements",
+        "undefined"
+      ],
+      "answer": "Array of removed elements",
+      "explanation": "splice returns a new array containing the removed items."
+    },
+    {
+      "id": 18,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What will arr contain?",
+      "code": "const arr = [1,2,3,4]; arr.splice(2, 0, 99); console.log(arr);",
+      "answer": "[1, 2, 99, 3, 4]",
+      "explanation": "splice with deleteCount 0 inserts 99 at index 2."
+    },
+    {
+      "id": 19,
+      "topic": "Topic1",
+      "type": "code",
+      "question": "Write code to remove the last element from an array marks and store it in a variable lastMark.",
+      "answer": "const lastMark = marks.pop();",
+      "explanation": "pop() removes and returns the last element."
+    },
+    {
+      "id": 20,
+      "topic": "Topic1",
+      "type": "code",
+      "question": "Write code to insert \"HTML\" and \"CSS\" at the beginning of an array skills.",
+      "answer": "skills.unshift(\"HTML\", \"CSS\");",
+      "explanation": "unshift can insert one or more values at the start."
+    },
+    {
+      "id": 21,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const arr = []; const len = arr.push(\"JS\"); console.log(len, arr[0]);",
+      "answer": "1 JS",
+      "explanation": "push returns 1 and arr[0] is \"JS\"."
+    },
+    {
+      "id": 22,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "Which statement about push() is true?",
+      "options": [
+        "It modifies the original array",
+        "It does not modify the original array",
+        "It returns the removed item",
+        "It only works on numbers"
+      ],
+      "answer": "It modifies the original array",
+      "explanation": "push mutates the array by adding new items."
+    },
+    {
+      "id": 23,
+      "topic": "Topic1",
+      "type": "output",
+      "question": "What is the value of arr after execution?",
+      "code": "const arr = [10,20,30,40]; arr.splice(1, 2, 99); console.log(arr);",
+      "answer": "[10, 99, 40]",
+      "explanation": "Elements at index 1 and 2 are removed, 99 is inserted at index 1."
+    },
+    {
+      "id": 24,
+      "topic": "Topic1",
+      "type": "mcq",
+      "question": "Which of the following methods returns the new length of the array?",
+      "options": ["push()", "unshift()", "Both push() and unshift()", "splice()"],
+      "answer": "Both push() and unshift()",
+      "explanation": "Both push and unshift return the new length of the array."
+    },
+    {
+      "id": 25,
+      "topic": "Topic1",
+      "type": "code",
+      "question": "Write code to remove 3 elements starting from index 2 from an array items using splice.",
+      "answer": "items.splice(2, 3);",
+      "explanation": "First parameter = start index, second = count to delete."
+    },
+
+    {
+      "id": 26,
+      "topic": "Topic2",
+      "type": "mcq",
+      "question": "Which array method returns a shallow copy of a portion of an array?",
+      "options": ["splice()", "slice()", "concat()", "copy()"],
+      "answer": "slice()",
+      "explanation": "slice() returns a new array with selected elements."
+    },
+    {
+      "id": 27,
+      "topic": "Topic2",
+      "type": "mcq",
+      "question": "What does concat() return?",
+      "options": [
+        "Nothing (undefined)",
+        "The modified original array",
+        "A new array combining the arrays",
+        "A string"
+      ],
+      "answer": "A new array combining the arrays",
+      "explanation": "concat does not mutate, it returns a new combined array."
+    },
+    {
+      "id": 28,
+      "topic": "Topic2",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const a = [1,2]; const b = [3,4]; const c = a.concat(b); console.log(a, c);",
+      "answer": "[1, 2] [1, 2, 3, 4]",
+      "explanation": "a remains unchanged, c is the new combined array."
+    },
+    {
+      "id": 29,
+      "topic": "Topic2",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const arr = [10,20,30,40,50]; console.log(arr.slice(1,4));",
+      "answer": "[20, 30, 40]",
+      "explanation": "slice(1,4) returns elements at indices 1,2,3."
+    },
+    {
+      "id": 30,
+      "topic": "Topic2",
+      "type": "mcq",
+      "question": "What is the return type of slice()?",
+      "options": [
+        "Number",
+        "Boolean",
+        "New array",
+        "Same original array reference"
+      ],
+      "answer": "New array",
+      "explanation": "slice always returns a new array object."
+    },
+    {
+      "id": 31,
+      "topic": "Topic2",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const letters = [\"a\",\"b\",\"c\",\"d\"]; console.log(letters.slice(-2));",
+      "answer": "[\"c\", \"d\"]",
+      "explanation": "Negative start index counts from the end."
+    },
+    {
+      "id": 32,
+      "topic": "Topic2",
+      "type": "code",
+      "question": "Write code to create a shallow copy of an array arr using slice.",
+      "answer": "const copy = arr.slice();",
+      "explanation": "Calling slice() with no arguments copies the whole array."
+    },
+    {
+      "id": 33,
+      "topic": "Topic2",
+      "type": "code",
+      "question": "Write code that merges arrays a, b, c using concat into a new array all.",
+      "answer": "const all = a.concat(b, c);",
+      "explanation": "concat can take multiple arrays and returns a new combined array."
+    },
+    {
+      "id": 34,
+      "topic": "Topic2",
+      "type": "mcq",
+      "question": "Which method modifies the original array?",
+      "options": ["slice()", "concat()", "Both slice and concat", "Neither slice nor concat"],
+      "answer": "Neither slice nor concat",
+      "explanation": "Both slice and concat are non-mutating."
+    },
+    {
+      "id": 35,
+      "topic": "Topic2",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const arr = [1,2,3,4,5]; const x = arr.slice(2); console.log(x);",
+      "answer": "[3, 4, 5]",
+      "explanation": "slice(2) returns from index 2 to end."
+    },
+
+    {
+      "id": 36,
+      "topic": "Topic3",
+      "type": "mcq",
+      "question": "Inside a regular method called as obj.method(), what does this refer to?",
+      "options": [
+        "The global object",
+        "The obj object",
+        "The window only",
+        "undefined always"
+      ],
+      "answer": "The obj object",
+      "explanation": "In a method call, this refers to the object before the dot."
+    },
+    {
+      "id": 37,
+      "topic": "Topic3",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const student = { name: \"Kaustav\", show() { console.log(this.name); } }; student.show();",
+      "answer": "Kaustav",
+      "explanation": "this refers to student, so this.name is \"Kaustav\"."
+    },
+    {
+      "id": 38,
+      "topic": "Topic3",
+      "type": "output",
+      "question": "What happens here?",
+      "code": "const obj = { name: \"Pranjali\", show() { console.log(this.name); } }; const f = obj.show; f();",
+      "answer": "undefined (in strict mode)",
+      "explanation": "When detached, this is no longer bound to obj, so it's undefined in strict mode."
+    },
+    {
+      "id": 39,
+      "topic": "Topic3",
+      "type": "mcq",
+      "question": "Which method can permanently bind this to a function?",
+      "options": ["apply()", "call()", "bind()", "attach()"],
+      "answer": "bind()",
+      "explanation": "bind returns a new function with this fixed to the specified object."
+    },
+    {
+      "id": 40,
+      "topic": "Topic3",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const teacher = { name: \"Sukanta\", introduce() { console.log(\"I am \" + this.name); } }; const intro = teacher.introduce.bind(teacher); intro();",
+      "answer": "I am Sukanta",
+      "explanation": "bind fixes this to teacher, so this.name is \"Sukanta\"."
+    },
+    {
+      "id": 41,
+      "topic": "Topic3",
+      "type": "mcq",
+      "question": "Arrow functions have their own this binding.",
+      "options": ["True", "False"],
+      "answer": "False",
+      "explanation": "Arrow functions do not have their own this; they capture it from the surrounding scope."
+    },
+    {
+      "id": 42,
+      "topic": "Topic3",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const obj = { name: \"Susmita\", show: () => console.log(this.name) }; obj.show();",
+      "answer": "undefined",
+      "explanation": "In arrow functions, this is not bound to obj; it comes from the outer scope."
+    },
+    {
+      "id": 43,
+      "topic": "Topic3",
+      "type": "code",
+      "question": "Write a simple object teacher with property name and a method intro that prints 'Hello, I am <name>' using this.",
+      "answer": "const teacher = { name: \"Tanusree\", intro() { console.log(\"Hello, I am \" + this.name); } };",
+      "explanation": "Use a regular method so this refers to teacher."
+    },
+    {
+      "id": 44,
+      "topic": "Topic3",
+      "type": "mcq",
+      "question": "In which case is this likely to be undefined (in strict mode)?",
+      "options": [
+        "Inside a normal method obj.method()",
+        "Inside a standalone function call f()",
+        "Inside an event handler",
+        "Never"
+      ],
+      "answer": "Inside a standalone function call f()",
+      "explanation": "In strict mode, a plain function call has this = undefined."
+    },
+    {
+      "id": 45,
+      "topic": "Topic3",
+      "type": "output",
+      "question": "What will be logged?",
+      "code": "function show() { console.log(this); } show();",
+      "answer": "undefined (in strict mode)",
+      "explanation": "In strict mode modules, this inside a standalone function is undefined."
+    },
+
+    {
+      "id": 46,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "Which loop gives you direct access to array values?",
+      "options": ["for", "for...of", "for...in", "while"],
+      "answer": "for...of",
+      "explanation": "for...of iterates over values of an iterable."
+    },
+    {
+      "id": 47,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [10,20]; for (let i = 0; i < arr.length; i++) { console.log(arr[i]); }",
+      "answer": "10\n20",
+      "explanation": "The classic for loop prints both values on separate lines."
+    },
+    {
+      "id": 48,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "What is the return type of forEach()?",
+      "options": [
+        "New array",
+        "Number",
+        "undefined",
+        "Same array"
+      ],
+      "answer": "undefined",
+      "explanation": "forEach is used for side effects and always returns undefined."
+    },
+    {
+      "id": 49,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1,2,3]; nums.forEach(n => console.log(n*2));",
+      "answer": "2\n4\n6",
+      "explanation": "forEach runs callback for each element and prints doubled values."
+    },
+    {
+      "id": 50,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "Which loop is best when you need index and control over start/end?",
+      "options": ["for", "for...of", "forEach", "do...while"],
+      "answer": "for",
+      "explanation": "Classic for loop gives full control over index and range."
+    },
+    {
+      "id": 51,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const arr = [\"a\",\"b\",\"c\"]; for (let v of arr) { console.log(v); }",
+      "answer": "a\nb\nc",
+      "explanation": "for...of prints each value."
+    },
+    {
+      "id": 52,
+      "topic": "Topic4",
+      "type": "code",
+      "question": "Write a for loop that prints all elements of array marks.",
+      "answer": "for (let i = 0; i < marks.length; i++) { console.log(marks[i]); }",
+      "explanation": "Use classic for loop and length property."
+    },
+    {
+      "id": 53,
+      "topic": "Topic4",
+      "type": "code",
+      "question": "Write code using forEach to print each course from courses array with prefix 'Course: '.",
+      "answer": "courses.forEach(c => console.log(\"Course: \" + c));",
+      "explanation": "forEach passes each element to the callback."
+    },
+    {
+      "id": 54,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "Which loop can be easily used with break and continue?",
+      "options": ["forEach()", "for...of", "Both for and for...of", "None"],
+      "answer": "Both for and for...of",
+      "explanation": "for and for...of support break and continue; forEach does not."
+    },
+    {
+      "id": 55,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1,2,3,4]; for (let n of nums) { if (n === 3) break; console.log(n); }",
+      "answer": "1\n2",
+      "explanation": "Loop stops when n is 3."
+    },
+    {
+      "id": 56,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "forEach() can be stopped early using break.",
+      "options": ["True", "False"],
+      "answer": "False",
+      "explanation": "forEach does not support break or continue directly."
+    },
+    {
+      "id": 57,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [\"JS\",\"Python\"]; arr.forEach((lang, i) => console.log(i + \":\" + lang));",
+      "answer": "0:JS\n1:Python",
+      "explanation": "forEach passes value and index to the callback."
+    },
+    {
+      "id": 58,
+      "topic": "Topic4",
+      "type": "code",
+      "question": "Write a for...of loop that sums all numbers in an array nums.",
+      "answer": "let sum = 0; for (let n of nums) { sum += n; }",
+      "explanation": "Use for...of to iterate values directly."
+    },
+    {
+      "id": 59,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const arr = []; arr.forEach(v => console.log(v));",
+      "answer": "Nothing",
+      "explanation": "forEach on empty array runs zero times."
+    },
+    {
+      "id": 60,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "Which is most suitable if you want to transform an array into another array?",
+      "options": ["for", "forEach()", "map()", "while"],
+      "answer": "map()",
+      "explanation": "map is designed for transformations and returns a new array."
+    },
+    {
+      "id": 61,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const students = [\"Ritaja\",\"Mounita\"]; for (let i = 0; i < students.length; i++) { console.log(\"Hi \" + students[i]); }",
+      "answer": "Hi Ritaja\nHi Mounita",
+      "explanation": "Classic for loop over the array."
+    },
+    {
+      "id": 62,
+      "topic": "Topic4",
+      "type": "code",
+      "question": "Write code using forEach to count how many elements are in arr, without using arr.length.",
+      "answer": "let count = 0; arr.forEach(() => { count++; });",
+      "explanation": "Increment a counter for every element."
+    },
+    {
+      "id": 63,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "What is passed as the second parameter in forEach callback?",
+      "options": ["Index", "Array", "Length", "this"],
+      "answer": "Index",
+      "explanation": "The parameters are (value, index, array)."
+    },
+    {
+      "id": 64,
+      "topic": "Topic4",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [1,2,3]; for (let i in arr) { console.log(i); }",
+      "answer": "0\n1\n2",
+      "explanation": "for...in iterates over keys (indices as strings), not values."
+    },
+    {
+      "id": 65,
+      "topic": "Topic4",
+      "type": "mcq",
+      "question": "Which loop is generally NOT recommended for arrays when you want values?",
+      "options": ["for", "for...of", "forEach()", "for...in"],
+      "answer": "for...in",
+      "explanation": "for...in is meant for object keys, not array values."
+    },
+
+    {
+      "id": 66,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "What is the return type of map()?",
+      "options": [
+        "Number",
+        "Boolean",
+        "New array",
+        "undefined"
+      ],
+      "answer": "New array",
+      "explanation": "map always returns a new array with transformed values."
+    },
+    {
+      "id": 67,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "What is the return type of filter()?",
+      "options": [
+        "New array",
+        "Number",
+        "String",
+        "Same original array"
+      ],
+      "answer": "New array",
+      "explanation": "filter returns a new array of elements that passed the test."
+    },
+    {
+      "id": 68,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "What is the typical return of reduce()?",
+      "options": [
+        "Always a number",
+        "Always a boolean",
+        "Single accumulated value of any type",
+        "Always an array"
+      ],
+      "answer": "Single accumulated value of any type",
+      "explanation": "reduce can produce any type depending on your accumulator logic."
+    },
+    {
+      "id": 69,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1,2,3]; const r = nums.map(n => n * 2); console.log(r);",
+      "answer": "[2, 4, 6]",
+      "explanation": "map multiplies each value by 2 and returns a new array."
+    },
+    {
+      "id": 70,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is the output?",
+      "code": "const nums = [1,2,3,4]; const evens = nums.filter(n => n % 2 === 0); console.log(evens);",
+      "answer": "[2, 4]",
+      "explanation": "filter keeps only values where the condition is true."
+    },
+    {
+      "id": 71,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [10,20,30]; const sum = nums.reduce((acc, n) => acc + n, 0); console.log(sum);",
+      "answer": "60",
+      "explanation": "reduce accumulates the sum starting from 0."
+    },
+    {
+      "id": 72,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which method is best suited to convert an array of objects to an array of names?",
+      "options": ["forEach()", "map()", "filter()", "reduce()"],
+      "answer": "map()",
+      "explanation": "map transforms each element into a new value."
+    },
+    {
+      "id": 73,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "filter() callback must return:",
+      "options": [
+        "Number",
+        "Boolean",
+        "String",
+        "Any type"
+      ],
+      "answer": "Boolean",
+      "explanation": "filter expects a truthy or falsy value to decide whether to keep the element."
+    },
+    {
+      "id": 74,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is the result?",
+      "code": "const marks = [35, 50, 80]; const status = marks.map(m => m >= 40); console.log(status);",
+      "answer": "[false, true, true]",
+      "explanation": "map transforms each mark into a boolean pass/fail."
+    },
+    {
+      "id": 75,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What will be printed?",
+      "code": "const data = [1,2,3,4]; const res = data.filter(n => n > 2).map(n => n * 10); console.log(res);",
+      "answer": "[30, 40]",
+      "explanation": "filter keeps [3,4], map converts to [30,40]."
+    },
+    {
+      "id": 76,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write code using map() to create a new array squares from nums, where each element is n*n.",
+      "answer": "const squares = nums.map(n => n * n);",
+      "explanation": "map applies the transformation n*n to each element."
+    },
+    {
+      "id": 77,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write code using filter() to keep only students with marks >= 70 from an array students.",
+      "answer": "const result = students.filter(s => s.marks >= 70);",
+      "explanation": "filter keeps elements that match the condition."
+    },
+    {
+      "id": 78,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write reduce() code to multiply all numbers in nums array to get product.",
+      "answer": "const product = nums.reduce((acc, n) => acc * n, 1);",
+      "explanation": "Start from 1 and multiply each element."
+    },
+    {
+      "id": 79,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [\"JS\",\"Python\",\"C\"]; const lengths = arr.map(s => s.length); console.log(lengths);",
+      "answer": "[2, 6, 1]",
+      "explanation": "Lengths of each string are [2,6,1]."
+    },
+    {
+      "id": 80,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [5,10,15,20]; const r = nums.filter(n => n % 10 === 0); console.log(r.length);",
+      "answer": "2",
+      "explanation": "Only 10 and 20 are divisible by 10."
+    },
+    {
+      "id": 81,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "What is the initialValue parameter in reduce() used for?",
+      "options": [
+        "To set starting value of accumulator",
+        "To set the last value",
+        "To set array length",
+        "It is ignored"
+      ],
+      "answer": "To set starting value of accumulator",
+      "explanation": "initialValue becomes the first acc value."
+    },
+    {
+      "id": 82,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is the result of this code?",
+      "code": "const nums = [1,2,3]; const sum = nums.reduce((acc, n) => acc + n); console.log(sum);",
+      "answer": "6",
+      "explanation": "Without initial value, acc starts as first element and loops from second."
+    },
+    {
+      "id": 83,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const arr = [\"a\",\"b\",\"c\"]; const res = arr.filter(x => true); console.log(res === arr);",
+      "answer": "false",
+      "explanation": "filter always returns a new array, never the same reference."
+    },
+    {
+      "id": 84,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "map() modifies the original array.",
+      "options": ["True", "False"],
+      "answer": "False",
+      "explanation": "map returns a new array and does not mutate the original."
+    },
+    {
+      "id": 85,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which method is best to count how many values satisfy a condition?",
+      "options": ["map()", "filter()", "reduce()", "Both filter and reduce"],
+      "answer": "Both filter and reduce",
+      "explanation": "filter can be used with length, and reduce can count directly."
+    },
+    {
+      "id": 86,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const data = [1,2,3,4]; const res = data.reduce((acc, n) => acc + (n % 2 === 0 ? n : 0), 0); console.log(res);",
+      "answer": "6",
+      "explanation": "Only even numbers 2 and 4 are added: 2+4=6."
+    },
+    {
+      "id": 87,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write code using map() to add ' (Coder & AccoTax)' after each student name in students array.",
+      "answer": "const tagged = students.map(s => s + \" (Coder & AccoTax)\");",
+      "explanation": "map returns a new array where each string is extended."
+    },
+    {
+      "id": 88,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is logged?",
+      "code": "const nums = [1,2,3]; const res = nums.map(n => n * 3).filter(n => n > 3); console.log(res);",
+      "answer": "[6, 9]",
+      "explanation": "map → [3,6,9], filter keeps values >3."
+    },
+    {
+      "id": 89,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which chain is valid and returns a single number?",
+      "options": [
+        "nums.map(...).filter(...).reduce(...)",
+        "nums.reduce(...).map(...).filter(...)",
+        "nums.filter(...).map(...) only",
+        "None"
+      ],
+      "answer": "nums.map(...).filter(...).reduce(...)",
+      "explanation": "map → new array, filter → new array, reduce → single value."
+    },
+    {
+      "id": 90,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is the result?",
+      "code": "const words = [\"JS\",\"is\",\"fun\"]; const sentence = words.reduce((acc, w) => acc + \" \" + w); console.log(sentence.trim());",
+      "answer": "JS is fun",
+      "explanation": "reduce concatenates all strings into a single sentence."
+    },
+    {
+      "id": 91,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write reduce() code to group numbers into even and odd arrays in an object { even: [], odd: [] }.",
+      "answer": "const grouped = nums.reduce((acc, n) => { const key = n % 2 === 0 ? \"even\" : \"odd\"; acc[key].push(n); return acc; }, { even: [], odd: [] });",
+      "explanation": "Use reduce with an accumulator object and push into correct array."
+    },
+    {
+      "id": 92,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const marks = [40, 50, 60]; const allPass = marks.every(m => m >= 40); console.log(allPass);",
+      "answer": "true",
+      "explanation": "every checks if all elements pass the condition."
+    },
+    {
+      "id": 93,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which statement is true about every()?",
+      "options": [
+        "It returns a new array",
+        "It returns true/false",
+        "It mutates the array",
+        "It only works with numbers"
+      ],
+      "answer": "It returns true/false",
+      "explanation": "every returns a boolean based on the test for all elements."
+    },
+    {
+      "id": 94,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1,2,3,4]; const hasOdd = nums.some(n => n % 2 !== 0); console.log(hasOdd);",
+      "answer": "true",
+      "explanation": "some returns true if at least one element passes the test."
+    },
+    {
+      "id": 95,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which are non-mutating methods?",
+      "options": [
+        "map, filter, slice, concat",
+        "push, pop, splice",
+        "splice, sort, reverse",
+        "All methods are mutating"
+      ],
+      "answer": "map, filter, slice, concat",
+      "explanation": "These methods return new arrays and do not mutate the original."
+    },
+    {
+      "id": 96,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What is printed?",
+      "code": "const nums = [1,2,3]; const x = nums.forEach(n => n * 2); console.log(x);",
+      "answer": "undefined",
+      "explanation": "forEach always returns undefined; it is used only for side effects."
+    },
+    {
+      "id": 97,
+      "topic": "Topic5",
+      "type": "mcq",
+      "question": "Which method is best for building a single summary value like total marks?",
+      "options": ["map()", "filter()", "reduce()", "forEach()"],
+      "answer": "reduce()",
+      "explanation": "reduce is designed to combine values into a single result."
+    },
+    {
+      "id": 98,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write code using filter() to remove null and undefined values from array data.",
+      "answer": "const clean = data.filter(v => v != null);",
+      "explanation": "v != null removes both null and undefined."
+    },
+    {
+      "id": 99,
+      "topic": "Topic5",
+      "type": "output",
+      "question": "What will be logged?",
+      "code": "const nums = [1,2,3,4,5]; const r = nums.filter(n => n > 2).length; console.log(r);",
+      "answer": "3",
+      "explanation": "Numbers greater than 2 are [3,4,5], so length is 3."
+    },
+    {
+      "id": 100,
+      "topic": "Topic5",
+      "type": "code",
+      "question": "Write a map() expression to convert marks into grades \"Pass\" or \"Fail\" (pass if mark >= 40).",
+      "answer": "const grades = marks.map(m => m >= 40 ? \"Pass\" : \"Fail\");",
+      "explanation": "map converts each mark into a string based on the condition."
+    }
+  ]
+}

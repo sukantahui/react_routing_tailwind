@@ -1,52 +1,245 @@
-import React from "react";
-import CodeBlock from "../../../../../common/CodeBlock";
+import React, { Component } from "react";
+import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 
-export default function Topic3() {
-  return (
-    <div className="space-y-6">
+export default class Topic3 extends Component {
+  render() {
+    return (
+      <div className="space-y-6">
 
-      <h2 className="text-xl font-semibold text-sky-300">
-        Searching in Arrays — indexOf, includes, find, findIndex
-      </h2>
+        {/* Title */}
+        <h2 className="text-xl font-semibold text-sky-300">
+          Understanding the <code>this</code> Keyword (Beginner-Friendly)
+        </h2>
 
-      <p className="text-slate-300 text-sm">
-        JavaScript provides multiple ways to search within arrays.
-      </p>
+        {/* Intro */}
+        <p className="text-slate-300 text-sm leading-relaxed">
+          The <code>this</code> keyword is one of the most important concepts in JavaScript.
+          It refers to the <strong>current object that is calling the function</strong>.
+          Unlike many languages, the value of <code>this</code> in JavaScript depends
+          on <strong>how the function is called</strong>, not where it is written.
+        </p>
 
-      <h3 className="text-lg font-semibold text-slate-200">indexOf()</h3>
+        <p className="text-slate-300 text-sm leading-relaxed">
+          Before learning constructors and classes, you MUST understand how
+          <code>this</code> behaves inside objects, functions, and arrow functions.
+        </p>
 
-      <CodeBlock
-        code={`const names = ["Sukanta", "Rahul", "Amit"];
+        <hr className="border-slate-700" />
 
-console.log(names.indexOf("Rahul")); // 1`}
-        language="javascript"
-      />
+        {/* WHAT THIS MEANS */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          What does <code>this</code> refer to?
+        </h3>
 
-      <h3 className="text-lg font-semibold text-slate-200">includes()</h3>
+        <div className="bg-slate-800 border border-slate-700 p-3 rounded text-xs text-sky-300 leading-relaxed">
+          <strong>Rule:</strong>  
+          <br />
+          <code>this</code> = <strong>the object that calls the function</strong>.
+          <br /><br />
+          In Arrow Functions → <code>this</code> is NOT bound.  
+          It takes value from the surrounding scope (lexical this).
+        </div>
 
-      <CodeBlock
-        code={`console.log(names.includes("Amit")); // true`}
-        language="javascript"
-      />
+        <hr className="border-slate-700" />
 
-      <h3 className="text-lg font-semibold text-slate-200">find()</h3>
+        {/* Basic Object Example */}
+        <h3 className="text-lg font-semibold text-slate-200">Basic Object Example</h3>
 
-      <CodeBlock
-        code={`const nums = [10, 20, 30, 40];
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const student = {
+  name: "Kaustav",
+  course: "JavaScript",
 
-const found = nums.find(n => n > 25);
-console.log(found); // 30`}
-        language="javascript"
-      />
+  greet() {
+    console.log(\`Hello, I am \${this.name} from the \${this.course} course.\`);
+  }
+};
 
-      <h3 className="text-lg font-semibold text-slate-200">findIndex()</h3>
+student.greet();`}
+        />
 
-      <CodeBlock
-        code={`const index = nums.findIndex(n => n > 25);
-console.log(index); // 2`}
-        language="javascript"
-      />
+        <p className="text-slate-400 text-sm">
+          Here, <code>this.name</code> refers to the <strong>student object</strong> because
+          <code>student</code> called the function.
+        </p>
 
-    </div>
-  );
+        <hr className="border-slate-700" />
+
+        {/* Teacher Example */}
+        <h3 className="text-lg font-semibold text-slate-200">Teacher Example</h3>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const teacher = {
+  name: "Sukanta Hui",
+  subject: "JavaScript",
+
+  introduce() {
+    console.log(\`I am \${this.name}, and I teach \${this.subject}.\`);
+  }
+};
+
+teacher.introduce();`}
+        />
+
+        <p className="text-slate-300 text-sm leading-relaxed">
+          When a method is called using <code>object.method()</code>, 
+          <code>this</code> always refers to the object before the dot.
+        </p>
+
+        <hr className="border-slate-700" />
+
+        {/* Losing THIS */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          Losing <code>this</code> (Important!)
+        </h3>
+
+        <p className="text-slate-300 text-sm leading-relaxed">
+          If you store a method in a variable and then call it,
+          <code>this</code> gets lost.
+        </p>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const profile = {
+  name: "Ritaja",
+  course: "JS Beginner",
+
+  show() {
+    console.log(this.name);
+  }
+};
+
+profile.show();      // Works: "Ritaja"
+
+const ref = profile.show;
+ref();                // ❌ this becomes undefined`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          The function is now called <strong>alone</strong>, without an object → so
+          <code>this</code> becomes <strong>undefined</strong> in strict mode.
+        </p>
+
+        <hr className="border-slate-700" />
+
+        {/* FIXING LOST THIS */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          Fixing Lost <code>this</code> using bind()
+        </h3>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const user = {
+  name: "Devangshu",
+
+  show() {
+    console.log(this.name);
+  }
+};
+
+const f = user.show.bind(user);
+f();  // ✔ Works: "Devangshu"`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          <code>bind()</code> permanently attaches <code>this</code> to a function.
+        </p>
+
+        <hr className="border-slate-700" />
+
+        {/* Arrow Functions */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          Arrow Functions Do NOT Bind <code>this</code>
+        </h3>
+
+        <p className="text-slate-300 text-sm leading-relaxed">
+          Arrow functions inherit <code>this</code> from their surrounding scope.
+          They do NOT create their own <code>this</code>.
+        </p>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const obj = {
+  name: "Pranjali",
+
+  show: () => {
+    console.log(this.name); 
+    // ❌ 'this' does NOT refer to obj
+    // It refers to the global scope
+  }
+};
+
+obj.show();`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Use arrow functions for callbacks, NOT for object methods.
+        </p>
+
+        <hr className="border-slate-700" />
+
+        {/* Correct Method */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          Correct Use with Regular Method
+        </h3>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const studentDetails = {
+  name: "Susmita",
+  marks: 93,
+
+  display() {
+    console.log(\`\${this.name}'s marks: \${this.marks}\`);
+  }
+};
+
+studentDetails.display();`}
+        />
+
+        <hr className="border-slate-700" />
+
+        {/* Coder & AccoTax Example */}
+        <h3 className="text-lg font-semibold text-slate-200">
+          Realistic Classroom Example — Coder & AccoTax
+        </h3>
+
+        <EditableCodeBlock
+          language="javascript"
+          initialCode={`const batch = {
+  batchName: "JS Intermediate",
+
+  teacher: {
+    name: "Mounita Bhandari",
+
+    call() {
+      console.log(\`Class Teacher: \${this.name}\`);
+    }
+  }
+};
+
+batch.teacher.call(); // ✔ this refers to teacher object`}
+        />
+
+        <p className="text-slate-400 text-sm">
+          Nested objects have their own <code>this</code>—it depends on which object
+          calls the method.
+        </p>
+
+        <hr className="border-slate-700" />
+
+        {/* Summary */}
+        <p className="text-slate-400 text-sm leading-relaxed">
+          The value of <code>this</code> depends entirely on the way the function is called.
+          Regular methods bind <code>this</code> to the calling object, while arrow functions
+          do not bind <code>this</code> at all.  
+          Understanding this concept is essential before learning constructor functions
+          and ES6 classes.
+        </p>
+
+      </div>
+    );
+  }
 }
