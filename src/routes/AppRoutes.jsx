@@ -21,7 +21,11 @@ import TypingLearn from '../components/typing-app/TypingLearn';
 import JavaScriptRoadmap from '../components/study/javaScript/JavaScriptRoadmap';
 import JavaScriptModuleView from '../components/study/javaScript/JavaScriptModuleView';
 import JavaScriptTopicView from '../components/study/javaScript/JavaScriptTopicView';
-
+import Playground from '../common/Playground';
+import PythonRoadmap from '../components/study/python/PythonRoadMap';
+import PythonModuleView from '../components/study/python/PythonModuleView';
+import PythonTopicView from '../components/study/python/PythonTopicView';
+import PythonPlayground from '../common/PythonPlayground';
 
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
@@ -87,8 +91,16 @@ export default function AppRoutes() {
       {/* <Route path="/tutorial/js" element={<JavaScriptRoadmap />} /> */}
       <Route path="/javascript/roadmap" element={<JavaScriptRoadmap />} />
       <Route path="/javascript/module/:slug" element={<JavaScriptModuleView />} />
-      <Route path="/javascript/topic/:moduleSlug/:topicIndex"  element={<JavaScriptTopicView />}
-      />
+      <Route path="/javascript/topic/:moduleSlug/:topicIndex"  element={<JavaScriptTopicView />}/>
+
+
+      <Route path="/play"  element={<Playground />}/>
+      <Route path="/python-play"  element={<PythonPlayground />}/>
+
+
+      <Route path="/python/roadmap" element={<PythonRoadmap />} />
+      <Route path="/python/module/:slug" element={<PythonModuleView />} />
+       <Route path="/python/topic/:moduleSlug/:topicIndex"  element={<PythonTopicView />}/>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

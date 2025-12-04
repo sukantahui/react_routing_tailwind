@@ -1,12 +1,16 @@
+// ================================================
+// EditablePythonCodeBlock.jsx
+// Premium Python Editor + Runner (Monaco + Pyodide)
+// Hybrid mode: basic Python first, heavy packages on demand
+// Coder & AccoTax
+// ================================================
+
 import React, { Component } from "react";
 import Editor from "@monaco-editor/react";
 
 // Icons from lucide-react
 import {
-  Braces,       // JS
-  FileCode,     // HTML
-  FileType,     // CSS
-  Columns,      // Split View
+  Braces, // Python icon
   Download,
   Copy,
   Maximize2,
@@ -14,29 +18,49 @@ import {
   RefreshCw,
   Eye,
   EyeOff,
-  Wand2,
-  Bug,
   Play,
   LayoutList,
   Type,
 } from "lucide-react";
 
-export default class EditableCodeBlock extends Component {
+// -------------------------------------------------
+// Global Pyodide singleton + loaded packages set
+// -------------------------------------------------
+let pyodideInstance = null;
+let pyodideReadyPromise = null;
+const loadedPackages = new Set();
+
+/**
+ * Load Pyodide (singleton)
+ */
+async function getPyodide() {
+  if (pyodideInstance) return pyodideInstance;
+
+  if (!pyodideReadyPromise) {
+    if (
+      typeof window === "undefined" ||
+      typeof window.loadPyodide === "undefined"
+    ) {
+      throw new Error(
+        "Pyodide is not loaded. Please include pyodide.js in your HTML."
+      );
+    }
+
+    pyodideReadyPromise = window.loadPyodide({
+      indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.0/full/",
+    });
+  }
+
+  pyodideInstance = await pyodideReadyPromise;
+  return pyodideInstance;
+}
+
+export default class EditablePythonCodeBlock extends Component {
   constructor(props) {
     super(props);
 
     const normalize = (s) => this.normalizeCode(s || "");
-    const initSnippets = props.initialSnippets || {};
-
-    const initialJS = normalize(initSnippets.javascript ?? props.initialCode ?? "");
-    const initialHTML = normalize(
-      initSnippets.html ??
-        "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
-    );
-    const initialCSS = normalize(
-      initSnippets.css ??
-        "/* CSS goes here */\nbody { font-family: system-ui; }"
-    );
+    const initialPython = normalize(props.initialCode || "");
 
     this.state = {
       // Core
@@ -50,22 +74,20 @@ export default class EditableCodeBlock extends Component {
       showLineNumbers: true,
       autoRun: false,
       fontSize: 14,
-      theme: "vs-dark",       // Monaco theme id
+      theme: "vs-dark", // Monaco theme id
       showConsole: true,
-      showSplitView: false,
-      previewCode: "",
 
       // Menus
       showFontMenu: false,
       showThemeMenu: false,
 
-      // Tabs
-      activeTab: props.defaultTab || "javascript",
-      codes: {
-        javascript: initialJS,
-        html: initialHTML,
-        css: initialCSS,
-      },
+      // Pyodide
+      pyodideReady: false,
+      loadingPyodide: false,
+      loadingPackages: false,
+
+      // Code
+      code: initialPython,
     };
 
     this.editorRef = null;
@@ -96,16 +118,15 @@ export default class EditableCodeBlock extends Component {
     this.applyMonacoTheme(this.state.theme);
     this.updateEditorHeight();
 
-    // Auto-resize
+    // Auto-resize based on content
     editor.onDidContentSizeChange(() => this.updateEditorHeight());
 
-    // Auto-run for JS
+    // Auto-run for Python
     editor.onDidChangeModelContent(() => {
       if (!this.state.autoRun) return;
-      if (this.state.activeTab !== "javascript") return;
 
       clearTimeout(this.typingTimer);
-      this.typingTimer = setTimeout(() => this.runCode(), 700);
+      this.typingTimer = setTimeout(() => this.runCode(), 800);
     });
   };
 
@@ -180,99 +201,147 @@ export default class EditableCodeBlock extends Component {
       },
     };
 
-    // Register custom themes if not already
+    // Register custom themes
     Object.entries(themes).forEach(([id, def]) => {
       this.monaco.editor.defineTheme(id, def);
     });
 
-    // Built-in: vs-dark / vs
+    // Apply theme (built-in or custom)
     this.monaco.editor.setTheme(themeName);
   };
 
   // -----------------------------------------
-  // Build Split Preview (HTML+CSS+JS)
+  // Detect packages from import statements
+  // Simple heuristic for numpy, pandas, matplotlib
   // -----------------------------------------
-  updatePreview = () => {
-    const { javascript, html, css } = this.state.codes;
+  detectPackages = (code) => {
+    const pkgs = new Set();
 
-    const htmlDoc = `
-      <html>
-        <head>
-          <style>
-            body {
-              background:#020617;
-              color:#e5e7eb;
-              padding:10px;
-              font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-            }
-            ${css}
-          </style>
-        </head>
-        <body>
-          ${html}
-          <script>
-            try {
-              ${javascript}
-            } catch (err) {
-              document.body.innerHTML += '<pre style="color:red;">' + err + '</pre>';
-            }
-          <\/script>
-        </body>
-      </html>
-    `;
+    const checks = [
+      { name: "numpy", pattern: /\bimport\s+numpy\b|\bfrom\s+numpy\s+import\b/ },
+      {
+        name: "pandas",
+        pattern: /\bimport\s+pandas\b|\bfrom\s+pandas\s+import\b/,
+      },
+      {
+        name: "matplotlib",
+        pattern:
+          /\bimport\s+matplotlib\b|\bfrom\s+matplotlib\s+import\b|\bimport\s+matplotlib\.pyplot\b/,
+      },
+    ];
 
-    this.setState({ previewCode: htmlDoc });
+    checks.forEach((c) => {
+      if (c.pattern.test(code)) pkgs.add(c.name);
+    });
+
+    return Array.from(pkgs);
   };
 
   // -----------------------------------------
-  // Run JS + capture console + highlight errors
+  // Run Python via Pyodide
   // -----------------------------------------
-  runCode = () => {
-    const jsCode = this.state.codes.javascript || "";
+  runCode = async () => {
+    const code = this.state.code || "";
 
-    this.setState({ error: "", errorLine: null, consoleOutput: [] });
+    this.setState({
+      error: "",
+      errorLine: null,
+      consoleOutput: [],
+    });
 
-    const captured = [];
-    const originalLog = console.log;
-    const originalErr = console.error;
+    // Clear existing decorations
+    if (this.editorRef && this.monaco && this.decorations.length) {
+      this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
+    }
 
-    console.log = (...args) => {
-      captured.push({ type: "log", message: args.join(" ") });
-      originalLog(...args);
-    };
-
-    console.error = (...args) => {
-      captured.push({ type: "error", message: args.join(" ") });
-      originalErr(...args);
-    };
+    let pyodide;
 
     try {
-      // eslint-disable-next-line no-eval
-      eval(jsCode);
-
-      this.setState({ consoleOutput: captured });
-
-      // Clear decorations
-      if (this.editorRef && this.monaco && this.decorations.length) {
-        this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
-      }
-
-      if (this.state.showSplitView) this.updatePreview();
+      this.setState({ loadingPyodide: true });
+      pyodide = await getPyodide();
+      this.setState({ pyodideReady: true, loadingPyodide: false });
     } catch (err) {
-      const stack = err.stack || "";
-      const match = stack.match(/<anonymous>:(\d+):/);
-      const line = match ? Number(match[1]) : null;
+      this.setState({
+        loadingPyodide: false,
+        error: err.message || "Failed to load Pyodide.",
+      });
+      return;
+    }
+
+    // Hybrid: detect heavy packages only if needed
+    const neededPkgs = this.detectPackages(code).filter(
+      (p) => !loadedPackages.has(p)
+    );
+
+    if (neededPkgs.length > 0) {
+      try {
+        this.setState({ loadingPackages: true });
+        // pyodide.loadPackage can take array of packages
+        await pyodide.loadPackage(neededPkgs);
+        neededPkgs.forEach((p) => loadedPackages.add(p));
+        this.setState({ loadingPackages: false });
+      } catch (err) {
+        this.setState({
+          loadingPackages: false,
+          error:
+            "Failed to load packages: " +
+            neededPkgs.join(", ") +
+            " → " +
+            (err.message || err.toString()),
+        });
+        return;
+      }
+    }
+
+    // Capture stdout / stderr
+    const logs = [];
+    const handleStdout = {
+      batched: (text) => {
+        if (!text) return;
+        logs.push({ type: "log", message: String(text) });
+      },
+    };
+
+    const handleStderr = {
+      batched: (text) => {
+        if (!text) return;
+        logs.push({ type: "error", message: String(text) });
+      },
+    };
+
+    pyodide.setStdout(handleStdout);
+    pyodide.setStderr(handleStderr);
+
+    try {
+      await pyodide.runPythonAsync(code);
 
       this.setState({
-        error: "Runtime Error: " + err.message,
+        consoleOutput: logs.length ? logs : [{ type: "log", message: "" }],
+        error: "",
+        errorLine: null,
+      });
+    } catch (err) {
+      const msg = err.message || err.toString();
+      let line = null;
+
+      // Try to parse "line X" from traceback
+      const match = msg.match(/line (\d+)/);
+      if (match) {
+        const n = Number(match[1]);
+        if (!Number.isNaN(n)) line = n;
+      }
+
+      this.setState({
+        error: msg,
         errorLine: line,
+        consoleOutput: logs,
       });
 
       if (
         line &&
         this.editorRef &&
         this.monaco &&
-        this.state.activeTab === "javascript"
+        Number.isInteger(line)
       ) {
         this.decorations = this.editorRef.deltaDecorations([], [
           {
@@ -280,81 +349,8 @@ export default class EditableCodeBlock extends Component {
             options: { isWholeLine: true, className: "bg-red-900/40" },
           },
         ]);
+        this.editorRef.revealLineInCenter(line);
       }
-
-      if (this.state.showSplitView) this.updatePreview();
-    }
-
-    console.log = originalLog;
-    console.error = originalErr;
-  };
-
-  // -----------------------------------------
-  // Lint (syntax check) JS only
-  // -----------------------------------------
-  lintCode = () => {
-    const jsCode = this.state.codes.javascript || "";
-
-    try {
-      // eslint-disable-next-line no-new-func
-      new Function(jsCode);
-      this.setState({ error: "No syntax errors ✔️", errorLine: null });
-
-      if (this.editorRef && this.monaco && this.decorations.length) {
-        this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
-      }
-    } catch (err) {
-      const stack = err.stack || "";
-      const match = stack.match(/<anonymous>:(\d+):/);
-      const line = match ? Number(match[1]) : null;
-
-      this.setState({
-        error: "Syntax Error: " + err.message,
-        errorLine: line,
-      });
-
-      if (line && this.editorRef && this.monaco) {
-        this.decorations = this.editorRef.deltaDecorations([], [
-          {
-            range: new this.monaco.Range(line, 1, line, 1),
-            options: { isWholeLine: true, className: "bg-red-900/40" },
-          },
-        ]);
-      }
-    }
-  };
-
-  // -----------------------------------------
-  // Format JS with Prettier (if available)
-  // -----------------------------------------
-  formatCode = () => {
-    if (this.state.activeTab !== "javascript") {
-      this.setState({ error: "Formatting is only available for JavaScript tab." });
-      return;
-    }
-
-    try {
-      const prettier = window.prettier;
-      const babel = window.prettierPlugins.babel;
-
-      if (!prettier || !babel) {
-        this.setState({
-          error: "Prettier not found. Make sure it's loaded in the page.",
-        });
-        return;
-      }
-
-      const formatted = prettier.format(this.state.codes.javascript, {
-        parser: "babel",
-        plugins: [babel],
-      });
-
-      this.setState((prev) => ({
-        codes: { ...prev.codes, javascript: formatted },
-        error: "",
-      }));
-    } catch (err) {
-      this.setState({ error: "Prettier Error: " + err.message });
     }
   };
 
@@ -363,46 +359,31 @@ export default class EditableCodeBlock extends Component {
   // -----------------------------------------
   resetCode = () => {
     const normalize = (s) => this.normalizeCode(s || "");
-    const initSnippets = this.props.initialSnippets || {};
-
-    const js = normalize(
-      initSnippets.javascript ?? this.props.initialCode ?? ""
-    );
-    const html = normalize(
-      initSnippets.html ??
-        "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
-    );
-    const css = normalize(
-      initSnippets.css ??
-        "/* CSS goes here */\nbody { font-family: system-ui; }"
-    );
+    const base = normalize(this.props.initialCode || "");
 
     this.setState({
-      codes: { javascript: js, html, css },
+      code: base,
       error: "",
       errorLine: null,
       consoleOutput: [],
     });
+
+    if (this.editorRef && this.monaco && this.decorations.length) {
+      this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
+    }
   };
 
   // -----------------------------------------
-  // Download code for active tab
+  // Download code
   // -----------------------------------------
   downloadCode = () => {
-    const { activeTab, codes } = this.state;
-    const code = codes[activeTab] || "";
-
-    let ext = "txt";
-    if (activeTab === "javascript") ext = "js";
-    if (activeTab === "html") ext = "html";
-    if (activeTab === "css") ext = "css";
-
+    const code = this.state.code || "";
     const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
     a.href = url;
-    a.download = `snippet.${ext}`;
+    a.download = "snippet.py";
     a.click();
 
     URL.revokeObjectURL(url);
@@ -422,20 +403,13 @@ export default class EditableCodeBlock extends Component {
       fontSize,
       theme,
       showConsole,
-      showSplitView,
-      previewCode,
-      activeTab,
-      codes,
       showFontMenu,
       showThemeMenu,
+      code,
+      pyodideReady,
+      loadingPyodide,
+      loadingPackages,
     } = this.state;
-
-    const editorLanguage =
-      activeTab === "html"
-        ? "html"
-        : activeTab === "css"
-        ? "css"
-        : "javascript";
 
     return (
       <div
@@ -445,35 +419,27 @@ export default class EditableCodeBlock extends Component {
       >
         {/* HEADER / TOOLBAR */}
         <div className="flex flex-wrap items-center justify-between bg-slate-800 px-3 py-2 text-xs">
-          <span className="text-slate-400 font-semibold">Editable Code</span>
+          <span className="text-slate-400 font-semibold flex items-center gap-1">
+            <Braces size={14} />
+            Editable Python Code
+            {loadingPyodide && (
+              <span className="text-[10px] ml-2 text-amber-300">
+                (Loading Pyodide…)
+              </span>
+            )}
+            {loadingPackages && (
+              <span className="text-[10px] ml-2 text-emerald-300">
+                (Loading packages…)
+              </span>
+            )}
+            {pyodideReady && !loadingPyodide && (
+              <span className="text-[10px] ml-2 text-emerald-400">
+                (Python ready)
+              </span>
+            )}
+          </span>
 
           <div className="flex flex-wrap gap-2 items-center">
-            {/* TABS */}
-            <div className="flex rounded overflow-hidden border border-slate-700">
-              {["javascript", "html", "css"].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() =>
-                    this.setState({
-                      activeTab: tab,
-                      error: "",
-                      errorLine: null,
-                    })
-                  }
-                  className={`px-2 py-1 flex items-center gap-1 ${
-                    activeTab === tab
-                      ? "bg-sky-600 text-white"
-                      : "bg-slate-900 text-slate-300"
-                  }`}
-                >
-                  {tab === "javascript" && <Braces size={14} />}
-                  {tab === "html" && <FileCode size={14} />}
-                  {tab === "css" && <FileType size={14} />}
-                  {tab.toUpperCase()}
-                </button>
-              ))}
-            </div>
-
             {/* Lines */}
             <button
               onClick={() =>
@@ -494,7 +460,7 @@ export default class EditableCodeBlock extends Component {
               <Play size={14} /> Auto
             </button>
 
-            {/* FONT MENU (VSCode style) */}
+            {/* FONT MENU */}
             <div className="relative">
               <button
                 onClick={() =>
@@ -529,7 +495,7 @@ export default class EditableCodeBlock extends Component {
               )}
             </div>
 
-            {/* THEME MENU (VSCode style) */}
+            {/* THEME MENU */}
             <div className="relative">
               <button
                 onClick={() =>
@@ -596,22 +562,6 @@ export default class EditableCodeBlock extends Component {
               Full
             </button>
 
-            {/* Format */}
-            <button
-              onClick={this.formatCode}
-              className="px-2 py-1 rounded bg-sky-600 text-white flex items-center gap-1"
-            >
-              <Wand2 size={14} /> Format
-            </button>
-
-            {/* Lint */}
-            <button
-              onClick={this.lintCode}
-              className="px-2 py-1 rounded bg-amber-600 text-white flex items-center gap-1"
-            >
-              <Bug size={14} /> Lint
-            </button>
-
             {/* Run */}
             <button
               onClick={this.runCode}
@@ -623,7 +573,7 @@ export default class EditableCodeBlock extends Component {
             {/* Copy */}
             <button
               onClick={() => {
-                navigator.clipboard.writeText(codes[activeTab] || "");
+                navigator.clipboard.writeText(code || "");
                 alert("Copied!");
               }}
               className="px-2 py-1 rounded bg-slate-600 text-white flex items-center gap-1"
@@ -639,20 +589,6 @@ export default class EditableCodeBlock extends Component {
               <Download size={14} /> Save
             </button>
 
-            {/* Split View */}
-            <button
-              onClick={() =>
-                this.setState(
-                  (prev) => ({ showSplitView: !prev.showSplitView }),
-                  () => this.state.showSplitView && this.updatePreview()
-                )
-              }
-              className="px-2 py-1 rounded bg-cyan-600 text-white flex items-center gap-1"
-            >
-              <Columns size={14} />
-              {showSplitView ? "Hide" : "Split"}
-            </button>
-
             {/* Console */}
             <button
               onClick={() =>
@@ -666,41 +602,24 @@ export default class EditableCodeBlock extends Component {
           </div>
         </div>
 
-        {/* MAIN AREA */}
-        <div className={`flex w-full ${showSplitView ? "gap-2" : ""}`}>
-          <div className={showSplitView ? "w-1/2" : "w-full"}>
-            <Editor
-              language={editorLanguage}
-              value={codes[activeTab] ?? ""}
-              onChange={(value = "") =>
-                this.setState((prev) => ({
-                  codes: { ...prev.codes, [activeTab]: String(value) },
-                }))
-              }
-              height={editorHeight}
-              theme={theme}
-              onMount={this.handleEditorDidMount}
-              options={{
-                fontSize,
-                minimap: { enabled: false },
-                automaticLayout: true,
-                scrollBeyondLastLine: false,
-                lineNumbers: showLineNumbers ? "on" : "off",
-                padding: { top: 20, bottom: 20 },
-              }}
-            />
-          </div>
-
-          {showSplitView && (
-            <div className="w-1/2 border-l border-slate-700 bg-black">
-              <iframe
-                title="preview"
-                srcDoc={previewCode}
-                sandbox="allow-scripts"
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          )}
+        {/* MAIN EDITOR */}
+        <div className="w-full">
+          <Editor
+            language="python"
+            value={code}
+            onChange={(value = "") => this.setState({ code: String(value) })}
+            height={editorHeight}
+            theme={theme}
+            onMount={this.handleEditorDidMount}
+            options={{
+              fontSize,
+              minimap: { enabled: false },
+              automaticLayout: true,
+              scrollBeyondLastLine: false,
+              lineNumbers: showLineNumbers ? "on" : "off",
+              padding: { top: 20, bottom: 20 },
+            }}
+          />
         </div>
 
         {/* ERROR PANEL */}
@@ -736,8 +655,6 @@ export default class EditableCodeBlock extends Component {
   }
 }
 
-EditableCodeBlock.defaultProps = {
-  initialCode: "",
-  initialSnippets: null, // { javascript, html, css }
-  defaultTab: "javascript",
+EditablePythonCodeBlock.defaultProps = {
+  initialCode: `print("Hello from Python in Coder & AccoTax!")`,
 };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
+import CodeBlock from "../../../../../common/CodeBlock";
 
 export default class Topic5 extends Component {
   render() {
@@ -50,12 +51,12 @@ export default class Topic5 extends Component {
           {/* Syntax */}
           <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
             <p className="font-semibold text-sky-200 mb-1">Syntax</p>
-            <EditableCodeBlock
-              initialCode={`const result = array.map((value, index, array) => {
+            <CodeBlock
+  code={`const result = array.map((value, index, array) => {
   return /* transformed value */;
 });`}
-              language="javascript"
-            />
+  language="javascript"
+/>
           </div>
 
           {/* Examples */}

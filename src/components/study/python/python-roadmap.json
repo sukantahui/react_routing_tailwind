@@ -1,0 +1,580 @@
+{
+  "trackId": "python-basic-to-pro",
+  "trackTitle": "Python from Basic to Pro",
+  "description": "A complete Python learning roadmap from absolute beginner to pro level, designed for classroom learners, self-paced students, and real-world developers. Includes hands-on examples, exercises, projects, assessments, and mastery-based progression.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Python Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-04"
+  },
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 – Python Core Fundamentals (Beginner)",
+      "level": "Beginner",
+      "summary": "Start with the very basics of Python—syntax, variables, types, operations and simple problem solving. Perfect for absolute beginners.",
+      "modules": [
+        {
+          "moduleId": "py-intro",
+          "slug": "getting-started-with-python",
+          "title": "Getting Started with Python",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["python-intro", "setup", "first-program"],
+          "topics": [
+            "What is Python and where it is used",
+            "Features of Python – interpreted, high-level, portable",
+            "Python installation (Windows, macOS, Linux)",
+            "Using IDLE, VS Code, PyCharm",
+            "Running Python files vs interactive shell",
+            "print() function and first program",
+            "Basic debugging through print statements"
+          ],
+          "learningOutcomes": [
+            "Explain what Python is and where it is used",
+            "Install Python and choose a code editor",
+            "Run simple Python programs"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Start your Python journey and run your very first scripts.",
+          "miniProjects": [
+            "Mini Project 1: Display Name, Age and Address using print()"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 70
+          },
+          "useCases": [
+            "Running quick tests",
+            "Learning programming basics easily"
+          ],
+          "careerSkills": [
+            "Understanding basic programming workflow",
+            "Using editors and terminals effectively"
+          ],
+          "commonMistakes": [
+            "Not saving files before running",
+            "Mixing Python 2 and Python 3 syntax"
+          ],
+          "references": [
+            "Docs.Python.org – Tutorial",
+            "W3Schools Python – Introduction"
+          ],
+          "teachingTips": [
+            "Demonstrate difference between interactive shell & script file.",
+            "Show how print helps beginners trace logic."
+          ],
+          "preReading": ["Basic idea of programming"],
+          "previousModule": null,
+          "nextModule": "python-syntax",
+          "badge": "Python Beginner Badge"
+        },
+
+        {
+          "moduleId": "python-syntax",
+          "slug": "python-syntax-and-basics",
+          "title": "Python Syntax, Variables & Data Types",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["syntax", "variables", "data-types"],
+          "topics": [
+            "Python indentation rules",
+            "Comments (# single-line)",
+            "Variables and naming conventions",
+            "Keywords and identifiers",
+            "Core data types: int, float, str, bool",
+            "Type casting: int(), float(), str(), bool()",
+            "Input using input()",
+            "Basic formatting: sep, end"
+          ],
+          "learningOutcomes": [
+            "Write clean Python code with proper indentation",
+            "Use variables and core data types",
+            "Take user input and format simple output"
+          ],
+          "prerequisites": ["py-intro"],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Master variables, types and indentation—Python’s core building blocks.",
+          "miniProjects": [
+            "Mini Project 1: Temperature Converter (Celsius → Fahrenheit)"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": ["Collecting user data", "Simple calculators"],
+          "careerSkills": [
+            "Clean coding style",
+            "Understanding program structure"
+          ],
+          "commonMistakes": [
+            "Wrong indentation",
+            "Forgetting to convert input() values"
+          ],
+          "references": [
+            "Python Docs – Lexical Structure",
+            "Real Python – Variables & data types"
+          ],
+          "teachingTips": [
+            "Use indentation visualization tools.",
+            "Show real cases where input() leads to string bugs."
+          ],
+          "preReading": ["Getting Started with Python"],
+          "previousModule": "py-intro",
+          "nextModule": "operators",
+          "badge": "Syntax Master Badge"
+        },
+
+        {
+          "moduleId": "operators",
+          "slug": "operators-and-expressions",
+          "title": "Operators, Expressions & Basic Logic",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["operators", "logic", "expressions"],
+          "topics": [
+            "Arithmetic operators",
+            "Assignment and compound assignment",
+            "Comparison operators",
+            "Logical operators (and, or, not)",
+            "String concatenation & f-strings",
+            "Operator precedence",
+            "Evaluating expressions"
+          ],
+          "learningOutcomes": [
+            "Use operators for calculations and comparisons",
+            "Build logical conditions",
+            "Use f-strings for cleaner output"
+          ],
+          "prerequisites": ["python-syntax"],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Learn to build conditions and expressions with Python operators.",
+          "miniProjects": [
+            "Mini Project: Basic Salary Calculator with Allowances & Deductions"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": ["Grade calculator", "Bill calculations"],
+          "careerSkills": ["Logical thinking", "Error-free calculations"],
+          "commonMistakes": [
+            "Misusing == and =",
+            "Incorrect f-string usage"
+          ],
+          "references": [
+            "Python Docs – Expressions",
+            "Real Python – Operators"
+          ],
+          "teachingTips": [
+            "Use truth tables.",
+            "Show precedence errors with real examples."
+          ],
+          "preReading": ["Python Syntax module"],
+          "previousModule": "python-syntax",
+          "nextModule": "control-flow",
+          "badge": "Logic Starter Badge"
+        },
+
+        {
+          "moduleId": "control-flow",
+          "slug": "control-flow-conditions",
+          "title": "Control Flow & Decision Making",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["if-else", "conditions"],
+          "topics": [
+            "if, elif, else",
+            "Nested conditions",
+            "Multiple conditions using logical operators",
+            "Building real-world scenarios: login check, grading system"
+          ],
+          "learningOutcomes": [
+            "Write conditional code",
+            "Use if-elif-else effectively",
+            "Build text-based decision programs"
+          ],
+          "prerequisites": ["operators"],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 4,
+          "summary": "Make your Python programs intelligent with decisions.",
+          "miniProjects": [
+            "Mini Project: Student Result & Division Calculator"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": ["Eligibility checks", "Menu-driven programs"],
+          "careerSkills": ["Decision-making logic"],
+          "commonMistakes": [
+            "Wrong indentation in nested if",
+            "Overusing nested branches"
+          ],
+          "references": ["Python Docs – if statements"],
+          "teachingTips": [
+            "Use flowcharts.",
+            "Let students convert real-life scenarios to code."
+          ],
+          "preReading": ["Operators & Expressions"],
+          "previousModule": "operators",
+          "nextModule": "loops",
+          "badge": "Decision Maker Badge"
+        },
+
+        {
+          "moduleId": "loops",
+          "slug": "loops-and-iteration",
+          "title": "Loops & Basic Iteration",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": ["for", "while", "iteration"],
+          "topics": [
+            "while loop",
+            "for loop with range()",
+            "Loop control: break, continue, pass",
+            "Nested loops",
+            "Pattern printing",
+            "Simple menu-driven programs"
+          ],
+          "learningOutcomes": [
+            "Use for and while loops correctly",
+            "Control loop execution flow",
+            "Solve numeric and pattern-based problems"
+          ],
+          "prerequisites": ["control-flow"],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Repeat tasks efficiently with Python loops.",
+          "miniProjects": [
+            "Mini Project: ATM Menu Program"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": ["Processing lists", "Automating repeated tasks"],
+          "careerSkills": ["Algorithmic logic"],
+          "commonMistakes": [
+            "Infinite loops",
+            "Wrong range() usage"
+          ],
+          "references": [
+            "Python Docs – for, while",
+            "Real Python – Loops"
+          ],
+          "teachingTips": ["Use step-by-step dry runs."],
+          "preReading": ["Control Flow module"],
+          "previousModule": "control-flow",
+          "nextModule": null,
+          "badge": "Loop Wizard Badge"
+        }
+      ]
+    },
+
+
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 – Practical Python for Real-World Development (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Move from basics to real-world Python development including lists, tuples, dictionaries, functions, modules & file handling.",
+      "modules": [
+        {
+          "moduleId": "functions-core",
+          "slug": "functions-basics",
+          "title": "Functions & Modular Logic",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["functions", "parameters", "return"],
+          "topics": [
+            "Function definition & calling",
+            "Parameters, arguments & default values",
+            "Variable-length arguments: *args, **kwargs",
+            "Return values",
+            "Lambda functions (intro)",
+            "Scope: local & global"
+          ],
+          "learningOutcomes": [
+            "Define reusable functions",
+            "Use *args and **kwargs",
+            "Organize logic into modules"
+          ],
+          "prerequisites": ["loops"],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Create reusable building blocks using functions.",
+          "miniProjects": [
+            "Mini Project: Calculator with Functions"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Project",
+            "passScore": 75
+          },
+          "nextModule": "lists"
+        },
+
+        {
+          "moduleId": "lists",
+          "slug": "lists-and-methods",
+          "title": "Lists & Essential List Operations",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "topics": [
+            "Creating lists",
+            "Indexing & slicing",
+            "Mutating operations: append, insert, remove, pop",
+            "Sorting & reversing",
+            "List comprehension",
+            "Nested lists"
+          ],
+          "learningOutcomes": [
+            "Store and process list collections",
+            "Use comprehensions effectively"
+          ],
+          "prerequisites": ["functions-core"],
+          "difficultyIndex": 6
+        },
+
+        {
+          "moduleId": "tuples-dicts-sets",
+          "slug": "tuples-dictionaries-sets",
+          "title": "Tuples, Dictionaries & Sets",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "topics": [
+            "Tuples and immutability",
+            "Dictionaries: keys, values, items",
+            "Adding & removing key-value pairs",
+            "Iterating dictionaries",
+            "Sets: unique collections, set operations"
+          ],
+          "learningOutcomes": [
+            "Work confidently with tuples, dictionaries & sets"
+          ],
+          "prerequisites": ["lists"],
+          "difficultyIndex": 6
+        },
+
+        {
+          "moduleId": "strings",
+          "slug": "string-processing",
+          "title": "String Processing & Pattern Handling",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "topics": [
+            "String methods (upper, lower, split, replace)",
+            "Slicing",
+            "Joining lists",
+            "Escape sequences",
+            "Basic regex (concept)"
+          ],
+          "difficultyIndex": 6
+        },
+
+        {
+          "moduleId": "file-handling",
+          "title": "File Handling",
+          "slug": "file-handling",
+          "estimatedHours": 5,
+          "topics": [
+            "Opening files",
+            "Reading & writing files",
+            "with open() as file",
+            "Working with text & CSV files"
+          ],
+          "difficultyIndex": 7
+        },
+
+        {
+          "moduleId": "modules-packages",
+          "slug": "modules-packages",
+          "title": "Modules, Packages & Python Standard Library",
+          "estimatedHours": 5,
+          "topics": [
+            "import & from-import",
+            "Built-in modules: math, random, datetime",
+            "Creating user-defined modules",
+            "Concept of packages",
+            "Working with Virtual Environment (concept)"
+          ],
+          "difficultyIndex": 7
+        }
+      ]
+    },
+
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 – Advanced Python Programming",
+      "level": "Advanced",
+      "summary": "Deepen your Python mastery with OOP, exceptions, advanced functions, decorators, generators, JSON, and more.",
+      "modules": [
+        {
+          "moduleId": "oop-basics",
+          "slug": "object-oriented-python",
+          "title": "Object-Oriented Programming in Python",
+          "estimatedHours": 6,
+          "topics": [
+            "Classes & objects",
+            "Constructors (__init__)",
+            "Methods & attributes",
+            "Class variables vs instance variables",
+            "Inheritance & method overriding",
+            "super() keyword",
+            "Polymorphism & abstraction"
+          ],
+          "difficultyIndex": 8
+        },
+
+        {
+          "moduleId": "exceptions",
+          "slug": "error-handling",
+          "title": "Exception Handling & Debugging",
+          "estimatedHours": 5,
+          "topics": [
+            "try, except, else, finally",
+            "Raising custom exceptions",
+            "Debugging using breakpoints",
+            "Common Python errors"
+          ],
+          "difficultyIndex": 8
+        },
+
+        {
+          "moduleId": "decorators-gen",
+          "slug": "decorators-generators",
+          "title": "Decorators, Generators & Iterators",
+          "topics": [
+            "Advanced functions",
+            "Closures",
+            "Decorators (function & syntax)",
+            "Yield & generators",
+            "Custom iterators"
+          ],
+          "difficultyIndex": 9
+        },
+
+        {
+          "moduleId": "json-handling",
+          "slug": "working-with-json",
+          "title": "Working with JSON & External Data",
+          "topics": [
+            "json.dumps() & json.loads()",
+            "Reading JSON files",
+            "Building small JSON-based apps"
+          ],
+          "difficultyIndex": 8
+        },
+
+        {
+          "moduleId": "comprehensions-advanced",
+          "slug": "advance-comprehensions",
+          "title": "Advanced Comprehensions & Lambda Expressions",
+          "topics": [
+            "List, dict & set comprehensions",
+            "Conditional comprehensions",
+            "Lambda, map, filter & reduce"
+          ],
+          "difficultyIndex": 8
+        }
+      ]
+    },
+
+    {
+      "segmentId": "pro",
+      "title": "Segment 4 – Python Pro Level & Ecosystem Mastery",
+      "level": "Pro",
+      "summary": "Master-level Python concepts for production applications including file operations, optimization, modules, testing and best practices.",
+      "modules": [
+        {
+          "moduleId": "advanced-file-os",
+          "slug": "filesystem-os",
+          "title": "Advanced File Operations & OS Module",
+          "topics": [
+            "os & sys module",
+            "Directory traversal",
+            "Creating backup scripts",
+            "Automating repetitive tasks"
+          ],
+          "difficultyIndex": 9
+        },
+
+        {
+          "moduleId": "performance-optimization",
+          "slug": "performance-optimization",
+          "title": "Performance, Optimization & Big-O for Python",
+          "topics": [
+            "Measuring performance",
+            "Optimizing loops",
+            "Efficient data structures",
+            "Big-O thinking"
+          ],
+          "difficultyIndex": 10
+        },
+
+        {
+          "moduleId": "testing",
+          "slug": "python-testing",
+          "title": "Testing Basics in Python (Unit Testing Concepts)",
+          "topics": [
+            "Testing importance",
+            "Simple test cases",
+            "Testing functions",
+            "Mocking (conceptual)"
+          ],
+          "difficultyIndex": 10
+        },
+
+        {
+          "moduleId": "final-projects",
+          "slug": "capstone-projects",
+          "title": "Capstone Projects & Interview Preparation",
+          "topics": [
+            "Building complete Python projects",
+            "Preparing for interviews",
+            "Portfolio building",
+            "Common Python interview questions"
+          ],
+          "difficultyIndex": 11
+        }
+      ]
+    }
+  ]
+}

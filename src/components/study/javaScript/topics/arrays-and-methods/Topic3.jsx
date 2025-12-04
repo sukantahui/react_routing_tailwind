@@ -4,240 +4,187 @@ import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 export default class Topic3 extends Component {
   render() {
     return (
-      <div className="space-y-6">
+      <div className="space-y-10">
 
-        {/* Title */}
-        <h2 className="text-xl font-semibold text-sky-300">
-          Understanding the <code>this</code> Keyword (Beginner-Friendly)
+        {/* TITLE */}
+        <h2 className="text-2xl font-semibold text-sky-300">
+          Searching in Arrays — indexOf(), includes(), find(), findIndex()
         </h2>
 
-        {/* Intro */}
+        {/* INTRO */}
         <p className="text-slate-300 text-sm leading-relaxed">
-          The <code>this</code> keyword is one of the most important concepts in JavaScript.
-          It refers to the <strong>current object that is calling the function</strong>.
-          Unlike many languages, the value of <code>this</code> in JavaScript depends
-          on <strong>how the function is called</strong>, not where it is written.
-        </p>
-
-        <p className="text-slate-300 text-sm leading-relaxed">
-          Before learning constructors and classes, you MUST understand how
-          <code>this</code> behaves inside objects, functions, and arrow functions.
+          JavaScript provides multiple search methods to locate values inside arrays.
+          Some return positions, some return actual values, and some return <i>boolean</i>.
+          These are extremely useful when managing student lists, course lists, and
+          batch records at <strong>Coder & AccoTax, Barrackpore</strong>.
         </p>
 
         <hr className="border-slate-700" />
 
-        {/* WHAT THIS MEANS */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          What does <code>this</code> refer to?
-        </h3>
+        {/* =========================
+            1. indexOf()
+        ========================== */}
+        <section className="space-y-4">
+          <h3 className="text-xl font-semibold text-sky-300">1. indexOf()</h3>
 
-        <div className="bg-slate-800 border border-slate-700 p-3 rounded text-xs text-sky-300 leading-relaxed">
-          <strong>Rule:</strong>  
-          <br />
-          <code>this</code> = <strong>the object that calls the function</strong>.
-          <br /><br />
-          In Arrow Functions → <code>this</code> is NOT bound.  
-          It takes value from the surrounding scope (lexical this).
-        </div>
+          <p className="text-slate-300 text-sm">
+            <code className="text-emerald-300">indexOf()</code> searches for a value
+            and returns the <strong>first index</strong> where it is found.
+          </p>
 
-        <hr className="border-slate-700" />
+          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
+            <p className="font-semibold text-sky-200 mb-1">Syntax</p>
+            <pre className="whitespace-pre-wrap text-slate-300">
+{`array.indexOf(searchValue, startIndex = 0)
 
-        {/* Basic Object Example */}
-        <h3 className="text-lg font-semibold text-slate-200">Basic Object Example</h3>
+// return type: number
+// returns -1 if value not found`}
+            </pre>
+          </div>
 
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const student = {
-  name: "Kaustav",
-  course: "JavaScript",
+          <EditableCodeBlock
+            initialCode={`const courses = ["JavaScript", "Python", "C", "JavaScript"];
 
-  greet() {
-    console.log(\`Hello, I am \${this.name} from the \${this.course} course.\`);
-  }
-};
+console.log(courses.indexOf("Python"));   // 1
+console.log(courses.indexOf("JavaScript")); // 0
+console.log(courses.indexOf("React"));   // -1`}
+            language="javascript"
+          />
 
-student.greet();`}
-        />
-
-        <p className="text-slate-400 text-sm">
-          Here, <code>this.name</code> refers to the <strong>student object</strong> because
-          <code>student</code> called the function.
-        </p>
+          <p className="text-slate-400 text-sm">
+            Use <code>indexOf()</code> when you simply want the item’s position.
+          </p>
+        </section>
 
         <hr className="border-slate-700" />
 
-        {/* Teacher Example */}
-        <h3 className="text-lg font-semibold text-slate-200">Teacher Example</h3>
+        {/* =========================
+            2. includes()
+        ========================== */}
+        <section className="space-y-4">
+          <h3 className="text-xl font-semibold text-sky-300">2. includes()</h3>
 
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const teacher = {
-  name: "Sukanta Hui",
-  subject: "JavaScript",
+          <p className="text-slate-300 text-sm">
+            <code className="text-emerald-300">includes()</code> checks whether a
+            value is present in an array.  
+            It returns a <strong>boolean</strong>.
+          </p>
 
-  introduce() {
-    console.log(\`I am \${this.name}, and I teach \${this.subject}.\`);
-  }
-};
+          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
+            <p className="font-semibold text-sky-200 mb-1">Syntax</p>
+            <pre className="whitespace-pre-wrap">
+{`array.includes(searchValue, startIndex = 0)
 
-teacher.introduce();`}
-        />
+// return type: boolean`}
+            </pre>
+          </div>
 
-        <p className="text-slate-300 text-sm leading-relaxed">
-          When a method is called using <code>object.method()</code>, 
-          <code>this</code> always refers to the object before the dot.
-        </p>
+          <EditableCodeBlock
+            initialCode={`const skills = ["HTML", "CSS", "JavaScript"];
 
-        <hr className="border-slate-700" />
+console.log(skills.includes("CSS"));   // true
+console.log(skills.includes("Python")); // false`}
+            language="javascript"
+          />
 
-        {/* Losing THIS */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          Losing <code>this</code> (Important!)
-        </h3>
-
-        <p className="text-slate-300 text-sm leading-relaxed">
-          If you store a method in a variable and then call it,
-          <code>this</code> gets lost.
-        </p>
-
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const profile = {
-  name: "Ritaja",
-  course: "JS Beginner",
-
-  show() {
-    console.log(this.name);
-  }
-};
-
-profile.show();      // Works: "Ritaja"
-
-const ref = profile.show;
-ref();                // ❌ this becomes undefined`}
-        />
-
-        <p className="text-slate-400 text-sm">
-          The function is now called <strong>alone</strong>, without an object → so
-          <code>this</code> becomes <strong>undefined</strong> in strict mode.
-        </p>
+          <p className="text-slate-400 text-sm">
+            Use this for quick yes/no checks, like verifying whether
+            a student has chosen a particular course.
+          </p>
+        </section>
 
         <hr className="border-slate-700" />
 
-        {/* FIXING LOST THIS */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          Fixing Lost <code>this</code> using bind()
-        </h3>
+        {/* =========================
+            3. find()
+        ========================== */}
+        <section className="space-y-4">
+          <h3 className="text-xl font-semibold text-sky-300">3. find()</h3>
 
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const user = {
-  name: "Devangshu",
+          <p className="text-slate-300 text-sm">
+            <code className="text-emerald-300">find()</code> returns the
+            <strong> first element </strong> that matches a condition.
+          </p>
 
-  show() {
-    console.log(this.name);
-  }
-};
+          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
+            <p className="font-semibold text-sky-200 mb-1">Syntax</p>
+            <pre className="whitespace-pre-wrap">
+{`array.find(callback(element, index, array))
 
-const f = user.show.bind(user);
-f();  // ✔ Works: "Devangshu"`}
-        />
+// return type: element | undefined`}
+            </pre>
+          </div>
 
-        <p className="text-slate-400 text-sm">
-          <code>bind()</code> permanently attaches <code>this</code> to a function.
-        </p>
+          <EditableCodeBlock
+            initialCode={`const students = [
+  { name: "Ritaja", marks: 88 },
+  { name: "Mounita", marks: 92 },
+  { name: "Swadeep", marks: 35 },
+];
 
-        <hr className="border-slate-700" />
+const topper = students.find(s => s.marks > 90);
+console.log(topper);`}
+            language="javascript"
+          />
 
-        {/* Arrow Functions */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          Arrow Functions Do NOT Bind <code>this</code>
-        </h3>
-
-        <p className="text-slate-300 text-sm leading-relaxed">
-          Arrow functions inherit <code>this</code> from their surrounding scope.
-          They do NOT create their own <code>this</code>.
-        </p>
-
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const obj = {
-  name: "Pranjali",
-
-  show: () => {
-    console.log(this.name); 
-    // ❌ 'this' does NOT refer to obj
-    // It refers to the global scope
-  }
-};
-
-obj.show();`}
-        />
-
-        <p className="text-slate-400 text-sm">
-          Use arrow functions for callbacks, NOT for object methods.
-        </p>
+          <p className="text-slate-400 text-sm">
+            Perfect when you need the <b>actual object/data</b>, not just its index.
+          </p>
+        </section>
 
         <hr className="border-slate-700" />
 
-        {/* Correct Method */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          Correct Use with Regular Method
-        </h3>
+        {/* =========================
+            4. findIndex()
+        ========================== */}
+        <section className="space-y-4">
+          <h3 className="text-xl font-semibold text-sky-300">4. findIndex()</h3>
 
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const studentDetails = {
-  name: "Susmita",
-  marks: 93,
+          <p className="text-slate-300 text-sm">
+            <code className="text-emerald-300">findIndex()</code> works like
+            <code> find()</code>, but returns the <strong>index</strong> instead.
+          </p>
 
-  display() {
-    console.log(\`\${this.name}'s marks: \${this.marks}\`);
-  }
-};
+          <div className="bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs text-slate-300">
+            <p className="font-semibold text-sky-200 mb-1">Syntax</p>
+            <pre className="whitespace-pre-wrap">
+{`array.findIndex(callback(element, index, array))
 
-studentDetails.display();`}
-        />
+// return type: number
+// returns -1 if no match`}
+            </pre>
+          </div>
 
-        <hr className="border-slate-700" />
+          <EditableCodeBlock
+            initialCode={`const students = [
+  { name: "Susmita", marks: 70 },
+  { name: "Kaustav", marks: 55 },
+  { name: "Pranjali", marks: 95 },
+];
 
-        {/* Coder & AccoTax Example */}
-        <h3 className="text-lg font-semibold text-slate-200">
-          Realistic Classroom Example — Coder & AccoTax
-        </h3>
+const index = students.findIndex(s => s.marks < 60);
 
-        <EditableCodeBlock
-          language="javascript"
-          initialCode={`const batch = {
-  batchName: "JS Intermediate",
+console.log(index); // 1 (Kaustav)`}
+            language="javascript"
+          />
 
-  teacher: {
-    name: "Mounita Bhandari",
-
-    call() {
-      console.log(\`Class Teacher: \${this.name}\`);
-    }
-  }
-};
-
-batch.teacher.call(); // ✔ this refers to teacher object`}
-        />
-
-        <p className="text-slate-400 text-sm">
-          Nested objects have their own <code>this</code>—it depends on which object
-          calls the method.
-        </p>
+          <p className="text-slate-400 text-sm">
+            Great for modifying, deleting, or updating a found entry.
+          </p>
+        </section>
 
         <hr className="border-slate-700" />
 
-        {/* Summary */}
-        <p className="text-slate-400 text-sm leading-relaxed">
-          The value of <code>this</code> depends entirely on the way the function is called.
-          Regular methods bind <code>this</code> to the calling object, while arrow functions
-          do not bind <code>this</code> at all.  
-          Understanding this concept is essential before learning constructor functions
-          and ES6 classes.
-        </p>
+        {/* SUMMARY */}
+        <section className="bg-slate-900/40 border border-slate-700 rounded-xl p-4 text-slate-300 text-sm space-y-2">
+          <p className="font-semibold text-sky-200">Summary Table</p>
+          <ul className="list-disc pl-6 space-y-1">
+            <li><code>indexOf()</code> → returns position (number)</li>
+            <li><code>includes()</code> → returns true/false</li>
+            <li><code>find()</code> → returns first matched element</li>
+            <li><code>findIndex()</code> → returns index of first match</li>
+          </ul>
+        </section>
 
       </div>
     );

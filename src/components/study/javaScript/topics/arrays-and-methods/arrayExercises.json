@@ -29,7 +29,7 @@
       "topic": "Topic0",
       "type": "output",
       "question": "What is the output of this code?",
-      "code": "const arr = [\"JS\", \"Python\", \"C\"];\n console.log(arr[1]);",
+      "code": "const arr = [\"JS\", \"Python\", \"C\"];\nconsole.log(arr[1]);",
       "answer": "Python",
       "explanation": "Index 1 is the second element in the array: \"Python\"."
     },
@@ -52,7 +52,7 @@
       "topic": "Topic0",
       "type": "output",
       "question": "What is the output?",
-      "code": "const nums = [10, 20, 30, 40]; console.log(nums.length);",
+      "code": "const nums = [10, 20, 30, 40];\nconsole.log(nums.length);",
       "answer": "4",
       "explanation": "There are 4 elements, so length is 4."
     },

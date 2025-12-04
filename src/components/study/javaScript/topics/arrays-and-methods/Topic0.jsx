@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
-
+import { ArrowUpRight } from "lucide-react";
 export default class Topic0 extends Component {
   render() {
     return (
@@ -34,16 +34,25 @@ export default class Topic0 extends Component {
           An array can be created using square brackets <code>[ ]</code>.
           The values inside are separated by commas.
         </p>
-
+        <a
+          href="/play"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sky-400 flex items-center gap-2 font-semibold hover:text-sky-300 transition"
+        >
+          Try your code in Playground
+          <ArrowUpRight size={18} />
+        </a>
         <EditableCodeBlock
           language="javascript"
-          initialCode={`const students = ["Sukanta Hui", "Rahul", "Amit"];
+          initialCode={
+            `const students = ["Sukanta Hui", "Rahul", "Amit"];
 const marks = [85, 90, 95];
 const mixed = ["Coder & AccoTax", 1977, true];
-
 console.log(students);
 console.log(marks);
-console.log(mixed);`}
+console.log(mixed);`
+          }
         />
 
         <p className="text-slate-300 text-sm leading-relaxed">
