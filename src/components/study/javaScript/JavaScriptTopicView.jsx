@@ -234,47 +234,60 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
         <div className="w-full max-w-4xl">
 
           {/* HEADER */}
-          <header className="mb-8 bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-md">
-            <h1 className="text-2xl md:text-3xl font-bold text-sky-300">
-              {topicTitle}
-            </h1>
-            <p className="text-sm text-slate-400 mt-1">Module: {moduleData.title}</p>
+          {/* COMPACT PAGE HEADER */}
+          <header className="mb-6 bg-slate-900/40 border border-slate-800 rounded-xl p-4 shadow">
 
-            {/* Prev / Next */}
-            <div className="flex items-center gap-4 mt-6">
-              {hasPrev ? (
-                <Link
-                  to={`/javascript/topic/${moduleSlug}/${index - 1}`}
-                  className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-sm"
-                >
-                  ← Previous
-                </Link>
-              ) : (
-                <button
-                  disabled
-                  className="px-4 py-2 rounded-lg bg-slate-900 text-slate-600 border border-slate-800 text-sm"
-                >
-                  ← Previous
-                </button>
-              )}
+            {/* Title + Module */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
 
-              {hasNext ? (
-                <Link
-                  to={`/javascript/topic/${moduleSlug}/${index + 1}`}
-                  className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-sm"
-                >
-                  Next →
-                </Link>
-              ) : (
-                <button
-                  disabled
-                  className="px-4 py-2 rounded-lg bg-slate-900 text-slate-600 border border-slate-800 text-sm"
-                >
-                  Next →
-                </button>
-              )}
+              <div>
+                <h1 className="text-xl md:text-2xl font-bold text-sky-300 leading-tight">
+                  {topicTitle}
+                </h1>
+                <p className="text-[12px] text-slate-400">
+                  Module: {moduleData.title}
+                </p>
+              </div>
+
+              {/* Compact Prev / Next */}
+              <div className="flex items-center gap-2">
+
+                {hasPrev ? (
+                  <Link
+                    to={`/javascript/topic/${moduleSlug}/${index - 1}`}
+                    className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs border border-slate-700"
+                  >
+                    ← Prev
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-600 border border-slate-800 text-xs"
+                  >
+                    ← Prev
+                  </button>
+                )}
+
+                {hasNext ? (
+                  <Link
+                    to={`/javascript/topic/${moduleSlug}/${index + 1}`}
+                    className="px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs"
+                  >
+                    Next →
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-600 border border-slate-800 text-xs"
+                  >
+                    Next →
+                  </button>
+                )}
+
+              </div>
             </div>
           </header>
+
 
           {/* TOPIC CONTENT */}
           <section className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-md">
@@ -285,7 +298,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                 <div className="text-slate-300">
                   <p>Topic file missing:</p>
                   <pre className="text-sky-400 mt-2 text-sm">
-{`src/components/study/javaScript/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
+                    {`src/components/study/javaScript/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
                   </pre>
                 </div>
               )}
