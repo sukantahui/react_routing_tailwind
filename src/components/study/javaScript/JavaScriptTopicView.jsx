@@ -225,6 +225,23 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             <span>JavaScript Roadmap</span>
           </Link>
 
+          {/* CNAT Playground */}
+          <a
+            href="/play"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              flex items-center gap-2
+              px-4 py-2 rounded-lg
+              bg-slate-800 hover:bg-slate-700
+              text-slate-200 transition border border-slate-700
+              shadow-sm hover:shadow
+            "
+          >
+            <span className="text-sm">🧪</span>
+            <span>CNAT Playground</span>
+          </a>
+
         </div>
       </aside>
 
