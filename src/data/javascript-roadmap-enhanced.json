@@ -104,7 +104,9 @@
             "Identifiers and naming conventions (camelCase, PascalCase, snake_case)",
             "Primitive data types: number, string, boolean, null, undefined, symbol, bigint (overview)",
             "typeof operator and basic type checking",
-            "Type conversion: implicit vs explicit (Number(), String(), Boolean())"
+            "Type conversion: implicit vs explicit (Number(), String(), Boolean())",
+            "Working with Numbers"
+
           ],
           "learningOutcomes": [
             "Declare and use variables correctly with let and const",
@@ -242,7 +244,11 @@
             "Nested if statements and readability concerns",
             "Conditional (ternary) operator and inline decisions",
             "switch statement: cases, default, break and fall-through",
-            "Common real-world examples: grading system, discounts, login checks"
+            "Common real-world examples: grading system, discounts, login checks",
+            "Practice Set",
+            "Truthy and Falsy Values in JavaScript",
+            "Short-Circuit Evaluation",
+            "Test on this Topic"
           ],
           "learningOutcomes": [
             "Use if-else and switch statements to control program flow",

@@ -1,0 +1,890 @@
+[
+  {
+    "id": 1,
+    "topic": "if-else",
+    "question": "What will be logged? let x = 5; if (x > 3) { console.log('A'); } else { console.log('B'); }",
+    "options": ["A", "B", "Nothing", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "topic": "if-else",
+    "question": "What will be logged? let x = 2; if (x >= 5) { console.log('High'); } else { console.log('Low'); }",
+    "options": ["High", "Low", "Undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 3,
+    "topic": "if-else",
+    "question": "Which keyword is used to specify an alternative block if the if condition is false?",
+    "options": ["alternate", "else", "otherwise", "elseif"],
+    "answerIndex": 1
+  },
+  {
+    "id": 4,
+    "topic": "if-else",
+    "question": "What will be logged? let age = 18; if (age > 18) console.log('Adult'); else console.log('Teen');",
+    "options": ["Adult", "Teen", "18", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 5,
+    "topic": "if-else",
+    "question": "In JavaScript, conditions used in if must ultimately evaluate to:",
+    "options": ["Number", "String", "Boolean", "Object"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 6,
+    "topic": "nested-if",
+    "question": "What will be logged? let score = 85; if (score >= 60) { if (score >= 80) console.log('Excellent'); else console.log('Good'); } else { console.log('Fail'); }",
+    "options": ["Excellent", "Good", "Fail", "Nothing"],
+    "answerIndex": 0
+  },
+  {
+    "id": 7,
+    "topic": "nested-if",
+    "question": "Nested if statements are mainly used when:",
+    "options": [
+      "Conditions are completely unrelated",
+      "One condition depends on another",
+      "You want faster code",
+      "You want to avoid indentation"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 8,
+    "topic": "nested-if",
+    "question": "What is a common drawback of heavily nested if statements?",
+    "options": ["They are faster", "They are easier to debug", "They reduce readability", "They use less memory"],
+    "answerIndex": 2
+  },
+  {
+    "id": 9,
+    "topic": "nested-if",
+    "question": "What will be logged? let isLoggedIn = false; let isAdmin = true; if (isLoggedIn) { if (isAdmin) console.log('Admin'); else console.log('User'); } else { console.log('Guest'); }",
+    "options": ["Admin", "User", "Guest", "Error"],
+    "answerIndex": 2
+  },
+  {
+    "id": 10,
+    "topic": "nested-if",
+    "question": "Choose the best alternative to reduce deep nesting.",
+    "options": ["Use more variables", "Use else if chains or early returns", "Use comments", "Use while loops"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 11,
+    "topic": "else-if",
+    "question": "Else-if chains are best used when:",
+    "options": [
+      "You have many conditions on the same variable",
+      "You want to compare objects",
+      "You want to loop a fixed number of times",
+      "You are handling arrays"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 12,
+    "topic": "else-if",
+    "question": "What will be logged? let marks = 72; if (marks >= 90) console.log('A'); else if (marks >= 70) console.log('B'); else console.log('C');",
+    "options": ["A", "B", "C", "Nothing"],
+    "answerIndex": 1
+  },
+  {
+    "id": 13,
+    "topic": "else-if",
+    "question": "In an if / else if / else chain, how many blocks can actually execute?",
+    "options": ["All blocks", "At most one block", "Exactly two blocks", "None"],
+    "answerIndex": 1
+  },
+  {
+    "id": 14,
+    "topic": "else-if",
+    "question": "What will be logged? let n = 50; if (n > 100) console.log('Big'); else if (n > 75) console.log('Medium'); else console.log('Small');",
+    "options": ["Big", "Medium", "Small", "Error"],
+    "answerIndex": 2
+  },
+  {
+    "id": 15,
+    "topic": "else-if",
+    "question": "Which is true about an else block?",
+    "options": [
+      "It must have a condition",
+      "It runs when all previous if and else if conditions are false",
+      "It always runs",
+      "It can only be used once per program"
+    ],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 16,
+    "topic": "ternary",
+    "question": "Which is the correct ternary syntax?",
+    "options": [
+      "condition ? exprIfTrue : exprIfFalse",
+      "condition : exprIfTrue ? exprIfFalse",
+      "condition ? exprIfTrue ? exprIfFalse",
+      "condition : exprIfTrue : exprIfFalse"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 17,
+    "topic": "ternary",
+    "question": "What will message contain? let age = 20; let message = age >= 18 ? 'Adult' : 'Minor';",
+    "options": ["Adult", "Minor", "20", "Undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 18,
+    "topic": "ternary",
+    "question": "The ternary operator is best used when:",
+    "options": [
+      "You have long complex logic",
+      "You want to assign a value based on a simple condition",
+      "You are writing loops",
+      "You are defining a function"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 19,
+    "topic": "ternary",
+    "question": "What will be logged? let x = 5; console.log(x > 10 ? 'High' : 'Low');",
+    "options": ["High", "Low", "5", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 20,
+    "topic": "ternary",
+    "question": "Which of the following is equivalent to: let result = flag ? 'Yes' : 'No';",
+    "options": [
+      "if (flag) result = 'No'; else result = 'Yes';",
+      "if (flag) result = 'Yes'; else result = 'No';",
+      "result = flag || 'Yes';",
+      "result = flag && 'Yes';"
+    ],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 21,
+    "topic": "switch",
+    "question": "Which keyword is used to define a case inside a switch?",
+    "options": ["caseof", "when", "case", "option"],
+    "answerIndex": 2
+  },
+  {
+    "id": 22,
+    "topic": "switch",
+    "question": "Which keyword is used if no cases in a switch match?",
+    "options": ["else", "default", "fallback", "otherwise"],
+    "answerIndex": 1
+  },
+  {
+    "id": 23,
+    "topic": "switch",
+    "question": "What will be logged? let day = 2; switch (day) { case 1: console.log('Mon'); break; case 2: console.log('Tue'); break; default: console.log('Other'); }",
+    "options": ["Mon", "Tue", "Other", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 24,
+    "topic": "switch",
+    "question": "What happens if you forget break in a switch case?",
+    "options": [
+      "JS throws an error",
+      "Only that case runs",
+      "Execution falls through into the next case",
+      "The default case runs"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 25,
+    "topic": "switch",
+    "question": "When is using switch often better than multiple else if?",
+    "options": [
+      "When comparing many fixed values of the same variable",
+      "When comparing different variables",
+      "When doing mathematical operations",
+      "When writing loops"
+    ],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 26,
+    "topic": "switch",
+    "question": "What will be logged? let fruit = 'banana'; switch (fruit) { case 'apple': case 'banana': console.log('Fruit'); break; default: console.log('Other'); }",
+    "options": ["apple", "banana", "Fruit", "Other"],
+    "answerIndex": 2
+  },
+  {
+    "id": 27,
+    "topic": "switch",
+    "question": "In a switch, how many default blocks can you have?",
+    "options": ["Zero or one", "Exactly two", "Unlimited", "One per case"],
+    "answerIndex": 0
+  },
+  {
+    "id": 28,
+    "topic": "switch",
+    "question": "Which type of comparison does switch use for case labels?",
+    "options": ["Loose (==)", "Strict (===)", "Greater than", "Less than"],
+    "answerIndex": 1
+  },
+  {
+    "id": 29,
+    "topic": "switch",
+    "question": "What will be logged? let x = '1'; switch (x) { case 1: console.log('Number'); break; case '1': console.log('String'); break; default: console.log('Other'); }",
+    "options": ["Number", "String", "Other", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 30,
+    "topic": "switch",
+    "question": "Where is switch most useful?",
+    "options": [
+      "Range checks",
+      "Random numbers",
+      "Mode selection or menu options",
+      "Sorting arrays"
+    ],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 31,
+    "topic": "truthy-falsy",
+    "question": "Which of the following is falsy?",
+    "options": ["'0'", "[]", "0", "{}"],
+    "answerIndex": 2
+  },
+  {
+    "id": 32,
+    "topic": "truthy-falsy",
+    "question": "Which of the following is truthy?",
+    "options": ["0", "''", "null", "'hello'"],
+    "answerIndex": 3
+  },
+  {
+    "id": 33,
+    "topic": "truthy-falsy",
+    "question": "What will be logged? if ('') console.log('A'); else console.log('B');",
+    "options": ["A", "B", "Nothing", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 34,
+    "topic": "truthy-falsy",
+    "question": "What will be logged? if ('0') console.log('A'); else console.log('B');",
+    "options": ["A", "B", "Nothing", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 35,
+    "topic": "truthy-falsy",
+    "question": "Which values are considered falsy?",
+    "options": [
+      "false, 0, '', null, undefined, NaN",
+      "Only false and 0",
+      "false, 1, '', null",
+      "false, [], {}"
+    ],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 36,
+    "topic": "truthy-falsy",
+    "question": "What will Boolean([]) return?",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 37,
+    "topic": "truthy-falsy",
+    "question": "What will Boolean({}) return?",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 38,
+    "topic": "truthy-falsy",
+    "question": "What is the result of !!0?",
+    "options": ["0", "true", "false", "undefined"],
+    "answerIndex": 2
+  },
+  {
+    "id": 39,
+    "topic": "truthy-falsy",
+    "question": "What is the result of !!'hello'?",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 40,
+    "topic": "truthy-falsy",
+    "question": "Which expression checks that value is NOT null and NOT undefined?",
+    "options": [
+      "value",
+      "value != null",
+      "value == null",
+      "!value",
+      "value !== 0"
+    ],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 41,
+    "topic": "logical-and",
+    "question": "What will be logged? console.log(true && 'Hello');",
+    "options": ["true", "Hello", "false", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 42,
+    "topic": "logical-and",
+    "question": "What will be logged? console.log(0 && 'Hello');",
+    "options": ["0", "Hello", "false", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 43,
+    "topic": "logical-and",
+    "question": "The && operator returns:",
+    "options": [
+      "Always true or false",
+      "The first operand only",
+      "The first falsy value or the last value",
+      "The length of the expression"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 44,
+    "topic": "logical-and",
+    "question": "Which is a common use of && ?",
+    "options": [
+      "To loop over arrays",
+      "To conditionally execute an expression",
+      "To sort values",
+      "To convert to string"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 45,
+    "topic": "logical-and",
+    "question": "What will be logged? let isLoggedIn = true; isLoggedIn && console.log('Welcome');",
+    "options": ["Welcome", "true", "false", "Nothing"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 46,
+    "topic": "logical-or",
+    "question": "What will be logged? console.log('Hi' || 'Hello');",
+    "options": ["Hi", "Hello", "true", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 47,
+    "topic": "logical-or",
+    "question": "What will be logged? console.log('' || 'Default');",
+    "options": ["''", "Default", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 48,
+    "topic": "logical-or",
+    "question": "The || operator returns:",
+    "options": [
+      "The first falsy value",
+      "The first truthy value or the last value",
+      "Always a boolean",
+      "Always a string"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 49,
+    "topic": "logical-or",
+    "question": "Which is a common use of || ?",
+    "options": [
+      "Providing default values",
+      "Running loops",
+      "Defining functions",
+      "Comparing objects"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 50,
+    "topic": "logical-or",
+    "question": "What will be logged? let name = ''; let displayName = name || 'Guest'; console.log(displayName);",
+    "options": ["''", "Guest", "undefined", "Error"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 51,
+    "topic": "nullish",
+    "question": "The ?? operator treats which values as nullish?",
+    "options": ["false and 0", "null and undefined", "'' and 0", "NaN and 0"],
+    "answerIndex": 1
+  },
+  {
+    "id": 52,
+    "topic": "nullish",
+    "question": "What will be logged? console.log(null ?? 'Default');",
+    "options": ["null", "Default", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 53,
+    "topic": "nullish",
+    "question": "What will be logged? console.log(0 ?? 10);",
+    "options": ["0", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 54,
+    "topic": "nullish",
+    "question": "Which operator is safer than || when 0 is a valid value?",
+    "options": ["&&", "??", "==", "!"],
+    "answerIndex": 1
+  },
+  {
+    "id": 55,
+    "topic": "nullish",
+    "question": "What will be logged? let message = undefined ?? 'Hello'; console.log(message);",
+    "options": ["undefined", "Hello", "Error", "null"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 56,
+    "topic": "short-circuit",
+    "question": "Short-circuit evaluation means:",
+    "options": [
+      "JS evaluates everything twice",
+      "JS stops evaluating once result is known",
+      "JS throws errors earlier",
+      "JS always returns booleans"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 57,
+    "topic": "short-circuit",
+    "question": "In a && expression, if the first operand is falsy:",
+    "options": [
+      "The second is not evaluated",
+      "The second is always evaluated",
+      "Both are ignored",
+      "An error is thrown"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 58,
+    "topic": "short-circuit",
+    "question": "In a || expression, if the first operand is truthy:",
+    "options": [
+      "The second is not evaluated",
+      "The second is always evaluated",
+      "Both are ignored",
+      "Result is always false"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 59,
+    "topic": "short-circuit",
+    "question": "What will be logged? false && console.log('Run');",
+    "options": ["Run", "false", "undefined", "Nothing"],
+    "answerIndex": 3
+  },
+  {
+    "id": 60,
+    "topic": "short-circuit",
+    "question": "What will be logged? true || console.log('Run');",
+    "options": ["true", "Run", "undefined", "Nothing"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 61,
+    "topic": "real-world",
+    "question": "Which condition checks if a user is both logged in AND an admin?",
+    "options": [
+      "if (isLoggedIn || isAdmin)",
+      "if (isLoggedIn && isAdmin)",
+      "if (!isLoggedIn && isAdmin)",
+      "if (isLoggedIn && !isAdmin)"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 62,
+    "topic": "real-world",
+    "question": "Which condition is best for free shipping if amount >= 500?",
+    "options": [
+      "if (amount > 500)",
+      "if (amount >= 500)",
+      "if (amount == 500)",
+      "if (amount != 500)"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 63,
+    "topic": "real-world",
+    "question": "Which condition checks for a non-empty string name?",
+    "options": [
+      "if (name)",
+      "if (name === '')",
+      "if (!name)",
+      "if (name == 0)"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 64,
+    "topic": "real-world",
+    "question": "Which is the safest way to check that config is not null or undefined?",
+    "options": [
+      "if (config)",
+      "if (!!config)",
+      "if (config != null)",
+      "if (config !== 0)"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 65,
+    "topic": "real-world",
+    "question": "Which operator is best for providing default values only when a value is missing (null or undefined)?",
+    "options": ["||", "&&", "??", "!"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 66,
+    "topic": "comparison",
+    "question": "Which operator is best when you want no type coercion in comparison?",
+    "options": ["==", "===", "!=", "<="],
+    "answerIndex": 1
+  },
+  {
+    "id": 67,
+    "topic": "comparison",
+    "question": "What will be logged? console.log(5 == '5');",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 68,
+    "topic": "comparison",
+    "question": "What will be logged? console.log(5 === '5');",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 69,
+    "topic": "comparison",
+    "question": "Which operator checks both value and type?",
+    "options": ["==", "===", "!=", "||"],
+    "answerIndex": 1
+  },
+  {
+    "id": 70,
+    "topic": "comparison",
+    "question": "Which is the recommended equality operator in most cases?",
+    "options": ["==", "===", "!=", "="],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 71,
+    "topic": "output",
+    "question": "What will be logged? let x = 10; if (x > 10) console.log('>10'); else if (x === 10) console.log('10'); else console.log('<10');",
+    "options": [">10", "10", "<10", "Nothing"],
+    "answerIndex": 1
+  },
+  {
+    "id": 72,
+    "topic": "output",
+    "question": "What will be logged? let flag = false; if (!flag) console.log('A'); else console.log('B');",
+    "options": ["A", "B", "false", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 73,
+    "topic": "output",
+    "question": "What will be logged? let a = 0; if (a) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "0", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 74,
+    "topic": "output",
+    "question": "What will be logged? let a = ' '; if (a) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "output",
+    "question": "What will be logged? let value = NaN; if (value) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "NaN", "Error"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 76,
+    "topic": "combined",
+    "question": "Which expression is true only if both a and b are true?",
+    "options": ["a || b", "a && b", "!a && b", "a || !b"],
+    "answerIndex": 1
+  },
+  {
+    "id": 77,
+    "topic": "combined",
+    "question": "Which expression is true if at least one of a or b is true?",
+    "options": ["a && b", "!a && !b", "a || b", "a === b"],
+    "answerIndex": 2
+  },
+  {
+    "id": 78,
+    "topic": "combined",
+    "question": "Which operator has higher precedence?",
+    "options": ["&& over ||", "|| over &&", "Both same", "Depends on browser"],
+    "answerIndex": 0
+  },
+  {
+    "id": 79,
+    "topic": "combined",
+    "question": "What will be logged? console.log(true || false && false);",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 80,
+    "topic": "combined",
+    "question": "What will be logged? console.log(false || true && true);",
+    "options": ["true", "false", "Error", "undefined"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 81,
+    "topic": "style",
+    "question": "Which is generally better for readability?",
+    "options": [
+      "Deeply nested if statements",
+      "Clear else if chains or early returns",
+      "Writing everything in one line",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 82,
+    "topic": "style",
+    "question": "Which is a good practice for complex conditions?",
+    "options": [
+      "Write them inline without spaces",
+      "Extract parts into well-named variables",
+      "Use random variable names",
+      "Avoid using parentheses"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 83,
+    "topic": "style",
+    "question": "When using ternary, you should:",
+    "options": [
+      "Nest many ternaries together",
+      "Use it only for simple conditions",
+      "Always replace if with ternary",
+      "Avoid spaces to save memory"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 84,
+    "topic": "style",
+    "question": "Which is clearer?",
+    "options": [
+      "if (isValid) {} else {}",
+      "if (isValid === true) {} else {}"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 85,
+    "topic": "style",
+    "question": "What helps most to understand complex conditionals?",
+    "options": [
+      "Short variable names",
+      "Consistent formatting and indentation",
+      "Avoiding comments",
+      "Writing everything in one line"
+    ],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 86,
+    "topic": "edge-cases",
+    "question": "Which is true about NaN?",
+    "options": [
+      "NaN === NaN is true",
+      "NaN is falsy",
+      "NaN is truthy",
+      "NaN can be compared with =="
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 87,
+    "topic": "edge-cases",
+    "question": "What will be logged? if (NaN) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "NaN", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 88,
+    "topic": "edge-cases",
+    "question": "What will be logged? if (undefined) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 89,
+    "topic": "edge-cases",
+    "question": "What will be logged? if (null) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "null", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 90,
+    "topic": "edge-cases",
+    "question": "What will be logged? if ([] && {}) console.log('Yes'); else console.log('No');",
+    "options": ["Yes", "No", "Error", "undefined"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 91,
+    "topic": "test-mixed",
+    "question": "Which line checks both that user is logged in and has a non-empty name?",
+    "options": [
+      "if (isLoggedIn || name)",
+      "if (isLoggedIn && name)",
+      "if (!isLoggedIn && name)",
+      "if (isLoggedIn && !name)"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 92,
+    "topic": "test-mixed",
+    "question": "Which gives 'Guest' only if displayName is null or undefined?",
+    "options": [
+      "displayName || 'Guest'",
+      "displayName && 'Guest'",
+      "displayName ?? 'Guest'",
+      "!displayName && 'Guest'"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 93,
+    "topic": "test-mixed",
+    "question": "What will be logged? let price = 0; console.log(price || 100);",
+    "options": ["0", "100", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 94,
+    "topic": "test-mixed",
+    "question": "What will be logged? let price = 0; console.log(price ?? 100);",
+    "options": ["0", "100", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 95,
+    "topic": "test-mixed",
+    "question": "Which is best when you want to show 'Loading...' only if isLoading is true?",
+    "options": [
+      "isLoading || console.log('Loading...')",
+      "isLoading && console.log('Loading...')",
+      "!isLoading || console.log('Loading...')",
+      "console.log(isLoading && 'Loading...')"
+    ],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 96,
+    "topic": "test-mixed",
+    "question": "What will be logged? console.log(true && false || true);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 97,
+    "topic": "test-mixed",
+    "question": "What will be logged? console.log(false || false && true);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 98,
+    "topic": "test-mixed",
+    "question": "Which is equivalent to: if (!isValid) console.log('Error');",
+    "options": [
+      "isValid && console.log('Error')",
+      "isValid || console.log('Error')",
+      "!isValid || console.log('Error')",
+      "!isValid && console.log('Error')"
+    ],
+    "answerIndex": 3
+  },
+  {
+    "id": 99,
+    "topic": "test-mixed",
+    "question": "Which is recommended for complex logic?",
+    "options": [
+      "Break into smaller functions",
+      "Put everything into one long if",
+      "Use only ternary operators",
+      "Avoid comments and names"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 100,
+    "topic": "test-mixed",
+    "question": "Which is true about decision making in JavaScript?",
+    "options": [
+      "Only if and else exist",
+      "switch, ternary, &&, || and ?? all help control flow",
+      "switch is faster in all cases",
+      "Ternary can only be used once"
+    ],
+    "answerIndex": 1
+  }
+]

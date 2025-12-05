@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Editor from "@monaco-editor/react";
 
-// Icons from lucide-react
+// Icons
 import {
-  Braces,       // JS
-  FileCode,     // HTML
-  FileType,     // CSS
-  Columns,      // Split View
+  Braces,
+  FileCode,
+  FileType,
+  Columns,
   Download,
   Copy,
   Maximize2,
@@ -26,41 +26,37 @@ export default class EditableCodeBlock extends Component {
     super(props);
 
     const normalize = (s) => this.normalizeCode(s || "");
-    const initSnippets = props.initialSnippets || {};
+    const init = props.initialSnippets || {};
 
-    const initialJS = normalize(initSnippets.javascript ?? props.initialCode ?? "");
+    const initialJS = normalize(init.javascript ?? props.initialCode ?? "");
     const initialHTML = normalize(
-      initSnippets.html ??
+      init.html ??
         "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
     );
     const initialCSS = normalize(
-      initSnippets.css ??
-        "/* CSS goes here */\nbody { font-family: system-ui; }"
+      init.css ?? "/* CSS goes here */\nbody { font-family: system-ui; }"
     );
 
     this.state = {
-      // Core
       error: "",
       errorLine: null,
       consoleOutput: [],
       editorHeight: 240,
 
-      // UI
       isFullscreen: false,
       showLineNumbers: true,
       autoRun: false,
       fontSize: 14,
-      theme: "vs-dark",       // Monaco theme id
+      theme: "vs-dark",
       showConsole: true,
       showSplitView: false,
       previewCode: "",
 
-      // Menus
       showFontMenu: false,
       showThemeMenu: false,
 
-      // Tabs
       activeTab: props.defaultTab || "javascript",
+
       codes: {
         javascript: initialJS,
         html: initialHTML,
@@ -71,14 +67,10 @@ export default class EditableCodeBlock extends Component {
     this.editorRef = null;
     this.monaco = null;
     this.decorations = [];
-    this.typingTimer = null;
   }
 
-  // -----------------------------------------
-  // Normalize escaped JSON-like code strings
-  // -----------------------------------------
+  // ----------------------------------------
   normalizeCode = (str) => {
-    if (typeof str !== "string") return "";
     return str
       .replace(/\\n/g, "\n")
       .replace(/\\t/g, "\t")
@@ -86,9 +78,7 @@ export default class EditableCodeBlock extends Component {
       .replace(/\\\\/g, "\\");
   };
 
-  // -----------------------------------------
-  // Monaco Mount
-  // -----------------------------------------
+  // ----------------------------------------
   handleEditorDidMount = (editor, monaco) => {
     this.editorRef = editor;
     this.monaco = monaco;
@@ -96,36 +86,26 @@ export default class EditableCodeBlock extends Component {
     this.applyMonacoTheme(this.state.theme);
     this.updateEditorHeight();
 
-    // Auto-resize
     editor.onDidContentSizeChange(() => this.updateEditorHeight());
 
-    // Auto-run for JS
     editor.onDidChangeModelContent(() => {
       if (!this.state.autoRun) return;
       if (this.state.activeTab !== "javascript") return;
 
       clearTimeout(this.typingTimer);
-      this.typingTimer = setTimeout(() => this.runCode(), 700);
+      this.typingTimer = setTimeout(() => this.runCode(), 600);
     });
   };
 
   updateEditorHeight = () => {
     if (!this.editorRef) return;
-
-    const contentHeight = this.editorRef.getContentHeight();
-    const minHeight = 180;
-    const newHeight = Math.max(contentHeight, minHeight);
-
-    if (newHeight !== this.state.editorHeight) {
-      this.setState({ editorHeight: newHeight }, () => {
-        this.editorRef.layout();
-      });
-    }
+    const height = Math.max(this.editorRef.getContentHeight(), 180);
+    this.setState({ editorHeight: height }, () => {
+      this.editorRef.layout();
+    });
   };
 
-  // -----------------------------------------
-  // Monaco Themes (VSCode style)
-  // -----------------------------------------
+  // ----------------------------------------
   applyMonacoTheme = (themeName) => {
     if (!this.monaco) return;
 
@@ -133,88 +113,57 @@ export default class EditableCodeBlock extends Component {
       dracula: {
         base: "vs-dark",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#1e1e2e",
-        },
+        colors: { "editor.background": "#1e1e2e" },
       },
       "one-dark": {
         base: "vs-dark",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#282c34",
-        },
+        colors: { "editor.background": "#282c34" },
       },
       "solarized-dark": {
         base: "vs-dark",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#002b36",
-        },
+        colors: { "editor.background": "#002b36" },
       },
       "solarized-light": {
         base: "vs",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#fdf6e3",
-        },
+        colors: { "editor.background": "#fdf6e3" },
       },
       "github-dark": {
         base: "vs-dark",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#0d1117",
-        },
+        colors: { "editor.background": "#0d1117" },
       },
       "github-light": {
         base: "vs",
         inherit: true,
-        rules: [],
-        colors: {
-          "editor.background": "#ffffff",
-        },
+        colors: { "editor.background": "#ffffff" },
       },
     };
 
-    // Register custom themes if not already
-    Object.entries(themes).forEach(([id, def]) => {
-      this.monaco.editor.defineTheme(id, def);
-    });
+    Object.entries(themes).forEach(([id, def]) =>
+      this.monaco.editor.defineTheme(id, def)
+    );
 
-    // Built-in: vs-dark / vs
     this.monaco.editor.setTheme(themeName);
   };
 
-  // -----------------------------------------
-  // Build Split Preview (HTML+CSS+JS)
-  // -----------------------------------------
+  // ----------------------------------------
   updatePreview = () => {
     const { javascript, html, css } = this.state.codes;
 
     const htmlDoc = `
       <html>
         <head>
-          <style>
-            body {
-              background:#020617;
-              color:#e5e7eb;
-              padding:10px;
-              font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-            }
-            ${css}
-          </style>
+          <style>${css}</style>
         </head>
         <body>
           ${html}
           <script>
-            try {
-              ${javascript}
-            } catch (err) {
-              document.body.innerHTML += '<pre style="color:red;">' + err + '</pre>';
+            try { ${javascript} } 
+            catch (e) {
+              document.body.innerHTML += '<pre style="color:red;">'+e+'</pre>';
             }
           <\/script>
         </body>
@@ -224,11 +173,9 @@ export default class EditableCodeBlock extends Component {
     this.setState({ previewCode: htmlDoc });
   };
 
-  // -----------------------------------------
-  // Run JS + capture console + highlight errors
-  // -----------------------------------------
+  // ----------------------------------------
   runCode = () => {
-    const jsCode = this.state.codes.javascript || "";
+    const js = this.state.codes.javascript;
 
     this.setState({ error: "", errorLine: null, consoleOutput: [] });
 
@@ -236,82 +183,30 @@ export default class EditableCodeBlock extends Component {
     const originalLog = console.log;
     const originalErr = console.error;
 
+    const formatValue = (v) =>
+      typeof v === "object" ? JSON.stringify(v, null, 2) : String(v);
+
     console.log = (...args) => {
-      captured.push({ type: "log", message: args.join(" ") });
+      captured.push({ type: "log", message: args.map(formatValue).join(" ") });
       originalLog(...args);
     };
 
     console.error = (...args) => {
-      captured.push({ type: "error", message: args.join(" ") });
+      captured.push({
+        type: "error",
+        message: args.map(formatValue).join(" "),
+      });
       originalErr(...args);
     };
 
     try {
-      // eslint-disable-next-line no-eval
-      eval(jsCode);
-
+      eval(js);
       this.setState({ consoleOutput: captured });
-
-      // Clear decorations
-      if (this.editorRef && this.monaco && this.decorations.length) {
-        this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
-      }
-
-      if (this.state.showSplitView) this.updatePreview();
     } catch (err) {
-      const stack = err.stack || "";
-      const match = stack.match(/<anonymous>:(\d+):/);
+      const match = (err.stack || "").match(/<anonymous>:(\d+):/);
       const line = match ? Number(match[1]) : null;
 
-      this.setState({
-        error: "Runtime Error: " + err.message,
-        errorLine: line,
-      });
-
-      if (
-        line &&
-        this.editorRef &&
-        this.monaco &&
-        this.state.activeTab === "javascript"
-      ) {
-        this.decorations = this.editorRef.deltaDecorations([], [
-          {
-            range: new this.monaco.Range(line, 1, line, 1),
-            options: { isWholeLine: true, className: "bg-red-900/40" },
-          },
-        ]);
-      }
-
-      if (this.state.showSplitView) this.updatePreview();
-    }
-
-    console.log = originalLog;
-    console.error = originalErr;
-  };
-
-  // -----------------------------------------
-  // Lint (syntax check) JS only
-  // -----------------------------------------
-  lintCode = () => {
-    const jsCode = this.state.codes.javascript || "";
-
-    try {
-      // eslint-disable-next-line no-new-func
-      new Function(jsCode);
-      this.setState({ error: "No syntax errors ✔️", errorLine: null });
-
-      if (this.editorRef && this.monaco && this.decorations.length) {
-        this.decorations = this.editorRef.deltaDecorations(this.decorations, []);
-      }
-    } catch (err) {
-      const stack = err.stack || "";
-      const match = stack.match(/<anonymous>:(\d+):/);
-      const line = match ? Number(match[1]) : null;
-
-      this.setState({
-        error: "Syntax Error: " + err.message,
-        errorLine: line,
-      });
+      this.setState({ error: err.message, errorLine: line });
 
       if (line && this.editorRef && this.monaco) {
         this.decorations = this.editorRef.deltaDecorations([], [
@@ -322,27 +217,39 @@ export default class EditableCodeBlock extends Component {
         ]);
       }
     }
+
+    console.log = originalLog;
+    console.error = originalErr;
+
+    if (this.state.showSplitView) this.updatePreview();
   };
 
-  // -----------------------------------------
-  // Format JS with Prettier (if available)
-  // -----------------------------------------
-  formatCode = () => {
-    if (this.state.activeTab !== "javascript") {
-      this.setState({ error: "Formatting is only available for JavaScript tab." });
-      return;
+  // ----------------------------------------
+  lintCode = () => {
+    const js = this.state.codes.javascript;
+    try {
+      new Function(js);
+      this.setState({ error: "No syntax errors ✔️", errorLine: null });
+    } catch (err) {
+      const match = (err.stack || "").match(/<anonymous>:(\d+):/);
+      this.setState({
+        error: err.message,
+        errorLine: match ? Number(match[1]) : null,
+      });
     }
+  };
+
+  // ----------------------------------------
+  formatCode = () => {
+    if (this.state.activeTab !== "javascript")
+      return this.setState({ error: "Formatting only works for JavaScript" });
 
     try {
       const prettier = window.prettier;
       const babel = window.prettierPlugins.babel;
 
-      if (!prettier || !babel) {
-        this.setState({
-          error: "Prettier not found. Make sure it's loaded in the page.",
-        });
-        return;
-      }
+      if (!prettier || !babel)
+        return this.setState({ error: "Prettier not loaded" });
 
       const formatted = prettier.format(this.state.codes.javascript, {
         parser: "babel",
@@ -354,50 +261,38 @@ export default class EditableCodeBlock extends Component {
         error: "",
       }));
     } catch (err) {
-      this.setState({ error: "Prettier Error: " + err.message });
+      this.setState({ error: "Format Error: " + err.message });
     }
   };
 
-  // -----------------------------------------
-  // Reset to initial props
-  // -----------------------------------------
+  // ----------------------------------------
   resetCode = () => {
     const normalize = (s) => this.normalizeCode(s || "");
-    const initSnippets = this.props.initialSnippets || {};
-
-    const js = normalize(
-      initSnippets.javascript ?? this.props.initialCode ?? ""
-    );
-    const html = normalize(
-      initSnippets.html ??
-        "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
-    );
-    const css = normalize(
-      initSnippets.css ??
-        "/* CSS goes here */\nbody { font-family: system-ui; }"
-    );
+    const init = this.props.initialSnippets || {};
 
     this.setState({
-      codes: { javascript: js, html, css },
+      codes: {
+        javascript: normalize(init.javascript ?? this.props.initialCode ?? ""),
+        html: normalize(
+          init.html ??
+            "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
+        ),
+        css: normalize(
+          init.css ?? "/* CSS goes here */\nbody { font-family: system-ui; }"
+        ),
+      },
       error: "",
       errorLine: null,
       consoleOutput: [],
     });
   };
 
-  // -----------------------------------------
-  // Download code for active tab
-  // -----------------------------------------
+  // ----------------------------------------
   downloadCode = () => {
     const { activeTab, codes } = this.state;
-    const code = codes[activeTab] || "";
+    const ext = activeTab === "javascript" ? "js" : activeTab;
 
-    let ext = "txt";
-    if (activeTab === "javascript") ext = "js";
-    if (activeTab === "html") ext = "html";
-    if (activeTab === "css") ext = "css";
-
-    const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([codes[activeTab]], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement("a");
@@ -408,9 +303,7 @@ export default class EditableCodeBlock extends Component {
     URL.revokeObjectURL(url);
   };
 
-  // -----------------------------------------
-  // Render
-  // -----------------------------------------
+  // ----------------------------------------
   render() {
     const {
       error,
@@ -431,34 +324,27 @@ export default class EditableCodeBlock extends Component {
     } = this.state;
 
     const editorLanguage =
-      activeTab === "html"
-        ? "html"
-        : activeTab === "css"
-        ? "css"
-        : "javascript";
+      activeTab === "html" ? "html" : activeTab === "css" ? "css" : "javascript";
 
     return (
       <div
-        className={`border border-slate-700 rounded-xl bg-slate-900 overflow-hidden ${
+        className={`border border-slate-700 rounded-xl bg-slate-900 overflow-visible ${
           isFullscreen ? "fixed inset-0 z-[9999] p-4" : ""
         }`}
       >
-        {/* HEADER / TOOLBAR */}
-        <div className="flex flex-wrap items-center justify-between bg-slate-800 px-3 py-2 text-xs">
+        {/* ================= HEADER ================= */}
+        <div className="flex flex-wrap items-center justify-between bg-slate-800 px-3 py-2 text-xs z-[9999] relative">
           <span className="text-slate-400 font-semibold">Editable Code</span>
 
           <div className="flex flex-wrap gap-2 items-center">
+
             {/* TABS */}
             <div className="flex rounded overflow-hidden border border-slate-700">
               {["javascript", "html", "css"].map((tab) => (
                 <button
                   key={tab}
                   onClick={() =>
-                    this.setState({
-                      activeTab: tab,
-                      error: "",
-                      errorLine: null,
-                    })
+                    this.setState({ activeTab: tab, error: "", errorLine: null })
                   }
                   className={`px-2 py-1 flex items-center gap-1 ${
                     activeTab === tab
@@ -474,7 +360,7 @@ export default class EditableCodeBlock extends Component {
               ))}
             </div>
 
-            {/* Lines */}
+            {/* LINE NUMBERS */}
             <button
               onClick={() =>
                 this.setState({ showLineNumbers: !showLineNumbers })
@@ -484,7 +370,7 @@ export default class EditableCodeBlock extends Component {
               <LayoutList size={14} /> Lines
             </button>
 
-            {/* Auto-run */}
+            {/* AUTO RUN */}
             <button
               onClick={() => this.setState({ autoRun: !autoRun })}
               className={`px-2 py-1 rounded ${
@@ -494,7 +380,7 @@ export default class EditableCodeBlock extends Component {
               <Play size={14} /> Auto
             </button>
 
-            {/* FONT MENU (VSCode style) */}
+            {/* FONT MENU */}
             <div className="relative">
               <button
                 onClick={() =>
@@ -506,15 +392,12 @@ export default class EditableCodeBlock extends Component {
               </button>
 
               {showFontMenu && (
-                <div className="absolute right-0 mt-1 w-32 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50 p-1 text-xs">
+                <div className="absolute right-0 mt-1 w-32 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-[99999] p-1 text-xs">
                   {[10, 12, 14, 16, 18, 20, 22, 24].map((size) => (
                     <button
                       key={size}
                       onClick={() =>
-                        this.setState({
-                          fontSize: size,
-                          showFontMenu: false,
-                        })
+                        this.setState({ fontSize: size, showFontMenu: false })
                       }
                       className={`w-full text-left px-2 py-1 rounded ${
                         fontSize === size
@@ -529,7 +412,7 @@ export default class EditableCodeBlock extends Component {
               )}
             </div>
 
-            {/* THEME MENU (VSCode style) */}
+            {/* THEME MENU */}
             <div className="relative">
               <button
                 onClick={() =>
@@ -541,7 +424,7 @@ export default class EditableCodeBlock extends Component {
               </button>
 
               {showThemeMenu && (
-                <div className="absolute right-0 mt-1 w-44 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50 p-1 text-xs">
+                <div className="absolute right-0 mt-1 w-44 bg-slate-800 border border-slate-700 rounded-lg shadow-xl p-1 text-xs z-[99999]">
                   {[
                     { id: "vs-dark", label: "VSCode Dark+" },
                     { id: "vs", label: "VSCode Light+" },
@@ -574,7 +457,7 @@ export default class EditableCodeBlock extends Component {
               )}
             </div>
 
-            {/* Reset */}
+            {/* RESET */}
             <button
               onClick={this.resetCode}
               className="px-2 py-1 rounded bg-gray-600 text-white flex items-center gap-1"
@@ -582,12 +465,12 @@ export default class EditableCodeBlock extends Component {
               <RefreshCw size={14} /> Reset
             </button>
 
-            {/* Fullscreen */}
+            {/* FULLSCREEN */}
             <button
               onClick={() =>
                 this.setState(
                   (prev) => ({ isFullscreen: !prev.isFullscreen }),
-                  () => setTimeout(() => this.editorRef?.layout(), 150)
+                  () => this.editorRef?.layout()
                 )
               }
               className="px-2 py-1 rounded bg-purple-600 text-white flex items-center gap-1"
@@ -596,7 +479,7 @@ export default class EditableCodeBlock extends Component {
               Full
             </button>
 
-            {/* Format */}
+            {/* FORMAT */}
             <button
               onClick={this.formatCode}
               className="px-2 py-1 rounded bg-sky-600 text-white flex items-center gap-1"
@@ -604,7 +487,7 @@ export default class EditableCodeBlock extends Component {
               <Wand2 size={14} /> Format
             </button>
 
-            {/* Lint */}
+            {/* LINT */}
             <button
               onClick={this.lintCode}
               className="px-2 py-1 rounded bg-amber-600 text-white flex items-center gap-1"
@@ -612,7 +495,7 @@ export default class EditableCodeBlock extends Component {
               <Bug size={14} /> Lint
             </button>
 
-            {/* Run */}
+            {/* RUN */}
             <button
               onClick={this.runCode}
               className="px-2 py-1 rounded bg-emerald-600 text-white flex items-center gap-1"
@@ -620,10 +503,10 @@ export default class EditableCodeBlock extends Component {
               <Play size={14} /> Run
             </button>
 
-            {/* Copy */}
+            {/* COPY */}
             <button
               onClick={() => {
-                navigator.clipboard.writeText(codes[activeTab] || "");
+                navigator.clipboard.writeText(codes[activeTab]);
                 alert("Copied!");
               }}
               className="px-2 py-1 rounded bg-slate-600 text-white flex items-center gap-1"
@@ -631,7 +514,7 @@ export default class EditableCodeBlock extends Component {
               <Copy size={14} /> Copy
             </button>
 
-            {/* Save */}
+            {/* SAVE */}
             <button
               onClick={this.downloadCode}
               className="px-2 py-1 rounded bg-teal-600 text-white flex items-center gap-1"
@@ -639,7 +522,7 @@ export default class EditableCodeBlock extends Component {
               <Download size={14} /> Save
             </button>
 
-            {/* Split View */}
+            {/* SPLIT VIEW */}
             <button
               onClick={() =>
                 this.setState(
@@ -653,7 +536,7 @@ export default class EditableCodeBlock extends Component {
               {showSplitView ? "Hide" : "Split"}
             </button>
 
-            {/* Console */}
+            {/* CONSOLE */}
             <button
               onClick={() =>
                 this.setState({ showConsole: !showConsole })
@@ -666,12 +549,12 @@ export default class EditableCodeBlock extends Component {
           </div>
         </div>
 
-        {/* MAIN AREA */}
+        {/* ================= EDITOR + PREVIEW ================= */}
         <div className={`flex w-full ${showSplitView ? "gap-2" : ""}`}>
           <div className={showSplitView ? "w-1/2" : "w-full"}>
             <Editor
               language={editorLanguage}
-              value={codes[activeTab] ?? ""}
+              value={codes[activeTab]}
               onChange={(value = "") =>
                 this.setState((prev) => ({
                   codes: { ...prev.codes, [activeTab]: String(value) },
@@ -684,9 +567,9 @@ export default class EditableCodeBlock extends Component {
                 fontSize,
                 minimap: { enabled: false },
                 automaticLayout: true,
-                scrollBeyondLastLine: false,
                 lineNumbers: showLineNumbers ? "on" : "off",
-                padding: { top: 20, bottom: 20 },
+                scrollBeyondLastLine: false,
+                padding: { top: 18, bottom: 18 },
               }}
             />
           </div>
@@ -703,14 +586,14 @@ export default class EditableCodeBlock extends Component {
           )}
         </div>
 
-        {/* ERROR PANEL */}
+        {/* ================= ERROR ================= */}
         {error && (
           <div className="bg-red-900/40 border-t border-red-700 px-3 py-2 text-red-300 text-xs">
             ⚠ {error}
           </div>
         )}
 
-        {/* CONSOLE PANEL */}
+        {/* ================= CONSOLE ================= */}
         {showConsole && (
           <div className="bg-black border-t border-slate-700 px-3 py-2 h-40 overflow-auto text-xs">
             <p className="text-slate-400 mb-1">Console Output:</p>
@@ -723,7 +606,7 @@ export default class EditableCodeBlock extends Component {
               <pre
                 key={index}
                 className={`whitespace-pre-wrap ${
-                  line.type === "error" ? "text-red-400" : "text-emerald-300"
+                  line.type === "error" ? "text-red-400" : "text-green-300"
                 }`}
               >
                 {line.message}
@@ -738,6 +621,6 @@ export default class EditableCodeBlock extends Component {
 
 EditableCodeBlock.defaultProps = {
   initialCode: "",
-  initialSnippets: null, // { javascript, html, css }
+  initialSnippets: null,
   defaultTab: "javascript",
 };
