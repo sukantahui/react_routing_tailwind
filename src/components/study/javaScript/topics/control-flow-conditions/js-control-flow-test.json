@@ -2,14 +2,16 @@
   {
     "id": 1,
     "topic": "if-else",
-    "question": "What will be logged? let x = 5; if (x > 3) { console.log('A'); } else { console.log('B'); }",
+    "question": "What will be logged?",
+    "code": "let x = 5;\nif (x > 3) {\n  console.log(\"A\");\n} else {\n  console.log(\"B\");\n}",
     "options": ["A", "B", "Nothing", "Error"],
     "answerIndex": 0
   },
   {
     "id": 2,
     "topic": "if-else",
-    "question": "What will be logged? let x = 2; if (x >= 5) { console.log('High'); } else { console.log('Low'); }",
+    "question": "What will be logged?",
+    "code": "let x = 2;\nif (x >= 5) {\n  console.log(\"High\");\n} else {\n  console.log(\"Low\");\n}",
     "options": ["High", "Low", "Undefined", "Error"],
     "answerIndex": 1
   },
@@ -23,7 +25,8 @@
   {
     "id": 4,
     "topic": "if-else",
-    "question": "What will be logged? let age = 18; if (age > 18) console.log('Adult'); else console.log('Teen');",
+    "question": "What will be logged?",
+    "code": "let age = 18;\nif (age > 18)\n  console.log(\"Adult\");\nelse\n  console.log(\"Teen\");",
     "options": ["Adult", "Teen", "18", "Error"],
     "answerIndex": 1
   },
@@ -38,7 +41,8 @@
   {
     "id": 6,
     "topic": "nested-if",
-    "question": "What will be logged? let score = 85; if (score >= 60) { if (score >= 80) console.log('Excellent'); else console.log('Good'); } else { console.log('Fail'); }",
+    "question": "What will be logged?",
+    "code": "let score = 85;\nif (score >= 60) {\n  if (score >= 80)\n    console.log(\"Excellent\");\n  else\n    console.log(\"Good\");\n} else {\n  console.log(\"Fail\");\n}",
     "options": ["Excellent", "Good", "Fail", "Nothing"],
     "answerIndex": 0
   },
@@ -64,7 +68,8 @@
   {
     "id": 9,
     "topic": "nested-if",
-    "question": "What will be logged? let isLoggedIn = false; let isAdmin = true; if (isLoggedIn) { if (isAdmin) console.log('Admin'); else console.log('User'); } else { console.log('Guest'); }",
+    "question": "What will be logged?",
+    "code": "let isLoggedIn = false;\nlet isAdmin = true;\nif (isLoggedIn) {\n  if (isAdmin)\n    console.log(\"Admin\");\n  else\n    console.log(\"User\");\n} else {\n  console.log(\"Guest\");\n}",
     "options": ["Admin", "User", "Guest", "Error"],
     "answerIndex": 2
   },
@@ -91,7 +96,8 @@
   {
     "id": 12,
     "topic": "else-if",
-    "question": "What will be logged? let marks = 72; if (marks >= 90) console.log('A'); else if (marks >= 70) console.log('B'); else console.log('C');",
+    "question": "What will be logged?",
+    "code": "let marks = 72;\nif (marks >= 90)\n  console.log(\"A\");\nelse if (marks >= 70)\n  console.log(\"B\");\nelse\n  console.log(\"C\");",
     "options": ["A", "B", "C", "Nothing"],
     "answerIndex": 1
   },
@@ -105,7 +111,8 @@
   {
     "id": 14,
     "topic": "else-if",
-    "question": "What will be logged? let n = 50; if (n > 100) console.log('Big'); else if (n > 75) console.log('Medium'); else console.log('Small');",
+    "question": "What will be logged?",
+    "code": "let n = 50;\nif (n > 100)\n  console.log(\"Big\");\nelse if (n > 75)\n  console.log(\"Medium\");\nelse\n  console.log(\"Small\");",
     "options": ["Big", "Medium", "Small", "Error"],
     "answerIndex": 2
   },
@@ -137,7 +144,8 @@
   {
     "id": 17,
     "topic": "ternary",
-    "question": "What will message contain? let age = 20; let message = age >= 18 ? 'Adult' : 'Minor';",
+    "question": "What will message contain?",
+    "code": "let age = 20;\nlet message = age >= 18 ? \"Adult\" : \"Minor\";",
     "options": ["Adult", "Minor", "20", "Undefined"],
     "answerIndex": 0
   },
@@ -156,7 +164,8 @@
   {
     "id": 19,
     "topic": "ternary",
-    "question": "What will be logged? let x = 5; console.log(x > 10 ? 'High' : 'Low');",
+    "question": "What will be logged?",
+    "code": "let x = 5;\nconsole.log(x > 10 ? \"High\" : \"Low\");",
     "options": ["High", "Low", "5", "Error"],
     "answerIndex": 1
   },
@@ -190,7 +199,8 @@
   {
     "id": 23,
     "topic": "switch",
-    "question": "What will be logged? let day = 2; switch (day) { case 1: console.log('Mon'); break; case 2: console.log('Tue'); break; default: console.log('Other'); }",
+    "question": "What will be logged?",
+    "code": "let day = 2;\nswitch (day) {\n  case 1:\n    console.log(\"Mon\");\n    break;\n  case 2:\n    console.log(\"Tue\");\n    break;\n  default:\n    console.log(\"Other\");\n}",
     "options": ["Mon", "Tue", "Other", "Error"],
     "answerIndex": 1
   },
@@ -222,7 +232,8 @@
   {
     "id": 26,
     "topic": "switch",
-    "question": "What will be logged? let fruit = 'banana'; switch (fruit) { case 'apple': case 'banana': console.log('Fruit'); break; default: console.log('Other'); }",
+    "question": "What will be logged?",
+    "code": "let fruit = \"banana\";\nswitch (fruit) {\n  case \"apple\":\n  case \"banana\":\n    console.log(\"Fruit\");\n    break;\n  default:\n    console.log(\"Other\");\n}",
     "options": ["apple", "banana", "Fruit", "Other"],
     "answerIndex": 2
   },
@@ -243,7 +254,8 @@
   {
     "id": 29,
     "topic": "switch",
-    "question": "What will be logged? let x = '1'; switch (x) { case 1: console.log('Number'); break; case '1': console.log('String'); break; default: console.log('Other'); }",
+    "question": "What will be logged?",
+    "code": "let x = \"1\";\nswitch (x) {\n  case 1:\n    console.log(\"Number\");\n    break;\n  case \"1\":\n    console.log(\"String\");\n    break;\n  default:\n    console.log(\"Other\");\n}",
     "options": ["Number", "String", "Other", "Error"],
     "answerIndex": 1
   },
@@ -277,14 +289,16 @@
   {
     "id": 33,
     "topic": "truthy-falsy",
-    "question": "What will be logged? if ('') console.log('A'); else console.log('B');",
+    "question": "What will be logged?",
+    "code": "if (\"\")\n  console.log(\"A\");\nelse\n  console.log(\"B\");",
     "options": ["A", "B", "Nothing", "Error"],
     "answerIndex": 1
   },
   {
     "id": 34,
     "topic": "truthy-falsy",
-    "question": "What will be logged? if ('0') console.log('A'); else console.log('B');",
+    "question": "What will be logged?",
+    "code": "if (\"0\")\n  console.log(\"A\");\nelse\n  console.log(\"B\");",
     "options": ["A", "B", "Nothing", "Error"],
     "answerIndex": 0
   },
@@ -346,14 +360,16 @@
   {
     "id": 41,
     "topic": "logical-and",
-    "question": "What will be logged? console.log(true && 'Hello');",
+    "question": "What will be logged?",
+    "code": "console.log(true && \"Hello\");",
     "options": ["true", "Hello", "false", "undefined"],
     "answerIndex": 1
   },
   {
     "id": 42,
     "topic": "logical-and",
-    "question": "What will be logged? console.log(0 && 'Hello');",
+    "question": "What will be logged?",
+    "code": "console.log(0 && \"Hello\");",
     "options": ["0", "Hello", "false", "undefined"],
     "answerIndex": 0
   },
@@ -384,7 +400,8 @@
   {
     "id": 45,
     "topic": "logical-and",
-    "question": "What will be logged? let isLoggedIn = true; isLoggedIn && console.log('Welcome');",
+    "question": "What will be logged?",
+    "code": "let isLoggedIn = true;\nisLoggedIn && console.log(\"Welcome\");",
     "options": ["Welcome", "true", "false", "Nothing"],
     "answerIndex": 0
   },
@@ -392,14 +409,16 @@
   {
     "id": 46,
     "topic": "logical-or",
-    "question": "What will be logged? console.log('Hi' || 'Hello');",
+    "question": "What will be logged?",
+    "code": "console.log(\"Hi\" || \"Hello\");",
     "options": ["Hi", "Hello", "true", "Error"],
     "answerIndex": 0
   },
   {
     "id": 47,
     "topic": "logical-or",
-    "question": "What will be logged? console.log('' || 'Default');",
+    "question": "What will be logged?",
+    "code": "console.log(\"\" || \"Default\");",
     "options": ["''", "Default", "undefined", "Error"],
     "answerIndex": 1
   },
@@ -430,11 +449,11 @@
   {
     "id": 50,
     "topic": "logical-or",
-    "question": "What will be logged? let name = ''; let displayName = name || 'Guest'; console.log(displayName);",
+    "question": "What will be logged?",
+    "code": "let name = \"\";\nlet displayName = name || \"Guest\";\nconsole.log(displayName);",
     "options": ["''", "Guest", "undefined", "Error"],
     "answerIndex": 1
   },
-
   {
     "id": 51,
     "topic": "nullish",
@@ -445,14 +464,16 @@
   {
     "id": 52,
     "topic": "nullish",
-    "question": "What will be logged? console.log(null ?? 'Default');",
+    "question": "What will be logged?",
+    "code": "console.log(null ?? \"Default\");",
     "options": ["null", "Default", "undefined", "Error"],
     "answerIndex": 1
   },
   {
     "id": 53,
     "topic": "nullish",
-    "question": "What will be logged? console.log(0 ?? 10);",
+    "question": "What will be logged?",
+    "code": "console.log(0 ?? 10);",
     "options": ["0", "10", "undefined", "Error"],
     "answerIndex": 0
   },
@@ -466,7 +487,8 @@
   {
     "id": 55,
     "topic": "nullish",
-    "question": "What will be logged? let message = undefined ?? 'Hello'; console.log(message);",
+    "question": "What will be logged?",
+    "code": "let message = undefined ?? \"Hello\";\nconsole.log(message);",
     "options": ["undefined", "Hello", "Error", "null"],
     "answerIndex": 1
   },
@@ -510,14 +532,16 @@
   {
     "id": 59,
     "topic": "short-circuit",
-    "question": "What will be logged? false && console.log('Run');",
+    "question": "What will be logged?",
+    "code": "false && console.log(\"Run\");",
     "options": ["Run", "false", "undefined", "Nothing"],
     "answerIndex": 3
   },
   {
     "id": 60,
     "topic": "short-circuit",
-    "question": "What will be logged? true || console.log('Run');",
+    "question": "What will be logged?",
+    "code": "true || console.log(\"Run\");",
     "options": ["true", "Run", "undefined", "Nothing"],
     "answerIndex": 0
   },
@@ -588,14 +612,16 @@
   {
     "id": 67,
     "topic": "comparison",
-    "question": "What will be logged? console.log(5 == '5');",
+    "question": "What will be logged?",
+    "code": "console.log(5 == \"5\");",
     "options": ["true", "false", "Error", "undefined"],
     "answerIndex": 0
   },
   {
     "id": 68,
     "topic": "comparison",
-    "question": "What will be logged? console.log(5 === '5');",
+    "question": "What will be logged?",
+    "code": "console.log(5 === \"5\");",
     "options": ["true", "false", "Error", "undefined"],
     "answerIndex": 1
   },
@@ -617,39 +643,43 @@
   {
     "id": 71,
     "topic": "output",
-    "question": "What will be logged? let x = 10; if (x > 10) console.log('>10'); else if (x === 10) console.log('10'); else console.log('<10');",
+    "question": "What will be logged?",
+    "code": "let x = 10;\nif (x > 10)\n  console.log(\">10\");\nelse if (x === 10)\n  console.log(\"10\");\nelse\n  console.log(\"<10\");",
     "options": [">10", "10", "<10", "Nothing"],
     "answerIndex": 1
   },
   {
     "id": 72,
     "topic": "output",
-    "question": "What will be logged? let flag = false; if (!flag) console.log('A'); else console.log('B');",
+    "question": "What will be logged?",
+    "code": "let flag = false;\nif (!flag)\n  console.log(\"A\");\nelse\n  console.log(\"B\");",
     "options": ["A", "B", "false", "Error"],
     "answerIndex": 0
   },
   {
     "id": 73,
     "topic": "output",
-    "question": "What will be logged? let a = 0; if (a) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "let a = 0;\nif (a)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "0", "Error"],
     "answerIndex": 1
   },
   {
     "id": 74,
     "topic": "output",
-    "question": "What will be logged? let a = ' '; if (a) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "let a = \" \";\nif (a)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "Error", "undefined"],
     "answerIndex": 0
   },
   {
     "id": 75,
     "topic": "output",
-    "question": "What will be logged? let value = NaN; if (value) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "let value = NaN;\nif (value)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "NaN", "Error"],
     "answerIndex": 1
   },
-
   {
     "id": 76,
     "topic": "combined",
@@ -674,14 +704,16 @@
   {
     "id": 79,
     "topic": "combined",
-    "question": "What will be logged? console.log(true || false && false);",
+    "question": "What will be logged?",
+    "code": "console.log(true || false && false);",
     "options": ["true", "false", "Error", "undefined"],
     "answerIndex": 0
   },
   {
     "id": 80,
     "topic": "combined",
-    "question": "What will be logged? console.log(false || true && true);",
+    "question": "What will be logged?",
+    "code": "console.log(false || true && true);",
     "options": ["true", "false", "Error", "undefined"],
     "answerIndex": 0
   },
@@ -760,28 +792,32 @@
   {
     "id": 87,
     "topic": "edge-cases",
-    "question": "What will be logged? if (NaN) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "if (NaN)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "NaN", "Error"],
     "answerIndex": 1
   },
   {
     "id": 88,
     "topic": "edge-cases",
-    "question": "What will be logged? if (undefined) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "if (undefined)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "undefined", "Error"],
     "answerIndex": 1
   },
   {
     "id": 89,
     "topic": "edge-cases",
-    "question": "What will be logged? if (null) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "if (null)\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "null", "Error"],
     "answerIndex": 1
   },
   {
     "id": 90,
     "topic": "edge-cases",
-    "question": "What will be logged? if ([] && {}) console.log('Yes'); else console.log('No');",
+    "question": "What will be logged?",
+    "code": "if ([] && {})\n  console.log(\"Yes\");\nelse\n  console.log(\"No\");",
     "options": ["Yes", "No", "Error", "undefined"],
     "answerIndex": 0
   },
@@ -813,14 +849,16 @@
   {
     "id": 93,
     "topic": "test-mixed",
-    "question": "What will be logged? let price = 0; console.log(price || 100);",
+    "question": "What will be logged?",
+    "code": "let price = 0;\nconsole.log(price || 100);",
     "options": ["0", "100", "undefined", "Error"],
     "answerIndex": 1
   },
   {
     "id": 94,
     "topic": "test-mixed",
-    "question": "What will be logged? let price = 0; console.log(price ?? 100);",
+    "question": "What will be logged?",
+    "code": "let price = 0;\nconsole.log(price ?? 100);",
     "options": ["0", "100", "undefined", "Error"],
     "answerIndex": 0
   },
@@ -840,14 +878,16 @@
   {
     "id": 96,
     "topic": "test-mixed",
-    "question": "What will be logged? console.log(true && false || true);",
+    "question": "What will be logged?",
+    "code": "console.log(true && false || true);",
     "options": ["true", "false", "undefined", "Error"],
     "answerIndex": 0
   },
   {
     "id": 97,
     "topic": "test-mixed",
-    "question": "What will be logged? console.log(false || false && true);",
+    "question": "What will be logged?",
+    "code": "console.log(false || false && true);",
     "options": ["true", "false", "undefined", "Error"],
     "answerIndex": 1
   },
@@ -888,3 +928,7 @@
     "answerIndex": 1
   }
 ]
+
+
+
+

@@ -248,9 +248,9 @@ class NavBar extends Component {
 
                   {tutorialsOpen && (
                     <div className="ml-4 flex flex-col">
-                      <NavLink to="/tutorials/javascript" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>JavaScript</NavLink>
+                      <NavLink to="/javascript/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>JavaScript</NavLink>
 
-                      <NavLink to="/tutorials/python" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Python</NavLink>
+                      <NavLink to="/python/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Python</NavLink>
 
                       <NavLink to="/tutorials/c" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
                     </div>
