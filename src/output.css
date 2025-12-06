@@ -173,6 +173,7 @@
     --drop-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.15);
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-sm: 8px;
     --blur-lg: 16px;
     --blur-xl: 24px;
@@ -902,6 +903,9 @@
   .animate-\[fadeIn_0\.4s_ease-in-out\] {
     animation: fadeIn 0.4s ease-in-out;
   }
+  .animate-pulse {
+    animation: var(--animate-pulse);
+  }
   .cursor-not-allowed {
     cursor: not-allowed;
   }
@@ -1258,6 +1262,9 @@
   }
   .border-purple-500 {
     border-color: var(--color-purple-500);
+  }
+  .border-purple-600 {
+    border-color: var(--color-purple-600);
   }
   .border-red-500 {
     border-color: var(--color-red-500);
@@ -1664,6 +1671,15 @@
       background-color: color-mix(in oklab, var(--color-purple-700) 20%, transparent);
     }
   }
+  .bg-purple-900 {
+    background-color: var(--color-purple-900);
+  }
+  .bg-purple-900\/30 {
+    background-color: color-mix(in srgb, oklch(38.1% 0.176 304.987) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-purple-900) 30%, transparent);
+    }
+  }
   .bg-red-600 {
     background-color: var(--color-red-600);
   }
@@ -2035,6 +2051,13 @@
   }
   .from-sky-400 {
     --tw-gradient-from: var(--color-sky-400);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-sky-400\/10 {
+    --tw-gradient-from: color-mix(in srgb, oklch(74.6% 0.16 232.661) 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-from: color-mix(in oklab, var(--color-sky-400) 10%, transparent);
+    }
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .from-sky-500 {
@@ -2984,6 +3007,10 @@
     --tw-shadow: 0 0 35px var(--tw-shadow-color, rgba(15,23,42,0.9));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .shadow-\[0_0_45px_rgba\(15\,23\,42\,0\.6\)\] {
+    --tw-shadow: 0 0 45px var(--tw-shadow-color, rgba(15,23,42,0.6));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-\[0_0_45px_rgba\(15\,23\,42\,0\.7\)\] {
     --tw-shadow: 0 0 45px var(--tw-shadow-color, rgba(15,23,42,0.7));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -3333,6 +3360,14 @@
       color: var(--color-slate-500);
     }
   }
+  .hover\:translate-x-1 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-x: calc(var(--spacing) * 1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
   .hover\:-translate-y-1 {
     &:hover {
       @media (hover: hover) {
@@ -3345,6 +3380,14 @@
     &:hover {
       @media (hover: hover) {
         --tw-translate-y: calc(var(--spacing) * -2);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:-translate-y-\[2px\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(2px * -1);
         translate: var(--tw-translate-x) var(--tw-translate-y);
       }
     }
@@ -3400,6 +3443,16 @@
     &:hover {
       @media (hover: hover) {
         border-color: var(--color-sky-500);
+      }
+    }
+  }
+  .hover\:border-sky-500\/60 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 60%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(in oklab, var(--color-sky-500) 60%, transparent);
+        }
       }
     }
   }
@@ -3832,6 +3885,13 @@
       }
     }
   }
+  .hover\:text-sky-200 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-sky-200);
+      }
+    }
+  }
   .hover\:text-sky-300 {
     &:hover {
       @media (hover: hover) {
@@ -3886,6 +3946,30 @@
     &:hover {
       @media (hover: hover) {
         --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[0_0_10px_rgba\(56\,189\,248\,0\.6\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0 0 10px var(--tw-shadow-color, rgba(56,189,248,0.6));
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[0_0_12px_rgba\(56\,189\,248\,0\.6\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0 0 12px var(--tw-shadow-color, rgba(56,189,248,0.6));
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:shadow-\[0_0_15px_rgba\(56\,189\,248\,0\.25\)\] {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0 0 15px var(--tw-shadow-color, rgba(56,189,248,0.25));
         box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
       }
     }
@@ -3948,6 +4032,16 @@
         --tw-shadow-color: color-mix(in srgb, oklch(74.6% 0.16 232.661) 40%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-sky-400) 40%, transparent) var(--tw-shadow-alpha), transparent);
+        }
+      }
+    }
+  }
+  .hover\:shadow-sky-500\/20 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow-color: color-mix(in srgb, oklch(68.5% 0.169 237.323) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-sky-500) 20%, transparent) var(--tw-shadow-alpha), transparent);
         }
       }
     }
@@ -4674,6 +4768,11 @@
 @property --tw-duration {
   syntax: "*";
   inherits: false;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
