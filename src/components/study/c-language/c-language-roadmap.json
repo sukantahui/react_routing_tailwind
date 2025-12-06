@@ -105,7 +105,9 @@
             "Using constants with const and #define",
             "Format specifiers with printf",
             "Basic arithmetic expressions",
-            "Implicit and explicit type conversion and type promotion"
+            "Implicit and explicit type conversion and type promotion",
+            "Practice These Topics",
+            "Quize"
           ],
           "learningOutcomes": [
             "Declare and use C variables correctly",

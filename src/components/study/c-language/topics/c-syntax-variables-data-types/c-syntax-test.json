@@ -1,0 +1,742 @@
+[
+  {
+    "id": 1,
+    "topic": "program_structure",
+    "question": "Which symbol denotes the beginning and end of a block in C?",
+    "options": ["()", "{}", "[]", "<>"],
+    "answerIndex": 1
+  },
+  {
+    "id": 2,
+    "topic": "program_structure",
+    "question": "Which function is mandatory in every C program?",
+    "options": ["run()", "start()", "main()", "execute()"],
+    "answerIndex": 2
+  },
+  {
+    "id": 3,
+    "topic": "program_structure",
+    "question": "What is recommended for good indentation style?",
+    "options": [
+      "Use consistent spaces or tabs",
+      "Mix tabs and spaces randomly",
+      "No indentation needed",
+      "Indent using different widths"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 4,
+    "topic": "program_structure",
+    "question": "Which statement correctly describes indentation?",
+    "options": [
+      "It affects program execution",
+      "It improves readability only",
+      "It compiles faster",
+      "It is optional but affects performance"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 5,
+    "topic": "program_structure",
+    "question": "Which of the following is a correctly structured C program?",
+    "code": "#include <stdio.h>\nint main() {\n    return 0;\n}",
+    "options": ["Correct", "Incorrect header", "Missing semicolon", "main() cannot return int"],
+    "answerIndex": 0
+  },
+  {
+    "id": 6,
+    "topic": "program_structure",
+    "question": "Where should variable declarations typically appear?",
+    "options": ["Inside main(), before statements", "After return", "Outside file", "At the bottom"],
+    "answerIndex": 0
+  },
+  {
+    "id": 7,
+    "topic": "program_structure",
+    "question": "What is the recommended brace style in C?",
+    "options": ["Same-line or next-line, consistently", "Random placement", "No braces needed", "HTML-style braces"],
+    "answerIndex": 0
+  },
+  {
+    "id": 8,
+    "topic": "program_structure",
+    "question": "Execution of a C program starts from:",
+    "options": ["The first line", "main()", "Any function", "The header file"],
+    "answerIndex": 1
+  },
+  {
+    "id": 9,
+    "topic": "program_structure",
+    "question": "Which of the following is NOT required in a C program?",
+    "options": ["main()", "Headers", "Classes", "Semicolons"],
+    "answerIndex": 2
+  },
+  {
+    "id": 10,
+    "topic": "program_structure",
+    "question": "Which indentation width is most commonly used?",
+    "options": ["0 spaces", "2–4 spaces", "10 spaces", "16 spaces"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 11,
+    "topic": "comments",
+    "question": "Which is a valid single-line comment in C?",
+    "options": ["# comment", "// comment", "<!-- comment -->", "\\ comment"],
+    "answerIndex": 1
+  },
+  {
+    "id": 12,
+    "topic": "comments",
+    "question": "Which syntax is used for multi-line comments in C?",
+    "options": ["<!-- ... -->", "/* ... */", "#{ ... }#", "( ... )"],
+    "answerIndex": 1
+  },
+  {
+    "id": 13,
+    "topic": "comments",
+    "question": "Comments in C are processed during:",
+    "options": ["Compilation", "Preprocessing", "Runtime", "Linking"],
+    "answerIndex": 1
+  },
+  {
+    "id": 14,
+    "topic": "comments",
+    "question": "Which is TRUE about comments?",
+    "options": [
+      "They affect program performance",
+      "They are removed before compilation",
+      "They cause runtime errors",
+      "They must end with a semicolon"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 15,
+    "topic": "comments",
+    "question": "Identify the invalid comment:",
+    "options": ["// Hello", "/* Hello */", "/* Hello", "//Hello*/"],
+    "answerIndex": 2
+  },
+  {
+    "id": 16,
+    "topic": "comments",
+    "question": "Comments are mainly used for:",
+    "options": ["Making code slower", "Improving readability", "Changing output", "Replacing variables"],
+    "answerIndex": 1
+  },
+  {
+    "id": 17,
+    "topic": "comments",
+    "question": "Which comment type C does NOT support?",
+    "options": ["Single-line", "Multi-line", "Nested comments", "Both single and multi-line"],
+    "answerIndex": 2
+  },
+  {
+    "id": 18,
+    "topic": "comments",
+    "question": "Which of the following is valid?",
+    "code": "/* comment */ int x = 5;",
+    "options": ["Valid", "Invalid", "Needs //", "Needs #"],
+    "answerIndex": 0
+  },
+  {
+    "id": 19,
+    "topic": "comments",
+    "question": "Which will produce an error?",
+    "code": "/* start /* inner */ end */",
+    "options": ["Works fine", "Error due to nesting", "Error due to //", "No issue"],
+    "answerIndex": 1
+  },
+  {
+    "id": 20,
+    "topic": "comments",
+    "question": "Comments help with:",
+    "options": ["Performance", "Debugging", "Documentation", "Memory allocation"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 21,
+    "topic": "variables",
+    "question": "Which of the following is a valid integer declaration?",
+    "options": ["int 2x;", "num int;", "int x;", "integer x;"],
+    "answerIndex": 2
+  },
+  {
+    "id": 22,
+    "topic": "variables",
+    "question": "Which type stores a single character?",
+    "options": ["string", "char", "character", "byte"],
+    "answerIndex": 1
+  },
+  {
+    "id": 23,
+    "topic": "variables",
+    "question": "Which data type stores decimal values?",
+    "options": ["int", "double", "char", "long long"],
+    "answerIndex": 1
+  },
+  {
+    "id": 24,
+    "topic": "variables",
+    "question": "Which is a valid variable name?",
+    "options": ["float", "2age", "_age", "double"],
+    "answerIndex": 2
+  },
+  {
+    "id": 25,
+    "topic": "variables",
+    "question": "Which is TRUE about char?",
+    "options": ["Stores ASCII characters", "Stores strings", "Stores words", "Stores decimals"],
+    "answerIndex": 0
+  },
+  {
+    "id": 26,
+    "topic": "variables",
+    "question": "Which variable holds the largest range?",
+    "options": ["int", "float", "double", "char"],
+    "answerIndex": 2
+  },
+  {
+    "id": 27,
+    "topic": "variables",
+    "question": "What is the size of int on most modern systems?",
+    "options": ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+    "answerIndex": 2
+  },
+  {
+    "id": 28,
+    "topic": "variables",
+    "question": "Which declares and initializes a variable?",
+    "options": ["int;", "x = 10;", "int x = 10;", "declare x"],
+    "answerIndex": 2
+  },
+  {
+    "id": 29,
+    "topic": "variables",
+    "question": "char stores:",
+    "options": ["ASCII code", "Unicode string", "Integer only", "Boolean values"],
+    "answerIndex": 0
+  },
+  {
+    "id": 30,
+    "topic": "variables",
+    "question": "Which is valid?",
+    "options": ["double x = 10.5;", "char x = \"A\";", "int x = 3.14;", "float x = 'z';"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 31,
+    "topic": "constants",
+    "question": "Which keyword defines a constant variable?",
+    "options": ["let", "final", "const", "constant"],
+    "answerIndex": 2
+  },
+  {
+    "id": 32,
+    "topic": "constants",
+    "question": "Which preprocessor directive defines constants?",
+    "options": ["#set", "#value", "#define", "#const"],
+    "answerIndex": 2
+  },
+  {
+    "id": 33,
+    "topic": "constants",
+    "question": "Which is valid?",
+    "options": ["const int x = 10;", "int const x;", "Both A & B", "None"],
+    "answerIndex": 2
+  },
+  {
+    "id": 34,
+    "topic": "constants",
+    "question": "Which is correct usage of #define?",
+    "options": ["#define PI = 3.14", "#define PI 3.14", "#define (PI, 3.14)", "#define: PI 3.14"],
+    "answerIndex": 1
+  },
+  {
+    "id": 35,
+    "topic": "constants",
+    "question": "Constants defined using #define:",
+    "options": ["Have a data type", "Are replaced by preprocessor", "Are stored at runtime", "Use memory"],
+    "answerIndex": 1
+  },
+  {
+    "id": 36,
+    "topic": "constants",
+    "question": "Which is immutable?",
+    "options": ["const variable", "int variable", "float variable", "char variable"],
+    "answerIndex": 0
+  },
+  {
+    "id": 37,
+    "topic": "constants",
+    "question": "Where are #define constants handled?",
+    "options": ["Compiler", "Preprocessor", "Linker", "Debugger"],
+    "answerIndex": 1
+  },
+  {
+    "id": 38,
+    "topic": "constants",
+    "question": "Which is a symbolic constant?",
+    "options": ["const int COUNT = 10;", "#define COUNT 10", "int COUNT = 10", "all of these"],
+    "answerIndex": 1
+  },
+  {
+    "id": 39,
+    "topic": "constants",
+    "question": "Which is incorrect?",
+    "options": ["const int a = 10;", "a = 20;", "printf(\"%d\", a);", "None"],
+    "answerIndex": 1
+  },
+  {
+    "id": 40,
+    "topic": "constants",
+    "question": "#define TAX 18 means:",
+    "options": ["TAX is a variable", "TAX is replaced by 18", "TAX stores 18 at runtime", "TAX cannot be used"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 41,
+    "topic": "format_specifiers",
+    "question": "Which prints an integer?",
+    "options": ["%d", "%f", "%c", "%lf"],
+    "answerIndex": 0
+  },
+  {
+    "id": 42,
+    "topic": "format_specifiers",
+    "question": "Which prints a double?",
+    "options": ["%d", "%lf", "%char", "%str"],
+    "answerIndex": 1
+  },
+  {
+    "id": 43,
+    "topic": "format_specifiers",
+    "question": "Which format specifier prints a character?",
+    "options": ["%str", "%c", "%f", "%d"],
+    "answerIndex": 1
+  },
+  {
+    "id": 44,
+    "topic": "format_specifiers",
+    "question": "%s is used for:",
+    "options": ["Character", "String", "Integer", "Float"],
+    "answerIndex": 1
+  },
+  {
+    "id": 45,
+    "topic": "format_specifiers",
+    "question": "What is printed?",
+    "code": "printf(\"%d\", 12);",
+    "options": ["12", "%d", "Error", "1 and 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 46,
+    "topic": "format_specifiers",
+    "question": "Which prints a tab?",
+    "options": ["\\n", "\\t", "\\p", "\\tb"],
+    "answerIndex": 1
+  },
+  {
+    "id": 47,
+    "topic": "format_specifiers",
+    "question": "Which prints a percent sign?",
+    "options": ["%", "%%", "%p", "%percent"],
+    "answerIndex": 1
+  },
+  {
+    "id": 48,
+    "topic": "format_specifiers",
+    "question": "Which prints 2 decimal places for float?",
+    "options": ["%.2d", "%.2f", "%.2c", "%2f"],
+    "answerIndex": 1
+  },
+  {
+    "id": 49,
+    "topic": "format_specifiers",
+    "question": "Output?",
+    "code": "printf(\"%c\", 65);",
+    "options": ["65", "A", "Error", "%c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 50,
+    "topic": "format_specifiers",
+    "question": "Which prints address of a variable?",
+    "options": ["%x", "%d", "%p", "%lf"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 51,
+    "topic": "arithmetic",
+    "question": "Result of 5 + 3?",
+    "options": ["53", "8", "15", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 52,
+    "topic": "arithmetic",
+    "question": "Result of 10 / 3 in integer arithmetic?",
+    "options": ["3.33", "3", "10", "0"],
+    "answerIndex": 1
+  },
+  {
+    "id": 53,
+    "topic": "arithmetic",
+    "question": "What is the modulus operator?",
+    "options": ["%", "#", "&", "!"],
+    "answerIndex": 0
+  },
+  {
+    "id": 54,
+    "topic": "arithmetic",
+    "question": "Result of 7 % 4?",
+    "options": ["1", "3", "0", "4"],
+    "answerIndex": 0
+  },
+  {
+    "id": 55,
+    "topic": "arithmetic",
+    "question": "Which has highest precedence?",
+    "options": ["+", "*", "-", "="],
+    "answerIndex": 1
+  },
+  {
+    "id": 56,
+    "topic": "arithmetic",
+    "question": "What is the output?",
+    "code": "int a = 5 * 2 + 3;",
+    "options": ["13", "16", "10", "8"],
+    "answerIndex": 0
+  },
+  {
+    "id": 57,
+    "topic": "arithmetic",
+    "question": "What is a unary operator?",
+    "options": ["Works on two operands", "Works on one operand", "Works on three operands", "None"],
+    "answerIndex": 1
+  },
+  {
+    "id": 58,
+    "topic": "arithmetic",
+    "question": "Result of ++x if x = 5?",
+    "options": ["5", "6", "Error", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 59,
+    "topic": "arithmetic",
+    "question": "Result of x++ if x = 5?",
+    "options": ["5 then 6", "6 then 7", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 60,
+    "topic": "arithmetic",
+    "question": "Which is invalid?",
+    "options": ["a = a + b", "a += b", "a =+ b", "a -= b"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 61,
+    "topic": "type_conversion",
+    "question": "Implicit conversion is also called:",
+    "options": ["Casting", "Coercion", "Promotion", "Transformation"],
+    "answerIndex": 2
+  },
+  {
+    "id": 62,
+    "topic": "type_conversion",
+    "question": "Which converts double to int explicitly?",
+    "options": ["double(x)", "(int)x", "cast x", "#int(x)"],
+    "answerIndex": 1
+  },
+  {
+    "id": 63,
+    "topic": "type_conversion",
+    "question": "Which is an example of implicit conversion?",
+    "options": ["(int)3.5", "3 + 2.5", "(float)5", "(char)65"],
+    "answerIndex": 1
+  },
+  {
+    "id": 64,
+    "topic": "type_conversion",
+    "question": "What happens in type promotion?",
+    "options": ["Value shrinks", "Smaller type is promoted to larger type", "Errors occur", "Compiler stops"],
+    "answerIndex": 1
+  },
+  {
+    "id": 65,
+    "topic": "type_conversion",
+    "question": "Which is valid?",
+    "code": "int x = (int) 3.99;",
+    "options": ["x = 3", "x = 4", "Invalid cast", "Runtime error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 66,
+    "topic": "type_conversion",
+    "question": "char promotes to:",
+    "options": ["int", "float", "double", "char*"],
+    "answerIndex": 0
+  },
+  {
+    "id": 67,
+    "topic": "type_conversion",
+    "question": "What is the result?",
+    "code": "int x = 5;\ndouble y = x + 2.5;",
+    "options": ["7", "7.5", "Error", "Cannot mix int and double"],
+    "answerIndex": 1
+  },
+  {
+    "id": 68,
+    "topic": "type_conversion",
+    "question": "Which operation requires explicit cast?",
+    "options": ["double to int", "int to double", "char to int", "float to double"],
+    "answerIndex": 0
+  },
+  {
+    "id": 69,
+    "topic": "type_conversion",
+    "question": "Which is true?",
+    "options": [
+      "Implicit conversions may lose data",
+      "Explicit conversions always lose data",
+      "No conversion is allowed in C",
+      "Conversions occur only at runtime"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 70,
+    "topic": "type_conversion",
+    "question": "What is printed?",
+    "code": "printf(\"%d\", (int) 2.9);",
+    "options": ["2", "3", "2.9", "Error"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 71,
+    "topic": "test",
+    "question": "Which is NOT a valid C data type?",
+    "options": ["int", "double", "real", "char"],
+    "answerIndex": 2
+  },
+  {
+    "id": 72,
+    "topic": "test",
+    "question": "Which symbol ends statements in C?",
+    "options": [".", ":", ";", "#"],
+    "answerIndex": 2
+  },
+  {
+    "id": 73,
+    "topic": "test",
+    "question": "Which operator has the highest precedence?",
+    "options": ["+", "*", "%", "="],
+    "answerIndex": 1
+  },
+  {
+    "id": 74,
+    "topic": "test",
+    "question": "What is printed?",
+    "code": "printf(\"%d\", 4 * 2 - 3);",
+    "options": ["5", "3", "8", "6"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "test",
+    "question": "Which creates a constant?",
+    "options": ["#define A 5", "int A = 5", "var A = 5", "float A = 5"],
+    "answerIndex": 0
+  },
+  {
+    "id": 76,
+    "topic": "test",
+    "question": "Which escape sequence prints a newline?",
+    "options": ["\\l", "\\p", "\\n", "\\space"],
+    "answerIndex": 2
+  },
+  {
+    "id": 77,
+    "topic": "test",
+    "question": "Result of 20 % 6?",
+    "options": ["2", "4", "6", "0"],
+    "answerIndex": 0
+  },
+  {
+    "id": 78,
+    "topic": "test",
+    "question": "Which will cause compile-time error?",
+    "options": ["Missing ;", "Extra spaces", "Two blank lines", "printf without newline"],
+    "answerIndex": 0
+  },
+  {
+    "id": 79,
+    "topic": "test",
+    "question": "Which function prints output?",
+    "options": ["echo()", "console()", "printf()", "display()"],
+    "answerIndex": 2
+  },
+  {
+    "id": 80,
+    "topic": "test",
+    "question": "What is stored in char?",
+    "options": ["String", "ASCII value", "Float", "Boolean"],
+    "answerIndex": 1
+  },
+  {
+    "id": 81,
+    "topic": "test",
+    "question": "Which is valid?",
+    "options": ["int x = 10", "int x = 10;", "int = x 10;", "int x 10;"],
+    "answerIndex": 1
+  },
+  {
+    "id": 82,
+    "topic": "test",
+    "question": "What will this print?",
+    "code": "printf(\"%c\", 'B');",
+    "options": ["B", "66", "Error", "None"],
+    "answerIndex": 0
+  },
+  {
+    "id": 83,
+    "topic": "test",
+    "question": "Which produces 7?",
+    "options": ["5 + 2", "10 - 4", "3 * 3", "12 / 5"],
+    "answerIndex": 0
+  },
+  {
+    "id": 84,
+    "topic": "test",
+    "question": "Which is correct?",
+    "options": ["main()", "Main()", "MAIN()", "main[]"],
+    "answerIndex": 0
+  },
+  {
+    "id": 85,
+    "topic": "test",
+    "question": "Which operator is used for assignment?",
+    "options": ["=", "==", "===", "<-"],
+    "answerIndex": 0
+  },
+  {
+    "id": 86,
+    "topic": "test",
+    "question": "Which prints: Hello?",
+    "code": "printf(\"Hello\");",
+    "options": ["Hello", "\"Hello\"", "Error", "Nothing"],
+    "answerIndex": 0
+  },
+  {
+    "id": 87,
+    "topic": "test",
+    "question": "Which statement is incorrect?",
+    "options": ["int x;", "int 2x;", "int x = 5;", "int y = x + 2;"],
+    "answerIndex": 1
+  },
+  {
+    "id": 88,
+    "topic": "test",
+    "question": "Which operator increments variable by 1?",
+    "options": ["++", "--", "+=", "="],
+    "answerIndex": 0
+  },
+  {
+    "id": 89,
+    "topic": "test",
+    "question": "Which data type stores decimals?",
+    "options": ["int", "float", "char", "short"],
+    "answerIndex": 1
+  },
+  {
+    "id": 90,
+    "topic": "test",
+    "question": "Which is correct constant?",
+    "options": ["const int P;", "const int x = 10;", "const = 10;", "final x = 10;"],
+    "answerIndex": 1
+  },
+  {
+    "id": 91,
+    "topic": "test",
+    "question": "What is the size of char?",
+    "options": ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+    "answerIndex": 0
+  },
+  {
+    "id": 92,
+    "topic": "test",
+    "question": "Which operator gives remainder?",
+    "options": ["%", "/", "-", "*"],
+    "answerIndex": 0
+  },
+  {
+    "id": 93,
+    "topic": "test",
+    "question": "printf(\"%d\", 2 * 3 + 4); prints?",
+    "options": ["10", "12", "8", "14"],
+    "answerIndex": 0
+  },
+  {
+    "id": 94,
+    "topic": "test",
+    "question": "Which escape prints a quote character?",
+    "options": ["\\q", "\\\"", "\\'", "\\qt"],
+    "answerIndex": 1
+  },
+  {
+    "id": 95,
+    "topic": "test",
+    "question": "Which is a correct comment?",
+    "options": ["// This is comment", "/* comment */", "Both A & B", "None"],
+    "answerIndex": 2
+  },
+  {
+    "id": 96,
+    "topic": "test",
+    "question": "Which will cause error?",
+    "code": "int x = \"A\";",
+    "options": ["Valid", "Needs ;", "char should be used", "Works fine"],
+    "answerIndex": 2
+  },
+  {
+    "id": 97,
+    "topic": "test",
+    "question": "Which prints float?",
+    "options": ["%d", "%c", "%f", "%p"],
+    "answerIndex": 2
+  },
+  {
+    "id": 98,
+    "topic": "test",
+    "question": "Which is valid?",
+    "options": ["int x = 5.5;", "double x = 5;", "char x = \"B\";", "float x = 'c';"],
+    "answerIndex": 1
+  },
+  {
+    "id": 99,
+    "topic": "test",
+    "question": "Which function is used for formatted output?",
+    "options": ["printf()", "format()", "display()", "out()"],
+    "answerIndex": 0
+  },
+  {
+    "id": 100,
+    "topic": "test",
+    "question": "Which tool helps debug C?",
+    "options": ["GDB", "Blender", "Chrome", "Excel"],
+    "answerIndex": 0
+  }
+]
