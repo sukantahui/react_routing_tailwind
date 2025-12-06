@@ -153,8 +153,10 @@ class NavBar extends Component {
                       className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
                       <NavLink to="/tools/type-test" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Test</NavLink>
-
                       <NavLink to="/tools/typing-learn" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Learn</NavLink>
+                      <NavLink to="/python-play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Python Editor</NavLink>
+                      <NavLink to="/play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>JavaScript Editor</NavLink>
+
                     </motion.div>
                   )}
                 </AnimatePresence>

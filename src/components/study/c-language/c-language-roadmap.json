@@ -177,7 +177,10 @@
             "Assignment and compound assignment operators",
             "Increment and decrement operators",
             "Formatted input using scanf",
-            "Basic expression evaluation rules and precedence"
+            "Basic expression evaluation rules and precedence",
+            "Format Specifiers in C",
+            "Test your Skill",
+            "Quize"
           ],
           "learningOutcomes": [
             "Use arithmetic and logical operators correctly in C",
