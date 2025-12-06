@@ -181,10 +181,9 @@ class NavBar extends Component {
                       className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
                       <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>JavaScript</NavLink>
-
                       <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Python</NavLink>
-
                       <NavLink to="/c/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>C Programming</NavLink>
+                      <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Tally</NavLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -251,10 +250,9 @@ class NavBar extends Component {
                   {tutorialsOpen && (
                     <div className="ml-4 flex flex-col">
                       <NavLink to="/javascript/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>JavaScript</NavLink>
-
                       <NavLink to="/python/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Python</NavLink>
-
-                      <NavLink to="/tutorials/c" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
+                      <NavLink to="/c/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
+                      <NavLink to="/tally/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Tally</NavLink>
                     </div>
                   )}
                 </div>

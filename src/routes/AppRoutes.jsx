@@ -30,6 +30,10 @@ import CRoadmap from '../components/study/c-language/CRoadmap';
 import CModuleView from '../components/study/c-language/CModuleView';
 import CTopicView from '../components/study/c-language/CTopicView';
 
+import TallyRoadmap from  "../components/study/tally/TallyRoadmap";
+import TallyModuleView from  "../components/study/tally/TallyModuleView";
+import TallyTopicView from  "../components/study/tally/TallyTopicView";
+
 
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
@@ -111,6 +115,12 @@ export default function AppRoutes() {
       <Route path="/c/roadmap" element={<CRoadmap />} />
       <Route path="/c/module/:slug" element={<CModuleView />} />
       <Route path="/c/topic/:moduleSlug/:topicIndex"  element={<CTopicView />}/>
+
+
+      {/* For Tally Prime */}
+      <Route path="/tally/roadmap" element={<TallyRoadmap />} />
+      <Route path="/tally/module/:slug" element={<TallyModuleView />} />
+      <Route path="/tally/topic/:moduleSlug/:topicIndex"  element={<TallyTopicView />}/>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

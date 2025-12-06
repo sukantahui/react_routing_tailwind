@@ -157,7 +157,8 @@
             "Logical operators (and, or, not)",
             "String concatenation & f-strings",
             "Operator precedence",
-            "Evaluating expressions"
+            "Evaluating expressions",
+            "Evaluating Expressions in Python"
           ],
           "learningOutcomes": [
             "Use operators for calculations and comparisons",

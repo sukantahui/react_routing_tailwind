@@ -1,0 +1,305 @@
+{
+  "trackId": "tallyprime-complete-professional",
+  "trackTitle": "TallyPrime Complete Professional Course",
+  "description": "A complete TallyPrime training roadmap from beginner to professional accountant level. Includes GST, TDS, Payroll, Inventory, Banking, MIS Reporting, Financial Statements, and real-world business simulations. Designed for classroom training, self-paced learners, and job-oriented commercial accounting.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "Accounting & Taxation Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-07"
+  },
+
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 – Fundamentals of Accounting & TallyPrime (Beginner)",
+      "level": "Beginner",
+      "summary": "Learn the basics of accounting, business transactions, TallyPrime interface, company creation, and basic voucher entry.",
+      "modules": [
+
+        {
+          "moduleId": "acc-basics",
+          "slug": "accounting-basics",
+          "title": "Accounting Fundamentals",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["accounting", "basics", "business-transactions"],
+          "topics": [
+            "What is accounting?",
+            "Types of accounts (Real, Personal, Nominal)",
+            "Golden rules of accounting",
+            "Debit & Credit explained",
+            "Source documents & vouchers",
+            "Ledgers, Journal, Trial Balance (concept)",
+            "Tally Test",
+            "Tally Quiz"
+          ],
+          "learningOutcomes": [
+            "Understand the core rules of accounting",
+            "Identify business transactions",
+            "Apply debit-credit logic in real examples"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "miniProjects": [
+            "Identify debit/credit for 30 business transactions"
+          ],
+          "exercises": { "mcq": 20, "coding": 0, "projects": 1 },
+          "assessment": { "type": "Quiz + Practice Sheet", "passScore": 70 },
+          "careerSkills": ["Strong accounting foundation"],
+          "commonMistakes": ["Wrong classification of accounts"],
+          "previousModule": null,
+          "nextModule": "tally-intro",
+          "badge": "Accounting Basics Badge"
+        },
+
+        {
+          "moduleId": "tally-intro",
+          "slug": "intro-to-tallyprime",
+          "title": "Introduction to TallyPrime",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["tallyprime", "interface", "navigation"],
+          "topics": [
+            "What is TallyPrime?",
+            "Differences: Tally ERP 9 vs TallyPrime",
+            "Installing & activating TallyPrime",
+            "Tally Gateway & menu navigation",
+            "Company creation & company features",
+            "Setting up basic configurations"
+          ],
+          "learningOutcomes": [
+            "Install and activate TallyPrime",
+            "Navigate through Tally menu structure",
+            "Create companies with proper configurations"
+          ],
+          "difficultyIndex": 1,
+          "miniProjects": ["Create a new company with proper accounting setup"],
+          "exercises": { "mcq": 10, "coding": 0, "projects": 1 },
+          "assessment": { "type": "Practical Test", "passScore": 70 },
+          "previousModule": "acc-basics",
+          "nextModule": "ledger-groups",
+          "badge": "Tally Beginner Badge"
+        },
+
+        {
+          "moduleId": "ledger-groups",
+          "slug": "ledger-and-groups",
+          "title": "Ledger Creation & Group Management",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "topics": [
+            "Understanding Groups in Tally",
+            "Primary vs Secondary groups",
+            "Creating ledgers with GST details",
+            "Handling opening balances",
+            "Ledger classification best practices"
+          ],
+          "learningOutcomes": [
+            "Create correct ledger groups",
+            "Attach GST configuration in ledgers",
+            "Organize chart of accounts professionally"
+          ],
+          "difficultyIndex": 2,
+          "miniProjects": [
+            "Create 25 business ledgers for a trading company"
+          ],
+          "exercises": { "mcq": 12, "coding": 0, "projects": 1 },
+          "nextModule": "voucher-entry",
+          "badge": "Ledger Master Badge"
+        },
+
+        {
+          "moduleId": "voucher-entry",
+          "slug": "voucher-entry-basics",
+          "title": "Voucher Entry Basics",
+          "estimatedHours": 6,
+          "topics": [
+            "Contra, Payment, Receipt, Journal, Purchase, Sales",
+            "Voucher configuration & advanced settings",
+            "Practical real-life transactions",
+            "Day Book usage",
+            "Editing & deleting vouchers"
+          ],
+          "learningOutcomes": [
+            "Enter all basic accounting vouchers",
+            "Handle real business entries confidently"
+          ],
+          "miniProjects": ["Enter 40 daily cash & bank transactions"],
+          "exercises": { "mcq": 15, "projects": 1 },
+          "nextModule": "banking-module",
+          "badge": "Voucher Expert Badge"
+        }
+      ]
+    },
+
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 – Inventory, Taxation & Business Operations (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Learn inventory management, GST configuration, stock groups, godowns, and taxation-related transactions.",
+      "modules": [
+
+        {
+          "moduleId": "inventory-basics",
+          "slug": "inventory-management",
+          "title": "Inventory Management in TallyPrime",
+          "estimatedHours": 6,
+          "topics": [
+            "Stock groups & categories",
+            "Units of measure",
+            "Stock items & SKU creation",
+            "Godowns & batches",
+            "Inventory reports"
+          ],
+          "learningOutcomes": [
+            "Create structured inventory records",
+            "Manage multi-godown operations"
+          ],
+          "difficultyIndex": 5,
+          "nextModule": "gst-module"
+        },
+
+        {
+          "moduleId": "gst-module",
+          "slug": "gst-in-tally",
+          "title": "GST Configuration & Transactions",
+          "estimatedHours": 8,
+          "topics": [
+            "Enabling GST",
+            "HSN/SAC setup",
+            "GST ledgers",
+            "Intra/Interstate GST",
+            "Purchase & Sales with GST",
+            "Debit/Credit notes with GST",
+            "GSTR reports"
+          ],
+          "miniProjects": ["Record 20 GST purchase & sales bills"],
+          "difficultyIndex": 6,
+          "nextModule": "banking-module"
+        },
+
+        {
+          "moduleId": "banking-module",
+          "slug": "banking-and-reconciliation",
+          "title": "Banking, Cheque Management & Reconciliation",
+          "topics": [
+            "Bank ledger setup",
+            "Cheque formats",
+            "Bank Reconciliation Statement",
+            "Auto bank reconciliation (import)"
+          ],
+          "difficultyIndex": 5,
+          "nextModule": "cost-centre"
+        },
+
+        {
+          "moduleId": "cost-centre",
+          "slug": "cost-centre-profit",
+          "title": "Cost Centres & Profitability Analysis",
+          "topics": [
+            "Cost centres & categories",
+            "Employee-wise, department-wise allocation",
+            "Profit centre reporting"
+          ],
+          "difficultyIndex": 6
+        }
+      ]
+    },
+
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 – Payroll, TDS, Advanced GST & Financial Statements",
+      "summary": "Move into advanced accounting topics including payroll, TDS, financial statement preparation and analysis.",
+      "modules": [
+        {
+          "moduleId": "payroll",
+          "slug": "payroll-management",
+          "title": "Payroll Management",
+          "topics": [
+            "Employee masters",
+            "Attendance & payroll vouchers",
+            "Salary structures & pay heads",
+            "Payroll reports"
+          ],
+          "difficultyIndex": 7
+        },
+
+        {
+          "moduleId": "tds",
+          "slug": "tds-in-tally",
+          "title": "TDS Setup & Filing Process",
+          "topics": [
+            "TDS nature of payment",
+            "TDS ledgers",
+            "TDS on purchase of services",
+            "TDS reports"
+          ],
+          "difficultyIndex": 8
+        },
+
+        {
+          "moduleId": "financial-statements",
+          "slug": "financial-reporting",
+          "title": "Financial Statements Analysis",
+          "topics": [
+            "Profit & Loss Account",
+            "Balance Sheet",
+            "Cash Flow & Fund Flow",
+            "Ratio Analysis"
+          ],
+          "difficultyIndex": 7
+        }
+      ]
+    },
+
+    {
+      "segmentId": "pro",
+      "title": "Segment 4 – TallyPrime Professional Level",
+      "summary": "Master-level business reporting, GST returns, auditing, controls, and real-world case studies.",
+      "modules": [
+        {
+          "moduleId": "audit",
+          "slug": "audit-features",
+          "title": "Audit Features & Internal Control",
+          "topics": [
+            "Tally audit tools",
+            "User roles & security control",
+            "Data backup & restore",
+            "Data repair & migration"
+          ],
+          "difficultyIndex": 9
+        },
+
+        {
+          "moduleId": "business-reports",
+          "slug": "business-reports",
+          "title": "Business Reporting & MIS",
+          "topics": [
+            "Stock summary analysis",
+            "Ageing analysis",
+            "Outstanding reports (AR/AP)",
+            "Budgeting"
+          ],
+          "difficultyIndex": 9
+        },
+
+        {
+          "moduleId": "final-projects",
+          "slug": "capstone-projects",
+          "title": "Capstone Projects & Job Preparation",
+          "topics": [
+            "Full business case study (Trading Company)",
+            "Full business case study (Manufacturing Company)",
+            "GST return simulation",
+            "Interview questions & practical tests"
+          ],
+          "difficultyIndex": 10
+        }
+      ]
+    }
+  ]
+}
