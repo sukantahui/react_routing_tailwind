@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
+import EditableCCodeBlock from "../../../../../common/EditableCCodeBlock";
 
 export default class Topic4 extends Component {
   render() {
@@ -17,8 +18,8 @@ export default class Topic4 extends Component {
 
         <h3 className="text-lg text-slate-200 font-semibold">Compiling Using GCC</h3>
 
-        <EditableCodeBlock
-          language="bash"
+        <EditableCCodeBlock
+          language="c"
           initialCode={
             `gcc hello.c -o hello
 ./hello`

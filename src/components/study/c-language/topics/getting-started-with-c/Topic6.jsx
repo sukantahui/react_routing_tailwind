@@ -1,5 +1,5 @@
 import PracticeEngine from "../../../PracticeEngine";
-import questions from "./foundations-exercise.json";
+import questions from "./c-fundamental-test.json";
 
 export default function Topic6() {
   return (

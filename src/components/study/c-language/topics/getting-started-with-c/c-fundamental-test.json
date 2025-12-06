@@ -1,0 +1,736 @@
+[
+  {
+    "id": 1,
+    "topic": "intro",
+    "question": "Who is the creator of the C programming language?",
+    "options": ["Dennis Ritchie", "Bjarne Stroustrup", "James Gosling", "Guido van Rossum"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "topic": "intro",
+    "question": "C was developed at which organization?",
+    "options": ["NASA", "Bell Labs", "Microsoft", "Google"],
+    "answerIndex": 1
+  },
+  {
+    "id": 3,
+    "topic": "intro",
+    "question": "In which decade was C developed?",
+    "options": ["1960s", "1970s", "1980s", "1990s"],
+    "answerIndex": 1
+  },
+  {
+    "id": 4,
+    "topic": "intro",
+    "question": "Why is C called the 'mother of all languages'?",
+    "options": [
+      "It is the oldest language",
+      "Most modern languages are influenced by C",
+      "It is only used for teaching",
+      "It is the easiest language"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 5,
+    "topic": "intro",
+    "question": "Which one is a major feature of C?",
+    "options": ["Automatic memory management", "Low-level access to memory", "Dynamic typing", "Virtual machine execution"],
+    "answerIndex": 1
+  },
+  {
+    "id": 6,
+    "topic": "intro",
+    "question": "Which of the following is TRUE about C?",
+    "options": ["C is interpreted", "C is compiled", "C is both interpreted and compiled", "C has no compiler"],
+    "answerIndex": 1
+  },
+  {
+    "id": 7,
+    "topic": "intro",
+    "question": "Which language is heavily influenced by C?",
+    "options": ["JavaScript", "Python", "Java", "All of these"],
+    "answerIndex": 3
+  },
+  {
+    "id": 8,
+    "topic": "intro",
+    "question": "Which of the following describes C best?",
+    "options": ["High-level only", "Low-level only", "Middle-level language", "Machine language"],
+    "answerIndex": 2
+  },
+  {
+    "id": 9,
+    "topic": "intro",
+    "question": "C is best suited for:",
+    "options": ["Web design", "System programming", "Graphic design", "Artificial Intelligence only"],
+    "answerIndex": 1
+  },
+  {
+    "id": 10,
+    "topic": "intro",
+    "question": "Which characteristic makes C extremely fast?",
+    "options": ["It is interpreted", "It uses garbage collection", "Direct memory access", "It compiles to bytecode"],
+    "answerIndex": 2
+  },
+  {
+    "id": 11,
+    "topic": "intro",
+    "question": "C provides:",
+    "options": ["Strong hardware-level control", "No hardware control", "Only abstraction features", "Graphical features by default"],
+    "answerIndex": 0
+  },
+  {
+    "id": 12,
+    "topic": "intro",
+    "question": "C code is converted to machine code by:",
+    "options": ["Compiler", "Interpreter", "Debugger", "Assembler"],
+    "answerIndex": 0
+  },
+  {
+    "id": 13,
+    "topic": "intro",
+    "question": "Which of the following is a limitation of C?",
+    "options": ["Lack of pointers", "No built-in OOP", "Too slow", "No ability to compile"],
+    "answerIndex": 1
+  },
+  {
+    "id": 14,
+    "topic": "intro",
+    "question": "Why should beginners learn C first?",
+    "options": ["It handles memory automatically", "It hides low-level details", "It teaches core computer concepts", "It is only language for beginners"],
+    "answerIndex": 2
+  },
+  {
+    "id": 15,
+    "topic": "intro",
+    "question": "Which language was built as an extension of C?",
+    "options": ["Java", "Python", "C++", "Rust"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 16,
+    "topic": "usage",
+    "question": "C is widely used for developing:",
+    "options": ["Social media apps", "Operating systems", "Presentation slides", "Spreadsheets"],
+    "answerIndex": 1
+  },
+  {
+    "id": 17,
+    "topic": "usage",
+    "question": "Which OS kernel is written mostly in C?",
+    "options": ["Android", "Linux", "Windows 95", "iOS"],
+    "answerIndex": 1
+  },
+  {
+    "id": 18,
+    "topic": "usage",
+    "question": "Embedded systems frequently use C because it:",
+    "options": ["Is slow", "Is interpreted", "Allows hardware-level control", "Requires heavy memory"],
+    "answerIndex": 2
+  },
+  {
+    "id": 19,
+    "topic": "usage",
+    "question": "Which major version control system is written in C?",
+    "options": ["Git", "Mercurial", "SVN", "Fossil"],
+    "answerIndex": 0
+  },
+  {
+    "id": 20,
+    "topic": "usage",
+    "question": "C is commonly used in:",
+    "options": ["Robotics", "Web styling", "Video editing", "Spreadsheet formatting"],
+    "answerIndex": 0
+  },
+  {
+    "id": 21,
+    "topic": "usage",
+    "question": "Compilers such as GCC are written in:",
+    "options": ["Java", "Python", "C", "Ruby"],
+    "answerIndex": 2
+  },
+  {
+    "id": 22,
+    "topic": "usage",
+    "question": "C is preferred for system-level programming because:",
+    "options": [
+      "It is dynamically typed",
+      "It supports automatic garbage collection",
+      "It offers low-level memory manipulation",
+      "It runs inside a browser"
+    ],
+    "answerIndex": 2
+  },
+  {
+    "id": 23,
+    "topic": "usage",
+    "question": "Which domain does NOT typically use C?",
+    "options": ["Embedded systems", "Firmware development", "Mobile UI styling", "Compiler development"],
+    "answerIndex": 2
+  },
+  {
+    "id": 24,
+    "topic": "usage",
+    "question": "C is widely used in IoT devices because:",
+    "options": [
+      "It needs large RAM",
+      "It works well with microcontrollers",
+      "It requires an OS to run",
+      "It only works on desktops"
+    ],
+    "answerIndex": 1
+  },
+  {
+    "id": 25,
+    "topic": "usage",
+    "question": "Supercomputers use C because:",
+    "options": ["Slow execution", "High-level only", "Maximum performance", "No memory control"],
+    "answerIndex": 2
+  },
+  {
+    "id": 26,
+    "topic": "usage",
+    "question": "Which hardware area uses C?",
+    "options": ["Microcontrollers", "3D animation", "Web banners", "Desktop themes"],
+    "answerIndex": 0
+  },
+  {
+    "id": 27,
+    "topic": "usage",
+    "question": "C is often chosen for OS kernels because:",
+    "options": ["It is interpreted", "Compilation is slow", "It is stable and fast", "It has built-in GUI"],
+    "answerIndex": 2
+  },
+  {
+    "id": 28,
+    "topic": "usage",
+    "question": "C can be used to build which of the following?",
+    "options": ["Device drivers", "HTML web pages", "Photoshop templates", "Excel formulas"],
+    "answerIndex": 0
+  },
+  {
+    "id": 29,
+    "topic": "usage",
+    "question": "A major advantage of C in embedded systems is:",
+    "options": ["Automatic memory cleanup", "Precise timing control", "Built-in encryption", "UI rendering"],
+    "answerIndex": 1
+  },
+  {
+    "id": 30,
+    "topic": "usage",
+    "question": "Which is an example of a program developed in C?",
+    "options": ["Chrome browser", "Python interpreter (CPython)", "Excel", "MS Paint"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 31,
+    "topic": "install",
+    "question": "Which compiler is commonly used for C?",
+    "options": ["GCC", "Node.js", "JDK", "PyCompiler"],
+    "answerIndex": 0
+  },
+  {
+    "id": 32,
+    "topic": "install",
+    "question": "Clang is part of which compiler framework?",
+    "options": ["LLVM", "Electron", "CUDA", "OpenGL"],
+    "answerIndex": 0
+  },
+  {
+    "id": 33,
+    "topic": "install",
+    "question": "Which command checks if GCC is installed?",
+    "options": ["gcc --help", "gcc --version", "gcc install", "gcc init"],
+    "answerIndex": 1
+  },
+  {
+    "id": 34,
+    "topic": "install",
+    "question": "VS Code requires which extension to run C programs?",
+    "options": ["Java Pack", "C/C++ extension", "Node Tools", "Python Tools"],
+    "answerIndex": 1
+  },
+  {
+    "id": 35,
+    "topic": "install",
+    "question": "Which OS commonly includes GCC by default?",
+    "options": ["Linux", "Windows", "Android", "iOS"],
+    "answerIndex": 0
+  },
+  {
+    "id": 36,
+    "topic": "install",
+    "question": "To install GCC on Windows, which tool is often used?",
+    "options": ["VS Installer", "MinGW / TDM-GCC", "Photoshop", "Chrome"],
+    "answerIndex": 1
+  },
+  {
+    "id": 37,
+    "topic": "install",
+    "question": "What is the output of the command: gcc file.c -o app?",
+    "options": ["Runs the program", "Creates executable named app", "Deletes file.c", "Opens VS Code"],
+    "answerIndex": 1
+  },
+  {
+    "id": 38,
+    "topic": "install",
+    "question": "C/C++ extension in VS Code provides:",
+    "options": ["Themes only", "Debug and IntelliSense", "3D rendering", "Audio recording"],
+    "answerIndex": 1
+  },
+  {
+    "id": 39,
+    "topic": "install",
+    "question": "Which toolchain is required for compiling C in VS Code?",
+    "options": ["Go compiler", "Java compiler", "C compiler (GCC/Clang)", "HTML engine"],
+    "answerIndex": 2
+  },
+  {
+    "id": 40,
+    "topic": "install",
+    "question": "Which command installs build tools in Linux?",
+    "options": ["apt-get build", "sudo apt install build-essential", "gcc install pack", "sudo install-c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 41,
+    "topic": "install",
+    "question": "Which compiler does macOS use by default?",
+    "options": ["Clang", "GCC", "Turbo C", "MinGW"],
+    "answerIndex": 0
+  },
+  {
+    "id": 42,
+    "topic": "install",
+    "question": "Which is necessary to debug C in VS Code?",
+    "options": ["C Debugger extension", "Python runtime", "Node debugger", "Chrome DevTools"],
+    "answerIndex": 0
+  },
+  {
+    "id": 43,
+    "topic": "install",
+    "question": "VS Code tasks.json is used for:",
+    "options": ["Running C shortcuts", "Compiling and debugging", "Changing OS", "Encrypting code"],
+    "answerIndex": 1
+  },
+  {
+    "id": 44,
+    "topic": "install",
+    "question": "Which command compiles without generating warnings?",
+    "options": ["gcc -w", "gcc -o", "gcc run", "gcc compile"],
+    "answerIndex": 0
+  },
+  {
+    "id": 45,
+    "topic": "install",
+    "question": "Which tool is NOT used for C installation?",
+    "options": ["MinGW", "Clang", "GCC", "TensorFlow"],
+    "answerIndex": 3
+  },
+
+  {
+    "id": 46,
+    "topic": "structure",
+    "question": "Which function is required in every C program?",
+    "options": ["start()", "main()", "run()", "init()"],
+    "answerIndex": 1
+  },
+  {
+    "id": 47,
+    "topic": "structure",
+    "question": "What does return 0 indicate in main()?",
+    "options": ["Program crashed", "Program ended successfully", "Program paused", "Nothing"],
+    "answerIndex": 1
+  },
+  {
+    "id": 48,
+    "topic": "structure",
+    "question": "Which header file contains printf()?",
+    "options": ["math.h", "stdio.h", "stdlib.h", "string.h"],
+    "answerIndex": 1
+  },
+  {
+    "id": 49,
+    "topic": "structure",
+    "question": "Which part of a C program contains variable declarations?",
+    "options": ["Header section", "Declaration section", "Function call", "Return block"],
+    "answerIndex": 1
+  },
+  {
+    "id": 50,
+    "topic": "structure",
+    "question": "Identify the correct structure:",
+    "code": "#include <stdio.h>\nint main() {\n return 0;\n}",
+    "options": ["Correct", "Missing # symbol", "No semicolon after main", "Invalid header"],
+    "answerIndex": 0
+  },
+  {
+    "id": 51,
+    "topic": "structure",
+    "question": "Which statement is true?",
+    "options": ["A C program can run without main()", "main() must return an int", "stdio.h is optional for printf()", "Headers run automatically"],
+    "answerIndex": 1
+  },
+  {
+    "id": 52,
+    "topic": "structure",
+    "question": "Which symbol marks the start and end of a block?",
+    "options": ["()", "[]", "{}", "<>"],
+    "answerIndex": 2
+  },
+  {
+    "id": 53,
+    "topic": "structure",
+    "question": "Which is a valid comment in C?",
+    "options": ["# comment", "// comment", "<!-- comment -->", "$ comment"],
+    "answerIndex": 1
+  },
+  {
+    "id": 54,
+    "topic": "structure",
+    "question": "Header files in C end with:",
+    "options": [".cpp", ".h", ".exe", ".txt"],
+    "answerIndex": 1
+  },
+  {
+    "id": 55,
+    "topic": "structure",
+    "question": "Which comes first in a C program?",
+    "options": ["main()", "Header files", "return 0", "printf"],
+    "answerIndex": 1
+  },
+  {
+    "id": 56,
+    "topic": "structure",
+    "question": "Where does execution begin?",
+    "options": ["Top of file", "main() function", "Header", "Last line"],
+    "answerIndex": 1
+  },
+  {
+    "id": 57,
+    "topic": "structure",
+    "question": "Which is valid?",
+    "options": ["int main {}", "int main() {}", "main() int {}", "run() {}"],
+    "answerIndex": 1
+  },
+  {
+    "id": 58,
+    "topic": "structure",
+    "question": "What is the purpose of #include?",
+    "options": ["Import libraries", "Run program", "Exit program", "Compile code"],
+    "answerIndex": 0
+  },
+  {
+    "id": 59,
+    "topic": "structure",
+    "question": "Which is NOT part of a C program structure?",
+    "options": ["Header files", "main() function", "Class definition", "Statements"],
+    "answerIndex": 2
+  },
+  {
+    "id": 60,
+    "topic": "structure",
+    "question": "Which is the correct extension for C files?",
+    "options": [".py", ".js", ".c", ".cpp"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 61,
+    "topic": "compile_run",
+    "question": "Which command compiles a C program?",
+    "options": ["run file.c", "gcc file.c", "python file.c", "clang-run file.c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 62,
+    "topic": "compile_run",
+    "question": "What does the -o flag do in GCC?",
+    "options": ["Optimize code", "Specify output file name", "Open debugger", "Display errors only"],
+    "answerIndex": 1
+  },
+  {
+    "id": 63,
+    "topic": "compile_run",
+    "question": "Which command runs an executable on Linux?",
+    "options": ["run file", "./a.out", "start file", "execute"],
+    "answerIndex": 1
+  },
+  {
+    "id": 64,
+    "topic": "compile_run",
+    "question": "What happens if you compile without -o?",
+    "options": ["Error", "Output file named a.out is created", "Nothing", "System crash"],
+    "answerIndex": 1
+  },
+  {
+    "id": 65,
+    "topic": "compile_run",
+    "question": "Which step comes AFTER compilation?",
+    "options": ["Editing", "Execution", "Debugging", "Linking"],
+    "answerIndex": 1
+  },
+  {
+    "id": 66,
+    "topic": "compile_run",
+    "question": "In VS Code, which button starts debugging?",
+    "options": ["Run ▶", "Help", "Settings", "Themes"],
+    "answerIndex": 0
+  },
+  {
+    "id": 67,
+    "topic": "compile_run",
+    "question": "Which command shows compile-time errors?",
+    "options": ["gcc file.c", "./file", "open file.c", "gcc run"],
+    "answerIndex": 0
+  },
+  {
+    "id": 68,
+    "topic": "compile_run",
+    "question": "Which file is produced AFTER compilation?",
+    "options": ["Source code", "Executable", "Header", "Library"],
+    "answerIndex": 1
+  },
+  {
+    "id": 69,
+    "topic": "compile_run",
+    "question": "Which command compiles with warnings enabled?",
+    "options": ["gcc -Wall file.c", "gcc -safe file.c", "clang-run file", "run-gcc file.c"],
+    "answerIndex": 0
+  },
+  {
+    "id": 70,
+    "topic": "compile_run",
+    "question": "What happens if semicolon is missing?",
+    "options": ["Runtime error", "Compile-time error", "No error", "Program runs normally"],
+    "answerIndex": 1
+  },
+  {
+    "id": 71,
+    "topic": "compile_run",
+    "question": "Which command is used to run a program compiled as app?",
+    "options": ["run app", "./app", "gcc app", "execute app.c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 72,
+    "topic": "compile_run",
+    "question": "What does the linker combine?",
+    "options": ["Only main()", "Multiple object files", "Comments", "Whitespace"],
+    "answerIndex": 1
+  },
+  {
+    "id": 73,
+    "topic": "compile_run",
+    "question": "Which step is NOT part of compilation?",
+    "options": ["Preprocessing", "Lexical analysis", "Execution", "Linking"],
+    "answerIndex": 2
+  },
+  {
+    "id": 74,
+    "topic": "compile_run",
+    "question": "Which flag outputs assembly?",
+    "options": ["gcc -S file.c", "gcc -A file.c", "gcc --asm file.c", "gcc -def file.c"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "compile_run",
+    "question": "Which tool helps debug C programs?",
+    "options": ["GDB", "Photoshop", "Chrome", "Blender"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 76,
+    "topic": "printf",
+    "question": "Which function prints output to screen?",
+    "options": ["print()", "echo()", "printf()", "write()"],
+    "answerIndex": 2
+  },
+  {
+    "id": 77,
+    "topic": "printf",
+    "question": "Which format specifier prints an integer?",
+    "options": ["%s", "%c", "%d", "%i only"],
+    "answerIndex": 2
+  },
+  {
+    "id": 78,
+    "topic": "printf",
+    "question": "Which symbol represents a newline?",
+    "options": ["\\t", "\\n", "\\p", "\\l"],
+    "answerIndex": 1
+  },
+  {
+    "id": 79,
+    "topic": "printf",
+    "question": "What will be the output?",
+    "code": "printf(\"Hello C\");",
+    "options": ["Hello C", "Hello", "C", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 80,
+    "topic": "printf",
+    "question": "What is printed?",
+    "code": "printf(\"%d\", 10);",
+    "options": ["%d", "10", "d", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 81,
+    "topic": "printf",
+    "question": "Which prints a character?",
+    "options": ["%c", "%ch", "%char", "%s"],
+    "answerIndex": 0
+  },
+  {
+    "id": 82,
+    "topic": "printf",
+    "question": "Which prints a floating value?",
+    "options": ["%d", "%f", "%c", "%lf only"],
+    "answerIndex": 1
+  },
+  {
+    "id": 83,
+    "topic": "printf",
+    "question": "Which prints a string?",
+    "options": ["%str", "%s", "%string", "%txt"],
+    "answerIndex": 1
+  },
+  {
+    "id": 84,
+    "topic": "printf",
+    "question": "Output?",
+    "code": "printf(\"Age: %d\", 25);",
+    "options": ["Age: %d", "25", "Age: 25", "Error"],
+    "answerIndex": 2
+  },
+  {
+    "id": 85,
+    "topic": "printf",
+    "question": "Which escape sequence adds a tab?",
+    "options": ["\\t", "\\n", "\\space", "\\tab"],
+    "answerIndex": 0
+  },
+  {
+    "id": 86,
+    "topic": "printf",
+    "question": "Which prints multiple values?",
+    "options": [
+      "printf(\"%d %d\", a, b)",
+      "print(a, b)",
+      "output(a, b)",
+      "console.log(a, b)"
+    ],
+    "answerIndex": 0
+  },
+  {
+    "id": 87,
+    "topic": "printf",
+    "question": "What is printed?",
+    "code": "printf(\"%c\", 'A');",
+    "options": ["A", "65", "Error", "Nothing"],
+    "answerIndex": 0
+  },
+  {
+    "id": 88,
+    "topic": "printf",
+    "question": "Which prints a double correctly?",
+    "options": ["%d", "%lf", "%char", "%2f"],
+    "answerIndex": 1
+  },
+  {
+    "id": 89,
+    "topic": "printf",
+    "question": "Output?",
+    "code": "printf(\"%s\", \"Coder & AccoTax\");",
+    "options": ["%s", "Coder & AccoTax", "Coder", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 90,
+    "topic": "printf",
+    "question": "Debug messages in C often use:",
+    "options": ["printf()", "alert()", "log()", "pop-up window"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 91,
+    "topic": "test",
+    "question": "Which keyword includes libraries in C?",
+    "options": ["import", "#include", "addlib", "use"],
+    "answerIndex": 1
+  },
+  {
+    "id": 92,
+    "topic": "test",
+    "question": "C programs are executed by:",
+    "options": ["Browser", "Compiler + CPU", "Interpreter", "Server"],
+    "answerIndex": 1
+  },
+  {
+    "id": 93,
+    "topic": "test",
+    "question": "Which command creates an executable called output?",
+    "options": ["gcc a.c output", "gcc a.c -o output", "output a.c", "run a.c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 94,
+    "topic": "test",
+    "question": "Which format specifier prints a float?",
+    "options": ["%float", "%f", "%d", "%fl"],
+    "answerIndex": 1
+  },
+  {
+    "id": 95,
+    "topic": "test",
+    "question": "Output?",
+    "code": "printf(\"%d\", 5 + 3);",
+    "options": ["53", "8", "%d", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 96,
+    "topic": "test",
+    "question": "Which of the following produces a compile-time error?",
+    "options": ["Missing semicolon", "printf without newline", "Extra spaces", "Lowercase main"],
+    "answerIndex": 0
+  },
+  {
+    "id": 97,
+    "topic": "test",
+    "question": "Which is valid C code?",
+    "code": "#include <stdio.h>\nint main() {\n printf(\"Hi\");\n return 0;\n}",
+    "options": ["Valid", "Invalid header", "Missing semicolon", "Incorrect main structure"],
+    "answerIndex": 0
+  },
+  {
+    "id": 98,
+    "topic": "test",
+    "question": "Which command runs an executable named test?",
+    "options": ["run test", "./test", "gcc test", "exe test.c"],
+    "answerIndex": 1
+  },
+  {
+    "id": 99,
+    "topic": "test",
+    "question": "Which escape sequence creates a new line?",
+    "options": ["\\l", "\\n", "\\s", "\\new"],
+    "answerIndex": 1
+  },
+  {
+    "id": 100,
+    "topic": "test",
+    "question": "Which is used for debugging?",
+    "options": ["printf()", "Photoshop", "Excel", "PowerPoint"],
+    "answerIndex": 0
+  }
+]

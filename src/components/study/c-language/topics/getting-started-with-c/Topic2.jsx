@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ArrowUpRight } from "lucide-react";
+import EditableCCodeBlock from "../../../../../common/EditableCCodeBlock";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 
 export default class Topic2 extends Component {
@@ -26,20 +27,20 @@ export default class Topic2 extends Component {
           Install GCC via <strong>MinGW-w64</strong> or <strong>MSYS2</strong>.
         </p>
 
-        <EditableCodeBlock
-          language="bash"
+        <EditableCCodeBlock
+          language="c"
           initialCode={`pacman -S mingw-w64-ucrt-x86_64-gcc`}
         />
 
         <h3 className="text-lg text-slate-200 font-semibold">Installing on macOS</h3>
-        <EditableCodeBlock
-          language="bash"
+        <EditableCCodeBlock
+          language="c"
           initialCode={`xcode-select --install`}
         />
 
         <h3 className="text-lg text-slate-200 font-semibold">Installing on Linux</h3>
-        <EditableCodeBlock
-          language="bash"
+        <EditableCCodeBlock
+          language="c"
           initialCode={`sudo apt install build-essential`}
         />
 

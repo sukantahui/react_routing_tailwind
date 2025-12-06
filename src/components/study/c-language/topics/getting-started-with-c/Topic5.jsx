@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
+import EditableCCodeBlock from "../../../../../common/EditableCCodeBlock";
 import { ArrowUpRight } from "lucide-react";
 
 export default class Topic5 extends Component {
@@ -20,7 +21,7 @@ export default class Topic5 extends Component {
           Try in Playground <ArrowUpRight size={18} />
         </a>
 
-        <EditableCodeBlock
+        <EditableCCodeBlock
           language="c"
           initialCode={
             `#include <stdio.h>

@@ -35,7 +35,9 @@
             "Installing a compiler (GCC, Clang) and setting up VS Code",
             "Structure of a basic C program: main function, headers, return value",
             "Compiling and running programs from terminal and IDE",
-            "Using printf for simple output and basic debug messages"
+            "Using printf for simple output and basic debug messages",
+            "Practice Session",
+            "Test"
           ],
           "learningOutcomes": [
             "Explain what C language is and where it is used",
