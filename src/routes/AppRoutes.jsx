@@ -28,6 +28,8 @@ import PythonTopicView from '../components/study/python/PythonTopicView';
 import PythonPlayground from '../common/PythonPlayground';
 import CRoadmap from '../components/study/c-language/CRoadmap';
 import CModuleView from '../components/study/c-language/CModuleView';
+import CTopicView from '../components/study/c-language/CTopicView';
+
 
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
@@ -107,6 +109,8 @@ export default function AppRoutes() {
 
       {/* For C Language */}
       <Route path="/c/roadmap" element={<CRoadmap />} />
+      <Route path="/c/module/:slug" element={<CModuleView />} />
+      <Route path="/c/topic/:moduleSlug/:topicIndex"  element={<CTopicView />}/>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

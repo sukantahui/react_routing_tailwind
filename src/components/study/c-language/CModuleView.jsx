@@ -26,7 +26,7 @@ export default function CModuleView() {
         <p className="mt-2 text-slate-400">The requested module does not exist.</p>
 
         <Link
-          to="/javascript/roadmap"
+          to="/c/roadmap"
           className="inline-block mt-5 px-4 py-2 rounded-full border border-sky-500 text-sky-300 hover:bg-sky-500/10"
         >
           ← Back to Roadmap
@@ -84,7 +84,7 @@ export default function CModuleView() {
             {mod.topics.map((topic, i) => (
               <Link
                 key={i}
-                to={`/javascript/topic/${mod.slug}/${i}`}
+                to={`/c/topic/${mod.slug}/${i}`}
                 className="block px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 
                            text-sky-300 text-xs md:text-sm transition"
               >
