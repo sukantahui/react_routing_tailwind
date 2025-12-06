@@ -1,0 +1,1429 @@
+{
+  "trackId": "c-language-basic-to-pro",
+  "trackTitle": "C Language from Basic to Pro",
+  "description": "A complete C language learning path from absolute beginner to professional level, designed for classroom and self-paced learners. Includes exercises, mini-projects, assessments, and real-world applications.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "C Programming Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-02"
+  },
+  "segments": [
+    {
+      "segmentId": "basic",
+      "title": "Segment 1 - Core Foundations (Beginner)",
+      "level": "Beginner",
+      "summary": "Start from zero and build a strong foundation in C programming, syntax, variables, data types, input/output and basic logic building.",
+      "modules": [
+        {
+          "moduleId": "c-intro",
+          "slug": "getting-started-with-c",
+          "title": "Getting Started with C Programming",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": [
+            "what-is-c",
+            "setup",
+            "first-program"
+          ],
+          "topics": [
+            "What is C programming and why it is important",
+            "Where C is used: systems, embedded, operating systems, compilers",
+            "Installing a compiler (GCC, Clang) and setting up VS Code",
+            "Structure of a basic C program: main function, headers, return value",
+            "Compiling and running programs from terminal and IDE",
+            "Using printf for simple output and basic debug messages"
+          ],
+          "learningOutcomes": [
+            "Explain what C language is and where it is used",
+            "Install a C compiler and set up a working environment",
+            "Write, compile and run a simple C program"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Learn how C works, how to compile code, and run your first C program.",
+          "miniProjects": [
+            "Practice: Getting Started with C - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Running small console programs",
+            "Understanding how compilers translate code to machine language"
+          ],
+          "careerSkills": [
+            "Working confidently with compilers and tools",
+            "Understanding low-level programming basics"
+          ],
+          "commonMistakes": [
+            "Forgetting to include stdio.h for printf",
+            "Ignoring compiler error messages instead of reading them"
+          ],
+          "references": [
+            "The C Programming Language by Kernighan and Ritchie",
+            "GCC official documentation (getting started)"
+          ],
+          "teachingTips": [
+            "Compare interpreted vs compiled languages using a simple example.",
+            "Ask students to slightly modify a working program and recompile."
+          ],
+          "preReading": [
+            "Basic idea of what programs and source code are"
+          ],
+          "previousModule": null,
+          "nextModule": "syntax-basics",
+          "badge": "Getting Started with C Badge"
+        },
+        {
+          "moduleId": "syntax-basics",
+          "slug": "c-syntax-variables-data-types",
+          "title": "C Syntax, Variables and Data Types",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": [
+            "syntax",
+            "variables",
+            "data-types"
+          ],
+          "topics": [
+            "Program structure and indentation style",
+            "Single-line and multi-line comments",
+            "Declaring variables: int, float, double, char",
+            "Using constants with const and #define",
+            "Format specifiers with printf",
+            "Basic arithmetic expressions",
+            "Implicit and explicit type conversion and type promotion"
+          ],
+          "learningOutcomes": [
+            "Declare and use C variables correctly",
+            "Choose appropriate built-in data types for a task",
+            "Print values using the correct printf format specifiers"
+          ],
+          "prerequisites": [
+            "c-intro"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Learn how to store values, format output, and understand how C treats different data types.",
+          "miniProjects": [
+            "Practice: C Syntax, Variables and Data Types - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Performing basic calculations in C",
+            "Writing small programs that take input and display results"
+          ],
+          "careerSkills": [
+            "Writing clean, readable C code",
+            "Choosing correct data types to avoid overflow and precision issues"
+          ],
+          "commonMistakes": [
+            "Using the wrong format specifier for printf or scanf",
+            "Using uninitialized variables that contain garbage values"
+          ],
+          "references": [
+            "ISO C standard data type overview",
+            "Online C tutorials on variables and data types"
+          ],
+          "teachingTips": [
+            "Draw a simple memory diagram to show how variables live in RAM.",
+            "Give exercises where the only error is a wrong format specifier."
+          ],
+          "preReading": [
+            "Getting Started with C Programming module"
+          ],
+          "previousModule": "c-intro",
+          "nextModule": "operators-expressions",
+          "badge": "C Basics Badge"
+        },
+        {
+          "moduleId": "operators-expressions",
+          "slug": "operators-and-expressions",
+          "title": "Operators, Expressions and Basic Logic",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "operators",
+            "logic",
+            "expressions"
+          ],
+          "topics": [
+            "Arithmetic operators: plus, minus, multiply, divide, modulus",
+            "Relational operators: greater, less, greater or equal, less or equal, equal, not equal",
+            "Logical operators: AND, OR, NOT",
+            "Assignment and compound assignment operators",
+            "Increment and decrement operators",
+            "Formatted input using scanf",
+            "Basic expression evaluation rules and precedence"
+          ],
+          "learningOutcomes": [
+            "Use arithmetic and logical operators correctly in C",
+            "Write complex expressions with proper parentheses",
+            "Take input with scanf and combine it with calculations"
+          ],
+          "prerequisites": [
+            "syntax-basics"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Work with expressions and conditions to build the logical backbone of C programs.",
+          "miniProjects": [
+            "Practice: Operators, Expressions and Basic Logic - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Building a simple calculator program",
+            "Validating numeric input using logical conditions"
+          ],
+          "careerSkills": [
+            "Logical reasoning using C syntax",
+            "Debugging incorrect mathematical expressions"
+          ],
+          "commonMistakes": [
+            "Using assignment operator instead of comparison operator in conditions",
+            "Forgetting to use parentheses when combining multiple operators"
+          ],
+          "references": [
+            "C operators and expressions references",
+            "The C Programming Language - chapter on expressions"
+          ],
+          "teachingTips": [
+            "Use truth tables for logical operators and conditions.",
+            "Give exercises that intentionally mix up = and ==."
+          ],
+          "preReading": [
+            "C Syntax, Variables and Data Types module"
+          ],
+          "previousModule": "syntax-basics",
+          "nextModule": "control-flow",
+          "badge": "Logic Starter Badge"
+        },
+        {
+          "moduleId": "control-flow",
+          "slug": "control-flow-decisions",
+          "title": "Control Flow and Decision Making",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "if-else",
+            "switch",
+            "conditions"
+          ],
+          "topics": [
+            "if, else-if and else statements",
+            "Nested conditions and readability",
+            "switch-case with break and default",
+            "Menu-driven programs using switch",
+            "Real examples: grading system, billing system, simple login check"
+          ],
+          "learningOutcomes": [
+            "Use if-else and switch to control program flow",
+            "Choose appropriate branching structures for a problem",
+            "Write simple menu-driven programs"
+          ],
+          "prerequisites": [
+            "operators-expressions"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 4,
+          "summary": "Use conditional logic to control which parts of your program run.",
+          "miniProjects": [
+            "Practice: Control Flow and Decision Making - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Eligibility and validation checks",
+            "Building simple console menus"
+          ],
+          "careerSkills": [
+            "Designing decision trees",
+            "Implementing text based workflows"
+          ],
+          "commonMistakes": [
+            "Forgetting break in switch and causing fall-through bugs",
+            "Creating deeply nested if blocks instead of simplifying logic"
+          ],
+          "references": [
+            "C decision making documentation",
+            "Introductory C books on control flow"
+          ],
+          "teachingTips": [
+            "Make students draw flowcharts before coding if-else chains.",
+            "Show when switch is cleaner than many else-if blocks."
+          ],
+          "preReading": [
+            "Operators, Expressions and Basic Logic module"
+          ],
+          "previousModule": "operators-expressions",
+          "nextModule": "loops-basics",
+          "badge": "Decision Maker Badge"
+        },
+        {
+          "moduleId": "loops-basics",
+          "slug": "loops-and-iteration",
+          "title": "Loops and Basic Iteration",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "loops",
+            "while",
+            "for"
+          ],
+          "topics": [
+            "while loop and loop condition",
+            "do-while loop and when to use it",
+            "for loop with counters",
+            "Using break and continue in loops",
+            "Classic loop problems: factorial, multiplication table, sum of numbers",
+            "Introduction to nested loops for patterns"
+          ],
+          "learningOutcomes": [
+            "Write loops to repeat tasks in C",
+            "Use break and continue to control loop execution",
+            "Solve basic mathematical and pattern based problems"
+          ],
+          "prerequisites": [
+            "control-flow"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Use loops to repeat work efficiently and solve structured problems.",
+          "miniProjects": [
+            "Practice: Loops and Basic Iteration - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Generating numeric tables and sequences",
+            "Iterating over ranges of values"
+          ],
+          "careerSkills": [
+            "Algorithmic thinking in small steps",
+            "Breaking repetitive work into code"
+          ],
+          "commonMistakes": [
+            "Creating infinite loops by not updating the loop variable",
+            "Off by one errors in loop boundaries"
+          ],
+          "references": [
+            "C loops and iteration tutorials",
+            "The C Programming Language - loop constructs"
+          ],
+          "teachingTips": [
+            "Trace loop execution using tables on the board.",
+            "Provide intentionally broken loop examples to debug."
+          ],
+          "preReading": [
+            "Control Flow and Decision Making module"
+          ],
+          "previousModule": "control-flow",
+          "nextModule": null,
+          "badge": "Loop Wizard Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 - Practical C Programming (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Move from basics to practical C programming: functions, arrays, strings, pointers, dynamic memory and structured data.",
+      "modules": [
+        {
+          "moduleId": "functions-core",
+          "slug": "c-functions-basics",
+          "title": "Functions and Modular Programming",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "functions",
+            "modular",
+            "parameters"
+          ],
+          "topics": [
+            "Declaring and defining functions",
+            "Parameters, arguments and return values",
+            "Call by value in C and its limitations",
+            "Local and global variables and their scope",
+            "Recursion basics with simple examples",
+            "Using header files for modular programming"
+          ],
+          "learningOutcomes": [
+            "Define and call functions to reuse code",
+            "Split a program into multiple functions and files",
+            "Use recursion for simple repetitive problems"
+          ],
+          "prerequisites": [
+            "loops-basics"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Organize programs into reusable functions and modules.",
+          "miniProjects": [
+            "Practice: C Functions and Modular Programming - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Creating utility functions for math, string or validation work",
+            "Organizing larger programs into smaller logical units"
+          ],
+          "careerSkills": [
+            "Modular and maintainable coding",
+            "Thinking in terms of reusable building blocks"
+          ],
+          "commonMistakes": [
+            "Forgetting to declare function prototypes before use",
+            "Using wrong return types or missing return statements"
+          ],
+          "references": [
+            "C function references and tutorials",
+            "The C Programming Language - functions chapter"
+          ],
+          "teachingTips": [
+            "Show how to refactor repeated inline code into a single function.",
+            "Use a call stack diagram to explain recursion clearly."
+          ],
+          "preReading": [
+            "Loops and Basic Iteration module"
+          ],
+          "previousModule": null,
+          "nextModule": "arrays-core",
+          "badge": "Function Master Badge"
+        },
+        {
+          "moduleId": "arrays-core",
+          "slug": "arrays-and-methods",
+          "title": "Arrays and Essential Array Operations",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "arrays",
+            "indexing",
+            "iteration"
+          ],
+          "topics": [
+            "Creating arrays and accessing elements by index",
+            "Array memory model and contiguous memory concept",
+            "Common operations on one dimensional arrays",
+            "Loop patterns for processing arrays",
+            "Passing arrays to functions",
+            "Introduction to two dimensional arrays for tables and matrices"
+          ],
+          "learningOutcomes": [
+            "Store and process multiple values using arrays",
+            "Use array indices safely inside loops",
+            "Implement simple 2D structures using arrays"
+          ],
+          "prerequisites": [
+            "functions-core"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Learn to manage linear and table like data using arrays.",
+          "miniProjects": [
+            "Practice: Arrays and Essential Array Operations - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Storing lists such as marks or prices",
+            "Performing matrix operations for small problems"
+          ],
+          "careerSkills": [
+            "Data organization in memory",
+            "Writing loops that safely traverse collections"
+          ],
+          "commonMistakes": [
+            "Using array indices outside valid range",
+            "Mixing length of array with last valid index"
+          ],
+          "references": [
+            "C arrays tutorials",
+            "The C Programming Language - arrays chapter"
+          ],
+          "teachingTips": [
+            "Draw memory diagrams showing contiguous blocks for arrays.",
+            "Show how pointer arithmetic relates to array indexing."
+          ],
+          "preReading": [
+            "Functions and Modular Programming module"
+          ],
+          "previousModule": "functions-core",
+          "nextModule": "strings-core",
+          "badge": "Array Explorer Badge"
+        },
+        {
+          "moduleId": "strings-core",
+          "slug": "strings-and-character-arrays",
+          "title": "Strings and Character Arrays",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "strings",
+            "character-arrays"
+          ],
+          "topics": [
+            "What strings really are in C (character arrays with null terminator)",
+            "Declaring and initializing strings",
+            "Common string functions: strlen, strcpy, strcat, strcmp",
+            "Reading strings safely using fgets",
+            "Traversing and modifying strings with loops",
+            "Difference between string as array and as pointer"
+          ],
+          "learningOutcomes": [
+            "Work comfortably with C style strings",
+            "Use standard library string functions correctly",
+            "Avoid unsafe functions when reading user input"
+          ],
+          "prerequisites": [
+            "arrays-core"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Handle textual data in C using character arrays and string functions.",
+          "miniProjects": [
+            "Practice: Strings and Character Arrays - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Processing user names, messages and simple text",
+            "Implementing basic search or count operations on strings"
+          ],
+          "careerSkills": [
+            "Low level text processing",
+            "Understanding how strings differ across programming languages"
+          ],
+          "commonMistakes": [
+            "Forgetting the null terminator while manually building strings",
+            "Using unsafe input functions that cause buffer overflow"
+          ],
+          "references": [
+            "C string handling tutorials",
+            "Standard library reference for string.h"
+          ],
+          "teachingTips": [
+            "Draw the byte level representation of sample strings.",
+            "Show a safe alternative to older unsafe functions."
+          ],
+          "preReading": [
+            "Arrays and Essential Array Operations module"
+          ],
+          "previousModule": "arrays-core",
+          "nextModule": "pointers-core",
+          "badge": "String Handler Badge"
+        },
+        {
+          "moduleId": "pointers-core",
+          "slug": "pointers-basics",
+          "title": "Pointers and Memory Addressing",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "pointers",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "What pointers are and why they matter in C",
+            "Declaring pointer variables and assigning addresses",
+            "Address-of and dereference operators",
+            "Pointer arithmetic for arrays",
+            "Relationship between arrays and pointers",
+            "Pointers to strings and basic pointer pitfalls"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Passing large arrays efficiently to functions",
+            "Working with low level memory operations"
+          ],
+          "careerSkills": [
+            "Thinking in terms of addresses and references",
+            "Understanding how higher level languages implement references"
+          ],
+          "commonMistakes": [
+            "Dereferencing NULL or uninitialized pointers",
+            "Incorrect pointer arithmetic that steps outside valid memory"
+          ],
+          "references": [
+            "Pointers in C tutorials and articles",
+            "The C Programming Language - pointers chapter"
+          ],
+          "teachingTips": [
+            "Use step by step diagrams showing addresses and contents.",
+            "Give small pointer puzzles to build intuition."
+          ],
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
+        },
+        {
+          "moduleId": "memory-dynamic",
+          "slug": "dynamic-memory-allocation",
+          "title": "Dynamic Memory Allocation",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "malloc",
+            "calloc",
+            "realloc",
+            "free",
+            "dynamic-memory"
+          ],
+          "topics": [
+            "Difference between stack and heap memory",
+            "Using malloc and calloc to allocate memory",
+            "Resizing memory with realloc",
+            "Releasing memory with free",
+            "Building dynamic arrays and dynamic strings",
+            "Typical patterns and pitfalls in dynamic allocation"
+          ],
+          "learningOutcomes": [
+            "Allocate and free heap memory correctly",
+            "Implement dynamic arrays that grow as needed",
+            "Detect and avoid simple memory leaks"
+          ],
+          "prerequisites": [
+            "pointers-core"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Use heap memory safely to build flexible and scalable C programs.",
+          "miniProjects": [
+            "Practice: Dynamic Memory Allocation - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Handling input when you do not know size in advance",
+            "Building dynamic lists or buffers at runtime"
+          ],
+          "careerSkills": [
+            "Professional memory management",
+            "Understanding how memory is managed in system level code"
+          ],
+          "commonMistakes": [
+            "Forgetting to free heap memory before program exit",
+            "Using memory after it has been freed"
+          ],
+          "references": [
+            "Dynamic memory allocation tutorials",
+            "Standard library reference for stdlib.h"
+          ],
+          "teachingTips": [
+            "Show simple memory leak examples and how tools can detect them.",
+            "Start with very small allocations to build confidence."
+          ],
+          "preReading": [
+            "Pointers and Memory Addressing module"
+          ],
+          "previousModule": "pointers-core",
+          "nextModule": "structures-core",
+          "badge": "Memory Manager Badge"
+        },
+        {
+          "moduleId": "structures-core",
+          "slug": "structures-and-user-defined",
+          "title": "Structures, Nested Structures and Unions",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "structures",
+            "user-defined",
+            "unions"
+          ],
+          "topics": [
+            "Defining structure types",
+            "Declaring variables of struct type",
+            "Accessing structure members using dot operator",
+            "Arrays of structures",
+            "Nested structures to model complex data",
+            "Using pointers to structures and arrow operator",
+            "Introduction to unions and memory sharing",
+            "Using typedef to simplify structure names"
+          ],
+          "learningOutcomes": [
+            "Represent real world entities using structures",
+            "Work with arrays and pointers of structures",
+            "Understand when unions can save memory"
+          ],
+          "prerequisites": [
+            "memory-dynamic"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Build rich data models using structs and unions in C.",
+          "miniProjects": [
+            "Practice: Structures and User-Defined Types - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Student or employee record systems",
+            "Inventory or product catalogs"
+          ],
+          "careerSkills": [
+            "Data modeling in low level languages",
+            "Thinking about layout and size of data in memory"
+          ],
+          "commonMistakes": [
+            "Confusing arrow and dot when using structure pointers",
+            "Assuming union members all hold valid values at the same time"
+          ],
+          "references": [
+            "C structures and unions tutorials",
+            "The C Programming Language - structures chapter"
+          ],
+          "teachingTips": [
+            "Show size and layout of structs and unions with sizeof.",
+            "Model a small real world system using multiple structures."
+          ],
+          "preReading": [
+            "Dynamic Memory Allocation module"
+          ],
+          "previousModule": "memory-dynamic",
+          "nextModule": "file-handling",
+          "badge": "Data Modeler Badge"
+        },
+        {
+          "moduleId": "file-handling",
+          "slug": "file-handling-c",
+          "title": "File Handling in C",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "files",
+            "io",
+            "file-handling"
+          ],
+          "topics": [
+            "Opening and closing files with fopen and fclose",
+            "Reading and writing text files with fprintf, fscanf, fgets and fputs",
+            "Character level I/O with fgetc and fputc",
+            "Binary file operations using fread and fwrite",
+            "Using file pointers and checking for errors",
+            "Mini project: simple record management system using files"
+          ],
+          "learningOutcomes": [
+            "Perform basic file input and output in C",
+            "Work with both text and binary file formats",
+            "Design small persistent storage systems using files"
+          ],
+          "prerequisites": [
+            "structures-core"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 10,
+          "summary": "Learn to read and write data from files to build real world console applications.",
+          "miniProjects": [
+            "Practice: File Handling in C - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Student record systems stored on disk",
+            "Small billing or inventory applications"
+          ],
+          "careerSkills": [
+            "Working with persistent data in low level programs",
+            "Designing simple file based storage formats"
+          ],
+          "commonMistakes": [
+            "Forgetting to close file pointers",
+            "Not checking for NULL when opening files fails"
+          ],
+          "references": [
+            "C file handling tutorials",
+            "Standard library reference for stdio.h"
+          ],
+          "teachingTips": [
+            "Let students inspect the saved file in a text editor or hex viewer.",
+            "Build CRUD operations step by step in class."
+          ],
+          "preReading": [
+            "Structures, Nested Structures and Unions module"
+          ],
+          "previousModule": "structures-core",
+          "nextModule": null,
+          "badge": "File Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 - Advanced C Programming",
+      "level": "Advanced",
+      "summary": "Deepen your knowledge with advanced C features including the preprocessor, advanced pointers, data structures, debugging and storage classes.",
+      "modules": [
+        {
+          "moduleId": "preprocessor",
+          "slug": "preprocessor-directives",
+          "title": "Preprocessor and Macros",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "macros",
+            "preprocessor",
+            "header-files"
+          ],
+          "topics": [
+            "What the C preprocessor does before compilation",
+            "Using #define for symbolic constants and simple macros",
+            "Function like macros and their pros and cons",
+            "Using #include to organize code across header and source files",
+            "Conditional compilation with #if, #ifdef and #ifndef",
+            "Macro pitfalls and when to prefer functions instead"
+          ],
+          "learningOutcomes": [
+            "Use preprocessor directives to control compilation",
+            "Create and organize reusable header files",
+            "Understand when macros are useful and when they are dangerous"
+          ],
+          "prerequisites": [
+            "file-handling"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 7,
+          "summary": "Control compilation and code organization using the C preprocessor.",
+          "miniProjects": [
+            "Practice: Preprocessor and Macros - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Creating portable code that compiles on multiple platforms",
+            "Building configuration switches for debugging and release modes"
+          ],
+          "careerSkills": [
+            "Managing large C codebases with headers and macros",
+            "Understanding build and compilation stages"
+          ],
+          "commonMistakes": [
+            "Writing unsafe macros that evaluate arguments multiple times",
+            "Using macros where inline functions would be safer"
+          ],
+          "references": [
+            "C preprocessor documentation",
+            "Advanced C programming guides on macros"
+          ],
+          "teachingTips": [
+            "Show macro expansion output using compiler flags.",
+            "Compare a macro version and a function version of the same logic."
+          ],
+          "preReading": [
+            "File Handling in C module"
+          ],
+          "previousModule": null,
+          "nextModule": "advanced-pointers",
+          "badge": "Macro Master Badge"
+        },
+        {
+          "moduleId": "advanced-pointers",
+          "slug": "advanced-pointer-concepts",
+          "title": "Advanced Pointer Concepts",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "pointers",
+            "memory",
+            "advanced"
+          ],
+          "topics": [
+            "Pointers to pointers and common usage patterns",
+            "Function pointers and callback style design",
+            "Using void pointers for generic data",
+            "Dynamic arrays using double pointers",
+            "Basic idea of memory alignment and padding",
+            "Common advanced pointer bugs and how to avoid them"
+          ],
+          "learningOutcomes": [
+            "Use function pointers to pass behavior into functions",
+            "Apply multi level pointers where needed",
+            "Understand when and how to use void pointers safely"
+          ],
+          "prerequisites": [
+            "preprocessor"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Go beyond basic pointers and learn techniques used in complex C programs and libraries.",
+          "miniProjects": [
+            "Practice: Advanced Pointer Concepts - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 11,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Implementing callback based APIs",
+            "Working with dynamic and multi dimensional structures"
+          ],
+          "careerSkills": [
+            "Reading and writing low level and library style C code",
+            "Understanding how frameworks implement plugin or callback systems"
+          ],
+          "commonMistakes": [
+            "Incorrectly calculating offsets with multi level pointers",
+            "Casting void pointers unsafely or to the wrong type"
+          ],
+          "references": [
+            "Advanced C pointer tutorials",
+            "System level C programming resources"
+          ],
+          "teachingTips": [
+            "Visualize double pointer relationships with diagrams.",
+            "Build small examples where function pointers choose different algorithms."
+          ],
+          "preReading": [
+            "Preprocessor and Macros module"
+          ],
+          "previousModule": "preprocessor",
+          "nextModule": "data-structures",
+          "badge": "Pointer Expert Badge"
+        },
+        {
+          "moduleId": "data-structures",
+          "slug": "c-data-structures",
+          "title": "Data Structures in C",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "data-structures",
+            "linked-list",
+            "stack",
+            "queue"
+          ],
+          "topics": [
+            "Overview of data structures and when to use them",
+            "Implementing singly linked lists: creation, insertion, deletion and traversal",
+            "Basics of doubly linked lists",
+            "Implementing stacks using arrays and linked lists",
+            "Implementing queues using arrays and linked lists",
+            "Tree basics: concept of nodes, children and simple traversals"
+          ],
+          "learningOutcomes": [
+            "Implement core linear data structures in pure C",
+            "Decide when to use arrays vs lists vs stacks vs queues",
+            "Understand the basic idea of tree structures"
+          ],
+          "prerequisites": [
+            "advanced-pointers"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Build fundamental data structures by hand to deepen understanding of memory and pointers.",
+          "miniProjects": [
+            "Practice: Data Structures in C - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 11,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Implementing lists and queues in system tools",
+            "Building simple in memory databases or caches"
+          ],
+          "careerSkills": [
+            "Thinking about performance and complexity when choosing data structures",
+            "Reading implementation code for standard collections in other languages"
+          ],
+          "commonMistakes": [
+            "Memory leaks when deleting or altering nodes in linked lists",
+            "Incorrect front and rear handling in queue operations"
+          ],
+          "references": [
+            "Data structures in C textbooks and online notes",
+            "Algorithm and data structure resources focusing on C implementations"
+          ],
+          "teachingTips": [
+            "Use dry run diagrams for insert and delete operations in lists.",
+            "Encourage students to write helper functions for clarity."
+          ],
+          "preReading": [
+            "Advanced Pointer Concepts module"
+          ],
+          "previousModule": "advanced-pointers",
+          "nextModule": "error-handling",
+          "badge": "Data Structure Builder Badge"
+        },
+        {
+          "moduleId": "error-handling",
+          "slug": "error-handling-debugging",
+          "title": "Error Handling, Debugging and Best Practices",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "errors",
+            "debugging",
+            "best-practices"
+          ],
+          "topics": [
+            "Types of errors: syntax, runtime and logical errors",
+            "Common error messages produced by compilers and the OS",
+            "Using gdb or similar tools to debug C programs",
+            "Understanding and fixing segmentation faults",
+            "Overview of memory debugging tools such as valgrind",
+            "Writing clean, readable, and maintainable C code"
+          ],
+          "learningOutcomes": [
+            "Use a debugger to step through C programs",
+            "Find and fix logical and memory related bugs",
+            "Adopt coding practices that reduce bugs over time"
+          ],
+          "prerequisites": [
+            "data-structures"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 10,
+          "summary": "Learn to debug C code professionally and write higher quality programs.",
+          "miniProjects": [
+            "Practice: Error Handling and Debugging - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Fixing production bugs in C applications",
+            "Improving reliability of existing codebases"
+          ],
+          "careerSkills": [
+            "Systematic debugging",
+            "Writing code that is easier for teams to maintain"
+          ],
+          "commonMistakes": [
+            "Relying only on printf debugging instead of a real debugger",
+            "Ignoring warnings that would reveal potential bugs"
+          ],
+          "references": [
+            "GDB user guides and tutorials",
+            "Valgrind and memory debugging documentation"
+          ],
+          "teachingTips": [
+            "Demonstrate a live debug session for a bug with a clear symptom.",
+            "Give students broken code and ask them to fix it with the debugger."
+          ],
+          "preReading": [
+            "Data Structures in C module"
+          ],
+          "previousModule": "data-structures",
+          "nextModule": "storage-and-utilities",
+          "badge": "Debugging Ninja Badge"
+        },
+        {
+          "moduleId": "storage-and-utilities",
+          "slug": "storage-classes-utilities",
+          "title": "Storage Classes and Standard Library Utilities",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "storage",
+            "stdlib",
+            "utilities"
+          ],
+          "topics": [
+            "Storage classes: auto, extern, static and register",
+            "Variable lifetime, scope and linkage",
+            "Useful stdlib utilities such as atoi, atof, exit and system",
+            "Time related functions and generating random numbers",
+            "Small utility patterns useful for programming contests and lab work"
+          ],
+          "learningOutcomes": [
+            "Use storage classes to control visibility and lifetime",
+            "Read and use important functions from the standard library",
+            "Recognize which utilities can simplify everyday coding tasks"
+          ],
+          "prerequisites": [
+            "error-handling"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 11,
+          "summary": "Enhance your control over variable lifetime and leverage core C library utilities.",
+          "miniProjects": [
+            "Practice: Storage Classes and Utilities - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Building modules with internal and external linkage",
+            "Creating small tools that use time and random numbers"
+          ],
+          "careerSkills": [
+            "Designing modules with clear interfaces",
+            "Using library functions instead of reinventing the wheel"
+          ],
+          "commonMistakes": [
+            "Misunderstanding the difference between global and static variables",
+            "Using random number functions without proper seeding"
+          ],
+          "references": [
+            "C storage class references",
+            "Standard library reference for stdlib.h and time.h"
+          ],
+          "teachingTips": [
+            "Show practical differences using small code snippets for each storage class.",
+            "Use examples where library utilities simplify long verbose code."
+          ],
+          "preReading": [
+            "Error Handling, Debugging and Best Practices module"
+          ],
+          "previousModule": "error-handling",
+          "nextModule": null,
+          "badge": "Storage Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultra-expert",
+      "title": "Segment 4 - Ultra Expert C Programming",
+      "level": "Ultra Expert",
+      "summary": "Master-level topics that prepare you for high-performance systems, embedded work, algorithms, low-level understanding and interview preparation.",
+      "modules": [
+        {
+          "moduleId": "system-level",
+          "slug": "system-level-programming",
+          "title": "System-Level Programming Concepts",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "system",
+            "memory",
+            "os-concepts"
+          ],
+          "topics": [
+            "How C programs are loaded and executed by the operating system",
+            "Call stack, stack frames and function call mechanics",
+            "How local and global variables are stored in memory",
+            "Bitwise operations and bit manipulation techniques",
+            "Endianness and how it affects binary data layout",
+            "Building small low level utilities in C"
+          ],
+          "learningOutcomes": [
+            "Explain how C programs interact with memory and the OS at a high level",
+            "Use bitwise operations to manipulate flags and packed data",
+            "Reason about how data is laid out in memory for debugging and optimization"
+          ],
+          "prerequisites": [
+            "storage-and-utilities"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 12,
+          "summary": "Go deeper into how C programs work under the hood and how they interact with the system.",
+          "miniProjects": [
+            "Practice: System-Level Programming Concepts - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 24,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Embedded and firmware style programming",
+            "Writing small command line tools or utilities"
+          ],
+          "careerSkills": [
+            "Systems programming mindset",
+            "Reading and understanding low level technical documentation"
+          ],
+          "commonMistakes": [
+            "Misusing bitwise operators where logical operators are intended",
+            "Ignoring system characteristics such as endianness when dealing with raw data"
+          ],
+          "references": [
+            "System programming books and notes",
+            "Bitwise operations tutorials aimed at C developers"
+          ],
+          "teachingTips": [
+            "Use diagrams to show stack frames and parameter passing.",
+            "Provide real examples where bitwise operations are simpler than arithmetic."
+          ],
+          "preReading": [
+            "Storage Classes and Standard Library Utilities module"
+          ],
+          "previousModule": null,
+          "nextModule": "algorithms",
+          "badge": "System Programming Guru Badge"
+        },
+        {
+          "moduleId": "algorithms",
+          "slug": "algorithms-c",
+          "title": "Algorithms and Problem Solving in C",
+          "level": "Ultra Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "algorithms",
+            "sorting",
+            "searching"
+          ],
+          "topics": [
+            "High level overview of time complexity and Big O notation",
+            "Linear search and binary search in arrays",
+            "Sorting algorithms: bubble sort, selection sort, insertion sort and merge sort",
+            "Space complexity basics and recursion overhead",
+            "Breaking bigger problems into smaller subproblems"
+          ],
+          "learningOutcomes": [
+            "Implement standard searching and sorting algorithms in C",
+            "Estimate time complexity for simple algorithms",
+            "Apply algorithmic thinking to solve coding problems"
+          ],
+          "prerequisites": [
+            "system-level"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 12,
+          "summary": "Use C as a vehicle to learn core algorithms needed for interviews and contest style problems.",
+          "miniProjects": [
+            "Practice: Algorithms and Problem Solving in C - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 11,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Competitive programming and coding tests",
+            "Optimizing slow parts of existing programs"
+          ],
+          "careerSkills": [
+            "Thinking about performance before and after writing code",
+            "Communicating algorithm choices in interviews"
+          ],
+          "commonMistakes": [
+            "Using inefficient sorting for large data sets without realizing cost",
+            "Writing recursive functions without clear base cases"
+          ],
+          "references": [
+            "Popular algorithms textbooks and online notes",
+            "Practice problems on competitive programming platforms using C"
+          ],
+          "teachingTips": [
+            "Use visual animations for sorting algorithms where possible.",
+            "Compare naive and optimized solutions for the same problem."
+          ],
+          "preReading": [
+            "System-Level Programming Concepts module"
+          ],
+          "previousModule": "system-level",
+          "nextModule": "projects-and-interviews",
+          "badge": "Algorithm Master Badge"
+        },
+        {
+          "moduleId": "projects-and-interviews",
+          "slug": "c-projects-and-interview-prep",
+          "title": "Capstone Projects, Testing and Interview Preparation",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "projects",
+            "interviews",
+            "testing"
+          ],
+          "topics": [
+            "Planning a medium sized C project from requirements to design",
+            "Splitting code into multiple modules, headers and libraries",
+            "Ideas for capstone projects such as library system or billing system",
+            "Introduction to unit testing concepts in C using simple frameworks or custom test code",
+            "Common C interview questions: pointers, memory, strings, data structures",
+            "Building a personal portfolio and presenting C projects effectively"
+          ],
+          "learningOutcomes": [
+            "Design and implement a complete C project using topics from the whole track",
+            "Prepare for technical interviews that include C questions",
+            "Understand the role of testing and documentation in professional C development"
+          ],
+          "prerequisites": [
+            "algorithms"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 13,
+          "summary": "Consolidate your knowledge through capstone projects and prepare for real world interviews and jobs.",
+          "miniProjects": [
+            "Practice: Capstone Projects, Testing and Interview Preparation - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 24,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Showcasing C projects in resumes and portfolios",
+            "Practicing for hiring tests, interviews and campus placements"
+          ],
+          "careerSkills": [
+            "End to end project planning and execution",
+            "Presenting and explaining technical work clearly"
+          ],
+          "commonMistakes": [
+            "Choosing capstone projects that are too large or vague",
+            "Ignoring testing and documentation due to time pressure"
+          ],
+          "references": [
+            "Interview question banks focused on C programming",
+            "Simple C unit testing frameworks documentation"
+          ],
+          "teachingTips": [
+            "Help students choose realistic project scopes and deadlines.",
+            "Run mock interviews based on topics covered in earlier modules."
+          ],
+          "preReading": [
+            "All earlier segments recommended for revision"
+          ],
+          "previousModule": "algorithms",
+          "nextModule": null,
+          "badge": "C Pro Developer Badge"
+        }
+      ]
+    }
+  ]
+}
