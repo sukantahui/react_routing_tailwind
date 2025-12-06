@@ -1,3 +1,9 @@
+// ======================================================
+//  EditableCCodeBlock (Upgraded)
+//  - No breaking \n escapes
+//  - Added Format Button (Clang-Format WASM)
+// ======================================================
+
 import React, { Component } from "react";
 import Editor from "@monaco-editor/react";
 
@@ -11,18 +17,18 @@ import {
   Type,
   Play,
   Terminal,
+  Wand2,
 } from "lucide-react";
 
-import { runCInWasm } from "./wasmCExecutor"; // REAL WASM ENGINE
+import { runCInWasm } from "./wasmCExecutor";
 
 export default class EditableCCodeBlock extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      code: this.normalize(props.initialCode || ""),
+      code: props.initialCode || "",
 
-      // UI states
       fontSize: 14,
       theme: "vs-dark",
       isFullscreen: false,
@@ -30,7 +36,6 @@ export default class EditableCCodeBlock extends Component {
       showThemeMenu: false,
       editorHeight: 240,
 
-      // Runtime states
       isRunning: false,
       outputLines: [],
       runtimeError: "",
@@ -41,15 +46,8 @@ export default class EditableCCodeBlock extends Component {
   }
 
   // ------------------------------------------
-  // UTILS
+  //  EDITOR MOUNT
   // ------------------------------------------
-  normalize = (str) =>
-    str
-      .replace(/\\n/g, "\n")
-      .replace(/\\t/g, "\t")
-      .replace(/\\"/g, '"')
-      .replace(/\\\\/g, "\\");
-
   handleEditorDidMount = (editor, monaco) => {
     this.editorRef = editor;
     this.monaco = monaco;
@@ -63,19 +61,19 @@ export default class EditableCCodeBlock extends Component {
   updateEditorHeight = () => {
     if (!this.editorRef) return;
     const height = Math.max(this.editorRef.getContentHeight(), 180);
-    this.setState({ editorHeight: height }, () => {
-      this.editorRef.layout();
-    });
+    this.setState({ editorHeight: height }, () => this.editorRef.layout());
   };
 
   applyTheme = (theme) => {
-    if (!this.monaco) return;
-    this.monaco.editor.setTheme(theme);
+    if (this.monaco) this.monaco.editor.setTheme(theme);
   };
 
+  // ------------------------------------------
+  // ACTIONS
+  // ------------------------------------------
   resetCode = () => {
     this.setState({
-      code: this.normalize(this.props.initialCode || ""),
+      code: this.props.initialCode || "",
       outputLines: [],
       runtimeError: "",
     });
@@ -94,7 +92,32 @@ export default class EditableCCodeBlock extends Component {
   };
 
   // ------------------------------------------
-  // RUN using WASM engine
+  //  FORMAT C CODE (CLANG-FORMAT WASM)
+  // ------------------------------------------
+  formatCode = async () => {
+    let source = this.state.code;
+
+    try {
+      // Dynamically load clang-format WASM
+      const clang = await import("./clang-format.js"); // You will add this file
+      const formatted = await clang.formatCode(source, "c");
+
+      this.setState({ code: formatted });
+    } catch (e) {
+      console.warn("Clang-format not loaded; using backup formatter.");
+
+      // Fallback: VERY simple indentation cleaner (safe)
+      const backup = source
+        .split("\n")
+        .map((line) => line.trimStart())
+        .join("\n");
+
+      this.setState({ code: backup });
+    }
+  };
+
+  // ------------------------------------------
+  // RUN CODE VIA WASM ENGINE
   // ------------------------------------------
   handleRun = async () => {
     const { code } = this.state;
@@ -108,19 +131,18 @@ export default class EditableCCodeBlock extends Component {
     try {
       const result = await runCInWasm(code);
 
-      const out = [];
+      const output = [];
+
       if (result.stdout) {
-        out.push({ type: "out", text: result.stdout });
+        output.push({ type: "out", text: result.stdout });
       }
       if (result.stderr) {
-        out.push({ type: "err", text: result.stderr });
+        output.push({ type: "err", text: result.stderr });
       }
 
-      this.setState({ outputLines: out });
+      this.setState({ outputLines: output });
     } catch (err) {
-      this.setState({
-        runtimeError: err?.message || String(err),
-      });
+      this.setState({ runtimeError: err?.message || String(err) });
     } finally {
       this.setState({ isRunning: false });
     }
@@ -152,7 +174,7 @@ export default class EditableCCodeBlock extends Component {
         {/* ---------------- HEADER ---------------- */}
         <div className="flex flex-wrap items-center justify-between bg-slate-800 px-3 py-2 text-xs relative">
           <span className="text-slate-400 font-semibold flex items-center gap-2">
-            <FileCode size={14} /> C Code Editor (WebAssembly Enabled)
+            <FileCode size={14} /> C Code Editor (WASM Enabled)
           </span>
 
           <div className="flex flex-wrap items-center gap-2">
@@ -160,9 +182,7 @@ export default class EditableCCodeBlock extends Component {
             {/* FONT MENU */}
             <div className="relative">
               <button
-                onClick={() =>
-                  this.setState({ showFontMenu: !showFontMenu })
-                }
+                onClick={() => this.setState({ showFontMenu: !showFontMenu })}
                 className="px-2 py-1 rounded bg-blue-600 text-white flex items-center gap-1"
               >
                 <Type size={14} /> Font
@@ -192,9 +212,7 @@ export default class EditableCCodeBlock extends Component {
             {/* THEME MENU */}
             <div className="relative">
               <button
-                onClick={() =>
-                  this.setState({ showThemeMenu: !showThemeMenu })
-                }
+                onClick={() => this.setState({ showThemeMenu: !showThemeMenu })}
                 className="px-2 py-1 rounded bg-yellow-600 text-white"
               >
                 🎨 Theme
@@ -232,6 +250,14 @@ export default class EditableCCodeBlock extends Component {
               )}
             </div>
 
+            {/* FORMAT BUTTON */}
+            <button
+              onClick={this.formatCode}
+              className="px-2 py-1 rounded bg-indigo-600 text-white flex items-center gap-1"
+            >
+              <Wand2 size={14} /> Format
+            </button>
+
             {/* RESET */}
             <button
               onClick={this.resetCode}
@@ -259,7 +285,7 @@ export default class EditableCCodeBlock extends Component {
               <Download size={14} /> Save
             </button>
 
-            {/* RUN (WASM) */}
+            {/* RUN */}
             <button
               onClick={this.handleRun}
               disabled={isRunning}
@@ -291,7 +317,7 @@ export default class EditableCCodeBlock extends Component {
 
         {/* ---------------- EDITOR ---------------- */}
         <Editor
-          language="cpp"
+          language="c"
           value={code}
           onChange={(value = "") => this.setState({ code: String(value) })}
           height={editorHeight}
@@ -306,7 +332,7 @@ export default class EditableCCodeBlock extends Component {
           }}
         />
 
-        {/* ---------------- CONSOLE ---------------- */}
+        {/* ---------------- OUTPUT ---------------- */}
         <div className="bg-black border-t border-slate-700 px-3 py-2 text-xs h-40 overflow-auto">
           <div className="flex items-center gap-2 text-slate-400 mb-1">
             <Terminal size={12} />
