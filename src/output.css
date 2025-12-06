@@ -331,6 +331,9 @@
   }
 }
 @layer utilities {
+  .pointer-events-auto {
+    pointer-events: auto;
+  }
   .pointer-events-none {
     pointer-events: none;
   }
@@ -471,11 +474,17 @@
   .z-50 {
     z-index: 50;
   }
+  .z-\[5000\] {
+    z-index: 5000;
+  }
   .z-\[9999\] {
     z-index: 9999;
   }
   .z-\[99999\] {
     z-index: 99999;
+  }
+  .z-\[999999\] {
+    z-index: 999999;
   }
   .float-right {
     float: right;
