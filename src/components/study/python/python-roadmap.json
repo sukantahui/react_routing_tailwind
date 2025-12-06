@@ -96,7 +96,8 @@
             "Core data types: int, float, str, bool",
             "Type casting: int(), float(), str(), bool()",
             "Input using input()",
-            "Basic formatting: sep, end"
+            "Basic formatting: sep, end",
+            "Input Handling & Output Formatting"
           ],
           "learningOutcomes": [
             "Write clean Python code with proper indentation",
