@@ -1,6 +1,9 @@
+// src/components/study/common/QuizEngine.jsx
+
 import React, { useState, useEffect, useRef } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
+import logoSrc from "../../assets/cnat.png";
 
 const STORAGE_PREFIX = "quizEngine_";
 const LEADERBOARD_PREFIX = "quizLeaderboard_";
@@ -41,6 +44,21 @@ function prepareQuiz(questions, limit) {
   });
 }
 
+// Convert image URL (bundled asset) to Base64 data URL
+function convertImageToBase64(url) {
+  return fetch(url)
+    .then((res) => res.blob())
+    .then(
+      (blob) =>
+        new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(blob);
+        })
+    )
+    .catch(() => "");
+}
+
 // Sequential certificate number generator
 function getNextCertificateNumber() {
   const key = "certificate_counter";
@@ -64,17 +82,19 @@ export default function QuizEngine({
   title = "Quiz Test",
   questions = [],
   testId = "test_default",
-  questionLimit = 25, // default random sample size
-  certificateHeader = "Coder & AccoTax – Premium Computer Training Institute",
-  certificateSubtitle = "Barrackpore · www.codernaccotax.co.in",
+  questionLimit = 25, // default
+  certificateHeader = "Coder & AccoTax",
+  certificateSubtitle = "www.codernaccotax.co.in",
   certificateTitle = "Certificate of Completion",
   leaderboardTitle = "Coder & AccoTax Leaderboard",
   showStudentName = true,
+  passPercent = 60, // pass threshold for certificate
   // Optional callback for backend (result object)
   onResultSubmit,
 }) {
   const STORAGE_KEY = STORAGE_PREFIX + testId;
   const LEADERBOARD_KEY = LEADERBOARD_PREFIX + testId;
+  const BEST_KEY = STORAGE_PREFIX + "best_" + testId;
 
   const [quiz, setQuiz] = useState([]);
   const [responses, setResponses] = useState({});
@@ -85,12 +105,34 @@ export default function QuizEngine({
   const [studentName, setStudentName] = useState("");
 
   const [leaderboard, setLeaderboard] = useState([]);
-  const [selectedCount, setSelectedCount] = useState(questionLimit);
+  const [bestScores, setBestScores] = useState({}); // per question-count
+  const [selectedCount, setSelectedCount] = useState(() =>
+    questionLimit ? questionLimit : 25
+  );
+
+  const [logoBase64, setLogoBase64] = useState("");
 
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
 
+  // --------------------------------------------------
+  // Load logo as Base64 for seal
+  // --------------------------------------------------
+  useEffect(() => {
+    let cancelled = false;
+    convertImageToBase64(logoSrc).then((data) => {
+      if (!cancelled && typeof data === "string") {
+        setLogoBase64(data);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // --------------------------------------------------
   // Load leaderboard
+  // --------------------------------------------------
   useEffect(() => {
     const savedLb = localStorage.getItem(LEADERBOARD_KEY);
     if (savedLb) {
@@ -103,39 +145,66 @@ export default function QuizEngine({
     }
   }, [LEADERBOARD_KEY]);
 
-  // Load previous quiz state OR create new quiz
+  // Load best scores map
   useEffect(() => {
+    const savedBest = localStorage.getItem(BEST_KEY);
+    if (savedBest) {
+      try {
+        const parsed = JSON.parse(savedBest);
+        if (parsed && typeof parsed === "object") {
+          setBestScores(parsed);
+        }
+      } catch {
+        setBestScores({});
+      }
+    }
+  }, [BEST_KEY]);
+
+  // --------------------------------------------------
+  // Load previous quiz OR start fresh respecting selectedCount
+  // --------------------------------------------------
+  useEffect(() => {
+    if (!questions || !questions.length) return;
+
     const saved = localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        const loadedQuiz =
-          parsed.quiz || prepareQuiz(questions, questionLimit);
-        setQuiz(loadedQuiz);
-        setResponses(parsed.responses || {});
-        setSubmitted(parsed.submitted || {});
-        setScore(parsed.score || 0);
-        setIsFinished(parsed.isFinished || false);
+        const hasSubmitted =
+          parsed && parsed.submitted && Object.keys(parsed.submitted).length > 0;
 
-        const previousCount =
-          (parsed.quiz && parsed.quiz.length) || questionLimit;
-        setSelectedCount(
-          Math.min(previousCount, questions.length || previousCount)
-        );
+        // If an attempt was previously started, resume it
+        if (hasSubmitted && Array.isArray(parsed.quiz)) {
+          setQuiz(parsed.quiz);
+          setResponses(parsed.responses || {});
+          setSubmitted(parsed.submitted || {});
+          setScore(parsed.score || 0);
+          setIsFinished(!!parsed.isFinished);
 
-        return;
+          const previousCount =
+            (parsed.quiz && parsed.quiz.length) || questionLimit;
+          setSelectedCount(previousCount);
+          return;
+        }
       } catch {
-        // fall through to fresh quiz
+        // ignore & fall through to fresh quiz
       }
     }
 
-    const fresh = prepareQuiz(questions, questionLimit);
-    setQuiz(fresh);
-    setSelectedCount(Math.min(questionLimit, questions.length || questionLimit));
-  }, [questions, questionLimit, STORAGE_KEY]);
+    // Otherwise start a fresh quiz using selectedCount
+    const limit =
+      selectedCount && selectedCount > 0
+        ? Math.min(selectedCount, questions.length)
+        : Math.min(questionLimit || 25, questions.length);
 
+    const fresh = prepareQuiz(questions, limit);
+    setQuiz(fresh);
+  }, [questions, selectedCount, STORAGE_KEY, questionLimit]);
+
+  // --------------------------------------------------
   // Save quiz state
+  // --------------------------------------------------
   useEffect(() => {
     if (!quiz.length) return;
     const data = { quiz, responses, submitted, score, isFinished };
@@ -177,7 +246,12 @@ export default function QuizEngine({
 
   // Restart test: new random sample + reset state
   const handleRestart = () => {
-    const fresh = prepareQuiz(questions, selectedCount);
+    const limit =
+      selectedCount && selectedCount > 0
+        ? Math.min(selectedCount, questions.length || selectedCount)
+        : Math.min(questionLimit || 25, questions.length || questionLimit);
+
+    const fresh = prepareQuiz(questions, limit);
     setQuiz(fresh);
     setResponses({});
     setSubmitted({});
@@ -186,6 +260,8 @@ export default function QuizEngine({
     setReviewMode(false);
     setStudentName("");
     localStorage.removeItem(STORAGE_KEY);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Wrong questions only
@@ -195,7 +271,7 @@ export default function QuizEngine({
 
   const visibleQuestions = reviewMode ? wrongQuestions : quiz;
 
-  // ========================= LEADERBOARD LOGIC =========================
+  // ========================= LEADERBOARD & BEST SCORE =========================
   const addToLeaderboard = () => {
     if (!quiz.length) return;
 
@@ -212,6 +288,7 @@ export default function QuizEngine({
       date: new Date().toISOString(),
     };
 
+    // Leaderboard
     setLeaderboard((prev) => {
       const arr = [...prev, entry];
 
@@ -226,6 +303,22 @@ export default function QuizEngine({
       return top10;
     });
 
+    // Best score map per question-count
+    setBestScores((prev) => {
+      const map = { ...prev };
+      const existing = map[total];
+      if (!existing || percent > existing.percent) {
+        map[total] = {
+          score,
+          total,
+          percent,
+          date: entry.date,
+        };
+      }
+      localStorage.setItem(BEST_KEY, JSON.stringify(map));
+      return map;
+    });
+
     if (typeof onResultSubmit === "function") {
       onResultSubmit({ ...entry, testId });
     }
@@ -237,15 +330,13 @@ export default function QuizEngine({
       addToLeaderboard();
     }
     prevFinishedRef.current = isFinished;
-  }, [isFinished, score, quiz.length, studentName]);
+  }, [isFinished, score, quiz.length]);
 
-  // ========================= CERTIFICATE =========================
+  // ========================= CERTIFICATE (Premium) =========================
   const generateCertificate = () => {
     const name = studentName || "Student Name";
     const total = quiz.length;
-    const percent = total
-      ? ((score / total) * 100).toFixed(2)
-      : "0.00";
+    const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
 
     const today = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
@@ -254,6 +345,19 @@ export default function QuizEngine({
     });
 
     const certificateNumber = getNextCertificateNumber();
+
+    const percentNum = parseFloat(percent);
+    let grade = "D";
+    if (percentNum >= 85) grade = "A+";
+    else if (percentNum >= 70) grade = "A";
+    else if (percentNum >= 60) grade = "B";
+    else if (percentNum >= 50) grade = "C";
+
+    const passed = percentNum >= passPercent;
+
+    const sealInnerHTML = logoBase64
+      ? `<img src="${logoBase64}" class="seal-img" />`
+      : `<div class="seal-text">Verified</div>`;
 
     const html = `
 <!DOCTYPE html>
@@ -271,16 +375,16 @@ export default function QuizEngine({
   body {
     margin: 0;
     padding: 0;
-    background: #e8ecf3;
+    background: #0f172a;
     font-family: "Times New Roman", serif;
   }
 
   .page {
     width: 210mm;
     height: 297mm;
-    background: white;
+    background: radial-gradient(circle at top, #eff6ff, #e2e8f0 40%, #cbd5f5 80%);
     margin: auto;
-    padding: 25mm;
+    padding: 18mm;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -288,50 +392,62 @@ export default function QuizEngine({
   }
 
   .certificate {
+    position: relative;
     width: 100%;
     height: auto;
-    padding: 20mm;
+    padding: 18mm 20mm;
+    background: #ffffff;
     border: 8px solid #1e3a8a;
-    outline: 4px solid #93c5fd;
+    outline: 5px solid #93c5fd;
+    box-shadow: 0 0 18px rgba(15,23,42,0.4);
     text-align: center;
     box-sizing: border-box;
   }
 
   .cert-number {
     text-align: right;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 13px;
+    color: #111827;
+    margin-bottom: 8px;
   }
 
   .header-title {
     font-size: 22px;
     font-weight: bold;
     color: #1e3a8a;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
 
   .subtitle {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 25px;
+    font-size: 13px;
+    color: #4b5563;
+    margin-bottom: 20px;
   }
 
   .main-title {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 800;
-    color: #1e3a8a;
-    margin-bottom: 20px;
+    color: #111827;
+    margin-bottom: 14px;
     letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .tagline {
+    font-size: 13px;
+    color: #1f2933;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
   }
 
   .body-text {
-    font-size: 18px;
-    color: #333;
+    font-size: 17px;
+    color: #111827;
     padding: 0 10mm;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
     line-height: 1.6;
   }
 
@@ -341,15 +457,94 @@ export default function QuizEngine({
     color: #0f172a;
     border-bottom: 2px solid #38bdf8;
     display: inline-block;
-    padding: 5px 20px;
-    margin: 10px 0 20px 0;
+    padding: 4px 22px;
+    margin: 12px 0 18px 0;
+  }
+
+  .test-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1e40af;
   }
 
   .score-box {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    color: #2563eb;
-    margin-bottom: 25px;
+    color: #1d4ed8;
+    margin: 8px 0 6px 0;
+  }
+
+  .result-box {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 18px;
+  }
+
+  .result-box span {
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid #1e40af;
+  }
+
+  .result-pass {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #16a34a;
+  }
+
+  .result-fail {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #ef4444;
+  }
+
+  .grade-pill {
+    margin-left: 8px;
+    background: #e0f2fe;
+    color: #1d4ed8;
+    border-color: #38bdf8;
+  }
+
+  .issue-date {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 8px;
+  }
+
+ .seal {
+  position: absolute;
+  bottom: 40mm;   /* moved higher (was 32mm) */
+  left: 30mm;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #1e3a8a;
+  box-shadow: 0 0 8px rgba(30,64,175,0.6);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 30%, #e0f2fe, #bfdbfe);
+  box-sizing: border-box;
+}
+
+
+  .seal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  .seal-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #111827;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 6px;
+    box-sizing: border-box;
   }
 
   .footer-row {
@@ -364,8 +559,8 @@ export default function QuizEngine({
   }
 
   .line {
-    width: 160px;
-    border-top: 1px solid black;
+    width: 170px;
+    border-top: 1px solid #111827;
     margin: auto;
     margin-bottom: 5px;
   }
@@ -376,11 +571,22 @@ export default function QuizEngine({
     color: #000;
   }
 
+  .designation {
+    font-size: 12px;
+    color: #374151;
+  }
+
   .date-block {
-    border-top: 1px solid black;
+    border-top: 1px solid #111827;
     width: 160px;
     margin: auto;
     margin-bottom: 5px;
+  }
+
+  .footer-note {
+    margin-top: 18px;
+    font-size: 11px;
+    color: #6b7280;
   }
 
   @media print {
@@ -405,6 +611,7 @@ export default function QuizEngine({
     <div class="subtitle">${certificateSubtitle}</div>
 
     <div class="main-title">${certificateTitle}</div>
+    <div class="tagline">Verified Assessment · Coder & AccoTax</div>
 
     <div class="body-text">
       This is to certify that
@@ -413,14 +620,23 @@ export default function QuizEngine({
       <br><br>
       has successfully completed the test:
       <br>
-      <strong>${title}</strong>
+      <span class="test-title">${title}</span>
     </div>
 
     <div class="score-box">
       Score: ${score}/${total} &nbsp; | &nbsp; ${percent}%
     </div>
 
-    <div class="body-text">Issued on: ${today}</div>
+    <div class="result-box">
+      <span class="${passed ? "result-pass" : "result-fail"}">
+        ${passed ? "PASSED" : "NOT PASSED"}
+      </span>
+      <span class="grade-pill">
+        Grade: ${grade}
+      </span>
+    </div>
+
+    <div class="issue-date">Issued on: ${today}</div>
 
     <div class="footer-row">
       <div class="signature-block">
@@ -431,8 +647,16 @@ export default function QuizEngine({
       <div class="signature-block">
         <div class="line"></div>
         <div class="director">Sukanta Hui</div>
-        <div>Director, Coder & AccoTax</div>
+        <div class="designation">Director, Coder & AccoTax</div>
       </div>
+    </div>
+
+    <div class="footer-note">
+      This is a system-generated certificate and does not require a physical signature.
+    </div>
+
+    <div class="seal">
+      ${sealInnerHTML}
     </div>
 
   </div>
@@ -454,7 +678,11 @@ export default function QuizEngine({
 
   // ========================= QUESTION COUNT APPLY =========================
   const applyQuestionCount = () => {
-    const value = selectedCount || questions.length || questionLimit;
+    const value =
+      selectedCount && selectedCount > 0
+        ? Math.min(selectedCount, questions.length || selectedCount)
+        : Math.min(questionLimit || 25, questions.length || questionLimit);
+
     const fresh = prepareQuiz(questions, value);
     setQuiz(fresh);
     setResponses({});
@@ -464,6 +692,8 @@ export default function QuizEngine({
     setReviewMode(false);
     setStudentName("");
     localStorage.removeItem(STORAGE_KEY);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // ========================= RENDER UI =========================
@@ -477,8 +707,13 @@ export default function QuizEngine({
 
   const progress = Object.keys(submitted).length;
   const total = quiz.length;
-  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
+  const percentComplete = total
+    ? Math.round((progress / total) * 100)
+    : 0;
   const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
+
+  const bestForCurrent =
+    bestScores[total] || bestScores[selectedCount] || null;
 
   return (
     <section className="max-w-5xl mx-auto space-y-8">
@@ -508,6 +743,15 @@ export default function QuizEngine({
               <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1 text-emerald-100">
                 Score: {score} ({scorePercent}%)
               </span>
+              {bestForCurrent && (
+                <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-amber-100">
+                  Best: {bestForCurrent.score}/{bestForCurrent.total} (
+                  {bestForCurrent.percent.toFixed
+                    ? bestForCurrent.percent.toFixed(1)
+                    : bestForCurrent.percent}
+                  %)
+                </span>
+              )}
               {reviewMode && (
                 <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-amber-100">
                   <EyeOff size={12} />
@@ -581,7 +825,11 @@ export default function QuizEngine({
                     <button
                       key={n}
                       type="button"
-                      onClick={() => setSelectedCount(value)}
+                      onClick={() =>
+                        setSelectedCount(
+                          Math.min(value, questions.length || value)
+                        )
+                      }
                       className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
                         active
                           ? "bg-sky-600 text-white border-sky-400"
@@ -617,7 +865,7 @@ export default function QuizEngine({
                     Test completed – generate certificate
                   </p>
                   <p className="text-[11px] text-slate-400">
-                    Enter the student name to print or save a PDF certificate.
+                    Enter the student name to print or save a digital certificate.
                   </p>
                 </div>
               </div>
@@ -754,7 +1002,7 @@ export default function QuizEngine({
                 )}
               </div>
 
-              {/* Code snippet */}
+              {/* Code snippet (if any) */}
               {q.code && (
                 <div className="mt-1">
                   <CodeBlockGeneral code={q.code} language="javascript" />

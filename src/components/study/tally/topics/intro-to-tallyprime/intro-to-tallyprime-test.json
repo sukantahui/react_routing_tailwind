@@ -1,0 +1,707 @@
+[
+  {
+    "id": 1,
+    "topic": "tally_intro",
+    "question": "TallyPrime is mainly used for:",
+    "options": ["Accounting and business management", "Video editing", "Graphics design", "Gaming"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "topic": "tally_intro",
+    "question": "TallyPrime is developed by:",
+    "options": ["Google", "Microsoft", "Tally Solutions Pvt. Ltd.", "Oracle"],
+    "answerIndex": 2
+  },
+  {
+    "id": 3,
+    "topic": "tally_intro",
+    "question": "TallyPrime is primarily used by:",
+    "options": ["Doctors", "Businesses and accountants", "Photographers", "Students only"],
+    "answerIndex": 1
+  },
+  {
+    "id": 4,
+    "topic": "tally_intro",
+    "question": "TallyPrime is NOT used for:",
+    "options": ["Inventory management", "Payroll", "GST return filing", "Image editing"],
+    "answerIndex": 3
+  },
+  {
+    "id": 5,
+    "topic": "tally_intro",
+    "question": "Which of the following best describes TallyPrime?",
+    "options": ["Game engine", "ERP and accounting software", "Antivirus program", "Web browser"],
+    "answerIndex": 1
+  },
+  {
+    "id": 6,
+    "topic": "tally_intro",
+    "question": "TallyPrime supports which taxation system?",
+    "options": ["GST", "VAT only", "Income tax only", "No tax support"],
+    "answerIndex": 0
+  },
+  {
+    "id": 7,
+    "topic": "tally_intro",
+    "question": "TallyPrime is available for which OS?",
+    "options": ["Linux only", "Windows", "Android", "Mac only"],
+    "answerIndex": 1
+  },
+  {
+    "id": 8,
+    "topic": "tally_intro",
+    "question": "Which feature improves TallyPrime's usability?",
+    "options": ["Go To search bar", "Drag and drop editing", "VR support", "Fingerprint navigation"],
+    "answerIndex": 0
+  },
+  {
+    "id": 9,
+    "topic": "tally_intro",
+    "question": "TallyPrime is designed for:",
+    "options": ["Small, medium, and large businesses", "Only large businesses", "Only students", "Only government organizations"],
+    "answerIndex": 0
+  },
+  {
+    "id": 10,
+    "topic": "tally_intro",
+    "question": "Which of the following is NOT a feature of TallyPrime?",
+    "options": ["Financial accounting", "Inventory management", "Video conferencing", "Taxation management"],
+    "answerIndex": 2
+  },
+  {
+    "id": 11,
+    "topic": "tally_intro",
+    "question": "TallyPrime helps maintain:",
+    "options": ["Books of accounts", "Movie libraries", "Photo albums", "Computer hardware"],
+    "answerIndex": 0
+  },
+  {
+    "id": 12,
+    "topic": "tally_intro",
+    "question": "Which field benefits most from TallyPrime?",
+    "options": ["Accounting", "Medicine", "Civil engineering", "Filmmaking"],
+    "answerIndex": 0
+  },
+  {
+    "id": 13,
+    "topic": "tally_intro",
+    "question": "The interface of TallyPrime is designed to be:",
+    "options": ["Complicated", "Minimal and easy to navigate", "Dark-mode only", "Hidden behind menus"],
+    "answerIndex": 1
+  },
+  {
+    "id": 14,
+    "topic": "tally_intro",
+    "question": "The purpose of TallyPrime is to:",
+    "options": ["Automate business processes", "Play 3D games", "Design graphics", "Edit videos"],
+    "answerIndex": 0
+  },
+  {
+    "id": 15,
+    "topic": "tally_intro",
+    "question": "TallyPrime provides:",
+    "options": ["Real-time data processing", "Slow batch processing", "No data storage", "Offline-only access"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 16,
+    "topic": "tally_difference",
+    "question": "Which version is newer?",
+    "options": ["Tally ERP 9", "TallyPrime", "Tally 7.2", "Tally Gold"],
+    "answerIndex": 1
+  },
+  {
+    "id": 17,
+    "topic": "tally_difference",
+    "question": "Which feature is introduced in TallyPrime?",
+    "options": ["Go To search bar", "Gateway of Tally", "Statutory masters", "Trial balance"],
+    "answerIndex": 0
+  },
+  {
+    "id": 18,
+    "topic": "tally_difference",
+    "question": "TallyPrime has a more:",
+    "options": ["Complex UI", "Simplified UI", "Hidden UI", "Unusable UI"],
+    "answerIndex": 1
+  },
+  {
+    "id": 19,
+    "topic": "tally_difference",
+    "question": "Tally ERP 9 lacked:",
+    "options": ["Multi-tasking flexibility", "Ledger creation", "Voucher entry", "Bank reconciliation"],
+    "answerIndex": 0
+  },
+  {
+    "id": 20,
+    "topic": "tally_difference",
+    "question": "Which of the following is easier in TallyPrime?",
+    "options": ["Switching companies", "Editing PDFs", "Editing photos", "Playing music"],
+    "answerIndex": 0
+  },
+  {
+    "id": 21,
+    "topic": "tally_difference",
+    "question": "TallyPrime allows opening:",
+    "options": ["Multiple reports simultaneously", "Only one report at a time", "No reports", "Only summary reports"],
+    "answerIndex": 0
+  },
+  {
+    "id": 22,
+    "topic": "tally_difference",
+    "question": "Shortcut system in TallyPrime is:",
+    "options": ["Complex", "Simpler and universal", "Same as ERP 9", "Removed"],
+    "answerIndex": 1
+  },
+  {
+    "id": 23,
+    "topic": "tally_difference",
+    "question": "Which feature is improved in TallyPrime?",
+    "options": ["Search capability", "Gaming mode", "Wallpaper theme", "Video tutorials"],
+    "answerIndex": 0
+  },
+  {
+    "id": 24,
+    "topic": "tally_difference",
+    "question": "TallyPrime's menu structure is:",
+    "options": ["Restructured for simplicity", "Same as ERP 9", "More confusing", "Removed entirely"],
+    "answerIndex": 0
+  },
+  {
+    "id": 25,
+    "topic": "tally_difference",
+    "question": "Tally ERP 9 is considered:",
+    "options": ["Outdated compared to TallyPrime", "Newer", "Better UI", "More modern"],
+    "answerIndex": 0
+  },
+  {
+    "id": 26,
+    "topic": "tally_difference",
+    "question": "Which version supports more modern workflows?",
+    "options": ["Tally ERP 9", "TallyPrime", "Both equally", "Neither"],
+    "answerIndex": 1
+  },
+  {
+    "id": 27,
+    "topic": "tally_difference",
+    "question": "TallyPrime allows easier:",
+    "options": ["Navigation", "Video calling", "Music editing", "3D modelling"],
+    "answerIndex": 0
+  },
+  {
+    "id": 28,
+    "topic": "tally_difference",
+    "question": "TallyPrime improved speed of:",
+    "options": ["Data entry", "Internet browsing", "Game performance", "Video rendering"],
+    "answerIndex": 0
+  },
+  {
+    "id": 29,
+    "topic": "tally_difference",
+    "question": "TallyPrime supports:",
+    "options": ["Enhanced reporting", "Cooking recipes", "Movie creation", "Game development"],
+    "answerIndex": 0
+  },
+  {
+    "id": 30,
+    "topic": "tally_difference",
+    "question": "Multi-tasking in TallyPrime allows:",
+    "options": ["Switching screens smoothly", "Editing images", "Coding apps", "Opening movies"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 31,
+    "topic": "tally_installation",
+    "question": "TallyPrime requires which OS?",
+    "options": ["Windows", "Linux only", "iOS", "Android"],
+    "answerIndex": 0
+  },
+  {
+    "id": 32,
+    "topic": "tally_installation",
+    "question": "Where do you download TallyPrime?",
+    "options": ["Tally Solutions website", "YouTube", "Instagram", "Random websites"],
+    "answerIndex": 0
+  },
+  {
+    "id": 33,
+    "topic": "tally_installation",
+    "question": "Which license type does TallyPrime provide?",
+    "options": ["Educational mode", "Trial mode", "Full license", "All of these"],
+    "answerIndex": 3
+  },
+  {
+    "id": 34,
+    "topic": "tally_installation",
+    "question": "Educational mode restricts:",
+    "options": ["Dates of entry", "Ledger creation", "Company creation", "Display menu"],
+    "answerIndex": 0
+  },
+  {
+    "id": 35,
+    "topic": "tally_installation",
+    "question": "Which file installs TallyPrime?",
+    "options": ["EXE file", "APK file", "RAR file", "MP4 file"],
+    "answerIndex": 0
+  },
+  {
+    "id": 36,
+    "topic": "tally_installation",
+    "question": "Activation requires:",
+    "options": ["Serial number & activation key", "PAN card", "Aadhar card", "Bank statement"],
+    "answerIndex": 0
+  },
+  {
+    "id": 37,
+    "topic": "tally_installation",
+    "question": "After installation, TallyPrime opens at:",
+    "options": ["Gateway of Tally", "Desktop icons", "Windows login", "Search menu only"],
+    "answerIndex": 0
+  },
+  {
+    "id": 38,
+    "topic": "tally_installation",
+    "question": "TallyPrime license can be:",
+    "options": ["Activated, renewed, surrendered", "Hacked", "Uninstalled only", "Shared publicly"],
+    "answerIndex": 0
+  },
+  {
+    "id": 39,
+    "topic": "tally_installation",
+    "question": "Which mode allows full features?",
+    "options": ["Licensed mode", "Educational mode", "Demo mode", "Offline-only mode"],
+    "answerIndex": 0
+  },
+  {
+    "id": 40,
+    "topic": "tally_installation",
+    "question": "Before installing TallyPrime, you must:",
+    "options": ["Check system requirements", "Bake a cake", "Install Android", "Disable mouse"],
+    "answerIndex": 0
+  },
+  {
+    "id": 41,
+    "topic": "tally_installation",
+    "question": "TallyPrime installation typically requires:",
+    "options": ["Windows admin rights", "Wi-Fi password", "Mobile number", "Printer"],
+    "answerIndex": 0
+  },
+  {
+    "id": 42,
+    "topic": "tally_installation",
+    "question": "Educational mode limits:",
+    "options": ["Voucher dates to 1st–30th only", "Ledger names", "Report viewing", "Data backup"],
+    "answerIndex": 0
+  },
+  {
+    "id": 43,
+    "topic": "tally_installation",
+    "question": "Activation key is provided:",
+    "options": ["At the time of purchase", "On YouTube", "By WhatsApp scammers", "Through random popups"],
+    "answerIndex": 0
+  },
+  {
+    "id": 44,
+    "topic": "tally_installation",
+    "question": "TallyPrime renewal applies to:",
+    "options": ["TSS subscription", "Educational mode", "Free trial", "Bank charges"],
+    "answerIndex": 0
+  },
+  {
+    "id": 45,
+    "topic": "tally_installation",
+    "question": "Which is a valid step in activation?",
+    "options": ["Enter serial number", "Enter cheat code", "Install Android OS", "Delete System32"],
+    "answerIndex": 0
+  },
+  {
+    "id": 46,
+    "topic": "tally_installation",
+    "question": "Data folder of TallyPrime is located in:",
+    "options": ["TallyPrime data path", "Music folder", "Desktop only", "Downloads folder"],
+    "answerIndex": 0
+  },
+  {
+    "id": 47,
+    "topic": "tally_installation",
+    "question": "TallyPrime allows backup from:",
+    "options": ["Gateway menu", "Taskbar", "Recycle bin", "PowerPoint"],
+    "answerIndex": 0
+  },
+  {
+    "id": 48,
+    "topic": "tally_installation",
+    "question": "Company data folder extension is:",
+    "options": ["Numbers only folder", ".tally", ".db", ".txt"],
+    "answerIndex": 0
+  },
+  {
+    "id": 49,
+    "topic": "tally_installation",
+    "question": "You can reactivate license after:",
+    "options": ["Reinstalling Windows", "Formatting SD card", "Opening Chrome", "Deleting cookies"],
+    "answerIndex": 0
+  },
+  {
+    "id": 50,
+    "topic": "tally_installation",
+    "question": "TallyPrime installer file name usually contains:",
+    "options": ["Release version number", "Your name", "Random emojis", "MAC address"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 51,
+    "topic": "tally_navigation",
+    "question": "The starting screen in TallyPrime is called:",
+    "options": ["Gateway of Tally", "Home screen", "Login screen", "Admin panel"],
+    "answerIndex": 0
+  },
+  {
+    "id": 52,
+    "topic": "tally_navigation",
+    "question": "Which feature helps search any report?",
+    "options": ["Go To", "Find It", "Search Bar", "Filter Window"],
+    "answerIndex": 0
+  },
+  {
+    "id": 53,
+    "topic": "tally_navigation",
+    "question": "Shortcut for 'Go To' is:",
+    "options": ["Alt+G", "Ctrl+G", "Shift+G", "F1+G"],
+    "answerIndex": 0
+  },
+  {
+    "id": 54,
+    "topic": "tally_navigation",
+    "question": "Which key opens the Company menu?",
+    "options": ["Alt+K", "Alt+Y", "Alt+F3", "Ctrl+F4"],
+    "answerIndex": 1
+  },
+  {
+    "id": 55,
+    "topic": "tally_navigation",
+    "question": "To open TallyPrime features (F11), press:",
+    "options": ["F11", "Ctrl+F1", "Alt+F3", "Shift+F"],
+    "answerIndex": 0
+  },
+  {
+    "id": 56,
+    "topic": "tally_navigation",
+    "question": "Which key is used to quit TallyPrime?",
+    "options": ["Esc", "Ctrl+Q", "Alt+X", "Alt+F4"],
+    "answerIndex": 2
+  },
+  {
+    "id": 57,
+    "topic": "tally_navigation",
+    "question": "Gateway of Tally displays:",
+    "options": ["Primary menus", "Wallpaper", "Zoom tools", "Google results"],
+    "answerIndex": 0
+  },
+  {
+    "id": 58,
+    "topic": "tally_navigation",
+    "question": "Which section shows currently loaded company?",
+    "options": ["Top bar", "Right panel", "Left panel", "Bottom bar"],
+    "answerIndex": 3
+  },
+  {
+    "id": 59,
+    "topic": "tally_navigation",
+    "question": "Which key opens Chart of Accounts?",
+    "options": ["Alt+G → type 'Chart of Accounts'", "F12", "Shift+F2", "Ctrl+Alt+A"],
+    "answerIndex": 0
+  },
+  {
+    "id": 60,
+    "topic": "tally_navigation",
+    "question": "To access Balance Sheet quickly:",
+    "options": ["Alt+G → Balance Sheet", "Ctrl+B", "Shift+S", "F7"],
+    "answerIndex": 0
+  },
+  {
+    "id": 61,
+    "topic": "tally_navigation",
+    "question": "'Display More Reports' contains:",
+    "options": ["Ledger & Trial Balance", "Video settings", "Wallpaper themes", "Image gallery"],
+    "answerIndex": 0
+  },
+  {
+    "id": 62,
+    "topic": "tally_navigation",
+    "question": "Voucher entry in TallyPrime is accessed from:",
+    "options": ["Alt+G → Create Voucher", "Alt+P", "F5", "F8"],
+    "answerIndex": 0
+  },
+  {
+    "id": 63,
+    "topic": "tally_navigation",
+    "question": "Go To allows:",
+    "options": ["Jumping to any report instantly", "Playing music", "Downloading data", "Changing screen brightness"],
+    "answerIndex": 0
+  },
+  {
+    "id": 64,
+    "topic": "tally_navigation",
+    "question": "Which key opens Company Info?",
+    "options": ["Alt+K", "Alt+Y", "Ctrl+I", "Shift+F11"],
+    "answerIndex": 1
+  },
+  {
+    "id": 65,
+    "topic": "tally_navigation",
+    "question": "To view Day Book:",
+    "options": ["Alt+G → Day Book", "Ctrl+D", "F11", "Shift+F10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 66,
+    "topic": "tally_navigation",
+    "question": "Which is NOT a navigation component?",
+    "options": ["Go To", "Gateway menu", "Top bar", "Task Manager"],
+    "answerIndex": 3
+  },
+  {
+    "id": 67,
+    "topic": "tally_navigation",
+    "question": "Keyboard navigation in TallyPrime is:",
+    "options": ["Very fast", "Unavailable", "Only partially supported", "Disabled by default"],
+    "answerIndex": 0
+  },
+  {
+    "id": 68,
+    "topic": "tally_navigation",
+    "question": "To open Ledger Vouchers report:",
+    "options": ["Alt+G → Ledger → Vouchers", "F1", "Shift+F2", "Ctrl+Alt+V"],
+    "answerIndex": 0
+  },
+  {
+    "id": 69,
+    "topic": "tally_navigation",
+    "question": "TallyPrime allows switching companies from:",
+    "options": ["Top bar", "Display menu", "Chart of Accounts", "Gateway search only"],
+    "answerIndex": 0
+  },
+  {
+    "id": 70,
+    "topic": "tally_navigation",
+    "question": "Go To also shows:",
+    "options": ["Suggested reports", "Photos", "Videos", "Contact list"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 71,
+    "topic": "tally_company",
+    "question": "Company creation is done via:",
+    "options": ["Alt+K → Create", "Alt+G → Balance Sheet", "Alt+P", "Shift+Ctrl+C"],
+    "answerIndex": 0
+  },
+  {
+    "id": 72,
+    "topic": "tally_company",
+    "question": "Mandatory field in company creation:",
+    "options": ["Company name", "Logo", "PAN number", "Email ID"],
+    "answerIndex": 0
+  },
+  {
+    "id": 73,
+    "topic": "tally_company",
+    "question": "Financial year start date in India is:",
+    "options": ["1 April", "1 January", "1 July", "1 March"],
+    "answerIndex": 0
+  },
+  {
+    "id": 74,
+    "topic": "tally_company",
+    "question": "Books beginning date means:",
+    "options": ["When records start", "Company formation date", "Purchase date", "Sale date"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "tally_company",
+    "question": "Company features are opened using:",
+    "options": ["F11", "F12", "Alt+Y", "Alt+K"],
+    "answerIndex": 0
+  },
+  {
+    "id": 76,
+    "topic": "tally_company",
+    "question": "Inventory features are enabled in:",
+    "options": ["F11", "F12", "Gateway", "Go To"],
+    "answerIndex": 0
+  },
+  {
+    "id": 77,
+    "topic": "tally_company",
+    "question": "GST feature is activated from:",
+    "options": ["F11 → Statutory & Taxation", "Go To", "Alt+P", "Day Book"],
+    "answerIndex": 0
+  },
+  {
+    "id": 78,
+    "topic": "tally_company",
+    "question": "Company alteration shortcut is:",
+    "options": ["Alt+K → Alter", "Alt+G", "Shift+F11", "Alt+F12"],
+    "answerIndex": 0
+  },
+  {
+    "id": 79,
+    "topic": "tally_company",
+    "question": "Company data is stored in:",
+    "options": ["Data folder", "Windows temp folder", "Excel", "Desktop icons"],
+    "answerIndex": 0
+  },
+  {
+    "id": 80,
+    "topic": "tally_company",
+    "question": "Company backup is created from:",
+    "options": ["Alt+K → Backup", "F11", "Alt+Y", "Alt+G"],
+    "answerIndex": 0
+  },
+  {
+    "id": 81,
+    "topic": "tally_company",
+    "question": "Restore means:",
+    "options": ["Recovering backed-up data", "Deleting all data", "Printing reports", "Hiding company"],
+    "answerIndex": 0
+  },
+  {
+    "id": 82,
+    "topic": "tally_company",
+    "question": "Which info is needed for company creation?",
+    "options": ["Name, address, financial year", "Laptop price", "Electricity bill", "Bank loan details"],
+    "answerIndex": 0
+  },
+  {
+    "id": 83,
+    "topic": "tally_company",
+    "question": "Company logo in TallyPrime is:",
+    "options": ["Optional", "Mandatory", "Always required", "Not supported"],
+    "answerIndex": 0
+  },
+  {
+    "id": 84,
+    "topic": "tally_company",
+    "question": "Security control is enabled from:",
+    "options": ["F11", "F12", "Alt+G", "Alt+P"],
+    "answerIndex": 1
+  },
+  {
+    "id": 85,
+    "topic": "tally_company",
+    "question": "Which feature is NOT available in company creation?",
+    "options": ["Define salary structures", "Set financial year", "Set base currency", "Define mailing name"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 86,
+    "topic": "tally_configuration",
+    "question": "Configuration screen is opened with:",
+    "options": ["F12", "F11", "Alt+G", "Alt+Y"],
+    "answerIndex": 0
+  },
+  {
+    "id": 87,
+    "topic": "tally_configuration",
+    "question": "F12 is used to:",
+    "options": ["Set program-level settings", "Create vouchers", "Alter company", "Display reports"],
+    "answerIndex": 0
+  },
+  {
+    "id": 88,
+    "topic": "tally_configuration",
+    "question": "Which can be configured?",
+    "options": ["Voucher numbering", "Wallpaper", "Language only", "Desktop icons"],
+    "answerIndex": 0
+  },
+  {
+    "id": 89,
+    "topic": "tally_configuration",
+    "question": "Voucher numbering is set from:",
+    "options": ["F12", "F11", "Go To", "Alt+P"],
+    "answerIndex": 0
+  },
+  {
+    "id": 90,
+    "topic": "tally_configuration",
+    "question": "Bill-wise details are enabled in:",
+    "options": ["F11", "F12", "Alt+K", "Ctrl+F1"],
+    "answerIndex": 0
+  },
+  {
+    "id": 91,
+    "topic": "tally_configuration",
+    "question": "Inventory configuration is found in:",
+    "options": ["F12", "Windows settings", "Day Book", "Power menu"],
+    "answerIndex": 0
+  },
+  {
+    "id": 92,
+    "topic": "tally_configuration",
+    "question": "Configuration changes apply:",
+    "options": ["Across the whole program", "Only in one report", "Only in one voucher", "Only until restart"],
+    "answerIndex": 0
+  },
+  {
+    "id": 93,
+    "topic": "tally_configuration",
+    "question": "Auto-increment voucher numbers are set from:",
+    "options": ["F12", "F11", "Alt+G", "Day Book"],
+    "answerIndex": 0
+  },
+  {
+    "id": 94,
+    "topic": "tally_configuration",
+    "question": "GST configuration is available in:",
+    "options": ["Statutory settings", "Browser", "Control Panel", "Recycle bin"],
+    "answerIndex": 0
+  },
+  {
+    "id": 95,
+    "topic": "tally_configuration",
+    "question": "Payroll features must be enabled from:",
+    "options": ["F11", "F12", "Alt+P", "Alt+G"],
+    "answerIndex": 0
+  },
+  {
+    "id": 96,
+    "topic": "tally_configuration",
+    "question": "Cost centre configuration is done in:",
+    "options": ["F11", "F12", "Gateway", "Task Manager"],
+    "answerIndex": 0
+  },
+  {
+    "id": 97,
+    "topic": "tally_configuration",
+    "question": "Which configuration improves reporting?",
+    "options": ["Show more details", "Add wallpapers", "Enable dark mode", "Add sound effects"],
+    "answerIndex": 0
+  },
+  {
+    "id": 98,
+    "topic": "tally_configuration",
+    "question": "Currency symbol settings are found in:",
+    "options": ["F12", "F11", "Alt+G", "Alt+K"],
+    "answerIndex": 0
+  },
+  {
+    "id": 99,
+    "topic": "tally_configuration",
+    "question": "Backup path configuration is present in:",
+    "options": ["F12", "F11", "Go To", "Gateway only"],
+    "answerIndex": 0
+  },
+  {
+    "id": 100,
+    "topic": "tally_configuration",
+    "question": "Which is NOT a configuration option?",
+    "options": ["Voucher printing", "Inventory behaviour", "Statutory reports", "Playing music"],
+    "answerIndex": 3
+  }
+]
