@@ -313,6 +313,22 @@ export default class EditablePythonCodeBlock extends Component {
     pyodide.setStderr(handleStderr);
 
     try {
+      // ---------------------------------------------
+      // Inject custom input() that uses browser prompt
+      // ---------------------------------------------
+      pyodide.runPython(`
+import builtins
+from js import prompt
+
+def _js_input(prompt_text=""):
+    response = prompt(prompt_text)
+    if response is None:
+        return ""
+    return response
+
+builtins.input = _js_input
+`);
+
       await pyodide.runPythonAsync(code);
 
       this.setState({
@@ -351,6 +367,10 @@ export default class EditablePythonCodeBlock extends Component {
         ]);
         this.editorRef.revealLineInCenter(line);
       }
+    } finally {
+      // Optional: reset stdout/stderr if you want
+      // pyodide.setStdout();
+      // pyodide.setStderr();
     }
   };
 

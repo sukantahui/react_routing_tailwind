@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
-import logoSrc from "../../assets/cnat.png";
+import cnatLogo from "../../assets/cnat.png";
 
 const STORAGE_PREFIX = "quizEngine_";
 const LEADERBOARD_PREFIX = "quizLeaderboard_";
@@ -44,21 +44,6 @@ function prepareQuiz(questions, limit) {
   });
 }
 
-// Convert image URL (bundled asset) to Base64 data URL
-function convertImageToBase64(url) {
-  return fetch(url)
-    .then((res) => res.blob())
-    .then(
-      (blob) =>
-        new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => resolve(reader.result);
-          reader.readAsDataURL(blob);
-        })
-    )
-    .catch(() => "");
-}
-
 // Sequential certificate number generator
 function getNextCertificateNumber() {
   const key = "certificate_counter";
@@ -84,7 +69,7 @@ export default function QuizEngine({
   testId = "test_default",
   questionLimit = 25, // default
   certificateHeader = "Coder & AccoTax",
-  certificateSubtitle = "www.codernaccotax.co.in",
+  certificateSubtitle = "Barrackpore · www.codernaccotax.co.in",
   certificateTitle = "Certificate of Completion",
   leaderboardTitle = "Coder & AccoTax Leaderboard",
   showStudentName = true,
@@ -103,6 +88,7 @@ export default function QuizEngine({
   const [isFinished, setIsFinished] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
   const [studentName, setStudentName] = useState("");
+  const [nameEntered, setNameEntered] = useState(false); // 👈 gate before quiz
 
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({}); // per question-count
@@ -110,25 +96,8 @@ export default function QuizEngine({
     questionLimit ? questionLimit : 25
   );
 
-  const [logoBase64, setLogoBase64] = useState("");
-
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
-
-  // --------------------------------------------------
-  // Load logo as Base64 for seal
-  // --------------------------------------------------
-  useEffect(() => {
-    let cancelled = false;
-    convertImageToBase64(logoSrc).then((data) => {
-      if (!cancelled && typeof data === "string") {
-        setLogoBase64(data);
-      }
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   // --------------------------------------------------
   // Load leaderboard
@@ -259,6 +228,7 @@ export default function QuizEngine({
     setIsFinished(false);
     setReviewMode(false);
     setStudentName("");
+    setNameEntered(false); // 👈 ask again on restart
     localStorage.removeItem(STORAGE_KEY);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -330,9 +300,9 @@ export default function QuizEngine({
       addToLeaderboard();
     }
     prevFinishedRef.current = isFinished;
-  }, [isFinished, score, quiz.length]);
+  }, [isFinished, score, quiz.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ========================= CERTIFICATE (Premium) =========================
+  // ========================= CERTIFICATE (with logo seal) =========================
   const generateCertificate = () => {
     const name = studentName || "Student Name";
     const total = quiz.length;
@@ -354,10 +324,6 @@ export default function QuizEngine({
     else if (percentNum >= 50) grade = "C";
 
     const passed = percentNum >= passPercent;
-
-    const sealInnerHTML = logoBase64
-      ? `<img src="${logoBase64}" class="seal-img" />`
-      : `<div class="seal-text">Verified</div>`;
 
     const html = `
 <!DOCTYPE html>
@@ -512,41 +478,6 @@ export default function QuizEngine({
     margin-bottom: 8px;
   }
 
- .seal {
-  position: absolute;
-  bottom: 40mm;   /* moved higher (was 32mm) */
-  left: 30mm;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 3px solid #1e3a8a;
-  box-shadow: 0 0 8px rgba(30,64,175,0.6);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 30% 30%, #e0f2fe, #bfdbfe);
-  box-sizing: border-box;
-}
-
-
-  .seal-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-  }
-
-  .seal-text {
-    font-size: 10px;
-    font-weight: 700;
-    color: #111827;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 6px;
-    box-sizing: border-box;
-  }
-
   .footer-row {
     display: flex;
     justify-content: space-between;
@@ -587,6 +518,30 @@ export default function QuizEngine({
     margin-top: 18px;
     font-size: 11px;
     color: #6b7280;
+  }
+
+  /* Seal with logo */
+  .seal {
+    position: absolute;
+    bottom: 40mm; /* slightly higher so it doesn't clash with date */
+    left: 30mm;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #1e3a8a;
+    box-shadow: 0 0 8px rgba(30,64,175,0.6);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 30% 30%, #e0f2fe, #bfdbfe);
+    box-sizing: border-box;
+  }
+
+  .seal img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   @media print {
@@ -656,7 +611,7 @@ export default function QuizEngine({
     </div>
 
     <div class="seal">
-      ${sealInnerHTML}
+      <img src="${cnatLogo}" alt="Coder & AccoTax Logo" />
     </div>
 
   </div>
@@ -691,12 +646,46 @@ export default function QuizEngine({
     setIsFinished(false);
     setReviewMode(false);
     setStudentName("");
+    setNameEntered(true); // we already have name when applying count
     localStorage.removeItem(STORAGE_KEY);
-
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // ========================= RENDER UI =========================
+  // ========================= NAME ENTRY GATE =========================
+  if (!nameEntered) {
+    return (
+      <section className="max-w-md mx-auto mt-20 p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-xl shadow-black/40">
+        <h2 className="text-xl font-bold text-sky-300 mb-4 text-center">
+          Enter Student Name to Begin Test
+        </h2>
+
+        <p className="text-xs text-slate-400 mb-4 text-center">
+          This name will appear on the certificate and leaderboard.
+        </p>
+
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={studentName}
+          onChange={(e) => setStudentName(e.target.value)}
+          className="w-full px-4 py-2 mb-4 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none text-sm"
+        />
+
+        <button
+          disabled={!studentName.trim()}
+          onClick={() => setNameEntered(true)}
+          className={`w-full py-2 rounded-xl text-white font-semibold text-sm transition ${studentName.trim()
+              ? "bg-sky-600 hover:bg-sky-500"
+              : "bg-slate-700 cursor-not-allowed"
+            }`}
+        >
+          Start Test
+        </button>
+      </section>
+    );
+  }
+
+  // ========================= MAIN RENDER UI =========================
   if (!quiz.length) {
     return (
       <div className="max-w-5xl mx-auto text-slate-300 text-sm">
@@ -733,6 +722,12 @@ export default function QuizEngine({
               <h2 className="text-xl md:text-2xl font-bold text-sky-200">
                 {title}
               </h2>
+              <p className="text-[11px] text-slate-400 mt-1">
+                Student:{" "}
+                <span className="text-sky-300 font-semibold">
+                  {studentName || "Guest"}
+                </span>
+              </p>
             </div>
 
             <div className="flex flex-wrap gap-2 text-[11px]">
@@ -830,11 +825,10 @@ export default function QuizEngine({
                           Math.min(value, questions.length || value)
                         )
                       }
-                      className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
-                        active
+                      className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
                           ? "bg-sky-600 text-white border-sky-400"
                           : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                      }`}
+                        }`}
                     >
                       {n}
                     </button>
@@ -865,7 +859,7 @@ export default function QuizEngine({
                     Test completed – generate certificate
                   </p>
                   <p className="text-[11px] text-slate-400">
-                    Enter the student name to print or save a digital certificate.
+                    The name shown above will appear on the printed certificate.
                   </p>
                 </div>
               </div>
@@ -991,11 +985,10 @@ export default function QuizEngine({
 
                 {isSub && (
                   <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${
-                      isCorrect
+                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${isCorrect
                         ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
                         : "bg-rose-500/15 text-rose-200 border-rose-500/60"
-                    }`}
+                      }`}
                   >
                     {isCorrect ? "Correct" : "Incorrect"}
                   </span>
