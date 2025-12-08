@@ -34,6 +34,11 @@ import TallyRoadmap from  "../components/study/tally/TallyRoadmap";
 import TallyModuleView from  "../components/study/tally/TallyModuleView";
 import TallyTopicView from  "../components/study/tally/TallyTopicView";
 
+import ExcelRoadmap from '../components/study/excel/ExcelRoadmap';
+import ExcelModuleView from '../components/study/excel/ExcelModuleView';
+import ExcelTopicView from '../components/study/excel/ExcelTopicView';
+
+
 
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
@@ -121,6 +126,11 @@ export default function AppRoutes() {
       <Route path="/tally/roadmap" element={<TallyRoadmap />} />
       <Route path="/tally/module/:slug" element={<TallyModuleView />} />
       <Route path="/tally/topic/:moduleSlug/:topicIndex"  element={<TallyTopicView />}/>
+
+      {/* For Excel  */}
+      <Route path="/excel/roadmap" element={<ExcelRoadmap />} />
+      <Route path="/excel/module/:slug" element={<ExcelModuleView />} />
+      <Route path="/excel/topic/:moduleSlug/:topicIndex"  element={<ExcelTopicView/>}/>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

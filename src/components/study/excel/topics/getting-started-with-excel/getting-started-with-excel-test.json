@@ -1,0 +1,807 @@
+[
+  {
+    "id": 1,
+    "topic": "excel_intro",
+    "question": "Excel is mainly used for working with what type of data?",
+    "options": ["Text paragraphs", "Tabular data in rows and columns", "Audio files", "Images only"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 2,
+    "topic": "excel_intro",
+    "question": "Which company develops Microsoft Excel?",
+    "options": ["Google", "Apple", "Microsoft", "IBM"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 3,
+    "topic": "excel_intro",
+    "question": "Which file extension is used by default for Excel workbooks?",
+    "options": [".docx", ".pptx", ".xlsx", ".txt"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 4,
+    "topic": "excel_intro",
+    "question": "Excel is most commonly used in which area?",
+    "options": ["Image editing", "Data analysis and calculations", "Video production", "Programming only"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 5,
+    "topic": "excel_intro",
+    "question": "Which of the following is NOT a use of Excel?",
+    "options": ["Performing calculations", "Creating databases", "Designing logos", "Generating charts"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 6,
+    "topic": "excel_vs_tools",
+    "question": "Which tool is cloud-based and allows real-time collaboration?",
+    "options": ["Excel Desktop", "Google Sheets", "MS Paint", "Notepad"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 7,
+    "topic": "excel_vs_tools",
+    "question": "Excel is generally faster than Google Sheets when working with:",
+    "options": ["Small text entries", "Large datasets", "Images", "Browser tabs"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 8,
+    "topic": "excel_vs_tools",
+    "question": "Which spreadsheet tool requires internet for full functionality?",
+    "options": ["Excel Desktop", "Google Sheets", "LibreOffice Calc", "Excel Offline Mode"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 9,
+    "topic": "excel_interface",
+    "question": "Where do you see the content or formula of the active cell?",
+    "options": ["Status bar", "Formula bar", "Title bar", "Sheet tab"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 10,
+    "topic": "excel_interface",
+    "question": "Which part of Excel contains tabs like Home, Insert, and Formulas?",
+    "options": ["Ribbon", "Status Bar", "Task Manager", "Desktop"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 11,
+    "topic": "excel_interface",
+    "question": "Which area displays sheet names in a workbook?",
+    "options": ["Title bar", "Sheet tabs", "Name Box", "Formula Bar"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 12,
+    "topic": "excel_structure",
+    "question": "A worksheet is made up of:",
+    "options": ["Pages", "Rows and Columns", "Slides", "Frames"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 13,
+    "topic": "excel_structure",
+    "question": "Which identifies a column in Excel?",
+    "options": ["Numbers", "Letters", "Symbols", "Colors"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 14,
+    "topic": "excel_structure",
+    "question": "What is the intersection of a row and a column called?",
+    "options": ["Point", "Cell", "Node", "Box"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 15,
+    "topic": "excel_file_ops",
+    "question": "Which command is used to save an Excel file for the first time?",
+    "options": ["Save As", "Open", "Print", "Exit"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 16,
+    "topic": "excel_file_ops",
+    "question": "Which shortcut is used to save a workbook?",
+    "options": ["Ctrl + A", "Ctrl + S", "Ctrl + D", "Ctrl + W"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 17,
+    "topic": "excel_file_ops",
+    "question": "What does Excel call its file?",
+    "options": ["Document", "Workbook", "Page", "Sheet book"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 18,
+    "topic": "excel_navigation",
+    "question": "Which key is used to move one cell down?",
+    "options": ["Tab", "Enter", "Shift", "Ctrl"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 19,
+    "topic": "excel_navigation",
+    "question": "Where do you type a cell address to jump directly to it?",
+    "options": ["Name Box", "Ribbon", "Status Bar", "Title Bar"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 20,
+    "topic": "excel_navigation",
+    "question": "Which shortcut opens the Go To dialog?",
+    "options": ["Ctrl + F", "Ctrl + G", "Ctrl + H", "Ctrl + J"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 21,
+    "topic": "excel_references",
+    "question": "What is the default cell reference type in Excel?",
+    "options": ["Absolute", "Relative", "Mixed", "Fixed"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 22,
+    "topic": "excel_references",
+    "question": "Which symbol is used to create an absolute reference?",
+    "options": ["#", "$", "&", "!"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 23,
+    "topic": "excel_references",
+    "question": "What does A1 represent in Excel?",
+    "options": ["Row A Column 1", "Column A Row 1", "Sheet A Cell 1", "Cell Address of A Column Only"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 24,
+    "topic": "excel_references",
+    "question": "Which of these is an absolute cell reference?",
+    "options": ["A1", "$A$1", "$A1$", "A$1$"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 25,
+    "topic": "excel_references",
+    "question": "What does the 'active cell' mean?",
+    "options": ["The cell that is locked", "The cell currently selected", "The cell with maximum value", "The first cell of sheet"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 26,
+    "topic": "excel_practice",
+    "question": "Which action is generally practiced first when learning Excel?",
+    "options": ["Formatting videos", "Entering data into cells", "Running macros", "Writing VBA code"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 27,
+    "topic": "excel_practice",
+    "question": "Which of the following is a common beginner exercise?",
+    "options": ["Create a pivot table", "Insert formulas like SUM", "Write SQL queries", "Create macros"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 28,
+    "topic": "excel_practice",
+    "question": "Practice sheets usually include which activity?",
+    "options": ["Drawing images", "Typing and formatting sample data", "Compiling code", "Designing banners"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 29,
+    "topic": "excel_practice",
+    "question": "Which function is commonly used in beginner practice?",
+    "options": ["SUM()", "IMPORTXML()", "VBA.Run()", "FETCH()"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 30,
+    "topic": "excel_practice",
+    "question": "Which skill is usually practiced to improve speed?",
+    "options": ["Keyboard shortcuts", "Image filters", "Video trimming", "Web animations"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 31,
+    "topic": "excel_quiz",
+    "question": "Which key selects an entire row?",
+    "options": ["Shift + Space", "Ctrl + Space", "Alt + Space", "Ctrl + Shift + Space"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 32,
+    "topic": "excel_quiz",
+    "question": "Which key selects an entire column?",
+    "options": ["Shift + C", "Ctrl + C", "Ctrl + Space", "Alt + Ctrl"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 33,
+    "topic": "excel_quiz",
+    "question": "Which shortcut copies the selected cell?",
+    "options": ["Ctrl + X", "Ctrl + V", "Ctrl + C", "Ctrl + A"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 34,
+    "topic": "excel_quiz",
+    "question": "Which key combination pastes values?",
+    "options": ["Ctrl + Shift + V", "Ctrl + V", "Shift + V", "Alt + V"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 35,
+    "topic": "excel_quiz",
+    "question": "Which shortcut opens the Find dialog?",
+    "options": ["Ctrl + G", "Ctrl + H", "Ctrl + F", "Ctrl + A"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 36,
+    "topic": "excel_interface",
+    "question": "Which bar displays messages like 'Ready' or 'Enter'?",
+    "options": ["Sheet Tab", "Ribbon", "Status Bar", "Taskbar"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 37,
+    "topic": "excel_interface",
+    "question": "Where are the Zoom controls located?",
+    "options": ["Sheet Tab", "Status Bar", "Name Box", "Title Bar"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 38,
+    "topic": "excel_structure",
+    "question": "What is the maximum number of columns in modern Excel versions?",
+    "options": ["256", "1024", "16384", "65536"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 39,
+    "topic": "excel_structure",
+    "question": "Rows in Excel are identified by:",
+    "options": ["Letters", "Numbers", "Symbols", "Colors"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 40,
+    "topic": "excel_file_ops",
+    "question": "Which option lets you open an existing workbook?",
+    "options": ["New", "Save", "Open", "Export"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  
+  {
+    "id": 41,
+    "topic": "excel_navigation",
+    "question": "Which key moves the selection one cell to the right?",
+    "options": ["Enter", "Tab", "Shift", "Backspace"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 42,
+    "topic": "excel_navigation",
+    "question": "Pressing Ctrl + Arrow Key jumps to:",
+    "options": ["Next sheet", "End of data region", "Start of document", "Formula bar"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 43,
+    "topic": "excel_navigation",
+    "question": "Which key combination selects the entire sheet?",
+    "options": ["Ctrl + A", "Ctrl + Shift + A", "Ctrl + Alt + A", "Alt + A"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 44,
+    "topic": "excel_navigation",
+    "question": "Where is the Name Box located?",
+    "options": ["Bottom-left", "Bottom-right", "Top-left near formula bar", "Inside the sheet"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 45,
+    "topic": "excel_navigation",
+    "question": "Which shortcut inserts a new worksheet?",
+    "options": ["Shift + F11", "Ctrl + F11", "Ctrl + N", "Alt + F11"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 46,
+    "topic": "excel_interface",
+    "question": "Which bar appears at the very top of Excel?",
+    "options": ["Status Bar", "Formula Bar", "Title Bar", "Ribbon"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 47,
+    "topic": "excel_interface",
+    "question": "The Ribbon is divided into:",
+    "options": ["Sheets", "Tabs", "Rows", "Windows"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 48,
+    "topic": "excel_interface",
+    "question": "Which tab usually contains formatting commands like bold and alignment?",
+    "options": ["Insert", "Home", "View", "Formulas"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 49,
+    "topic": "excel_vs_tools",
+    "question": "Google Sheets automatically saves changes using:",
+    "options": ["AutoSave", "Manual Save", "Backup", "Export"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 50,
+    "topic": "excel_vs_tools",
+    "question": "Which tool works offline without internet?",
+    "options": ["Excel Desktop", "Google Sheets", "Google Docs", "Browser Sheets"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 51,
+    "topic": "excel_vs_tools",
+    "question": "Which software offers the most advanced data analysis tools?",
+    "options": ["Google Sheets", "Excel Desktop", "MS Word", "Paint"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 52,
+    "topic": "excel_file_ops",
+    "question": "Which option is used to save a copy with a new name?",
+    "options": ["Save", "Save As", "Export", "Print"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 53,
+    "topic": "excel_file_ops",
+    "question": "Which keyboard shortcut closes the current workbook?",
+    "options": ["Ctrl + S", "Ctrl + W", "Ctrl + O", "Ctrl + Q"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 54,
+    "topic": "excel_file_ops",
+    "question": "Which menu allows you to print your workbook?",
+    "options": ["Home", "Insert", "File", "Data"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 55,
+    "topic": "excel_structure",
+    "question": "A workbook can contain how many worksheets?",
+    "options": ["Only 1", "Maximum 10", "Unlimited until system memory allows", "Exactly 100"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 56,
+    "topic": "excel_structure",
+    "question": "Which of these is a valid cell address?",
+    "options": ["1A", "A1", "11A", "AA"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 57,
+    "topic": "excel_structure",
+    "question": "Which is true about columns?",
+    "options": ["They run horizontally", "They run vertically", "They represent sheets", "They store formulas"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 58,
+    "topic": "excel_intro",
+    "question": "Excel is most suitable for which type of task?",
+    "options": ["Video editing", "Budget management", "Game development", "Social media posting"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 59,
+    "topic": "excel_intro",
+    "question": "Which feature allows Excel to perform automatic calculations?",
+    "options": ["Macros", "Functions and formulas", "Themes", "Page Layout"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 60,
+    "topic": "excel_intro",
+    "question": "Which type of chart is commonly used for showing trends?",
+    "options": ["Line Chart", "Pie Chart", "Column Chart", "Donut Chart"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 61,
+    "topic": "excel_file_ops",
+    "question": "Which shortcut opens the 'Save As' dialog in Excel?",
+    "options": ["F12", "Ctrl + S", "Ctrl + Shift + S", "Alt + S"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 62,
+    "topic": "excel_file_ops",
+    "question": "Which format is used for Excel macro-enabled workbooks?",
+    "options": [".xlsx", ".xlsm", ".xlm", ".xsd"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 63,
+    "topic": "excel_file_ops",
+    "question": "The Recent Files list appears under which menu?",
+    "options": ["Home", "File", "Insert", "Data"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 64,
+    "topic": "excel_navigation",
+    "question": "Which keyboard key lets you edit the contents of a selected cell?",
+    "options": ["Enter", "Spacebar", "F2", "Shift"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 65,
+    "topic": "excel_navigation",
+    "question": "Double-clicking a column boundary performs what action?",
+    "options": ["Deletes column", "Auto-fits the column width", "Hides the column", "Sorts the data"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 66,
+    "topic": "excel_navigation",
+    "question": "Which action selects a range of cells?",
+    "options": ["Double-click", "Click and drag", "Right-click", "Alt + Drag"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 67,
+    "topic": "excel_references",
+    "question": "Which reference changes automatically when copied?",
+    "options": ["Absolute reference", "Relative reference", "Static reference", "Fixed address"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 68,
+    "topic": "excel_references",
+    "question": "Which reference type is $A1?",
+    "options": ["Absolute row & column", "Mixed reference", "Relative reference", "Fixed reference"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 69,
+    "topic": "excel_references",
+    "question": "Which reference type is A$1?",
+    "options": ["Mixed reference", "Absolute reference", "Relative reference", "Invalid reference"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 70,
+    "topic": "excel_interface",
+    "question": "Where do you see the zoom slider in Excel?",
+    "options": ["Ribbon", "Status Bar", "Home Tab", "Name Box"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 71,
+    "topic": "excel_interface",
+    "question": "Which tab provides access to page setup options?",
+    "options": ["View", "Formulas", "Page Layout", "Data"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 72,
+    "topic": "excel_interface",
+    "question": "The area that displays the cell name or range is called:",
+    "options": ["Formula Bar", "Status Bar", "Name Box", "Taskbar"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 73,
+    "topic": "excel_structure",
+    "question": "Which Excel feature allows multiple sheets inside one file?",
+    "options": ["Workbook", "Document", "Presentation", "Folder"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 74,
+    "topic": "excel_structure",
+    "question": "The smallest unit of a worksheet is:",
+    "options": ["Column", "Row", "Cell", "Sheet"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 75,
+    "topic": "excel_structure",
+    "question": "Which option allows inserting a new row?",
+    "options": ["Right-click row header → Insert", "Double-click row", "Press Spacebar", "Click Sheet Tab"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 76,
+    "topic": "excel_intro",
+    "question": "Excel is part of which software suite?",
+    "options": ["Adobe Suite", "Microsoft Office Suite", "Google Suite", "Apple Tools"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 77,
+    "topic": "excel_intro",
+    "question": "Charts help users to:",
+    "options": ["Format sheets", "Visualize data", "Resize windows", "Insert images"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 78,
+    "topic": "excel_intro",
+    "question": "Which tab allows inserting charts?",
+    "options": ["Data", "Insert", "Review", "Home"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 79,
+    "topic": "excel_quiz",
+    "question": "Which function adds a group of numbers?",
+    "options": ["ADD()", "PLUS()", "SUM()", "COMBINE()"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 80,
+    "topic": "excel_quiz",
+    "question": "Which shortcut cuts selected cells?",
+    "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Shift + X"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 81,
+    "topic": "excel_quiz",
+    "question": "Which shortcut undo the last action?",
+    "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + U", "Ctrl + Backspace"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 82,
+    "topic": "excel_quiz",
+    "question": "Which shortcut redo the last undone action?",
+    "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + Shift + Z", "Alt + Y"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 83,
+    "topic": "excel_navigation",
+    "question": "Which key moves to the first cell in a row?",
+    "options": ["Home", "End", "Esc", "Shift"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 84,
+    "topic": "excel_navigation",
+    "question": "Which key combination jumps to cell A1?",
+    "options": ["Ctrl + A", "Ctrl + Home", "Alt + Home", "Shift + Home"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 85,
+    "topic": "excel_navigation",
+    "question": "Which key moves to the last used cell in the sheet?",
+    "options": ["Ctrl + End", "Ctrl + Last", "Ctrl + Up", "Shift + End"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 86,
+    "topic": "excel_file_ops",
+    "question": "What is the shortcut to open a file?",
+    "options": ["Ctrl + N", "Ctrl + O", "Ctrl + S", "Ctrl + Shift + O"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 87,
+    "topic": "excel_file_ops",
+    "question": "What does the Save As feature allow you to do?",
+    "options": ["Undo changes", "Save file with a new name", "Print file", "Share file online"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 88,
+    "topic": "excel_file_ops",
+    "question": "Which file format is used for Excel templates?",
+    "options": [".xltx", ".xlam", ".xls", ".docx"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 89,
+    "topic": "excel_structure",
+    "question": "Each worksheet contains how many rows in modern Excel?",
+    "options": ["65,536", "1,048,576", "1,000,000", "500,000"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 90,
+    "topic": "excel_structure",
+    "question": "What is the first column in Excel?",
+    "options": ["0", "Column A", "Column 1", "Column AA"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 91,
+    "topic": "excel_structure",
+    "question": "What is the default name of a new worksheet?",
+    "options": ["Sheet1", "MainSheet", "ExcelSheet", "Worksheet"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 92,
+    "topic": "excel_interface",
+    "question": "Which tab includes Sort and Filter options?",
+    "options": ["Home", "Data", "Insert", "Review"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 93,
+    "topic": "excel_interface",
+    "question": "Which bar displays the active cell's contents?",
+    "options": ["Title Bar", "Status Bar", "Formula Bar", "Ribbon"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 94,
+    "topic": "excel_interface",
+    "question": "Which key opens the Ribbon shortcuts?",
+    "options": ["Ctrl", "Alt", "Shift", "Tab"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 95,
+    "topic": "excel_vs_tools",
+    "question": "Google Sheets stores files in:",
+    "options": ["OneDrive", "Dropbox", "Google Drive", "Local Disk"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 96,
+    "topic": "excel_vs_tools",
+    "question": "Excel Online is:",
+    "options": ["A desktop-only version", "A cloud-based version of Excel", "A mobile app", "A plugin"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 97,
+    "topic": "excel_vs_tools",
+    "question": "Which tool is BEST for heavy data processing?",
+    "options": ["Google Sheets", "Excel Desktop", "Google Forms", "Notepad"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 98,
+    "topic": "excel_practice",
+    "question": "Which beginner practice helps in learning formulas?",
+    "options": ["Typing paragraphs", "Entering sample numeric data", "Drawing shapes", "Recording audio"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 99,
+    "topic": "excel_practice",
+    "question": "A common practice task is:",
+    "options": ["Creating sample sales tables", "Editing movies", "Designing banners", "Making animations"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 100,
+    "topic": "excel_practice",
+    "question": "Which skill improves Excel speed the most?",
+    "options": ["Mouse dragging", "Keyboard shortcuts", "Scrolling", "Window resizing"],
+    "answerIndex": 1,
+    "level": "beginner"
+  }
+]
+
+
+
+

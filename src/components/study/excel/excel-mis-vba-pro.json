@@ -1,0 +1,636 @@
+{
+  "trackId": "excel-mis-vba-automation",
+  "trackTitle": "Excel, MIS and VBA Automation (Ultimate Professional Track)",
+  "description": "A master-level Excel roadmap combining corporate MIS skills with VBA automation, macros, custom functions and automated reporting for high-impact analyst and MIS roles.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Excel + MIS + VBA Automation Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-08"
+  },
+  "segments": [
+    {
+      "segmentId": "ultimate-foundation",
+      "title": "Segment 1 - Excel and MIS Foundation (Recap + Alignment)",
+      "level": "Intermediate",
+      "summary": "Align students to a common level of Excel and MIS understanding before entering automation and advanced workflows.",
+      "modules": [
+        {
+          "moduleId": "ultimate-excel-recap",
+          "slug": "excel-mis-recap",
+          "title": "Excel and MIS Skills Recap",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": ["recap", "mis", "foundation"],
+          "topics": [
+            "Quick recap of formulas, lookups and pivots used in MIS",
+            "Review of data cleaning, validation and basic dashboards",
+            "Revisiting Power Query and Power Pivot concepts briefly",
+            "Identifying pain points suitable for automation (manual repetitive tasks)",
+            "Setting up Excel and macro settings safely (trusted locations, macro security)",
+            "Practice Session",
+            "Readiness Quiz"
+          ],
+          "learningOutcomes": [
+            "Refresh key Excel and MIS concepts required for automation work",
+            "Identify which workflows are best candidates for VBA automation",
+            "Configure Excel environment safely for working with macros"
+          ],
+          "prerequisites": [],
+          "difficulty": "Intermediate",
+          "difficultyIndex": 4,
+          "summary": "Ensure all learners are ready for VBA by revising core Excel and MIS skills.",
+          "miniProjects": [
+            "Mini Project: Document one real or hypothetical manual MIS process suitable for automation"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Readiness Quiz + Process Mapping Task",
+            "passScore": 70
+          },
+          "useCases": [
+            "Transitioning from manual report making to automated workflows",
+            "Clarifying where VBA will add the most value"
+          ],
+          "careerSkills": [
+            "Thinking about process automation opportunities",
+            "Understanding security basics for macro-enabled files"
+          ],
+          "commonMistakes": [
+            "Trying to automate processes that are not yet stable or well-defined",
+            "Ignoring macro security and file trust issues"
+          ],
+          "references": [
+            "Excel macro security documentation",
+            "Articles on choosing processes for automation"
+          ],
+          "teachingTips": [
+            "Ask students to talk to working professionals about manual Excel pain points.",
+            "Highlight the difference between one-time tasks and recurring candidates for automation."
+          ],
+          "preReading": [
+            "Basic to advanced Excel and MIS concepts (from previous tracks)"
+          ],
+          "previousModule": null,
+          "nextModule": "ultimate-macro-recorder",
+          "badge": "MIS Foundation Badge"
+        },
+        {
+          "moduleId": "ultimate-macro-recorder",
+          "slug": "macro-recorder-and-basic-vba",
+          "title": "Macro Recorder and Basic VBA Concepts",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": ["macro-recorder", "vba-basics", "automation"],
+          "topics": [
+            "Recording simple macros from user actions",
+            "Understanding absolute vs relative recording",
+            "Viewing and exploring recorded VBA code in the editor",
+            "Structure of a VBA module, procedure and comments",
+            "Basic edits to recorded macros (changing ranges, values, messages)",
+            "Assigning macros to buttons and shapes in worksheets",
+            "Macro-enabled workbooks vs standard workbooks",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Record and run basic macros to automate repetitive tasks",
+            "Interpret simple recorded VBA code structures",
+            "Attach macros to user interface elements like buttons"
+          ],
+          "prerequisites": ["ultimate-excel-recap"],
+          "difficulty": "Intermediate-Advanced",
+          "difficultyIndex": 5,
+          "summary": "Start automation with the macro recorder and gain familiarity with the VBA environment.",
+          "miniProjects": [
+            "Mini Project: Record and refine a macro for standard report formatting (headers, borders, print setup)"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Macro Recording Exercise + Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Automating repetitive formatting tasks",
+            "Speeding up standard report preparation steps"
+          ],
+          "careerSkills": [
+            "Using macro recording as a bridge to understanding VBA",
+            "Implementing small automation without full coding"
+          ],
+          "commonMistakes": [
+            "Relying only on recorder without understanding limitations",
+            "Recording macros with unclean selections and unnecessary steps"
+          ],
+          "references": [
+            "Microsoft documentation on recording macros",
+            "Introductory VBA environment guides"
+          ],
+          "teachingTips": [
+            "Demonstrate ugly vs clean recorded macros and refactor together.",
+            "Encourage students to narrate what they are automating while recording."
+          ],
+          "preReading": [
+            "Excel and MIS Skills Recap module"
+          ],
+          "previousModule": "ultimate-excel-recap",
+          "nextModule": "ultimate-vba-basics",
+          "badge": "Macro Recorder Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultimate-vba-core",
+      "title": "Segment 2 - Core VBA Programming for Excel",
+      "level": "Advanced",
+      "summary": "Learn VBA as a programming language to control Excel objects, write logic and work with data programmatically.",
+      "modules": [
+        {
+          "moduleId": "ultimate-vba-basics",
+          "slug": "vba-language-basics",
+          "title": "VBA Language Basics and Excel Object Model",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["vba", "syntax", "object-model"],
+          "topics": [
+            "VBA editor tour: project explorer, properties window, code pane, immediate window",
+            "Variables, data types and constants in VBA",
+            "If, ElseIf, Select Case, For, For Each, Do loops in VBA",
+            "Working with the Excel object model: Application, Workbook, Worksheet, Range",
+            "Referencing ranges: Range, Cells, UsedRange, named ranges",
+            "Message boxes (MsgBox) and input boxes (InputBox)",
+            "Writing clean procedures: indentation, naming and comments",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Write simple VBA procedures using variables and control structures",
+            "Navigate and work with the Excel object model at a basic level",
+            "Display information and interact with users via MsgBox and InputBox"
+          ],
+          "prerequisites": ["ultimate-macro-recorder"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 6,
+          "summary": "Move from recorded macros to hand-written VBA logic using core language constructs and objects.",
+          "miniProjects": [
+            "Mini Project: Build a utility macro that cleans and formats a raw data sheet programmatically"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "VBA Coding Exercise + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Automating repetitive cleaning and formatting",
+            "Building small helper tools for daily Excel tasks"
+          ],
+          "careerSkills": [
+            "Thinking programmatically about Excel automation",
+            "Communicating with non-technical stakeholders using simple dialogs"
+          ],
+          "commonMistakes": [
+            "Hard-coding sheet names and ranges without flexibility",
+            "Ignoring variable declarations and causing type-related bugs"
+          ],
+          "references": [
+            "Introductory VBA programming resources",
+            "Excel object model references"
+          ],
+          "teachingTips": [
+            "Connect VBA structures to students' knowledge of other languages if any.",
+            "Use step-through debugging to show code execution line by line."
+          ],
+          "preReading": [
+            "Macro Recorder and Basic VBA Concepts module"
+          ],
+          "previousModule": "ultimate-macro-recorder",
+          "nextModule": "ultimate-vba-data-automation",
+          "badge": "VBA Language Starter Badge"
+        },
+        {
+          "moduleId": "ultimate-vba-data-automation",
+          "slug": "vba-data-automation",
+          "title": "Automating Data Tasks with VBA",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["vba", "data-automation", "loops"],
+          "topics": [
+            "Looping through rows and columns to process data",
+            "Finding last used row and last used column safely",
+            "Copying, pasting and clearing data using VBA",
+            "Working with Tables (ListObjects) via VBA (basic operations)",
+            "Applying formulas via VBA and converting to values when needed",
+            "Automating data validation set-up and error-proofing via VBA",
+            "Practical examples: auto-clean, auto-format, auto-summarize routines",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Implement loops to process data in large ranges",
+            "Automate common list and table operations programmatically",
+            "Create robust routines for recurring data preparation"
+          ],
+          "prerequisites": ["ultimate-vba-basics"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 7,
+          "summary": "Use VBA to handle large and repetitive data tasks reliably and quickly.",
+          "miniProjects": [
+            "Mini Project: Create a macro that imports, cleans and prepares a raw dump for MIS pivots in one click"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Automation Script + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Automating daily or weekly data preparation routines",
+            "Reducing manual errors in recurring clean-up tasks"
+          ],
+          "careerSkills": [
+            "Designing robust automation flows for data-heavy work",
+            "Writing maintainable and reusable VBA procedures"
+          ],
+          "commonMistakes": [
+            "Assuming fixed ranges instead of dynamically detecting sizes",
+            "Not testing automation on varied data scenarios"
+          ],
+          "references": [
+            "VBA examples for data loops and automation",
+            "Articles on best practices for Excel VBA automation"
+          ],
+          "teachingTips": [
+            "Start with manual pseudo-code, then convert to VBA.",
+            "Encourage students to test scripts on copied sheets to avoid data loss."
+          ],
+          "preReading": [
+            "VBA Language Basics and Excel Object Model module"
+          ],
+          "previousModule": "ultimate-vba-basics",
+          "nextModule": "ultimate-vba-udf",
+          "badge": "Data Automation Badge"
+        },
+        {
+          "moduleId": "ultimate-vba-udf",
+          "slug": "vba-user-defined-functions",
+          "title": "Writing User-Defined Functions (UDFs) in VBA",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": ["udf", "custom-functions", "vba"],
+          "topics": [
+            "Difference between Sub procedures and Function procedures",
+            "Creating custom worksheet functions using VBA",
+            "Handling arguments, optional parameters and validation in functions",
+            "Returning results and working with different data types",
+            "Practical UDF examples: custom rounding, specialised text or date calculations",
+            "Limitations and considerations for UDFs (performance, volatility)",
+            "Documenting and sharing UDFs within a team",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Write custom worksheet functions to extend Excel capabilities",
+            "Use UDFs to encapsulate repeated logic cleanly",
+            "Share and document UDFs responsibly in team environments"
+          ],
+          "prerequisites": ["ultimate-vba-data-automation"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Build your own reusable functions for domain-specific calculations in Excel.",
+          "miniProjects": [
+            "Mini Project: Build a small library of 3–5 UDFs useful for HR, Finance or Sales scenarios"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "UDF Library + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Implementing specialised business rules not supported by built-in functions",
+            "Simplifying complex worksheet formulas using UDFs"
+          ],
+          "careerSkills": [
+            "Extending Excel to meet custom organisational needs",
+            "Packaging and documenting reusable logic"
+          ],
+          "commonMistakes": [
+            "Writing UDFs that depend on fixed cells instead of arguments",
+            "Creating volatile or slow UDFs that impact performance"
+          ],
+          "references": [
+            "VBA documentation on Function procedures",
+            "Examples of useful UDFs for business use"
+          ],
+          "teachingTips": [
+            "Ask students to identify repeated formula patterns suitable for UDFs.",
+            "Emphasize clear naming and comments for all UDFs."
+          ],
+          "preReading": [
+            "Automating Data Tasks with VBA module"
+          ],
+          "previousModule": "ultimate-vba-data-automation",
+          "nextModule": null,
+          "badge": "UDF Creator Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultimate-ux-automation",
+      "title": "Segment 3 - User Experience and Report Automation",
+      "level": "Advanced",
+      "summary": "Create user-friendly automation with forms, controlled interfaces and end-to-end report generation flows.",
+      "modules": [
+        {
+          "moduleId": "ultimate-vba-forms",
+          "slug": "vba-userforms-and-interaction",
+          "title": "UserForms and Interactive Tools in VBA",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["userforms", "ui", "interaction"],
+          "topics": [
+            "Introduction to UserForms and controls (text boxes, combo boxes, buttons, etc.)",
+            "Designing simple forms for data entry and parameter selection",
+            "Loading and saving data between forms and worksheets",
+            "Validating inputs inside forms and showing error messages",
+            "Creating wizards (step-by-step forms) for complex tasks",
+            "Practical examples: input form for new employee or transaction",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Design and implement UserForms for controlled data input",
+            "Connect UserForm actions to worksheet operations",
+            "Build simple wizard-like experiences for complex tasks"
+          ],
+          "prerequisites": ["ultimate-vba-udf"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Build professional user interfaces on top of Excel automation for non-technical users.",
+          "miniProjects": [
+            "Mini Project: Create a UserForm-driven data entry system for a small HR or inventory use case"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "UserForm Project + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Guided data entry tools for non-Excel experts",
+            "Reducing direct interaction with raw sheets for end users"
+          ],
+          "careerSkills": [
+            "Designing user-friendly Excel tools for teams",
+            "Bridging gap between raw Excel and application-like experience"
+          ],
+          "commonMistakes": [
+            "Overcomplicating forms with too many fields at once",
+            "Not handling invalid inputs or missing fields gracefully"
+          ],
+          "references": [
+            "VBA UserForm documentation",
+            "Examples of Excel tools using forms"
+          ],
+          "teachingTips": [
+            "Encourage low-fidelity design on paper before building forms.",
+            "Focus on a few well-designed forms rather than too many small ones."
+          ],
+          "preReading": [
+            "Writing User-Defined Functions (UDFs) in VBA module"
+          ],
+          "previousModule": "ultimate-vba-udf",
+          "nextModule": "ultimate-report-automation",
+          "badge": "VBA UI Designer Badge"
+        },
+        {
+          "moduleId": "ultimate-report-automation",
+          "slug": "automated-report-generation",
+          "title": "Automated Report Generation and Distribution",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["automation", "reports", "distribution"],
+          "topics": [
+            "Automating data refresh (Power Query refresh + pivot refresh via VBA)",
+            "Generating standard reports with fixed layouts from templates",
+            "Looping through segments (e.g., region, branch, salesperson) to generate multiple reports",
+            "Exporting reports to PDF or separate workbooks automatically (where permitted)",
+            "Creating log sheets to track automation runs and errors",
+            "Scheduling automation using external tools or guidance (conceptual)",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Create one-click or minimal-click report generation routines",
+            "Handle batch report creation for multiple entities",
+            "Implement basic logging for automated processes"
+          ],
+          "prerequisites": ["ultimate-vba-forms"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 10,
+          "summary": "Automate repetitive reporting cycles and support scaled MIS distribution.",
+          "miniProjects": [
+            "Mini Project: Build an automated monthly report generator for branches or departments"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Automation Project + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Monthly, quarterly and annual automated reporting cycles",
+            "Creating hundreds of similar reports for multiple units with one macro"
+          ],
+          "careerSkills": [
+            "Designing robust and scalable reporting automations",
+            "Understanding constraints and governance around automated outputs"
+          ],
+          "commonMistakes": [
+            "Not handling errors or interruptions during automation",
+            "Hard-coding paths and file names without flexibility"
+          ],
+          "references": [
+            "Examples of VBA-driven report generation",
+            "Guides on automating refresh and export tasks in Excel"
+          ],
+          "teachingTips": [
+            "Discuss responsible automation: testing and backup before deployment.",
+            "Encourage students to think about auditability and traceability."
+          ],
+          "preReading": [
+            "UserForms and Interactive Tools in VBA module"
+          ],
+          "previousModule": "ultimate-vba-forms",
+          "nextModule": "ultimate-vba-best-practices",
+          "badge": "Report Automation Badge"
+        },
+        {
+          "moduleId": "ultimate-vba-best-practices",
+          "slug": "vba-best-practices-and-debugging",
+          "title": "VBA Best Practices, Debugging and Maintenance",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": ["best-practices", "debugging", "maintenance"],
+          "topics": [
+            "Using the Immediate window, breakpoints and stepping for debugging",
+            "Error handling with On Error, structured patterns and logging messages",
+            "Writing reusable procedures and modular code",
+            "Naming conventions for variables, procedures and modules",
+            "Documentation practices: comments, change logs and user guides",
+            "Handing over automation to others: packaging, explaining and training",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Debug and troubleshoot VBA code systematically",
+            "Write maintainable, well-structured VBA projects",
+            "Prepare automated solutions for handover and long-term use"
+          ],
+          "prerequisites": ["ultimate-report-automation"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 11,
+          "summary": "Move from just making automation to maintaining and supporting it professionally.",
+          "miniProjects": [
+            "Mini Project: Take an existing automation and refactor it for clarity, error handling and documentation"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Refactoring and Debugging Assignment + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Supporting Excel-based tools in a corporate environment",
+            "Improving reliability and longevity of automation solutions"
+          ],
+          "careerSkills": [
+            "Professional-level debugging and maintenance of VBA solutions",
+            "Working as the 'Excel automation expert' in teams"
+          ],
+          "commonMistakes": [
+            "Ignoring error handling and letting macros crash silently",
+            "Writing long, monolithic procedures that are hard to understand"
+          ],
+          "references": [
+            "Best practice guides for VBA coding standards",
+            "Debugging tutorials for Excel VBA"
+          ],
+          "teachingTips": [
+            "Show examples of messy vs clean code and refactor together.",
+            "Encourage students to treat their automations as products needing support."
+          ],
+          "preReading": [
+            "Automated Report Generation and Distribution module"
+          ],
+          "previousModule": "ultimate-report-automation",
+          "nextModule": null,
+          "badge": "VBA Professional Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultimate-capstone",
+      "title": "Segment 4 - Automation Capstone and Career Readiness",
+      "level": "Ultra Expert",
+      "summary": "Plan and execute a real-world style automated MIS solution and prepare to present it in interviews and portfolios.",
+      "modules": [
+        {
+          "moduleId": "ultimate-automation-capstone",
+          "slug": "excel-vba-automation-capstone",
+          "title": "Excel + MIS + VBA Automation Capstone",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": ["capstone", "project", "portfolio"],
+          "topics": [
+            "Choosing a realistic domain (HR, Finance, Operations, Sales, Education)",
+            "Defining requirements, scope and success criteria with sample stakeholders",
+            "Designing data flow: input, cleaning, model, KPIs, dashboard and automation",
+            "Combining Power Query, Excel formulas, pivots and VBA in one system",
+            "Testing with multiple data scenarios and edge cases",
+            "Creating user guide, technical notes and short demo script",
+            "Practice These Topics",
+            "Final Presentation"
+          ],
+          "learningOutcomes": [
+            "Deliver a complete end-to-end automated MIS solution",
+            "Integrate multiple Excel technologies in one coherent project",
+            "Present and defend technical design choices confidently"
+          ],
+          "prerequisites": ["ultimate-vba-best-practices"],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 12,
+          "summary": "Prove mastery of Excel, MIS and VBA by building and presenting a complex automation project.",
+          "miniProjects": [
+            "Mini Project: Capstone Automated MIS (chosen domain) with full documentation"
+          ],
+          "exercises": {
+            "mcq": 0,
+            "coding": 1,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Viva / Portfolio Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Showcasing automation skills during job interviews and promotions",
+            "Implementing impactful solutions in actual organisations"
+          ],
+          "careerSkills": [
+            "Project planning, delivery and communication in a technical context",
+            "Building a strong Excel + VBA portfolio asset"
+          ],
+          "commonMistakes": [
+            "Overcomplicating the capstone instead of focusing on robustness",
+            "Underestimating time needed for testing and documentation"
+          ],
+          "references": [
+            "Case studies of Excel/VBA-based tools in industry",
+            "Portfolio-building guides for data and automation roles"
+          ],
+          "teachingTips": [
+            "Guide students to scope projects appropriately.",
+            "Run showcase sessions where students present to peers or invited guests."
+          ],
+          "preReading": [
+            "VBA Best Practices, Debugging and Maintenance module"
+          ],
+          "previousModule": "ultimate-vba-best-practices",
+          "nextModule": null,
+          "badge": "Excel Automation Pro Badge"
+        }
+      ]
+    }
+  ]
+}

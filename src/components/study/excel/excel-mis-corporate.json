@@ -1,0 +1,822 @@
+{
+  "trackId": "excel-corporate-mis-track",
+  "trackTitle": "Excel for Corporate MIS and Data Analysis",
+  "description": "A job-oriented Excel and MIS roadmap covering formulas, data analysis, pivots, Power Query, Power Pivot, KPI dashboards and corporate-style reporting for office professionals and students preparing for corporate roles.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Excel + Corporate MIS Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-08"
+  },
+  "segments": [
+    {
+      "segmentId": "mis-basic",
+      "title": "Segment 1 - Excel Essentials for Office Work (Beginner)",
+      "level": "Beginner",
+      "summary": "Build a strong foundation in Excel specifically for office and corporate environments with clean data entry, basic formulas and simple reports.",
+      "modules": [
+        {
+          "moduleId": "mis-excel-intro",
+          "slug": "excel-in-corporate-context",
+          "title": "Excel in Corporate and MIS Context",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["excel-intro", "corporate-usage", "mis-overview"],
+          "topics": [
+            "Where Excel is used in corporate environments: HR, Finance, Operations, Sales, MIS",
+            "Typical Excel-based reports: MIS reports, management dashboards, trackers",
+            "Choosing between Excel, Google Sheets and other tools in office workflows",
+            "Interface recap: ribbons, quick access toolbar, status bar, options",
+            "Working with company-style templates and shared workbooks (overview)",
+            "Good habits: naming files, versioning, backup and folder structures",
+            "Practice Session",
+            "Quick Orientation Quiz"
+          ],
+          "learningOutcomes": [
+            "Describe typical Excel use cases in corporate roles",
+            "Recognize different kinds of MIS-style Excel workbooks",
+            "Adopt good habits for organizing Excel files professionally"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Understand Excel not just as a tool, but as a core part of daily office work and MIS reporting.",
+          "miniProjects": [
+            "Mini Project: Create a simple folder structure and naming convention for reports"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 4,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Small Organization Task",
+            "passScore": 70
+          },
+          "useCases": [
+            "Recognizing expectations from Excel users in corporate offices",
+            "Setting up clean file structures for a new job or team"
+          ],
+          "careerSkills": [
+            "Professional handling of Excel-based work",
+            "Awareness of MIS-style thinking and reporting"
+          ],
+          "commonMistakes": [
+            "Saving everything on Desktop without structure",
+            "Using confusing file names that do not show version or date"
+          ],
+          "references": [
+            "Articles on MIS and Excel roles in companies",
+            "Microsoft documentation for basic Excel features"
+          ],
+          "teachingTips": [
+            "Show real-looking corporate report file names and directories.",
+            "Discuss expectations of Excel skills in job descriptions."
+          ],
+          "preReading": [
+            "Basic familiarity with using a computer and file explorer"
+          ],
+          "previousModule": null,
+          "nextModule": "mis-excel-core-formulas",
+          "badge": "Excel Orientation Badge"
+        },
+        {
+          "moduleId": "mis-excel-core-formulas",
+          "slug": "core-excel-formulas",
+          "title": "Core Excel Formulas for Office Tasks",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": ["formulas", "aggregation", "business-calculations"],
+          "topics": [
+            "Revision of basic formulas and references",
+            "SUM, AVERAGE, MIN, MAX, COUNT, COUNTA in practical contexts",
+            "Percentage calculations for growth, discounts and ratios",
+            "Subtotals, running totals and simple variance calculations",
+            "Using absolute references for fixed rates (tax, bonus, commission)",
+            "Error handling using IFERROR for cleaner reports",
+            "Quick analysis using status bar and simple conditional formatting",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Apply basic formulas in realistic business worksheets",
+            "Calculate percentages and variances correctly",
+            "Present clean formula results by handling errors"
+          ],
+          "prerequisites": ["mis-excel-intro"],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 2,
+          "summary": "Turn raw numeric data into useful business calculations and summaries.",
+          "miniProjects": [
+            "Mini Project: Create a monthly sales report with totals, average, growth and variance"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Business Calculation Sheet",
+            "passScore": 70
+          },
+          "useCases": [
+            "Salary slip breakdowns, incentive calculations and performance summaries",
+            "Basic sales and expense tracking with growth analysis"
+          ],
+          "careerSkills": [
+            "Accurate calculations for finance and operations teams",
+            "Avoiding common business formula errors"
+          ],
+          "commonMistakes": [
+            "Confusing percentage of total vs percentage change",
+            "Using hard-coded numbers instead of referencing assumption cells"
+          ],
+          "references": [
+            "Excel documentation on formula basics",
+            "Business-oriented Excel tutorials"
+          ],
+          "teachingTips": [
+            "Use real-style salary slip and monthly sales examples.",
+            "Encourage separating assumptions (rates, targets) from data."
+          ],
+          "preReading": [
+            "Excel in Corporate and MIS Context module"
+          ],
+          "previousModule": "mis-excel-intro",
+          "nextModule": "mis-excel-logic-lookup",
+          "badge": "Business Formula Badge"
+        },
+        {
+          "moduleId": "mis-excel-logic-lookup",
+          "slug": "corporate-logic-and-lookups",
+          "title": "Corporate Logic and Lookup Formulas",
+          "level": "Beginner-Intermediate",
+          "estimatedHours": 6,
+          "tags": ["if", "lookup", "business-rules"],
+          "topics": [
+            "Recap of IF, AND, OR with corporate-style examples",
+            "Commission, bonus and grading rules in IF formulas",
+            "VLOOKUP for price list, grade list and master data lookups",
+            "INDEX-MATCH intro for left-side and flexible lookups",
+            "Multi-criteria lookups using helper columns or combined keys",
+            "Using LOOKUP/XLOOKUP (if available) for more robust searches",
+            "Best practices for building and maintaining master tables",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Translate HR, finance and sales rules into Excel logic",
+            "Pull data from standardized master tables using lookup formulas",
+            "Avoid fragile lookups by planning data structure properly"
+          ],
+          "prerequisites": ["mis-excel-core-formulas"],
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "summary": "Connect multiple sheets and rules to create more automated MIS worksheets.",
+          "miniProjects": [
+            "Mini Project: Create a sales commission and incentive calculator driven by master tables"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Lookup and Logic Worksheet",
+            "passScore": 75
+          },
+          "useCases": [
+            "Employee grade-based benefits and allowances",
+            "Price and discount pulling from product master lists"
+          ],
+          "careerSkills": [
+            "Building reliable rule-based corporate spreadsheets",
+            "Re-using master data for multiple reports"
+          ],
+          "commonMistakes": [
+            "Depending only on VLOOKUP when layout changes often",
+            "Not locking lookup ranges which leads to broken reports"
+          ],
+          "references": [
+            "Articles on INDEX-MATCH vs VLOOKUP",
+            "Microsoft docs for IF and lookup functions"
+          ],
+          "teachingTips": [
+            "Start with simple master data and then increase complexity.",
+            "Highlight why properly designed master sheets save time long-term."
+          ],
+          "preReading": [
+            "Core Excel Formulas for Office Tasks module"
+          ],
+          "previousModule": "mis-excel-core-formulas",
+          "nextModule": "mis-excel-pivot-intro",
+          "badge": "Corporate Formula Badge"
+        },
+        {
+          "moduleId": "mis-excel-pivot-intro",
+          "slug": "corporate-pivot-tables",
+          "title": "Pivot Tables for Corporate Reporting",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["pivot-tables", "mis-summary", "aggregations"],
+          "topics": [
+            "Recap: pivot table basics and design",
+            "Creating MIS-style pivots by region, product, branch and salesperson",
+            "Calculated fields and custom summary calculations (basic)",
+            "Using report filters and slicers for quick views (if available)",
+            "Creating pivot charts for management presentations",
+            "Designing pivot layouts for printing and PDF export",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Build pivot tables tailored to MIS reporting needs",
+            "Add simple calculations inside pivot tables",
+            "Present pivot outputs cleanly in reports and PDFs"
+          ],
+          "prerequisites": ["mis-excel-logic-lookup"],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Turn detailed transactional data into management-level summaries using pivot tables.",
+          "miniProjects": [
+            "Mini Project: Build a monthly sales MIS pivot summary with multiple views"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Corporate Pivot Report",
+            "passScore": 75
+          },
+          "useCases": [
+            "Monthly sales review meetings",
+            "Branch-wise performance comparison"
+          ],
+          "careerSkills": [
+            "Quickly answering management questions from raw data",
+            "Structuring and formatting pivot reports professionally"
+          ],
+          "commonMistakes": [
+            "Using pivot tables on poorly structured raw data",
+            "Not refreshing pivots when adding new data"
+          ],
+          "references": [
+            "Excel pivot documentation",
+            "MIS report examples using pivot tables"
+          ],
+          "teachingTips": [
+            "Simulate a manager asking last-minute questions requiring pivot changes.",
+            "Discuss how pivot design affects readability in meetings."
+          ],
+          "preReading": [
+            "Corporate Logic and Lookup Formulas module"
+          ],
+          "previousModule": "mis-excel-logic-lookup",
+          "nextModule": null,
+          "badge": "Pivot MIS Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "mis-intermediate",
+      "title": "Segment 2 - Data Cleaning and Analysis (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Focus on data cleaning, transformation, analysis, and corporate-style report preparation using standard Excel and basic Power Query concepts.",
+      "modules": [
+        {
+          "moduleId": "mis-data-quality",
+          "slug": "data-quality-and-cleaning",
+          "title": "Data Quality and Cleaning for MIS",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["data-cleaning", "quality", "standardization"],
+          "topics": [
+            "Common data quality issues in corporate files: duplicates, inconsistent text, missing values",
+            "Standardizing dates, categories and codes",
+            "Using TRIM, CLEAN, SUBSTITUTE, TEXT and VALUE for cleaning",
+            "Advanced filtering, sorting and Go To Special for clean-up",
+            "Consolidating data from multiple similar files (basic approach)",
+            "Creating basic data dictionaries and code lists (master data)",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Identify and fix typical data issues before reporting",
+            "Use formulas and built-in tools for systematic cleaning",
+            "Standardize raw data to be ready for pivots and dashboards"
+          ],
+          "prerequisites": ["mis-excel-pivot-intro"],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Prepare raw dumps from systems and external files into clean, structured Excel tables.",
+          "miniProjects": [
+            "Mini Project: Clean a messy transaction export and prepare it for pivot analysis"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Data Cleaning Assignment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Cleaning ERP exports before making MIS reports",
+            "Standardizing HR master data from multiple branches"
+          ],
+          "careerSkills": [
+            "Reducing time wasted due to poor data",
+            "Producing reliable MIS from inconsistent sources"
+          ],
+          "commonMistakes": [
+            "Cleaning data manually instead of building repeatable steps",
+            "Ignoring underlying data issues and only patching final report"
+          ],
+          "references": [
+            "Excel data cleaning techniques articles",
+            "Best practices for corporate data quality"
+          ],
+          "teachingTips": [
+            "Provide realistic messy data exports for practice.",
+            "Discuss how bad data leads to wrong decisions."
+          ],
+          "preReading": [
+            "Pivot Tables for Corporate Reporting module"
+          ],
+          "previousModule": null,
+          "nextModule": "mis-power-query-intro",
+          "badge": "Data Quality Analyst Badge"
+        },
+        {
+          "moduleId": "mis-power-query-intro",
+          "slug": "intro-power-query",
+          "title": "Introduction to Power Query (Get & Transform)",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": ["power-query", "get-and-transform", "ETL"],
+          "topics": [
+            "What Power Query is and where it fits in MIS workflows",
+            "Loading data from Excel tables, CSV files and folders (basic)",
+            "Basic transforms: remove columns, filter rows, rename, change types",
+            "Split columns, merge columns and unpivot (simple scenarios)",
+            "Refreshing Power Query queries to repeat cleaning steps",
+            "Storing cleaned output in Excel tables for pivots and dashboards",
+            "Power Query vs manual cleaning vs formulas",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Use Power Query to automate common cleaning and transformation tasks",
+            "Load and refresh data from external files into clean tables",
+            "Understand the role of Power Query in Excel-based ETL"
+          ],
+          "prerequisites": ["mis-data-quality"],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 6,
+          "summary": "Automate and standardize data preparation steps using Power Query.",
+          "miniProjects": [
+            "Mini Project: Use Power Query to clean monthly transaction files from a folder and output a single combined table"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Power Query Workflow",
+            "passScore": 75
+          },
+          "useCases": [
+            "Handling daily or monthly transaction dumps from systems",
+            "Combining multiple branch files into a single MIS dataset"
+          ],
+          "careerSkills": [
+            "Building repeatable ETL pipelines for Excel-based MIS",
+            "Reducing manual repetitive work in data preparation"
+          ],
+          "commonMistakes": [
+            "Breaking queries by changing source file structure without planning",
+            "Not documenting Power Query steps for future maintainers"
+          ],
+          "references": [
+            "Microsoft Power Query documentation",
+            "Introductory Power Query tutorials focusing on Excel"
+          ],
+          "teachingTips": [
+            "Compare manual cleaning vs Power Query cleaning time.",
+            "Encourage step-wise thinking like a small ETL pipeline."
+          ],
+          "preReading": [
+            "Data Quality and Cleaning for MIS module"
+          ],
+          "previousModule": "mis-data-quality",
+          "nextModule": "mis-power-pivot-intro",
+          "badge": "Power Query Starter Badge"
+        },
+        {
+          "moduleId": "mis-power-pivot-intro",
+          "slug": "intro-power-pivot-dax",
+          "title": "Introduction to Power Pivot and DAX (Conceptual)",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": ["power-pivot", "dax", "data-model"],
+          "topics": [
+            "Concept of data models vs single Excel tables",
+            "Loading multiple related tables into the Data Model",
+            "Creating relationships between tables (one-to-many basics)",
+            "Measures vs calculated columns (conceptual overview)",
+            "Basic DAX measures: SUM, DISTINCTCOUNT, simple calculated metrics",
+            "Using Power Pivot-based pivot tables for multi-table analysis",
+            "When to use Power Pivot vs normal pivot tables",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Understand the idea of a relational data model inside Excel",
+            "Build simple relationships and multi-table pivots",
+            "Create basic measures using DAX for corporate metrics"
+          ],
+          "prerequisites": ["mis-power-query-intro"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 7,
+          "summary": "Move from single-table thinking to relational and model-based analysis using Power Pivot and DAX.",
+          "miniProjects": [
+            "Mini Project: Build a simple sales data model with separate tables for products, regions and transactions"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Data Model Exercise",
+            "passScore": 75
+          },
+          "useCases": [
+            "Analysing sales with multiple dimensions (product, region, channel)",
+            "Creating reusable models for repeated MIS reports"
+          ],
+          "careerSkills": [
+            "Thinking in terms of data models and relationships",
+            "Using basic DAX to create corporate KPIs"
+          ],
+          "commonMistakes": [
+            "Importing everything into one flat table instead of model-based design",
+            "Confusing measures and calculated columns conceptually"
+          ],
+          "references": [
+            "Introductory DAX and Power Pivot guides",
+            "Official Power Pivot documentation"
+          ],
+          "teachingTips": [
+            "Use simple diagrams to show tables and relationships.",
+            "Emphasize conceptual understanding more than complex DAX at this level."
+          ],
+          "preReading": [
+            "Introduction to Power Query (Get & Transform) module"
+          ],
+          "previousModule": "mis-power-query-intro",
+          "nextModule": "mis-excel-whatif-kpi",
+          "badge": "Power Pivot Starter Badge"
+        },
+        {
+          "moduleId": "mis-excel-whatif-kpi",
+          "slug": "what-if-and-kpi-analysis",
+          "title": "What-If Analysis and KPI Calculation for MIS",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 5,
+          "tags": ["what-if", "kpi", "analysis"],
+          "topics": [
+            "Identifying KPIs for different departments (HR, Sales, Finance, Operations)",
+            "Implementing KPIs in Excel formulas and measures (where available)",
+            "Goal Seek and simple scenario analysis for targets and budgets",
+            "Building simple KPI cards and indicator cells",
+            "Documenting assumptions and drivers separately from results",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Define and compute basic KPIs for common departments",
+            "Use what-if tools to link KPIs to underlying drivers",
+            "Structure sheets to keep assumptions and outputs clear"
+          ],
+          "prerequisites": ["mis-power-pivot-intro"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Transform data into meaningful metrics and scenarios that management cares about.",
+          "miniProjects": [
+            "Mini Project: Build a KPI summary sheet with 5–8 KPIs and adjustable drivers"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "KPI Sheet + Short Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Monthly MIS packs with KPIs and variance",
+            "Business planning and budget scenarios"
+          ],
+          "careerSkills": [
+            "Thinking in KPIs instead of raw numbers",
+            "Explaining KPI changes using underlying drivers"
+          ],
+          "commonMistakes": [
+            "Using KPIs without clear definitions or consistent formulas",
+            "Mixing input and output cells confusingly on the same area"
+          ],
+          "references": [
+            "Articles on KPI design and dashboards",
+            "Examples of simple department-level KPIs"
+          ],
+          "teachingTips": [
+            "Discuss KPIs used by real organisations with students.",
+            "Ask students to propose KPIs for a fictional company."
+          ],
+          "preReading": [
+            "Introduction to Power Pivot and DAX (Conceptual) module"
+          ],
+          "previousModule": "mis-power-pivot-intro",
+          "nextModule": null,
+          "badge": "KPI Analyst Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "mis-advanced",
+      "title": "Segment 3 - Corporate Dashboards and Reporting (Advanced)",
+      "level": "Advanced",
+      "summary": "Combine everything into professional corporate dashboards and MIS packs suitable for management and clients.",
+      "modules": [
+        {
+          "moduleId": "mis-dashboard-design",
+          "slug": "corporate-dashboard-design",
+          "title": "Corporate Dashboard Design Principles",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["dashboards", "design", "storytelling"],
+          "topics": [
+            "Dashboard vs detailed report vs raw data: creating a layered approach",
+            "Principles of good dashboard design: focus, simplicity, context, alignment",
+            "Choosing appropriate chart types for KPIs and comparison",
+            "Colour, typography and layout choices for business dashboards",
+            "Storytelling with data: before/after comparisons, trends and targets",
+            "Practice These Topics",
+            "Design Critique Session"
+          ],
+          "learningOutcomes": [
+            "Explain key dashboard design principles for corporate use",
+            "Choose good visuals and layouts for different types of information",
+            "Review and improve dashboards from a design perspective"
+          ],
+          "prerequisites": ["mis-excel-whatif-kpi"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Design dashboards that not only show data but also communicate the right message clearly.",
+          "miniProjects": [
+            "Mini Project: Redesign a cluttered dashboard into a cleaner, principle-based layout"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Dashboard Design Review + Short Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Top-level MIS dashboards for management",
+            "Client-facing performance summaries"
+          ],
+          "careerSkills": [
+            "Communicating insights visually to non-technical stakeholders",
+            "Balancing aesthetics with clarity in reports"
+          ],
+          "commonMistakes": [
+            "Using too many colours or chart types on the same page",
+            "Not highlighting what is truly important for a decision"
+          ],
+          "references": [
+            "Data visualization best practices literature",
+            "Examples of good corporate dashboards"
+          ],
+          "teachingTips": [
+            "Show various dashboard examples and discuss what works and what doesn't.",
+            "Encourage peer feedback sessions on student dashboards."
+          ],
+          "preReading": [
+            "What-If Analysis and KPI Calculation for MIS module"
+          ],
+          "previousModule": null,
+          "nextModule": "mis-dashboard-build",
+          "badge": "Dashboard Designer Badge"
+        },
+        {
+          "moduleId": "mis-dashboard-build",
+          "slug": "building-mis-dashboards",
+          "title": "Building Interactive MIS Dashboards in Excel",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["dashboards", "interactivity", "slicers"],
+          "topics": [
+            "Structuring a workbook for dashboards: raw, staging, model, output sheets",
+            "Using named ranges and structured references for stable formulas",
+            "Combining pivot tables, charts, slicers and timelines (if available)",
+            "Creating navigation elements (buttons, hyperlinks, table of contents)",
+            "Adding light interactivity using validation drop-downs and formulas",
+            "Preparing dashboards for print, PDF and email distribution",
+            "Practice These Topics",
+            "Capstone Style Task"
+          ],
+          "learningOutcomes": [
+            "Build an Excel workbook that supports dynamic dashboards",
+            "Connect slicers and filters to control views",
+            "Deliver dashboards in formats suitable for management review"
+          ],
+          "prerequisites": ["mis-dashboard-design"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 10,
+          "summary": "Translate dashboard designs into working Excel MIS workbooks.",
+          "miniProjects": [
+            "Mini Project: Create a sales or HR MIS dashboard with slicers and filters connected to pivots"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Interactive Dashboard Project",
+            "passScore": 80
+          },
+          "useCases": [
+            "Monthly performance dashboards for management",
+            "Branch or region-level MIS packs"
+          ],
+          "careerSkills": [
+            "Delivering polished, interactive Excel workbooks",
+            "Understanding expectations from MIS analysts in corporate settings"
+          ],
+          "commonMistakes": [
+            "Mixing raw data and calculations in the same sheet as dashboards",
+            "Building dashboards that are difficult to maintain or update"
+          ],
+          "references": [
+            "Microsoft examples of dashboards",
+            "Articles on structuring Excel workbooks for analysis"
+          ],
+          "teachingTips": [
+            "Insist on separating data, calculation and output layers.",
+            "Simulate update cycles where new data must slot in easily."
+          ],
+          "preReading": [
+            "Corporate Dashboard Design Principles module"
+          ],
+          "previousModule": "mis-dashboard-design",
+          "nextModule": "mis-department-templates",
+          "badge": "Dashboard Builder Badge"
+        },
+        {
+          "moduleId": "mis-department-templates",
+          "slug": "department-wise-templates",
+          "title": "Department-wise MIS Templates (HR, Finance, Operations, Sales)",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": ["templates", "hr", "finance", "operations", "sales"],
+          "topics": [
+            "HR templates: attendance tracker, leave register, headcount dashboard",
+            "Finance templates: expense tracker, budget vs actual, cashbook style sheets",
+            "Operations templates: inventory tracker, production summary, turnaround time",
+            "Sales templates: target vs achievement, pipeline tracker, region summary",
+            "Adapting templates to different organisations and data structures",
+            "Balancing standardization vs flexibility in templates",
+            "Practice These Topics",
+            "Template Review Session"
+          ],
+          "learningOutcomes": [
+            "Build and customize MIS templates for key departments",
+            "Understand common report requirements in HR, Finance, Operations and Sales",
+            "Adapt base templates to specific organisational contexts"
+          ],
+          "prerequisites": ["mis-dashboard-build"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 11,
+          "summary": "Create job-ready MIS templates for multiple common departments.",
+          "miniProjects": [
+            "Mini Project: Choose one department and design a complete MIS template pack (raw + dashboard)"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Department MIS Template Project",
+            "passScore": 80
+          },
+          "useCases": [
+            "Applying directly to HR or MIS roles with a sample template portfolio",
+            "Implementing better Excel reporting in existing organisations"
+          ],
+          "careerSkills": [
+            "Speaking the language of different departments",
+            "Translating requirements into Excel-based systems"
+          ],
+          "commonMistakes": [
+            "Overfitting templates to one dataset instead of making them reusable",
+            "Ignoring documentation and user instructions inside templates"
+          ],
+          "references": [
+            "Sample MIS templates from public resources",
+            "Job descriptions for MIS and reporting roles"
+          ],
+          "teachingTips": [
+            "Encourage collaboration: pairs working on different departments.",
+            "Review templates with a checklist (clarity, data structure, ease of use)."
+          ],
+          "preReading": [
+            "Building Interactive MIS Dashboards in Excel module"
+          ],
+          "previousModule": "mis-dashboard-build",
+          "nextModule": "mis-final-capstone",
+          "badge": "Department MIS Creator Badge"
+        },
+        {
+          "moduleId": "mis-final-capstone",
+          "slug": "mis-capstone-and-career-prep",
+          "title": "MIS Capstone Project and Career Preparation",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "tags": ["capstone", "career", "portfolio"],
+          "topics": [
+            "Planning a complete MIS solution: data sources, refresh, structure and outputs",
+            "Combining Power Query, normal Excel and pivot tools in one solution",
+            "Documenting assumptions, steps and user instructions",
+            "Testing with sample data and stress-testing with larger sets",
+            "Presenting MIS work in resumes, portfolios and interviews",
+            "Common interview questions for Excel and MIS roles",
+            "Practice These Topics",
+            "Capstone Presentation"
+          ],
+          "learningOutcomes": [
+            "Design and implement an end-to-end MIS workbook or pack",
+            "Confidently present and explain Excel-based MIS work to others",
+            "Prepare for Excel and MIS-related interview questions"
+          ],
+          "prerequisites": ["mis-department-templates"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 12,
+          "summary": "Consolidate all skills into a real-world style MIS project and prepare for corporate roles.",
+          "miniProjects": [
+            "Mini Project: Full MIS Capstone (students choose domain and build a complete solution)"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Viva / Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Building a portfolio project to showcase for jobs and internships",
+            "Implementing a new MIS report for an existing organisation"
+          ],
+          "careerSkills": [
+            "End-to-end MIS project planning and execution",
+            "Communicating technical Excel work in simple business language"
+          ],
+          "commonMistakes": [
+            "Choosing overly ambitious scopes for capstone projects",
+            "Not leaving enough time for testing and documentation"
+          ],
+          "references": [
+            "Interview preparation resources for MIS and Excel analyst roles",
+            "Case studies of MIS implementations"
+          ],
+          "teachingTips": [
+            "Guide students to scope projects that are challenging but realistic.",
+            "Run mock interviews focused on Excel and MIS skills."
+          ],
+          "preReading": [
+            "Department-wise MIS Templates (HR, Finance, Operations, Sales) module"
+          ],
+          "previousModule": "mis-department-templates",
+          "nextModule": null,
+          "badge": "Corporate MIS Pro Badge"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3413 @@
+[
+  {
+    "id": 1,
+    "topic": "data_entry",
+    "question": "What is the best practice for naming column headers?",
+    "options": ["Use long sentences", "Leave them blank", "Use short and clear titles", "Use special characters"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 2,
+    "topic": "data_entry",
+    "question": "What should you avoid inside a data table?",
+    "options": ["Bold headers", "Blank rows or columns", "Short header names", "Numeric values"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 3,
+    "topic": "data_entry",
+    "question": "Why is consistent formatting important?",
+    "options": ["It looks beautiful", "It helps Excel read data correctly", "It increases file size", "It makes printing harder"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 4,
+    "topic": "data_entry",
+    "question": "Which row should contain column titles?",
+    "options": ["Row 1", "Row 5", "Any random row", "No specific place required"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 5,
+    "topic": "data_entry",
+    "question": "Good Excel data should resemble a:",
+    "options": ["Paragraph", "Slide", "Table", "Drawing"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 6,
+    "topic": "data_types",
+    "question": "Which type of data aligns to the right by default?",
+    "options": ["Text", "Numbers", "Dates only", "All types"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 7,
+    "topic": "data_types",
+    "question": "Which of the following is treated as text?",
+    "options": ["500", "12-12-2024", "₹500", "3:30 PM"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 8,
+    "topic": "data_types",
+    "question": "Which of the following is a valid Excel date?",
+    "options": ["32-12-2024", "13/13/2023", "15-01-2025", "January 45"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 9,
+    "topic": "data_types",
+    "question": "Which entry is likely to be stored as text instead of a number?",
+    "options": ["4500", "45.25", "4,500", "0.75"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 10,
+    "topic": "data_types",
+    "question": "Which format does Excel store times in?",
+    "options": ["As images", "As text strings", "As fractions of a day", "As separate hour-minute files"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 11,
+    "topic": "editing_tools",
+    "question": "Which shortcut copies data?",
+    "options": ["Ctrl + X", "Ctrl + C", "Ctrl + V", "Ctrl + Z"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 12,
+    "topic": "editing_tools",
+    "question": "Which feature allows you to continue a pattern automatically?",
+    "options": ["Flash Fill", "AutoFill", "Copy-Paste", "Undo"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 13,
+    "topic": "editing_tools",
+    "question": "Flash Fill can be found in which tab?",
+    "options": ["Home", "Insert", "Data", "View"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 14,
+    "topic": "editing_tools",
+    "question": "Which shortcut pastes copied data?",
+    "options": ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + P"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 15,
+    "topic": "editing_tools",
+    "question": "AutoFill is triggered by dragging which element?",
+    "options": ["Sheet name", "Column letter", "Row number", "Fill handle"],
+    "answerIndex": 3,
+    "level": "beginner"
+  },
+  {
+    "id": 16,
+    "topic": "formatting",
+    "question": "Wrap Text is found under which tab?",
+    "options": ["Home", "Insert", "Formulas", "Page Layout"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 17,
+    "topic": "formatting",
+    "question": "Which formatting option changes how numbers appear without changing their value?",
+    "options": ["Alignment", "Font size", "Number format", "Borders"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 18,
+    "topic": "formatting",
+    "question": "Which option makes a cell's text appear bold?",
+    "options": ["Ctrl + B", "Ctrl + N", "Ctrl + M", "Ctrl + P"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 19,
+    "topic": "formatting",
+    "question": "Which alignment is typically applied to numbers?",
+    "options": ["Left", "Right", "Center", "Justify"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 20,
+    "topic": "formatting",
+    "question": "Which tool is used to add background color to cells?",
+    "options": ["Font Color", "Fill Color", "Border Style", "Number Format"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+    {
+    "id": 21,
+    "topic": "format_painter",
+    "question": "What does Format Painter copy?",
+    "options": ["Data only", "Formatting only", "Both data and formatting", "Only borders"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 22,
+    "topic": "format_painter",
+    "question": "Format Painter is located under which tab?",
+    "options": ["Data", "Insert", "Home", "View"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 23,
+    "topic": "format_painter",
+    "question": "Double-clicking Format Painter allows:",
+    "options": ["Multiple formatting applications", "Deleting formatting", "Copying formulas", "Inserting rows"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 24,
+    "topic": "format_painter",
+    "question": "Which feature provides ready-made formatting options?",
+    "options": ["Format Painter", "Cell Styles", "AutoFill", "Flash Fill"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 25,
+    "topic": "format_painter",
+    "question": "A cell style can quickly apply:",
+    "options": ["Formulas", "Themes", "Formatting presets", "Macros"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 26,
+    "topic": "layout",
+    "question": "Which action automatically adjusts a column to fit its content?",
+    "options": ["Wrap Text", "AutoFit", "Flash Fill", "Merge Cells"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 27,
+    "topic": "layout",
+    "question": "Wrap Text will:",
+    "options": ["Shrink text", "Hide text", "Show text on multiple lines", "Delete extra text"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 28,
+    "topic": "layout",
+    "question": "Row height can be changed by:",
+    "options": ["Dragging row boundary", "Dragging column letter", "Typing text again", "Using Delete key"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 29,
+    "topic": "layout",
+    "question": "Which option allows setting an exact column width value?",
+    "options": ["Wrap Text", "Format → Column Width", "Alignment Options", "Number Format"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 30,
+    "topic": "layout",
+    "question": "Wrap Text is found under the:",
+    "options": ["Home tab", "Insert tab", "Developer tab", "Formulas tab"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 31,
+    "topic": "conditional_formatting",
+    "question": "Conditional Formatting can highlight:",
+    "options": ["Empty sheets", "Cells based on rules", "Images only", "Fonts only"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 32,
+    "topic": "conditional_formatting",
+    "question": "Which menu contains Conditional Formatting?",
+    "options": ["Home", "Insert", "Review", "View"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 33,
+    "topic": "conditional_formatting",
+    "question": "Which rule highlights values greater than a chosen number?",
+    "options": ["Less Than", "Greater Than", "Equal To", "Duplicate Values"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 34,
+    "topic": "conditional_formatting",
+    "question": "Which feature adds colored bars inside cells?",
+    "options": ["Icon Sets", "Data Bars", "Color Scales", "Pattern Fill"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 35,
+    "topic": "conditional_formatting",
+    "question": "Which rule type can identify the Top 10 values?",
+    "options": ["Highlight Cells Rules", "Top/Bottom Rules", "Data Tools", "Charts"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 36,
+    "topic": "data_entry",
+    "question": "Which of these should NOT be included inside a clean data table?",
+    "options": ["One header row", "Blank rows", "Numeric columns", "Date columns"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 37,
+    "topic": "data_entry",
+    "question": "Which is a good header example?",
+    "options": ["Amount Received", "A very long detailed description", "Column 123---", "No header"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 38,
+    "topic": "data_entry",
+    "question": "Why should blank columns be avoided?",
+    "options": ["They look bad", "Excel treats the table as broken", "They use more memory", "They change formulas automatically"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 39,
+    "topic": "data_entry",
+    "question": "A proper Excel table structure helps mostly with:",
+    "options": ["Scrolling", "Filtering and formulas", "Changing themes", "Printing photos"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 40,
+    "topic": "data_entry",
+    "question": "Good data should follow a:",
+    "options": ["Random structure", "Paragraph style", "Tabular structure", "Mixed aligned blocks"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 41,
+    "topic": "data_types",
+    "question": "Which of the following will Excel treat as a number?",
+    "options": ["\"500\"", "500", "₹500", "500 INR"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 42,
+    "topic": "data_types",
+    "question": "Which entry is most likely to be recognized as a valid time?",
+    "options": ["25:99", "10:30 AM", "1313", "3 PM OK"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 43,
+    "topic": "data_types",
+    "question": "Which format is safest for entering dates?",
+    "options": ["01-01-25", "01-13-25", "13-32-25", "1st January 2025"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 44,
+    "topic": "data_types",
+    "question": "Text in Excel aligns by default to the:",
+    "options": ["Right", "Left", "Center", "Top"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 45,
+    "topic": "data_types",
+    "question": "Numbers in Excel align by default to the:",
+    "options": ["Center", "Left", "Right", "Bottom"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 46,
+    "topic": "editing_tools",
+    "question": "Which tool helps extract patterns such as separating first and last names?",
+    "options": ["AutoFill", "Flash Fill", "Paste Special", "Format Painter"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 47,
+    "topic": "editing_tools",
+    "question": "Dragging the fill handle down will:",
+    "options": ["Delete content", "Copy or continue a series", "Insert rows", "Add formulas"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 48,
+    "topic": "editing_tools",
+    "question": "Paste shortcut is:",
+    "options": ["Ctrl + H", "Ctrl + V", "Ctrl + N", "Ctrl + P"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 49,
+    "topic": "editing_tools",
+    "question": "Flash Fill will attempt to fill the column when you press:",
+    "options": ["Ctrl + F", "Ctrl + E", "Ctrl + G", "Ctrl + Shift + E"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 50,
+    "topic": "editing_tools",
+    "question": "AutoFill can continue which pattern?",
+    "options": ["Monday, Tuesday, Wednesday", "Red, Green, Blue", "True, False, True", "None"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 51,
+    "topic": "formatting",
+    "question": "Which number format is appropriate for percentages?",
+    "options": ["General", "Currency", "Percentage", "Date"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 52,
+    "topic": "formatting",
+    "question": "Which formatting will display 0.75 as 75%?",
+    "options": ["Fraction", "General", "Currency", "Percentage"],
+    "answerIndex": 3,
+    "level": "beginner"
+  },
+  {
+    "id": 53,
+    "topic": "formatting",
+    "question": "Which feature makes long text appear on multiple lines?",
+    "options": ["Merge Cells", "Wrap Text", "Shrink to Fit", "Center Align"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 54,
+    "topic": "formatting",
+    "question": "Which group contains alignment buttons?",
+    "options": ["Font", "Paragraph", "Alignment", "Editing"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 55,
+    "topic": "formatting",
+    "question": "Borders are mainly used to:",
+    "options": ["Change font", "Highlight structure", "Insert rows", "Change sheet name"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 56,
+    "topic": "format_painter",
+    "question": "Format Painter copies:",
+    "options": ["Only text", "Only cell sizes", "Formatting rules", "File settings"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 57,
+    "topic": "format_painter",
+    "question": "Which item is NOT copied by Format Painter?",
+    "options": ["Font style", "Number formatting", "Cell value", "Border style"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 58,
+    "topic": "format_painter",
+    "question": "Cell Styles help maintain:",
+    "options": ["Data entry speed", "Consistent design", "Sorting performance", "Formula correction"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 59,
+    "topic": "layout",
+    "question": "AutoFit Row Height depends on:",
+    "options": ["Longest text", "Tallest content", "Column width only", "File size"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 60,
+    "topic": "layout",
+    "question": "Wrap Text is useful when:",
+    "options": ["Cells are too wide", "Text is cut off horizontally", "Numbers do not calculate", "Rows are empty"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 61,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule highlights cells with duplicate values?",
+    "options": ["Top/Bottom Rules", "Icon Sets", "Duplicate Values", "Data Bars"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 62,
+    "topic": "conditional_formatting",
+    "question": "Color Scales in conditional formatting represent:",
+    "options": ["Patterns only", "Ranges of values using colors", "Images", "Fonts"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 63,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting option uses symbols like arrows or flags?",
+    "options": ["Icon Sets", "Data Bars", "Color Scales", "Fill Patterns"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 64,
+    "topic": "conditional_formatting",
+    "question": "Which rule highlights cells below a certain number?",
+    "options": ["Greater Than", "Less Than", "Equal To", "Between"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 65,
+    "topic": "conditional_formatting",
+    "question": "Conditional formatting can be cleared using:",
+    "options": ["Delete key", "Clear Rules option", "Undo only", "Format Painter"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 66,
+    "topic": "data_types",
+    "question": "Which type of entry will Excel NOT recognize as a real date?",
+    "options": ["12-01-2024", "1/1/25", "45/20/2025", "15 Jan 2025"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 67,
+    "topic": "data_types",
+    "question": "Which data format can be used to enter 3:45 PM?",
+    "options": ["3.45", "345PM", "15:45", "3,45"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 68,
+    "topic": "data_types",
+    "question": "Which of the following is most likely to be stored as text?",
+    "options": ["007", "7", "0.7", "7.00"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 69,
+    "topic": "data_types",
+    "question": "Which input creates an error because it's not a valid time?",
+    "options": ["12:30", "7:00 AM", "24:61", "15:45"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 70,
+    "topic": "data_entry",
+    "question": "Which guideline helps ensure clean data?",
+    "options": ["Use merged cells", "Use blank rows to separate sections", "Avoid blank rows or columns", "Use long descriptions"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 71,
+    "topic": "data_entry",
+    "question": "Which layout is better for data analysis in Excel?",
+    "options": ["Paragraph format", "Merged cell headers", "Tabular format", "Random mixed layout"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 72,
+    "topic": "data_entry",
+    "question": "Headers should be:",
+    "options": ["Blank", "Repeated in every row", "Short and descriptive", "Long paragraphs"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 73,
+    "topic": "editing_tools",
+    "question": "Which shortcut cuts selected data?",
+    "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + Shift + X"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 74,
+    "topic": "editing_tools",
+    "question": "Paste Special allows you to paste:",
+    "options": ["Only images", "Values only, formats only, formulas only, etc.", "Only formulas", "Only numbers"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 75,
+    "topic": "editing_tools",
+    "question": "Which option automatically fills the next date when dragging down?",
+    "options": ["Flash Fill", "AutoFill", "Paste Special", "Wrap Text"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 76,
+    "topic": "formatting",
+    "question": "Which number format is applied to ₹1,000?",
+    "options": ["Percentage", "Currency", "General", "Text"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 77,
+    "topic": "formatting",
+    "question": "Which tool changes only the appearance of numbers, not the value?",
+    "options": ["Font", "Number Format", "Borders", "Merge Cells"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 78,
+    "topic": "formatting",
+    "question": "How can you bold text quickly?",
+    "options": ["Ctrl + B", "Ctrl + T", "Ctrl + Shift + B", "Alt + B"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 79,
+    "topic": "layout",
+    "question": "Which action widens a column?",
+    "options": ["Dragging the right boundary of a column header", "Dragging row boundary", "Typing text", "Pressing Enter"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 80,
+    "topic": "layout",
+    "question": "When Wrap Text is applied:",
+    "options": ["The text becomes smaller", "Text shows on multiple lines", "Rows are deleted", "Columns shrink"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 81,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule highlights cells equal to a specific value?",
+    "options": ["Greater Than", "Equal To", "Between", "Unique"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 82,
+    "topic": "conditional_formatting",
+    "question": "Data Bars visually represent:",
+    "options": ["Text length", "Value magnitude", "Number of rows", "Font size"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 83,
+    "topic": "conditional_formatting",
+    "question": "Which option highlights the highest values in a list?",
+    "options": ["Bottom 10%", "Duplicate Values", "Top/Bottom Rules", "Icon Sets"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 84,
+    "topic": "conditional_formatting",
+    "question": "Conditional formatting is useful for:",
+    "options": ["Changing sheet names", "Visual data analysis", "Entering dates", "Printing only"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 85,
+    "topic": "conditional_formatting",
+    "question": "Which condition highlights values between two numbers?",
+    "options": ["Between", "Equal To", "DUPE", "Top 10"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 86,
+    "topic": "data_entry",
+    "question": "What should you avoid in column headers?",
+    "options": ["Short names", "Spaces", "Special characters", "Capitals"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 87,
+    "topic": "data_entry",
+    "question": "Which is a clean data practice?",
+    "options": ["Using merged cells for titles", "Keeping all data continuous", "Leaving lots of blank spaces", "Repeating headers randomly"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 88,
+    "topic": "data_entry",
+    "question": "Why should you avoid blank rows in data?",
+    "options": ["Excel ignores them", "They break formulas and filters", "They help spacing", "They reduce file size"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 89,
+    "topic": "data_types",
+    "question": "Which of these will Excel recognize as text?",
+    "options": ["'123", "123", "12/12/2025", "0.5"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 90,
+    "topic": "data_types",
+    "question": "Entering a leading apostrophe (') is used to:",
+    "options": ["Make numbers bigger", "Convert data to text", "Add comment", "Insert formula"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 91,
+    "topic": "data_types",
+    "question": "Which is NOT a valid date?",
+    "options": ["01-05-2025", "15/02/2024", "29/02/2025", "12 Sep 2024"],
+    "answerIndex": 2,
+    "level": "beginner"
+  },
+  {
+    "id": 92,
+    "topic": "editing_tools",
+    "question": "Which shortcut repeats the last action?",
+    "options": ["Ctrl + R", "Ctrl + Y", "Ctrl + J", "Ctrl + Shift + R"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 93,
+    "topic": "editing_tools",
+    "question": "AutoFill can be used to complete:",
+    "options": ["Color patterns", "Date sequences", "Images", "Hyperlinks"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 94,
+    "topic": "editing_tools",
+    "question": "Flash Fill works best when:",
+    "options": ["Patterns are inconsistent", "A clear pattern exists", "Cells are empty", "Columns have errors"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 95,
+    "topic": "formatting",
+    "question": "Which number format shows monetary values?",
+    "options": ["Text", "Currency", "Percentage", "General"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 96,
+    "topic": "formatting",
+    "question": "Which option centers text horizontally?",
+    "options": ["Middle Align", "Center Align", "Right Align", "Top Align"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 97,
+    "topic": "formatting",
+    "question": "Which feature makes numbers display with commas?",
+    "options": ["Text Format", "Comma Style", "Wrap Text", "Border"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 98,
+    "topic": "layout",
+    "question": "Which action increases row height?",
+    "options": ["Dragging the bottom edge of the row", "Dragging column boundary", "Double-clicking a cell", "Typing more text only"],
+    "answerIndex": 0,
+    "level": "beginner"
+  },
+  {
+    "id": 99,
+    "topic": "layout",
+    "question": "Double-clicking the right side of a column header will:",
+    "options": ["Delete the column", "AutoFit the column", "Format the cells", "Select all rows"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 100,
+    "topic": "layout",
+    "question": "Wrap Text is commonly used when:",
+    "options": ["You want text to shrink", "Column width is too small", "Data needs sorting", "Rows need deleting"],
+    "answerIndex": 1,
+    "level": "beginner"
+  },
+  {
+    "id": 101,
+    "topic": "data_entry",
+    "question": "Why should you avoid merging header cells when preparing a dataset for analysis?",
+    "options": [
+      "Merged cells slow down Excel performance",
+      "Merged cells break sorting, filtering, and structured table references",
+      "Merged cells increase file size significantly",
+      "Merged cells prevent formulas from being used"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 102,
+    "topic": "data_entry",
+    "question": "Which practice ensures the MOST accurate results while using VLOOKUP or XLOOKUP?",
+    "options": [
+      "Using colored headers",
+      "Keeping consistent data types in lookup columns",
+      "Using merged cells for grouping",
+      "Repeating blank spaces for clarity"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 103,
+    "topic": "data_entry",
+    "question": "Which of the following is a warning sign of poor data structure?",
+    "options": [
+      "Uniform row height",
+      "Multiple header rows",
+      "Consistent date formats",
+      "Right-aligned numbers"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 104,
+    "topic": "data_types",
+    "question": "Which entry is MOST likely to cause errors when used in date calculations?",
+    "options": [
+      "\"12-12-2024\" stored as text",
+      "12/12/2024 stored as date",
+      "1-Dec-2024 stored as date",
+      "2024-12-12 stored as ISO format"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 105,
+    "topic": "data_types",
+    "question": "Excel interprets the value 3:00 as:",
+    "options": [
+      "Text",
+      "A date",
+      "A time equal to 3 hours past midnight",
+      "An invalid value"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 106,
+    "topic": "data_types",
+    "question": "Which value will cause Excel to misinterpret a number as text?",
+    "options": [
+      "4500",
+      "4,500 (with comma)",
+      "'4500 (with apostrophe)",
+      "4500.00"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 107,
+    "topic": "editing_tools",
+    "question": "Flash Fill is MOST suitable when:",
+    "options": [
+      "You need to fill down large numeric sequences",
+      "You need Excel to detect a pattern in manually entered data",
+      "You want to copy formatting",
+      "You want to replicate formulas"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 108,
+    "topic": "editing_tools",
+    "question": "AutoFill behaves differently from Flash Fill because:",
+    "options": [
+      "AutoFill copies only text values",
+      "AutoFill follows patterns or formulas, Flash Fill recognizes user-defined transformations",
+      "Flash Fill works only for numbers",
+      "AutoFill works only for formatting"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 109,
+    "topic": "editing_tools",
+    "question": "Which scenario is Flash Fill LEAST effective for?",
+    "options": [
+      "Splitting first and last names",
+      "Extracting initials",
+      "Correcting inconsistent data formats",
+      "Repeating formulas across rows"
+    ],
+    "answerIndex": 3,
+    "level": "moderate"
+  },
+  {
+    "id": 110,
+    "topic": "formatting",
+    "question": "Applying the Accounting number format automatically:",
+    "options": [
+      "Aligns currency symbols to the left and numbers to the right",
+      "Rounds numbers to whole values",
+      "Adds conditional formatting for currency",
+      "Removes trailing zeros"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 111,
+    "topic": "formatting",
+    "question": "Which number format preserves numeric value but changes the visual display?",
+    "options": [
+      "Text format",
+      "Currency format",
+      "General format",
+      "Scientific notation (e.g., 3.5E+05)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 112,
+    "topic": "formatting",
+    "question": "A cell showing ###### indicates:",
+    "options": [
+      "Formula error",
+      "Column too narrow to display the value",
+      "Invalid number format",
+      "Conditional formatting conflict"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 113,
+    "topic": "format_painter",
+    "question": "Which of the following is NOT copied by Format Painter?",
+    "options": [
+      "Font color",
+      "Number format",
+      "Cell content",
+      "Borders"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 114,
+    "topic": "format_painter",
+    "question": "Double-clicking Format Painter is useful when:",
+    "options": [
+      "Applying formatting across multiple disconnected cells",
+      "Copying formulas",
+      "Inserting rows repeatedly",
+      "Removing formatting"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 115,
+    "topic": "format_painter",
+    "question": "Cell Styles are MOST useful for:",
+    "options": [
+      "Ensuring consistent formatting across a workbook",
+      "Creating data validation rules",
+      "Applying conditional formatting",
+      "Copying formulas efficiently"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 116,
+    "topic": "layout",
+    "question": "AutoFit Column Width adjusts width based on:",
+    "options": [
+      "Longest visible text or number in the column",
+      "Average value size",
+      "First cell only",
+      "Default theme settings"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 117,
+    "topic": "layout",
+    "question": "Which layout change can distort the readability of large datasets?",
+    "options": [
+      "Increasing row height for headers",
+      "Shrinking column width too much",
+      "Using Wrap Text",
+      "Applying cell borders"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 118,
+    "topic": "layout",
+    "question": "Wrap Text is LEAST useful when:",
+    "options": [
+      "Cell content is longer than the column width",
+      "You want to keep rows compact",
+      "You want text to display fully",
+      "Cells contain multiline notes"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 119,
+    "topic": "conditional_formatting",
+    "question": "Color Scales evaluate values based on:",
+    "options": [
+      "Exact matching",
+      "Relative position within the dataset",
+      "Alphabetical sorting",
+      "Row height"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 120,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule is MOST appropriate for identifying outliers in numeric data?",
+    "options": [
+      "Text contains",
+      "Duplicate Values",
+      "Top/Bottom Rules",
+      "Greater Than"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 121,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting feature is best for visualizing how each value compares to the entire dataset?",
+    "options": [
+      "Icon Sets",
+      "Color Scales",
+      "Highlight Cell Rules",
+      "Between Rule"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 122,
+    "topic": "conditional_formatting",
+    "question": "When applying conditional formatting, which rule is MOST suitable to highlight values within a range, such as 50 to 70?",
+    "options": [
+      "Equal To",
+      "Greater Than",
+      "Between",
+      "Duplicate Values"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 123,
+    "topic": "conditional_formatting",
+    "question": "Data Bars display the intensity of values based on:",
+    "options": [
+      "Absolute difference between values",
+      "Relative length proportional to cell value",
+      "Alphabetical order",
+      "Column width"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 124,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting tool is MOST effective for identifying trends or patterns across continuous data?",
+    "options": [
+      "Color Scales",
+      "Top/Bottom Rules",
+      "Icon Sets",
+      "Equal To Rule"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 125,
+    "topic": "data_entry",
+    "question": "Why should each column contain only one type of information?",
+    "options": [
+      "To improve visual appearance",
+      "To ensure accurate filtering, sorting, and formula results",
+      "To reduce file size",
+      "To allow merged cell usage"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 126,
+    "topic": "data_entry",
+    "question": "Which situation can cause lookup formulas like XLOOKUP to fail unexpectedly?",
+    "options": [
+      "Bold formatting in header",
+      "Mixed data types in the lookup column",
+      "Column width too small",
+      "Text wrapping enabled"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 127,
+    "topic": "data_entry",
+    "question": "What is the biggest disadvantage of including blank rows within a dataset?",
+    "options": [
+      "Excel becomes slower",
+      "Charts may display incorrect ranges",
+      "Sorting and filtering treat sections as separate blocks",
+      "Conditional formatting fails"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 128,
+    "topic": "data_types",
+    "question": "Which format is LEAST likely to be recognized as a valid date by Excel?",
+    "options": [
+      "2024-12-15",
+      "15 December 2024",
+      "15/12/24",
+      "15.12.2024 (dot separated)"
+    ],
+    "answerIndex": 3,
+    "level": "moderate"
+  },
+  {
+    "id": 129,
+    "topic": "data_types",
+    "question": "Why does entering '0123' store the value as text?",
+    "options": [
+      "Numbers cannot start with zero",
+      "Excel automatically converts all numbers to text",
+      "Leading zeros are preserved only in text format",
+      "The value is too small for numeric storage"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 130,
+    "topic": "data_types",
+    "question": "If Excel interprets 4/5 as a fraction, what is the stored numeric value?",
+    "options": [
+      "4.5",
+      "0.8",
+      "5 ÷ 4",
+      "0.75"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 131,
+    "topic": "editing_tools",
+    "question": "Which method ensures formulas adjust correctly when copied down?",
+    "options": [
+      "Using absolute cell references only",
+      "Using relative cell references appropriately",
+      "Using Flash Fill instead of formulas",
+      "Using Paste Special → Keep Text Only"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 132,
+    "topic": "editing_tools",
+    "question": "Flash Fill fails MOST often when:",
+    "options": [
+      "Patterns are inconsistent or unclear",
+      "Data is numeric",
+      "Cells are formatted in currency",
+      "Rows have borders"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 133,
+    "topic": "editing_tools",
+    "question": "Which action applies formulas rather than values during AutoFill?",
+    "options": [
+      "Dragging with right mouse button",
+      "Holding Ctrl while dragging",
+      "Double-clicking the fill handle",
+      "Dragging normally with left mouse button"
+    ],
+    "answerIndex": 3,
+    "level": "moderate"
+  },
+  {
+    "id": 134,
+    "topic": "formatting",
+    "question": "Scientific notation (e.g., 3.20E+05) appears because:",
+    "options": [
+      "Column width is too small",
+      "Number is too large for standard display",
+      "Cell format was manually changed",
+      "Conditional formatting forced it"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 135,
+    "topic": "formatting",
+    "question": "Which number format is MOST suitable for showing large values compactly?",
+    "options": [
+      "Comma Style",
+      "Scientific Format",
+      "Currency Format",
+      "Text Format"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 136,
+    "topic": "formatting",
+    "question": "Why might a percentage appear as '0.5%' after applying the Percent style?",
+    "options": [
+      "The user entered 50 as the base value",
+      "The cell originally contained 0.005",
+      "The column is not wide enough",
+      "Conditional formatting changes it"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 137,
+    "topic": "format_painter",
+    "question": "Which limitation applies to Format Painter?",
+    "options": [
+      "It does not work between worksheets",
+      "It cannot copy conditional formatting rules accurately",
+      "It cannot copy font color",
+      "It cannot copy number formats"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 138,
+    "topic": "format_painter",
+    "question": "Cell Styles are MOST useful when:",
+    "options": [
+      "Applying global formatting standards across multiple sheets",
+      "Copying cell values",
+      "Changing workbook themes",
+      "Hiding unnecessary rows"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 139,
+    "topic": "layout",
+    "question": "Double-clicking the boundary between two column headers causes Excel to:",
+    "options": [
+      "Merge columns",
+      "AutoFit the column width",
+      "Apply bold formatting",
+      "Hide the column"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 140,
+    "topic": "layout",
+    "question": "Which scenario makes Wrap Text a poor choice?",
+    "options": [
+      "Cells contain long comments",
+      "Rows must remain compact for scrolling efficiency",
+      "Columns have varying data types",
+      "Cells require emphasis"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 141,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule is MOST appropriate for identifying values that are significantly lower than the dataset’s average?",
+    "options": [
+      "Greater Than",
+      "Top 10 Items",
+      "Below Average",
+      "Duplicate Values"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 142,
+    "topic": "conditional_formatting",
+    "question": "What happens if two conditional formatting rules conflict?",
+    "options": [
+      "The one created first always wins",
+      "The one created last takes priority unless rule order is edited",
+      "Excel disables both rules",
+      "The rules are merged automatically"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 143,
+    "topic": "conditional_formatting",
+    "question": "Icon Sets are best used when:",
+    "options": [
+      "You want to visualize rank or category",
+      "You want to highlight text patterns",
+      "You want to mark duplicates",
+      "You want to remove formatting entirely"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 144,
+    "topic": "data_entry",
+    "question": "Which data-entry mistake MOST commonly causes PivotTables to group fields incorrectly?",
+    "options": [
+      "Using uniform column headers",
+      "Leaving blank rows within data",
+      "Applying Wrap Text",
+      "Using colored formatting"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 145,
+    "topic": "data_entry",
+    "question": "Why is storing dates as text problematic?",
+    "options": [
+      "Excel cannot apply number formats to them",
+      "They cannot be sorted chronologically",
+      "They cause formulas such as YEAR() or MONTH() to fail",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "level": "moderate"
+  },
+  {
+    "id": 146,
+    "topic": "data_entry",
+    "question": "Which of the following BEST ensures a clean dataset compatible with Excel tables and BI tools?",
+    "options": [
+      "Avoiding column headers",
+      "Ensuring one header row and no blank columns",
+      "Using merged cells for titles",
+      "Applying bold formatting to every row"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 147,
+    "topic": "data_types",
+    "question": "If Excel displays a date as '#####', what is the MOST likely cause?",
+    "options": [
+      "Invalid date value",
+      "Cell width too small",
+      "Corrupted file",
+      "Conditional formatting applied incorrectly"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 148,
+    "topic": "data_types",
+    "question": "Which value will Excel automatically convert to a date?",
+    "options": [
+      "2024-15-12",
+      "12-May-2024",
+      "May/2024/12",
+      "12.2024"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 149,
+    "topic": "data_types",
+    "question": "Which scenario can cause Excel to treat numbers as text?",
+    "options": [
+      "Number preceded by an apostrophe",
+      "Number formatted as General",
+      "Number typed in a new workbook",
+      "Number created using AutoFill"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 150,
+    "topic": "editing_tools",
+    "question": "Flash Fill is MOST suitable for which type of transformation?",
+    "options": [
+      "Mathematical operations",
+      "Pattern-based text extraction or formatting",
+      "Applying conditional formatting rules",
+      "Reorganizing entire worksheets"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 151,
+    "topic": "editing_tools",
+    "question": "Using AutoFill by double-clicking the fill handle requires:",
+    "options": [
+      "A formula in the first cell and data in adjacent column",
+      "Wrap text enabled",
+      "All values to be numeric",
+      "Cell styles applied"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 152,
+    "topic": "editing_tools",
+    "question": "Paste Special → Values is MOST useful when:",
+    "options": [
+      "You want to keep formulas intact",
+      "You want to remove formulas but preserve results",
+      "You want to copy only formatting",
+      "You want to duplicate sheet settings"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 153,
+    "topic": "formatting",
+    "question": "Which formatting choice helps MOST when aligning financial data for readability?",
+    "options": [
+      "Left-aligning all values",
+      "Center-aligning headers and right-aligning numbers",
+      "Using bold for every cell",
+      "Using alternating font colors"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 154,
+    "topic": "formatting",
+    "question": "Why should numeric IDs (e.g., invoice numbers) sometimes be stored as text?",
+    "options": [
+      "To reduce file size",
+      "To ensure leading zeros are preserved",
+      "To allow formulas to work faster",
+      "Because numeric storage is unsafe"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 155,
+    "topic": "formatting",
+    "question": "The Accounting format differs from Currency format by:",
+    "options": [
+      "Adding commas to all values",
+      "Aligning currency symbols in a column",
+      "Removing decimal places by default",
+      "Displaying time formats automatically"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 156,
+    "topic": "format_painter",
+    "question": "Which of the following is NOT copied through Format Painter?",
+    "options": [
+      "Font styles",
+      "Borders",
+      "Conditional formatting",
+      "Number formats"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 157,
+    "topic": "format_painter",
+    "question": "Which feature is MOST effective for applying consistent table header formatting across multiple sheets?",
+    "options": [
+      "Format Painter",
+      "Cell Styles",
+      "Wrap Text",
+      "AutoFit"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 158,
+    "topic": "layout",
+    "question": "Increasing row height excessively may negatively affect:",
+    "options": [
+      "Scrolling efficiency and readability",
+      "Conditional formatting",
+      "Cell formulas",
+      "AutoFill performance"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 159,
+    "topic": "layout",
+    "question": "Which is the MOST accurate description of Wrap Text?",
+    "options": [
+      "It reduces font size automatically",
+      "It forces long text to appear on multiple lines within the cell",
+      "It converts text to paragraphs",
+      "It centers the text vertically"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 160,
+    "topic": "layout",
+    "question": "Which action can unintentionally disrupt layout consistency across worksheets?",
+    "options": [
+      "Using AutoFit column width",
+      "Applying inconsistent row heights",
+      "Using Freeze Panes",
+      "Applying Conditional Formatting"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 161,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule is best for identifying values that deviate significantly from the average?",
+    "options": [
+      "Duplicate Values",
+      "Top 10%",
+      "Above/Below Average",
+      "Equal To"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 162,
+    "topic": "conditional_formatting",
+    "question": "Which feature allows you to visualize direction (increase/decrease) in numeric values?",
+    "options": [
+      "Color Scales",
+      "Icon Sets",
+      "Data Bars",
+      "Highlight Cell Rules"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 163,
+    "topic": "conditional_formatting",
+    "question": "When multiple conditional formatting rules apply to the same cell, what determines which one displays?",
+    "options": [
+      "Rule position in the Rules Manager",
+      "The oldest rule",
+      "The smallest numeric rule",
+      "The color intensity"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 164,
+    "topic": "data_entry",
+    "question": "Which practice MOST improves compatibility with PivotTables and Power Query?",
+    "options": [
+      "Color-coding cells heavily",
+      "Keeping data in a continuous block without breaks",
+      "Using merged cells for headings",
+      "Using multiple blank columns for spacing"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 165,
+    "topic": "data_entry",
+    "question": "Why is it important that column headers are unique?",
+    "options": [
+      "Excel does not allow duplicate text",
+      "Functions like FILTER and VLOOKUP rely on unique field names",
+      "Formatting cannot be applied to duplicate headers",
+      "PivotTables require colored headers"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 166,
+    "topic": "data_entry",
+    "question": "What issue is MOST likely when a dataset contains mixed data types in a single column?",
+    "options": [
+      "Excel will automatically convert everything to numbers",
+      "Formulas may return errors or incorrect results",
+      "Conditional formatting does not work",
+      "Sorting becomes faster"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 167,
+    "topic": "data_types",
+    "question": "Excel stores dates internally as:",
+    "options": [
+      "Text strings",
+      "Negative numbers",
+      "Sequential serial numbers",
+      "Hexadecimal codes"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 168,
+    "topic": "data_types",
+    "question": "Which of the following is MOST likely to create inconsistent date recognition across regional settings?",
+    "options": [
+      "Using YYYY-MM-DD format",
+      "Using DD-MM-YYYY format",
+      "Using Excel's Date Picker",
+      "Entering dates with slashes"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 169,
+    "topic": "data_types",
+    "question": "A cell displays '2.5E+05'. What does this represent?",
+    "options": [
+      "A corrupted value",
+      "An error",
+      "A large number displayed in scientific notation",
+      "Conditional formatting"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 170,
+    "topic": "editing_tools",
+    "question": "Which situation requires using Paste Special → Formats?",
+    "options": [
+      "Copying formulas only",
+      "Copying values only",
+      "Copying cell formatting without altering content",
+      "Copying comments"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 171,
+    "topic": "editing_tools",
+    "question": "Why might AutoFill produce incorrect results when extending formulas?",
+    "options": [
+      "Row height is too small",
+      "Column width is too large",
+      "Incorrect reference types (relative/absolute) were used",
+      "Conditional formatting overrides formulas"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 172,
+    "topic": "editing_tools",
+    "question": "Flash Fill can automate repetitive tasks, but it CANNOT:",
+    "options": [
+      "Extract patterns",
+      "Format text automatically",
+      "Apply mathematical formulas",
+      "Split or combine text"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 173,
+    "topic": "formatting",
+    "question": "Which formatting technique ensures better readability for negative numbers?",
+    "options": [
+      "Center alignment",
+      "Applying red font color or parentheses formatting",
+      "Bold formatting",
+      "Wrap Text"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 174,
+    "topic": "formatting",
+    "question": "Which format displays 0.75 as 75.00%?",
+    "options": [
+      "General",
+      "Fraction",
+      "Percentage",
+      "Text"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 175,
+    "topic": "formatting",
+    "question": "Which of the following is TRUE about number formatting?",
+    "options": [
+      "It changes the underlying value",
+      "It only affects visual presentation",
+      "It can delete decimals",
+      "It affects formula calculations"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 176,
+    "topic": "format_painter",
+    "question": "Using Format Painter across sheets is possible when:",
+    "options": [
+      "You copy formatting once and switch sheets before applying",
+      "You double-click the Format Painter",
+      "You use Ctrl+Shift+F",
+      "You create custom cell styles"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 177,
+    "topic": "format_painter",
+    "question": "What is the MOST efficient way to apply identical header formatting across multiple worksheets?",
+    "options": [
+      "Using Format Painter repeatedly",
+      "Using Cell Styles",
+      "Using Wrap Text",
+      "AutoFit Column Width"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 178,
+    "topic": "layout",
+    "question": "Which layout mistake often leads to poorly formatted printed reports?",
+    "options": [
+      "Using bold fonts",
+      "Uneven column widths and inconsistent row heights",
+      "Using General format",
+      "AutoFit applied to all columns"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 179,
+    "topic": "layout",
+    "question": "Why is setting consistent column widths important?",
+    "options": [
+      "It speeds up Excel calculations",
+      "It reduces workbook size",
+      "It improves readability and print layout consistency",
+      "It prevents conditional formatting issues"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 180,
+    "topic": "layout",
+    "question": "Wrap Text may cause issues in large datasets because:",
+    "options": [
+      "It increases cell content",
+      "It expands row height, reducing visible rows on screen",
+      "It deletes existing formatting",
+      "It changes the underlying value"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 181,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting feature best highlights values that meet multiple conditions simultaneously?",
+    "options": [
+      "Data Bars",
+      "Icon Sets",
+      "New Rule → Use a formula",
+      "Duplicate Values"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 182,
+    "topic": "conditional_formatting",
+    "question": "Which built-in rule is BEST for spotting repeated entries in a dataset?",
+    "options": [
+      "Top 10%",
+      "Text Contains",
+      "Duplicate Values",
+      "Between Rule"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 183,
+    "topic": "conditional_formatting",
+    "question": "Why should conditional formatting be used sparingly in large sheets?",
+    "options": [
+      "It increases file size and may slow down calculation speed",
+      "It prevents merging cells",
+      "It changes the underlying data",
+      "It removes formulas"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 184,
+    "topic": "data_entry",
+    "question": "Which practice ensures smooth integration with data analysis tools like Power Query?",
+    "options": [
+      "Using styled headers with multiple lines",
+      "Keeping data in a continuous, unbroken table format",
+      "Inserting blank rows for readability",
+      "Centering all data"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 185,
+    "topic": "data_entry",
+    "question": "Which data-entry mistake MOST interferes with Lookup functions?",
+    "options": [
+      "Bold column headers",
+      "Extra spaces before or after text",
+      "AutoFit applied to columns",
+      "Right alignment of numbers"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 186,
+    "topic": "data_entry",
+    "question": "What is the best reason to avoid blank columns in datasets?",
+    "options": [
+      "Blank columns make data look unprofessional",
+      "Blank columns break structured table logic and cause range detection issues",
+      "Blank columns reduce AutoFill accuracy",
+      "Excel ignores formatting if blank columns exist"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 187,
+    "topic": "data_types",
+    "question": "Why is 'Text to Columns' sometimes required for fixing imported data?",
+    "options": [
+      "It allows splitting columns only",
+      "It helps convert numbers stored as text into proper numeric format",
+      "It automatically formats dates correctly",
+      "It deletes blank rows"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 188,
+    "topic": "data_types",
+    "question": "Which of these is NOT a valid Excel time format?",
+    "options": [
+      "14:30",
+      "2:30 PM",
+      "30:14",
+      "[h]:mm:ss"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 189,
+    "topic": "data_types",
+    "question": "Why might a value like '12-12-2024' remain unrecognized as a date?",
+    "options": [
+      "The text uses a separator not recognized by the system",
+      "Excel cannot store dates past 2020",
+      "The cell is formatted as Time",
+      "It is too long for date format"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 190,
+    "topic": "editing_tools",
+    "question": "Dragging the AutoFill handle while holding Ctrl forces Excel to:",
+    "options": [
+      "Copy values only",
+      "Copy formatting only",
+      "Generate series instead of copying",
+      "Restrict fill to even numbers"
+    ],
+    "answerIndex": 2,
+    "level": "moderate"
+  },
+  {
+    "id": 191,
+    "topic": "editing_tools",
+    "question": "Flash Fill may produce incorrect results when:",
+    "options": [
+      "The dataset contains inconsistent text patterns",
+      "Cells use General format",
+      "A formula exists in the first row",
+      "The sheet is protected"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 192,
+    "topic": "editing_tools",
+    "question": "Why is Paste Special → Values important when finalizing a report?",
+    "options": [
+      "It removes unnecessary formulas and keeps only final results",
+      "It prevents conditional formatting",
+      "It changes cell formats automatically",
+      "It locks the worksheet"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 193,
+    "topic": "formatting",
+    "question": "Using a thousands separator (,) is MOST useful when:",
+    "options": [
+      "Displaying text output",
+      "Showing readability for large numeric values",
+      "Presenting dates",
+      "Applying Wrap Text"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 194,
+    "topic": "formatting",
+    "question": "Which number format converts 0.25 into \"0.3\" after rounding?",
+    "options": [
+      "Percentage (0 decimals)",
+      "Number format (1 decimal place)",
+      "Currency format (2 decimals)",
+      "Scientific notation"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 195,
+    "topic": "formatting",
+    "question": "You wish to display numbers as text without affecting formulas referencing them. Which method is BEST?",
+    "options": [
+      "Convert to Text format",
+      "Prefix with an apostrophe but keep referenced cells unchanged",
+      "Apply General format",
+      "Use Format Painter"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 196,
+    "topic": "format_painter",
+    "question": "Cell Styles offer an advantage over Format Painter because:",
+    "options": [
+      "They automatically adjust formulas across sheets",
+      "They can apply consistent formatting across the entire workbook instantly",
+      "They convert text into formulas",
+      "They cannot be modified"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 197,
+    "topic": "format_painter",
+    "question": "Which formatting option is preserved when using Format Painter?",
+    "options": [
+      "Font and fill color",
+      "Cell comments",
+      "Data validation rules",
+      "Sheet protection settings"
+    ],
+    "answerIndex": 0,
+    "level": "moderate"
+  },
+  {
+    "id": 198,
+    "topic": "layout",
+    "question": "Why is it recommended to keep similar column widths across related sheets?",
+    "options": [
+      "It speeds up conditional formatting",
+      "It improves professional presentation and reduces visual inconsistency",
+      "It increases formula accuracy",
+      "It prevents errors in AutoFill"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 199,
+    "topic": "layout",
+    "question": "What is a downside of making row heights too large while using Wrap Text?",
+    "options": [
+      "Formulas may show errors",
+      "Scrolling becomes difficult, reducing visibility of large datasets",
+      "Conditional formatting stops working",
+      "AutoFit becomes disabled"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 200,
+    "topic": "layout",
+    "question": "Which action ensures the MOST consistent presentation across printed pages?",
+    "options": [
+      "Using Freeze Panes",
+      "Setting a uniform column width and row height structure",
+      "Applying Data Bars",
+      "Using Zoom to Selection"
+    ],
+    "answerIndex": 1,
+    "level": "moderate"
+  },
+  {
+    "id": 201,
+    "topic": "data_entry",
+    "question": "In a dataset meant for Power Query automation, which mistake is MOST likely to break the refresh process?",
+    "options": [
+      "Using bold formatting for headers",
+      "Inserting blank rows to visually separate sections",
+      "Using a thicker border around titles",
+      "Left-aligning all text values"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 202,
+    "topic": "data_entry",
+    "question": "Which advanced data-entry principle ensures maximum compatibility with machine learning tools?",
+    "options": [
+      "Avoiding formulas in header rows",
+      "Ensuring each column contains a single, atomic variable",
+      "Keeping related columns grouped visually",
+      "Applying conditional formatting to key columns"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 203,
+    "topic": "data_entry",
+    "question": "A dataset contains 'Male/Female', 'M/F', and 'm/f' under the same column. What is the biggest danger?",
+    "options": [
+      "Sorting takes longer",
+      "PivotTables treat them as different categories, skewing analysis",
+      "Conditional formatting becomes corrupted",
+      "Wrap Text will not work"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 204,
+    "topic": "data_types",
+    "question": "Excel receives a CSV file where dates appear as “2024-15-03”. What advanced method fixes this reliably?",
+    "options": [
+      "Change column format to Date",
+      "Use Text to Columns → Date: YMD",
+      "Apply DATEVALUE()",
+      "Use AutoFill to correct formatting"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 205,
+    "topic": "data_types",
+    "question": "Which scenario MOST likely causes Excel to convert numeric product codes (e.g., 000123) into scientific notation?",
+    "options": [
+      "Importing from a CSV file",
+      "Applying General formatting",
+      "Copying values through Paste Special",
+      "Enabling Wrap Text"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 206,
+    "topic": "data_types",
+    "question": "A dataset stores ages as 'Twenty', '20', '20 years', and '20.0'. Which issue is MOST likely?",
+    "options": [
+      "COUNT() returns incorrect totals",
+      "AVERAGE() returns #VALUE! errors",
+      "Sorting alphabetically becomes impossible",
+      "DATEVALUE() misinterprets the data"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 207,
+    "topic": "editing_tools",
+    "question": "Flash Fill produces inconsistent results across rows. What is the MOST advanced reason for this?",
+    "options": [
+      "Data has mixed-case inconsistencies",
+      "Flash Fill’s algorithm fails when patterns require conditional logic",
+      "AutoFill is interfering with the transformation",
+      "The sheet contains hidden rows"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 208,
+    "topic": "editing_tools",
+    "question": "AutoFill extends a formula downward but returns incorrect results in some rows. Why?",
+    "options": [
+      "Relative references changed unintentionally",
+      "Conditional formatting reordered the fill logic",
+      "Data validation blocked the entries",
+      "AutoFit modified the formula depth"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 209,
+    "topic": "editing_tools",
+    "question": "You need to duplicate formulas without losing relative references, but want to avoid dragging the fill handle. What is the BEST advanced method?",
+    "options": [
+      "Copy → Paste Formulas",
+      "Use Ctrl + D after selecting the entire target range",
+      "Use AutoFill with Ctrl",
+      "Use Flash Fill"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 210,
+    "topic": "formatting",
+    "question": "Why is custom formatting sometimes preferred over ROUND() for financial reports?",
+    "options": [
+      "It increases calculation performance",
+      "It changes displayed decimals without altering actual values",
+      "It automatically recalculates totals",
+      "It can convert text to numbers"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 211,
+    "topic": "formatting",
+    "question": "Which custom number format displays negative numbers in red with parentheses and positives normally?",
+    "options": [
+      "#,##0.00;#,##0.00",
+      "#,##0.00;[Red]#,##0.00",
+      "#,##0.00;[Red](#,##0.00)",
+      "[Red]#,##0.00"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 212,
+    "topic": "formatting",
+    "question": "Which formatting action can unintentionally hide important decimal information?",
+    "options": [
+      "Changing alignment",
+      "Applying Number format with fewer decimal places",
+      "Using Wrap Text",
+      "Applying cell styles"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 213,
+    "topic": "format_painter",
+    "question": "Why is Format Painter not ideal when applying complex, table-wide formatting standards?",
+    "options": [
+      "It cannot copy fill colors",
+      "It copies too much information including borders",
+      "It does not ensure consistent formatting across multiple sheets or updates",
+      "It works only on the active sheet"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 214,
+    "topic": "format_painter",
+    "question": "Which scenario requires Cell Styles instead of Format Painter?",
+    "options": [
+      "Copying border styles",
+      "Applying a consistent theme across all worksheets",
+      "Copying numeric formatting",
+      "Duplicating header formatting"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 215,
+    "topic": "layout",
+    "question": "Why should extremely wide columns be avoided in analytic dashboards?",
+    "options": [
+      "They slow down conditional formatting",
+      "They reduce scan efficiency and distort visual structure",
+      "They increase file size significantly",
+      "They disable AutoFit"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 216,
+    "topic": "layout",
+    "question": "Why is Freeze Panes essential for large data-entry forms?",
+    "options": [
+      "It improves calculation speed",
+      "It improves user navigation and reduces input errors",
+      "It increases worksheet protection",
+      "It auto-sizes all columns"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 217,
+    "topic": "layout",
+    "question": "Which layout technique is MOST effective when creating an Excel template for repeated monthly reporting?",
+    "options": [
+      "Using Wrap Text everywhere",
+      "Using standard row/column dimensions and consistent styles",
+      "Applying conditional formatting on all cells",
+      "Inserting blank rows for spacing"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 218,
+    "topic": "conditional_formatting",
+    "question": "Why is conditional formatting slower on datasets with volatile functions (e.g., NOW, RAND)?",
+    "options": [
+      "Conditional formatting recalculates on every sheet change",
+      "Volatile functions delete formatting",
+      "Volatile functions disable built-in rules",
+      "Excel must reapply Freeze Panes each time"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 219,
+    "topic": "conditional_formatting",
+    "question": "Which advanced rule can highlight rows where the date is the latest in the entire dataset?",
+    "options": [
+      "Highlight Cell Rules → Greater Than",
+      "Top/Bottom → Top 10 Items",
+      "Use a formula: =A2=MAX($A:$A)",
+      "Duplicate Values"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 220,
+    "topic": "conditional_formatting",
+    "question": "Why does conditional formatting sometimes fail to apply to new rows added below a formatted range?",
+    "options": [
+      "Excel restricts formatting on long datasets",
+      "The rule's 'Applies To' range was not expanded dynamically",
+      "The sheet is protected",
+      "Conditional formatting cannot evaluate new data immediately"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 221,
+    "topic": "data_entry",
+    "question": "In an advanced data-entry workflow, which factor most strongly determines whether Excel can treat two columns as join keys for Power Query?",
+    "options": [
+      "Whether formatting is identical",
+      "Whether the data types are consistent and values normalized",
+      "Whether both columns have the same column width",
+      "Whether both columns belong to a table"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 222,
+    "topic": "data_entry",
+    "question": "Which advanced data-entry problem is MOST likely to cause incorrect grouping in PivotTables?",
+    "options": [
+      "Left-aligned text",
+      "Hidden leading/trailing spaces",
+      "Wrapped text",
+      "Filtered columns"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 223,
+    "topic": "data_entry",
+    "question": "You are preparing data for AI categorization. Which issue must be eliminated first?",
+    "options": [
+      "Uniform header colors",
+      "Mixed granularity in the same column",
+      "Long text descriptions",
+      "Column widths differing slightly"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 224,
+    "topic": "data_types",
+    "question": "Which advanced technique ensures consistent date parsing across all global regional formats?",
+    "options": [
+      "Entering dates manually in local format",
+      "Using ISO format (YYYY-MM-DD)",
+      "Using dd/mm/yy consistently",
+      "Using Excel's Long Date format"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 225,
+    "topic": "data_types",
+    "question": "What is the MOST reliable way to convert a column of numbers stored as text into true numbers when values contain leading zeros?",
+    "options": [
+      "Use VALUE()",
+      "Use Text to Columns with 'Do not convert text to number'",
+      "Format cells as Number",
+      "Use Paste Special → Values"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 226,
+    "topic": "data_types",
+    "question": "Which issue MOST commonly causes Excel to misinterpret integers as dates during import?",
+    "options": [
+      "Scientific notation",
+      "Regional date auto-detection patterns",
+      "Large column width",
+      "Conditional formatting"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 227,
+    "topic": "editing_tools",
+    "question": "You want to AutoFill a complex formula, but skip over blank rows. What is the BEST advanced approach?",
+    "options": [
+      "Convert the data range to a table",
+      "Use Flash Fill",
+      "Increase row height",
+      "Use Wrap Text"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 228,
+    "topic": "editing_tools",
+    "question": "Flash Fill is unable to transform a dataset correctly. What advanced workaround ensures accurate transformations?",
+    "options": [
+      "Increase column width",
+      "Use TEXT(), LEFT(), MID(), RIGHT() formulas instead",
+      "Remove all conditional formatting",
+      "Apply cell styles"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 229,
+    "topic": "editing_tools",
+    "question": "You apply Paste Special → Formulas, but some references break. What advanced action prevents this?",
+    "options": [
+      "Locking the worksheet",
+      "Using absolute references where necessary",
+      "Applying Wrap Text",
+      "Grouping rows"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 230,
+    "topic": "formatting",
+    "question": "You need to display large numbers in thousands (e.g., 125000 → 125K). Which custom number format achieves this?",
+    "options": [
+      "#,##0",
+      "#,##0.0",
+      "#,##0,\"K\"",
+      "#,##0;(#,##0)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 231,
+    "topic": "formatting",
+    "question": "Which formatting issue MOST often leads to misinterpretation when exchanging files with other analysts?",
+    "options": [
+      "Left alignment of text",
+      "Differences between displayed format and underlying value",
+      "Cell borders",
+      "Row height inconsistency"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 232,
+    "topic": "formatting",
+    "question": "Which format would display 0.275 as 27.5% while preserving full precision in calculations?",
+    "options": [
+      "General",
+      "Number with 1 decimal",
+      "Percentage format with 1 decimal",
+      "Text format"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 233,
+    "topic": "format_painter",
+    "question": "You used Format Painter to copy formatting, but conditional formatting did not copy correctly. Why?",
+    "options": [
+      "Conditional formatting rules reference absolute ranges",
+      "Conditional formatting cannot be copied",
+      "Workbook protection is enabled",
+      "Text contains leading spaces"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 234,
+    "topic": "format_painter",
+    "question": "When applying complex formatting across multiple sheets, which approach ensures long-term consistency?",
+    "options": [
+      "Format Painter",
+      "Cell Styles with customized themes",
+      "AutoFit every column manually",
+      "Using Wrap Text on headers"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 235,
+    "topic": "layout",
+    "question": "Why is it recommended to use consistent column width across dashboards?",
+    "options": [
+      "It avoids recalculations",
+      "It improves readability and visual hierarchy",
+      "It increases AutoFill accuracy",
+      "It enables better formula performance"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 236,
+    "topic": "layout",
+    "question": "What is the MOST advanced reason to avoid excessive Wrap Text in large datasets?",
+    "options": [
+      "It increases row height automatically, hurting scan efficiency",
+      "It changes number formatting",
+      "It removes formulas",
+      "It hides conditional formatting"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 237,
+    "topic": "layout",
+    "question": "In dashboards, which layout feature should be standardized FIRST for professional design?",
+    "options": [
+      "Fill colors",
+      "Row height and column width grid",
+      "Font boldness",
+      "Freeze Panes"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 238,
+    "topic": "conditional_formatting",
+    "question": "Which advanced conditional formatting rule highlights the entire row if a cell contains the word 'Overdue'?",
+    "options": [
+      "Icon Set",
+      "Highlight Cell Rules → Text Contains",
+      "A formula rule: =SEARCH(\"Overdue\",$B2)>0",
+      "Duplicate Values"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 239,
+    "topic": "conditional_formatting",
+    "question": "Which factor MOST affects conditional formatting performance in large datasets?",
+    "options": [
+      "Cell border usage",
+      "Number of unique rules applied to overlapping ranges",
+      "Column alignment",
+      "Row height"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 240,
+    "topic": "conditional_formatting",
+    "question": "Which action ensures that conditional formatting updates automatically when new rows are added to a table?",
+    "options": [
+      "Convert the range to a Table (Ctrl + T)",
+      "Enable Wrap Text",
+      "Apply Cell Styles",
+      "Use Paste Special → Formats"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 241,
+    "topic": "data_entry",
+    "question": "While preparing data for machine learning, which issue MOST severely impacts model accuracy when stored in Excel?",
+    "options": [
+      "Missing border formatting",
+      "Inconsistent categorical labels (e.g., 'Yes', 'YES', 'Y')",
+      "Row height variations",
+      "Lack of color-coded rows"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 242,
+    "topic": "data_entry",
+    "question": "In a professional workflow, why must merged cells be strictly avoided in the main data table?",
+    "options": [
+      "Merged cells slow down sorting speed",
+      "Merged cells break references and disrupt structured table behavior",
+      "Merged cells delete formatting",
+      "Merged cells prevent copying formulas"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 243,
+    "topic": "data_entry",
+    "question": "Which advanced principle ensures data remains consistent for API and automation tools reading Excel files?",
+    "options": [
+      "Using alternating fill colors",
+      "Maintaining a strict schema: one row = one record",
+      "Centering all headers",
+      "Wrapping text in all description cells"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 244,
+    "topic": "data_types",
+    "question": "Which advanced method corrects a column of dates imported as serial numbers due to mismatched regional settings?",
+    "options": [
+      "Apply Long Date format",
+      "Use DATEVALUE with TEXT conversion",
+      "Use Flash Fill",
+      "Change workbook theme"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 245,
+    "topic": "data_types",
+    "question": "A dataset contains times like '25:30'. Why does Excel fail to interpret this naturally?",
+    "options": [
+      "Excel cannot store hours above 24 without custom formatting",
+      "Minutes must be multiples of 5",
+      "The colon is not allowed in time entries",
+      "Excel only supports 12-hour formatting"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 246,
+    "topic": "data_types",
+    "question": "Which issue MOST commonly causes numeric text fields (e.g., account numbers) to lose leading zeros after processing?",
+    "options": [
+      "General formatting applied on import",
+      "Row height adjustment",
+      "Text wrapping enabled",
+      "Conditional formatting rules"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 247,
+    "topic": "editing_tools",
+    "question": "Which advanced use of AutoFill allows quickly filling formulas down thousands of rows accurately?",
+    "options": [
+      "Using Ctrl + Enter",
+      "Double-clicking the fill handle after converting range to a Table",
+      "Dragging manually to the last row",
+      "Applying Flash Fill before AutoFill"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 248,
+    "topic": "editing_tools",
+    "question": "Flash Fill incorrectly interprets data transformations. What is the MOST advanced reason?",
+    "options": [
+      "Flash Fill cannot learn conditional logic such as IF-based rules",
+      "Row height is inconsistent",
+      "Numeric formatting conflicts with pattern detection",
+      "The workbook contains hidden styles"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 249,
+    "topic": "editing_tools",
+    "question": "What is the MOST advanced use-case for Paste Special → Operations?",
+    "options": [
+      "Adding or multiplying an entire range without editing formulas",
+      "Copying conditional formatting rules",
+      "Converting text to numbers",
+      "Applying custom borders"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 250,
+    "topic": "formatting",
+    "question": "In financial modeling, why are custom number formats essential instead of rounding formulas?",
+    "options": [
+      "Custom formats update faster than formulas",
+      "Custom formats preserve precision while controlling displayed values",
+      "Custom formats reduce file size",
+      "Custom formats apply conditional formatting automatically"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 251,
+    "topic": "formatting",
+    "question": "Which custom format displays negative values with a minus sign AND in red?",
+    "options": [
+      "0.00;[Red]0.00",
+      "#,##0;[Red]-#,##0",
+      "0;[Red]0",
+      "[Red]#,##0.00"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 252,
+    "topic": "formatting",
+    "question": "Which problem arises when users rely too heavily on visual formatting instead of data validation?",
+    "options": [
+      "Formatting automatically resets upon refresh",
+      "Incorrect inputs may appear visually correct but break formulas",
+      "Excel disables conditional formatting",
+      "Row heights become inconsistent"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 253,
+    "topic": "format_painter",
+    "question": "Why should Format Painter NOT be used for applying formatting across sheets with different ranges?",
+    "options": [
+      "Format Painter only works within active worksheets",
+      "Format Painter cannot adjust dynamic ranges, leading to inconsistent design",
+      "It removes existing conditional formatting",
+      "It cannot copy font colors accurately"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 254,
+    "topic": "format_painter",
+    "question": "Creating a custom Cell Style is MOST appropriate when:",
+    "options": [
+      "Formatting varies row by row",
+      "You need consistent formatting across many sheets",
+      "Only one sheet uses the format",
+      "You are applying conditional formatting rules"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 255,
+    "topic": "layout",
+    "question": "In enterprise dashboards, what is the advanced reason for keeping grid alignment consistent across worksheets?",
+    "options": [
+      "Excel calculates faster",
+      "It improves readability and professional design continuity",
+      "It reduces file size",
+      "It enhances conditional formatting accuracy"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 256,
+    "topic": "layout",
+    "question": "Why can excessive AutoFit usage degrade readability?",
+    "options": [
+      "AutoFit removes formatting",
+      "It may shrink some columns too tightly, reducing visual hierarchy",
+      "It invalidates formulas",
+      "It hides conditional formatting icons"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 257,
+    "topic": "layout",
+    "question": "Which advanced layout technique enhances report printing accuracy?",
+    "options": [
+      "Using Wrap Text in all cells",
+      "Standardizing column width across major sections",
+      "Increasing row height for all headings",
+      "Applying thick borders everywhere"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 258,
+    "topic": "conditional_formatting",
+    "question": "Which advanced formula-based conditional formatting rule highlights rows where a date is within the next 7 days?",
+    "options": [
+      "=A2>TODAY()",
+      "=A2-TODAY()<7",
+      "=AND(A2>=TODAY(),A2<=TODAY()+7)",
+      "=A2<=NOW()"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 259,
+    "topic": "conditional_formatting",
+    "question": "Why does conditional formatting sometimes show incorrect color scaling for numeric data?",
+    "options": [
+      "The column uses custom number formats",
+      "Hidden text values exist among numeric entries",
+      "Row height is too large",
+      "Freeze Panes is active"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 260,
+    "topic": "conditional_formatting",
+    "question": "Which action ensures top-performing values stand out the MOST in a KPI dashboard?",
+    "options": [
+      "Use a uniform color scale",
+      "Use icon sets with strict cutoffs for thresholds",
+      "Apply Wrap Text for all KPIs",
+      "Enable Data Bars"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 261,
+    "topic": "data_entry",
+    "question": "Which advanced issue MOST often causes inaccurate aggregations in PivotTables?",
+    "options": [
+      "Row height differences",
+      "Hidden characters such as non-breaking spaces",
+      "Left-alignment of numbers",
+      "Missing borders"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 262,
+    "topic": "data_entry",
+    "question": "Why should descriptions and notes be kept in a separate column rather than mixed with structured fields?",
+    "options": [
+      "To improve readability",
+      "To preserve atomicity and prevent formula errors",
+      "To allow row height flexibility",
+      "To reduce file size"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 263,
+    "topic": "data_entry",
+    "question": "Which advanced step ensures reliable data ingestion when exporting Excel data to SQL?",
+    "options": [
+      "Use merged cells for headings",
+      "Ensure column names contain no spaces or special characters",
+      "Apply alternating shading",
+      "Wrap text for long fields"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 264,
+    "topic": "data_types",
+    "question": "Why does Excel sometimes convert '03/2024' to 'Mar-24'?",
+    "options": [
+      "General format forces date conversion",
+      "Excel interprets month/year patterns as dates based on locale settings",
+      "The value contains hidden characters",
+      "The file is saved as CSV"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 265,
+    "topic": "data_types",
+    "question": "What is the best advanced solution for fixing mixed data types in a numeric column without losing information?",
+    "options": [
+      "Format whole column as General",
+      "Use Power Query to detect and convert data types",
+      "Apply VALUE() to every cell",
+      "Use Paste Special → Values"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 266,
+    "topic": "data_types",
+    "question": "You import times that appear as large numbers (e.g., 45000). What does this MOST likely represent?",
+    "options": [
+      "Excel misinterpreted numeric formatting",
+      "The values represent fractional days stored as Excel serial numbers",
+      "The csv file was corrupted",
+      "Conditional formatting changed the value"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 267,
+    "topic": "editing_tools",
+    "question": "Which advanced technique helps extend formulas across irregularly spaced rows efficiently?",
+    "options": [
+      "Flash Fill",
+      "Ctrl + Enter with selected non-adjacent ranges",
+      "AutoFit column width first",
+      "Paste Special → Formats"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 268,
+    "topic": "editing_tools",
+    "question": "Why might Paste Special → Values be mandatory before sharing a workbook?",
+    "options": [
+      "It locks the sheet automatically",
+      "It prevents formulas from recalculating incorrectly on other systems",
+      "It enables conditional formatting",
+      "It reduces border thickness"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 269,
+    "topic": "editing_tools",
+    "question": "AutoFill produces unexpected sequences when filling IDs like A1, A2, A3. Why?",
+    "options": [
+      "Excel assumes alphanumeric patterns and increments the numeric portion",
+      "Column width is too narrow",
+      "Text format is applied",
+      "Conditional formatting blocks the pattern"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 270,
+    "topic": "formatting",
+    "question": "Which custom number format shows thousands in 'K' and millions in 'M'?",
+    "options": [
+      "#,##0",
+      "#,##0,\"K\"",
+      "[>999999]#,##0,,\"M\";#,##0,\"K\"",
+      "0.00%"
+    ],
+    "answerIndex": 2,
+    "level": "advanced"
+  },
+  {
+    "id": 271,
+    "topic": "formatting",
+    "question": "Why might two visually identical numbers behave differently in formulas?",
+    "options": [
+      "One is formatted as Text even though it looks numeric",
+      "They are in different rows",
+      "Column widths differ",
+      "The workbook contains hidden styles"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 272,
+    "topic": "formatting",
+    "question": "Which formatting technique can mislead users during financial auditing?",
+    "options": [
+      "Left-aligning text",
+      "Displaying rounded values without disclosing underlying decimals",
+      "Using bold header fonts",
+      "Centering dates"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 273,
+    "topic": "format_painter",
+    "question": "Why should Format Painter be avoided in files intended for automated template refresh?",
+    "options": [
+      "It copies invisible metadata that may disrupt automation",
+      "It changes all formulas to values",
+      "It deletes conditional formatting",
+      "It prevents sorting"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 274,
+    "topic": "format_painter",
+    "question": "Using Cell Styles is preferable to Format Painter when:",
+    "options": [
+      "You only want to copy font color",
+      "You need long-term consistency across multiple sheets or files",
+      "You want to apply conditional formatting rules",
+      "You need to preserve hidden formulas"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 275,
+    "topic": "layout",
+    "question": "Why do advanced dashboards avoid inconsistent column spacing?",
+    "options": [
+      "It breaks formula references",
+      "It disrupts visual hierarchy and reduces user comprehension",
+      "It increases calculation time",
+      "It disables Filters"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 276,
+    "topic": "layout",
+    "question": "Which advanced layout decision improves readability in large tabular reports?",
+    "options": [
+      "Using extra blank rows",
+      "Maintaining a modular grid structure for alignment",
+      "Wrapping text in all cells",
+      "Applying thick borders to all columns"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 277,
+    "topic": "layout",
+    "question": "What is the MOST advanced reason to avoid overusing Wrap Text in data-heavy sheets?",
+    "options": [
+      "It changes text color",
+      "It increases row height dynamically, reducing the number of rows visible at once",
+      "It disables AutoFit",
+      "It hides formulas"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 278,
+    "topic": "conditional_formatting",
+    "question": "Which advanced rule highlights dates that fall on weekends?",
+    "options": [
+      "=WEEKDAY(A2,1)>5",
+      "=A2>TODAY()",
+      "=MOD(A2,2)=0",
+      "=SEARCH(\"Sat\",A2)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 279,
+    "topic": "conditional_formatting",
+    "question": "Conditional formatting slows down significantly on large datasets primarily because:",
+    "options": [
+      "Excel cannot handle more than 100 rules",
+      "Each formatting rule is evaluated on recalculation",
+      "Rows are too tall",
+      "Borders increase processing time"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 280,
+    "topic": "conditional_formatting",
+    "question": "Which conditional formatting rule highlights rows where sales exceeded the previous row's sales?",
+    "options": [
+      "=A2>A1",
+      "=A2<A1",
+      "Top 10%",
+      "Data Bars"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 281,
+    "topic": "data_entry",
+    "question": "Which advanced data-entry issue MOST commonly results in inaccurate Power Query merges?",
+    "options": [
+      "Different column widths",
+      "Trailing spaces or invisible Unicode characters",
+      "Bold headers",
+      "Merged title rows"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 282,
+    "topic": "data_entry",
+    "question": "Why is splitting multi-value cells (e.g., 'Red, Large') into separate columns essential for analytics?",
+    "options": [
+      "It improves cell formatting",
+      "It ensures each attribute becomes a usable dimension in analysis",
+      "It reduces file size",
+      "It improves conditional formatting speed"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 283,
+    "topic": "data_entry",
+    "question": "Which advanced principle is required for clean ETL (Extract-Transform-Load) workflows?",
+    "options": [
+      "Use centered text",
+      "Store only one type of data per column",
+      "Apply alternating row colors",
+      "Ensure row height is uniform"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 284,
+    "topic": "data_types",
+    "question": "Mixed date formats (e.g., DD/MM/YYYY and MM/DD/YYYY) in the same column MOST likely lead to:",
+    "options": [
+      "Incorrect sorting and invalid date interpretation",
+      "Wrap Text not working",
+      "AutoFill errors",
+      "Styles not applying"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 285,
+    "topic": "data_types",
+    "question": "Which advanced technique converts improperly imported decimal values (e.g., 12,50 instead of 12.50) into correct numeric form?",
+    "options": [
+      "Use SUBSTITUTE() inside VALUE()",
+      "Change column width",
+      "Apply Wrap Text",
+      "Use Flash Fill"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 286,
+    "topic": "data_types",
+    "question": "Which advanced issue MOST commonly causes Power Query to misread Excel date fields?",
+    "options": [
+      "Column alignment",
+      "Hidden text values or incorrectly detected types",
+      "Border formatting",
+      "Row height differences"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 287,
+    "topic": "editing_tools",
+    "question": "Why is AutoFill sometimes incorrect when applied to custom ID patterns like 'INV-001', 'INV-002'?",
+    "options": [
+      "Excel interprets numeric suffixes automatically but cannot detect inconsistent prefixes",
+      "Column width is narrow",
+      "Conditional formatting overrides pattern logic",
+      "Text format disables recognition"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 288,
+    "topic": "editing_tools",
+    "question": "Which advanced AutoFill feature fills formulas down entire columns only within valid data boundaries?",
+    "options": [
+      "Wrap Text",
+      "Structured Table AutoFill",
+      "Manual dragging",
+      "Paste Special → Values"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 289,
+    "topic": "editing_tools",
+    "question": "Why is Paste Special → Values essential after using volatile functions like RAND() or NOW()?",
+    "options": [
+      "It locks the workbook",
+      "It prevents values from recalculating unpredictably",
+      "It removes conditional formatting rules",
+      "It forces alignment"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 290,
+    "topic": "formatting",
+    "question": "Which custom format displays positive numbers normally but hides zeros and negative values?",
+    "options": [
+      "0;;",
+      "0;-0;\"\"",
+      "#;#;#",
+      ";;;0"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 291,
+    "topic": "formatting",
+    "question": "When auditing financial sheets, which advanced problem arises from excessive custom formatting?",
+    "options": [
+      "Reduced clarity on underlying raw values",
+      "Loss of formulas",
+      "Wrap Text becomes disabled",
+      "Incorrect AutoFit"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 292,
+    "topic": "formatting",
+    "question": "Which custom number format displays negative numbers as red text WITHOUT parentheses?",
+    "options": [
+      "[Red]0.00",
+      "0.00;[Red]0.00",
+      "#,##0;[Red]#,##0",
+      "[Red](0.00)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 293,
+    "topic": "format_painter",
+    "question": "Why is Format Painter risky in multi-user corporate spreadsheets?",
+    "options": [
+      "It can override hidden conditional formatting rules tied to logic",
+      "It deletes formulas",
+      "It causes Excel to crash often",
+      "It changes worksheet protection"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 294,
+    "topic": "format_painter",
+    "question": "Cell Styles are crucial when:",
+    "options": [
+      "You need consistent formatting that survives copying/pasting across sheets",
+      "You want to remove formulas",
+      "You need to auto-expand ranges",
+      "You want to hide columns"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 295,
+    "topic": "layout",
+    "question": "Which layout principle is MOST essential in building enterprise-grade Excel dashboards?",
+    "options": [
+      "Colorful borders",
+      "Standardized spacing and grid alignment across all sheets",
+      "Use of Wrap Text in every header",
+      "Keeping all rows the same height"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 296,
+    "topic": "layout",
+    "question": "Why should extremely tall rows be avoided in analytical worksheets?",
+    "options": [
+      "They prevent sorting",
+      "They drastically reduce the number of rows visible, limiting analytical scanning",
+      "They slow down conditional formatting",
+      "They disable AutoFit"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 297,
+    "topic": "layout",
+    "question": "Which advanced layout strategy improves readability in multi-section reports?",
+    "options": [
+      "Inserting blank rows between sections",
+      "Using consistent column groups and hierarchy-based spacing",
+      "Applying all borders",
+      "Center-aligning everything"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 298,
+    "topic": "conditional_formatting",
+    "question": "Which advanced conditional formatting formula highlights duplicate entries ONLY when they occur consecutively?",
+    "options": [
+      "=COUNTIF(A:A,A2)>1",
+      "=A2=A1",
+      "=AND(A2=A1,A2=A3)",
+      "=MATCH(A2,A:A,0)>1"
+    ],
+    "answerIndex": 1,
+    "level": "advanced"
+  },
+  {
+    "id": 299,
+    "topic": "conditional_formatting",
+    "question": "Why do complex formula-based conditional formatting rules slow Excel significantly?",
+    "options": [
+      "Excel recalculates the entire rule set upon any change anywhere in the sheet",
+      "Conditional formatting rewrites formulas",
+      "It disables AutoFill",
+      "It forces recalculation of row heights"
+    ],
+    "answerIndex": 0,
+    "level": "advanced"
+  },
+  {
+    "id": 300,
+    "topic": "conditional_formatting",
+    "question": "Which rule identifies the top 5% of values in a dynamic dataset, regardless of range changes?",
+    "options": [
+      "=A2>=LARGE($A:$A,5)",
+      "Top 10 Rule",
+      "Icon Sets",
+      "Use Formula Rule: =A2>=PERCENTILE.INC($A:$A,0.95)"
+    ],
+    "answerIndex": 3,
+    "level": "advanced"
+  }
+]
+
+
+
+
+
+
+
+
+
+
+

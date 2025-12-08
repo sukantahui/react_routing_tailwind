@@ -1,0 +1,834 @@
+{
+  "trackId": "excel-basic-to-pro-standard",
+  "trackTitle": "Excel from Basic to Pro (Standard Track)",
+  "description": "A complete Microsoft Excel learning path from absolute beginner to advanced user, focused on formulas, formatting, charts, data analysis and reporting for students and office professionals.",
+  "folder": "excel",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Excel Tutorial Roadmap (Standard)",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-08"
+  },
+  "segments": [
+    {
+      "segmentId": "basic",
+      "title": "Segment 1 - Excel Core Foundations (Beginner)",
+      "level": "Beginner",
+      "summary": "Start from zero and build a strong foundation in Excel: interface, workbooks, data entry, basic formulas and simple charts.",
+      "modules": [
+        {
+          "moduleId": "excel-intro",
+          "slug": "getting-started-with-excel",
+          "title": "Getting Started with Excel",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["what-is-excel", "interface", "workbooks"],
+          "topics": [
+            "What Excel is and where it is used in study and work",
+            "Excel vs Google Sheets vs other spreadsheet tools (overview)",
+            "Exploring the interface: ribbon, tabs, formula bar, status bar",
+            "Understanding workbooks, worksheets, rows, columns and cells",
+            "Creating, saving and opening workbooks",
+            "Basic navigation: mouse, keyboard shortcuts, name box and Go To",
+            "Understanding cell references: active cell, address, used range",
+            "Practice Session",
+            "Practice MCQ",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Explain what Excel is and common use cases",
+            "Comfortably navigate the Excel interface and worksheets",
+            "Create, save and manage basic Excel workbooks"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Get comfortable with the Excel environment and learn to handle workbooks and worksheets.",
+          "miniProjects": [
+            "Mini Project: Create a simple personal expense sheet template"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Tasks",
+            "passScore": 70
+          },
+          "useCases": [
+            "Keeping small study or tuition records",
+            "Maintaining simple lists such as books, contacts or tasks"
+          ],
+          "careerSkills": [
+            "Confidently working in Excel at a basic level",
+            "Understanding how spreadsheets are used in offices"
+          ],
+          "commonMistakes": [
+            "Forgetting to save work regularly",
+            "Typing data in random cells without structure"
+          ],
+          "references": [
+            "Microsoft Excel official quick start guide",
+            "Introductory Excel tutorials"
+          ],
+          "teachingTips": [
+            "Ask students to recreate a simple handwritten table inside Excel.",
+            "Compare a paper register with the same data in Excel."
+          ],
+          "preReading": [
+            "Basic idea of what spreadsheets are and why they are used"
+          ],
+          "previousModule": null,
+          "nextModule": "excel-data-entry-formatting",
+          "badge": "Excel Beginner Badge"
+        },
+        {
+          "moduleId": "excel-data-entry-formatting",
+          "slug": "data-entry-and-formatting",
+          "title": "Data Entry, Editing and Formatting",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": ["data-entry", "formatting", "cell-styles"],
+          "topics": [
+            "Best practices for data entry: headers, no blank columns, consistent formats",
+            "Entering text, numbers, dates and times correctly",
+            "Copy, cut, paste, AutoFill and Flash Fill basics",
+            "Formatting cells: font, alignment, number format, borders and fill",
+            "Format Painter and cell styles for quick formatting",
+            "Adjusting column width, row height and text wrap",
+            "Basic conditional formatting using built-in rules",
+            "Practice These Topics",
+            "Test your practice",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Enter and clean up basic tabular data in Excel",
+            "Apply cell formatting to improve readability and presentation",
+            "Use AutoFill, Flash Fill and basic conditional formatting"
+          ],
+          "prerequisites": ["excel-intro"],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Learn to enter, clean and format data clearly for further analysis.",
+          "miniProjects": [
+            "Mini Project: Format a student marks sheet with conditional coloring for pass/fail"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Formatting Assignment",
+            "passScore": 70
+          },
+          "useCases": [
+            "Creating neat classroom registers or attendance sheets",
+            "Formatting simple office lists such as inventory or contacts"
+          ],
+          "careerSkills": [
+            "Presenting data in a clean and professional format",
+            "Reducing mistakes in data entry through structure"
+          ],
+          "commonMistakes": [
+            "Storing numbers as text and causing calculation errors",
+            "Using merged cells in places that break sorting and filtering later"
+          ],
+          "references": [
+            "Excel documentation on cell formatting",
+            "Online resources on Flash Fill and AutoFill"
+          ],
+          "teachingTips": [
+            "Show examples of bad formatting and ask students to fix them.",
+            "Encourage students to use consistent styles for headers and totals."
+          ],
+          "preReading": [
+            "Getting Started with Excel module"
+          ],
+          "previousModule": "excel-intro",
+          "nextModule": "excel-basic-formulas",
+          "badge": "Data Entry Hero Badge"
+        },
+        {
+          "moduleId": "excel-basic-formulas",
+          "slug": "basic-formulas-and-functions",
+          "title": "Basic Formulas and Functions",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": ["formulas", "functions", "basic-maths"],
+          "topics": [
+            "Understanding formulas: equals sign, cell references and formula bar",
+            "Relative, absolute and mixed cell references",
+            "Mathematical operators: +, -, *, / and ^",
+            "Basic functions: SUM, AVERAGE, MIN, MAX, COUNT, COUNTA",
+            "AutoSum and quick calculations using status bar",
+            "Copying formulas using fill handle and understanding reference changes",
+            "Handling common errors: #DIV/0!, #VALUE!, #NAME?",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Write and copy simple formulas across ranges",
+            "Use common basic functions for totals and averages",
+            "Identify and fix common formula errors in Excel"
+          ],
+          "prerequisites": ["excel-data-entry-formatting"],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Build the core skill of calculating and summarising data with formulas and basic functions.",
+          "miniProjects": [
+            "Mini Project: Build a simple monthly expense calculator with totals and averages"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Formula Sheet",
+            "passScore": 70
+          },
+          "useCases": [
+            "Calculating totals and averages for marks, sales or expenses",
+            "Quickly summarizing columns of data in reports"
+          ],
+          "careerSkills": [
+            "Confident basic calculation and summarization in Excel",
+            "Avoiding common mistakes when copying formulas"
+          ],
+          "commonMistakes": [
+            "Breaking formulas after inserting or deleting rows and columns",
+            "Forgetting to use absolute references when needed (e.g. tax rate cell)"
+          ],
+          "references": [
+            "Excel help on formulas and functions",
+            "Introductory tutorials on relative and absolute references"
+          ],
+          "teachingTips": [
+            "Use real-life examples such as tuition fee calculation or small shop billing.",
+            "Ask students to predict formula results before hitting Enter."
+          ],
+          "preReading": [
+            "Data Entry, Editing and Formatting module"
+          ],
+          "previousModule": "excel-data-entry-formatting",
+          "nextModule": "excel-basic-charts",
+          "badge": "Formula Starter Badge"
+        },
+        {
+          "moduleId": "excel-basic-charts",
+          "slug": "basic-charts-and-visualization",
+          "title": "Basic Charts and Visualizations",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": ["charts", "visualization", "presentation"],
+          "topics": [
+            "Why charts matter: seeing patterns and trends visually",
+            "Creating column, bar, line and pie charts from sample data",
+            "Selecting correct data ranges for charts",
+            "Changing chart types, layouts and styles",
+            "Adding titles, axis labels, legends and data labels",
+            "Moving and resizing charts, embedding vs new sheet",
+            "Best practices: avoiding misleading charts, keeping them simple",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Create basic charts to represent data visually",
+            "Customize chart elements for better understanding",
+            "Choose suitable chart types for typical scenarios"
+          ],
+          "prerequisites": ["excel-basic-formulas"],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 4,
+          "summary": "Learn to convert raw numbers into clear visual stories using simple charts.",
+          "miniProjects": [
+            "Mini Project: Build a marks vs subject chart and attendance trend chart"
+          ],
+          "exercises": {
+            "mcq": 10,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Chart Creation Assignment",
+            "passScore": 70
+          },
+          "useCases": [
+            "Presenting marks, sales or performance in meetings",
+            "Making basic dashboards for school or small office"
+          ],
+          "careerSkills": [
+            "Translating data into visuals that non-technical people understand",
+            "Choosing appropriate visuals for different messages"
+          ],
+          "commonMistakes": [
+            "Using 3D or flashy charts that reduce clarity",
+            "Selecting wrong ranges and mixing totals with raw values"
+          ],
+          "references": [
+            "Excel charting documentation",
+            "Online resources on basic chart design"
+          ],
+          "teachingTips": [
+            "Show both bad and good chart designs for the same data.",
+            "Ask students to present their chart to the class like a mini-report."
+          ],
+          "preReading": [
+            "Basic Formulas and Functions module"
+          ],
+          "previousModule": "excel-basic-formulas",
+          "nextModule": null,
+          "badge": "Chart Creator Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 - Productivity and Data Handling (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Improve speed and accuracy with tables, sorting, filtering, text and date functions, conditional logic and lookup formulas.",
+      "modules": [
+        {
+          "moduleId": "excel-tables-filters",
+          "slug": "tables-sorting-filtering",
+          "title": "Tables, Sorting and Filtering",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["tables", "sorting", "filtering"],
+          "topics": [
+            "Converting data ranges into Excel Tables",
+            "Benefits of Tables: structured references, auto-expansion, built-in filters",
+            "Sorting data on one or multiple columns",
+            "Filtering data using AutoFilter and filter drop-downs",
+            "Using number, text and date filters effectively",
+            "Removing duplicates and finding unique records",
+            "Total Row and basic aggregation within Tables",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Organize data into structured Excel Tables",
+            "Sort and filter data accurately for analysis",
+            "Remove duplicates and summarize data using Table features"
+          ],
+          "prerequisites": ["excel-basic-formulas"],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Handle real-world lists more efficiently with Tables, sorting and filtering.",
+          "miniProjects": [
+            "Mini Project: Design a student or customer list with filters and totals"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical List Management Task",
+            "passScore": 70
+          },
+          "useCases": [
+            "Filtering student lists by class, grade or status",
+            "Sorting sales data by region, product or salesperson"
+          ],
+          "careerSkills": [
+            "Quickly answering questions from large lists",
+            "Keeping data well-structured for future reporting"
+          ],
+          "commonMistakes": [
+            "Sorting only one column and misaligning data",
+            "Leaving blank rows and columns that break Tables"
+          ],
+          "references": [
+            "Excel documentation on Tables and filters",
+            "Articles on list cleaning and duplicate removal"
+          ],
+          "teachingTips": [
+            "Show wrong sorting examples and their consequences.",
+            "Use real-style datasets with 100+ rows to practice."
+          ],
+          "preReading": [
+            "Basic Charts and Visualizations module"
+          ],
+          "previousModule": null,
+          "nextModule": "excel-text-date-functions",
+          "badge": "Data Organizer Badge"
+        },
+        {
+          "moduleId": "excel-text-date-functions",
+          "slug": "text-date-time-functions",
+          "title": "Text, Date and Time Functions",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["text-functions", "date-time", "cleaning"],
+          "topics": [
+            "Understanding how Excel stores dates and times internally",
+            "Essential date functions: TODAY, NOW, DAY, MONTH, YEAR, EOMONTH",
+            "Calculating age, tenure and durations using dates",
+            "Text functions: LEFT, RIGHT, MID, LEN, TRIM, UPPER, LOWER, PROPER",
+            "Combining text using CONCAT, TEXTJOIN and ampersand (&)",
+            "Using TEXT function for custom date and number formatting in formulas",
+            "Practical cleaning examples: splitting full names, cleaning spaces, fixing case",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Work with dates and times correctly in Excel formulas",
+            "Use text functions to clean and transform data",
+            "Combine text and dates for reporting and labels"
+          ],
+          "prerequisites": ["excel-tables-filters"],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Clean and prepare text and date fields for proper analysis and reporting.",
+          "miniProjects": [
+            "Mini Project: Take a messy contact list and clean names, dates and labels"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Data Cleaning Task",
+            "passScore": 70
+          },
+          "useCases": [
+            "Calculating ages or service durations from date of birth/joining",
+            "Preparing clean names and labels for reports"
+          ],
+          "careerSkills": [
+            "Data cleaning for HR, sales or academic records",
+            "Reducing manual correction of messy inputs"
+          ],
+          "commonMistakes": [
+            "Treating text dates as real dates without conversion",
+            "Not accounting for regional date formats (dd/mm vs mm/dd)"
+          ],
+          "references": [
+            "Excel date and time function references",
+            "Text function examples from documentation"
+          ],
+          "teachingTips": [
+            "Show how incorrect date formats break calculations.",
+            "Give mixed-case, extra-space text data to clean using formulas."
+          ],
+          "preReading": [
+            "Tables, Sorting and Filtering module"
+          ],
+          "previousModule": "excel-tables-filters",
+          "nextModule": "excel-conditional-logic",
+          "badge": "Data Cleaner Badge"
+        },
+        {
+          "moduleId": "excel-conditional-logic",
+          "slug": "conditional-logic-if-functions",
+          "title": "Conditional Logic with IF and Related Functions",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["if", "logical-functions", "conditions"],
+          "topics": [
+            "Basic IF function: syntax and examples",
+            "Using relational operators inside IF",
+            "Nested IF vs IFS for multi-level decisions",
+            "Logical functions: AND, OR, NOT inside IF",
+            "Building grading systems, tax slabs and commission rules",
+            "Combining IF with text and date conditions",
+            "Error handling using IFERROR and IFNA",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Write conditional formulas using IF for different scenarios",
+            "Combine logical functions with IF for complex rules",
+            "Handle errors gracefully using IFERROR or IFNA"
+          ],
+          "prerequisites": ["excel-text-date-functions"],
+          "difficulty": "Medium",
+          "difficultyIndex": 7,
+          "summary": "Implement business rules and conditions in Excel using IF and logical functions.",
+          "miniProjects": [
+            "Mini Project: Create a grading and scholarship eligibility sheet with rules"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Conditional Logic Worksheet",
+            "passScore": 75
+          },
+          "useCases": [
+            "Automating pass/fail, promotion, discount and eligibility decisions",
+            "Building simple rule-based calculators inside Excel"
+          ],
+          "careerSkills": [
+            "Translating policy and rules into Excel logic",
+            "Reducing manual decision-making by encoding rules"
+          ],
+          "commonMistakes": [
+            "Creating very long nested IF formulas without planning",
+            "Not testing boundary conditions (equal to vs greater than)"
+          ],
+          "references": [
+            "Excel IF and logical functions documentation",
+            "Practical examples of nested IF and IFS"
+          ],
+          "teachingTips": [
+            "Ask students to write rule descriptions in plain language first, then convert.",
+            "Start with small rules and gradually increase complexity."
+          ],
+          "preReading": [
+            "Text, Date and Time Functions module"
+          ],
+          "previousModule": "excel-text-date-functions",
+          "nextModule": "excel-lookup-basics",
+          "badge": "Logic Builder Badge"
+        },
+        {
+          "moduleId": "excel-lookup-basics",
+          "slug": "lookup-functions-basics",
+          "title": "Lookup Functions: VLOOKUP, HLOOKUP and INDEX-MATCH (Intro)",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": ["lookup", "vlookup", "index-match"],
+          "topics": [
+            "Concept of lookup: searching in one table to get data from another",
+            "VLOOKUP basics: exact vs approximate match",
+            "Common VLOOKUP issues: not locked ranges, wrong column indexes, sorted vs unsorted",
+            "HLOOKUP overview for horizontal lookups",
+            "Introduction to INDEX and MATCH combination for flexible lookups",
+            "Best practices for lookup tables: unique keys and clean data",
+            "Simple cross-sheet lookups (e.g., marks from separate sheet)",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Use VLOOKUP for simple lookups in structured tables",
+            "Understand basic INDEX-MATCH as a more flexible alternative",
+            "Avoid typical lookup errors by preparing data correctly"
+          ],
+          "prerequisites": ["excel-conditional-logic"],
+          "difficulty": "Medium",
+          "difficultyIndex": 8,
+          "summary": "Connect different tables using lookup functions for more powerful reports.",
+          "miniProjects": [
+            "Mini Project: Build a fee or salary sheet pulling rates from a separate master table"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Lookup Practice Sheet",
+            "passScore": 75
+          },
+          "useCases": [
+            "Fetching student details from ID lists",
+            "Linking price lists to billing or quotation sheets"
+          ],
+          "careerSkills": [
+            "Working effectively with master data and reference tables",
+            "Reducing manual searching and copy-pasting"
+          ],
+          "commonMistakes": [
+            "Using approximate match unknowingly and getting wrong results",
+            "Not locking table ranges with absolute references in lookups"
+          ],
+          "references": [
+            "Excel documentation for VLOOKUP and INDEX-MATCH",
+            "Articles comparing VLOOKUP and INDEX-MATCH approaches"
+          ],
+          "teachingTips": [
+            "Give examples where wrong match type gives wrong result.",
+            "Show how to gradually move from VLOOKUP to INDEX-MATCH."
+          ],
+          "preReading": [
+            "Conditional Logic with IF and Related Functions module"
+          ],
+          "previousModule": "excel-conditional-logic",
+          "nextModule": "excel-pivot-intro",
+          "badge": "Lookup Explorer Badge"
+        },
+        {
+          "moduleId": "excel-pivot-intro",
+          "slug": "intro-pivot-tables",
+          "title": "Introduction to Pivot Tables and Pivot Charts",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": ["pivot-tables", "pivot-charts", "summaries"],
+          "topics": [
+            "What pivot tables are and when to use them",
+            "Creating a pivot table from a data range or Table",
+            "Arranging fields in rows, columns, values and filters",
+            "Summarizing data by counts, sums and averages",
+            "Sorting and filtering pivot tables",
+            "Creating basic pivot charts from pivot tables",
+            "Refreshing pivot tables when data changes",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Create pivot tables to summarize large datasets quickly",
+            "Change pivot layouts to answer different questions",
+            "Use pivot charts for dynamic visual summaries"
+          ],
+          "prerequisites": ["excel-lookup-basics"],
+          "difficulty": "Medium",
+          "difficultyIndex": 9,
+          "summary": "Use pivot tables to answer questions from larger datasets without manual formulas.",
+          "miniProjects": [
+            "Mini Project: Create a pivot-based sales or marks summary with multiple views"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Pivot Report Assignment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Summarizing sales by product, region or month",
+            "Summarizing marks by subject, teacher or class"
+          ],
+          "careerSkills": [
+            "Answering questions from large data quickly using pivots",
+            "Creating simple interactive summary reports"
+          ],
+          "commonMistakes": [
+            "Forgetting to refresh pivot tables after data updates",
+            "Using poorly structured source data for pivot tables"
+          ],
+          "references": [
+            "Pivot table tutorials in Excel documentation",
+            "Online videos demonstrating pivot tables for analysis"
+          ],
+          "teachingTips": [
+            "Start with a simple sales dataset and build multiple pivot views.",
+            "Encourage students to ask their own questions and answer using pivots."
+          ],
+          "preReading": [
+            "Lookup Functions: VLOOKUP, HLOOKUP and INDEX-MATCH (Intro) module"
+          ],
+          "previousModule": "excel-lookup-basics",
+          "nextModule": null,
+          "badge": "Pivot Starter Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 - Analysis and Reporting (Advanced)",
+      "level": "Advanced",
+      "summary": "Build advanced analysis and reporting skills with data validation, data cleaning, what-if analysis and basic dashboards.",
+      "modules": [
+        {
+          "moduleId": "excel-data-validation-cleaning",
+          "slug": "data-validation-and-cleaning",
+          "title": "Data Validation, Protection and Cleaning Techniques",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["data-validation", "cleaning", "protection"],
+          "topics": [
+            "Using Data Validation for drop-down lists and allowed ranges",
+            "Preventing invalid data entry with custom rules",
+            "Input messages and error alerts for better user guidance",
+            "Using Find & Replace, Go To Special and filters for cleaning data",
+            "Protecting sheets and workbooks with passwords appropriately",
+            "Working with comments, notes and basic documentation in sheets",
+            "Practical examples: controlled data entry templates",
+            "Practice These Topics",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Build templates that reduce data entry mistakes",
+            "Clean and correct existing datasets efficiently",
+            "Apply basic protection to prevent accidental edits"
+          ],
+          "prerequisites": ["excel-pivot-intro"],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 10,
+          "summary": "Control data quality and prevent common errors before they spread.",
+          "miniProjects": [
+            "Mini Project: Design a controlled data entry form with proper validation rules"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Template Building Assignment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building controlled HR, admission or registration forms in Excel",
+            "Reducing data cleaning time for recurring reports"
+          ],
+          "careerSkills": [
+            "Creating reusable, error-resistant Excel templates",
+            "Implementing simple governance on data entry and structure"
+          ],
+          "commonMistakes": [
+            "Overprotecting sheets and blocking legitimate edits",
+            "Not updating validation rules when requirements change"
+          ],
+          "references": [
+            "Excel data validation documentation",
+            "Articles on sheet protection best practices"
+          ],
+          "teachingTips": [
+            "Show real-world messy input forms and how validation prevents them.",
+            "Encourage students to balance flexibility and strictness in validation."
+          ],
+          "preReading": [
+            "Introduction to Pivot Tables and Pivot Charts module"
+          ],
+          "previousModule": null,
+          "nextModule": "excel-whatif-analysis",
+          "badge": "Data Quality Guardian Badge"
+        },
+        {
+          "moduleId": "excel-whatif-analysis",
+          "slug": "what-if-analysis-tools",
+          "title": "What-If Analysis and Scenario Planning",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": ["what-if", "goal-seek", "scenarios"],
+          "topics": [
+            "What-if thinking: exploring outcomes by changing inputs",
+            "Goal Seek to find required inputs for desired outcomes",
+            "Scenario Manager for storing different assumption sets",
+            "Data Tables for sensitivity analysis on one and two variables",
+            "Practical examples: EMI, savings, pricing and break-even analysis",
+            "Embedding what-if analysis inside templates and reports",
+            "Practice These Topics",
+            "Quick Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Run what-if analysis using Goal Seek and Data Tables",
+            "Create multiple scenarios for different assumptions",
+            "Use Excel to support decision making with numbers"
+          ],
+          "prerequisites": ["excel-data-validation-cleaning"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 11,
+          "summary": "Use Excel to ask 'what if' questions and model different future outcomes.",
+          "miniProjects": [
+            "Mini Project: Build a simple profit planner with what-if and scenario options"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Scenario Planning Exercise",
+            "passScore": 75
+          },
+          "useCases": [
+            "Planning personal or business finances with variable assumptions",
+            "Analysing risk and impact of changes in key inputs"
+          ],
+          "careerSkills": [
+            "Supporting managerial decisions using spreadsheet models",
+            "Communicating implications of changing key drivers"
+          ],
+          "commonMistakes": [
+            "Building what-if models on poorly structured sheets",
+            "Not documenting which inputs should be changed vs fixed"
+          ],
+          "references": [
+            "Excel documentation on what-if tools",
+            "Blogs showing business examples of what-if analysis"
+          ],
+          "teachingTips": [
+            "Ask students to model a familiar scenario like tuition fee planning.",
+            "Emphasize documenting all key assumptions on the sheet."
+          ],
+          "preReading": [
+            "Data Validation, Protection and Cleaning Techniques module"
+          ],
+          "previousModule": "excel-data-validation-cleaning",
+          "nextModule": "excel-dashboard-basics",
+          "badge": "Scenario Planner Badge"
+        },
+        {
+          "moduleId": "excel-dashboard-basics",
+          "slug": "basic-dashboards-and-reporting",
+          "title": "Basic Dashboards and Reporting",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": ["dashboards", "reporting", "storytelling"],
+          "topics": [
+            "Dashboard vs report: differences and goals",
+            "Principles of good dashboard design: simplicity, focus and clarity",
+            "Bringing together charts, pivot tables and key metrics",
+            "Using cell-based KPIs, sparklines and indicators",
+            "Layout techniques: grouping, alignment, color usage and fonts",
+            "Linking a summary sheet to raw data sheets",
+            "Simple interactivity using slicers with Tables and pivots (if available)",
+            "Practice These Topics",
+            "Capstone Style Task"
+          ],
+          "learningOutcomes": [
+            "Design basic dashboards that summarize important information",
+            "Combine multiple Excel features into a coherent report view",
+            "Apply visual best practices to make information easy to read"
+          ],
+          "prerequisites": ["excel-whatif-analysis"],
+          "difficulty": "Advanced",
+          "difficultyIndex": 12,
+          "summary": "Create simple yet effective dashboards using standard Excel features.",
+          "miniProjects": [
+            "Mini Project: Design a small dashboard for marks, sales or attendance using charts and KPIs"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Practical Dashboard Project + Review",
+            "passScore": 80
+          },
+          "useCases": [
+            "Monthly summaries for school, tuition or small business",
+            "Department-level reporting for basic metrics"
+          ],
+          "careerSkills": [
+            "Presenting data in a management-friendly way",
+            "Structuring Excel files for repeatable monthly reporting"
+          ],
+          "commonMistakes": [
+            "Overloading dashboards with too many details",
+            "Using colors that distract instead of guide attention"
+          ],
+          "references": [
+            "Dashboard design principles articles",
+            "Examples of simple Excel dashboards online"
+          ],
+          "teachingTips": [
+            "Ask students to first sketch dashboards on paper.",
+            "Review dashboards as a class, giving positive and improvement feedback."
+          ],
+          "preReading": [
+            "What-If Analysis and Scenario Planning module"
+          ],
+          "previousModule": "excel-whatif-analysis",
+          "nextModule": null,
+          "badge": "Dashboard Creator Badge"
+        }
+      ]
+    }
+  ]
+}
