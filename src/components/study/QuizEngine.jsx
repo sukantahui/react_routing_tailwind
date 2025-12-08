@@ -1,6 +1,6 @@
 // src/components/study/common/QuizEngine.jsx
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
 import cnatLogo from "../../assets/cnat.png";
@@ -88,7 +88,7 @@ export default function QuizEngine({
   const [isFinished, setIsFinished] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
   const [studentName, setStudentName] = useState("");
-  const [nameEntered, setNameEntered] = useState(false); // 👈 gate before quiz
+  const [nameEntered, setNameEntered] = useState(false); // gate before quiz
 
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({}); // per question-count
@@ -96,8 +96,29 @@ export default function QuizEngine({
     questionLimit ? questionLimit : 25
   );
 
+  // NEW: Difficulty level (All / beginner / moderate / advanced)
+  const [selectedLevel, setSelectedLevel] = useState("All");
+
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
+
+  // --------------------------------------------------
+  // Compute available questions based on selected level
+  // --------------------------------------------------
+  const availableQuestions = useMemo(() => {
+    if (!Array.isArray(questions)) return [];
+    if (selectedLevel === "All") return questions;
+
+    const lvl = selectedLevel.toLowerCase();
+    let filtered = questions.filter((q) => {
+      if (!q.level) return true; // no level → include for all
+      return String(q.level).toLowerCase() === lvl;
+    });
+
+    // Fallback: if filter accidentally returns 0, use all
+    if (!filtered.length) filtered = questions;
+    return filtered;
+  }, [questions, selectedLevel]);
 
   // --------------------------------------------------
   // Load leaderboard
@@ -130,10 +151,10 @@ export default function QuizEngine({
   }, [BEST_KEY]);
 
   // --------------------------------------------------
-  // Load previous quiz OR start fresh respecting selectedCount
+  // Load previous quiz OR start fresh respecting selectedCount & selectedLevel
   // --------------------------------------------------
   useEffect(() => {
-    if (!questions || !questions.length) return;
+    if (!availableQuestions || !availableQuestions.length) return;
 
     const saved = localStorage.getItem(STORAGE_KEY);
 
@@ -161,15 +182,25 @@ export default function QuizEngine({
       }
     }
 
-    // Otherwise start a fresh quiz using selectedCount
+    // Otherwise start a fresh quiz using selectedCount with filtered questions
     const limit =
       selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, questions.length)
-        : Math.min(questionLimit || 25, questions.length);
+        ? Math.min(selectedCount, availableQuestions.length)
+        : Math.min(questionLimit || 25, availableQuestions.length);
 
-    const fresh = prepareQuiz(questions, limit);
+    const fresh = prepareQuiz(availableQuestions, limit);
     setQuiz(fresh);
-  }, [questions, selectedCount, STORAGE_KEY, questionLimit]);
+    setResponses({});
+    setSubmitted({});
+    setScore(0);
+    setIsFinished(false);
+    setReviewMode(false);
+  }, [
+    availableQuestions,
+    selectedCount,
+    STORAGE_KEY,
+    questionLimit,
+  ]);
 
   // --------------------------------------------------
   // Save quiz state
@@ -215,12 +246,14 @@ export default function QuizEngine({
 
   // Restart test: new random sample + reset state
   const handleRestart = () => {
+    if (!availableQuestions.length) return;
+
     const limit =
       selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, questions.length || selectedCount)
-        : Math.min(questionLimit || 25, questions.length || questionLimit);
+        ? Math.min(selectedCount, availableQuestions.length)
+        : Math.min(questionLimit || 25, availableQuestions.length);
 
-    const fresh = prepareQuiz(questions, limit);
+    const fresh = prepareQuiz(availableQuestions, limit);
     setQuiz(fresh);
     setResponses({});
     setSubmitted({});
@@ -228,7 +261,7 @@ export default function QuizEngine({
     setIsFinished(false);
     setReviewMode(false);
     setStudentName("");
-    setNameEntered(false); // 👈 ask again on restart
+    setNameEntered(false); // ask again on restart
     localStorage.removeItem(STORAGE_KEY);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -246,9 +279,7 @@ export default function QuizEngine({
     if (!quiz.length) return;
 
     const total = quiz.length;
-    const percent = total
-      ? Number(((score / total) * 100).toFixed(2))
-      : 0;
+    const percent = total ? Number(((score / total) * 100).toFixed(2)) : 0;
 
     const entry = {
       name: studentName.trim() || "Guest",
@@ -325,6 +356,9 @@ export default function QuizEngine({
 
     const passed = percentNum >= passPercent;
 
+    // Note: cnatLogo is a resolved URL string from bundler
+    const logoUrl = cnatLogo;
+
     const html = `
 <!DOCTYPE html>
 <html>
@@ -337,14 +371,12 @@ export default function QuizEngine({
     size: A4;
     margin: 0;
   }
-
   body {
     margin: 0;
     padding: 0;
     background: #0f172a;
     font-family: "Times New Roman", serif;
   }
-
   .page {
     width: 210mm;
     height: 297mm;
@@ -356,7 +388,6 @@ export default function QuizEngine({
     justify-content: center;
     align-items: center;
   }
-
   .certificate {
     position: relative;
     width: 100%;
@@ -369,14 +400,12 @@ export default function QuizEngine({
     text-align: center;
     box-sizing: border-box;
   }
-
   .cert-number {
     text-align: right;
     font-size: 13px;
     color: #111827;
     margin-bottom: 8px;
   }
-
   .header-title {
     font-size: 22px;
     font-weight: bold;
@@ -385,13 +414,11 @@ export default function QuizEngine({
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-
   .subtitle {
     font-size: 13px;
     color: #4b5563;
     margin-bottom: 20px;
   }
-
   .main-title {
     font-size: 38px;
     font-weight: 800;
@@ -400,7 +427,6 @@ export default function QuizEngine({
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-
   .tagline {
     font-size: 13px;
     color: #1f2933;
@@ -408,7 +434,6 @@ export default function QuizEngine({
     text-transform: uppercase;
     letter-spacing: 4px;
   }
-
   .body-text {
     font-size: 17px;
     color: #111827;
@@ -416,7 +441,6 @@ export default function QuizEngine({
     margin-bottom: 16px;
     line-height: 1.6;
   }
-
   .student-name {
     font-size: 28px;
     font-weight: bold;
@@ -426,104 +450,87 @@ export default function QuizEngine({
     padding: 4px 22px;
     margin: 12px 0 18px 0;
   }
-
   .test-title {
     font-size: 17px;
     font-weight: 600;
     color: #1e40af;
   }
-
   .score-box {
     font-size: 18px;
     font-weight: bold;
     color: #1d4ed8;
     margin: 8px 0 6px 0;
   }
-
   .result-box {
     font-size: 16px;
     font-weight: 600;
     color: #111827;
     margin-bottom: 18px;
   }
-
   .result-box span {
     padding: 3px 10px;
     border-radius: 999px;
     border: 1px solid #1e40af;
   }
-
   .result-pass {
     background: #dcfce7;
     color: #166534;
     border-color: #16a34a;
   }
-
   .result-fail {
     background: #fee2e2;
     color: #b91c1c;
     border-color: #ef4444;
   }
-
   .grade-pill {
     margin-left: 8px;
     background: #e0f2fe;
     color: #1d4ed8;
     border-color: #38bdf8;
   }
-
   .issue-date {
     font-size: 14px;
     color: #374151;
     margin-bottom: 8px;
   }
-
   .footer-row {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
     padding: 0 10mm;
   }
-
   .signature-block {
     text-align: center;
   }
-
   .line {
     width: 170px;
     border-top: 1px solid #111827;
     margin: auto;
     margin-bottom: 5px;
   }
-
   .director {
     font-size: 14px;
     font-weight: bold;
     color: #000;
   }
-
   .designation {
     font-size: 12px;
     color: #374151;
   }
-
   .date-block {
     border-top: 1px solid #111827;
     width: 160px;
     margin: auto;
     margin-bottom: 5px;
   }
-
   .footer-note {
     margin-top: 18px;
     font-size: 11px;
     color: #6b7280;
   }
-
-  /* Seal with logo */
   .seal {
     position: absolute;
-    bottom: 40mm; /* slightly higher so it doesn't clash with date */
+    bottom: 40mm;
     left: 30mm;
     width: 60px;
     height: 60px;
@@ -537,13 +544,11 @@ export default function QuizEngine({
     background: radial-gradient(circle at 30% 30%, #e0f2fe, #bfdbfe);
     box-sizing: border-box;
   }
-
   .seal img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-
   @media print {
     body {
       -webkit-print-color-adjust: exact;
@@ -611,7 +616,7 @@ export default function QuizEngine({
     </div>
 
     <div class="seal">
-      <img src="${cnatLogo}" alt="Coder & AccoTax Logo" />
+      <img src="${logoUrl}" alt="Coder & AccoTax Logo" />
     </div>
 
   </div>
@@ -633,12 +638,14 @@ export default function QuizEngine({
 
   // ========================= QUESTION COUNT APPLY =========================
   const applyQuestionCount = () => {
+    if (!availableQuestions.length) return;
+
     const value =
       selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, questions.length || selectedCount)
-        : Math.min(questionLimit || 25, questions.length || questionLimit);
+        ? Math.min(selectedCount, availableQuestions.length)
+        : Math.min(questionLimit || 25, availableQuestions.length);
 
-    const fresh = prepareQuiz(questions, value);
+    const fresh = prepareQuiz(availableQuestions, value);
     setQuiz(fresh);
     setResponses({});
     setSubmitted({});
@@ -674,10 +681,11 @@ export default function QuizEngine({
         <button
           disabled={!studentName.trim()}
           onClick={() => setNameEntered(true)}
-          className={`w-full py-2 rounded-xl text-white font-semibold text-sm transition ${studentName.trim()
+          className={`w-full py-2 rounded-xl text-white font-semibold text-sm transition ${
+            studentName.trim()
               ? "bg-sky-600 hover:bg-sky-500"
               : "bg-slate-700 cursor-not-allowed"
-            }`}
+          }`}
         >
           Start Test
         </button>
@@ -696,9 +704,7 @@ export default function QuizEngine({
 
   const progress = Object.keys(submitted).length;
   const total = quiz.length;
-  const percentComplete = total
-    ? Math.round((progress / total) * 100)
-    : 0;
+  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
   const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
 
   const bestForCurrent =
@@ -804,6 +810,39 @@ export default function QuizEngine({
             )}
           </div>
 
+          {/* Difficulty Selector */}
+          <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
+            <p className="text-xs text-slate-300 font-medium">
+              Select difficulty level:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["All", "beginner", "moderate", "advanced"].map((lvl) => {
+                const label =
+                  lvl === "All"
+                    ? "All Levels"
+                    : lvl.charAt(0).toUpperCase() + lvl.slice(1);
+                const active = selectedLevel.toLowerCase() === lvl.toLowerCase();
+                return (
+                  <button
+                    key={lvl}
+                    type="button"
+                    onClick={() => setSelectedLevel(lvl === "All" ? "All" : lvl)}
+                    className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
+                      active
+                        ? "bg-emerald-600 text-white border-emerald-400"
+                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+            <p className="text-[11px] text-slate-500">
+              Questions without a level tag are included in every level.
+            </p>
+          </div>
+
           {/* Question Count Selector (only before quiz starts) */}
           {progress === 0 && !isFinished && (
             <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
@@ -813,7 +852,8 @@ export default function QuizEngine({
 
               <div className="flex flex-wrap gap-2">
                 {[10, 15, 20, 25, 50, "All"].map((n) => {
-                  const value = n === "All" ? questions.length : n;
+                  const value =
+                    n === "All" ? availableQuestions.length : n;
                   const active = selectedCount === value;
 
                   return (
@@ -822,13 +862,14 @@ export default function QuizEngine({
                       type="button"
                       onClick={() =>
                         setSelectedCount(
-                          Math.min(value, questions.length || value)
+                          Math.min(value, availableQuestions.length || value)
                         )
                       }
-                      className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
+                      className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
+                        active
                           ? "bg-sky-600 text-white border-sky-400"
                           : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                        }`}
+                      }`}
                     >
                       {n}
                     </button>
@@ -977,6 +1018,11 @@ export default function QuizEngine({
                         {q.topic}
                       </span>
                     )}
+                    {q.level && (
+                      <span className="inline-flex items-center rounded-full bg-emerald-500/10 border border-emerald-500/40 px-2 py-0.5 text-[10px] uppercase tracking-wide text-emerald-200">
+                        {String(q.level)}
+                      </span>
+                    )}
                   </div>
                   <h3 className="font-semibold text-slate-50 text-sm md:text-base leading-snug">
                     {q.question}
@@ -985,10 +1031,11 @@ export default function QuizEngine({
 
                 {isSub && (
                   <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${isCorrect
+                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${
+                      isCorrect
                         ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
                         : "bg-rose-500/15 text-rose-200 border-rose-500/60"
-                      }`}
+                    }`}
                   >
                     {isCorrect ? "Correct" : "Incorrect"}
                   </span>
