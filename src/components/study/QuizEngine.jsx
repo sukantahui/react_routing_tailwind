@@ -2,14 +2,16 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
-import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
-import cnatLogo from "../../assets/cnat.png";
+import { RotateCcw, Eye, EyeOff, Award, Trophy, Smartphone } from "lucide-react";
 import QRCode from "react-qr-code";
+import cnatLogo from "../../assets/cnat.png";
 
 const STORAGE_PREFIX = "quizEngine_";
 const LEADERBOARD_PREFIX = "quizLeaderboard_";
 
-// -------- Helpers --------
+// ========================== HELPERS ==========================
+
+// Fisher–Yates shuffle
 function shuffleArray(arr) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -19,14 +21,16 @@ function shuffleArray(arr) {
   return copy;
 }
 
+// Prepare quiz: random sample + shuffle options but keep correct index
 function prepareQuiz(questions, limit) {
   if (!Array.isArray(questions)) return [];
+
   const shuffled = shuffleArray(questions);
   const sliceSize = limit ? Math.min(limit, shuffled.length) : shuffled.length;
   const picked = shuffled.slice(0, sliceSize);
 
   return picked.map((q) => {
-    const wrapped = q.options.map((opt, idx) => ({
+    const wrapped = (q.options || []).map((opt, idx) => ({
       text: opt,
       originalIndex: idx,
     }));
@@ -58,9 +62,8 @@ function getNextCertificateNumber() {
   return certNumber;
 }
 
-// ===================================================================
-// ⭐ QUIZ ENGINE ⭐
-// ===================================================================
+// ========================== MAIN COMPONENT ==========================
+
 export default function QuizEngine({
   title = "Quiz Test",
   questions = [],
@@ -78,6 +81,7 @@ export default function QuizEngine({
   const LEADERBOARD_KEY = LEADERBOARD_PREFIX + testId;
   const BEST_KEY = STORAGE_PREFIX + "best_" + testId;
 
+  // Core quiz state
   const [quiz, setQuiz] = useState([]);
   const [responses, setResponses] = useState({});
   const [submitted, setSubmitted] = useState({});
@@ -85,21 +89,28 @@ export default function QuizEngine({
   const [isFinished, setIsFinished] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
 
+  // UX state
   const [studentName, setStudentName] = useState("");
-  const [nameEntered, setNameEntered] = useState(false); // gate
+  const [nameEntered, setNameEntered] = useState(false);
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({});
   const [selectedCount, setSelectedCount] = useState(
     questionLimit ? questionLimit : 25
   );
   const [selectedLevel, setSelectedLevel] = useState("All"); // All / beginner / moderate / advanced
+  const [isMobileKeyboardOpen, setIsMobileKeyboardOpen] = useState(false);
 
+  const nameInputRef = useRef(null);
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
 
-  // ---------------------------------------------
-  // Difficulty-filtered questions
-  // ---------------------------------------------
+  const isBrowser = typeof window !== "undefined";
+  const currentUrl = isBrowser
+    ? window.location.href
+    : "https://www.codernaccotax.co.in";
+
+  // ========================== DERIVED DATA ==========================
+
   const availableQuestions = useMemo(() => {
     if (!Array.isArray(questions)) return [];
     if (selectedLevel === "All") return questions;
@@ -110,43 +121,54 @@ export default function QuizEngine({
       return String(q.level).toLowerCase() === lvl;
     });
 
-    if (!filtered.length) filtered = questions; // fallback
+    if (!filtered.length) filtered = questions;
     return filtered;
   }, [questions, selectedLevel]);
 
-  // ---------------------------------------------
-  // Leaderboard + best scores load
-  // ---------------------------------------------
-  useEffect(() => {
-    const savedLb = localStorage.getItem(LEADERBOARD_KEY);
-    if (savedLb) {
-      try {
-        const parsed = JSON.parse(savedLb);
-        setLeaderboard(Array.isArray(parsed) ? parsed : []);
-      } catch {
-        setLeaderboard([]);
-      }
-    }
-  }, [LEADERBOARD_KEY]);
+  const progress = Object.keys(submitted).length;
+  const total = quiz.length;
+  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
+  const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
+  const wrongQuestions = quiz.filter(
+    (q) => submitted[q.id] && responses[q.id] !== q.answerIndex
+  );
+  const visibleQuestions = reviewMode ? wrongQuestions : quiz;
+  const bestForCurrent = bestScores[total] || bestScores[selectedCount] || null;
+
+  // ========================== LOAD LEADERBOARD + BEST ==========================
 
   useEffect(() => {
-    const savedBest = localStorage.getItem(BEST_KEY);
-    if (savedBest) {
-      try {
+    if (!isBrowser) return;
+    try {
+      const savedLb = localStorage.getItem(LEADERBOARD_KEY);
+      if (savedLb) {
+        const parsed = JSON.parse(savedLb);
+        if (Array.isArray(parsed)) setLeaderboard(parsed);
+      }
+    } catch {
+      setLeaderboard([]);
+    }
+  }, [LEADERBOARD_KEY, isBrowser]);
+
+  useEffect(() => {
+    if (!isBrowser) return;
+    try {
+      const savedBest = localStorage.getItem(BEST_KEY);
+      if (savedBest) {
         const parsed = JSON.parse(savedBest);
         if (parsed && typeof parsed === "object") {
           setBestScores(parsed);
         }
-      } catch {
-        setBestScores({});
       }
+    } catch {
+      setBestScores({});
     }
-  }, [BEST_KEY]);
+  }, [BEST_KEY, isBrowser]);
 
-  // ---------------------------------------------
-  // Load / init quiz (only AFTER name entered)
-  // ---------------------------------------------
+  // ========================== LOAD / INIT QUIZ ==========================
+
   useEffect(() => {
+    if (!isBrowser) return;
     if (!nameEntered) return;
     if (!availableQuestions || !availableQuestions.length) return;
 
@@ -180,7 +202,7 @@ export default function QuizEngine({
           return;
         }
       } catch {
-        // ignore
+        // ignore and fall through
       }
     }
 
@@ -203,39 +225,36 @@ export default function QuizEngine({
     selectedCount,
     STORAGE_KEY,
     questionLimit,
+    isBrowser,
   ]);
 
-  // ---------------------------------------------
-  // Save quiz state
-  // ---------------------------------------------
+  // ========================== SAVE QUIZ STATE ==========================
+
   useEffect(() => {
+    if (!isBrowser) return;
     if (!quiz.length) return;
     const data = { quiz, responses, submitted, score, isFinished };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }, [quiz, responses, submitted, score, isFinished, STORAGE_KEY]);
+  }, [quiz, responses, submitted, score, isFinished, STORAGE_KEY, isBrowser]);
 
-  // ---------------------------------------------
-  // Scroll helper
-  // ---------------------------------------------
-  const scrollTo = (index) => {
+  // ========================== SCROLL HELPER ==========================
+
+  const scrollToQuestion = (index) => {
+    if (!isBrowser) return;
     const el = questionRefs.current[index];
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 120;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // ---------------------------------------------
-  // Option selection
-  // ---------------------------------------------
+  // ========================== HANDLERS ==========================
+
   const handleSelect = (id, optIndex) => {
     if (submitted[id]) return;
     setResponses((prev) => ({ ...prev, [id]: optIndex }));
   };
 
-  // ---------------------------------------------
-  // Submit one question
-  // ---------------------------------------------
-  const handleSubmit = (q, index) => {
+  const handleSubmitQuestion = (q, index) => {
     if (submitted[q.id]) return;
 
     const userAns = responses[q.id];
@@ -250,13 +269,10 @@ export default function QuizEngine({
     });
 
     if (!reviewMode && index + 1 < quiz.length) {
-      setTimeout(() => scrollTo(index + 1), 600);
+      setTimeout(() => scrollToQuestion(index + 1), 500);
     }
   };
 
-  // ---------------------------------------------
-  // Restart
-  // ---------------------------------------------
   const handleRestart = () => {
     if (!availableQuestions.length) return;
 
@@ -272,31 +288,50 @@ export default function QuizEngine({
     setScore(0);
     setIsFinished(false);
     setReviewMode(false);
-    localStorage.removeItem(STORAGE_KEY);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (isBrowser) {
+      localStorage.removeItem(STORAGE_KEY);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
-  // ---------------------------------------------
-  // Wrong questions list
-  // ---------------------------------------------
-  const wrongQuestions = quiz.filter(
-    (q) => submitted[q.id] && responses[q.id] !== q.answerIndex
-  );
-  const visibleQuestions = reviewMode ? wrongQuestions : quiz;
+  const applyQuestionCount = () => {
+    if (!availableQuestions.length) return;
 
-  // ---------------------------------------------
-  // Leaderboard logic
-  // ---------------------------------------------
+    const value =
+      selectedCount && selectedCount > 0
+        ? Math.min(selectedCount, availableQuestions.length)
+        : Math.min(questionLimit || 25, availableQuestions.length);
+
+    const fresh = prepareQuiz(availableQuestions, value);
+    setQuiz(fresh);
+    setResponses({});
+    setSubmitted({});
+    setScore(0);
+    setIsFinished(false);
+    setReviewMode(false);
+
+    if (isBrowser) {
+      localStorage.removeItem(STORAGE_KEY);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  // ========================== LEADERBOARD ==========================
+
   const addToLeaderboard = () => {
+    if (!isBrowser) return;
     if (!quiz.length) return;
 
-    const total = quiz.length;
-    const percent = total ? Number(((score / total) * 100).toFixed(2)) : 0;
+    const totalLocal = quiz.length;
+    const percent = totalLocal
+      ? Number(((score / totalLocal) * 100).toFixed(2))
+      : 0;
 
     const entry = {
       name: studentName.trim() || "Guest",
       score,
-      total,
+      total: totalLocal,
       percent,
       date: new Date().toISOString(),
     };
@@ -317,11 +352,11 @@ export default function QuizEngine({
 
     setBestScores((prev) => {
       const map = { ...prev };
-      const totalCount = total;
+      const totalCount = totalLocal;
       const existing = map[totalCount];
 
       if (!existing || percent > existing.percent) {
-        map[totalCount] = { score, total, percent, date: entry.date };
+        map[totalCount] = { score, total: totalLocal, percent, date: entry.date };
       }
       localStorage.setItem(BEST_KEY, JSON.stringify(map));
       return map;
@@ -333,19 +368,21 @@ export default function QuizEngine({
   };
 
   useEffect(() => {
+    if (!isBrowser) return;
     if (!prevFinishedRef.current && isFinished) {
       addToLeaderboard();
     }
     prevFinishedRef.current = isFinished;
-  }, [isFinished, score, quiz.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isFinished, score, quiz.length, isBrowser]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ---------------------------------------------
-  // Certificate
-  // ---------------------------------------------
+  // ========================== CERTIFICATE ==========================
+
   const generateCertificate = () => {
+    if (!isBrowser) return;
+
     const name = studentName || "Student Name";
-    const total = quiz.length;
-    const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
+    const totalLocal = quiz.length;
+    const percent = totalLocal ? ((score / totalLocal) * 100).toFixed(2) : "0.00";
 
     const today = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
@@ -443,7 +480,7 @@ export default function QuizEngine({
       has successfully completed the test:<br>
       <span class="test-title">${title}</span>
     </div>
-    <div class="score-box">Score: ${score}/${total} &nbsp; | &nbsp; ${percent}%</div>
+    <div class="score-box">Score: ${score}/${totalLocal} &nbsp; | &nbsp; ${percent}%</div>
     <div class="result-box">
       <span class="${passed ? "result-pass" : "result-fail"}">
         ${passed ? "PASSED" : "NOT PASSED"}
@@ -481,88 +518,115 @@ export default function QuizEngine({
     w.document.close();
   };
 
-  // ---------------------------------------------
-  // Apply selected question count (after name)
-  // ---------------------------------------------
-  const applyQuestionCount = () => {
-    if (!availableQuestions.length) return;
+  // ========================== MOBILE NAME GATE ==========================
 
-    const value =
-      selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, availableQuestions.length)
-        : Math.min(questionLimit || 25, availableQuestions.length);
+  useEffect(() => {
+    // Autofocus for desktop; on mobile it will bring keyboard nicely
+    if (nameInputRef.current) {
+      nameInputRef.current.focus();
+    }
+  }, []);
 
-    const fresh = prepareQuiz(availableQuestions, value);
-    setQuiz(fresh);
-    setResponses({});
-    setSubmitted({});
-    setScore(0);
-    setIsFinished(false);
-    setReviewMode(false);
-    localStorage.removeItem(STORAGE_KEY);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleStartTest = () => {
+    const finalName = studentName.trim();
+    if (!finalName) return;
+
+    if (isBrowser && document.activeElement && document.activeElement.blur) {
+      document.activeElement.blur();
+    }
+
+    // small timeout for Android/iOS IME to commit last character
+    setTimeout(() => {
+      setStudentName(finalName);
+      setNameEntered(true);
+      setIsMobileKeyboardOpen(false);
+    }, 80);
   };
 
-  // ---------------------------------------------
-  // NAME ENTRY GATE (mobile-safe)
-  // ---------------------------------------------
-  if (!nameEntered) {
-    const handleStart = () => {
-      const finalName = studentName.trim();
-      if (!finalName) return; // do nothing if empty
+  const handleNameKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleStartTest();
+    }
+  };
 
-      // Close keyboard on mobile
+  // ========================== NAME ENTRY GATE (MOBILE-SAFE) ==========================
+
+  if (!nameEntered) {
+
+    const startNow = () => {
+      const final = studentName.trim();
+      if (!final) return;
+
+      console.log("Start button tapped, name =", final);
+
+      // Force close keyboard
       if (document.activeElement && document.activeElement.blur) {
         document.activeElement.blur();
       }
 
-      // Small timeout helps some mobile browsers commit IME text
       setTimeout(() => {
-        setStudentName(finalName);
+        setStudentName(final);
         setNameEntered(true);
-      }, 50);
+        console.log("Name accepted, moving to next screen...");
+      }, 80);
     };
 
     return (
-      <section className="max-w-md mx-auto mt-20 p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-xl shadow-black/40">
-        <h2 className="text-xl font-bold text-sky-300 mb-4 text-center">
-          Enter Student Name to Begin Test
-        </h2>
+      <div className="max-w-md mx-auto mt-20 px-4">
+        <div className="rounded-2xl bg-slate-900 border border-slate-700 p-6 space-y-6 shadow-xl">
 
-        <p className="text-xs text-slate-400 mb-4 text-center">
-          This name will appear on the certificate and leaderboard.
-        </p>
+          <h2 className="text-xl font-bold text-sky-300 text-center">
+            Enter Student Name
+          </h2>
+          <p className="text-xs text-slate-400 text-center">
+            This will appear on the certificate & leaderboard.
+          </p>
 
-        <input
-          type="text"
-          placeholder="Student Name"
-          value={studentName}
-          onChange={(e) => setStudentName(e.target.value)}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="words"
-          spellCheck="false"
-          className="w-full px-4 py-2 mb-4 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none text-sm"
-        />
+          {/* INPUT FIELD */}
+          <input
+            ref={nameInputRef}
+            type="text"
+            placeholder="Student name"
+            value={studentName}
+            onChange={(e) => setStudentName(e.target.value)}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="words"
+            spellCheck="false"
+            className="w-full px-4 py-3 rounded-xl bg-slate-950 text-slate-100 
+                     border border-slate-700 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                console.log("Enter pressed");
+                startNow();
+              }
+            }}
+          />
 
-        <button
-          type="button"
-          onClick={handleStart}
-          disabled={!studentName.trim()}
-          className={`w-full py-2 rounded-xl text-white font-semibold text-sm transition ${studentName.trim()
-            ? "bg-sky-600 hover:bg-sky-500"
-            : "bg-slate-700 cursor-not-allowed"
-            }`}
-        >
-          Start Test
-        </button>
-      </section>
+          {/* START BUTTON — FULLY MOBILE SAFE */}
+          <button
+            type="button"
+            role="button"
+            tabIndex={0}
+            onClick={startNow}
+            onTouchStart={startNow}
+            className={`w-full py-3 rounded-xl text-white font-semibold text-sm transition ${studentName.trim()
+                ? "bg-sky-600 hover:bg-sky-500 active:bg-sky-700"
+                : "bg-slate-700 text-slate-400 cursor-not-allowed"
+              }`}
+          >
+            Start Test
+          </button>
+
+        </div>
+      </div>
     );
   }
 
-  // ---------------------------------------------
-  // MAIN RENDER (after name)
-  // ---------------------------------------------
+
+  // ========================== MAIN RENDER ==========================
+
   if (!quiz.length) {
     return (
       <div className="max-w-5xl mx-auto text-slate-300 text-sm">
@@ -571,17 +635,8 @@ export default function QuizEngine({
     );
   }
 
-  const progress = Object.keys(submitted).length;
-  const total = quiz.length;
-  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
-  const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
-
-  const bestForCurrent = bestScores[total] || bestScores[selectedCount] || null;
-  const currentUrl =
-    typeof window !== "undefined" ? window.location.href : "https://www.codernaccotax.co.in";
-
   return (
-    <section className="max-w-5xl mx-auto space-y-8">
+    <section className="max-w-5xl mx-auto space-y-8 px-3 md:px-0">
       {/* HEADER CARD */}
       <header className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-900/80 via-slate-900 to-slate-950 px-4 py-5 md:px-6 md:py-6 shadow-xl shadow-slate-950/40">
         <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -590,6 +645,7 @@ export default function QuizEngine({
         </div>
 
         <div className="relative z-10 space-y-4">
+          {/* Top row: title + stats */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
               <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mb-1">
@@ -691,17 +747,16 @@ export default function QuizEngine({
                   lvl === "All"
                     ? "All Levels"
                     : lvl.charAt(0).toUpperCase() + lvl.slice(1);
-                const active = selectedLevel.toLowerCase() === lvl.toLowerCase();
+                const active =
+                  selectedLevel.toLowerCase() === lvl.toLowerCase();
                 return (
                   <button
                     key={lvl}
                     type="button"
-                    onClick={() =>
-                      setSelectedLevel(lvl === "All" ? "All" : lvl)
-                    }
+                    onClick={() => setSelectedLevel(lvl === "All" ? "All" : lvl)}
                     className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
-                      ? "bg-emerald-600 text-white border-emerald-400"
-                      : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                        ? "bg-emerald-600 text-white border-emerald-400"
+                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
                       }`}
                   >
                     {label}
@@ -714,53 +769,53 @@ export default function QuizEngine({
             </p>
           </div>
 
-          <div className="relative flex items-center justify-center p-4 rounded-2xl bg-slate-900 border border-slate-700 shadow-lg">
-
-
-
-            {/* Soft Glow Behind QR */}
-            <div className="absolute inset-0 rounded-2xl bg-sky-500/10 blur-xl opacity-30"></div>
-
-            {/* QR CODE */}
-            <div className="relative bg-slate-800 p-3 rounded-xl shadow-inner border border-slate-700">
-              <QRCode
-                value={currentUrl}
-                size={160}
-                level="H"
-                fgColor="#ffffff"     // White QR for dark mode
-                bgColor="#0f172a"     // Dark background to match theme
-                style={{ borderRadius: "12px" }}
-              />
+          {/* QR: Desktop Only */}
+          <div className="hidden md:flex mt-4 p-4 rounded-2xl bg-slate-900 border border-slate-700 shadow-lg items-center gap-4">
+            <div className="flex-1 space-y-1">
+              <p className="text-xs text-slate-300 font-medium flex items-center gap-1">
+                <Smartphone size={14} />
+                Open this quiz on your mobile:
+              </p>
+              <p className="text-[11px] text-sky-300 break-all">{currentUrl}</p>
             </div>
 
-            {/* LOGO Overlay */}
-            <div className="absolute flex items-center justify-center">
-              <div className="bg-slate-900 p-1.5 rounded-xl shadow-lg border border-slate-600">
-                <img
-                  src={cnatLogo}
-                  alt="Logo"
-                  className="h-10 w-10 object-contain"
+            <div className="relative">
+              {/* Soft glow */}
+              <div className="absolute inset-0 rounded-2xl bg-sky-500/20 blur-xl opacity-30" />
+              {/* QR container */}
+              <div className="relative bg-slate-800 p-3 rounded-xl shadow-inner border border-slate-700">
+                <QRCode
+                  value={currentUrl}
+                  size={150}
+                  level="H"
+                  fgColor="#ffffff"
+                  bgColor="#020617"
+                  style={{ borderRadius: "12px" }}
                 />
+                {/* Logo in center */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="bg-slate-950 p-1.5 rounded-xl shadow-lg border border-slate-600">
+                    <img
+                      src={cnatLogo}
+                      alt="Coder & AccoTax"
+                      className="h-9 w-9 object-contain"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
 
-
-
-
-          {/* Question Count Selector (before starting submissions) */}
+          {/* Question Count Selector */}
           {progress === 0 && !isFinished && (
             <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
               <p className="text-xs text-slate-300 font-medium">
                 Select number of questions:
               </p>
-
               <div className="flex flex-wrap gap-2">
                 {[10, 15, 20, 25, 50, "All"].map((n) => {
                   const value = n === "All" ? availableQuestions.length : n;
                   const active = selectedCount === value;
-
                   return (
                     <button
                       key={n}
@@ -771,8 +826,8 @@ export default function QuizEngine({
                         )
                       }
                       className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
-                        ? "bg-sky-600 text-white border-sky-400"
-                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                          ? "bg-sky-600 text-white border-sky-400"
+                          : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
                         }`}
                     >
                       {n}
@@ -780,7 +835,6 @@ export default function QuizEngine({
                   );
                 })}
               </div>
-
               <button
                 type="button"
                 onClick={applyQuestionCount}
@@ -835,20 +889,18 @@ export default function QuizEngine({
           {/* Leaderboard */}
           {leaderboard.length > 0 && (
             <div className="mt-3 rounded-2xl border border-slate-800 bg-slate-950/70 px-3 py-3 space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500/10 border border-amber-500/50">
-                    <Trophy size={14} className="text-amber-300" />
-                  </span>
-                  <div>
-                    <h3 className="text-xs font-semibold text-amber-100">
-                      {leaderboardTitle}
-                    </h3>
-                    <p className="text-[11px] text-slate-400">
-                      Top {leaderboard.length} scores recorded locally on this
-                      device.
-                    </p>
-                  </div>
+              <div className="flex items-center gap-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500/10 border border-amber-500/50">
+                  <Trophy size={14} className="text-amber-300" />
+                </span>
+                <div>
+                  <h3 className="text-xs font-semibold text-amber-100">
+                    {leaderboardTitle}
+                  </h3>
+                  <p className="text-[11px] text-slate-400">
+                    Top {leaderboard.length} scores recorded locally on this
+                    device.
+                  </p>
                 </div>
               </div>
 
@@ -910,6 +962,7 @@ export default function QuizEngine({
               ref={(el) => (questionRefs.current[index] = el)}
               className="border border-slate-800 bg-slate-900/70 rounded-2xl p-4 md:p-5 shadow-lg shadow-black/40 space-y-3"
             >
+              {/* Question header */}
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -935,8 +988,8 @@ export default function QuizEngine({
                 {isSub && (
                   <span
                     className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${isCorrect
-                      ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
-                      : "bg-rose-500/15 text-rose-200 border-rose-500/60"
+                        ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
+                        : "bg-rose-500/15 text-rose-200 border-rose-500/60"
                       }`}
                   >
                     {isCorrect ? "Correct" : "Incorrect"}
@@ -944,12 +997,14 @@ export default function QuizEngine({
                 )}
               </div>
 
+              {/* Code snippet */}
               {q.code && (
                 <div className="mt-1">
                   <CodeBlockGeneral code={q.code} language="javascript" />
                 </div>
               )}
 
+              {/* Options */}
               <div className="space-y-1 mt-1">
                 {q.options.map((opt, optIndex) => {
                   const inputId = `q${q.id}_${optIndex}`;
@@ -990,10 +1045,11 @@ export default function QuizEngine({
                 })}
               </div>
 
+              {/* Submit / Explanation */}
               {!isSub ? (
                 <button
                   type="button"
-                  onClick={() => handleSubmit(q, index)}
+                  onClick={() => handleSubmitQuestion(q, index)}
                   disabled={responses[q.id] == null}
                   className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-full bg-sky-600 hover:bg-sky-500 disabled:bg-slate-700 disabled:text-slate-400 text-white text-xs font-semibold transition"
                 >
@@ -1013,9 +1069,7 @@ export default function QuizEngine({
                       <p className="text-[11px] uppercase tracking-[0.18em] text-sky-400 mb-1">
                         Explanation
                       </p>
-                      <p className="text-sm leading-relaxed">
-                        {q.explanation}
-                      </p>
+                      <p className="text-sm leading-relaxed">{q.explanation}</p>
                     </div>
                   )}
                 </div>
