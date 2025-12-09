@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import roadmapData from "../../../data/javascript-roadmap-enhanced.json";
+import roadmapData from "./javascript-roadmap-enhanced.json";
 
 export default class JavaScriptRoadmap extends Component {
   renderSegment(segment) {

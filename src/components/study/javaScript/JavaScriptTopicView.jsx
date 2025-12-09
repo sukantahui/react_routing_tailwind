@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { useParams, Link } from "react-router-dom";
 import { CheckCircle2 } from "lucide-react";
-import roadmapData from "../../../data/javascript-roadmap-enhanced.json";
+import roadmapData from "./javascript-roadmap-enhanced.json";
 
 // Vite auto-import Topic*.jsx
 const topicModules = import.meta.glob("./topics/*/Topic*.jsx");

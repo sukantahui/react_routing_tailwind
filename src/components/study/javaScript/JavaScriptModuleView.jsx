@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import roadmapData from "../../../data/javascript-roadmap-enhanced.json";
+import roadmapData from "./javascript-roadmap-enhanced.json";
 
 export default function JavaScriptModuleView() {
   const { slug } = useParams();

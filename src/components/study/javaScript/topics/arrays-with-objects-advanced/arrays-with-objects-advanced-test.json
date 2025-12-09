@@ -1,0 +1,4181 @@
+[
+    {
+        "id": 1,
+        "topic": "arrays_of_objects",
+        "question": "What is an array of objects in JavaScript?",
+        "options": [
+            "A single variable storing multiple numbers",
+            "A list where each item is an object",
+            "An object containing many arrays",
+            "A string that represents object data"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "An array of objects means each element inside the array is itself an object, such as students, products, or tasks."
+    },
+    {
+        "id": 2,
+        "topic": "arrays_of_objects",
+        "question": "Which representation shows an array of student objects?",
+        "options": [
+            "[10, 20, 30]",
+            "{name:'A', age:12}",
+            "[{name:'A'}, {name:'B'}]",
+            "[name:'A', name:'B']"
+        ],
+        "answerIndex": 2,
+        "level": "beginner",
+        "explanation": "Only option 3 uses correct array syntax and contains valid objects inside."
+    },
+    {
+        "id": 3,
+        "topic": "arrays_of_objects",
+        "question": "Which is a valid way to access the price of the first product?",
+        "options": [
+            "products.price[0]",
+            "products[0].price",
+            "products.price",
+            "products->price[0]"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "To access the first element, use products[0], then access its property using dot notation."
+    },
+    {
+        "id": 4,
+        "topic": "arrays_of_objects",
+        "question": "What will typeof students return when students is an array of objects?",
+        "options": ["'array'", "'object'", "'list'", "'collection'"],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "Arrays in JavaScript technically return type 'object' because they are specialized objects."
+    },
+    {
+        "id": 5,
+        "topic": "arrays_of_objects",
+        "question": "Which method returns the number of objects in an array?",
+        "options": ["count()", "length", "size()", "total()"],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "Arrays in JS use the .length property to return how many elements they contain."
+    },
+    {
+        "id": 6,
+        "topic": "arrays_of_objects",
+        "question": "What does products[1] return?",
+        "options": [
+            "The second object in products",
+            "The first property of the array",
+            "The total number of objects",
+            "An error because indexing starts from 1"
+        ],
+        "answerIndex": 0,
+        "level": "beginner",
+        "explanation": "Arrays are zero-indexed, so index 1 refers to the second item."
+    },
+    {
+        "id": 7,
+        "topic": "arrays_of_objects",
+        "question": "What is the correct syntax to change the age of the first student?",
+        "options": [
+            "students.age = 20",
+            "students[0].age = 20",
+            "students.age[0] = 20",
+            "students->age = 20"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "Modify the property by targeting the object at index 0 and then the property."
+    },
+    {
+        "id": 8,
+        "topic": "arrays_of_objects",
+        "question": "Which operation will add a new object to an array?",
+        "options": [
+            "push({})",
+            "add({})",
+            "insertObject()",
+            "appendObject()"
+        ],
+        "answerIndex": 0,
+        "level": "beginner",
+        "explanation": "push() adds a new element to the end of an array."
+    },
+    {
+        "id": 9,
+        "topic": "arrays_of_objects",
+        "question": "What will students[2] return?",
+        "options": [
+            "The third object",
+            "Undefined always",
+            "A syntax error",
+            "The last object only"
+        ],
+        "answerIndex": 0,
+        "level": "beginner",
+        "explanation": "Index 2 refers to the third object. If it doesn't exist, it will return undefined."
+    },
+    {
+        "id": 10,
+        "topic": "arrays_of_objects",
+        "question": "Which data type is commonly stored in arrays of objects?",
+        "options": [
+            "Primitive numbers only",
+            "Complex data like students and products",
+            "Only strings",
+            "Only boolean values"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "Arrays of objects are used to store structured data like students, employees, products, etc."
+    },
+    {
+        "id": 11,
+        "topic": "map_objects",
+        "question": "What does map() do when used on an array of objects?",
+        "options": [
+            "Deletes objects",
+            "Transforms each object and returns a new array",
+            "Sorts objects alphabetically",
+            "Finds duplicate objects"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "map() always returns a NEW array by transforming each element of the original array."
+    },
+    {
+        "id": 12,
+        "topic": "map_objects",
+        "question": "Which map() call extracts only student names?",
+        "options": [
+            "students.map(s => s)",
+            "students.map(s => s.age)",
+            "students.map(s => s.name)",
+            "students.map(name)"
+        ],
+        "answerIndex": 2,
+        "level": "beginner",
+        "explanation": "Returning s.name extracts only the name field from each object."
+    },
+    {
+        "id": 13,
+        "topic": "map_objects",
+        "question": "map() always returns:",
+        "options": ["A number", "An object", "A new array", "The original array"],
+        "answerIndex": 2,
+        "level": "beginner",
+        "explanation": "map() creates a brand new array with transformed elements."
+    },
+    {
+        "id": 14,
+        "topic": "map_objects",
+        "question": "Which result will this return: products.map(p => p.price * 2)?",
+        "options": [
+            "An array of original prices",
+            "A new array with doubled prices",
+            "An array of objects",
+            "A single price value"
+        ],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "The callback returns p.price * 2, so map() builds a new array of processed prices."
+    },
+    {
+        "id": 15,
+        "topic": "map_objects",
+        "question": "Does map() modify the original array?",
+        "options": ["Yes", "No", "Sometimes", "Only in strict mode"],
+        "answerIndex": 1,
+        "level": "beginner",
+        "explanation": "map() never mutates the original array — it returns a transformed one."
+    },
+    {
+    "id": 16,
+    "topic": "filter_objects",
+    "question": "filter() keeps elements that:",
+    "options": [
+      "Return true in the callback",
+      "Return false in the callback",
+      "Match the first element",
+      "Have numeric values only"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Only items where callback returns true stay in the output array."
+  },
+  {
+    "id": 17,
+    "topic": "filter_objects",
+    "question": "Which filter selects products costing 100 or more?",
+    "options": [
+      "products.filter(p => p.price >= 100)",
+      "products.filter(price >= 100)",
+      "products.filter(p.price >= 100)",
+      "products.filter(p => return p.price >= 100)"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "The callback must return a boolean expression using the object property."
+  },
+  {
+    "id": 18,
+    "topic": "filter_objects",
+    "question": "What does filter() return if nothing matches?",
+    "options": [
+      "null",
+      "undefined",
+      "An empty array",
+      "false"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "filter() always returns an array, even if it contains zero elements."
+  },
+  {
+    "id": 19,
+    "topic": "filter_objects",
+    "question": "Which statement is true?",
+    "options": [
+      "filter() changes the original array",
+      "filter() returns a new array",
+      "filter() returns true or false",
+      "filter() works only with numbers"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "filter() never mutates the original array; it always creates a new one."
+  },
+  {
+    "id": 20,
+    "topic": "filter_objects",
+    "question": "Which filter extracts tasks marked as 'completed'?",
+    "options": [
+      "tasks.filter(t => t.completed)",
+      "tasks.filter(t.completed)",
+      "tasks.filter(complete)",
+      "tasks.filter(t => completed)"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "If t.completed is true, the task is included in the new array."
+  },
+
+  {
+    "id": 21,
+    "topic": "reduce_objects",
+    "question": "reduce() is used when you need:",
+    "options": [
+      "A single final value",
+      "Multiple transformed values",
+      "To filter elements",
+      "To find the first match"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "reduce() combines the full array into one return value."
+  },
+  {
+    "id": 22,
+    "topic": "reduce_objects",
+    "question": "Which reduce() finds total quantity?",
+    "options": [
+      "cart.reduce(q => q)",
+      "cart.reduce((total, item) => total + item.qty, 0)",
+      "cart.reduce(total + qty)",
+      "reduce(cart)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "You start with 0 and add each item's qty to the accumulator."
+  },
+  {
+    "id": 23,
+    "topic": "reduce_objects",
+    "question": "What is the accumulator in reduce()?",
+    "options": [
+      "The name of the array",
+      "A variable that carries forward the computed value",
+      "The last element of the array",
+      "A built-in JavaScript object"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "The accumulator stores the ongoing result across iterations."
+  },
+  {
+    "id": 24,
+    "topic": "reduce_objects",
+    "question": "reduce() callback receives how many main arguments?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4 (accumulator, item, index, array)"
+    ],
+    "answerIndex": 3,
+    "level": "beginner",
+    "explanation": "reduce() can receive all four parameters, though many use only the first two."
+  },
+  {
+    "id": 25,
+    "topic": "reduce_objects",
+    "question": "reduce() without an initial value uses:",
+    "options": [
+      "The last item",
+      "The first item",
+      "0 always",
+      "undefined"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "reduce() starts with the first array element if no initial value is provided."
+  },
+  {
+    "id": 26,
+    "topic": "find_objects",
+    "question": "What does find() return when it locates a matching object?",
+    "options": [
+      "The index of the object",
+      "The first matching object",
+      "A new filtered array",
+      "Always the last matching object"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "find() returns the FIRST object for which the callback returns true."
+  },
+  {
+    "id": 27,
+    "topic": "find_objects",
+    "question": "What does find() return if no object matches?",
+    "options": ["undefined", "null", "0", "An empty array"],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "If find() cannot locate a match, it returns undefined."
+  },
+  {
+    "id": 28,
+    "topic": "find_objects",
+    "question": "Which usage finds a student with id = 3?",
+    "options": [
+      "students.find(id === 3)",
+      "students.find(s => s.id === 3)",
+      "students.filter(s => s.id === 3)[1]",
+      "students.map(s => s.id === 3)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "You must use a callback function returning a comparison result."
+  },
+  {
+    "id": 29,
+    "topic": "findIndex_objects",
+    "question": "What does findIndex() return when a match is found?",
+    "options": ["The object", "The index number", "True", "A new array"],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "findIndex() gives you the position (index) of the matching object."
+  },
+  {
+    "id": 30,
+    "topic": "findIndex_objects",
+    "question": "If findIndex() finds nothing, what does it return?",
+    "options": ["-1", "undefined", "null", "0"],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "-1 indicates that no matching index exists."
+  },
+
+  {
+    "id": 31,
+    "topic": "sort_objects",
+    "question": "Which method is used to sort an array of objects?",
+    "options": ["order()", "arrange()", "sort()", "compare()"],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "JavaScript uses sort() to arrange array elements."
+  },
+  {
+    "id": 32,
+    "topic": "sort_objects",
+    "question": "Which comparator sorts students by marks (ascending)?",
+    "options": [
+      "students.sort(a => a.marks)",
+      "students.sort((a, b) => a.marks - b.marks)",
+      "students.sort((a, b) => b.marks - a.marks)",
+      "students.sort(marks)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Subtracting values gives ascending order sorting."
+  },
+  {
+    "id": 33,
+    "topic": "sort_objects",
+    "question": "Does sort() modify the original array?",
+    "options": ["Yes", "No", "Sometimes", "Only if numeric"],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "sort() mutates (changes) the original array directly."
+  },
+  {
+    "id": 34,
+    "topic": "sort_objects",
+    "question": "Which comparator sorts names alphabetically?",
+    "options": [
+      "students.sort((a, b) => a.name - b.name)",
+      "students.sort((a, b) => a.name.localeCompare(b.name))",
+      "students.sort(a => a.name)",
+      "students.sort()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "localeCompare() is designed for text-based alphabetical sorting."
+  },
+  {
+    "id": 35,
+    "topic": "sort_objects",
+    "question": "Which sorting order arranges highest to lowest?",
+    "options": [
+      "(a, b) => a.value - b.value",
+      "(a, b) => b.value - a.value",
+      "(a, b) => 0",
+      "(a, b) => a.value + b.value"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Subtracting a from b gives descending order."
+  },
+
+  {
+    "id": 36,
+    "topic": "some_every",
+    "question": "some() returns true when:",
+    "options": [
+      "All elements satisfy the condition",
+      "At least one element satisfies the condition",
+      "No element satisfies the condition",
+      "The array contains objects only"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() stops early and returns true once any element matches."
+  },
+  {
+    "id": 37,
+    "topic": "some_every",
+    "question": "every() returns true only when:",
+    "options": [
+      "One element satisfies the condition",
+      "At least half match",
+      "All elements satisfy the condition",
+      "None satisfy the condition"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "every() checks all elements—if any fail, it returns false."
+  },
+  {
+    "id": 38,
+    "topic": "some_every",
+    "question": "Which checks if ANY product is out of stock?",
+    "options": [
+      "products.some(p => p.stock === 0)",
+      "products.every(p => p.stock === 0)",
+      "products.find(p => stock)",
+      "products.sort(p => p.stock)"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "some() is used when checking for at least one match."
+  },
+  {
+    "id": 39,
+    "topic": "some_every",
+    "question": "Which checks if ALL students passed?",
+    "options": [
+      "students.some(s => s.passed)",
+      "students.every(s => s.passed)",
+      "students.find(s => s.passed)",
+      "students.filter(s => s.passed)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "every() verifies all elements satisfy the condition."
+  },
+  {
+    "id": 40,
+    "topic": "some_every",
+    "question": "some() returns false when:",
+    "options": [
+      "At least one match exists",
+      "No elements satisfy the condition",
+      "The array is empty always",
+      "There are more than five elements"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() needs at least one true condition; otherwise it returns false."
+  },
+
+  {
+    "id": 41,
+    "topic": "chaining",
+    "question": "What does chaining array methods mean?",
+    "options": [
+      "Running multiple arrays at once",
+      "Calling methods one after another in sequence",
+      "Using loops inside arrays",
+      "Sorting multiple arrays"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Chaining means applying methods one after another, like filter().map()."
+  },
+  {
+    "id": 42,
+    "topic": "chaining",
+    "question": "Which is a correct method chain?",
+    "options": [
+      "arr.map.filter.reduce",
+      "arr.map().filter()",
+      "arr.map() + filter()",
+      "arr.map(filter())"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Each method must include parentheses to execute properly."
+  },
+  {
+    "id": 43,
+    "topic": "chaining",
+    "question": "Which chain extracts marks above 50?",
+    "options": [
+      "students.reduce().map()",
+      "students.map().filter()",
+      "students.filter(s => s.marks > 50).map(s => s.marks)",
+      "students.find().sort()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "First filter the objects, then map the marks."
+  },
+  {
+    "id": 44,
+    "topic": "chaining",
+    "question": "Which chain gets product names sorted alphabetically?",
+    "options": [
+      "products.map(p => p.name).sort()",
+      "products.sort().map()",
+      "products.filter().map().reduce()",
+      "products.find().sort()"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "map() extracts names, and sort() arranges them alphabetically."
+  },
+  {
+    "id": 45,
+    "topic": "chaining",
+    "question": "What does this chain return?\nproducts.filter(p => p.qty > 0).length",
+    "options": [
+      "A list of products",
+      "The number of products in stock",
+      "The total quantity",
+      "The highest quantity"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "filter() picks in-stock products, and length counts them."
+  },
+
+  {
+    "id": 46,
+    "topic": "nested_objects",
+    "question": "Which is a nested object example?",
+    "options": [
+      "{name: 'A'}",
+      "[1,2,3]",
+      "{student: {name: 'A', marks: 90}}",
+      "['A','B']"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "A nested object contains another object inside it."
+  },
+  {
+    "id": 47,
+    "topic": "nested_objects",
+    "question": "How do you access the city inside address?\nuser = { address: { city: 'Kolkata' }}",
+    "options": [
+      "user.city.address",
+      "user[address][city]",
+      "user.address.city",
+      "address.user.city"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "Dot notation allows drilling down inside nested objects."
+  },
+  {
+    "id": 48,
+    "topic": "nested_objects",
+    "question": "Which code gets all student cities?",
+    "options": [
+      "students.filter(city)",
+      "students.map(s => s.address.city)",
+      "students.reduce(city)",
+      "students.find(s => s.city)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "map() extracts a specific nested property from each object."
+  },
+  {
+    "id": 49,
+    "topic": "nested_objects",
+    "question": "Nested object arrays require:",
+    "options": [
+      "Multiple levels of dot notation",
+      "Only filter()",
+      "Only numeric indexes",
+      "A database connection"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Nested data must be accessed using multi-level dot notation."
+  },
+  {
+    "id": 50,
+    "topic": "nested_objects",
+    "question": "What does this return?\nstudents.map(s => s.marks.math)",
+    "options": [
+      "Math marks of each student",
+      "All marks objects",
+      "Undefined always",
+      "Only the highest mark"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "The chain accesses the nested marks.math value for each student."
+  },
+  {
+    "id": 51,
+    "topic": "reduce_basics",
+    "question": "What does reduce() generally produce?",
+    "options": [
+      "Always a number",
+      "A single output value",
+      "A filtered array",
+      "A mapped array"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "reduce() condenses the entire array into one final value."
+  },
+  {
+    "id": 52,
+    "topic": "reduce_basics",
+    "question": "Which reduce() callback structure is correct?",
+    "options": [
+      "(acc, cur) => acc + cur",
+      "(cur, acc) => cur + acc + next",
+      "(item) => sum(item)",
+      "() => total"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "The accumulator and current value are the basic arguments in reduce()."
+  },
+  {
+    "id": 53,
+    "topic": "reduce_basics",
+    "question": "What is the second argument of reduce() used for?",
+    "options": [
+      "Maximum value",
+      "Initial accumulator value",
+      "Array index",
+      "Stopping condition"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "You can set the starting value of the accumulator using the second argument."
+  },
+  {
+    "id": 54,
+    "topic": "reduce_basics",
+    "question": "What does this compute? prices.reduce((a, p) => a + p, 0)",
+    "options": [
+      "Average price",
+      "Total of all prices",
+      "Minimum price",
+      "Price count"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Adding each price to the accumulator results in a total."
+  },
+  {
+    "id": 55,
+    "topic": "reduce_basics",
+    "question": "Which reduce() example counts objects?",
+    "options": [
+      "arr.reduce(a => a + 1)",
+      "arr.reduce((a) => a + 1, 0)",
+      "arr.reduce((a, c) => a + 1, 0)",
+      "arr.reduce()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "For each element, add 1 to the accumulator to count entries."
+  },
+
+  {
+    "id": 56,
+    "topic": "reduce_grouping",
+    "question": "Grouping objects by category requires:",
+    "options": [
+      "filter() only",
+      "map() only",
+      "reduce() to accumulate items into groups",
+      "sort() before reduce()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "reduce() can accumulate values into grouped objects."
+  },
+  {
+    "id": 57,
+    "topic": "reduce_grouping",
+    "question": "Which returns total marks? students.reduce((a, s) => a + s.marks, 0)",
+    "options": ["Average marks", "Total marks", "Highest marks", "Failed count"],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Accumulator adds marks of each student."
+  },
+  {
+    "id": 58,
+    "topic": "reduce_grouping",
+    "question": "Which reduce() usage finds the highest value?",
+    "options": [
+      "reduce((a,c)=>c)",
+      "reduce((a,c)=>a>c?a:c)",
+      "reduce((a,c)=>a<c)",
+      "reduce((c)=>c)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Comparing accumulator and current value returns the max."
+  },
+  {
+    "id": 59,
+    "topic": "reduce_grouping",
+    "question": "What shape does reduce() often return when grouping?",
+    "options": ["A string", "A number", "An object of arrays", "A boolean"],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "Grouping produces an object where keys map to arrays of grouped items."
+  },
+  {
+    "id": 60,
+    "topic": "reduce_grouping",
+    "question": "Which is true about reduce()?",
+    "options": [
+      "It cannot process objects",
+      "It can transform arrays into ANY structure",
+      "It only works with numbers",
+      "It only works with strings"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "reduce() is the most flexible array method: it can output any shape."
+  },
+
+  {
+    "id": 61,
+    "topic": "find_objects",
+    "question": "find() stops searching when:",
+    "options": [
+      "Half the array is scanned",
+      "A matching element is found",
+      "The array is sorted",
+      "Never — it scans all elements"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "find() immediately stops once a match returns true."
+  },
+  {
+    "id": 62,
+    "topic": "find_objects",
+    "question": "Which is valid? Find product with price 100",
+    "options": [
+      "products.find(p => p.price == 100)",
+      "products.find(price === 100)",
+      "products.find(p.price === 100)",
+      "products.filter(p => p.price === 100)[1]"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Callback must receive object and return a condition."
+  },
+  {
+    "id": 63,
+    "topic": "find_objects",
+    "question": "find() returns undefined when:",
+    "options": [
+      "Multiple matches exist",
+      "No match exists",
+      "Array is sorted",
+      "Array contains numbers"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Undefined means no element satisfied the test."
+  },
+  {
+    "id": 64,
+    "topic": "findIndex_objects",
+    "question": "findIndex() is useful when you need:",
+    "options": [
+      "The full object",
+      "The number of objects",
+      "The position of the matching object",
+      "The object count"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "findIndex() provides the array index of a matched element."
+  },
+  {
+    "id": 65,
+    "topic": "findIndex_objects",
+    "question": "If findIndex() returns -1, it means:",
+    "options": [
+      "Array is empty",
+      "Array is sorted",
+      "No matching object found",
+      "The index is optional"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "-1 always means not found in findIndex()."
+  },
+
+  {
+    "id": 66,
+    "topic": "sort_objects",
+    "question": "Which sorts products by price descending?",
+    "options": [
+      "products.sort((a,b)=>a.price-b.price)",
+      "products.sort((a,b)=>b.price-a.price)",
+      "products.sort(price)",
+      "products.orderBy(price)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Subtracting a.price from b.price gives descending order."
+  },
+  {
+    "id": 67,
+    "topic": "sort_objects",
+    "question": "sort() without comparator:",
+    "options": [
+      "Sorts alphabetically",
+      "Sorts numerically",
+      "Sorts reverse",
+      "Crashes the program"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Default behavior converts values to strings and sorts alphabetically."
+  },
+  {
+    "id": 68,
+    "topic": "sort_objects",
+    "question": "Sorting strings should use:",
+    "options": [
+      "a.localeCompare(b)",
+      "a - b",
+      "b - a",
+      "sortAll()"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "localeCompare() handles alphabetical ordering correctly."
+  },
+  {
+    "id": 69,
+    "topic": "sort_objects",
+    "question": "sort() modifies:",
+    "options": [
+      "A copy of the array",
+      "The original array",
+      "Only strings",
+      "Only numbers"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "sort() mutates the original array directly."
+  },
+  {
+    "id": 70,
+    "topic": "sort_objects",
+    "question": "Sorting user objects by name:",
+    "options": [
+      "users.sort((a,b)=>a.localeCompare(b))",
+      "users.sort((a,b)=>a.name.localeCompare(b.name))",
+      "users.sort(name)",
+      "users.sort((a)=>a.name)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Use localeCompare() to compare string values."
+  },
+
+  {
+    "id": 71,
+    "topic": "some_every",
+    "question": "some() is mainly used to:",
+    "options": [
+      "Check ALL elements",
+      "Check if ANY element satisfies a condition",
+      "Sort elements",
+      "Modify objects"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() returns true if at least one element matches."
+  },
+  {
+    "id": 72,
+    "topic": "some_every",
+    "question": "every() returns false when:",
+    "options": [
+      "All conditions are true",
+      "One element does not satisfy the condition",
+      "Array is sorted",
+      "Array is empty"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "every() needs every element to pass; one failure returns false."
+  },
+  {
+    "id": 73,
+    "topic": "some_every",
+    "question": "Check if ANY student scored above 90:",
+    "options": [
+      "students.every(s=>s.score>90)",
+      "students.some(s=>s.score>90)",
+      "students.findIndex(score>90)",
+      "students.map(score)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() checks at least one match."
+  },
+  {
+    "id": 74,
+    "topic": "some_every",
+    "question": "Check if ALL products are in stock:",
+    "options": [
+      "products.some(p=>p.stock>0)",
+      "products.every(p=>p.stock>0)",
+      "products.map(p=>p.stock)",
+      "products.sort()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "every() ensures all items meet the condition."
+  },
+  {
+    "id": 75,
+    "topic": "some_every",
+    "question": "some() returns false when:",
+    "options": [
+      "There is at least one matching element",
+      "No elements match the condition",
+      "Array has objects",
+      "Array is sorted"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() needs one match; zero matches = false."
+  },
+
+  {
+    "id": 76,
+    "topic": "chaining",
+    "question": "Which chain gets names of students who passed?",
+    "options": [
+      "students.filter().sort()",
+      "students.map().filter()",
+      "students.filter(s=>s.pass).map(s=>s.name)",
+      "students.find().map()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "Filter first, then map the resulting objects."
+  },
+  {
+    "id": 77,
+    "topic": "chaining",
+    "question": "Which is an example of method chaining?",
+    "options": [
+      "arr.map().filter().reduce()",
+      "arr + filter + reduce",
+      "arr.filter; arr.map",
+      "arr.map() + arr.reduce()"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Chaining means calling methods one after another."
+  },
+  {
+    "id": 78,
+    "topic": "chaining",
+    "question": "What does filter().length give?",
+    "options": [
+      "Filtered array",
+      "Number of matched items",
+      "Maximum value",
+      "Unique values only"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "length gives count of filtered elements."
+  },
+  {
+    "id": 79,
+    "topic": "chaining",
+    "question": "map().filter() means:",
+    "options": [
+      "Filter first, then map",
+      "Map first, then filter",
+      "Both run together",
+      "Neither runs"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Order matters: map() transforms first, then filter evaluates transformed items."
+  },
+  {
+    "id": 80,
+    "topic": "chaining",
+    "question": "Which chain gets product prices above 100?",
+    "options": [
+      "products.map(p=>p.price).filter(pr=>pr>100)",
+      "products.filter(p=>p.price).map()",
+      "products.sort().map()",
+      "products.find().price"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "First extract prices, then filter by numeric condition."
+  },
+
+  {
+    "id": 81,
+    "topic": "nested_objects",
+    "question": "Accessing nested marks: student.marks.math",
+    "options": [
+      "Is correct",
+      "Is wrong syntax",
+      "Requires find()",
+      "Requires map()"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Dot notation works for nested objects."
+  },
+  {
+    "id": 82,
+    "topic": "nested_objects",
+    "question": "Which retrieves department of an employee?",
+    "options": [
+      "emp['department']",
+      "emp.department",
+      "Both A and B",
+      "Neither"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "Both dot and bracket notations work."
+  },
+  {
+    "id": 83,
+    "topic": "nested_objects",
+    "question": "Which extracts all employee cities?",
+    "options": [
+      "employees.find(city)",
+      "employees.map(e=>e.address.city)",
+      "employees.reduce(city)",
+      "employees.some(city)"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "map() collects a specific nested property."
+  },
+  {
+    "id": 84,
+    "topic": "nested_objects",
+    "question": "Nested arrays inside objects require:",
+    "options": [
+      "Looping or array methods",
+      "Special syntax",
+      "Sorting only",
+      "findIndex()"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Nested arrays can use standard array methods."
+  },
+  {
+    "id": 85,
+    "topic": "nested_objects",
+    "question": "Which access is correct?\ncompany.teams[0].lead",
+    "options": [
+      "Correct",
+      "Incorrect",
+      "Only works with filter",
+      "Only works with map"
+    ],
+    "answerIndex": 0,
+    "level": "beginner",
+    "explanation": "Indexing arrays inside objects is standard syntax."
+  },
+
+  {
+    "id": 86,
+    "topic": "real_world",
+    "question": "A dataset of students is best represented as:",
+    "options": [
+      "A number",
+      "An array of objects",
+      "A boolean",
+      "A string list"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Each student has multiple properties; object form fits best."
+  },
+  {
+    "id": 87,
+    "topic": "real_world",
+    "question": "Which field is typical inside a product object?",
+    "options": [
+      "marks",
+      "price",
+      "city",
+      "grade"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Products usually contain pricing information."
+  },
+  {
+    "id": 88,
+    "topic": "real_world",
+    "question": "Which field fits a task object?",
+    "options": [
+      "marks",
+      "completed",
+      "price",
+      "city"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Tasks typically track completion state."
+  },
+  {
+    "id": 89,
+    "topic": "real_world",
+    "question": "Real-world datasets often require:",
+    "options": [
+      "Loops only",
+      "Multiple array methods",
+      "Only sort()",
+      "Only numbers"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Real-world structures often need map, filter, reduce combos."
+  },
+  {
+    "id": 90,
+    "topic": "real_world",
+    "question": "Which method helps extract a list of all product names?",
+    "options": [
+      "filter()",
+      "map()",
+      "some()",
+      "reduce()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "map() is used to extract one property from each object."
+  },
+
+  {
+    "id": 91,
+    "topic": "real_world",
+    "question": "Filtering expensive items uses:",
+    "options": [
+      "sort()",
+      "find()",
+      "filter()",
+      "map()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "filter() keeps only values meeting the price criteria."
+  },
+  {
+    "id": 92,
+    "topic": "real_world",
+    "question": "Sorting tasks by priority uses:",
+    "options": [
+      "reduce()",
+      "sort()",
+      "map()",
+      "filter()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "sort() arranges objects based on a chosen field."
+  },
+  {
+    "id": 93,
+    "topic": "real_world",
+    "question": "Finding first overdue task uses:",
+    "options": [
+      "map()",
+      "filter()",
+      "find()",
+      "sort()"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "find() locates the first matching object."
+  },
+  {
+    "id": 94,
+    "topic": "real_world",
+    "question": "Which gives number of completed tasks?",
+    "options": [
+      "tasks.map",
+      "tasks.filter(t=>t.done).length",
+      "tasks.find(t=>t.done)",
+      "tasks.sort()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Filtering completed tasks then counting gives the total."
+  },
+  {
+    "id": 95,
+    "topic": "real_world",
+    "question": "Summing total sales from products uses:",
+    "options": [
+      "map()",
+      "reduce()",
+      "some()",
+      "every()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "reduce() can accumulate values like total sales."
+  },
+  {
+    "id": 96,
+    "topic": "real_world",
+    "question": "Checking if ANY course is free uses:",
+    "options": [
+      "every()",
+      "some()",
+      "map()",
+      "sort()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "some() checks if at least one meets the condition."
+  },
+  {
+    "id": 97,
+    "topic": "real_world",
+    "question": "Checking if ALL users verified their email uses:",
+    "options": [
+      "some()",
+      "every()",
+      "filter()",
+      "reduce()"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "every() ensures all users satisfy the verification condition."
+  },
+  {
+    "id": 98,
+    "topic": "real_world",
+    "question": "Extracting a list of course titles uses:",
+    "options": ["filter()", "map()", "find()", "some()"],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "map() is ideal for pulling out one field from many objects."
+  },
+  {
+    "id": 99,
+    "topic": "real_world",
+    "question": "Which method finds duplicate products?",
+    "options": [
+      "sort() only",
+      "filter() with indexOf comparison",
+      "map() only",
+      "reduce() only"
+    ],
+    "answerIndex": 1,
+    "level": "beginner",
+    "explanation": "Duplicate detection uses filter() along with indexOf."
+  },
+  {
+    "id": 100,
+    "topic": "real_world",
+    "question": "A real-world dataset usually contains:",
+    "options": [
+      "Only numbers",
+      "Only strings",
+      "Objects with multiple properties",
+      "Only arrays"
+    ],
+    "answerIndex": 2,
+    "level": "beginner",
+    "explanation": "Real-world datasets store mixed information inside objects."
+  },
+  {
+    "id": 101,
+    "topic": "arrays_of_objects",
+    "question": "Given an array of students, which method retrieves only objects where age is above 18 and name starts with 'R'?",
+    "options": [
+      "students.map(s => s.age > 18 && s.name.startsWith('R'))",
+      "students.filter(s => s.age > 18 && s.name.startsWith('R'))",
+      "students.find(s => s.age > 18 && s.name.startsWith('R'))",
+      "students.reduce(s => s.age > 18)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "filter() is required when retrieving multiple objects that satisfy multiple conditions."
+  },
+  {
+    "id": 102,
+    "topic": "arrays_of_objects",
+    "question": "Which expression counts how many products cost more than 500?",
+    "options": [
+      "products.filter(p => p.price > 500).length",
+      "products.map(p => p.price > 500).length",
+      "products.findIndex(p => p.price > 500)",
+      "products.some(p => p.price > 500)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "filter() returns only matching products; length gives the count."
+  },
+  {
+    "id": 103,
+    "topic": "map_objects",
+    "question": "Which map() transformation returns an array of objects containing only name and marks?",
+    "options": [
+      "students.map(s => s.name, s.marks)",
+      "students.map(s => [s.name, s.marks])",
+      "students.map(s => ({ name: s.name, marks: s.marks }))",
+      "students.map(name => marks)"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "Returning a new object literal must be wrapped in parentheses inside map()."
+  },
+  {
+    "id": 104,
+    "topic": "map_objects",
+    "question": "What does this return?\ncourses.map(c => c.modules.length)",
+    "options": [
+      "Names of modules",
+      "Number of modules in each course",
+      "All modules flattened",
+      "Error: map cannot access nested arrays"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Each object's nested array length is returned as a number."
+  },
+  {
+    "id": 105,
+    "topic": "map_objects",
+    "question": "Which map() call increases every product price by 10%?",
+    "options": [
+      "products.map(p => p.price * 1.1)",
+      "products.map(p => p.price = p.price * 1.1)",
+      "products.map(price => price * 1.1)",
+      "products.map(1.1 * price)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Return a transformed value; avoid mutating original objects directly."
+  },
+
+  {
+    "id": 106,
+    "topic": "filter_objects",
+    "question": "Which filter keeps customers whose city is 'Kolkata' OR 'Delhi'?",
+    "options": [
+      "cust.filter(c => c.city === 'Kolkata' && 'Delhi')",
+      "cust.filter(c => ['Kolkata','Delhi'].includes(c.city))",
+      "cust.filter(c => c.city == 'Kolkata' || 'Delhi')",
+      "cust.filter('Kolkata','Delhi')"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "includes() checks for multiple matching values cleanly."
+  },
+  {
+    "id": 107,
+    "topic": "filter_objects",
+    "question": "To filter tasks due before today and not completed, which is correct?",
+    "options": [
+      "tasks.filter(t => t.due < today && !t.done)",
+      "tasks.find(t => t.due < today && !t.done)",
+      "tasks.map(t => t.done)",
+      "tasks.reduce(t => t.done === false)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "filter() retrieves all matching incomplete & overdue tasks."
+  },
+  {
+    "id": 108,
+    "topic": "filter_objects",
+    "question": "Which filter removes objects that have missing email property?",
+    "options": [
+      "users.filter(u => u.email)",
+      "users.filter(u => !u.email)",
+      "users.filter(email)",
+      "users.filter(u => u.email == false)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "If email exists and is truthy, user is included."
+  },
+  {
+    "id": 109,
+    "topic": "filter_objects",
+    "question": "Filtering nested conditions correctly requires:",
+    "options": [
+      "Checking all nested properties explicitly",
+      "Using only map()",
+      "Using findIndex() first",
+      "Sorting before filtering"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "You must drill into nested structures using dot notation."
+  },
+  {
+    "id": 110,
+    "topic": "filter_objects",
+    "question": "Which keeps only employees whose salary is between 30k and 60k?",
+    "options": [
+      "emp.filter(e => e.salary > 30 && e.salary < 60)",
+      "emp.filter(e => 30000 <= e.salary && e.salary <= 60000)",
+      "emp.filter(e.salary > '30000')",
+      "emp.filter(30000,60000)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Use range conditions combined with &&."
+  },
+
+  {
+    "id": 111,
+    "topic": "reduce_objects",
+    "question": "Which reduce() groups products by category?",
+    "options": [
+      "products.reduce((a,p)=>{a[p.category]=a[p.category]||[];a[p.category].push(p);return a;},{})",
+      "products.reduce(category)",
+      "products.map(category)",
+      "products.filter(category)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "This is the standard pattern for grouping into an object of arrays."
+  },
+  {
+    "id": 112,
+    "topic": "reduce_objects",
+    "question": "Which reduce() creates a frequency count of marks?",
+    "options": [
+      "marks.reduce((a,m)=>a[m]++,{})",
+      "marks.reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{})",
+      "marks.map(m=>m)",
+      "marks.filter(m=>m)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Use accumulator object with increment logic."
+  },
+  {
+    "id": 113,
+    "topic": "reduce_objects",
+    "question": "What does reduce() return when initial value is an empty array?",
+    "options": [
+      "Always an object",
+      "Always a number",
+      "The final accumulated array",
+      "undefined"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "The accumulator dictates the output type."
+  },
+  {
+    "id": 114,
+    "topic": "reduce_objects",
+    "question": "Which reduce() flattens nested arrays?",
+    "options": [
+      "arr.reduce((a,c)=>a+c)",
+      "arr.reduce((a,c)=>a.concat(c),[])",
+      "arr.map(c=>c.concat())",
+      "arr.filter(c=>c.length)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Concatenating each subarray into accumulator flattens the structure."
+  },
+  {
+    "id": 115,
+    "topic": "reduce_objects",
+    "question": "Which reduce() calculates average marks?",
+    "options": [
+      "marks.reduce((a,c)=>a+c,0)/marks.length",
+      "marks.reduce((a,c)=>a/c)",
+      "marks.map(c=>c)/2",
+      "marks.find(c=>c)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Sum the marks then divide by count."
+  },
+
+  {
+    "id": 116,
+    "topic": "find_objects",
+    "question": "Which find() retrieves the first user with role 'admin'?",
+    "options": [
+      "users.filter(u => u.role === 'admin')[0]",
+      "users.find(u => u.role === 'admin')",
+      "users.some(u => u.role === 'admin')",
+      "users.sort(u=>u.role)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "find() is meant for retrieving the first match directly."
+  },
+  {
+    "id": 117,
+    "topic": "find_objects",
+    "question": "find() is most appropriate when:",
+    "options": [
+      "You need all matching elements",
+      "You need sorted results",
+      "You need only the first matching object",
+      "You need to count matches"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "find() stops as soon as one match is found."
+  },
+  {
+    "id": 118,
+    "topic": "findIndex_objects",
+    "question": "Which findIndex locates first overdue task?",
+    "options": [
+      "tasks.findIndex(t => t.completed)",
+      "tasks.findIndex(t => t.due < today)",
+      "tasks.find(t => t.due < today)",
+      "tasks.filter(t => t.due < today)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "findIndex() returns the array position."
+  },
+  {
+    "id": 119,
+    "topic": "findIndex_objects",
+    "question": "findIndex() is useful when:",
+    "options": [
+      "You must update or remove the found item",
+      "You only need to read values",
+      "You want to duplicate elements",
+      "You want a reverse lookup"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Index access is needed for modifications."
+  },
+  {
+    "id": 120,
+    "topic": "findIndex_objects",
+    "question": "What does findIndex() return if array is empty?",
+    "options": ["0", "-1", "undefined", "null"],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Empty array automatically results in no match → returns -1."
+  },
+
+  {
+    "id": 121,
+    "topic": "sort_objects",
+    "question": "Which sort arranges students by marks, lowest to highest?",
+    "options": [
+      "students.sort((a,b)=>b.marks-a.marks)",
+      "students.sort((a,b)=>a.marks-b.marks)",
+      "students.sort(marks)",
+      "students.sort()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Ascending order subtracts a.marks from b.marks."
+  },
+  {
+    "id": 122,
+    "topic": "sort_objects",
+    "question": "Sorting strings by length uses:",
+    "options": [
+      "arr.sort((a,b)=>a.length-b.length)",
+      "arr.sort((a,b)=>a.localeCompare(b))",
+      "arr.sort(length)",
+      "arr.sort((a)=>a.length)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Comparing lengths directly sorts by string length."
+  },
+  {
+    "id": 123,
+    "topic": "sort_objects",
+    "question": "Why is sort() dangerous for state management?",
+    "options": [
+      "It reverses arrays",
+      "It is slow",
+      "It mutates the original array",
+      "It cannot sort nested objects"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "Mutation can cause unintended UI updates or bugs."
+  },
+  {
+    "id": 124,
+    "topic": "sort_objects",
+    "question": "Which sort keeps objects alphabetically by city?",
+    "options": [
+      "emp.sort((a,b)=>a.city.localeCompare(b.city))",
+      "emp.sort(city)",
+      "emp.sort((a,b)=>a.city-b.city)",
+      "emp.sort((a)=>a.city)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "localeCompare() sorts strings correctly."
+  },
+  {
+    "id": 125,
+    "topic": "sort_objects",
+    "question": "Sorting by date requires:",
+    "options": [
+      "Direct subtraction if dates are Date objects",
+      "Sorting by string",
+      "Using filter() first",
+      "Using findIndex()"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Date objects can be compared numerically."
+  },
+
+  {
+    "id": 126,
+    "topic": "some_every",
+    "question": "Which checks if ALL items have price > 100?",
+    "options": [
+      "items.some(i => i.price > 100)",
+      "items.every(i => i.price > 100)",
+      "items.filter(i=>i.price>100)",
+      "items.map(i=>i.price)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "every() ensures the condition is true for all elements."
+  },
+  {
+    "id": 127,
+    "topic": "some_every",
+    "question": "Which returns true if ANY student failed?",
+    "options": [
+      "students.every(s=>s.pass)",
+      "students.some(s=>!s.pass)",
+      "students.find(s=>s.pass)",
+      "students.filter(s=>s.pass).length"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() returns true if at least one student did not pass."
+  },
+  {
+    "id": 128,
+    "topic": "some_every",
+    "question": "Which condition makes every() return false?",
+    "options": [
+      "All items satisfy the test",
+      "At least one item fails the test",
+      "Array is empty",
+      "Array contains objects"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "A single false condition breaks every()."
+  },
+  {
+    "id": 129,
+    "topic": "some_every",
+    "question": "some() returns true when:",
+    "options": [
+      "All elements match",
+      "At least one element matches",
+      "No element matches",
+      "Array is sorted"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() requires only one success."
+  },
+  {
+    "id": 130,
+    "topic": "some_every",
+    "question": "Which is correct for validating all users verified email?",
+    "options": [
+      "users.some(u=>u.verified)",
+      "users.every(u=>u.verified)",
+      "users.find(u=>u.verified)",
+      "users.map(u=>u.verified)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "every() ensures all users satisfy the condition."
+  },
+
+  {
+    "id": 131,
+    "topic": "chaining",
+    "question": "Which chain finds total marks of students who passed?",
+    "options": [
+      "students.map(s=>s.marks).reduce(sum)",
+      "students.filter(s=>s.pass).reduce((a,s)=>a+s.marks,0)",
+      "students.find(s=>s.pass).marks",
+      "students.sort().filter().map()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter first, then reduce over the filtered list."
+  },
+  {
+    "id": 132,
+    "topic": "chaining",
+    "question": "Which chain returns uppercase names of female employees?",
+    "options": [
+      "emp.filter(e=>e.gender=='F').map(e=>e.name.toUpperCase())",
+      "emp.map(e=>e.gender=='F').map(e=>e.name)",
+      "emp.find(e=>e.gender=='F').name",
+      "emp.sort().filter()"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Filter by gender, then map transformation."
+  },
+  {
+    "id": 133,
+    "topic": "chaining",
+    "question": "Chaining map → filter may fail when:",
+    "options": [
+      "The map output is not suitable for the filter condition",
+      "Arrays are small",
+      "Filter always returns true",
+      "Sort isn't used"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "If map returns unexpected structures, filter logic breaks."
+  },
+  {
+    "id": 134,
+    "topic": "chaining",
+    "question": "Which chain retrieves names of products costing above 1000?",
+    "options": [
+      "products.map(p=>p.name).filter(name=>name.price>1000)",
+      "products.filter(p=>p.price>1000).map(p=>p.name)",
+      "products.find(p=>p.price>1000).name",
+      "products.sort().map()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter objects first, then extract names."
+  },
+  {
+    "id": 135,
+    "topic": "chaining",
+    "question": "What does filter().map().length evaluate to?",
+    "options": [
+      "Filtered array",
+      "Number of items after mapping",
+      "Sorted length",
+      "Largest number"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "The final result is the mapped array’s count."
+  },
+
+  {
+    "id": 136,
+    "topic": "nested_objects",
+    "question": "Which retrieves math marks from nested object?",
+    "options": [
+      "s.math.marks",
+      "s.marks.math",
+      "s['math']['marks']",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "level": "moderate",
+    "explanation": "Nested values can be accessed using dot or bracket notation."
+  },
+  {
+    "id": 137,
+    "topic": "nested_objects",
+    "question": "Which extracts cities of all customers using nested objects?",
+    "options": [
+      "cust.map(c => c.address.city)",
+      "cust.filter(c => c.address.city)",
+      "cust.find(c => c.address.city)",
+      "cust.some(c => c.address.city)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "map() retrieves a field from each object."
+  },
+  {
+    "id": 138,
+    "topic": "nested_objects",
+    "question": "Which filter finds employees working in the 'IT' department?",
+    "options": [
+      "emp.map(e=>e.dept=='IT')",
+      "emp.filter(e=>e.dept.name==='IT')",
+      "emp.some(e=>e.dept=='IT')",
+      "emp.findIndex(e=>e.dept)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter must evaluate nested property correctly."
+  },
+  {
+    "id": 139,
+    "topic": "nested_objects",
+    "question": "Nested arrays require which technique to extract all skills?",
+    "options": [
+      "Flat map using reduce",
+      "Sorting first",
+      "Using some()",
+      "Using findIndex()"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Nested arrays can be flattened using reduce + concat."
+  },
+  {
+    "id": 140,
+    "topic": "nested_objects",
+    "question": "Deeply nested accesses can be made safe using:",
+    "options": [
+      "optional chaining: obj?.address?.city",
+      "map()",
+      "filter()",
+      "reduce()"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Optional chaining prevents errors if properties are missing."
+  },
+
+  {
+    "id": 141,
+    "topic": "real_world",
+    "question": "A real dataset with orders likely contains:",
+    "options": [
+      "Only numbers",
+      "Objects with nested customer & item fields",
+      "A flat number array",
+      "Single string"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Real orders include multiple fields and nested objects."
+  },
+  {
+    "id": 142,
+    "topic": "real_world",
+    "question": "To find top-selling product, which combination is correct?",
+    "options": [
+      "map() then find()",
+      "reduce() to compute max",
+      "some() then every()",
+      "sort() then sort() again"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "reduce() can compute maximum values in datasets."
+  },
+  {
+    "id": 143,
+    "topic": "real_world",
+    "question": "Extracting total revenue from orders uses:",
+    "options": [
+      "filter()",
+      "findIndex()",
+      "reduce()",
+      "some()"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "reduce() accumulates total numeric values."
+  },
+  {
+    "id": 144,
+    "topic": "real_world",
+    "question": "Which chain finds names of customers who bought more than 3 items?",
+    "options": [
+      "cust.filter(c=>c.qty>3).map(c=>c.name)",
+      "cust.map(c=>c.qty).filter(c=>c>3)",
+      "cust.find(c=>c.qty>3)",
+      "cust.sort(c=>c.qty)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Filter customers first, then extract names."
+  },
+  {
+    "id": 145,
+    "topic": "real_world",
+    "question": "Which method finds all duplicate email addresses in users?",
+    "options": [
+      "filter() with indexOf comparison",
+      "sort() only",
+      "map() only",
+      "some()"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Common pattern: arr.filter((v,i)=>arr.indexOf(v)!==i)."
+  },
+
+  {
+    "id": 146,
+    "topic": "real_world",
+    "question": "To create a summary report of all categories and their item count, use:",
+    "options": [
+      "map()",
+      "filter()",
+      "reduce()",
+      "find()"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "reduce() can build aggregation structures."
+  },
+  {
+    "id": 147,
+    "topic": "real_world",
+    "question": "Which is best for validating if ALL courses have at least one module?",
+    "options": [
+      "some(c=>c.modules.length>0)",
+      "every(c=>c.modules.length>0)",
+      "filter(c=>c.modules)",
+      "reduce(c=>c.modules.length)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "every() ensures complete validation."
+  },
+  {
+    "id": 148,
+    "topic": "real_world",
+    "question": "Finding the most expensive order uses:",
+    "options": [
+      "map()",
+      "filter()",
+      "reduce((a,c)=>a.total>c.total?a:c)",
+      "find()"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "reduce() can determine maximum or minimum values."
+  },
+  {
+    "id": 149,
+    "topic": "real_world",
+    "question": "To extract all customer names in alphabetical order:",
+    "options": [
+      "cust.map(c=>c.name).sort()",
+      "cust.sort(c=>c.name)",
+      "cust.some(c=>c.name)",
+      "cust.reduce(c=>c.name)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "map() extracts names; sort() arranges them alphabetically."
+  },
+  {
+    "id": 150,
+    "topic": "real_world",
+    "question": "To calculate monthly revenue by grouping orders by month, use:",
+    "options": [
+      "filter() then map()",
+      "reduce() with object grouping",
+      "some() then every()",
+      "find() then sort()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "reduce() can accumulate totals for each month using grouped keys."
+  },
+  {
+    "id": 151,
+    "topic": "arrays_of_objects",
+    "question": "Which ensures each product object is cloned before modification?",
+    "options": [
+      "products.map(p => p)",
+      "products.map(p => ({ ...p }))",
+      "products.filter(p => p)",
+      "products.reduce(p => p)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Using the spread operator creates a shallow copy, preventing mutation of original objects."
+  },
+  {
+    "id": 152,
+    "topic": "arrays_of_objects",
+    "question": "Which retrieves an array of roll numbers from a student array?",
+    "options": [
+      "students.map(s => s.roll)",
+      "students.filter(s => s.roll)",
+      "students.find(s => s.roll)",
+      "students.reduce(s => s.roll)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "map() extracts specific fields from objects to form a new array."
+  },
+  {
+    "id": 153,
+    "topic": "arrays_of_objects",
+    "question": "Which approach avoids modifying the original array when adding a property?",
+    "options": [
+      "students.map(s => ({ ...s, grade: 'A' }))",
+      "students.map(s => s.grade = 'A')",
+      "students.find(s => s.grade = 'A')",
+      "students.filter(s => s.grade === 'A')"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Always return new objects to avoid mutating the array."
+  },
+
+  {
+    "id": 154,
+    "topic": "map_objects",
+    "question": "Which map() call converts all employee names to lowercase?",
+    "options": [
+      "emp.map(e => e.toLowerCase())",
+      "emp.map(e => e.name.toLowerCase())",
+      "emp.map(name => name)",
+      "emp.filter(e => e.name)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "You must access the name field before applying string methods."
+  },
+  {
+    "id": 155,
+    "topic": "map_objects",
+    "question": "Which returns original objects with an added 'passed' boolean?",
+    "options": [
+      "students.map(s => s.passed = true)",
+      "students.map(s => ({ ...s, passed: s.marks >= 40 }))",
+      "students.map(s => [s.name, s.marks])",
+      "students.filter(s => s.marks > 40)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Returning a new object with spread ensures non-destructive transformation."
+  },
+  {
+    "id": 156,
+    "topic": "map_objects",
+    "question": "Which transformation extracts fullName from nested fields?",
+    "options": [
+      "users.map(u => u.first + u.last)",
+      "users.map(u => `${u.first} ${u.last}`)",
+      "users.map(u => u.name)",
+      "users.find(u => u.first)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Template literals are commonly used for constructing string fields."
+  },
+
+  {
+    "id": 157,
+    "topic": "filter_objects",
+    "question": "Which filter selects orders with total >= 1000 and status 'paid'?",
+    "options": [
+      "orders.filter(o => o.total >= 1000 && o.status === 'paid')",
+      "orders.find(o => o.total >= 1000 && o.status === 'paid')",
+      "orders.some(o => o.total >= 1000)",
+      "orders.map(o => o.total)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "filter() returns all objects matching multiple conditions."
+  },
+  {
+    "id": 158,
+    "topic": "filter_objects",
+    "question": "Which filter removes null or undefined values?",
+    "options": [
+      "arr.filter(v => v != null)",
+      "arr.map(v => v !== null)",
+      "arr.find(v => v)",
+      "arr.sort(v => v)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "!= null removes both null and undefined values."
+  },
+  {
+    "id": 159,
+    "topic": "filter_objects",
+    "question": "Which keeps products whose stock is between 50 and 200?",
+    "options": [
+      "prod.filter(p => p.stock > 50 || p.stock < 200)",
+      "prod.filter(p => p.stock >= 50 && p.stock <= 200)",
+      "prod.filter(p => p.stock <= 50 && p.stock >= 200)",
+      "prod.filter(p => p.stock)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Use range AND condition for limits."
+  },
+
+  {
+    "id": 160,
+    "topic": "filter_objects",
+    "question": "Which is the correct way to filter nested status value?",
+    "options": [
+      "orders.filter(o => o.status.paid)",
+      "orders.filter(o => o.status === 'paid')",
+      "orders.filter(o => o['status'] === 'paid')",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "level": "moderate",
+    "explanation": "Dot and bracket notation both correctly access string property."
+  },
+
+  {
+    "id": 161,
+    "topic": "reduce_objects",
+    "question": "Which reduce() computes total quantity of all cart items?",
+    "options": [
+      "cart.map(i => i.qty)",
+      "cart.reduce((a,i)=>a+i.qty,0)",
+      "cart.filter(i => i.qty)",
+      "cart.find(i => i.qty)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Sum values using accumulator pattern."
+  },
+  {
+    "id": 162,
+    "topic": "reduce_objects",
+    "question": "Which reduces students by highest marks?",
+    "options": [
+      "students.reduce((a,c)=>a.marks>c.marks ? a : c)",
+      "students.filter(s=>s.marks)",
+      "students.find(s=>s.marks)",
+      "students.reduce((a,c)=>a+c)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Use conditional inside reduce for max/min operations."
+  },
+  {
+    "id": 163,
+    "topic": "reduce_objects",
+    "question": "What happens if reduce has no initial value and array is empty?",
+    "options": [
+      "Returns 0",
+      "Returns undefined",
+      "Throws an error",
+      "Returns empty array"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "Calling reduce() on an empty array without initial value throws an exception."
+  },
+
+  {
+    "id": 164,
+    "topic": "reduce_objects",
+    "question": "Which reduce builds an index of products by id?",
+    "options": [
+      "prod.map(p => p.id)",
+      "prod.reduce((a,p)=>{a[p.id]=p;return a;},{})",
+      "prod.filter(p=>p.id)",
+      "prod.sort(p=>p.id)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Accumulator object mapping IDs to objects creates a lookup dict."
+  },
+
+  {
+    "id": 165,
+    "topic": "reduce_objects",
+    "question": "Which is required for grouping items by category using reduce?",
+    "options": [
+      "An array as accumulator",
+      "A boolean accumulator",
+      "An object accumulator",
+      "No initial value"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "Grouping typically stores arrays under category keys inside an object."
+  },
+
+  {
+    "id": 166,
+    "topic": "find_objects",
+    "question": "Which find() locates the first employee with salary > 70000?",
+    "options": [
+      "emp.filter(e => e.salary > 70000)[0]",
+      "emp.find(e => e.salary > 70000)",
+      "emp.findIndex(e => e.salary > 70000)",
+      "emp.some(e => e.salary > 70000)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "find() stops scanning once the first match is found."
+  },
+  {
+    "id": 167,
+    "topic": "find_objects",
+    "question": "find() returns undefined when:",
+    "options": [
+      "Condition is true",
+      "Array is mutated",
+      "No element satisfies the condition",
+      "findIndex returns -1"
+    ],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "If no match is found, find() returns undefined."
+  },
+
+  {
+    "id": 168,
+    "topic": "findIndex_objects",
+    "question": "Which operation typically uses findIndex()?",
+    "options": [
+      "Replacing an object at specific position",
+      "Extracting names",
+      "Sorting objects alphabetically",
+      "Counting matching elements"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "findIndex() is ideal when you need positional access for updates."
+  },
+  {
+    "id": 169,
+    "topic": "findIndex_objects",
+    "question": "What does findIndex() return when match is found at first element?",
+    "options": ["1", "true", "0", "-1"],
+    "answerIndex": 2,
+    "level": "moderate",
+    "explanation": "Indexes begin from 0."
+  },
+
+  {
+    "id": 170,
+    "topic": "findIndex_objects",
+    "question": "Which is true about findIndex?",
+    "options": [
+      "It returns matching object",
+      "It returns position of match",
+      "It returns boolean",
+      "It sorts array before searching"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "findIndex() gives index number of the matching element."
+  },
+
+  {
+    "id": 171,
+    "topic": "sort_objects",
+    "question": "Which correctly sorts users by last name alphabetically?",
+    "options": [
+      "users.sort((a,b)=>a.last - b.last)",
+      "users.sort((a,b)=>a.last.localeCompare(b.last))",
+      "users.sort(lastname)",
+      "users.map(u=>u.last)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "localeCompare handles alphabetical string sorting."
+  },
+  {
+    "id": 172,
+    "topic": "sort_objects",
+    "question": "Why should you copy the array before sorting?",
+    "options": [
+      "sort() is expensive",
+      "sort() mutates the original array",
+      "sort() deletes properties",
+      "sort() breaks filter()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Mutation often breaks predictable rendering in UI frameworks like React."
+  },
+  {
+    "id": 173,
+    "topic": "sort_objects",
+    "question": "Which sorts events by increasing date?",
+    "options": [
+      "events.sort((a,b)=>a.date-b.date)",
+      "events.sort((a,b)=>a.date.localeCompare(b.date))",
+      "events.map(e=>e.date)",
+      "events.find(e=>e.date)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Date objects can be subtracted for numerical comparison."
+  },
+
+  {
+    "id": 174,
+    "topic": "sort_objects",
+    "question": "Sorting numbers using default sort() is incorrect because:",
+    "options": [
+      "It sorts alphabetically",
+      "It always reverses order",
+      "It removes duplicates",
+      "It converts numbers to objects"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Default sort treats elements as strings."
+  },
+
+  {
+    "id": 175,
+    "topic": "sort_objects",
+    "question": "Which sorts products by price descending?",
+    "options": [
+      "prod.sort((a,b)=>a.price-b.price)",
+      "prod.sort((a,b)=>b.price-a.price)",
+      "prod.sort(price)",
+      "prod.find(p=>p.price)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Descending sort subtracts a from b."
+  },
+
+  {
+    "id": 176,
+    "topic": "some_every",
+    "question": "Which checks if any order total is zero?",
+    "options": [
+      "orders.every(o=>o.total===0)",
+      "orders.some(o=>o.total===0)",
+      "orders.findIndex(o=>o.total===0)",
+      "orders.filter(o=>o.total===0)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() returns true if at least one match is found."
+  },
+
+  {
+    "id": 177,
+    "topic": "some_every",
+    "question": "Which checks that all items have a valid name?",
+    "options": [
+      "items.some(i=>i.name)",
+      "items.every(i=>i.name)",
+      "items.filter(i=>i.name)",
+      "items.map(i=>i.name)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "every() validates all records."
+  },
+
+  {
+    "id": 178,
+    "topic": "some_every",
+    "question": "some() returns false when:",
+    "options": [
+      "At least one element satisfies the condition",
+      "None of the elements satisfy the condition",
+      "Array contains strings",
+      "Array contains nested objects"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() requires at least one true condition."
+  },
+
+  {
+    "id": 179,
+    "topic": "some_every",
+    "question": "every() returns true when:",
+    "options": [
+      "All elements satisfy the test",
+      "No element satisfies the test",
+      "At least one satisfies the test",
+      "Array is sorted"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "every() must see all elements return true."
+  },
+
+  {
+    "id": 180,
+    "topic": "some_every",
+    "question": "Which validates if ANY student has marks > 95?",
+    "options": [
+      "students.every(s=>s.marks>95)",
+      "students.some(s=>s.marks>95)",
+      "students.filter(s=>s.marks>95).length===0",
+      "students.findIndex(s=>s.marks)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() checks for at least one exceptional performer."
+  },
+
+  {
+    "id": 181,
+    "topic": "chaining",
+    "question": "Which chain returns emails of users older than 30?",
+    "options": [
+      "users.map(u=>u.email).filter(u=>u.age>30)",
+      "users.filter(u=>u.age>30).map(u=>u.email)",
+      "users.find(u=>u.age>30).email",
+      "users.reduce(u=>u.email)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter first, then extract field with map()."
+  },
+  {
+    "id": 182,
+    "topic": "chaining",
+    "question": "Which chain counts high-value orders (>5000)?",
+    "options": [
+      "orders.find(o=>o.total>5000)",
+      "orders.filter(o=>o.total>5000).length",
+      "orders.some(o=>o.total>5000)",
+      "orders.map(o=>o.total)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter matches and length counts the filtered items."
+  },
+
+  {
+    "id": 183,
+    "topic": "chaining",
+    "question": "Which chain finds the total salary of all developers?",
+    "options": [
+      "emp.map(e=>e.salary).reduce((a,c)=>a+c,0)",
+      "emp.filter(e=>e.role==='dev').reduce((a,e)=>a+e.salary,0)",
+      "emp.find(e=>e.role==='dev').salary",
+      "emp.sort().reduce()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter for devs, then reduce over salary."
+  },
+
+  {
+    "id": 184,
+    "topic": "chaining",
+    "question": "Which pattern is best for generating summary reports?",
+    "options": [
+      "map → map → map",
+      "filter → map → reduce",
+      "reduce → reduce",
+      "find → some → sort"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "This is the classic transformation → selection → aggregation pattern."
+  },
+
+  {
+    "id": 185,
+    "topic": "chaining",
+    "question": "Which chaining operation can flatten nested arrays?",
+    "options": [
+      "reduce with concat inside",
+      "map only",
+      "filter only",
+      "find first"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "reduce((a,c)=>a.concat(c)) flattens nested lists."
+  },
+
+  {
+    "id": 186,
+    "topic": "nested_objects",
+    "question": "Which retrieves country name from nested address object?",
+    "options": [
+      "user.country.name",
+      "user.address.country",
+      "user.address['country']",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "level": "moderate",
+    "explanation": "Bracket and dot both can extract nested fields."
+  },
+  {
+    "id": 187,
+    "topic": "nested_objects",
+    "question": "Which filter returns employees with at least 3 skills?",
+    "options": [
+      "emp.map(e=>e.skills.length>=3)",
+      "emp.filter(e=>e.skills.length>=3)",
+      "emp.find(e=>e.skills.length>=3)",
+      "emp.sort().filter()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Filter retrieves multiple matching objects."
+  },
+
+  {
+    "id": 188,
+    "topic": "nested_objects",
+    "question": "Accessing deep nested properties safely requires:",
+    "options": [
+      "Try-catch only",
+      "Optional chaining (?.)",
+      "filter()",
+      "reduce()"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Optional chaining prevents TypeError when property is missing."
+  },
+
+  {
+    "id": 189,
+    "topic": "nested_objects",
+    "question": "Extracting all modules across courses uses:",
+    "options": [
+      "courses.reduce((a,c)=>a.concat(c.modules),[])",
+      "courses.map(c=>c.modules)",
+      "courses.find(c=>c.modules)",
+      "courses.filter(c=>c.modules)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "reduce + concat flattens nested arrays."
+  },
+
+  {
+    "id": 190,
+    "topic": "nested_objects",
+    "question": "Which retrieves marks from nested subject objects?",
+    "options": [
+      "s.subject.marks",
+      "s['subject']['marks']",
+      "s?.subject?.marks",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "level": "moderate",
+    "explanation": "All three patterns legally access nested fields, with ? for safe access."
+  },
+
+  {
+    "id": 191,
+    "topic": "real_world",
+    "question": "Real datasets often require cleaning because:",
+    "options": [
+      "They are already sorted",
+      "They may contain duplicates, nulls, or inconsistent values",
+      "They contain only numbers",
+      "They never contain nested structures"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Real-world data rarely comes perfectly clean."
+  },
+  {
+    "id": 192,
+    "topic": "real_world",
+    "question": "Most dashboards are built with which combination?",
+    "options": [
+      "find + findIndex",
+      "reduce + map + filter",
+      "some + every",
+      "sort + find"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "Dashboards depend on transformation, selection, and aggregation."
+  },
+  {
+    "id": 193,
+    "topic": "real_world",
+    "question": "Which identifies inactive users in a large dataset?",
+    "options": [
+      "users.filter(u=>!u.active)",
+      "users.find(u=>!u.active)",
+      "users.sort(u=>u.active)",
+      "users.reduce(u=>u.active)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "filter() retrieves all inactive accounts."
+  },
+
+  {
+    "id": 194,
+    "topic": "real_world",
+    "question": "To extract all unique product categories, use:",
+    "options": [
+      "new Set(products.map(p=>p.category))",
+      "products.sort()",
+      "products.find(p=>p.category)",
+      "products.every(p=>p.category)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Set removes duplicate category names."
+  },
+
+  {
+    "id": 195,
+    "topic": "real_world",
+    "question": "To compute average price from product list:",
+    "options": [
+      "prod.reduce((a,c)=>a+c.price)/prod.length",
+      "prod.map(p=>p.price)",
+      "prod.find(p=>p.price)",
+      "prod.some(p=>p.price)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Sum all prices then divide by number of products."
+  },
+
+  {
+    "id": 196,
+    "topic": "real_world",
+    "question": "Which detects any negative stock values?",
+    "options": [
+      "prod.every(p=>p.stock>=0)",
+      "prod.some(p=>p.stock<0)",
+      "prod.filter(p=>p.stock<0).length===0",
+      "prod.map(p=>p.stock)"
+    ],
+    "answerIndex": 1,
+    "level": "moderate",
+    "explanation": "some() efficiently detects any invalid values."
+  },
+
+  {
+    "id": 197,
+    "topic": "real_world",
+    "question": "Extracting all customer emails sorted alphabetically uses:",
+    "options": [
+      "cust.map(c=>c.email).sort()",
+      "cust.sort(c=>c.email)",
+      "cust.filter(c=>c.email)",
+      "cust.some(c=>c.email)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "map extracts emails; sort arranges them alphabetically."
+  },
+
+  {
+    "id": 198,
+    "topic": "real_world",
+    "question": "To compute total revenue per city:",
+    "options": [
+      "orders.reduce((a,o)=>{a[o.city]=(a[o.city]||0)+o.total;return a;},{})",
+      "orders.map(o=>o.city)",
+      "orders.sort(o=>o.city)",
+      "orders.find(o=>o.city)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "reduce builds grouped totals keyed by city name."
+  },
+
+  {
+    "id": 199,
+    "topic": "real_world",
+    "question": "Large datasets benefit from which approach?",
+    "options": [
+      "Chaining map → filter → reduce",
+      "Using find repeatedly",
+      "Sorting repeatedly",
+      "Mapping everything twice"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Chaining is efficient and expressive for pipeline-style transformations."
+  },
+
+  {
+    "id": 200,
+    "topic": "real_world",
+    "question": "Which detects customers who placed no orders?",
+    "options": [
+      "customers.filter(c=>c.orders.length===0)",
+      "customers.some(c=>c.orders.length===0)",
+      "customers.find(c=>c.orders.length===0)",
+      "customers.reduce(c=>c.orders)"
+    ],
+    "answerIndex": 0,
+    "level": "moderate",
+    "explanation": "Filtering returns all customers with empty order lists."
+  },
+   {
+    "id": 201,
+    "topic": "arrays_of_objects",
+    "question": "Which approach ensures a deep clone of an array of objects before mutation?",
+    "options": [
+      "const copy = [...arr]",
+      "const copy = arr.map(o => ({ ...o }))",
+      "const copy = JSON.parse(JSON.stringify(arr))",
+      "const copy = arr"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Spread and map create shallow copies, but JSON methods fully clone nested objects."
+  },
+  {
+    "id": 202,
+    "topic": "arrays_of_objects",
+    "question": "Which operation prevents unintended reference sharing when modifying nested arrays?",
+    "options": [
+      "arr.map(x => x)",
+      "arr.map(x => ({ ...x }))",
+      "structuredClone(arr)",
+      "arr.filter(x => x)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "structuredClone performs a true deep clone including nested arrays or objects."
+  },
+  {
+    "id": 203,
+    "topic": "arrays_of_objects",
+    "question": "Which is MOST efficient for transforming large datasets of objects?",
+    "options": [
+      "forEach with manual push",
+      "map with object spread",
+      "reduce with accumulation",
+      "map + JSON.parse(JSON.stringify())"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "map minimizes overhead and is optimized in JS engines; deep clone is expensive."
+  },
+  {
+    "id": 204,
+    "topic": "map_objects",
+    "question": "Which map() transformation preserves immutability and adds an index-based ID?",
+    "options": [
+      "arr.map((o,i) => (o.id = i))",
+      "arr.map((o,i) => ({ ...o, id: i }))",
+      "arr.map(o => o)",
+      "arr.find(o => o.id)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Returning a new object ensures the original array remains unchanged."
+  },
+  {
+    "id": 205,
+    "topic": "map_objects",
+    "question": "What is an advanced use-case of map() in real systems?",
+    "options": [
+      "Extracting subset of fields only",
+      "Applying style transformations",
+      "Normalizing inconsistent data structures",
+      "Joining two datasets"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Map is core to normalization pipelines like backend API transformation."
+  },
+  {
+    "id": 206,
+    "topic": "map_objects",
+    "question": "Which transformation flattens nested tags arrays into a single list per product?",
+    "options": [
+      "products.map(p => p.tags)",
+      "products.map(p => p.tags.join(','))",
+      "products.map(p => ({ ...p, tags: p.tags.flat() }))",
+      "products.map(p => p)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "flat() collapses nested arrays into a normalized single-level array."
+  },
+  {
+    "id": 207,
+    "topic": "filter_objects",
+    "question": "Which filter selects objects where ANY nested score exceeds 90?",
+    "options": [
+      "arr.filter(s => s.scores > 90)",
+      "arr.filter(s => s.scores.includes(90))",
+      "arr.filter(s => s.scores.some(x => x > 90))",
+      "arr.filter(s => s.scores.every(x => x > 90))"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "some() is correct for matching 'at least one' nested value."
+  },
+  {
+    "id": 208,
+    "topic": "filter_objects",
+    "question": "Which expression filters employees working in ANY of multiple departments?",
+    "options": [
+      "emp.filter(e => e.dept === ['IT','HR'])",
+      "emp.filter(e => ['IT','HR'].includes(e.dept))",
+      "emp.find(e => e.dept)",
+      "emp.some(e => e.dept)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "includes() checks membership in a known list of allowed values."
+  },
+  {
+    "id": 209,
+    "topic": "filter_objects",
+    "question": "Which filter removes ALL items with invalid nested structure?",
+    "options": [
+      "data.filter(d => d.profile)",
+      "data.filter(d => d.profile?.email)",
+      "data.filter(d => d.profile.email)",
+      "data.filter(d => Object.keys(d).length)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Optional chaining prevents errors when nested fields may not exist."
+  },
+  {
+    "id": 210,
+    "topic": "filter_objects",
+    "question": "Which filter selects users whose permissions include 'admin'?",
+    "options": [
+      "users.filter(u => u.permissions === 'admin')",
+      "users.filter(u => u.permissions.some(p => p === 'admin'))",
+      "users.find(u => u.permissions)",
+      "users.map(u => u.permissions)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "some() checks membership inside nested arrays of permissions."
+  },
+  {
+    "id": 211,
+    "topic": "reduce_objects",
+    "question": "Which reduce() pattern creates a lookup object keyed by id for O(1) access?",
+    "options": [
+      "arr.reduce((acc, item) => acc.concat(item), [])",
+      "arr.reduce((acc, item) => ({ ...acc, [item.id]: item }), {})",
+      "arr.reduce((acc, item) => acc + item.id, 0)",
+      "arr.reduce((acc, item) => acc[item.id], {})"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Building an object where each key is item.id gives O(1) access by id. The spread + computed property pattern is a common immutable way to build such a map."
+  },
+  {
+    "id": 212,
+    "topic": "reduce_objects",
+    "question": "You want to compute BOTH total marks and average marks in a single pass. Which is BEST?",
+    "options": [
+      "Use map() then reduce() twice",
+      "Use two separate reduce() calls",
+      "Use a single reduce() accumulating sum and count together",
+      "Use filter() then sort()"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "A single reduce that tracks sum and count allows you to calculate total and average in one linear pass, which is more efficient than multiple passes."
+  },
+  {
+    "id": 213,
+    "topic": "find_objects",
+    "question": "You need to find the FIRST order whose amount is greater than the customer's credit limit. Which is MOST appropriate?",
+    "options": [
+      "orders.filter(o => o.amount > o.customer.creditLimit)",
+      "orders.find(o => o.amount > o.customer.creditLimit)",
+      "orders.reduce((acc, o) => acc || o, null)",
+      "orders.some(o => o.amount > o.customer.creditLimit)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "find() returns the first matching element and stops scanning, which is ideal when you only need the first violating order, not all of them."
+  },
+  {
+    "id": 214,
+    "topic": "findIndex_objects",
+    "question": "Which scenario BEST justifies using findIndex() instead of find()?",
+    "options": [
+      "You only need to know whether at least one match exists",
+      "You want to remove the matching element using splice()",
+      "You want to clone every matching element",
+      "You want to validate that all elements are valid"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "findIndex() returns the position of the match, which is especially useful when you want to perform index-based operations like splice(), replace-in-place, or swapping."
+  },
+  {
+    "id": 215,
+    "topic": "sort_objects",
+    "question": "You need to sort students by 'grade' descending, then by 'name' ascending as a tiebreaker. Which comparator is correct?",
+    "options": [
+      "(a, b) => b.grade - a.grade || a.name.localeCompare(b.name)",
+      "(a, b) => a.grade - b.grade || b.name.localeCompare(a.name)",
+      "(a, b) => a.name.localeCompare(b.name) || b.grade - a.grade",
+      "(a, b) => b.grade - a.grade && a.name.localeCompare(b.name)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Using || lets you first compare grades (descending). If grades are equal (0), it falls through to comparing names (ascending) with localeCompare."
+  },
+  {
+    "id": 216,
+    "topic": "sort_objects",
+    "question": "Why is calling sort() directly on a shared array often dangerous in real-world apps (e.g. React state, Redux)?",
+    "options": [
+      "sort() is too slow for any dataset",
+      "sort() creates a deep clone automatically",
+      "sort() mutates the original array in place",
+      "sort() cannot sort objects reliably"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "sort() mutates the array in place. In state management or shared data scenarios, mutation can cause subtle bugs, stale views, and unpredictable behavior. Cloning before sorting is safer."
+  },
+  {
+    "id": 217,
+    "topic": "some_every",
+    "question": "You want to ensure that NO task is overdue. Each task has an isOverdue flag. Which expression is MOST direct?",
+    "options": [
+      "!tasks.some(t => t.isOverdue)",
+      "tasks.some(t => !t.isOverdue)",
+      "tasks.every(t => t.isOverdue)",
+      "!tasks.every(t => !t.isOverdue)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "If 'some' task is overdue, the condition fails. Using !tasks.some(t => t.isOverdue) directly expresses 'no tasks are overdue'."
+  },
+  {
+    "id": 218,
+    "topic": "some_every",
+    "question": "For form validation, you want to check that ALL required fields are non-empty AND at least ONE contact method (email or phone) is provided. Which combination is MOST suitable?",
+    "options": [
+      "every() for both checks",
+      "some() for both checks",
+      "every() for required fields + some() for contact methods",
+      "reduce() for both checks"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "every() fits \"all required fields are valid\". some() fits \"at least one contact method is present\". Combining both models real-world validation correctly."
+  },
+  {
+    "id": 219,
+    "topic": "chaining",
+    "question": "Which chain produces a list of ACTIVE users’ email addresses sorted alphabetically, assuming user.active is a boolean?",
+    "options": [
+      "users.map(u => u.email).filter(Boolean).sort()",
+      "users.filter(u => u.active).map(u => u.email).sort()",
+      "users.sort().filter(u => u.active).map(u => u.email)",
+      "users.map(u => u.email).sort().filter(u => u.active)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "First filter to only active users, then map to their emails, then sort the resulting list. This avoids unnecessary work and reflects the logical flow."
+  },
+  {
+    "id": 220,
+    "topic": "nested_objects",
+    "question": "You have an array of orders, each with order.items (array of { productId, qty }). You want a flat array of ALL productIds across ALL orders. Which is MOST appropriate?",
+    "options": [
+      "orders.map(o => o.items.productId)",
+      "orders.flatMap(o => o.items.map(i => i.productId))",
+      "orders.reduce((acc, o) => acc.concat(o.productId), [])",
+      "orders.some(o => o.items)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap lets you map each order to its list of productIds and flatten the result in a single step, which is ideal for nested arrays like order items."
+  },
+  {
+    "id": 221,
+    "topic": "reduce_objects",
+    "question": "Which reduce() pattern groups orders by customer ID?",
+    "options": [
+      "orders.reduce((a,c) => a + c.id, 0)",
+      "orders.reduce((a,c) => { a[c.id] = [...(a[c.id] || []), c]; return a; }, {})",
+      "orders.map(o => o.id)",
+      "orders.filter(o => o.id)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "This is the canonical grouping-by-key reduce pattern used in analytics."
+  },
+  {
+    "id": 222,
+    "topic": "reduce_objects",
+    "question": "Which reduce computes total marks per subject from nested objects?",
+    "options": [
+      "students.map(s => s.subjects)",
+      "students.reduce((a,s) => { s.subjects.forEach(x => a[x.name] = (a[x.name]||0) + x.marks ); return a; }, {})",
+      "students.find(s => s.subjects)",
+      "students.some(s => s.subjects)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Complex reduce loops over nested child arrays to accumulate totals."
+  },
+  {
+    "id": 223,
+    "topic": "reduce_objects",
+    "question": "Which reduce creates a histogram of ages?",
+    "options": [
+      "data.map(d => d.age)",
+      "data.filter(d => d.age)",
+      "data.reduce((a,d)=>{ a[d.age]=(a[d.age]||0)+1; return a;},{})",
+      "data.find(d=>d.age)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Age → frequency mapping is a standard histogram reduce pattern."
+  },
+  {
+    "id": 224,
+    "topic": "reduce_objects",
+    "question": "Which reduce safely handles empty arrays when computing min value?",
+    "options": [
+      "arr.reduce((a,c)=>Math.min(a,c))",
+      "arr.reduce((a,c)=>Math.min(a,c), Infinity)",
+      "arr.reduce((a,c)=>c)",
+      "arr.reduce()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Adding an initial value prevents reduce from throwing errors on empty arrays."
+  },
+  {
+    "id": 225,
+    "topic": "reduce_objects",
+    "question": "Which reduces deeply nested score arrays into a single flat total?",
+    "options": [
+      "scores.flat()",
+      "scores.reduce((a,c)=>a+c)",
+      "scores.reduce((a,c)=>a + c.reduce((x,y)=>x+y,0),0)",
+      "scores.find(x=>x)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Nested reduce pattern recursively sums inner arrays."
+  },
+
+  {
+    "id": 226,
+    "topic": "find_objects",
+    "question": "Which is best for finding a user by ID when array may contain duplicates?",
+    "options": [
+      "find()",
+      "filter()",
+      "reduce()",
+      "some()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "find() returns only the first; filter() returns all matching duplicates."
+  },
+  {
+    "id": 227,
+    "topic": "find_objects",
+    "question": "Which safely finds nested data in optional objects?",
+    "options": [
+      "user.profile.email",
+      "user.profile?.email",
+      "user?.email()",
+      "profile[user]"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Optional chaining prevents TypeErrors when accessing missing objects."
+  },
+  {
+    "id": 228,
+    "topic": "find_objects",
+    "question": "find() stops iterating when:",
+    "options": [
+      "It finishes scanning the array",
+      "It finds a match",
+      "Memory is full",
+      "sort() is called"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "find() short-circuits immediately upon match, improving performance."
+  },
+  {
+    "id": 229,
+    "topic": "findIndex_objects",
+    "question": "Which use-case requires findIndex() instead of find()?",
+    "options": [
+      "Counting results",
+      "Updating an element in-place using position",
+      "Extracting a property",
+      "Validation only"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "findIndex() gives the index needed for array-level updates."
+  },
+  {
+    "id": 230,
+    "topic": "findIndex_objects",
+    "question": "What does findIndex() return if item is not matched?",
+    "options": ["null", "-1", "undefined", "false"],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "-1 indicates non-existence, used widely in update/remove logic."
+  },
+  {
+    "id": 231,
+    "topic": "chaining",
+    "question": "You have an array of students and want the average mark of ONLY those who passed (pass === true). Which chain is MOST appropriate?",
+    "options": [
+      "students.map(s => s.marks).reduce((a, b) => a + b, 0) / students.length",
+      "students.filter(s => s.pass).reduce((acc, s, _, arr) => acc + s.marks / arr.length, 0)",
+      "students.reduce((acc, s) => acc + s.marks, 0) / students.filter(s => s.pass).length",
+      "students.filter(s => s.pass).map(s => s.marks).reduce((a, b) => a + b, 0) / students.filter(s => s.pass).length"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Option 2 uses a clever reduce pattern that divides each mark by the count of filtered elements inside the same reduce call (using the arr parameter). This keeps everything in a single pass over the filtered subset."
+  },
+  {
+    "id": 232,
+    "topic": "nested_objects",
+    "question": "You have departments, each with an employees array. You need a flat array of ALL employees whose role is \"manager\". Which is BEST?",
+    "options": [
+      "departments.map(d => d.employees.filter(e => e.role === \"manager\"))",
+      "departments.flatMap(d => d.employees).filter(e => e.role === \"manager\")",
+      "departments.filter(d => d.employees.role === \"manager\")",
+      "departments.reduce((acc, d) => acc.concat(d.role === \"manager\"), [])"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap first flattens employees across all departments, then filter narrows to managers. It is both expressive and efficient for nested array-of-objects structures."
+  },
+  {
+    "id": 233,
+    "topic": "reduce_objects",
+    "question": "You want to build a grouping object where each key is 'status' and value is an array of orders with that status. Which reduce() pattern is correct?",
+    "options": [
+      "orders.reduce((acc, o) => { acc[o.status] = o; return acc; }, {})",
+      "orders.reduce((acc, o) => ({ ...acc, [o.status]: o }), {})",
+      "orders.reduce((acc, o) => { (acc[o.status] ||= []).push(o); return acc; }, {})",
+      "orders.reduce((acc, o) => acc.concat({ [o.status]: o }), {})"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Using (acc[o.status] ||= []) ensures each group array is initialised once, then push() adds the current order. This is a standard pattern for grouping objects by a property."
+  },
+  {
+    "id": 234,
+    "topic": "sort_objects",
+    "question": "You must sort products by price ascending, but treat null or undefined price as the MOST expensive. Which comparator achieves this?",
+    "options": [
+      "(a, b) => (a.price ?? Infinity) - (b.price ?? Infinity)",
+      "(a, b) => (b.price ?? Infinity) - (a.price ?? Infinity)",
+      "(a, b) => (a.price || Infinity) - (b.price || Infinity)",
+      "(a, b) => (a.price && b.price) ? a.price - b.price : 0"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Using the nullish coalescing operator ?? with Infinity makes missing prices compare as very large numbers, effectively pushing them to the end in ascending order."
+  },
+  {
+    "id": 235,
+    "topic": "some_every",
+    "question": "You want to enforce that ALL tasks have a non-empty title AND at least ONE task is marked as 'priority'. Which expression is correct?",
+    "options": [
+      "tasks.every(t => t.title) && tasks.some(t => t.priority)",
+      "tasks.some(t => t.title) && tasks.some(t => t.priority)",
+      "tasks.every(t => t.title && t.priority)",
+      "!tasks.some(t => !t.title && t.priority)",
+      "tasks.every(t => t.priority) && tasks.some(t => t.title)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "every() enforces the per-item rule (all titles non-empty), while some() expresses the existence rule (at least one priority task). Combining them matches the specification exactly."
+  },
+  {
+    "id": 236,
+    "topic": "chaining",
+    "question": "You need a list of unique course names from an array of students, each with a courses array. Which pattern is MOST idiomatic in modern JS?",
+    "options": [
+      "students.map(s => s.courses).flat().filter((c, i, arr) => arr.indexOf(c) === i)",
+      "students.flatMap(s => s.courses).filter((c, i, arr) => arr.indexOf(c) === i)",
+      "students.reduce((acc, s) => acc.concat(s.courses), [])",
+      "students.map(s => s.courses).reduce((acc, c) => acc.add(c), new Set())"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap flattens the arrays in one step; the indexOf filter then removes duplicates. Though a Set-based solution is also good, this pattern is a common and clear functional style."
+  },
+  {
+    "id": 237,
+    "topic": "nested_objects",
+    "question": "Given a deeply nested structure, which choice is MOST robust for safely checking if user.settings.notifications.email === true?",
+    "options": [
+      "user.settings.notifications.email === true",
+      "user && user.settings && user.settings.notifications && user.settings.notifications.email === true",
+      "user?.settings?.notifications?.email === true",
+      "Boolean(user.settings.notifications.email)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Optional chaining (?.) avoids runtime errors when any intermediate property is undefined or null, making deep checks safe and concise in complex nested objects."
+  },
+  {
+    "id": 238,
+    "topic": "reduce_objects",
+    "question": "You need a frequency map of grades from an array like [{grade:'A'}, {grade:'B'}, {grade:'A'}]. Which reduce() is correct?",
+    "options": [
+      "arr.reduce((acc, s) => { acc[s.grade] = (acc[s.grade] || 0) + 1; return acc; }, {})",
+      "arr.reduce((acc, s) => acc.concat(s.grade), {})",
+      "arr.reduce((acc, s) => ({ ...acc, [s.grade]: 1 }), {})",
+      "arr.reduce((acc, s) => acc[s.grade]++, {})"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "The pattern acc[key] = (acc[key] || 0) + 1 both initialises and increments the count per grade, producing a clean grade → count frequency map."
+  },
+  {
+    "id": 239,
+    "topic": "find_objects",
+    "question": "Which approach is BEST to check whether there is ANY student with both marks < 40 AND attendance < 75?",
+    "options": [
+      "students.find(s => s.marks < 40 && s.attendance < 75) !== -1",
+      "students.some(s => s.marks < 40 && s.attendance < 75)",
+      "students.every(s => s.marks < 40 && s.attendance < 75)",
+      "students.filter(s => s.marks < 40 && s.attendance < 75).length === 0"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "some() directly answers the yes/no question \"does at least one element match this complex condition?\" and stops at the first match, which is both expressive and efficient."
+  },
+  {
+    "id": 240,
+    "topic": "sort_objects",
+    "question": "You have an array of students and need a NEW array sorted by rollNo without changing the original. Which is the safest modern JS pattern?",
+    "options": [
+      "students.sort((a, b) => a.rollNo - b.rollNo)",
+      "[...students].sort((a, b) => a.rollNo - b.rollNo)",
+      "students.map(s => s).sortBy(s => s.rollNo)",
+      "students.slice().reverse((a, b) => a.rollNo - b.rollNo)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "sort() mutates the array in place. Spreading into a new array first with [...students] ensures you keep the original order intact while returning a sorted copy."
+  },
+  {
+    "id": 241,
+    "topic": "sort_objects",
+    "question": "Sorting large numeric datasets requires:",
+    "options": [
+      "localeCompare",
+      "Custom comparator returning a-b",
+      "Default sort()",
+      "JSON.stringify()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Default sort is lexicographic; numeric values require arithmetic compare."
+  },
+  {
+    "id": 242,
+    "topic": "sort_objects",
+    "question": "Which comparator sorts names case-insensitively?",
+    "options": [
+      "(a,b)=>a.name>b.name",
+      "(a,b)=>a.name.localeCompare(b.name)",
+      "(a,b)=>a.localeCompare(b)",
+      "(a,b)=>a.name.toUpperCase().localeCompare(b.name.toUpperCase())"
+    ],
+    "answerIndex": 3,
+    "level": "advanced",
+    "explanation": "Uppercasing both ensures case-insensitive comparison."
+  },
+  {
+    "id": 243,
+    "topic": "sort_objects",
+    "question": "Which sorting method preserves original array?",
+    "options": [
+      "arr.sort()",
+      "[...arr].sort()",
+      "arr.reverse().sort()",
+      "sort(arr)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Sorting mutates the array; cloning first preserves original data."
+  },
+  {
+    "id": 244,
+    "topic": "sort_objects",
+    "question": "Which sorts events by date descending?",
+    "options": [
+      "events.sort()",
+      "events.sort((a,b)=>new Date(b.date)-new Date(a.date))",
+      "events.map(e=>e.date)",
+      "events.find(e=>e.date)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Descending numeric comparison on Date objects works reliably."
+  },
+  {
+    "id": 245,
+    "topic": "sort_objects",
+    "question": "Sorting by multiple fields requires:",
+    "options": [
+      "Two separate sort() calls",
+      "A comparator handling tiebreakers",
+      "filter() before sort()",
+      "map() before sort()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Comparator chains allow priority-based sorting logic."
+  },
+
+  {
+    "id": 246,
+    "topic": "some_every",
+    "question": "Which validates that ALL tasks are completed AND approved?",
+    "options": [
+      "tasks.some(t=>t.done && t.approved)",
+      "tasks.every(t=>t.done && t.approved)",
+      "tasks.find(t=>t.done)",
+      "tasks.filter(t=>t.done)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "every() requires every element to meet both conditions."
+  },
+  {
+    "id": 247,
+    "topic": "some_every",
+    "question": "Which detects ANY invalid records (missing name field)?",
+    "options": [
+      "data.every(d=>d.name)",
+      "data.some(d=>!d.name)",
+      "data.filter(d=>d.name)",
+      "data.find(d=>d.name)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Negation inside some() detects any faulty entry."
+  },
+  {
+    "id": 248,
+    "topic": "some_every",
+    "question": "Which check ensures array is NON-empty?",
+    "options": [
+      "arr.some(x=>true)",
+      "arr.every(x=>true)",
+      "arr.length > 0",
+      "arr.filter(x=>x)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Length is the most reliable emptiness check."
+  },
+  {
+    "id": 249,
+    "topic": "some_every",
+    "question": "every() on an empty array returns:",
+    "options": ["false", "true", "undefined", "Error"],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "This is known as vacuous truth: all zero elements satisfy the condition."
+  },
+  {
+    "id": 250,
+    "topic": "some_every",
+    "question": "some() on an empty array returns:",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "some() finds no match in an empty array and returns false."
+  },
+  {
+    "id": 251,
+    "topic": "arrays_objects",
+    "question": "You have const students = [{name: \"Rita\", marks: 80}, {name: \"Mohan\", marks: 90}]. Which statement BEST describes the effect of students[0].marks = 100?",
+    "options": [
+      "It mutates the original array and changes the first student's marks to 100",
+      "It creates a new array with updated marks but leaves the original unchanged",
+      "It throws a TypeError because students is declared with const",
+      "It only changes a local copy of the first object, not the original"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "const prevents reassigning the variable, not mutating the contents. Updating students[0].marks directly mutates the existing object inside the original array."
+  },
+  {
+    "id": 252,
+    "topic": "map_objects",
+    "question": "You want a NEW array containing only the names of students in lowercase from students: [{name: \"RITA\"}, {name: \"Mohan\"}]. Which is MOST appropriate?",
+    "options": [
+      "students.forEach(s => s.name.toLowerCase())",
+      "students.map(s => s.name.toLowerCase())",
+      "students.filter(s => s.name.toLowerCase())",
+      "students.reduce((acc, s) => acc.push(s.name.toLowerCase()), [])"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "map() is designed to transform each element and return a new array of results. forEach() returns undefined, and filter() is used for selection, not transformation."
+  },
+  {
+    "id": 253,
+    "topic": "filter_objects",
+    "question": "Given products = [{price: 0}, {price: null}, {price: 100}], you want ONLY those with a valid numeric price (> 0). Which filter condition is MOST accurate?",
+    "options": [
+      "products.filter(p => p.price)",
+      "products.filter(p => p.price != null)",
+      "products.filter(p => typeof p.price === \"number\" && p.price > 0)",
+      "products.filter(p => Number(p.price) > 0)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Checking typeof p.price === \"number\" and p.price > 0 ensures the price is truly numeric and positive. Using truthiness or == null can incorrectly include or exclude values such as 0."
+  },
+  {
+    "id": 254,
+    "topic": "reduce_objects",
+    "question": "You want total revenue from orders = [{amount: 500}, {amount: 1200}, {amount: 300}]. Which reduce() call is both correct and safe?",
+    "options": [
+      "orders.reduce((acc, o) => acc + o.amount)",
+      "orders.reduce((acc, o) => acc.amount + o.amount, 0)",
+      "orders.reduce((acc, o) => acc + (o.amount || 0), 0)",
+      "orders.reduce((acc, o) => ({ total: acc.total + o.amount }), { total: 0 })"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Using an initial value of 0 and adding (o.amount || 0) avoids errors when amount is missing or falsy. Omitting the initial value causes the first element to be treated as the accumulator object."
+  },
+  {
+    "id": 255,
+    "topic": "find_objects",
+    "question": "You must find the FIRST task that is both overdue and not completed: tasks = [{done:false, overdue:true}, ...]. Which is MOST efficient and clear?",
+    "options": [
+      "tasks.filter(t => t.overdue && !t.done)[0]",
+      "tasks.find(t => t.overdue && !t.done)",
+      "tasks.some(t => t.overdue && !t.done)",
+      "tasks.reduce((acc, t) => t.overdue && !t.done ? t : acc, null)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "find() is built exactly for this: it returns the first matching element or undefined and stops scanning as soon as it finds a match, making it both clear and efficient."
+  },
+  {
+    "id": 256,
+    "topic": "sort_objects",
+    "question": "You need to sort tasks by priority ('high', 'medium', 'low') in this exact order. Which custom comparator is correct?",
+    "options": [
+      "tasks.sort((a, b) => a.priority.localeCompare(b.priority))",
+      "tasks.sort((a, b) => ['high', 'medium', 'low'].indexOf(a.priority) - ['high', 'medium', 'low'].indexOf(b.priority))",
+      "tasks.sort((a, b) => ['low', 'medium', 'high'].indexOf(a.priority) - ['low', 'medium', 'high'].indexOf(b.priority))",
+      "tasks.sort((a, b) => a.priority > b.priority ? 1 : -1)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Mapping each priority to an index inside a reference array gives you full control over the order. The comparator subtracts those indices to sort by custom business priority."
+  },
+  {
+    "id": 257,
+    "topic": "some_every",
+    "question": "In an array of students, you must ensure: 1) ALL have marks defined, and 2) NO ONE has negative marks. Which expression is correct?",
+    "options": [
+      "students.every(s => s.marks)",
+      "students.some(s => s.marks >= 0)",
+      "students.every(s => typeof s.marks === \"number\" && s.marks >= 0)",
+      "!students.some(s => typeof s.marks !== \"number\" || s.marks < 0)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "every() is ideal when the rule has to be true for all items. Here we require a numeric marks property and a non-negative value for each student, matching the specification exactly."
+  },
+  {
+    "id": 258,
+    "topic": "chaining",
+    "question": "You want an array of emails of ACTIVE users (user.active === true) sorted alphabetically. Which chain is MOST expressive?",
+    "options": [
+      "users.filter(u => u.active).map(u => u.email).sort()",
+      "users.map(u => u.email).filter(e => e.active).sort()",
+      "users.sort((a, b) => a.email.localeCompare(b.email)).map(u => u.email).filter(u => u.active)",
+      "users.reduce((acc, u) => u.active ? acc.concat(u.email) : acc, []).sort()"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Filtering first by active, then mapping to email, then sorting is natural and readable. It clearly separates the three steps: selection → projection → ordering."
+  },
+  {
+    "id": 259,
+    "topic": "nested_objects",
+    "question": "You have courses = [{title, students:[{name, marks}]}]. You need a single flat array of ALL student names across all courses. Which is BEST?",
+    "options": [
+      "courses.map(c => c.students.map(s => s.name))",
+      "courses.flatMap(c => c.students).map(s => s.name)",
+      "courses.reduce((acc, c) => acc.push(c.students.map(s => s.name)), [])",
+      "courses.forEach(c => c.students.map(s => s.name))"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap first flattens all inner students arrays into one array, then map extracts only the name field. This is concise and avoids nested arrays."
+  },
+  {
+    "id": 260,
+    "topic": "real_world_datasets",
+    "question": "You have sales = [{product:\"A\", qty:2, price:100}, {product:\"B\", qty:3, price:150}]. You need TOTAL revenue for ALL products. Which is the BEST approach?",
+    "options": [
+      "sales.map(s => s.qty * s.price)",
+      "sales.reduce((acc, s) => acc + s.qty * s.price, 0)",
+      "sales.filter(s => s.qty * s.price).length",
+      "sales.find(s => s.qty * s.price)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "reduce() is ideal for turning many records into a single summary value. Here we accumulate qty * price for each sale into a single total revenue number."
+  },
+  {
+    "id": 261,
+    "topic": "chaining",
+    "question": "Which chain produces the top 5 highest-scoring students’ names?",
+    "options": [
+      "students.map().filter().reduce()",
+      "students.sort((a,b)=>b.marks-a.marks).slice(0,5).map(s=>s.name)",
+      "students.filter(s=>s.marks).reduce()",
+      "students.find(s=>s.marks)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Sorting + slicing + mapping is standard for leaderboard extraction."
+  },
+  {
+    "id": 262,
+    "topic": "chaining",
+    "question": "Which chain computes total revenue for products priced above average?",
+    "options": [
+      "prod.map().reduce()",
+      "prod.filter(p=>p.price>prod.reduce((a,c)=>a+c.price,0)/prod.length).reduce((a,c)=>a+c.revenue,0)",
+      "prod.find(p=>p.price)",
+      "prod.some(p=>p.price)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Filtering based on computed aggregate is a multi-stage chain."
+  },
+  {
+    "id": 263,
+    "topic": "chaining",
+    "question": "Which chaining pattern is MOST suited for functional pipelines?",
+    "options": [
+      "map → filter → sort → reduce",
+      "sort → reduce → find",
+      "find → map → every",
+      "filter → find → map"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "This is the core functional pipeline used in data analytics."
+  },
+  {
+    "id": 264,
+    "topic": "chaining",
+    "question": "Which chain extracts unique departments sorted alphabetically?",
+    "options": [
+      "data.map(d=>d.dept)",
+      "[...new Set(data.map(d => d.dept))].sort()",
+      "data.filter(d=>d.dept)",
+      "data.find(d=>d.dept)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Set for deduplication + sorting provides clean unique lists."
+  },
+  {
+    "id": 265,
+    "topic": "chaining",
+    "question": "Which chain produces a flat list of skills across all employees?",
+    "options": [
+      "emp.map(e=>e.skills)",
+      "emp.flatMap(e=>e.skills)",
+      "emp.reduce((a,e)=>a.concat(e.skills),[])",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "level": "advanced",
+    "explanation": "flatMap and reduce+concat are both correct flattening patterns."
+  },
+
+  {
+    "id": 266,
+    "topic": "nested_objects",
+    "question": "Which safely extracts deeply nested city field?",
+    "options": [
+      "user.address.city",
+      "user.address?.location?.city",
+      "user?.address.location.city",
+      "address.city"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Optional chaining supports multi-level safe access."
+  },
+  {
+    "id": 267,
+    "topic": "nested_objects",
+    "question": "Which transformation flattens students’ hobbies from nested objects?",
+    "options": [
+      "students.map(s=>s.hobbies)",
+      "students.flatMap(s=>s.profile.hobbies)",
+      "students.filter(s=>s.hobbies)",
+      "students.reduce(s=>s.hobbies)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap extracts and flattens nested arrays in one step."
+  },
+  {
+    "id": 268,
+    "topic": "nested_objects",
+    "question": "Which is BEST for merging nested course modules into a single list?",
+    "options": [
+      "courses.map(c=>c.modules)",
+      "courses.flatMap(c=>c.modules)",
+      "courses.filter(c=>c.modules)",
+      "courses.reduce((a,c)=>a+c)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap is optimized for flatten-map operations."
+  },
+  {
+    "id": 269,
+    "topic": "nested_objects",
+    "question": "Accessing a missing nested field without optional chaining will:",
+    "options": [
+      "Return undefined",
+      "Return null",
+      "Throw TypeError",
+      "Return an empty object"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Accessing a property of undefined triggers a TypeError."
+  },
+  {
+    "id": 270,
+    "topic": "nested_objects",
+    "question": "Which technique extracts nested values with fallback?",
+    "options": [
+      "user.address.city || 'Unknown'",
+      "user?.address?.city ?? 'Unknown'",
+      "user.address?.city",
+      "city.user"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Nullish coalescing ensures fallback only for null/undefined."
+  },
+
+  {
+    "id": 271,
+    "topic": "real_world",
+    "question": "Large dataset transformations should avoid:",
+    "options": [
+      "Mutating the original array",
+      "Pure functions",
+      "map–filter–reduce",
+      "Comparator-based sorting"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Mutation risks bugs in async systems and UI frameworks."
+  },
+  {
+    "id": 272,
+    "topic": "real_world",
+    "question": "Which pipeline best cleans inconsistent API responses?",
+    "options": [
+      "filter → map → map",
+      "map → filter → reduce",
+      "map → filter → map (normalize missing fields)",
+      "sort → sort → reduce"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Normalization requires transforming and validating in a safe order."
+  },
+  {
+    "id": 273,
+    "topic": "real_world",
+    "question": "Which detects records with duplicate emails?",
+    "options": [
+      "users.reduce((a,u)=>{ a[u.email]=(a[u.email]||0)+1; return a;},{})",
+      "users.some(u=>u.email)",
+      "users.map(u=>u.email)",
+      "users.find(u=>u.email)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Frequency reduction is the standard duplicate detection pattern."
+  },
+  {
+    "id": 274,
+    "topic": "real_world",
+    "question": "Which approach is MOST memory-efficient for streaming datasets?",
+    "options": [
+      "map → filter → reduce on full dataset",
+      "reduce with incremental aggregation",
+      "sort entire dataset first",
+      "store entire dataset in objects"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "reduce supports incremental processing ideal for streams."
+  },
+  {
+    "id": 275,
+    "topic": "real_world",
+    "question": "Which pipeline generates monthly revenue insights?",
+    "options": [
+      "orders.map().some()",
+      "orders.filter().sort()",
+      "orders.reduce((a,o)=>{a[o.month]=(a[o.month]||0)+o.amount;return a;},{})",
+      "orders.find(o=>o.month)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Grouping by month → summation is core to reporting systems."
+  },
+  {
+    "id": 276,
+    "topic": "chaining",
+    "question": "You have students = [{name: \"A\", marks: 80}, {name: \"B\", marks: 45}, {name: \"C\", marks: 92}]. You want the NAMES of students who scored at least 50, sorted by marks DESC. Which chain is MOST appropriate?",
+    "options": [
+      "students.map(s => s.name).filter(s => s.marks >= 50).sort((a, b) => b.marks - a.marks)",
+      "students.filter(s => s.marks >= 50).sort((a, b) => b.marks - a.marks).map(s => s.name)",
+      "students.sort((a, b) => b.marks - a.marks).map(s => s.name).filter(s => s.marks >= 50)",
+      "students.reduce((acc, s) => s.marks >= 50 ? acc.concat(s.name) : acc, []).sort((a, b) => b.marks - a.marks)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "First filter to keep only students with marks ≥ 50, then sort by marks descending, and finally map to names. This keeps the chain readable and uses the full objects for sorting before projecting to just names."
+  },
+  {
+    "id": 277,
+    "topic": "reduce_objects",
+    "question": "You need a lookup object from studentId → student object using reduce(). Which implementation is both correct and IMMUTABLE inside the reducer?",
+    "options": [
+      "students.reduce((acc, s) => { acc[s.id] = s; return acc; }, {})",
+      "students.reduce((acc, s) => ({ ...acc, [s.id]: s }), {})",
+      "students.reduce((acc, s) => acc[s.id] = s, {})",
+      "students.reduce((acc, s) => Object.assign(acc, { [s.id]: s }), {})"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Using ({ ...acc, [s.id]: s }) inside reduce creates a NEW object at each step instead of mutating acc in place. This pattern is more aligned with immutable data practices, even though it is less performant for very large arrays."
+  },
+  {
+    "id": 278,
+    "topic": "nested_objects",
+    "question": "You have courses = [{name:\"JS\", students:[{name:\"Rita\"},{name:\"Sam\"}]}, {name:\"Python\", students:[{name:\"Mira\"}]}]. Which expression returns a FLAT array of all student names?",
+    "options": [
+      "courses.map(c => c.students.map(s => s.name))",
+      "courses.flatMap(c => c.students.map(s => s.name))",
+      "courses.reduce((acc, c) => acc.concat(c.students.name), [])",
+      "courses.flatMap(c => c.students).name"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap() first maps each course to an array of student names and then flattens the result by one level, giving a simple flat array like [\"Rita\", \"Sam\", \"Mira\"]."
+  },
+  {
+    "id": 279,
+    "topic": "sort_objects",
+    "question": "You want to sort products by price ASCENDING, but keep products with undefined price at the END. Which comparator is MOST correct?",
+    "options": [
+      "products.sort((a, b) => (a.price || Infinity) - (b.price || Infinity))",
+      "products.sort((a, b) => a.price - b.price || 1)",
+      "products.sort((a, b) => (a.price == null) - (b.price == null) || a.price - b.price)",
+      "products.sort((a, b) => a.price ? a.price - b.price : 1)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "(a.price == null) - (b.price == null) pushes null/undefined prices to the end, because true becomes 1 and false becomes 0. If both are non-null, it falls back to a.price - b.price for normal numeric ascending order."
+  },
+  {
+    "id": 280,
+    "topic": "some_every",
+    "question": "You must ensure that in tasks = [{done, dueDate}], ALL tasks with a dueDate in the past are marked done === true. Which check is MOST accurate (assuming isPast(dueDate) is defined)?",
+    "options": [
+      "tasks.some(t => isPast(t.dueDate) && t.done)",
+      "tasks.every(t => isPast(t.dueDate) && t.done)",
+      "tasks.every(t => !isPast(t.dueDate) || t.done)",
+      "!tasks.some(t => isPast(t.dueDate) && !t.done)"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "The logic \"either the task is NOT past due OR it is done\" must hold for every task. This is captured by every(t => !isPast(t.dueDate) || t.done). The equivalent form would be !some(past-due AND not-done)."
+  },
+  {
+    "id": 281,
+    "topic": "performance",
+    "question": "Which operation is most expensive on large arrays?",
+    "options": [
+      "map",
+      "sort",
+      "filter",
+      "some"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "sort is O(n log n), while most others are O(n)."
+  },
+  {
+    "id": 282,
+    "topic": "performance",
+    "question": "Which improves performance when chaining map and filter?",
+    "options": [
+      "Use two separate arrays",
+      "Filter first, then map",
+      "Map first, then filter",
+      "Always use reduce"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Filtering early reduces the amount of work done in later stages."
+  },
+  {
+    "id": 283,
+    "topic": "performance",
+    "question": "Which method short-circuits earliest?",
+    "options": [
+      "map",
+      "filter",
+      "some",
+      "reduce"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "some() stops scanning as soon as a match is found."
+  },
+  {
+    "id": 284,
+    "topic": "performance",
+    "question": "Which approach avoids repeated expensive filters?",
+    "options": [
+      "Store intermediate filtered arrays",
+      "Call filter in each loop",
+      "Sort then filter repeatedly",
+      "Use nested filters"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Caching intermediate results reduces repeated O(n) scans."
+  },
+  {
+    "id": 285,
+    "topic": "performance",
+    "question": "Which technique is recommended when filtering billions of records?",
+    "options": [
+      "map → filter",
+      "Segmented batch processing",
+      "JSON deep clone before filtering",
+      "sort() first"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Chunking reduces memory load and prevents blocking event loop."
+  },
+
+  {
+    "id": 286,
+    "topic": "deep_transformations",
+    "question": "Which flattens a 3-level nested array of objects?",
+    "options": [
+      "arr.flat()",
+      "arr.flat(2)",
+      "arr.reduce((a,c)=>a.concat(c),[])",
+      "JSON.stringify(arr)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flat(2) collapses up to 2 nested levels."
+  },
+  {
+    "id": 287,
+    "topic": "deep_transformations",
+    "question": "Which extracts nested comments.user.name fields?",
+    "options": [
+      "comments.map(c=>c.user.name)",
+      "comments.flatMap(c=>c.user.names)",
+      "comments.map(c=>c.user)",
+      "comments.find(c=>c.user.name)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Dot access extracts the nested property cleanly."
+  },
+  {
+    "id": 288,
+    "topic": "deep_transformations",
+    "question": "Which operation normalizes nested objects into a flat structure?",
+    "options": [
+      "reduce with custom mapping",
+      "find()",
+      "some()",
+      "sort()"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Normalization requires flattening + restructuring via reduce."
+  },
+  {
+    "id": 289,
+    "topic": "deep_transformations",
+    "question": "Which merges multi-level skill groups into unique sorted list?",
+    "options": [
+      "skills.map()",
+      "skills.flatMap(g=>g.list).sort()",
+      "skills.find()",
+      "skills.filter()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "flatMap extracts + sort organizes the combined skill list."
+  },
+  {
+    "id": 290,
+    "topic": "deep_transformations",
+    "question": "Which handles missing nested arrays during flattening?",
+    "options": [
+      "arr.flatMap(x=>x.items)",
+      "arr.flatMap(x=>x.items || [])",
+      "arr.map(x=>x.items)",
+      "arr.filter(x=>x.items)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Fallback empty arrays prevent TypeErrors during flattening."
+  },
+
+  {
+    "id": 291,
+    "topic": "real_world",
+    "question": "Which pipeline best computes sales grouped by category, then sorted by revenue?",
+    "options": [
+      "map → filter → some",
+      "reduce → Object.entries → sort",
+      "find → sort",
+      "every → reduce"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Grouping via reduce + sorting key-value pairs is enterprise standard."
+  },
+  {
+    "id": 292,
+    "topic": "real_world",
+    "question": "Which detects anomalies in nested sensor data?",
+    "options": [
+      "sensors.some(s=>s.values.some(v=>v>threshold))",
+      "sensors.find(s=>s.values)",
+      "sensors.sort(s=>s.values)",
+      "sensors.map(s=>s.values)"
+    ],
+    "answerIndex": 0,
+    "level": "advanced",
+    "explanation": "Nested some() checks detect anomalies efficiently."
+  },
+  {
+    "id": 293,
+    "topic": "real_world",
+    "question": "Which pipeline identifies users inactive for 30+ days?",
+    "options": [
+      "users.map(u=>u)",
+      "users.filter(u=>Date.now()-u.lastActive > 30*86400000)",
+      "users.find(u=>u.lastActive)",
+      "users.every(u=>u.lastActive)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Filtering based on timestamp difference detects long inactivity."
+  },
+  {
+    "id": 294,
+    "topic": "real_world",
+    "question": "For audit logs, which pipeline extracts summary per user?",
+    "options": [
+      "logs.map().some()",
+      "logs.reduce((a,l)=>{a[l.user]=(a[l.user]||0)+1;return a;},{})",
+      "logs.sort().reduce()",
+      "logs.find()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Counting logs grouped by user is a standard reduce use-case."
+  },
+  {
+    "id": 295,
+    "topic": "real_world",
+    "question": "Which identifies products with BOTH low sales and high stock?",
+    "options": [
+      "prod.some(p=>p.sales<50 && p.stock>500)",
+      "prod.filter(p=>p.sales<50 && p.stock>500)",
+      "prod.find(p=>p.sales)",
+      "prod.map(p=>p.stock)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "filter selects all problematic inventory items."
+  },
+
+  {
+    "id": 296,
+    "topic": "advanced_logic",
+    "question": "Which pattern avoids nested loops when comparing two arrays of objects by ID?",
+    "options": [
+      "Double filter",
+      "Reduce to map, then map lookup",
+      "Two sorts",
+      "findIndex inside map"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Transforming one array into a lookup object reduces complexity to O(n)."
+  },
+  {
+    "id": 297,
+    "topic": "advanced_logic",
+    "question": "Which technique handles circular JSON references in deep cloning?",
+    "options": [
+      "JSON.stringify()",
+      "structuredClone()",
+      "reduce()",
+      "flatMap()"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "structuredClone supports circular references unlike JSON methods."
+  },
+  {
+    "id": 298,
+    "topic": "advanced_logic",
+    "question": "Which approach avoids TypeError when accessing optional deeply nested arrays?",
+    "options": [
+      "arr.flatMap(x=>x.items.list)",
+      "arr.flatMap(x=>x.items?.list || [])",
+      "arr.map(x=>x.items.list)",
+      "arr.filter(x=>x.items.list)"
+    ],
+    "answerIndex": 1,
+    "level": "advanced",
+    "explanation": "Optional chaining with fallback ensures safety."
+  },
+  {
+    "id": 299,
+    "topic": "advanced_logic",
+    "question": "Which ensures fastest search in massive arrays?",
+    "options": [
+      "find()",
+      "map()",
+      "Binary search after sorting",
+      "reduce()"
+    ],
+    "answerIndex": 2,
+    "level": "advanced",
+    "explanation": "Binary search reduces lookup to O(log n) after sorting."
+  },
+  {
+    "id": 300,
+    "topic": "advanced_logic",
+    "question": "Which pattern identifies impossible states in complex data?",
+    "options": [
+      "some()",
+      "filter()",
+      "every()",
+      "reduce() with validation aggregation"
+    ],
+    "answerIndex": 3,
+    "level": "advanced",
+    "explanation": "reduce can accumulate validation errors across entire datasets."
+  }
+]
+

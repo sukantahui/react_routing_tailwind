@@ -2530,6 +2530,12 @@
   .fill-amber-400 {
     fill: var(--color-amber-400);
   }
+  .fill-amber-600 {
+    fill: var(--color-amber-600);
+  }
+  .fill-amber-700 {
+    fill: var(--color-amber-700);
+  }
   .fill-amber-900 {
     fill: var(--color-amber-900);
   }
@@ -2596,8 +2602,17 @@
   .fill-purple-300 {
     fill: var(--color-purple-300);
   }
+  .fill-purple-700 {
+    fill: var(--color-purple-700);
+  }
   .fill-purple-900 {
     fill: var(--color-purple-900);
+  }
+  .fill-purple-900\/40 {
+    fill: color-mix(in srgb, oklch(38.1% 0.176 304.987) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      fill: color-mix(in oklab, var(--color-purple-900) 40%, transparent);
+    }
   }
   .fill-purple-900\/50 {
     fill: color-mix(in srgb, oklch(38.1% 0.176 304.987) 50%, transparent);
@@ -2623,8 +2638,26 @@
       fill: color-mix(in oklab, var(--color-rose-800) 40%, transparent);
     }
   }
+  .fill-sky-200 {
+    fill: var(--color-sky-200);
+  }
   .fill-sky-300 {
     fill: var(--color-sky-300);
+  }
+  .fill-sky-900 {
+    fill: var(--color-sky-900);
+  }
+  .fill-sky-900\/20 {
+    fill: color-mix(in srgb, oklch(39.1% 0.09 240.876) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      fill: color-mix(in oklab, var(--color-sky-900) 20%, transparent);
+    }
+  }
+  .fill-sky-900\/40 {
+    fill: color-mix(in srgb, oklch(39.1% 0.09 240.876) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      fill: color-mix(in oklab, var(--color-sky-900) 40%, transparent);
+    }
   }
   .fill-slate-100 {
     fill: var(--color-slate-100);
@@ -2674,6 +2707,12 @@
   .stroke-amber-500 {
     stroke: var(--color-amber-500);
   }
+  .stroke-amber-600 {
+    stroke: var(--color-amber-600);
+  }
+  .stroke-emerald-400 {
+    stroke: var(--color-emerald-400);
+  }
   .stroke-emerald-500 {
     stroke: var(--color-emerald-500);
   }
@@ -2686,11 +2725,20 @@
   .stroke-emerald-600 {
     stroke: var(--color-emerald-600);
   }
+  .stroke-purple-500 {
+    stroke: var(--color-purple-500);
+  }
   .stroke-purple-600 {
     stroke: var(--color-purple-600);
   }
   .stroke-rose-400 {
     stroke: var(--color-rose-400);
+  }
+  .stroke-sky-600 {
+    stroke: var(--color-sky-600);
+  }
+  .stroke-sky-700 {
+    stroke: var(--color-sky-700);
   }
   .stroke-slate-600 {
     stroke: var(--color-slate-600);

@@ -1,0 +1,1553 @@
+{
+  "trackId": "javascript-basic-to-ultra-expert",
+  "trackTitle": "JavaScript from Basic to Ultra Expert",
+  "description": "A complete JavaScript learning path from absolute beginner to ultra expert, designed for classroom and self-paced learners. Includes exercises, mini-projects, assessments, and career-focused skills.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "JavaScript Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-02"
+  },
+  "segments": [
+    {
+      "segmentId": "basic",
+      "title": "Segment 1 – Core Foundations (Beginner)",
+      "level": "Beginner",
+      "summary": "Start from zero and build a rock-solid foundation in JavaScript, syntax, data types, and basic problem solving.",
+      "modules": [
+        {
+          "moduleId": "js-intro",
+          "slug": "getting-started-with-javascript",
+          "title": "Getting Started with JavaScript",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": [
+            "what-is-js",
+            "setup",
+            "first-script"
+          ],
+          "topics": [
+            "What is JavaScript and where it runs (browser, server, tools)",
+            "Role of JavaScript in modern web development",
+            "HTML, CSS, JS – how they work together",
+            "Setting up the environment: browser, code editor (VS Code), Live Server",
+            "Running code in the browser console and in script files",
+            "Understanding console.log and basic debugging messages"
+          ],
+          "learningOutcomes": [
+            "Explain what JavaScript is and why it is used",
+            "Set up a basic development environment",
+            "Execute simple JavaScript in the browser console and external files"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Explain the purpose of JavaScript and run your first programs in the browser.",
+          "miniProjects": [
+            "Practice: Getting Started with JavaScript – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 14,
+            "coding": 7,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Trying out quick ideas in the browser console",
+            "Testing basic snippets before adding them to real projects"
+          ],
+          "careerSkills": [
+            "Comfort with development environment",
+            "Understanding fundamental web concepts"
+          ],
+          "commonMistakes": [
+            "Forgetting to open DevTools console",
+            "Expecting HTML changes from console-only code"
+          ],
+          "references": [
+            "MDN Web Docs – Introduction to JavaScript",
+            "javascript.info – An introduction"
+          ],
+          "teachingTips": [
+            "Show JS disabled vs enabled in a simple page.",
+            "Ask students to modify an existing script instead of writing from scratch."
+          ],
+          "preReading": [
+            "Basic idea of websites (HTML pages)",
+            "Installing and opening a code editor"
+          ],
+          "previousModule": null,
+          "nextModule": "syntax-basics",
+          "badge": "Getting Started with JavaScript Badge"
+        },
+        {
+          "moduleId": "syntax-basics",
+          "slug": "javascript-syntax-and-basics",
+          "title": "JavaScript Syntax, Variables & Data Types",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": [
+            "syntax",
+            "variables",
+            "data-types"
+          ],
+          "topics": [
+            "Statements, semicolons, indentation and code style",
+            "Comments: single-line and multi-line",
+            "Variables: var, let, const – differences and best practices",
+            "Identifiers and naming conventions (camelCase, PascalCase, snake_case)",
+            "Primitive data types: number, string, boolean, null, undefined, symbol, bigint (overview)",
+            "typeof operator and basic type checking",
+            "Type conversion: implicit vs explicit (Number(), String(), Boolean())",
+            "Working with Numbers"
+
+          ],
+          "learningOutcomes": [
+            "Declare and use variables correctly with let and const",
+            "Identify and work with primitive JavaScript data types",
+            "Apply good naming and formatting practices in simple scripts"
+          ],
+          "prerequisites": [
+            "js-intro"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Learn how to store values, choose variable names, and understand JavaScript data types.",
+          "miniProjects": [
+            "Practice: JavaScript Syntax, Variables & Data Types – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Storing user input temporarily",
+            "Creating simple configuration values in code"
+          ],
+          "careerSkills": [
+            "Writing clean, readable code",
+            "Choosing correct variable types for tasks"
+          ],
+          "commonMistakes": [
+            "Using var everywhere instead of let/const",
+            "Mixing string and number types accidentally"
+          ],
+          "references": [
+            "MDN Web Docs – Values, variables, and literals",
+            "javascript.info – Variables"
+          ],
+          "teachingTips": [
+            "Draw boxes representing memory for variables.",
+            "Ask students to refactor var-based code to let/const."
+          ],
+          "preReading": [
+            "Getting Started with JavaScript module"
+          ],
+          "previousModule": "js-intro",
+          "nextModule": "operators-expressions",
+          "badge": "JavaScript Basics Badge"
+        },
+        {
+          "moduleId": "operators-expressions",
+          "slug": "operators-and-expressions",
+          "title": "Operators, Expressions & Basic Logic",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "operators",
+            "logic",
+            "expressions"
+          ],
+          "topics": [
+            "Arithmetic operators (+, -, *, /, %, **)",
+            "Assignment and compound assignment operators",
+            "Comparison operators (== vs ===, != vs !==, >, <, >=, <=)",
+            "Logical operators (&&, ||, !)",
+            "String concatenation and template literals",
+            "Operator precedence and parentheses",
+            "Basic input/output patterns using prompt (optional), alert (optional) and console"
+          ],
+          "learningOutcomes": [
+            "Use operators to calculate values and compare expressions",
+            "Write simple logical conditions using comparison and logical operators",
+            "Use template literals to build readable strings"
+          ],
+          "prerequisites": [
+            "syntax-basics"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 3,
+          "summary": "Combine values with operators and build logical expressions to make decisions.",
+          "miniProjects": [
+            "Practice: Operators, Expressions & Basic Logic – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Calculating totals and discounts",
+            "Checking age or eligibility criteria"
+          ],
+          "careerSkills": [
+            "Logical thinking",
+            "Debugging incorrect calculations"
+          ],
+          "commonMistakes": [
+            "Using == instead of ===",
+            "Forgetting operator precedence and relying on default ordering"
+          ],
+          "references": [
+            "MDN Web Docs – Expressions and operators",
+            "javascript.info – Operators"
+          ],
+          "teachingTips": [
+            "Show bugs caused by == vs === with real examples.",
+            "Use truth tables for && and ||."
+          ],
+          "preReading": [
+            "JavaScript Syntax, Variables & Data Types module"
+          ],
+          "previousModule": "syntax-basics",
+          "nextModule": "control-flow",
+          "badge": "Logic Starter Badge"
+        },
+        {
+          "moduleId": "control-flow",
+          "slug": "control-flow-conditions",
+          "title": "Control Flow & Decision Making",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "if-else",
+            "switch",
+            "ternary"
+          ],
+          "topics": [
+            "if, else-if, else structures",
+            "Nested if statements and readability concerns",
+            "Conditional (ternary) operator and inline decisions",
+            "switch statement: cases, default, break and fall-through",
+            "Common real-world examples: grading system, discounts, login checks",
+            "Practice Set",
+            "Truthy and Falsy Values in JavaScript",
+            "Short-Circuit Evaluation",
+            "Practice on this Topic",
+            "Quiz"
+          ],
+          "learningOutcomes": [
+            "Use if-else and switch statements to control program flow",
+            "Choose appropriate conditional structures for a given problem",
+            "Implement small logic-based programs from text descriptions"
+          ],
+          "prerequisites": [
+            "operators-expressions"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 4,
+          "summary": "Use if, else, switch and ternary operators to control different paths in your program.",
+          "miniProjects": [
+            "Practice: Control Flow & Decision Making – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Grading systems",
+            "Coupon/discount rules",
+            "User role-based access control"
+          ],
+          "careerSkills": [
+            "Designing decision trees",
+            "Breaking business logic into code"
+          ],
+          "commonMistakes": [
+            "Deeply nested if chains instead of switch or other refactoring",
+            "Complex ternary expressions that hurt readability"
+          ],
+          "references": [
+            "MDN Web Docs – if...else",
+            "javascript.info – Conditional operators"
+          ],
+          "teachingTips": [
+            "Have students draw flowcharts before writing if-else blocks.",
+            "Convert a nested if chain into a switch together in class."
+          ],
+          "preReading": [
+            "Operators, Expressions & Basic Logic module"
+          ],
+          "previousModule": "operators-expressions",
+          "nextModule": "loops-basics",
+          "badge": "Decision Maker Badge"
+        },
+        {
+          "moduleId": "loops-basics",
+          "slug": "loops-and-iteration",
+          "title": "Loops & Basic Iteration",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "loops",
+            "while",
+            "for"
+          ],
+          "topics": [
+            "while loop and loop conditions",
+            "do...while loop and its use cases",
+            "for loop: counters, ranges and common patterns",
+            "Loop control: break and continue",
+            "Building simple patterns: sums, factorial, multiplication tables",
+            "Intro to for...of and for...in (overview)"
+          ],
+          "learningOutcomes": [
+            "Write basic loops to repeat tasks",
+            "Use break and continue correctly to control loop execution",
+            "Solve classic looping problems like sums, factorial and tables"
+          ],
+          "prerequisites": [
+            "control-flow"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Repeat tasks efficiently using while, do...while, for loops and basic patterns.",
+          "miniProjects": [
+            "Practice: Loops & Basic Iteration – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Coding Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Generating tables and reports",
+            "Processing list data",
+            "Creating simple pattern outputs"
+          ],
+          "careerSkills": [
+            "Algorithmic thinking",
+            "Breaking repetitive tasks into loops"
+          ],
+          "commonMistakes": [
+            "Infinite loops caused by wrong conditions",
+            "Off-by-one errors in counters"
+          ],
+          "references": [
+            "MDN Web Docs – Loops and iteration",
+            "javascript.info – Loops: while and for"
+          ],
+          "teachingTips": [
+            "Use visual tables and counters to show loop flow.",
+            "Let students test and debug an intentionally broken loop."
+          ],
+          "preReading": [
+            "Control Flow & Decision Making module"
+          ],
+          "previousModule": "control-flow",
+          "nextModule": null,
+          "badge": "Loop Wizard Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "intermediate",
+      "title": "Segment 2 – Practical JavaScript (Intermediate)",
+      "level": "Intermediate",
+      "summary": "Move from basic scripts to real-world development with functions, arrays, objects, and DOM interaction.",
+      "modules": [
+        {
+          "moduleId": "functions-core",
+          "slug": "functions-basics",
+          "title": "Functions & Reusable Logic",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "functions",
+            "parameters",
+            "return"
+          ],
+          "topics": [
+            "Function declarations vs function expressions",
+            "Parameters, arguments and default parameters",
+            "Return values and early returns",
+            "Function scope basics: local vs global variables",
+            "Arrow functions and concise syntax",
+            "Pure functions vs side effects (intro idea)"
+          ],
+          "learningOutcomes": [
+            "Define and call functions with different types of parameters",
+            "Refactor repeated code into reusable functions",
+            "Use arrow functions correctly in simple scenarios"
+          ],
+          "prerequisites": [
+            "loops-basics"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Group related code into reusable functions and simplify your scripts.",
+          "miniProjects": [
+            "Practice: Functions & Reusable Logic – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Utility functions shared across a project",
+            "Reusing validation or formatting logic"
+          ],
+          "careerSkills": [
+            "Modular thinking",
+            "Writing reusable code"
+          ],
+          "commonMistakes": [
+            "Making functions too long and doing many tasks",
+            "Not returning values when needed"
+          ],
+          "references": [
+            "MDN Web Docs – Functions",
+            "javascript.info – Functions"
+          ],
+          "teachingTips": [
+            "Show how to refactor repeated code into a single function.",
+            "Explain function naming conventions with examples."
+          ],
+          "preReading": [
+            "Loops & Basic Iteration module"
+          ],
+          "previousModule": null,
+          "nextModule": "arrays-core",
+          "badge": "Function Master Badge"
+        },
+        {
+          "moduleId": "arrays-core",
+          "slug": "arrays-and-methods",
+          "title": "Arrays & Essential Array Methods",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "arrays",
+            "array-methods"
+          ],
+          "topics": [
+            "Creating arrays, indexing and length",
+            "Mutating methods: push, pop, shift, unshift, splice",
+            "Non-mutating methods: slice, concat",
+            "Searching: indexOf, includes, find, findIndex",
+            "Iterating arrays with for, for-of and forEach",
+            "Intro to higher-order methods: map, filter, reduce (light overview)",
+            "Exercise"
+          ],
+          "learningOutcomes": [
+            "Store lists of values and access them efficiently",
+            "Use common array methods to add, remove and search items",
+            "Choose appropriate iteration patterns for array processing"
+          ],
+          "prerequisites": [
+            "functions-core"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Handle lists of data and manipulate them using core array methods.",
+          "miniProjects": [
+            "Practice: Arrays & Essential Array Methods – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Managing todo lists",
+            "Filtering and sorting table data"
+          ],
+          "careerSkills": [
+            "Working with collections of data",
+            "Using modern array utilities"
+          ],
+          "commonMistakes": [
+            "Confusing splice with slice",
+            "Mutating arrays accidentally when not intended"
+          ],
+          "references": [
+            "MDN Web Docs – Arrays",
+            "javascript.info – Arrays"
+          ],
+          "teachingTips": [
+            "Show visual diagrams of array mutations.",
+            "Practice map, filter, reduce on small numeric arrays."
+          ],
+          "preReading": [
+            "Functions & Reusable Logic module"
+          ],
+          "previousModule": "functions-core",
+          "nextModule": "objects-core",
+          "badge": "Array Explorer Badge"
+        },
+        {
+          "moduleId": "objects-core",
+          "slug": "objects-and-basic-oop",
+          "title": "Objects & Basic Object-Oriented Concepts",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "objects",
+            "oop-basics"
+          ],
+          "topics": [
+            "Object literals: keys, values, methods",
+            "Accessing properties: dot vs bracket notation",
+            "Nested objects and arrays of objects",
+            "The this keyword (beginner-level understanding)",
+            "Constructor functions and the new keyword (overview)",
+            "ES6 class syntax, constructor, methods and basic inheritance (conceptual)",
+            "Object literals: keys, values, methods",
+            "Accessing properties: dot vs bracket notation",
+            "Adding, updating and deleting object properties",
+            "Checking properties: in operator and hasOwnProperty()",
+            "Nested objects and arrays of objects",
+            "Accessing deeply nested values",
+            "The this keyword inside objects (beginner-friendly)",
+            "Arrow functions vs normal functions: this difference",
+            "Iterating objects: for...in loop",
+            "Object.keys(), Object.values(), Object.entries()",
+            "Looping arrays of objects using map, filter, reduce",
+            "Objects as reference types",
+            "Shallow copy: spread operator and Object.assign()",
+            "Deep copy: structuredClone() and JSON technique",
+            "Shorthand properties and computed property names",
+            "Object destructuring and nested destructuring",
+            "Spread and rest operator for objects",
+            "Default values in destructuring",
+            "Getters and setters",
+            "Optional chaining (?.) and nullish coalescing (??)",
+            "Object.freeze(), Object.seal() and preventExtensions()",
+            "Constructor functions and the new keyword (overview)",
+            "Prototype and prototype chain (conceptual understanding)",
+            "Adding methods using prototypes",
+            "ES6 class syntax: constructor, instance methods, static methods",
+            "Class inheritance using extends",
+            "super() keyword and method overriding",
+            "JSON.parse() and JSON.stringify()",
+            "Storing and retrieving objects in LocalStorage",
+            "Merging objects and checking object equality"
+          ],
+          "learningOutcomes": [
+            "Model real-world entities using objects",
+            "Work with nested object structures",
+            "Understand the idea of classes and instances in JavaScript"
+          ],
+          "prerequisites": [
+            "arrays-core"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Represent real-world entities using objects and touch the basics of OOP in JavaScript.",
+          "miniProjects": [
+            "Practice: Objects & Basic Object-Oriented Concepts – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "User profiles",
+            "Product and order representations"
+          ],
+          "careerSkills": [
+            "Thinking in objects",
+            "Structuring real-world data models"
+          ],
+          "commonMistakes": [
+            "Misunderstanding this inside methods",
+            "Mixing arrays of primitives with arrays of objects incorrectly"
+          ],
+          "references": [
+            "MDN Web Docs – Working with objects",
+            "javascript.info – Objects"
+          ],
+          "teachingTips": [
+            "Start with simple user object examples.",
+            "Show how classes wrap behavior and data together."
+          ],
+          "preReading": [
+            "Arrays & Essential Array Methods module"
+          ],
+          "previousModule": "arrays-core",
+          "nextModule": "dom-basics",
+          "badge": "Object Modeler Badge"
+        },
+        {
+          "moduleId": "arrays-advanced-objects",
+          "slug": "arrays-with-objects-advanced",
+          "title": "Advanced Array Methods with Objects",
+          "level": "Intermediate-Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "arrays",
+            "objects",
+            "array-methods",
+            "data-processing"
+          ],
+          "topics": [
+            "Working with arrays of objects (students, products, tasks)",
+            "map() with objects – transforming shapes and selecting fields",
+            "filter() with multiple conditions and nested object filtering",
+            "reduce() for totals, grouping, counting and analytics",
+            "find() and findIndex() – locating complex objects",
+            "sort() with custom comparator functions (marks, price, name)",
+            "some() and every() with object validation",
+            "Chaining array methods (map → filter → reduce)",
+            "Deep array transformations inside nested objects",
+            "Real-world datasets (students, courses, products, tasks)",
+            "Practice your Skill"
+          ],
+          "learningOutcomes": [
+            "Use map(), filter(), reduce() and find() effectively on arrays of objects",
+            "Perform advanced operations like grouping, sorting and summarizing data",
+            "Build clean, functional pipelines using chained array methods",
+            "Process real-world data structures similar to those used in React apps"
+          ],
+          "prerequisites": [
+            "objects-core",
+            "arrays-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master real-world data processing using JavaScript array methods with objects — essential for frontend development, React applications and API handling.",
+          "miniProjects": [
+            "Practice: Advanced Array Methods with Objects – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Filtering user lists, product catalogs, course lists",
+            "Sorting and grouping API responses",
+            "Analytics dashboards (totals, averages, rankings)",
+            "Building search and filtering features"
+          ],
+          "careerSkills": [
+            "Functional array processing",
+            "Transforming API data",
+            "Real-world frontend problem solving"
+          ],
+          "commonMistakes": [
+            "Mutating objects inside map() accidentally",
+            "Incorrect sorting logic with strings and numbers",
+            "Using reduce() without initializing accumulator",
+            "Overusing loops instead of functional methods"
+          ],
+          "references": [
+            "MDN Web Docs – Array.prototype",
+            "javascript.info – Array methods"
+          ],
+          "teachingTips": [
+            "Use real-life datasets of students from Coder & AccoTax.",
+            "Show chaining examples like: filter → sort → map.",
+            "Explain why pure functions make array pipelines reliable."
+          ],
+          "preReading": [
+            "Arrays & Essential Array Methods module",
+            "Objects & Basic Object-Oriented Concepts module"
+          ],
+          "previousModule": "objects-core",
+          "nextModule": "dom-basics",
+          "badge": "Array Method Pro Badge"
+        },
+        {
+          "moduleId": "dom-basics",
+          "slug": "dom-basics",
+          "title": "DOM (Document Object Model) Basics",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "dom",
+            "browser"
+          ],
+          "topics": [
+            "What is the DOM? Nodes, elements and the tree structure",
+            "Selecting elements: getElementById, querySelector, querySelectorAll",
+            "Changing text, HTML and styles dynamically",
+            "Creating, appending and removing elements",
+            "Working with attributes, classes and data-* attributes",
+            "Mini projects: counter, show/hide password, FAQ toggle"
+          ],
+          "learningOutcomes": [
+            "Select and manipulate elements on a web page with JavaScript",
+            "Build small interactive UI components without libraries",
+            "Understand how JavaScript connects to HTML structure"
+          ],
+          "prerequisites": [
+            "objects-core"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 7,
+          "summary": "Connect JavaScript to the page structure and build interactive components using the DOM.",
+          "miniProjects": [
+            "Practice: DOM (Document Object Model) Basics – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Interactive forms",
+            "Toggle sections, counters, and simple widgets"
+          ],
+          "careerSkills": [
+            "Frontend UI building",
+            "Understanding browser UI rendering"
+          ],
+          "commonMistakes": [
+            "Querying elements before DOM is ready",
+            "Overusing innerHTML when textContent is enough"
+          ],
+          "references": [
+            "MDN Web Docs – Introduction to the DOM",
+            "javascript.info – Document"
+          ],
+          "teachingTips": [
+            "Use DevTools Elements panel to show the DOM tree.",
+            "Build one mini-project step by step in class."
+          ],
+          "preReading": [
+            "Objects & Basic Object-Oriented Concepts module"
+          ],
+          "previousModule": "objects-core",
+          "nextModule": "events-interaction",
+          "badge": "DOM Explorer Badge"
+        },
+        {
+          "moduleId": "events-interaction",
+          "slug": "events-and-user-interaction",
+          "title": "Events & User Interaction",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "events",
+            "interaction"
+          ],
+          "topics": [
+            "Event types: click, input, change, submit, keyup, keydown, mouse events",
+            "addEventListener and removing event listeners",
+            "Event object basics and target property",
+            "Event bubbling and capturing (intro, conceptual)",
+            "Form handling and simple validation with JavaScript",
+            "Building components: modal popup, tabs, accordion",
+            "Keyboard Events — keydown, keyup & keypress",
+            "Building a Custom Virtual Keyboard"
+          ],
+          "learningOutcomes": [
+            "Attach and manage event listeners for user-driven actions",
+            "Create interactive UI components using events and DOM",
+            "Implement basic client-side form validation"
+          ],
+          "prerequisites": [
+            "dom-basics"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 8,
+          "summary": "Listen to user actions, respond to events, and manage interactivity on web pages.",
+          "miniProjects": [
+            "Practice: Events & User Interaction – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Form submissions and validations",
+            "Opening and closing modals / dialogs"
+          ],
+          "careerSkills": [
+            "Interactive UI building",
+            "Event-driven thinking"
+          ],
+          "commonMistakes": [
+            "Attaching multiple listeners unnecessarily",
+            "Not removing listeners leading to memory issues in bigger apps"
+          ],
+          "references": [
+            "MDN Web Docs – Introduction to events",
+            "javascript.info – Browser events"
+          ],
+          "teachingTips": [
+            "Show event.target and console.log on every click for intuition.",
+            "Explain bubbling with nested clickable elements."
+          ],
+          "preReading": [
+            "DOM (Document Object Model) Basics module"
+          ],
+          "previousModule": "dom-basics",
+          "nextModule": null,
+          "badge": "Interaction Architect Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 – Modern & Advanced JavaScript",
+      "level": "Advanced",
+      "summary": "Deepen your understanding with modern ES6+ features, asynchronous programming, APIs and more complex patterns.",
+      "modules": [
+        {
+          "moduleId": "modern-js",
+          "slug": "modern-es6-features",
+          "title": "Modern JavaScript (ES6+ Essentials)",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "es6",
+            "modern-js"
+          ],
+          "topics": [
+            "let and const in depth: block scope and temporal dead zone",
+            "Template literals for strings and multiline text",
+            "Destructuring arrays and objects",
+            "Spread and rest operators",
+            "Enhanced object literals and computed properties",
+            "Optional chaining and nullish coalescing (??) – overview",
+            "Default Parameters in JavaScript Functions",
+            "Rest Parameters (...args)",
+            "Spread Operator (...values)",
+            "ES6 Modules — import & export",
+            "ES6 Practice Set"
+          ],
+          "learningOutcomes": [
+            "Write cleaner, modern JavaScript using ES6+ syntax",
+            "Use destructuring and spread to simplify array and object handling",
+            "Recognize legacy vs modern patterns in existing code"
+          ],
+          "prerequisites": [
+            "events-interaction"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 7,
+          "summary": "Upgrade your JavaScript style to modern ES6+ features used in production code.",
+          "miniProjects": [
+            "Practice: Modern JavaScript (ES6+ Essentials) – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Refactoring legacy var-based code",
+            "Managing config and options with destructuring"
+          ],
+          "careerSkills": [
+            "Writing modern, clean JavaScript",
+            "Understanding codebases using ES6+ syntax"
+          ],
+          "commonMistakes": [
+            "Accidentally mutating data while destructuring",
+            "Confusion with rest vs spread syntax"
+          ],
+          "references": [
+            "MDN Web Docs – ECMAScript 2015 (ES6)",
+            "javascript.info – ES6 features"
+          ],
+          "teachingTips": [
+            "Refactor an older-style code example into ES6 with students.",
+            "Emphasize reading modern open-source JavaScript."
+          ],
+          "preReading": [
+            "Events & User Interaction module"
+          ],
+          "previousModule": null,
+          "nextModule": "async-core",
+          "badge": "Modern JS Badge"
+        },
+        {
+          "moduleId": "async-core",
+          "slug": "asynchronous-javascript",
+          "title": "Asynchronous JavaScript: Callbacks, Promises & Async/Await",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "async",
+            "promises",
+            "async-await"
+          ],
+          "topics": [
+            "Synchronous vs asynchronous code",
+            "JavaScript runtime overview: call stack, task queue (conceptual)",
+            "Callbacks and the problem of callback hell",
+            "Promises: states (pending, fulfilled, rejected), then, catch, finally",
+            "Creating and consuming promises",
+            "async/await syntax and error handling with try/catch",
+            "Common patterns with async functions",
+            "Practice Set"
+          ],
+          "learningOutcomes": [
+            "Explain how asynchronous code differs from synchronous code",
+            "Use Promises and async/await to handle async operations",
+            "Refactor callback-based code into cleaner async patterns"
+          ],
+          "prerequisites": [
+            "modern-js"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Handle time-based tasks, delays and remote calls using callbacks, Promises and async/await.",
+          "miniProjects": [
+            "Practice: Asynchronous JavaScript: Callbacks, Promises & Async/Await – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 11,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Fetching data from APIs",
+            "Delaying actions in a UI",
+            "Polling for updates"
+          ],
+          "careerSkills": [
+            "Working with async flows",
+            "Debugging real-world async bugs"
+          ],
+          "commonMistakes": [
+            "Mixing callbacks and Promises unnecessarily",
+            "Not handling rejection / errors in async code"
+          ],
+          "references": [
+            "MDN Web Docs – Using Promises",
+            "javascript.info – Async/await"
+          ],
+          "teachingTips": [
+            "Use diagrams to show call stack and event loop.",
+            "Show how async/await simplifies nested then calls."
+          ],
+          "preReading": [
+            "Modern JavaScript (ES6+ Essentials) module"
+          ],
+          "previousModule": "modern-js",
+          "nextModule": "apis-json",
+          "badge": "Async Pro Badge"
+        },
+        {
+          "moduleId": "apis-json",
+          "slug": "working-with-apis-and-json",
+          "title": "Working with APIs & JSON",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "apis",
+            "json",
+            "http"
+          ],
+          "topics": [
+            "What is JSON? Syntax and common patterns",
+            "Parsing and stringifying JSON with JSON.parse and JSON.stringify",
+            "HTTP basics: methods (GET, POST), status codes (overview)",
+            "Using fetch() to call public APIs",
+            "Handling responses, errors and loading states",
+            "Mini project: fetch data from a public API and display it in the DOM",
+            "Exercise"
+          ],
+          "learningOutcomes": [
+            "Work confidently with JSON data structures",
+            "Call and handle responses from REST APIs using fetch",
+            "Display remote data on a web page with proper loading and error states"
+          ],
+          "prerequisites": [
+            "async-core"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 9,
+          "summary": "Connect your frontend to real APIs using JSON and display remote data on web pages.",
+          "miniProjects": [
+            "Practice: Working with APIs & JSON – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Weather, news, and currency dashboards",
+            "Fetching product lists from an API"
+          ],
+          "careerSkills": [
+            "API-based frontend development",
+            "Understanding JSON contracts"
+          ],
+          "commonMistakes": [
+            "Not checking response.ok before parsing JSON",
+            "Ignoring network error handling"
+          ],
+          "references": [
+            "MDN Web Docs – Working with JSON",
+            "MDN Web Docs – Fetch API"
+          ],
+          "teachingTips": [
+            "Start with simple GET requests and then add error states.",
+            "Show students how to inspect network calls in DevTools."
+          ],
+          "preReading": [
+            "Asynchronous JavaScript: Callbacks, Promises & Async/Await module"
+          ],
+          "previousModule": "async-core",
+          "nextModule": "error-handling",
+          "badge": "API Integrator Badge"
+        },
+        {
+          "moduleId": "error-handling",
+          "slug": "error-handling-and-debugging",
+          "title": "Error Handling, Debugging & Code Quality",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "errors",
+            "debugging",
+            "best-practices"
+          ],
+          "topics": [
+            "Types of errors: syntax, runtime and logical errors",
+            "try, catch, finally and throwing custom errors",
+            "Reading and understanding common error messages",
+            "Using browser DevTools: breakpoints, stepping, watch, call stack",
+            "Basic code quality practices: naming, comments, small functions",
+            "Introduction to linters and formatters (ESLint, Prettier) – conceptual",
+            "Introduction to Linters & Formatters (ESLint & Prettier)",
+            "Exercise"
+          ],
+          "learningOutcomes": [
+            "Identify and fix common JavaScript errors",
+            "Use try/catch to handle errors gracefully",
+            "Debug code effectively using browser DevTools"
+          ],
+          "prerequisites": [
+            "apis-json"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 10,
+          "summary": "Learn to read error messages, debug with DevTools, and improve overall code quality.",
+          "miniProjects": [
+            "Practice: Error Handling, Debugging & Code Quality – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Fixing complex bugs in existing codebases",
+            "Adding robust error handling to production code"
+          ],
+          "careerSkills": [
+            "Professional debugging",
+            "Writing maintainable JavaScript"
+          ],
+          "commonMistakes": [
+            "Swallowing errors silently",
+            "Overusing console.log without structured debugging"
+          ],
+          "references": [
+            "MDN Web Docs – Error handling",
+            "Chrome DevTools docs – JavaScript debugging"
+          ],
+          "teachingTips": [
+            "Give broken code and guide students to fix it live.",
+            "Demonstrate step-by-step debugging in DevTools."
+          ],
+          "preReading": [
+            "Working with APIs & JSON module"
+          ],
+          "previousModule": "apis-json",
+          "nextModule": "storage-and-browser",
+          "badge": "Debugging Ninja Badge"
+        },
+        {
+          "moduleId": "storage-and-browser",
+          "slug": "browser-storage-and-utilities",
+          "title": "Browser Storage & Useful Browser APIs",
+          "level": "Advanced",
+          "estimatedHours": 4,
+          "tags": [
+            "localstorage",
+            "browser-apis"
+          ],
+          "topics": [
+            "localStorage and sessionStorage: storing simple data",
+            "JSON with storage: saving and loading objects",
+            "Basic date and time handling with Date object",
+            "Intro to timers: setTimeout and setInterval",
+            "Conceptual overview of other browser APIs (Geolocation, History, etc.)"
+          ],
+          "learningOutcomes": [
+            "Persist small pieces of data in the browser",
+            "Use timers to schedule simple repeated or delayed tasks",
+            "Recognize common browser APIs and where to use them"
+          ],
+          "prerequisites": [
+            "apis-json"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 11,
+          "summary": "Store data in the browser, work with timers, and discover helpful browser APIs.",
+          "miniProjects": [
+            "Practice: Browser Storage & Useful Browser APIs – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Challenge + Quiz",
+            "passScore": 80
+          },
+          "useCases": [
+            "Saving user preferences in localStorage",
+            "Implementing auto-save features"
+          ],
+          "careerSkills": [
+            "Client-side persistence",
+            "Leveraging browser capabilities in real apps"
+          ],
+          "commonMistakes": [
+            "Storing sensitive data in localStorage",
+            "Forgetting to JSON.parse/JSON.stringify data"
+          ],
+          "references": [
+            "MDN Web Docs – Web Storage API",
+            "MDN Web Docs – setTimeout and setInterval"
+          ],
+          "teachingTips": [
+            "Create a simple notes app that persists using localStorage.",
+            "Show how timers can simulate loading states."
+          ],
+          "preReading": [
+            "Error Handling, Debugging & Code Quality module"
+          ],
+          "previousModule": "error-handling",
+          "nextModule": null,
+          "badge": "Browser Power User Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultra-expert",
+      "title": "Segment 4 – Ultra Expert JavaScript & Ecosystem",
+      "level": "Ultra Expert",
+      "summary": "Master-level topics that prepare you to work on large-scale applications, optimize performance, and design clean architectures.",
+      "modules": [
+        {
+          "moduleId": "deep-js-internals",
+          "slug": "javascript-internals-and-advanced-concepts",
+          "title": "JavaScript Internals & Advanced Concepts",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "scope",
+            "closures",
+            "prototypes"
+          ],
+          "topics": [
+            "Execution context and lexical environment (conceptual but deep)",
+            "Scope chain, shadowing and variable lookup",
+            "Closures in depth and practical use cases",
+            "Prototypal inheritance model and prototype chain",
+            "this binding rules: global, function, method, arrow functions, call/apply/bind",
+            "Hoisting for variables and functions – advanced view"
+          ],
+          "learningOutcomes": [
+            "Explain how JavaScript executes code under the hood at a conceptual level",
+            "Use closures intentionally for encapsulation and factories",
+            "Debug tricky issues involving this, scope and hoisting"
+          ],
+          "prerequisites": [
+            "modern-js"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 9,
+          "summary": "Go under the hood of JavaScript and deeply understand how scope, closures, and prototypes work.",
+          "miniProjects": [
+            "Practice: JavaScript Internals & Advanced Concepts – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 24,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Writing advanced libraries or helpers",
+            "Debugging complex bugs involving this and closures"
+          ],
+          "careerSkills": [
+            "Reading and understanding complex JS code",
+            "Contributing to advanced open-source projects"
+          ],
+          "commonMistakes": [
+            "Incorrect assumptions about scope and variable lifetime",
+            "Misusing this in different contexts"
+          ],
+          "references": [
+            "javascript.info – Closures",
+            "MDN Web Docs – Prototypes and inheritance"
+          ],
+          "teachingTips": [
+            "Start with simple closure examples and build complexity.",
+            "Use visual diagrams of scope chains."
+          ],
+          "preReading": [
+            "Modern JavaScript (ES6+ Essentials) module"
+          ],
+          "previousModule": null,
+          "nextModule": "patterns-architecture",
+          "badge": "JS Internals Guru Badge"
+        },
+        {
+          "moduleId": "patterns-architecture",
+          "slug": "patterns-and-architecture",
+          "title": "Design Patterns & Application Architecture in JavaScript",
+          "level": "Ultra Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "design-patterns",
+            "architecture"
+          ],
+          "topics": [
+            "Modular JavaScript and separation of concerns",
+            "Common design patterns: Module, Revealing Module, Factory, Singleton (concept-level)",
+            "Event-driven patterns and pub/sub (concepts and simple implementation)",
+            "State management basics and thinking in data flow",
+            "Organizing larger codebases: folders, modules, naming",
+            "Introduction to SOLID principles in a JavaScript context (overview)"
+          ],
+          "learningOutcomes": [
+            "Recognize and apply basic design patterns in JavaScript projects",
+            "Organize code for larger applications with clear separation of concerns",
+            "Reason about state and data flow in complex UIs"
+          ],
+          "prerequisites": [
+            "deep-js-internals"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 10,
+          "summary": "Learn patterns and architecture concepts to structure large, maintainable JavaScript apps.",
+          "miniProjects": [
+            "Practice: Design Patterns & Application Architecture in JavaScript – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 11,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Structuring mid-to-large front-end projects",
+            "Refactoring messy codebases into modular patterns"
+          ],
+          "careerSkills": [
+            "Architecting applications",
+            "Designing reusable modules and services"
+          ],
+          "commonMistakes": [
+            "Overusing patterns where not needed",
+            "Creating tight coupling between modules"
+          ],
+          "references": [
+            "Addy Osmani – Learning JavaScript Design Patterns",
+            "MDN Web Docs – Client-side web application structure"
+          ],
+          "teachingTips": [
+            "Show before/after examples of refactored architectures.",
+            "Discuss trade-offs between different patterns."
+          ],
+          "preReading": [
+            "JavaScript Internals & Advanced Concepts module"
+          ],
+          "previousModule": "deep-js-internals",
+          "nextModule": "tooling-and-build",
+          "badge": "JS Architect Badge"
+        },
+        {
+          "moduleId": "tooling-and-build",
+          "slug": "tooling-and-build-systems",
+          "title": "Tooling, Bundling & Build Systems",
+          "level": "Ultra Expert",
+          "estimatedHours": 5,
+          "tags": [
+            "npm",
+            "bundlers",
+            "tooling"
+          ],
+          "topics": [
+            "Node.js and npm as a developer tool (CLI basics)",
+            "package.json, scripts and semantic versioning (concepts)",
+            "Using simple npm scripts for development tasks",
+            "Conceptual overview of bundlers (Vite, Webpack, Parcel)",
+            "Transpilation and compatibility: Babel and targets (high-level view)"
+          ],
+          "learningOutcomes": [
+            "Use npm scripts to automate basic development workflows",
+            "Understand where bundlers fit into modern JavaScript development",
+            "Read and reason about package.json and dependency trees"
+          ],
+          "prerequisites": [
+            "apis-json"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 11,
+          "summary": "Use Node, npm and bundlers conceptually to manage, bundle, and build JavaScript projects.",
+          "miniProjects": [
+            "Practice: Tooling, Bundling & Build Systems – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Running development servers",
+            "Building production bundles"
+          ],
+          "careerSkills": [
+            "Using the JavaScript toolchain",
+            "Understanding build steps in real projects"
+          ],
+          "commonMistakes": [
+            "Installing packages globally unnecessarily",
+            "Not understanding devDependencies vs dependencies"
+          ],
+          "references": [
+            "npm Docs – Getting started",
+            "Vite or Webpack official docs (concept-level reading)"
+          ],
+          "teachingTips": [
+            "Show a minimal package.json and explain all fields.",
+            "Demonstrate npm scripts to run simple tasks."
+          ],
+          "preReading": [
+            "Working with APIs & JSON module"
+          ],
+          "previousModule": "patterns-architecture",
+          "nextModule": "performance-and-optimization",
+          "badge": "Tooling Pro Badge"
+        },
+        {
+          "moduleId": "performance-and-optimization",
+          "slug": "performance-and-optimization",
+          "title": "Performance, Optimization & Best Practices",
+          "level": "Ultra Expert",
+          "estimatedHours": 5,
+          "tags": [
+            "performance",
+            "optimization"
+          ],
+          "topics": [
+            "Measuring performance with DevTools (Performance tab, Lighthouse overview)",
+            "Big-O thinking in a JavaScript-friendly way (high-level)",
+            "Optimizing loops, DOM access and API calls",
+            "Debouncing and throttling concepts for event-heavy UIs",
+            "Avoiding common pitfalls: memory leaks, unnecessary timers, unused listeners"
+          ],
+          "learningOutcomes": [
+            "Identify JavaScript bottlenecks in small to medium projects",
+            "Apply debouncing and throttling to improve UX",
+            "Write more efficient code with awareness of performance trade-offs"
+          ],
+          "prerequisites": [
+            "storage-and-browser"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 12,
+          "summary": "Measure, analyze and optimize JavaScript performance in real-world applications.",
+          "miniProjects": [
+            "Practice: Performance, Optimization & Best Practices – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Improving slow list rendering",
+            "Optimizing scroll or resize handlers"
+          ],
+          "careerSkills": [
+            "Performance profiling",
+            "Designing efficient front-end interactions"
+          ],
+          "commonMistakes": [
+            "Triggering unnecessary reflows",
+            "Overusing expensive operations inside loops"
+          ],
+          "references": [
+            "MDN Web Docs – Performance",
+            "Chrome DevTools – Performance analysis"
+          ],
+          "teachingTips": [
+            "Show before/after performance metrics for the same app.",
+            "Use simple examples to demonstrate debouncing and throttling."
+          ],
+          "preReading": [
+            "Browser Storage & Useful Browser APIs module"
+          ],
+          "previousModule": "tooling-and-build",
+          "nextModule": "projects-and-interviews",
+          "badge": "Performance Tuner Badge"
+        },
+        {
+          "moduleId": "projects-and-interviews",
+          "slug": "projects-and-interview-prep",
+          "title": "Capstone Projects, Testing & Interview Preparation",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "projects",
+            "interviews",
+            "testing"
+          ],
+          "topics": [
+            "Designing and planning capstone projects (e.g., dashboard, SPA, complex form)",
+            "Breaking large problems into small deliverables and milestones",
+            "Introduction to testing concepts: unit tests and integration tests (framework-agnostic)",
+            "Common JavaScript interview questions: theory and coding",
+            "Building a personal revision sheet and portfolio checklist"
+          ],
+          "learningOutcomes": [
+            "Plan and execute a multi-module JavaScript project",
+            "Prepare confidently for JavaScript interviews and assessments",
+            "Understand where testing fits into a professional JavaScript workflow"
+          ],
+          "prerequisites": [
+            "patterns-architecture"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 13,
+          "summary": "Consolidate your skills with capstone projects and get ready for interviews and real jobs.",
+          "miniProjects": [
+            "Practice: Capstone Projects, Testing & Interview Preparation – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 24,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone Project + Review",
+            "passScore": 85
+          },
+          "useCases": [
+            "Portfolio-building applications",
+            "Final assessments and mock interviews"
+          ],
+          "careerSkills": [
+            "End-to-end project execution",
+            "Technical communication in interviews"
+          ],
+          "commonMistakes": [
+            "Trying to build too large a project alone",
+            "Skipping testing and documentation"
+          ],
+          "references": [
+            "LeetCode / HackerRank – Basic JS problems",
+            "Official docs of testing frameworks (Jest, Vitest, etc.)"
+          ],
+          "teachingTips": [
+            "Help students scope realistic capstone project sizes.",
+            "Conduct mock interviews with real questions."
+          ],
+          "preReading": [
+            "All earlier segments recommended"
+          ],
+          "previousModule": "performance-and-optimization",
+          "nextModule": null,
+          "badge": "JavaScript Ultra Expert Badge"
+        }
+      ]
+    }
+  ]
+}
