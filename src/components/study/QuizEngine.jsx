@@ -2,16 +2,14 @@
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
-import { RotateCcw, Eye, EyeOff, Award, Trophy, Smartphone } from "lucide-react";
-import QRCode from "react-qr-code";
+import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
 import cnatLogo from "../../assets/cnat.png";
+import QRCode from "react-qr-code";
 
 const STORAGE_PREFIX = "quizEngine_";
 const LEADERBOARD_PREFIX = "quizLeaderboard_";
 
-// ========================== HELPERS ==========================
-
-// Fisher–Yates shuffle
+// -------- Helpers --------
 function shuffleArray(arr) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -21,16 +19,14 @@ function shuffleArray(arr) {
   return copy;
 }
 
-// Prepare quiz: random sample + shuffle options but keep correct index
 function prepareQuiz(questions, limit) {
   if (!Array.isArray(questions)) return [];
-
   const shuffled = shuffleArray(questions);
   const sliceSize = limit ? Math.min(limit, shuffled.length) : shuffled.length;
   const picked = shuffled.slice(0, sliceSize);
 
   return picked.map((q) => {
-    const wrapped = (q.options || []).map((opt, idx) => ({
+    const wrapped = q.options.map((opt, idx) => ({
       text: opt,
       originalIndex: idx,
     }));
@@ -62,8 +58,9 @@ function getNextCertificateNumber() {
   return certNumber;
 }
 
-// ========================== MAIN COMPONENT ==========================
-
+// ===================================================================
+// ⭐ QUIZ ENGINE ⭐
+// ===================================================================
 export default function QuizEngine({
   title = "Quiz Test",
   questions = [],
@@ -81,7 +78,6 @@ export default function QuizEngine({
   const LEADERBOARD_KEY = LEADERBOARD_PREFIX + testId;
   const BEST_KEY = STORAGE_PREFIX + "best_" + testId;
 
-  // Core quiz state
   const [quiz, setQuiz] = useState([]);
   const [responses, setResponses] = useState({});
   const [submitted, setSubmitted] = useState({});
@@ -89,28 +85,21 @@ export default function QuizEngine({
   const [isFinished, setIsFinished] = useState(false);
   const [reviewMode, setReviewMode] = useState(false);
 
-  // UX state
   const [studentName, setStudentName] = useState("");
-  const [nameEntered, setNameEntered] = useState(false);
+  const [nameEntered, setNameEntered] = useState(false); // gate
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({});
   const [selectedCount, setSelectedCount] = useState(
     questionLimit ? questionLimit : 25
   );
   const [selectedLevel, setSelectedLevel] = useState("All"); // All / beginner / moderate / advanced
-  const [isMobileKeyboardOpen, setIsMobileKeyboardOpen] = useState(false);
 
-  const nameInputRef = useRef(null);
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
 
-  const isBrowser = typeof window !== "undefined";
-  const currentUrl = isBrowser
-    ? window.location.href
-    : "https://www.codernaccotax.co.in";
-
-  // ========================== DERIVED DATA ==========================
-
+  // ---------------------------------------------
+  // Difficulty-filtered questions
+  // ---------------------------------------------
   const availableQuestions = useMemo(() => {
     if (!Array.isArray(questions)) return [];
     if (selectedLevel === "All") return questions;
@@ -121,54 +110,43 @@ export default function QuizEngine({
       return String(q.level).toLowerCase() === lvl;
     });
 
-    if (!filtered.length) filtered = questions;
+    if (!filtered.length) filtered = questions; // fallback
     return filtered;
   }, [questions, selectedLevel]);
 
-  const progress = Object.keys(submitted).length;
-  const total = quiz.length;
-  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
-  const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
-  const wrongQuestions = quiz.filter(
-    (q) => submitted[q.id] && responses[q.id] !== q.answerIndex
-  );
-  const visibleQuestions = reviewMode ? wrongQuestions : quiz;
-  const bestForCurrent = bestScores[total] || bestScores[selectedCount] || null;
-
-  // ========================== LOAD LEADERBOARD + BEST ==========================
-
+  // ---------------------------------------------
+  // Leaderboard + best scores load
+  // ---------------------------------------------
   useEffect(() => {
-    if (!isBrowser) return;
-    try {
-      const savedLb = localStorage.getItem(LEADERBOARD_KEY);
-      if (savedLb) {
+    const savedLb = localStorage.getItem(LEADERBOARD_KEY);
+    if (savedLb) {
+      try {
         const parsed = JSON.parse(savedLb);
-        if (Array.isArray(parsed)) setLeaderboard(parsed);
+        setLeaderboard(Array.isArray(parsed) ? parsed : []);
+      } catch {
+        setLeaderboard([]);
       }
-    } catch {
-      setLeaderboard([]);
     }
-  }, [LEADERBOARD_KEY, isBrowser]);
+  }, [LEADERBOARD_KEY]);
 
   useEffect(() => {
-    if (!isBrowser) return;
-    try {
-      const savedBest = localStorage.getItem(BEST_KEY);
-      if (savedBest) {
+    const savedBest = localStorage.getItem(BEST_KEY);
+    if (savedBest) {
+      try {
         const parsed = JSON.parse(savedBest);
         if (parsed && typeof parsed === "object") {
           setBestScores(parsed);
         }
+      } catch {
+        setBestScores({});
       }
-    } catch {
-      setBestScores({});
     }
-  }, [BEST_KEY, isBrowser]);
+  }, [BEST_KEY]);
 
-  // ========================== LOAD / INIT QUIZ ==========================
-
+  // ---------------------------------------------
+  // Load / init quiz (only AFTER name entered)
+  // ---------------------------------------------
   useEffect(() => {
-    if (!isBrowser) return;
     if (!nameEntered) return;
     if (!availableQuestions || !availableQuestions.length) return;
 
@@ -202,7 +180,7 @@ export default function QuizEngine({
           return;
         }
       } catch {
-        // ignore and fall through
+        // ignore
       }
     }
 
@@ -225,36 +203,39 @@ export default function QuizEngine({
     selectedCount,
     STORAGE_KEY,
     questionLimit,
-    isBrowser,
   ]);
 
-  // ========================== SAVE QUIZ STATE ==========================
-
+  // ---------------------------------------------
+  // Save quiz state
+  // ---------------------------------------------
   useEffect(() => {
-    if (!isBrowser) return;
     if (!quiz.length) return;
     const data = { quiz, responses, submitted, score, isFinished };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  }, [quiz, responses, submitted, score, isFinished, STORAGE_KEY, isBrowser]);
+  }, [quiz, responses, submitted, score, isFinished, STORAGE_KEY]);
 
-  // ========================== SCROLL HELPER ==========================
-
-  const scrollToQuestion = (index) => {
-    if (!isBrowser) return;
+  // ---------------------------------------------
+  // Scroll helper
+  // ---------------------------------------------
+  const scrollTo = (index) => {
     const el = questionRefs.current[index];
     if (!el) return;
     const y = el.getBoundingClientRect().top + window.scrollY - 120;
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // ========================== HANDLERS ==========================
-
+  // ---------------------------------------------
+  // Option selection
+  // ---------------------------------------------
   const handleSelect = (id, optIndex) => {
     if (submitted[id]) return;
     setResponses((prev) => ({ ...prev, [id]: optIndex }));
   };
 
-  const handleSubmitQuestion = (q, index) => {
+  // ---------------------------------------------
+  // Submit one question
+  // ---------------------------------------------
+  const handleSubmit = (q, index) => {
     if (submitted[q.id]) return;
 
     const userAns = responses[q.id];
@@ -269,10 +250,13 @@ export default function QuizEngine({
     });
 
     if (!reviewMode && index + 1 < quiz.length) {
-      setTimeout(() => scrollToQuestion(index + 1), 500);
+      setTimeout(() => scrollTo(index + 1), 600);
     }
   };
 
+  // ---------------------------------------------
+  // Restart
+  // ---------------------------------------------
   const handleRestart = () => {
     if (!availableQuestions.length) return;
 
@@ -288,50 +272,31 @@ export default function QuizEngine({
     setScore(0);
     setIsFinished(false);
     setReviewMode(false);
-
-    if (isBrowser) {
-      localStorage.removeItem(STORAGE_KEY);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    localStorage.removeItem(STORAGE_KEY);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const applyQuestionCount = () => {
-    if (!availableQuestions.length) return;
+  // ---------------------------------------------
+  // Wrong questions list
+  // ---------------------------------------------
+  const wrongQuestions = quiz.filter(
+    (q) => submitted[q.id] && responses[q.id] !== q.answerIndex
+  );
+  const visibleQuestions = reviewMode ? wrongQuestions : quiz;
 
-    const value =
-      selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, availableQuestions.length)
-        : Math.min(questionLimit || 25, availableQuestions.length);
-
-    const fresh = prepareQuiz(availableQuestions, value);
-    setQuiz(fresh);
-    setResponses({});
-    setSubmitted({});
-    setScore(0);
-    setIsFinished(false);
-    setReviewMode(false);
-
-    if (isBrowser) {
-      localStorage.removeItem(STORAGE_KEY);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  // ========================== LEADERBOARD ==========================
-
+  // ---------------------------------------------
+  // Leaderboard logic
+  // ---------------------------------------------
   const addToLeaderboard = () => {
-    if (!isBrowser) return;
     if (!quiz.length) return;
 
-    const totalLocal = quiz.length;
-    const percent = totalLocal
-      ? Number(((score / totalLocal) * 100).toFixed(2))
-      : 0;
+    const total = quiz.length;
+    const percent = total ? Number(((score / total) * 100).toFixed(2)) : 0;
 
     const entry = {
       name: studentName.trim() || "Guest",
       score,
-      total: totalLocal,
+      total,
       percent,
       date: new Date().toISOString(),
     };
@@ -352,11 +317,11 @@ export default function QuizEngine({
 
     setBestScores((prev) => {
       const map = { ...prev };
-      const totalCount = totalLocal;
+      const totalCount = total;
       const existing = map[totalCount];
 
       if (!existing || percent > existing.percent) {
-        map[totalCount] = { score, total: totalLocal, percent, date: entry.date };
+        map[totalCount] = { score, total, percent, date: entry.date };
       }
       localStorage.setItem(BEST_KEY, JSON.stringify(map));
       return map;
@@ -368,21 +333,19 @@ export default function QuizEngine({
   };
 
   useEffect(() => {
-    if (!isBrowser) return;
     if (!prevFinishedRef.current && isFinished) {
       addToLeaderboard();
     }
     prevFinishedRef.current = isFinished;
-  }, [isFinished, score, quiz.length, isBrowser]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isFinished, score, quiz.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ========================== CERTIFICATE ==========================
-
+  // ---------------------------------------------
+  // Certificate
+  // ---------------------------------------------
   const generateCertificate = () => {
-    if (!isBrowser) return;
-
     const name = studentName || "Student Name";
-    const totalLocal = quiz.length;
-    const percent = totalLocal ? ((score / totalLocal) * 100).toFixed(2) : "0.00";
+    const total = quiz.length;
+    const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
 
     const today = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
@@ -480,7 +443,7 @@ export default function QuizEngine({
       has successfully completed the test:<br>
       <span class="test-title">${title}</span>
     </div>
-    <div class="score-box">Score: ${score}/${totalLocal} &nbsp; | &nbsp; ${percent}%</div>
+    <div class="score-box">Score: ${score}/${total} &nbsp; | &nbsp; ${percent}%</div>
     <div class="result-box">
       <span class="${passed ? "result-pass" : "result-fail"}">
         ${passed ? "PASSED" : "NOT PASSED"}
@@ -518,115 +481,96 @@ export default function QuizEngine({
     w.document.close();
   };
 
-  // ========================== MOBILE NAME GATE ==========================
+  // ---------------------------------------------
+  // Apply selected question count (after name)
+  // ---------------------------------------------
+  const applyQuestionCount = () => {
+    if (!availableQuestions.length) return;
+
+    const value =
+      selectedCount && selectedCount > 0
+        ? Math.min(selectedCount, availableQuestions.length)
+        : Math.min(questionLimit || 25, availableQuestions.length);
+
+    const fresh = prepareQuiz(availableQuestions, value);
+    setQuiz(fresh);
+    setResponses({});
+    setSubmitted({});
+    setScore(0);
+    setIsFinished(false);
+    setReviewMode(false);
+    localStorage.removeItem(STORAGE_KEY);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+  // ---------------------------------------------
+  // NAME ENTRY GATE (skip on mobile)
+  // ---------------------------------------------
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(
+    navigator.userAgent
+  );
 
   useEffect(() => {
-    // Autofocus for desktop; on mobile it will bring keyboard nicely
-    if (nameInputRef.current) {
-      nameInputRef.current.focus();
-    }
-  }, []);
-
-  const handleStartTest = () => {
-    const finalName = studentName.trim();
-    if (!finalName) return;
-
-    if (isBrowser && document.activeElement && document.activeElement.blur) {
-      document.activeElement.blur();
-    }
-
-    // small timeout for Android/iOS IME to commit last character
-    setTimeout(() => {
-      setStudentName(finalName);
+    if (isMobile && !nameEntered) {
+      // Auto-fill name for mobile
+      setStudentName("Mobile User");
       setNameEntered(true);
-      setIsMobileKeyboardOpen(false);
-    }, 80);
-  };
-
-  const handleNameKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      handleStartTest();
     }
-  };
+  }, [isMobile, nameEntered]);
 
-  // ========================== NAME ENTRY GATE (MOBILE-SAFE) ==========================
+  if (!nameEntered && !isMobile) {
+    const handleStart = (event) => {
+      if (event) event.preventDefault();
 
-  if (!nameEntered) {
+      const finalName = studentName.trim();
+      if (!finalName) return;
 
-    const startNow = () => {
-      const final = studentName.trim();
-      if (!final) return;
-
-      console.log("Start button tapped, name =", final);
-
-      // Force close keyboard
       if (document.activeElement && document.activeElement.blur) {
         document.activeElement.blur();
       }
 
       setTimeout(() => {
-        setStudentName(final);
+        setStudentName(finalName);
         setNameEntered(true);
-        console.log("Name accepted, moving to next screen...");
-      }, 80);
+      }, 30);
     };
 
     return (
-      <div className="max-w-md mx-auto mt-20 px-4">
-        <div className="rounded-2xl bg-slate-900 border border-slate-700 p-6 space-y-6 shadow-xl">
+      <section className="max-w-md mx-auto mt-20 p-6 rounded-2xl bg-slate-900 border border-slate-700 shadow-xl shadow-black/40">
+        <h2 className="text-xl font-bold text-sky-300 mb-4 text-center">
+          Enter Student Name to Begin Test
+        </h2>
 
-          <h2 className="text-xl font-bold text-sky-300 text-center">
-            Enter Student Name
-          </h2>
-          <p className="text-xs text-slate-400 text-center">
-            This will appear on the certificate & leaderboard.
-          </p>
+        <p className="text-xs text-slate-400 mb-4 text-center">
+          This name will appear on the certificate and leaderboard.
+        </p>
 
-          {/* INPUT FIELD */}
-          <input
-            ref={nameInputRef}
-            type="text"
-            placeholder="Student name"
-            value={studentName}
-            onChange={(e) => setStudentName(e.target.value)}
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="words"
-            spellCheck="false"
-            className="w-full px-4 py-3 rounded-xl bg-slate-950 text-slate-100 
-                     border border-slate-700 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                console.log("Enter pressed");
-                startNow();
-              }
-            }}
-          />
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={studentName}
+          onChange={(e) => setStudentName(e.target.value)}
+          className="w-full px-4 py-2 mb-4 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500"
+        />
 
-          {/* START BUTTON — FULLY MOBILE SAFE */}
-          <button
-            type="button"
-            role="button"
-            tabIndex={0}
-            onClick={startNow}
-            onTouchStart={startNow}
-            className={`w-full py-3 rounded-xl text-white font-semibold text-sm transition ${studentName.trim()
-                ? "bg-sky-600 hover:bg-sky-500 active:bg-sky-700"
-                : "bg-slate-700 text-slate-400 cursor-not-allowed"
-              }`}
-          >
-            Start Test
-          </button>
-
-        </div>
-      </div>
+        <button
+          type="button"
+          onClick={handleStart}
+          className={`w-full py-2 rounded-xl text-white font-semibold text-sm ${studentName.trim() ? "bg-sky-600 hover:bg-sky-500" : "bg-slate-700"
+            }`}
+        >
+          Start Test
+        </button>
+      </section>
     );
   }
 
 
-  // ========================== MAIN RENDER ==========================
 
+  // ---------------------------------------------
+  // MAIN RENDER (after name)
+  // ---------------------------------------------
   if (!quiz.length) {
     return (
       <div className="max-w-5xl mx-auto text-slate-300 text-sm">
@@ -635,17 +579,28 @@ export default function QuizEngine({
     );
   }
 
+  const progress = Object.keys(submitted).length;
+  const total = quiz.length;
+  const percentComplete = total ? Math.round((progress / total) * 100) : 0;
+  const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
+
+  const bestForCurrent = bestScores[total] || bestScores[selectedCount] || null;
+  const currentUrl =
+    typeof window !== "undefined"
+      ? window.location.href
+      : "https://www.codernaccotax.co.in";
+
   return (
-    <section className="max-w-5xl mx-auto space-y-8 px-3 md:px-0">
+    <section className="max-w-5xl mx-auto space-y-8">
       {/* HEADER CARD */}
       <header className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-900/80 via-slate-900 to-slate-950 px-4 py-5 md:px-6 md:py-6 shadow-xl shadow-slate-950/40">
+        {/* Background glow – pointer-events disabled */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <div className="absolute -top-24 -left-16 h-40 w-40 rounded-full bg-sky-500/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-10 h-48 w-48 rounded-full bg-violet-500/25 blur-3xl" />
         </div>
 
         <div className="relative z-10 space-y-4">
-          {/* Top row: title + stats */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
               <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mb-1">
@@ -747,13 +702,14 @@ export default function QuizEngine({
                   lvl === "All"
                     ? "All Levels"
                     : lvl.charAt(0).toUpperCase() + lvl.slice(1);
-                const active =
-                  selectedLevel.toLowerCase() === lvl.toLowerCase();
+                const active = selectedLevel.toLowerCase() === lvl.toLowerCase();
                 return (
                   <button
                     key={lvl}
                     type="button"
-                    onClick={() => setSelectedLevel(lvl === "All" ? "All" : lvl)}
+                    onClick={() =>
+                      setSelectedLevel(lvl === "All" ? "All" : lvl)
+                    }
                     className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
                         ? "bg-emerald-600 text-white border-emerald-400"
                         : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
@@ -769,53 +725,57 @@ export default function QuizEngine({
             </p>
           </div>
 
-          {/* QR: Desktop Only */}
-          <div className="hidden md:flex mt-4 p-4 rounded-2xl bg-slate-900 border border-slate-700 shadow-lg items-center gap-4">
-            <div className="flex-1 space-y-1">
-              <p className="text-xs text-slate-300 font-medium flex items-center gap-1">
-                <Smartphone size={14} />
-                Open this quiz on your mobile:
-              </p>
-              <p className="text-[11px] text-sky-300 break-all">{currentUrl}</p>
-            </div>
+          {/* QR + LOGO block (pointer-events fixed) */}
+          <div className="mt-4 flex flex-col items-center justify-center gap-3">
+            <p className="text-[11px] text-slate-400">
+              Scan on another device to open this quiz:
+            </p>
 
-            <div className="relative">
-              {/* Soft glow */}
-              <div className="absolute inset-0 rounded-2xl bg-sky-500/20 blur-xl opacity-30" />
-              {/* QR container */}
+            <div className="relative flex items-center justify-center p-4 rounded-2xl bg-slate-900 border border-slate-700 shadow-lg">
+              {/* Soft Glow Behind QR */}
+              <div className="absolute inset-0 rounded-2xl bg-sky-500/10 blur-xl opacity-30 pointer-events-none" />
+
+              {/* QR CODE */}
               <div className="relative bg-slate-800 p-3 rounded-xl shadow-inner border border-slate-700">
                 <QRCode
                   value={currentUrl}
-                  size={150}
+                  size={160}
                   level="H"
                   fgColor="#ffffff"
-                  bgColor="#020617"
+                  bgColor="#0f172a"
                   style={{ borderRadius: "12px" }}
                 />
-                {/* Logo in center */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="bg-slate-950 p-1.5 rounded-xl shadow-lg border border-slate-600">
-                    <img
-                      src={cnatLogo}
-                      alt="Coder & AccoTax"
-                      className="h-9 w-9 object-contain"
-                    />
-                  </div>
+              </div>
+
+              {/* LOGO Overlay – no pointer events */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="bg-slate-900 p-1.5 rounded-xl shadow-lg border border-slate-600">
+                  <img
+                    src={cnatLogo}
+                    alt="Logo"
+                    className="h-10 w-10 object-contain"
+                  />
                 </div>
               </div>
             </div>
+
+            <p className="text-[10px] text-slate-500 break-all text-center">
+              {currentUrl}
+            </p>
           </div>
 
-          {/* Question Count Selector */}
+          {/* Question Count Selector (before starting submissions) */}
           {progress === 0 && !isFinished && (
             <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
               <p className="text-xs text-slate-300 font-medium">
                 Select number of questions:
               </p>
+
               <div className="flex flex-wrap gap-2">
                 {[10, 15, 20, 25, 50, "All"].map((n) => {
                   const value = n === "All" ? availableQuestions.length : n;
                   const active = selectedCount === value;
+
                   return (
                     <button
                       key={n}
@@ -835,6 +795,7 @@ export default function QuizEngine({
                   );
                 })}
               </div>
+
               <button
                 type="button"
                 onClick={applyQuestionCount}
@@ -889,18 +850,20 @@ export default function QuizEngine({
           {/* Leaderboard */}
           {leaderboard.length > 0 && (
             <div className="mt-3 rounded-2xl border border-slate-800 bg-slate-950/70 px-3 py-3 space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500/10 border border-amber-500/50">
-                  <Trophy size={14} className="text-amber-300" />
-                </span>
-                <div>
-                  <h3 className="text-xs font-semibold text-amber-100">
-                    {leaderboardTitle}
-                  </h3>
-                  <p className="text-[11px] text-slate-400">
-                    Top {leaderboard.length} scores recorded locally on this
-                    device.
-                  </p>
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500/10 border border-amber-500/50">
+                    <Trophy size={14} className="text-amber-300" />
+                  </span>
+                  <div>
+                    <h3 className="text-xs font-semibold text-amber-100">
+                      {leaderboardTitle}
+                    </h3>
+                    <p className="text-[11px] text-slate-400">
+                      Top {leaderboard.length} scores recorded locally on this
+                      device.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -947,7 +910,6 @@ export default function QuizEngine({
           )}
         </div>
       </header>
-
       {/* QUESTIONS LIST */}
       <div className="space-y-6">
         {visibleQuestions.map((q) => {
@@ -962,7 +924,6 @@ export default function QuizEngine({
               ref={(el) => (questionRefs.current[index] = el)}
               className="border border-slate-800 bg-slate-900/70 rounded-2xl p-4 md:p-5 shadow-lg shadow-black/40 space-y-3"
             >
-              {/* Question header */}
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -997,14 +958,12 @@ export default function QuizEngine({
                 )}
               </div>
 
-              {/* Code snippet */}
               {q.code && (
                 <div className="mt-1">
                   <CodeBlockGeneral code={q.code} language="javascript" />
                 </div>
               )}
 
-              {/* Options */}
               <div className="space-y-1 mt-1">
                 {q.options.map((opt, optIndex) => {
                   const inputId = `q${q.id}_${optIndex}`;
@@ -1045,11 +1004,10 @@ export default function QuizEngine({
                 })}
               </div>
 
-              {/* Submit / Explanation */}
               {!isSub ? (
                 <button
                   type="button"
-                  onClick={() => handleSubmitQuestion(q, index)}
+                  onClick={() => handleSubmit(q, index)}
                   disabled={responses[q.id] == null}
                   className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-full bg-sky-600 hover:bg-sky-500 disabled:bg-slate-700 disabled:text-slate-400 text-white text-xs font-semibold transition"
                 >
@@ -1069,7 +1027,9 @@ export default function QuizEngine({
                       <p className="text-[11px] uppercase tracking-[0.18em] text-sky-400 mb-1">
                         Explanation
                       </p>
-                      <p className="text-sm leading-relaxed">{q.explanation}</p>
+                      <p className="text-sm leading-relaxed">
+                        {q.explanation}
+                      </p>
                     </div>
                   )}
                 </div>
