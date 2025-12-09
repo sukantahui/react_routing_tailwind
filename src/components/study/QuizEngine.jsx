@@ -5,11 +5,14 @@ import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
 import cnatLogo from "../../assets/cnat.png";
 import QRCode from "react-qr-code";
+import CertificateGenerator from "../study/common/CertificateGenerator";
 
+// =========================================================
+// ---------- Helpers --------------------------------------
+// =========================================================
 const STORAGE_PREFIX = "quizEngine_";
 const LEADERBOARD_PREFIX = "quizLeaderboard_";
 
-// -------- Helpers --------
 function shuffleArray(arr) {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -21,6 +24,7 @@ function shuffleArray(arr) {
 
 function prepareQuiz(questions, limit) {
   if (!Array.isArray(questions)) return [];
+
   const shuffled = shuffleArray(questions);
   const sliceSize = limit ? Math.min(limit, shuffled.length) : shuffled.length;
   const picked = shuffled.slice(0, sliceSize);
@@ -44,28 +48,14 @@ function prepareQuiz(questions, limit) {
   });
 }
 
-// Sequential certificate number generator
-function getNextCertificateNumber() {
-  const key = "certificate_counter";
-  let current = parseInt(localStorage.getItem(key), 10);
-  if (isNaN(current) || current < 1) current = 1;
-
-  const year = new Date().getFullYear();
-  const padded = String(current).padStart(5, "0");
-  const certNumber = `CAT-${year}-${padded}`;
-
-  localStorage.setItem(key, current + 1);
-  return certNumber;
-}
-
-// ===================================================================
-// ⭐ QUIZ ENGINE ⭐
-// ===================================================================
+// =========================================================
+//                ⭐ QUIZ ENGINE ⭐
+// =========================================================
 export default function QuizEngine({
   title = "Quiz Test",
   questions = [],
   testId = "test_default",
-  questionLimit = 25,
+  questionLimit = 25, // just default, not forced
   certificateHeader = "Coder & AccoTax",
   certificateSubtitle = "Barrackpore · www.codernaccotax.co.in",
   certificateTitle = "Certificate of Completion",
@@ -78,6 +68,9 @@ export default function QuizEngine({
   const LEADERBOARD_KEY = LEADERBOARD_PREFIX + testId;
   const BEST_KEY = STORAGE_PREFIX + "best_" + testId;
 
+  // -------------------------------------------------------
+  // Core states
+  // -------------------------------------------------------
   const [quiz, setQuiz] = useState([]);
   const [responses, setResponses] = useState({});
   const [submitted, setSubmitted] = useState({});
@@ -86,25 +79,42 @@ export default function QuizEngine({
   const [reviewMode, setReviewMode] = useState(false);
 
   const [studentName, setStudentName] = useState("");
-  const [nameEntered, setNameEntered] = useState(false); // gate
+  const [nameEntered, setNameEntered] = useState(false);
+
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({});
-  const [selectedCount, setSelectedCount] = useState(
-    questionLimit ? questionLimit : 25
+
+  const [selectedCount, setSelectedCount] = useState(() =>
+    Number.isFinite(questionLimit) && questionLimit > 0 ? questionLimit : 25
   );
   const [selectedLevel, setSelectedLevel] = useState("All"); // All / beginner / moderate / advanced
 
   const questionRefs = useRef([]);
   const prevFinishedRef = useRef(false);
 
-  // ---------------------------------------------
-  // Difficulty-filtered questions
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Detect Mobile → auto-enter name
+  // -------------------------------------------------------
+  const isMobile =
+    typeof navigator !== "undefined" &&
+    /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  useEffect(() => {
+    if (isMobile && !nameEntered) {
+      setStudentName("Mobile User");
+      setNameEntered(true);
+    }
+  }, [isMobile, nameEntered]);
+
+  // -------------------------------------------------------
+  // Filter questions by difficulty
+  // -------------------------------------------------------
   const availableQuestions = useMemo(() => {
     if (!Array.isArray(questions)) return [];
     if (selectedLevel === "All") return questions;
 
     const lvl = selectedLevel.toLowerCase();
+
     let filtered = questions.filter((q) => {
       if (!q.level) return true;
       return String(q.level).toLowerCase() === lvl;
@@ -114,9 +124,9 @@ export default function QuizEngine({
     return filtered;
   }, [questions, selectedLevel]);
 
-  // ---------------------------------------------
-  // Leaderboard + best scores load
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Load leaderboard + best scores once
+  // -------------------------------------------------------
   useEffect(() => {
     const savedLb = localStorage.getItem(LEADERBOARD_KEY);
     if (savedLb) {
@@ -127,9 +137,7 @@ export default function QuizEngine({
         setLeaderboard([]);
       }
     }
-  }, [LEADERBOARD_KEY]);
 
-  useEffect(() => {
     const savedBest = localStorage.getItem(BEST_KEY);
     if (savedBest) {
       try {
@@ -141,82 +149,46 @@ export default function QuizEngine({
         setBestScores({});
       }
     }
-  }, [BEST_KEY]);
+  }, [LEADERBOARD_KEY, BEST_KEY]);
 
-  // ---------------------------------------------
-  // Load / init quiz (only AFTER name entered)
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Load saved quiz (ONLY if exists). Otherwise show start screen.
+  // -------------------------------------------------------
   useEffect(() => {
     if (!nameEntered) return;
-    if (!availableQuestions || !availableQuestions.length) return;
+    if (!availableQuestions.length) return;
 
     const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
 
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        const hasSubmitted =
-          parsed &&
-          parsed.submitted &&
-          Object.keys(parsed.submitted).length > 0;
-
-        if (Array.isArray(parsed.quiz) && parsed.quiz.length) {
-          setQuiz(parsed.quiz);
-          setResponses(parsed.responses || {});
-          setSubmitted(parsed.submitted || {});
-          setScore(parsed.score || 0);
-          setIsFinished(!!parsed.isFinished);
-
-          const previousCount =
-            (parsed.quiz && parsed.quiz.length) || questionLimit;
-          setSelectedCount(previousCount);
-          return;
-        } else if (!hasSubmitted && Array.isArray(parsed.quiz)) {
-          setQuiz(parsed.quiz);
-          setResponses(parsed.responses || {});
-          setSubmitted(parsed.submitted || {});
-          setScore(parsed.score || 0);
-          setIsFinished(false);
-          return;
-        }
-      } catch {
-        // ignore
+    try {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed.quiz) && parsed.quiz.length) {
+        setQuiz(parsed.quiz);
+        setResponses(parsed.responses || {});
+        setSubmitted(parsed.submitted || {});
+        setScore(parsed.score || 0);
+        setIsFinished(!!parsed.isFinished);
+        setReviewMode(false);
+        setSelectedCount(parsed.quiz.length);
       }
+    } catch {
+      // ignore corrupted save
     }
+  }, [nameEntered, availableQuestions, STORAGE_KEY]);
 
-    // Fresh quiz
-    const limit =
-      selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, availableQuestions.length)
-        : Math.min(questionLimit || 25, availableQuestions.length);
-
-    const fresh = prepareQuiz(availableQuestions, limit);
-    setQuiz(fresh);
-    setResponses({});
-    setSubmitted({});
-    setScore(0);
-    setIsFinished(false);
-    setReviewMode(false);
-  }, [
-    nameEntered,
-    availableQuestions,
-    selectedCount,
-    STORAGE_KEY,
-    questionLimit,
-  ]);
-
-  // ---------------------------------------------
-  // Save quiz state
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Save quiz state whenever it changes
+  // -------------------------------------------------------
   useEffect(() => {
     if (!quiz.length) return;
     const data = { quiz, responses, submitted, score, isFinished };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }, [quiz, responses, submitted, score, isFinished, STORAGE_KEY]);
 
-  // ---------------------------------------------
+  // -------------------------------------------------------
   // Scroll helper
-  // ---------------------------------------------
+  // -------------------------------------------------------
   const scrollTo = (index) => {
     const el = questionRefs.current[index];
     if (!el) return;
@@ -224,17 +196,57 @@ export default function QuizEngine({
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Start quiz (called ONCE from start screen,
+  // and also when restarting)
+  // -------------------------------------------------------
+  const startQuiz = () => {
+    if (!availableQuestions.length) return;
+
+    const count =
+      selectedCount === "All"
+        ? availableQuestions.length
+        : Math.min(
+            Number(selectedCount) || questionLimit || 25,
+            availableQuestions.length
+          );
+
+    if (count <= 0) return;
+
+    const fresh = prepareQuiz(availableQuestions, count);
+
+    setQuiz(fresh);
+    setResponses({});
+    setSubmitted({});
+    setScore(0);
+    setIsFinished(false);
+    setReviewMode(false);
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        quiz: fresh,
+        responses: {},
+        submitted: {},
+        score: 0,
+        isFinished: false,
+      })
+    );
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // -------------------------------------------------------
   // Option selection
-  // ---------------------------------------------
+  // -------------------------------------------------------
   const handleSelect = (id, optIndex) => {
     if (submitted[id]) return;
     setResponses((prev) => ({ ...prev, [id]: optIndex }));
   };
 
-  // ---------------------------------------------
+  // -------------------------------------------------------
   // Submit one question
-  // ---------------------------------------------
+  // -------------------------------------------------------
   const handleSubmit = (q, index) => {
     if (submitted[q.id]) return;
 
@@ -254,41 +266,30 @@ export default function QuizEngine({
     }
   };
 
-  // ---------------------------------------------
-  // Restart
-  // ---------------------------------------------
+  // -------------------------------------------------------
+  // Restart (new random quiz with same level & count)
+  // -------------------------------------------------------
   const handleRestart = () => {
-    if (!availableQuestions.length) return;
-
-    const limit =
-      selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, availableQuestions.length)
-        : Math.min(questionLimit || 25, availableQuestions.length);
-
-    const fresh = prepareQuiz(availableQuestions, limit);
-    setQuiz(fresh);
-    setResponses({});
-    setSubmitted({});
-    setScore(0);
-    setIsFinished(false);
-    setReviewMode(false);
+    // Option A: question count is chosen only in start screen.
+    // Here we simply build again with same selectedCount & level.
     localStorage.removeItem(STORAGE_KEY);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    startQuiz();
   };
 
-  // ---------------------------------------------
+  // -------------------------------------------------------
   // Wrong questions list
-  // ---------------------------------------------
+  // -------------------------------------------------------
   const wrongQuestions = quiz.filter(
     (q) => submitted[q.id] && responses[q.id] !== q.answerIndex
   );
   const visibleQuestions = reviewMode ? wrongQuestions : quiz;
 
-  // ---------------------------------------------
+  // -------------------------------------------------------
   // Leaderboard logic
-  // ---------------------------------------------
-  const addToLeaderboard = () => {
-    if (!quiz.length) return;
+  // -------------------------------------------------------
+  useEffect(() => {
+    if (!isFinished || !quiz.length) return;
+    if (prevFinishedRef.current) return; // run once per completion
 
     const total = quiz.length;
     const percent = total ? Number(((score / total) * 100).toFixed(2)) : 0;
@@ -301,6 +302,7 @@ export default function QuizEngine({
       date: new Date().toISOString(),
     };
 
+    // Update leaderboard
     setLeaderboard((prev) => {
       const arr = [...prev, entry];
 
@@ -315,6 +317,7 @@ export default function QuizEngine({
       return top10;
     });
 
+    // Best scores map
     setBestScores((prev) => {
       const map = { ...prev };
       const totalCount = total;
@@ -330,199 +333,16 @@ export default function QuizEngine({
     if (typeof onResultSubmit === "function") {
       onResultSubmit({ ...entry, testId });
     }
-  };
 
-  useEffect(() => {
-    if (!prevFinishedRef.current && isFinished) {
-      addToLeaderboard();
-    }
-    prevFinishedRef.current = isFinished;
+    prevFinishedRef.current = true;
   }, [isFinished, score, quiz.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ---------------------------------------------
-  // Certificate
-  // ---------------------------------------------
-  const generateCertificate = () => {
-    const name = studentName || "Student Name";
-    const total = quiz.length;
-    const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
-
-    const today = new Date().toLocaleDateString("en-IN", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-
-    const certificateNumber = getNextCertificateNumber();
-    const percentNum = parseFloat(percent);
-    let grade = "D";
-    if (percentNum >= 85) grade = "A+";
-    else if (percentNum >= 70) grade = "A";
-    else if (percentNum >= 60) grade = "B";
-    else if (percentNum >= 50) grade = "C";
-
-    const passed = percentNum >= passPercent;
-    const logoUrl = cnatLogo;
-
-    const html = `
-<!DOCTYPE html>
-<html>
-<head>
-<title>${certificateTitle}</title>
-<meta charset="UTF-8" />
-<style>
-  @page { size: A4; margin: 0; }
-  body { margin: 0; padding: 0; background: #0f172a; font-family: "Times New Roman", serif; }
-  .page {
-    width: 210mm; height: 297mm;
-    background: radial-gradient(circle at top, #eff6ff, #e2e8f0 40%, #cbd5f5 80%);
-    margin: auto; padding: 18mm;
-    box-sizing: border-box; display: flex;
-    justify-content: center; align-items: center;
-  }
-  .certificate {
-    position: relative; width: 100%; padding: 18mm 20mm;
-    background: #ffffff; border: 8px solid #1e3a8a;
-    outline: 5px solid #93c5fd;
-    box-shadow: 0 0 18px rgba(15,23,42,0.4);
-    text-align: center; box-sizing: border-box;
-  }
-  .cert-number { text-align: right; font-size: 13px; color: #111827; margin-bottom: 8px; }
-  .header-title { font-size: 22px; font-weight: bold; color: #1e3a8a; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
-  .subtitle { font-size: 13px; color: #4b5563; margin-bottom: 20px; }
-  .main-title { font-size: 38px; font-weight: 800; color: #111827; margin-bottom: 14px; letter-spacing: 1px; text-transform: uppercase; }
-  .tagline { font-size: 13px; color: #1f2933; margin-bottom: 22px; text-transform: uppercase; letter-spacing: 4px; }
-  .body-text { font-size: 17px; color: #111827; padding: 0 10mm; margin-bottom: 16px; line-height: 1.6; }
-  .student-name {
-    font-size: 28px; font-weight: bold; color: #0f172a;
-    border-bottom: 2px solid #38bdf8;
-    display: inline-block; padding: 4px 22px;
-    margin: 12px 0 18px 0;
-  }
-  .test-title { font-size: 17px; font-weight: 600; color: #1e40af; }
-  .score-box { font-size: 18px; font-weight: bold; color: #1d4ed8; margin: 8px 0 6px 0; }
-  .result-box { font-size: 16px; font-weight: 600; color: #111827; margin-bottom: 18px; }
-  .result-box span { padding: 3px 10px; border-radius: 999px; border: 1px solid #1e40af; }
-  .result-pass { background: #dcfce7; color: #166534; border-color: #16a34a; }
-  .result-fail { background: #fee2e2; color: #b91c1c; border-color: #ef4444; }
-  .grade-pill { margin-left: 8px; background: #e0f2fe; color: #1d4ed8; border-color: #38bdf8; }
-  .issue-date { font-size: 14px; color: #374151; margin-bottom: 8px; }
-  .footer-row { display: flex; justify-content: space-between; margin-top: 40px; padding: 0 10mm; }
-  .signature-block { text-align: center; }
-  .line { width: 170px; border-top: 1px solid #111827; margin: auto; margin-bottom: 5px; }
-  .director { font-size: 14px; font-weight: bold; color: #000; }
-  .designation { font-size: 12px; color: #374151; }
-  .date-block { border-top: 1px solid #111827; width: 160px; margin: auto; margin-bottom: 5px; }
-  .footer-note { margin-top: 18px; font-size: 11px; color: #6b7280; }
-  .seal {
-    position: absolute; bottom: 40mm; left: 30mm;
-    width: 60px; height: 60px; border-radius: 50%;
-    border: 3px solid #1e3a8a;
-    box-shadow: 0 0 8px rgba(30,64,175,0.6);
-    overflow: hidden; display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle at 30% 30%, #e0f2fe, #bfdbfe);
-    box-sizing: border-box;
-  }
-  .seal img { width: 100%; height: 100%; object-fit: contain; }
-  @media print {
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
-  <div class="certificate">
-    <div class="cert-number"><strong>Certificate No:</strong> ${certificateNumber}</div>
-    <div class="header-title">${certificateHeader}</div>
-    <div class="subtitle">${certificateSubtitle}</div>
-    <div class="main-title">${certificateTitle}</div>
-    <div class="tagline">Verified Assessment · Coder & AccoTax</div>
-    <div class="body-text">
-      This is to certify that<br><br>
-      <span class="student-name">${name}</span><br><br>
-      has successfully completed the test:<br>
-      <span class="test-title">${title}</span>
-    </div>
-    <div class="score-box">Score: ${score}/${total} &nbsp; | &nbsp; ${percent}%</div>
-    <div class="result-box">
-      <span class="${passed ? "result-pass" : "result-fail"}">
-        ${passed ? "PASSED" : "NOT PASSED"}
-      </span>
-      <span class="grade-pill">Grade: ${grade}</span>
-    </div>
-    <div class="issue-date">Issued on: ${today}</div>
-    <div class="footer-row">
-      <div class="signature-block">
-        <div class="date-block"></div>
-        <div>Date</div>
-      </div>
-      <div class="signature-block">
-        <div class="line"></div>
-        <div class="director">Sukanta Hui</div>
-        <div class="designation">Director, Coder & AccoTax</div>
-      </div>
-    </div>
-    <div class="footer-note">
-      This is a system-generated certificate and does not require a physical signature.
-    </div>
-    <div class="seal">
-      <img src="${logoUrl}" alt="Coder & AccoTax Logo" />
-    </div>
-  </div>
-</div>
-<script>window.print();</script>
-</body>
-</html>
-    `;
-
-    const w = window.open("", "_blank");
-    if (!w) return;
-    w.document.write(html);
-    w.document.close();
-  };
-
-  // ---------------------------------------------
-  // Apply selected question count (after name)
-  // ---------------------------------------------
-  const applyQuestionCount = () => {
-    if (!availableQuestions.length) return;
-
-    const value =
-      selectedCount && selectedCount > 0
-        ? Math.min(selectedCount, availableQuestions.length)
-        : Math.min(questionLimit || 25, availableQuestions.length);
-
-    const fresh = prepareQuiz(availableQuestions, value);
-    setQuiz(fresh);
-    setResponses({});
-    setSubmitted({});
-    setScore(0);
-    setIsFinished(false);
-    setReviewMode(false);
-    localStorage.removeItem(STORAGE_KEY);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-
-  // ---------------------------------------------
-  // NAME ENTRY GATE (skip on mobile)
-  // ---------------------------------------------
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile/i.test(
-    navigator.userAgent
-  );
-
-  useEffect(() => {
-    if (isMobile && !nameEntered) {
-      // Auto-fill name for mobile
-      setStudentName("Mobile User");
-      setNameEntered(true);
-    }
-  }, [isMobile, nameEntered]);
-
+  // ========================================================
+  // 1) NAME ENTRY (DESKTOP ONLY)
+  // ========================================================
   if (!nameEntered && !isMobile) {
-    const handleStart = (event) => {
+    const handleNameStart = (event) => {
       if (event) event.preventDefault();
-
       const finalName = studentName.trim();
       if (!finalName) return;
 
@@ -551,27 +371,167 @@ export default function QuizEngine({
           placeholder="Student Name"
           value={studentName}
           onChange={(e) => setStudentName(e.target.value)}
-          className="w-full px-4 py-2 mb-4 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500"
+          className="w-full px-4 py-2 mb-4 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none text-sm"
         />
 
         <button
           type="button"
-          onClick={handleStart}
-          className={`w-full py-2 rounded-xl text-white font-semibold text-sm ${studentName.trim() ? "bg-sky-600 hover:bg-sky-500" : "bg-slate-700"
-            }`}
+          onClick={handleNameStart}
+          className={`w-full py-2 rounded-xl text-white font-semibold text-sm ${
+            studentName.trim()
+              ? "bg-sky-600 hover:bg-sky-500"
+              : "bg-slate-700 cursor-not-allowed"
+          }`}
         >
-          Start Test
+          Continue
         </button>
       </section>
     );
   }
 
+  // ========================================================
+  // 2) START SCREEN (Level + Question Count) – ONLY BEFORE QUIZ
+  // ========================================================
+  if (nameEntered && !quiz.length) {
+    const currentUrl =
+      typeof window !== "undefined"
+        ? window.location.href
+        : "https://www.codernaccotax.co.in";
 
+    const totalAvailable = availableQuestions.length;
 
-  // ---------------------------------------------
-  // MAIN RENDER (after name)
-  // ---------------------------------------------
+    return (
+      <section className="max-w-3xl mx-auto mt-10 space-y-8">
+        {/* Intro */}
+        <header className="rounded-3xl bg-slate-900 border border-slate-800 p-5 shadow-xl shadow-black/40">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mb-1">
+            Coder &amp; AccoTax · Module Test
+          </p>
+          <h2 className="text-xl md:text-2xl font-bold text-sky-200">
+            {title}
+          </h2>
+          <p className="text-xs text-slate-400 mt-1">
+            Student:{" "}
+            <span className="text-sky-300 font-semibold">
+              {studentName || "Guest"}
+            </span>
+          </p>
+          <p className="text-[11px] text-slate-500 mt-2">
+            Total questions available in this pool:{" "}
+            <span className="text-sky-300 font-semibold">
+              {totalAvailable}
+            </span>
+          </p>
+        </header>
+
+        {/* Difficulty */}
+        <div className="p-4 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
+          <p className="text-xs text-slate-300 font-medium mb-1">
+            Select difficulty:
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {["All", "beginner", "moderate", "advanced"].map((lvl) => {
+              const label =
+                lvl === "All"
+                  ? "All Levels"
+                  : lvl.charAt(0).toUpperCase() + lvl.slice(1);
+              const active = selectedLevel === lvl;
+
+              return (
+                <button
+                  key={lvl}
+                  type="button"
+                  onClick={() => setSelectedLevel(lvl)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
+                    active
+                      ? "bg-emerald-600 text-white border-emerald-400"
+                      : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+          <p className="text-[11px] text-slate-500">
+            Questions without a level tag are included in every level.
+          </p>
+        </div>
+
+        {/* Question Count */}
+        <div className="p-4 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
+          <p className="text-xs text-slate-300 font-medium mb-1">
+            Select number of questions:
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            {[10, 15, 20, 25, 50, "All"].map((n) => {
+              const value = n === "All" ? "All" : n;
+              const active = selectedCount === value;
+
+              const disabled =
+                n !== "All" &&
+                typeof n === "number" &&
+                n > availableQuestions.length;
+
+              return (
+                <button
+                  key={n}
+                  type="button"
+                  disabled={disabled && value !== "All"}
+                  onClick={() => setSelectedCount(value)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
+                    active
+                      ? "bg-sky-600 text-white border-sky-400"
+                      : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
+                  } ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+                >
+                  {n === "All" ? "All" : n}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={startQuiz}
+            className="mt-3 w-full py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs"
+          >
+            Start with{" "}
+            {selectedCount === "All"
+              ? "All"
+              : selectedCount || questionLimit || 25}{" "}
+            Question
+            {selectedCount === 1 ? "" : "s"}
+          </button>
+        </div>
+
+        {/* QR */}
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-[11px] text-slate-400">
+            Open this quiz on another device:
+          </p>
+          <div className="p-4 bg-slate-900 border border-slate-700 rounded-xl relative">
+            <QRCode value={currentUrl} size={150} level="H" />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="bg-slate-900 p-1 rounded-lg border border-slate-600">
+                <img src={cnatLogo} alt="logo" className="h-8 w-8" />
+              </div>
+            </div>
+          </div>
+          <p className="text-[10px] text-slate-500 break-all text-center">
+            {currentUrl}
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  // ========================================================
+  // 3) QUIZ MODE (after Start)
+  // ========================================================
   if (!quiz.length) {
+    // Just in case: fallback
     return (
       <div className="max-w-5xl mx-auto text-slate-300 text-sm">
         Loading questions…
@@ -584,7 +544,7 @@ export default function QuizEngine({
   const percentComplete = total ? Math.round((progress / total) * 100) : 0;
   const scorePercent = total ? ((score / total) * 100).toFixed(1) : "0.0";
 
-  const bestForCurrent = bestScores[total] || bestScores[selectedCount] || null;
+  const bestForCurrent = bestScores[total] || null;
   const currentUrl =
     typeof window !== "undefined"
       ? window.location.href
@@ -594,7 +554,7 @@ export default function QuizEngine({
     <section className="max-w-5xl mx-auto space-y-8">
       {/* HEADER CARD */}
       <header className="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-slate-900/80 via-slate-900 to-slate-950 px-4 py-5 md:px-6 md:py-6 shadow-xl shadow-slate-950/40">
-        {/* Background glow – pointer-events disabled */}
+        {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <div className="absolute -top-24 -left-16 h-40 w-40 rounded-full bg-sky-500/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-10 h-48 w-48 rounded-full bg-violet-500/25 blur-3xl" />
@@ -665,7 +625,7 @@ export default function QuizEngine({
               className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1.5 text-[11px] font-medium text-slate-100 border border-slate-700 hover:border-sky-500 hover:text-sky-100 hover:bg-slate-900 transition"
             >
               <RotateCcw size={12} />
-              Restart (new {selectedCount} Qs)
+              Restart (new {total} Qs)
             </button>
 
             {!reviewMode && wrongQuestions.length > 0 && isFinished && (
@@ -691,123 +651,22 @@ export default function QuizEngine({
             )}
           </div>
 
-          {/* Difficulty Selector */}
-          <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
-            <p className="text-xs text-slate-300 font-medium">
-              Select difficulty level:
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {["All", "beginner", "moderate", "advanced"].map((lvl) => {
-                const label =
-                  lvl === "All"
-                    ? "All Levels"
-                    : lvl.charAt(0).toUpperCase() + lvl.slice(1);
-                const active = selectedLevel.toLowerCase() === lvl.toLowerCase();
-                return (
-                  <button
-                    key={lvl}
-                    type="button"
-                    onClick={() =>
-                      setSelectedLevel(lvl === "All" ? "All" : lvl)
-                    }
-                    className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
-                        ? "bg-emerald-600 text-white border-emerald-400"
-                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                      }`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-            <p className="text-[11px] text-slate-500">
-              Questions without a level tag are included in every level.
-            </p>
-          </div>
-
-          {/* QR + LOGO block (pointer-events fixed) */}
-          <div className="mt-4 flex flex-col items-center justify-center gap-3">
-            <p className="text-[11px] text-slate-400">
-              Scan on another device to open this quiz:
-            </p>
-
-            <div className="relative flex items-center justify-center p-4 rounded-2xl bg-slate-900 border border-slate-700 shadow-lg">
-              {/* Soft Glow Behind QR */}
-              <div className="absolute inset-0 rounded-2xl bg-sky-500/10 blur-xl opacity-30 pointer-events-none" />
-
-              {/* QR CODE */}
-              <div className="relative bg-slate-800 p-3 rounded-xl shadow-inner border border-slate-700">
-                <QRCode
-                  value={currentUrl}
-                  size={160}
-                  level="H"
-                  fgColor="#ffffff"
-                  bgColor="#0f172a"
-                  style={{ borderRadius: "12px" }}
-                />
-              </div>
-
-              {/* LOGO Overlay – no pointer events */}
+          {/* Small QR (optional while in quiz) */}
+          <div className="mt-3 flex items-center gap-3 text-[11px]">
+            <div className="p-2 bg-slate-900 border border-slate-700 rounded-xl relative">
+              <QRCode value={currentUrl} size={80} level="H" />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-slate-900 p-1.5 rounded-xl shadow-lg border border-slate-600">
-                  <img
-                    src={cnatLogo}
-                    alt="Logo"
-                    className="h-10 w-10 object-contain"
-                  />
+                <div className="bg-slate-900 p-0.5 rounded-md border border-slate-600">
+                  <img src={cnatLogo} alt="logo" className="h-4 w-4" />
                 </div>
               </div>
             </div>
-
-            <p className="text-[10px] text-slate-500 break-all text-center">
-              {currentUrl}
+            <p className="text-slate-400">
+              Scan to continue this quiz on another device.
             </p>
           </div>
 
-          {/* Question Count Selector (before starting submissions) */}
-          {progress === 0 && !isFinished && (
-            <div className="mt-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-700 space-y-2">
-              <p className="text-xs text-slate-300 font-medium">
-                Select number of questions:
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {[10, 15, 20, 25, 50, "All"].map((n) => {
-                  const value = n === "All" ? availableQuestions.length : n;
-                  const active = selectedCount === value;
-
-                  return (
-                    <button
-                      key={n}
-                      type="button"
-                      onClick={() =>
-                        setSelectedCount(
-                          Math.min(value, availableQuestions.length || value)
-                        )
-                      }
-                      className={`px-3 py-1.5 rounded-full text-[11px] border transition ${active
-                          ? "bg-sky-600 text-white border-sky-400"
-                          : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                        }`}
-                    >
-                      {n}
-                    </button>
-                  );
-                })}
-              </div>
-
-              <button
-                type="button"
-                onClick={applyQuestionCount}
-                className="mt-2 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
-              >
-                Start with {selectedCount} Question
-                {selectedCount !== 1 ? "s" : ""}
-              </button>
-            </div>
-          )}
-
-          {/* Certificate */}
+          {/* Certificate (using CertificateGenerator component) */}
           {isFinished && (
             <div className="mt-3 rounded-2xl border border-slate-700 bg-slate-900/60 px-3 py-3 flex flex-col md:flex-row md:items-center gap-3">
               <div className="flex items-center gap-2 text-xs text-slate-200">
@@ -835,14 +694,16 @@ export default function QuizEngine({
                   />
                 )}
 
-                <button
-                  type="button"
-                  onClick={generateCertificate}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-full bg-sky-600 px-4 py-1.5 text-[11px] font-semibold text-white hover:bg-sky-500 transition"
-                >
-                  <Award size={12} />
-                  Download certificate
-                </button>
+                <CertificateGenerator
+                  studentName={studentName || "Student Name"}
+                  score={score}
+                  total={quiz.length}
+                  title={title}
+                  certificateHeader={certificateHeader}
+                  certificateSubtitle={certificateSubtitle}
+                  certificateTitle={certificateTitle}
+                  passPercent={passPercent}
+                />
               </div>
             </div>
           )}
@@ -910,6 +771,7 @@ export default function QuizEngine({
           )}
         </div>
       </header>
+
       {/* QUESTIONS LIST */}
       <div className="space-y-6">
         {visibleQuestions.map((q) => {
@@ -948,10 +810,11 @@ export default function QuizEngine({
 
                 {isSub && (
                   <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${isCorrect
+                    className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${
+                      isCorrect
                         ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
                         : "bg-rose-500/15 text-rose-200 border-rose-500/60"
-                      }`}
+                    }`}
                   >
                     {isCorrect ? "Correct" : "Incorrect"}
                   </span>
