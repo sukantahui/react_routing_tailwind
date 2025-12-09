@@ -1,10 +1,8 @@
+// V3 Ultra Premium Certificate Generator – A4 Perfect Layout
 import React from "react";
-import QRCode from "react-qr-code";
 import cnatLogo from "../../../assets/cnat.png";
 
-// --------------------------------------------------
-// AUTO CERTIFICATE NUMBER
-// --------------------------------------------------
+// Auto certificate number generator
 function getNextCertificateNumber() {
   const key = "certificate_counter";
   let current = parseInt(localStorage.getItem(key), 10);
@@ -18,9 +16,6 @@ function getNextCertificateNumber() {
   return cert;
 }
 
-// ==================================================
-//        ✨ UPGRADED CERTIFICATE GENERATOR
-// ==================================================
 export default function CertificateGenerator({
   studentName = "Student Name",
   score = 0,
@@ -28,21 +23,20 @@ export default function CertificateGenerator({
   title = "Test Title",
   certificateHeader = "Coder & AccoTax",
   certificateSubtitle = "Barrackpore · www.codernaccotax.co.in",
-  certificateTitle = "Certificate of Achievement",
+  certificateTitle = "Certificate of Completion",
   passPercent = 60,
-  profilePhoto = null,
 }) {
   const generate = () => {
     const percent = total > 0 ? ((score / total) * 100).toFixed(2) : "0.00";
-    const percentNum = parseFloat(percent);
 
+    const p = parseFloat(percent);
     let grade = "D";
-    if (percentNum >= 85) grade = "A+";
-    else if (percentNum >= 70) grade = "A";
-    else if (percentNum >= 60) grade = "B";
-    else if (percentNum >= 50) grade = "C";
+    if (p >= 85) grade = "A+";
+    else if (p >= 70) grade = "A";
+    else if (p >= 60) grade = "B";
+    else if (p >= 50) grade = "C";
 
-    const passed = percentNum >= passPercent;
+    const passed = p >= passPercent;
     const today = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
       month: "short",
@@ -50,11 +44,11 @@ export default function CertificateGenerator({
     });
 
     const certNo = getNextCertificateNumber();
-    const qrValue = `https://www.codernaccotax.co.in/certificate/verify/${certNo}`;
+    const verifyLink = `https://www.codernaccotax.co.in/verify?cert=${certNo}`;
 
-    // --------------------------------------------------
-    //  Build Printable Certificate
-    // --------------------------------------------------
+    // ========================================================================================
+    // ULTRA PREMIUM LAYOUT
+    // ========================================================================================
     const html = `
 <!DOCTYPE html>
 <html>
@@ -63,198 +57,230 @@ export default function CertificateGenerator({
 <meta charset="UTF-8" />
 <style>
   @page { size: A4; margin: 0; }
-  body { 
-    margin: 0; padding: 0;
-    font-family: 'Georgia', serif;
-    background: #f9fafb;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f3f4f6;
+    font-family: 'Times New Roman', serif;
   }
 
   .page {
-    width: 210mm; height: 297mm;
-    background: #ffffff;
+    width: 210mm;
+    height: 297mm;
     padding: 18mm;
+    background: white;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  /* OUTER GOLD BORDER */
+  .outer-border {
+    width: 100%;
+    height: 100%;
+    border: 12px solid #d4af37;
+    padding: 10mm;
     box-sizing: border-box;
     position: relative;
   }
 
-  /* GOLD BORDER */
-  .page::before {
+  /* INNER BORDER */
+  .outer-border::after {
     content: "";
     position: absolute;
     inset: 10mm;
-    border: 6px solid #d4af37;
-    border-radius: 8px;
+    border: 3px solid #b8860b;
+    pointer-events: none;
   }
 
+  /* WATERMARK */
   .watermark {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 42%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 80px;
-    color: rgba(180, 180, 180, 0.15);
-    font-weight: bold;
-    pointer-events: none;
+    opacity: 0.08;
+    font-size: 85px;
+    color: #1e3a8a;
+    font-weight: 700;
+    white-space: nowrap;
     user-select: none;
   }
 
-  .certificate {
-    position: relative;
-    z-index: 10;
+  /* HEADER */
+  .header-text {
     text-align: center;
-    padding-top: 10mm;
-  }
-
-  .cert-number { 
-    text-align: right; 
-    font-size: 14px;
-    margin-right: 5mm;
-    margin-bottom: 10px;
-    color: #1f2937;
-  }
-
-  .header-title { 
-    font-size: 26px; 
-    font-weight: bold; 
-    color: #1e3a8a; 
-  }
-
-  .subtitle { 
-    font-size: 14px; 
-    color: #374151; 
-    margin-bottom: 16px; 
-  }
-
-  .main-title { 
-    font-size: 40px; 
-    font-weight: 700; 
-    margin-bottom: 12px;
-    color: #111827;
-  }
-
-  .student-name {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: bold;
-    border-bottom: 2px solid #38bdf8;
-    padding: 6px 20px;
+    color: #1e3a8a;
+    margin-top: 5mm;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 8mm;
+  }
+
+  /* MAIN TITLE */
+  .cert-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .mid-text {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  /* Student name */
+  .student-name {
+    font-size: 26px;
+    font-weight: bold;
+    border-bottom: 2px solid #1e3a8a;
     display: inline-block;
+    padding: 3px 25px;
     margin-bottom: 10px;
   }
 
-  .photo-box {
-    margin-top: 10px;
-    margin-bottom: 15px;
-  }
-
-  .photo-box img {
-    width: 90px;
-    height: 90px;
-    border-radius: 8px;
-    border: 2px solid #1e3a8a;
-    object-fit: cover;
-  }
-
-  .score { 
-    margin-top: 12px; 
-    font-size: 18px; 
-    font-weight: bold; 
-  }
-
-  .result-box { margin-top: 10px; font-size: 18px; }
-
-  .result-pass { color: green; font-weight: bold; }
-  .result-fail { color: red; font-weight: bold; }
-
-  .signature-block {
-    margin-top: 35px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20mm;
-  }
-
-  .sign-box {
+  .module-title {
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
   }
 
-  .sign-line {
-    width: 160px;
-    height: 1px;
-    background: #000;
-    margin: auto;
-    margin-bottom: 4px;
+  /* Score and result */
+  .score-box {
+    text-align: center;
+    font-size: 17px;
+    margin-top: 12px;
   }
+  .passed { color: green; font-weight: bold; }
+  .failed { color: red; font-weight: bold; }
 
-  .qr-section {
-    margin-top: 25px;
+  /* QR block */
+  .qr-wrapper {
+    text-align: center;
+    margin-top: 15px;
   }
-
-  .qr-label {
-    font-size: 12px;
-    color: #374151;
+  .qr-wrapper img {
+    width: 130px;
+    height: 130px;
+  }
+  .qr-caption {
+    font-size: 11px;
     margin-top: 4px;
   }
 
+  /* SIGNATURE + SEAL ROW */
+  .bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22mm;
+    padding: 0 18mm;
+  }
+
+  .sign-block {
+    text-align: center;
+    width: 45%;
+  }
+  .sign-line {
+    width: 140px;
+    height: 1px;
+    background: black;
+    margin: 0 auto 5px auto;
+  }
+  .sign-text {
+    font-size: 14px;
+  }
+
+  .seal-block {
+    text-align: center;
+    width: 45%;
+  }
+  .seal-block img {
+    width: 90px;
+    height: 90px;
+  }
+  .seal-label {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  /* Certificate Number positioning */
+  .cert-num {
+    position: absolute;
+    right: 20mm;
+    top: 16mm;
+    font-size: 13px;
+  }
 </style>
 </head>
 
 <body>
-
 <div class="page">
-  <div class="watermark">CODER & ACCOTAX</div>
 
-  <div class="cert-number"><b>Certificate No:</b> ${certNo}</div>
+  <div class="watermark">Coder & AccoTax</div>
 
-  <div class="certificate">
+  <div class="outer-border">
 
-    <div class="header-title">${certificateHeader}</div>
+    <div class="cert-num"><b>Certificate No:</b> ${certNo}</div>
+
+    <div class="header-text">${certificateHeader}</div>
     <div class="subtitle">${certificateSubtitle}</div>
 
-    <div class="main-title">${certificateTitle}</div>
+    <div class="cert-title">${certificateTitle}</div>
 
-    <p>This certifies that</p>
+    <div class="mid-text">This certifies that</div>
 
-    <div class="student-name">${studentName}</div>
+    <p style="text-align:center;">
+      <span class="student-name">${studentName}</span>
+    </p>
 
-    ${
-      profilePhoto
-        ? `<div class="photo-box"><img src="${profilePhoto}" alt="photo" /></div>`
-        : ""
-    }
+    <div class="mid-text">has successfully completed</div>
 
-    <p style="margin-top: 14px;">has successfully completed</p>
-    <h2 style="margin-top: 6px;">${title}</h2>
+    <div class="module-title">${title}</div>
 
-    <div class="score">Score: ${score}/${total} (${percent}%)</div>
-
-    <div class="result-box">
-      Result:
-      <span class="${passed ? "result-pass" : "result-fail"}">
-        ${passed ? "PASSED" : "NOT PASSED"}
-      </span>
-      &nbsp; | &nbsp; Grade: ${grade}
+    <div class="score-box">
+      Score: <b>${score}/${total}</b> (${percent}%)  
+      <br/>
+      Result: 
+      <span class="${passed ? "passed" : "failed"}">${passed ? "PASSED" : "NOT PASSED"}</span>
+      &nbsp; | &nbsp;
+      Grade: <b>${grade}</b>
+      <br/>
+      <span style="font-size:14px;">Issued on: ${today}</span>
     </div>
 
-    <p style="margin-top: 16px;">Issued on: ${today}</p>
-
-    <div class="qr-section">
-      <div id="qr"></div>
-      <div class="qr-label">Scan to verify certificate</div>
+    <!-- QR CODE -->
+    <div class="qr-wrapper">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(
+        verifyLink
+      )}" />
+      <div class="qr-caption">Scan to verify certificate</div>
     </div>
 
-    <div class="signature-block">
+    <!-- SIGNATURE + SEAL -->
+    <div class="bottom-row">
 
-      <div class="sign-box">
+      <div class="sign-block">
         <div class="sign-line"></div>
-        <b>Sukanta Hui</b><br/>
-        Director<br/>
-        Coder & AccoTax
+        <div class="sign-text">
+          <b>Sukanta Hui</b><br/>
+          Director<br/>
+          Coder & AccoTax
+        </div>
       </div>
 
-      <div class="sign-box">
-        <img src="${cnatLogo}" width="70" height="70" />
-        <div><b>Official Seal</b></div>
+      <div class="seal-block">
+        <img src="${cnatLogo}" alt="Seal"/>
+        <div class="seal-label">Official Seal</div>
       </div>
 
     </div>
@@ -278,9 +304,9 @@ export default function CertificateGenerator({
   return (
     <button
       onClick={generate}
-      className="inline-flex items-center gap-1.5 rounded-full bg-sky-600 hover:bg-sky-500 px-4 py-1.5 text-xs font-semibold text-white"
+      className="inline-flex items-center gap-1.5 rounded-full bg-violet-600 hover:bg-violet-500 px-4 py-1.5 text-xs font-semibold text-white shadow"
     >
-      🎖 Print Certificate
+      Download Ultra Certificate
     </button>
   );
 }
