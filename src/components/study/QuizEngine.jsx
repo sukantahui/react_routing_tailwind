@@ -5,7 +5,7 @@ import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import { RotateCcw, Eye, EyeOff, Award, Trophy } from "lucide-react";
 import cnatLogo from "../../assets/cnat.png";
 import QRCode from "react-qr-code";
-import CertificateGenerator from "../study/common/CertificateGenerator";
+import CertificateGenerator from "../study/common/CertificateGenerator"; // adjust if path differs
 
 // =========================================================
 // ---------- Helpers --------------------------------------
@@ -55,7 +55,7 @@ export default function QuizEngine({
   title = "Quiz Test",
   questions = [],
   testId = "test_default",
-  questionLimit = 25, // just default, not forced
+  questionLimit = 25, // default, can be overridden by selection
   certificateHeader = "Coder & AccoTax",
   certificateSubtitle = "Barrackpore · www.codernaccotax.co.in",
   certificateTitle = "Certificate of Completion",
@@ -197,8 +197,7 @@ export default function QuizEngine({
   };
 
   // -------------------------------------------------------
-  // Start quiz (called ONCE from start screen,
-  // and also when restarting)
+  // Start quiz (from start screen OR restart)
   // -------------------------------------------------------
   const startQuiz = () => {
     if (!availableQuestions.length) return;
@@ -221,6 +220,7 @@ export default function QuizEngine({
     setScore(0);
     setIsFinished(false);
     setReviewMode(false);
+    prevFinishedRef.current = false;
 
     localStorage.setItem(
       STORAGE_KEY,
@@ -233,6 +233,32 @@ export default function QuizEngine({
       })
     );
 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // -------------------------------------------------------
+  // FULL RESET: back to name + selection
+  // -------------------------------------------------------
+  const handleFullReset = () => {
+    // Remove saved quiz data
+    localStorage.removeItem(STORAGE_KEY);
+
+    // Reset all core states
+    setQuiz([]);
+    setResponses({});
+    setSubmitted({});
+    setScore(0);
+    setIsFinished(false);
+    setReviewMode(false);
+    prevFinishedRef.current = false;
+
+    // Reset name + selection
+    setStudentName("");
+    setNameEntered(false);
+    setSelectedCount(questionLimit || 25);
+    setSelectedLevel("All");
+
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -267,11 +293,9 @@ export default function QuizEngine({
   };
 
   // -------------------------------------------------------
-  // Restart (new random quiz with same level & count)
+  // Restart (new random quiz with SAME name/level/count)
   // -------------------------------------------------------
   const handleRestart = () => {
-    // Option A: question count is chosen only in start screen.
-    // Here we simply build again with same selectedCount & level.
     localStorage.removeItem(STORAGE_KEY);
     startQuiz();
   };
@@ -390,7 +414,7 @@ export default function QuizEngine({
   }
 
   // ========================================================
-  // 2) START SCREEN (Level + Question Count) – ONLY BEFORE QUIZ
+  // 2) START SCREEN (Level + Question Count)
   // ========================================================
   if (nameEntered && !quiz.length) {
     const currentUrl =
@@ -400,42 +424,57 @@ export default function QuizEngine({
 
     const totalAvailable = availableQuestions.length;
 
+    // Dynamic allowed counts based on pool size
+    const choices = [5, 10, 15, 20, 25, 30, 40, 50, "All"];
+    const validChoices = choices.filter(
+      (x) => x === "All" || x <= totalAvailable
+    );
+
+    // Make sure selectedCount is valid
+    const effectiveSelectedCount =
+      selectedCount === "All"
+        ? "All"
+        : Math.min(selectedCount, totalAvailable || selectedCount || questionLimit || 25);
+
     return (
       <section className="max-w-3xl mx-auto mt-10 space-y-8">
-        {/* Intro */}
-        <header className="rounded-3xl bg-slate-900 border border-slate-800 p-5 shadow-xl shadow-black/40">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400 mb-1">
+        {/* INTRO CARD */}
+        <header className="rounded-3xl bg-slate-900 border border-slate-800 p-6 shadow-xl shadow-black/40">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400">
             Coder &amp; AccoTax · Module Test
           </p>
-          <h2 className="text-xl md:text-2xl font-bold text-sky-200">
+          <h2 className="text-xl md:text-2xl font-bold text-sky-200 mt-1">
             {title}
           </h2>
+
           <p className="text-xs text-slate-400 mt-1">
             Student:{" "}
             <span className="text-sky-300 font-semibold">
               {studentName || "Guest"}
             </span>
           </p>
+
           <p className="text-[11px] text-slate-500 mt-2">
-            Total questions available in this pool:{" "}
+            Question Pool:{" "}
             <span className="text-sky-300 font-semibold">
               {totalAvailable}
             </span>
           </p>
         </header>
 
-        {/* Difficulty */}
-        <div className="p-4 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
-          <p className="text-xs text-slate-300 font-medium mb-1">
-            Select difficulty:
+        {/* LEVEL SELECTION */}
+        <div className="p-5 rounded-2xl bg-slate-900 border border-slate-700">
+          <p className="text-xs font-semibold text-slate-300 mb-2">
+            Select Difficulty Level
           </p>
+
           <div className="flex flex-wrap gap-2">
             {["All", "beginner", "moderate", "advanced"].map((lvl) => {
-              const label =
+              const isActive = selectedLevel === lvl;
+              const titleLabel =
                 lvl === "All"
                   ? "All Levels"
                   : lvl.charAt(0).toUpperCase() + lvl.slice(1);
-              const active = selectedLevel === lvl;
 
               return (
                 <button
@@ -443,48 +482,43 @@ export default function QuizEngine({
                   type="button"
                   onClick={() => setSelectedLevel(lvl)}
                   className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
-                    active
+                    isActive
                       ? "bg-emerald-600 text-white border-emerald-400"
                       : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
                   }`}
                 >
-                  {label}
+                  {titleLabel}
                 </button>
               );
             })}
           </div>
-          <p className="text-[11px] text-slate-500">
-            Questions without a level tag are included in every level.
+
+          <p className="text-[10px] text-slate-500 mt-1">
+            * Questions without a level tag are included in all levels.
           </p>
         </div>
 
-        {/* Question Count */}
-        <div className="p-4 rounded-2xl bg-slate-900 border border-slate-700 space-y-2">
-          <p className="text-xs text-slate-300 font-medium mb-1">
-            Select number of questions:
+        {/* NUMBER OF QUESTIONS */}
+        <div className="p-5 rounded-2xl bg-slate-900 border border-slate-700">
+          <p className="text-xs font-semibold text-slate-300 mb-2">
+            Select Number of Questions
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {[10, 15, 20, 25, 50, "All"].map((n) => {
-              const value = n === "All" ? "All" : n;
-              const active = selectedCount === value;
-
-              const disabled =
-                n !== "All" &&
-                typeof n === "number" &&
-                n > availableQuestions.length;
+            {validChoices.map((n) => {
+              const value = n;
+              const isActive = effectiveSelectedCount === value;
 
               return (
                 <button
                   key={n}
                   type="button"
-                  disabled={disabled && value !== "All"}
                   onClick={() => setSelectedCount(value)}
                   className={`px-3 py-1.5 rounded-full text-[11px] border transition ${
-                    active
+                    isActive
                       ? "bg-sky-600 text-white border-sky-400"
                       : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                  } ${disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+                  }`}
                 >
                   {n === "All" ? "All" : n}
                 </button>
@@ -492,33 +526,45 @@ export default function QuizEngine({
             })}
           </div>
 
+          {/* LIVE PREVIEW */}
+          <p className="text-[11px] text-slate-400 mt-3">
+            You will get:{" "}
+            <span className="text-sky-300 font-semibold">
+              {effectiveSelectedCount === "All"
+                ? totalAvailable
+                : Math.min(
+                    effectiveSelectedCount,
+                    totalAvailable || effectiveSelectedCount
+                  )}
+            </span>{" "}
+            questions from {totalAvailable} available.
+          </p>
+
+          {/* START BUTTON */}
           <button
             type="button"
             onClick={startQuiz}
-            className="mt-3 w-full py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs"
+            className="mt-4 w-full py-2 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
           >
-            Start with{" "}
-            {selectedCount === "All"
-              ? "All"
-              : selectedCount || questionLimit || 25}{" "}
-            Question
-            {selectedCount === 1 ? "" : "s"}
+            Start Test
           </button>
         </div>
 
-        {/* QR */}
+        {/* QR SHARE */}
         <div className="flex flex-col items-center gap-2">
           <p className="text-[11px] text-slate-400">
-            Open this quiz on another device:
+            Open this quiz on mobile:
           </p>
+
           <div className="p-4 bg-slate-900 border border-slate-700 rounded-xl relative">
-            <QRCode value={currentUrl} size={150} level="H" />
+            <QRCode value={currentUrl} size={160} level="H" />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="bg-slate-900 p-1 rounded-lg border border-slate-600">
                 <img src={cnatLogo} alt="logo" className="h-8 w-8" />
               </div>
             </div>
           </div>
+
           <p className="text-[10px] text-slate-500 break-all text-center">
             {currentUrl}
           </p>
@@ -619,6 +665,18 @@ export default function QuizEngine({
 
           {/* Main Controls */}
           <div className="flex flex-wrap gap-2 pt-1">
+            {/* RESET to Name + Selection */}
+            <button
+              type="button"
+              onClick={handleFullReset}
+              className="inline-flex items-center gap-1.5 rounded-full bg-rose-600/80 px-3 py-1.5 
+              text-[11px] font-medium text-white border border-rose-700 
+              hover:bg-rose-500 transition"
+            >
+              Reset Test
+            </button>
+
+            {/* Restart with same setup */}
             <button
               type="button"
               onClick={handleRestart}
