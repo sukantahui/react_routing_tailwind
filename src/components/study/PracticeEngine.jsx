@@ -6,7 +6,7 @@ import React, {
   useRef,
   useCallback,
 } from "react";
-import CodeBlock from "../../common/CodeBlock";
+import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 
 const STORAGE_PREFIX = "quizEngine_";
 
@@ -941,7 +941,7 @@ export default function PracticeEngine({
                         </button>
                       </div>
                     </div>
-                    <CodeBlock code={q.code} language="javascript" />
+                    <CodeBlockGeneral code={q.code} language="javascript" />
                   </div>
                 )}
 
@@ -1291,10 +1291,7 @@ export default function PracticeEngine({
                 );
                 if (!q || !q.code) return null;
                 return (
-                  <CodeBlock
-                    code={q.code}
-                    language="javascript"
-                  />
+                  <CodeBlockGeneral code={q.code} language="javascript" />
                 );
               })()}
             </div>

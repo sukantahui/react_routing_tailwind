@@ -36,7 +36,7 @@ export default function JavaScriptTopicView() {
 }
 
 // ===================================================================
-// MAIN VIEW — Document Reader Mode (B3)
+// MAIN VIEW
 // ===================================================================
 function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
   const index = Number.parseInt(topicIndex, 10) || 0;
@@ -62,10 +62,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 p-10">
         <h1 className="text-2xl text-red-400 font-bold">Module Not Found</h1>
-        <Link
-          to="/javascript/roadmap"
-          className="text-sky-400 underline mt-4 inline-block"
-        >
+        <Link to="/javascript/roadmap" className="text-sky-400 underline mt-4 inline-block">
           ← Back to Roadmap
         </Link>
       </div>
@@ -96,6 +93,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
   useEffect(() => {
     const raw = localStorage.getItem(storageKey) || "[]";
     let parsed = [];
+
     try {
       parsed = JSON.parse(raw);
     } catch {
@@ -130,7 +128,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
     : null;
 
   // -----------------------------------------------------
-  // SCROLL active topic into view
+  // SCROLL ACTIVE TOPIC INTO VIEW
   // -----------------------------------------------------
   useEffect(() => {
     if (activeTopicRef.current) {
@@ -141,33 +139,23 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
     }
   }, [index]);
 
-  // Close sidebar on large screens change (safety)
   useEffect(() => {
-    // Just a light safeguard: when route changes, close mobile sidebar
     setSidebarOpen(false);
   }, [moduleSlug, topicIndex]);
 
-  // ======================================================
-  // FULL UI WITH DOCUMENT READER LAYOUT
-  // ======================================================
+  // ===================================================================
+  // FULL UI
+  // ===================================================================
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden">
 
-      {/* ===================================================
-          GLOBAL SVG BACKGROUND LAYERS
-      =================================================== */}
+      {/* BACKGROUND LAYERS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* SOFT BLUE BLOB TOP-LEFT */}
         <svg className="absolute -top-40 -left-40 opacity-40" width="420" height="420">
           <defs>
-            <radialGradient
-              id="jsTopicBlob1"
-              cx="0"
-              cy="0"
-              r="1"
+            <radialGradient id="jsTopicBlob1" cx="0" cy="0" r="1"
               gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(0,0) rotate(45) scale(400)"
-            >
+              gradientTransform="translate(0,0) rotate(45) scale(400)">
               <stop stopColor="#38bdf8" />
               <stop offset="1" stopColor="#020617" stopOpacity="0" />
             </radialGradient>
@@ -175,17 +163,11 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
           <circle cx="200" cy="200" r="200" fill="url(#jsTopicBlob1)" />
         </svg>
 
-        {/* SOFT PURPLE BLOB BOTTOM-RIGHT */}
         <svg className="absolute bottom-[-160px] right-[-130px] opacity-40" width="420" height="420">
           <defs>
-            <radialGradient
-              id="jsTopicBlob2"
-              cx="0"
-              cy="0"
-              r="1"
+            <radialGradient id="jsTopicBlob2" cx="0" cy="0" r="1"
               gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(400,400) rotate(225) scale(400)"
-            >
+              gradientTransform="translate(400,400) rotate(225) scale(400)">
               <stop stopColor="#a855f7" />
               <stop offset="1" stopColor="#020617" stopOpacity="0" />
             </radialGradient>
@@ -193,15 +175,9 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
           <circle cx="200" cy="200" r="200" fill="url(#jsTopicBlob2)" />
         </svg>
 
-        {/* FAINT GRID */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.06]">
           <defs>
-            <pattern
-              id="jsTopicGrid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
+            <pattern id="jsTopicGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M40 0H0V40" fill="none" stroke="#1f2937" strokeWidth="1" />
             </pattern>
           </defs>
@@ -209,16 +185,14 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
         </svg>
       </div>
 
-      {/* ===================================================
-          TOP APP BAR (Sticky)
-      =================================================== */}
+      {/* TOP HEADER */}
       <header className="relative z-30 border-b border-slate-800/70 bg-slate-950/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-          {/* LEFT: Module / Segment */}
+          {/* Left: Module Info */}
           <div className="flex items-center gap-3">
             <Link
               to="/javascript/roadmap"
-              className="hidden sm:inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-900/70 px-2.5 py-1 text-[11px] text-slate-300 hover:border-sky-500 hover:text-sky-300 transition"
+              className="hidden sm:inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-2.5 py-1 text-[11px] text-slate-300 hover:border-sky-500 hover:text-sky-300"
             >
               <ArrowLeft size={12} className="mr-1" />
               Roadmap
@@ -235,20 +209,19 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             </div>
           </div>
 
-          {/* RIGHT: Progress + Topic & Nav */}
+          {/* Right: Progress + Navigation */}
           <div className="flex items-center gap-3">
-            {/* Progress pill */}
+            {/* Progress */}
             <div className="hidden md:flex flex-col items-end gap-1">
               <div className="flex items-center gap-2 text-[11px] text-slate-300">
                 <BookOpen size={13} className="text-sky-400" />
-                <span>
-                  Topic {index + 1} of {totalTopics}
-                </span>
+                <span>Topic {index + 1} of {totalTopics}</span>
               </div>
+
               <div className="flex items-center gap-2">
-                <div className="w-28 h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
+                <div className="w-28 h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all"
+                    className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
                     style={{ width: `${progressPercent}%` }}
                   />
                 </div>
@@ -258,76 +231,54 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               </div>
             </div>
 
-            {/* Prev / Next buttons */}
+            {/* Prev/Next */}
             <div className="hidden sm:flex items-center gap-2">
               {hasPrev ? (
                 <Link
                   to={`/javascript/topic/${moduleSlug}/${index - 1}`}
-                  className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-[11px] text-slate-200 flex items-center gap-1 transition"
+                  className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-200 hover:bg-slate-800"
                 >
-                  <ArrowLeft size={13} />
-                  Prev
+                  <ArrowLeft size={13} /> Prev
                 </Link>
               ) : (
-                <button
-                  disabled
-                  className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-900 text-[11px] text-slate-600 cursor-not-allowed"
-                >
-                  <ArrowLeft size={13} />
-                  Prev
+                <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-[11px]">
+                  <ArrowLeft size={13} /> Prev
                 </button>
               )}
 
               {hasNext ? (
                 <Link
                   to={`/javascript/topic/${moduleSlug}/${index + 1}`}
-                  className="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 border border-sky-500 text-[11px] text-white flex items-center gap-1 transition"
+                  className="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 border border-sky-500 text-[11px] text-white"
                 >
-                  Next
-                  <ArrowRight size={13} />
+                  Next <ArrowRight size={13} />
                 </Link>
               ) : (
-                <button
-                  disabled
-                  className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-900 text-[11px] text-slate-600 cursor-not-allowed"
-                >
-                  Next
-                  <ArrowRight size={13} />
+                <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-[11px]">
+                  Next <ArrowRight size={13} />
                 </button>
               )}
             </div>
 
-            {/* Mobile: Topics button */}
+            {/* Mobile Topics Button */}
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-100 hover:bg-slate-800 sm:hidden"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-100 sm:hidden"
             >
-              <Menu size={14} />
-              Topics
+              <Menu size={14} /> Topics
             </button>
           </div>
         </div>
       </header>
 
-      {/* ===================================================
-          CONTENT AREA — Document Reader
-      =================================================== */}
+      {/* MAIN LAYOUT */}
       <div className="relative z-20 flex-1 flex justify-center">
         <div className="w-full max-w-6xl mx-auto flex">
 
-          {/* =================================================
-              SIDEBAR (Desktop: fixed; Mobile: sliding drawer)
-          ================================================= */}
-          {/* Desktop Sidebar */}
-          <aside
-            className="
-              hidden lg:flex flex-col w-72 shrink-0
-              border-r border-slate-800/70 bg-slate-950/60 backdrop-blur-xl
-              pt-6 pb-8 px-4
-            "
-          >
-            {/* PROGRESS CARD */}
+          {/* ====================== DESKTOP SIDEBAR ====================== */}
+          <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
+            {/* Progress Card */}
             <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
               <div className="flex items-center justify-between mb-1">
                 <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
@@ -338,9 +289,9 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                 </span>
               </div>
 
-              <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
+              <div className="w-full h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all"
+                  className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -354,7 +305,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               </button>
             </div>
 
-            {/* TOPIC LIST */}
+            {/* Topic List */}
             <div className="space-y-2 text-sm">
               {moduleData.topics.map((title, i) => {
                 const isActive = i === index;
@@ -367,38 +318,26 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                     to={`/javascript/topic/${moduleSlug}/${i}`}
                     className={`
                       relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
-                      ${
-                        isActive
-                          ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
-                          : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
+                      ${isActive
+                        ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
+                        : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
                       }
                     `}
                   >
-                    {/* left accent bar */}
+                    {/* Accent bar */}
                     <span
-                      className={`
-                        absolute left-0 top-0 h-full w-[3px]
-                        ${
-                          isActive
-                            ? "bg-sky-300"
-                            : "bg-slate-700"
-                        }
-                      `}
+                      className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
+                        }`}
                     />
 
                     {isCompleted ? (
-                      <CheckCircle2
-                        size={16}
-                        className="text-emerald-400 shrink-0"
-                      />
+                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                     ) : (
                       <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                     )}
 
                     <span className="truncate">
-                      <span className="text-sky-300 mr-1 text-xs">
-                        {i + 1}.
-                      </span>
+                      <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
                       {title}
                     </span>
                   </Link>
@@ -406,7 +345,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               })}
             </div>
 
-            {/* Sidebar Footer Links */}
+            {/* Sidebar Footer */}
             <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
               <Link
                 to={`/javascript/module/${moduleSlug}`}
@@ -414,12 +353,14 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               >
                 ← Back to Module Overview
               </Link>
+
               <Link
                 to="/javascript/roadmap"
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
                 📍 JavaScript Roadmap
               </Link>
+
               <a
                 href="/play"
                 target="_blank"
@@ -431,23 +372,15 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             </div>
           </aside>
 
-          {/* Mobile Sliding Sidebar */}
+          {/* ====================== MOBILE SIDEBAR (DRAWER) ====================== */}
           {sidebarOpen && (
             <>
-              {/* Backdrop */}
               <div
                 className="fixed inset-0 z-40 bg-black/60 lg:hidden"
                 onClick={() => setSidebarOpen(false)}
               />
-              {/* Drawer */}
-              <aside
-                className="
-                  fixed inset-y-0 left-0 z-50 w-72
-                  bg-slate-950/95 backdrop-blur-xl border-r border-slate-800
-                  pt-4 pb-6 px-4 flex flex-col lg:hidden
-                  transform transition-transform duration-300
-                "
-              >
+
+              <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <Layers size={16} className="text-sky-400" />
@@ -455,16 +388,17 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                       {moduleData.title}
                     </span>
                   </div>
+
                   <button
                     type="button"
                     onClick={() => setSidebarOpen(false)}
-                    className="p-1 rounded-full border border-slate-700 bg-slate-900 text-slate-300 hover:bg-slate-800"
+                    className="p-1 rounded-full border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-300"
                   >
                     <X size={14} />
                   </button>
                 </div>
 
-                {/* PROGRESS (compact) */}
+                {/* Compact Progress */}
                 <div className="mb-4 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-[11px] text-slate-200">
                   <div className="flex items-center justify-between mb-1">
                     <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
@@ -474,12 +408,13 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                       {completedCount}/{totalTopics}
                     </span>
                   </div>
-                  <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700">
+                  <div className="w-full h-1.5 bg-slate-800 border border-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all"
+                      className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
                       style={{ width: `${progressPercent}%` }}
                     />
                   </div>
+
                   <button
                     type="button"
                     onClick={resetProgress}
@@ -489,7 +424,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                   </button>
                 </div>
 
-                {/* TOPIC LIST MOBILE */}
+                {/* Topic List */}
                 <div className="flex-1 overflow-y-auto space-y-2 text-sm">
                   {moduleData.topics.map((title, i) => {
                     const isActive = i === index;
@@ -502,37 +437,25 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                         onClick={() => setSidebarOpen(false)}
                         className={`
                           relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
-                          ${
-                            isActive
-                              ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
-                              : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
+                          ${isActive
+                            ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
+                            : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
                           }
                         `}
                       >
                         <span
-                          className={`
-                            absolute left-0 top-0 h-full w-[3px]
-                            ${
-                              isActive
-                                ? "bg-sky-300"
-                                : "bg-slate-700"
-                            }
-                          `}
+                          className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
+                            }`}
                         />
 
                         {isCompleted ? (
-                          <CheckCircle2
-                            size={16}
-                            className="text-emerald-400 shrink-0"
-                          />
+                          <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                         ) : (
                           <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                         )}
 
                         <span className="truncate">
-                          <span className="text-sky-300 mr-1 text-xs">
-                            {i + 1}.
-                          </span>
+                          <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
                           {title}
                         </span>
                       </Link>
@@ -549,6 +472,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                   >
                     ← Back to Module Overview
                   </Link>
+
                   <Link
                     to="/javascript/roadmap"
                     onClick={() => setSidebarOpen(false)}
@@ -556,6 +480,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                   >
                     📍 JavaScript Roadmap
                   </Link>
+
                   <a
                     href="/play"
                     target="_blank"
@@ -569,33 +494,15 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             </>
           )}
 
-          {/* =================================================
-              DOCUMENT READER PANEL
-          ================================================= */}
+          {/* ====================== MAIN TOPIC READER ====================== */}
           <main className="flex-1 flex justify-center px-4 lg:px-8 py-6 lg:py-10">
             <div className="w-full max-w-3xl">
 
-              {/* Topic Header Card */}
-              <div
-                className="
-                  mb-6 rounded-2xl border border-slate-800
-                  bg-slate-900/60 backdrop-blur-xl shadow-xl
-                  relative overflow-hidden
-                "
-              >
-                {/* top gradient strip */}
-                <svg
-                  className="absolute top-0 left-0 w-full h-1.5"
-                  preserveAspectRatio="none"
-                >
+              {/* Topic Header */}
+              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-xl relative overflow-hidden">
+                <svg className="absolute top-0 left-0 w-full h-1.5">
                   <defs>
-                    <linearGradient
-                      id="jsTopicHeaderLine"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
+                    <linearGradient id="jsTopicHeaderLine" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#38bdf8" />
                       <stop offset="50%" stopColor="#22c55e" />
                       <stop offset="100%" stopColor="#a855f7" />
@@ -604,112 +511,216 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                   <rect width="100%" height="100%" fill="url(#jsTopicHeaderLine)" />
                 </svg>
 
-                <div className="relative z-10 p-5 md:p-6 flex flex-col gap-3 md:gap-0 md:flex-row md:items-center md:justify-between">
+                <div className="p-6 flex flex-col md:flex-row md:justify-between">
                   <div>
-                    <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500 mb-1 flex items-center gap-2">
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500 flex items-center gap-2">
                       <span className="inline-flex items-center justify-center rounded-full bg-slate-800 border border-slate-700 px-2 py-[2px] text-[9px] text-sky-300">
                         Topic {index + 1} / {totalTopics}
                       </span>
-                      <span>
-                        {moduleData.level || "Module"} •{" "}
-                        {moduleData.difficulty || "Difficulty"}
-                      </span>
+                      {moduleData.level || "Module"} • {moduleData.difficulty || "Difficulty"}
                     </p>
-                    <h1 className="text-xl md:text-2xl font-bold text-sky-300 leading-snug">
+
+                    <h1 className="text-xl md:text-2xl font-bold text-sky-300">
                       {topicTitle}
                     </h1>
+
                     <p className="text-[12px] text-slate-400 mt-1">
-                      Module:{" "}
-                      <span className="text-slate-200">
-                        {moduleData.title}
-                      </span>
+                      Module: <span className="text-slate-200">{moduleData.title}</span>
                     </p>
                   </div>
 
-                  {/* Compact navigation for small widths */}
-                  <div className="flex items-center gap-2 mt-2 md:mt-0">
+                  {/* Navigation (compact) */}
+                  <div className="flex items-center gap-2 mt-4 md:mt-0">
                     {hasPrev ? (
                       <Link
                         to={`/javascript/topic/${moduleSlug}/${index - 1}`}
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-[11px] text-slate-200"
+                        className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-200 hover:bg-slate-800"
                       >
-                        <ArrowLeft size={13} />
-                        Prev
+                        <ArrowLeft size={13} /> Prev
                       </Link>
                     ) : (
-                      <button
-                        disabled
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600"
-                      >
-                        <ArrowLeft size={13} />
-                        Prev
+                      <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600">
+                        <ArrowLeft size={13} /> Prev
                       </button>
                     )}
 
                     {hasNext ? (
                       <Link
                         to={`/javascript/topic/${moduleSlug}/${index + 1}`}
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 border border-sky-500 text-[11px] text-white"
+                        className="px-2.5 py-1.5 rounded-lg bg-sky-600 border border-sky-500 text-[11px] text-white hover:bg-sky-500"
                       >
-                        Next
-                        <ArrowRight size={13} />
+                        Next <ArrowRight size={13} />
                       </Link>
                     ) : (
-                      <button
-                        disabled
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600"
-                      >
-                        Next
-                        <ArrowRight size={13} />
+                      <button disabled className="px-2.5 py-1.5 rounded-lg bg-slate-950 border border-slate-900 text-[11px] text-slate-600">
+                        Next <ArrowRight size={13} />
                       </button>
                     )}
                   </div>
                 </div>
               </div>
 
-              {/* Actual Topic Content — Document Reader */}
-              <section
-                className="
-                  relative rounded-3xl border border-slate-800
-                  bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)]
-                  px-5 md:px-8 py-6 md:py-8
-                "
-              >
-                {/* subtle dots decoration */}
-                <svg className="absolute right-6 bottom-6 h-24 opacity-15">
-                  <defs>
-                    <pattern
-                      id="jsTopicDots"
-                      width="10"
-                      height="10"
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <circle cx="2" cy="2" r="2" fill="#1e293b" />
-                    </pattern>
-                  </defs>
-                  <rect width="200" height="200" fill="url(#jsTopicDots)" />
-                </svg>
+              {/* ===================== TOPIC CONTENT PANEL ===================== */}
+              <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
 
-                <Suspense
-                  fallback={
-                    <p className="text-slate-400 text-sm">
-                      Loading topic content…
-                    </p>
-                  }
-                >
+                <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
                   ) : (
                     <div className="text-slate-300 text-sm">
                       <p className="mb-1">Topic file missing:</p>
                       <pre className="text-sky-400 mt-2 text-xs bg-slate-950/60 rounded-lg p-3 border border-slate-800 overflow-x-auto">
-{`src/components/study/javascript/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
+                        {`src/components/study/javascript/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
                       </pre>
                     </div>
                   )}
                 </Suspense>
+
+                {/* ==========================================================
+                    WHATSAPP QUERY BOX (New Feature)
+                ========================================================== */}
+                <div className="mt-10 p-5 rounded-2xl border border-slate-700 bg-slate-900/60 shadow-lg space-y-3">
+                  <h3 className="text-lg font-semibold text-sky-300">
+                    Have a Question About This Topic?
+                  </h3>
+
+                  <p className="text-sm text-slate-400">
+                    Send your doubts directly on WhatsApp. I will reply as soon as possible.
+                  </p>
+
+                  <textarea
+                    id="waQuery"
+                    placeholder="Type your question here..."
+                    className="w-full bg-slate-800 text-slate-200 p-3 rounded-xl border border-slate-600 text-sm focus:outline-none focus:border-sky-500"
+                    rows={3}
+                  ></textarea>
+
+                  <button
+                    onClick={() => {
+                      const msg = document.getElementById("waQuery").value.trim();
+                      if (!msg) return alert("Please type your question first.");
+
+                      const phone = "919432456083"; // Your WhatsApp Number
+                      const text = encodeURIComponent(
+                        `Hello Sir,\nI have a query regarding:\n\n• Module: ${moduleData.title}\n• Topic: ${topicTitle}\n\nMy Question:\n${msg}`
+                      );
+
+                      window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+                    }}
+                    className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition"
+                  >
+                    📲 Send WhatsApp Query
+                  </button>
+                </div>
+
               </section>
             </div>
+            {/* FLOATING WHATSAPP BUTTON – PREMIUM DESIGN */}
+<div className="fixed bottom-6 right-6 z-[9999] group">
+  {/* Tooltip */}
+  <div className="
+      absolute right-14 bottom-1
+      opacity-0 group-hover:opacity-100
+      transition-opacity duration-300
+      bg-slate-900 text-slate-200
+      border border-slate-700
+      text-xs px-3 py-1.5 rounded-lg shadow-lg
+      whitespace-nowrap
+    "
+  >
+    Ask your question on WhatsApp
+  </div>
+
+{/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
+<div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
+
+  {/* BOX */}
+  <div
+    id="waBox"
+    className="
+      w-72
+      bg-slate-900/90 backdrop-blur-xl
+      border border-slate-700/60
+      shadow-[0_8px_30px_rgba(0,0,0,0.55)]
+      rounded-2xl
+      p-4
+      text-slate-200
+      hidden
+      animate-fadeIn
+    "
+  >
+    <p className="text-[11px] text-slate-400 mb-2">
+      Ask your question regarding this topic:
+    </p>
+
+    <textarea
+      id="waMessage"
+      placeholder="Type your doubt here…"
+      rows={3}
+      className="
+        w-full bg-slate-800 text-slate-200
+        border border-slate-600
+        rounded-lg text-sm p-2
+        focus:outline-none focus:border-sky-500
+      "
+    ></textarea>
+
+    <button
+      onClick={() => {
+        const rawMsg = document.getElementById("waMessage").value.trim();
+        const userMsg = rawMsg || "(No question typed)";
+
+        const phone = "919432456083";
+
+        const text = encodeURIComponent(
+`📘 *Topic Support Query*
+
+• *Module:* ${moduleData.title}
+• *Topic:* ${topicTitle}
+
+📝 *Student Question:*
+${userMsg}
+
+— Sent from Coder & AccoTax Learning Platform`
+        );
+
+        window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+      }}
+      className="
+        w-full mt-3 py-2
+        bg-green-600 hover:bg-green-500
+        rounded-lg text-sm font-semibold
+        text-white transition
+      "
+    >
+      📲 Send on WhatsApp
+    </button>
+  </div>
+
+  {/* TOGGLE BUTTON */}
+  <button
+    onClick={() => {
+      const box = document.getElementById("waBox");
+      box.classList.toggle("hidden");
+    }}
+    className="
+      w-14 h-14 rounded-full
+      bg-gradient-to-br from-green-500 to-green-600
+      hover:from-green-400 hover:to-green-500
+      shadow-[0_8px_25px_rgba(16,185,129,0.45)]
+      border border-green-400/40
+      flex items-center justify-center
+      text-white text-2xl
+      hover:scale-[1.06]
+      transition-all
+    "
+  >
+    💬
+  </button>
+</div>
+
+</div>
+
           </main>
         </div>
       </div>

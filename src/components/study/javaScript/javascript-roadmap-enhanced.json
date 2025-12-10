@@ -467,7 +467,8 @@
             "Searching: indexOf, includes, find, findIndex",
             "Iterating arrays with for, for-of and forEach",
             "Intro to higher-order methods: map, filter, reduce (light overview)",
-            "Exercise"
+            "Practice your Skill",
+            "Test your Skill"
           ],
           "learningOutcomes": [
             "Store lists of values and access them efficiently",
@@ -1345,6 +1346,108 @@
           "nextModule": "tooling-and-build",
           "badge": "JS Architect Badge"
         },
+
+        {
+  "moduleId": "dom-special",
+  "slug": "dom-special-creating-manipulating-elements",
+  "title": "DOM Special: Creating, Inserting & Playing with Elements",
+  "level": "Intermediate",
+  "estimatedHours": 6,
+  "tags": [
+    "dom-creation",
+    "elements",
+    "manipulation"
+  ],
+  "topics": [
+    "Creating elements dynamically: createElement(), createTextNode()",
+    "Appending elements: append(), appendChild(), prepend(), insertBefore()",
+    "Removing elements: remove(), removeChild(), replaceChild()",
+    "Modifying elements: textContent, innerHTML, style, classList",
+    "Working with attributes: setAttribute(), getAttribute(), removeAttribute()",
+    "Creating dynamic UI components: cards, notifications, alerts",
+    "Building reusable DOM utility functions",
+    "Handling multiple elements: loops + DOM creation",
+    "Mini-Project: Build a Dynamic List Manager (Add / Edit / Remove items)",
+    "Advanced Template Rendering Engine (Mini React)",
+    "Cloning elements with cloneNode() — shallow vs deep clones",
+  "DocumentFragment: Efficient batch updates & performance boosting",
+  "Template element: Using <template> for reusable DOM structures",
+  "DOM Special – Animated Notification Center (Toast System)",
+  "dataset attributes: data-* properties for storing custom metadata",
+  "Bounding & positioning: getBoundingClientRect() and layout measurement",
+  "Understanding reflow & repaint and how JS affects performance",
+  "Batch DOM updates vs incremental updates (micro-optimizations)",
+  "Event delegation pattern for large-scale DOM handling",
+  "Creating animations using class toggles + CSS transitions",
+  "Building Toast Notifications & Animated Alerts",
+  "Creating Tooltip, Modal & Dropdown components (Reusable UI)",
+  "Virtualized rendering concept for huge lists (1000+ items)",
+  "Using requestAnimationFrame() for smooth DOM animations",
+  "IntersectionObserver — detecting visibility & lazy loading elements",
+  "ResizeObserver — reacting to element size changes",
+  "MutationObserver — watching DOM changes programmatically",
+  "Building your own DOM helper library (like mini jQuery)",
+  "Separating UI logic vs state logic — clean architecture",
+  "Progressive enhancement: building features that never break",
+  "Mini Project 2: Build a Dynamic Card Generator with Filters",
+  "Mini Project 3: Build an Animated Notification Center"
+  ],
+  "learningOutcomes": [
+    "Create and insert DOM elements programmatically",
+    "Manipulate text, attributes, styles and classes dynamically",
+    "Build reusable components using JavaScript and DOM APIs",
+    "Understand how modern UI frameworks build elements behind the scenes"
+  ],
+  "prerequisites": [
+    "dom-basics"
+  ],
+  "difficulty": "Medium",
+  "difficultyIndex": 7,
+  "summary": "Go deeper into the DOM by learning how to programmatically create, modify and animate elements — just like modern frontend libraries do internally.",
+  "miniProjects": [
+    "Practice: DOM Special – Create a dynamic card builder"
+  ],
+  "exercises": {
+    "mcq": 20,
+    "coding": 12,
+    "projects": 1
+  },
+  "assessment": {
+    "type": "Coding Challenge + Quiz",
+    "passScore": 75
+  },
+  "useCases": [
+    "Building notifications and alert systems",
+    "Dynamic adding/removing form fields",
+    "Rendering data arrays into UI lists",
+    "Building simple components without frameworks"
+  ],
+  "careerSkills": [
+    "Hands-on DOM manipulation (essential for JS & React)",
+    "Understanding how UI libraries generate and update DOM"
+  ],
+  "commonMistakes": [
+    "Using innerHTML everywhere instead of DOM-safe methods",
+    "Not removing old elements before re-rendering",
+    "Incorrectly managing nested structures"
+  ],
+  "references": [
+    "MDN Web Docs – DOM Manipulation",
+    "javascript.info – Modifying the document"
+  ],
+  "teachingTips": [
+    "Live-code a dynamic to-do list and explain each DOM step.",
+    "Teach reusable DOM functions (createElement wrapper).",
+    "Show how frameworks like React abstract DOM manipulation."
+  ],
+  "preReading": [
+    "DOM Basics module"
+  ],
+  "previousModule": "dom-basics",
+  "nextModule": "events-interaction",
+  "badge": "DOM Creator Badge"
+},
+
         {
           "moduleId": "tooling-and-build",
           "slug": "tooling-and-build-systems",
