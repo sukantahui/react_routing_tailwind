@@ -8,7 +8,7 @@ function getNextCertificateNumber() {
   const key = "certificate_counter";
   let current = parseInt(localStorage.getItem(key), 10);
   if (isNaN(current) || current < 1) current = 1;
-  
+
   const year = new Date().getFullYear();
   const padded = String(current).padStart(5, "0");
   const cert = `CAT-${year}-${padded}`;
@@ -29,9 +29,9 @@ export default function CertificateGenerator({
     const passed = percentage >= passPercent;
     const grade =
       percentage >= 85 ? "A+" :
-      percentage >= 70 ? "A" :
-      percentage >= 60 ? "B" :
-      percentage >= 50 ? "C" : "D";
+        percentage >= 70 ? "A" :
+          percentage >= 60 ? "B" :
+            percentage >= 50 ? "C" : "D";
 
     const date = new Date().toLocaleDateString("en-IN", {
       day: "2-digit",
@@ -244,11 +244,49 @@ export default function CertificateGenerator({
   };
 
   return (
-    <button
-      onClick={generate}
-      className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 px-4 py-2 rounded-full text-white text-xs font-semibold"
-    >
-      Download Certificate
-    </button>
+    <>
+      <button
+        onClick={generate}
+        className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 px-4 py-2 rounded-full text-white text-xs font-semibold"
+      >
+        Download Certificate
+      </button>
+      <button
+        onClick={() => {
+          const certNo = getNextCertificateNumber();
+          const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
+
+          const message =
+            `🏅 *Coder & AccoTax – Certificate of Completion*
+--------------------------------------------------
+
+👤 *Student Name:* ${studentName}
+📘 *Module:* ${title}
+📊 *Score:* ${score}/${total}
+📈 *Percentage:* ${percent}%
+🎖 *Result:* ${percent >= passPercent ? "PASSED" : "NOT PASSED"}
+🏷 *Grade:* ${percent >= 85 ? "A+" :
+              percent >= 70 ? "A" :
+                percent >= 60 ? "B" :
+                  percent >= 50 ? "C" : "D"
+            }
+
+🗓 Issued on: ${new Date().toLocaleDateString("en-IN")}
+🔢 Certificate No: ${certNo}
+🌐 Verify: https://www.codernaccotax.co.in/verify?cert=${certNo}
+
+Thank you for learning with
+*Coder & AccoTax, Barrackpore*
+www.codernaccotax.co.in`;
+
+          const url = `https://wa.me/919432456083?text=${encodeURIComponent(message)}`;
+          window.open(url, "_blank");
+        }}
+        className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 px-4 py-2 rounded-full text-white text-xs font-semibold"
+      >
+        Send to WhatsApp
+      </button>
+
+    </>
   );
 }
