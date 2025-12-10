@@ -252,40 +252,72 @@ export default function CertificateGenerator({
         Download Certificate
       </button>
       <button
-        onClick={() => {
-          const certNo = getNextCertificateNumber();
-          const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
+  onClick={() => {
+    const certNo = getNextCertificateNumber();
+    const percent = total ? ((score / total) * 100).toFixed(2) : "0.00";
 
-          const message =
-            `🏅 *Coder & AccoTax – Certificate of Completion*
---------------------------------------------------
+    const grade =
+      percent >= 85 ? "A+ 🌟" :
+      percent >= 70 ? "A 👍" :
+      percent >= 60 ? "B 🙂" :
+      percent >= 50 ? "C ⚠️" :
+      "D ❌";
+
+    const passed = percent >= passPercent;
+    const resultStatus = passed ? "PASSED ✅" : "NOT PASSED ❌";
+
+    // ------------------------------------------
+    // Dynamic Inspirational Message
+    // ------------------------------------------
+    const dynamicMessage = passed
+      ? `🎉 *Congratulations!*  
+Your dedication and hard work have brought you success.  
+Keep learning, keep growing — the future is yours!`
+      : `💡 *Don't be discouraged!*  
+Every attempt makes you stronger.  
+Review your mistakes, try again, and success will follow you.  
+We believe in you! 💪`;
+
+    // ------------------------------------------
+    // WhatsApp Message Body
+    // ------------------------------------------
+    const message =
+`🏅 *CERTIFICATE OF COMPLETION*
+━━━━━━━━━━━━━━━━━━━━━
 
 👤 *Student Name:* ${studentName}
 📘 *Module:* ${title}
+
 📊 *Score:* ${score}/${total}
 📈 *Percentage:* ${percent}%
-🎖 *Result:* ${percent >= passPercent ? "PASSED" : "NOT PASSED"}
-🏷 *Grade:* ${percent >= 85 ? "A+" :
-              percent >= 70 ? "A" :
-                percent >= 60 ? "B" :
-                  percent >= 50 ? "C" : "D"
-            }
+🎖 *Result:* ${resultStatus}
+🏷 *Grade:* ${grade}
 
-🗓 Issued on: ${new Date().toLocaleDateString("en-IN")}
-🔢 Certificate No: ${certNo}
-🌐 Verify: https://www.codernaccotax.co.in/verify?cert=${certNo}
+🗓 *Issued on:* ${new Date().toLocaleDateString("en-IN")}
+🔢 *Certificate No:* ${certNo}
 
-Thank you for learning with
-*Coder & AccoTax, Barrackpore*
-www.codernaccotax.co.in`;
+🔗 *Verification Link:*
+https://www.codernaccotax.co.in/verify?cert=${certNo}
 
-          const url = `https://wa.me/919432456083?text=${encodeURIComponent(message)}`;
-          window.open(url, "_blank");
-        }}
-        className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 px-4 py-2 rounded-full text-white text-xs font-semibold"
-      >
-        Send to WhatsApp
-      </button>
+━━━━━━━━━━━━━━━━━━━━━  
+💬 *Message from Coder & AccoTax*  
+━━━━━━━━━━━━━━━━━━━━━  
+${dynamicMessage}
+
+━━━━━━━━━━━━━━━━━━━━━
+🏫 *Coder & AccoTax – Barrackpore*
+💻 www.codernaccotax.co.in
+━━━━━━━━━━━━━━━━━━━━━`;
+
+    const url = `https://wa.me/919432456083?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }}
+  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 px-4 py-2 rounded-full text-white text-xs font-semibold"
+>
+  Send to WhatsApp
+</button>
+
+
 
     </>
   );

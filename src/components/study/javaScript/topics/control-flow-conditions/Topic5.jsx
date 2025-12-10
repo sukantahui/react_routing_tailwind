@@ -156,7 +156,7 @@ let password = "abcd";
           🔹 Question 8 — Temperature Status
         </h3>
         <p className="text-slate-300">
-          If temperature &lt; 20 → "Cold", 20–30 → "Warm", > 30 → "Hot".
+          If temperature &lt; 20 → "Cold", 20–30 → "Warm", &gt 30 → "Hot".
         </p>
 
         <EditableCodeBlock
