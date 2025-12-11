@@ -306,70 +306,6 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             </div>
 
 
-        
-            {/* SEND TOPIC LIST TO ANY PHONE NUMBER */}
-            <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
-
-              <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500 mb-2">
-                Send Topics List
-              </p>
-
-              {/* PHONE NUMBER INPUT */}
-              <input
-                id="waPhoneInput"
-                type="text"
-                placeholder="Enter WhatsApp number (e.g., 919876543210)"
-                className="
-      w-full bg-slate-800 text-slate-200
-      p-2 rounded-lg border border-slate-600
-      text-xs focus:outline-none focus:border-sky-500
-    "
-              />
-
-              <button
-                onClick={() => {
-                  const phone = document.getElementById("waPhoneInput").value.trim();
-
-                  if (!phone) {
-                    return alert("Please enter a WhatsApp phone number.");
-                  }
-
-                  // Auto-generate topic list
-                  const topicList = moduleData.topics
-                    .map((t, i) => `${i + 1}. ${t}`)
-                    .join("\n");
-
-                  // Direct link for this module
-                  const moduleLink = `${window.location.origin}/javascript/module/${moduleSlug}`;
-
-                  const text = encodeURIComponent(
-                    `📘 *Module Topic List*
-• *Module:* ${moduleData.title}
-
-${topicList}
-
-🔗 *Direct Link to Module:*
-${moduleLink}
-
-— Sent via Coder & AccoTax Learning Platform`
-                  );
-
-                  window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-                }}
-                className="
-      w-full mt-3 py-2
-      bg-green-600 hover:bg-green-500
-      rounded-lg text-xs font-semibold
-      text-white transition
-    "
-              >
-                📤 Send Topics List
-              </button>
-            </div>
-
-
-
-
             {/* Topic List */}
             <div className="space-y-2 text-sm">
               {moduleData.topics.map((title, i) => {
@@ -412,6 +348,9 @@ ${moduleLink}
 
             {/* Sidebar Footer */}
             <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
+
+              
+
               <Link
                 to={`/javascript/module/${moduleSlug}`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
@@ -435,6 +374,65 @@ ${moduleLink}
                 🧪 CNAT Playground
               </a>
             </div>
+            {/* SEND TOPIC LIST TO ANY PHONE NUMBER */}
+              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
+
+                <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500 mb-2">
+                  Send Topics List
+                </p>
+
+                {/* PHONE NUMBER INPUT */}
+                <input
+                  id="waPhoneInput"
+                  type="text"
+                  placeholder="Enter WhatsApp number (e.g., 919876543210)"
+                  className="
+      w-full bg-slate-800 text-slate-200
+      p-2 rounded-lg border border-slate-600
+      text-xs focus:outline-none focus:border-sky-500
+    "
+                />
+
+                <button
+                  onClick={() => {
+                    const phone = document.getElementById("waPhoneInput").value.trim();
+
+                    if (!phone) {
+                      return alert("Please enter a WhatsApp phone number.");
+                    }
+
+                    // Auto-generate topic list
+                    const topicList = moduleData.topics
+                      .map((t, i) => `${i + 1}. ${t}`)
+                      .join("\n");
+
+                    // Direct link for this module
+                    const moduleLink = `${window.location.origin}/javascript/module/${moduleSlug}`;
+
+                    const text = encodeURIComponent(
+                      `📘 *Module Topic List*
+• *Module:* ${moduleData.title}
+
+${topicList}
+
+🔗 *Direct Link to Module:*
+${moduleLink}
+
+— Sent via Coder & AccoTax Learning Platform`
+                    );
+
+                    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+                  }}
+                  className="
+      w-full mt-3 py-2
+      bg-green-600 hover:bg-green-500
+      rounded-lg text-xs font-semibold
+      text-white transition
+    "
+                >
+                  📤 Send Topics List
+                </button>
+              </div>
           </aside>
 
           {/* ====================== MOBILE SIDEBAR (DRAWER) ====================== */}
