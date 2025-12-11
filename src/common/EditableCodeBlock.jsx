@@ -25,6 +25,24 @@ export default class EditableCodeBlock extends Component {
   constructor(props) {
     super(props);
 
+    // ============================
+    // 🔥 Console listener from iframe
+    // ============================
+    this._postMessageHandler = (event) => {
+      if (!event.data || !event.data.type) return;
+
+      if (event.data.type === "console") {
+        this.setState((prev) => ({
+          consoleOutput: [
+            ...prev.consoleOutput,
+            { type: event.data.level || "log", message: event.data.message },
+          ],
+        }));
+      }
+    };
+
+    window.addEventListener("message", this._postMessageHandler, false);
+
     const normalize = (s) => this.normalizeCode(s || "");
     const init = props.initialSnippets || {};
 
@@ -51,6 +69,7 @@ export default class EditableCodeBlock extends Component {
       showConsole: true,
       showSplitView: false,
       previewCode: "",
+      previewKey: Date.now(), // 🔥 Forces iframe remount
 
       showFontMenu: false,
       showThemeMenu: false,
@@ -67,6 +86,11 @@ export default class EditableCodeBlock extends Component {
     this.editorRef = null;
     this.monaco = null;
     this.decorations = [];
+    this.previewFrame = null;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("message", this._postMessageHandler, false);
   }
 
   // ----------------------------------------
@@ -110,36 +134,12 @@ export default class EditableCodeBlock extends Component {
     if (!this.monaco) return;
 
     const themes = {
-      dracula: {
-        base: "vs-dark",
-        inherit: true,
-        colors: { "editor.background": "#1e1e2e" },
-      },
-      "one-dark": {
-        base: "vs-dark",
-        inherit: true,
-        colors: { "editor.background": "#282c34" },
-      },
-      "solarized-dark": {
-        base: "vs-dark",
-        inherit: true,
-        colors: { "editor.background": "#002b36" },
-      },
-      "solarized-light": {
-        base: "vs",
-        inherit: true,
-        colors: { "editor.background": "#fdf6e3" },
-      },
-      "github-dark": {
-        base: "vs-dark",
-        inherit: true,
-        colors: { "editor.background": "#0d1117" },
-      },
-      "github-light": {
-        base: "vs",
-        inherit: true,
-        colors: { "editor.background": "#ffffff" },
-      },
+      dracula: { base: "vs-dark", inherit: true, colors: { "editor.background": "#1e1e2e" } },
+      "one-dark": { base: "vs-dark", inherit: true, colors: { "editor.background": "#282c34" } },
+      "solarized-dark": { base: "vs-dark", inherit: true, colors: { "editor.background": "#002b36" } },
+      "solarized-light": { base: "vs", inherit: true, colors: { "editor.background": "#fdf6e3" } },
+      "github-dark": { base: "vs-dark", inherit: true, colors: { "editor.background": "#0d1117" } },
+      "github-light": { base: "vs", inherit: true, colors: { "editor.background": "#ffffff" } },
     };
 
     Object.entries(themes).forEach(([id, def]) =>
@@ -149,34 +149,81 @@ export default class EditableCodeBlock extends Component {
     this.monaco.editor.setTheme(themeName);
   };
 
-  // ----------------------------------------
+  // ==========================================================
+  // 🔥 FIX: Inject log bridge inside iframe BEFORE running user JS
+  // ==========================================================
   updatePreview = () => {
     const { javascript, html, css } = this.state.codes;
 
     const htmlDoc = `
       <html>
         <head>
+          <meta charset="UTF-8" />
           <style>${css}</style>
         </head>
+
         <body>
           ${html}
+
+          <!-- ========================= -->
+          <!-- JS Console Bridge (works with async) -->
+          <!-- ========================= -->
           <script>
-            try { ${javascript} } 
-            catch (e) {
-              document.body.innerHTML += '<pre style="color:red;">'+e+'</pre>';
+            (function() {
+              function send(level, args) {
+                try {
+                  var msg = args.map(a => {
+                    try { return typeof a === 'object' ? JSON.stringify(a) : String(a); }
+                    catch { return String(a); }
+                  }).join(' ');
+
+                  window.parent.postMessage({
+                    type: 'console',
+                    level: level,
+                    message: msg
+                  }, '*');
+                } catch(e){}
+              }
+
+              const oldLog = console.log;
+              const oldWarn = console.warn;
+              const oldError = console.error;
+
+              console.log = function() { send('log', [...arguments]); oldLog.apply(console, arguments); };
+              console.warn = function() { send('warn', [...arguments]); oldWarn.apply(console, arguments); };
+              console.error = function() { send('error', [...arguments]); oldError.apply(console, arguments); };
+            })();
+          </script>
+
+          <!-- ========================= -->
+          <!-- User Code -->
+          <!-- ========================= -->
+          <script>
+            try {
+              ${javascript}
+            } catch (e) {
+              window.parent.postMessage({
+                type: 'console',
+                level: 'error',
+                message: String(e)
+              }, '*');
             }
           <\/script>
         </body>
       </html>
     `;
 
-    this.setState({ previewCode: htmlDoc });
+    // 🔥 Forces iframe to re-render with fresh JS
+    this.setState({
+      previewCode: htmlDoc,
+      previewKey: Date.now(),
+    });
   };
-
   // ----------------------------------------
   runCode = () => {
     const js = this.state.codes.javascript;
 
+    // reset console output
     this.setState({ error: "", errorLine: null, consoleOutput: [] });
 
     const captured = [];
@@ -242,14 +289,20 @@ export default class EditableCodeBlock extends Component {
   // ----------------------------------------
   formatCode = () => {
     if (this.state.activeTab !== "javascript")
-      return this.setState({ error: "Formatting only works for JavaScript" });
+      return this.setState({
+        error: "Formatting only works for JavaScript",
+        errorLine: null,
+      });
 
     try {
       const prettier = window.prettier;
       const babel = window.prettierPlugins.babel;
 
       if (!prettier || !babel)
-        return this.setState({ error: "Prettier not loaded" });
+        return this.setState({
+          error: "Prettier not loaded",
+          errorLine: null,
+        });
 
       const formatted = prettier.format(this.state.codes.javascript, {
         parser: "babel",
@@ -259,6 +312,7 @@ export default class EditableCodeBlock extends Component {
       this.setState((prev) => ({
         codes: { ...prev.codes, javascript: formatted },
         error: "",
+        errorLine: null,
       }));
     } catch (err) {
       this.setState({ error: "Format Error: " + err.message });
@@ -272,13 +326,16 @@ export default class EditableCodeBlock extends Component {
 
     this.setState({
       codes: {
-        javascript: normalize(init.javascript ?? this.props.initialCode ?? ""),
+        javascript: normalize(
+          init.javascript ?? this.props.initialCode ?? ""
+        ),
         html: normalize(
           init.html ??
             "<!-- HTML goes here -->\n<div id='app'>Hello from Coder & AccoTax!</div>"
         ),
         css: normalize(
-          init.css ?? "/* CSS goes here */\nbody { font-family: system-ui; }"
+          init.css ??
+            "/* CSS goes here */\nbody { font-family: system-ui; }"
         ),
       },
       error: "",
@@ -290,7 +347,8 @@ export default class EditableCodeBlock extends Component {
   // ----------------------------------------
   downloadCode = () => {
     const { activeTab, codes } = this.state;
-    const ext = activeTab === "javascript" ? "js" : activeTab;
+    const ext =
+      activeTab === "javascript" ? "js" : activeTab === "html" ? "html" : "css";
 
     const blob = new Blob([codes[activeTab]], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
@@ -317,6 +375,7 @@ export default class EditableCodeBlock extends Component {
       showConsole,
       showSplitView,
       previewCode,
+      previewKey,
       activeTab,
       codes,
       showFontMenu,
@@ -344,7 +403,11 @@ export default class EditableCodeBlock extends Component {
                 <button
                   key={tab}
                   onClick={() =>
-                    this.setState({ activeTab: tab, error: "", errorLine: null })
+                    this.setState({
+                      activeTab: tab,
+                      error: "",
+                      errorLine: null,
+                    })
                   }
                   className={`px-2 py-1 flex items-center gap-1 ${
                     activeTab === tab
@@ -526,7 +589,9 @@ export default class EditableCodeBlock extends Component {
             <button
               onClick={() =>
                 this.setState(
-                  (prev) => ({ showSplitView: !prev.showSplitView }),
+                  (prev) => ({
+                    showSplitView: !prev.showSplitView,
+                  }),
                   () => this.state.showSplitView && this.updatePreview()
                 )
               }
@@ -576,16 +641,18 @@ export default class EditableCodeBlock extends Component {
 
           {showSplitView && (
             <div className="w-1/2 border-l border-slate-700 bg-black">
+              {/* 🔥 Patched iframe with REMOUNT KEY */}
               <iframe
+                key={previewKey}
                 title="preview"
                 srcDoc={previewCode}
-                sandbox="allow-scripts"
+                sandbox="allow-scripts allow-same-origin"
                 className="w-full h-full"
+                ref={(el) => (this.previewFrame = el)}
               ></iframe>
             </div>
           )}
         </div>
-
         {/* ================= ERROR ================= */}
         {error && (
           <div className="bg-red-900/40 border-t border-red-700 px-3 py-2 text-red-300 text-xs">
@@ -606,7 +673,11 @@ export default class EditableCodeBlock extends Component {
               <pre
                 key={index}
                 className={`whitespace-pre-wrap ${
-                  line.type === "error" ? "text-red-400" : "text-green-300"
+                  line.type === "error"
+                    ? "text-red-400"
+                    : line.type === "warn"
+                    ? "text-yellow-300"
+                    : "text-green-300"
                 }`}
               >
                 {line.message}

@@ -27,7 +27,7 @@ const topicModules = import.meta.glob("./topics/*/Topic*.jsx");
 export default function JavaScriptTopicView() {
   const { moduleSlug, topicIndex } = useParams();
   return (
-    <JavaScriptTopicViewInner
+    <TopicViewInner
       key={`${moduleSlug}-${topicIndex}`}
       moduleSlug={moduleSlug}
       topicIndex={topicIndex}
@@ -38,7 +38,7 @@ export default function JavaScriptTopicView() {
 // ===================================================================
 // MAIN VIEW
 // ===================================================================
-function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
+function TopicViewInner({ moduleSlug, topicIndex }) {
   const index = Number.parseInt(topicIndex, 10) || 0;
   const activeTopicRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -379,7 +379,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                 to={`/${roadmapData.folder}/roadmap`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
-                📍 JavaScript Roadmap
+                📍 {roadmapData.subject} Roadmap
               </Link>
 
               <a
@@ -657,7 +657,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
                   >
-                    📍 JavaScript Roadmap
+                    📍 {roadmapData.subject} Roadmap
                   </Link>
 
                   <a
