@@ -101,7 +101,8 @@ export default function QuizEngine({
 
   useEffect(() => {
     if (isMobile && !nameEntered) {
-      setStudentName("Mobile User");
+      // auto fill in uppercase for mobile users
+      setStudentName("MOBILE USER");
       setNameEntered(true);
     }
   }, [isMobile, nameEntered]);
@@ -206,9 +207,9 @@ export default function QuizEngine({
       selectedCount === "All"
         ? availableQuestions.length
         : Math.min(
-          Number(selectedCount) || questionLimit || 25,
-          availableQuestions.length
-        );
+            Number(selectedCount) || questionLimit || 25,
+            availableQuestions.length
+          );
 
     if (count <= 0) return;
 
@@ -373,7 +374,8 @@ export default function QuizEngine({
       }
 
       setTimeout(() => {
-        setStudentName(finalName);
+        // ensure uppercase on final acceptance
+        setStudentName(finalName.toUpperCase());
         setNameEntered(true);
       }, 30);
     };
@@ -413,7 +415,7 @@ export default function QuizEngine({
             type="text"
             placeholder="Student Name"
             value={studentName}
-            onChange={(e) => setStudentName(e.target.value)}
+            onChange={(e) => setStudentName(e.target.value.toUpperCase())}
             className="w-full px-4 py-2.5 rounded-2xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:ring-1 focus:ring-sky-500 focus:outline-none text-sm"
           />
 
@@ -421,8 +423,8 @@ export default function QuizEngine({
             type="button"
             onClick={handleNameStart}
             className={`w-full py-2.5 rounded-2xl text-white font-semibold text-sm transition ${studentName.trim()
-                ? "bg-sky-600 hover:bg-sky-500 shadow-[0_10px_30px_rgba(56,189,248,0.3)]"
-                : "bg-slate-800 text-slate-500 cursor-not-allowed"
+              ? "bg-sky-600 hover:bg-sky-500 shadow-[0_10px_30px_rgba(56,189,248,0.3)]"
+              : "bg-slate-800 text-slate-500 cursor-not-allowed"
               }`}
           >
             Continue to Test Setup
@@ -458,9 +460,9 @@ export default function QuizEngine({
       selectedCount === "All"
         ? totalAvailable
         : Math.min(
-          Number(selectedCount) || questionLimit || 25,
-          totalAvailable
-        );
+            Number(selectedCount) || questionLimit || 25,
+            totalAvailable
+          );
 
     return (
       <section className="max-w-4xl mx-auto mt-8 mb-10 px-3 space-y-8">
@@ -509,7 +511,7 @@ export default function QuizEngine({
                   {selectedLevel === "All"
                     ? "All Levels"
                     : selectedLevel.charAt(0).toUpperCase() +
-                    selectedLevel.slice(1)}
+                      selectedLevel.slice(1)}
                 </span>
               </span>
               <span className="inline-flex items-center gap-1 rounded-full bg-slate-900/80 border border-slate-700 px-2.5 py-1 text-slate-300">
@@ -547,8 +549,8 @@ export default function QuizEngine({
                   type="button"
                   onClick={() => setSelectedLevel(lvl)}
                   className={`px-3 py-1.5 rounded-full text-[11px] border transition flex items-center gap-1 ${isActive
-                      ? "bg-emerald-600 text-white border-emerald-400 shadow-[0_8px_25px_rgba(16,185,129,0.4)]"
-                      : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                    ? "bg-emerald-600 text-white border-emerald-400 shadow-[0_8px_25px_rgba(16,185,129,0.4)]"
+                    : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                     }`}
                 >
                   {isActive && (
@@ -578,8 +580,8 @@ export default function QuizEngine({
                   type="button"
                   onClick={() => setSelectedCount(value)}
                   className={`px-3 py-1.5 rounded-full text-[11px] border transition ${isActive
-                      ? "bg-sky-600 text-white border-sky-400 shadow-[0_8px_25px_rgba(56,189,248,0.4)]"
-                      : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                    ? "bg-sky-600 text-white border-sky-400 shadow-[0_8px_25px_rgba(56,189,248,0.4)]"
+                    : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                     }`}
                 >
                   {n === "All" ? "All" : n}
@@ -693,7 +695,7 @@ export default function QuizEngine({
                     {selectedLevel === "All"
                       ? "All Levels"
                       : selectedLevel.charAt(0).toUpperCase() +
-                      selectedLevel.slice(1)}
+                        selectedLevel.slice(1)}
                   </span>
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-slate-900/80 border border-slate-700 px-2.5 py-1 text-slate-300">
@@ -828,7 +830,7 @@ export default function QuizEngine({
                     type="text"
                     placeholder="Student name"
                     value={studentName}
-                    onChange={(e) => setStudentName(e.target.value)}
+                    onChange={(e) => setStudentName(e.target.value.toUpperCase())}
                     className="flex-1 px-3 py-1.5 rounded-full bg-slate-950 border border-slate-700 text-[11px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
                   />
                 )}
@@ -838,6 +840,7 @@ export default function QuizEngine({
                   score={score}
                   total={quiz.length}
                   title={title}
+                  level={selectedLevel}   
                   certificateHeader={certificateHeader}
                   certificateSubtitle={certificateSubtitle}
                   certificateTitle={certificateTitle}
@@ -874,7 +877,7 @@ export default function QuizEngine({
                       <th className="py-1.5 px-2 text-left">#</th>
                       <th className="py-1.5 px-2 text-left">Name</th>
                       <th className="py-1.5 px-2 text-right">Score</th>
-                      <th className="py-1.5 px-2 text-right">%</th>  {/* FIXED */}
+                      <th className="py-1.5 px-2 text-right">%</th>
                       <th className="py-1.5 px-2 text-right">Date</th>
                     </tr>
                   </thead>
@@ -922,8 +925,7 @@ export default function QuizEngine({
           return (
             <article
               key={q.id}
-              ref={(el) => (questionRefs.current[index] =
-                el)}
+              ref={(el) => (questionRefs.current[index] = el)}
               className="border border-slate-800 bg-slate-950/80 rounded-2xl p-4 md:p-5 shadow-[0_12px_40px_rgba(0,0,0,0.85)] space-y-3 transition-transform duration-150 hover:-translate-y-0.5"
             >
               <div className="flex items-start justify-between gap-3">
@@ -951,8 +953,8 @@ export default function QuizEngine({
                 {isSub && (
                   <span
                     className={`inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold border ${isCorrect
-                        ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
-                        : "bg-rose-500/15 text-rose-200 border-rose-500/60"
+                      ? "bg-emerald-500/15 text-emerald-200 border-emerald-500/60"
+                      : "bg-rose-500/15 text-rose-200 border-rose-500/60"
                       }`}
                   >
                     {isCorrect ? "Correct" : "Incorrect"}
