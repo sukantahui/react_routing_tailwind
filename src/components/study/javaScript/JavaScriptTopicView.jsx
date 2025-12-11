@@ -305,6 +305,71 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               </button>
             </div>
 
+
+        
+            {/* SEND TOPIC LIST TO ANY PHONE NUMBER */}
+            <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
+
+              <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500 mb-2">
+                Send Topics List
+              </p>
+
+              {/* PHONE NUMBER INPUT */}
+              <input
+                id="waPhoneInput"
+                type="text"
+                placeholder="Enter WhatsApp number (e.g., 919876543210)"
+                className="
+      w-full bg-slate-800 text-slate-200
+      p-2 rounded-lg border border-slate-600
+      text-xs focus:outline-none focus:border-sky-500
+    "
+              />
+
+              <button
+                onClick={() => {
+                  const phone = document.getElementById("waPhoneInput").value.trim();
+
+                  if (!phone) {
+                    return alert("Please enter a WhatsApp phone number.");
+                  }
+
+                  // Auto-generate topic list
+                  const topicList = moduleData.topics
+                    .map((t, i) => `${i + 1}. ${t}`)
+                    .join("\n");
+
+                  // Direct link for this module
+                  const moduleLink = `${window.location.origin}/javascript/module/${moduleSlug}`;
+
+                  const text = encodeURIComponent(
+                    `📘 *Module Topic List*
+• *Module:* ${moduleData.title}
+
+${topicList}
+
+🔗 *Direct Link to Module:*
+${moduleLink}
+
+— Sent via Coder & AccoTax Learning Platform`
+                  );
+
+                  window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+                }}
+                className="
+      w-full mt-3 py-2
+      bg-green-600 hover:bg-green-500
+      rounded-lg text-xs font-semibold
+      text-white transition
+    "
+              >
+                📤 Send Topics List
+              </button>
+            </div>
+
+
+
+
             {/* Topic List */}
             <div className="space-y-2 text-sm">
               {moduleData.topics.map((title, i) => {
@@ -616,9 +681,9 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
               </section>
             </div>
             {/* FLOATING WHATSAPP BUTTON – PREMIUM DESIGN */}
-<div className="fixed bottom-6 right-6 z-[9999] group">
-  {/* Tooltip */}
-  <div className="
+            <div className="fixed bottom-6 right-6 z-[9999] group">
+              {/* Tooltip */}
+              <div className="
       absolute right-14 bottom-1
       opacity-0 group-hover:opacity-100
       transition-opacity duration-300
@@ -627,17 +692,17 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
       text-xs px-3 py-1.5 rounded-lg shadow-lg
       whitespace-nowrap
     "
-  >
-    Ask your question on WhatsApp
-  </div>
+              >
+                Ask your question on WhatsApp
+              </div>
 
-{/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
-<div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
+              {/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
+              <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
 
-  {/* BOX */}
-  <div
-    id="waBox"
-    className="
+                {/* BOX */}
+                <div
+                  id="waBox"
+                  className="
       w-72
       bg-slate-900/90 backdrop-blur-xl
       border border-slate-700/60
@@ -648,32 +713,32 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
       hidden
       animate-fadeIn
     "
-  >
-    <p className="text-[11px] text-slate-400 mb-2">
-      Ask your question regarding this topic:
-    </p>
+                >
+                  <p className="text-[11px] text-slate-400 mb-2">
+                    Ask your question regarding this topic:
+                  </p>
 
-    <textarea
-      id="waMessage"
-      placeholder="Type your doubt here…"
-      rows={3}
-      className="
+                  <textarea
+                    id="waMessage"
+                    placeholder="Type your doubt here…"
+                    rows={3}
+                    className="
         w-full bg-slate-800 text-slate-200
         border border-slate-600
         rounded-lg text-sm p-2
         focus:outline-none focus:border-sky-500
       "
-    ></textarea>
+                  ></textarea>
 
-    <button
-      onClick={() => {
-        const rawMsg = document.getElementById("waMessage").value.trim();
-        const userMsg = rawMsg || "(No question typed)";
+                  <button
+                    onClick={() => {
+                      const rawMsg = document.getElementById("waMessage").value.trim();
+                      const userMsg = rawMsg || "(No question typed)";
 
-        const phone = "919432456083";
+                      const phone = "919432456083";
 
-        const text = encodeURIComponent(
-`📘 *Topic Support Query*
+                      const text = encodeURIComponent(
+                        `📘 *Topic Support Query*
 
 • *Module:* ${moduleData.title}
 • *Topic:* ${topicTitle}
@@ -682,28 +747,28 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
 ${userMsg}
 
 — Sent from Coder & AccoTax Learning Platform`
-        );
+                      );
 
-        window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-      }}
-      className="
+                      window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+                    }}
+                    className="
         w-full mt-3 py-2
         bg-green-600 hover:bg-green-500
         rounded-lg text-sm font-semibold
         text-white transition
       "
-    >
-      📲 Send on WhatsApp
-    </button>
-  </div>
+                  >
+                    📲 Send on WhatsApp
+                  </button>
+                </div>
 
-  {/* TOGGLE BUTTON */}
-  <button
-    onClick={() => {
-      const box = document.getElementById("waBox");
-      box.classList.toggle("hidden");
-    }}
-    className="
+                {/* TOGGLE BUTTON */}
+                <button
+                  onClick={() => {
+                    const box = document.getElementById("waBox");
+                    box.classList.toggle("hidden");
+                  }}
+                  className="
       w-14 h-14 rounded-full
       bg-gradient-to-br from-green-500 to-green-600
       hover:from-green-400 hover:to-green-500
@@ -714,12 +779,12 @@ ${userMsg}
       hover:scale-[1.06]
       transition-all
     "
-  >
-    💬
-  </button>
-</div>
+                >
+                  💬
+                </button>
+              </div>
 
-</div>
+            </div>
 
           </main>
         </div>
