@@ -1,0 +1,5090 @@
+[
+  {
+    "id": 1,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key confirms data entry into a cell in Excel?",
+    "options": ["Tab", "Enter", "Shift", "Ctrl"],
+    "answerIndex": 1,
+    "explanation": "Pressing Enter completes data entry and moves to the next cell."
+  },
+  {
+    "id": 2,
+    "topic": "Excel Interface",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The intersection of a row and a column is called a?",
+    "options": ["Range", "Cell", "Group", "Table"],
+    "answerIndex": 1,
+    "explanation": "A cell is formed at the intersection of a row and a column."
+  },
+  {
+    "id": 3,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is a valid cell address?",
+    "options": ["1A", "A1", "AA", "Row1"],
+    "answerIndex": 1,
+    "explanation": "Cell addresses always begin with the column letter followed by row number."
+  },
+  {
+    "id": 4,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default file extension for Excel workbooks in modern versions?",
+    "options": [".xlsx", ".xlsm", ".xls", ".csv"],
+    "answerIndex": 0,
+    "explanation": ".xlsx is the default file type for modern Excel versions."
+  },
+  {
+    "id": 5,
+    "topic": "Formula Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "All Excel formulas begin with which symbol?",
+    "options": ["@", "#", "=", "+"],
+    "answerIndex": 2,
+    "explanation": "Excel formulas always begin with an '=' sign."
+  },
+  {
+    "id": 6,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature copies formatting from one cell to another?",
+    "options": ["AutoFill", "Flash Fill", "Format Painter", "Cell Styles"],
+    "answerIndex": 2,
+    "explanation": "Format Painter transfers formatting between cells."
+  },
+  {
+    "id": 7,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut moves to the last used cell in a worksheet?",
+    "options": ["Ctrl + End", "Ctrl + Home", "Ctrl + L", "Shift + End"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + End jumps to the last used cell."
+  },
+  {
+    "id": 8,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which bar displays the active cell’s formula?",
+    "options": ["Status Bar", "Name Box", "Ribbon", "Formula Bar"],
+    "answerIndex": 3,
+    "explanation": "The formula bar shows the contents and formula in the active cell."
+  },
+  {
+    "id": 9,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key starts editing a cell directly?",
+    "options": ["F1", "F2", "F3", "F4"],
+    "answerIndex": 1,
+    "explanation": "F2 allows direct editing of the active cell."
+  },
+  {
+    "id": 10,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which alignment makes text appear in the center of a cell?",
+    "options": ["Left Align", "Right Align", "Center Align", "Top Align"],
+    "answerIndex": 2,
+    "explanation": "Center alignment places text horizontally in the center."
+  },
+
+  {
+    "id": 11,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the highest value in a range?",
+    "options": ["MAX()", "MIN()", "LARGE()", "HIGH()"],
+    "answerIndex": 0,
+    "explanation": "MAX returns the largest number in a range."
+  },
+  {
+    "id": 12,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error appears when a formula divides a number by zero?",
+    "options": ["#VALUE!", "#DIV/0!", "#NUM!", "#REF!"],
+    "answerIndex": 1,
+    "explanation": "#DIV/0! occurs when dividing by zero or blank cells."
+  },
+  {
+    "id": 13,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the correct absolute reference format?",
+    "options": ["A$1$", "$A$1", "$A1$", "A1$"],
+    "answerIndex": 1,
+    "explanation": "$A$1 locks both column and row."
+  },
+  {
+    "id": 14,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing parts of a whole?",
+    "options": ["Line Chart", "Bar Chart", "Pie Chart", "Scatter Chart"],
+    "answerIndex": 2,
+    "explanation": "Pie charts show proportions relative to a whole."
+  },
+  {
+    "id": 15,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool automatically fills patterns like dates or numbers?",
+    "options": ["Format Painter", "Flash Fill", "AutoFill", "Quick Fill"],
+    "answerIndex": 2,
+    "explanation": "AutoFill extends patterns and series automatically."
+  },
+
+  {
+    "id": 16,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyboard shortcut copies selected cells?",
+    "options": ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + Z"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + C copies data."
+  },
+  {
+    "id": 17,
+    "topic": "Excel Interface",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which area displays the active cell address?",
+    "options": ["Status Bar", "Name Box", "Title Bar", "Ribbon"],
+    "answerIndex": 1,
+    "explanation": "The name box shows the cell reference of the selected cell."
+  },
+  {
+    "id": 18,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts only numeric values in a range?",
+    "options": ["COUNTA()", "COUNT()", "COUNTIF()", "COUNTNUM()"],
+    "answerIndex": 1,
+    "explanation": "COUNT() counts numeric cells only."
+  },
+  {
+    "id": 19,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Conditional Formatting is used to:",
+    "options": ["Format entire workbook", "Automatically apply styles based on conditions", "Adjust margins", "Protect sheets"],
+    "answerIndex": 1,
+    "explanation": "It highlights cells based on user-set conditions."
+  },
+  {
+    "id": 20,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which element of a chart explains symbols or colors used?",
+    "options": ["Axis", "Legend", "Title", "Gridlines"],
+    "answerIndex": 1,
+    "explanation": "A legend explains data series visually."
+  },
+
+  {
+    "id": 21,
+    "topic": "Data Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command removes selected cells entirely?",
+    "options": ["Clear", "Delete", "Backspace", "Erase"],
+    "answerIndex": 1,
+    "explanation": "Delete removes cells and shifts others."
+  },
+  {
+    "id": 22,
+    "topic": "AutoFill",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Dragging the fill handle creates:",
+    "options": ["Styles", "Formulas", "Series or copies", "Charts"],
+    "answerIndex": 2,
+    "explanation": "AutoFill extends or copies data patterns."
+  },
+  {
+    "id": 23,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function finds the average of a range?",
+    "options": ["MEAN()", "AVERAGE()", "AVG()", "MID()"],
+    "answerIndex": 1,
+    "explanation": "AVERAGE() returns the arithmetic mean."
+  },
+  {
+    "id": 24,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which chart is best for showing progress over time?",
+    "options": ["Pie", "Column", "Line", "Bar"],
+    "answerIndex": 2,
+    "explanation": "Line charts display trends over time effectively."
+  },
+  {
+    "id": 25,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does SUM(A1:A5) do?",
+    "options": ["Counts cells", "Sums values", "Finds average", "Finds largest"],
+    "answerIndex": 1,
+    "explanation": "SUM adds values in range A1 to A5."
+  },
+
+  {
+    "id": 26,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a formula refers to an invalid cell?",
+    "options": ["#NAME!", "#VALUE!", "#REF!", "#N/A"],
+    "answerIndex": 2,
+    "explanation": "#REF! happens when references break."
+  },
+  {
+    "id": 27,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut pastes data?",
+    "options": ["Ctrl + C", "Ctrl + P", "Ctrl + V", "Ctrl + D"],
+    "answerIndex": 2,
+    "explanation": "Ctrl + V pastes copied content."
+  },
+  {
+    "id": 28,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which number format displays values as currency?",
+    "options": ["General", "Text", "Accounting", "Currency"],
+    "answerIndex": 3,
+    "explanation": "Currency format displays monetary symbols."
+  },
+  {
+    "id": 29,
+    "topic": "Shortcuts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Z performs which action?",
+    "options": ["Redo", "Undo", "Paste", "Delete"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Z undoes the last action."
+  },
+  {
+    "id": 30,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts non-empty cells?",
+    "options": ["COUNT()", "COUNTA()", "COUNTIF()", "COUNTBLANK()"],
+    "answerIndex": 1,
+    "explanation": "COUNTA() counts all non-empty cells."
+  },
+
+  {
+    "id": 31,
+    "topic": "Printing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option adjusts the print area?",
+    "options": ["Page Break Preview", "Set Print Area", "Margins", "Zoom"],
+    "answerIndex": 1,
+    "explanation": "Set Print Area defines the printable region."
+  },
+  {
+    "id": 32,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill works based on:",
+    "options": ["Examples & patterns", "Macros", "Formulas", "Formatting"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill guesses patterns from user input."
+  },
+  {
+    "id": 33,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default sheet name in a new Excel file?",
+    "options": ["Data1", "Sheet1", "Book1", "Page1"],
+    "answerIndex": 1,
+    "explanation": "Excel usually names the first sheet 'Sheet1'."
+  },
+  {
+    "id": 34,
+    "topic": "Ranges",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which range notation is valid?",
+    "options": ["A1-A5", "A1:A5", "A1;A5", "A1+A5"],
+    "answerIndex": 1,
+    "explanation": "Colon ':' indicates a range."
+  },
+  {
+    "id": 35,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the smallest number?",
+    "options": ["MIN()", "SMALL()", "LOW()", "LESS()"],
+    "answerIndex": 0,
+    "explanation": "MIN finds the smallest numeric value."
+  },
+
+  {
+    "id": 36,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart helps compare categories side-by-side?",
+    "options": ["Line", "Bar", "Pie", "Area"],
+    "answerIndex": 1,
+    "explanation": "Bar charts compare categories effectively."
+  },
+  {
+    "id": 37,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used for multiplication?",
+    "options": ["x", "*", "/", "^"],
+    "answerIndex": 1,
+    "explanation": "Asterisk (*) multiplies numbers."
+  },
+  {
+    "id": 38,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature guesses data patterns to fill automatically?",
+    "options": ["AutoFill", "Flash Fill", "Format Painter", "SmartFill"],
+    "answerIndex": 1,
+    "explanation": "Flash Fill uses pattern recognition."
+  },
+  {
+    "id": 39,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts blank cells?",
+    "options": ["COUNT()", "COUNTBLANK()", "EMPTY()", "BLANK()"],
+    "answerIndex": 1,
+    "explanation": "COUNTBLANK() counts empty cells."
+  },
+  {
+    "id": 40,
+    "topic": "Ranges",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "A group of selected cells is called a:",
+    "options": ["Field", "Range", "Table", "Array"],
+    "answerIndex": 1,
+    "explanation": "A range is a selection of multiple cells."
+  },
+
+  {
+    "id": 41,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formatting changes numbers into readable date values?",
+    "options": ["Text Format", "Number Format", "Date Format", "General Format"],
+    "answerIndex": 2,
+    "explanation": "Date formatting displays numeric date serials as dates."
+  },
+  {
+    "id": 42,
+    "topic": "Shortcut Keys",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut saves the workbook?",
+    "options": ["Ctrl + C", "Ctrl + S", "Ctrl + A", "Ctrl + R"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + S saves changes."
+  },
+  {
+    "id": 43,
+    "topic": "Printing",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which view shows page breaks visually?",
+    "options": ["Normal View", "Page Layout View", "Page Break Preview", "Read Mode"],
+    "answerIndex": 2,
+    "explanation": "Page Break Preview displays printable boundaries."
+  },
+  {
+    "id": 44,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol starts a formula?",
+    "options": ["=", "+", "-", "@@"],
+    "answerIndex": 0,
+    "explanation": "All Excel formulas must start with '='."
+  },
+  {
+    "id": 45,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing comparison between two data series?",
+    "options": ["Pie Chart", "Line Chart", "Clustered Column Chart", "XY Scatter"],
+    "answerIndex": 2,
+    "explanation": "Clustered columns help compare categories visually."
+  },
+
+  {
+    "id": 46,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =COUNT(A1:A10) return?",
+    "options": ["Counts all cells", "Counts numeric cells", "Counts text", "Counts errors"],
+    "answerIndex": 1,
+    "explanation": "COUNT() counts only numbers."
+  },
+  {
+    "id": 47,
+    "topic": "Data Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool quickly repeats formatting?",
+    "options": ["Format Painter", "Flash Fill", "AutoSum", "Copy Format"],
+    "answerIndex": 0,
+    "explanation": "Format Painter copies formatting styles."
+  },
+  {
+    "id": 48,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which reference changes when copied?",
+    "options": ["Absolute", "Mixed", "Relative", "Static"],
+    "answerIndex": 2,
+    "explanation": "Relative references adjust automatically."
+  },
+  {
+    "id": 49,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of a chart shows the data values?",
+    "options": ["Axes", "Plot Area", "Legend", "Title"],
+    "answerIndex": 1,
+    "explanation": "Plot area contains the graphical representation of data."
+  },
+  {
+    "id": 50,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Excel function returns TRUE if a logical test is met?",
+    "options": ["IF()", "TRUE()", "LOGIC()", "CHECK()"],
+    "answerIndex": 0,
+    "explanation": "IF evaluates logical tests and returns values based on conditions."
+  },
+  {
+    "id": 51,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Excel is mainly used for which purpose?",
+    "options": ["Typing letters", "Creating presentations", "Data calculation and analysis", "Image editing"],
+    "answerIndex": 2,
+    "explanation": "Excel is primarily a spreadsheet tool used for calculations, analysis, and tabular data."
+  },
+  {
+    "id": 52,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a workbook?",
+    "options": ["A single cell", "A set of worksheets", "A formula", "A chart"],
+    "answerIndex": 1,
+    "explanation": "A workbook contains one or more worksheets."
+  },
+  {
+    "id": 53,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Rows in Excel are identified by:",
+    "options": ["Numbers", "Letters", "Symbols", "Colors"],
+    "answerIndex": 0,
+    "explanation": "Rows are numbered: 1, 2, 3…"
+  },
+  {
+    "id": 54,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Columns in Excel are identified by:",
+    "options": ["Letters", "Numbers", "Names", "Dates"],
+    "answerIndex": 0,
+    "explanation": "Columns use letters: A, B, C…"
+  },
+  {
+    "id": 55,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination cuts selected cells?",
+    "options": ["Ctrl + C", "Ctrl + X", "Ctrl + V", "Ctrl + A"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + X cuts selected data."
+  },
+  {
+    "id": 56,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Bold text shortcut in Excel is:",
+    "options": ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Ctrl + S"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + B toggles bold formatting."
+  },
+  {
+    "id": 57,
+    "topic": "Formula Bar",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The formula bar shows:",
+    "options": ["Only numbers", "Only text", "Exact content of active cell", "Cell address"],
+    "answerIndex": 2,
+    "explanation": "The formula bar displays the actual content or formula inside the selected cell."
+  },
+  {
+    "id": 58,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The Format Painter is located on which tab?",
+    "options": ["Insert", "Home", "Data", "Formulas"],
+    "answerIndex": 1,
+    "explanation": "Format Painter is in the Home tab under Clipboard group."
+  },
+  {
+    "id": 59,
+    "topic": "Basic Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function returns the total of values?",
+    "options": ["SUM()", "TOTAL()", "ADD()", "COUNT()"],
+    "answerIndex": 0,
+    "explanation": "SUM() adds numbers in a range."
+  },
+  {
+    "id": 60,
+    "topic": "Basic Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the number of cells containing numbers?",
+    "options": ["COUNT()", "COUNTA()", "COUNTBLANK()", "COUNTNUM()"],
+    "answerIndex": 0,
+    "explanation": "COUNT() counts numeric cells only."
+  },
+
+  {
+    "id": 61,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator is used for exponentiation in Excel?",
+    "options": ["*", "^", "**", "//"],
+    "answerIndex": 1,
+    "explanation": "Excel uses ^ for power (exponentiation)."
+  },
+  {
+    "id": 62,
+    "topic": "Relative Reference",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which reference type changes when copied?",
+    "options": ["Absolute", "Mixed", "Relative", "Fixed"],
+    "answerIndex": 2,
+    "explanation": "Relative references adjust automatically when formulas are copied."
+  },
+  {
+    "id": 63,
+    "topic": "Absolute Reference",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which is an absolute reference?",
+    "options": ["A1", "$A$1", "A$1", "$A1"],
+    "answerIndex": 1,
+    "explanation": "$A$1 locks both row and column."
+  },
+  {
+    "id": 64,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when Excel cannot find a referenced value?",
+    "options": ["#DIV/0!", "#REF!", "#N/A", "#NULL!"],
+    "answerIndex": 2,
+    "explanation": "#N/A happens when data is not found."
+  },
+  {
+    "id": 65,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "SUM(A1:A3) performs what operation?",
+    "options": ["Multiplies values", "Adds values", "Counts cells", "Finds average"],
+    "answerIndex": 1,
+    "explanation": "SUM adds values in the specified range."
+  },
+
+  {
+    "id": 66,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing trends over time?",
+    "options": ["Pie Chart", "Line Chart", "Column Chart", "Bar Chart"],
+    "answerIndex": 1,
+    "explanation": "Line charts show continuous trends effectively."
+  },
+  {
+    "id": 67,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill works when:",
+    "options": ["Pattern is detected", "Data has formulas", "Cells are merged", "Sheet is protected"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill detects input patterns to fill automatically."
+  },
+  {
+    "id": 68,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key moves selection one cell to the right?",
+    "options": ["Tab", "Enter", "Shift", "Ctrl"],
+    "answerIndex": 0,
+    "explanation": "Tab moves to the next cell horizontally."
+  },
+  {
+    "id": 69,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Z is used to:",
+    "options": ["Redo", "Undo", "Save", "Close"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Z undoes last action."
+  },
+  {
+    "id": 70,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command removes cell content without deleting the cell?",
+    "options": ["Delete key", "Right-click Delete", "Ctrl + A", "Backspace"],
+    "answerIndex": 0,
+    "explanation": "Pressing Delete clears contents but keeps cell structure."
+  },
+
+  {
+    "id": 71,
+    "topic": "Data Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which format displays values like ₹1,500.00?",
+    "options": ["Number", "Currency", "Text", "General"],
+    "answerIndex": 1,
+    "explanation": "Currency format adds currency symbol and decimals."
+  },
+  {
+    "id": 72,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function finds the largest value?",
+    "options": ["LARGE()", "MAX()", "BIG()", "TOP()"],
+    "answerIndex": 1,
+    "explanation": "MAX returns the highest numeric value."
+  },
+  {
+    "id": 73,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function counts all non-empty cells?",
+    "options": ["COUNT()", "COUNTBLANK()", "COUNTA()", "NUMCOUNT()"],
+    "answerIndex": 2,
+    "explanation": "COUNTA counts all non-empty cell entries."
+  },
+  {
+    "id": 74,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Conditional formatting allows you to:",
+    "options": ["Change sheet name", "Highlight cells based on conditions", "Lock workbook", "Delete rows"],
+    "answerIndex": 1,
+    "explanation": "It automatically applies formatting rules."
+  },
+  {
+    "id": 75,
+    "topic": "Printing",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which view helps you adjust page breaks visually?",
+    "options": ["Normal View", "Page Break Preview", "Page Layout", "Full Screen"],
+    "answerIndex": 1,
+    "explanation": "Page Break Preview shows printable boundaries."
+  },
+
+  {
+    "id": 76,
+    "topic": "Ranges",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a range?",
+    "options": ["One cell", "Multiple selected cells", "A formula", "A chart"],
+    "answerIndex": 1,
+    "explanation": "A range refers to a group of selected cells."
+  },
+  {
+    "id": 77,
+    "topic": "Navigation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Ctrl + Home moves the cursor to:",
+    "options": ["Last cell", "A1", "Last row", "Middle of sheet"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Home jumps to cell A1."
+  },
+  {
+    "id": 78,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of chart displays labels for data series?",
+    "options": ["Axis", "Gridlines", "Legend", "Plot Area"],
+    "answerIndex": 2,
+    "explanation": "Legend explains colors and series names."
+  },
+  {
+    "id": 79,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a formula uses invalid cell reference?",
+    "options": ["#VALUE!", "#REF!", "#ERROR!", "#COL!"],
+    "answerIndex": 1,
+    "explanation": "#REF! indicates an invalid cell reference."
+  },
+  {
+    "id": 80,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "AVERAGE(A1:A4) returns:",
+    "options": ["Sum of values", "Largest value", "Smallest value", "Mean of values"],
+    "answerIndex": 3,
+    "explanation": "AVERAGE returns arithmetic mean."
+  },
+
+  {
+    "id": 81,
+    "topic": "Data Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key deletes only cell content?",
+    "options": ["Delete", "Ctrl + Delete", "Remove", "Backspace"],
+    "answerIndex": 0,
+    "explanation": "Delete clears content without shifting cells."
+  },
+  {
+    "id": 82,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "COUNTBLANK(A1:A10) counts:",
+    "options": ["Numbers only", "Text only", "Empty cells", "Formula cells"],
+    "answerIndex": 2,
+    "explanation": "COUNTBLANK counts all empty cells."
+  },
+  {
+    "id": 83,
+    "topic": "Formula Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does =10/2 return?",
+    "options": ["20", "5", "2", "0"],
+    "answerIndex": 1,
+    "explanation": "10 divided by 2 equals 5."
+  },
+  {
+    "id": 84,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut duplicates data down a column?",
+    "options": ["Ctrl + D", "Ctrl + Shift + D", "Ctrl + C", "Ctrl + V"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + D fills data downward."
+  },
+  {
+    "id": 85,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for category comparison?",
+    "options": ["Pie", "Bar", "Donut", "Surface"],
+    "answerIndex": 1,
+    "explanation": "Bar charts compare categories clearly."
+  },
+
+  {
+    "id": 86,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "MIN(A1:A7) returns:",
+    "options": ["Largest value", "Smallest value", "Sum of values", "Average of values"],
+    "answerIndex": 1,
+    "explanation": "MIN returns the smallest number in a range."
+  },
+  {
+    "id": 87,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which menu contains sorting options?",
+    "options": ["Home", "Insert", "Data", "Review"],
+    "answerIndex": 2,
+    "explanation": "Sorting tools are available under the Data tab."
+  },
+  {
+    "id": 88,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Arrow Keys move to:",
+    "options": ["Next sheet", "Next used cell in direction", "Zoom out", "Insert row"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Arrow jumps to the next non-empty boundary."
+  },
+  {
+    "id": 89,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts text entries?",
+    "options": ["COUNT()", "TABCOUNT()", "COUNTA()", "TEXTCOUNT()"],
+    "answerIndex": 2,
+    "explanation": "COUNTA counts all non-empty cells including text."
+  },
+  {
+    "id": 90,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which symbol is used for multiplication?",
+    "options": ["x", "*", "/", "#"],
+    "answerIndex": 1,
+    "explanation": "* is the multiplication operator."
+  },
+
+  {
+    "id": 91,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A pie chart is ideal for:",
+    "options": ["Showing totals", "Showing trends", "Showing proportions", "Showing categories"],
+    "answerIndex": 2,
+    "explanation": "Pie charts show part-to-whole relationships."
+  },
+  {
+    "id": 92,
+    "topic": "Column Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature adjusts column width automatically?",
+    "options": ["AutoFit", "Wrap Text", "Merge & Center", "Expand Column"],
+    "answerIndex": 0,
+    "explanation": "AutoFit adjusts column width based on content."
+  },
+  {
+    "id": 93,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill is found under which tab?",
+    "options": ["Home", "Insert", "Data", "Review"],
+    "answerIndex": 2,
+    "explanation": "Flash Fill is located under the Data tab."
+  },
+  {
+    "id": 94,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a value is of the wrong type?",
+    "options": ["#VALUE!", "#NAME!", "#DIV/0!", "#REF!"],
+    "answerIndex": 0,
+    "explanation": "#VALUE! indicates an incorrect data type."
+  },
+  {
+    "id": 95,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The smallest unit of a worksheet is called:",
+    "options": ["Row", "Column", "Cell", "Table"],
+    "answerIndex": 2,
+    "explanation": "A cell is the smallest unit of a worksheet."
+  },
+
+  {
+    "id": 96,
+    "topic": "Shortcuts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + N creates:",
+    "options": ["A new workbook", "A new worksheet", "A new cell", "A new chart"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + N opens a new workbook."
+  },
+  {
+    "id": 97,
+    "topic": "Printing",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which view lets you see exactly how the printed page will look?",
+    "options": ["Normal View", "Page Layout View", "Compact View", "Zoom View"],
+    "answerIndex": 1,
+    "explanation": "Page Layout View simulates printed pages."
+  },
+  {
+    "id": 98,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function finds the second largest value?",
+    "options": ["MAX()", "LARGE(range,2)", "SECOND()", "TOP2()"],
+    "answerIndex": 1,
+    "explanation": "LARGE(range,2) returns the second-largest number."
+  },
+  {
+    "id": 99,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which of these is NOT a valid Excel operator?",
+    "options": ["*", "/", "%", "??"],
+    "answerIndex": 3,
+    "explanation": "'??' is not an operator in Excel."
+  },
+  {
+    "id": 100,
+    "topic": "Basic Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What will =5*4 return?",
+    "options": ["9", "20", "540", "Error"],
+    "answerIndex": 1,
+    "explanation": "5 multiplied by 4 equals 20."
+  },
+  {
+    "id": 101,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file extension does Excel use by default?",
+    "options": [".docx", ".xlsx", ".pptx", ".txt"],
+    "answerIndex": 1,
+    "explanation": "Excel workbooks are saved with the .xlsx extension."
+  },
+  {
+    "id": 102,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "To insert a new worksheet, which shortcut is used?",
+    "options": ["Shift + F11", "Ctrl + M", "Alt + N", "Ctrl + Shift + F11"],
+    "answerIndex": 0,
+    "explanation": "Shift + F11 inserts a new worksheet quickly."
+  },
+  {
+    "id": 103,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination moves to the last used cell?",
+    "options": ["Ctrl + End", "Ctrl + Home", "Ctrl + Shift", "Alt + End"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + End jumps to the last used cell in the sheet."
+  },
+  {
+    "id": 104,
+    "topic": "Data Entry",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option converts text like '123' into a number?",
+    "options": ["Text to Columns", "Paste Special → Values", "Convert Function", "Data Validation"],
+    "answerIndex": 0,
+    "explanation": "Text to Columns can convert number-like text into real numbers."
+  },
+  {
+    "id": 105,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature keeps headers visible while scrolling?",
+    "options": ["Freeze Panes", "Print Titles", "View Gridlines", "Zoom"],
+    "answerIndex": 0,
+    "explanation": "Freeze Panes locks row/column headers."
+  },
+
+  {
+    "id": 106,
+    "topic": "Basic Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the average of a range?",
+    "options": ["MEAN()", "AVERAGE()", "AVG()", "MID()"],
+    "answerIndex": 1,
+    "explanation": "AVERAGE() returns the arithmetic mean."
+  },
+  {
+    "id": 107,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Double-clicking the fill handle performs:",
+    "options": ["Delete data", "AutoFill down based on adjacent data", "Copy formatting", "Clear range"],
+    "answerIndex": 1,
+    "explanation": "AutoFill extends data automatically until the last adjacent entry."
+  },
+  {
+    "id": 108,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Text to Columns can be used to:",
+    "options": ["Split text into multiple columns", "Merge columns", "Insert new sheets", "Apply formatting"],
+    "answerIndex": 0,
+    "explanation": "Text to Columns separates text using delimiters."
+  },
+  {
+    "id": 109,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the number of cells that meet a condition?",
+    "options": ["COUNT()", "COUNTIF()", "COUNTBLANK()", "SUMIF()"],
+    "answerIndex": 1,
+    "explanation": "COUNTIF counts cells based on a condition."
+  },
+  {
+    "id": 110,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs if a formula divides a number by zero?",
+    "options": ["#VALUE!", "#DIV/0!", "#NAME!", "#REF!"],
+    "answerIndex": 1,
+    "explanation": "#DIV/0! indicates division by zero."
+  },
+
+  {
+    "id": 111,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command merges multiple cells into one?",
+    "options": ["Merge & Center", "Wrap Text", "AutoFit", "Combine Cells"],
+    "answerIndex": 0,
+    "explanation": "Merge & Center merges cells and centers content."
+  },
+  {
+    "id": 112,
+    "topic": "Shortcuts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + S performs:",
+    "options": ["Saves the workbook", "Sorts data", "Selects all", "Splits the window"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + S saves the current workbook."
+  },
+  {
+    "id": 113,
+    "topic": "Data Types",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Dates in Excel are stored as:",
+    "options": ["Plain text", "Numbers", "Characters", "Binary codes"],
+    "answerIndex": 1,
+    "explanation": "Dates are stored as serial numbers in Excel."
+  },
+  {
+    "id": 114,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns how many cells are empty?",
+    "options": ["COUNT()", "COUNTA()", "COUNTBLANK()", "EMPTY()"],
+    "answerIndex": 2,
+    "explanation": "COUNTBLANK counts all empty cells in a range."
+  },
+  {
+    "id": 115,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature automatically fills a series such as 1, 2, 3?",
+    "options": ["Flash Fill", "AutoFill", "AutoFormat", "Smart Fill"],
+    "answerIndex": 1,
+    "explanation": "AutoFill handles sequences and patterns."
+  },
+
+  {
+    "id": 116,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which element of a chart displays numbers along an axis?",
+    "options": ["Legend", "Axis Labels", "Gridlines", "Chart Title"],
+    "answerIndex": 1,
+    "explanation": "Axis labels show the scale of values on chart axes."
+  },
+  {
+    "id": 117,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How do you rename a worksheet quickly?",
+    "options": ["Double-click the sheet tab", "Right-click cell A1", "Press Ctrl + R", "Use Insert menu"],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the sheet tab lets you rename it."
+  },
+  {
+    "id": 118,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Excel function returns the smallest value from a list?",
+    "options": ["LOW()", "MIN()", "SMALL()", "FIRST()"],
+    "answerIndex": 1,
+    "explanation": "MIN returns the smallest numeric value."
+  },
+  {
+    "id": 119,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How do you move to the next sheet?",
+    "options": ["Ctrl + Page Down", "Ctrl + End", "Shift + Page Up", "Alt + Down"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Page Down cycles to the next sheet."
+  },
+  {
+    "id": 120,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature removes duplicate records?",
+    "options": ["Filter", "Sort", "Remove Duplicates", "Group"],
+    "answerIndex": 2,
+    "explanation": "Remove Duplicates eliminates repeated entries."
+  },
+
+  {
+    "id": 121,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Conditional formatting CANNOT do which of the following?",
+    "options": ["Highlight cells", "Apply color scales", "Insert rows", "Show data bars"],
+    "answerIndex": 2,
+    "explanation": "Conditional formatting does not modify the structure of the sheet."
+  },
+  {
+    "id": 122,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination selects the entire column?",
+    "options": ["Ctrl + C", "Ctrl + Space", "Shift + Space", "Ctrl + Shift"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Space selects the entire column."
+  },
+  {
+    "id": 123,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature joins text from multiple cells?",
+    "options": ["Combine", "CONCATENATE()", "TEXTJOINER()", "MERGE TEXT"],
+    "answerIndex": 1,
+    "explanation": "CONCATENATE or CONCAT joins text strings."
+  },
+  {
+    "id": 124,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which symbol starts every Excel formula?",
+    "options": ["@", "=", "%", "#"],
+    "answerIndex": 1,
+    "explanation": "All formulas begin with '='."
+  },
+  {
+    "id": 125,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function calculates total only if criteria match?",
+    "options": ["SUM()", "SUMIF()", "COUNTIF()", "SUMMATCH()"],
+    "answerIndex": 1,
+    "explanation": "SUMIF applies condition-based summation."
+  },
+
+  {
+    "id": 126,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error means Excel cannot recognize the formula name?",
+    "options": ["#NAME?", "#DIV/0!", "#NULL!", "#REF!"],
+    "answerIndex": 0,
+    "explanation": "#NAME? appears when a function name is misspelled."
+  },
+  {
+    "id": 127,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The formula =10*5 returns:",
+    "options": ["105", "50", "15", "100"],
+    "answerIndex": 1,
+    "explanation": "10 multiplied by 5 equals 50."
+  },
+  {
+    "id": 128,
+    "topic": "Basic Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function counts cells containing numbers?",
+    "options": ["COUNTA()", "COUNT()", "COUNTBLANK()", "NUM()"],
+    "answerIndex": 1,
+    "explanation": "COUNT() counts numeric cells."
+  },
+  {
+    "id": 129,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Wrap Text is used to:",
+    "options": ["Merge cells", "Fit long text within a cell", "Split text", "Add borders"],
+    "answerIndex": 1,
+    "explanation": "Wrap Text adjusts text so it fits inside the same cell."
+  },
+  {
+    "id": 130,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart best shows percentages of a whole?",
+    "options": ["Line chart", "Pie chart", "Column chart", "Scatter chart"],
+    "answerIndex": 1,
+    "explanation": "Pie charts show proportions of a whole."
+  },
+
+  {
+    "id": 131,
+    "topic": "Filtering",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option allows displaying only specific data?",
+    "options": ["Filter", "Sort", "Wrap", "Freeze"],
+    "answerIndex": 0,
+    "explanation": "Filter displays only rows matching a condition."
+  },
+  {
+    "id": 132,
+    "topic": "Sorting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Sorting A → Z sorts text in:",
+    "options": ["Reverse alphabetical order", "Random order", "Alphabetical order", "Dictionary order only"],
+    "answerIndex": 2,
+    "explanation": "A to Z produces alphabetical order."
+  },
+  {
+    "id": 133,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option duplicates format from one cell to others?",
+    "options": ["Format Painter", "AutoFill", "Data Tools", "Styles"],
+    "answerIndex": 0,
+    "explanation": "Format Painter copies formatting only."
+  },
+  {
+    "id": 134,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "LARGE(A1:A10, 1) returns:",
+    "options": ["Smallest value", "Largest value", "Average", "Total count"],
+    "answerIndex": 1,
+    "explanation": "The first largest value is simply the maximum."
+  },
+  {
+    "id": 135,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which symbol locks a reference in Excel?",
+    "options": ["%", "&", "$", "@"],
+    "answerIndex": 2,
+    "explanation": "The dollar sign is used for absolute references."
+  },
+
+  {
+    "id": 136,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Data Validation can restrict input to:",
+    "options": ["Numbers only", "Dates only", "List of names", "All of the above"],
+    "answerIndex": 3,
+    "explanation": "Data Validation supports multiple restriction types."
+  },
+  {
+    "id": 137,
+    "topic": "Shortcuts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + C performs:",
+    "options": ["Copy", "Cut", "Paste", "Clear"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + C copies the selected content."
+  },
+  {
+    "id": 138,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key moves down one cell?",
+    "options": ["Space", "Tab", "Enter", "Ctrl"],
+    "answerIndex": 2,
+    "explanation": "Enter moves the selection down."
+  },
+  {
+    "id": 139,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error indicates a missing cell reference?",
+    "options": ["#REF!", "#VALUE!", "#DIV/0!", "#NULL!"],
+    "answerIndex": 0,
+    "explanation": "#REF! occurs if a referenced cell is deleted."
+  },
+  {
+    "id": 140,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is useful for showing parts of a whole besides pie chart?",
+    "options": ["Line chart", "Doughnut chart", "Scatter chart", "Bar chart"],
+    "answerIndex": 1,
+    "explanation": "Doughnut charts also show part-to-whole relationships."
+  },
+
+  {
+    "id": 141,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns smallest n-th value?",
+    "options": ["NUM()", "SMALL(range, n)", "MIN(range, n)", "LOWEST()"],
+    "answerIndex": 1,
+    "explanation": "SMALL returns the nth smallest value."
+  },
+  {
+    "id": 142,
+    "topic": "Excel Basics",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Active cell is identified by:",
+    "options": ["Bold font", "Green border", "Thick border", "Background color"],
+    "answerIndex": 2,
+    "explanation": "The active cell shows a thick outline."
+  },
+  {
+    "id": 143,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the total number of characters in a text?",
+    "options": ["LEN()", "COUNT()", "TEXTLEN()", "NUMCHAR()"],
+    "answerIndex": 0,
+    "explanation": "LEN counts characters including spaces."
+  },
+  {
+    "id": 144,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill triggers when:",
+    "options": ["You type a new formula", "You press Enter after pattern input", "You save the file", "You click Insert"],
+    "answerIndex": 1,
+    "explanation": "Excel detects a pattern and suggests fill after Enter."
+  },
+  {
+    "id": 145,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which formula adds A1 and B1?",
+    "options": ["A1 + B1", "=A1 + B1", "=A1 & B1", "ADD(A1,B1)"],
+    "answerIndex": 1,
+    "explanation": "Formulas must start with '='."
+  },
+
+  {
+    "id": 146,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Borders for cells can be applied from:",
+    "options": ["Home tab", "Data tab", "Insert tab", "View tab"],
+    "answerIndex": 0,
+    "explanation": "The Borders tool is in the Home tab."
+  },
+  {
+    "id": 147,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "TRIM(text) removes:",
+    "options": ["All spaces", "Leading and trailing spaces", "Numbers", "Empty cells"],
+    "answerIndex": 1,
+    "explanation": "TRIM cleans extra spaces except single spaces between words."
+  },
+  {
+    "id": 148,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for comparing values across categories?",
+    "options": ["Line chart", "Column chart", "Pie chart", "Radar chart"],
+    "answerIndex": 1,
+    "explanation": "Column charts show comparisons clearly."
+  },
+  {
+    "id": 149,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool suggests values based on earlier entries?",
+    "options": ["AutoCorrect", "Autocomplete", "Flash Fill", "AutoFormat"],
+    "answerIndex": 1,
+    "explanation": "Autocomplete predicts text based on column entries."
+  },
+  {
+    "id": 150,
+    "topic": "Error Handling",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "IFERROR(value, result) is used to:",
+    "options": ["Remove all errors", "Replace errors with a custom value", "Find first error", "Count errors"],
+    "answerIndex": 1,
+    "explanation": "IFERROR replaces an error with a specified value."
+  },
+  {
+    "id": 151,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut closes the current Excel workbook?",
+    "options": ["Ctrl + W", "Ctrl + Q", "Ctrl + X", "Alt + C"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + W closes the active workbook without closing Excel."
+  },
+  {
+    "id": 152,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tab contains options for inserting tables and charts?",
+    "options": ["Home", "Insert", "Page Layout", "Data"],
+    "answerIndex": 1,
+    "explanation": "The Insert tab contains charts, tables, illustrations, etc."
+  },
+  {
+    "id": 153,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key selects the entire row?",
+    "options": ["Ctrl + R", "Shift + Space", "Ctrl + Space", "Alt + R"],
+    "answerIndex": 1,
+    "explanation": "Shift + Space selects the whole row."
+  },
+  {
+    "id": 154,
+    "topic": "Cell Reference",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which among the following is an absolute reference?",
+    "options": ["A1", "$A$1", "A$1", "$A1"],
+    "answerIndex": 1,
+    "explanation": "$A$1 locks both row and column."
+  },
+  {
+    "id": 155,
+    "topic": "Sorting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Sorting Z → A arranges text in:",
+    "options": ["Alphabetical order", "Reverse alphabetical order", "Numerical order", "Random order"],
+    "answerIndex": 1,
+    "explanation": "Z to A sorts text in reverse alphabetical order."
+  },
+
+  {
+    "id": 156,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Data Validation can prevent users from entering:",
+    "options": ["Duplicate values", "Invalid dates", "Negative numbers", "All of the above"],
+    "answerIndex": 3,
+    "explanation": "Data Validation can restrict input based on rules."
+  },
+  {
+    "id": 157,
+    "topic": "AutoFill",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following sequences AutoFill can generate?",
+    "options": ["Jan, Feb, Mar", "1, 2, 3", "Mon, Tue, Wed", "All of the above"],
+    "answerIndex": 3,
+    "explanation": "AutoFill can generate number, date, and text sequences."
+  },
+  {
+    "id": 158,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns TRUE if A1 contains a number?",
+    "options": ["ISNUMBER(A1)", "COUNT(A1)", "NUM(A1)", "CHECKNUM(A1)"],
+    "answerIndex": 0,
+    "explanation": "ISNUMBER checks whether a value is numeric."
+  },
+  {
+    "id": 159,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "SUM(A1:A3) + SUM(B1:B3) can be replaced by:",
+    "options": ["SUM(A1:B3)", "TOTAL(A1:B3)", "SUMALL(A1:B3)", "SUMRANGE(A1:B3)"],
+    "answerIndex": 0,
+    "explanation": "SUM(A1:B3) adds everything in the block."
+  },
+  {
+    "id": 160,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error appears when a required value is missing?",
+    "options": ["#NULL!", "#REF!", "#N/A", "#VALUE!"],
+    "answerIndex": 2,
+    "explanation": "#N/A means a value is not available or not found."
+  },
+
+  {
+    "id": 161,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which chart best shows trends over time?",
+    "options": ["Line chart", "Pie chart", "Column chart", "Doughnut chart"],
+    "answerIndex": 0,
+    "explanation": "Line charts show trends and patterns over time."
+  },
+  {
+    "id": 162,
+    "topic": "Ribbon UI",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Where are Cut, Copy, and Paste commands located?",
+    "options": ["Insert tab", "Home tab", "Data tab", "View tab"],
+    "answerIndex": 1,
+    "explanation": "Clipboard commands are located on the Home tab."
+  },
+  {
+    "id": 163,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default number of worksheets in a new workbook (Excel 2016+)?",
+    "options": ["1", "2", "3", "5"],
+    "answerIndex": 0,
+    "explanation": "Excel creates one sheet by default but users can change settings."
+  },
+  {
+    "id": 164,
+    "topic": "Basic Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function rounds a number to a specified number of digits?",
+    "options": ["TRIM()", "ROUND()", "CUT()", "DIGIT()"],
+    "answerIndex": 1,
+    "explanation": "ROUND is used to round numbers."
+  },
+  {
+    "id": 165,
+    "topic": "Editing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operation is performed using Ctrl + X?",
+    "options": ["Cut", "Copy", "Paste", "Delete"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + X cuts the selected content."
+  },
+
+  {
+    "id": 166,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns the remainder of 10 ÷ 3?",
+    "options": ["=REM(10,3)", "=LEFTOVER(10,3)", "=MOD(10,3)", "=BAL(10,3)"],
+    "answerIndex": 2,
+    "explanation": "MOD returns the remainder of a division."
+  },
+  {
+    "id": 167,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool splits First Name and Last Name into two columns?",
+    "options": ["Flash Fill", "AutoFill", "Paste Special", "Format Painter"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill detects patterns and splits data."
+  },
+  {
+    "id": 168,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns TRUE if two values are equal?",
+    "options": ["COMPARE()", "CHECK()", "EXACT()", "MATCH()"],
+    "answerIndex": 2,
+    "explanation": "EXACT checks text equality including case."
+  },
+  {
+    "id": 169,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which conditional formatting option shows color gradients?",
+    "options": ["Data bars", "Color scales", "Icon sets", "Pattern fill"],
+    "answerIndex": 1,
+    "explanation": "Color scales use shading to represent values."
+  },
+  {
+    "id": 170,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the Fill Handle look like?",
+    "options": ["A small circle", "A black square", "A blue triangle", "A gray dot"],
+    "answerIndex": 1,
+    "explanation": "The Fill Handle appears as a small black square on the bottom-right of a cell."
+  },
+
+  {
+    "id": 171,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing correlation between two variables?",
+    "options": ["Bar chart", "Scatter chart", "Area chart", "Pie chart"],
+    "answerIndex": 1,
+    "explanation": "Scatter plots show relationships between two numeric variables."
+  },
+  {
+    "id": 172,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Home moves the cursor to:",
+    "options": ["Last used cell", "First used cell", "A1", "Column A"],
+    "answerIndex": 2,
+    "explanation": "Ctrl + Home jumps directly to cell A1."
+  },
+  {
+    "id": 173,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function converts text to uppercase?",
+    "options": ["UPPER()", "CAPS()", "TEXTUP()", "UPCASE()"],
+    "answerIndex": 0,
+    "explanation": "UPPER converts text to uppercase."
+  },
+  {
+    "id": 174,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature creates a dropdown list in a cell?",
+    "options": ["AutoFill", "Data Validation", "Sort", "Flash Fill"],
+    "answerIndex": 1,
+    "explanation": "Data Validation → List is used to create dropdown options."
+  },
+  {
+    "id": 175,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function extracts text from the right side?",
+    "options": ["MID()", "LEFT()", "RIGHT()", "CUT()"],
+    "answerIndex": 2,
+    "explanation": "RIGHT returns characters from the right end."
+  },
+
+  {
+    "id": 176,
+    "topic": "Filtering",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which button applies filters to a table?",
+    "options": ["Sort A–Z", "Filter", "View Tools", "Wrap Text"],
+    "answerIndex": 1,
+    "explanation": "The Filter option enables dropdowns for filtering."
+  },
+  {
+    "id": 177,
+    "topic": "Cell Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature wraps long text to multiple lines in a cell?",
+    "options": ["Merge Cells", "Wrap Text", "Justify", "Indent"],
+    "answerIndex": 1,
+    "explanation": "Wrap Text ensures text stays within the same cell."
+  },
+  {
+    "id": 178,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the result of =LEN(\"Excel\")?",
+    "options": ["4", "5", "6", "10"],
+    "answerIndex": 1,
+    "explanation": "\"Excel\" has 5 characters."
+  },
+  {
+    "id": 179,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which formula multiplies A1 by B1?",
+    "options": ["A1 * B1", "=A1 * B1", "=A1 MULT B1", "MULTIPLY(A1,B1)"],
+    "answerIndex": 1,
+    "explanation": "All formulas must start with '='."
+  },
+  {
+    "id": 180,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a formula refers to an invalid cell?",
+    "options": ["#DIV/0!", "#REF!", "#NAME?", "#VALUE!"],
+    "answerIndex": 1,
+    "explanation": "#REF! occurs when a referenced cell is deleted or invalid."
+  },
+
+  {
+    "id": 181,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Remove Duplicates affects:",
+    "options": ["Only selected columns", "Entire workbook", "Charts only", "Hidden sheets"],
+    "answerIndex": 0,
+    "explanation": "Remove Duplicates acts on selected columns or full table area."
+  },
+  {
+    "id": 182,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of a chart explains the colors or symbols used?",
+    "options": ["Legend", "Axis", "Title", "Gridlines"],
+    "answerIndex": 0,
+    "explanation": "Legend identifies data representations."
+  },
+  {
+    "id": 183,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "LOWER(\"HELLO\") returns:",
+    "options": ["HELLO", "hello", "Hello", "Error"],
+    "answerIndex": 1,
+    "explanation": "LOWER converts text to lowercase."
+  },
+  {
+    "id": 184,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key moves the selection right by one cell?",
+    "options": ["Enter", "Tab", "Shift", "Ctrl"],
+    "answerIndex": 1,
+    "explanation": "Tab moves the cursor to the right."
+  },
+  {
+    "id": 185,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "TODAY() function returns:",
+    "options": ["Current time", "Current date", "Yesterday's date", "Tomorrow's date"],
+    "answerIndex": 1,
+    "explanation": "TODAY() returns the system date."
+  },
+
+  {
+    "id": 186,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator is used for concatenation?",
+    "options": ["*", "&", "+", "%"],
+    "answerIndex": 1,
+    "explanation": "The & operator joins text strings."
+  },
+  {
+    "id": 187,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function gives the position of a value in a list?",
+    "options": ["INDEX()", "FIND()", "MATCH()", "SEARCH()"],
+    "answerIndex": 2,
+    "explanation": "MATCH returns the position of a lookup value."
+  },
+  {
+    "id": 188,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which of the following is NOT a text function?",
+    "options": ["LEFT()", "RIGHT()", "SUBTOTAL()", "MID()"],
+    "answerIndex": 2,
+    "explanation": "SUBTOTAL is used for filtered aggregations, not text."
+  },
+  {
+    "id": 189,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which input is treated as text by Excel?",
+    "options": ["123", "'123", "12/12/23", "1.5"],
+    "answerIndex": 1,
+    "explanation": "Leading apostrophe forces Excel to store the value as text."
+  },
+  {
+    "id": 190,
+    "topic": "Filtering",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which filtering allows you to display rows based on conditions?",
+    "options": ["Advanced Filter", "Basic Filter", "Dynamic Filter", "AutoComplete"],
+    "answerIndex": 0,
+    "explanation": "Advanced Filter can filter using complex criteria."
+  },
+
+  {
+    "id": 191,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Area charts are best used for:",
+    "options": ["Comparing trends over time", "Showing percentages", "Showing correlation", "Displaying individual categories"],
+    "answerIndex": 0,
+    "explanation": "Area charts show cumulative trends over a period."
+  },
+  {
+    "id": 192,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the integer portion of a number?",
+    "options": ["CUT()", "INT()", "ROUND()", "TRIM()"],
+    "answerIndex": 1,
+    "explanation": "INT removes the decimal portion."
+  },
+  {
+    "id": 193,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs if Excel cannot interpret the input?",
+    "options": ["#VALUE!", "#REF!", "#DIV/0!", "#N/A"],
+    "answerIndex": 0,
+    "explanation": "#VALUE! occurs when invalid data types are used."
+  },
+  {
+    "id": 194,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns the current date and time?",
+    "options": ["TIME()", "DATE()", "TODAY()", "NOW()"],
+    "answerIndex": 3,
+    "explanation": "NOW() displays both date and time."
+  },
+  {
+    "id": 195,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is most suitable for showing cumulative totals?",
+    "options": ["Stacked Area", "Pie Chart", "Line Chart", "Scatter Chart"],
+    "answerIndex": 0,
+    "explanation": "Stacked Area charts visually display cumulative totals."
+  },
+
+  {
+    "id": 196,
+    "topic": "Cell Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which formatting turns numbers into currency format?",
+    "options": ["Accounting", "Currency", "Number", "Financial"],
+    "answerIndex": 1,
+    "explanation": "Currency formatting adds a currency symbol and decimal places."
+  },
+  {
+    "id": 197,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator performs exponentiation?",
+    "options": ["^", "**", "%", "@"],
+    "answerIndex": 0,
+    "explanation": "The ^ operator raises a number to a power."
+  },
+  {
+    "id": 198,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function repeats text a specified number of times?",
+    "options": ["TEXT()", "REPT()", "DUP()", "COPY()"],
+    "answerIndex": 1,
+    "explanation": "REPT repeats a text string."
+  },
+  {
+    "id": 199,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns the difference between two dates?",
+    "options": ["DATEDIF()", "DATECOMP()", "DAYDIFF()", "DATECHECK()"],
+    "answerIndex": 0,
+    "explanation": "DATEDIF calculates the difference between two dates."
+  },
+  {
+    "id": 200,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination selects the entire worksheet?",
+    "options": ["Ctrl + A", "Ctrl + W", "Shift + A", "Ctrl + Shift"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + A selects all cells in the sheet."
+  },{
+    "id": 201,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file extension is used for a macro-enabled Excel workbook?",
+    "options": ["xlsx", "xlsm", "xls", "xla"],
+    "answerIndex": 1,
+    "explanation": ".xlsm files support macros whereas .xlsx does not."
+  },
+  {
+    "id": 202,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command inserts a new worksheet?",
+    "options": ["Shift + F11", "Ctrl + F11", "Ctrl + N", "Alt + W"],
+    "answerIndex": 0,
+    "explanation": "Shift + F11 inserts a new worksheet instantly."
+  },
+  {
+    "id": 203,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + End moves the cursor to:",
+    "options": ["Cell A1", "Last used cell", "Last row", "Last column"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + End jumps to the bottom-right cell of used range."
+  },
+  {
+    "id": 204,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option merges multiple selected cells?",
+    "options": ["Wrap Text", "Merge & Center", "Center Align", "Format Painter"],
+    "answerIndex": 1,
+    "explanation": "Merge & Center merges cells and centers the text."
+  },
+  {
+    "id": 205,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key confirms entry and moves down?",
+    "options": ["Enter", "Tab", "Shift + Enter", "Space"],
+    "answerIndex": 0,
+    "explanation": "Enter confirms the input and moves the cursor downward."
+  },
+
+  {
+    "id": 206,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns the largest value in A1:A10?",
+    "options": ["BIG(A1:A10)", "MAX(A1:A10)", "LARGE(A1:A10)", "TOP(A1:A10)"],
+    "answerIndex": 1,
+    "explanation": "MAX returns the largest value in a range."
+  },
+  {
+    "id": 207,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "LARGE(A1:A10, 2) returns:",
+    "options": ["Smallest value", "Second largest value", "Second smallest", "Average"],
+    "answerIndex": 1,
+    "explanation": "LARGE(range, k) returns the k-th largest value."
+  },
+  {
+    "id": 208,
+    "topic": "Cell Reference",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which reference changes automatically when copied?",
+    "options": ["Absolute", "Relative", "Mixed", "Static"],
+    "answerIndex": 1,
+    "explanation": "Relative references change depending on the formula position."
+  },
+  {
+    "id": 209,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does a pie chart represent?",
+    "options": ["Trend over time", "Parts of a whole", "Data comparison", "Category vs value"],
+    "answerIndex": 1,
+    "explanation": "Pie charts show proportions of a whole."
+  },
+  {
+    "id": 210,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts only numeric entries?",
+    "options": ["COUNT", "COUNTA", "COUNTIF", "COUNTNUM"],
+    "answerIndex": 0,
+    "explanation": "COUNT counts only cells containing numeric values."
+  },
+
+  {
+    "id": 211,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Icon Sets in conditional formatting show:",
+    "options": ["Graphics based on values", "Colors only", "Text indicators", "Borders"],
+    "answerIndex": 0,
+    "explanation": "Icon sets represent value ranges visually using icons."
+  },
+  {
+    "id": 212,
+    "topic": "Filtering",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which filter displays only rows that match criteria?",
+    "options": ["Data Filter", "AutoFilter", "Page Layout", "Review"],
+    "answerIndex": 1,
+    "explanation": "AutoFilter filters rows quickly based on conditions."
+  },
+  {
+    "id": 213,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Consolidate tool is used to:",
+    "options": ["Merge worksheets", "Combine data from multiple sheets", "Remove duplicates", "Split text"],
+    "answerIndex": 1,
+    "explanation": "Consolidate merges data from multiple ranges or sheets."
+  },
+  {
+    "id": 214,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Pivot Tables are mainly used for:",
+    "options": ["Simple addition", "Data summarization", "Formatting", "Chart design"],
+    "answerIndex": 1,
+    "explanation": "Pivot Tables summarize and analyze large datasets efficiently."
+  },
+  {
+    "id": 215,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which view shows a preview of how pages will print?",
+    "options": ["Page Layout", "Normal View", "Break Preview", "Print Area"],
+    "answerIndex": 0,
+    "explanation": "Page Layout shows page boundaries and print formatting."
+  },
+
+  {
+    "id": 216,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula will not update automatically after changes?",
+    "options": ["Static value", "Relative reference formula", "Absolute reference formula", "Dynamic formula"],
+    "answerIndex": 0,
+    "explanation": "Static entries do not update; formulas do."
+  },
+  {
+    "id": 217,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "The function TRIM() removes:",
+    "options": ["All spaces", "Extra spaces except single spaces", "Tabs only", "Format"],
+    "answerIndex": 1,
+    "explanation": "TRIM removes extra spaces from text, keeping only single spaces."
+  },
+  {
+    "id": 218,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the current time only?",
+    "options": ["NOW()", "DATE()", "TIME()", "TODAY()"],
+    "answerIndex": 2,
+    "explanation": "TIME() constructs a time but NOW() returns time + date."
+  },
+  {
+    "id": 219,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "In Pivot Tables, 'Values' field is used for:",
+    "options": ["Categories", "Aggregations", "Filters", "Grouping"],
+    "answerIndex": 1,
+    "explanation": "Values field performs operations like Sum, Count, Average, etc."
+  },
+  {
+    "id": 220,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool splits text into separate columns?",
+    "options": ["Text to Columns", "Flash Fill", "Separate Cells", "Split Tool"],
+    "answerIndex": 0,
+    "explanation": "Text to Columns divides text using delimiters or fixed widths."
+  },
+
+  {
+    "id": 221,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for comparing categories?",
+    "options": ["Scatter Chart", "Bar Chart", "Pie Chart", "Area Chart"],
+    "answerIndex": 1,
+    "explanation": "Bar charts are ideal for comparing category-wise values."
+  },
+  {
+    "id": 222,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Heatmaps in Excel refer to:",
+    "options": ["Color-based value display", "Temperature charts", "3D visuals", "Animated charts"],
+    "answerIndex": 0,
+    "explanation": "Heatmaps use color to represent higher or lower values."
+  },
+  {
+    "id": 223,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=FIND(\"e\", \"Excel\") returns:",
+    "options": ["1", "2", "-1", "Error"],
+    "answerIndex": 1,
+    "explanation": "FIND is case-sensitive and locates the position of a character."
+  },
+  {
+    "id": 224,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function replaces characters in a text?",
+    "options": ["CHANGE()", "REPLACE()", "MODIFY()", "SUBSTITUTE()"],
+    "answerIndex": 1,
+    "explanation": "REPLACE substitutes characters based on position."
+  },
+  {
+    "id": 225,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the ASCII code of a character?",
+    "options": ["ORD()", "NUM()", "CODE()", "FORMAT()"],
+    "answerIndex": 2,
+    "explanation": "CODE returns the numeric ASCII value of the first character."
+  },
+
+  {
+    "id": 226,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error appears when text is too long for the cell?",
+    "options": ["#NAME?", "#N/A", "#######", "#LONG"],
+    "answerIndex": 2,
+    "explanation": "\"#######\" usually indicates the cell is too narrow."
+  },
+  {
+    "id": 227,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "XLOOKUP replaces which old function?",
+    "options": ["HLOOKUP", "VLOOKUP", "Both", "INDEX only"],
+    "answerIndex": 2,
+    "explanation": "XLOOKUP is the modern replacement for both VLOOKUP & HLOOKUP."
+  },
+  {
+    "id": 228,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula extracts the first character of a text?",
+    "options": ["LEFT(A1,1)", "RIGHT(A1,1)", "MID(A1,1)", "TOP(A1)"],
+    "answerIndex": 0,
+    "explanation": "LEFT(text,1) returns the first character."
+  },
+  {
+    "id": 229,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "DATEDIF(start, end, \"m\") returns:",
+    "options": ["Total days", "Total months", "Total years", "Minutes"],
+    "answerIndex": 1,
+    "explanation": "\"m\" returns full months between two dates."
+  },
+  {
+    "id": 230,
+    "topic": "Cell Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which format turns numbers into percentages?",
+    "options": ["Number", "Percent Style", "Scientific", "Fraction"],
+    "answerIndex": 1,
+    "explanation": "Percent Style multiplies values by 100 and adds % sign."
+  },
+
+  {
+    "id": 231,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart compares the contribution of each item over total?",
+    "options": ["Pie Chart", "Line Chart", "Bar Chart", "Scatter"],
+    "answerIndex": 0,
+    "explanation": "Pie charts show parts of a whole."
+  },
+  {
+    "id": 232,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which text function removes leading and trailing spaces?",
+    "options": ["TRIM()", "CLEAN()", "REMOVE()", "CUT()"],
+    "answerIndex": 0,
+    "explanation": "TRIM handles extra spacing."
+  },
+  {
+    "id": 233,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator performs division?",
+    "options": ["*", "/", "-", "%"],
+    "answerIndex": 1,
+    "explanation": "/ is the division operator."
+  },
+  {
+    "id": 234,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill is activated by:",
+    "options": ["Ctrl + E", "Ctrl + F", "Ctrl + L", "Ctrl + Shift + E"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + E triggers Flash Fill."
+  },
+  {
+    "id": 235,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Space selects:",
+    "options": ["Entire row", "Entire column", "Entire sheet", "Current range"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Space selects the whole column."
+  },
+
+  {
+    "id": 236,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which field controls category grouping in Pivot Tables?",
+    "options": ["Values", "Columns", "Rows", "Filters"],
+    "answerIndex": 2,
+    "explanation": "Rows field determines grouping categories."
+  },
+  {
+    "id": 237,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error means a function name is invalid?",
+    "options": ["#REF!", "#DIV/0!", "#NAME?", "#VALUE!"],
+    "answerIndex": 2,
+    "explanation": "#NAME? happens when Excel doesn't recognize the formula text."
+  },
+  {
+    "id": 238,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Clustered Column charts are used for:",
+    "options": ["Comparing categories side-by-side", "Showing proportions", "Time trends", "Scatter analysis"],
+    "answerIndex": 0,
+    "explanation": "Clustered Column charts display multiple series side-by-side for comparison."
+  },
+  {
+    "id": 239,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the nth row of a range?",
+    "options": ["ROW()", "INDEX()", "FETCH()", "CHOOSE()"],
+    "answerIndex": 1,
+    "explanation": "INDEX returns a cell based on row and column number."
+  },
+  {
+    "id": 240,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut saves the workbook with its current name?",
+    "options": ["Ctrl + S", "Ctrl + Shift + S", "F11", "Shift + S"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + S saves the active workbook."
+  },
+
+  {
+    "id": 241,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator joins text?",
+    "options": ["%", "+", "&", "*"],
+    "answerIndex": 2,
+    "explanation": "& concatenates text values."
+  },
+  {
+    "id": 242,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "ERROR.TYPE(#N/A) returns:",
+    "options": ["7", "1", "3", "4"],
+    "answerIndex": 0,
+    "explanation": "#N/A corresponds to error code 7."
+  },
+  {
+    "id": 243,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart shows cumulative progress toward a goal?",
+    "options": ["Waterfall chart", "Funnel chart", "Radar chart", "Pie chart"],
+    "answerIndex": 0,
+    "explanation": "Waterfall charts are useful for cumulative values."
+  },
+  {
+    "id": 244,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Goal Seek works by:",
+    "options": ["Finding input for a desired result", "Sorting results", "Formatting cells", "Removing duplicates"],
+    "answerIndex": 0,
+    "explanation": "Goal Seek calculates backward to achieve a desired output."
+  },
+  {
+    "id": 245,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the highest value among multiple arguments?",
+    "options": ["LARGE()", "MAX()", "TOP()", "GREAT()"],
+    "answerIndex": 1,
+    "explanation": "MAX compares arguments and returns the highest."
+  },
+
+  {
+    "id": 246,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which field filters entire Pivot Table results?",
+    "options": ["Rows", "Columns", "Filters", "Values"],
+    "answerIndex": 2,
+    "explanation": "Filters field allows filtering across the Pivot Table."
+  },
+  {
+    "id": 247,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which chart is best for time-based data?",
+    "options": ["Line Chart", "Pie Chart", "Radar Chart", "Column Chart"],
+    "answerIndex": 0,
+    "explanation": "Line charts track data over time effectively."
+  },
+  {
+    "id": 248,
+    "topic": "Errors",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "#DIV/0! error occurs when:",
+    "options": ["Invalid text", "Zero in denominator", "Missing reference", "Wrong format"],
+    "answerIndex": 1,
+    "explanation": "Division by zero is not valid and triggers #DIV/0!."
+  },
+  {
+    "id": 249,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool fills a series automatically?",
+    "options": ["AutoFill", "AutoComplete", "Series Fill", "Flash Fill"],
+    "answerIndex": 0,
+    "explanation": "AutoFill handles automatic series creation."
+  },
+  {
+    "id": 250,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination closes Excel completely?",
+    "options": ["Ctrl + W", "Alt + F4", "Ctrl + F4", "Shift + Esc"],
+    "answerIndex": 1,
+    "explanation": "Alt + F4 closes the entire Excel application."
+  },
+  {
+    "id": 251,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does the formula =ABS(-25) return?",
+    "options": ["25", "-25", "0", "Error"],
+    "answerIndex": 0,
+    "explanation": "ABS returns the absolute (positive) value of a number."
+  },
+  {
+    "id": 252,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the maximum number of rows in modern Excel versions?",
+    "options": ["65536", "1048576", "1000000", "500000"],
+    "answerIndex": 1,
+    "explanation": "Modern Excel supports 1,048,576 rows."
+  },
+  {
+    "id": 253,
+    "topic": "Cell References",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which of the following is a mixed reference?",
+    "options": ["$A$1", "A1", "$A1", "A$1"],
+    "answerIndex": 2,
+    "explanation": "$A1 has fixed column A but row changes."
+  },
+  {
+    "id": 254,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut inserts the current date?",
+    "options": ["Ctrl + D", "Ctrl + ;", "Ctrl + Shift + ;", "Alt + D"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + ; inserts today's date."
+  },
+  {
+    "id": 255,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing contribution over time?",
+    "options": ["Stacked Area Chart", "Pie Chart", "Scatter Chart", "Bubble Chart"],
+    "answerIndex": 0,
+    "explanation": "Stacked area charts show cumulative contribution trends."
+  },
+
+  {
+    "id": 256,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the current system date?",
+    "options": ["DATE()", "TODAY()", "NOW()", "CURRENT()"],
+    "answerIndex": 1,
+    "explanation": "TODAY returns the current date without time."
+  },
+  {
+    "id": 257,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What will =ROUND(12.678, 2) return?",
+    "options": ["12.6", "12.67", "12.68", "12.70"],
+    "answerIndex": 2,
+    "explanation": "Rounded to two decimal places → 12.68."
+  },
+  {
+    "id": 258,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature copies formatting from one cell to another?",
+    "options": ["Format Painter", "Fill Handle", "AutoFill", "Copy-Paste"],
+    "answerIndex": 0,
+    "explanation": "Format Painter copies only formatting rules."
+  },
+  {
+    "id": 259,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill can be best described as:",
+    "options": ["Auto-generation from patterns", "A formatting tool", "Macro recorder", "Text validator"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill fills data based on recognized patterns."
+  },
+  {
+    "id": 260,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "LEN(\"Excel\") returns:",
+    "options": ["6", "5", "4", "Error"],
+    "answerIndex": 1,
+    "explanation": "\"Excel\" has 5 characters."
+  },
+
+  {
+    "id": 261,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "VLOOKUP can search values only in:",
+    "options": ["First column", "Any column", "Last column", "Columns with numbers"],
+    "answerIndex": 0,
+    "explanation": "VLOOKUP always searches in the leftmost column of the table array."
+  },
+  {
+    "id": 262,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which validation restricts input to values in a dropdown?",
+    "options": ["List", "Decimal", "Whole Number", "Text Length"],
+    "answerIndex": 0,
+    "explanation": "List validation provides a dropdown menu of allowed values."
+  },
+  {
+    "id": 263,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Sparklines are:",
+    "options": ["Mini charts inside cells", "Animated charts", "Macro charts", "3D charts"],
+    "answerIndex": 0,
+    "explanation": "Sparklines are tiny, cell-sized charts showing trends."
+  },
+  {
+    "id": 264,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator is evaluated first in Excel?",
+    "options": ["+", "*", "/", "="],
+    "answerIndex": 1,
+    "explanation": "Multiplication and division have higher precedence over addition."
+  },
+  {
+    "id": 265,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How do you rename a worksheet?",
+    "options": ["Double-click tab", "Right-click → Move", "Drag the tab", "Ctrl + R"],
+    "answerIndex": 0,
+    "explanation": "Double-clicking the sheet tab lets you rename instantly."
+  },
+
+  {
+    "id": 266,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which PivotTable area is used for aggregation?",
+    "options": ["Rows", "Columns", "Filters", "Values"],
+    "answerIndex": 3,
+    "explanation": "Values area performs calculations like Sum, Count, etc."
+  },
+  {
+    "id": 267,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Data bars in Excel represent:",
+    "options": ["Text patterns", "Color scale only", "Value magnitude visually", "Cell borders"],
+    "answerIndex": 2,
+    "explanation": "Data bars show how large a value is through bar length."
+  },
+  {
+    "id": 268,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function joins text with a delimiter?",
+    "options": ["JOIN()", "TEXTJOIN()", "MERGE()", "CONCAT()"],
+    "answerIndex": 1,
+    "explanation": "TEXTJOIN allows a delimiter between each text segment."
+  },
+  {
+    "id": 269,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "TODAY() updates when:",
+    "options": ["Sheet is recalculated", "User clicks on a cell", "A macro runs", "Manually refreshed"],
+    "answerIndex": 0,
+    "explanation": "TODAY updates automatically with recalculation or reopening."
+  },
+  {
+    "id": 270,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Remove Duplicates works on:",
+    "options": ["Only numbers", "Only text", "Selected columns", "Entire workbook"],
+    "answerIndex": 2,
+    "explanation": "Excel removes duplicates based on selected columns only."
+  },
+
+  {
+    "id": 271,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula extracts 3 characters starting from the 2nd?",
+    "options": ["MID(A1,2,3)", "LEFT(A1,3)", "RIGHT(A1,3)", "MID(A1,3,2)"],
+    "answerIndex": 0,
+    "explanation": "MID(text,start,length) returns the exact segment."
+  },
+  {
+    "id": 272,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which chart is ideal for continuous data over time?",
+    "options": ["Pie", "Line", "Bar", "Scatter"],
+    "answerIndex": 1,
+    "explanation": "Line charts show time-based trends clearly."
+  },
+  {
+    "id": 273,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Home moves the selection to:",
+    "options": ["A1", "Last cell", "First row", "Header row"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Home jumps back to A1."
+  },
+  {
+    "id": 274,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=COUNTIF(A1:A10,\">5\") counts:",
+    "options": ["Only 5", "Values greater than 5", "Values less than 5", "Zeros"],
+    "answerIndex": 1,
+    "explanation": "COUNTIF checks values that satisfy the given condition."
+  },
+  {
+    "id": 275,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which symbol locks rows and columns in Excel?",
+    "options": ["@", "$", "&", "!"],
+    "answerIndex": 1,
+    "explanation": "$ makes references absolute, e.g., $A$1."
+  },
+
+  {
+    "id": 276,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Bubble charts represent:",
+    "options": ["One variable", "Two variables", "Three variables", "Only percentages"],
+    "answerIndex": 2,
+    "explanation": "Bubble charts use X, Y, and bubble size → representing 3 variables."
+  },
+  {
+    "id": 277,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature fills a pattern-based sequence automatically?",
+    "options": ["Flash Fill", "AutoFill", "Series Fill", "Smart Fill"],
+    "answerIndex": 1,
+    "explanation": "AutoFill detects increment patterns like 1,2,3 or Jan, Feb."
+  },
+  {
+    "id": 278,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Color scales in conditional formatting are useful for:",
+    "options": ["Sorting", "Visualizing value range", "Filtering", "Copying values"],
+    "answerIndex": 1,
+    "explanation": "Color scales apply gradient color based on value magnitude."
+  },
+  {
+    "id": 279,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does EXACT(\"Apple\",\"apple\") return?",
+    "options": ["TRUE", "FALSE", "Error", "0"],
+    "answerIndex": 1,
+    "explanation": "EXACT is case-sensitive and returns FALSE here."
+  },
+  {
+    "id": 280,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "NETWORKDAYS returns:",
+    "options": ["Only weekdays", "Weekdays minus holidays", "Calendar days", "Working hours"],
+    "answerIndex": 1,
+    "explanation": "NETWORKDAYS calculates working days excluding weekends and holidays."
+  },
+
+  {
+    "id": 281,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option protects the structure of a workbook?",
+    "options": ["Protect Sheet", "Protect Workbook", "Read Only", "Encryption"],
+    "answerIndex": 1,
+    "explanation": "Protect Workbook prevents adding, deleting, or moving sheets."
+  },
+  {
+    "id": 282,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature groups dates automatically in Pivot Tables?",
+    "options": ["Grouping", "Filters", "Hierarchy", "AutoSort"],
+    "answerIndex": 0,
+    "explanation": "Grouping can group days into months, quarters, or years."
+  },
+  {
+    "id": 283,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which returns TRUE if both conditions are met?",
+    "options": ["OR", "AND", "IF", "XOR"],
+    "answerIndex": 1,
+    "explanation": "AND checks multiple conditions simultaneously."
+  },
+  {
+    "id": 284,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "UPPER(\"excel\") returns:",
+    "options": ["excel", "Excel", "EXCEL", "Error"],
+    "answerIndex": 2,
+    "explanation": "UPPER converts text to uppercase."
+  },
+  {
+    "id": 285,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=AVERAGE(10,20,30) returns:",
+    "options": ["10", "20", "30", "15"],
+    "answerIndex": 1,
+    "explanation": "Average = (10+20+30)/3 = 20."
+  },
+
+  {
+    "id": 286,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart shows progress toward a goal visually?",
+    "options": ["Sunburst", "Gauge", "Waterfall", "Histogram"],
+    "answerIndex": 3,
+    "explanation": "Histograms show distribution; Waterfall shows value changes."
+  },
+  {
+    "id": 287,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool helps split names like 'John Doe' into two parts?",
+    "options": ["Text to Columns", "Flash Fill", "Split Tool", "Delimiter"],
+    "answerIndex": 0,
+    "explanation": "Text to Columns splits text using delimiters."
+  },
+  {
+    "id": 288,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=MOD(10,3) returns:",
+    "options": ["1", "3", "0", "2"],
+    "answerIndex": 3,
+    "explanation": "10 mod 3 = 1 (remainder)."
+  },
+  {
+    "id": 289,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + Arrow key moves to:",
+    "options": ["Next column", "Next used cell", "End of sheet", "Top of sheet"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Arrow jumps to the next non-empty or empty boundary."
+  },
+  {
+    "id": 290,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function adds working days to a date?",
+    "options": ["DATEADD", "WORKDAY", "ADDDATE", "CALCDAY"],
+    "answerIndex": 1,
+    "explanation": "WORKDAY adds business days excluding weekends."
+  },
+
+  {
+    "id": 291,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which returns the relative position in a list?",
+    "options": ["LOOKUP", "MATCH", "INDEX", "SEARCH"],
+    "answerIndex": 1,
+    "explanation": "MATCH returns position, INDEX returns the value."
+  },
+  {
+    "id": 292,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which extracts the last 3 characters?",
+    "options": ["RIGHT(A1,3)", "LEFT(A1,3)", "MID(A1,3,3)", "END(A1,3)"],
+    "answerIndex": 0,
+    "explanation": "RIGHT extracts characters from the end."
+  },
+  {
+    "id": 293,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Wrap Text ensures:",
+    "options": ["No text shortening", "Text appears on multiple lines", "Text is bold", "Cell merges"],
+    "answerIndex": 1,
+    "explanation": "Wrap Text breaks long text across multiple lines."
+  },
+  {
+    "id": 294,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for distribution?",
+    "options": ["Line", "Histogram", "Bar", "Pie"],
+    "answerIndex": 1,
+    "explanation": "Histogram displays frequency distribution."
+  },
+  {
+    "id": 295,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which validation prevents blank input?",
+    "options": ["Whole Number", "Required", "Text Length", "Custom formula"],
+    "answerIndex": 3,
+    "explanation": "Custom formulas can enforce non-blank rules."
+  },
+
+  {
+    "id": 296,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula returns the row number?",
+    "options": ["ROW()", "COL()", "INDEX()", "MATCH()"],
+    "answerIndex": 0,
+    "explanation": "ROW() returns the row number of a reference."
+  },
+  {
+    "id": 297,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Calculated Fields in PivotTables allow:",
+    "options": ["New formulas", "Sorting", "Formatting", "Filtering"],
+    "answerIndex": 0,
+    "explanation": "Calculated Fields add custom formula columns inside PivotTables."
+  },
+  {
+    "id": 298,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=LOWER(\"HELLO\") returns:",
+    "options": ["HELLO", "hello", "Hello", "Error"],
+    "answerIndex": 1,
+    "explanation": "LOWER converts text to lowercase."
+  },
+  {
+    "id": 299,
+    "topic": "Workbook",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How do you delete a worksheet?",
+    "options": ["File → Delete", "Right-click tab → Delete", "Press Delete key", "Drag outside window"],
+    "answerIndex": 1,
+    "explanation": "Worksheets are deleted from tab right-click menu."
+  },
+  {
+    "id": 300,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the sum of arguments?",
+    "options": ["SUM()", "ADD()", "TOTAL()", "SUMIF()"],
+    "answerIndex": 0,
+    "explanation": "SUM adds individual values or ranges."
+  },
+  {
+    "id": 301,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What will =SUM(10, \"20\", 5) return?",
+    "options": ["35", "Error", "25", "105"],
+    "answerIndex": 0,
+    "explanation": "Excel converts text numbers to numeric values automatically."
+  },
+  {
+    "id": 302,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts only numeric cells?",
+    "options": ["COUNTA", "COUNT", "COUNTBLANK", "COUNTIF"],
+    "answerIndex": 1,
+    "explanation": "COUNT ignores text but counts numeric entries."
+  },
+  {
+    "id": 303,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut fills selected cells with the value in the first cell?",
+    "options": ["Ctrl + D", "Ctrl + R", "Ctrl + Shift + L", "Alt + A"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + D fills down the content."
+  },
+  {
+    "id": 304,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature hides rows with a specific condition?",
+    "options": ["Sort", "Filter", "Freeze Panes", "View Options"],
+    "answerIndex": 1,
+    "explanation": "Filter hides rows not meeting the selected criteria."
+  },
+  {
+    "id": 305,
+    "topic": "Cell References",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does the reference $A$1 mean?",
+    "options": ["Relative column, fixed row", "Fixed column, fixed row", "Fixed column, relative row", "Relative reference"],
+    "answerIndex": 1,
+    "explanation": "$A$1 locks both row and column."
+  },
+
+  {
+    "id": 306,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "XLOOKUP replaces which two common functions?",
+    "options": ["VLOOKUP and HLOOKUP", "MATCH and INDEX", "COUNTIF and SUMIF", "CONCAT and EXACT"],
+    "answerIndex": 0,
+    "explanation": "XLOOKUP acts as a modern replacement for VLOOKUP and HLOOKUP."
+  },
+  {
+    "id": 307,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which number format shows 10,000 as 10K?",
+    "options": ["Accounting", "Scientific", "Custom", "General"],
+    "answerIndex": 2,
+    "explanation": "Custom formats like 0, \"K\" convert 10000 → 10K."
+  },
+  {
+    "id": 308,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the position of text inside another string?",
+    "options": ["FIND", "SEARCH", "MID", "MATCH"],
+    "answerIndex": 0,
+    "explanation": "FIND is case-sensitive, SEARCH is not."
+  },
+  {
+    "id": 309,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart type is ideal to compare parts of a whole across multiple items?",
+    "options": ["Pie Chart", "Bar Chart", "Stacked Column Chart", "Line Chart"],
+    "answerIndex": 2,
+    "explanation": "Stacked Column charts show category-wise contributions."
+  },
+  {
+    "id": 310,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Goal Seek can change:",
+    "options": ["Input cell only", "Output cell only", "Multiple cells", "Formatting rules"],
+    "answerIndex": 0,
+    "explanation": "Goal Seek adjusts one input cell to reach a target output."
+  },
+
+  {
+    "id": 311,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error appears when a formula references an invalid cell?",
+    "options": ["#VALUE!", "#NAME?", "#REF!", "#DIV/0!"],
+    "answerIndex": 2,
+    "explanation": "#REF! occurs when the referenced cell is deleted."
+  },
+  {
+    "id": 312,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "PivotTables allow which action?",
+    "options": ["Sorting", "Filtering", "Grouping", "All of these"],
+    "answerIndex": 3,
+    "explanation": "PivotTables support sorting, filtering, grouping, summarizing, etc."
+  },
+  {
+    "id": 313,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function returns the highest number?",
+    "options": ["MAX", "HIGH", "TOP", "HIGHEST"],
+    "answerIndex": 0,
+    "explanation": "MAX returns the largest numeric value."
+  },
+  {
+    "id": 314,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature highlights duplicate values?",
+    "options": ["Data Bars", "Color Scales", "Highlight Cell Rules", "Filter"],
+    "answerIndex": 2,
+    "explanation": "Conditional formatting → Highlight Cell Rules → Duplicate Values."
+  },
+  {
+    "id": 315,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option freezes the first column?",
+    "options": ["Freeze Panes", "Split", "Hide", "Protect Sheet"],
+    "answerIndex": 0,
+    "explanation": "Freeze Panes allows freezing top row or first column."
+  },
+
+  {
+    "id": 316,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=ROUNDUP(12.23,1) returns:",
+    "options": ["12.2", "12.3", "12.4", "13"],
+    "answerIndex": 2,
+    "explanation": "ROUNDUP always rounds up → 12.23 → 12.3 → next is 12.4."
+  },
+  {
+    "id": 317,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool separates a single column into multiple columns based on commas?",
+    "options": ["Split Cells", "Text to Columns", "Flash Fill", "Separator Wizard"],
+    "answerIndex": 1,
+    "explanation": "Text to Columns uses delimiters such as commas."
+  },
+  {
+    "id": 318,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A combo chart in Excel usually combines:",
+    "options": ["Pie + Bar", "Column + Line", "Line + Scatter", "Bar + Histogram"],
+    "answerIndex": 1,
+    "explanation": "Combo charts commonly use Column + Line combinations."
+  },
+  {
+    "id": 319,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=IF(5>3, \"Yes\", \"No\") returns:",
+    "options": ["Yes", "No", "Error", "True"],
+    "answerIndex": 0,
+    "explanation": "Since 5 > 3, the IF condition is TRUE."
+  },
+  {
+    "id": 320,
+    "topic": "Date & Time",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function extracts the month number from a date?",
+    "options": ["MONTH()", "DATE()", "DAY()", "WEEKNUM()"],
+    "answerIndex": 0,
+    "explanation": "MONTH returns values from 1–12."
+  },
+
+  {
+    "id": 321,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ctrl + G opens:",
+    "options": ["Format dialog", "Go To dialog", "Goal Seek", "Grid settings"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + G → Go To dialog for quick navigation."
+  },
+  {
+    "id": 322,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =TRIM(\" Excel   Basics \") return?",
+    "options": ["Excel Basics", " Excel   Basics ", "Excel   Basics", "ExcelBasics"],
+    "answerIndex": 0,
+    "explanation": "TRIM removes extra spaces except single spaces between words."
+  },
+  {
+    "id": 323,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which rule highlights top 10 numbers in a range?",
+    "options": ["Data Bars", "Top/Bottom Rules", "Icon Sets", "Custom Formula"],
+    "answerIndex": 1,
+    "explanation": "Top/Bottom rules highlight the highest values quickly."
+  },
+  {
+    "id": 324,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator concatenates text?",
+    "options": ["&", "+", "*", "$"],
+    "answerIndex": 0,
+    "explanation": "The & operator joins text strings."
+  },
+  {
+    "id": 325,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which PivotTable area is used to filter entire reports?",
+    "options": ["Rows", "Columns", "Values", "Filters"],
+    "answerIndex": 3,
+    "explanation": "Filters allow whole-report filtering."
+  },
+
+  {
+    "id": 326,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for showing stock market high–low–close data?",
+    "options": ["Line Chart", "Histogram", "OHLC Chart", "Pie Chart"],
+    "answerIndex": 2,
+    "explanation": "OHLC stands for Open-High-Low-Close."
+  },
+  {
+    "id": 327,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Consolidate tool is used to:",
+    "options": ["Combine data from multiple sheets", "Sort data", "Split ranges", "Copy formats"],
+    "answerIndex": 0,
+    "explanation": "Consolidate merges values from different sheets."
+  },
+  {
+    "id": 328,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the number of characters in a text?",
+    "options": ["LEN()", "COUNT()", "TEXT()", "NUMCHARS()"],
+    "answerIndex": 0,
+    "explanation": "LEN determines the text length."
+  },
+  {
+    "id": 329,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "To quickly insert a new row you use:",
+    "options": ["Ctrl + Shift + +", "Ctrl + +", "Alt + Shift + N", "Insert key"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Shift + + inserts rows or columns."
+  },
+  {
+    "id": 330,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=SUM(A1:A5)-AVERAGE(A1:A5) produces:",
+    "options": ["Total minus average", "Total divided by average", "Average minus total", "Error"],
+    "answerIndex": 0,
+    "explanation": "Formula subtracts the average from the total."
+  },
+
+  {
+    "id": 331,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function calculates loan payments?",
+    "options": ["PMT()", "RATE()", "LOAN()", "MORTGAGE()"],
+    "answerIndex": 0,
+    "explanation": "PMT calculates periodic loan payments."
+  },
+  {
+    "id": 332,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Icon sets are used to:",
+    "options": ["Apply symbols based on values", "Format text", "Apply filters", "Join columns"],
+    "answerIndex": 0,
+    "explanation": "Icon sets visually compare values using symbols."
+  },
+  {
+    "id": 333,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which formula adds A1 and A2?",
+    "options": ["A1 + A2", "=A1+A2", "+A1 + A2", "=ADD(A1,A2)"],
+    "answerIndex": 1,
+    "explanation": "All formulas must start with =."
+  },
+  {
+    "id": 334,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool creates multiple what-if scenarios?",
+    "options": ["Goal Seek", "Scenario Manager", "Data Validation", "Solver"],
+    "answerIndex": 1,
+    "explanation": "Scenario Manager handles different sets of input values."
+  },
+  {
+    "id": 335,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=MEDIAN(5,10,15) returns:",
+    "options": ["5", "10", "15", "7.5"],
+    "answerIndex": 1,
+    "explanation": "Median is the middle value."
+  },
+
+  {
+    "id": 336,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart shows cumulative effect of sequential positive/negative values?",
+    "options": ["Waterfall", "Pie", "Bar", "Stacked Line"],
+    "answerIndex": 0,
+    "explanation": "Waterfall charts visualize step-by-step impact."
+  },
+  {
+    "id": 337,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "SUBTOTAL ignores which rows?",
+    "options": ["Hidden rows", "Visible rows", "Filtered-in rows", "None"],
+    "answerIndex": 0,
+    "explanation": "SUBTOTAL can ignore filtered/hidden rows depending on function code."
+  },
+  {
+    "id": 338,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which alignment centers text horizontally?",
+    "options": ["Middle Align", "Center Align", "Justify", "Distributed"],
+    "answerIndex": 1,
+    "explanation": "Center Align places text in the center of the cell."
+  },
+  {
+    "id": 339,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Autocomplete works when:",
+    "options": ["There is a pattern in the column", "Workbook is protected", "Data is numeric only", "Filters are off"],
+    "answerIndex": 0,
+    "explanation": "Autocomplete suggests previous similar entries in the same column."
+  },
+  {
+    "id": 340,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=IFERROR(A1/B1, 0) returns 0 when:",
+    "options": ["A1 is blank", "B1 is 0", "A1 is text", "Any error occurs"],
+    "answerIndex": 3,
+    "explanation": "IFERROR replaces ANY error with the chosen value."
+  },
+
+  {
+    "id": 341,
+    "topic": "Navigation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination selects the entire worksheet?",
+    "options": ["Ctrl + A", "Ctrl + Shift + A", "Ctrl + S", "Alt + A"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + A selects all cells."
+  },
+  {
+    "id": 342,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A Line chart is NOT suitable for:",
+    "options": ["Time-series data", "Tracking performance", "Comparing totals of categories", "Trend analysis"],
+    "answerIndex": 2,
+    "explanation": "Category totals are better shown using Bar/Column charts."
+  },
+  {
+    "id": 343,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns TRUE if a cell contains text?",
+    "options": ["ISTEXT()", "ISNUMBER()", "ISLOGICAL()", "ISNULL()"],
+    "answerIndex": 0,
+    "explanation": "ISTEXT checks whether value type is text."
+  },
+  {
+    "id": 344,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Dragging sheet tabs allows you to:",
+    "options": ["Move sheets", "Copy sheets", "Hide sheets", "Protect sheets"],
+    "answerIndex": 0,
+    "explanation": "Dragging changes sheet order."
+  },
+  {
+    "id": 345,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=AND(TRUE, FALSE) returns:",
+    "options": ["TRUE", "FALSE", "Error", "0"],
+    "answerIndex": 1,
+    "explanation": "AND returns TRUE only if all conditions are TRUE."
+  },
+
+  {
+    "id": 346,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which validation prevents entering future dates?",
+    "options": ["Whole Number", "List", "Custom formula", "Time"],
+    "answerIndex": 2,
+    "explanation": "Custom formula like =A1<=TODAY() restricts future dates."
+  },
+  {
+    "id": 347,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Split Pie Chart is used when:",
+    "options": ["Too many small slices exist", "Values are negative", "Data is time-series", "Data is text-only"],
+    "answerIndex": 0,
+    "explanation": "A split pie highlights smaller categories separately."
+  },
+  {
+    "id": 348,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function converts a number to text?",
+    "options": ["VALUE()", "TEXT()", "CONVERT()", "FORMAT()"],
+    "answerIndex": 1,
+    "explanation": "TEXT formats a number as text according to a format."
+  },
+  {
+    "id": 349,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "PivotCharts update automatically when:",
+    "options": ["Theme changes", "PivotTable refreshes", "Workbook closes", "Chart is copied"],
+    "answerIndex": 1,
+    "explanation": "PivotCharts are linked directly to PivotTables."
+  },
+  {
+    "id": 350,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the nth largest value?",
+    "options": ["LARGE()", "MAX()", "RANK()", "TOP()"],
+    "answerIndex": 0,
+    "explanation": "LARGE(range,n) returns the nth biggest number."
+  },
+  {
+    "id": 351,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the character from a given ASCII code?",
+    "options": ["CHAR()", "CODE()", "UNICODE()", "LETTER()"],
+    "answerIndex": 0,
+    "explanation": "CHAR converts a numeric ASCII code to its character."
+  },
+  {
+    "id": 352,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool removes duplicate rows from a dataset?",
+    "options": ["Filter", "Remove Duplicates", "Advanced Sort", "Text to Columns"],
+    "answerIndex": 1,
+    "explanation": "Remove Duplicates scans selected columns and removes repeated rows."
+  },
+  {
+    "id": 353,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which chart is best for showing percentage contribution of categories?",
+    "options": ["Pie Chart", "Line Chart", "Scatter Chart", "Histogram"],
+    "answerIndex": 0,
+    "explanation": "Pie charts visualize parts of a whole."
+  },
+  {
+    "id": 354,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =LOWER(\"Excel MASTER\") return?",
+    "options": ["excel master", "Excel master", "EXCEL MASTER", "Error"],
+    "answerIndex": 0,
+    "explanation": "LOWER converts all text to lowercase."
+  },
+  {
+    "id": 355,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does #NUM! error indicate?",
+    "options": ["Wrong formula name", "Invalid numeric value", "Text inside formula", "Missing argument"],
+    "answerIndex": 1,
+    "explanation": "#NUM! occurs when a numeric value is invalid or impossible to compute."
+  },
+
+  {
+    "id": 356,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "To create a Pivot Table, data must be:",
+    "options": ["Sorted", "In a tabular format", "Formatted with borders", "On the first sheet"],
+    "answerIndex": 1,
+    "explanation": "Pivot Tables require well-structured tabular data."
+  },
+  {
+    "id": 357,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option merges cells without centering text?",
+    "options": ["Merge & Center", "Merge Cells", "Merge Across", "Center Across Selection"],
+    "answerIndex": 1,
+    "explanation": "Merge Cells keeps text left-aligned."
+  },
+  {
+    "id": 358,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns a random number between 1 and 100?",
+    "options": ["RAND()", "RANDOM()", "RANDBETWEEN(1,100)", "RANDARRAY()"],
+    "answerIndex": 2,
+    "explanation": "RANDBETWEEN generates integers between given limits."
+  },
+  {
+    "id": 359,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key creates a new line inside a cell?",
+    "options": ["Ctrl + Enter", "Alt + Enter", "Shift + Enter", "Tab"],
+    "answerIndex": 1,
+    "explanation": "Alt + Enter inserts a line break within a cell."
+  },
+  {
+    "id": 360,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function calculates the number of working days between two dates?",
+    "options": ["NETWORKDAYS()", "WORKDAY()", "DAYS()", "EDATE()"],
+    "answerIndex": 0,
+    "explanation": "NETWORKDAYS excludes weekends and optional holidays."
+  },
+
+  {
+    "id": 361,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Sparklines are used for:",
+    "options": ["Full-size charts", "Printing large charts", "Tiny trendlines inside cells", "Formatting text"],
+    "answerIndex": 2,
+    "explanation": "Sparklines display mini trend visuals inside a single cell."
+  },
+  {
+    "id": 362,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=IF(OR(FALSE, FALSE, TRUE), \"OK\", \"NO\") returns:",
+    "options": ["OK", "NO", "Error", "TRUE"],
+    "answerIndex": 0,
+    "explanation": "OR returns TRUE if at least one argument is TRUE."
+  },
+  {
+    "id": 363,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function returns today’s date?",
+    "options": ["DATE()", "TODAY()", "NOW()", "CURRENT()"],
+    "answerIndex": 1,
+    "explanation": "TODAY returns the current date without time."
+  },
+  {
+    "id": 364,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill works best when:",
+    "options": ["There is a clear pattern", "Data is numeric only", "Workbook is protected", "Data validation is active"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill automatically recognizes patterns."
+  },
+  {
+    "id": 365,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which of the following is not a valid error?",
+    "options": ["#ERROR!", "#VALUE!", "#REF!", "#N/A"],
+    "answerIndex": 0,
+    "explanation": "#ERROR! does not exist in Excel."
+  },
+
+  {
+    "id": 366,
+    "topic": "Data Validation",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which validation allows selecting from a dropdown?",
+    "options": ["List", "Text Length", "Custom", "Whole Number"],
+    "answerIndex": 0,
+    "explanation": "List validation creates dropdown selections."
+  },
+  {
+    "id": 367,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which action hides a worksheet?",
+    "options": ["Right-click → Hide", "Delete", "Cut", "Move"],
+    "answerIndex": 0,
+    "explanation": "Worksheets can be hidden but not deleted automatically."
+  },
+  {
+    "id": 368,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which text function extracts last letters?",
+    "options": ["LEFT()", "RIGHT()", "MID()", "TRIM()"],
+    "answerIndex": 1,
+    "explanation": "RIGHT extracts characters from the end."
+  },
+  {
+    "id": 369,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for frequency distribution?",
+    "options": ["Histogram", "Pie Chart", "Column Chart", "Waterfall"],
+    "answerIndex": 0,
+    "explanation": "Histograms group data into bins to show distribution."
+  },
+  {
+    "id": 370,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=AND(TRUE, TRUE, TRUE) returns:",
+    "options": ["TRUE", "FALSE", "Error", "1"],
+    "answerIndex": 0,
+    "explanation": "All conditions TRUE → AND returns TRUE."
+  },
+
+  {
+    "id": 371,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which PivotTable field is used for numerical calculations?",
+    "options": ["Rows", "Columns", "Values", "Filters"],
+    "answerIndex": 2,
+    "explanation": "Values field performs aggregation like SUM, COUNT, AVG."
+  },
+  {
+    "id": 372,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=COUNTBLANK(A1:A10) returns:",
+    "options": ["Count of numeric cells", "Count of empty cells", "Count of text cells", "Count of errors"],
+    "answerIndex": 1,
+    "explanation": "COUNTBLANK counts empty cells only."
+  },
+  {
+    "id": 373,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "The Solver tool is used for:",
+    "options": ["Formatting", "Complex optimization", "Text extraction", "Sorting"],
+    "answerIndex": 1,
+    "explanation": "Solver finds optimal values under constraints."
+  },
+  {
+    "id": 374,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "=SUM(A1:A3, B1:B3) calculates:",
+    "options": ["Only A range", "Only B range", "Sum of both ranges", "Error"],
+    "answerIndex": 2,
+    "explanation": "SUM accepts multiple ranges."
+  },
+  {
+    "id": 375,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart emphasizes change over time?",
+    "options": ["Pie", "Line", "Bar", "Histogram"],
+    "answerIndex": 1,
+    "explanation": "Line charts show trends over periods."
+  },
+
+  {
+    "id": 376,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula checks if a cell contains \"Excel\"?",
+    "options": ["=SEARCH(\"Excel\",A1)", "=CHECK(A1)", "=SCAN(A1)", "=VERIFY(A1)"],
+    "answerIndex": 0,
+    "explanation": "SEARCH returns position of substring if found."
+  },
+  {
+    "id": 377,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Page Break Preview is used to:",
+    "options": ["Add borders", "View print layout", "Freeze rows", "Sort data"],
+    "answerIndex": 1,
+    "explanation": "Shows page boundaries before printing."
+  },
+  {
+    "id": 378,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=ROUND(3.14159, 2) returns:",
+    "options": ["3.14", "3.15", "3.1", "3.00"],
+    "answerIndex": 1,
+    "explanation": "Round to two decimals → 3.14159 → 3.14 → 3.15."
+  },
+  {
+    "id": 379,
+    "topic": "Conditional Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which is NOT a conditional formatting type?",
+    "options": ["Data Bars", "Icon Sets", "Color Scales", "Style Sheets"],
+    "answerIndex": 3,
+    "explanation": "Style Sheets do not exist in Excel."
+  },
+  {
+    "id": 380,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "XLOOKUP used with -1 as match_mode finds:",
+    "options": ["Exact match", "Next smaller item", "Next larger item", "Wildcard match"],
+    "answerIndex": 1,
+    "explanation": "match_mode = -1 → exact or next smaller value."
+  },
+
+  {
+    "id": 381,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows viewing two parts of a sheet simultaneously?",
+    "options": ["Zoom", "Split", "Freeze", "Dock"],
+    "answerIndex": 1,
+    "explanation": "Split divides the window into two scrollable panes."
+  },
+  {
+    "id": 382,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which formula joins A1 and B1?",
+    "options": ["A1 + B1", "=A1 & B1", "=JOIN(A1,B1)", "=MERGE(A1,B1)"],
+    "answerIndex": 1,
+    "explanation": "The & operator joins text."
+  },
+  {
+    "id": 383,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Bubble charts require how many data values per point?",
+    "options": ["1", "2", "3", "4"],
+    "answerIndex": 2,
+    "explanation": "Bubble charts require X, Y, and bubble size."
+  },
+  {
+    "id": 384,
+    "topic": "Date",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=YEAR(TODAY()) returns:",
+    "options": ["Month", "Day", "Year", "Date"],
+    "answerIndex": 2,
+    "explanation": "YEAR extracts year number."
+  },
+  {
+    "id": 385,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =ABS(-25) return?",
+    "options": ["25", "-25", "Error", "0"],
+    "answerIndex": 0,
+    "explanation": "ABS returns absolute positive value."
+  },
+
+  {
+    "id": 386,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tab contains the Sort & Filter tools?",
+    "options": ["File", "Home", "Insert", "View"],
+    "answerIndex": 1,
+    "explanation": "Home tab contains Sort & Filter options."
+  },
+  {
+    "id": 387,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the number of unique values?",
+    "options": ["COUNT()", "COUNTA()", "UNIQUE()", "FILTER()"],
+    "answerIndex": 2,
+    "explanation": "UNIQUE extracts distinct values."
+  },
+  {
+    "id": 388,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool groups dates into months in Pivot Table?",
+    "options": ["Group", "Sort A–Z", "Design Tools", "Subtotals"],
+    "answerIndex": 0,
+    "explanation": "Group allows grouping dates into months, quarters, years."
+  },
+  {
+    "id": 389,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Radar chart is best for:",
+    "options": ["Trends over time", "Comparing multivariate performance", "Distribution", "Totals comparison"],
+    "answerIndex": 1,
+    "explanation": "Radar charts compare multiple variables across categories."
+  },
+  {
+    "id": 390,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=ISEVEN(6) returns:",
+    "options": ["TRUE", "FALSE", "6", "Error"],
+    "answerIndex": 0,
+    "explanation": "ISEVEN returns TRUE for even numbers."
+  },
+
+  {
+    "id": 391,
+    "topic": "Links",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut opens a hyperlink?",
+    "options": ["Ctrl + H", "Ctrl + Enter", "Ctrl + Click", "Alt + Click"],
+    "answerIndex": 2,
+    "explanation": "Ctrl + Click follows hyperlink."
+  },
+  {
+    "id": 392,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "The function EXACT(text1, text2) is:",
+    "options": ["Case-sensitive", "Case-insensitive", "Numeric only", "Deprecated"],
+    "answerIndex": 0,
+    "explanation": "EXACT compares two strings case-sensitively."
+  },
+  {
+    "id": 393,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature quickly copies formatting only?",
+    "options": ["Copy", "Paste", "Format Painter", "Fill Handle"],
+    "answerIndex": 2,
+    "explanation": "Format Painter copies formatting styles."
+  },
+  {
+    "id": 394,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula extracts the first word from a cell?",
+    "options": ["=LEFT(A1, FIND(\" \",A1)-1)", "=FIRST(A1)", "=WORD(A1)", "=TEXTBEFORE(A1)"],
+    "answerIndex": 0,
+    "explanation": "LEFT with FIND isolates the first word."
+  },
+  {
+    "id": 395,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart should NOT be used for too many categories?",
+    "options": ["Pie", "Line", "Bar", "Column"],
+    "answerIndex": 0,
+    "explanation": "Crowded pie charts become unreadable."
+  },
+
+  {
+    "id": 396,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows restricting cell input?",
+    "options": ["Data Validation", "Protection", "Freeze", "Sort"],
+    "answerIndex": 0,
+    "explanation": "Data validation controls allowed cell inputs."
+  },
+  {
+    "id": 397,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=PRODUCT(2,3,4) returns:",
+    "options": ["9", "24", "10", "12"],
+    "answerIndex": 1,
+    "explanation": "PRODUCT multiplies numbers → 2 × 3 × 4 = 24."
+  },
+  {
+    "id": 398,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option renames a sheet?",
+    "options": ["Right-click → Rename", "Double-click cell", "File → Rename", "Insert tab"],
+    "answerIndex": 0,
+    "explanation": "Sheets are renamed via right-click or double-clicking the tab."
+  },
+  {
+    "id": 399,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =MOD(17,5) return?",
+    "options": ["2", "3", "5", "0"],
+    "answerIndex": 0,
+    "explanation": "17 ÷ 5 = 3 remainder 2."
+  },
+  {
+    "id": 400,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A Scatter chart requires:",
+    "options": ["Two numeric axes", "One numeric axis", "Only text values", "Percentage data"],
+    "answerIndex": 0,
+    "explanation": "Scatter plots require numeric X and Y values."
+  },
+  {
+    "id": 401,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function removes leading and trailing spaces from text?",
+    "options": ["CLEAN()", "TRIM()", "REMOVE()", "FIX()"],
+    "answerIndex": 1,
+    "explanation": "TRIM removes extra spaces except single spaces between words."
+  },
+  {
+    "id": 402,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyboard shortcut selects the entire worksheet?",
+    "options": ["Ctrl + A", "Ctrl + Shift + A", "Ctrl + W", "Alt + A"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + A selects all cells in the sheet."
+  },
+  {
+    "id": 403,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which operator has the highest precedence in Excel formulas?",
+    "options": ["Addition", "Multiplication", "Exponentiation (^)", "Concatenation (&)"],
+    "answerIndex": 2,
+    "explanation": "Exponentiation has the highest precedence."
+  },
+  {
+    "id": 404,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Waterfall charts are helpful for:",
+    "options": ["Showing categories", "Showing trends", "Showing cumulative impact of sequential values", "Showing percentages"],
+    "answerIndex": 2,
+    "explanation": "Waterfall charts display how values build up to a total."
+  },
+  {
+    "id": 405,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function counts cells that meet multiple criteria?",
+    "options": ["COUNTIF()", "SUMIF()", "COUNTIFS()", "SUMIFS()"],
+    "answerIndex": 2,
+    "explanation": "COUNTIFS supports multiple criteria."
+  },
+
+  {
+    "id": 406,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of Text to Columns?",
+    "options": ["Join text", "Split text into separate columns", "Sort text", "Filter text"],
+    "answerIndex": 1,
+    "explanation": "Text to Columns splits text based on delimiter or fixed width."
+  },
+  {
+    "id": 407,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which format displays numbers as currency?",
+    "options": ["Number", "Accounting", "Currency", "Financial"],
+    "answerIndex": 2,
+    "explanation": "The Currency format shows values with currency symbols."
+  },
+  {
+    "id": 408,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =LEN(\"Excel 2025\") return?",
+    "options": ["10", "9", "8", "11"],
+    "answerIndex": 0,
+    "explanation": "LEN counts characters including spaces — 'Excel 2025' has 10 characters."
+  },
+  {
+    "id": 409,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option locks cells while allowing users to open the sheet?",
+    "options": ["Data Validation", "Protection", "Hide", "Conditional Formatting"],
+    "answerIndex": 1,
+    "explanation": "Sheet Protection locks cells from editing."
+  },
+  {
+    "id": 410,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a formula refers to a deleted cell?",
+    "options": ["#NAME?", "#VALUE!", "#REF!", "#NULL!"],
+    "answerIndex": 2,
+    "explanation": "#REF! indicates an invalid cell reference."
+  },
+
+  {
+    "id": 411,
+    "topic": "Pivot Table",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which area of PivotTable allows filtering data?",
+    "options": ["Rows", "Columns", "Filters", "Values"],
+    "answerIndex": 2,
+    "explanation": "Filters area adds global report-level filters."
+  },
+  {
+    "id": 412,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the position of a character in a string?",
+    "options": ["SEARCH()", "FIND()", "MATCH()", "INDEX()"],
+    "answerIndex": 1,
+    "explanation": "FIND is case-sensitive and returns character position."
+  },
+  {
+    "id": 413,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option repeats the last action?",
+    "options": ["Ctrl + Z", "Ctrl + Y", "Ctrl + R", "Ctrl + A"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + Y is Redo (repeat last action)."
+  },
+  {
+    "id": 414,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=MAX(5,7,2,9,1) returns:",
+    "options": ["1", "9", "7", "5"],
+    "answerIndex": 1,
+    "explanation": "MAX finds the largest value."
+  },
+  {
+    "id": 415,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Pie charts are ideal when:",
+    "options": ["Many categories exist", "Few categories show whole-part relationship", "Trend analysis is needed", "Data is text only"],
+    "answerIndex": 1,
+    "explanation": "Pie charts only work well with few categories showing proportions."
+  },
+
+  {
+    "id": 416,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "XLOOKUP returns which value when not found using default settings?",
+    "options": ["0", "Error", "#N/A", "Blank"],
+    "answerIndex": 2,
+    "explanation": "XLOOKUP returns #N/A unless 'if_not_found' is specified."
+  },
+  {
+    "id": 417,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command inserts a new worksheet?",
+    "options": ["Shift + F11", "Ctrl + N", "Ctrl + Insert", "F2"],
+    "answerIndex": 0,
+    "explanation": "Shift + F11 inserts a new worksheet."
+  },
+  {
+    "id": 418,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Conditional formatting cannot be applied to:",
+    "options": ["Numbers", "Text", "Dates", "Sheet names"],
+    "answerIndex": 3,
+    "explanation": "Sheet names cannot be formatted with conditional formatting."
+  },
+  {
+    "id": 419,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function extracts text after a specific character?",
+    "options": ["LEFT()", "RIGHT()", "MID()", "TEXTAFTER()"],
+    "answerIndex": 3,
+    "explanation": "TEXTAFTER returns text after a delimiter."
+  },
+  {
+    "id": 420,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=INT(12.98) returns:",
+    "options": ["12", "13", "12.98", "0"],
+    "answerIndex": 0,
+    "explanation": "INT rounds down to nearest integer."
+  },
+
+  {
+    "id": 421,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for comparing multiple categories side by side?",
+    "options": ["Pie Chart", "Clustered Column Chart", "Line Chart", "Waterfall"],
+    "answerIndex": 1,
+    "explanation": "Clustered column charts compare categories effectively."
+  },
+  {
+    "id": 422,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Goal Seek adjusts which value?",
+    "options": ["Formula", "Input cell", "Output cell", "Format"],
+    "answerIndex": 1,
+    "explanation": "Goal Seek changes an input value to reach a target output."
+  },
+  {
+    "id": 423,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function returns the smallest value?",
+    "options": ["MAX()", "MIN()", "SMALL()", "LOWER()"],
+    "answerIndex": 1,
+    "explanation": "MIN returns smallest numeric value."
+  },
+  {
+    "id": 424,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature creates dynamic dropdown search?",
+    "options": ["Data Validation", "Advanced Filter", "Slicer", "Tables"],
+    "answerIndex": 2,
+    "explanation": "Slicers provide visual filtering in Pivot Tables and Tables."
+  },
+  {
+    "id": 425,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =PROPER(\"excel training\") return?",
+    "options": ["Excel training", "Excel Training", "EXCEL TRAINING", "excel Training"],
+    "answerIndex": 1,
+    "explanation": "PROPER capitalizes each word."
+  },
+
+  {
+    "id": 426,
+    "topic": "Worksheets",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option hides gridlines?",
+    "options": ["View → Gridlines", "Insert → Lines", "Home → Borders", "Format → Hide Grid"],
+    "answerIndex": 0,
+    "explanation": "Gridlines are controlled in the View tab."
+  },
+  {
+    "id": 427,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which logical function reverses a boolean value?",
+    "options": ["NOT()", "OR()", "XOR()", "IF()"],
+    "answerIndex": 0,
+    "explanation": "NOT returns the opposite boolean value."
+  },
+  {
+    "id": 428,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which sorting option keeps related rows together?",
+    "options": ["Sort by Color", "Custom Sort", "Filter Sort", "Manual Sort"],
+    "answerIndex": 1,
+    "explanation": "Custom Sort defines multi-level sorting."
+  },
+  {
+    "id": 429,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=ROUNDUP(4.21,1) returns:",
+    "options": ["4.2", "4.3", "5", "4"],
+    "answerIndex": 1,
+    "explanation": "ROUNDUP always rounds upward."
+  },
+  {
+    "id": 430,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for cumulative totals?",
+    "options": ["Line chart", "Area chart", "Pie chart", "Histogram"],
+    "answerIndex": 1,
+    "explanation": "Area charts visually represent cumulative totals."
+  },
+
+  {
+    "id": 431,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "TEXTJOIN requires which separator input?",
+    "options": ["Delimiter", "Range", "Reference", "Filter"],
+    "answerIndex": 0,
+    "explanation": "TEXTJOIN joins text using a specified delimiter."
+  },
+  {
+    "id": 432,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature tracks changes made by users?",
+    "options": ["Audit Mode", "Track Changes", "Trace Dependents", "Watch Window"],
+    "answerIndex": 1,
+    "explanation": "Track Changes highlights modified cells."
+  },
+  {
+    "id": 433,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=MID(\"Excel\",2,3) returns:",
+    "options": ["Exc", "xce", "cel", "xcel"],
+    "answerIndex": 2,
+    "explanation": "Starts at 2nd letter → 'cel'."
+  },
+  {
+    "id": 434,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freeze Panes keeps:",
+    "options": ["Only columns fixed", "Only rows fixed", "Selected rows/columns fixed while scrolling", "Sheet size fixed"],
+    "answerIndex": 2,
+    "explanation": "Freeze Panes locks selected rows or columns."
+  },
+  {
+    "id": 435,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=TRANSPOSE({1,2;3,4}) returns:",
+    "options": ["Error", "{1,3;2,4}", "{3,4;1,2}", "{2,1;4,3}"],
+    "answerIndex": 1,
+    "explanation": "TRANSPOSE swaps rows and columns."
+  },
+
+  {
+    "id": 436,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart highlights highs and lows over time?",
+    "options": ["Pie", "Stock Chart", "Column", "Radar"],
+    "answerIndex": 1,
+    "explanation": "Stock charts show open-high-low-close trends."
+  },
+  {
+    "id": 437,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Consolidate feature is used for:",
+    "options": ["Merge sheets", "Summarize data from multiple ranges", "Join text", "Format tables"],
+    "answerIndex": 1,
+    "explanation": "Consolidate combines data from multiple ranges."
+  },
+  {
+    "id": 438,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which error occurs when a formula references itself?",
+    "options": ["#REF!", "#CYCLE!", "Circular Reference Warning", "#NAME?"],
+    "answerIndex": 2,
+    "explanation": "Excel warns about circular references."
+  },
+  {
+    "id": 439,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Wrap Text does what?",
+    "options": ["Shrinks text", "Expands column", "Displays text on multiple lines", "Merges cells"],
+    "answerIndex": 2,
+    "explanation": "Wrap Text makes long text appear on multiple lines in a cell."
+  },
+  {
+    "id": 440,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=COUNT(A1:A5) counts only:",
+    "options": ["Text", "Numbers", "Blank cells", "Formulas"],
+    "answerIndex": 1,
+    "explanation": "COUNT counts numeric values only."
+  },
+
+  {
+    "id": 441,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for comparing contribution proportions over time?",
+    "options": ["Stacked Column Chart", "Pie", "Line", "Scatter"],
+    "answerIndex": 0,
+    "explanation": "Stacked columns show proportions over time."
+  },
+  {
+    "id": 442,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=AVERAGE(5,10,15) returns:",
+    "options": ["10", "12", "30", "15"],
+    "answerIndex": 0,
+    "explanation": "(5+10+15)/3 = 10."
+  },
+  {
+    "id": 443,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The Fill Handle is used for:",
+    "options": ["Formatting", "Copying formulas or extending patterns", "Printing", "Deleting rows"],
+    "answerIndex": 1,
+    "explanation": "Fill Handle automates copying formulas and series."
+  },
+  {
+    "id": 444,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which lookup returns multiple results vertically?",
+    "options": ["VLOOKUP", "HLOOKUP", "XLOOKUP", "FILTER"],
+    "answerIndex": 3,
+    "explanation": "FILTER returns all matching rows."
+  },
+  {
+    "id": 445,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function converts text to uppercase?",
+    "options": ["UPPER()", "PROPER()", "CAPS()", "TEXT()"],
+    "answerIndex": 0,
+    "explanation": "UPPER converts all characters to uppercase."
+  },
+
+  {
+    "id": 446,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Changing sheet tab color helps in:",
+    "options": ["Sorting data", "Visual organization", "Speed improvement", "Error correction"],
+    "answerIndex": 1,
+    "explanation": "Tab coloring helps categorize sheets visually."
+  },
+  {
+    "id": 447,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =COUNTA(A1:A10) count?",
+    "options": ["Only numbers", "Only text", "Non-empty cells", "Errors only"],
+    "answerIndex": 2,
+    "explanation": "COUNTA counts all non-empty cells."
+  },
+  {
+    "id": 448,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which alignment places text vertically?",
+    "options": ["Horizontal Align", "Vertical Align", "Justify", "Wrap Text"],
+    "answerIndex": 1,
+    "explanation": "Vertical alignment positions text top, middle or bottom."
+  },
+  {
+    "id": 449,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature creates a summary that updates automatically?",
+    "options": ["Pivot Table", "Advanced Filter", "Subtotal", "Manual Update"],
+    "answerIndex": 0,
+    "explanation": "PivotTables update summaries when refreshed."
+  },
+  {
+    "id": 450,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=TODAY()+7 returns:",
+    "options": ["Current time", "Date after 7 days", "Date before 7 days", "0"],
+    "answerIndex": 1,
+    "explanation": "Adding a number to TODAY returns a future date."
+  },
+  {
+    "id": 451,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function returns the numeric code of the first character in a text string?",
+    "options": ["CODE()", "CHAR()", "NUM()", "ASC()"],
+    "answerIndex": 0,
+    "explanation": "CODE() returns the ASCII number for the first character."
+  },
+  {
+    "id": 452,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut activates the formula bar?",
+    "options": ["F2", "F4", "Shift + F2", "Ctrl + F2"],
+    "answerIndex": 0,
+    "explanation": "F2 allows editing the active cell and activates formula bar."
+  },
+  {
+    "id": 453,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A Pareto chart is primarily used for:",
+    "options": ["Trend analysis", "Identifying major contributors to a problem", "Showing overall totals", "Showing time series"],
+    "answerIndex": 1,
+    "explanation": "Pareto charts highlight the 'vital few' contributing factors."
+  },
+  {
+    "id": 454,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does the function =N(\"Text\") return?",
+    "options": ["Text", "0", "#VALUE!", "1"],
+    "answerIndex": 1,
+    "explanation": "N() converts non-numeric values to 0."
+  },
+  {
+    "id": 455,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Flash Fill works best when:",
+    "options": ["Patterns exist in data", "Values are random", "Data contains errors", "No examples are provided"],
+    "answerIndex": 0,
+    "explanation": "Flash Fill detects and follows patterns from examples."
+  },
+
+  {
+    "id": 456,
+    "topic": "Formulas",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol forces absolute reference?",
+    "options": ["@", "$", "&", "%"],
+    "answerIndex": 1,
+    "explanation": "$ symbol is used for absolute references like $A$1."
+  },
+  {
+    "id": 457,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formatting option is unavailable in General number format?",
+    "options": ["Decimal places", "Scientific notation", "Large number conversion", "Automatic format changes"],
+    "answerIndex": 0,
+    "explanation": "General format does not allow specifying decimal places."
+  },
+  {
+    "id": 458,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function converts text to a number?",
+    "options": ["TEXT()", "VALUE()", "NUMBERVALUE()", "BOTH B and C"],
+    "answerIndex": 3,
+    "explanation": "VALUE and NUMBERVALUE convert text into numbers."
+  },
+  {
+    "id": 459,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which key combination adds a comment?",
+    "options": ["Shift + F2", "Ctrl + Alt + C", "Ctrl + Shift + X", "Alt + F2"],
+    "answerIndex": 0,
+    "explanation": "Shift + F2 opens the comment box."
+  },
+  {
+    "id": 460,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which lookup function can search both vertically and horizontally?",
+    "options": ["VLOOKUP", "HLOOKUP", "XLOOKUP", "MATCH"],
+    "answerIndex": 2,
+    "explanation": "XLOOKUP works in any direction."
+  },
+
+  {
+    "id": 461,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function removes all non-printable characters?",
+    "options": ["CLEAN()", "TRIM()", "REMOVE()", "FIXTEXT()"],
+    "answerIndex": 0,
+    "explanation": "CLEAN removes non-printable characters."
+  },
+  {
+    "id": 462,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Power Query is used primarily for:",
+    "options": ["Formatting charts", "Automating VBA scripts", "Data cleaning and transformation", "Conditional formatting"],
+    "answerIndex": 2,
+    "explanation": "Power Query imports, cleans, and shapes data."
+  },
+  {
+    "id": 463,
+    "topic": "Functions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function converts lowercase text to uppercase?",
+    "options": ["UPPER()", "PROPER()", "CAPS()", "TEXT()"],
+    "answerIndex": 0,
+    "explanation": "UPPER makes all characters uppercase."
+  },
+  {
+    "id": 464,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option applies predefined formatting to data quickly?",
+    "options": ["Format Painter", "Themes", "Cell Styles", "Wrap Text"],
+    "answerIndex": 2,
+    "explanation": "Cell Styles applies preset formats instantly."
+  },
+  {
+    "id": 465,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which area displays the sum of selected cells?",
+    "options": ["Status Bar", "Formula Bar", "Name Box", "Ribbon"],
+    "answerIndex": 0,
+    "explanation": "The Status Bar shows sum, count, average, etc."
+  },
+
+  {
+    "id": 466,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "A Radar chart is best used for:",
+    "options": ["Comparing trends", "Comparing multiple performance metrics", "Showing proportions", "Showing increases"],
+    "answerIndex": 1,
+    "explanation": "Radar charts compare multivariate performance."
+  },
+  {
+    "id": 467,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool shows formula dependencies visually?",
+    "options": ["Watch Window", "Trace Dependents", "Data Validation", "Outline"],
+    "answerIndex": 1,
+    "explanation": "Trace Dependents shows arrows from dependent cells."
+  },
+  {
+    "id": 468,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=RIGHT(\"EXCEL\", 3) returns:",
+    "options": ["EXC", "CEL", "XCE", "EL"],
+    "answerIndex": 1,
+    "explanation": "The last 3 letters of EXCEL are CEL."
+  },
+  {
+    "id": 469,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which border option adds a box around selected cells?",
+    "options": ["Outline Border", "Inside Border", "No Border", "Bottom Border"],
+    "answerIndex": 0,
+    "explanation": "Outline Border creates a rectangular box."
+  },
+  {
+    "id": 470,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=SUBTOTAL(9, A1:A10) performs:",
+    "options": ["COUNT", "AVERAGE", "SUM", "PRODUCT"],
+    "answerIndex": 2,
+    "explanation": "Function number 9 corresponds to SUM."
+  },
+
+  {
+    "id": 471,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which arrow key combination jumps to the last cell of data?",
+    "options": ["Ctrl + Arrow key", "Shift + Arrow key", "Alt + Arrow key", "Ctrl + Shift + Arrow key"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Arrow jumps to data boundaries."
+  },
+  {
+    "id": 472,
+    "topic": "Formulas",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function checks whether a cell contains an error?",
+    "options": ["ISERROR()", "ERRORCHECK()", "IFERROR()", "ERR()"],
+    "answerIndex": 0,
+    "explanation": "ISERROR tests if a value is any error type."
+  },
+  {
+    "id": 473,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which XLOOKUP argument controls approximate match?",
+    "options": ["match_mode", "search_mode", "if_not_found", "lookup_array"],
+    "answerIndex": 0,
+    "explanation": "match_mode decides exact vs approximate match."
+  },
+  {
+    "id": 474,
+    "topic": "Charts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which element sits above a chart and shows its description?",
+    "options": ["Legend", "Title", "Axis label", "Plot area"],
+    "answerIndex": 1,
+    "explanation": "The title shows the chart's purpose."
+  },
+  {
+    "id": 475,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which function calculates monthly EMI?",
+    "options": ["PMT()", "EMI()", "RATE()", "NPER()"],
+    "answerIndex": 0,
+    "explanation": "PMT calculates loan payments based on rate, periods, and principal."
+  },
+
+  {
+    "id": 476,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature creates groups and collapsible data?",
+    "options": ["Filter", "Outline", "Data Bars", "Remove Duplicates"],
+    "answerIndex": 1,
+    "explanation": "Outline groups rows and columns."
+  },
+  {
+    "id": 477,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which action makes a worksheet active?",
+    "options": ["Double-clicking a cell", "Scrolling", "Clicking its sheet tab", "Changing zoom"],
+    "answerIndex": 2,
+    "explanation": "Clicking the sheet tab activates the worksheet."
+  },
+  {
+    "id": 478,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the output of =ROUND(3.456, 2)?",
+    "options": ["3.4", "3.45", "3.46", "3.5"],
+    "answerIndex": 2,
+    "explanation": "Rounded to 2 decimal places → 3.46."
+  },
+  {
+    "id": 479,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option rotates text inside a cell?",
+    "options": ["Wrap Text", "Orientation", "Alignment", "Format painter"],
+    "answerIndex": 1,
+    "explanation": "Orientation controls text angle."
+  },
+  {
+    "id": 480,
+    "topic": "Data Entry",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut inserts the current date?",
+    "options": ["Ctrl + D", "Ctrl + Shift + ;", "Ctrl + ;", "Shift + ;"],
+    "answerIndex": 2,
+    "explanation": "Ctrl + ; inserts the system date."
+  },
+
+  {
+    "id": 481,
+    "topic": "Lookup",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which lookup function returns the row number of a match?",
+    "options": ["INDEX()", "MATCH()", "VLOOKUP()", "SEARCH()"],
+    "answerIndex": 1,
+    "explanation": "MATCH returns the position of a lookup value."
+  },
+  {
+    "id": 482,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which axis in a chart represents categories?",
+    "options": ["X-axis", "Y-axis", "Z-axis", "Legend axis"],
+    "answerIndex": 0,
+    "explanation": "Category axis is typically horizontal (X-axis)."
+  },
+  {
+    "id": 483,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=ISEVEN(7) returns:",
+    "options": ["TRUE", "FALSE", "0", "#VALUE!"],
+    "answerIndex": 1,
+    "explanation": "7 is not even → returns FALSE."
+  },
+  {
+    "id": 484,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Remove Duplicates works on:",
+    "options": ["Only numbers", "Only text", "Any dataset where columns are selected", "Only visible rows"],
+    "answerIndex": 2,
+    "explanation": "Remove Duplicates checks selected columns for repeat rows."
+  },
+  {
+    "id": 485,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=NETWORKDAYS(\"2025-01-01\", \"2025-01-10\") returns:",
+    "options": ["5", "7", "8", "10"],
+    "answerIndex": 2,
+    "explanation": "NETWORKDAYS excludes weekends → 8 working days."
+  },
+
+  {
+    "id": 486,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which function key opens the Go To dialog?",
+    "options": ["F3", "F4", "F5", "F7"],
+    "answerIndex": 2,
+    "explanation": "F5 opens Go To."
+  },
+  {
+    "id": 487,
+    "topic": "Formatting",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which conditional format highlights duplicate values?",
+    "options": ["Icon Sets", "Color Scales", "Highlight Cell Rules", "Top/Bottom Rules"],
+    "answerIndex": 2,
+    "explanation": "Highlight Cell Rules includes duplicate detection."
+  },
+  {
+    "id": 488,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does =TEXT(1000, \"#,###\") return?",
+    "options": ["1000", "1,000", "#,###", "Error"],
+    "answerIndex": 1,
+    "explanation": "TEXT formats the number using the specified pattern."
+  },
+  {
+    "id": 489,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Power Query step removes extra header rows?",
+    "options": ["Promote Headers", "Use First Row as Headers", "Remove Top Rows", "Transpose"],
+    "answerIndex": 2,
+    "explanation": "Remove Top Rows removes unnecessary header rows."
+  },
+  {
+    "id": 490,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=CHOOSE(3, \"Red\", \"Green\", \"Blue\", \"Yellow\") returns:",
+    "options": ["Red", "Green", "Blue", "Yellow"],
+    "answerIndex": 2,
+    "explanation": "CHOOSE returns the 3rd argument → Blue."
+  },
+
+  {
+    "id": 491,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart is best for visualizing distribution of numeric data?",
+    "options": ["Column chart", "Histogram", "Line chart", "Radar"],
+    "answerIndex": 1,
+    "explanation": "Histograms show frequency distribution."
+  },
+  {
+    "id": 492,
+    "topic": "Worksheet",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Page Break Preview shows:",
+    "options": ["Print area layout", "Chart preview", "Zoom settings", "Workbook links"],
+    "answerIndex": 0,
+    "explanation": "Page Break Preview highlights page boundaries."
+  },
+  {
+    "id": 493,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=EXACT(\"Excel\", \"excel\") returns:",
+    "options": ["TRUE", "FALSE", "Error", "0"],
+    "answerIndex": 1,
+    "explanation": "EXACT is case-sensitive → different cases → FALSE."
+  },
+  {
+    "id": 494,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows recording automation steps?",
+    "options": ["Power Query", "VBA Editor", "Macro Recorder", "Trace Precedents"],
+    "answerIndex": 2,
+    "explanation": "Macro Recorder records actions into VBA."
+  },
+  {
+    "id": 495,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "The function =MOD(17, 5) returns:",
+    "options": ["2", "3", "1", "0"],
+    "answerIndex": 1,
+    "explanation": "17 mod 5 → remainder is 2."
+  },
+
+  {
+    "id": 496,
+    "topic": "Charts",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which chart shows relationship between two numeric variables?",
+    "options": ["Pie", "Scatter", "Column", "Histogram"],
+    "answerIndex": 1,
+    "explanation": "Scatter plots show relationships/correlation."
+  },
+  {
+    "id": 497,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which formula checks if all conditions are TRUE?",
+    "options": ["IF()", "OR()", "NOT()", "AND()"],
+    "answerIndex": 3,
+    "explanation": "AND requires all conditions to be TRUE."
+  },
+  {
+    "id": 498,
+    "topic": "Data Tools",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool summarizes data category-wise automatically?",
+    "options": ["Subtotal", "Consolidate", "Goal Seek", "Scenario Manager"],
+    "answerIndex": 0,
+    "explanation": "Subtotal summarizes grouped data."
+  },
+  {
+    "id": 499,
+    "topic": "Formatting",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which number format displays 50% as 0.5?",
+    "options": ["Percentage", "Fraction", "General", "Scientific"],
+    "answerIndex": 2,
+    "explanation": "General displays the raw number (0.5)."
+  },
+  {
+    "id": 500,
+    "topic": "Functions",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "=WEEKDAY(\"2025-01-01\",1) returns a number representing:",
+    "options": ["Month", "Quarter", "Day of the week", "Year"],
+    "answerIndex": 2,
+    "explanation": "WEEKDAY returns day index (1 = Sunday, 2 = Monday, etc.)."
+  }
+]
+
