@@ -62,7 +62,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 p-10">
         <h1 className="text-2xl text-red-400 font-bold">Module Not Found</h1>
-        <Link to="/javascript/roadmap" className="text-sky-400 underline mt-4 inline-block">
+        <Link to={`/${roadmapData.folder}/roadmap`} className="text-sky-400 underline mt-4 inline-block">
           ← Back to Roadmap
         </Link>
       </div>
@@ -75,7 +75,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
       <div className="min-h-screen bg-slate-950 text-slate-100 p-10">
         <h1 className="text-2xl text-red-400 font-bold">Topic Not Found</h1>
         <Link
-          to={`/javascript/module/${moduleSlug}`}
+          to={`/${roadmapData.folder}/module/${moduleSlug}`}
           className="text-sky-400 underline mt-4 inline-block"
         >
           ← Back to Module
@@ -143,6 +143,25 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
     setSidebarOpen(false);
   }, [moduleSlug, topicIndex]);
 
+  // Local UI state for enhanced Send Topics List block
+  const [waPhone, setWaPhone] = useState("");
+  const [waStudentName, setWaStudentName] = useState(() => {
+    // Try to prefill from local storage (if quiz/certificate saved it earlier)
+    try {
+      const s = localStorage.getItem("student_name");
+      return s || "";
+    } catch {
+      return "";
+    }
+  });
+  const [waIncludeLink, setWaIncludeLink] = useState(true);
+  const [waPreviewOpen, setWaPreviewOpen] = useState(false);
+  const [waLastMessage, setWaLastMessage] = useState("");
+
+  // helper to format topics lines (keeps lines short)
+  const buildTopicListText = (topics) =>
+    topics.map((t, i) => `${i + 1}. ${t}`).join("\n");
+
   // ===================================================================
   // FULL UI
   // ===================================================================
@@ -191,7 +210,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
           {/* Left: Module Info */}
           <div className="flex items-center gap-3">
             <Link
-              to="/javascript/roadmap"
+              to={`/${roadmapData.folder}/roadmap`}
               className="hidden sm:inline-flex items-center rounded-full border border-slate-700 bg-slate-900/70 px-2.5 py-1 text-[11px] text-slate-300 hover:border-sky-500 hover:text-sky-300"
             >
               <ArrowLeft size={12} className="mr-1" />
@@ -235,7 +254,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             <div className="hidden sm:flex items-center gap-2">
               {hasPrev ? (
                 <Link
-                  to={`/javascript/topic/${moduleSlug}/${index - 1}`}
+                  to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
                   className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-200 hover:bg-slate-800"
                 >
                   <ArrowLeft size={13} /> Prev
@@ -248,7 +267,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
 
               {hasNext ? (
                 <Link
-                  to={`/javascript/topic/${moduleSlug}/${index + 1}`}
+                  to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
                   className="px-2.5 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 border border-sky-500 text-[11px] text-white"
                 >
                   Next <ArrowRight size={13} />
@@ -316,7 +335,7 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                   <Link
                     key={i}
                     ref={isActive ? activeTopicRef : null}
-                    to={`/javascript/topic/${moduleSlug}/${i}`}
+                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
                     className={`
                       relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
                       ${isActive
@@ -349,17 +368,15 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
             {/* Sidebar Footer */}
             <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
 
-              
-
               <Link
-                to={`/javascript/module/${moduleSlug}`}
+                to={`/${roadmapData.folder}/module/${moduleSlug}`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
                 ← Back to Module Overview
               </Link>
 
               <Link
-                to="/javascript/roadmap"
+                to={`/${roadmapData.folder}/roadmap`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
                 📍 JavaScript Roadmap
@@ -374,65 +391,164 @@ function JavaScriptTopicViewInner({ moduleSlug, topicIndex }) {
                 🧪 CNAT Playground
               </a>
             </div>
-            {/* SEND TOPIC LIST TO ANY PHONE NUMBER */}
-              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
 
-                <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500 mb-2">
+            {/* =========================
+                 ENHANCED: Send Topics List (Ultra Premium)
+                 ========================= */}
+            <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500">
                   Send Topics List
                 </p>
+                <span className="text-[11px] text-slate-400">{moduleData.topics.length} topics</span>
+              </div>
 
-                {/* PHONE NUMBER INPUT */}
-                <input
-                  id="waPhoneInput"
-                  type="text"
-                  placeholder="Enter WhatsApp number (e.g., 919876543210)"
-                  className="
-      w-full bg-slate-800 text-slate-200
-      p-2 rounded-lg border border-slate-600
-      text-xs focus:outline-none focus:border-sky-500
-    "
-                />
+              {/* Student name input */}
+              <label className="text-[11px] text-slate-400">Student name (optional)</label>
+              <input
+                id="waStudentNameInput"
+                value={waStudentName}
+                onChange={(e) => setWaStudentName(e.target.value)}
+                type="text"
+                placeholder="e.g., Ritaja Ghosh"
+                className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 mb-3 focus:outline-none focus:border-sky-500"
+              />
+
+              {/* PHONE NUMBER INPUT */}
+              <label className="text-[11px] text-slate-400">WhatsApp number</label>
+              <input
+                id="waPhoneInput"
+                value={waPhone}
+                onChange={(e) => setWaPhone(e.target.value)}
+                type="text"
+                placeholder="e.g., 919876543210"
+                className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 focus:outline-none focus:border-sky-500"
+              />
+
+              {/* Options */}
+              <div className="flex items-center gap-2 mt-3">
+                <label className="inline-flex items-center gap-2 text-xs text-slate-300">
+                  <input
+                    type="checkbox"
+                    checked={waIncludeLink}
+                    onChange={() => setWaIncludeLink((v) => !v)}
+                    className="accent-sky-500"
+                  />
+                  Include module link
+                </label>
 
                 <button
                   onClick={() => {
-                    const phone = document.getElementById("waPhoneInput").value.trim();
+                    // Copy preview to clipboard (rebuild message)
+                    const phone = waPhone.trim();
+                    if (!phone) return alert("Please enter a WhatsApp phone number.");
 
-                    if (!phone) {
-                      return alert("Please enter a WhatsApp phone number.");
+                    const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
+                    const topicsText = buildTopicListText(moduleData.topics);
+
+                    // Build Ultra Premium message
+                    const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
+                    const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
+                    const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
+                    const body = `\n*Topics Preview:*\n${topicsText}\n`;
+                    const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
+                    const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
+
+                    const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
+
+                    // copy to clipboard
+                    try {
+                      navigator.clipboard.writeText(fullMessage);
+                      alert("Message preview copied to clipboard. You can paste it in WhatsApp or preview below.");
+                      setWaLastMessage(fullMessage);
+                      setWaPreviewOpen(true);
+                    } catch (err) {
+                      // fallback: show preview
+                      setWaLastMessage(fullMessage);
+                      setWaPreviewOpen(true);
                     }
-
-                    // Auto-generate topic list
-                    const topicList = moduleData.topics
-                      .map((t, i) => `${i + 1}. ${t}`)
-                      .join("\n");
-
-                    // Direct link for this module
-                    const moduleLink = `${window.location.origin}/javascript/module/${moduleSlug}`;
-
-                    const text = encodeURIComponent(
-                      `📘 *Module Topic List*
-• *Module:* ${moduleData.title}
-
-${topicList}
-
-🔗 *Direct Link to Module:*
-${moduleLink}
-
-— Sent via Coder & AccoTax Learning Platform`
-                    );
-
-                    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
                   }}
-                  className="
-      w-full mt-3 py-2
-      bg-green-600 hover:bg-green-500
-      rounded-lg text-xs font-semibold
-      text-white transition
-    "
+                  className="ml-auto px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:bg-slate-900"
                 >
-                  📤 Send Topics List
+                  Copy Preview
                 </button>
               </div>
+
+              {/* Preview toggle */}
+              <div className="mt-3">
+                <button
+                  onClick={() => {
+                    // Build message for preview only and toggle
+                    const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
+                    const topicsText = buildTopicListText(moduleData.topics);
+                    const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
+                    const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
+                    const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
+                    const body = `\n*Topics Preview:*\n${topicsText}\n`;
+                    const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
+                    const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
+                    const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
+
+                    setWaLastMessage(fullMessage);
+                    setWaPreviewOpen((s) => !s);
+                  }}
+                  className="w-full mt-3 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-semibold text-white transition"
+                >
+                  {waPreviewOpen ? "Hide Preview" : "Preview Message"}
+                </button>
+              </div>
+
+              {/* Preview area */}
+              {waPreviewOpen && (
+                <pre className="mt-3 whitespace-pre-wrap text-[13px] bg-slate-900 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs">
+                  {waLastMessage || "No preview available."}
+                </pre>
+              )}
+
+              {/* Send button */}
+              <button
+                onClick={() => {
+                  const phoneRaw = waPhone.trim();
+                  if (!phoneRaw) {
+                    return alert("Please enter the WhatsApp phone number (with country code). Example: 919876543210");
+                  }
+
+                  // sanitize phone (remove leading + or non-digits)
+                  const phone = phoneRaw.replace(/[^0-9]/g, "");
+                  if (!/^\d{10,15}$/.test(phone)) {
+                    // allow 10..15 digits (local + country)
+                    if (!confirm("Phone number looks unusual. Continue anyway?")) return;
+                  }
+
+                  const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
+                  const topicsText = buildTopicListText(moduleData.topics);
+
+                  const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
+                  const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
+                  const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
+                  const body = `\n*Topics Preview:*\n${topicsText}\n`;
+                  const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
+                  const closing = `\n━━━━━━━━━━━━━━━━━━━━\nNeed help? Reply with "HELP" and we'll assist you.\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
+
+                  const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${closing}`;
+
+                  // Save student name for convenience
+                  try {
+                    localStorage.setItem("student_name", waStudentName.trim());
+                  } catch { /* ignore */ }
+
+                  const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
+                  window.open(url, "_blank");
+                }}
+                className="w-full mt-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-xs font-semibold text-white transition"
+              >
+                📤 Send Ultra Premium Topic Message
+              </button>
+
+              <p className="text-[11px] text-slate-500 mt-2">
+                Tip: include country code (e.g., 91 for India). You can preview or copy the message before sending.
+              </p>
+            </div>
           </aside>
 
           {/* ====================== MOBILE SIDEBAR (DRAWER) ====================== */}
@@ -496,7 +612,7 @@ ${moduleLink}
                     return (
                       <Link
                         key={i}
-                        to={`/javascript/topic/${moduleSlug}/${i}`}
+                        to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
                         onClick={() => setSidebarOpen(false)}
                         className={`
                           relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
@@ -529,7 +645,7 @@ ${moduleLink}
                 {/* Footer Links */}
                 <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
                   <Link
-                    to={`/javascript/module/${moduleSlug}`}
+                    to={`/${roadmapData.folder}/module/${moduleSlug}`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
                   >
@@ -537,7 +653,7 @@ ${moduleLink}
                   </Link>
 
                   <Link
-                    to="/javascript/roadmap"
+                    to={`/${roadmapData.folder}/roadmap`}
                     onClick={() => setSidebarOpen(false)}
                     className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
                   >
@@ -596,7 +712,7 @@ ${moduleLink}
                   <div className="flex items-center gap-2 mt-4 md:mt-0">
                     {hasPrev ? (
                       <Link
-                        to={`/javascript/topic/${moduleSlug}/${index - 1}`}
+                        to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
                         className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-[11px] text-slate-200 hover:bg-slate-800"
                       >
                         <ArrowLeft size={13} /> Prev
@@ -609,7 +725,7 @@ ${moduleLink}
 
                     {hasNext ? (
                       <Link
-                        to={`/javascript/topic/${moduleSlug}/${index + 1}`}
+                        to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
                         className="px-2.5 py-1.5 rounded-lg bg-sky-600 border border-sky-500 text-[11px] text-white hover:bg-sky-500"
                       >
                         Next <ArrowRight size={13} />
@@ -633,7 +749,7 @@ ${moduleLink}
                     <div className="text-slate-300 text-sm">
                       <p className="mb-1">Topic file missing:</p>
                       <pre className="text-sky-400 mt-2 text-xs bg-slate-950/60 rounded-lg p-3 border border-slate-800 overflow-x-auto">
-                        {`src/components/study/javascript/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
+                        {`src/components/study/${roadmapData.folder}/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
                       </pre>
                     </div>
                   )}
