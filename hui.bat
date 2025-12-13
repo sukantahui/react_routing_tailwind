@@ -16,3 +16,8 @@ start "" http://localhost:5173
 
 echo All processes started in separate terminals.
 
+echo Opening cPanel Terminal in new tab...
+start "" "https://titus.protondns.net:2083/cpsess2424099602/frontend/jupiter/terminal/index.html"
+
+echo Opening chatGpt Terminal in new tab...
+start "" "https://chatgpt.com/"

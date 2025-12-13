@@ -117,9 +117,9 @@ export default function AppRoutes() {
       <Route path="/python/topic/:moduleSlug/:topicIndex"  element={<PythonTopicView />}/>
 
       {/* For C Language */}
-      <Route path="/c/roadmap" element={<CRoadmap />} />
-      <Route path="/c/module/:slug" element={<CModuleView />} />
-      <Route path="/c/topic/:moduleSlug/:topicIndex"  element={<CTopicView />}/>
+      <Route path="/c-language/roadmap" element={<CRoadmap />} />
+      <Route path="/c-language/module/:slug" element={<CModuleView />} />
+      <Route path="/c-language/topic/:moduleSlug/:topicIndex"  element={<CTopicView />}/>
 
 
       {/* For Tally Prime */}

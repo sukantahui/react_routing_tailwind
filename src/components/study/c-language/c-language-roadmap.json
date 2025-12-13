@@ -11,6 +11,8 @@
     "version": "1.0.0",
     "lastUpdated": "2025-12-02"
   },
+  "folder": "c-language",
+  "subject": "C Language",
   "segments": [
     {
       "segmentId": "basic",
@@ -107,7 +109,7 @@
             "Basic arithmetic expressions",
             "Implicit and explicit type conversion and type promotion",
             "Practice These Topics",
-            "Quize"
+            "Quiz"
           ],
           "learningOutcomes": [
             "Declare and use C variables correctly",
@@ -180,7 +182,7 @@
             "Basic expression evaluation rules and precedence",
             "Format Specifiers in C",
             "Test your Skill",
-            "Quize"
+            "Quiz"
           ],
           "learningOutcomes": [
             "Use arithmetic and logical operators correctly in C",
