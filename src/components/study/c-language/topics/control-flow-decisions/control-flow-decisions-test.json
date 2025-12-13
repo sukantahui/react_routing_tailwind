@@ -1,0 +1,2606 @@
+[
+  {
+    "id": 1,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement is used to execute a block of code when a condition is true?",
+    "options": ["for", "if", "switch", "goto"],
+    "answerIndex": 1,
+    "explanation": "The if statement executes code only when the condition evaluates to true."
+  },
+  {
+    "id": 2,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the condition inside an if statement evaluate to?",
+    "options": ["String", "Integer", "True or False", "Character"],
+    "answerIndex": 2,
+    "explanation": "Conditions evaluate to true (non-zero) or false (zero) in C."
+  },
+  {
+    "id": 3,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used for equality comparison in C?",
+    "options": ["=", "==", "!=", "<="],
+    "answerIndex": 1,
+    "explanation": "The == operator compares two values for equality."
+  },
+  {
+    "id": 4,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What will happen if the condition in an if statement is false and there is no else?",
+    "options": ["Program crashes", "Else block executes", "Nothing happens", "Compiler error"],
+    "answerIndex": 2,
+    "explanation": "If the condition is false and there is no else, nothing executes."
+  },
+  {
+    "id": 5,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a nested if statement?",
+    "options": [
+      "Multiple if statements at same level",
+      "An if inside another if",
+      "An if without else",
+      "An if inside switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "A nested if means an if statement placed inside another if block."
+  },
+  {
+    "id": 6,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why should deep nesting be avoided?",
+    "options": [
+      "It causes syntax error",
+      "It increases memory usage",
+      "It reduces code readability",
+      "It stops compilation"
+    ],
+    "answerIndex": 2,
+    "explanation": "Deep nesting makes code hard to read and maintain."
+  },
+  {
+    "id": 7,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement is best suited when comparing one variable with many constant values?",
+    "options": ["if", "if-else", "switch", "while"],
+    "answerIndex": 2,
+    "explanation": "The switch statement is ideal for multi-way selection."
+  },
+  {
+    "id": 8,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What keyword prevents fall-through in a switch case?",
+    "options": ["continue", "stop", "exit", "break"],
+    "answerIndex": 3,
+    "explanation": "The break statement exits the switch block."
+  },
+  {
+    "id": 9,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which case executes when no matching case is found?",
+    "options": ["case 0", "else", "default", "last"],
+    "answerIndex": 2,
+    "explanation": "The default case executes when no case matches."
+  },
+  {
+    "id": 10,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a menu-driven program?",
+    "options": [
+      "Program without input",
+      "Program with graphical UI",
+      "Program where user selects options",
+      "Program using recursion"
+    ],
+    "answerIndex": 2,
+    "explanation": "Menu-driven programs allow users to choose options from a list."
+  },
+  {
+    "id": 11,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which C statement is most commonly used to implement a menu?",
+    "options": ["if", "switch", "for", "goto"],
+    "answerIndex": 1,
+    "explanation": "The switch statement is ideal for menu-driven programs."
+  },
+  {
+    "id": 12,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which control structure is most suitable for a grading system?",
+    "options": ["for loop", "while loop", "if-else ladder", "do-while loop"],
+    "answerIndex": 2,
+    "explanation": "An if-else ladder is used to check ranges of marks."
+  },
+  {
+    "id": 13,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What will be the output?\n\nint x = 0;\nif (x)\n    printf(\"True\");\nelse\n    printf(\"False\");",
+    "options": ["True", "False", "Compilation error", "No output"],
+    "answerIndex": 1,
+    "explanation": "In C, 0 is treated as false, so the else block executes."
+  },
+  {
+    "id": 14,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which value is considered FALSE in C?",
+    "options": ["-1", "0", "1", "Any non-zero"],
+    "answerIndex": 1,
+    "explanation": "Only 0 is considered false in C."
+  },
+  {
+    "id": 15,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which logical operator can reduce nested if statements?",
+    "options": ["=", "&&", "|", "~"],
+    "answerIndex": 1,
+    "explanation": "The && operator allows combining conditions and reduces nesting."
+  },
+  {
+    "id": 16,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the main disadvantage of deeply nested if statements?",
+    "options": [
+      "Slower execution",
+      "More memory usage",
+      "Poor readability and logic errors",
+      "Compilation failure"
+    ],
+    "answerIndex": 2,
+    "explanation": "Deep nesting makes code difficult to read and maintain."
+  },
+  {
+    "id": 17,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which data type is NOT allowed in switch expression in C?",
+    "options": ["int", "char", "float", "enum"],
+    "answerIndex": 2,
+    "explanation": "Switch does not support floating-point expressions."
+  },
+  {
+    "id": 18,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens if break is omitted in a switch case?",
+    "options": [
+      "Only one case executes",
+      "Program terminates",
+      "Fall-through occurs",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Without break, execution continues into the next case."
+  },
+  {
+    "id": 19,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Duplicate case labels in a switch statement result in:",
+    "options": [
+      "Runtime error",
+      "Logical error",
+      "Compilation error",
+      "Ignored case"
+    ],
+    "answerIndex": 2,
+    "explanation": "Each case label must be unique, otherwise compilation fails."
+  },
+  {
+    "id": 20,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which input is usually required in a menu-driven program?",
+    "options": ["Character array", "Floating value", "User choice", "Pointer"],
+    "answerIndex": 2,
+    "explanation": "Menu-driven programs require a user choice to select actions."
+  },
+  {
+    "id": 21,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which structure is often combined with menu-driven programs?",
+    "options": ["Recursion", "switch", "goto", "macro"],
+    "answerIndex": 1,
+    "explanation": "switch is commonly used to handle menu options."
+  },
+  {
+    "id": 22,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used to compare entered PIN with stored PIN?",
+    "options": ["=", "==", "!=", "<"],
+    "answerIndex": 1,
+    "explanation": "The == operator is used for comparison."
+  },
+  {
+    "id": 23,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which logic is commonly used in electricity billing systems?",
+    "options": [
+      "Loop-based logic",
+      "Slab-based if-else logic",
+      "Recursive logic",
+      "Pointer arithmetic"
+    ],
+    "answerIndex": 1,
+    "explanation": "Billing systems use slab-based if-else conditions."
+  },
+  {
+    "id": 24,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which condition correctly checks pass/fail?",
+    "options": [
+      "marks = 40",
+      "marks > 40",
+      "marks >= 40",
+      "marks == 100"
+    ],
+    "answerIndex": 2,
+    "explanation": "marks >= 40 correctly includes the boundary value."
+  },
+  {
+    "id": 25,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which statement avoids the dangling else problem?",
+    "options": [
+      "Proper indentation",
+      "Using braces {}",
+      "Avoiding else",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Using braces clearly associates else with the correct if."
+  },
+  {
+    "id": 26,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which technique improves readability of complex conditions?",
+    "options": [
+      "Deep nesting",
+      "Magic numbers",
+      "Logical grouping",
+      "Removing comments"
+    ],
+    "answerIndex": 2,
+    "explanation": "Logical grouping improves clarity of conditions."
+  },
+  {
+    "id": 27,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which case executes if no break statements exist?",
+    "options": [
+      "Only first case",
+      "Only matching case",
+      "All following cases",
+      "Default only"
+    ],
+    "answerIndex": 2,
+    "explanation": "Execution falls through all subsequent cases."
+  },
+  {
+    "id": 28,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature makes menu-driven programs user-friendly?",
+    "options": [
+      "Hardcoded values",
+      "Clear options list",
+      "Deep nesting",
+      "goto usage"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear options help users interact easily."
+  },
+  {
+    "id": 29,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which is a boundary value testing example?",
+    "options": [
+      "marks = 10",
+      "marks = 39",
+      "marks = 40",
+      "marks = 75"
+    ],
+    "answerIndex": 2,
+    "explanation": "Boundary testing focuses on exact limit values."
+  },
+  {
+    "id": 30,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why is else-if preferred over multiple if statements?",
+    "options": [
+      "Faster execution",
+      "Better memory usage",
+      "Clear mutually exclusive logic",
+      "Mandatory syntax"
+    ],
+    "answerIndex": 2,
+    "explanation": "else-if ensures only one condition executes."
+  },
+   {
+    "id": 31,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword is used to check multiple conditions in sequence?",
+    "options": ["if", "else", "else-if", "switch"],
+    "answerIndex": 2,
+    "explanation": "The else-if ladder is used to check multiple conditions in sequence."
+  },
+  {
+    "id": 32,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What will be the output?\n\nint x = 10;\nif (x < 5)\n    printf(\"A\");\nelse if (x < 15)\n    printf(\"B\");\nelse\n    printf(\"C\");",
+    "options": ["A", "B", "C", "No output"],
+    "answerIndex": 1,
+    "explanation": "x < 15 is true, so output is B."
+  },
+  {
+    "id": 33,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice avoids the dangling else problem?",
+    "options": [
+      "Avoiding else",
+      "Using proper indentation only",
+      "Using braces {}",
+      "Using goto"
+    ],
+    "answerIndex": 2,
+    "explanation": "Using braces clearly associates else with the correct if."
+  },
+  {
+    "id": 34,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested conditions are mainly used when:",
+    "options": [
+      "Multiple unrelated checks exist",
+      "A condition depends on another condition",
+      "Loop is required",
+      "Switch cannot be used"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested conditions are used when one condition depends on another."
+  },
+  {
+    "id": 35,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which condition is logically equivalent to nested if?\n\nif (a > 0) {\n  if (b > 0)\n    printf(\"Yes\");\n}",
+    "options": [
+      "if (a > 0 || b > 0)",
+      "if (a > 0 && b > 0)",
+      "if (a == b)",
+      "if (a > b)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Both conditions must be true, so && is correct."
+  },
+  {
+    "id": 36,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the biggest drawback of excessive nesting?",
+    "options": [
+      "Slow execution",
+      "High memory usage",
+      "Poor readability and maintenance",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Excessive nesting reduces readability and increases bugs."
+  },
+  {
+    "id": 37,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword labels individual cases in a switch statement?",
+    "options": ["switch", "break", "case", "default"],
+    "answerIndex": 2,
+    "explanation": "The case keyword labels each option in a switch."
+  },
+  {
+    "id": 38,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which statement exits the switch block immediately?",
+    "options": ["continue", "return", "break", "exit"],
+    "answerIndex": 2,
+    "explanation": "break exits the switch block."
+  },
+  {
+    "id": 39,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following is NOT allowed as a case label?",
+    "options": ["10", "'A'", "3+2", "variable"],
+    "answerIndex": 3,
+    "explanation": "Case labels must be constant expressions, not variables."
+  },
+  {
+    "id": 40,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why is switch preferred in menu-driven programs?",
+    "options": [
+      "It uses less memory",
+      "It improves readability for fixed options",
+      "It avoids user input",
+      "It replaces loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "switch is clear and readable when handling fixed menu options."
+  },
+  {
+    "id": 41,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol is used to group multiple statements under an if condition?",
+    "options": ["()", "[]", "{}", "<>"],
+    "answerIndex": 2,
+    "explanation": "Curly braces {} are used to group multiple statements."
+  },
+  {
+    "id": 42,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What will be the output?\n\nint a = 5;\nif (a > 10)\n    printf(\"High\");\nprintf(\"End\");",
+    "options": ["HighEnd", "End", "High", "Compilation error"],
+    "answerIndex": 1,
+    "explanation": "The condition is false, so only printf(\"End\") executes."
+  },
+  {
+    "id": 43,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following best avoids logical errors in conditional statements?",
+    "options": [
+      "Using magic numbers",
+      "Using braces consistently",
+      "Avoiding comments",
+      "Removing indentation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Using braces consistently avoids ambiguity and logical errors."
+  },
+  {
+    "id": 44,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many levels of nesting are recommended for readability?",
+    "options": ["Unlimited", "As many as needed", "Minimal levels", "Exactly two"],
+    "answerIndex": 2,
+    "explanation": "Minimal nesting improves readability and maintainability."
+  },
+  {
+    "id": 45,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which rewrite reduces nesting?\n\nif (a > 0) {\n  if (b > 0)\n    printf(\"Yes\");\n}",
+    "options": [
+      "if (a > 0 || b > 0)",
+      "if (a > 0 && b > 0)",
+      "if (a == b)",
+      "if (a > b)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Combining conditions with && reduces nesting."
+  },
+  {
+    "id": 46,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice improves maintainability of nested logic?",
+    "options": [
+      "Hardcoding values",
+      "Using descriptive variable names",
+      "Removing else blocks",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Descriptive variable names make nested logic clearer."
+  },
+  {
+    "id": 47,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword starts a switch statement?",
+    "options": ["case", "default", "switch", "select"],
+    "answerIndex": 2,
+    "explanation": "The switch keyword begins a switch statement."
+  },
+  {
+    "id": 48,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which statement exits a switch but allows the program to continue?",
+    "options": ["return", "continue", "break", "exit"],
+    "answerIndex": 2,
+    "explanation": "break exits the switch statement."
+  },
+  {
+    "id": 49,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which is true about switch-case labels?",
+    "options": [
+      "They can be variables",
+      "They must be constant expressions",
+      "They can be float values",
+      "They can be strings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Case labels must be compile-time constant expressions."
+  },
+  {
+    "id": 50,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which output is expected from a menu-driven program?",
+    "options": [
+      "Random output",
+      "No output",
+      "Action based on user choice",
+      "Always same output"
+    ],
+    "answerIndex": 2,
+    "explanation": "Menu-driven programs act based on user input."
+  },
+  {
+    "id": 51,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which loop is often used to repeatedly display a menu?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while ensures the menu displays at least once."
+  },
+  {
+    "id": 52,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why is do-while preferred for menu-driven programs?",
+    "options": [
+      "It is faster",
+      "It avoids break",
+      "Menu executes at least once",
+      "It reduces memory"
+    ],
+    "answerIndex": 2,
+    "explanation": "do-while guarantees at least one execution."
+  },
+  {
+    "id": 53,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition checks if a student has passed?",
+    "options": [
+      "marks = 40",
+      "marks > 40",
+      "marks >= 40",
+      "marks != 40"
+    ],
+    "answerIndex": 2,
+    "explanation": "marks >= 40 includes the boundary value."
+  },
+  {
+    "id": 54,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which system commonly uses slab-based conditions?",
+    "options": [
+      "Login system",
+      "Grading system",
+      "Electricity billing",
+      "Menu program"
+    ],
+    "answerIndex": 2,
+    "explanation": "Electricity billing uses slab-based logic."
+  },
+  {
+    "id": 55,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why is boundary testing important in real-world logic?",
+    "options": [
+      "To reduce code size",
+      "To improve UI",
+      "To handle edge cases",
+      "To avoid loops"
+    ],
+    "answerIndex": 2,
+    "explanation": "Boundary testing ensures correctness at limit values."
+  },
+  {
+    "id": 55,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why is boundary value testing important in real-world programs?",
+    "options": [
+      "To reduce execution time",
+      "To handle edge cases correctly",
+      "To simplify syntax",
+      "To avoid conditions"
+    ],
+    "answerIndex": 1,
+    "explanation": "Boundary testing ensures correctness at limit values such as pass marks or billing slabs."
+  },
+  {
+    "id": 56,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol must follow an if condition?",
+    "options": ["{}", "()", "[]", "<>"],
+    "answerIndex": 1,
+    "explanation": "The condition of an if statement must be written inside parentheses ()."
+  },
+  {
+    "id": 57,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What will be printed?\n\nint a = 5;\nif (a = 0)\n    printf(\"Yes\");\nelse\n    printf(\"No\");",
+    "options": ["Yes", "No", "Compilation error", "Undefined"],
+    "answerIndex": 1,
+    "explanation": "Assignment makes a = 0, which is false, so else executes."
+  },
+  {
+    "id": 58,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which mistake commonly causes logical errors in if conditions?",
+    "options": [
+      "Using braces",
+      "Using == instead of =",
+      "Using = instead of ==",
+      "Using indentation"
+    ],
+    "answerIndex": 2,
+    "explanation": "Using assignment (=) instead of comparison (==) is a common logical error."
+  },
+  {
+    "id": 59,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements are required when:",
+    "options": [
+      "Conditions are independent",
+      "One condition depends on another",
+      "Using switch",
+      "Using loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested if is used when a condition is checked only if another condition is true."
+  },
+  {
+    "id": 60,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which rewrite improves readability?\n\nif (a > 0) {\n  if (b > 0)\n    printf(\"OK\");\n}",
+    "options": [
+      "if (a > 0 || b > 0)",
+      "if (a > 0 && b > 0)",
+      "if (a == b)",
+      "if (a > b)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Using && combines conditions and avoids nesting."
+  },
+  {
+    "id": 61,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the best practice to reduce nested logic complexity?",
+    "options": [
+      "Use goto",
+      "Use descriptive variables and logical operators",
+      "Remove else blocks",
+      "Avoid comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear variables and logical operators improve maintainability."
+  },
+  {
+    "id": 62,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword handles unmatched cases in a switch statement?",
+    "options": ["else", "last", "default", "continue"],
+    "answerIndex": 2,
+    "explanation": "default executes when no case matches."
+  },
+  {
+    "id": 63,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens if break is omitted after a matching case?",
+    "options": [
+      "Only that case runs",
+      "Compilation error",
+      "Fall-through to next cases",
+      "Program stops"
+    ],
+    "answerIndex": 2,
+    "explanation": "Execution continues into the next cases."
+  },
+  {
+    "id": 64,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following is allowed in a case label?",
+    "options": ["Variable", "Float value", "Constant expression", "String"],
+    "answerIndex": 2,
+    "explanation": "Case labels must be compile-time constant expressions."
+  },
+  {
+    "id": 65,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu-driven programs usually require:",
+    "options": [
+      "Automatic execution",
+      "User choice input",
+      "Recursive calls",
+      "File handling"
+    ],
+    "answerIndex": 1,
+    "explanation": "User input determines which menu option executes."
+  },
+  {
+    "id": 66,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which loop ensures a menu appears at least once?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while executes the loop body at least once."
+  },
+  {
+    "id": 67,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why is do-while preferred in menu-driven programs?",
+    "options": [
+      "Faster execution",
+      "Guaranteed first execution",
+      "Avoids conditions",
+      "Uses less memory"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menus must be displayed at least once before exit."
+  },
+  {
+    "id": 68,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used to validate login credentials?",
+    "options": ["=", "==", "!=", "<"],
+    "answerIndex": 1,
+    "explanation": "== is used to compare entered and stored values."
+  },
+  {
+    "id": 69,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which real-world system commonly uses slab-based logic?",
+    "options": [
+      "Login system",
+      "Grading system",
+      "Electricity billing system",
+      "Menu program"
+    ],
+    "answerIndex": 2,
+    "explanation": "Billing systems use slab-based conditions."
+  },
+  {
+    "id": 70,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which value is most important to test in grading logic?",
+    "options": [
+      "Random values",
+      "Lowest value",
+      "Boundary value",
+      "Highest value only"
+    ],
+    "answerIndex": 2,
+    "explanation": "Boundary values determine correct pass/fail behavior."
+  },
+  {
+    "id": 71,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which block executes when all else-if conditions fail?",
+    "options": ["if", "else", "default", "switch"],
+    "answerIndex": 1,
+    "explanation": "The else block executes when all conditions are false."
+  },
+  {
+    "id": 72,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator combines multiple conditions?",
+    "options": ["=", "&&", "++", "--"],
+    "answerIndex": 1,
+    "explanation": "&& combines multiple conditions logically."
+  },
+  {
+    "id": 73,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which practice improves nested code readability?",
+    "options": [
+      "Removing braces",
+      "Using proper indentation",
+      "Using goto",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Proper indentation improves readability."
+  },
+  {
+    "id": 74,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which technique best simplifies complex nested conditions?",
+    "options": [
+      "Hardcoding values",
+      "Using logical expressions",
+      "Removing else",
+      "Using macros only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Logical expressions reduce nesting and complexity."
+  },
+  {
+    "id": 75,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword labels each option in switch?",
+    "options": ["option", "case", "label", "select"],
+    "answerIndex": 1,
+    "explanation": "case labels individual options."
+  },
+  {
+    "id": 76,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the role of default in switch?",
+    "options": [
+      "Mandatory case",
+      "Handles unmatched values",
+      "Stops execution",
+      "Starts switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "default handles unmatched values."
+  },
+  {
+    "id": 77,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu-driven programs are most suitable for:",
+    "options": [
+      "Fixed operations",
+      "Random execution",
+      "Background tasks",
+      "Recursion"
+    ],
+    "answerIndex": 0,
+    "explanation": "Menu-driven programs handle fixed user-selected operations."
+  },
+  {
+    "id": 78,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which statement processes user menu choice?",
+    "options": ["if", "switch", "for", "goto"],
+    "answerIndex": 1,
+    "explanation": "switch processes menu options cleanly."
+  },
+  {
+    "id": 79,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition checks successful login?",
+    "options": [
+      "input = password",
+      "input == password",
+      "input != password",
+      "input < password"
+    ],
+    "answerIndex": 1,
+    "explanation": "== compares entered and stored credentials."
+  },
+  {
+    "id": 80,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should real-world decision logic avoid magic numbers?",
+    "options": [
+      "They improve speed",
+      "They reduce memory",
+      "They reduce readability and flexibility",
+      "They simplify syntax"
+    ],
+    "answerIndex": 2,
+    "explanation": "Magic numbers make code harder to understand and maintain."
+  },
+  {
+    "id": 81,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword starts an else-if ladder in C?",
+    "options": ["else if", "elseif", "else-if", "elif"],
+    "answerIndex": 0,
+    "explanation": "In C, the correct syntax is else if (two separate words)."
+  },
+  {
+    "id": 82,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What will be printed?\n\nint x = 20;\nif (x > 30)\n    printf(\"A\");\nelse if (x > 10)\n    printf(\"B\");\nelse\n    printf(\"C\");",
+    "options": ["A", "B", "C", "No output"],
+    "answerIndex": 1,
+    "explanation": "x > 10 is true, so B is printed."
+  },
+  {
+    "id": 83,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which technique ensures else binds to the correct if?",
+    "options": [
+      "Indentation only",
+      "Using braces {}",
+      "Removing else",
+      "Using comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Braces remove ambiguity and prevent dangling else issues."
+  },
+  {
+    "id": 84,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements are useful when:",
+    "options": [
+      "Conditions are unrelated",
+      "One condition depends on another",
+      "Using loops",
+      "Using switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested if is used when one condition is checked only after another is true."
+  },
+  {
+    "id": 85,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which rewrite avoids nesting?\n\nif (a > 10) {\n  if (b < 5)\n    printf(\"OK\");\n}",
+    "options": [
+      "if (a > 10 || b < 5)",
+      "if (a > 10 && b < 5)",
+      "if (a == b)",
+      "if (a < b)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Both conditions must be true, so && replaces nesting."
+  },
+  {
+    "id": 86,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the primary benefit of reducing nested conditions?",
+    "options": [
+      "Faster execution",
+      "Lower memory usage",
+      "Better readability and maintenance",
+      "Avoids compilation"
+    ],
+    "answerIndex": 2,
+    "explanation": "Reducing nesting improves readability and maintainability."
+  },
+  {
+    "id": 87,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword is mandatory inside every switch case?",
+    "options": ["break", "case", "default", "continue"],
+    "answerIndex": 1,
+    "explanation": "Each option in switch must be labeled using case."
+  },
+  {
+    "id": 88,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the output?\n\nint x = 2;\nswitch(x) {\n  case 1: printf(\"A\");\n  case 2: printf(\"B\");\n  default: printf(\"C\");\n}",
+    "options": ["B", "BC", "ABC", "Compilation error"],
+    "answerIndex": 1,
+    "explanation": "Case 2 matches, then fall-through prints B and C."
+  },
+  {
+    "id": 89,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which is true about default in switch?",
+    "options": [
+      "It is mandatory",
+      "It must be last",
+      "It handles unmatched cases",
+      "It stops execution"
+    ],
+    "answerIndex": 2,
+    "explanation": "default executes when no case matches."
+  },
+  {
+    "id": 90,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu-driven programs primarily depend on:",
+    "options": [
+      "Compiler options",
+      "User input",
+      "Hardcoded values",
+      "Macros"
+    ],
+    "answerIndex": 1,
+    "explanation": "User input determines menu behavior."
+  },
+  {
+    "id": 91,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which structure repeatedly displays menu options?",
+    "options": ["if", "switch", "do-while", "macro"],
+    "answerIndex": 2,
+    "explanation": "do-while ensures the menu shows at least once."
+  },
+  {
+    "id": 92,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature improves usability of menu-driven programs?",
+    "options": [
+      "Deep nesting",
+      "Clear option numbers",
+      "goto statements",
+      "Hardcoded exits"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear options improve user experience."
+  },
+  {
+    "id": 93,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition correctly checks a passing score?",
+    "options": [
+      "marks = 40",
+      "marks > 40",
+      "marks >= 40",
+      "marks != 40"
+    ],
+    "answerIndex": 2,
+    "explanation": "marks >= 40 includes the boundary value."
+  },
+  {
+    "id": 94,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which logic is used in a discount calculation system?",
+    "options": [
+      "Loop logic",
+      "Slab-based conditions",
+      "Recursion",
+      "Pointer logic"
+    ],
+    "answerIndex": 1,
+    "explanation": "Discount systems commonly use slab-based conditions."
+  },
+  {
+    "id": 95,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should grading logic test boundary values?",
+    "options": [
+      "To improve speed",
+      "To handle edge cases correctly",
+      "To avoid else",
+      "To reduce memory"
+    ],
+    "answerIndex": 1,
+    "explanation": "Boundary values determine correct grade classification."
+  },
+  {
+    "id": 96,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which block runs when all conditions are false?",
+    "options": ["if", "else", "case", "default"],
+    "answerIndex": 1,
+    "explanation": "else executes when all if and else-if conditions fail."
+  },
+  {
+    "id": 97,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator checks multiple conditions together?",
+    "options": ["=", "&&", "++", "--"],
+    "answerIndex": 1,
+    "explanation": "&& combines multiple conditions logically."
+  },
+  {
+    "id": 98,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which improves readability of nested logic?",
+    "options": [
+      "Using goto",
+      "Proper indentation",
+      "Removing braces",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Proper indentation improves readability."
+  },
+  {
+    "id": 99,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which statement stops execution of a switch case?",
+    "options": ["continue", "break", "exit", "goto"],
+    "answerIndex": 1,
+    "explanation": "break exits the switch case."
+  },
+  {
+    "id": 100,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice makes menu-driven programs maintainable?",
+    "options": [
+      "Hardcoded values",
+      "Clear structure and comments",
+      "Using goto",
+      "Avoiding loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear structure and comments improve maintainability."
+  },
+  {
+    "id": 101,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used to compare login credentials?",
+    "options": ["=", "==", "!=", "<"],
+    "answerIndex": 1,
+    "explanation": "== compares two values."
+  },
+  {
+    "id": 102,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which system requires validating user input repeatedly?",
+    "options": [
+      "Batch program",
+      "Menu-driven system",
+      "One-time script",
+      "Static program"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu-driven systems repeatedly validate input."
+  },
+  {
+    "id": 103,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should real-world logic avoid hardcoded values?",
+    "options": [
+      "They improve speed",
+      "They reduce flexibility",
+      "They increase readability",
+      "They reduce conditions"
+    ],
+    "answerIndex": 1,
+    "explanation": "Hardcoded values reduce flexibility and maintainability."
+  },
+  {
+    "id": 104,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which condition is safest when comparing ranges?",
+    "options": [
+      "value > min || value < max",
+      "value >= min && value <= max",
+      "value == min",
+      "value != max"
+    ],
+    "answerIndex": 1,
+    "explanation": "&& ensures the value stays within range."
+  },
+  {
+    "id": 105,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which refactor best simplifies nested decision logic?",
+    "options": [
+      "Early return pattern",
+      "Adding more nesting",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early returns reduce nesting and complexity."
+  },
+  {
+    "id": 106,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which switch feature helps readability for many options?",
+    "options": [
+      "Fall-through",
+      "Clear case labels",
+      "Removing default",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear case labels improve readability."
+  },
+  {
+    "id": 107,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop best controls menu exit conditions?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while allows exit condition checks after execution."
+  },
+  {
+    "id": 108,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which test ensures correct behavior at grading thresholds?",
+    "options": [
+      "Random testing",
+      "Boundary testing",
+      "Stress testing",
+      "Unit testing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Boundary testing validates edge cases."
+  },
+  {
+    "id": 109,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword executes when the if condition is false?",
+    "options": ["elseif", "else", "default", "case"],
+    "answerIndex": 1,
+    "explanation": "else executes when if condition fails."
+  },
+  {
+    "id": 110,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements increase complexity when:",
+    "options": [
+      "Conditions are dependent",
+      "Conditions are independent",
+      "Using switch",
+      "Using loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "Independent conditions should not be nested."
+  },
+  {
+    "id": 111,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword handles unmatched values in switch?",
+    "options": ["else", "default", "break", "case"],
+    "answerIndex": 1,
+    "explanation": "default handles unmatched cases."
+  },
+  {
+    "id": 112,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the first step in a menu-driven program?",
+    "options": [
+      "Exit program",
+      "Display menu options",
+      "Process choice",
+      "Use switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu options must be displayed first."
+  },
+  {
+    "id": 113,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition validates correct PIN entry?",
+    "options": [
+      "pin = savedPin",
+      "pin == savedPin",
+      "pin != savedPin",
+      "pin < savedPin"
+    ],
+    "answerIndex": 1,
+    "explanation": "== compares entered PIN with stored PIN."
+  },
+  {
+    "id": 114,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator negates a condition?",
+    "options": ["&&", "||", "!", "~"],
+    "answerIndex": 2,
+    "explanation": "! negates a boolean condition."
+  },
+  {
+    "id": 115,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which technique avoids unnecessary nesting?",
+    "options": [
+      "Early exit",
+      "Deep nesting",
+      "Hardcoding",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early exits reduce nesting."
+  },
+  {
+    "id": 116,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which is NOT required in a switch statement?",
+    "options": ["switch keyword", "case labels", "break", "expression"],
+    "answerIndex": 2,
+    "explanation": "break is optional but recommended."
+  },
+  {
+    "id": 117,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which variable typically controls menu selection?",
+    "options": ["Counter", "Choice", "Index", "Pointer"],
+    "answerIndex": 1,
+    "explanation": "Choice variable stores user selection."
+  },
+  {
+    "id": 118,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which scenario requires multiple condition checks?",
+    "options": [
+      "Single output",
+      "Grading system",
+      "Hello world",
+      "Constant value"
+    ],
+    "answerIndex": 1,
+    "explanation": "Grading systems require checking multiple ranges."
+  },
+  {
+    "id": 119,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which pattern improves complex conditional logic?",
+    "options": [
+      "Nested ifs",
+      "Early return",
+      "goto usage",
+      "Removing conditions"
+    ],
+    "answerIndex": 1,
+    "explanation": "Early return simplifies complex logic."
+  },
+  {
+    "id": 120,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should business rules be separated from conditions?",
+    "options": [
+      "To increase code size",
+      "To reduce flexibility",
+      "To improve maintainability",
+      "To avoid testing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Separating business rules improves maintainability and clarity."
+  },  {
+    "id": 121,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement allows multiple conditions to be checked one after another?",
+    "options": ["if", "else", "else if", "switch"],
+    "answerIndex": 2,
+    "explanation": "The else if ladder is used to check multiple conditions sequentially."
+  },
+  {
+    "id": 122,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the output?\n\nint x = 5;\nif (x > 5)\n    printf(\"A\");\nelse if (x == 5)\n    printf(\"B\");\nelse\n    printf(\"C\");",
+    "options": ["A", "B", "C", "No output"],
+    "answerIndex": 1,
+    "explanation": "x == 5 is true, so output is B."
+  },
+  {
+    "id": 123,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice best avoids ambiguity in conditional logic?",
+    "options": [
+      "Relying on indentation",
+      "Using braces consistently",
+      "Removing else blocks",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Braces remove ambiguity and prevent dangling else issues."
+  },
+  {
+    "id": 124,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements are required when:",
+    "options": [
+      "Conditions are independent",
+      "One condition depends on another",
+      "Using switch",
+      "Using loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested if is used when one condition must be checked inside another."
+  },
+  {
+    "id": 125,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which rewrite avoids nesting?\n\nif (x > 0) {\n  if (y > 0)\n    printf(\"OK\");\n}",
+    "options": [
+      "if (x > 0 || y > 0)",
+      "if (x > 0 && y > 0)",
+      "if (x == y)",
+      "if (x < y)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Both conditions must be true, so && replaces nested if."
+  },
+  {
+    "id": 126,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which approach most improves maintainability of nested conditions?",
+    "options": [
+      "Adding more nesting",
+      "Using clear variable names and logic grouping",
+      "Using goto",
+      "Removing braces"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear naming and logical grouping improve maintainability."
+  },
+  {
+    "id": 127,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword marks the start of a selectable option in switch?",
+    "options": ["option", "case", "default", "select"],
+    "answerIndex": 1,
+    "explanation": "Each selectable option in switch begins with the case keyword."
+  },
+  {
+    "id": 128,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the output?\n\nint n = 1;\nswitch(n) {\n  case 1: printf(\"A\");\n  case 2: printf(\"B\");\n  case 3: printf(\"C\");\n}",
+    "options": ["A", "AB", "ABC", "Compilation error"],
+    "answerIndex": 2,
+    "explanation": "Without break, execution falls through all following cases."
+  },
+  {
+    "id": 129,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which statement about switch is TRUE?",
+    "options": [
+      "Case labels can be variables",
+      "Switch works with float values",
+      "Case labels must be constant expressions",
+      "Default must be first"
+    ],
+    "answerIndex": 2,
+    "explanation": "Case labels must be compile-time constant expressions."
+  },
+  {
+    "id": 130,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the main purpose of a menu-driven program?",
+    "options": [
+      "Automatic execution",
+      "User-controlled execution",
+      "Background processing",
+      "Recursion"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu-driven programs execute actions based on user choice."
+  },
+  {
+    "id": 131,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which loop is most suitable for repeating menu display?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while ensures the menu appears at least once."
+  },
+  {
+    "id": 132,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice improves user experience in menu programs?",
+    "options": [
+      "Hardcoded exits",
+      "Clear prompts and validation",
+      "Deep nesting",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear prompts and validation improve usability."
+  },
+  {
+    "id": 133,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which comparison is correct for checking a valid password?",
+    "options": [
+      "input = password",
+      "input == password",
+      "input != password",
+      "input < password"
+    ],
+    "answerIndex": 1,
+    "explanation": "== compares two values correctly."
+  },
+  {
+    "id": 134,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which logic is commonly used in grading systems?",
+    "options": [
+      "Single if",
+      "If-else ladder",
+      "Loop only",
+      "Switch only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Grading systems use if-else ladders for ranges."
+  },
+  {
+    "id": 135,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should business rules be configurable?",
+    "options": [
+      "To reduce flexibility",
+      "To avoid testing",
+      "To improve maintainability",
+      "To increase nesting"
+    ],
+    "answerIndex": 2,
+    "explanation": "Configurable rules improve maintainability and scalability."
+  },
+  {
+    "id": 136,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword executes when an if condition fails?",
+    "options": ["elseif", "else", "default", "case"],
+    "answerIndex": 1,
+    "explanation": "else executes when the if condition is false."
+  },
+  {
+    "id": 137,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator combines multiple conditions logically?",
+    "options": ["=", "&&", "++", "--"],
+    "answerIndex": 1,
+    "explanation": "&& combines multiple logical conditions."
+  },
+  {
+    "id": 138,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which improves readability of nested if blocks?",
+    "options": [
+      "Removing braces",
+      "Proper indentation",
+      "Using goto",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Proper indentation improves readability."
+  },
+  {
+    "id": 139,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which keyword stops execution of a switch case?",
+    "options": ["continue", "break", "exit", "goto"],
+    "answerIndex": 1,
+    "explanation": "break stops execution of the current switch case."
+  },
+  {
+    "id": 140,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What must be displayed before accepting menu input?",
+    "options": [
+      "Exit message",
+      "Menu options",
+      "Loop condition",
+      "Switch block"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu options must be displayed before input."
+  },
+  {
+    "id": 141,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which scenario requires multiple range checks?",
+    "options": [
+      "Hello world",
+      "Grading system",
+      "Single input program",
+      "Static output"
+    ],
+    "answerIndex": 1,
+    "explanation": "Grading systems require checking multiple ranges."
+  },
+  {
+    "id": 142,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which condition safely checks a numeric range?",
+    "options": [
+      "x > min || x < max",
+      "x >= min && x <= max",
+      "x == min",
+      "x != max"
+    ],
+    "answerIndex": 1,
+    "explanation": "&& ensures x is within the defined range."
+  },
+  {
+    "id": 143,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which refactoring pattern reduces nested complexity?",
+    "options": [
+      "Early return",
+      "Deep nesting",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early returns reduce nested logic."
+  },
+  {
+    "id": 144,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which switch design improves maintainability?",
+    "options": [
+      "Fall-through everywhere",
+      "Clear case grouping",
+      "Removing default",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear grouping improves readability and maintenance."
+  },
+  {
+    "id": 145,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop best supports controlled menu exit?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while checks exit condition after execution."
+  },
+  {
+    "id": 146,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which testing method focuses on grading thresholds?",
+    "options": [
+      "Stress testing",
+      "Boundary testing",
+      "Random testing",
+      "Integration testing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Boundary testing focuses on threshold values."
+  },
+  {
+    "id": 147,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword executes when all if and else-if fail?",
+    "options": ["if", "else", "case", "default"],
+    "answerIndex": 1,
+    "explanation": "else executes when all previous conditions fail."
+  },
+  {
+    "id": 148,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which technique avoids unnecessary nesting?",
+    "options": [
+      "Early exit",
+      "Deep nesting",
+      "Using goto",
+      "Hardcoding"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early exit avoids unnecessary nesting."
+  },
+  {
+    "id": 149,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword identifies unmatched cases in switch?",
+    "options": ["else", "default", "break", "case"],
+    "answerIndex": 1,
+    "explanation": "default handles unmatched cases."
+  },
+  {
+    "id": 150,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu-driven programs are best suited for:",
+    "options": [
+      "User-selected operations",
+      "Background tasks",
+      "Single execution",
+      "Recursive calls"
+    ],
+    "answerIndex": 0,
+    "explanation": "Menu-driven programs execute user-selected operations."
+  },
+  {
+    "id": 151,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator checks equality of two values?",
+    "options": ["=", "==", "!=", "<"],
+    "answerIndex": 1,
+    "explanation": "== compares two values for equality."
+  },
+  {
+    "id": 152,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator negates a condition?",
+    "options": ["&&", "||", "!", "~"],
+    "answerIndex": 2,
+    "explanation": "! negates a logical condition."
+  },
+  {
+    "id": 153,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which approach simplifies dependent conditions?",
+    "options": [
+      "Nested if",
+      "Flat if-else ladder",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nested if handles dependent conditions correctly."
+  },
+  {
+    "id": 154,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which switch component is optional but recommended?",
+    "options": ["expression", "case", "break", "switch"],
+    "answerIndex": 2,
+    "explanation": "break prevents unintended fall-through."
+  },
+  {
+    "id": 155,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which variable usually stores menu selection?",
+    "options": ["index", "choice", "count", "flag"],
+    "answerIndex": 1,
+    "explanation": "choice variable stores menu selection."
+  },
+  {
+    "id": 156,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which real-world system uses conditional ranges?",
+    "options": [
+      "Hello world",
+      "Billing system",
+      "Static page",
+      "Single output program"
+    ],
+    "answerIndex": 1,
+    "explanation": "Billing systems use conditional ranges."
+  },
+  {
+    "id": 157,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which pattern improves complex decision logic?",
+    "options": [
+      "Early return",
+      "Deep nesting",
+      "Using goto",
+      "Removing else"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early return reduces complexity."
+  },
+  {
+    "id": 158,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which technique best improves readability of complex logic?",
+    "options": [
+      "Hardcoding values",
+      "Logical grouping",
+      "Removing braces",
+      "Using goto"
+    ],
+    "answerIndex": 1,
+    "explanation": "Logical grouping improves clarity."
+  },
+  {
+    "id": 159,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which switch usage can lead to bugs if misused?",
+    "options": [
+      "Break statements",
+      "Fall-through logic",
+      "Default case",
+      "Clear labels"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unintended fall-through can cause bugs."
+  },
+  {
+    "id": 160,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should decision logic be well-documented?",
+    "options": [
+      "To increase code size",
+      "To avoid testing",
+      "To improve maintainability",
+      "To reduce execution speed"
+    ],
+    "answerIndex": 2,
+    "explanation": "Documentation improves maintainability and understanding."
+  },{
+    "id": 161,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement checks a condition before executing code?",
+    "options": ["if", "for", "switch", "goto"],
+    "answerIndex": 0,
+    "explanation": "The if statement checks a condition before executing code."
+  },
+  {
+    "id": 162,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What is the output?\n\nint x = -1;\nif (x)\n  printf(\"True\");\nelse\n  printf(\"False\");",
+    "options": ["True", "False", "Error", "No output"],
+    "answerIndex": 0,
+    "explanation": "Any non-zero value is treated as true in C."
+  },
+  {
+    "id": 163,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice avoids logical ambiguity in conditions?",
+    "options": [
+      "Using braces",
+      "Ignoring indentation",
+      "Using goto",
+      "Removing else"
+    ],
+    "answerIndex": 0,
+    "explanation": "Braces clearly define conditional blocks."
+  },
+  {
+    "id": 164,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements are best used when:",
+    "options": [
+      "Conditions are independent",
+      "One condition depends on another",
+      "Only one condition exists",
+      "Using switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested if is ideal when conditions depend on previous checks."
+  },
+  {
+    "id": 165,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which approach reduces nested if complexity?",
+    "options": [
+      "Early return",
+      "More nesting",
+      "Using goto",
+      "Avoiding conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early return reduces deep nesting."
+  },
+  {
+    "id": 166,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which factor is most affected by deeply nested conditions?",
+    "options": [
+      "Execution speed",
+      "Memory usage",
+      "Code readability",
+      "Compilation time"
+    ],
+    "answerIndex": 2,
+    "explanation": "Deep nesting significantly reduces readability."
+  },
+  {
+    "id": 167,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword defines selectable branches in switch?",
+    "options": ["case", "break", "default", "if"],
+    "answerIndex": 0,
+    "explanation": "case defines selectable branches in switch."
+  },
+  {
+    "id": 168,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "What happens if no case matches and no default exists?",
+    "options": [
+      "Compilation error",
+      "Runtime error",
+      "Nothing executes",
+      "First case executes"
+    ],
+    "answerIndex": 2,
+    "explanation": "If no case matches and no default exists, nothing executes."
+  },
+  {
+    "id": 169,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which switch usage is considered risky if not intentional?",
+    "options": [
+      "Using break",
+      "Using default",
+      "Fall-through behavior",
+      "Clear case grouping"
+    ],
+    "answerIndex": 2,
+    "explanation": "Unintended fall-through can cause logic bugs."
+  },
+  {
+    "id": 170,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu-driven programs mainly rely on:",
+    "options": [
+      "Loops",
+      "User choice",
+      "Macros",
+      "Recursion"
+    ],
+    "answerIndex": 1,
+    "explanation": "User choice drives menu-based execution."
+  },
+  {
+    "id": 171,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which loop ensures menu runs at least once?",
+    "options": ["for", "while", "do-while", "switch"],
+    "answerIndex": 2,
+    "explanation": "do-while executes at least once."
+  },
+  {
+    "id": 172,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which improves robustness of menu-driven programs?",
+    "options": [
+      "Ignoring invalid input",
+      "Input validation",
+      "Using goto",
+      "Hardcoding values"
+    ],
+    "answerIndex": 1,
+    "explanation": "Input validation improves robustness."
+  },
+  {
+    "id": 173,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator checks if two values are equal?",
+    "options": ["=", "==", "!=", "<"],
+    "answerIndex": 1,
+    "explanation": "== compares two values for equality."
+  },
+  {
+    "id": 174,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which real-world system commonly uses slab-based conditions?",
+    "options": [
+      "Login system",
+      "Electricity billing",
+      "Hello world",
+      "Static program"
+    ],
+    "answerIndex": 1,
+    "explanation": "Electricity billing uses slab-based conditions."
+  },
+  {
+    "id": 175,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which testing focuses on threshold values?",
+    "options": [
+      "Unit testing",
+      "Stress testing",
+      "Boundary testing",
+      "Regression testing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Boundary testing focuses on threshold values."
+  },
+  {
+    "id": 176,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword executes code when condition is false?",
+    "options": ["else", "elseif", "default", "case"],
+    "answerIndex": 0,
+    "explanation": "else executes when the if condition is false."
+  },
+  {
+    "id": 177,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which technique simplifies dependent condition checks?",
+    "options": [
+      "Nested if",
+      "Flat if ladder",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nested if handles dependent conditions."
+  },
+  {
+    "id": 178,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword handles unmatched switch cases?",
+    "options": ["else", "default", "break", "case"],
+    "answerIndex": 1,
+    "explanation": "default handles unmatched cases."
+  },
+  {
+    "id": 179,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the first step in a menu program?",
+    "options": [
+      "Exit program",
+      "Display menu",
+      "Process input",
+      "Execute switch"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu options must be displayed first."
+  },
+  {
+    "id": 180,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition validates successful login?",
+    "options": [
+      "input = password",
+      "input == password",
+      "input != password",
+      "input < password"
+    ],
+    "answerIndex": 1,
+    "explanation": "== correctly compares credentials."
+  },
+  {
+    "id": 181,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator negates a condition?",
+    "options": ["!", "&&", "||", "~"],
+    "answerIndex": 0,
+    "explanation": "! negates a logical condition."
+  },
+  {
+    "id": 182,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which refactor reduces nested conditional depth?",
+    "options": [
+      "Early return",
+      "More nesting",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early return reduces nesting."
+  },
+  {
+    "id": 183,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which switch element is optional but recommended?",
+    "options": ["expression", "case", "break", "switch"],
+    "answerIndex": 2,
+    "explanation": "break prevents unintended fall-through."
+  },
+  {
+    "id": 184,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which variable usually stores menu choice?",
+    "options": ["count", "choice", "index", "flag"],
+    "answerIndex": 1,
+    "explanation": "choice stores the user's menu selection."
+  },
+  {
+    "id": 185,
+    "topic": "Topic4",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which system requires repeated condition checking?",
+    "options": [
+      "Hello world",
+      "Menu-driven system",
+      "Static program",
+      "One-time script"
+    ],
+    "answerIndex": 1,
+    "explanation": "Menu-driven systems require repeated checks."
+  },
+  {
+    "id": 186,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which pattern simplifies complex decision logic?",
+    "options": [
+      "Early return",
+      "Deep nesting",
+      "Using goto",
+      "Removing else"
+    ],
+    "answerIndex": 0,
+    "explanation": "Early return simplifies decision logic."
+  },
+  {
+    "id": 187,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Nested if statements mainly affect:",
+    "options": [
+      "Compilation",
+      "Readability",
+      "Memory",
+      "Syntax"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nested if statements mostly affect readability."
+  },
+  {
+    "id": 188,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which switch behavior must be documented clearly?",
+    "options": [
+      "Break usage",
+      "Fall-through",
+      "Default case",
+      "Case labels"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fall-through can cause bugs if undocumented."
+  },
+  {
+    "id": 189,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which improves maintainability of menu logic?",
+    "options": [
+      "Hardcoding",
+      "Clear structure",
+      "Using goto",
+      "Avoiding loops"
+    ],
+    "answerIndex": 1,
+    "explanation": "Clear structure improves maintainability."
+  },
+  {
+    "id": 190,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should business rules avoid magic numbers?",
+    "options": [
+      "They reduce flexibility",
+      "They increase speed",
+      "They simplify syntax",
+      "They reduce testing"
+    ],
+    "answerIndex": 0,
+    "explanation": "Magic numbers reduce flexibility and clarity."
+  },
+  {
+    "id": 191,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which condition executes code only when true?",
+    "options": ["if", "else", "case", "default"],
+    "answerIndex": 0,
+    "explanation": "if executes code when condition is true."
+  },
+  {
+    "id": 192,
+    "topic": "Topic1",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which approach handles dependent conditions best?",
+    "options": [
+      "Nested if",
+      "Flat if",
+      "Using goto",
+      "Removing conditions"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nested if handles dependent conditions."
+  },
+  {
+    "id": 193,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword separates switch cases?",
+    "options": ["break", "case", "default", "switch"],
+    "answerIndex": 1,
+    "explanation": "case separates switch options."
+  },
+  {
+    "id": 194,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Menu programs usually run inside which structure?",
+    "options": ["Loop", "Function", "Macro", "Pointer"],
+    "answerIndex": 0,
+    "explanation": "Menus typically run inside loops."
+  },
+  {
+    "id": 195,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which comparison checks pass/fail correctly?",
+    "options": [
+      "marks = 40",
+      "marks > 40",
+      "marks >= 40",
+      "marks != 40"
+    ],
+    "answerIndex": 2,
+    "explanation": "marks >= 40 includes the boundary."
+  },
+  {
+    "id": 196,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator joins multiple conditions?",
+    "options": ["=", "&&", "++", "--"],
+    "answerIndex": 1,
+    "explanation": "&& joins multiple conditions logically."
+  },
+  {
+    "id": 197,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice best improves complex decision readability?",
+    "options": [
+      "Logical grouping",
+      "Hardcoding",
+      "Removing braces",
+      "Using goto"
+    ],
+    "answerIndex": 0,
+    "explanation": "Logical grouping improves clarity."
+  },
+  {
+    "id": 198,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which switch part is executed when no case matches?",
+    "options": ["case", "else", "default", "break"],
+    "answerIndex": 2,
+    "explanation": "default executes when no case matches."
+  },
+  {
+    "id": 199,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature ensures safe menu exit?",
+    "options": [
+      "Infinite loop",
+      "Exit condition",
+      "Using goto",
+      "Hardcoding"
+    ],
+    "answerIndex": 1,
+    "explanation": "Exit conditions ensure safe termination."
+  },
+  {
+    "id": 200,
+    "topic": "Topic4",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Why should conditional logic be well-tested?",
+    "options": [
+      "To increase code size",
+      "To handle edge cases reliably",
+      "To avoid writing comments",
+      "To remove conditions"
+    ],
+    "answerIndex": 1,
+    "explanation": "Well-tested logic ensures correct handling of edge cases."
+  }
+]
+

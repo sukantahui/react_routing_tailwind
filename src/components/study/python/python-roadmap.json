@@ -11,6 +11,8 @@
     "version": "1.0.0",
     "lastUpdated": "2025-12-04"
   },
+  "folder": "python",
+  "subject": "Python",
   "segments": [
     {
       "segmentId": "foundation",

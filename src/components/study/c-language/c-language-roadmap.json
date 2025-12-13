@@ -250,7 +250,9 @@
             "Nested conditions and readability",
             "switch-case with break and default",
             "Menu-driven programs using switch",
-            "Real examples: grading system, billing system, simple login check"
+            "Real examples: grading system, billing system, simple login check",
+            "Practice your Skill",
+            "Test"
           ],
           "learningOutcomes": [
             "Use if-else and switch to control program flow",
