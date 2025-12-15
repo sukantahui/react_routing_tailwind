@@ -267,7 +267,55 @@
             "Loop control: break, continue, pass",
             "Nested loops",
             "Pattern printing",
-            "Simple menu-driven programs"
+            "Simple menu-driven programs",
+            "Jump Statements"
+          ],
+          "learningOutcomes": [
+            "Use for and while loops correctly",
+            "Control loop execution flow",
+            "Solve numeric and pattern-based problems"
+          ],
+          "prerequisites": ["control-flow"],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Repeat tasks efficiently with Python loops.",
+          "miniProjects": [
+            "Mini Project: ATM Menu Program"
+          ],
+          "exercises": {
+            "mcq": 16,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": ["Processing lists", "Automating repeated tasks"],
+          "careerSkills": ["Algorithmic logic"],
+          "commonMistakes": [
+            "Infinite loops",
+            "Wrong range() usage"
+          ],
+          "references": [
+            "Python Docs – for, while",
+            "Real Python – Loops"
+          ],
+          "teachingTips": ["Use step-by-step dry runs."],
+          "preReading": ["Control Flow module"],
+          "previousModule": "control-flow",
+          "nextModule": null,
+          "badge": "Loop Wizard Badge"
+        },
+        {
+          "moduleId": "segment1-test",
+          "slug": "segmment1-test",
+          "title": "Test for Segment 1",
+          "level": "Beginner",
+          "estimatedHours": 1,
+          "tags": ["for", "while", "iteration"],
+          "topics": [
+            "Test for Segment 1"
           ],
           "learningOutcomes": [
             "Use for and while loops correctly",
