@@ -1,0 +1,339 @@
+{
+    "trackId": "git-basic-to-ultra-expert",
+    "trackTitle": "Git from Basic to Ultra Expert",
+    "description": "A complete Git version control learning path from absolute beginner to ultra expert, suitable for classroom and self-paced learning. Covers Git fundamentals, collaboration workflows, branching strategies, GitHub/GitLab usage, and real-world team practices.",
+    "institute": {
+        "name": "Coder & AccoTax",
+        "website": "https://www.codernaccotax.co.in",
+        "author": "Sukanta Hui",
+        "location": "Barrackpore, West Bengal, India",
+        "trackType": "Git Tutorial Roadmap",
+        "version": "1.0.0",
+        "lastUpdated": "2025-12-15"
+    },
+    "folder": "git",
+    "subject": "Git Version Control",
+    "segments": [
+        {
+            "segmentId": "basic",
+            "title": "Segment 1 – Git Foundations (Beginner)",
+            "level": "Beginner",
+            "summary": "Learn what Git is, why it is used, and how to track changes locally using core Git commands.",
+            "modules": [
+                {
+                    "moduleId": "git-intro",
+                    "slug": "getting-started-with-git",
+                    "title": "Introduction to Git & Version Control",
+                    "level": "Beginner",
+                    "estimatedHours": 3,
+                    "topics": [
+                        "What is version control and why it matters",
+                        "Centralized vs distributed version control",
+                        "What is Git and how it works internally (high-level)",
+                        "Installing Git and basic setup",
+                        "git --version, git config",
+                        "Understanding repositories"
+                    ],
+                    "learningOutcomes": [
+                        "Explain why version control is needed",
+                        "Install and configure Git",
+                        "Understand basic Git terminology"
+                    ],
+                    "nextModule": "git-basics"
+                },
+                {
+                    "moduleId": "git-basics",
+                    "slug": "git-basic-commands",
+                    "title": "Git Basics & Core Commands",
+                    "level": "Beginner",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "git init and repository structure",
+                        "Working directory, staging area, repository",
+                        "git status and git log",
+                        "git add and git commit",
+                        "Writing meaningful commit messages",
+                        "git diff"
+                    ],
+                    "learningOutcomes": [
+                        "Create a local Git repository",
+                        "Track file changes using Git",
+                        "Create clean and meaningful commits"
+                    ],
+                    "nextModule": "git-history"
+                },
+                {
+                    "moduleId": "git-history",
+                    "slug": "undo-and-history",
+                    "title": "Undoing Changes & Viewing History",
+                    "level": "Beginner",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "git log options",
+                        "git checkout -- <file>",
+                        "git restore and git reset (soft, mixed, hard – intro)",
+                        "git revert",
+                        "Common undo scenarios"
+                    ],
+                    "learningOutcomes": [
+                        "Safely undo changes",
+                        "Understand commit history",
+                        "Choose the correct undo strategy"
+                    ]
+                }
+            ]
+        },
+        {
+            "segmentId": "intermediate",
+            "title": "Segment 2 – Branching & Collaboration (Intermediate)",
+            "level": "Intermediate",
+            "summary": "Learn branching, merging, and working with remote repositories for team collaboration.",
+            "modules": [
+                {
+                    "moduleId": "git-branching",
+                    "slug": "git-branching",
+                    "title": "Branching & Merging",
+                    "level": "Intermediate",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "What are branches and why they matter",
+                        "git branch and git checkout / switch",
+                        "git merge",
+                        "Fast-forward vs non-fast-forward merges",
+                        "Merge conflicts and resolution"
+                    ],
+                    "learningOutcomes": [
+                        "Work with multiple branches",
+                        "Merge branches safely",
+                        "Resolve merge conflicts"
+                    ],
+                    "nextModule": "git-remote"
+                },
+                {
+                    "moduleId": "git-remote",
+                    "slug": "working-with-remotes",
+                    "title": "Working with Remote Repositories",
+                    "level": "Intermediate",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "What is origin",
+                        "git clone",
+                        "git remote add/remove",
+                        "git push and git pull",
+                        "git fetch vs git pull",
+                        "Authentication basics (HTTPS, SSH overview)"
+                    ],
+                    "learningOutcomes": [
+                        "Connect local repos to remotes",
+                        "Push and pull changes",
+                        "Understand remote tracking branches"
+                    ],
+                    "nextModule": "git-github"
+                },
+                {
+                    "moduleId": "git-github",
+                    "slug": "github-and-collaboration",
+                    "title": "GitHub / GitLab Collaboration",
+                    "level": "Intermediate",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "Creating repositories on GitHub/GitLab",
+                        "Forking repositories",
+                        "Pull requests / merge requests",
+                        "Code reviews and discussions",
+                        "Issues and project boards",
+                        "Basic GitHub workflow"
+                    ],
+                    "learningOutcomes": [
+                        "Collaborate using GitHub",
+                        "Create and review pull requests",
+                        "Use issues for task tracking"
+                    ]
+                }
+            ]
+        },
+        {
+            "segmentId": "advanced",
+            "title": "Segment 3 – Advanced Git & Workflows",
+            "level": "Advanced",
+            "summary": "Master advanced Git commands, clean history techniques, and professional workflows.",
+            "modules": [
+                {
+                    "moduleId": "git-rewrite",
+                    "slug": "rewriting-history",
+                    "title": "Rewriting History & Advanced Undo",
+                    "level": "Advanced",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "git reset vs git revert deep dive",
+                        "git commit --amend",
+                        "git rebase (interactive rebase)",
+                        "Squashing commits",
+                        "Rewriting history safely"
+                    ],
+                    "learningOutcomes": [
+                        "Clean up commit history",
+                        "Use rebase effectively",
+                        "Understand risks of history rewriting"
+                    ],
+                    "nextModule": "git-workflows"
+                },
+                {
+                    "moduleId": "git-workflows",
+                    "slug": "git-workflows",
+                    "title": "Git Workflows & Strategies",
+                    "level": "Advanced",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "Centralized workflow",
+                        "Feature branch workflow",
+                        "Gitflow workflow",
+                        "Release and hotfix branches",
+                        "Choosing the right workflow"
+                    ],
+                    "learningOutcomes": [
+                        "Apply Git workflows in teams",
+                        "Manage releases using branches",
+                        "Follow industry-standard practices"
+                    ],
+                    "nextModule": "git-tools"
+                },
+                {
+                    "moduleId": "git-tools",
+                    "slug": "git-tools-and-helpers",
+                    "title": "Git Tools & Productivity",
+                    "level": "Advanced",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "git stash",
+                        "git cherry-pick",
+                        "git tag (lightweight vs annotated)",
+                        "Aliases in Git",
+                        "Visual Git tools (GitHub Desktop, Sourcetree – overview)"
+                    ],
+                    "learningOutcomes": [
+                        "Use Git efficiently",
+                        "Apply advanced helper commands",
+                        "Improve daily developer productivity"
+                    ]
+                }
+            ]
+        },
+        {
+            "segmentId": "ultra-expert",
+            "title": "Segment 4 – Git Internals, CI/CD & Best Practices",
+            "level": "Ultra Expert",
+            "summary": "Understand Git internals, performance, automation, and real-world enterprise practices.",
+            "modules": [
+                {
+                    "moduleId": "git-internals",
+                    "slug": "git-internals",
+                    "title": "Git Internals & Architecture",
+                    "level": "Ultra Expert",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "How Git stores data (objects, blobs, trees, commits)",
+                        "HEAD and refs",
+                        "Detached HEAD state",
+                        "Garbage collection and repacking",
+                        "How Git really tracks changes"
+                    ],
+                    "learningOutcomes": [
+                        "Explain how Git works internally",
+                        "Debug complex Git issues",
+                        "Gain confidence in advanced operations"
+                    ],
+                    "nextModule": "git-ci"
+                },
+                {
+                    "moduleId": "git-ci",
+                    "slug": "git-and-ci-cd",
+                    "title": "Git with CI/CD & Automation",
+                    "level": "Ultra Expert",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "Introduction to CI/CD",
+                        "GitHub Actions / GitLab CI overview",
+                        "Triggers on push and pull requests",
+                        "Basic pipeline concepts",
+                        "Versioning and releases"
+                    ],
+                    "learningOutcomes": [
+                        "Integrate Git with CI/CD pipelines",
+                        "Understand automated testing and builds",
+                        "Use Git in production workflows"
+                    ],
+                    "nextModule": "git-best-practices"
+                },
+                {
+                    "moduleId": "git-best-practices",
+                    "slug": "git-best-practices",
+                    "title": "Best Practices, Security & Interviews",
+                    "level": "Ultra Expert",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "Commit message conventions",
+                        "Branch naming strategies",
+                        "Handling secrets and security",
+                        "Common Git interview questions",
+                        "Real-world Git problem scenarios",
+                        "Capstone: Team-based Git project"
+                    ],
+                    "learningOutcomes": [
+                        "Apply Git professionally",
+                        "Prepare for interviews",
+                        "Work confidently in large teams"
+                    ]
+                }
+            ]
+        },
+        {
+            "segmentId": "tips-case-studies",
+            "title": "Segment 5 – Git Tips, Tricks & Real-World Case Studies",
+            "level": "All Levels",
+            "summary": "Practical Git shortcuts, lesser-known tricks, and real-world problem case studies faced by developers and teams.",
+            "modules": [
+                {
+                    "moduleId": "git-tips-tricks",
+                    "slug": "git-tips-and-tricks",
+                    "title": "Git Tips & Tricks for Daily Productivity",
+                    "level": "All Levels",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "Powerful git aliases",
+                        "Undo mistakes without panic",
+                        "Cleaning working directory safely",
+                        "Using git stash effectively",
+                        "Recovering lost commits",
+                        "Improving Git speed and performance"
+                    ],
+                    "learningOutcomes": [
+                        "Work faster with Git",
+                        "Avoid common developer mistakes",
+                        "Recover safely from errors"
+                    ]
+                },
+                {
+                    "moduleId": "git-case-studies",
+                    "slug": "git-real-world-case-studies",
+                    "title": "Real-World Git Case Studies",
+                    "level": "All Levels",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "Accidentally committed to main branch",
+                        "Merge conflict in production release",
+                        "Force push gone wrong",
+                        "Lost work after rebase",
+                        "Handling broken CI due to bad commit",
+                        "Team collaboration failure scenarios"
+                    ],
+                    "learningOutcomes": [
+                        "Analyze real Git problems",
+                        "Apply correct recovery strategies",
+                        "Build confidence in team environments"
+                    ]
+                }
+            ]
+        }
+    ]
+}
