@@ -1,0 +1,151 @@
+{
+  "projectCategory": "ICSE Class IX Java Project Work (BlueJ)",
+  "subject": "Java Programming",
+  "board": "ICSE",
+  "class": "IX",
+  "tools": ["BlueJ"],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India"
+  },
+  "projects": [
+    {
+      "projectId": 1,
+      "title": "Print First N Natural Numbers",
+      "difficulty": "Beginner",
+      "concepts": ["for loop syntax", "loop flow", "output"],
+      "description": "Write a program to print the first N natural numbers using a for loop.",
+      "example": "If N = 5 → Output: 1 2 3 4 5",
+      "learningOutcome": "Understand basic loop syntax and execution flow."
+    },
+    {
+      "projectId": 2,
+      "title": "Sum of First N Natural Numbers",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "accumulator variable"],
+      "description": "Accept a number N and calculate the sum of numbers from 1 to N.",
+      "example": "If N = 5 → Sum = 1 + 2 + 3 + 4 + 5 = 15",
+      "learningOutcome": "Learn how accumulation works inside loops."
+    },
+    {
+      "projectId": 3,
+      "title": "Multiplication Table Generator",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "repetition"],
+      "description": "Generate the multiplication table of a given number up to 10.",
+      "example": "If N = 3 → Output: 3×1=3, 3×2=6, … , 3×10=30",
+      "learningOutcome": "Apply loop repetition to real-life problems."
+    },
+    {
+      "projectId": 4,
+      "title": "Count Digits of a Number",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "digit extraction"],
+      "description": "Count the number of digits in a given integer.",
+      "example": "If Number = 4567 → Total digits = 4",
+      "learningOutcome": "Understand how numbers are processed digit by digit."
+    },
+    {
+      "projectId": 5,
+      "title": "Sum of Digits of a Number",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "modulus operator"],
+      "description": "Find the sum of digits of a given number.",
+      "example": "If Number = 248 → Sum = 2 + 4 + 8 = 14",
+      "learningOutcome": "Use % and / operators with loops."
+    },
+
+    {
+      "projectId": 6,
+      "title": "Reverse a Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "number reversal"],
+      "description": "Reverse the digits of a given number using a for loop.",
+      "example": "If Number = 1234 → Reversed number = 4321",
+      "learningOutcome": "Strengthen loop logic and digit manipulation."
+    },
+    {
+      "projectId": 7,
+      "title": "Palindrome Number Checker",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "logical comparison"],
+      "description": "Check whether a given number is a palindrome.",
+      "example": "121 → Palindrome (reads same forward and backward)",
+      "learningOutcome": "Combine looping with condition checking."
+    },
+    {
+      "projectId": 8,
+      "title": "Factorial Calculator",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "multiplication"],
+      "description": "Calculate the factorial of a number using a for loop.",
+      "example": "5! = 5 × 4 × 3 × 2 × 1 = 120",
+      "learningOutcome": "Understand multiplicative loops."
+    },
+    {
+      "projectId": 9,
+      "title": "Count Factors of a Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "divisibility"],
+      "description": "Count how many factors a given number has.",
+      "example": "Factors of 6 → 1, 2, 3, 6 (Total = 4)",
+      "learningOutcome": "Apply loop with condition checking."
+    },
+    {
+      "projectId": 10,
+      "title": "Prime Number Checker",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "factor counting"],
+      "description": "Check whether a number is prime.",
+      "example": "7 → Prime number (only divisible by 1 and 7)",
+      "learningOutcome": "Learn efficient loop termination."
+    },
+
+    {
+      "projectId": 11,
+      "title": "Armstrong Number Checker",
+      "difficulty": "Advanced",
+      "concepts": ["for loop", "digit cube logic"],
+      "description": "Check whether a number is an Armstrong number.",
+      "example": "153 → 1³ + 5³ + 3³ = 153 (Armstrong number)",
+      "learningOutcome": "Combine math logic with looping."
+    },
+    {
+      "projectId": 12,
+      "title": "Perfect Number Checker",
+      "difficulty": "Advanced",
+      "concepts": ["for loop", "sum of factors"],
+      "description": "Check whether a number is a perfect number.",
+      "example": "28 → 1 + 2 + 4 + 7 + 14 = 28 (Perfect number)",
+      "learningOutcome": "Apply loop-based factor summation."
+    },
+    {
+      "projectId": 13,
+      "title": "Even and Odd Number Counter",
+      "difficulty": "Advanced",
+      "concepts": ["for loop", "conditional logic"],
+      "description": "Count how many even and odd numbers exist between 1 and N.",
+      "example": "Between 1 and 10 → Even = 5, Odd = 5",
+      "learningOutcome": "Improve conditional decision-making."
+    },
+    {
+      "projectId": 14,
+      "title": "Common Logical Errors Demonstration",
+      "difficulty": "Advanced",
+      "concepts": ["logical errors", "infinite loop", "dry run"],
+      "description": "Demonstrate common logical errors in for loops and correct them.",
+      "example": "Using i-- instead of i++ may cause an infinite loop",
+      "learningOutcome": "Learn debugging and error identification."
+    },
+    {
+      "projectId": 15,
+      "title": "Loop Flow Visualizer (Dry Run Table)",
+      "difficulty": "Advanced",
+      "concepts": ["loop flow", "execution order"],
+      "description": "Create a program that prints iteration values to visualize loop flow.",
+      "example": "Iteration values for i = 1 to 3 → 1, 2, 3",
+      "learningOutcome": "Understand execution order clearly (ICSE favorite)."
+    }
+  ]
+}

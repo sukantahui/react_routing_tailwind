@@ -1,0 +1,2383 @@
+[
+ {
+    "id": 1,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is the correct syntax of a for loop in Java?",
+    "options": [
+      "for i = 1 to 5",
+      "for(int i = 1; i <= 5; i++)",
+      "for(i <= 5; i++)",
+      "for(int i <= 5)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Java for loop requires initialization, condition and update separated by semicolons."
+  },
+  {
+    "id": 2,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many times is the initialization part of a for loop executed?",
+    "options": ["Every iteration", "Only once", "Twice", "Depends on condition"],
+    "answerIndex": 1,
+    "explanation": "Initialization executes only once when the loop starts."
+  },
+  {
+    "id": 3,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["123", "0123", "321", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints numbers from 1 to 3 in sequence."
+  },
+  {
+    "id": 4,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of the for loop checks whether the loop should continue?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "The condition determines whether the loop continues or stops."
+  },
+  {
+    "id": 5,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 5; i > 0; i--)\n{\n    System.out.print(i);\n}",
+    "options": ["54321", "12345", "01234", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop starts at 5 and decrements until 1."
+  },
+  {
+    "id": 6,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol separates the three parts of a for loop?",
+    "options": [",", ":", ";", "."],
+    "answerIndex": 2,
+    "explanation": "Semicolons separate initialization, condition and update."
+  },
+  {
+    "id": 7,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i += 2)\n{\n    System.out.print(i);\n}",
+    "options": ["135", "12345", "246", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop increments by 2, printing odd numbers."
+  },
+  {
+    "id": 8,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement executes immediately after the loop body?",
+    "options": ["Initialization", "Condition", "Update", "Termination"],
+    "answerIndex": 2,
+    "explanation": "After executing the loop body, the update statement runs."
+  },
+  {
+    "id": 9,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 0; i < 3; i++)\n{\n    System.out.print(\"A\");\n}",
+    "options": ["AAA", "AA", "A", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop executes three times printing 'A'."
+  },
+  {
+    "id": 10,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which loop is preferred when the number of iterations is known?",
+    "options": ["while", "do-while", "for", "switch"],
+    "answerIndex": 2,
+    "explanation": "The for loop is best when the number of iterations is fixed."
+  },
+  {
+    "id": 11,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int sum = 0;\nfor(int i = 1; i <= 3; i++)\n{\n    sum = sum + i;\n}\nSystem.out.print(sum);",
+    "options": ["3", "6", "10", "Error"],
+    "answerIndex": 1,
+    "explanation": "The sum of 1, 2 and 3 is 6."
+  },
+  {
+    "id": 12,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which for loop will not execute even once?",
+    "options": [
+      "for(int i = 1; i <= 5; i++)",
+      "for(int i = 5; i >= 1; i--)",
+      "for(int i = 10; i < 5; i++)",
+      "for(int i = 0; i < 1; i++)"
+    ],
+    "answerIndex": 2,
+    "explanation": "The condition is false initially, so the loop does not execute."
+  },
+  {
+    "id": 13,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 2; i <= 10; i += 2)\n{\n    System.out.print(i);\n}",
+    "options": ["246810", "13579", "210", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints even numbers from 2 to 10."
+  },
+  {
+    "id": 14,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which keyword is used to terminate a loop immediately?",
+    "options": ["continue", "break", "return", "exit"],
+    "answerIndex": 1,
+    "explanation": "The break statement exits the loop immediately."
+  },
+  {
+    "id": 15,
+    "topic": "Topic0",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    System.out.print(i * i);\n}",
+    "options": ["149", "123", "369", "Error"],
+    "answerIndex": 0,
+    "explanation": "Squares of 1, 2 and 3 are printed."
+  },
+  {
+    "id": 16,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the error in the following code.",
+    "code": "for(int i = 1 i <= 5; i++)\n{\n    System.out.println(i);\n}",
+    "options": [
+      "Missing semicolon after i = 1",
+      "Wrong condition",
+      "Missing braces",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "A semicolon is missing after the initialization statement."
+  },
+  {
+    "id": 17,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++);\nSystem.out.print(\"Hello\");",
+    "options": ["Hello", "HelloHelloHello", "No output", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop body is empty due to the semicolon."
+  },
+  {
+    "id": 18,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which mistake most commonly causes an infinite loop?",
+    "options": [
+      "Wrong variable name",
+      "Wrong update direction",
+      "Missing braces",
+      "Extra spaces"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the update moves away from the terminating condition, the loop becomes infinite."
+  },
+  {
+    "id": 19,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 3; i >= 1; i--)\n{\n    System.out.print(i);\n}",
+    "options": ["321", "123", "012", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints values from 3 down to 1."
+  },
+  {
+    "id": 20,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What happens if the condition in a for loop is always true?",
+    "options": [
+      "Loop runs once",
+      "Loop runs finite times",
+      "Infinite loop",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "An always-true condition causes the loop to run infinitely."
+  },
+  {
+    "id": 21,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int sum = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    sum = sum + i;\n}\nSystem.out.print(sum);",
+    "options": ["10", "15", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "The sum of numbers from 1 to 5 is 15."
+  },
+  {
+    "id": 22,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int p = 1;\nfor(int i = 1; i <= 4; i++)\n{\n    p = p * i;\n}\nSystem.out.print(p);",
+    "options": ["10", "24", "4", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop calculates 1 × 2 × 3 × 4 = 24."
+  },
+  {
+    "id": 23,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    System.out.print(i * 2);\n}",
+    "options": ["246", "123", "369", "Error"],
+    "answerIndex": 0,
+    "explanation": "Each value of i is multiplied by 2."
+  },
+  {
+    "id": 24,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which variable is generally used to store the total in number-based programs?",
+    "options": ["i", "sum", "count", "temp"],
+    "answerIndex": 1,
+    "explanation": "The variable name 'sum' is conventionally used to store totals."
+  },
+  {
+    "id": 25,
+    "topic": "Topic2",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 10; i > 0; i = i / 2)\n{\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["3", "4", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop runs for i = 10, 5, 2, 1 (4 times)."
+  },
+
+  {
+    "id": 26,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 123;\nint rev = 0;\nfor(; n > 0; n = n / 10)\n{\n    rev = rev * 10 + n % 10;\n}\nSystem.out.print(rev);",
+    "options": ["123", "321", "213", "Error"],
+    "answerIndex": 1,
+    "explanation": "The digits are extracted and reversed."
+  },
+  {
+    "id": 27,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 2468;\nint count = 0;\nfor(; n > 0; n = n / 10)\n{\n    count++;\n}\nSystem.out.print(count);",
+    "options": ["3", "4", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "The number has 4 digits."
+  },
+  {
+    "id": 28,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator is used to extract the last digit of a number?",
+    "options": ["/", "*", "%", "+"],
+    "answerIndex": 2,
+    "explanation": "The modulus (%) operator gives the remainder, i.e., the last digit."
+  },
+  {
+    "id": 29,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 135;\nint s = 0;\nfor(; n > 0; n = n / 10)\n{\n    s = s + (n % 10);\n}\nSystem.out.print(s);",
+    "options": ["9", "10", "11", "Error"],
+    "answerIndex": 0,
+    "explanation": "Sum of digits: 1 + 3 + 5 = 9."
+  },
+  {
+    "id": 30,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which value is reduced in every iteration when counting digits?",
+    "options": ["count", "sum", "n", "i"],
+    "answerIndex": 2,
+    "explanation": "The number n is reduced by dividing by 10."
+  },
+
+  {
+    "id": 31,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 121;\nint rev = 0;\nint temp = n;\nfor(; n > 0; n = n / 10)\n{\n    rev = rev * 10 + n % 10;\n}\nSystem.out.print(temp == rev);",
+    "options": ["true", "false", "1", "0"],
+    "answerIndex": 0,
+    "explanation": "121 is a palindrome, so temp equals rev."
+  },
+  {
+    "id": 32,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 5;\nint f = 1;\nfor(int i = 1; i <= n; i++)\n{\n    f = f * i;\n}\nSystem.out.print(f);",
+    "options": ["20", "60", "120", "Error"],
+    "answerIndex": 2,
+    "explanation": "5! = 120."
+  },
+  {
+    "id": 33,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which logic is used to check whether a number is a palindrome?",
+    "options": [
+      "Compare sum and product",
+      "Reverse number and compare",
+      "Count digits",
+      "Check divisibility"
+    ],
+    "answerIndex": 1,
+    "explanation": "A number is palindrome if it equals its reverse."
+  },
+  {
+    "id": 34,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 7;\nint c = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "4", "7"],
+    "answerIndex": 0,
+    "explanation": "7 has exactly two factors: 1 and 7."
+  },
+  {
+    "id": 35,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which number-based program uses two loops in Class IX?",
+    "options": [
+      "Sum of digits",
+      "Reverse number",
+      "Factor counting",
+      "Pattern printing"
+    ],
+    "answerIndex": 3,
+    "explanation": "Pattern printing usually requires nested loops."
+  },
+
+  {
+    "id": 36,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 4;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    s = s + (i * i);\n}\nSystem.out.print(s);",
+    "options": ["10", "20", "30", "Error"],
+    "answerIndex": 1,
+    "explanation": "1² + 2² + 3² + 4² = 30."
+  },
+  {
+    "id": 37,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 6;\nint sum = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 2 == 0)\n        sum = sum + i;\n}\nSystem.out.print(sum);",
+    "options": ["6", "12", "20", "Error"],
+    "answerIndex": 1,
+    "explanation": "Even numbers up to 6 are 2, 4, 6. Sum = 12."
+  },
+  {
+    "id": 38,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which variable should be preserved before reversing a number?",
+    "options": ["rev", "count", "temp", "i"],
+    "answerIndex": 2,
+    "explanation": "The original number must be stored in a temporary variable."
+  },
+  {
+    "id": 39,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 10;\nint c = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "4", "5"],
+    "answerIndex": 2,
+    "explanation": "10 has four factors: 1, 2, 5, 10."
+  },
+  {
+    "id": 40,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which number-based problem is most commonly asked in ICSE exams?",
+    "options": [
+      "Palindrome check",
+      "Pattern printing",
+      "Prime checking",
+      "All of these"
+    ],
+    "answerIndex": 3,
+    "explanation": "ICSE exams regularly include all these number-based problems."
+  },
+  {
+    "id": 41,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "error",
+    "question": "Identify the logical error in the following code.",
+    "code": "for(int i = 1; i <= 5; i++);",
+    "options": [
+      "Extra semicolon after for loop",
+      "Missing braces",
+      "Wrong condition",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The semicolon makes the loop body empty."
+  },
+  {
+    "id": 42,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the result of placing a semicolon after the for loop?",
+    "options": [
+      "Loop executes normally",
+      "Loop executes once",
+      "Loop body becomes empty",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "The loop body is separated due to the semicolon."
+  },
+  {
+    "id": 43,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++);\nSystem.out.print(i);",
+    "options": ["3", "4", "Compilation error", "No output"],
+    "answerIndex": 2,
+    "explanation": "Variable i is out of scope, causing a compilation error."
+  },
+  {
+    "id": 44,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which error can cause a loop to never execute?",
+    "options": [
+      "Wrong initialization",
+      "Wrong update direction",
+      "Infinite loop",
+      "Extra semicolon"
+    ],
+    "answerIndex": 0,
+    "explanation": "If the initial condition is false, the loop never executes."
+  },
+  {
+    "id": 45,
+    "topic": "Topic3",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 5; i < 3; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["5", "543", "No output", "Error"],
+    "answerIndex": 2,
+    "explanation": "The condition is false initially, so the loop does not execute."
+  },
+
+  {
+    "id": 46,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; i--)\n{\n    System.out.println(i);\n}",
+    "options": [
+      "Wrong initialization",
+      "Wrong update direction",
+      "Missing braces",
+      "Extra semicolon"
+    ],
+    "answerIndex": 1,
+    "explanation": "The update decreases i, causing an infinite loop."
+  },
+  {
+    "id": 47,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which mistake most commonly causes an infinite loop?",
+    "options": [
+      "Wrong data type",
+      "Wrong update direction",
+      "Missing semicolon",
+      "Extra spaces"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the update moves away from the terminating condition, the loop never ends."
+  },
+  {
+    "id": 48,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n}\nSystem.out.print(\"Done\");",
+    "options": ["Done", "DoneDone", "No output", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop body is empty but executes; \"Done\" prints once."
+  },
+  {
+    "id": 49,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which error leads to zero execution of the loop?",
+    "options": [
+      "Extra semicolon",
+      "Wrong initialization",
+      "Wrong update direction",
+      "Infinite loop"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the condition is false at the start, the loop never runs."
+  },
+  {
+    "id": 50,
+    "topic": "Topic3",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 3; i <= 1; i--)\n{\n    System.out.print(i);\n}",
+    "options": ["321", "3", "No output", "Infinite loop"],
+    "answerIndex": 3,
+    "explanation": "The condition remains true while i keeps decreasing."
+  },
+
+  {
+    "id": 51,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the error in the following loop.",
+    "code": "for(int i = 1; i <= 5; )\n{\n    System.out.println(i);\n}",
+    "options": [
+      "Missing update statement",
+      "Wrong condition",
+      "Missing braces",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Without an update, the loop becomes infinite."
+  },
+  {
+    "id": 52,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop component prevents infinite execution?",
+    "options": [
+      "Initialization",
+      "Condition",
+      "Update",
+      "Braces"
+    ],
+    "answerIndex": 2,
+    "explanation": "The update changes the loop variable towards termination."
+  },
+  {
+    "id": 53,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n    System.out.print(i);\n    System.out.print(\"X\");",
+    "options": ["123X", "1X2X3X", "123", "Compilation error"],
+    "answerIndex": 0,
+    "explanation": "Only the first statement is inside the loop."
+  },
+  {
+    "id": 54,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which mistake occurs when braces are omitted?",
+    "options": [
+      "Compilation error",
+      "Only one statement executes in loop",
+      "Infinite loop",
+      "Loop skips update"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without braces, only the first statement belongs to the loop."
+  },
+  {
+    "id": 55,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 1; i++)\n{\n    i = i + 1;\n    System.out.print(i);\n}",
+    "options": ["1", "2", "Infinite loop", "No output"],
+    "answerIndex": 1,
+    "explanation": "i becomes 2 before printing."
+  },
+
+  {
+    "id": 56,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which logical error is hardest to detect?",
+    "options": [
+      "Syntax error",
+      "Runtime error",
+      "Logical error",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Logical errors compile and run but produce incorrect results."
+  },
+  {
+    "id": 57,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i > 3)\n        break;\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "Loop breaks when i becomes 4; count is 3."
+  },
+  {
+    "id": 58,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which keyword helps exit a loop to avoid infinite execution?",
+    "options": ["continue", "break", "return", "stop"],
+    "answerIndex": 1,
+    "explanation": "The break statement terminates the loop."
+  },
+  {
+    "id": 59,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i == 3)\n        continue;\n    System.out.print(i);\n}",
+    "options": ["12345", "1245", "1345", "Error"],
+    "answerIndex": 1,
+    "explanation": "The continue statement skips printing when i is 3."
+  },
+  {
+    "id": 60,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice best helps avoid logical errors in loops?",
+    "options": [
+      "Writing long code",
+      "Using dry-run tables",
+      "Avoiding comments",
+      "Ignoring output"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run tables help trace execution step by step."
+  },
+  {
+    "id": 61,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of the for loop is responsible for changing the loop variable?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 2,
+    "explanation": "The update part modifies the loop control variable."
+  },
+  {
+    "id": 62,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 4; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["1234", "01234", "4321", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints values from 1 to 4."
+  },
+  {
+    "id": 63,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is executed only once in a for loop?",
+    "options": ["Condition", "Update", "Initialization", "Body"],
+    "answerIndex": 2,
+    "explanation": "Initialization runs only once when the loop starts."
+  },
+  {
+    "id": 64,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the correct order of execution in a for loop?",
+    "options": [
+      "Condition → Initialization → Body → Update",
+      "Initialization → Condition → Body → Update",
+      "Initialization → Body → Condition → Update",
+      "Body → Condition → Update → Initialization"
+    ],
+    "answerIndex": 1,
+    "explanation": "The correct order is initialization, condition check, body, then update."
+  },
+  {
+    "id": 65,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    System.out.print(\"Hi\");\n}",
+    "options": ["Hi", "HiHi", "HiHiHi", "Error"],
+    "answerIndex": 2,
+    "explanation": "The loop executes three times, printing \"Hi\" each time."
+  },
+
+  {
+    "id": 66,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int sum = 0;\nfor(int i = 2; i <= 6; i += 2)\n{\n    sum = sum + i;\n}\nSystem.out.print(sum);",
+    "options": ["6", "12", "20", "Error"],
+    "answerIndex": 2,
+    "explanation": "Even numbers 2, 4, 6 are added. Sum = 12."
+  },
+  {
+    "id": 67,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 246;\nint s = 0;\nfor(; n > 0; n = n / 10)\n{\n    s = s + (n % 10);\n}\nSystem.out.print(s);",
+    "options": ["10", "12", "6", "Error"],
+    "answerIndex": 1,
+    "explanation": "Sum of digits: 2 + 4 + 6 = 12."
+  },
+  {
+    "id": 68,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operation is commonly used to reduce a number digit by digit?",
+    "options": ["/ 2", "/ 5", "/ 10", "% 10"],
+    "answerIndex": 2,
+    "explanation": "Dividing by 10 removes the last digit."
+  },
+  {
+    "id": 69,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 5;\nint f = 1;\nfor(int i = 1; i <= n; i++)\n{\n    f = f * i;\n}\nSystem.out.print(f);",
+    "options": ["20", "60", "120", "Error"],
+    "answerIndex": 2,
+    "explanation": "Factorial of 5 is 120."
+  },
+  {
+    "id": 70,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which number-based problem requires reversing digits?",
+    "options": [
+      "Sum of digits",
+      "Palindrome check",
+      "Factor counting",
+      "Even number check"
+    ],
+    "answerIndex": 1,
+    "explanation": "Palindrome checking requires reversing the number."
+  },
+
+  {
+    "id": 71,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; i++)\n    System.out.print(i);\n    System.out.print(\"X\");",
+    "options": [
+      "Compilation error",
+      "Only one statement inside loop",
+      "Infinite loop",
+      "Wrong condition"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without braces, only the first statement is inside the loop."
+  },
+  {
+    "id": 72,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    if(i == 2)\n        break;\n    System.out.print(i);\n}",
+    "options": ["123", "12", "1", "Error"],
+    "answerIndex": 2,
+    "explanation": "The loop breaks when i becomes 2, so only 1 is printed."
+  },
+  {
+    "id": 73,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which statement skips the current iteration of a loop?",
+    "options": ["break", "continue", "exit", "return"],
+    "answerIndex": 1,
+    "explanation": "The continue statement skips the current iteration."
+  },
+  {
+    "id": 74,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i % 2 == 0)\n        continue;\n    System.out.print(i);\n}",
+    "options": ["12345", "135", "246", "Error"],
+    "answerIndex": 1,
+    "explanation": "Even numbers are skipped; odd numbers are printed."
+  },
+  {
+    "id": 75,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice best helps detect logical errors?",
+    "options": [
+      "Ignoring output",
+      "Using dry-run tables",
+      "Writing longer code",
+      "Avoiding comments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run tables help trace execution step by step."
+  },
+
+  {
+    "id": 76,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "How many times is the condition checked in a for loop that runs 5 times?",
+    "options": ["5", "6", "4", "Depends on update"],
+    "answerIndex": 1,
+    "explanation": "The condition is checked one extra time when it becomes false."
+  },
+  {
+    "id": 77,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 1; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["0", "1", "11", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop runs once and prints 1."
+  },
+  {
+    "id": 78,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following will cause an infinite loop?",
+    "options": [
+      "for(int i = 1; i <= 5; i++)",
+      "for(int i = 5; i >= 1; i--)",
+      "for(int i = 1; i <= 5; i--)",
+      "for(int i = 0; i < 5; i++)"
+    ],
+    "answerIndex": 2,
+    "explanation": "The update moves away from the terminating condition."
+  },
+  {
+    "id": 79,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["4", "5", "6", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop executes 5 times, incrementing c each time."
+  },
+  {
+    "id": 80,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the main purpose of using a for loop?",
+    "options": [
+      "Decision making",
+      "Repetition of statements",
+      "Input handling",
+      "Class creation"
+    ],
+    "answerIndex": 1,
+    "explanation": "The for loop is used to repeat a set of statements."
+  },
+  {
+    "id": 81,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "In a for loop, which part is executed immediately after the condition becomes false?",
+    "options": ["Update", "Body", "Loop terminates", "Initialization"],
+    "answerIndex": 2,
+    "explanation": "When the condition becomes false, the loop terminates immediately."
+  },
+  {
+    "id": 82,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 2; i++)\n{\n    System.out.print(\"X\");\n}",
+    "options": ["X", "XX", "XXX", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop runs twice, printing X two times."
+  },
+  {
+    "id": 83,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is NOT a valid part of a for loop?",
+    "options": ["Initialization", "Condition", "Update", "Declaration"],
+    "answerIndex": 3,
+    "explanation": "A for loop consists of initialization, condition, and update only."
+  },
+  {
+    "id": 84,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 0; i < 3; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["012", "123", "01", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints values 0, 1, and 2."
+  },
+  {
+    "id": 85,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which variable usually controls the number of loop iterations?",
+    "options": ["Counter variable", "Input variable", "Output variable", "Constant"],
+    "answerIndex": 0,
+    "explanation": "A counter variable controls how many times the loop executes."
+  },
+
+  {
+    "id": 86,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int s = 0;\nfor(int i = 1; i <= 4; i++)\n{\n    s = s + (i * 2);\n}\nSystem.out.print(s);",
+    "options": ["10", "12", "20", "Error"],
+    "answerIndex": 2,
+    "explanation": "2 + 4 + 6 + 8 = 20."
+  },
+  {
+    "id": 87,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 100;\nint c = 0;\nfor(; n > 0; n = n / 10)\n{\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "4", "Error"],
+    "answerIndex": 1,
+    "explanation": "100 has three digits."
+  },
+  {
+    "id": 88,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which loop is most suitable for calculating factorial?",
+    "options": ["while", "do-while", "for", "switch"],
+    "answerIndex": 2,
+    "explanation": "A for loop is suitable when the number of iterations is known."
+  },
+  {
+    "id": 89,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 246;\nint rev = 0;\nfor(; n > 0; n = n / 10)\n{\n    rev = rev * 10 + (n % 10);\n}\nSystem.out.print(rev);",
+    "options": ["246", "642", "624", "Error"],
+    "answerIndex": 1,
+    "explanation": "The digits are reversed to form 642."
+  },
+  {
+    "id": 90,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which variable stores the reversed number in digit-based programs?",
+    "options": ["n", "sum", "rev", "temp"],
+    "answerIndex": 2,
+    "explanation": "The variable rev is used to store the reversed number."
+  },
+
+  {
+    "id": 91,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n}\nSystem.out.print(i);",
+    "options": [
+      "Loop executes zero times",
+      "Variable i is out of scope",
+      "Infinite loop",
+      "No error"
+    ],
+    "answerIndex": 1,
+    "explanation": "The loop variable i is not accessible outside the loop."
+  },
+  {
+    "id": 92,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 4; i++)\n{\n    if(i == 3)\n        break;\n    System.out.print(i);\n}",
+    "options": ["1234", "12", "13", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop stops when i becomes 3, so only 1 and 2 are printed."
+  },
+  {
+    "id": 93,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which statement is used to skip the rest of the current iteration?",
+    "options": ["break", "continue", "return", "exit"],
+    "answerIndex": 1,
+    "explanation": "The continue statement skips to the next iteration."
+  },
+  {
+    "id": 94,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i % 2 == 0)\n        continue;\n    System.out.print(i);\n}",
+    "options": ["135", "12345", "246", "Error"],
+    "answerIndex": 0,
+    "explanation": "Even numbers are skipped; odd numbers are printed."
+  },
+  {
+    "id": 95,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which error causes a loop to execute endlessly?",
+    "options": [
+      "Wrong initialization",
+      "Wrong update direction",
+      "Extra semicolon",
+      "Missing braces"
+    ],
+    "answerIndex": 1,
+    "explanation": "If the update moves away from the terminating condition, the loop becomes infinite."
+  },
+
+  {
+    "id": 96,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "If a for loop runs 4 times, how many times is the condition checked?",
+    "options": ["3", "4", "5", "Depends on update"],
+    "answerIndex": 2,
+    "explanation": "The condition is checked one extra time when it becomes false."
+  },
+  {
+    "id": 97,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 2; i <= 2; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["1", "2", "22", "Error"],
+    "answerIndex": 1,
+    "explanation": "The loop executes once, printing 2."
+  },
+  {
+    "id": 98,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which of the following for loops executes exactly once?",
+    "options": [
+      "for(int i = 1; i <= 5; i++)",
+      "for(int i = 3; i >= 1; i--)",
+      "for(int i = 5; i <= 5; i++)",
+      "for(int i = 0; i < 0; i++)"
+    ],
+    "answerIndex": 2,
+    "explanation": "The condition is true only once when i equals 5."
+  },
+  {
+    "id": 99,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 1;\nfor(int i = 1; i <= 3; i++)\n{\n    c = c * 2;\n}\nSystem.out.print(c);",
+    "options": ["4", "6", "8", "Error"],
+    "answerIndex": 2,
+    "explanation": "The value doubles three times: 1 → 2 → 4 → 8."
+  },
+  {
+    "id": 100,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which concept is MOST important to avoid logical errors in loops?",
+    "options": [
+      "Memorizing syntax",
+      "Understanding flow of execution",
+      "Writing more code",
+      "Using comments only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Understanding the flow of execution helps prevent logical errors."
+  },
+  {
+    "id": 101,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword is compulsory in every for loop?",
+    "options": ["for", "while", "loop", "iterate"],
+    "answerIndex": 0,
+    "explanation": "The for keyword starts a for loop in Java."
+  },
+  {
+    "id": 102,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 2; i++)\n{\n    System.out.print(i + \" \");\n}",
+    "options": ["1 2", "0 1", "12", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints values 1 and 2."
+  },
+  {
+    "id": 103,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which step of a for loop runs immediately after update?",
+    "options": ["Initialization", "Condition check", "Body", "Termination"],
+    "answerIndex": 1,
+    "explanation": "After update, the condition is checked again."
+  },
+  {
+    "id": 104,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 3; i >= 1; i--)\n{\n    System.out.print(\"A\");\n}",
+    "options": ["A", "AA", "AAA", "Error"],
+    "answerIndex": 2,
+    "explanation": "The loop runs three times."
+  },
+  {
+    "id": 105,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of a for loop can be left empty?",
+    "options": ["Initialization", "Condition", "Update", "All of these"],
+    "answerIndex": 3,
+    "explanation": "All three parts are optional, but semicolons must remain."
+  },
+
+  {
+    "id": 106,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int s = 0;\nfor(int i = 1; i <= 3; i++)\n{\n    s = s + (i * 3);\n}\nSystem.out.print(s);",
+    "options": ["9", "18", "12", "Error"],
+    "answerIndex": 1,
+    "explanation": "3 + 6 + 9 = 18."
+  },
+  {
+    "id": 107,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 909;\nint c = 0;\nfor(; n > 0; n = n / 10)\n{\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "4", "Error"],
+    "answerIndex": 1,
+    "explanation": "909 has three digits."
+  },
+  {
+    "id": 108,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operation removes the last digit of a number?",
+    "options": ["% 10", "/ 10", "* 10", "+ 10"],
+    "answerIndex": 1,
+    "explanation": "Dividing by 10 removes the last digit."
+  },
+  {
+    "id": 109,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 135;\nint p = 1;\nfor(; n > 0; n = n / 10)\n{\n    p = p * (n % 10);\n}\nSystem.out.print(p);",
+    "options": ["15", "45", "0", "Error"],
+    "answerIndex": 1,
+    "explanation": "Product of digits: 1 × 3 × 5 = 15."
+  },
+  {
+    "id": 110,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which variable is usually used as a counter?",
+    "options": ["sum", "count", "temp", "rev"],
+    "answerIndex": 1,
+    "explanation": "count is conventionally used for counting."
+  },
+
+  {
+    "id": 111,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; )\n{\n    System.out.print(i);\n}",
+    "options": [
+      "Missing update",
+      "Wrong condition",
+      "Extra semicolon",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Without update, the loop becomes infinite."
+  },
+  {
+    "id": 112,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n    System.out.print(i);\nSystem.out.print(\"X\");",
+    "options": ["123X", "1X2X3X", "123", "Error"],
+    "answerIndex": 0,
+    "explanation": "Only the first statement is inside the loop."
+  },
+  {
+    "id": 113,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which error does NOT stop compilation?",
+    "options": [
+      "Syntax error",
+      "Logical error",
+      "Missing semicolon",
+      "Wrong data type"
+    ],
+    "answerIndex": 1,
+    "explanation": "Logical errors compile but give wrong output."
+  },
+  {
+    "id": 114,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i == 4)\n        break;\n    System.out.print(i);\n}",
+    "options": ["12345", "123", "1234", "Error"],
+    "answerIndex": 1,
+    "explanation": "Loop stops when i becomes 4."
+  },
+  {
+    "id": 115,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which statement is used to exit a loop immediately?",
+    "options": ["continue", "break", "exit", "stop"],
+    "answerIndex": 1,
+    "explanation": "break exits the loop immediately."
+  },
+
+  {
+    "id": 116,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "If a loop executes 5 times, how many times is the condition checked?",
+    "options": ["5", "6", "4", "Depends"],
+    "answerIndex": 1,
+    "explanation": "Condition is checked one extra time."
+  },
+  {
+    "id": 117,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 0; i < 1; i++)\n{\n    System.out.print(\"OK\");\n}",
+    "options": ["OK", "OKOK", "No output", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop executes once."
+  },
+  {
+    "id": 118,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop part ensures termination?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 2,
+    "explanation": "The update moves the loop toward termination."
+  },
+  {
+    "id": 119,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 4; i++)\n{\n    c += 2;\n}\nSystem.out.print(c);",
+    "options": ["6", "8", "10", "Error"],
+    "answerIndex": 1,
+    "explanation": "c increases by 2 four times."
+  },
+  {
+    "id": 120,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which concept is essential for predicting loop output?",
+    "options": [
+      "Syntax memorization",
+      "Dry-run",
+      "Comments",
+      "Formatting"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run helps track loop execution."
+  },
+
+  {
+    "id": 121,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 28;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        s = s + i;\n}\nSystem.out.print(s);",
+    "options": ["28", "56", "30", "Error"],
+    "answerIndex": 1,
+    "explanation": "28 is a perfect number."
+  },
+  {
+    "id": 122,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which number-based program checks for perfect numbers?",
+    "options": [
+      "Sum of digits",
+      "Sum of factors",
+      "Palindrome check",
+      "Prime check"
+    ],
+    "answerIndex": 1,
+    "explanation": "Perfect numbers are checked using sum of factors."
+  },
+  {
+    "id": 123,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 4;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    s = s + (i * i);\n}\nSystem.out.print(s);",
+    "options": ["20", "30", "14", "Error"],
+    "answerIndex": 1,
+    "explanation": "1² + 2² + 3² + 4² = 30."
+  },
+  {
+    "id": 124,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which operator is essential for digit extraction?",
+    "options": ["+", "-", "*", "%"],
+    "answerIndex": 3,
+    "explanation": "The modulus operator extracts digits."
+  },
+  {
+    "id": 125,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 153;\nint s = 0;\nfor(int t = n; t > 0; t = t / 10)\n{\n    int d = t % 10;\n    s = s + (d * d * d);\n}\nSystem.out.print(s == n);",
+    "options": ["true", "false", "153", "Error"],
+    "answerIndex": 0,
+    "explanation": "153 is an Armstrong number."
+  },
+
+  {
+    "id": 126,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the error.",
+    "code": "for(int i = 5; i >= 1; i++)\n{\n    System.out.print(i);\n}",
+    "options": [
+      "Wrong update direction",
+      "Wrong condition",
+      "Extra semicolon",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "The update increases i, causing infinite loop."
+  },
+  {
+    "id": 127,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop error is hardest to detect?",
+    "options": [
+      "Syntax error",
+      "Runtime error",
+      "Logical error",
+      "Compilation error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Logical errors do not stop compilation."
+  },
+  {
+    "id": 128,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i % 2 == 0)\n        c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "4", "Error"],
+    "answerIndex": 0,
+    "explanation": "Even numbers are 2 and 4."
+  },
+  {
+    "id": 129,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which technique best helps find logical errors?",
+    "options": [
+      "Guessing",
+      "Dry-run",
+      "Ignoring output",
+      "Copying code"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run helps trace execution."
+  },
+  {
+    "id": 130,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 1; i++)\n{\n    i = i + 1;\n    System.out.print(i);\n}",
+    "options": ["1", "2", "Infinite loop", "Error"],
+    "answerIndex": 1,
+    "explanation": "i becomes 2 before printing."
+  },
+
+  {
+    "id": 131,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which step of loop execution happens last?",
+    "options": ["Initialization", "Condition", "Update", "Termination"],
+    "answerIndex": 3,
+    "explanation": "Loop terminates after condition becomes false."
+  },
+  {
+    "id": 132,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 0; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["0", "1", "No output", "Error"],
+    "answerIndex": 2,
+    "explanation": "Condition is false initially."
+  },
+  {
+    "id": 133,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop component is optional but dangerous if omitted?",
+    "options": ["Initialization", "Condition", "Update", "Braces"],
+    "answerIndex": 2,
+    "explanation": "Missing update may cause infinite loop."
+  },
+  {
+    "id": 134,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int x = 1;\nfor(int i = 1; i <= 3; i++)\n{\n    x = x + i;\n}\nSystem.out.print(x);",
+    "options": ["7", "6", "5", "Error"],
+    "answerIndex": 0,
+    "explanation": "1 + 1 + 2 + 3 = 7."
+  },
+  {
+    "id": 135,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which is the safest way to avoid infinite loops?",
+    "options": [
+      "Avoid loops",
+      "Ensure proper update",
+      "Use break always",
+      "Ignore condition"
+    ],
+    "answerIndex": 1,
+    "explanation": "Correct update ensures termination."
+  },
+
+  {
+    "id": 136,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 10;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 3 == 0)\n        s = s + i;\n}\nSystem.out.print(s);",
+    "options": ["12", "18", "21", "Error"],
+    "answerIndex": 2,
+    "explanation": "Multiples of 3 are 3, 6, 9. Sum = 18."
+  },
+  {
+    "id": 137,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which problem requires nested loops?",
+    "options": [
+      "Factorial",
+      "Sum of digits",
+      "Pattern printing",
+      "Palindrome check"
+    ],
+    "answerIndex": 2,
+    "explanation": "Pattern printing uses nested loops."
+  },
+  {
+    "id": 138,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 4;\nint p = 1;\nfor(int i = 1; i <= n; i++)\n{\n    p = p * (i + 1);\n}\nSystem.out.print(p);",
+    "options": ["24", "120", "60", "Error"],
+    "answerIndex": 0,
+    "explanation": "2 × 3 × 4 × 5 = 120."
+  },
+  {
+    "id": 139,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which logic is used for prime number checking?",
+    "options": [
+      "Sum of digits",
+      "Count factors",
+      "Reverse number",
+      "Multiply digits"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prime numbers have exactly two factors."
+  },
+  {
+    "id": 140,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 5;\nint c = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        c++;\n}\nSystem.out.print(c == 2);",
+    "options": ["true", "false", "5", "Error"],
+    "answerIndex": 0,
+    "explanation": "5 is prime, so it has exactly two factors."
+  },
+
+  {
+    "id": 141,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i == 3)\n        continue;\n    i++;\n}",
+    "options": [
+      "Extra update",
+      "Wrong condition",
+      "Extra semicolon",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "i is updated twice in one iteration."
+  },
+  {
+    "id": 142,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which error results in skipped values?",
+    "options": [
+      "Extra update",
+      "Missing braces",
+      "Wrong initialization",
+      "Missing semicolon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Extra update causes values to be skipped."
+  },
+  {
+    "id": 143,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    i++;\n    System.out.print(i);\n}",
+    "options": ["246", "135", "12345", "Error"],
+    "answerIndex": 0,
+    "explanation": "i is incremented twice, printing even numbers."
+  },
+  {
+    "id": 144,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which logical error causes skipping iterations?",
+    "options": [
+      "Double increment",
+      "Wrong condition",
+      "Missing braces",
+      "Infinite loop"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double increment skips values."
+  },
+  {
+    "id": 145,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int s = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i == 4)\n        break;\n    s += i;\n}\nSystem.out.print(s);",
+    "options": ["6", "10", "15", "Error"],
+    "answerIndex": 1,
+    "explanation": "Loop stops at 4; sum is 1+2+3 = 6."
+  },
+
+  {
+    "id": 146,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which execution step repeats the most?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "Condition is checked every iteration."
+  },
+  {
+    "id": 147,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 2; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["12", "21", "11", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints 1 and then 2."
+  },
+  {
+    "id": 148,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop component controls repetition?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "The condition controls repetition."
+  },
+  {
+    "id": 149,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int k = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i % 2 == 1)\n        k++;\n}\nSystem.out.print(k);",
+    "options": ["2", "3", "4", "5"],
+    "answerIndex": 1,
+    "explanation": "Odd numbers are 1, 3, 5."
+  },
+  {
+    "id": 150,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which skill is MOST important for ICSE loop questions?",
+    "options": [
+      "Typing speed",
+      "Dry-run practice",
+      "Remembering keywords",
+      "Using IDE"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run practice helps in predicting output correctly."
+  },{
+    "id": 151,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword begins a loop that repeats a fixed number of times?",
+    "options": ["for", "while", "repeat", "loop"],
+    "answerIndex": 0,
+    "explanation": "The for keyword is used when iterations are known."
+  },
+  {
+    "id": 152,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 1; i++)\n{\n    System.out.print(\"ICSE\");\n}",
+    "options": ["ICSE", "ICSEICSE", "No output", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop runs once."
+  },
+  {
+    "id": 153,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which step of a for loop runs first?",
+    "options": ["Condition", "Initialization", "Body", "Update"],
+    "answerIndex": 1,
+    "explanation": "Initialization executes first."
+  },
+  {
+    "id": 154,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 2; i <= 4; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["234", "123", "432", "Error"],
+    "answerIndex": 0,
+    "explanation": "The loop prints values from 2 to 4."
+  },
+  {
+    "id": 155,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol separates parts of a for loop?",
+    "options": [",", ":", ";", "."],
+    "answerIndex": 2,
+    "explanation": "Semicolons separate loop parts."
+  },
+
+  {
+    "id": 156,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int s = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i % 2 == 0)\n        s += i;\n}\nSystem.out.print(s);",
+    "options": ["6", "10", "15", "Error"],
+    "answerIndex": 1,
+    "explanation": "Even numbers 2 and 4 are added."
+  },
+  {
+    "id": 157,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 321;\nint rev = 0;\nfor(; n > 0; n = n / 10)\n{\n    rev = rev * 10 + n % 10;\n}\nSystem.out.print(rev);",
+    "options": ["123", "321", "213", "Error"],
+    "answerIndex": 0,
+    "explanation": "Digits are reversed."
+  },
+  {
+    "id": 158,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which operator extracts the last digit?",
+    "options": ["+", "-", "/", "%"],
+    "answerIndex": 3,
+    "explanation": "Modulus (%) extracts digits."
+  },
+  {
+    "id": 159,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int f = 1;\nfor(int i = 1; i <= 4; i++)\n{\n    f = f * i;\n}\nSystem.out.print(f);",
+    "options": ["10", "24", "12", "Error"],
+    "answerIndex": 1,
+    "explanation": "Factorial of 4 is 24."
+  },
+  {
+    "id": 160,
+    "topic": "Topic2",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which program uses digit extraction logic?",
+    "options": ["Factorial", "Palindrome", "Sum of series", "Table printing"],
+    "answerIndex": 1,
+    "explanation": "Palindrome programs extract digits."
+  },
+
+  {
+    "id": 161,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the error.",
+    "code": "for(int i = 1; i <= 5; i--)\n{\n    System.out.print(i);\n}",
+    "options": [
+      "Wrong update direction",
+      "Missing braces",
+      "Extra semicolon",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "i decreases while condition expects increase."
+  },
+  {
+    "id": 162,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which mistake causes infinite loop?",
+    "options": [
+      "Correct update",
+      "Wrong update",
+      "Correct condition",
+      "Extra braces"
+    ],
+    "answerIndex": 1,
+    "explanation": "Wrong update causes infinite loops."
+  },
+  {
+    "id": 163,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    if(i == 2)\n        continue;\n    System.out.print(i);\n}",
+    "options": ["123", "13", "23", "Error"],
+    "answerIndex": 1,
+    "explanation": "Iteration 2 is skipped."
+  },
+  {
+    "id": 164,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which keyword skips an iteration?",
+    "options": ["break", "continue", "exit", "stop"],
+    "answerIndex": 1,
+    "explanation": "continue skips current iteration."
+  },
+  {
+    "id": 165,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    i++;\n    System.out.print(i);\n}",
+    "options": ["246", "135", "12345", "Error"],
+    "answerIndex": 0,
+    "explanation": "Double increment skips numbers."
+  },
+
+  {
+    "id": 166,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which step is checked most frequently?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "Condition is checked every iteration."
+  },
+  {
+    "id": 167,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 0; i < 0; i++)\n{\n    System.out.print(i);\n}",
+    "options": ["0", "1", "No output", "Error"],
+    "answerIndex": 2,
+    "explanation": "Condition is false initially."
+  },
+  {
+    "id": 168,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop part controls repetition?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "Condition controls repetition."
+  },
+  {
+    "id": 169,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int x = 0;\nfor(int i = 1; i <= 3; i++)\n{\n    x += i;\n}\nSystem.out.print(x);",
+    "options": ["3", "6", "9", "Error"],
+    "answerIndex": 1,
+    "explanation": "1+2+3 = 6."
+  },
+  {
+    "id": 170,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which practice helps predict output accurately?",
+    "options": ["Guessing", "Dry-run", "Compiling", "Formatting"],
+    "answerIndex": 1,
+    "explanation": "Dry-run helps trace execution."
+  },
+
+  {
+    "id": 171,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 6;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        s += i;\n}\nSystem.out.print(s);",
+    "options": ["6", "12", "18", "Error"],
+    "answerIndex": 1,
+    "explanation": "Factors of 6 sum to 12."
+  },
+  {
+    "id": 172,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which number has exactly two factors?",
+    "options": ["Composite", "Prime", "Even", "Odd"],
+    "answerIndex": 1,
+    "explanation": "Prime numbers have two factors."
+  },
+  {
+    "id": 173,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 153;\nint s = 0;\nfor(int t = n; t > 0; t /= 10)\n{\n    int d = t % 10;\n    s += d*d*d;\n}\nSystem.out.print(s == n);",
+    "options": ["true", "false", "153", "Error"],
+    "answerIndex": 0,
+    "explanation": "153 is an Armstrong number."
+  },
+  {
+    "id": 174,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which program checks Armstrong numbers?",
+    "options": ["Factorial", "Digit cube sum", "Prime check", "Reverse"],
+    "answerIndex": 1,
+    "explanation": "Armstrong uses digit cube sum."
+  },
+  {
+    "id": 175,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 5;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    s += i*i;\n}\nSystem.out.print(s);",
+    "options": ["30", "55", "15", "Error"],
+    "answerIndex": 0,
+    "explanation": "Sum of squares = 30."
+  },
+
+  {
+    "id": 176,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the logical error.",
+    "code": "for(int i = 1; i <= 5; i++)\n{\n    if(i == 3)\n        continue;\n    i++;\n}",
+    "options": [
+      "Extra update",
+      "Wrong condition",
+      "Extra semicolon",
+      "No error"
+    ],
+    "answerIndex": 0,
+    "explanation": "i is incremented twice."
+  },
+  {
+    "id": 177,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which error skips values?",
+    "options": [
+      "Double increment",
+      "Missing braces",
+      "Wrong initialization",
+      "Missing condition"
+    ],
+    "answerIndex": 0,
+    "explanation": "Double increment skips values."
+  },
+  {
+    "id": 178,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i > 3)\n        break;\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "Loop stops after i=3."
+  },
+  {
+    "id": 179,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which keyword stops loop execution?",
+    "options": ["continue", "break", "exit", "return"],
+    "answerIndex": 1,
+    "explanation": "break terminates loop."
+  },
+  {
+    "id": 180,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 5; i >= 1; i--)\n{\n    System.out.print(i);\n}",
+    "options": ["54321", "12345", "Error", "No output"],
+    "answerIndex": 0,
+    "explanation": "Loop counts down."
+  },
+
+  {
+    "id": 181,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which step repeats until condition fails?",
+    "options": ["Initialization", "Body", "Condition", "Termination"],
+    "answerIndex": 2,
+    "explanation": "Condition is repeatedly checked."
+  },
+  {
+    "id": 182,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 2; i++)\n{\n    for(int j = 1; j <= 1; j++)\n        System.out.print(i);\n}",
+    "options": ["12", "11", "22", "Error"],
+    "answerIndex": 0,
+    "explanation": "Nested loop prints 1 then 2."
+  },
+  {
+    "id": 183,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which part of loop ensures exit?",
+    "options": ["Initialization", "Condition", "Update", "Body"],
+    "answerIndex": 1,
+    "explanation": "Condition decides exit."
+  },
+  {
+    "id": 184,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int a = 1;\nfor(int i = 1; i <= 3; i++)\n{\n    a *= 2;\n}\nSystem.out.print(a);",
+    "options": ["4", "6", "8", "Error"],
+    "answerIndex": 2,
+    "explanation": "Value doubles thrice."
+  },
+  {
+    "id": 185,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which is best to avoid logical errors?",
+    "options": ["Copy code", "Dry-run", "Guess output", "Ignore update"],
+    "answerIndex": 1,
+    "explanation": "Dry-run reveals logic mistakes."
+  },
+
+  {
+    "id": 186,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 7;\nint c = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        c++;\n}\nSystem.out.print(c == 2);",
+    "options": ["true", "false", "7", "Error"],
+    "answerIndex": 0,
+    "explanation": "7 is prime."
+  },
+  {
+    "id": 187,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which problem checks divisibility?",
+    "options": ["Palindrome", "Prime", "Factorial", "Reverse"],
+    "answerIndex": 1,
+    "explanation": "Prime checking uses divisibility."
+  },
+  {
+    "id": 188,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int n = 10;\nint s = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 5 == 0)\n        s += i;\n}\nSystem.out.print(s);",
+    "options": ["5", "10", "15", "Error"],
+    "answerIndex": 2,
+    "explanation": "5 + 10 = 15."
+  },
+  {
+    "id": 189,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which loop is best for fixed repetition?",
+    "options": ["while", "do-while", "for", "switch"],
+    "answerIndex": 2,
+    "explanation": "for loop suits fixed repetition."
+  },
+  {
+    "id": 190,
+    "topic": "Topic2",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int s = 1;\nfor(int i = 1; i <= 3; i++)\n{\n    s += i;\n}\nSystem.out.print(s);",
+    "options": ["7", "6", "5", "Error"],
+    "answerIndex": 0,
+    "explanation": "1+1+2+3 = 7."
+  },
+
+  {
+    "id": 191,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "error",
+    "question": "Identify the error.",
+    "code": "for(int i = 1; i <= 5; i++)\n    System.out.print(i);\n    System.out.print(\"A\");",
+    "options": [
+      "Only one statement in loop",
+      "Compilation error",
+      "Infinite loop",
+      "Wrong update"
+    ],
+    "answerIndex": 0,
+    "explanation": "Missing braces."
+  },
+  {
+    "id": 192,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which mistake causes partial execution?",
+    "options": ["Missing braces", "Wrong condition", "Wrong update", "Extra semicolon"],
+    "answerIndex": 0,
+    "explanation": "Missing braces limits loop body."
+  },
+  {
+    "id": 193,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int c = 0;\nfor(int i = 1; i <= 5; i++)\n{\n    if(i == 3)\n        break;\n    c++;\n}\nSystem.out.print(c);",
+    "options": ["2", "3", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "Loop stops at 3."
+  },
+  {
+    "id": 194,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which keyword exits loop early?",
+    "options": ["continue", "break", "return", "exit"],
+    "answerIndex": 1,
+    "explanation": "break exits loop."
+  },
+  {
+    "id": 195,
+    "topic": "Topic3",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 1; i <= 3; i++)\n{\n    System.out.print(i*i);\n}",
+    "options": ["149", "123", "369", "Error"],
+    "answerIndex": 0,
+    "explanation": "Squares of numbers."
+  },
+
+  {
+    "id": 196,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "How many times does initialization run?",
+    "options": ["Once", "Twice", "Every loop", "Never"],
+    "answerIndex": 0,
+    "explanation": "Initialization runs once."
+  },
+  {
+    "id": 197,
+    "topic": "Topic1",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "for(int i = 3; i > 0; i--)\n{\n    System.out.print(i);\n}",
+    "options": ["321", "123", "Error", "No output"],
+    "answerIndex": 0,
+    "explanation": "Loop counts down."
+  },
+  {
+    "id": 198,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which part must eventually make condition false?",
+    "options": ["Initialization", "Update", "Body", "Print"],
+    "answerIndex": 1,
+    "explanation": "Update moves loop toward termination."
+  },
+  {
+    "id": 199,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "int t = 0;\nfor(int i = 1; i <= 4; i++)\n{\n    t += i;\n}\nSystem.out.print(t);",
+    "options": ["10", "6", "4", "Error"],
+    "answerIndex": 0,
+    "explanation": "Sum of 1 to 4 is 10."
+  },
+  {
+    "id": 200,
+    "topic": "Topic0",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which skill ensures success in ICSE loop questions?",
+    "options": [
+      "Fast typing",
+      "Dry-run practice",
+      "IDE usage",
+      "Guessing output"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dry-run practice is essential."
+  }
+
+]

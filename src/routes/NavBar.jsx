@@ -4,6 +4,8 @@ import { HashLink } from "react-router-hash-link";
 import { motion, AnimatePresence } from "framer-motion";
 import cnat from "../assets/cnat.png";
 
+
+
 // Wrapper so that class component can use `location`
 function withLocation(ComponentWithLocation) {
   return function Wrapper(props) {
@@ -13,6 +15,7 @@ function withLocation(ComponentWithLocation) {
 }
 
 class NavBar extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +24,8 @@ class NavBar extends Component {
       tutorialsOpen: false,   // ⭐ NEW
       activeHash: props.location.hash || "",
     };
+    // for auto closing of menu 
+    this.navRef = React.createRef();
   }
 
   componentDidUpdate(prevProps) {
@@ -28,6 +33,14 @@ class NavBar extends Component {
       this.setState({ activeHash: this.props.location.hash });
     }
   }
+
+  componentDidMount() {
+  document.addEventListener("pointerdown", this.handleClickOutside);
+}
+
+componentWillUnmount() {
+  document.removeEventListener("pointerdown", this.handleClickOutside);
+}
 
   toggleMenu = () => {
     this.setState({
@@ -66,17 +79,30 @@ class NavBar extends Component {
       courses: "from-pink-500 to-rose-500",
       teachers: "from-amber-500 to-orange-500",
       services: "from-indigo-500 to-blue-500",
-      tutorials: "from-yellow-500 to-amber-500", // ⭐ NEW color
+      tutorials: "from-yellow-500 to-amber-500",
       contact: "from-emerald-500 to-teal-500",
       login: "from-red-500 to-pink-500",
     };
 
-    return `block px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${
-      isActive
+    return `flex items-center px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${isActive
         ? `bg-gradient-to-r ${activeColors[key]} text-white`
         : "text-gray-300 hover:text-white hover:bg-gray-800/70"
-    }`;
+      }`;
   };
+
+
+  handleClickOutside = (event) => {
+  if (
+    this.navRef.current &&
+    !this.navRef.current.contains(event.target)
+  ) {
+    this.setState({
+      isOpen: false,
+      servicesOpen: false,
+      tutorialsOpen: false,
+    });
+  }
+};
 
   render() {
     const { location } = this.props;
@@ -85,6 +111,7 @@ class NavBar extends Component {
 
     return (
       <motion.header
+        ref={this.navRef}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -180,11 +207,17 @@ class NavBar extends Component {
                       transition={{ duration: 0.2 }}
                       className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
-                      <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>JavaScript</NavLink>
-                      <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Python</NavLink>
+                      <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        JavaScript
+                      </NavLink>
+                      <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        <img src="/logos/python.svg" className="h-4 w-4 mr-2" />
+                        Python
+                      </NavLink>
                       <NavLink to="/c-language/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>C Programming</NavLink>
                       <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Tally</NavLink>
                       <NavLink to="/excel/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Excel</NavLink>
+                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -255,6 +288,7 @@ class NavBar extends Component {
                       <NavLink to="/c-language/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
                       <NavLink to="/tally/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Tally</NavLink>
                       <NavLink to="/excel/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Excel</NavLink>
+                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
 
                     </div>
                   )}

@@ -13,6 +13,13 @@
     },
     "folder": "git",
     "subject": "Git Version Control",
+    "subjectLogo": {
+        "name": "Git",
+        "icon": "git",
+        "type": "svg",
+        "path": "/assets/logos/git-logo.svg",
+        "alt": "Git Version Control Logo"
+    },
     "segments": [
         {
             "segmentId": "basic",

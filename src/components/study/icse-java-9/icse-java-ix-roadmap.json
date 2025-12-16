@@ -1,0 +1,199 @@
+{
+  "trackId": "icse-class-9-java-bluej",
+  "trackTitle": "ICSE Class IX Computer Applications - Java with BlueJ",
+  "description": "Strictly as per ICSE Class IX Computer Applications syllabus using Java and BlueJ. Structured learning path without Class X overlap.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "ICSE Class IX Java Roadmap",
+    "version": "1.0.3",
+    "lastUpdated": "2025-12-16"
+  },
+  "folder": "icse-java-ix",
+  "subject": "Computer Applications (ICSE Class IX)",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/assets/logos/java-logo.svg",
+    "alt": "Java Programming Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "oop-and-datatypes",
+      "title": "OOP Basics and Data Types",
+      "level": "Beginner",
+      "modules": [
+        {
+          "moduleId": "oop-intro",
+          "slug": "oop-introduction",
+          "title": "Introduction to Object Oriented Programming",
+          "topics": [
+            "Object Oriented Programming concept",
+            "Objects and classes",
+            "Real life examples of objects",
+            "Basic structure of a Java class"
+          ]
+        },
+        {
+          "moduleId": "values-datatypes",
+          "slug": "values-and-datatypes",
+          "title": "Values and Data Types",
+          "topics": [
+            "Constants and variables",
+            "Primitive data types",
+            "Type compatibility",
+            "Type conversion"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "input-and-operators",
+      "title": "Input and Operators",
+      "level": "Beginner",
+      "modules": [
+        {
+          "moduleId": "scanner-input",
+          "slug": "input-in-java",
+          "title": "Input in Java (Scanner Class)",
+          "topics": [
+            "Need of input",
+            "Scanner class",
+            "Integer and double input",
+            "Character input"
+          ]
+        },
+        {
+          "moduleId": "operators",
+          "slug": "operators-in-java",
+          "title": "Operators in Java",
+          "topics": [
+            "Arithmetic operators",
+            "Relational operators",
+            "Logical operators",
+            "Increment and decrement operators"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "math-library",
+      "title": "Mathematical Library Methods",
+      "level": "Beginner",
+      "modules": [
+        {
+          "moduleId": "math-library-methods",
+          "slug": "math-library-methods",
+          "title": "Mathematical Library Methods",
+          "topics": [
+            "pow(x, y)",
+            "sqrt(x)",
+            "cbrt(x)",
+            "ceil(x)",
+            "floor(x)",
+            "round(x)",
+            "abs(a)",
+            "max(a, b)",
+            "min(a, b)",
+            "random()"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "conditional-statements",
+      "title": "Conditional Statements",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "conditionals",
+          "slug": "conditional-statements",
+          "title": "Conditional Statements in Java",
+          "topics": [
+            "if statement",
+            "if-else statement",
+            "else-if ladder",
+            "Nested if",
+            "switch case statement"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "for-loop",
+      "title": "Iterative Construct - For Loop",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "for-loop-non-nested",
+          "slug": "for-loop",
+          "title": "For Loop (Non-Nested)",
+          "topics": [
+            "Syntax of for loop",
+            "Flow of execution",
+            "Number based programs",
+            "Common logical errors",
+            "Practice Your Skill",
+            "Project Work"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "while-do-while",
+      "title": "Iterative Constructs - While and Do-While",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "while-do-while-loops",
+          "slug": "while-do-while",
+          "title": "While Loop and Do-While Loop",
+          "topics": [
+            "while loop",
+            "do-while loop",
+            "Difference between while and do-while",
+            "Jump statements (break, continue)"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "nested-iteration",
+      "title": "Nested Iteration",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "nested-for-loop",
+          "slug": "nested-for-loop",
+          "title": "Nested For Loop",
+          "topics": [
+            "Concept of nesting",
+            "Nested for loop syntax",
+            "Pattern based programs"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "computing-ethics",
+      "title": "Computing and Ethics",
+      "level": "Theory",
+      "modules": [
+        {
+          "moduleId": "ethics",
+          "slug": "computing-and-ethics",
+          "title": "Computing and Ethics",
+          "topics": [
+            "Ethical use of computers",
+            "Cyber safety",
+            "Intellectual property",
+            "Responsible computing"
+          ]
+        }
+      ]
+    }
+  ]
+}

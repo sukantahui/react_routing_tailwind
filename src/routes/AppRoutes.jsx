@@ -38,6 +38,16 @@ import ExcelRoadmap from '../components/study/excel/ExcelRoadmap';
 import ExcelModuleView from '../components/study/excel/ExcelModuleView';
 import ExcelTopicView from '../components/study/excel/ExcelTopicView';
 
+import GitRoadmap from '../components/study/git/GitRoadmap';
+import GitModuleView from '../components/study/git/GitModuleView';
+import GitTopicView from '../components/study/git/GitTopicView';
+
+import IconResources from '../components/IconResources';
+
+import ICSE9JavaRoadmap from '../components/study/icse-java-9/ICSE9JavaRoadmap';
+import ICSE9JavaModuleView from '../components/study/icse-java-9/ICSE9JavaModuleView';
+import ICSE9JavaTopicView from '../components/study/icse-java-9/ICSE9JavaTopicView';
+
 
 
 // ⬇️ Import Study component
@@ -131,6 +141,19 @@ export default function AppRoutes() {
       <Route path="/excel/roadmap" element={<ExcelRoadmap />} />
       <Route path="/excel/module/:slug" element={<ExcelModuleView />} />
       <Route path="/excel/topic/:moduleSlug/:topicIndex"  element={<ExcelTopicView/>}/>
+
+    {/* For Git  */}
+      <Route path="/git/roadmap" element={<GitRoadmap />} />
+      <Route path="/git/module/:slug" element={<GitModuleView />} />
+      <Route path="/git/topic/:moduleSlug/:topicIndex"  element={<GitTopicView/>}/>
+
+      {/* For Git  */}
+      <Route path="/icse-java-ix/roadmap" element={<ICSE9JavaRoadmap />} />
+      <Route path="/icse-java-ix/module/:slug" element={<ICSE9JavaModuleView />} />
+      <Route path="/icse-java-ix/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/>
+
+      {/* Icon Resource */}
+      <Route path="/icons" element={<IconResources />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>
