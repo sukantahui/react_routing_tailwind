@@ -112,6 +112,19 @@ export default class TypingLearn extends Component {
     return null;
   };
 
+  // 🖐 Check if user used correct finger
+  isCorrectFingerUsed = (typedChar, expectedChar) => {
+    if (!typedChar || !expectedChar) return null;
+
+    const expectedFinger = this.getFingerForChar(expectedChar);
+    const typedFinger = this.getFingerForChar(typedChar);
+
+    if (!expectedFinger || !typedFinger) return null;
+
+    return expectedFinger === typedFinger;
+  };
+
+
 
   // Load global stats from localStorage
   loadGlobalStats = () => {
@@ -588,6 +601,20 @@ export default class TypingLearn extends Component {
       currentCharIndex < target.length ? target[currentCharIndex] : "";
     const fingerHint = this.getFingerForChar(expectedChar);
 
+    const lastTypedIndex = input.length - 1;
+
+    const lastTypedChar =
+      lastTypedIndex >= 0 ? input[lastTypedIndex] : "";
+
+    const expectedTypedChar =
+      lastTypedIndex >= 0 ? target[lastTypedIndex] : "";
+
+    const fingerCorrectness = this.isCorrectFingerUsed(
+      lastTypedChar,
+      expectedTypedChar
+    );
+
+
     // Difficulty label for display
     let difficultyLabel = "";
     if (lesson.level === "Beginner") {
@@ -700,18 +727,47 @@ export default class TypingLearn extends Component {
             <p className="text-xs text-amber-300 mb-4">
               💡 Tip: {lesson.hint}
             </p>
-            {fingerHint && (
-                <div className="mb-3 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
-                  <p className="text-base text-emerald-300 flex items-center gap-2">
-                    <span className="text-xl">👉</span>
-                    Finger hint:
-                    <span className="font-bold text-emerald-200">
-                      {fingerHint}
-                    </span>
-                    {expectedChar === " " && " (Space)"}
-                  </p>
-                </div>
-              )}
+            {/* 🖐 Finger Guidance + Confidence Indicator */}
+{(fingerHint || fingerCorrectness !== null) && (
+  <div className="mb-4 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+    <div className="flex items-center justify-between gap-4 flex-wrap">
+
+      {/* LEFT: Finger Hint */}
+      <div className="flex items-center gap-2 text-base text-emerald-300">
+        <span className="text-xl">👉</span>
+
+        {fingerHint ? (
+          <span>
+            Finger:
+            <span className="ml-1 font-bold text-emerald-200">
+              {fingerHint}
+            </span>
+            {expectedChar === " " && " (Space)"}
+          </span>
+        ) : (
+          <span className="text-gray-400 italic">
+            Waiting for next key…
+          </span>
+        )}
+      </div>
+
+      {/* RIGHT: Finger Correctness */}
+      {fingerCorrectness !== null && (
+        <div
+          className={
+            "text-sm font-semibold flex items-center gap-1 " +
+            (fingerCorrectness
+              ? "text-emerald-400"
+              : "text-rose-400")
+          }
+        >
+          {fingerCorrectness ? "✔ Correct finger" : "❌ Wrong finger"}
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
 
             {/* Target Text */}
             <div className="bg-gray-900/70 rounded-xl p-4 md:p-5 mb-4 text-base md:text-lg font-mono leading-relaxed border border-gray-700">
