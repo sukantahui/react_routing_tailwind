@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Steam -->
+  <path d="M12 2c1.5 1.5-1.5 2.5 0 4" fill="none" stroke="#ef4444" stroke-width="1.6" stroke-linecap="round"></path>
+  <path d="M9 3c1.5 1.5-1.5 2.5 0 4" fill="none" stroke="#ef4444" stroke-width="1.6" stroke-linecap="round"></path>
+  <path d="M15 3c1.5 1.5-1.5 2.5 0 4" fill="none" stroke="#ef4444" stroke-width="1.6" stroke-linecap="round"></path>
+
+  <!-- Cup -->
+  <path d="M6 10h10v4a4 4 0 0 1-8 0v-4z" fill="#2563eb"></path>
+
+  <!-- Handle -->
+  <path d="M16 11h1.5a2 2 0 0 1 0 4H16" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round"></path>
+
+  <!-- Saucer -->
+  <path d="M5 18h12" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round"></path>
+</svg>

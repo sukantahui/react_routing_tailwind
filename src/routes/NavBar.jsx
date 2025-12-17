@@ -183,6 +183,8 @@ componentWillUnmount() {
                       <NavLink to="/tools/typing-learn" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Learn</NavLink>
                       <NavLink to="/python-play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Python Editor</NavLink>
                       <NavLink to="/play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>JavaScript Editor</NavLink>
+                      <NavLink to="/icons" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Icons</NavLink>
+                      <NavLink to="/vscode" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>VScode</NavLink>
 
                     </motion.div>
                   )}
@@ -208,16 +210,29 @@ componentWillUnmount() {
                       className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
                       <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        <img src="/logos/javascript.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="js" />
                         JavaScript
                       </NavLink>
                       <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/python.svg" className="h-4 w-4 mr-2" />
+                        <img src="/logos/python.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="python" />
                         Python
                       </NavLink>
-                      <NavLink to="/c-language/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>C Programming</NavLink>
-                      <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Tally</NavLink>
-                      <NavLink to="/excel/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>Excel</NavLink>
-                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
+                      <NavLink to="/c-language/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        <img src="/logos/c.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="c" />
+                        C Programming
+                      </NavLink>
+                      <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        <img src="/logos/tally-prime.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="tally" />
+                        Tally
+                      </NavLink>
+                      <NavLink to="/excel/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
+                        <img src="/logos/excel.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="excel" />
+                        Excel
+                      </NavLink>
+                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/java.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        ICSE Class 9
+                      </NavLink>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -263,7 +278,7 @@ componentWillUnmount() {
                   >
                     Tools ▾
                   </button>
-
+ 
                   {servicesOpen && (
                     <div className="ml-4 flex flex-col">
                       <NavLink to="/tools/type-test" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Test</NavLink>

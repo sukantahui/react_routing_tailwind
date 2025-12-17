@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+  <!-- Background Circle -->
+  <circle cx="12" cy="12" r="10" fill="#2563eb"></circle>
+
+  <!-- Letter T -->
+  <path d="M7 7h10v2h-4v8h-2V9H7z" fill="#ffffff"></path>
+</svg>

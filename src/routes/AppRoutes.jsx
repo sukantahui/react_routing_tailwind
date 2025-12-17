@@ -43,6 +43,7 @@ import GitModuleView from '../components/study/git/GitModuleView';
 import GitTopicView from '../components/study/git/GitTopicView';
 
 import IconResources from '../components/IconResources';
+import VSCodeUltraExpertGuide from '../components/VSCodeUltraExpertGuide';
 
 import ICSE9JavaRoadmap from '../components/study/icse-java-9/ICSE9JavaRoadmap';
 import ICSE9JavaModuleView from '../components/study/icse-java-9/ICSE9JavaModuleView';
@@ -154,6 +155,7 @@ export default function AppRoutes() {
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
+      <Route path="/vscode" element={<VSCodeUltraExpertGuide />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>
