@@ -1,0 +1,325 @@
+[
+  {
+    "id": 1,
+    "level": "Beginner",
+    "title": "Home Row Warm-up",
+    "description": "Start with relaxed home row patterns to get comfortable with the keyboard.",
+    "text": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; fjdk asdl jakl fjda asdf jkl; asdf jkl;",
+    "hint": "Keep your fingers curved and lightly resting on the keys."
+  },
+  {
+    "id": 2,
+    "level": "Beginner",
+    "title": "Home Row Flow",
+    "description": "Build a smooth flow on the home row using repeated patterns.",
+    "text": "as as df df jk jk l; l; asdf asdf jkl; jkl; asdf jkl; asdf jkl; asdf jkl;",
+    "hint": "Try to type without any sudden stops."
+  },
+  {
+    "id": 3,
+    "level": "Beginner",
+    "title": "Left Hand – Home Row",
+    "description": "Focus only on the left-hand keys of the home row.",
+    "text": "asdf asdf sasa dad fad sad fad asda fads sads dfas asdf asdf",
+    "hint": "Use only your left-hand fingers for these keys."
+  },
+  {
+    "id": 4,
+    "level": "Beginner",
+    "title": "Right Hand – Home Row",
+    "description": "Strengthen right hand control on the home row keys.",
+    "text": "jkl; jkl; lkj; kjl; jaja kaka lall jkjk klkl jkl; jkl; jkl;",
+    "hint": "Return each finger to its home position after pressing a key."
+  },
+  {
+    "id": 5,
+    "level": "Beginner",
+    "title": "Top Row Basics",
+    "description": "Light practice for the QWERTY top row keys.",
+    "text": "qwer qwer tyui tyui opop qwert yuiop qwer tyui qwerty qwerty",
+    "hint": "Do not lift your whole hand; only move the fingers."
+  },
+  {
+    "id": 6,
+    "level": "Beginner",
+    "title": "Bottom Row Basics",
+    "description": "Introduce the bottom row with gentle repetition.",
+    "text": "zxcv zxcv bnm bnm zxzx cvcv bnbn mnmn zxcvbnm zxcvbnm",
+    "hint": "Keep your wrists relaxed and steady."
+  },
+  {
+    "id": 7,
+    "level": "Beginner",
+    "title": "Simple Words Mix",
+    "description": "Practice very common and simple words.",
+    "text": "the and is of to in it on at by we me he she you they this that",
+    "hint": "Say the words in your mind as you type them."
+  },
+  {
+    "id": 8,
+    "level": "Beginner",
+    "title": "Short Sentences",
+    "description": "Type short sentences with basic punctuation.",
+    "text": "I can type. You can learn. We all improve with practice. Keep going. Do not stop.",
+    "hint": "Press the space bar lightly and consistently."
+  },
+  {
+    "id": 9,
+    "level": "Beginner",
+    "title": "Vowel & Consonant Patterns",
+    "description": "Mix vowels and consonants to build rhythm.",
+    "text": "ta te ti to tu sa se si so su la le li lo lu ma me mi mo mu",
+    "hint": "Watch the screen instead of your keyboard."
+  },
+  {
+    "id": 10,
+    "level": "Beginner",
+    "title": "Basic Rhythm Drill",
+    "description": "Maintain a slow and steady typing rhythm.",
+    "text": "type slow and steady type slow and steady type slow and steady",
+    "hint": "Count in your mind and match your typing speed with it."
+  },
+
+  {
+    "id": 11,
+    "level": "Intermediate",
+    "title": "Common English Words",
+    "description": "Practice a mix of high-frequency English words in one line.",
+    "text": "people about there would could should always never really every other after before again",
+    "hint": "Focus on accuracy while your speed increases naturally."
+  },
+  {
+    "id": 12,
+    "level": "Intermediate",
+    "title": "Mixed Rows Drill",
+    "description": "Top, middle, and bottom rows combined in patterns.",
+    "text": "qaz wsx edc rfv tgb yhn ujm qazwsx edcrfv tgb yhn ujm qwert asdfg zxcvb",
+    "hint": "Keep your hands anchored on the home row."
+  },
+  {
+    "id": 13,
+    "level": "Intermediate",
+    "title": "Natural Phrases",
+    "description": "Type phrases that feel like everyday writing.",
+    "text": "Practice makes progress. Small steps every day build strong habits. Keep your hands relaxed and your eyes on the screen.",
+    "hint": "Do not worry about speed, just keep moving forward."
+  },
+  {
+    "id": 14,
+    "level": "Intermediate",
+    "title": "Number Row – Light",
+    "description": "Introduce number keys without pressure.",
+    "text": "12345 67890 10203 40506 78901 11223 34455 66789",
+    "hint": "Use the correct finger for each number according to standard layout."
+  },
+  {
+    "id": 15,
+    "level": "Intermediate",
+    "title": "Number Row – Practice",
+    "description": "A bit more intense repetition on the number row for familiarity.",
+    "text": "13579 24680 11111 22222 33333 44444 55555 67890 09876 54321",
+    "hint": "Glance at the numbers row, then try to type from memory."
+  },
+  {
+    "id": 16,
+    "level": "Intermediate",
+    "title": "Simple Story Line",
+    "description": "Type a short story-like paragraph with simple language.",
+    "text": "A student decided to improve typing skills. Every morning, they spent ten minutes practicing quietly. After a few weeks, typing felt easy and natural.",
+    "hint": "Breathe calmly and do not tense your shoulders."
+  },
+  {
+    "id": 17,
+    "level": "Intermediate",
+    "title": "Speed Pattern Booster",
+    "description": "Use repeated letter patterns to build fast reactions.",
+    "text": "asdf asdf asdf jkl; jkl; jkl; qwer qwer qwer zxcv zxcv zxcv qaz qaz qaz wsx wsx wsx",
+    "hint": "Try to keep the same speed for the entire line."
+  },
+  {
+    "id": 18,
+    "level": "Intermediate",
+    "title": "Punctuation Practice",
+    "description": "Use commas, periods, and question marks in real sentences.",
+    "text": "Typing is a useful skill, and it helps in many jobs. Do you practice regularly? If yes, you will see improvement soon.",
+    "hint": "Pay attention to where spaces are used with punctuation."
+  },
+  {
+    "id": 19,
+    "level": "Intermediate",
+    "title": "Email Style Text",
+    "description": "Simulate simple professional email content.",
+    "text": "Dear Sir, I hope you are doing well. This is a gentle reminder about the pending work. Please review the document and share your feedback.",
+    "hint": "Use Shift for capital letters at the start of sentences."
+  },
+  {
+    "id": 20,
+    "level": "Intermediate",
+    "title": "Descriptive Paragraph",
+    "description": "Longer descriptive text to improve endurance and accuracy.",
+    "text": "The room was silent except for the soft sound of keys being pressed. Each letter appeared on the screen, slowly forming words and sentences full of meaning.",
+    "hint": "Focus on staying relaxed over longer text."
+  },
+  {
+    "id": 21,
+    "level": "Intermediate",
+    "title": "Daily Routine Text",
+    "description": "Practice a paragraph about a simple daily routine scenario.",
+    "text": "Every day begins with a plan. You wake up, get ready, and decide how to use your time. A little planning and a little discipline can make the entire day productive.",
+    "hint": "Maintain even spacing between words."
+  },
+  {
+    "id": 22,
+    "level": "Intermediate",
+    "title": "Question & Answer Style",
+    "description": "Practice questions and answers to simulate real typing use.",
+    "text": "Why should you practice typing? Because it saves time. How often should you practice? At least a few minutes every day.",
+    "hint": "Be careful with question marks and periods."
+  },
+
+  {
+    "id": 23,
+    "level": "Advanced",
+    "title": "Focused Accuracy Paragraph",
+    "description": "Longer paragraph where accuracy is more important than speed.",
+    "text": "Accuracy builds confidence. When you know that your fingers press the right keys, you can type faster without fear. This calm confidence comes only from focused practice.",
+    "hint": "Try to complete this without any backspace if possible."
+  },
+  {
+    "id": 24,
+    "level": "Advanced",
+    "title": "Fast-paced Sentence Mix",
+    "description": "Multiple sentences with varying lengths to challenge your rhythm.",
+    "text": "Fast typing is impressive, but clear typing is powerful. Short sentences test control. Longer sentences test patience and consistency.",
+    "hint": "Vary your speed slightly but avoid losing control."
+  },
+  {
+    "id": 25,
+    "level": "Advanced",
+    "title": "Typing a Mini Article",
+    "description": "Simulate typing a small article-like paragraph for practice.",
+    "text": "In the digital age, typing is a fundamental skill. From writing emails to creating reports, quick and accurate typing helps you work efficiently and communicate clearly with others.",
+    "hint": "Pretend this is a real assignment you must submit."
+  },
+  {
+    "id": 26,
+    "level": "Advanced",
+    "title": "Mixed Numbers & Words",
+    "description": "Combine words, dates, and simple numbers.",
+    "text": "The meeting starts at 10:30 AM on 15th June. Please bring 2 copies of the report and 1 pen drive with the backup files.",
+    "hint": "Watch out for numbers, colons, and abbreviations."
+  },
+  {
+    "id": 27,
+    "level": "Advanced",
+    "title": "Symbol-rich Practice",
+    "description": "Frequently used symbols inside real phrases.",
+    "text": "Save the file as report_final_v2.docx and upload it to the shared folder. Use the password: Safe@123 to open the protected sheet.",
+    "hint": "Give extra attention to underscores, dots, and @ symbol."
+  },
+  {
+    "id": 28,
+    "level": "Advanced",
+    "title": "Story-style Paragraph",
+    "description": "A compact story paragraph for natural-flow practice.",
+    "text": "A soft breeze entered the room as the window opened. The student sat near the desk, practicing typing again and again, determined to cross every previous speed record.",
+    "hint": "Imagine the scene while you type to stay engaged."
+  },
+  {
+    "id": 29,
+    "level": "Advanced",
+    "title": "Motivational Text",
+    "description": "Practice motivational lines while encouraging yourself.",
+    "text": "You do not need to be perfect to begin. You simply need to start, stay patient, and show up for practice. Every session adds a small layer of improvement.",
+    "hint": "Type with a calm and confident mindset."
+  },
+  {
+    "id": 30,
+    "level": "Advanced",
+    "title": "Dialogue-style Text",
+    "description": "Simulate small conversations and quotes.",
+    "text": "\"Can I really type faster?\" the learner asked. \"Yes,\" the mentor replied, \"if you keep practicing without giving up.\"",
+    "hint": "Be careful with quotation marks and commas."
+  },
+  {
+    "id": 31,
+    "level": "Advanced",
+    "title": "Exam Simulation Paragraph",
+    "description": "Simulated exam-style paragraph to mimic test conditions.",
+    "text": "During an exam, every second matters. Typing quickly can save precious time, but it is useless without accuracy. Practicing now prepares your mind and hands for that pressure.",
+    "hint": "Imagine you are in a real exam environment."
+  },
+  {
+    "id": 32,
+    "level": "Advanced",
+    "title": "Long-form Practice",
+    "description": "Longer block of text to build stamina.",
+    "text": "Long typing sessions test your posture, breathing, focus, and patience. Take short breaks when needed, but always come back with fresh energy to continue learning and improving.",
+    "hint": "Do not rush. Maintain posture and breathe normally."
+  },
+  {
+    "id": 33,
+    "level": "Advanced",
+    "title": "Descriptive Scene Typing",
+    "description": "Type a descriptive passage to improve consistency.",
+    "text": "The sky slowly changed its color from bright blue to a soft orange. People walked home, the street lights turned on, and the sound of keyboards echoed in quiet rooms.",
+    "hint": "Enjoy the imagery as you type the description."
+  },
+  {
+    "id": 34,
+    "level": "Advanced",
+    "title": "Office Scenario Text",
+    "description": "Practice paragraphs based on office communication.",
+    "text": "The team planned a weekly review meeting to discuss progress. Each member shared updates, challenges, and ideas that could make the workflow smoother and more efficient.",
+    "hint": "This type of content appears often in real jobs."
+  },
+
+  {
+    "id": 35,
+    "level": "Expert",
+    "title": "High-focus Practice Paragraph",
+    "description": "Dense text that requires strong concentration and typing control.",
+    "text": "Complex tasks demand not only skill but also mental clarity. When you type for long hours, your ability to stay focused, accurate, and calm becomes a valuable strength.",
+    "hint": "This is about mental focus as much as typing skill."
+  },
+  {
+    "id": 36,
+    "level": "Expert",
+    "title": "Advanced Mixed Content",
+    "description": "Realistic mix of words, numbers, and symbols used in daily work.",
+    "text": "Project ID: CN-2048-AX7. Deadline: 31/12/2025. Please upload all files to drive folder /clients/active and send a confirmation email to support@example.com.",
+    "hint": "Notice slashes, dashes, and email format carefully."
+  },
+  {
+    "id": 37,
+    "level": "Expert",
+    "title": "Fast Thinking Text",
+    "description": "Text that encourages thinking and typing at the same time.",
+    "text": "As your fingers move faster, your thoughts must also stay ahead. You begin to plan the next word, the next sentence, and even the next idea while typing the current one.",
+    "hint": "Do not overthink individual letters; think in words."
+  },
+  {
+    "id": 38,
+    "level": "Expert",
+    "title": "Long Motivational Block",
+    "description": "Deep motivational text for long-form continuous typing.",
+    "text": "Improvement is rarely visible in the beginning. For many days, your speed may feel the same. But underneath that feeling, your fingers are learning patterns and shortcuts that slowly transform your typing ability.",
+    "hint": "Try to complete this in one continuous attempt."
+  },
+  {
+    "id": 39,
+    "level": "Expert",
+    "title": "Mock Test Paragraph",
+    "description": "Use this as a mock test to measure your focus and stamina.",
+    "text": "Set a timer for a few minutes and type this passage as if it were a real test. When the time ends, note your accuracy and observe how your hands and mind feel.",
+    "hint": "Use this often to simulate real typing tests."
+  },
+  {
+    "id": 40,
+    "level": "Expert",
+    "title": "Final Challenge",
+    "description": "A final all-round challenge for letters, numbers, and symbols.",
+    "text": "Typing skill is a lifelong asset. Whether you work with code, content, data, or design, your ability to type fast and accurately will always save time and open new opportunities in your career.",
+    "hint": "Treat this as a final practice before your real-world work."
+  }
+]
