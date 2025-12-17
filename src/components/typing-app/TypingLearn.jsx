@@ -3,6 +3,34 @@ import React, { Component } from "react";
 import lessonsData from "./typing-lessons.json";
 const LESSONS = lessonsData;
 
+// ===============================
+// 🖐 Touch Typing Finger Mapping
+// ===============================
+const FINGER_MAP = {
+  leftPinky: "qaz",
+  leftRing: "wsx",
+  leftMiddle: "edc",
+  leftIndex: "rfvtgb",
+  rightIndex: "yhnujm",
+  rightMiddle: "ik,",
+  rightRing: "ol.",
+  rightPinky: "p;",
+  thumbs: " ",
+};
+
+const FINGER_LABELS = {
+  leftPinky: "Left Pinky",
+  leftRing: "Left Ring",
+  leftMiddle: "Left Middle",
+  leftIndex: "Left Index",
+  rightIndex: "Right Index",
+  rightMiddle: "Right Middle",
+  rightRing: "Right Ring",
+  rightPinky: "Right Pinky",
+  thumbs: "Thumb (Space)",
+};
+
+
 export default class TypingLearn extends Component {
   constructor(props) {
     super(props);
@@ -70,6 +98,20 @@ export default class TypingLearn extends Component {
     entries.sort((a, b) => b[1] - a[1]);
     return entries.slice(0, 5).map(([key]) => key);
   };
+
+  // 🖐 Get correct finger for next character
+  getFingerForChar = (char) => {
+    if (!char) return null;
+    const c = char.toLowerCase();
+
+    for (const finger in FINGER_MAP) {
+      if (FINGER_MAP[finger].includes(c)) {
+        return FINGER_LABELS[finger];
+      }
+    }
+    return null;
+  };
+
 
   // Load global stats from localStorage
   loadGlobalStats = () => {
@@ -544,6 +586,7 @@ export default class TypingLearn extends Component {
     const currentCharIndex = input.length;
     const expectedChar =
       currentCharIndex < target.length ? target[currentCharIndex] : "";
+    const fingerHint = this.getFingerForChar(expectedChar);
 
     // Difficulty label for display
     let difficultyLabel = "";
@@ -597,7 +640,7 @@ export default class TypingLearn extends Component {
           </p>
         </div>
 
-        
+
 
         {/* MAIN LAYOUT */}
         {/* <div className="w-full max-w-5xl grid md:grid-cols-[2fr,1.2fr] gap-6"> */}
@@ -657,6 +700,18 @@ export default class TypingLearn extends Component {
             <p className="text-xs text-amber-300 mb-4">
               💡 Tip: {lesson.hint}
             </p>
+            {fingerHint && (
+                <div className="mb-3 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                  <p className="text-base text-emerald-300 flex items-center gap-2">
+                    <span className="text-xl">👉</span>
+                    Finger hint:
+                    <span className="font-bold text-emerald-200">
+                      {fingerHint}
+                    </span>
+                    {expectedChar === " " && " (Space)"}
+                  </p>
+                </div>
+              )}
 
             {/* Target Text */}
             <div className="bg-gray-900/70 rounded-xl p-4 md:p-5 mb-4 text-base md:text-lg font-mono leading-relaxed border border-gray-700">
@@ -804,6 +859,18 @@ export default class TypingLearn extends Component {
               <h3 className="text-sm font-semibold text-gray-200 mb-2">
                 On-screen Keyboard
               </h3>
+              {fingerHint && (
+                <div className="mb-3 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
+                  <p className="text-base text-emerald-300 flex items-center gap-2">
+                    <span className="text-xl">👉</span>
+                    Finger hint:
+                    <span className="font-bold text-emerald-200">
+                      {fingerHint}
+                    </span>
+                    {expectedChar === " " && " (Space)"}
+                  </p>
+                </div>
+              )}
               <p className="text-xs text-gray-400 mb-3">
                 The <span className="text-emerald-400">highlighted key</span> is
                 the next expected character.
