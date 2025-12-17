@@ -655,17 +655,46 @@ export default class TypingLearn extends Component {
         onContextMenu={(e) => e.preventDefault()}
       >
         {/* PAGE HEADER */}
-        <div className="w-full max-w-5xl mb-8">
+        <div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-sky-400">
             CNAT Typing Learning Lab
           </h1>
-          <p className="mt-2 text-gray-300 text-sm md:text-base">
-            Practice-based typing lessons with real-world style content. Move
-            through Beginner, Intermediate, Advanced, and Expert levels at your
-            own pace. Your time, accuracy, XP, and weak keys are tracked to help
-            you improve like a pro.
-          </p>
+
+          <div className="mt-4 flex flex-col lg:flex-row gap-6 items-start">
+
+            {/* LEFT: Intro Text */}
+            <div className="lg:basis-2/5">
+              <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                Practice-based typing lessons with real-world style content. Move
+                through Beginner, Intermediate, Advanced, and Expert levels at your
+                own pace. Your time, accuracy, XP, and weak keys are tracked to help
+                you improve like a pro.
+              </p>
+            </div>
+
+            {/* RIGHT: Finger Placement Card */}
+            <div className="lg:basis-2/5 max-w-[620px] bg-gray-800/60 border border-gray-700 rounded-xl p-4 shadow-md">
+              <p className="font-semibold text-emerald-300 mb-1 text-sm">
+                🖐 Proper Finger Placement (Home Row)
+              </p>
+
+              <p className="text-gray-300 text-sm">
+                Left hand: <span className="text-gray-200 font-semibold">A S D F</span>
+                &nbsp; | &nbsp;
+                Right hand: <span className="text-gray-200 font-semibold">J K L ;</span>
+                &nbsp; | &nbsp;
+                Thumbs on <span className="text-gray-200 font-semibold">Space</span>
+              </p>
+
+              <p className="mt-2 italic text-gray-500 text-xs">
+                Tip: Keep your fingers on the home row and return after every key press.
+              </p>
+            </div>
+
+          </div>
+
         </div>
+
 
 
 
@@ -728,45 +757,45 @@ export default class TypingLearn extends Component {
               💡 Tip: {lesson.hint}
             </p>
             {/* 🖐 Finger Guidance + Confidence Indicator */}
-{(fingerHint || fingerCorrectness !== null) && (
-  <div className="mb-4 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-    <div className="flex items-center justify-between gap-4 flex-wrap">
+            {(fingerHint || fingerCorrectness !== null) && (
+              <div className="mb-4 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                <div className="flex items-center justify-between gap-4 flex-wrap">
 
-      {/* LEFT: Finger Hint */}
-      <div className="flex items-center gap-2 text-base text-emerald-300">
-        <span className="text-xl">👉</span>
+                  {/* LEFT: Finger Hint */}
+                  <div className="flex items-center gap-2 text-base text-emerald-300">
+                    <span className="text-xl">👉</span>
 
-        {fingerHint ? (
-          <span>
-            Finger:
-            <span className="ml-1 font-bold text-emerald-200">
-              {fingerHint}
-            </span>
-            {expectedChar === " " && " (Space)"}
-          </span>
-        ) : (
-          <span className="text-gray-400 italic">
-            Waiting for next key…
-          </span>
-        )}
-      </div>
+                    {fingerHint ? (
+                      <span>
+                        Finger:
+                        <span className="ml-1 font-bold text-emerald-200">
+                          {fingerHint}
+                        </span>
+                        {expectedChar === " " && " (Space)"}
+                      </span>
+                    ) : (
+                      <span className="text-gray-400 italic">
+                        Waiting for next key…
+                      </span>
+                    )}
+                  </div>
 
-      {/* RIGHT: Finger Correctness */}
-      {fingerCorrectness !== null && (
-        <div
-          className={
-            "text-sm font-semibold flex items-center gap-1 " +
-            (fingerCorrectness
-              ? "text-emerald-400"
-              : "text-rose-400")
-          }
-        >
-          {fingerCorrectness ? "✔ Correct finger" : "❌ Wrong finger"}
-        </div>
-      )}
-    </div>
-  </div>
-)}
+                  {/* RIGHT: Finger Correctness */}
+                  {fingerCorrectness !== null && (
+                    <div
+                      className={
+                        "text-sm font-semibold flex items-center gap-1 " +
+                        (fingerCorrectness
+                          ? "text-emerald-400"
+                          : "text-rose-400")
+                      }
+                    >
+                      {fingerCorrectness ? "✔ Correct finger" : "❌ Wrong finger"}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
 
 
             {/* Target Text */}
