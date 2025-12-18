@@ -26,7 +26,11 @@
           "title": "Getting Started with Python",
           "level": "Beginner",
           "estimatedHours": 3,
-          "tags": ["python-intro", "setup", "first-program"],
+          "tags": [
+            "python-intro",
+            "setup",
+            "first-program"
+          ],
           "topics": [
             "What is Python and where it is used",
             "Features of Python – interpreted, high-level, portable",
@@ -77,19 +81,24 @@
             "Demonstrate difference between interactive shell & script file.",
             "Show how print helps beginners trace logic."
           ],
-          "preReading": ["Basic idea of programming"],
+          "preReading": [
+            "Basic idea of programming"
+          ],
           "previousModule": null,
           "nextModule": "python-syntax",
           "badge": "Python Beginner Badge"
         },
-
         {
           "moduleId": "python-syntax",
           "slug": "python-syntax-and-basics",
           "title": "Python Syntax, Variables & Data Types",
           "level": "Beginner",
           "estimatedHours": 4,
-          "tags": ["syntax", "variables", "data-types"],
+          "tags": [
+            "syntax",
+            "variables",
+            "data-types"
+          ],
           "topics": [
             "Python indentation rules",
             "Comments (# single-line)",
@@ -106,7 +115,9 @@
             "Use variables and core data types",
             "Take user input and format simple output"
           ],
-          "prerequisites": ["py-intro"],
+          "prerequisites": [
+            "py-intro"
+          ],
           "difficulty": "Easy",
           "difficultyIndex": 2,
           "summary": "Master variables, types and indentation—Python’s core building blocks.",
@@ -122,7 +133,10 @@
             "type": "Quiz",
             "passScore": 70
           },
-          "useCases": ["Collecting user data", "Simple calculators"],
+          "useCases": [
+            "Collecting user data",
+            "Simple calculators"
+          ],
           "careerSkills": [
             "Clean coding style",
             "Understanding program structure"
@@ -139,19 +153,24 @@
             "Use indentation visualization tools.",
             "Show real cases where input() leads to string bugs."
           ],
-          "preReading": ["Getting Started with Python"],
+          "preReading": [
+            "Getting Started with Python"
+          ],
           "previousModule": "py-intro",
           "nextModule": "operators",
           "badge": "Syntax Master Badge"
         },
-
         {
           "moduleId": "operators",
           "slug": "operators-and-expressions",
           "title": "Operators, Expressions & Basic Logic",
           "level": "Beginner",
           "estimatedHours": 4,
-          "tags": ["operators", "logic", "expressions"],
+          "tags": [
+            "operators",
+            "logic",
+            "expressions"
+          ],
           "topics": [
             "Arithmetic operators",
             "Assignment and compound assignment",
@@ -167,7 +186,9 @@
             "Build logical conditions",
             "Use f-strings for cleaner output"
           ],
-          "prerequisites": ["python-syntax"],
+          "prerequisites": [
+            "python-syntax"
+          ],
           "difficulty": "Easy-Medium",
           "difficultyIndex": 3,
           "summary": "Learn to build conditions and expressions with Python operators.",
@@ -183,8 +204,14 @@
             "type": "Quiz",
             "passScore": 70
           },
-          "useCases": ["Grade calculator", "Bill calculations"],
-          "careerSkills": ["Logical thinking", "Error-free calculations"],
+          "useCases": [
+            "Grade calculator",
+            "Bill calculations"
+          ],
+          "careerSkills": [
+            "Logical thinking",
+            "Error-free calculations"
+          ],
           "commonMistakes": [
             "Misusing == and =",
             "Incorrect f-string usage"
@@ -197,19 +224,23 @@
             "Use truth tables.",
             "Show precedence errors with real examples."
           ],
-          "preReading": ["Python Syntax module"],
+          "preReading": [
+            "Python Syntax module"
+          ],
           "previousModule": "python-syntax",
           "nextModule": "control-flow",
           "badge": "Logic Starter Badge"
         },
-
         {
           "moduleId": "control-flow",
           "slug": "control-flow-conditions",
           "title": "Control Flow & Decision Making",
           "level": "Beginner",
           "estimatedHours": 4,
-          "tags": ["if-else", "conditions"],
+          "tags": [
+            "if-else",
+            "conditions"
+          ],
           "topics": [
             "if, elif, else",
             "Nested conditions",
@@ -221,7 +252,9 @@
             "Use if-elif-else effectively",
             "Build text-based decision programs"
           ],
-          "prerequisites": ["operators"],
+          "prerequisites": [
+            "operators"
+          ],
           "difficulty": "Easy-Medium",
           "difficultyIndex": 4,
           "summary": "Make your Python programs intelligent with decisions.",
@@ -237,30 +270,42 @@
             "type": "Quiz",
             "passScore": 70
           },
-          "useCases": ["Eligibility checks", "Menu-driven programs"],
-          "careerSkills": ["Decision-making logic"],
+          "useCases": [
+            "Eligibility checks",
+            "Menu-driven programs"
+          ],
+          "careerSkills": [
+            "Decision-making logic"
+          ],
           "commonMistakes": [
             "Wrong indentation in nested if",
             "Overusing nested branches"
           ],
-          "references": ["Python Docs – if statements"],
+          "references": [
+            "Python Docs – if statements"
+          ],
           "teachingTips": [
             "Use flowcharts.",
             "Let students convert real-life scenarios to code."
           ],
-          "preReading": ["Operators & Expressions"],
+          "preReading": [
+            "Operators & Expressions"
+          ],
           "previousModule": "operators",
           "nextModule": "loops",
           "badge": "Decision Maker Badge"
         },
-
         {
           "moduleId": "loops",
           "slug": "loops-and-iteration",
           "title": "Loops & Basic Iteration",
           "level": "Beginner",
           "estimatedHours": 5,
-          "tags": ["for", "while", "iteration"],
+          "tags": [
+            "for",
+            "while",
+            "iteration"
+          ],
           "topics": [
             "while loop",
             "for loop with range()",
@@ -275,7 +320,9 @@
             "Control loop execution flow",
             "Solve numeric and pattern-based problems"
           ],
-          "prerequisites": ["control-flow"],
+          "prerequisites": [
+            "control-flow"
+          ],
           "difficulty": "Medium",
           "difficultyIndex": 5,
           "summary": "Repeat tasks efficiently with Python loops.",
@@ -291,8 +338,13 @@
             "type": "Quiz",
             "passScore": 70
           },
-          "useCases": ["Processing lists", "Automating repeated tasks"],
-          "careerSkills": ["Algorithmic logic"],
+          "useCases": [
+            "Processing lists",
+            "Automating repeated tasks"
+          ],
+          "careerSkills": [
+            "Algorithmic logic"
+          ],
           "commonMistakes": [
             "Infinite loops",
             "Wrong range() usage"
@@ -301,8 +353,12 @@
             "Python Docs – for, while",
             "Real Python – Loops"
           ],
-          "teachingTips": ["Use step-by-step dry runs."],
-          "preReading": ["Control Flow module"],
+          "teachingTips": [
+            "Use step-by-step dry runs."
+          ],
+          "preReading": [
+            "Control Flow module"
+          ],
           "previousModule": "control-flow",
           "nextModule": null,
           "badge": "Loop Wizard Badge"
@@ -313,7 +369,11 @@
           "title": "Test for Segment 1",
           "level": "Beginner",
           "estimatedHours": 1,
-          "tags": ["for", "while", "iteration"],
+          "tags": [
+            "for",
+            "while",
+            "iteration"
+          ],
           "topics": [
             "Test for Segment 1"
           ],
@@ -322,7 +382,9 @@
             "Control loop execution flow",
             "Solve numeric and pattern-based problems"
           ],
-          "prerequisites": ["control-flow"],
+          "prerequisites": [
+            "control-flow"
+          ],
           "difficulty": "Medium",
           "difficultyIndex": 5,
           "summary": "Repeat tasks efficiently with Python loops.",
@@ -338,8 +400,13 @@
             "type": "Quiz",
             "passScore": 70
           },
-          "useCases": ["Processing lists", "Automating repeated tasks"],
-          "careerSkills": ["Algorithmic logic"],
+          "useCases": [
+            "Processing lists",
+            "Automating repeated tasks"
+          ],
+          "careerSkills": [
+            "Algorithmic logic"
+          ],
           "commonMistakes": [
             "Infinite loops",
             "Wrong range() usage"
@@ -348,16 +415,18 @@
             "Python Docs – for, while",
             "Real Python – Loops"
           ],
-          "teachingTips": ["Use step-by-step dry runs."],
-          "preReading": ["Control Flow module"],
+          "teachingTips": [
+            "Use step-by-step dry runs."
+          ],
+          "preReading": [
+            "Control Flow module"
+          ],
           "previousModule": "control-flow",
           "nextModule": null,
           "badge": "Loop Wizard Badge"
         }
       ]
     },
-
-
     {
       "segmentId": "intermediate",
       "title": "Segment 2 – Practical Python for Real-World Development (Intermediate)",
@@ -370,7 +439,11 @@
           "title": "Functions & Modular Logic",
           "level": "Intermediate",
           "estimatedHours": 5,
-          "tags": ["functions", "parameters", "return"],
+          "tags": [
+            "functions",
+            "parameters",
+            "return"
+          ],
           "topics": [
             "Function definition & calling",
             "Parameters, arguments & default values",
@@ -384,7 +457,9 @@
             "Use *args and **kwargs",
             "Organize logic into modules"
           ],
-          "prerequisites": ["loops"],
+          "prerequisites": [
+            "loops"
+          ],
           "difficulty": "Medium",
           "difficultyIndex": 6,
           "summary": "Create reusable building blocks using functions.",
@@ -402,7 +477,6 @@
           },
           "nextModule": "lists"
         },
-
         {
           "moduleId": "lists",
           "slug": "lists-and-methods",
@@ -410,41 +484,154 @@
           "level": "Intermediate",
           "estimatedHours": 5,
           "topics": [
-            "Creating lists",
-            "Indexing & slicing",
-            "Mutating operations: append, insert, remove, pop",
-            "Sorting & reversing",
-            "List comprehension",
-            "Nested lists"
+            "Introduction to lists & use cases",
+            "Creating lists (literals, list constructor)",
+            "Accessing elements: indexing & slicing",
+            "Negative indexing & slicing tricks",
+            "Mutating operations: append(), insert(), extend()",
+            "Removing elements: remove(), pop(), clear(), del",
+            "Searching in lists: in, index(), count()",
+            "Updating list elements",
+            "Sorting lists: sort() vs sorted()",
+            "Custom sorting using key functions",
+            "Reversing lists: reverse() vs slicing",
+            "List comprehension (basics)",
+            "Conditional list comprehensions",
+            "Nested list comprehensions (readability rules)",
+            "Nested lists & 2D data structures",
+            "Iterating lists (for, enumerate)",
+            "Copying lists: shallow copy vs reference",
+            "List unpacking & starred expressions",
+            "Lists vs tuples: when to use what",
+            "Lists vs sets vs dictionaries",
+            "Performance considerations of lists",
+            "Common list pitfalls & errors",
+            "Real-world use cases (queues, stacks, records)"
           ],
           "learningOutcomes": [
             "Store and process list collections",
             "Use comprehensions effectively"
           ],
-          "prerequisites": ["functions-core"],
+          "prerequisites": [
+            "functions-core"
+          ],
           "difficultyIndex": 6
         },
-
         {
-          "moduleId": "tuples-dicts-sets",
-          "slug": "tuples-dictionaries-sets",
-          "title": "Tuples, Dictionaries & Sets",
+          "moduleId": "tuples",
+          "slug": "tuples",
+          "title": "Tuples",
           "level": "Intermediate",
-          "estimatedHours": 4,
+          "estimatedHours": 1,
           "topics": [
-            "Tuples and immutability",
-            "Dictionaries: keys, values, items",
-            "Adding & removing key-value pairs",
-            "Iterating dictionaries",
-            "Sets: unique collections, set operations"
+            "Introduction to tuples",
+            "Creating tuples (with and without parentheses)",
+            "Single-element tuples and trailing comma",
+            "Tuple packing and unpacking",
+            "Indexing and slicing tuples",
+            "Negative indexing",
+            "Immutability of tuples",
+            "Why tuples are immutable",
+            "Accessing elements inside nested tuples",
+            "Tuple concatenation and repetition",
+            "Tuple methods: count() and index()",
+            "Iterating through tuples",
+            "Membership testing using in",
+            "Tuple assignment and swapping variables",
+            "Tuples as function return values",
+            "Tuples vs lists: key differences",
+            "Performance benefits of tuples",
+            "Tuples as dictionary keys",
+            "Common tuple pitfalls and errors",
+            "Real-world use cases (coordinates, records, fixed data)",
+            "Test Tuple Skill"
           ],
           "learningOutcomes": [
-            "Work confidently with tuples, dictionaries & sets"
+            "Understand and apply tuple immutability effectively",
+            "Use tuple packing and unpacking for clean code",
+            "Choose tuples appropriately for fixed and read-only data",
+            "Avoid common tuple-related mistakes"
           ],
-          "prerequisites": ["lists"],
+          "prerequisites": [
+            "lists"
+          ],
+          "difficultyIndex": 5
+        },
+        {
+          "moduleId": "dictionaries",
+          "slug": "dictionaries",
+          "title": "Dictionaries",
+          "level": "Intermediate",
+          "estimatedHours": 2,
+          "topics": [
+            "Introduction to dictionaries",
+            "Dictionary structure: keys and values",
+            "Creating dictionaries (literals, dict constructor)",
+            "Accessing values using keys",
+            "Handling missing keys (in, get(), default values)",
+            "Adding key-value pairs",
+            "Updating existing entries",
+            "Removing items: pop(), popitem(), del, clear()",
+            "Dictionary methods: keys(), values(), items()",
+            "Iterating dictionaries (keys, values, items)",
+            "Nested dictionaries",
+            "Dictionary comprehension",
+            "Merging dictionaries",
+            "Copying dictionaries (shallow vs reference)",
+            "Checking key existence",
+            "Dictionary vs list: when to use what",
+            "Real-world use cases (configs, counters, mappings)",
+            "Test your Skill"
+          ],
+          "learningOutcomes": [
+            "Create, update, and manage dictionaries confidently",
+            "Handle nested and complex dictionary structures",
+            "Use dictionary comprehension for clean and efficient code",
+            "Choose dictionaries appropriately for real-world problems"
+          ],
+          "prerequisites": [
+            "lists"
+          ],
           "difficultyIndex": 6
         },
-
+        {
+          "moduleId": "sets",
+          "slug": "sets",
+          "title": "Sets",
+          "level": "Intermediate",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to sets",
+            "Creating sets (set literal and set constructor)",
+            "Unique nature of sets",
+            "Unordered and unindexed collections",
+            "Adding elements: add(), update()",
+            "Removing elements: remove(), discard(), pop(), clear()",
+            "Membership testing using in",
+            "Iterating through sets",
+            "Set length and basic operations",
+            "Mathematical set operations",
+            "Union, intersection, difference",
+            "Symmetric difference",
+            "Set comparison: subset, superset, disjoint sets",
+            "Frozen sets (immutable sets)",
+            "Set comprehension",
+            "Removing duplicates using sets",
+            "Sets vs lists vs tuples",
+            "Performance benefits of sets",
+            "Real-world use cases (unique users, tags, permissions)"
+          ],
+          "learningOutcomes": [
+            "Work confidently with unique data collections using sets",
+            "Apply set operations to solve real-world problems",
+            "Understand mutable vs immutable sets",
+            "Choose sets appropriately for performance and uniqueness"
+          ],
+          "prerequisites": [
+            "lists"
+          ],
+          "difficultyIndex": 5
+        },
         {
           "moduleId": "strings",
           "slug": "string-processing",
@@ -460,7 +647,6 @@
           ],
           "difficultyIndex": 6
         },
-
         {
           "moduleId": "file-handling",
           "title": "File Handling",
@@ -474,7 +660,6 @@
           ],
           "difficultyIndex": 7
         },
-
         {
           "moduleId": "modules-packages",
           "slug": "modules-packages",
@@ -491,7 +676,6 @@
         }
       ]
     },
-
     {
       "segmentId": "advanced",
       "title": "Segment 3 – Advanced Python Programming",
@@ -514,7 +698,6 @@
           ],
           "difficultyIndex": 8
         },
-
         {
           "moduleId": "exceptions",
           "slug": "error-handling",
@@ -528,7 +711,6 @@
           ],
           "difficultyIndex": 8
         },
-
         {
           "moduleId": "decorators-gen",
           "slug": "decorators-generators",
@@ -542,7 +724,6 @@
           ],
           "difficultyIndex": 9
         },
-
         {
           "moduleId": "json-handling",
           "slug": "working-with-json",
@@ -554,7 +735,6 @@
           ],
           "difficultyIndex": 8
         },
-
         {
           "moduleId": "comprehensions-advanced",
           "slug": "advance-comprehensions",
@@ -568,7 +748,6 @@
         }
       ]
     },
-
     {
       "segmentId": "pro",
       "title": "Segment 4 – Python Pro Level & Ecosystem Mastery",
@@ -587,7 +766,6 @@
           ],
           "difficultyIndex": 9
         },
-
         {
           "moduleId": "performance-optimization",
           "slug": "performance-optimization",
@@ -600,7 +778,6 @@
           ],
           "difficultyIndex": 10
         },
-
         {
           "moduleId": "testing",
           "slug": "python-testing",
@@ -613,7 +790,6 @@
           ],
           "difficultyIndex": 10
         },
-
         {
           "moduleId": "final-projects",
           "slug": "capstone-projects",

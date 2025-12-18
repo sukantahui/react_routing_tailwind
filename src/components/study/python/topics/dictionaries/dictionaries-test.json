@@ -1,0 +1,4581 @@
+[
+    {
+        "id": 1,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which data type stores key-value pairs in Python?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "A dictionary stores data in key-value pairs."
+    },
+    {
+        "id": 2,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which symbol is used to define a dictionary?",
+        "options": [
+            "[]",
+            "()",
+            "{}",
+            "<>"
+        ],
+        "answerIndex": 2,
+        "explanation": "Curly braces {} are used to define dictionaries."
+    },
+    {
+        "id": 3,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which of the following is a valid dictionary?",
+        "options": [
+            "{1, 2, 3}",
+            "{'a': 1, 'b': 2}",
+            "['a': 1]",
+            "(a=1, b=2)"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries contain key-value pairs separated by colons."
+    },
+    {
+        "id": 4,
+        "topic": "Topic1",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "In a dictionary, keys must be:",
+        "options": [
+            "Mutable",
+            "Immutable",
+            "Lists",
+            "Dictionaries"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionary keys must be immutable (e.g., int, str, tuple)."
+    },
+    {
+        "id": 5,
+        "topic": "Topic1",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which of the following can be a dictionary key?",
+        "options": [
+            "List",
+            "Set",
+            "Tuple",
+            "Dictionary"
+        ],
+        "answerIndex": 2,
+        "explanation": "Tuples are immutable, so they can be dictionary keys."
+    },
+    {
+        "id": 6,
+        "topic": "Topic2",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What does {} create?",
+        "options": [
+            "An empty list",
+            "An empty tuple",
+            "An empty dictionary",
+            "An empty set"
+        ],
+        "answerIndex": 2,
+        "explanation": "{} creates an empty dictionary."
+    },
+    {
+        "id": 7,
+        "topic": "Topic2",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which function can also create a dictionary?",
+        "options": [
+            "map()",
+            "list()",
+            "dict()",
+            "tuple()"
+        ],
+        "answerIndex": 2,
+        "explanation": "dict() is used to create dictionaries."
+    },
+    {
+        "id": 8,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = dict(a=1, b=2)\nprint(d)",
+        "options": [
+            "{'a': 1, 'b': 2}",
+            "{a=1, b=2}",
+            "['a', 'b']",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "dict() creates a dictionary with given key-value pairs."
+    },
+    {
+        "id": 9,
+        "topic": "Topic3",
+        "level": "Beginner",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x': 10}\nprint(d['x'])",
+        "options": [
+            "10",
+            "x",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Accessing key 'x' returns its value 10."
+    },
+    {
+        "id": 10,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What happens?",
+        "code": "d = {'x': 10}\nprint(d['y'])",
+        "options": [
+            "None",
+            "0",
+            "KeyError",
+            "y"
+        ],
+        "answerIndex": 2,
+        "explanation": "Accessing a missing key using [] raises KeyError."
+    },
+    {
+        "id": 11,
+        "topic": "Topic4",
+        "level": "Beginner",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x': 10}\nprint(d.get('y'))",
+        "options": [
+            "None",
+            "0",
+            "KeyError",
+            "y"
+        ],
+        "answerIndex": 0,
+        "explanation": "get() returns None if key is missing."
+    },
+    {
+        "id": 12,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x': 10}\nprint(d.get('y', 5))",
+        "options": [
+            "None",
+            "5",
+            "KeyError",
+            "0"
+        ],
+        "answerIndex": 1,
+        "explanation": "get() returns the default value if key is missing."
+    },
+    {
+        "id": 13,
+        "topic": "Topic4",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which method safely retrieves a value without error?",
+        "options": [
+            "[]",
+            "fetch()",
+            "get()",
+            "value()"
+        ],
+        "answerIndex": 2,
+        "explanation": "get() safely retrieves dictionary values."
+    },
+    {
+        "id": 14,
+        "topic": "Topic4",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which operator checks key existence?",
+        "options": [
+            "has",
+            "in",
+            "exists",
+            "check"
+        ],
+        "answerIndex": 1,
+        "explanation": "'in' checks whether a key exists in a dictionary."
+    },
+    {
+        "id": 15,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1}\nprint('a' in d)",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "'a' exists as a key in the dictionary."
+    },
+    {
+        "id": 16,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which creates an empty dictionary?",
+        "options": [
+            "{}",
+            "set()",
+            "[]",
+            "()"
+        ],
+        "answerIndex": 0,
+        "explanation": "{} creates an empty dictionary."
+    },
+    {
+        "id": 17,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "What does d['key'] return?",
+        "options": [
+            "Key",
+            "Value",
+            "Tuple",
+            "Boolean"
+        ],
+        "answerIndex": 1,
+        "explanation": "Using [] returns the value associated with the key."
+    },
+    {
+        "id": 18,
+        "topic": "Topic1",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Can dictionary values be mutable?",
+        "options": [
+            "Yes",
+            "No",
+            "Sometimes",
+            "Never"
+        ],
+        "answerIndex": 0,
+        "explanation": "Values can be any data type, including mutable ones."
+    },
+    {
+        "id": 19,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which of these is NOT allowed as a key?",
+        "options": [
+            "String",
+            "Integer",
+            "Tuple",
+            "List"
+        ],
+        "answerIndex": 3,
+        "explanation": "Lists are mutable and cannot be dictionary keys."
+    },
+    {
+        "id": 20,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1, 'b': 2}\nprint(d['a'] + d['b'])",
+        "options": [
+            "3",
+            "12",
+            "Error",
+            "ab"
+        ],
+        "answerIndex": 0,
+        "explanation": "Values 1 and 2 are added to produce 3."
+    },
+    {
+        "id": 21,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x': None}\nprint(d.get('x', 5))",
+        "options": [
+            "None",
+            "5",
+            "0",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Key exists, so get() returns its value even if it is None."
+    },
+    {
+        "id": 22,
+        "topic": "Topic3",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Accessing a missing key with [] results in:",
+        "options": [
+            "None",
+            "0",
+            "KeyError",
+            "False"
+        ],
+        "answerIndex": 2,
+        "explanation": "[] raises KeyError for missing keys."
+    },
+    {
+        "id": 23,
+        "topic": "Topic2",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which syntax creates a dictionary literal?",
+        "options": [
+            "dict()",
+            "{}",
+            "[]",
+            "()"
+        ],
+        "answerIndex": 1,
+        "explanation": "{} is dictionary literal syntax."
+    },
+    {
+        "id": 24,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionary keys must be:",
+        "options": [
+            "Unique",
+            "Ordered",
+            "Mutable",
+            "Numeric"
+        ],
+        "answerIndex": 0,
+        "explanation": "Keys must be unique within a dictionary."
+    },
+    {
+        "id": 25,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which feature best describes dictionaries?",
+        "options": [
+            "Indexed access",
+            "Key-based access",
+            "Sequential storage",
+            "Ordered pairs only"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries use key-based access."
+    },
+    {
+        "id": 26,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1}\nprint(type(d['a']))",
+        "options": [
+            "<class 'int'>",
+            "<class 'str'>",
+            "<class 'dict'>",
+            "<class 'tuple'>"
+        ],
+        "answerIndex": 0,
+        "explanation": "The value 1 is an integer."
+    },
+    {
+        "id": 27,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safer when key may not exist?",
+        "options": [
+            "[]",
+            "get()",
+            "index()",
+            "fetch()"
+        ],
+        "answerIndex": 1,
+        "explanation": "get() prevents KeyError."
+    },
+    {
+        "id": 28,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Dictionaries are mainly used for:",
+        "options": [
+            "Storing ordered data",
+            "Mapping keys to values",
+            "Sorting data",
+            "Indexing lists"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries map keys to values."
+    },
+    {
+        "id": 29,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = dict([(1,'a'), (2,'b')])\nprint(d)",
+        "options": [
+            "{1: 'a', 2: 'b'}",
+            "[(1,'a'), (2,'b')]",
+            "{'a':1, 'b':2}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "dict() can create dictionaries from tuples."
+    },
+    {
+        "id": 30,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "What does get(key, default) do?",
+        "options": [
+            "Raises error",
+            "Returns default always",
+            "Returns value or default",
+            "Deletes key"
+        ],
+        "answerIndex": 2,
+        "explanation": "get() returns value if key exists, otherwise default."
+    },
+    {
+        "id": 31,
+        "topic": "Topic3",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Keys in a dictionary are accessed using:",
+        "options": [
+            "Indexes",
+            "Slices",
+            "Keys",
+            "Positions"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionary values are accessed using keys."
+    },
+    {
+        "id": 32,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "If duplicate keys exist in a dictionary literal:",
+        "options": [
+            "Error occurs",
+            "First value is kept",
+            "Last value is kept",
+            "Dictionary is invalid"
+        ],
+        "answerIndex": 2,
+        "explanation": "Duplicate keys overwrite earlier ones."
+    },
+    {
+        "id": 33,
+        "topic": "Topic2",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which creates a dictionary with no items?",
+        "options": [
+            "{}",
+            "dict()",
+            "Both",
+            "None"
+        ],
+        "answerIndex": 2,
+        "explanation": "Both {} and dict() create empty dictionaries."
+    },
+    {
+        "id": 34,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1}\nprint('b' in d)",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "'b' is not a key in the dictionary."
+    },
+    {
+        "id": 35,
+        "topic": "Topic4",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which avoids KeyError?",
+        "options": [
+            "[]",
+            "in",
+            "get()",
+            "Both in and get()"
+        ],
+        "answerIndex": 3,
+        "explanation": "Both 'in' and get() help avoid KeyError."
+    },
+    {
+        "id": 36,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Dictionaries are:",
+        "options": [
+            "Immutable",
+            "Mutable",
+            "Fixed-size",
+            "Indexed"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries are mutable."
+    },
+    {
+        "id": 37,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is correct to access value?",
+        "options": [
+            "d(key)",
+            "d[key]",
+            "d.key",
+            "d->key"
+        ],
+        "answerIndex": 1,
+        "explanation": "Values are accessed using square brackets."
+    },
+    {
+        "id": 38,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dict constructor is valid?",
+        "options": [
+            "dict('a':1)",
+            "dict(a=1)",
+            "dict([a,1])",
+            "dict(a,1)"
+        ],
+        "answerIndex": 1,
+        "explanation": "dict(a=1) is valid syntax."
+    },
+    {
+        "id": 39,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionary values can be:",
+        "options": [
+            "Only immutable",
+            "Only numbers",
+            "Any type",
+            "Only strings"
+        ],
+        "answerIndex": 2,
+        "explanation": "Values can be of any data type."
+    },
+    {
+        "id": 40,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {}\nprint(d.get('x', 'NA'))",
+        "options": [
+            "None",
+            "NA",
+            "x",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Default value 'NA' is returned."
+    },
+    {
+        "id": 41,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which is NOT a dictionary feature?",
+        "options": [
+            "Key-value pairs",
+            "Fast lookup",
+            "Ordered index access",
+            "Mutable"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries are not index-based."
+    },
+    {
+        "id": 42,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "If key exists, get() returns:",
+        "options": [
+            "Default",
+            "None",
+            "Value",
+            "Key"
+        ],
+        "answerIndex": 2,
+        "explanation": "get() returns the value if key exists."
+    },
+    {
+        "id": 43,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is better for existence check?",
+        "options": [
+            "get()",
+            "in",
+            "try-except",
+            "index"
+        ],
+        "answerIndex": 1,
+        "explanation": "'in' directly checks key existence."
+    },
+    {
+        "id": 44,
+        "topic": "Topic1",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Dictionary keys are:",
+        "options": [
+            "Duplicated",
+            "Unique",
+            "Mutable",
+            "Ordered by index"
+        ],
+        "answerIndex": 1,
+        "explanation": "Keys must be unique."
+    },
+    {
+        "id": 45,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "dict([(1,2),(3,4)]) creates:",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Tuple pairs are converted into a dictionary."
+    },
+    {
+        "id": 46,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\nprint(d.get('a',5))",
+        "options": [
+            "1",
+            "5",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Key exists, so value 1 is returned."
+    },
+    {
+        "id": 47,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which best describes dictionary access?",
+        "options": [
+            "Index-based",
+            "Position-based",
+            "Key-based",
+            "Sequential"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionary access is key-based."
+    },
+    {
+        "id": 48,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which prevents KeyError AND gives value?",
+        "options": [
+            "in",
+            "get()",
+            "[]",
+            "fetch()"
+        ],
+        "answerIndex": 1,
+        "explanation": "get() safely returns value or None/default."
+    },
+    {
+        "id": 49,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "If same key appears twice:",
+        "options": [
+            "Error occurs",
+            "Both values stored",
+            "Last value kept",
+            "First value kept"
+        ],
+        "answerIndex": 2,
+        "explanation": "Later values overwrite earlier ones."
+    },
+    {
+        "id": 50,
+        "topic": "Topic4",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x': 10}\nprint(d.get('y', d.get('x')))",
+        "options": [
+            "10",
+            "None",
+            "Error",
+            "y"
+        ],
+        "answerIndex": 0,
+        "explanation": "Missing 'y' returns default value d.get('x') which is 10."
+    },
+    {
+        "id": 51,
+        "topic": "Topic5",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "How do you add a new key-value pair to a dictionary?",
+        "options": [
+            "add()",
+            "insert()",
+            "d[key] = value",
+            "append()"
+        ],
+        "answerIndex": 2,
+        "explanation": "New key-value pairs are added using assignment."
+    },
+    {
+        "id": 52,
+        "topic": "Topic5",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {}\nd['a'] = 5\nprint(d)",
+        "options": [
+            "{'a': 5}",
+            "{}",
+            "['a',5]",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Assignment adds a new key-value pair."
+    },
+    {
+        "id": 53,
+        "topic": "Topic6",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Updating an existing key means:",
+        "options": [
+            "Adding a new key",
+            "Deleting the key",
+            "Changing its value",
+            "Renaming the key"
+        ],
+        "answerIndex": 2,
+        "explanation": "Updating changes the value of an existing key."
+    },
+    {
+        "id": 54,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1}\nd['a'] = 10\nprint(d)",
+        "options": [
+            "{'a': 1}",
+            "{'a': 10}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 1,
+        "explanation": "The value of key 'a' is updated to 10."
+    },
+    {
+        "id": 55,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "If a key exists, assigning again will:",
+        "options": [
+            "Create duplicate key",
+            "Raise error",
+            "Overwrite value",
+            "Ignore assignment"
+        ],
+        "answerIndex": 2,
+        "explanation": "Existing key values are overwritten."
+    },
+    {
+        "id": 56,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which method removes a key and returns its value?",
+        "options": [
+            "remove()",
+            "delete()",
+            "pop()",
+            "clear()"
+        ],
+        "answerIndex": 2,
+        "explanation": "pop() removes the key and returns its value."
+    },
+    {
+        "id": 57,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1, 'b': 2}\nprint(d.pop('a'))",
+        "options": [
+            "1",
+            "a",
+            "{'b':2}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "pop() returns the value of the removed key."
+    },
+    {
+        "id": 58,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': 1}\nd.pop('a')\nprint(d)",
+        "options": [
+            "{}",
+            "{'a':1}",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Key 'a' is removed, leaving an empty dictionary."
+    },
+    {
+        "id": 59,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What happens if pop() is used on a missing key?",
+        "options": [
+            "Returns None",
+            "Returns 0",
+            "Raises KeyError",
+            "Adds key"
+        ],
+        "answerIndex": 2,
+        "explanation": "pop() raises KeyError if key is missing."
+    },
+    {
+        "id": 60,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which pop() variation avoids KeyError?",
+        "options": [
+            "pop(key)",
+            "pop()",
+            "pop(key, default)",
+            "safe_pop()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Providing a default prevents KeyError."
+    },
+    {
+        "id": 61,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What does popitem() remove?",
+        "options": [
+            "First item",
+            "Last inserted item",
+            "Random item",
+            "All items"
+        ],
+        "answerIndex": 1,
+        "explanation": "popitem() removes the last inserted key-value pair."
+    },
+    {
+        "id": 62,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(d.popitem())",
+        "options": [
+            "('b',2)",
+            "('a',1)",
+            "2",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "popitem() removes and returns the last key-value pair."
+    },
+    {
+        "id": 63,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which statement removes a key without returning value?",
+        "options": [
+            "pop()",
+            "remove()",
+            "del",
+            "popitem()"
+        ],
+        "answerIndex": 2,
+        "explanation": "del removes a key without returning anything."
+    },
+    {
+        "id": 64,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\ndel d['a']\nprint(d)",
+        "options": [
+            "{}",
+            "{'a':1}",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "del removes the specified key."
+    },
+    {
+        "id": 65,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which method removes all items from a dictionary?",
+        "options": [
+            "remove()",
+            "delete()",
+            "clear()",
+            "popall()"
+        ],
+        "answerIndex": 2,
+        "explanation": "clear() removes all items."
+    },
+    {
+        "id": 66,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':1,'y':2}\nd.clear()\nprint(d)",
+        "options": [
+            "{}",
+            "None",
+            "Error",
+            "{'x':1,'y':2}"
+        ],
+        "answerIndex": 0,
+        "explanation": "clear() empties the dictionary."
+    },
+    {
+        "id": 67,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What does keys() return?",
+        "options": [
+            "List",
+            "Tuple",
+            "dict_keys view",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "keys() returns a dict_keys view object."
+    },
+    {
+        "id": 68,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(list(d.keys()))",
+        "options": [
+            "['a','b']",
+            "[1,2]",
+            "[('a',1)]",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "keys() converted to list gives list of keys."
+    },
+    {
+        "id": 69,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "values() returns:",
+        "options": [
+            "Keys",
+            "Key-value pairs",
+            "Values only",
+            "Indexes"
+        ],
+        "answerIndex": 2,
+        "explanation": "values() returns dictionary values."
+    },
+    {
+        "id": 70,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(list(d.values()))",
+        "options": [
+            "['a','b']",
+            "[1,2]",
+            "[(1,2)]",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "values() converted to list returns values."
+    },
+    {
+        "id": 71,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "items() returns elements as:",
+        "options": [
+            "Lists",
+            "Tuples",
+            "Sets",
+            "Strings"
+        ],
+        "answerIndex": 1,
+        "explanation": "Each item is returned as a tuple (key, value)."
+    },
+    {
+        "id": 72,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\nprint(list(d.items()))",
+        "options": [
+            "[('a',1)]",
+            "['a',1]",
+            "{'a':1}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "items() returns key-value tuples."
+    },
+    {
+        "id": 73,
+        "topic": "Topic9",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Iterating directly over a dictionary iterates over:",
+        "options": [
+            "Values",
+            "Items",
+            "Keys",
+            "Indexes"
+        ],
+        "answerIndex": 2,
+        "explanation": "Default iteration is over keys."
+    },
+    {
+        "id": 74,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nfor k in d:\n    print(k)",
+        "options": [
+            "a b",
+            "1 2",
+            "a\\nb",
+            "Error"
+        ],
+        "answerIndex": 2,
+        "explanation": "Keys are printed one per line."
+    },
+    {
+        "id": 75,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which method is best for key-value iteration?",
+        "options": [
+            "keys()",
+            "values()",
+            "items()",
+            "iterate()"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() provides both key and value."
+    },
+    {
+        "id": 76,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':10}\nfor k,v in d.items():\n    print(k, v)",
+        "options": [
+            "x 10",
+            "10 x",
+            "('x',10)",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "items() allows unpacking into key and value."
+    },
+    {
+        "id": 77,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "keys(), values(), items() return:",
+        "options": [
+            "Lists",
+            "Copies",
+            "View objects",
+            "Tuples"
+        ],
+        "answerIndex": 2,
+        "explanation": "They return dynamic view objects."
+    },
+    {
+        "id": 78,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "View objects are:",
+        "options": [
+            "Static",
+            "Live",
+            "Immutable copies",
+            "Snapshots"
+        ],
+        "answerIndex": 1,
+        "explanation": "View objects reflect dictionary changes."
+    },
+    {
+        "id": 79,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is NOT recommended during iteration?",
+        "options": [
+            "Reading values",
+            "Checking keys",
+            "Modifying structure",
+            "Printing items"
+        ],
+        "answerIndex": 2,
+        "explanation": "Modifying dictionary structure during iteration is unsafe."
+    },
+    {
+        "id": 80,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "clear() returns:",
+        "options": [
+            "Empty dict",
+            "None",
+            "True",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "clear() modifies dictionary and returns None."
+    },
+    {
+        "id": 81,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which is true about dict_keys?",
+        "options": [
+            "It is a list",
+            "It is a tuple",
+            "It is a view",
+            "It is a set"
+        ],
+        "answerIndex": 2,
+        "explanation": "dict_keys is a view object."
+    },
+    {
+        "id": 82,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which loop correctly iterates values?",
+        "options": [
+            "for v in d",
+            "for v in d.values()",
+            "for v in d.items()",
+            "for v in d.keys()"
+        ],
+        "answerIndex": 1,
+        "explanation": "values() returns values for iteration."
+    },
+    {
+        "id": 83,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which removal method returns a tuple?",
+        "options": [
+            "pop()",
+            "popitem()",
+            "del",
+            "clear()"
+        ],
+        "answerIndex": 1,
+        "explanation": "popitem() returns (key, value)."
+    },
+    {
+        "id": 84,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Updating an existing key is:",
+        "options": [
+            "Insertion",
+            "Deletion",
+            "Mutation",
+            "Iteration"
+        ],
+        "answerIndex": 2,
+        "explanation": "Updating changes dictionary state (mutation)."
+    },
+    {
+        "id": 85,
+        "topic": "Topic5",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which operation mutates a dictionary?",
+        "options": [
+            "Reading value",
+            "Using get()",
+            "Assignment",
+            "Checking key"
+        ],
+        "answerIndex": 2,
+        "explanation": "Assignment changes dictionary content."
+    },
+    {
+        "id": 86,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which conversion creates a snapshot?",
+        "options": [
+            "keys()",
+            "values()",
+            "items()",
+            "list(d.keys())"
+        ],
+        "answerIndex": 3,
+        "explanation": "Converting view to list creates a snapshot."
+    },
+    {
+        "id": 87,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which iteration gives both key and value?",
+        "options": [
+            "for k in d",
+            "for v in d.values()",
+            "for k,v in d.items()",
+            "for i in range(d)"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() allows key-value iteration."
+    },
+    {
+        "id": 88,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which removal method is safest when unsure key exists?",
+        "options": [
+            "del",
+            "pop()",
+            "pop(key, default)",
+            "clear()"
+        ],
+        "answerIndex": 2,
+        "explanation": "pop(key, default) avoids KeyError."
+    },
+    {
+        "id": 89,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is NOT a dictionary view?",
+        "options": [
+            "dict_keys",
+            "dict_values",
+            "dict_items",
+            "dict_list"
+        ],
+        "answerIndex": 3,
+        "explanation": "dict_list does not exist."
+    },
+    {
+        "id": 90,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(d.pop('c',0))",
+        "options": [
+            "0",
+            "None",
+            "KeyError",
+            "c"
+        ],
+        "answerIndex": 0,
+        "explanation": "Default value is returned for missing key."
+    },
+    {
+        "id": 91,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which method is used to get both keys and values?",
+        "options": [
+            "keys()",
+            "values()",
+            "items()",
+            "pairs()"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() returns key-value pairs."
+    },
+    {
+        "id": 92,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which iteration style is most readable?",
+        "options": [
+            "Indexes",
+            "items()",
+            "keys()",
+            "values()"
+        ],
+        "answerIndex": 1,
+        "explanation": "items() clearly exposes key-value relationship."
+    },
+    {
+        "id": 93,
+        "topic": "Topic7",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which removes everything?",
+        "options": [
+            "del d",
+            "pop()",
+            "clear()",
+            "remove()"
+        ],
+        "answerIndex": 2,
+        "explanation": "clear() empties the dictionary."
+    },
+    {
+        "id": 94,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':1}\nd['x'] += 1\nprint(d)",
+        "options": [
+            "{'x':1}",
+            "{'x':2}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 1,
+        "explanation": "Value is updated from 1 to 2."
+    },
+    {
+        "id": 95,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "View objects reflect:",
+        "options": [
+            "Initial state",
+            "Copied state",
+            "Live state",
+            "Frozen state"
+        ],
+        "answerIndex": 2,
+        "explanation": "View objects always reflect current dictionary state."
+    },
+    {
+        "id": 96,
+        "topic": "Topic9",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "for k in d is same as:",
+        "options": [
+            "for k in d.items()",
+            "for k in d.values()",
+            "for k in d.keys()",
+            "for k in range(d)"
+        ],
+        "answerIndex": 2,
+        "explanation": "Default iteration is over keys."
+    },
+    {
+        "id": 97,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "del d['x'] does what?",
+        "options": [
+            "Deletes dictionary",
+            "Deletes key",
+            "Returns value",
+            "Clears dict"
+        ],
+        "answerIndex": 1,
+        "explanation": "del removes the specified key."
+    },
+    {
+        "id": 98,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Updating a key-value pair is:",
+        "options": [
+            "Non-destructive",
+            "Mutation",
+            "Iteration",
+            "Copying"
+        ],
+        "answerIndex": 1,
+        "explanation": "Updating mutates the dictionary."
+    },
+    {
+        "id": 99,
+        "topic": "Topic8",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which returns a dynamic view?",
+        "options": [
+            "list(d.keys())",
+            "tuple(d.values())",
+            "d.items()",
+            "copy()"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() returns a live view."
+    },
+    {
+        "id": 100,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safest for iteration with logic?",
+        "options": [
+            "keys()",
+            "values()",
+            "items()",
+            "indexes"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() provides full context (key + value)."
+    },
+    {
+        "id": 101,
+        "topic": "Topic10",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What is a nested dictionary?",
+        "options": [
+            "Dictionary inside a list",
+            "List inside a dictionary",
+            "Dictionary inside a dictionary",
+            "Tuple inside a dictionary"
+        ],
+        "answerIndex": 2,
+        "explanation": "A nested dictionary contains another dictionary as a value."
+    },
+    {
+        "id": 102,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a': {'b': 2}}\nprint(d['a']['b'])",
+        "options": [
+            "{'b':2}",
+            "2",
+            "b",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Accessing nested keys returns the inner value 2."
+    },
+    {
+        "id": 103,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "How do you access a value in a nested dictionary?",
+        "options": [
+            "Using index",
+            "Using multiple keys",
+            "Using slicing",
+            "Using values()"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested values are accessed using chained keys."
+    },
+    {
+        "id": 104,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "output",
+        "question": "What happens?",
+        "code": "d = {'a': {'b': 1}}\nprint(d['a']['c'])",
+        "options": [
+            "None",
+            "0",
+            "KeyError",
+            "False"
+        ],
+        "answerIndex": 2,
+        "explanation": "Accessing a missing nested key raises KeyError."
+    },
+    {
+        "id": 105,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safest for nested access?",
+        "options": [
+            "Direct indexing",
+            "Using get() at each level",
+            "Using [] only",
+            "Ignoring checks"
+        ],
+        "answerIndex": 1,
+        "explanation": "get() at each level prevents KeyError."
+    },
+    {
+        "id": 106,
+        "topic": "Topic11",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Dictionary comprehension creates:",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionary comprehension always creates a dictionary."
+    },
+    {
+        "id": 107,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {x: x*x for x in range(3)}\nprint(d)",
+        "options": [
+            "{0:0,1:1,2:4}",
+            "{1:1,2:4,3:9}",
+            "[0,1,4]",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Dictionary comprehension maps x to x*x."
+    },
+    {
+        "id": 108,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which syntax is correct for dictionary comprehension?",
+        "options": [
+            "{k=v for k,v in d}",
+            "{k:v for k,v in d.items()}",
+            "[k:v for k,v in d]",
+            "(k:v for k,v in d)"
+        ],
+        "answerIndex": 1,
+        "explanation": "Correct syntax uses key:value and items()."
+    },
+    {
+        "id": 109,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nd2 = {k:v+1 for k,v in d.items()}\nprint(d2)",
+        "options": [
+            "{'a':2,'b':3}",
+            "{'a':1,'b':2}",
+            "Error",
+            "{1:'a',2:'b'}"
+        ],
+        "answerIndex": 0,
+        "explanation": "Values are incremented by 1."
+    },
+    {
+        "id": 110,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension is preferred when:",
+        "options": [
+            "Logic is complex",
+            "Readability improves",
+            "Multiple loops needed",
+            "Debugging is required"
+        ],
+        "answerIndex": 1,
+        "explanation": "Comprehension should improve readability."
+    },
+    {
+        "id": 111,
+        "topic": "Topic12",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What happens when two dictionaries have same key during merge?",
+        "options": [
+            "Error occurs",
+            "Both values stored",
+            "Last value wins",
+            "First value wins"
+        ],
+        "answerIndex": 2,
+        "explanation": "Later dictionary overwrites earlier key."
+    },
+    {
+        "id": 112,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = {'x':5}\nc = a | b\nprint(c)",
+        "options": [
+            "{'x':1}",
+            "{'x':5}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 1,
+        "explanation": "Right-hand dictionary overwrites value."
+    },
+    {
+        "id": 113,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge method mutates original dictionary?",
+        "options": [
+            "|",
+            "+",
+            "update()",
+            "merge()"
+        ],
+        "answerIndex": 2,
+        "explanation": "update() modifies the original dictionary."
+    },
+    {
+        "id": 114,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = {'y':2}\na.update(b)\nprint(a)",
+        "options": [
+            "{'x':1}",
+            "{'y':2}",
+            "{'x':1,'y':2}",
+            "Error"
+        ],
+        "answerIndex": 2,
+        "explanation": "update() adds key-value pairs to original dictionary."
+    },
+    {
+        "id": 115,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "update() returns:",
+        "options": [
+            "Dictionary",
+            "New dict",
+            "None",
+            "Tuple"
+        ],
+        "answerIndex": 2,
+        "explanation": "update() returns None."
+    },
+    {
+        "id": 116,
+        "topic": "Topic13",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "What does assignment (=) copy?",
+        "options": [
+            "Data",
+            "Reference",
+            "Values only",
+            "Keys only"
+        ],
+        "answerIndex": 1,
+        "explanation": "Assignment copies reference, not data."
+    },
+    {
+        "id": 117,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = a\nb['x'] = 5\nprint(a)",
+        "options": [
+            "{'x':1}",
+            "{'x':5}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 1,
+        "explanation": "Both variables reference same dictionary."
+    },
+    {
+        "id": 118,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which method creates a shallow copy?",
+        "options": [
+            "=",
+            "copy()",
+            "deepcopy()",
+            "assign()"
+        ],
+        "answerIndex": 1,
+        "explanation": "copy() creates a shallow copy."
+    },
+    {
+        "id": 119,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = a.copy()\nb['x'] = 2\nprint(a)",
+        "options": [
+            "{'x':1}",
+            "{'x':2}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 0,
+        "explanation": "Shallow copy creates a separate dictionary."
+    },
+    {
+        "id": 120,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x': {'y':1}}\nb = a.copy()\nb['x']['y'] = 9\nprint(a['x']['y'])",
+        "options": [
+            "1",
+            "9",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested objects are shared in shallow copy."
+    },
+    {
+        "id": 121,
+        "topic": "Topic14",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which checks key existence?",
+        "options": [
+            "exists()",
+            "has()",
+            "in",
+            "find()"
+        ],
+        "answerIndex": 2,
+        "explanation": "'in' checks if key exists."
+    },
+    {
+        "id": 122,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':None}\nprint('a' in d)",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Key exists even if value is None."
+    },
+    {
+        "id": 123,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safest when value may be None?",
+        "options": [
+            "get()",
+            "in",
+            "try-except",
+            "[]"
+        ],
+        "answerIndex": 1,
+        "explanation": "'in' checks existence regardless of value."
+    },
+    {
+        "id": 124,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionary lookup complexity is:",
+        "options": [
+            "O(n)",
+            "O(log n)",
+            "O(1)",
+            "O(n²)"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionary lookups are O(1) on average."
+    },
+    {
+        "id": 125,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {}\nprint('x' in d)",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "'x' does not exist as a key."
+    },
+    {
+        "id": 126,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries are commonly used in:",
+        "options": [
+            "Maths",
+            "JSON / APIs",
+            "Loops only",
+            "Sorting"
+        ],
+        "answerIndex": 1,
+        "explanation": "APIs and JSON heavily use nested dictionaries."
+    },
+    {
+        "id": 127,
+        "topic": "Topic11",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which comprehension is hardest to read?",
+        "options": [
+            "Single condition",
+            "Simple mapping",
+            "Nested logic",
+            "Clear transform"
+        ],
+        "answerIndex": 2,
+        "explanation": "Nested logic harms readability."
+    },
+    {
+        "id": 128,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safest merge approach?",
+        "options": [
+            "update()",
+            "|",
+            "manual loop",
+            "assignment"
+        ],
+        "answerIndex": 1,
+        "explanation": "| creates a new dictionary safely."
+    },
+    {
+        "id": 129,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which copy shares nested objects?",
+        "options": [
+            "Assignment",
+            "Shallow copy",
+            "Deep copy",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Shallow copy shares nested references."
+    },
+    {
+        "id": 130,
+        "topic": "Topic14",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Checking key existence avoids:",
+        "options": [
+            "SyntaxError",
+            "TypeError",
+            "KeyError",
+            "IndexError"
+        ],
+        "answerIndex": 2,
+        "explanation": "Checking prevents KeyError."
+    },
+    {
+        "id": 131,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "items() is commonly used in comprehension because:",
+        "options": [
+            "It returns keys only",
+            "It returns values only",
+            "It returns key-value pairs",
+            "It sorts data"
+        ],
+        "answerIndex": 2,
+        "explanation": "items() gives both key and value."
+    },
+    {
+        "id": 132,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':{'b':{'c':1}}}\nprint(d['a']['b']['c'])",
+        "options": [
+            "{'c':1}",
+            "1",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Chained access retrieves inner value."
+    },
+    {
+        "id": 133,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Merging dictionaries is common in:",
+        "options": [
+            "Sorting",
+            "Config handling",
+            "Loops",
+            "Recursion"
+        ],
+        "answerIndex": 1,
+        "explanation": "Configs often require merging defaults and overrides."
+    },
+    {
+        "id": 134,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is safest for flat dictionary copy?",
+        "options": [
+            "Assignment",
+            "copy()",
+            "update()",
+            "merge"
+        ],
+        "answerIndex": 1,
+        "explanation": "copy() safely duplicates flat dictionaries."
+    },
+    {
+        "id": 135,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is NOT a valid key check?",
+        "options": [
+            "in",
+            "get()",
+            "try-except",
+            "hasKey()"
+        ],
+        "answerIndex": 3,
+        "explanation": "hasKey() does not exist in Python."
+    },
+    {
+        "id": 136,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested access should be done:",
+        "options": [
+            "Randomly",
+            "With checks",
+            "Without validation",
+            "Using indexes"
+        ],
+        "answerIndex": 1,
+        "explanation": "Safe access uses validation or get()."
+    },
+    {
+        "id": 137,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionary comprehension improves:",
+        "options": [
+            "Memory usage always",
+            "Readability when simple",
+            "Speed always",
+            "Debugging"
+        ],
+        "answerIndex": 1,
+        "explanation": "It improves readability when used properly."
+    },
+    {
+        "id": 138,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge keeps originals unchanged?",
+        "options": [
+            "update()",
+            "|",
+            "assignment",
+            "pop()"
+        ],
+        "answerIndex": 1,
+        "explanation": "| returns a new dictionary."
+    },
+    {
+        "id": 139,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which bug is hardest to detect?",
+        "options": [
+            "Syntax error",
+            "Reference mutation",
+            "Type error",
+            "Index error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Reference bugs silently change data."
+    },
+    {
+        "id": 140,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Key existence check is best done:",
+        "options": [
+            "After access",
+            "Before access",
+            "Never",
+            "Randomly"
+        ],
+        "answerIndex": 1,
+        "explanation": "Checking before access avoids runtime errors."
+    },
+    {
+        "id": 141,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries represent:",
+        "options": [
+            "Flat data",
+            "Structured data",
+            "Sorted data",
+            "Sequential data"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested dictionaries model structured data."
+    },
+    {
+        "id": 142,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension should be avoided when:",
+        "options": [
+            "Logic is simple",
+            "Logic is complex",
+            "Data is small",
+            "Keys exist"
+        ],
+        "answerIndex": 1,
+        "explanation": "Complex logic hurts readability."
+    },
+    {
+        "id": 143,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Rightmost dictionary has:",
+        "options": [
+            "Lowest priority",
+            "No effect",
+            "Highest priority",
+            "Random priority"
+        ],
+        "answerIndex": 2,
+        "explanation": "Rightmost values overwrite earlier ones."
+    },
+    {
+        "id": 144,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "copy() duplicates:",
+        "options": [
+            "Only reference",
+            "Outer dictionary only",
+            "Nested objects fully",
+            "Nothing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Shallow copy duplicates only outer container."
+    },
+    {
+        "id": 145,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which avoids KeyError most reliably?",
+        "options": [
+            "[]",
+            "get()",
+            "in + []",
+            "values()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Checking with 'in' before access is safest."
+    },
+    {
+        "id": 146,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint({k:v for k,v in d.items() if v>1})",
+        "options": [
+            "{'b':2}",
+            "{'a':1}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Only items with value >1 are included."
+    },
+    {
+        "id": 147,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = {'y':2}\nprint(a | b)",
+        "options": [
+            "{'x':1}",
+            "{'y':2}",
+            "{'x':1,'y':2}",
+            "Error"
+        ],
+        "answerIndex": 2,
+        "explanation": "Both dictionaries are merged."
+    },
+    {
+        "id": 148,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Shallow copy is safe when:",
+        "options": [
+            "Nested dictionaries exist",
+            "Flat dictionary only",
+            "References needed",
+            "Keys change"
+        ],
+        "answerIndex": 1,
+        "explanation": "Flat dictionaries avoid shared nested references."
+    },
+    {
+        "id": 149,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':0}\nprint(d.get('x') is None)",
+        "options": [
+            "True",
+            "False",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Value exists and is 0, not None."
+    },
+    {
+        "id": 150,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries are best for:",
+        "options": [
+            "Sequential data",
+            "Hierarchical data",
+            "Sorted data",
+            "Numeric data"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested dictionaries represent hierarchical data."
+    },
+    {
+        "id": 151,
+        "topic": "Topic15",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which data structure uses key-based access?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries use keys to access values."
+    },
+    {
+        "id": 152,
+        "topic": "Topic15",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which data structure uses index-based access?",
+        "options": [
+            "Dictionary",
+            "Set",
+            "List",
+            "Mapping"
+        ],
+        "answerIndex": 2,
+        "explanation": "Lists use numeric indexes for access."
+    },
+    {
+        "id": 153,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "When should a dictionary be preferred over a list?",
+        "options": [
+            "When order matters",
+            "When values are identical",
+            "When data has meaning",
+            "When data is sequential"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries are best when data has meaning or labels."
+    },
+    {
+        "id": 154,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Using a list instead of dictionary may cause:",
+        "options": [
+            "SyntaxError",
+            "IndexError only",
+            "Unreadable code",
+            "Faster execution"
+        ],
+        "answerIndex": 2,
+        "explanation": "Lists can reduce clarity when data has named attributes."
+    },
+    {
+        "id": 155,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is better for student records?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Student records have named fields, ideal for dictionaries."
+    },
+    {
+        "id": 156,
+        "topic": "Topic16",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which is a common real-world use of dictionaries?",
+        "options": [
+            "Sorting arrays",
+            "Configuration storage",
+            "Matrix operations",
+            "Index slicing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Configurations are commonly stored using dictionaries."
+    },
+    {
+        "id": 157,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "config = {'mode':'dark','timeout':30}\nprint(config['mode'])",
+        "options": [
+            "dark",
+            "mode",
+            "30",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "The value of key 'mode' is 'dark'."
+    },
+    {
+        "id": 158,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern counts occurrences?",
+        "options": [
+            "Mapping",
+            "Counter",
+            "Config",
+            "Lookup"
+        ],
+        "answerIndex": 1,
+        "explanation": "The counter pattern counts frequency of elements."
+    },
+    {
+        "id": 159,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "items = ['a','b','a']\nd = {}\nfor i in items:\n    d[i] = d.get(i,0) + 1\nprint(d)",
+        "options": [
+            "{'a':2,'b':1}",
+            "{'a':1,'b':1}",
+            "{'a':3}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Counter pattern correctly counts item frequency."
+    },
+    {
+        "id": 160,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which avoids long if-else chains?",
+        "options": [
+            "Lists",
+            "Loops",
+            "Dictionaries",
+            "Tuples"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries are used for clean mappings."
+    },
+    {
+        "id": 161,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "grades = {'A':'Excellent','B':'Good'}\nprint(grades.get('C','Invalid'))",
+        "options": [
+            "Invalid",
+            "None",
+            "C",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Default value is returned for missing key."
+    },
+    {
+        "id": 162,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best represents JSON data?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "JSON maps directly to nested dictionaries."
+    },
+    {
+        "id": 163,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which use case fits nested dictionaries?",
+        "options": [
+            "Flat marks list",
+            "Hierarchical data",
+            "Sorting numbers",
+            "Index slicing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Hierarchical data is best stored using nested dictionaries."
+    },
+    {
+        "id": 164,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why are dictionaries faster for lookups?",
+        "options": [
+            "They use indexes",
+            "They use hashing",
+            "They are ordered",
+            "They use recursion"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries use hash tables for O(1) lookups."
+    },
+    {
+        "id": 165,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "List search complexity is:",
+        "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n²)"
+        ],
+        "answerIndex": 2,
+        "explanation": "Lists require linear search."
+    },
+    {
+        "id": 166,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary use case stores ID-based records?",
+        "options": [
+            "Counter",
+            "Config",
+            "Database-like mapping",
+            "Sorting"
+        ],
+        "answerIndex": 2,
+        "explanation": "ID-based records are stored as dictionary mappings."
+    },
+    {
+        "id": 167,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "students = {101:{'name':'Ritaja'}}\nprint(students[101]['name'])",
+        "options": [
+            "Ritaja",
+            "101",
+            "name",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Nested dictionary access retrieves the name."
+    },
+    {
+        "id": 168,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is a design smell?",
+        "options": [
+            "Using dictionary for config",
+            "Using list with index comments",
+            "Using mapping",
+            "Using keys"
+        ],
+        "answerIndex": 1,
+        "explanation": "Index comments indicate wrong data structure choice."
+    },
+    {
+        "id": 169,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real-world problem suits dictionary best?",
+        "options": [
+            "Sorting numbers",
+            "Counting frequency",
+            "Matrix multiplication",
+            "Index slicing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Counting frequency uses dictionary counters."
+    },
+    {
+        "id": 170,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which choice improves maintainability?",
+        "options": [
+            "Shorter code",
+            "Using list always",
+            "Using meaningful keys",
+            "Avoiding dictionaries"
+        ],
+        "answerIndex": 2,
+        "explanation": "Meaningful keys make code self-documenting."
+    },
+    {
+        "id": 171,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern is used for translation?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Iterator"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mapping translates one value to another."
+    },
+    {
+        "id": 172,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "status = {1:'Success',0:'Fail'}\nprint(status[1])",
+        "options": [
+            "Success",
+            "Fail",
+            "1",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Mapping dictionary translates code to message."
+    },
+    {
+        "id": 173,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is best for ordered duplicates?",
+        "options": [
+            "Dictionary",
+            "Set",
+            "List",
+            "Mapping"
+        ],
+        "answerIndex": 2,
+        "explanation": "Lists allow duplicates and preserve order."
+    },
+    {
+        "id": 174,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary use is common in analytics?",
+        "options": [
+            "Sorting",
+            "Counters",
+            "Index slicing",
+            "Tuples"
+        ],
+        "answerIndex": 1,
+        "explanation": "Counters are widely used in analytics."
+    },
+    {
+        "id": 175,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which indicates dictionary misuse?",
+        "options": [
+            "Key-based access",
+            "Using hashing",
+            "Index-based logic",
+            "Mapping values"
+        ],
+        "answerIndex": 2,
+        "explanation": "Index-based logic suggests list usage, not dictionary."
+    },
+    {
+        "id": 176,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary use case reduces if-else complexity?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Nested loops"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mappings replace long if-else ladders."
+    },
+    {
+        "id": 177,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "ops = {'+':1,'-':2}\nprint('+' in ops)",
+        "options": [
+            "True",
+            "False",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 0,
+        "explanation": "Key existence check returns True."
+    },
+    {
+        "id": 178,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is worst for labeled data?",
+        "options": [
+            "Dictionary",
+            "List",
+            "Mapping",
+            "Nested dict"
+        ],
+        "answerIndex": 1,
+        "explanation": "Lists lack explicit labels."
+    },
+    {
+        "id": 179,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern uses IDs as keys?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Record storage",
+            "Config"
+        ],
+        "answerIndex": 2,
+        "explanation": "Record storage uses IDs as keys."
+    },
+    {
+        "id": 180,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why are dictionaries self-documenting?",
+        "options": [
+            "They are ordered",
+            "They use indexes",
+            "They use named keys",
+            "They use hashing"
+        ],
+        "answerIndex": 2,
+        "explanation": "Named keys describe the data."
+    },
+    {
+        "id": 181,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real-world system heavily uses dictionaries?",
+        "options": [
+            "Graphics engine",
+            "Operating system",
+            "Web APIs",
+            "Sorting algorithms"
+        ],
+        "answerIndex": 2,
+        "explanation": "Web APIs use JSON/dictionaries extensively."
+    },
+    {
+        "id": 182,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is NOT a dictionary advantage?",
+        "options": [
+            "Fast lookup",
+            "Meaningful access",
+            "Index ordering",
+            "Flexibility"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries are not index-ordered."
+    },
+    {
+        "id": 183,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern stores settings?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Iterator"
+        ],
+        "answerIndex": 2,
+        "explanation": "Configuration dictionaries store settings."
+    },
+    {
+        "id": 184,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is easiest to extend?",
+        "options": [
+            "Tuple",
+            "List",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries allow easy addition of new keys."
+    },
+    {
+        "id": 185,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary usage improves clarity?",
+        "options": [
+            "Counters",
+            "Mappings",
+            "Named keys",
+            "Nested loops"
+        ],
+        "answerIndex": 2,
+        "explanation": "Named keys make code readable."
+    },
+    {
+        "id": 186,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure fits menu-driven programs?",
+        "options": [
+            "List",
+            "Dictionary",
+            "Tuple",
+            "Set"
+        ],
+        "answerIndex": 1,
+        "explanation": "Menus map choices to actions using dictionaries."
+    },
+    {
+        "id": 187,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "menu = {1:'Start',2:'Stop'}\nprint(menu[2])",
+        "options": [
+            "Start",
+            "Stop",
+            "2",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Key 2 maps to 'Stop'."
+    },
+    {
+        "id": 188,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure encourages hard-coded indexes?",
+        "options": [
+            "Dictionary",
+            "List",
+            "Mapping",
+            "Set"
+        ],
+        "answerIndex": 1,
+        "explanation": "Lists rely on index positions."
+    },
+    {
+        "id": 189,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern improves scalability?",
+        "options": [
+            "Hard-coded logic",
+            "Mapping",
+            "Indexing",
+            "Recursion"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mappings scale better than if-else logic."
+    },
+    {
+        "id": 190,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why are dictionaries preferred in configs?",
+        "options": [
+            "They are faster to type",
+            "They support slicing",
+            "They use key-value semantics",
+            "They prevent errors"
+        ],
+        "answerIndex": 2,
+        "explanation": "Configs need meaningful key-value pairs."
+    },
+    {
+        "id": 191,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real-world use case needs fast lookup?",
+        "options": [
+            "Counters",
+            "Databases",
+            "Logs",
+            "All of these"
+        ],
+        "answerIndex": 3,
+        "explanation": "All these benefit from fast dictionary lookups."
+    },
+    {
+        "id": 192,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure avoids magic numbers?",
+        "options": [
+            "List",
+            "Dictionary",
+            "Tuple",
+            "Set"
+        ],
+        "answerIndex": 1,
+        "explanation": "Named keys avoid magic indexes."
+    },
+    {
+        "id": 193,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary usage supports extensibility?",
+        "options": [
+            "Mapping",
+            "Config",
+            "Counters",
+            "All"
+        ],
+        "answerIndex": 3,
+        "explanation": "All dictionary patterns support easy extension."
+    },
+    {
+        "id": 194,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which is NOT ideal for dictionaries?",
+        "options": [
+            "Named attributes",
+            "Fast lookup",
+            "Sequential numeric access",
+            "Mappings"
+        ],
+        "answerIndex": 2,
+        "explanation": "Sequential numeric access suits lists."
+    },
+    {
+        "id": 195,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary use is best for permissions?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "List"
+        ],
+        "answerIndex": 1,
+        "explanation": "Permissions map roles to rights."
+    },
+    {
+        "id": 196,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "permissions = {'admin':True,'user':False}\nprint(permissions['admin'])",
+        "options": [
+            "True",
+            "False",
+            "admin",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Admin permission is True."
+    },
+    {
+        "id": 197,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best replaces switch-case?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries replace switch-case logic."
+    },
+    {
+        "id": 198,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary use case supports menu systems?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Nested dict"
+        ],
+        "answerIndex": 1,
+        "explanation": "Menus map choices to actions."
+    },
+    {
+        "id": 199,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which benefit is most important in real systems?",
+        "options": [
+            "Short syntax",
+            "Named access",
+            "Indexing",
+            "Ordering"
+        ],
+        "answerIndex": 1,
+        "explanation": "Named access improves clarity and safety."
+    },
+    {
+        "id": 200,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionaries primarily model:",
+        "options": [
+            "Sequential data",
+            "Hierarchical data",
+            "Meaningful relationships",
+            "Sorted values"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries model meaningful key-value relationships."
+    },
+    {
+        "id": 201,
+        "topic": "Topic0",
+        "level": "Beginner",
+        "type": "mcq",
+        "question": "Which keyword is used internally to hash dictionary keys?",
+        "options": [
+            "hash",
+            "key",
+            "map",
+            "index"
+        ],
+        "answerIndex": 0,
+        "explanation": "Python uses hashing internally for dictionary keys."
+    },
+    {
+        "id": 202,
+        "topic": "Topic1",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why must dictionary keys be immutable?",
+        "options": [
+            "For sorting",
+            "For hashing consistency",
+            "For faster iteration",
+            "For memory saving"
+        ],
+        "answerIndex": 1,
+        "explanation": "Immutable keys ensure hash value does not change."
+    },
+    {
+        "id": 203,
+        "topic": "Topic2",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = dict()\nd[1] = 'a'\nd[True] = 'b'\nprint(d)",
+        "options": [
+            "{1: 'b'}",
+            "{1: 'a', True: 'b'}",
+            "{True: 'b'}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "True equals 1, so the value is overwritten."
+    },
+    {
+        "id": 204,
+        "topic": "Topic1",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which key collision occurs here?",
+        "options": [
+            "1 and '1'",
+            "True and 1",
+            "1 and 1.0",
+            "All of these"
+        ],
+        "answerIndex": 3,
+        "explanation": "True == 1 == 1.0, all collide as dictionary keys."
+    },
+    {
+        "id": 205,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\nprint(d.setdefault('a',5))",
+        "options": [
+            "1",
+            "5",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "setdefault() returns existing value if key exists."
+    },
+    {
+        "id": 206,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {}\nprint(d.setdefault('x',10))",
+        "options": [
+            "10",
+            "None",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 0,
+        "explanation": "setdefault() inserts and returns the default value."
+    },
+    {
+        "id": 207,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "setdefault() is commonly used for:",
+        "options": [
+            "Deletion",
+            "Iteration",
+            "Grouping values",
+            "Sorting keys"
+        ],
+        "answerIndex": 2,
+        "explanation": "setdefault() is useful for grouping and accumulation."
+    },
+    {
+        "id": 208,
+        "topic": "Topic5",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\nd['b'] = d.get('b',0) + 1\nprint(d)",
+        "options": [
+            "{'a':1,'b':1}",
+            "{'a':1}",
+            "{'b':1}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Default value is used for missing key."
+    },
+    {
+        "id": 209,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Updating a dictionary is classified as:",
+        "options": [
+            "Pure operation",
+            "Mutation",
+            "Copying",
+            "Iteration"
+        ],
+        "answerIndex": 1,
+        "explanation": "Updates mutate the dictionary in-place."
+    },
+    {
+        "id": 210,
+        "topic": "Topic7",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nx = d.popitem()\nprint(x, d)",
+        "options": [
+            "('b',2) {'a':1}",
+            "('a',1) {'b':2}",
+            "{'a':1}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "popitem() removes and returns the last inserted pair."
+    },
+    {
+        "id": 211,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which view supports set operations?",
+        "options": [
+            "dict_values",
+            "dict_items",
+            "dict_keys",
+            "All"
+        ],
+        "answerIndex": 2,
+        "explanation": "dict_keys behaves like a set."
+    },
+    {
+        "id": 212,
+        "topic": "Topic8",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(d.keys() & {'a','c'})",
+        "options": [
+            "{'a'}",
+            "{'c'}",
+            "set()",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "dict_keys supports set intersection."
+    },
+    {
+        "id": 213,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which loop is safest for modification?",
+        "options": [
+            "for k in d",
+            "for k in list(d)",
+            "for k in d.keys()",
+            "for k in d.items()"
+        ],
+        "answerIndex": 1,
+        "explanation": "Iterating over a list snapshot is safe."
+    },
+    {
+        "id": 214,
+        "topic": "Topic10",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':{'b':1}}\nd['a'] = {'c':2}\nprint(d)",
+        "options": [
+            "{'a':{'b':1}}",
+            "{'a':{'c':2}}",
+            "Error",
+            "{}"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested dictionary is replaced entirely."
+    },
+    {
+        "id": 215,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which comprehension filters keys?",
+        "options": [
+            "{k:v for k,v in d}",
+            "{k:v for k,v in d.items() if k}",
+            "{k:v for k,v in d.items() if v}",
+            "{k:v if k}"
+        ],
+        "answerIndex": 1,
+        "explanation": "Condition on k filters keys."
+    },
+    {
+        "id": 216,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'':2}\nprint({k:v for k,v in d.items() if k})",
+        "options": [
+            "{'a':1}",
+            "{'':2}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Empty string key is falsy and excluded."
+    },
+    {
+        "id": 217,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge is Python 3.9+ only?",
+        "options": [
+            "update()",
+            "|",
+            "+",
+            "merge()"
+        ],
+        "answerIndex": 1,
+        "explanation": "The | operator was introduced in Python 3.9."
+    },
+    {
+        "id": 218,
+        "topic": "Topic12",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = a | {'x':2}\nprint(a, b)",
+        "options": [
+            "{'x':1} {'x':2}",
+            "{'x':2} {'x':2}",
+            "{'x':1} {'x':1}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "| does not mutate the original dictionary."
+    },
+    {
+        "id": 219,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "import copy\na = {'x':{'y':1}}\nb = copy.deepcopy(a)\nb['x']['y'] = 5\nprint(a['x']['y'])",
+        "options": [
+            "1",
+            "5",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 0,
+        "explanation": "deepcopy() isolates nested objects."
+    },
+    {
+        "id": 220,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Deep copy is required when:",
+        "options": [
+            "Dictionary is flat",
+            "Only keys change",
+            "Nested mutable objects exist",
+            "Performance matters"
+        ],
+        "answerIndex": 2,
+        "explanation": "Nested mutable objects require deep copy."
+    },
+    {
+        "id": 221,
+        "topic": "Topic14",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which check distinguishes None value vs missing key?",
+        "options": [
+            "get()",
+            "[]",
+            "in",
+            "values()"
+        ],
+        "answerIndex": 2,
+        "explanation": "'in' checks key existence regardless of value."
+    },
+    {
+        "id": 222,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':None}\nprint(d.get('x') is None)",
+        "options": [
+            "True",
+            "False",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 0,
+        "explanation": "The value exists and is None."
+    },
+    {
+        "id": 223,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best replaces enum-like behavior?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries map symbolic names to values."
+    },
+    {
+        "id": 224,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which causes tight coupling?",
+        "options": [
+            "Named keys",
+            "Index-based logic",
+            "Mappings",
+            "Configs"
+        ],
+        "answerIndex": 1,
+        "explanation": "Index-based logic tightly couples data to position."
+    },
+    {
+        "id": 225,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real-world system uses counters heavily?",
+        "options": [
+            "UI layout",
+            "Analytics",
+            "Sorting",
+            "Recursion"
+        ],
+        "answerIndex": 1,
+        "explanation": "Analytics systems rely heavily on counters."
+    },
+    {
+        "id": 226,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "logs = ['OK','FAIL','OK']\nc = {}\nfor x in logs:\n    c[x] = c.get(x,0)+1\nprint(c['OK'])",
+        "options": [
+            "2",
+            "1",
+            "3",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Counter increments occurrences."
+    },
+    {
+        "id": 227,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which pattern models permissions?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Sequence",
+            "Tuple"
+        ],
+        "answerIndex": 1,
+        "explanation": "Permissions map roles to privileges."
+    },
+    {
+        "id": 228,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why dictionaries scale better than if-else?",
+        "options": [
+            "Shorter syntax",
+            "O(1) lookup",
+            "Less memory",
+            "Automatic sorting"
+        ],
+        "answerIndex": 1,
+        "explanation": "Constant-time lookup improves scalability."
+    },
+    {
+        "id": 229,
+        "topic": "Topic16",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "routes = {'/':'home','/login':'login'}\nprint(routes.get('/logout','404'))",
+        "options": [
+            "404",
+            "None",
+            "Error",
+            "login"
+        ],
+        "answerIndex": 0,
+        "explanation": "Missing route returns default."
+    },
+    {
+        "id": 230,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure discourages magic numbers?",
+        "options": [
+            "List",
+            "Dictionary",
+            "Tuple",
+            "Set"
+        ],
+        "answerIndex": 1,
+        "explanation": "Named keys replace magic indexes."
+    },
+    {
+        "id": 231,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "update() is dangerous when:",
+        "options": [
+            "Dictionary is empty",
+            "Keys overlap unintentionally",
+            "Dictionary is small",
+            "Values are integers"
+        ],
+        "answerIndex": 1,
+        "explanation": "Overlapping keys overwrite silently."
+    },
+    {
+        "id": 232,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which bug is hardest to debug?",
+        "options": [
+            "SyntaxError",
+            "Reference sharing",
+            "KeyError",
+            "TypeError"
+        ],
+        "answerIndex": 1,
+        "explanation": "Reference bugs silently corrupt state."
+    },
+    {
+        "id": 233,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Best practice before access is:",
+        "options": [
+            "Direct indexing",
+            "Key existence check",
+            "Assumption",
+            "Ignoring error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Checking avoids runtime errors."
+    },
+    {
+        "id": 234,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries resemble:",
+        "options": [
+            "Tables",
+            "Trees",
+            "Arrays",
+            "Stacks"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested dictionaries form tree-like structures."
+    },
+    {
+        "id": 235,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension readability rule:",
+        "options": [
+            "Always use",
+            "Never use",
+            "Use when simple",
+            "Use when complex"
+        ],
+        "answerIndex": 2,
+        "explanation": "Comprehension should stay simple."
+    },
+    {
+        "id": 236,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern models HTTP status codes?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Iterator"
+        ],
+        "answerIndex": 1,
+        "explanation": "Status codes map numbers to messages."
+    },
+    {
+        "id": 237,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "http = {200:'OK',404:'Not Found'}\nprint(http[404])",
+        "options": [
+            "OK",
+            "Not Found",
+            "404",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mapping returns associated message."
+    },
+    {
+        "id": 238,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure supports semantic access?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Semantic access uses named keys."
+    },
+    {
+        "id": 239,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge approach is immutable?",
+        "options": [
+            "update()",
+            "|",
+            "assignment",
+            "pop()"
+        ],
+        "answerIndex": 1,
+        "explanation": "| returns a new dictionary."
+    },
+    {
+        "id": 240,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "copy() fails to isolate:",
+        "options": [
+            "Keys",
+            "Values",
+            "Nested objects",
+            "Top-level dict"
+        ],
+        "answerIndex": 2,
+        "explanation": "Nested objects remain shared."
+    },
+    {
+        "id": 241,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Key lookup failure raises:",
+        "options": [
+            "TypeError",
+            "ValueError",
+            "KeyError",
+            "IndexError"
+        ],
+        "answerIndex": 2,
+        "explanation": "Missing key raises KeyError."
+    },
+    {
+        "id": 242,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is worst for configs?",
+        "options": [
+            "Dictionary",
+            "List",
+            "Mapping",
+            "Nested dict"
+        ],
+        "answerIndex": 1,
+        "explanation": "Lists lack named access."
+    },
+    {
+        "id": 243,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which pattern avoids hardcoding logic?",
+        "options": [
+            "If-else",
+            "Mapping",
+            "Loops",
+            "Indexes"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mappings replace conditional logic."
+    },
+    {
+        "id": 244,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionary misuse causes:",
+        "options": [
+            "Syntax error",
+            "Unreadable access chains",
+            "Faster execution",
+            "Index error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Over-nesting hurts readability."
+    },
+    {
+        "id": 245,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension should not replace:",
+        "options": [
+            "Simple loops",
+            "Complex logic",
+            "Mapping",
+            "Filtering"
+        ],
+        "answerIndex": 1,
+        "explanation": "Complex logic belongs in readable loops."
+    },
+    {
+        "id": 246,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real system uses nested dictionaries heavily?",
+        "options": [
+            "Sorting algorithm",
+            "Compiler",
+            "REST API response",
+            "Matrix math"
+        ],
+        "answerIndex": 2,
+        "explanation": "API responses are deeply nested."
+    },
+    {
+        "id": 247,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best represents records?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Records use named fields."
+    },
+    {
+        "id": 248,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why counters use dictionaries?",
+        "options": [
+            "Sorting",
+            "Fast updates",
+            "Indexing",
+            "Recursion"
+        ],
+        "answerIndex": 1,
+        "explanation": "Dictionaries allow O(1) updates."
+    },
+    {
+        "id": 249,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Safest access pattern is:",
+        "options": [
+            "d[k]",
+            "d.get(k)",
+            "if k in d: d[k]",
+            "values()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Checking before access avoids errors."
+    },
+    {
+        "id": 250,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Dictionaries ultimately represent:",
+        "options": [
+            "Data storage",
+            "Indexing",
+            "Relationships",
+            "Ordering"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries model relationships."
+    },
+    {
+        "id": 251,
+        "topic": "Topic1",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {1:'one', True:'true'}\nprint(d)",
+        "options": [
+            "{1: 'true'}",
+            "{1: 'one', True: 'true'}",
+            "{True: 'true'}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "True equals 1, so the value is overwritten."
+    },
+    {
+        "id": 252,
+        "topic": "Topic1",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Which key pair collides in dictionaries?",
+        "options": [
+            "1 and '1'",
+            "True and 1",
+            "'1' and 1.0",
+            "'a' and 'A'"
+        ],
+        "answerIndex": 1,
+        "explanation": "True and 1 have the same hash and equality."
+    },
+    {
+        "id": 253,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which method inserts a key only if missing?",
+        "options": [
+            "get()",
+            "update()",
+            "setdefault()",
+            "pop()"
+        ],
+        "answerIndex": 2,
+        "explanation": "setdefault() inserts the key only if it does not exist."
+    },
+    {
+        "id": 254,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':5}\nd.setdefault('x',10)\nprint(d['x'])",
+        "options": [
+            "5",
+            "10",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "setdefault() does not overwrite existing values."
+    },
+    {
+        "id": 255,
+        "topic": "Topic3",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {}\nd.setdefault('x',[]).append(1)\nprint(d)",
+        "options": [
+            "{'x':[1]}",
+            "{'x':[]}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "setdefault() is commonly used for grouping values."
+    },
+    {
+        "id": 256,
+        "topic": "Topic5",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Adding a new key to a dictionary is called:",
+        "options": [
+            "Mutation",
+            "Iteration",
+            "Lookup",
+            "Copying"
+        ],
+        "answerIndex": 0,
+        "explanation": "Adding a key mutates the dictionary."
+    },
+    {
+        "id": 257,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1}\nd['a'] += 5\nprint(d['a'])",
+        "options": [
+            "1",
+            "5",
+            "6",
+            "Error"
+        ],
+        "answerIndex": 2,
+        "explanation": "The value is updated from 1 to 6."
+    },
+    {
+        "id": 258,
+        "topic": "Topic6",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which operation overwrites an existing value?",
+        "options": [
+            "d.get()",
+            "d[key] = value",
+            "in",
+            "keys()"
+        ],
+        "answerIndex": 1,
+        "explanation": "Assignment overwrites the existing value."
+    },
+    {
+        "id": 259,
+        "topic": "Topic7",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nd.popitem()\nprint(d)",
+        "options": [
+            "{'a':1}",
+            "{'b':2}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "popitem() removes the last inserted item."
+    },
+    {
+        "id": 260,
+        "topic": "Topic7",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which removal method mutates but returns nothing?",
+        "options": [
+            "pop()",
+            "popitem()",
+            "del",
+            "clear()"
+        ],
+        "answerIndex": 3,
+        "explanation": "clear() empties the dictionary and returns None."
+    },
+    {
+        "id": 261,
+        "topic": "Topic8",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary view behaves like a set?",
+        "options": [
+            "values()",
+            "items()",
+            "keys()",
+            "copy()"
+        ],
+        "answerIndex": 2,
+        "explanation": "dict_keys supports set operations."
+    },
+    {
+        "id": 262,
+        "topic": "Topic8",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint(d.keys() | {'c'})",
+        "options": [
+            "{'a','b','c'}",
+            "{'c'}",
+            "{'a','b'}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "dict_keys supports set union."
+    },
+    {
+        "id": 263,
+        "topic": "Topic9",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Safest way to delete keys while looping?",
+        "options": [
+            "for k in d",
+            "for k in d.keys()",
+            "for k in list(d)",
+            "for k in d.items()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Iterating over a list snapshot is safe."
+    },
+    {
+        "id": 264,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries are best visualized as:",
+        "options": [
+            "Graphs",
+            "Trees",
+            "Queues",
+            "Stacks"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested dictionaries form tree-like structures."
+    },
+    {
+        "id": 265,
+        "topic": "Topic10",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':{'b':1}}\nd['a']['b'] = 5\nprint(d)",
+        "options": [
+            "{'a':{'b':1}}",
+            "{'a':{'b':5}}",
+            "{'b':5}",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Nested value is updated in-place."
+    },
+    {
+        "id": 266,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which comprehension converts values to strings?",
+        "options": [
+            "{k:v for k,v in d}",
+            "{k:str(v) for k,v in d.items()}",
+            "[str(v) for v in d]",
+            "(k,v)"
+        ],
+        "answerIndex": 1,
+        "explanation": "Correct dictionary comprehension syntax."
+    },
+    {
+        "id": 267,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':1,'b':2}\nprint({k:v for k,v in d.items() if v%2==0})",
+        "options": [
+            "{'b':2}",
+            "{'a':1}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Only even values are included."
+    },
+    {
+        "id": 268,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge method creates a new dictionary?",
+        "options": [
+            "update()",
+            "|",
+            "assignment",
+            "pop()"
+        ],
+        "answerIndex": 1,
+        "explanation": "| returns a new merged dictionary."
+    },
+    {
+        "id": 269,
+        "topic": "Topic12",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':1}\nb = {'x':2}\na |= b\nprint(a)",
+        "options": [
+            "{'x':1}",
+            "{'x':2}",
+            "{}",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "|= mutates the left dictionary."
+    },
+    {
+        "id": 270,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which copy isolates nested objects?",
+        "options": [
+            "Assignment",
+            "copy()",
+            "deepcopy()",
+            "update()"
+        ],
+        "answerIndex": 2,
+        "explanation": "deepcopy() fully isolates nested structures."
+    },
+    {
+        "id": 271,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "a = {'x':[1,2]}\nb = a.copy()\nb['x'].append(3)\nprint(a['x'])",
+        "options": [
+            "[1,2]",
+            "[1,2,3]",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Shallow copy shares nested objects."
+    },
+    {
+        "id": 272,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which avoids KeyError completely?",
+        "options": [
+            "d[k]",
+            "get()",
+            "in + []",
+            "values()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Check with 'in' before access."
+    },
+    {
+        "id": 273,
+        "topic": "Topic14",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'x':0}\nprint(d.get('x',1))",
+        "options": [
+            "0",
+            "1",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 0,
+        "explanation": "Existing value 0 is returned."
+    },
+    {
+        "id": 274,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best replaces multiple if-else?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Mappings replace conditional chains."
+    },
+    {
+        "id": 275,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why dictionaries reduce bugs?",
+        "options": [
+            "Short syntax",
+            "Named access",
+            "Sorting",
+            "Indexing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Named keys prevent index mistakes."
+    },
+    {
+        "id": 276,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real-world feature uses mapping?",
+        "options": [
+            "User roles",
+            "Sorting numbers",
+            "Matrix math",
+            "Loops"
+        ],
+        "answerIndex": 0,
+        "explanation": "Roles map to permissions."
+    },
+    {
+        "id": 277,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "roles = {'admin':True,'guest':False}\nprint(roles.get('user',False))",
+        "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "answerIndex": 1,
+        "explanation": "Default False is returned."
+    },
+    {
+        "id": 278,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Why counters prefer dictionaries?",
+        "options": [
+            "Sorting",
+            "Fast lookup & update",
+            "Immutability",
+            "Indexing"
+        ],
+        "answerIndex": 1,
+        "explanation": "Counters need fast updates."
+    },
+    {
+        "id": 279,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which system uses routing tables?",
+        "options": [
+            "Games",
+            "Web frameworks",
+            "Math libraries",
+            "Sorting engines"
+        ],
+        "answerIndex": 1,
+        "explanation": "Web frameworks map routes using dictionaries."
+    },
+    {
+        "id": 280,
+        "topic": "Topic16",
+        "level": "Tricky",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "routes = {'/':'home'}\nroutes['/'] = 'index'\nprint(routes['/'])",
+        "options": [
+            "home",
+            "index",
+            "Error",
+            "None"
+        ],
+        "answerIndex": 1,
+        "explanation": "Existing key value is overwritten."
+    },
+    {
+        "id": 281,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is worst for labeled data?",
+        "options": [
+            "Dictionary",
+            "List",
+            "Mapping",
+            "Nested dict"
+        ],
+        "answerIndex": 1,
+        "explanation": "Lists lack semantic labels."
+    },
+    {
+        "id": 282,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Danger of update() is:",
+        "options": [
+            "Slow performance",
+            "Silent overwrite",
+            "Syntax error",
+            "Memory leak"
+        ],
+        "answerIndex": 1,
+        "explanation": "update() overwrites keys silently."
+    },
+    {
+        "id": 283,
+        "topic": "Topic13",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Best copy method for config templates?",
+        "options": [
+            "Assignment",
+            "copy()",
+            "deepcopy()",
+            "update()"
+        ],
+        "answerIndex": 2,
+        "explanation": "Configs often contain nested structures."
+    },
+    {
+        "id": 284,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Key existence check is best done:",
+        "options": [
+            "After access",
+            "Before access",
+            "Never",
+            "Randomly"
+        ],
+        "answerIndex": 1,
+        "explanation": "Check before access."
+    },
+    {
+        "id": 285,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension becomes harmful when:",
+        "options": [
+            "Used once",
+            "Nested heavily",
+            "Mapping simply",
+            "Filtering data"
+        ],
+        "answerIndex": 1,
+        "explanation": "Heavy nesting hurts readability."
+    },
+    {
+        "id": 286,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Nested dictionaries should be limited because:",
+        "options": [
+            "Syntax errors",
+            "Poor performance",
+            "Readability issues",
+            "Memory leaks"
+        ],
+        "answerIndex": 2,
+        "explanation": "Deep nesting reduces clarity."
+    },
+    {
+        "id": 287,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which real system uses permission maps?",
+        "options": [
+            "OS & apps",
+            "Sorting",
+            "Graphics",
+            "Math engines"
+        ],
+        "answerIndex": 0,
+        "explanation": "Permissions map roles to access."
+    },
+    {
+        "id": 288,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure best models relationships?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries model relationships."
+    },
+    {
+        "id": 289,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary usage avoids hardcoding?",
+        "options": [
+            "Mapping",
+            "Counters",
+            "Sorting",
+            "Indexes"
+        ],
+        "answerIndex": 0,
+        "explanation": "Mappings externalize logic."
+    },
+    {
+        "id": 290,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "output",
+        "question": "What is printed?",
+        "code": "d = {'a':None}\nprint(d.get('a','x'))",
+        "options": [
+            "None",
+            "x",
+            "Error",
+            "a"
+        ],
+        "answerIndex": 0,
+        "explanation": "Existing key returns None."
+    },
+    {
+        "id": 291,
+        "topic": "Topic12",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which merge method preserves originals?",
+        "options": [
+            "update()",
+            "|",
+            "assignment",
+            "pop()"
+        ],
+        "answerIndex": 1,
+        "explanation": "| does not mutate originals."
+    },
+    {
+        "id": 292,
+        "topic": "Topic13",
+        "level": "Tricky",
+        "type": "mcq",
+        "question": "Most dangerous dictionary bug comes from:",
+        "options": [
+            "Syntax error",
+            "Reference sharing",
+            "KeyError",
+            "IndexError"
+        ],
+        "answerIndex": 1,
+        "explanation": "Reference sharing silently corrupts data."
+    },
+    {
+        "id": 293,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure improves maintainability?",
+        "options": [
+            "Indexes",
+            "Named keys",
+            "Hardcoding",
+            "Loops"
+        ],
+        "answerIndex": 1,
+        "explanation": "Named keys improve clarity."
+    },
+    {
+        "id": 294,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which dictionary pattern supports menus?",
+        "options": [
+            "Counter",
+            "Mapping",
+            "Config",
+            "Set"
+        ],
+        "answerIndex": 1,
+        "explanation": "Menus map choices to actions."
+    },
+    {
+        "id": 295,
+        "topic": "Topic11",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Comprehension is faster mainly because:",
+        "options": [
+            "C-level execution",
+            "Less memory",
+            "Parallelism",
+            "Hashing"
+        ],
+        "answerIndex": 0,
+        "explanation": "Comprehensions are optimized internally."
+    },
+    {
+        "id": 296,
+        "topic": "Topic10",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Deep nesting usually signals:",
+        "options": [
+            "Good design",
+            "Over-engineering",
+            "High performance",
+            "Immutability"
+        ],
+        "answerIndex": 1,
+        "explanation": "Too much nesting hurts design."
+    },
+    {
+        "id": 297,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which system relies on route dictionaries?",
+        "options": [
+            "CLI tools",
+            "Web servers",
+            "Text editors",
+            "Math solvers"
+        ],
+        "answerIndex": 1,
+        "explanation": "Web servers map URLs to handlers."
+    },
+    {
+        "id": 298,
+        "topic": "Topic15",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which structure is best for configs?",
+        "options": [
+            "List",
+            "Tuple",
+            "Dictionary",
+            "Set"
+        ],
+        "answerIndex": 2,
+        "explanation": "Configs use named key-value pairs."
+    },
+    {
+        "id": 299,
+        "topic": "Topic14",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "Which avoids confusion between None and missing key?",
+        "options": [
+            "get()",
+            "in",
+            "[]",
+            "values()"
+        ],
+        "answerIndex": 1,
+        "explanation": "'in' checks existence explicitly."
+    },
+    {
+        "id": 300,
+        "topic": "Topic16",
+        "level": "Medium",
+        "type": "mcq",
+        "question": "At a conceptual level, dictionaries represent:",
+        "options": [
+            "Indexes",
+            "Sequences",
+            "Mappings",
+            "Sorting"
+        ],
+        "answerIndex": 2,
+        "explanation": "Dictionaries are mapping structures."
+    }
+]

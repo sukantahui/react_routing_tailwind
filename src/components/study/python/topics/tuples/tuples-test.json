@@ -1,0 +1,2593 @@
+
+[
+  {
+    "id": 1,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Python data type is immutable?",
+    "options": ["List", "Dictionary", "Tuple", "Set"],
+    "answerIndex": 2,
+    "explanation": "Tuples are immutable; their elements cannot be changed after creation."
+  },
+  {
+    "id": 2,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol is used to define a tuple?",
+    "options": ["[]", "{}", "()", "<>"],
+    "answerIndex": 2,
+    "explanation": "Parentheses () are used to define tuples."
+  },
+  {
+    "id": 3,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "t = (5)\nprint(type(t))",
+    "options": ["<class 'tuple'>", "<class 'int'>", "<class 'list'>", "Error"],
+    "answerIndex": 1,
+    "explanation": "(5) is treated as an integer, not a tuple."
+  },
+  {
+    "id": 4,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is the output?",
+    "code": "t = (5,)\nprint(type(t))",
+    "options": ["<class 'int'>", "<class 'list'>", "<class 'tuple'>", "Error"],
+    "answerIndex": 2,
+    "explanation": "A trailing comma creates a single-element tuple."
+  },
+  {
+    "id": 5,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How are tuple elements accessed?",
+    "options": ["Using keys", "Using indexes", "Using methods only", "Using values()"],
+    "answerIndex": 1,
+    "explanation": "Tuple elements are accessed using indexes."
+  },
+  {
+    "id": 6,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30)\nprint(t[1])",
+    "options": ["10", "20", "30", "Error"],
+    "answerIndex": 1,
+    "explanation": "Index 1 refers to the second element of the tuple."
+  },
+  {
+    "id": 7,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nprint(t[-1])",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "Negative index -1 accesses the last element."
+  },
+  {
+    "id": 8,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples immutable?",
+    "options": [
+      "They use less memory",
+      "They are faster",
+      "They are hashable",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "explanation": "Immutability makes tuples memory-efficient, fast, and hashable."
+  },
+  {
+    "id": 9,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, [2, 3])\nt[1].append(4)\nprint(t)",
+    "options": [
+      "(1, [2, 3])",
+      "(1, [2, 3, 4])",
+      "Error",
+      "(1, 4)"
+    ],
+    "answerIndex": 1,
+    "explanation": "The tuple is immutable, but the list inside it is mutable."
+  },
+  {
+    "id": 10,
+    "topic": "Topic8",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which method is available for tuples?",
+    "options": ["append()", "remove()", "count()", "insert()"],
+    "answerIndex": 2,
+    "explanation": "Tuples support only count() and index() methods."
+  },
+  {
+    "id": 11,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 2, 3)\nprint(t.count(2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "The value 2 appears twice in the tuple."
+  },
+  {
+    "id": 12,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Iterating directly over a tuple returns:",
+    "options": ["Indexes", "Keys", "Values", "Pairs"],
+    "answerIndex": 2,
+    "explanation": "Iterating over a tuple yields its values."
+  },
+  {
+    "id": 13,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "a, b = (10, 20)\nprint(a + b)",
+    "options": ["10", "20", "30", "Error"],
+    "answerIndex": 2,
+    "explanation": "Tuple unpacking assigns 10 to a and 20 to b."
+  },
+  {
+    "id": 14,
+    "topic": "Topic11",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "When a function returns multiple values, Python actually returns a:",
+    "options": ["List", "Tuple", "Dictionary", "Set"],
+    "answerIndex": 1,
+    "explanation": "Multiple return values are packed into a tuple."
+  },
+  {
+    "id": 15,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a key difference between lists and tuples?",
+    "options": ["Syntax", "Mutability", "Iteration", "Indexing"],
+    "answerIndex": 1,
+    "explanation": "Lists are mutable, tuples are immutable."
+  },
+  {
+    "id": 16,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples generally faster than lists?",
+    "options": [
+      "They skip resizing logic",
+      "They skip mutability checks",
+      "They use less memory",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "explanation": "Tuples are fixed-size and immutable, making them faster."
+  },
+  {
+    "id": 17,
+    "topic": "Topic17",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why can tuples be used as dictionary keys?",
+    "options": ["They are ordered", "They are iterable", "They are immutable", "They are indexed"],
+    "answerIndex": 2,
+    "explanation": "Dictionary keys must be immutable."
+  },
+  {
+    "id": 18,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt += (4,)\nprint(t)",
+    "options": ["(1, 2, 3)", "(1, 2, 3, 4)", "Error", "(4)"],
+    "answerIndex": 1,
+    "explanation": "A new tuple is created and reassigned to t."
+  },
+  {
+    "id": 19,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "mcq",
+    "question": "Which tuple operation creates a new tuple?",
+    "options": ["Indexing", "Iteration", "Concatenation", "Membership test"],
+    "answerIndex": 2,
+    "explanation": "Tuple concatenation always creates a new tuple."
+  },
+  {
+    "id": 20,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which is the best real-world use case for a tuple?",
+    "options": [
+      "Shopping cart",
+      "Student marks list",
+      "Coordinates (latitude, longitude)",
+      "Dynamic menu"
+    ],
+    "answerIndex": 2,
+    "explanation": "Coordinates are fixed and should not change, making tuples ideal."
+  },
+  {
+    "id": 21,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates a tuple?",
+    "options": ["1, 2, 3", "[1, 2, 3]", "{1, 2, 3}", "{'a':1}"],
+    "answerIndex": 0,
+    "explanation": "Comma-separated values automatically form a tuple."
+  },
+  {
+    "id": 22,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is NOT a tuple?",
+    "options": ["(1, 2)", "(1,)", "(1)", "1, 2"],
+    "answerIndex": 2,
+    "explanation": "(1) is treated as an integer, not a tuple."
+  },
+  {
+    "id": 23,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ('Python',)\nprint(len(t))",
+    "options": ["0", "1", "6", "Error"],
+    "answerIndex": 1,
+    "explanation": "Single-element tuple has length 1."
+  },
+  {
+    "id": 24,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30, 40)\nprint(t[1:3])",
+    "options": ["(10, 20)", "(20, 30)", "(30, 40)", "Error"],
+    "answerIndex": 1,
+    "explanation": "Slicing extracts elements from index 1 up to (but not including) 3."
+  },
+  {
+    "id": 25,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What does index -2 refer to in a tuple?",
+    "options": ["First element", "Second element", "Second last element", "Last element"],
+    "answerIndex": 2,
+    "explanation": "-2 refers to the second last element."
+  },
+  {
+    "id": 26,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "output",
+    "question": "What happens?",
+    "code": "t = (1, 2, 3)\nt[0] = 10",
+    "options": ["t becomes (10,2,3)", "No change", "TypeError", "IndexError"],
+    "answerIndex": 2,
+    "explanation": "Tuples are immutable, so assignment raises TypeError."
+  },
+  {
+    "id": 27,
+    "topic": "Topic7",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement best explains tuple immutability?",
+    "options": [
+      "Tuples cannot be indexed",
+      "Tuples cannot be changed after creation",
+      "Tuples cannot store mutable objects",
+      "Tuples cannot be iterated"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability means elements cannot be changed after creation."
+  },
+  {
+    "id": 28,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 2)\nprint(t.index(2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 0,
+    "explanation": "index() returns the first occurrence of the value."
+  },
+  {
+    "id": 29,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which loop correctly iterates through a tuple?",
+    "options": [
+      "for i in range(t)",
+      "for i in t",
+      "for i in tuple()",
+      "for i in indexes(t)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuples are iterable directly."
+  },
+  {
+    "id": 30,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "a, b, c = (1, 2, 3)\nprint(c)",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "Tuple unpacking assigns values in order."
+  },
+  {
+    "id": 31,
+    "topic": "Topic11",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What is returned by this function?\n\ndef f():\n    return 10, 20",
+    "options": ["List", "Tuple", "Dictionary", "Set"],
+    "answerIndex": 1,
+    "explanation": "Multiple return values are packed into a tuple."
+  },
+  {
+    "id": 32,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which operation is NOT allowed on tuples?",
+    "options": ["Indexing", "Slicing", "Concatenation", "Appending"],
+    "answerIndex": 3,
+    "explanation": "Tuples do not support append() because they are immutable."
+  },
+  {
+    "id": 33,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples preferred over lists in performance-critical code?",
+    "options": [
+      "They are mutable",
+      "They use less memory",
+      "They are slower",
+      "They allow resizing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuples are lightweight and faster due to immutability."
+  },
+  {
+    "id": 34,
+    "topic": "Topic17",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple can be used as a dictionary key?",
+    "options": [
+      "(1, [2,3])",
+      "(1, 2)",
+      "(['a'], 1)",
+      "([1],)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Only tuples with immutable elements can be dictionary keys."
+  },
+  {
+    "id": 35,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2)\nt = t * 3\nprint(t)",
+    "options": [
+      "(1, 2, 3)",
+      "(1, 2, 1, 2, 1, 2)",
+      "Error",
+      "(1, 2)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple repetition repeats elements."
+  },
+  {
+    "id": 36,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "mcq",
+    "question": "Which operation creates a new tuple object?",
+    "options": ["Index access", "Membership test", "Concatenation", "Iteration"],
+    "answerIndex": 2,
+    "explanation": "Concatenation creates a new tuple."
+  },
+  {
+    "id": 37,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data best fits a tuple?",
+    "options": [
+      "Daily expenses",
+      "Shopping cart",
+      "RGB color values",
+      "User input history"
+    ],
+    "answerIndex": 2,
+    "explanation": "RGB values are fixed-size and unchanging."
+  },
+  {
+    "id": 38,
+    "topic": "Topic19",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a common tuple pitfall?",
+    "options": [
+      "Using commas incorrectly",
+      "Using too many elements",
+      "Iterating tuples",
+      "Indexing tuples"
+    ],
+    "answerIndex": 0,
+    "explanation": "Missing trailing comma causes unexpected behavior."
+  },
+  {
+    "id": 39,
+    "topic": "Topic6",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt += (4,)\nprint(len(t))",
+    "options": ["3", "4", "Error", "5"],
+    "answerIndex": 1,
+    "explanation": "A new tuple is created with an additional element."
+  },
+  {
+    "id": 40,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why should tuples be used for fixed data?",
+    "options": [
+      "They are dynamic",
+      "They prevent accidental changes",
+      "They support append",
+      "They are unordered"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability protects fixed data from modification."
+  },
+  {
+    "id": 41,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is a tuple?",
+    "options": ["(1, 2, 3)", "[1, 2, 3]", "{1, 2, 3}", "{'a':1}"],
+    "answerIndex": 0,
+    "explanation": "Tuples are defined using parentheses or commas."
+  },
+  {
+    "id": 42,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the type of (5,)?",
+    "options": ["int", "list", "tuple", "set"],
+    "answerIndex": 2,
+    "explanation": "A trailing comma makes it a single-element tuple."
+  },
+  {
+    "id": 43,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10)\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'int'>",
+      "<class 'list'>",
+      "<class 'set'>"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without a comma, (10) is treated as an integer."
+  },
+  {
+    "id": 44,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 4, 5)\nprint(t[:3])",
+    "options": [
+      "(1, 2, 3)",
+      "(1, 2)",
+      "(3, 4, 5)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Slicing up to index 3 returns first three elements."
+  },
+  {
+    "id": 45,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30)\nprint(t[-1])",
+    "options": ["10", "20", "30", "Error"],
+    "answerIndex": 2,
+    "explanation": "Negative index -1 refers to the last element."
+  },
+  {
+    "id": 46,
+    "topic": "Topic6",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement about tuple immutability is correct?",
+    "options": [
+      "Elements cannot be added",
+      "Elements cannot be removed",
+      "Elements cannot be changed",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "explanation": "Tuples do not allow any modification after creation."
+  },
+  {
+    "id": 47,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples immutable in Python?",
+    "options": [
+      "To save memory",
+      "To improve performance and safety",
+      "To allow hashing",
+      "All of the above"
+    ],
+    "answerIndex": 3,
+    "explanation": "Immutability enables hashing, safety, and better performance."
+  },
+  {
+    "id": 48,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, (2, 3))\nprint(t[1][0])",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "Nested tuple indexing accesses inner elements."
+  },
+  {
+    "id": 49,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator combines two tuples?",
+    "options": ["*", "+", "-", "/"],
+    "answerIndex": 1,
+    "explanation": "The + operator concatenates tuples."
+  },
+  {
+    "id": 50,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2)\nprint(t * 2)",
+    "options": [
+      "(1, 2, 2)",
+      "(1, 2, 1, 2)",
+      "(2, 4)",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple repetition duplicates elements."
+  },
+  {
+    "id": 51,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which method counts occurrences of an element in a tuple?",
+    "options": ["count()", "index()", "find()", "search()"],
+    "answerIndex": 0,
+    "explanation": "count() returns how many times a value appears."
+  },
+  {
+    "id": 52,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 2, 3)\nprint(t.count(2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "The value 2 appears twice."
+  },
+  {
+    "id": 53,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which method returns the position of an element?",
+    "options": ["count()", "locate()", "index()", "pos()"],
+    "answerIndex": 2,
+    "explanation": "index() returns the first position of a value."
+  },
+  {
+    "id": 54,
+    "topic": "Topic11",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (5, 6, 7)\nprint(t.index(6))",
+    "options": ["0", "1", "2", "Error"],
+    "answerIndex": 1,
+    "explanation": "Indexing starts from 0."
+  },
+  {
+    "id": 55,
+    "topic": "Topic12",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which keyword checks membership in a tuple?",
+    "options": ["has", "exists", "in", "contains"],
+    "answerIndex": 2,
+    "explanation": "'in' checks if an element exists."
+  },
+  {
+    "id": 56,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 3, 5)\nprint(4 in t)",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "4 does not exist in the tuple."
+  },
+  {
+    "id": 57,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which syntax swaps two variables using tuples?",
+    "options": [
+      "a = b; b = a",
+      "a, b = b, a",
+      "swap(a,b)",
+      "temp = a"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple packing and unpacking swaps values cleanly."
+  },
+  {
+    "id": 58,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which statement about tuple performance is true?",
+    "options": [
+      "Tuples are slower than lists",
+      "Tuples consume more memory",
+      "Tuples are faster to iterate",
+      "Tuples cannot be optimized"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuples are faster due to immutability."
+  },
+  {
+    "id": 59,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why can tuples be used as dictionary keys?",
+    "options": [
+      "They are ordered",
+      "They are immutable",
+      "They support indexing",
+      "They allow duplicates"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability makes tuples hashable."
+  },
+  {
+    "id": 60,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data is best stored as a tuple?",
+    "options": [
+      "Shopping list",
+      "Student marks (changing)",
+      "GPS coordinates",
+      "Chat messages"
+    ],
+    "answerIndex": 2,
+    "explanation": "Coordinates are fixed and should not change."
+  },
+  {
+    "id": 61,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol mainly defines a tuple in Python?",
+    "options": ["()", "[]", "{}", "<>"],
+    "answerIndex": 0,
+    "explanation": "Parentheses are commonly used to define tuples."
+  },
+  {
+    "id": 62,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates an empty tuple?",
+    "options": ["()", "[]", "{}", "tuple[ ]"],
+    "answerIndex": 0,
+    "explanation": "() creates an empty tuple."
+  },
+  {
+    "id": 63,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (7,)\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'int'>",
+      "<class 'list'>",
+      "<class 'set'>"
+    ],
+    "answerIndex": 0,
+    "explanation": "The trailing comma makes it a tuple."
+  },
+  {
+    "id": 64,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30, 40)\nprint(t[::2])",
+    "options": [
+      "(10, 30)",
+      "(20, 40)",
+      "(10, 20)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Step slicing selects every second element."
+  },
+  {
+    "id": 65,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What does index -3 refer to in a 4-element tuple?",
+    "options": [
+      "First element",
+      "Second element",
+      "Third element",
+      "Last element"
+    ],
+    "answerIndex": 1,
+    "explanation": "-3 refers to the second element."
+  },
+  {
+    "id": 66,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "output",
+    "question": "What happens?",
+    "code": "t = (1, 2, [3, 4])\nt[2].append(5)\nprint(t)",
+    "options": [
+      "(1, 2, [3, 4])",
+      "(1, 2, [3, 4, 5])",
+      "TypeError",
+      "IndexError"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple is immutable, but mutable elements inside it can change."
+  },
+  {
+    "id": 67,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why is modifying a list inside a tuple allowed?",
+    "options": [
+      "Tuples are mutable",
+      "Lists are immutable",
+      "Tuple immutability applies only to references",
+      "Python ignores immutability"
+    ],
+    "answerIndex": 2,
+    "explanation": "The tuple reference is immutable, not the mutable object it holds."
+  },
+  {
+    "id": 68,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ((1, 2), (3, 4))\nprint(t[1][1])",
+    "options": ["1", "2", "3", "4"],
+    "answerIndex": 3,
+    "explanation": "Nested tuple indexing accesses inner elements."
+  },
+  {
+    "id": 69,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator repeats a tuple?",
+    "options": ["+", "*", "-", "%"],
+    "answerIndex": 1,
+    "explanation": "The * operator repeats tuple elements."
+  },
+  {
+    "id": 70,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ('A',) * 3\nprint(t)",
+    "options": [
+      "('A', 'A', 'A')",
+      "('A', 3)",
+      "('A')",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuple repetition duplicates elements."
+  },
+  {
+    "id": 71,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many methods do tuples have?",
+    "options": ["1", "2", "3", "Many"],
+    "answerIndex": 1,
+    "explanation": "Tuples have only count() and index()."
+  },
+  {
+    "id": 72,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 2)\nprint(t.index(2, 2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "index(value, start) searches from given position."
+  },
+  {
+    "id": 73,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which loop is best for iterating a tuple?",
+    "options": [
+      "for i in range(len(t))",
+      "for i in t",
+      "while i < t",
+      "loop(t)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Direct iteration is cleanest and most Pythonic."
+  },
+  {
+    "id": 74,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30)\nprint(20 not in t)",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "20 exists in the tuple, so 'not in' is False."
+  },
+  {
+    "id": 75,
+    "topic": "Topic13",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature enables tuple swapping?",
+    "options": [
+      "Indexing",
+      "Packing and unpacking",
+      "Immutability",
+      "Slicing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple packing and unpacking enable clean swapping."
+  },
+  {
+    "id": 76,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a performance advantage of tuples?",
+    "options": [
+      "Dynamic resizing",
+      "Lower memory overhead",
+      "More methods",
+      "Mutable storage"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuples consume less memory than lists."
+  },
+  {
+    "id": 77,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple can safely be a dictionary key?",
+    "options": [
+      "(1, [2])",
+      "([1], 2)",
+      "(1, 2, 3)",
+      "(1, {'a':2})"
+    ],
+    "answerIndex": 2,
+    "explanation": "All elements must be immutable."
+  },
+  {
+    "id": 78,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a common tuple mistake?",
+    "options": [
+      "Using tuple for fixed data",
+      "Forgetting trailing comma",
+      "Using indexing",
+      "Using unpacking"
+    ],
+    "answerIndex": 1,
+    "explanation": "Missing trailing comma causes unexpected behavior."
+  },
+  {
+    "id": 79,
+    "topic": "Topic19",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which real-world data is best modeled by a tuple?",
+    "options": [
+      "Monthly expenses",
+      "User profile",
+      "Date (day, month, year)",
+      "Shopping cart"
+    ],
+    "answerIndex": 2,
+    "explanation": "Dates are fixed-size and unchanging."
+  },
+  {
+    "id": 80,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2)\nprint(t + (3,) * 2)",
+    "options": [
+      "(1, 2, 3, 3)",
+      "(1, 2, 6)",
+      "(1, 2, 3)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuple concatenation and repetition are applied."
+  },
+  {
+    "id": 81,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is the most Pythonic way to define a tuple?",
+    "options": ["(1, 2, 3)", "tuple[1,2,3]", "[1,2,3]", "{1,2,3}"],
+    "answerIndex": 0,
+    "explanation": "Tuples are typically defined using parentheses."
+  },
+  {
+    "id": 82,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates a tuple without using parentheses?",
+    "options": ["1, 2, 3", "(1, 2, 3)", "tuple(1,2,3)", "[1,2,3]"],
+    "answerIndex": 0,
+    "explanation": "Comma-separated values automatically form a tuple."
+  },
+  {
+    "id": 83,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = 5,\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'int'>",
+      "<class 'list'>",
+      "<class 'set'>"
+    ],
+    "answerIndex": 0,
+    "explanation": "The trailing comma makes it a tuple."
+  },
+  {
+    "id": 84,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 4, 5)\nprint(t[1:4:2])",
+    "options": ["(2, 4)", "(2, 3)", "(1, 3)", "Error"],
+    "answerIndex": 0,
+    "explanation": "Slice from index 1 to 4 with step 2."
+  },
+  {
+    "id": 85,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What does index -4 refer to in a 5-element tuple?",
+    "options": ["First element", "Second element", "Third element", "Fourth element"],
+    "answerIndex": 1,
+    "explanation": "-4 refers to the second element."
+  },
+  {
+    "id": 86,
+    "topic": "Topic6",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What happens?",
+    "code": "t = (1, 2, (3, 4))\nt[2] += (5,)",
+    "options": [
+      "Tuple is updated",
+      "TypeError",
+      "(1,2,(3,4,5))",
+      "IndexError"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuples are immutable; reassignment is not allowed."
+  },
+  {
+    "id": 87,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which design benefit comes from tuple immutability?",
+    "options": [
+      "Dynamic resizing",
+      "Safer data handling",
+      "More flexibility",
+      "Easier mutation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability prevents accidental modification."
+  },
+  {
+    "id": 88,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ((1, 2), (3, (4, 5)))\nprint(t[1][1][0])",
+    "options": ["3", "4", "5", "Error"],
+    "answerIndex": 1,
+    "explanation": "Nested indexing accesses the inner tuple."
+  },
+  {
+    "id": 89,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operation creates a new tuple?",
+    "options": ["Indexing", "Iteration", "Concatenation", "Membership test"],
+    "answerIndex": 2,
+    "explanation": "Concatenation always creates a new tuple."
+  },
+  {
+    "id": 90,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2)\nt = t + (3, 4)\nprint(t)",
+    "options": [
+      "(1, 2)",
+      "(3, 4)",
+      "(1, 2, 3, 4)",
+      "Error"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuple concatenation produces a new tuple."
+  },
+  {
+    "id": 91,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tuple method returns how many times a value appears?",
+    "options": ["index()", "count()", "find()", "len()"],
+    "answerIndex": 1,
+    "explanation": "count() returns the frequency of a value."
+  },
+  {
+    "id": 92,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 2, 2)\nprint(t.count(2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "The value 2 appears three times."
+  },
+  {
+    "id": 93,
+    "topic": "Topic11",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What happens if index() does not find a value?",
+    "options": [
+      "Returns -1",
+      "Returns None",
+      "Raises ValueError",
+      "Returns False"
+    ],
+    "answerIndex": 2,
+    "explanation": "index() raises ValueError if the value is missing."
+  },
+  {
+    "id": 94,
+    "topic": "Topic12",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator checks membership in a tuple?",
+    "options": ["is", "has", "in", "=="],
+    "answerIndex": 2,
+    "explanation": "'in' checks whether an element exists."
+  },
+  {
+    "id": 95,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "a, b = (10, 20)\na, b = b, a\nprint(a, b)",
+    "options": ["10 20", "20 10", "Error", "None"],
+    "answerIndex": 1,
+    "explanation": "Tuple unpacking swaps the values."
+  },
+  {
+    "id": 96,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which factor makes tuples faster than lists?",
+    "options": [
+      "Dynamic memory",
+      "Immutability",
+      "More methods",
+      "Resizable storage"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows internal optimizations."
+  },
+  {
+    "id": 97,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple cannot be used as a dictionary key?",
+    "options": [
+      "(1, 2)",
+      "('a', 'b')",
+      "(1, [2])",
+      "(True, False)"
+    ],
+    "answerIndex": 2,
+    "explanation": "Mutable elements make a tuple unhashable."
+  },
+  {
+    "id": 98,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which mistake often causes bugs with tuples?",
+    "options": [
+      "Using slicing",
+      "Using nesting",
+      "Forgetting immutability",
+      "Using indexing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Trying to modify tuples causes runtime errors."
+  },
+  {
+    "id": 99,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data is best represented by a tuple?",
+    "options": [
+      "User shopping cart",
+      "Live sensor readings",
+      "Coordinates (x, y, z)",
+      "Chat history"
+    ],
+    "answerIndex": 2,
+    "explanation": "Coordinates are fixed-size and immutable."
+  },
+  {
+    "id": 100,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt = t[:2] + (4,)\nprint(t)",
+    "options": [
+      "(1, 2, 3)",
+      "(1, 2, 4)",
+      "(4,)",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Slicing and concatenation create a new tuple."
+  },
+  {
+    "id": 101,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Tuples in Python are enclosed mainly using:",
+    "options": ["Square brackets", "Curly braces", "Parentheses", "Angle brackets"],
+    "answerIndex": 2,
+    "explanation": "Tuples are typically written using parentheses ()."
+  },
+  {
+    "id": 102,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates a tuple of three elements?",
+    "options": ["(1)", "(1, 2, 3)", "(1,)", "[1, 2, 3]"],
+    "answerIndex": 1,
+    "explanation": "(1, 2, 3) correctly defines a tuple with three elements."
+  },
+  {
+    "id": 103,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ('A')\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'str'>",
+      "<class 'list'>",
+      "<class 'set'>"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without a trailing comma, ('A') is treated as a string."
+  },
+  {
+    "id": 104,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (0, 1, 2, 3, 4)\nprint(t[2:])",
+    "options": [
+      "(0, 1)",
+      "(2, 3, 4)",
+      "(1, 2, 3)",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Slicing from index 2 returns elements from position 2 onward."
+  },
+  {
+    "id": 105,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which index refers to the first element of a tuple?",
+    "options": ["0", "-1", "1", "-2"],
+    "answerIndex": 0,
+    "explanation": "Index 0 always refers to the first element."
+  },
+  {
+    "id": 106,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why does tuple assignment fail?",
+    "options": [
+      "Tuples are slow",
+      "Tuples are immutable",
+      "Tuples are unordered",
+      "Tuples are dynamic"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple immutability prevents reassignment of elements."
+  },
+  {
+    "id": 107,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which advantage does immutability provide?",
+    "options": [
+      "Dynamic resizing",
+      "Safe sharing of data",
+      "More methods",
+      "Easier updates"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability makes tuples safe to share across code."
+  },
+  {
+    "id": 108,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, (2, (3, 4)))\nprint(t[1][1][1])",
+    "options": ["2", "3", "4", "Error"],
+    "answerIndex": 2,
+    "explanation": "Nested indexing accesses deeper elements."
+  },
+  {
+    "id": 109,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used for tuple concatenation?",
+    "options": ["*", "+", "/", "%"],
+    "answerIndex": 1,
+    "explanation": "The + operator concatenates tuples."
+  },
+  {
+    "id": 110,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t1 = (1, 2)\nt2 = (3, 4)\nprint(t1 + t2)",
+    "options": [
+      "(1, 2, 3, 4)",
+      "(1, 2)(3, 4)",
+      "(3, 4, 1, 2)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Concatenation joins both tuples into one."
+  },
+  {
+    "id": 111,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tuple method returns the index of a value?",
+    "options": ["count()", "index()", "find()", "locate()"],
+    "answerIndex": 1,
+    "explanation": "index() returns the first position of a value."
+  },
+  {
+    "id": 112,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (9, 8, 7)\nprint(t.index(7))",
+    "options": ["0", "1", "2", "Error"],
+    "answerIndex": 2,
+    "explanation": "Indexing starts from 0."
+  },
+  {
+    "id": 113,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement correctly iterates over a tuple?",
+    "options": [
+      "for i in tuple",
+      "for i in range(tuple)",
+      "for i in t",
+      "loop(t)"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuples are directly iterable."
+  },
+  {
+    "id": 114,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (2, 4, 6)\nprint(5 in t)",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "5 does not exist in the tuple."
+  },
+  {
+    "id": 115,
+    "topic": "Topic13",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Tuple swapping works because of:",
+    "options": [
+      "Indexing",
+      "Packing and unpacking",
+      "Mutability",
+      "Slicing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuple packing and unpacking enable swapping."
+  },
+  {
+    "id": 116,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which structure uses less memory for fixed data?",
+    "options": ["List", "Tuple", "Set", "Dictionary"],
+    "answerIndex": 1,
+    "explanation": "Tuples have lower memory overhead."
+  },
+  {
+    "id": 117,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples hashable?",
+    "options": [
+      "They are ordered",
+      "They are immutable",
+      "They allow duplicates",
+      "They are indexed"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows tuples to be hashed."
+  },
+  {
+    "id": 118,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a common tuple error?",
+    "options": [
+      "Using tuple for constants",
+      "Trying to modify elements",
+      "Using slicing",
+      "Using indexing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Attempting modification causes runtime errors."
+  },
+  {
+    "id": 119,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data fits a tuple best?",
+    "options": [
+      "Shopping cart",
+      "Sensor readings",
+      "Coordinates (lat, long)",
+      "User activity log"
+    ],
+    "answerIndex": 2,
+    "explanation": "Coordinates are fixed-size and immutable."
+  },
+  {
+    "id": 120,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt = t[:1] + (9,) + t[2:]\nprint(t)",
+    "options": [
+      "(1, 2, 3)",
+      "(1, 9, 3)",
+      "(9, 2, 3)",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Slicing and concatenation simulate tuple modification."
+  },
+  {
+    "id": 121,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following best describes a tuple?",
+    "options": [
+      "Mutable sequence",
+      "Immutable sequence",
+      "Key-value structure",
+      "Unordered collection"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tuples are immutable ordered sequences."
+  },
+  {
+    "id": 122,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates a tuple with one element?",
+    "options": ["(5)", "(5,)", "[5]", "{5}"],
+    "answerIndex": 1,
+    "explanation": "A trailing comma is required for single-element tuples."
+  },
+  {
+    "id": 123,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ('X',)\nprint(t[0])",
+    "options": ["X", "('X',)", "Error", "None"],
+    "answerIndex": 0,
+    "explanation": "Indexing returns the element at position 0."
+  },
+  {
+    "id": 124,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 4)\nprint(t[::-1])",
+    "options": [
+      "(4, 3, 2, 1)",
+      "(1, 2, 3, 4)",
+      "(2, 3, 4)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Step -1 reverses the tuple."
+  },
+  {
+    "id": 125,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "What does index -1 refer to in a tuple?",
+    "options": ["First element", "Last element", "Middle element", "Second element"],
+    "answerIndex": 1,
+    "explanation": "Negative indexing starts from the end; -1 is the last element."
+  },
+  {
+    "id": 126,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "output",
+    "question": "What happens?",
+    "code": "t = (1, 2, 3)\nt[1] += 5",
+    "options": ["(1, 7, 3)", "TypeError", "IndexError", "No change"],
+    "answerIndex": 1,
+    "explanation": "Tuples do not allow item assignment."
+  },
+  {
+    "id": 127,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "One key reason Python uses tuple immutability is:",
+    "options": [
+      "Ease of modification",
+      "Thread safety and reliability",
+      "Dynamic resizing",
+      "Better syntax"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability ensures data safety and predictability."
+  },
+  {
+    "id": 128,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ((1, 2), 3)\nprint(t[0][1])",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "Nested tuple indexing accesses inner tuple values."
+  },
+  {
+    "id": 129,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the + operator do with tuples?",
+    "options": [
+      "Adds numeric values",
+      "Merges elements into a new tuple",
+      "Mutates the original tuple",
+      "Sorts the tuple"
+    ],
+    "answerIndex": 1,
+    "explanation": "+ concatenates tuples into a new tuple."
+  },
+  {
+    "id": 130,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1,)\nprint(t * 4)",
+    "options": [
+      "(1, 1, 1, 1)",
+      "(4)",
+      "(1)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuple repetition duplicates elements."
+  },
+  {
+    "id": 131,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tuple method returns the position of a value?",
+    "options": ["count()", "index()", "find()", "search()"],
+    "answerIndex": 1,
+    "explanation": "index() returns the first matching index."
+  },
+  {
+    "id": 132,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (5, 6, 7, 6)\nprint(t.index(6, 2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "index(value, start) searches from the given index."
+  },
+  {
+    "id": 133,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement is TRUE about iterating tuples?",
+    "options": [
+      "Tuples cannot be iterated",
+      "Only indexes can be used",
+      "Direct iteration is allowed",
+      "Iteration mutates tuples"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuples support direct iteration."
+  },
+  {
+    "id": 134,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10, 20, 30)\nprint(40 not in t)",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "40 is not present in the tuple."
+  },
+  {
+    "id": 135,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Tuple unpacking requires:",
+    "options": [
+      "Equal number of variables and elements",
+      "More variables than elements",
+      "Lists instead of tuples",
+      "Mutable values"
+    ],
+    "answerIndex": 0,
+    "explanation": "The number of variables must match tuple elements."
+  },
+  {
+    "id": 136,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a valid reason tuples are faster than lists?",
+    "options": [
+      "Dynamic resizing",
+      "Immutability",
+      "More built-in methods",
+      "Larger memory footprint"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows performance optimizations."
+  },
+  {
+    "id": 137,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple is valid as a dictionary key?",
+    "options": [
+      "(1, [2])",
+      "(1, 2)",
+      "(['a'], 3)",
+      "(1, {'x':2})"
+    ],
+    "answerIndex": 1,
+    "explanation": "All elements must be immutable."
+  },
+  {
+    "id": 138,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple-related mistake is most common?",
+    "options": [
+      "Using tuples for constants",
+      "Forgetting the trailing comma",
+      "Using tuple unpacking",
+      "Using nested tuples"
+    ],
+    "answerIndex": 1,
+    "explanation": "Missing the trailing comma causes unexpected types."
+  },
+  {
+    "id": 139,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world example best fits a tuple?",
+    "options": [
+      "To-do list",
+      "Shopping cart",
+      "RGB color values",
+      "Chat messages"
+    ],
+    "answerIndex": 2,
+    "explanation": "RGB values are fixed-size and constant."
+  },
+  {
+    "id": 140,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt = t + (4,)\nprint(t[2])",
+    "options": ["2", "3", "4", "Error"],
+    "answerIndex": 1,
+    "explanation": "After concatenation, index 2 refers to value 3."
+  },
+  {
+    "id": 141,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement about tuples is TRUE?",
+    "options": [
+      "Tuples are mutable",
+      "Tuples can change size",
+      "Tuples are immutable",
+      "Tuples store only numbers"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuples are immutable, meaning their elements cannot be changed."
+  },
+  {
+    "id": 142,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which syntax correctly creates a tuple with two elements?",
+    "options": ["(5 6)", "(5, 6)", "[5, 6]", "{5, 6}"],
+    "answerIndex": 1,
+    "explanation": "Elements in a tuple are separated by commas."
+  },
+  {
+    "id": 143,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (10,)\nprint(len(t))",
+    "options": ["0", "1", "10", "Error"],
+    "answerIndex": 1,
+    "explanation": "A single-element tuple has length 1."
+  },
+  {
+    "id": 144,
+    "topic": "Topic4",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 4, 5)\nprint(t[:: -1])",
+    "options": [
+      "(5, 4, 3, 2, 1)",
+      "(1, 2, 3, 4, 5)",
+      "(2, 3, 4)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "A step of -1 reverses the tuple."
+  },
+  {
+    "id": 145,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which index accesses the third element from the end?",
+    "options": ["-1", "-2", "-3", "3"],
+    "answerIndex": 2,
+    "explanation": "Index -3 refers to the third element from the end."
+  },
+  {
+    "id": 146,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which operation is NOT allowed on tuples?",
+    "options": ["Indexing", "Slicing", "Concatenation", "Item assignment"],
+    "answerIndex": 3,
+    "explanation": "Tuples do not support item assignment."
+  },
+  {
+    "id": 147,
+    "topic": "Topic7",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Immutability of tuples helps in:",
+    "options": [
+      "Dynamic resizing",
+      "Preventing accidental changes",
+      "Allowing append operations",
+      "Sorting elements"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability ensures data safety."
+  },
+  {
+    "id": 148,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ((1, 2), (3, 4))\nprint(t[0][0])",
+    "options": ["1", "2", "3", "4"],
+    "answerIndex": 0,
+    "explanation": "Nested indexing retrieves the inner tuple element."
+  },
+  {
+    "id": 149,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator is used to repeat a tuple?",
+    "options": ["+", "-", "*", "/"],
+    "answerIndex": 2,
+    "explanation": "The * operator repeats tuple elements."
+  },
+  {
+    "id": 150,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (2, 3)\nprint(t * 3)",
+    "options": [
+      "(2, 3, 2, 3, 2, 3)",
+      "(6, 9)",
+      "(2, 3, 3)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuple repetition duplicates elements."
+  },
+  {
+    "id": 151,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tuple method counts occurrences of an element?",
+    "options": ["index()", "count()", "len()", "find()"],
+    "answerIndex": 1,
+    "explanation": "count() returns the number of occurrences."
+  },
+  {
+    "id": 152,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3, 2, 4)\nprint(t.count(2))",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "The value 2 appears twice."
+  },
+  {
+    "id": 153,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which loop is best for iterating through a tuple?",
+    "options": [
+      "for i in t",
+      "for i in range(t)",
+      "while t",
+      "loop(t)"
+    ],
+    "answerIndex": 0,
+    "explanation": "Direct iteration over a tuple is preferred."
+  },
+  {
+    "id": 154,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (5, 10, 15)\nprint(10 in t)",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "10 exists in the tuple."
+  },
+  {
+    "id": 155,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Tuple unpacking fails when:",
+    "options": [
+      "Number of variables and values mismatch",
+      "Values are integers",
+      "Tuple has nested values",
+      "Variables are named"
+    ],
+    "answerIndex": 0,
+    "explanation": "The number of variables must match the number of elements."
+  },
+  {
+    "id": 156,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why do tuples generally use less memory than lists?",
+    "options": [
+      "They store fewer elements",
+      "They are immutable",
+      "They are unordered",
+      "They avoid indexing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows more compact internal storage."
+  },
+  {
+    "id": 157,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple can be safely used as a dictionary key?",
+    "options": [
+      "(1, [2, 3])",
+      "(1, 2, 3)",
+      "(['a'], 1)",
+      "(1, {'x':1})"
+    ],
+    "answerIndex": 1,
+    "explanation": "Only tuples with immutable elements are hashable."
+  },
+  {
+    "id": 158,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a common tuple pitfall?",
+    "options": [
+      "Using tuples for constants",
+      "Trying to modify tuple elements",
+      "Using indexing",
+      "Using slicing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Attempting modification causes errors."
+  },
+  {
+    "id": 159,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which data is most suitable for a tuple?",
+    "options": [
+      "Shopping list",
+      "User profile",
+      "Date (day, month, year)",
+      "Live sensor data"
+    ],
+    "answerIndex": 2,
+    "explanation": "Dates are fixed-size and unchanging."
+  },
+  {
+    "id": 160,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nt = (0,) + t[1:]\nprint(t)",
+    "options": [
+      "(0, 2, 3)",
+      "(1, 2, 3)",
+      "(0, 1, 2)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Slicing and concatenation create a new tuple."
+  },
+  {
+    "id": 161,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following best defines a tuple?",
+    "options": [
+      "A mutable sequence",
+      "An immutable ordered collection",
+      "An unordered collection",
+      "A key-value structure"
+    ],
+    "answerIndex": 1,
+    "explanation": "A tuple is an ordered and immutable collection."
+  },
+  {
+    "id": 162,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following creates an empty tuple?",
+    "options": ["()", "[]", "{}", "tuple"],
+    "answerIndex": 0,
+    "explanation": "() creates an empty tuple."
+  },
+  {
+    "id": 163,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (5)\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'int'>",
+      "<class 'list'>",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without a trailing comma, (5) is treated as an integer."
+  },
+  {
+    "id": 164,
+    "topic": "Topic3",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "a, b = (10, 20)\nprint(a + b)",
+    "options": ["30", "1020", "(10,20)", "Error"],
+    "answerIndex": 0,
+    "explanation": "Tuple unpacking assigns values to variables."
+  },
+  {
+    "id": 165,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which slicing returns the last two elements?",
+    "options": ["t[2:]", "t[-2:]", "t[:2]", "t[:-2]"],
+    "answerIndex": 1,
+    "explanation": "Negative slicing retrieves elements from the end."
+  },
+  {
+    "id": 166,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Negative index -1 refers to:",
+    "options": [
+      "First element",
+      "Second element",
+      "Last element",
+      "Middle element"
+    ],
+    "answerIndex": 2,
+    "explanation": "-1 always points to the last element."
+  },
+  {
+    "id": 167,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which statement causes an error?",
+    "options": [
+      "t = (1,2,3)",
+      "print(t[0])",
+      "t[0] = 9",
+      "len(t)"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuple elements cannot be modified."
+  },
+  {
+    "id": 168,
+    "topic": "Topic7",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Tuples are immutable mainly to:",
+    "options": [
+      "Increase speed",
+      "Allow hashing",
+      "Ensure data safety",
+      "Support indexing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Immutability protects data from accidental changes."
+  },
+  {
+    "id": 169,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, (2, 3))\nprint(t[1][1])",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "Nested tuple indexing accesses inner elements."
+  },
+  {
+    "id": 170,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does tuple concatenation use?",
+    "options": ["*", "+", "-", "/"],
+    "answerIndex": 1,
+    "explanation": "The + operator concatenates tuples."
+  },
+  {
+    "id": 171,
+    "topic": "Topic9",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2) + (3, 4)\nprint(t)",
+    "options": [
+      "(1, 2, 3, 4)",
+      "(4, 6)",
+      "(1, 2)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Concatenation joins tuples into a new tuple."
+  },
+  {
+    "id": 172,
+    "topic": "Topic10",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tuple method returns the index of a value?",
+    "options": ["count()", "find()", "index()", "locate()"],
+    "answerIndex": 2,
+    "explanation": "index() returns the position of a value."
+  },
+  {
+    "id": 173,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Best way to iterate over tuple values is:",
+    "options": [
+      "for i in tuple",
+      "for i in t",
+      "while t",
+      "loop(t)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Direct iteration is clean and readable."
+  },
+  {
+    "id": 174,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which expression checks membership?",
+    "options": [
+      "has",
+      "exists",
+      "in",
+      "contains"
+    ],
+    "answerIndex": 2,
+    "explanation": "The 'in' keyword checks membership."
+  },
+  {
+    "id": 175,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "x, y = 5, 10\nx, y = y, x\nprint(x, y)",
+    "options": ["5 10", "10 5", "(5,10)", "Error"],
+    "answerIndex": 1,
+    "explanation": "Tuple packing and unpacking swaps values."
+  },
+  {
+    "id": 176,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Why are tuples faster than lists?",
+    "options": [
+      "They use less memory",
+      "They avoid mutation checks",
+      "They are unordered",
+      "They support hashing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows internal optimizations."
+  },
+  {
+    "id": 177,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Tuples can be dictionary keys because:",
+    "options": [
+      "They are ordered",
+      "They are immutable",
+      "They allow slicing",
+      "They support repetition"
+    ],
+    "answerIndex": 1,
+    "explanation": "Only immutable objects are hashable."
+  },
+  {
+    "id": 178,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which error is common with tuples?",
+    "options": [
+      "IndexError",
+      "KeyError",
+      "TypeError on assignment",
+      "SyntaxError"
+    ],
+    "answerIndex": 2,
+    "explanation": "Assigning to tuple elements raises TypeError."
+  },
+  {
+    "id": 179,
+    "topic": "Topic17",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data fits tuples best?",
+    "options": [
+      "Shopping cart",
+      "Student marks",
+      "RGB color values",
+      "Live logs"
+    ],
+    "answerIndex": 2,
+    "explanation": "RGB values are fixed and ordered."
+  },
+  {
+    "id": 180,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2, 3)\nprint(t + (4,))",
+    "options": [
+      "(1, 2, 3, 4)",
+      "(1, 2, 3)",
+      "(4, 1, 2, 3)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "A single-element tuple requires a trailing comma."
+  },
+  {
+    "id": 181,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol is mandatory to define a tuple?",
+    "options": [
+      "Square brackets",
+      "Curly braces",
+      "Comma",
+      "Colon"
+    ],
+    "answerIndex": 2,
+    "explanation": "The comma defines a tuple, not the parentheses."
+  },
+  {
+    "id": 182,
+    "topic": "Topic1",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is a valid tuple?",
+    "options": [
+      "(1)",
+      "(1,)",
+      "[1,2]",
+      "{1,2}"
+    ],
+    "answerIndex": 1,
+    "explanation": "A single-element tuple must have a trailing comma."
+  },
+  {
+    "id": 183,
+    "topic": "Topic2",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ('Python')\nprint(type(t))",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'str'>",
+      "<class 'list'>",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Without a comma, it is treated as a string."
+  },
+  {
+    "id": 184,
+    "topic": "Topic3",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "a, b, c = (1, 2, 3)\nprint(c)",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 2,
+    "explanation": "Tuple unpacking assigns values positionally."
+  },
+  {
+    "id": 185,
+    "topic": "Topic4",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does t[1:3] return?",
+    "options": [
+      "Single element",
+      "Sub-tuple",
+      "Integer",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "Slicing always returns a tuple."
+  },
+  {
+    "id": 186,
+    "topic": "Topic5",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which index refers to the first element?",
+    "options": ["1", "-1", "0", "-0"],
+    "answerIndex": 2,
+    "explanation": "Indexing starts at 0."
+  },
+  {
+    "id": 187,
+    "topic": "Topic6",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which operation is NOT allowed on tuples?",
+    "options": [
+      "Indexing",
+      "Slicing",
+      "Concatenation",
+      "Item assignment"
+    ],
+    "answerIndex": 3,
+    "explanation": "Tuples do not allow item reassignment."
+  },
+  {
+    "id": 188,
+    "topic": "Topic7",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Immutability means:",
+    "options": [
+      "Cannot be indexed",
+      "Cannot be changed",
+      "Cannot be stored",
+      "Cannot be iterated"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutable objects cannot be modified after creation."
+  },
+  {
+    "id": 189,
+    "topic": "Topic8",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = ((1, 2), (3, 4))\nprint(t[0][1])",
+    "options": ["1", "2", "3", "Error"],
+    "answerIndex": 1,
+    "explanation": "Nested indexing accesses inner tuple elements."
+  },
+  {
+    "id": 190,
+    "topic": "Topic9",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operator repeats a tuple?",
+    "options": ["+", "*", "-", "%"],
+    "answerIndex": 1,
+    "explanation": "The * operator repeats tuples."
+  },
+  {
+    "id": 191,
+    "topic": "Topic10",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "t = (1, 2) * 3\nprint(t)",
+    "options": [
+      "(1, 2, 1, 2, 1, 2)",
+      "(3, 6)",
+      "(1, 2)",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuple repetition duplicates elements."
+  },
+  {
+    "id": 192,
+    "topic": "Topic11",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which method counts occurrences of a value?",
+    "options": ["count()", "index()", "len()", "find()"],
+    "answerIndex": 0,
+    "explanation": "count() returns the number of occurrences."
+  },
+  {
+    "id": 193,
+    "topic": "Topic12",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which loop works best with tuples?",
+    "options": [
+      "for loop",
+      "while loop only",
+      "do-while",
+      "switch"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tuples are commonly iterated using for loops."
+  },
+  {
+    "id": 194,
+    "topic": "Topic13",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which keyword checks if an element exists in a tuple?",
+    "options": ["has", "exists", "in", "contains"],
+    "answerIndex": 2,
+    "explanation": "'in' checks membership."
+  },
+  {
+    "id": 195,
+    "topic": "Topic14",
+    "level": "Medium",
+    "type": "output",
+    "question": "What is printed?",
+    "code": "def get_point():\n    return (4, 5)\nx, y = get_point()\nprint(y)",
+    "options": ["4", "5", "(4,5)", "Error"],
+    "answerIndex": 1,
+    "explanation": "Tuples can return multiple values from functions."
+  },
+  {
+    "id": 196,
+    "topic": "Topic15",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which is a key difference between tuple and list?",
+    "options": [
+      "Tuple is slower",
+      "Tuple is mutable",
+      "Tuple is immutable",
+      "Tuple is unordered"
+    ],
+    "answerIndex": 2,
+    "explanation": "Tuples cannot be modified."
+  },
+  {
+    "id": 197,
+    "topic": "Topic16",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Tuples are preferred for performance because:",
+    "options": [
+      "They are resizable",
+      "They avoid mutation checks",
+      "They allow deletion",
+      "They use indexes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Immutability allows faster execution."
+  },
+  {
+    "id": 198,
+    "topic": "Topic17",
+    "level": "Medium",
+    "type": "mcq",
+    "question": "Which tuple can be a dictionary key?",
+    "options": [
+      "(1, [2,3])",
+      "([1,2], 3)",
+      "(1, 2, 3)",
+      "([1],)"
+    ],
+    "answerIndex": 2,
+    "explanation": "All elements must be immutable."
+  },
+  {
+    "id": 199,
+    "topic": "Topic18",
+    "level": "Tricky",
+    "type": "mcq",
+    "question": "Which mistake causes unexpected behavior?",
+    "options": [
+      "Using slicing",
+      "Forgetting trailing comma",
+      "Using iteration",
+      "Using unpacking"
+    ],
+    "answerIndex": 1,
+    "explanation": "Missing comma converts tuple into a single value."
+  },
+  {
+    "id": 200,
+    "topic": "Topic19",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which real-world data fits tuples best?",
+    "options": [
+      "Live chat messages",
+      "Sensor readings",
+      "Coordinates",
+      "User input history"
+    ],
+    "answerIndex": 2,
+    "explanation": "Coordinates are fixed-size and immutable."
+  }
+
+
+
+]
