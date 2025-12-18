@@ -13,6 +13,30 @@
   },
   "folder": "python",
   "subject": "Python",
+  "subjectLogo": {
+    "name": "Python",
+    "icon": "python",
+    "type": "svg",
+    "path": "/logos/python.svg",
+    "alt": "Python Logo"
+  },
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Educator · Software Trainer · Mentor",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "This roadmap is designed to take you from clear fundamentals to professional-level confidence. Every module focuses on why things work, not just how to write code — so you can think like a real programmer.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
   "segments": [
     {
       "segmentId": "foundation",

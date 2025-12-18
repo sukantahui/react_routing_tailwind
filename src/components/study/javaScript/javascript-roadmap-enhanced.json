@@ -13,6 +13,13 @@
   },
   "folder": "javaScript",
   "subject": "JavaScript",
+  "subjectLogo": {
+        "name": "JavaScript",
+        "icon": "JavaScript",
+        "type": "svg",
+        "path": "/logos/javascript.svg",
+        "alt": "javascript Logo"
+    },
   "segments": [
     {
       "segmentId": "basic",
