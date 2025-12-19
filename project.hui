@@ -1,3 +1,118 @@
 npm install tailwindcss @tailwindcss/cli
 @import "tailwindcss";
 npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch
+
+
+
+"What is Java and where it is used",
+"History and evolution of Java",
+"Key features of Java (platform independent, object-oriented, secure, robust)",
+"Java editions: Java SE, Java EE, Java ME (overview)",
+"Java as a platform vs Java as a language",
+"Introduction to JDK, JRE and JVM",
+"Role of JVM in platform independence",
+"Java compilation and execution process",
+"How Java source code is converted to bytecode",
+"Java program structure (class, main method, braces)",
+"Rules of writing a Java program",
+"Understanding public static void main(String[] args)",
+"First Java program explanation line by line",
+"Compiling Java programs using javac",
+"Running Java programs using java command",
+"Common compilation and runtime errors",
+"Using System.out.print() and System.out.println()",
+"Difference between print() and println()",
+"Basic debugging using output statements",
+"Introduction to IDEs (BlueJ, IntelliJ IDEA, Eclipse – overview)",
+"Writing and running Java programs using an IDE",
+"Good coding practices for beginners"
+
+Topics are delimited by comma
+
+Component Rules (VERY IMPORTANT)
+    Use React 19 CLASS-BASED components only
+    Lifecycle methods (constructor, componentDidMount, render, etc.) must be used appropriately.
+    File naming must be:
+        Topic0.jsx → Topic 1
+        Topic1.jsx → Topic 2
+        and so on…
+    One topic per file
+    Do NOT combine topics
+    Do NOT jump ahead
+
+
+UI / UX Requirements
+    Use Tailwind CSS
+    Support Light & Dark mode
+    SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    Decorative SVGs without instructional value should be avoided.
+    Add:
+        Subtle hover effects
+        Light animations (professional, not flashy)
+        Expert-quality SVG illustrations to explain concepts step by step
+        Layout should be:
+        Clean
+        Readable
+        Classroom-friendly
+        Production-ready
+
+Code Display Rule
+To show Java code examples, always use:
+    import JavaCodeBlock from "../../../../../common/JavaCodeBlock";
+
+Content Depth (VERY IMPORTANT)
+    Each topic must include:
+    Detailed conceptual explanation
+    Real-world usage examples
+    Tips & tricks used by professionals
+    Common mistakes made by beginners
+    Best practices
+    Mini checklist (what students should remember)
+
+Technical Explanation Rule
+    Whenever you explain:
+    A method
+    A function
+    A Java keyword
+    A Java API
+
+You must clearly mention:
+    Prototype / signature
+    Return type
+    Purpose
+    When & why it is used
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    Add a dedicated “Teacher’s Note” section.
+    Primary teacher: Sukanta Hui
+    Also reference (contextually):
+        Tanusree Hui
+        Chandan Das
+        Sreeparna Das
+        Mounita Bhandari
+        Ritaja Ghosh
+
+Teacher’s professional description must be fetched from a JSON file.
+Ask me for this JSON file if you dont have before starting.
+
+Classroom Context (MANDATORY)
+While explaining concepts, naturally include examples involving:
+    Students:
+    Swadeep, Tuhina, Abhronila, Debangshu, etc.
+    Places:
+    Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    Start by generating Topic0.jsx only
+    Wait for my confirmation before proceeding to the next topic
+    Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    Code must be:
+        Clean
+        Commented
+        Industry-standard
+        Ready to scale
+
+Before You Begin
+    If any required data is missing (e.g.,Roadmap JSON file), ask clearly before proceeding.
