@@ -48,6 +48,8 @@ import VSCodeUltraExpertGuide from '../components/VSCodeUltraExpertGuide';
 import ICSE9JavaRoadmap from '../components/study/icse-java-9/ICSE9JavaRoadmap';
 import ICSE9JavaModuleView from '../components/study/icse-java-9/ICSE9JavaModuleView';
 import ICSE9JavaTopicView from '../components/study/icse-java-9/ICSE9JavaTopicView';
+import JavaRoadmap from '../components/study/java-core/JavaRoadmap';
+import JavaModuleView from '../components/study/java-core/JavaModuleView';
 
 
 
@@ -152,6 +154,11 @@ export default function AppRoutes() {
       <Route path="/icse-java-ix/roadmap" element={<ICSE9JavaRoadmap />} />
       <Route path="/icse-java-ix/module/:slug" element={<ICSE9JavaModuleView />} />
       <Route path="/icse-java-ix/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/>
+
+      {/* For Java  */}
+      <Route path="/java-core/roadmap" element={<JavaRoadmap />} />
+      <Route path="/java-core/module/:slug" element={<JavaModuleView />} />
+      {/* <Route path="/java-core/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/> */}
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
