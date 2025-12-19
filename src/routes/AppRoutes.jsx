@@ -50,7 +50,7 @@ import ICSE9JavaModuleView from '../components/study/icse-java-9/ICSE9JavaModule
 import ICSE9JavaTopicView from '../components/study/icse-java-9/ICSE9JavaTopicView';
 import JavaRoadmap from '../components/study/java-core/JavaRoadmap';
 import JavaModuleView from '../components/study/java-core/JavaModuleView';
-
+import JavaTopicView from '../components/study/java-core/JavaTopicView';
 
 
 // ⬇️ Import Study component
@@ -158,7 +158,7 @@ export default function AppRoutes() {
       {/* For Java  */}
       <Route path="/java-core/roadmap" element={<JavaRoadmap />} />
       <Route path="/java-core/module/:slug" element={<JavaModuleView />} />
-      {/* <Route path="/java-core/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/> */}
+      <Route path="/java-core/topic/:moduleSlug/:topicIndex"  element={<JavaTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
