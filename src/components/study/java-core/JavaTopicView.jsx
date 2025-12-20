@@ -901,6 +901,38 @@ ${userMsg}
             </div>
 
           </main>
+          {/* ================= FLOATING NEXT TOPIC BUTTON (CONTENT-ALIGNED) ================= */}
+          {hasNext && (
+            <Link
+              to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
+              className="
+                fixed
+                bottom-6
+                right-[calc(50%-24rem)]
+                translate-x-[24rem]
+                z-[9998]
+                flex items-center gap-2
+                px-5 py-3
+                rounded-full
+                bg-gradient-to-r from-sky-600 to-indigo-600
+                hover:from-sky-500 hover:to-indigo-500
+                text-white
+                text-sm
+                font-semibold
+                shadow-[0_10px_30px_rgba(56,189,248,0.45)]
+                border border-white/10
+                backdrop-blur
+                transition-all
+                hover:scale-[1.05]
+                animate-fadeIn
+              "
+            >
+              Next Topic
+              <ArrowRight size={16} />
+            </Link>
+          )}
+
+
         </div>
       </div>
     </div>
