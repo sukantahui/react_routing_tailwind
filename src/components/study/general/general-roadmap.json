@@ -1,0 +1,63 @@
+{
+    "trackId": "funndamental",
+    "trackTitle": "Fundamental Basic to Pro",
+    "description": "A complete Fundamental learning roadmap from absolute beginner to professional level, designed for school students, college learners, interview preparation, and real-world Java developers. Covers Java fundamentals, OOP, inheritance, abstract classes, interfaces, threads, collections, and JVM concepts.",
+    "institute": {
+        "name": "Coder & AccoTax",
+        "website": "https://www.codernaccotax.co.in",
+        "author": "Sukanta Hui",
+        "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+        "trackType": "Java Core Tutorial Roadmap",
+        "version": "1.0.0",
+        "lastUpdated": "2025-12-04"
+    },
+    "folder": "general",
+    "subject": "fundamental",
+    "subjectLogo": {
+        "name": "Fundamental",
+        "icon": "java",
+        "type": "svg",
+        "path": "/logos/java.svg",
+        "alt": "Java Logo"
+    },
+    "teacher": {
+        "name": "Sukanta Hui",
+        "designation": "Educator · Software Trainer · Mentor",
+        "organization": "Founder, Coder & AccoTax",
+        "location": "Barrackpore, West Bengal",
+        "photo": "/teachers/sukantahui.jpg",
+        "bio": "This roadmap focuses on deep Java fundamentals, object-oriented thinking, and interview-ready concepts with real-world clarity.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/sukantahui/",
+            "twitter": "https://twitter.com/sukantahui",
+            "website": "https://www.codernaccotax.co.in",
+            "github": "https://github.com/sukantahui",
+            "email": "contact@codernaccotax.co.in",
+            "phone": "+917003756860",
+            "whatsapp": "+917003756860"
+        }
+    },
+    "segments": [
+        {
+            "segmentId": "practice-and-test",
+            "title": "All Test: Fundamental, MS-Word, Ms-Excel, Networking",
+            "level": "Expert",
+            "summary": "Practicing Fundamental Test",
+            "modules": [
+                {
+                    "moduleId": "test-all",
+                    "slug": "general-practice-test-one",
+                    "title": "Getting Started with Practice and Test",
+                    "estimatedHours": 3,
+                    "topics": [
+                        "Network Protocols",
+                        "Networking Media",
+                        "Practice 1"
+                    ],
+                    "difficultyIndex": 1,
+                    "badge": "Test Clerical"
+                }
+            ]
+        }
+    ]
+}

@@ -233,6 +233,15 @@ componentWillUnmount() {
                         <img src="/logos/java.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         ICSE Class 9
                       </NavLink>
+                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/java.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        Core Java
+                      </NavLink>
+                      <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        General
+                      </NavLink>
+
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -304,7 +313,11 @@ componentWillUnmount() {
                       <NavLink to="/tally/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Tally</NavLink>
                       <NavLink to="/excel/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Excel</NavLink>
                       <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
-
+                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Core Java</NavLink>
+                      <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        General
+                      </NavLink>
                     </div>
                   )}
                 </div>

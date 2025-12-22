@@ -51,6 +51,9 @@ import ICSE9JavaTopicView from '../components/study/icse-java-9/ICSE9JavaTopicVi
 import JavaRoadmap from '../components/study/java-core/JavaRoadmap';
 import JavaModuleView from '../components/study/java-core/JavaModuleView';
 import JavaTopicView from '../components/study/java-core/JavaTopicView';
+import GeneralRoadmap from '../components/study/general/GeneralRoadmap';
+import GeneralModuleView from '../components/study/general/GeneralModuleView';
+import GeneralTopicView from '../components/study/general/GeneralTopicView';
 
 
 // ⬇️ Import Study component
@@ -159,6 +162,11 @@ export default function AppRoutes() {
       <Route path="/java-core/roadmap" element={<JavaRoadmap />} />
       <Route path="/java-core/module/:slug" element={<JavaModuleView />} />
       <Route path="/java-core/topic/:moduleSlug/:topicIndex"  element={<JavaTopicView/>}/>
+
+      {/* For Fundamental  */}
+      <Route path="/general/roadmap" element={<GeneralRoadmap />} />
+      <Route path="/general/module/:slug" element={<GeneralModuleView />} />
+      <Route path="/general/topic/:moduleSlug/:topicIndex"  element={<GeneralTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

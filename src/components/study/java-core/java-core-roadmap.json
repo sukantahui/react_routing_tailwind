@@ -416,7 +416,8 @@
                         "Binary file handling in Java – concept and use cases",
                         "Difference between text files and binary files",
                         "Binary file handling using FileInputStream and FileOutputStream",
-                        "Real-world examples of binary files (images, audio, PDF)"
+                        "Real-world examples of binary files (images, audio, PDF)",
+                        "Writing Binary File"
                     ],
                     "difficultyIndex": 8
                 },
