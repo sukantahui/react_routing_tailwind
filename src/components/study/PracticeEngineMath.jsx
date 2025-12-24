@@ -7,19 +7,13 @@ import React, {
     useCallback,
 } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
+import MathRenderer from "./common/MathRenderer";
 
 const STORAGE_PREFIX = "quizEngine_";
 
 // ===================== SHARED HELPERS ======================
 
-function renderMath(text = "") {
-    return text
-        .replace(/\^2/g, "²")
-        .replace(/\^3/g, "³")
-        .replace(/sqrt\((.*?)\)/g, "√($1)")
-        .replace(/pi/g, "π")
-        .replace(/sigma/g, "∑");
-}
+
 
 // Simple shuffle
 function shuffleArray(arr) {
@@ -979,12 +973,13 @@ export default function PracticeEngineMath({
                                                 : (
                                                     <>
                                                         {q.question.text}{" "}
-                                                        <span className="font-mono text-emerald-300">
-                                                            {renderMath(q.question.math)}
+                                                        <span className="text-emerald-300">
+                                                            <MathRenderer text={q.question.math} />
                                                         </span>
                                                     </>
                                                 )
                                             }
+
                                         </h3>
                                     </div>
 
@@ -1074,7 +1069,7 @@ export default function PracticeEngineMath({
                                                     className="h-4 w-4 mt-0.5 accent-sky-500"
                                                 />
                                                 <span className="leading-snug">
-                                                    {renderMath(opt)}
+                                                    <MathRenderer text={opt} />
                                                 </span>
                                             </label>
                                         );
@@ -1106,8 +1101,8 @@ export default function PracticeEngineMath({
                                         >
                                             {isCorrect ? "Correct!" : "Incorrect."}{" "}
                                             Correct Answer:{" "}
-                                            <span className="font-semibold font-mono text-emerald-300">
-                                                {renderMath(q.options[q.answerIndex])}
+                                            <span className="font-semibold text-emerald-300">
+                                                <MathRenderer text={q.options[q.answerIndex]} />
                                             </span>
                                         </p>
 
@@ -1133,7 +1128,7 @@ export default function PracticeEngineMath({
                                                         <strong className="text-sky-400">
                                                             Explanation:
                                                         </strong>{" "}
-                                                        {renderMath(q.explanation)}
+                                                        <MathRenderer text={q.explanation} block />
                                                     </div>
                                                 )}
                                             </div>

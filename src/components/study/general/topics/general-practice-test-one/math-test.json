@@ -1,92 +1,2042 @@
 [
-  {
-    "id": 1,
-    "topic": "quadratic_equations",
-    "level": "moderate",
-    "question": { "text": "Find the roots of:", "math": "x^2 - 5x + 6 = 0" },
-    "options": ["x=2,3", "x=1,6", "x=-2,-3", "x=3,4"],
-    "answerIndex": 0,
-    "explanation": "(x−2)(x−3)=0 → x=2,3"
-  },
-  {
-    "id": 2,
-    "topic": "quadratic_equations",
-    "level": "beginner",
-    "question": { "text": "Solve:", "math": "x^2 - 9 = 0" },
-    "options": ["x=3", "x=-3", "x=±3", "x=0"],
-    "answerIndex": 2,
-    "explanation": "x²=9 → x=±3"
-  },
-  {
-    "id": 3,
-    "topic": "quadratic_equations",
-    "level": "moderate",
-    "question": { "text": "Find roots:", "math": "x^2 + 7x + 10 = 0" },
-    "options": ["x=2,5", "x=-2,-5", "x=1,10", "x=-1,-10"],
-    "answerIndex": 1,
-    "explanation": "(x+2)(x+5)=0 → x=-2,-5"
-  },
-  {
-    "id": 4,
-    "topic": "quadratic_equations",
-    "level": "moderate",
-    "question": { "text": "Solve:", "math": "x^2 - 4x - 5 = 0" },
-    "options": ["x=5,-1", "x=4,1", "x=-5,1", "x=2,-2"],
-    "answerIndex": 0,
-    "explanation": "(x−5)(x+1)=0"
-  },
-  {
-    "id": 5,
-    "topic": "quadratic_equations",
-    "level": "advanced",
-    "question": { "text": "Find the roots:", "math": "2x^2 - 7x + 3 = 0" },
-    "options": ["x=3/2,1", "x=3,1/2", "x=-3,1/2", "x=7/2,3"],
-    "answerIndex": 0,
-    "explanation": "(2x−1)(x−3)=0"
-  },
-  {
-    "id": 6,
-    "topic": "quadratic_equations",
-    "level": "beginner",
-    "question": { "text": "Solve:", "math": "x^2 = 16" },
-    "options": ["x=4", "x=-4", "x=±4", "x=0"],
-    "answerIndex": 2,
-    "explanation": "x²=16 → x=±4"
-  },
-  {
-    "id": 7,
-    "topic": "quadratic_equations",
-    "level": "moderate",
-    "question": { "text": "Find roots:", "math": "x^2 - 3x - 10 = 0" },
-    "options": ["x=5,-2", "x=2,-5", "x=3,-3", "x=10,-1"],
-    "answerIndex": 0,
-    "explanation": "(x−5)(x+2)=0"
-  },
-  {
-    "id": 8,
-    "topic": "quadratic_equations",
-    "level": "advanced",
-    "question": { "text": "Solve:", "math": "3x^2 - 5x - 2 = 0" },
-    "options": ["x=2,-1/3", "x=-2,1/3", "x=5/3,2", "x=-5/3,-2"],
-    "answerIndex": 0,
-    "explanation": "(3x+1)(x−2)=0"
-  },
-  {
-    "id": 9,
-    "topic": "quadratic_equations",
-    "level": "moderate",
-    "question": { "text": "Find roots:", "math": "x^2 + x - 6 = 0" },
-    "options": ["x=2,-3", "x=3,-2", "x=1,-6", "x=6,-1"],
-    "answerIndex": 0,
-    "explanation": "(x+3)(x−2)=0"
-  },
-  {
-    "id": 10,
-    "topic": "quadratic_equations",
-    "level": "beginner",
-    "question": { "text": "Solve:", "math": "x^2 - 2x = 0" },
-    "options": ["x=0,2", "x=1,2", "x=0,1", "x=2"],
-    "answerIndex": 0,
-    "explanation": "x(x−2)=0"
-  }
+    {
+        "id": 1,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find the roots of:",
+            "math": "x^2 - 5x + 6 = 0"
+        },
+        "options": [
+            "x=2,3",
+            "x=1,6",
+            "x=-2,-3",
+            "x=3,4"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-2)(x-3)=0 \\Rightarrow x=2,3"
+    },
+    {
+        "id": 2,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 9 = 0"
+        },
+        "options": [
+            "x=3",
+            "x=-3",
+            "x=\\pm3",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=9 \\Rightarrow x=\\pm3"
+    },
+    {
+        "id": 3,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 + 7x + 10 = 0"
+        },
+        "options": [
+            "x=2,5",
+            "x=-2,-5",
+            "x=1,10",
+            "x=-1,-10"
+        ],
+        "answerIndex": 1,
+        "explanation": "(x+2)(x+5)=0 \\Rightarrow x=-2,-5"
+    },
+    {
+        "id": 4,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 4x - 5 = 0"
+        },
+        "options": [
+            "x=5,-1",
+            "x=4,1",
+            "x=-5,1",
+            "x=2,-2"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-5)(x+1)=0"
+    },
+    {
+        "id": 5,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find the roots:",
+            "math": "2x^2 - 7x + 3 = 0"
+        },
+        "options": [
+            "x=\\frac{3}{2},1",
+            "x=3,\\frac{1}{2}",
+            "x=-3,\\frac{1}{2}",
+            "x=\\frac{7}{2},3"
+        ],
+        "answerIndex": 0,
+        "explanation": "(2x-1)(x-3)=0 \\Rightarrow x=\\frac{1}{2},3"
+    },
+    {
+        "id": 6,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 = 16"
+        },
+        "options": [
+            "x=4",
+            "x=-4",
+            "x=\\pm4",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=16 \\Rightarrow x=\\pm4"
+    },
+    {
+        "id": 7,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 - 3x - 10 = 0"
+        },
+        "options": [
+            "x=5,-2",
+            "x=2,-5",
+            "x=3,-3",
+            "x=10,-1"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-5)(x+2)=0"
+    },
+    {
+        "id": 8,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "3x^2 - 5x - 2 = 0"
+        },
+        "options": [
+            "x=2,-\\frac{1}{3}",
+            "x=-2,\\frac{1}{3}",
+            "x=\\frac{5}{3},2",
+            "x=-\\frac{5}{3},-2"
+        ],
+        "answerIndex": 0,
+        "explanation": "(3x+1)(x-2)=0 \\Rightarrow x=2,-\\frac{1}{3}"
+    },
+    {
+        "id": 9,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 + x - 6 = 0"
+        },
+        "options": [
+            "x=2,-3",
+            "x=3,-2",
+            "x=1,-6",
+            "x=6,-1"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+3)(x-2)=0"
+    },
+    {
+        "id": 10,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 2x = 0"
+        },
+        "options": [
+            "x=0,2",
+            "x=1,2",
+            "x=0,1",
+            "x=2"
+        ],
+        "answerIndex": 0,
+        "explanation": "x(x-2)=0 \\Rightarrow x=0,2"
+    },
+    {
+        "id": 11,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 1 = 0"
+        },
+        "options": [
+            "x=1",
+            "x=-1",
+            "x=\\pm1",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=1 \\Rightarrow x=\\pm1"
+    },
+    {
+        "id": 12,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find the roots:",
+            "math": "x^2 - 6x + 9 = 0"
+        },
+        "options": [
+            "x=3",
+            "x=-3",
+            "x=0,9",
+            "x=1,8"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-3)^2=0 \\Rightarrow x=3"
+    },
+    {
+        "id": 13,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 25 = 0"
+        },
+        "options": [
+            "x=5",
+            "x=-5",
+            "x=\\pm5",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=25 \\Rightarrow x=\\pm5"
+    },
+    {
+        "id": 14,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 + 9x + 20 = 0"
+        },
+        "options": [
+            "x=-4,-5",
+            "x=4,5",
+            "x=-2,-10",
+            "x=-1,-20"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+4)(x+5)=0"
+    },
+    {
+        "id": 15,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "4x^2 - 4x - 3 = 0"
+        },
+        "options": [
+            "x=\\frac{3}{2},-\\frac{1}{2}",
+            "x=-\\frac{3}{2},\\frac{1}{2}",
+            "x=\\frac{1}{2},-\\frac{3}{2}",
+            "x=1,-3"
+        ],
+        "answerIndex": 2,
+        "explanation": "(2x-3)(2x+1)=0 \\Rightarrow x=\\frac{3}{2},-\\frac{1}{2}"
+    },
+    {
+        "id": 16,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 = 49"
+        },
+        "options": [
+            "x=7",
+            "x=-7",
+            "x=\\pm7",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=49 \\Rightarrow x=\\pm7"
+    },
+    {
+        "id": 17,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find the roots:",
+            "math": "x^2 - 8x + 15 = 0"
+        },
+        "options": [
+            "x=3,5",
+            "x=1,15",
+            "x=-3,-5",
+            "x=2,7"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-3)(x-5)=0"
+    },
+    {
+        "id": 18,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 + 2x - 8 = 0"
+        },
+        "options": [
+            "x=2,-4",
+            "x=-2,4",
+            "x=1,-8",
+            "x=-1,8"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+4)(x-2)=0"
+    },
+    {
+        "id": 19,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find roots:",
+            "math": "5x^2 - x - 6 = 0"
+        },
+        "options": [
+            "x=\\frac{6}{5},-1",
+            "x=-\\frac{6}{5},1",
+            "x=1,-\\frac{6}{5}",
+            "x=\\frac{5}{6},-1"
+        ],
+        "answerIndex": 2,
+        "explanation": "(5x+6)(x-1)=0 \\Rightarrow x=1,-\\frac{6}{5}"
+    },
+    {
+        "id": 20,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 4 = 0"
+        },
+        "options": [
+            "x=2",
+            "x=-2",
+            "x=\\pm2",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=4 \\Rightarrow x=\\pm2"
+    },
+    {
+        "id": 21,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find the roots:",
+            "math": "x^2 - 10x + 25 = 0"
+        },
+        "options": [
+            "x=5",
+            "x=-5",
+            "x=0,25",
+            "x=1,25"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-5)^2=0"
+    },
+    {
+        "id": 22,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "6x^2 + x - 2 = 0"
+        },
+        "options": [
+            "x=\\frac{1}{2},-\\frac{2}{3}",
+            "x=-\\frac{1}{2},\\frac{2}{3}",
+            "x=\\frac{2}{3},-\\frac{1}{2}",
+            "x=1,-\\frac{2}{3}"
+        ],
+        "answerIndex": 2,
+        "explanation": "(3x-2)(2x+1)=0 \\Rightarrow x=\\frac{2}{3},-\\frac{1}{2}"
+    },
+    {
+        "id": 23,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - 36 = 0"
+        },
+        "options": [
+            "x=6",
+            "x=-6",
+            "x=\\pm6",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=36 \\Rightarrow x=\\pm6"
+    },
+    {
+        "id": 24,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 + 11x + 30 = 0"
+        },
+        "options": [
+            "x=-5,-6",
+            "x=5,6",
+            "x=-3,-10",
+            "x=-2,-15"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+5)(x+6)=0"
+    },
+    {
+        "id": 25,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "8x^2 - 2x - 3 = 0"
+        },
+        "options": [
+            "x=\\frac{3}{4},-\\frac{1}{2}",
+            "x=-\\frac{3}{4},\\frac{1}{2}",
+            "x=\\frac{1}{2},-\\frac{3}{4}",
+            "x=1,-\\frac{3}{2}"
+        ],
+        "answerIndex": 2,
+        "explanation": "(4x-3)(2x+1)=0"
+    },
+    {
+        "id": 26,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 = 81"
+        },
+        "options": [
+            "x=9",
+            "x=-9",
+            "x=\\pm9",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=81 \\Rightarrow x=\\pm9"
+    },
+    {
+        "id": 27,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 - 12x + 35 = 0"
+        },
+        "options": [
+            "x=5,7",
+            "x=3,9",
+            "x=-5,-7",
+            "x=1,35"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-5)(x-7)=0"
+    },
+    {
+        "id": 28,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "9x^2 - 12x + 4 = 0"
+        },
+        "options": [
+            "x=\\frac{2}{3}",
+            "x=-\\frac{2}{3}",
+            "x=\\pm\\frac{2}{3}",
+            "x=1"
+        ],
+        "answerIndex": 0,
+        "explanation": "(3x-2)^2=0 \\Rightarrow x=\\frac{2}{3}"
+    },
+    {
+        "id": 29,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2 - 7x + 12 = 0"
+        },
+        "options": [
+            "x=3,4",
+            "x=2,6",
+            "x=-3,-4",
+            "x=1,12"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-3)(x-4)=0"
+    },
+    {
+        "id": 30,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2 - x = 0"
+        },
+        "options": [
+            "x=0,1",
+            "x=1",
+            "x=-1,0",
+            "x=2"
+        ],
+        "answerIndex": 0,
+        "explanation": "x(x-1)=0 \\Rightarrow x=0,1"
+    },
+    {
+        "id": 31,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of :",
+            "math": "x^2 \\text{ in } x^2 (x+1)^4"
+        },
+        "options": [
+            "4",
+            "6",
+            "12",
+            "24"
+        ],
+        "answerIndex": 1,
+        "explanation": "$(x+1)^4 = x^4+4x^3+6x^2+4x+1 \\Rightarrow$ coefficient is $6$"
+    },
+    {
+        "id": 32,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(2x+3)^3"
+        },
+        "options": [
+            "8",
+            "18",
+            "27",
+            "6"
+        ],
+        "answerIndex": 2,
+        "explanation": "Constant term $=3^3=27$"
+    },
+    {
+        "id": 33,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^3 \\text{ in: } (x-2)^5"
+        },
+        "options": [
+            "-80",
+            "80",
+            "40",
+            "-40"
+        ],
+        "answerIndex": 0,
+        "explanation": "Term is $\\binom{5}{3}x^3(-2)^2=10\\times4=40$ with sign $(-)$"
+    },
+    {
+        "id": 34,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find the term independent of :",
+            "math": "x \\text{ in } (3x-\\frac{1}{x})^4"
+        },
+        "options": [
+            "81",
+            "54",
+            "36",
+            "24"
+        ],
+        "answerIndex": 1,
+        "explanation": "Constant term when $4-2r=0 \\Rightarrow r=2$ giving $\\binom{4}{2}(3x)^2(-\\frac{1}{x})^2=6\\times9=54$"
+    },
+    {
+        "id": 35,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find the coefficient of :",
+            "math": "x^4 \\text{ in } (2x+\\frac{1}{x})^6"
+        },
+        "options": [
+            "240",
+            "160",
+            "120",
+            "320"
+        ],
+        "answerIndex": 0,
+        "explanation": "Power $6-r-(r)=4 \\Rightarrow r=1$, coefficient $=\\binom{6}{1}2^5=240$"
+    },
+    {
+        "id": 36,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of :",
+            "math": "x \\text{ in }(x+1)^5"
+        },
+        "options": [
+            "5",
+            "10",
+            "20",
+            "1"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient of $x$ is $\\binom{5}{1}=5$"
+    },
+    {
+        "id": 37,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(x+\\frac{2}{x})^6"
+        },
+        "options": [
+            "160",
+            "240",
+            "320",
+            "64"
+        ],
+        "answerIndex": 0,
+        "explanation": "When $6-2r=0 \\Rightarrow r=3$, term $=\\binom{6}{3}2^3=160$"
+    },
+    {
+        "id": 38,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^2 \\text{ in: }(x-3)^4"
+        },
+        "options": [
+            "54",
+            "36",
+            "24",
+            "12"
+        ],
+        "answerIndex": 1,
+        "explanation": "Term is $\\binom{4}{2}x^2(-3)^2=6\\times9=54$"
+    },
+    {
+        "id": 39,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^5 \\text{ in: }(x+2)^{10}"
+        },
+        "options": [
+            "252",
+            "672",
+            "8064",
+            "1024"
+        ],
+        "answerIndex": 2,
+        "explanation": "Coefficient $=\\binom{10}{5}2^5=252\\times32=8064$"
+    },
+    {
+        "id": 40,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(x-1)^5"
+        },
+        "options": [
+            "-1",
+            "1",
+            "5",
+            "-5"
+        ],
+        "answerIndex": 0,
+        "explanation": "Constant term $=(-1)^5=-1$"
+    },
+    {
+        "id": 41,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^3 \\text{ in: } (2x-1)^6"
+        },
+        "options": [
+            "-160",
+            "160",
+            "-240",
+            "240"
+        ],
+        "answerIndex": 0,
+        "explanation": "Term is $\\binom{6}{3}(2x)^3(-1)^3=20\\times8\\times(-1)=-160$"
+    },
+    {
+        "id": 42,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^2 \\text{ in: } (x+1)^3"
+        },
+        "options": [
+            "1",
+            "2",
+            "3",
+            "6"
+        ],
+        "answerIndex": 2,
+        "explanation": "Coefficient $=\\binom{3}{2}=3$"
+    },
+    {
+        "id": 43,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(2x+\\frac{1}{x})^4"
+        },
+        "options": [
+            "96",
+            "24",
+            "16",
+            "8"
+        ],
+        "answerIndex": 1,
+        "explanation": "When $4-2r=0 \\Rightarrow r=2$, term $=\\binom{4}{2}2^2=24$"
+    },
+    {
+        "id": 44,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^6 \\text{ in: } (x+3)^8"
+        },
+        "options": [
+            "84",
+            "252",
+            "1512",
+            "756"
+        ],
+        "answerIndex": 3,
+        "explanation": "Coefficient $=\\binom{8}{6}3^2=28\\times9=252$"
+    },
+    {
+        "id": 45,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(x+2)^4"
+        },
+        "options": [
+            "16",
+            "8",
+            "4",
+            "1"
+        ],
+        "answerIndex": 0,
+        "explanation": "Constant term $=2^4=16$"
+    },
+    {
+        "id": 46,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^4 \\text{ in: }  (x-1)^7"
+        },
+        "options": [
+            "-35",
+            "35",
+            "-21",
+            "21"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{7}{4}(-1)^3=-35$"
+    },
+    {
+        "id": 47,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^3 \\text{ in: } (3x+2)^5"
+        },
+        "options": [
+            "1080",
+            "720",
+            "540",
+            "270"
+        ],
+        "answerIndex": 2,
+        "explanation": "Coefficient $=\\binom{5}{3}3^3 2^2=10\\times27\\times4=1080$"
+    },
+    {
+        "id": 48,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^4 \\text{ in: }  (x+1)^4"
+        },
+        "options": [
+            "1",
+            "4",
+            "6",
+            "24"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{4}{4}=1$"
+    },
+    {
+        "id": 49,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(x-\\frac{1}{x})^6"
+        },
+        "options": [
+            "20",
+            "-20",
+            "40",
+            "60"
+        ],
+        "answerIndex": 0,
+        "explanation": "When $6-2r=0 \\Rightarrow r=3$, term $=\\binom{6}{3}(-1)^3=-20$"
+    },
+    {
+        "id": 50,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^2 \\text{ in: }(2x-3)^6"
+        },
+        "options": [
+            "540",
+            "-540",
+            "720",
+            "-720"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{6}{2}(2)^2(-3)^4=15\\times4\\times81=4860$ with sign $(-)$"
+    },
+    {
+        "id": 51,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^2 \\text{ in: }(x+2)^4"
+        },
+        "options": [
+            "6",
+            "24",
+            "16",
+            "12"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{4}{2}2^2=6\\times4=24$"
+    },
+    {
+        "id": 52,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(x-2)^3"
+        },
+        "options": [
+            "-8",
+            "8",
+            "6",
+            "-6"
+        ],
+        "answerIndex": 0,
+        "explanation": "Constant term $=(-2)^3=-8$"
+    },
+    {
+        "id": 53,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^3 \\text{ in: } (2x+1)^5"
+        },
+        "options": [
+            "80",
+            "40",
+            "160",
+            "320"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{5}{3}2^3=10\\times8=80$"
+    },
+    {
+        "id": 54,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(x+\\frac{1}{x})^4"
+        },
+        "options": [
+            "6",
+            "12",
+            "8",
+            "4"
+        ],
+        "answerIndex": 0,
+        "explanation": "When $4-2r=0 \\Rightarrow r=2$, term $=\\binom{4}{2}=6$"
+    },
+    {
+        "id": 55,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^5 \\text{ in: } (x+3)^7"
+        },
+        "options": [
+            "378",
+            "567",
+            "189",
+            "756"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{7}{5}3^2=21\\times9=189$"
+    },
+    {
+        "id": 56,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(2x-1)^4"
+        },
+        "options": [
+            "1",
+            "-1",
+            "2",
+            "4"
+        ],
+        "answerIndex": 0,
+        "explanation": "Constant term $=(-1)^4=1$"
+    },
+    {
+        "id": 57,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^4 \\text{ in: } (x-2)^6"
+        },
+        "options": [
+            "60",
+            "-60",
+            "15",
+            "-15"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{6}{4}(-2)^2=15\\times4=60$ with sign $(-)$"
+    },
+    {
+        "id": 58,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(3x+\\frac{2}{x})^5"
+        },
+        "options": [
+            "240",
+            "320",
+            "480",
+            "0"
+        ],
+        "answerIndex": 3,
+        "explanation": "No integer $r$ satisfies $5-2r=0$ so constant term $=0$"
+    },
+    {
+        "id": 59,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find coefficient of $x$ in:",
+            "math": "(x+1)^2"
+        },
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{2}{1}=2$"
+    },
+    {
+        "id": 60,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(x-\\frac{2}{x})^4"
+        },
+        "options": [
+            "24",
+            "96",
+            "16",
+            "64"
+        ],
+        "answerIndex": 0,
+        "explanation": "When $4-2r=0 \\Rightarrow r=2$, term $=\\binom{4}{2}(-2)^2=24$"
+    },
+    {
+        "id": 61,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^6 \\text{ in: } (x+2)^8"
+        },
+        "options": [
+            "448",
+            "112",
+            "28",
+            "224"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{8}{6}2^2=28\\times4=112$"
+    },
+    {
+        "id": 62,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(x+3)^3"
+        },
+        "options": [
+            "9",
+            "27",
+            "3",
+            "1"
+        ],
+        "answerIndex": 1,
+        "explanation": "Constant term $=3^3=27$"
+    },
+    {
+        "id": 63,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^2 \\text{ in: } (2x-1)^5"
+        },
+        "options": [
+            "40",
+            "-40",
+            "80",
+            "-80"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{5}{2}2^2(-1)^3=10\\times4\\times(-1)=-40$"
+    },
+    {
+        "id": 64,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(4x+\\frac{1}{x})^6"
+        },
+        "options": [
+            "4096",
+            "6144",
+            "2048",
+            "8192"
+        ],
+        "answerIndex": 1,
+        "explanation": "When $6-2r=0 \\Rightarrow r=3$, term $=\\binom{6}{3}4^3=20\\times64=1280$"
+    },
+    {
+        "id": 65,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^3 \\text{ in: } (x+1)^3"
+        },
+        "options": [
+            "1",
+            "3",
+            "6",
+            "9"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{3}{3}=1$"
+    },
+    {
+        "id": 66,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^4 \\text{ in: }(x+2)^5"
+        },
+        "options": [
+            "10",
+            "40",
+            "80",
+            "160"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{5}{4}2^1=5\\times2=10$"
+    },
+    {
+        "id": 67,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find constant term in:",
+            "math": "(x-\\frac{3}{x})^7"
+        },
+        "options": [
+            "0",
+            "540",
+            "-540",
+            "810"
+        ],
+        "answerIndex": 0,
+        "explanation": "No integer $r$ satisfies $7-2r=0$ so constant term $=0$"
+    },
+    {
+        "id": 68,
+        "topic": "binomial_theorem",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term in:",
+            "math": "(x+4)^2"
+        },
+        "options": [
+            "4",
+            "8",
+            "16",
+            "2"
+        ],
+        "answerIndex": 2,
+        "explanation": "Constant term $=4^2=16$"
+    },
+    {
+        "id": 69,
+        "topic": "binomial_theorem",
+        "level": "moderate",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^2 \\text{ in: } (x-2)^5"
+        },
+        "options": [
+            "40",
+            "-40",
+            "80",
+            "-80"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient $=\\binom{5}{2}(-2)^3=10\\times(-8)=-80$"
+    },
+    {
+        "id": 70,
+        "topic": "binomial_theorem",
+        "level": "advanced",
+        "question": {
+            "text": "Find coefficient of $x^7$ in:",
+            "math": "(x+1)^7"
+        },
+        "options": [
+            "1",
+            "7",
+            "21",
+            "35"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient $=\\binom{7}{7}=1$"
+    },
+    {
+        "id": 71,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2-1=0"
+        },
+        "options": [
+            "x=\\pm1",
+            "x=1",
+            "x=-1",
+            "x=0"
+        ],
+        "answerIndex": 0,
+        "explanation": "x^2=1 \\Rightarrow x=\\pm1"
+    },
+    {
+        "id": 72,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Find the roots:",
+            "math": "x^2-6x=0"
+        },
+        "options": [
+            "x=0,6",
+            "x=1,6",
+            "x=-6,0",
+            "x=6"
+        ],
+        "answerIndex": 0,
+        "explanation": "x(x-6)=0"
+    },
+    {
+        "id": 73,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2=25"
+        },
+        "options": [
+            "x=5",
+            "x=-5",
+            "x=\\pm5",
+            "x=0"
+        ],
+        "answerIndex": 2,
+        "explanation": "x^2=25 \\Rightarrow x=\\pm5"
+    },
+    {
+        "id": 74,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2-9x+20=0"
+        },
+        "options": [
+            "x=4,5",
+            "x=-4,-5",
+            "x=2,10",
+            "x=3,6"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-4)(x-5)=0"
+    },
+    {
+        "id": 75,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2+5x+6=0"
+        },
+        "options": [
+            "x=-2,-3",
+            "x=2,3",
+            "x=-1,-6",
+            "x=1,6"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+2)(x+3)=0"
+    },
+    {
+        "id": 76,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find the roots:",
+            "math": "x^2-2x-8=0"
+        },
+        "options": [
+            "x=4,-2",
+            "x=2,-4",
+            "x=8,-1",
+            "x=-8,1"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-4)(x+2)=0"
+    },
+    {
+        "id": 77,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "2x^2-5x-3=0"
+        },
+        "options": [
+            "x=3,-\\frac12",
+            "x=-3,\\frac12",
+            "x=\\frac{5\\pm\\sqrt{49}}{4}",
+            "x=\\frac32,-1"
+        ],
+        "answerIndex": 0,
+        "explanation": "(2x+1)(x-3)=0"
+    },
+    {
+        "id": 78,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find roots:",
+            "math": "3x^2-10x+3=0"
+        },
+        "options": [
+            "x=3,\\frac13",
+            "x=-3,-\\frac13",
+            "x=\\frac{10\\pm\\sqrt{64}}{6}",
+            "x=1,3"
+        ],
+        "answerIndex": 0,
+        "explanation": "(3x-1)(x-3)=0"
+    },
+    {
+        "id": 79,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2+x-12=0"
+        },
+        "options": [
+            "x=3,-4",
+            "x=-3,4",
+            "x=2,-6",
+            "x=-2,6"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-3)(x+4)=0"
+    },
+    {
+        "id": 80,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find roots:",
+            "math": "4x^2-12x+5=0"
+        },
+        "options": [
+            "x=\\frac{5}{4},1",
+            "x=\\frac{3}{2},\\frac{5}{2}",
+            "x=\\frac{12\\pm8}{8}",
+            "x=1,\\frac54"
+        ],
+        "answerIndex": 0,
+        "explanation": "(2x-1)(2x-5)=0"
+    },
+    {
+        "id": 81,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2-11x+30=0"
+        },
+        "options": [
+            "x=5,6",
+            "x=-5,-6",
+            "x=3,10",
+            "x=2,15"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-5)(x-6)=0"
+    },
+    {
+        "id": 82,
+        "topic": "quadratic_equations",
+        "level": "beginner",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2=36"
+        },
+        "options": [
+            "x=\\pm6",
+            "x=6",
+            "x=-6",
+            "x=0"
+        ],
+        "answerIndex": 0,
+        "explanation": "x^2=36"
+    },
+    {
+        "id": 83,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2+2x-8=0"
+        },
+        "options": [
+            "x=2,-4",
+            "x=-2,4",
+            "x=8,-1",
+            "x=1,-8"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-2)(x+4)=0"
+    },
+    {
+        "id": 84,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find roots:",
+            "math": "5x^2-13x+6=0"
+        },
+        "options": [
+            "x=2,\\frac35",
+            "x=-2,-\\frac35",
+            "x=3,\\frac25",
+            "x=1,\\frac65"
+        ],
+        "answerIndex": 0,
+        "explanation": "(5x-3)(x-2)=0"
+    },
+    {
+        "id": 85,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2-16=0"
+        },
+        "options": [
+            "x=\\pm4",
+            "x=4",
+            "x=-4",
+            "x=0"
+        ],
+        "answerIndex": 0,
+        "explanation": "x^2=16"
+    },
+    {
+        "id": 86,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Find roots:",
+            "math": "6x^2-11x-10=0"
+        },
+        "options": [
+            "x=2,-\\frac56",
+            "x=-2,\\frac56",
+            "x=\\frac{11\\pm\\sqrt{361}}{12}",
+            "x=\\frac{5}{6},-2"
+        ],
+        "answerIndex": 0,
+        "explanation": "(3x+5)(2x-2)=0"
+    },
+    {
+        "id": 87,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Solve:",
+            "math": "x^2+9x+14=0"
+        },
+        "options": [
+            "x=-7,-2",
+            "x=7,2",
+            "x=-1,-14",
+            "x=1,14"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x+7)(x+2)=0"
+    },
+    {
+        "id": 88,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2-13x+36=0"
+        },
+        "options": [
+            "x=4,9",
+            "x=-4,-9",
+            "x=3,12",
+            "x=6,6"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-4)(x-9)=0"
+    },
+    {
+        "id": 89,
+        "topic": "quadratic_equations",
+        "level": "advanced",
+        "question": {
+            "text": "Solve:",
+            "math": "7x^2-22x+15=0"
+        },
+        "options": [
+            "x=3,\\frac57",
+            "x=-3,-\\frac57",
+            "x=\\frac{22\\pm8}{14}",
+            "x=1,\\frac{15}{7}"
+        ],
+        "answerIndex": 0,
+        "explanation": "(7x-5)(x-3)=0"
+    },
+    {
+        "id": 90,
+        "topic": "quadratic_equations",
+        "level": "moderate",
+        "question": {
+            "text": "Find roots:",
+            "math": "x^2-8x+15=0"
+        },
+        "options": [
+            "x=3,5",
+            "x=-3,-5",
+            "x=1,15",
+            "x=4,4"
+        ],
+        "answerIndex": 0,
+        "explanation": "(x-3)(x-5)=0"
+    },
+    {
+        "id": 91,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the degree of the polynomial:",
+            "math": "4x^6-3x^2+7"
+        },
+        "options": [
+            "2",
+            "4",
+            "6",
+            "7"
+        ],
+        "answerIndex": 2,
+        "explanation": "Highest power is $6$"
+    },
+    {
+        "id": 92,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term of:",
+            "math": "7x^3-2x+9"
+        },
+        "options": [
+            "7",
+            "-2",
+            "9",
+            "0"
+        ],
+        "answerIndex": 2,
+        "explanation": "Constant term is $9$"
+    },
+    {
+        "id": 93,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the coefficient of ",
+            "math": "x^2 \\text{ in: } 5x^4+3x^2-x+1"
+        },
+        "options": [
+            "5",
+            "3",
+            "-1",
+            "1"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient of $x^2$ is $3$"
+    },
+    {
+        "id": 94,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find the remainder when",
+            "math": "f(x)=x^3-2x+4 \\text{ is divided by } (x-1)"
+        },
+        "options": [
+            "1",
+            "3",
+            "5",
+            "7"
+        ],
+        "answerIndex": 1,
+        "explanation": "Remainder $=f(1)=1-2+4=3$"
+    },
+    {
+        "id": 95,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find the remainder when",
+            "math": "f(x)=2x^3-x^2+5 \\text{ is divided by } (x+1)"
+        },
+        "options": [
+            "4",
+            "6",
+            "2",
+            "8"
+        ],
+        "answerIndex": 0,
+        "explanation": "Remainder $=f(-1)=-2-1+5=2$"
+    },
+    {
+        "id": 96,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "If $(x-2)$ is a factor of",
+            "math": "f(x)=x^3+ax^2-4x-8, \\text{ find } a"
+        },
+        "options": [
+            "2",
+            "4",
+            "-2",
+            "-4"
+        ],
+        "answerIndex": 1,
+        "explanation": "f(2)=8+4a-8-8=0 \\Rightarrow a=4"
+    },
+    {
+        "id": 97,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the zero of:",
+            "math": "x-7"
+        },
+        "options": [
+            "7",
+            "-7",
+            "0",
+            "1"
+        ],
+        "answerIndex": 0,
+        "explanation": "x-7=0 \\Rightarrow x=7"
+    },
+    {
+        "id": 98,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find the remainder when",
+            "math": "f(x)=x^2+5x+6 \\text{ is divided by } (x+2)"
+        },
+        "options": [
+            "0",
+            "2",
+            "4",
+            "6"
+        ],
+        "answerIndex": 0,
+        "explanation": "Remainder $=f(-2)=0$"
+    },
+    {
+        "id": 99,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the degree of:",
+            "math": "9"
+        },
+        "options": [
+            "0",
+            "1",
+            "9",
+            "Not defined"
+        ],
+        "answerIndex": 0,
+        "explanation": "Constant polynomial has degree $0$"
+    },
+    {
+        "id": 100,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "If $f(3)=0$, find $k$ in:",
+            "math": "f(x)=x^2+kx-18"
+        },
+        "options": [
+            "3",
+            "-3",
+            "6",
+            "-6"
+        ],
+        "answerIndex": 1,
+        "explanation": "9+3k-18=0 \\Rightarrow k=-3"
+    },
+    {
+        "id": 101,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find coefficient of $x$ in:",
+            "math": "6x^2+5x-3"
+        },
+        "options": [
+            "6",
+            "5",
+            "-3",
+            "0"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient is $5$"
+    },
+    {
+        "id": 102,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=x^3+2x^2-1 \\text{ is divided by } (x-1)"
+        },
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "answerIndex": 1,
+        "explanation": "f(1)=2"
+    },
+    {
+        "id": 103,
+        "topic": "polynomials",
+        "level": "advanced",
+        "question": {
+            "text": "If $(x+1)$ is a factor of",
+            "math": "f(x)=x^3+ax^2+bx-1, \\text{ find } a+b"
+        },
+        "options": [
+            "0",
+            "1",
+            "-1",
+            "2"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(-1)=0"
+    },
+    {
+        "id": 104,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the zero of:",
+            "math": "2x-10"
+        },
+        "options": [
+            "5",
+            "-5",
+            "10",
+            "0"
+        ],
+        "answerIndex": 0,
+        "explanation": "2x-10=0"
+    },
+    {
+        "id": 105,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=x^2-4x+4 \\text{ is divided by } (x-2)"
+        },
+        "options": [
+            "0",
+            "2",
+            "4",
+            "6"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(2)=0"
+    },
+    {
+        "id": 106,
+        "topic": "polynomials",
+        "level": "advanced",
+        "question": {
+            "text": "If $(x-1)$ is a factor of",
+            "math": "f(x)=3x^3+ax^2-3x-1, \\text{ find } a"
+        },
+        "options": [
+            "1",
+            "0",
+            "-1",
+            "2"
+        ],
+        "answerIndex": 2,
+        "explanation": "f(1)=0"
+    },
+    {
+        "id": 107,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term of:",
+            "math": "5x^4+2x^2-7"
+        },
+        "options": [
+            "5",
+            "2",
+            "-7",
+            "0"
+        ],
+        "answerIndex": 2,
+        "explanation": "Constant is $-7$"
+    },
+    {
+        "id": 108,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=x^3+1 \\text{ is divided by } (x+1)"
+        },
+        "options": [
+            "0",
+            "1",
+            "2",
+            "-2"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(-1)=0"
+    },
+    {
+        "id": 109,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find degree of:",
+            "math": "0"
+        },
+        "options": [
+            "Not defined",
+            "0",
+            "1",
+            "2"
+        ],
+        "answerIndex": 0,
+        "explanation": "Zero polynomial has no degree"
+    },
+    {
+        "id": 110,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "If $f(2)=0$, find $k$ in:",
+            "math": "f(x)=x^2+kx-8"
+        },
+        "options": [
+            "-2",
+            "-4",
+            "2",
+            "4"
+        ],
+        "answerIndex": 1,
+        "explanation": "4+2k-8=0"
+    },
+    {
+        "id": 111,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find coefficient of ",
+            "math": "x^3 \\text{ in: } 7x^3-4x+1"
+        },
+        "options": [
+            "7",
+            "-4",
+            "1",
+            "0"
+        ],
+        "answerIndex": 0,
+        "explanation": "Coefficient is $7$"
+    },
+    {
+        "id": 112,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=x^2+3x+1 \\text{ is divided by } (x-1)"
+        },
+        "options": [
+            "3",
+            "5",
+            "1",
+            "-1"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(1)=5"
+    },
+    {
+        "id": 113,
+        "topic": "polynomials",
+        "level": "advanced",
+        "question": {
+            "text": "If (x+2) is a factor of",
+            "math": "f(x)=x^3+ax^2+4x+8, \\text{ find } a"
+        },
+        "options": [
+            "-2",
+            "-4",
+            "2",
+            "4"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(-2)=0"
+    },
+    {
+        "id": 114,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find zero of:",
+            "math": "x+11"
+        },
+        "options": [
+            "-11",
+            "11",
+            "0",
+            "1"
+        ],
+        "answerIndex": 0,
+        "explanation": "x+11=0"
+    },
+    {
+        "id": 115,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=x^3-x \\text{ is divided by } (x)"
+        },
+        "options": [
+            "0",
+            "1",
+            "-1",
+            "2"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(0)=0"
+    },
+    {
+        "id": 116,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find the constant term of:",
+            "math": "9x-5"
+        },
+        "options": [
+            "9",
+            "-5",
+            "5",
+            "0"
+        ],
+        "answerIndex": 1,
+        "explanation": "Constant is $-5$"
+    },
+    {
+        "id": 117,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "If (x-3) is a factor of",
+            "math": "f(x)=x^3+ax^2-9x-27, \\text{ find } a"
+        },
+        "options": [
+            "3",
+            "6",
+            "-3",
+            "9"
+        ],
+        "answerIndex": 0,
+        "explanation": "f(3)=0"
+    },
+    {
+        "id": 118,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find coefficient of :",
+            "math": "x \\text{ in } 4x^2-9x+2"
+        },
+        "options": [
+            "4",
+            "-9",
+            "2",
+            "0"
+        ],
+        "answerIndex": 1,
+        "explanation": "Coefficient is $-9$"
+    },
+    {
+        "id": 119,
+        "topic": "polynomials",
+        "level": "moderate",
+        "question": {
+            "text": "Find remainder when",
+            "math": "f(x)=2x^3+3x^2+1 \\text{ is divided by } (x-1)"
+        },
+        "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+        ],
+        "answerIndex": 2,
+        "explanation": "f(1)=6"
+    },
+    {
+        "id": 120,
+        "topic": "polynomials",
+        "level": "beginner",
+        "question": {
+            "text": "Find zero of:",
+            "math": "3x-12"
+        },
+        "options": [
+            "4",
+            "-4",
+            "12",
+            "0"
+        ],
+        "answerIndex": 0,
+        "explanation": "3x-12=0"
+    }
 ]
