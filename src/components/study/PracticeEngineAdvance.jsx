@@ -175,6 +175,20 @@ export default function PracticeEngineAdvance({
         )
     ), [questions]);
 
+    useEffect(() => {
+        if (!questions.length) return;
+
+        const fresh = prepareQuiz(questions, difficulty, topic, questionCount);
+        setQuiz(fresh);
+        setResponses({});
+        setSubmitted({});
+        setScore(0);
+        setIsFinished(false);
+        setReviewMode(false);
+        setActiveQuestionIndex(0);
+        setOpenExplanation({});
+    }, [topic]);   // ONLY topic change auto-refresh
+
 
     // ------------------- LOAD / INIT -------------------
     useEffect(() => {
@@ -199,7 +213,7 @@ export default function PracticeEngineAdvance({
                 const restoredQuiz =
                     parsed.quiz && parsed.quiz.length
                         ? parsed.quiz
-                        : prepareQuiz(questions, savedDifficulty, topic, savedCount);
+                        : prepareQuiz(questions, savedDifficulty, savedTopic, savedCount);
 
                 setQuiz(restoredQuiz);
                 setResponses(parsed.responses || {});
@@ -260,6 +274,7 @@ export default function PracticeEngineAdvance({
         isFinished,
         difficulty,
         questionCount,
+        topic,
         studentName,
         timerMode,
         elapsedSeconds,
@@ -1056,10 +1071,10 @@ export default function PracticeEngineAdvance({
                                         >
                                             Submit Answer
                                         </button>
-                                        <p className="text-[11px] text-slate-500">
+                                        {/* <p className="text-[11px] text-slate-500">
                                             Use ← / → arrow keys or the navigator to
                                             move between questions.
-                                        </p>
+                                        </p> */}
                                     </div>
                                 ) : (
                                     <>
