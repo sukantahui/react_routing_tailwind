@@ -11,8 +11,8 @@ start "VS CODE" cmd /k "code ."
 echo Waiting 3 seconds for Vite to boot...
 timeout /t 3 >nul
 
-echo Opening browser at http://localhost:5173 ...
-start "" http://localhost:5173
+echo Opening browser in Microsoft Edge at http://localhost:5173 ...
+start "" "msedge.exe" "http://localhost:5173"
 
 echo All processes started in separate terminals.
 
