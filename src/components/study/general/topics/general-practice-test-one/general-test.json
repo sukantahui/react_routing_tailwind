@@ -14539,6 +14539,206 @@
     "options": ["DNS", "Kerberos", "FTP", "ICMP"],
     "answerIndex": 1,
     "explanation": "Kerberos provides strong authentication using encrypted tickets and time-based validation. It is widely used in enterprise environments, especially within Active Directory infrastructures."
+  },
+  {
+    "id": 1441,
+    "topic": "OSI_LAYER",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many layers are there in the OSI reference model?",
+    "options": ["5", "6", "7", "8"],
+    "answerIndex": 2,
+    "explanation": "The OSI model consists of 7 layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application."
+  },
+  {
+    "id": 1442,
+    "topic": "OSI_LAYER",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which OSI layer is responsible for transmission of raw bits?",
+    "options": ["Data Link", "Physical", "Network", "Transport"],
+    "answerIndex": 1,
+    "explanation": "The Physical layer handles the transmission of raw bits over a communication medium."
+  },
+  {
+    "id": 1443,
+    "topic": "OSI_LAYER",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which layer provides framing and error detection?",
+    "options": ["Physical", "Network", "Data Link", "Transport"],
+    "answerIndex": 2,
+    "explanation": "The Data Link layer is responsible for framing and error detection using techniques like CRC."
+  },
+  {
+    "id": 1444,
+    "topic": "OSI_LAYER",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which OSI layer handles logical addressing and routing?",
+    "options": ["Network", "Transport", "Session", "Application"],
+    "answerIndex": 0,
+    "explanation": "The Network layer handles logical addressing (IP) and routing."
+  },
+  {
+    "id": 1445,
+    "topic": "OSI_LAYER",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which OSI layer manages end-to-end communication and flow control?",
+    "options": ["Network", "Transport", "Session", "Presentation"],
+    "answerIndex": 1,
+    "explanation": "The Transport layer ensures reliable end-to-end delivery and flow control."
+  },
+  {
+    "id": 1446,
+    "topic": "OSI_LAYER",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which layer is responsible for session establishment and termination?",
+    "options": ["Transport", "Presentation", "Session", "Application"],
+    "answerIndex": 2,
+    "explanation": "The Session layer manages sessions between communicating systems."
+  },
+  {
+    "id": 1447,
+    "topic": "OSI_LAYER",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which layer performs data encryption and compression?",
+    "options": ["Session", "Presentation", "Application", "Transport"],
+    "answerIndex": 1,
+    "explanation": "The Presentation layer handles encryption, decryption, compression and translation."
+  },
+  {
+    "id": 1448,
+    "topic": "OSI_LAYER",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which OSI layer interacts directly with end users?",
+    "options": ["Presentation", "Session", "Application", "Transport"],
+    "answerIndex": 2,
+    "explanation": "The Application layer provides network services to user applications."
+  },
+  {
+    "id": 1449,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol operates at the Network layer?",
+    "options": ["HTTP", "IP", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "IP operates at the Network layer for logical addressing and routing."
+  },
+  {
+    "id": 1450,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which device operates primarily at the Data Link layer?",
+    "options": ["Router", "Switch", "Hub", "Repeater"],
+    "answerIndex": 1,
+    "explanation": "A network switch operates mainly at the Data Link layer."
+  },
+  {
+    "id": 1451,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer is responsible for segmentation and reassembly?",
+    "options": ["Transport", "Network", "Session", "Data Link"],
+    "answerIndex": 0,
+    "explanation": "The Transport layer segments data and reassembles it at the destination."
+  },
+  {
+    "id": 1452,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer uses MAC addresses?",
+    "options": ["Network", "Data Link", "Physical", "Transport"],
+    "answerIndex": 1,
+    "explanation": "MAC addressing is handled by the Data Link layer."
+  },
+  {
+    "id": 1453,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol belongs to the Application layer?",
+    "options": ["TCP", "UDP", "FTP", "IP"],
+    "answerIndex": 2,
+    "explanation": "FTP is an Application layer protocol used for file transfer."
+  },
+  {
+    "id": 1454,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which layer ensures reliable data transfer with acknowledgements?",
+    "options": ["Network", "Transport", "Session", "Presentation"],
+    "answerIndex": 1,
+    "explanation": "The Transport layer ensures reliable delivery using acknowledgements."
+  },
+  {
+    "id": 1455,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer converts data formats like ASCII to EBCDIC?",
+    "options": ["Session", "Presentation", "Application", "Transport"],
+    "answerIndex": 1,
+    "explanation": "The Presentation layer performs translation between different data formats."
+  },
+  {
+    "id": 1456,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which device works at the Physical layer?",
+    "options": ["Router", "Switch", "Hub", "Bridge"],
+    "answerIndex": 2,
+    "explanation": "A hub operates at the Physical layer and broadcasts signals."
+  },
+  {
+    "id": 1457,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer performs multiplexing and demultiplexing?",
+    "options": ["Session", "Transport", "Network", "Physical"],
+    "answerIndex": 1,
+    "explanation": "The Transport layer performs multiplexing and demultiplexing."
+  },
+  {
+    "id": 1458,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer is responsible for dialog control?",
+    "options": ["Presentation", "Session", "Transport", "Network"],
+    "answerIndex": 1,
+    "explanation": "The Session layer handles dialog control."
+  },
+  {
+    "id": 1459,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer attaches headers for encryption and compression?",
+    "options": ["Session", "Transport", "Presentation", "Network"],
+    "answerIndex": 2,
+    "explanation": "The Presentation layer attaches headers related to encoding, encryption, and compression."
+  },
+  {
+    "id": 1460,
+    "topic": "OSI_LAYER",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which OSI layer is closest to the user?",
+    "options": ["Application", "Presentation", "Session", "Transport"],
+    "answerIndex": 0,
+    "explanation": "The Application layer is the closest layer to the user in the OSI model."
   }
 
 ]
