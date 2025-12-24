@@ -11275,7 +11275,3270 @@
     ],
     "answerIndex": 1,
     "explanation": "Networking enables sharing of resources and data."
-  }
+  },
+ 
+  {
+    "id": 1101,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is malware?",
+    "options": ["Useful software", "Malicious software", "Hardware device", "Operating system"],
+    "answerIndex": 1,
+    "explanation": "Malware is software designed to harm or exploit systems."
+  },
+  {
+    "id": 1102,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware replicates itself by attaching to files?",
+    "options": ["Virus", "Worm", "Spyware", "Adware"],
+    "answerIndex": 0,
+    "explanation": "A virus attaches itself to files and spreads."
+  },
+  {
+    "id": 1103,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware spreads without user interaction?",
+    "options": ["Virus", "Trojan", "Worm", "Adware"],
+    "answerIndex": 2,
+    "explanation": "Worms spread automatically over networks."
+  },
+  {
+    "id": 1104,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware disguises itself as legitimate software?",
+    "options": ["Virus", "Worm", "Trojan", "Spyware"],
+    "answerIndex": 2,
+    "explanation": "Trojan malware tricks users by appearing legitimate."
+  },
+  {
+    "id": 1105,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware displays unwanted advertisements?",
+    "options": ["Spyware", "Adware", "Virus", "Rootkit"],
+    "answerIndex": 1,
+    "explanation": "Adware shows unwanted ads on a system."
+  },
+  {
+    "id": 1106,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware secretly monitors user activity?",
+    "options": ["Adware", "Spyware", "Virus", "Worm"],
+    "answerIndex": 1,
+    "explanation": "Spyware tracks user behavior without consent."
+  },
+  {
+    "id": 1107,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does ransomware do?",
+    "options": ["Deletes files", "Steals passwords", "Encrypts files for ransom", "Displays ads"],
+    "answerIndex": 2,
+    "explanation": "Ransomware encrypts data and demands payment."
+  },
+  {
+    "id": 1108,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware provides attackers remote control access?",
+    "options": ["Virus", "Worm", "Backdoor", "Adware"],
+    "answerIndex": 2,
+    "explanation": "Backdoors allow unauthorized remote access."
+  },
+  {
+    "id": 1109,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware hides itself deeply in the system?",
+    "options": ["Rootkit", "Virus", "Trojan", "Adware"],
+    "answerIndex": 0,
+    "explanation": "Rootkits hide malicious activities from detection."
+  },
+  {
+    "id": 1110,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool is used to detect malware?",
+    "options": ["Firewall", "Antivirus", "Router", "Browser"],
+    "answerIndex": 1,
+    "explanation": "Antivirus software detects and removes malware."
+  },
+  {
+    "id": 1111,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware records keystrokes?",
+    "options": ["Adware", "Keylogger", "Worm", "Rootkit"],
+    "answerIndex": 1,
+    "explanation": "Keyloggers capture keyboard input."
+  },
+  {
+    "id": 1112,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is a botnet?",
+    "options": ["Security tool", "Network of infected computers", "Antivirus update", "Email server"],
+    "answerIndex": 1,
+    "explanation": "Botnets are networks of compromised systems."
+  },
+  {
+    "id": 1113,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware spreads via email attachments?",
+    "options": ["Virus", "Spyware", "Rootkit", "Firewall"],
+    "answerIndex": 0,
+    "explanation": "Viruses often spread through infected attachments."
+  },
+  {
+    "id": 1114,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which attack tricks users into installing malware?",
+    "options": ["Phishing", "Firewall", "Encryption", "Backup"],
+    "answerIndex": 0,
+    "explanation": "Phishing deceives users into harmful actions."
+  },
+  {
+    "id": 1115,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware modifies system files?",
+    "options": ["Virus", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Viruses can alter system files."
+  },
+  {
+    "id": 1116,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which action best prevents malware infection?",
+    "options": ["Disable updates", "Install unknown apps", "Regular updates", "Share passwords"],
+    "answerIndex": 2,
+    "explanation": "Regular updates fix security vulnerabilities."
+  },
+  {
+    "id": 1117,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware uses encryption to avoid detection?",
+    "options": ["Polymorphic malware", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Polymorphic malware changes its code."
+  },
+  {
+    "id": 1118,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which file type is commonly used to spread malware?",
+    "options": [".txt", ".exe", ".jpg", ".pdf"],
+    "answerIndex": 1,
+    "explanation": "Executable files can carry malware."
+  },
+  {
+    "id": 1119,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware targets mobile devices?",
+    "options": ["Mobile malware", "Rootkit", "Firewall", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Mobile malware attacks smartphones and tablets."
+  },
+  {
+    "id": 1120,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the first step after malware detection?",
+    "options": ["Ignore it", "Disconnect from network", "Share files", "Disable antivirus"],
+    "answerIndex": 1,
+    "explanation": "Disconnecting prevents further spread."
+  },
 
+  {
+    "id": 1121,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is designed to spy on users and steal information?",
+    "options": ["Adware", "Spyware", "Worm", "Firewall"],
+    "answerIndex": 1,
+    "explanation": "Spyware secretly collects user information."
+  },
+  {
+    "id": 1122,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware pretends to be free software or games?",
+    "options": ["Trojan", "Virus", "Rootkit", "Worm"],
+    "answerIndex": 0,
+    "explanation": "Trojans disguise themselves as useful programs."
+  },
+  {
+    "id": 1123,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which device is most commonly affected by malware?",
+    "options": ["Printer", "Computer", "Monitor", "Keyboard"],
+    "answerIndex": 1,
+    "explanation": "Computers are primary targets of malware."
+  },
+  {
+    "id": 1124,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware slows down system performance?",
+    "options": ["Adware", "Spyware", "Virus", "All of the above"],
+    "answerIndex": 3,
+    "explanation": "Many malware types can slow system performance."
+  },
+  {
+    "id": 1125,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware can delete or corrupt files?",
+    "options": ["Virus", "Firewall", "Antivirus", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Viruses can damage or corrupt files."
+  },
+
+  {
+    "id": 1126,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which action increases the risk of malware infection?",
+    "options": ["Using antivirus", "Opening unknown email attachments", "Updating software", "Using firewall"],
+    "answerIndex": 1,
+    "explanation": "Unknown attachments often contain malware."
+  },
+  {
+    "id": 1127,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is commonly found in pirated software?",
+    "options": ["Trojan", "Firewall", "Patch", "Update"],
+    "answerIndex": 0,
+    "explanation": "Pirated software often includes Trojans."
+  },
+  {
+    "id": 1128,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol usually indicates a suspicious email?",
+    "options": ["Trusted sender", "Unexpected attachment", "Company logo", "Signature"],
+    "answerIndex": 1,
+    "explanation": "Unexpected attachments can indicate malware."
+  },
+  {
+    "id": 1129,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware uses social engineering to spread?",
+    "options": ["Trojan", "Worm", "Rootkit", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Trojans rely on user deception."
+  },
+  {
+    "id": 1130,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which system component helps block malware traffic?",
+    "options": ["Firewall", "Keyboard", "Monitor", "Mouse"],
+    "answerIndex": 0,
+    "explanation": "Firewalls filter malicious traffic."
+  },
+
+  {
+    "id": 1131,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware can turn a computer into a zombie?",
+    "options": ["Bot", "Virus", "Adware", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Bots are controlled as part of botnets."
+  },
+  {
+    "id": 1132,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware is hardest to detect?",
+    "options": ["Adware", "Rootkit", "Worm", "Cookie"],
+    "answerIndex": 1,
+    "explanation": "Rootkits hide deeply in the system."
+  },
+  {
+    "id": 1133,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which technique hides malware inside legitimate files?",
+    "options": ["Encryption", "Steganography", "Backup", "Compression"],
+    "answerIndex": 1,
+    "explanation": "Steganography hides malware within files."
+  },
+  {
+    "id": 1134,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware attacks boot process?",
+    "options": ["Boot sector virus", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Boot sector viruses infect startup areas."
+  },
+  {
+    "id": 1135,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware spreads via USB drives?",
+    "options": ["Worm", "Firewall", "Antivirus", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Worms commonly spread through removable media."
+  },
+
+  {
+    "id": 1136,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware disables security software?",
+    "options": ["Rootkit", "Adware", "Cookie", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Rootkits can disable security tools."
+  },
+  {
+    "id": 1137,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware targets financial information?",
+    "options": ["Banking Trojan", "Adware", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Banking Trojans steal financial data."
+  },
+  {
+    "id": 1138,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware uses command-and-control servers?",
+    "options": ["Botnet malware", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Botnets communicate with C&C servers."
+  },
+  {
+    "id": 1139,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which practice helps recover from ransomware attacks?",
+    "options": ["Regular backups", "Disable antivirus", "Ignore alerts", "Share files"],
+    "answerIndex": 0,
+    "explanation": "Backups allow data recovery without paying ransom."
+  },
+  {
+    "id": 1140,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware remains inactive until triggered?",
+    "options": ["Logic bomb", "Worm", "Adware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Logic bombs activate when conditions are met."
+  },
+  {
+    "id": 1121,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is designed to spy on users and steal information?",
+    "options": ["Adware", "Spyware", "Worm", "Firewall"],
+    "answerIndex": 1,
+    "explanation": "Spyware secretly collects user information."
+  },
+  {
+    "id": 1122,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware pretends to be free software or games?",
+    "options": ["Trojan", "Virus", "Rootkit", "Worm"],
+    "answerIndex": 0,
+    "explanation": "Trojans disguise themselves as useful programs."
+  },
+  {
+    "id": 1123,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which device is most commonly affected by malware?",
+    "options": ["Printer", "Computer", "Monitor", "Keyboard"],
+    "answerIndex": 1,
+    "explanation": "Computers are primary targets of malware."
+  },
+  {
+    "id": 1124,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware slows down system performance?",
+    "options": ["Adware", "Spyware", "Virus", "All of the above"],
+    "answerIndex": 3,
+    "explanation": "Many malware types can slow system performance."
+  },
+  {
+    "id": 1125,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware can delete or corrupt files?",
+    "options": ["Virus", "Firewall", "Antivirus", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Viruses can damage or corrupt files."
+  },
+
+  {
+    "id": 1126,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which action increases the risk of malware infection?",
+    "options": ["Using antivirus", "Opening unknown email attachments", "Updating software", "Using firewall"],
+    "answerIndex": 1,
+    "explanation": "Unknown attachments often contain malware."
+  },
+  {
+    "id": 1127,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is commonly found in pirated software?",
+    "options": ["Trojan", "Firewall", "Patch", "Update"],
+    "answerIndex": 0,
+    "explanation": "Pirated software often includes Trojans."
+  },
+  {
+    "id": 1128,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol usually indicates a suspicious email?",
+    "options": ["Trusted sender", "Unexpected attachment", "Company logo", "Signature"],
+    "answerIndex": 1,
+    "explanation": "Unexpected attachments can indicate malware."
+  },
+  {
+    "id": 1129,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware uses social engineering to spread?",
+    "options": ["Trojan", "Worm", "Rootkit", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Trojans rely on user deception."
+  },
+  {
+    "id": 1130,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which system component helps block malware traffic?",
+    "options": ["Firewall", "Keyboard", "Monitor", "Mouse"],
+    "answerIndex": 0,
+    "explanation": "Firewalls filter malicious traffic."
+  },
+
+  {
+    "id": 1131,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware can turn a computer into a zombie?",
+    "options": ["Bot", "Virus", "Adware", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Bots are controlled as part of botnets."
+  },
+  {
+    "id": 1132,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware is hardest to detect?",
+    "options": ["Adware", "Rootkit", "Worm", "Cookie"],
+    "answerIndex": 1,
+    "explanation": "Rootkits hide deeply in the system."
+  },
+  {
+    "id": 1133,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which technique hides malware inside legitimate files?",
+    "options": ["Encryption", "Steganography", "Backup", "Compression"],
+    "answerIndex": 1,
+    "explanation": "Steganography hides malware within files."
+  },
+  {
+    "id": 1134,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware attacks boot process?",
+    "options": ["Boot sector virus", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Boot sector viruses infect startup areas."
+  },
+  {
+    "id": 1135,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware spreads via USB drives?",
+    "options": ["Worm", "Firewall", "Antivirus", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Worms commonly spread through removable media."
+  },
+
+  {
+    "id": 1136,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware disables security software?",
+    "options": ["Rootkit", "Adware", "Cookie", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Rootkits can disable security tools."
+  },
+  {
+    "id": 1137,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware targets financial information?",
+    "options": ["Banking Trojan", "Adware", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Banking Trojans steal financial data."
+  },
+  {
+    "id": 1138,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware uses command-and-control servers?",
+    "options": ["Botnet malware", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Botnets communicate with C&C servers."
+  },
+  {
+    "id": 1139,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which practice helps recover from ransomware attacks?",
+    "options": ["Regular backups", "Disable antivirus", "Ignore alerts", "Share files"],
+    "answerIndex": 0,
+    "explanation": "Backups allow data recovery without paying ransom."
+  },
+  {
+    "id": 1140,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware remains inactive until triggered?",
+    "options": ["Logic bomb", "Worm", "Adware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Logic bombs activate when conditions are met."
+  },
+  {
+    "id": 1141,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is designed to steal passwords?",
+    "options": ["Keylogger", "Adware", "Worm", "Firewall"],
+    "answerIndex": 0,
+    "explanation": "Keyloggers capture keystrokes including passwords."
+  },
+  {
+    "id": 1142,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware shows fake security warnings?",
+    "options": ["Scareware", "Spyware", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Scareware uses fake alerts to trick users."
+  },
+  {
+    "id": 1143,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware spreads through infected websites?",
+    "options": ["Drive-by download", "Firewall", "Antivirus", "Backup"],
+    "answerIndex": 0,
+    "explanation": "Drive-by downloads infect systems via websites."
+  },
+  {
+    "id": 1144,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware can automatically download other malware?",
+    "options": ["Downloader", "Adware", "Cookie", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Downloader malware installs additional threats."
+  },
+  {
+    "id": 1145,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is often bundled with free software?",
+    "options": ["Adware", "Firewall", "Antivirus", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Adware is commonly bundled with freeware."
+  },
+
+  {
+    "id": 1146,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file extension is most risky to open from unknown sources?",
+    "options": [".exe", ".jpg", ".txt", ".png"],
+    "answerIndex": 0,
+    "explanation": "Executable files can run malicious code."
+  },
+  {
+    "id": 1147,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware tracks online browsing habits?",
+    "options": ["Spyware", "Firewall", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Spyware monitors user browsing behavior."
+  },
+  {
+    "id": 1148,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware redirects users to malicious websites?",
+    "options": ["Browser hijacker", "Antivirus", "Backup", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Browser hijackers redirect traffic."
+  },
+  {
+    "id": 1149,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which system behavior may indicate malware infection?",
+    "options": ["Slow performance", "Improved speed", "More storage", "Better graphics"],
+    "answerIndex": 0,
+    "explanation": "Malware often degrades system performance."
+  },
+  {
+    "id": 1150,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware captures screenshots secretly?",
+    "options": ["Spyware", "Firewall", "Patch", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Spyware can record screen activity."
+  },
+
+  {
+    "id": 1151,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware installs itself in the Master Boot Record?",
+    "options": ["Bootkit", "Adware", "Spyware", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Bootkits infect the system boot process."
+  },
+  {
+    "id": 1152,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware is used for cryptocurrency mining?",
+    "options": ["Cryptojacker", "Adware", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Cryptojackers use system resources to mine crypto."
+  },
+  {
+    "id": 1153,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware spreads using exploit kits?",
+    "options": ["Exploit-based malware", "Adware", "Antivirus", "Firewall"],
+    "answerIndex": 0,
+    "explanation": "Exploit kits deliver malware via vulnerabilities."
+  },
+  {
+    "id": 1154,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware modifies registry entries to stay persistent?",
+    "options": ["Rootkit", "Theme", "Cookie", "Backup"],
+    "answerIndex": 0,
+    "explanation": "Rootkits maintain persistence via registry changes."
+  },
+  {
+    "id": 1155,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware communicates secretly using DNS?",
+    "options": ["DNS tunneling malware", "Adware", "Patch", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "DNS tunneling hides communication in DNS traffic."
+  },
+
+  {
+    "id": 1156,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware deletes backups before encrypting files?",
+    "options": ["Ransomware", "Spyware", "Adware", "Firewall"],
+    "answerIndex": 0,
+    "explanation": "Ransomware removes backups to force payment."
+  },
+  {
+    "id": 1157,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware targets Internet of Things (IoT) devices?",
+    "options": ["IoT malware", "Cookie", "Theme", "Patch"],
+    "answerIndex": 0,
+    "explanation": "IoT malware targets smart devices."
+  },
+  {
+    "id": 1158,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware uses fileless techniques?",
+    "options": ["Fileless malware", "Adware", "Worm", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Fileless malware runs in memory without files."
+  },
+  {
+    "id": 1159,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which technique helps malware avoid signature detection?",
+    "options": ["Obfuscation", "Backup", "Compression", "Update"],
+    "answerIndex": 0,
+    "explanation": "Obfuscation hides malicious code patterns."
+  },
+  {
+    "id": 1160,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware waits for commands before acting?",
+    "options": ["Remote Access Trojan", "Adware", "Cookie", "Theme"],
+    "answerIndex": 0,
+    "explanation": "RATs wait for attacker commands."
+  },
+
+  {
+    "id": 1161,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the main purpose of malware?",
+    "options": ["Improve system performance", "Protect data", "Cause damage or unauthorized access", "Update software"],
+    "answerIndex": 2,
+    "explanation": "Malware is intentionally created to damage systems, steal data, gain unauthorized access, or disrupt normal operations."
+  },
+  {
+    "id": 1162,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware requires a host file to spread?",
+    "options": ["Worm", "Virus", "Rootkit", "Spyware"],
+    "answerIndex": 1,
+    "explanation": "A virus cannot spread on its own; it attaches itself to legitimate files or programs and activates when the host runs."
+  },
+  {
+    "id": 1163,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware spreads rapidly across networks without user action?",
+    "options": ["Trojan", "Virus", "Worm", "Adware"],
+    "answerIndex": 2,
+    "explanation": "Worms exploit network vulnerabilities and spread automatically, often causing network congestion and service disruption."
+  },
+  {
+    "id": 1164,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why is a Trojan considered dangerous?",
+    "options": ["It shows advertisements", "It disguises itself as safe software", "It improves system speed", "It encrypts backups"],
+    "answerIndex": 1,
+    "explanation": "Trojans trick users into installing them by appearing legitimate, allowing attackers to gain access or install more malware."
+  },
+  {
+    "id": 1165,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware is mainly designed to collect user information secretly?",
+    "options": ["Adware", "Spyware", "Worm", "Patch"],
+    "answerIndex": 1,
+    "explanation": "Spyware runs silently in the background to collect sensitive data such as browsing history, login credentials, and personal details."
+  },
+
+  {
+    "id": 1166,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is ransomware primarily known for?",
+    "options": ["Showing pop-up ads", "Encrypting files and demanding payment", "Speeding up systems", "Fixing vulnerabilities"],
+    "answerIndex": 1,
+    "explanation": "Ransomware encrypts user files and demands a ransom to restore access, often threatening permanent data loss."
+  },
+  {
+    "id": 1167,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware allows attackers to secretly control a victim’s computer?",
+    "options": ["Backdoor", "Adware", "Cookie", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Backdoors bypass normal authentication mechanisms and allow remote attackers to control the system secretly."
+  },
+  {
+    "id": 1168,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why are rootkits difficult to detect?",
+    "options": ["They delete files", "They hide deep in the operating system", "They show ads", "They slow down browsers"],
+    "answerIndex": 1,
+    "explanation": "Rootkits operate at low system levels (kernel or boot level), hiding their presence from antivirus and system tools."
+  },
+  {
+    "id": 1169,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which software is primarily used to detect and remove malware?",
+    "options": ["Firewall", "Antivirus", "Router", "Browser"],
+    "answerIndex": 1,
+    "explanation": "Antivirus software scans files and processes to identify, quarantine, and remove malicious software."
+  },
+  {
+    "id": 1170,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which behavior is a common sign of malware infection?",
+    "options": ["Faster boot time", "Unexpected system crashes", "Increased storage", "Improved security"],
+    "answerIndex": 1,
+    "explanation": "Malware often causes instability, crashes, or abnormal behavior due to unauthorized background activity."
+  },
+
+  {
+    "id": 1171,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the role of a keylogger?",
+    "options": ["Block malware", "Record keystrokes", "Encrypt files", "Update antivirus"],
+    "answerIndex": 1,
+    "explanation": "Keyloggers capture every keystroke typed by a user, commonly used to steal passwords and sensitive information."
+  },
+  {
+    "id": 1172,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why are botnets dangerous?",
+    "options": ["They speed up networks", "They control large numbers of infected systems", "They protect data", "They remove malware"],
+    "answerIndex": 1,
+    "explanation": "Botnets consist of many compromised computers controlled remotely to perform attacks like DDoS or spam campaigns."
+  },
+  {
+    "id": 1173,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware commonly targets banking credentials?",
+    "options": ["Banking Trojan", "Adware", "Worm", "Theme"],
+    "answerIndex": 0,
+    "explanation": "Banking Trojans are designed to steal financial information such as online banking usernames, passwords, and OTPs."
+  },
+  {
+    "id": 1174,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What makes fileless malware dangerous?",
+    "options": ["It uses large files", "It runs directly in memory", "It deletes backups", "It spreads via USB"],
+    "answerIndex": 1,
+    "explanation": "Fileless malware executes in system memory using legitimate tools, making it harder for traditional antivirus to detect."
+  },
+  {
+    "id": 1175,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware technique changes its code to evade detection?",
+    "options": ["Polymorphism", "Backup", "Compression", "Update"],
+    "answerIndex": 0,
+    "explanation": "Polymorphic malware constantly changes its code structure while keeping the same behavior, avoiding signature-based detection."
+  },
+
+  {
+    "id": 1176,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why are regular backups important in malware defense?",
+    "options": ["They block malware", "They help recover encrypted data", "They slow ransomware", "They remove spyware"],
+    "answerIndex": 1,
+    "explanation": "Backups allow users to restore data after malware attacks like ransomware without paying attackers."
+  },
+  {
+    "id": 1177,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware spreads through removable devices like USB drives?",
+    "options": ["Worm", "Firewall", "Theme", "Backup"],
+    "answerIndex": 0,
+    "explanation": "Worms can automatically spread using removable storage when devices are connected to infected systems."
+  },
+  {
+    "id": 1178,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of command-and-control (C2) servers?",
+    "options": ["Update software", "Control infected systems", "Store backups", "Scan for malware"],
+    "answerIndex": 1,
+    "explanation": "C2 servers allow attackers to remotely issue commands and receive data from infected machines."
+  },
+  {
+    "id": 1179,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware activates only when specific conditions are met?",
+    "options": ["Logic bomb", "Adware", "Worm", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Logic bombs remain inactive until a specific event, date, or condition triggers their execution."
+  },
+  {
+    "id": 1180,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the safest first action after detecting malware?",
+    "options": ["Ignore the warning", "Disconnect from the network", "Share files", "Disable antivirus"],
+    "answerIndex": 1,
+    "explanation": "Disconnecting from the network prevents the malware from spreading or communicating with attackers."
+  },
+
+  {
+    "id": 1181,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What distinguishes malware from legitimate software?",
+    "options": ["It is free to use", "It performs harmful or unauthorized actions", "It runs faster", "It updates automatically"],
+    "answerIndex": 1,
+    "explanation": "Malware is intentionally created to perform actions without user consent, such as data theft, system damage, spying, or unauthorized access."
+  },
+  {
+    "id": 1182,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware typically arrives via email attachments?",
+    "options": ["Trojan", "Firewall", "Patch", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Trojans are commonly delivered through malicious email attachments disguised as invoices, resumes, or documents."
+  },
+  {
+    "id": 1183,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which user action most commonly leads to malware infection?",
+    "options": ["Installing unknown software", "Updating antivirus", "Using strong passwords", "Backing up data"],
+    "answerIndex": 0,
+    "explanation": "Installing software from untrusted or unknown sources is one of the most common ways malware enters a system."
+  },
+  {
+    "id": 1184,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware shows excessive advertisements to users?",
+    "options": ["Adware", "Rootkit", "Worm", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Adware displays unwanted advertisements, often slowing systems and collecting user data for marketing purposes."
+  },
+  {
+    "id": 1185,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why are pirated software downloads risky?",
+    "options": ["They use more memory", "They often contain hidden malware", "They lack features", "They update slowly"],
+    "answerIndex": 1,
+    "explanation": "Pirated software frequently bundles malware, as attackers exploit users seeking free or cracked applications."
+  },
+
+  {
+    "id": 1186,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware monitors system activity without permission?",
+    "options": ["Spyware", "Theme", "Firewall", "Backup"],
+    "answerIndex": 0,
+    "explanation": "Spyware secretly monitors activities such as keystrokes, browsing habits, and application usage."
+  },
+  {
+    "id": 1187,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does malware often try to achieve first after infection?",
+    "options": ["System optimization", "Persistence", "User education", "Hardware upgrade"],
+    "answerIndex": 1,
+    "explanation": "Malware attempts to remain persistent by modifying startup settings or registry entries to survive reboots."
+  },
+  {
+    "id": 1188,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file type is safest to open from unknown sources?",
+    "options": [".exe", ".bat", ".scr", ".txt"],
+    "answerIndex": 3,
+    "explanation": "Plain text files do not execute code, making them much safer compared to executable file types."
+  },
+  {
+    "id": 1189,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which malware disables security tools?",
+    "options": ["Rootkit", "Adware", "Theme", "Cookie"],
+    "answerIndex": 0,
+    "explanation": "Rootkits often disable antivirus and security monitoring tools to remain hidden and undetected."
+  },
+  {
+    "id": 1190,
+    "topic": "MALWARE",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the primary goal of scareware?",
+    "options": ["Steal credentials", "Create fear to force payment or action", "Encrypt data", "Improve security"],
+    "answerIndex": 1,
+    "explanation": "Scareware uses fake warnings to frighten users into purchasing fake security software or clicking malicious links."
+  },
+
+  {
+    "id": 1191,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why are worms particularly dangerous in enterprise networks?",
+    "options": ["They need user interaction", "They spread autonomously across systems", "They require admin rights", "They use large files"],
+    "answerIndex": 1,
+    "explanation": "Worms self-propagate without user involvement, allowing rapid spread across connected enterprise networks."
+  },
+  {
+    "id": 1192,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware is commonly used for Distributed Denial of Service (DDoS) attacks?",
+    "options": ["Botnet malware", "Spyware", "Patch", "Adware"],
+    "answerIndex": 0,
+    "explanation": "Botnets control many infected machines simultaneously, overwhelming targets with massive traffic during DDoS attacks."
+  },
+  {
+    "id": 1193,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why is polymorphic malware hard to detect?",
+    "options": ["It deletes logs", "It changes its code structure frequently", "It uses large files", "It runs slowly"],
+    "answerIndex": 1,
+    "explanation": "Polymorphic malware modifies its code on each infection, preventing signature-based antivirus detection."
+  },
+  {
+    "id": 1194,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What advantage do fileless malware attacks have?",
+    "options": ["They use physical files", "They rely on trusted system tools", "They are easily detected", "They increase disk usage"],
+    "answerIndex": 1,
+    "explanation": "Fileless malware abuses legitimate system tools like PowerShell, making detection difficult since no malicious files exist."
+  },
+  {
+    "id": 1195,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware technique helps evade behavior-based detection?",
+    "options": ["Living-off-the-land", "Backup", "Compression", "Update"],
+    "answerIndex": 0,
+    "explanation": "Living-off-the-land techniques use legitimate system binaries, blending malicious actions with normal system behavior."
+  },
+
+  {
+    "id": 1196,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why are zero-day malware attacks dangerous?",
+    "options": ["They use old exploits", "No patches exist yet", "They spread slowly", "They are easy to fix"],
+    "answerIndex": 1,
+    "explanation": "Zero-day malware exploits unknown vulnerabilities before vendors release patches, leaving systems defenseless."
+  },
+  {
+    "id": 1197,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which malware steals saved browser passwords?",
+    "options": ["Credential stealer", "Adware", "Firewall", "Patch"],
+    "answerIndex": 0,
+    "explanation": "Credential stealers extract stored login details from browsers, FTP clients, and email applications."
+  },
+  {
+    "id": 1198,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the function of a dropper?",
+    "options": ["Delete malware", "Install other malware payloads", "Block network traffic", "Clean system logs"],
+    "answerIndex": 1,
+    "explanation": "Droppers deliver and install additional malware components onto the infected system."
+  },
+  {
+    "id": 1199,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why do attackers encrypt malware traffic?",
+    "options": ["To improve speed", "To avoid network detection", "To save bandwidth", "To comply with security"],
+    "answerIndex": 1,
+    "explanation": "Encrypted traffic hides malicious communication from intrusion detection and network monitoring tools."
+  },
+  {
+    "id": 1200,
+    "topic": "MALWARE",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the most effective long-term defense against malware?",
+    "options": ["Single antivirus", "Layered security approach", "Ignoring updates", "Manual scanning only"],
+    "answerIndex": 1,
+    "explanation": "Layered security combines antivirus, firewalls, updates, backups, and user awareness to reduce malware risk."
+  },
+
+  {
+    "id": 1201,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is Microsoft Outlook primarily used for?",
+    "options": ["Web development", "Email and personal information management", "Graphic design", "Database administration"],
+    "answerIndex": 1,
+    "explanation": "Microsoft Outlook is mainly used for managing emails, calendars, contacts, tasks, and notes in one integrated application."
+  },
+  {
+    "id": 1202,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which component of Outlook is used to schedule meetings?",
+    "options": ["Mail", "Calendar", "Contacts", "Notes"],
+    "answerIndex": 1,
+    "explanation": "The Calendar feature allows users to schedule meetings, set reminders, and view daily, weekly, or monthly schedules."
+  },
+  {
+    "id": 1203,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the purpose of the Inbox in Outlook?",
+    "options": ["Store sent emails", "Store drafts", "Receive incoming emails", "Archive contacts"],
+    "answerIndex": 2,
+    "explanation": "The Inbox is the default folder where all received emails are delivered unless rules redirect them elsewhere."
+  },
+  {
+    "id": 1204,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook feature helps organize emails automatically?",
+    "options": ["Rules", "Signatures", "Themes", "Notes"],
+    "answerIndex": 0,
+    "explanation": "Rules allow Outlook to automatically move, flag, forward, or categorize emails based on defined conditions."
+  },
+  {
+    "id": 1205,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What happens when you click “Reply All” in Outlook?",
+    "options": ["Reply only to sender", "Reply to sender and all recipients", "Forward the email", "Delete the email"],
+    "answerIndex": 1,
+    "explanation": "Reply All sends your response to the original sender as well as everyone listed in the To and CC fields."
+  },
+
+  {
+    "id": 1206,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which field is used to add recipients who should receive a copy of the email?",
+    "options": ["To", "CC", "BCC", "Subject"],
+    "answerIndex": 1,
+    "explanation": "CC (Carbon Copy) sends a visible copy of the email to additional recipients besides the primary ones."
+  },
+  {
+    "id": 1207,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Why is BCC used in Outlook emails?",
+    "options": ["To format text", "To hide recipient email addresses", "To add attachments", "To mark emails urgent"],
+    "answerIndex": 1,
+    "explanation": "BCC (Blind Carbon Copy) hides recipient addresses from others, improving privacy in mass emails."
+  },
+  {
+    "id": 1208,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the function of the Sent Items folder?",
+    "options": ["Store deleted emails", "Store received emails", "Store emails you have sent", "Store spam emails"],
+    "answerIndex": 2,
+    "explanation": "Sent Items keeps a record of all emails successfully sent from your Outlook account."
+  },
+  {
+    "id": 1209,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook feature helps remind users of meetings or tasks?",
+    "options": ["Archive", "Reminder", "Rule", "Signature"],
+    "answerIndex": 1,
+    "explanation": "Reminders notify users of upcoming meetings, deadlines, or tasks at a specified time."
+  },
+  {
+    "id": 1210,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is an Outlook signature?",
+    "options": ["Email password", "Automatic text added to emails", "Virus protection", "Email rule"],
+    "answerIndex": 1,
+    "explanation": "An email signature is predefined text (name, role, contact details) automatically added to outgoing emails."
+  },
+
+  {
+    "id": 1211,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of Outlook categories?",
+    "options": ["Delete emails", "Color-code and organize items", "Encrypt emails", "Block senders"],
+    "answerIndex": 1,
+    "explanation": "Categories help organize emails, calendar events, and tasks using color labels for quick identification."
+  },
+  {
+    "id": 1212,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature helps reduce inbox clutter by grouping related emails?",
+    "options": ["Conversation View", "Archive", "Search Folder", "Notes"],
+    "answerIndex": 0,
+    "explanation": "Conversation View groups emails with the same subject into a single thread, making discussions easier to follow."
+  },
+  {
+    "id": 1213,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of Outlook Search Folders?",
+    "options": ["Store files", "Create virtual folders based on criteria", "Delete emails automatically", "Share calendars"],
+    "answerIndex": 1,
+    "explanation": "Search Folders dynamically display emails that match specific conditions without moving them from their original folders."
+  },
+  {
+    "id": 1214,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which file type is used to store Outlook data locally?",
+    "options": [".docx", ".pst", ".xlsx", ".pdf"],
+    "answerIndex": 1,
+    "explanation": "PST (Personal Storage Table) files store emails, contacts, calendars, and other Outlook data locally."
+  },
+  {
+    "id": 1215,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the function of AutoArchive in Outlook?",
+    "options": ["Delete emails permanently", "Move old items automatically", "Encrypt messages", "Block spam"],
+    "answerIndex": 1,
+    "explanation": "AutoArchive automatically moves old emails to archive folders to reduce mailbox size and improve performance."
+  },
+
+  {
+    "id": 1216,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Why is caching mode used in Outlook?",
+    "options": ["Increase spam", "Allow offline access", "Disable updates", "Encrypt passwords"],
+    "answerIndex": 1,
+    "explanation": "Cached Exchange Mode stores a local copy of mailbox data, allowing users to work offline and improving performance."
+  },
+  {
+    "id": 1217,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What happens when an email is flagged in Outlook?",
+    "options": ["It is deleted", "It is marked for follow-up", "It is archived", "It is encrypted"],
+    "answerIndex": 1,
+    "explanation": "Flagging an email marks it as requiring action or follow-up and can create task reminders."
+  },
+  {
+    "id": 1218,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature helps recover accidentally deleted emails?",
+    "options": ["Recover Deleted Items", "Rules", "Signature", "Calendar"],
+    "answerIndex": 0,
+    "explanation": "Recover Deleted Items allows users to restore emails removed from the Deleted Items folder (within retention limits)."
+  },
+  {
+    "id": 1219,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the advantage of using shared mailboxes in Outlook?",
+    "options": ["Increase spam", "Multiple users access one mailbox", "Hide emails permanently", "Reduce storage"],
+    "answerIndex": 1,
+    "explanation": "Shared mailboxes allow teams to manage common emails (e.g., support@company.com) without individual logins."
+  },
+  {
+    "id": 1220,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature helps prevent phishing emails?",
+    "options": ["Junk Email Filter", "Calendar", "Notes", "Tasks"],
+    "answerIndex": 0,
+    "explanation": "The Junk Email Filter analyzes messages for suspicious content and moves potential phishing emails to the Junk folder."
+  },
+
+  {
+    "id": 1221,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which folder stores emails that Outlook identifies as spam?",
+    "options": ["Inbox", "Deleted Items", "Junk Email", "Archive"],
+    "answerIndex": 2,
+    "explanation": "The Junk Email folder automatically stores messages identified as spam or phishing based on Outlook’s filtering rules."
+  },
+  {
+    "id": 1222,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook feature allows sending the same email to many recipients with personalized data?",
+    "options": ["Rules", "Mail Merge", "Categories", "AutoReply"],
+    "answerIndex": 1,
+    "explanation": "Mail Merge integrates Outlook with Word to send personalized emails using recipient data like names or addresses."
+  },
+  {
+    "id": 1223,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the Drafts folder contain?",
+    "options": ["Deleted emails", "Unread emails", "Unsent saved emails", "Archived emails"],
+    "answerIndex": 2,
+    "explanation": "Drafts store emails that have been written but not yet sent, allowing users to complete them later."
+  },
+  {
+    "id": 1224,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option allows setting an automatic out-of-office response?",
+    "options": ["Rules", "AutoReply", "Signatures", "Alerts"],
+    "answerIndex": 1,
+    "explanation": "AutoReply (Out of Office) automatically sends replies to incoming emails when a user is unavailable."
+  },
+  {
+    "id": 1225,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which component of Outlook is used to manage addresses and phone numbers?",
+    "options": ["Calendar", "Tasks", "Contacts", "Notes"],
+    "answerIndex": 2,
+    "explanation": "The Contacts section stores names, email addresses, phone numbers, and other contact details."
+  },
+
+  {
+    "id": 1226,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the purpose of Outlook Tasks?",
+    "options": ["Send emails", "Schedule meetings", "Manage to-do items", "Store contacts"],
+    "answerIndex": 2,
+    "explanation": "Tasks help users manage to-do items, deadlines, priorities, and reminders."
+  },
+  {
+    "id": 1227,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which field summarizes the email content?",
+    "options": ["To", "CC", "Subject", "Body"],
+    "answerIndex": 2,
+    "explanation": "The Subject line provides a brief summary of the email content and helps recipients understand the message purpose."
+  },
+  {
+    "id": 1228,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What happens when you archive an email?",
+    "options": ["It is deleted permanently", "It is moved to Archive folder", "It is marked as spam", "It is forwarded"],
+    "answerIndex": 1,
+    "explanation": "Archiving moves emails out of the Inbox to reduce clutter while keeping them accessible."
+  },
+  {
+    "id": 1229,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook feature shows free/busy time of attendees?",
+    "options": ["Calendar View", "Scheduling Assistant", "Meeting Notes", "Tasks"],
+    "answerIndex": 1,
+    "explanation": "Scheduling Assistant displays participants’ availability, making it easier to plan meetings."
+  },
+  {
+    "id": 1230,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option marks an email as unread?",
+    "options": ["Ignore", "Mark as Read", "Mark as Unread", "Archive"],
+    "answerIndex": 2,
+    "explanation": "Mark as Unread changes the email status so it appears as a new, unread message."
+  },
+
+  {
+    "id": 1231,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is an OST file in Outlook?",
+    "options": ["Online template storage", "Offline mailbox copy", "Spam filter file", "Encryption file"],
+    "answerIndex": 1,
+    "explanation": "OST (Offline Storage Table) files store a synchronized local copy of Exchange mailbox data for offline access."
+  },
+  {
+    "id": 1232,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows delegating calendar access to others?",
+    "options": ["Calendar Sharing", "Rules", "AutoArchive", "Signatures"],
+    "answerIndex": 0,
+    "explanation": "Calendar Sharing allows others to view or manage your calendar depending on assigned permissions."
+  },
+  {
+    "id": 1233,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option automatically sorts emails by sender or subject?",
+    "options": ["Rules", "Sort", "Search Folder", "AutoReply"],
+    "answerIndex": 1,
+    "explanation": "Sort rearranges emails based on criteria like sender, date, subject, or size."
+  },
+  {
+    "id": 1234,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does Conversation Clean Up do?",
+    "options": ["Deletes all emails", "Removes redundant messages", "Archives emails", "Marks emails unread"],
+    "answerIndex": 1,
+    "explanation": "Conversation Clean Up removes duplicate or redundant messages from an email thread, keeping only the latest replies."
+  },
+  {
+    "id": 1235,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature allows assigning tasks to others?",
+    "options": ["Task Delegation", "Calendar Share", "Mail Rules", "Notes"],
+    "answerIndex": 0,
+    "explanation": "Task Delegation lets users assign tasks to others and track progress."
+  },
+
+  {
+    "id": 1236,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of email recall in Outlook?",
+    "options": ["Delete sent emails from all inboxes", "Attempt to retrieve unread emails", "Block senders", "Encrypt emails"],
+    "answerIndex": 1,
+    "explanation": "Email Recall attempts to retrieve or replace unread emails within the same Exchange organization."
+  },
+  {
+    "id": 1237,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature displays emails flagged for follow-up?",
+    "options": ["Search Folder", "Tasks View", "Calendar", "Notes"],
+    "answerIndex": 0,
+    "explanation": "Search Folders can display all flagged emails in one place without moving them."
+  },
+  {
+    "id": 1238,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option allows encryption of sensitive emails?",
+    "options": ["Digital Signature", "Email Encryption", "Rules", "Categories"],
+    "answerIndex": 1,
+    "explanation": "Email Encryption ensures that only intended recipients can read sensitive messages."
+  },
+  {
+    "id": 1239,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the benefit of using Focused Inbox?",
+    "options": ["Block spam", "Separate important emails", "Encrypt messages", "Auto-archive emails"],
+    "answerIndex": 1,
+    "explanation": "Focused Inbox separates important emails from less important ones to improve productivity."
+  },
+  {
+    "id": 1240,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature logs meeting responses automatically?",
+    "options": ["Tracking", "Scheduling Assistant", "Calendar Notes", "Tasks"],
+    "answerIndex": 0,
+    "explanation": "Tracking records attendee responses such as Accept, Tentative, or Decline for meetings."
+  },
+ 
+  {
+    "id": 1241,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook folder stores meeting requests?",
+    "options": ["Inbox", "Calendar", "Outbox", "Drafts"],
+    "answerIndex": 0,
+    "explanation": "Meeting requests are delivered as email messages and initially appear in the Inbox before being added to the Calendar."
+  },
+  {
+    "id": 1242,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option allows adding files to an email?",
+    "options": ["Insert → File", "Attach File", "Link File", "Share File"],
+    "answerIndex": 1,
+    "explanation": "Attach File allows users to include documents, images, or other files along with an email message."
+  },
+  {
+    "id": 1243,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the Outbox folder contain?",
+    "options": ["Unread messages", "Queued outgoing emails", "Archived emails", "Spam messages"],
+    "answerIndex": 1,
+    "explanation": "The Outbox temporarily stores emails that are waiting to be sent or could not be sent due to connectivity issues."
+  },
+  {
+    "id": 1244,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which view allows you to see your entire day schedule?",
+    "options": ["Month View", "Day View", "List View", "Outline View"],
+    "answerIndex": 1,
+    "explanation": "Day View displays all meetings, appointments, and events scheduled for a specific day."
+  },
+  {
+    "id": 1245,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the function of an Outlook appointment?",
+    "options": ["Send email", "Schedule personal events", "Assign tasks", "Create contacts"],
+    "answerIndex": 1,
+    "explanation": "Appointments are used to schedule personal events that do not require other participants, such as reminders or deadlines."
+  },
+
+  {
+    "id": 1246,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which feature allows recurring meetings?",
+    "options": ["Repeat", "Recurrence", "Schedule", "Clone"],
+    "answerIndex": 1,
+    "explanation": "Recurrence allows meetings or appointments to repeat automatically on a set schedule (daily, weekly, monthly, etc.)."
+  },
+  {
+    "id": 1247,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook element shows unread message count?",
+    "options": ["Status Bar", "Folder Pane", "Reading Pane", "Title Bar"],
+    "answerIndex": 1,
+    "explanation": "The Folder Pane displays folder names along with the number of unread emails in each folder."
+  },
+  {
+    "id": 1248,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option marks an email as important?",
+    "options": ["High Importance", "Flag", "Category", "Follow Up"],
+    "answerIndex": 0,
+    "explanation": "High Importance marks an email with an exclamation icon to indicate urgency to the recipient."
+  },
+  {
+    "id": 1249,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Outlook feature helps track email responses?",
+    "options": ["Delivery Report", "Read Receipt", "Tracking", "Conversation View"],
+    "answerIndex": 1,
+    "explanation": "Read Receipts notify the sender when a recipient opens the email, if enabled and accepted."
+  },
+  {
+    "id": 1250,
+    "topic": "OUTLOOK",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which folder stores sent meeting invitations?",
+    "options": ["Calendar", "Inbox", "Sent Items", "Drafts"],
+    "answerIndex": 2,
+    "explanation": "Sent Items keeps copies of meeting requests and emails that have been successfully sent."
+  },
+
+  {
+    "id": 1251,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows viewing multiple calendars together?",
+    "options": ["Calendar Overlay", "Calendar Merge", "Calendar Sync", "Calendar Share"],
+    "answerIndex": 0,
+    "explanation": "Calendar Overlay places multiple calendars on top of each other for easier comparison of schedules."
+  },
+  {
+    "id": 1252,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does the “Delay Delivery” option do?",
+    "options": ["Blocks sending", "Schedules email sending", "Encrypts emails", "Archives messages"],
+    "answerIndex": 1,
+    "explanation": "Delay Delivery schedules an email to be sent at a specified future date and time."
+  },
+  {
+    "id": 1253,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature helps locate emails with large attachments?",
+    "options": ["Search Filters", "Rules", "Categories", "AutoArchive"],
+    "answerIndex": 0,
+    "explanation": "Search Filters allow narrowing results based on size, sender, attachments, or date."
+  },
+  {
+    "id": 1254,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which permission allows others to send emails on your behalf?",
+    "options": ["Read Access", "Send As", "Editor", "Reviewer"],
+    "answerIndex": 1,
+    "explanation": "Send As permission allows another user to send emails appearing as if they were sent by you."
+  },
+  {
+    "id": 1255,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the benefit of using Outlook Notes?",
+    "options": ["Send short emails", "Store quick reminders", "Encrypt data", "Share calendars"],
+    "answerIndex": 1,
+    "explanation": "Notes provide a quick way to jot down short reminders or information within Outlook."
+  },
+
+  {
+    "id": 1256,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature prevents automatic image downloads?",
+    "options": ["Trust Center", "Junk Filter", "Rules", "AutoArchive"],
+    "answerIndex": 0,
+    "explanation": "The Trust Center blocks automatic image downloads to protect against tracking and malicious content."
+  },
+  {
+    "id": 1257,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook option allows exporting mailbox data?",
+    "options": ["Backup Tool", "Export to PST", "Archive", "Sync Folder"],
+    "answerIndex": 1,
+    "explanation": "Export to PST creates a backup of emails, contacts, calendars, and other Outlook items."
+  },
+  {
+    "id": 1258,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature helps enforce company email policies?",
+    "options": ["Retention Policies", "Rules", "Signatures", "AutoReply"],
+    "answerIndex": 0,
+    "explanation": "Retention Policies control how long emails are kept before being archived or deleted to meet compliance requirements."
+  },
+  {
+    "id": 1259,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which Outlook feature allows shared task lists?",
+    "options": ["Task Sharing", "Calendar Sharing", "Mail Merge", "AutoArchive"],
+    "answerIndex": 0,
+    "explanation": "Task Sharing allows multiple users to view and manage shared tasks."
+  },
+  {
+    "id": 1260,
+    "topic": "OUTLOOK",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature automatically completes email addresses?",
+    "options": ["Address Book", "AutoComplete", "Contacts", "Quick Parts"],
+    "answerIndex": 1,
+    "explanation": "AutoComplete suggests email addresses based on previously sent messages, speeding up email composition."
+  },
+  
+  {
+    "id": 1301,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is Microsoft PowerPoint mainly used for?",
+    "options": ["Word processing", "Creating presentations", "Spreadsheet calculations", "Email management"],
+    "answerIndex": 1,
+    "explanation": "Microsoft PowerPoint is used to create slide-based presentations containing text, images, charts, animations, and multimedia."
+  },
+  {
+    "id": 1302,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a slide in PowerPoint?",
+    "options": ["A page in a presentation", "A document file", "A template", "An animation effect"],
+    "answerIndex": 0,
+    "explanation": "A slide is an individual page of a PowerPoint presentation used to display content."
+  },
+  {
+    "id": 1303,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut key starts the slideshow from the beginning?",
+    "options": ["F2", "F5", "Ctrl + F5", "Shift + F5"],
+    "answerIndex": 1,
+    "explanation": "Pressing F5 starts the slideshow from the first slide."
+  },
+  {
+    "id": 1304,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tab is used to add a new slide?",
+    "options": ["Insert", "Home", "Design", "View"],
+    "answerIndex": 1,
+    "explanation": "The Home tab contains the New Slide option used to insert slides."
+  },
+  {
+    "id": 1305,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default file extension of a PowerPoint presentation?",
+    "options": [".ppt", ".pptx", ".pps", ".docx"],
+    "answerIndex": 1,
+    "explanation": "Modern PowerPoint presentations are saved using the .pptx file extension."
+  },
+
+  {
+    "id": 1306,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which view shows thumbnails of all slides?",
+    "options": ["Slide Show", "Slide Sorter", "Reading View", "Outline View"],
+    "answerIndex": 1,
+    "explanation": "Slide Sorter view displays thumbnails of all slides for easy rearrangement."
+  },
+  {
+    "id": 1307,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option is used to apply a consistent design to slides?",
+    "options": ["Theme", "Layout", "Animation", "Transition"],
+    "answerIndex": 0,
+    "explanation": "Themes apply consistent colors, fonts, and effects to all slides."
+  },
+  {
+    "id": 1308,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which element controls the appearance of slide content placement?",
+    "options": ["Template", "Theme", "Layout", "Transition"],
+    "answerIndex": 2,
+    "explanation": "Layouts define where text, images, and other objects appear on a slide."
+  },
+  {
+    "id": 1309,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does Ctrl + M do in PowerPoint?",
+    "options": ["Insert image", "Add new slide", "Duplicate slide", "Start slideshow"],
+    "answerIndex": 1,
+    "explanation": "Ctrl + M quickly inserts a new slide into the presentation."
+  },
+  {
+    "id": 1310,
+    "topic": "POWERPOINT",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which option adds movement between slides?",
+    "options": ["Animation", "Transition", "Theme", "Layout"],
+    "answerIndex": 1,
+    "explanation": "Transitions control how one slide changes to the next during a slideshow."
+  },
+
+  {
+    "id": 1311,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of Slide Master?",
+    "options": ["Add animations", "Control overall slide design", "Insert charts", "Manage transitions"],
+    "answerIndex": 1,
+    "explanation": "Slide Master allows users to make global design changes that apply to all slides."
+  },
+  {
+    "id": 1312,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature adds motion to objects on a slide?",
+    "options": ["Transition", "Animation", "Layout", "Theme"],
+    "answerIndex": 1,
+    "explanation": "Animations apply motion effects to text and objects within a slide."
+  },
+  {
+    "id": 1313,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which view is best for presenting slides to an audience?",
+    "options": ["Normal View", "Slide Sorter", "Slide Show", "Notes View"],
+    "answerIndex": 2,
+    "explanation": "Slide Show view displays slides full-screen for audience presentations."
+  },
+  {
+    "id": 1314,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the use of Speaker Notes?",
+    "options": ["Show audience notes", "Add slide animations", "Provide presenter guidance", "Format text"],
+    "answerIndex": 2,
+    "explanation": "Speaker Notes contain presenter-only notes visible during the presentation."
+  },
+  {
+    "id": 1315,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option allows rehearsing slide timings?",
+    "options": ["Record Slide Show", "Rehearse Timings", "Set Up Show", "Animation Pane"],
+    "answerIndex": 1,
+    "explanation": "Rehearse Timings helps presenters practice and record slide timing automatically."
+  },
+
+  {
+    "id": 1316,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows embedding audio or video?",
+    "options": ["Design Tab", "Insert Tab", "View Tab", "Transitions Tab"],
+    "answerIndex": 1,
+    "explanation": "The Insert tab is used to add audio and video media to slides."
+  },
+  {
+    "id": 1317,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does 'Duplicate Slide' do?",
+    "options": ["Deletes slide", "Copies slide content", "Renames slide", "Moves slide"],
+    "answerIndex": 1,
+    "explanation": "Duplicate Slide creates an exact copy of the selected slide."
+  },
+  {
+    "id": 1318,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option exports a presentation as a video?",
+    "options": ["Save As", "Export", "Share", "Publish"],
+    "answerIndex": 1,
+    "explanation": "The Export option allows saving presentations as video files."
+  },
+  {
+    "id": 1319,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature aligns objects evenly on a slide?",
+    "options": ["Group", "Align", "Distribute", "Arrange"],
+    "answerIndex": 1,
+    "explanation": "Align tools help position objects evenly relative to each other or the slide."
+  },
+  {
+    "id": 1320,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature protects a PowerPoint presentation with a password?",
+    "options": ["Restrict Access", "Encrypt with Password", "Read Mode", "Secure View"],
+    "answerIndex": 1,
+    "explanation": "Encrypt with Password prevents unauthorized access to the presentation file."
+  },
+
+  {
+    "id": 1321,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which view allows editing slide content and layout together?",
+    "options": ["Slide Sorter", "Normal View", "Reading View", "Notes View"],
+    "answerIndex": 1,
+    "explanation": "Normal View is the primary editing view where you can modify slide content and layouts."
+  },
+  {
+    "id": 1322,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which key starts the slideshow from the current slide?",
+    "options": ["F5", "Shift + F5", "Ctrl + F5", "Alt + F5"],
+    "answerIndex": 1,
+    "explanation": "Shift + F5 starts the slide show from the currently selected slide."
+  },
+  {
+    "id": 1323,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What is the purpose of the Animation Pane?",
+    "options": ["Apply themes", "Control animation order and timing", "Change slide layout", "Insert objects"],
+    "answerIndex": 1,
+    "explanation": "Animation Pane allows precise control over animation sequence, timing, and triggers."
+  },
+  {
+    "id": 1324,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature ensures text fits inside a text box automatically?",
+    "options": ["Text Wrap", "AutoFit", "WordArt", "SmartArt"],
+    "answerIndex": 1,
+    "explanation": "AutoFit resizes text automatically so that it fits within the text box."
+  },
+  {
+    "id": 1325,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "What does the 'Reuse Slides' feature do?",
+    "options": ["Deletes duplicate slides", "Imports slides from another presentation", "Copies animations", "Shares slides online"],
+    "answerIndex": 1,
+    "explanation": "Reuse Slides allows inserting slides from another PowerPoint presentation."
+  },
+
+  {
+    "id": 1326,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which option hides selected slides during a presentation?",
+    "options": ["Remove Slide", "Hide Slide", "Delete Slide", "Skip Slide"],
+    "answerIndex": 1,
+    "explanation": "Hide Slide removes the slide from the slideshow without deleting it."
+  },
+  {
+    "id": 1327,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature creates visual diagrams such as processes or hierarchies?",
+    "options": ["Chart", "Table", "SmartArt", "WordArt"],
+    "answerIndex": 2,
+    "explanation": "SmartArt provides built-in diagrams like processes, cycles, and organizational charts."
+  },
+  {
+    "id": 1328,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which file format opens directly in slideshow mode?",
+    "options": [".pptx", ".ppt", ".ppsx", ".pdf"],
+    "answerIndex": 2,
+    "explanation": "Files saved as .ppsx open directly in Slide Show mode."
+  },
+  {
+    "id": 1329,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which tool groups multiple objects together?",
+    "options": ["Align", "Group", "Arrange", "Merge"],
+    "answerIndex": 1,
+    "explanation": "Grouping allows multiple objects to move, resize, or format together."
+  },
+  {
+    "id": 1330,
+    "topic": "POWERPOINT",
+    "level": "Moderate",
+    "type": "mcq",
+    "question": "Which feature allows zooming into specific slide content during a presentation?",
+    "options": ["Slide Zoom", "Presenter View", "Animation Zoom", "Reading View"],
+    "answerIndex": 0,
+    "explanation": "Slide Zoom allows presenters to focus on specific content while presenting."
+  },
+
+  {
+    "id": 1331,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is the advantage of using Master Slides?",
+    "options": ["Add animations", "Maintain consistency", "Increase file size", "Speed up slideshow"],
+    "answerIndex": 1,
+    "explanation": "Master Slides ensure consistent formatting across all slides."
+  },
+  {
+    "id": 1332,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option allows triggering an animation by clicking an object?",
+    "options": ["After Previous", "With Previous", "On Click", "Trigger"],
+    "answerIndex": 3,
+    "explanation": "Trigger animations start when a specific object is clicked."
+  },
+  {
+    "id": 1333,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What is Presenter View mainly used for?",
+    "options": ["Editing slides", "Audience display", "Viewing notes privately", "Recording narration"],
+    "answerIndex": 2,
+    "explanation": "Presenter View shows notes, upcoming slides, and timing to the presenter only."
+  },
+  {
+    "id": 1334,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option reduces the file size of a presentation?",
+    "options": ["Compress Media", "Export Video", "Merge Slides", "Reuse Slides"],
+    "answerIndex": 0,
+    "explanation": "Compress Media reduces the size of embedded audio and video files."
+  },
+  {
+    "id": 1335,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature allows non-linear navigation between slides?",
+    "options": ["Slide Sorter", "Hyperlinks", "Transitions", "Themes"],
+    "answerIndex": 1,
+    "explanation": "Hyperlinks allow jumping to any slide, file, or webpage."
+  },
+
+  {
+    "id": 1336,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option records narration and slide timings together?",
+    "options": ["Rehearse Timings", "Record Slide Show", "Animation Pane", "Presenter View"],
+    "answerIndex": 1,
+    "explanation": "Record Slide Show captures narration, ink, and timings."
+  },
+  {
+    "id": 1337,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature locks aspect ratio while resizing objects?",
+    "options": ["Alt key", "Shift key", "Ctrl key", "Tab key"],
+    "answerIndex": 1,
+    "explanation": "Holding the Shift key maintains the object's aspect ratio while resizing."
+  },
+  {
+    "id": 1338,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which accessibility feature adds descriptive text for screen readers?",
+    "options": ["Notes", "Captions", "Alt Text", "Comments"],
+    "answerIndex": 2,
+    "explanation": "Alt Text helps visually impaired users understand visual content."
+  },
+  {
+    "id": 1339,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option allows co-authoring presentations in real time?",
+    "options": ["Export", "Share", "Compare", "Protect"],
+    "answerIndex": 1,
+    "explanation": "Share enables real-time collaboration through OneDrive or SharePoint."
+  },
+  {
+    "id": 1340,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which tool checks for accessibility, compatibility, and performance issues?",
+    "options": ["Inspect Document", "Check Issues", "Optimize Slides", "Review Panel"],
+    "answerIndex": 1,
+    "explanation": "Check Issues helps identify accessibility and compatibility problems."
+  },
+ 
+  {
+    "id": 1341,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature allows linking PowerPoint slides to an external Excel file?",
+    "options": ["Embed Object", "Link Object", "Import Data", "Reuse Slides"],
+    "answerIndex": 1,
+    "explanation": "Link Object connects the slide content to an external Excel file so updates reflect automatically."
+  },
+  {
+    "id": 1342,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which view is best for arranging slide flow and structure?",
+    "options": ["Normal View", "Outline View", "Slide Sorter", "Notes View"],
+    "answerIndex": 2,
+    "explanation": "Slide Sorter view shows all slides as thumbnails, ideal for organizing flow."
+  },
+  {
+    "id": 1343,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "What happens when you apply a theme after creating slides?",
+    "options": ["Slides are deleted", "Only new slides change", "All slides update design", "Text formatting is lost"],
+    "answerIndex": 2,
+    "explanation": "Applying a theme updates the design of all slides automatically."
+  },
+  {
+    "id": 1344,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature allows inserting a live website into a slide?",
+    "options": ["Web Object", "Embed Browser", "Online Video", "Hyperlink"],
+    "answerIndex": 3,
+    "explanation": "Hyperlinks allow linking to live websites; PowerPoint does not embed live browsing."
+  },
+  {
+    "id": 1345,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option ensures animations play in a specific sequence?",
+    "options": ["Transition Pane", "Animation Pane", "Trigger Tool", "Slide Sorter"],
+    "answerIndex": 1,
+    "explanation": "Animation Pane lets users control animation order and timing precisely."
+  },
+
+  {
+    "id": 1346,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature allows repeating an animation without clicking?",
+    "options": ["On Click", "With Previous", "After Previous", "Loop Until Stopped"],
+    "answerIndex": 3,
+    "explanation": "Loop Until Stopped repeats an animation continuously until the slide changes."
+  },
+  {
+    "id": 1347,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which option allows adding interactive navigation buttons?",
+    "options": ["SmartArt", "Action Buttons", "Hyperlinks", "Icons"],
+    "answerIndex": 1,
+    "explanation": "Action Buttons provide interactive navigation within presentations."
+  },
+  {
+    "id": 1348,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature is used to compare two presentations?",
+    "options": ["Review Pane", "Compare", "Inspect Document", "Merge Slides"],
+    "answerIndex": 1,
+    "explanation": "Compare highlights differences between two PowerPoint files."
+  },
+  {
+    "id": 1349,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which tool ensures brand consistency across multiple presentations?",
+    "options": ["Theme Gallery", "Slide Master", "Design Ideas", "Templates"],
+    "answerIndex": 1,
+    "explanation": "Slide Master controls global fonts, colors, and layouts to maintain consistency."
+  },
+  {
+    "id": 1350,
+    "topic": "POWERPOINT",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which feature allows presenting on one screen while viewing notes on another?",
+    "options": ["Reading View", "Presenter View", "Slide Sorter", "Outline View"],
+    "answerIndex": 1,
+    "explanation": "Presenter View displays notes privately while the audience sees slides."
+  },
+
+  {
+    "id": 1351,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which format preserves animations when sharing presentations?",
+    "options": ["PDF", "Video", "Image", "Handout"],
+    "answerIndex": 1,
+    "explanation": "Exporting as a video keeps animations and transitions intact."
+  },
+  {
+    "id": 1352,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which option removes personal data from a presentation?",
+    "options": ["Inspect Document", "Encrypt File", "Protect Presentation", "Restrict Editing"],
+    "answerIndex": 0,
+    "explanation": "Inspect Document removes hidden metadata and personal information."
+  },
+  {
+    "id": 1353,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which feature improves slide accessibility for color-blind users?",
+    "options": ["Themes", "Alt Text", "High Contrast", "Design Ideas"],
+    "answerIndex": 2,
+    "explanation": "High Contrast improves visibility for users with color vision deficiencies."
+  },
+  {
+    "id": 1354,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which option allows setting automatic slide transitions?",
+    "options": ["Advance Slide", "After Timing", "Transition Timer", "Rehearse Timings"],
+    "answerIndex": 1,
+    "explanation": "The 'After' timing enables automatic slide advancement."
+  },
+  {
+    "id": 1355,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which file format is best for kiosk-style presentations?",
+    "options": [".pptx", ".ppsx", ".mp4", ".pdf"],
+    "answerIndex": 1,
+    "explanation": "PPSX opens directly in slideshow mode, ideal for kiosks."
+  },
+
+  {
+    "id": 1356,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which tool is used to manage embedded fonts?",
+    "options": ["Font Settings", "Embed Fonts", "Save Options", "Design Tools"],
+    "answerIndex": 2,
+    "explanation": "Save Options allow embedding fonts to maintain appearance."
+  },
+  {
+    "id": 1357,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which feature enables live captions during presentations?",
+    "options": ["Subtitles", "Live Captions", "Narration", "Alt Text"],
+    "answerIndex": 1,
+    "explanation": "Live Captions display spoken words as text in real time."
+  },
+  {
+    "id": 1358,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which option allows exporting slides as high-resolution images?",
+    "options": ["Save As PNG", "Export Images", "Copy Slides", "Publish Slides"],
+    "answerIndex": 0,
+    "explanation": "Saving slides as PNG produces high-quality images."
+  },
+  {
+    "id": 1359,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which feature allows syncing narration with slide animations?",
+    "options": ["Record Slide Show", "Rehearse Timings", "Animation Pane", "Presenter View"],
+    "answerIndex": 0,
+    "explanation": "Record Slide Show synchronizes narration, ink, and animations."
+  },
+  {
+    "id": 1360,
+    "topic": "POWERPOINT",
+    "level": "Expert",
+    "type": "mcq",
+    "question": "Which tool is best for creating reusable presentation templates?",
+    "options": ["Design Ideas", "Themes", "Slide Master", "SmartArt"],
+    "answerIndex": 2,
+    "explanation": "Slide Master enables creating reusable templates with consistent design."
+  },
+ 
+  {
+    "id": 1361,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is a network protocol?",
+    "options": [
+      "A hardware device used in networking",
+      "A set of rules for data communication",
+      "A type of network cable",
+      "A network topology"
+    ],
+    "answerIndex": 1,
+    "explanation": "A network protocol is a defined set of rules and standards that determine how data is transmitted, received, and interpreted between devices on a network. Without protocols, devices from different vendors would not be able to communicate reliably. Protocols define data format, timing, sequencing, error handling, and security mechanisms."
+  },
+  {
+    "id": 1362,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which protocol is used to transfer web pages over the internet?",
+    "options": ["FTP", "SMTP", "HTTP", "SNMP"],
+    "answerIndex": 2,
+    "explanation": "HTTP (HyperText Transfer Protocol) is used by web browsers and servers to request and deliver web pages. It operates on a client–server model and typically uses port 80. HTTP is stateless, meaning each request is independent of previous ones."
+  },
+  {
+    "id": 1363,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which secure version of HTTP encrypts data transmission?",
+    "options": ["HTTP+", "SHTTP", "HTTPS", "FTPS"],
+    "answerIndex": 2,
+    "explanation": "HTTPS (HTTP Secure) uses SSL/TLS encryption to secure data transmitted between client and server. This protects sensitive information such as passwords, credit card numbers, and personal data from eavesdropping and man-in-the-middle attacks."
+  },
+  {
+    "id": 1364,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which protocol is responsible for assigning IP addresses automatically?",
+    "options": ["DNS", "ARP", "DHCP", "ICMP"],
+    "answerIndex": 2,
+    "explanation": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses and other network parameters such as subnet mask, default gateway, and DNS server to devices. This reduces manual configuration and avoids IP address conflicts."
+  },
+  {
+    "id": 1365,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which protocol converts domain names into IP addresses?",
+    "options": ["ARP", "DNS", "ICMP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "DNS (Domain Name System) translates human-readable domain names like www.example.com into IP addresses that computers use to identify each other on the network. DNS acts like the phonebook of the internet."
+  },
+
+  {
+    "id": 1366,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is used to send email from a client to a mail server?",
+    "options": ["POP3", "IMAP", "SMTP", "FTP"],
+    "answerIndex": 2,
+    "explanation": "SMTP (Simple Mail Transfer Protocol) is used to send emails from an email client to a mail server and between mail servers. It works on port 25 (or 587/465 for secure transmission). It does not retrieve emails."
+  },
+  {
+    "id": 1367,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is used to retrieve emails and keep them on the server?",
+    "options": ["SMTP", "POP3", "IMAP", "SNMP"],
+    "answerIndex": 2,
+    "explanation": "IMAP (Internet Message Access Protocol) allows users to read emails directly from the mail server. Emails remain on the server, enabling synchronization across multiple devices like phones, tablets, and computers."
+  },
+  {
+    "id": 1368,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is used to transfer files between computers?",
+    "options": ["FTP", "SMTP", "HTTP", "SNMP"],
+    "answerIndex": 0,
+    "explanation": "FTP (File Transfer Protocol) is designed specifically for transferring files between systems. It supports uploading, downloading, renaming, and deleting files, but by default it does not encrypt data."
+  },
+  {
+    "id": 1369,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which secure file transfer protocol uses SSH?",
+    "options": ["FTPS", "FTP", "SFTP", "TFTP"],
+    "answerIndex": 2,
+    "explanation": "SFTP (SSH File Transfer Protocol) runs over the SSH protocol and provides encrypted file transfer. It is widely used because it offers strong authentication and security."
+  },
+  {
+    "id": 1370,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is used to test network connectivity?",
+    "options": ["SNMP", "ICMP", "ARP", "FTP"],
+    "answerIndex": 1,
+    "explanation": "ICMP (Internet Control Message Protocol) is used for diagnostic and error-reporting purposes. Tools like ping and traceroute use ICMP to test network reachability and latency."
+  },
+
+  {
+    "id": 1371,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol maps IP addresses to MAC addresses?",
+    "options": ["DNS", "ARP", "RARP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "ARP (Address Resolution Protocol) resolves an IP address to its corresponding MAC address on a local network. This is essential for data delivery at the data link layer."
+  },
+  {
+    "id": 1372,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is used for remote command-line access?",
+    "options": ["FTP", "SSH", "HTTP", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "SSH (Secure Shell) allows secure remote login and command execution. It encrypts data and replaces insecure protocols like Telnet."
+  },
+  {
+    "id": 1373,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Intermediate",
+    "type": "mcq",
+    "question": "Which protocol is considered insecure because it sends data in plain text?",
+    "options": ["HTTPS", "SSH", "Telnet", "SFTP"],
+    "answerIndex": 2,
+    "explanation": "Telnet sends usernames, passwords, and data in plain text, making it vulnerable to interception. It has largely been replaced by SSH."
+  },
+  {
+    "id": 1374,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used for network management and monitoring?",
+    "options": ["SNMP", "SMTP", "FTP", "HTTP"],
+    "answerIndex": 0,
+    "explanation": "SNMP (Simple Network Management Protocol) is used to monitor and manage network devices such as routers, switches, and servers. It collects performance data and can trigger alerts."
+  },
+  {
+    "id": 1375,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol helps determine the best path for data packets?",
+    "options": ["ARP", "RIP", "HTTP", "DNS"],
+    "answerIndex": 1,
+    "explanation": "RIP (Routing Information Protocol) is a distance-vector routing protocol that determines the best path using hop count. It is simple but not suitable for large networks."
+  },
+
+  {
+    "id": 1376,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is connection-oriented and ensures reliable data delivery?",
+    "options": ["UDP", "ICMP", "TCP", "ARP"],
+    "answerIndex": 2,
+    "explanation": "TCP (Transmission Control Protocol) establishes a connection before data transfer and ensures reliability through acknowledgments, sequencing, and retransmission of lost packets."
+  },
+  {
+    "id": 1377,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is connectionless and faster but less reliable?",
+    "options": ["TCP", "UDP", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "UDP (User Datagram Protocol) sends data without establishing a connection, making it faster but unreliable. It is commonly used in streaming, gaming, and VoIP."
+  },
+  {
+    "id": 1378,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol uses port 443 by default?",
+    "options": ["HTTP", "HTTPS", "FTP", "SSH"],
+    "answerIndex": 1,
+    "explanation": "HTTPS uses port 443 for secure web communication using SSL/TLS encryption."
+  },
+  {
+    "id": 1379,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to synchronize time across network devices?",
+    "options": ["SNMP", "NTP", "ICMP", "DNS"],
+    "answerIndex": 1,
+    "explanation": "NTP (Network Time Protocol) synchronizes clocks of computers over a network. Accurate time is crucial for logs, authentication, and security auditing."
+  },
+  {
+    "id": 1380,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol operates at the application layer of the OSI model?",
+    "options": ["TCP", "IP", "HTTP", "ARP"],
+    "answerIndex": 2,
+    "explanation": "HTTP operates at the application layer, directly interacting with user applications such as web browsers to provide web services."
+  },
+
+  {
+    "id": 1381,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is responsible for logical addressing in a network?",
+    "options": ["MAC", "ARP", "IP", "TCP"],
+    "answerIndex": 2,
+    "explanation": "IP (Internet Protocol) provides logical addressing using IP addresses. Unlike MAC addresses which are hardware-based, IP addresses are software-configured and allow devices to communicate across different networks and geographical locations."
+  },
+  {
+    "id": 1382,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which layer of the OSI model does TCP operate on?",
+    "options": ["Application", "Transport", "Network", "Session"],
+    "answerIndex": 1,
+    "explanation": "TCP operates at the Transport layer (Layer 4) of the OSI model. It ensures reliable end-to-end communication by handling flow control, error detection, acknowledgements, and retransmissions."
+  },
+  {
+    "id": 1383,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to securely resolve domain names?",
+    "options": ["DNS", "DNSSEC", "DHCP", "HTTPS"],
+    "answerIndex": 1,
+    "explanation": "DNSSEC (Domain Name System Security Extensions) adds cryptographic security to DNS. It protects against attacks such as DNS spoofing and cache poisoning by validating the authenticity of DNS responses."
+  },
+  {
+    "id": 1384,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol enables automatic network configuration in IPv6?",
+    "options": ["DHCPv6", "ARP", "SLAAC", "ICMPv6"],
+    "answerIndex": 2,
+    "explanation": "SLAAC (Stateless Address Autoconfiguration) allows IPv6 devices to automatically configure their own IP addresses without the need for a DHCP server, using router advertisements."
+  },
+  {
+    "id": 1385,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol translates IPv4 addresses to MAC addresses?",
+    "options": ["RARP", "DNS", "ARP", "NAT"],
+    "answerIndex": 2,
+    "explanation": "ARP (Address Resolution Protocol) resolves IPv4 addresses into MAC addresses within a local network so that frames can be delivered to the correct physical device."
+  },
+
+  {
+    "id": 1386,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol provides flow control and congestion control?",
+    "options": ["UDP", "IP", "TCP", "ICMP"],
+    "answerIndex": 2,
+    "explanation": "TCP manages both flow control (preventing a sender from overwhelming a receiver) and congestion control (preventing network overload). These features ensure reliable and efficient communication."
+  },
+  {
+    "id": 1387,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is mainly used in real-time applications like video streaming?",
+    "options": ["TCP", "UDP", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "UDP is preferred for real-time applications because it has low latency and does not wait for acknowledgements. Minor packet loss is acceptable in streaming and voice communication."
+  },
+  {
+    "id": 1388,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used by routers to exchange routing information within an autonomous system?",
+    "options": ["BGP", "OSPF", "HTTP", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "OSPF (Open Shortest Path First) is a link-state routing protocol used within an autonomous system. It calculates the shortest path using cost metrics and converges faster than RIP."
+  },
+  {
+    "id": 1389,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used between different autonomous systems on the internet?",
+    "options": ["OSPF", "RIP", "BGP", "EIGRP"],
+    "answerIndex": 2,
+    "explanation": "BGP (Border Gateway Protocol) is the core routing protocol of the internet. It exchanges routing information between autonomous systems and determines the best paths based on policies rather than distance."
+  },
+  {
+    "id": 1390,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol helps in error reporting and diagnostics?",
+    "options": ["ICMP", "ARP", "UDP", "FTP"],
+    "answerIndex": 0,
+    "explanation": "ICMP is used to report network errors and operational information. For example, it reports unreachable hosts and supports tools like ping and traceroute."
+  },
+
+  {
+    "id": 1391,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used for secure remote web-based management?",
+    "options": ["HTTP", "HTTPS", "SNMP", "Telnet"],
+    "answerIndex": 1,
+    "explanation": "HTTPS provides encrypted web-based communication and is often used for secure remote management of network devices and applications through browsers."
+  },
+  {
+    "id": 1392,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to map IPv6 addresses to MAC addresses?",
+    "options": ["ARP", "ICMPv6", "NDP", "RARP"],
+    "answerIndex": 2,
+    "explanation": "NDP (Neighbor Discovery Protocol) performs address resolution in IPv6 networks, replacing ARP. It also supports router discovery and address autoconfiguration."
+  },
+  {
+    "id": 1393,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows multiple protocols to be transported over a single connection?",
+    "options": ["TCP", "HTTP/2", "UDP", "IP"],
+    "answerIndex": 1,
+    "explanation": "HTTP/2 supports multiplexing, allowing multiple requests and responses to be sent over a single TCP connection, improving performance and reducing latency."
+  },
+  {
+    "id": 1394,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol ensures secure email transmission?",
+    "options": ["SMTP", "SMTPS", "POP3", "IMAP"],
+    "answerIndex": 1,
+    "explanation": "SMTPS is SMTP over SSL/TLS, providing encryption for email transmission and protecting messages from interception."
+  },
+  {
+    "id": 1395,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is commonly used in VPN tunneling?",
+    "options": ["IPsec", "FTP", "HTTP", "ARP"],
+    "answerIndex": 0,
+    "explanation": "IPsec provides encryption, authentication, and integrity for IP communications and is widely used in VPN implementations for secure data transfer."
+  },
+
+  {
+    "id": 1396,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol dynamically translates private IP addresses to public IP addresses?",
+    "options": ["NAT", "ARP", "DHCP", "DNS"],
+    "answerIndex": 0,
+    "explanation": "NAT (Network Address Translation) allows multiple private IP addresses to share a single public IP address, conserving IPv4 space and adding a layer of security."
+  },
+  {
+    "id": 1397,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol supports email retrieval while downloading messages locally?",
+    "options": ["IMAP", "SMTP", "POP3", "SNMP"],
+    "answerIndex": 2,
+    "explanation": "POP3 downloads email messages from the server to the local device and typically removes them from the server, making it suitable for single-device access."
+  },
+  {
+    "id": 1398,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol enables network devices to discover each other automatically?",
+    "options": ["LLDP", "FTP", "DNS", "SMTP"],
+    "answerIndex": 0,
+    "explanation": "LLDP (Link Layer Discovery Protocol) allows network devices to advertise their identity, capabilities, and neighbors, helping in network topology discovery."
+  },
+  {
+    "id": 1399,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used for multicast group management?",
+    "options": ["IGMP", "ICMP", "ARP", "BGP"],
+    "answerIndex": 0,
+    "explanation": "IGMP (Internet Group Management Protocol) manages multicast group memberships, allowing hosts to join or leave multicast streams efficiently."
+  },
+  {
+    "id": 1400,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is essential for modern secure internet communication?",
+    "options": ["SSL/TLS", "FTP", "Telnet", "RIP"],
+    "answerIndex": 0,
+    "explanation": "SSL/TLS provides encryption, authentication, and data integrity for internet communications, forming the backbone of secure services like HTTPS, FTPS, and SMTPS."
+  },
+ 
+  {
+    "id": 1401,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is primarily responsible for end-to-end encryption in web communications?",
+    "options": ["HTTP", "TLS", "FTP", "DNS"],
+    "answerIndex": 1,
+    "explanation": "TLS (Transport Layer Security) provides end-to-end encryption, authentication, and data integrity for web communications. It ensures that data exchanged between a browser and server cannot be read or modified by attackers. HTTPS is essentially HTTP running over TLS."
+  },
+  {
+    "id": 1402,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol works at the Network layer to deliver packets without guaranteeing delivery?",
+    "options": ["TCP", "UDP", "IP", "FTP"],
+    "answerIndex": 2,
+    "explanation": "IP (Internet Protocol) operates at the Network layer and is responsible for packet addressing and routing. It is a best-effort protocol, meaning it does not guarantee packet delivery, ordering, or error correction. These responsibilities are handled by higher-layer protocols like TCP."
+  },
+  {
+    "id": 1403,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to securely manage network devices using encryption and authentication?",
+    "options": ["SNMPv1", "SNMPv2", "SNMPv3", "Telnet"],
+    "answerIndex": 2,
+    "explanation": "SNMPv3 adds strong security features such as authentication, encryption, and integrity checking. Earlier versions (v1 and v2) transmit data in plain text, making SNMPv3 the preferred choice in enterprise networks."
+  },
+  {
+    "id": 1404,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol uses port 21 by default?",
+    "options": ["SFTP", "FTP", "FTPS", "TFTP"],
+    "answerIndex": 1,
+    "explanation": "FTP (File Transfer Protocol) uses port 21 for control commands. Data transfer may occur on separate ports. FTP is considered insecure because it transmits credentials in plain text."
+  },
+  {
+    "id": 1405,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol uses port 22 and provides secure file transfer and remote access?",
+    "options": ["Telnet", "SSH", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "SSH (Secure Shell) uses port 22 and provides encrypted remote login, command execution, and file transfer (SCP/SFTP). It replaces insecure protocols such as Telnet and FTP."
+  },
+
+  {
+    "id": 1406,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol ensures reliable data delivery using acknowledgments and retransmissions?",
+    "options": ["UDP", "ICMP", "TCP", "ARP"],
+    "answerIndex": 2,
+    "explanation": "TCP ensures reliable communication by using acknowledgments, sequence numbers, retransmission of lost packets, and congestion control mechanisms. This makes TCP suitable for applications where data accuracy is critical."
+  },
+  {
+    "id": 1407,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is best suited for Voice over IP (VoIP)?",
+    "options": ["TCP", "FTP", "UDP", "SMTP"],
+    "answerIndex": 2,
+    "explanation": "UDP is ideal for VoIP because it provides low latency and does not wait for retransmissions. Minor packet loss is acceptable in voice communication, but delays are not."
+  },
+  {
+    "id": 1408,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to automatically discover routers in IPv6 networks?",
+    "options": ["ARP", "ICMPv6", "DHCPv6", "DNS"],
+    "answerIndex": 1,
+    "explanation": "ICMPv6 supports Router Advertisement messages, allowing IPv6 devices to discover routers and network parameters automatically. It plays a critical role in IPv6 autoconfiguration."
+  },
+  {
+    "id": 1409,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is commonly used to distribute routing information using link-state advertisements?",
+    "options": ["RIP", "OSPF", "BGP", "IGMP"],
+    "answerIndex": 1,
+    "explanation": "OSPF is a link-state routing protocol that exchanges detailed topology information. Routers independently calculate the shortest path, resulting in fast convergence and efficient routing."
+  },
+  {
+    "id": 1410,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol enables secure tunneling of IP packets across untrusted networks?",
+    "options": ["NAT", "IPsec", "ARP", "HTTP"],
+    "answerIndex": 1,
+    "explanation": "IPsec encrypts and authenticates IP packets, creating secure tunnels across public or untrusted networks. It is widely used in site-to-site and remote-access VPNs."
+  },
+
+  {
+    "id": 1411,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol resolves hostnames to IP addresses using a hierarchical structure?",
+    "options": ["DHCP", "DNS", "ARP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "DNS uses a hierarchical and distributed database structure, allowing efficient and scalable hostname resolution across the internet."
+  },
+  {
+    "id": 1412,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol uses port 53 and supports both TCP and UDP?",
+    "options": ["DHCP", "FTP", "DNS", "SNMP"],
+    "answerIndex": 2,
+    "explanation": "DNS primarily uses UDP for fast queries and TCP for large responses, zone transfers, and reliability. Both operate on port 53."
+  },
+  {
+    "id": 1413,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol supports multicast traffic for efficient data distribution?",
+    "options": ["TCP", "IGMP", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "IGMP manages multicast group membership, allowing efficient one-to-many data distribution such as video streaming and online broadcasts."
+  },
+  {
+    "id": 1414,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is designed to manage bandwidth and reduce congestion in networks?",
+    "options": ["UDP", "TCP", "ARP", "DNS"],
+    "answerIndex": 1,
+    "explanation": "TCP uses congestion control algorithms such as slow start and congestion avoidance to dynamically adjust transmission rates and prevent network overload."
+  },
+  {
+    "id": 1415,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol replaces ARP in IPv6 networks?",
+    "options": ["DHCPv6", "NDP", "ICMP", "RARP"],
+    "answerIndex": 1,
+    "explanation": "NDP (Neighbor Discovery Protocol) replaces ARP in IPv6. It resolves IP-to-MAC mappings and also handles router discovery and address autoconfiguration."
+  },
+
+  {
+    "id": 1416,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows remote graphical access to systems?",
+    "options": ["SSH", "RDP", "Telnet", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "RDP (Remote Desktop Protocol) allows users to access and control a remote computer's graphical interface, commonly used in Windows environments."
+  },
+  {
+    "id": 1417,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to transfer large files efficiently over unreliable networks?",
+    "options": ["TFTP", "FTP", "SFTP", "HTTP"],
+    "answerIndex": 0,
+    "explanation": "TFTP (Trivial File Transfer Protocol) is lightweight and used in environments such as network booting. However, it lacks security and error recovery mechanisms."
+  },
+  {
+    "id": 1418,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol enables email retrieval with server-side synchronization?",
+    "options": ["POP3", "IMAP", "SMTP", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "IMAP allows users to access emails directly on the server, ensuring synchronization across multiple devices and preserving folder structures."
+  },
+  {
+    "id": 1419,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol provides authentication for network access control?",
+    "options": ["FTP", "RADIUS", "HTTP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "RADIUS provides centralized authentication, authorization, and accounting (AAA) for network access, commonly used for VPNs and Wi-Fi security."
+  },
+  {
+    "id": 1420,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is fundamental for secure modern internet communication and trust validation?",
+    "options": ["SSL/TLS", "FTP", "ARP", "RIP"],
+    "answerIndex": 0,
+    "explanation": "SSL/TLS ensures encrypted communication, authentication using certificates, and data integrity. It is foundational for secure browsing, online banking, and cloud services."
+  },
+ 
+  {
+    "id": 1421,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is primarily used to exchange routing information between autonomous systems on the Internet?",
+    "options": ["OSPF", "RIP", "BGP", "EIGRP"],
+    "answerIndex": 2,
+    "explanation": "BGP (Border Gateway Protocol) is the core routing protocol of the Internet. It exchanges routing information between autonomous systems (AS) using path-vector routing. BGP focuses on policy-based routing rather than shortest path, making it scalable and suitable for large networks."
+  },
+  {
+    "id": 1422,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows a device to automatically obtain an IP address and network configuration?",
+    "options": ["DNS", "ARP", "DHCP", "ICMP"],
+    "answerIndex": 2,
+    "explanation": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses, subnet masks, gateways, and DNS server information. This reduces administrative overhead and prevents IP address conflicts in large networks."
+  },
+  {
+    "id": 1423,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to diagnose network connectivity issues by sending echo requests?",
+    "options": ["ARP", "ICMP", "DNS", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "ICMP (Internet Control Message Protocol) is used for error reporting and diagnostics. Tools like ping and traceroute rely on ICMP echo request and echo reply messages to test connectivity and latency."
+  },
+  {
+    "id": 1424,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol provides secure email transmission between mail servers?",
+    "options": ["POP3", "IMAP", "SMTP over TLS", "FTP"],
+    "answerIndex": 2,
+    "explanation": "SMTP over TLS encrypts email transmission between mail servers, protecting message content and credentials from interception during transit. It is a standard security enhancement for modern email systems."
+  },
+  {
+    "id": 1425,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol uses port 161 for monitoring and managing network devices?",
+    "options": ["SNMP", "SMTP", "SSH", "Telnet"],
+    "answerIndex": 0,
+    "explanation": "SNMP (Simple Network Management Protocol) uses port 161 for querying and managing devices such as routers, switches, and servers. It enables centralized monitoring of network performance and faults."
+  },
+
+  {
+    "id": 1426,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which transport protocol provides unordered, connectionless communication?",
+    "options": ["TCP", "UDP", "SCTP", "TLS"],
+    "answerIndex": 1,
+    "explanation": "UDP is a connectionless protocol that does not guarantee delivery, order, or reliability. This makes it ideal for applications where speed is more important than accuracy, such as video streaming and online gaming."
+  },
+  {
+    "id": 1427,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is used to securely synchronize time across networked devices?",
+    "options": ["SNTP", "NTP", "FTP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "NTP (Network Time Protocol) synchronizes clocks across network devices with high accuracy. Accurate time is essential for logging, security audits, and certificate validation."
+  },
+  {
+    "id": 1428,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol supports message-oriented communication and multi-streaming?",
+    "options": ["UDP", "TCP", "SCTP", "IP"],
+    "answerIndex": 2,
+    "explanation": "SCTP (Stream Control Transmission Protocol) supports multi-streaming and multi-homing, reducing head-of-line blocking and improving reliability in telecom and signaling systems."
+  },
+  {
+    "id": 1429,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows secure access to websites using digital certificates?",
+    "options": ["HTTP", "HTTPS", "FTP", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "HTTPS uses TLS certificates to authenticate websites and encrypt communication between clients and servers, ensuring confidentiality and trust in web transactions."
+  },
+  {
+    "id": 1430,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is responsible for translating private IP addresses to public IP addresses?",
+    "options": ["DNS", "NAT", "ARP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "NAT (Network Address Translation) allows multiple private devices to share a single public IP address. It conserves IP addresses and adds a basic layer of security by hiding internal networks."
+  },
+
+  {
+    "id": 1431,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol helps prevent switching loops in Ethernet networks?",
+    "options": ["ARP", "STP", "VLAN", "RIP"],
+    "answerIndex": 1,
+    "explanation": "STP (Spanning Tree Protocol) prevents loops by dynamically disabling redundant paths in Ethernet networks. This ensures stable network operation without broadcast storms."
+  },
+  {
+    "id": 1432,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol operates at the Application layer and supports distributed directory services?",
+    "options": ["LDAP", "FTP", "DNS", "HTTP"],
+    "answerIndex": 0,
+    "explanation": "LDAP (Lightweight Directory Access Protocol) provides directory services such as authentication, authorization, and centralized user management, commonly used with Active Directory."
+  },
+  {
+    "id": 1433,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows file sharing and printer access in Windows networks?",
+    "options": ["NFS", "SMB", "FTP", "SCP"],
+    "answerIndex": 1,
+    "explanation": "SMB (Server Message Block) enables file and printer sharing in Windows environments. It supports authentication, encryption, and network file access."
+  },
+  {
+    "id": 1434,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol is commonly used for Unix/Linux file sharing?",
+    "options": ["SMB", "FTP", "NFS", "HTTP"],
+    "answerIndex": 2,
+    "explanation": "NFS (Network File System) allows Unix/Linux systems to share files over a network as if they were local, improving collaboration and centralized storage."
+  },
+  {
+    "id": 1435,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol provides hop-by-hop error reporting and diagnostics?",
+    "options": ["TCP", "ICMP", "UDP", "HTTP"],
+    "answerIndex": 1,
+    "explanation": "ICMP reports network errors such as unreachable destinations and time exceeded messages. It helps administrators troubleshoot routing and connectivity problems."
+  },
+
+  {
+    "id": 1436,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol enables secure remote file copying over SSH?",
+    "options": ["FTP", "SCP", "TFTP", "NFS"],
+    "answerIndex": 1,
+    "explanation": "SCP (Secure Copy Protocol) runs over SSH and securely transfers files between systems while encrypting both authentication and data."
+  },
+  {
+    "id": 1437,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol allows a single server to serve multiple domains?",
+    "options": ["SMTP", "HTTP", "DNS", "IMAP"],
+    "answerIndex": 1,
+    "explanation": "HTTP supports virtual hosting, enabling a single server to host multiple websites using host headers. This is common in shared hosting environments."
+  },
+  {
+    "id": 1438,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol reduces latency by maintaining persistent connections and multiplexing?",
+    "options": ["HTTP/1.1", "HTTP/2", "FTP", "SMTP"],
+    "answerIndex": 1,
+    "explanation": "HTTP/2 improves performance through multiplexing, header compression, and persistent connections, significantly reducing latency compared to HTTP/1.1."
+  },
+  {
+    "id": 1439,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol supports real-time video conferencing with minimal delay?",
+    "options": ["TCP", "UDP", "FTP", "SNMP"],
+    "answerIndex": 1,
+    "explanation": "UDP is preferred for real-time applications because it minimizes latency. While some packets may be lost, real-time communication values speed over perfect reliability."
+  },
+  {
+    "id": 1440,
+    "topic": "NETWORK_PROTOCOLS",
+    "level": "Advanced",
+    "type": "mcq",
+    "question": "Which protocol ensures secure identity verification in enterprise networks?",
+    "options": ["DNS", "Kerberos", "FTP", "ICMP"],
+    "answerIndex": 1,
+    "explanation": "Kerberos provides strong authentication using encrypted tickets and time-based validation. It is widely used in enterprise environments, especially within Active Directory infrastructures."
+  }
 
 ]
