@@ -96,10 +96,40 @@ export default class Topic3 extends Component {
 
           <button
             onClick={this.downloadExcel}
-            className="inline-block mt-2 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold transition"
+            className="inline-flex items-center gap-3 mt-2 px-5 py-2 rounded-lg 
+             border border-emerald-400/40 
+             bg-emerald-500/10 backdrop-blur-md
+             text-emerald-300 font-semibold
+             hover:bg-emerald-500/20 hover:border-emerald-300
+             transition-all duration-300"
           >
+            {/* Excel File Icon */}
+            <svg viewBox="0 0 48 48" className="w-6 h-6">
+              <path fill="#185C37" d="M6 6h22l10 10v26H6z" />
+              <path fill="#107C41" d="M28 6v10h10z" />
+              <path fill="#21A366" d="M6 6h14v36H6z" />
+              <path fill="#ffffff" d="M12.8 31l3.2-6-3.2-6h3l1.7 3.8 1.8-3.8h3l-3.3 6 3.3 6h-3l-1.8-4-1.7 4z" />
+            </svg>
+
+            {/* Download Arrow Icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 3v12m0 0l4-4m-4 4l-4-4M4 17h16"
+              />
+            </svg>
+
             Download Practice File
           </button>
+
         </div>
 
 

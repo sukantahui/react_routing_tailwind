@@ -3,6 +3,14 @@
   "trackTitle": "Excel from Basic to Pro (Standard Track)",
   "description": "A complete Microsoft Excel learning path from absolute beginner to advanced user, focused on formulas, formatting, charts, data analysis and reporting for students and office professionals.",
   "folder": "excel",
+  "subject": "Excel",
+  "subjectLogo": {
+    "name": "Excel",
+    "icon": "excel",
+    "type": "svg",
+    "path": "/logos/excel.svg",
+    "alt": "Python Logo"
+  },
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
