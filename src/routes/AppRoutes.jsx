@@ -54,10 +54,12 @@ import JavaTopicView from '../components/study/java-core/JavaTopicView';
 import GeneralRoadmap from '../components/study/general/GeneralRoadmap';
 import GeneralModuleView from '../components/study/general/GeneralModuleView';
 import GeneralTopicView from '../components/study/general/GeneralTopicView';
-
-
+import CssRoadmap from '../components/study/css/CssRoadmap';
+import CssModuleView from '../components/study/css/CssModuleView';
+import CssTopicView from '../components/study/css/CssTopicView';
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
+
 
 
 export default function AppRoutes() {
@@ -167,6 +169,11 @@ export default function AppRoutes() {
       <Route path="/general/roadmap" element={<GeneralRoadmap />} />
       <Route path="/general/module/:slug" element={<GeneralModuleView />} />
       <Route path="/general/topic/:moduleSlug/:topicIndex"  element={<GeneralTopicView/>}/>
+
+      {/* For CSS  */}
+      <Route path="/css/roadmap" element={<CssRoadmap />} />
+      <Route path="/css/module/:slug" element={<CssModuleView />} />
+      <Route path="/css/topic/:moduleSlug/:topicIndex"  element={<CssTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

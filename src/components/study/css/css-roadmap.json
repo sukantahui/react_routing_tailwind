@@ -1,0 +1,418 @@
+{
+    "trackId": "css-basic-to-ultra-expert",
+    "trackTitle": "CSS from Basic to Ultra Expert",
+    "description": "A complete CSS learning path from absolute beginner to ultra expert, designed for classroom and self-paced learners. Covers layout systems, animations, responsive design, performance, accessibility and modern UI architecture.",
+    "institute": {
+        "name": "Coder & AccoTax",
+        "website": "https://www.codernaccotax.co.in",
+        "author": "Sukanta Hui",
+        "location": "Barrackpore, West Bengal, India",
+        "trackType": "CSS Tutorial Roadmap",
+        "version": "1.0.0",
+        "lastUpdated": "2025-12-26"
+    },
+    "folder": "css",
+    "subject": "CSS",
+    "subjectLogo": {
+        "name": "CSS3",
+        "icon": "CSS3",
+        "type": "svg",
+        "path": "/logos/css3.svg",
+        "alt": "CSS Logo"
+    },
+    "segments": [
+        {
+            "segmentId": "basic",
+            "title": "Segment 1 – Core Foundations (Beginner)",
+            "level": "Beginner",
+            "summary": "Learn how styling works in the browser and build your first beautiful web pages.",
+            "modules": [
+                {
+                    "moduleId": "css-intro",
+                    "slug": "getting-started-with-css",
+                    "title": "Getting Started with CSS",
+                    "estimatedHours": 3,
+                    "topics": [
+                        "What is CSS and how it works with HTML",
+                        "Role of CSS in modern web design",
+                        "Inline, internal and external CSS – differences and use cases",
+                        "Linking external CSS files correctly",
+                        "Basic selectors: element, class and id",
+                        "CSS syntax: selectors, properties, values and declarations",
+                        "Understanding comments in CSS",
+                        "How browsers read and apply CSS (cascade introduction)",
+                        "Basic color, font and background styling",
+                        "Common beginner mistakes in CSS",
+                        "Mini Project: Style a plain HTML page using CSS"
+                    ],
+                    "learningOutcomes": [
+                        "Write your first CSS file",
+                        "Attach CSS to HTML",
+                        "Use basic selectors correctly"
+                    ],
+                    "badge": "CSS Beginner Badge"
+                },
+                {
+                    "moduleId": "css-selectors",
+                    "slug": "css-selectors-and-specificity",
+                    "title": "Selectors, Specificity & Cascade",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "How CSS selectors work behind the scenes",
+                        "Universal selector (*) and grouping selectors",
+                        "Element, class and id selectors – proper usage",
+                        "Attribute selectors with operators (=, ~=, |=, ^=, $=, *=)",
+                        "Descendant, child (>) and sibling selectors (+, ~)",
+                        "Pseudo-classes: :hover, :active, :focus, :nth-child(), :not()",
+                        "Pseudo-elements: ::before, ::after, ::first-letter, ::first-line",
+                        "Specificity calculation formula – with real examples",
+                        "Inline vs internal vs external CSS precedence",
+                        "Inheritance – what gets inherited and what does not",
+                        "The cascade – source order, importance and layers",
+                        "!important – when it breaks your code",
+                        "Debugging specificity using DevTools",
+                        "Writing low-specificity scalable selectors",
+                        "Common selector mistakes & real-world bugs",
+                        "Mini Project: Fix a broken UI caused by selector conflicts"
+                    ],
+                    "badge": "Selector Pro Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "intermediate",
+            "title": "Segment 2 – Layout & Visual Design",
+            "level": "Intermediate",
+            "summary": "Master layouts and page structure using modern CSS tools.",
+            "modules": [
+                {
+                    "moduleId": "box-model",
+                    "slug": "css-box-model",
+                    "title": "CSS Box Model & Display",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "What is responsive design and why it matters",
+                        "Mobile-first design approach",
+                        "Desktop-first vs mobile-first strategy",
+                        "Understanding viewports and meta viewport tag",
+                        "Breakpoints – how to choose real-world breakpoints",
+                        "Designing layouts for mobile, tablet and desktop",
+                        "Fluid layouts vs fixed layouts",
+                        "Units in CSS: px, %, em, rem, vw, vh, vmin, vmax, ch, ex – when and where to use",
+                        "Relative units vs absolute units – comparison table",
+                        "rem vs em – inheritance problems explained",
+                        "vh & vw pitfalls on mobile browsers",
+                        "Using clamp() for fluid typography",
+                        "Using min(), max() and clamp() functions",
+                        "Media query syntax – min-width & max-width patterns",
+                        "Orientation based queries – portrait vs landscape",
+                        "Targeting high-resolution screens (device pixel ratio)",
+                        "Combining multiple conditions in media queries",
+                        "Container queries – introduction & future-proofing",
+                        "Responsive images with max-width: 100%",
+                        "Handling overflow and horizontal scroll bugs",
+                        "Typography scaling for accessibility",
+                        "Building a fully responsive navigation bar",
+                        "Common mistakes in responsive layouts",
+                        "Testing responsive design using DevTools",
+                        "Display Property of CSS",
+                        "Mini project: Convert a fixed layout into responsive layout"
+                    ],
+                    "badge": "Box Model Expert"
+                },
+                {
+                    "moduleId": "flexbox",
+                    "slug": "flexbox-layout",
+                    "title": "Flexbox Layout System",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "What is Flexbox and why it was introduced",
+                        "Flex container vs flex items",
+                        "Main axis & cross axis – visual understanding",
+                        "flex-direction: row, row-reverse, column, column-reverse",
+                        "flex-wrap and wrapping strategies",
+                        "justify-content: flex-start, center, space-between, space-around, space-evenly",
+                        "align-items vs align-content – when each works",
+                        "align-self – overriding alignment for individual items",
+                        "gap property in Flexbox layouts",
+                        "flex-grow, flex-shrink, flex-basis – deep dive with diagrams",
+                        "flex shorthand property – real-world usage",
+                        "Building equal-height columns with Flexbox",
+                        "Vertical & horizontal centering – classic Flexbox trick",
+                        "Creating responsive navigation bars",
+                        "Sticky footer layout using Flexbox",
+                        "Reordering elements using order property",
+                        "Responsive cards layout using Flexbox",
+                        "Nested flex containers – advanced patterns",
+                        "Common Flexbox bugs and how to debug them",
+                        "Mini Project: Build a responsive pricing table using Flexbox"
+                    ],
+                    "badge": "Flexbox Master"
+                },
+                {
+                    "moduleId": "grid",
+                    "slug": "css-grid-system",
+                    "title": "CSS Grid System",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "What is CSS Grid and when to use it instead of Flexbox",
+                        "Grid container vs grid items",
+                        "Defining rows and columns using grid-template-rows & grid-template-columns",
+                        "Fractional units (fr) – building fluid grid systems",
+                        "Grid lines, tracks and cells – conceptual clarity",
+                        "Placing items using grid-row & grid-column",
+                        "Named grid lines and named grid areas",
+                        "grid-template-areas for semantic page layout",
+                        "Auto-placement algorithm – how Grid decides placement",
+                        "Implicit vs explicit grid",
+                        "Auto-fit vs auto-fill – difference with real examples",
+                        "minmax() for responsive grids",
+                        "repeat() function for clean layouts",
+                        "Creating card grids with variable heights",
+                        "Overlapping elements using CSS Grid",
+                        "Building complete website layouts with Grid",
+                        "Combining Flexbox & Grid – best practice architecture",
+                        "Responsive Grid design using media queries",
+                        "Debugging CSS Grid using browser DevTools",
+                        "Common Grid mistakes & layout breaking scenarios",
+                        "Mini Project: Build a full responsive dashboard layout using CSS Grid"
+                    ],
+                    "badge": "Grid Architect"
+                }
+            ]
+        },
+        {
+            "segmentId": "advanced",
+            "title": "Segment 3 – Responsive & Interactive CSS",
+            "level": "Advanced",
+            "summary": "Create dynamic, responsive and animated interfaces.",
+            "modules": [
+                {
+                    "moduleId": "responsive",
+                    "slug": "responsive-design",
+                    "title": "Responsive Design & Media Queries",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "What is responsive design and why it is essential in modern web development",
+                        "Mobile-first vs desktop-first design strategies",
+                        "Understanding the viewport & meta viewport tag",
+                        "Choosing practical breakpoints for phones, tablets and desktops",
+                        "Fluid layouts vs fixed layouts – when to use which",
+                        "Designing for touch devices – tap targets and spacing",
+                        "Units in CSS: px, %, em, rem, vw, vh, vmin, vmax, ch, ex – when and where to use",
+                        "Relative vs absolute units – real-world comparisons",
+                        "rem vs em – inheritance problems explained with examples",
+                        "vh & vw pitfalls on mobile browsers and how to fix them",
+                        "Using clamp() for fluid typography",
+                        "Using min(), max() and clamp() functions",
+                        "Media query syntax – min-width & max-width patterns",
+                        "Combining multiple media query conditions",
+                        "Orientation based queries – portrait vs landscape",
+                        "High resolution & retina display handling",
+                        "Container queries – introduction & future of responsive CSS",
+                        "Responsive images using max-width: 100% & object-fit",
+                        "Preventing horizontal scroll bugs",
+                        "Typography scaling for accessibility",
+                        "Testing responsive layouts with Chrome DevTools",
+                        "Common responsive design mistakes",
+                        "Mini Project: Convert a fixed layout into a fully responsive website"
+                    ],
+                    "badge": "Responsive Designer"
+                },
+                {
+                    "moduleId": "animations",
+                    "slug": "css-animations",
+                    "title": "Transitions, Animations & Keyframes",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "Difference between transitions and animations",
+                        "transition-property, transition-duration, transition-delay, transition-timing-function",
+                        "Common timing functions: ease, linear, ease-in, ease-out, cubic-bezier()",
+                        "Animating color, background, box-shadow and opacity",
+                        "2D & 3D transforms: scale, rotate, translate, skew, rotateX, rotateY, perspective",
+                        "Combining multiple transforms",
+                        "@keyframes syntax – defining complex animation steps",
+                        "animation-name, duration, delay, iteration-count, direction, fill-mode, play-state",
+                        "Creating infinite loaders & spinners",
+                        "Hover animations for buttons and cards",
+                        "Animating layout without breaking flow",
+                        "Staggered animations for lists and galleries",
+                        "Hardware-accelerated animations using transform & opacity",
+                        "Performance tips: avoiding layout thrashing in animations",
+                        "Creating micro-interactions (like Facebook button effects)",
+                        "Animating SVG icons using CSS",
+                        "Respecting prefers-reduced-motion for accessibility",
+                        "Debugging animations using DevTools",
+                        "Common animation mistakes",
+                        "Mini Project: Build a fully animated notification system"
+                    ],
+                    "badge": "CSS Animator"
+                },
+                {
+                    "moduleId": "css-forms-ui",
+                    "slug": "css-forms-and-inputs",
+                    "title": "Forms, Inputs & UI Controls Styling",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "Styling input, textarea, select & button elements",
+                        "Custom checkboxes & radio buttons using CSS",
+                        "Focus states, error states & validation UI",
+                        "Floating labels & material-style input effects",
+                        "Styling file inputs & range sliders",
+                        "Disabled, readonly & placeholder styling",
+                        "Form layout patterns using Flexbox & Grid",
+                        "Accessibility friendly form UI patterns",
+                        "Mini Project: Build a fully styled registration form UI"
+                    ],
+                    "badge": "Form UI Designer Badge"
+                },
+                {
+                    "moduleId": "css-effects",
+                    "slug": "css-visual-effects",
+                    "title": "Visual Effects, Pseudo Elements & Modern UI Polish",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "::before & ::after in real-world UI components",
+                        "Creating badges, ribbons, tooltips & labels",
+                        "Glassmorphism & neumorphism design concepts",
+                        "Advanced gradients & background overlays",
+                        "clip-path & shape-outside for creative layouts",
+                        "Using filter, mix-blend-mode & backdrop-filter",
+                        "Text effects using text-shadow & background-clip",
+                        "Mini Project: Build a modern card UI kit with effects"
+                    ],
+                    "badge": "UI Effects Artist Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "ultra-expert",
+            "title": "Segment 4 – Professional UI Engineering",
+            "level": "Ultra Expert",
+            "summary": "Advanced architecture, performance, accessibility and real-world CSS engineering.",
+            "modules": [
+                {
+                    "moduleId": "performance",
+                    "slug": "css-performance",
+                    "title": "CSS Performance & Optimization",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "What affects CSS performance in real browsers",
+                        "Understanding rendering pipeline: DOM, CSSOM, render tree, layout, paint, composite",
+                        "Critical CSS – extracting above-the-fold styles",
+                        "Reducing repaint & reflow – practical examples",
+                        "Avoiding layout thrashing in JavaScript-driven UIs",
+                        "Minification, compression & removing unused CSS",
+                        "Using will-change carefully – benefits and risks",
+                        "Optimizing fonts & icon usage",
+                        "Reducing complex selectors and deep nesting",
+                        "Efficient use of box-shadow, filters & heavy effects",
+                        "Lazy loading non-critical CSS",
+                        "Using media queries to load device-specific CSS",
+                        "Understanding composite-only animations",
+                        "Measuring performance with Chrome DevTools & Lighthouse",
+                        "Common CSS performance anti-patterns",
+                        "Mini Project: Optimize a slow-loading website layout"
+                    ],
+                    "badge": "CSS Performance Guru"
+                },
+                {
+                    "moduleId": "accessibility",
+                    "slug": "css-accessibility",
+                    "title": "Accessibility & Inclusive Design",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "What is web accessibility and why it matters",
+                        "Understanding WCAG principles – Perceivable, Operable, Understandable, Robust",
+                        "Color contrast ratios – AA vs AAA standards",
+                        "Readable typography – font sizes, line-height & spacing",
+                        "Focus states – :focus, :focus-visible and outline best practices",
+                        "Keyboard navigation patterns – tab order and skip links",
+                        "Designing accessible buttons, links and form controls",
+                        "ARIA roles – when to use and when not to",
+                        "Accessible form labels, placeholders and error messages",
+                        "Making modals, dropdowns & menus accessible",
+                        "Handling hover-only interactions for touch users",
+                        "Using prefers-reduced-motion for motion-sensitive users",
+                        "Testing accessibility using Lighthouse & screen readers",
+                        "Common accessibility mistakes in CSS",
+                        "Mini Project: Make an existing webpage fully accessible"
+                    ],
+                    "badge": "Accessibility Champion"
+                },
+                {
+                    "moduleId": "architecture",
+                    "slug": "css-architecture",
+                    "title": "CSS Architecture & Scalable Design Systems",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "Why CSS architecture matters in large projects",
+                        "Common CSS problems in growing codebases",
+                        "BEM methodology – block, element, modifier with naming conventions",
+                        "OOCSS – separating structure and skin",
+                        "SMACSS – base, layout, module, state, theme layers",
+                        "ITCSS – layered CSS architecture model",
+                        "Atomic CSS – utility-first thinking (Tailwind concept)",
+                        "Choosing the right architecture for your project",
+                        "CSS variables for theming and design tokens",
+                        "Light mode & dark mode implementation",
+                        "Building scalable color, spacing and typography systems",
+                        "Creating reusable UI components",
+                        "Avoiding global style conflicts",
+                        "Naming conventions and folder structure",
+                        "Refactoring messy CSS into a clean architecture",
+                        "Versioning & maintaining design systems",
+                        "Mini Project: Build a complete design system for a dashboard UI"
+                    ],
+                    "badge": "CSS Architect"
+                },
+                {
+                    "moduleId": "css-print",
+                    "slug": "css-print-and-media",
+                    "title": "Print CSS & Media-Specific Styling",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "Understanding media types – screen vs print",
+                        "Using @media print for layout control",
+                        "Page breaks, margins & printable layouts",
+                        "Hiding UI elements during printing",
+                        "Designing resumes, invoices & certificates for print",
+                        "Mini Project: Build a printable invoice template"
+                    ],
+                    "badge": "Print Design Pro Badge"
+                },
+                {
+                    "moduleId": "css-js-integration",
+                    "slug": "css-with-javascript",
+                    "title": "Integrating CSS with JavaScript",
+                    "estimatedHours": 5,
+                    "topics": [
+                        "Toggling classes dynamically with JavaScript",
+                        "Updating CSS variables using JavaScript",
+                        "Triggering animations via JS",
+                        "IntersectionObserver with CSS transitions",
+                        "Scroll-based effects & reveal animations",
+                        "Building dynamic theme switchers",
+                        "Mini Project: Build animated scroll effect system"
+                    ],
+                    "badge": "CSS JS Integrator Badge"
+                },
+                {
+                    "moduleId": "css-interview-mastery",
+                    "slug": "css-debugging-and-interviews",
+                    "title": "CSS Debugging, Refactoring & Interview Mastery",
+                    "estimatedHours": 6,
+                    "topics": [
+                        "How to debug broken layouts professionally",
+                        "Reading and refactoring legacy CSS code",
+                        "Common CSS interview questions & trick cases",
+                        "Live debugging strategies using DevTools",
+                        "Refactoring bad CSS into clean architecture",
+                        "Mini Project: Fix & refactor a broken production UI"
+                    ],
+                    "badge": "CSS Interview Master Badge"
+                }
+            ]
+        }
+    ]
+}
