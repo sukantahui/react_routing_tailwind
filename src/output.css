@@ -3326,6 +3326,9 @@
   .bg-no-repeat {
     background-repeat: no-repeat;
   }
+  .fill-amber-100 {
+    fill: var(--color-amber-100);
+  }
   .fill-amber-200 {
     fill: var(--color-amber-200);
   }
@@ -3443,6 +3446,12 @@
       fill: color-mix(in oklab, var(--color-purple-900) 70%, transparent);
     }
   }
+  .fill-rose-100 {
+    fill: var(--color-rose-100);
+  }
+  .fill-rose-200 {
+    fill: var(--color-rose-200);
+  }
   .fill-rose-300 {
     fill: var(--color-rose-300);
   }
@@ -3523,6 +3532,9 @@
   }
   .fill-slate-900 {
     fill: var(--color-slate-900);
+  }
+  .fill-teal-200 {
+    fill: var(--color-teal-200);
   }
   .fill-transparent {
     fill: transparent;
@@ -4811,6 +4823,34 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         fill: #020617;
+      }
+    }
+  }
+  .group-hover\:fill-amber-200 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-amber-200);
+      }
+    }
+  }
+  .group-hover\:fill-emerald-200 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-emerald-200);
+      }
+    }
+  }
+  .group-hover\:fill-rose-200 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-rose-200);
+      }
+    }
+  }
+  .group-hover\:fill-sky-200 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        fill: var(--color-sky-200);
       }
     }
   }
@@ -6801,6 +6841,14 @@
       }
     }
   }
+  .dark\:bg-slate-900\/80 {
+    @media (prefers-color-scheme: dark) {
+      background-color: color-mix(in srgb, oklch(20.8% 0.042 265.755) 80%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-slate-900) 80%, transparent);
+      }
+    }
+  }
   .dark\:bg-slate-950 {
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-slate-950);
@@ -6812,6 +6860,11 @@
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-yellow-950) 30%, transparent);
       }
+    }
+  }
+  .dark\:fill-amber-900 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-amber-900);
     }
   }
   .dark\:fill-emerald-300 {
@@ -6834,6 +6887,11 @@
       fill: var(--color-indigo-900);
     }
   }
+  .dark\:fill-rose-900 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-rose-900);
+    }
+  }
   .dark\:fill-sky-300 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-sky-300);
@@ -6844,9 +6902,19 @@
       fill: var(--color-sky-900);
     }
   }
+  .dark\:fill-slate-200 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-slate-200);
+    }
+  }
   .dark\:fill-slate-400 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-slate-400);
+    }
+  }
+  .dark\:fill-teal-900 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-teal-900);
     }
   }
   .dark\:stroke-emerald-600 {
@@ -6982,6 +7050,11 @@
   .dark\:text-violet-400 {
     @media (prefers-color-scheme: dark) {
       color: var(--color-violet-400);
+    }
+  }
+  .dark\:text-white {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-white);
     }
   }
   .dark\:text-yellow-300 {

@@ -22,6 +22,7 @@
     "jszip": "^3.10.1",
     "katex": "^0.16.27",
     "lucide-react": "^0.544.0",
+    "mermaid": "^11.12.2",
     "prettier": "^3.7.4",
     "prismjs": "^1.30.0",
     "qrcode": "^1.5.4",
