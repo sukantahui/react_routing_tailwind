@@ -219,7 +219,7 @@
       "description": "Print reverse number triangle.",
       "exampleText": "Reverse triangle of N=4",
       "exampleOutput": "4 3 2 1\n3 2 1\n2 1\n1",
-      "answer": "for(int i=n;i>=1;i--){\n for(int j=i;j>=1;j--) System.out.print(j+\" \");\n System.out.println();\n}",
+      "answer": "for(int i=n;i>=1;i--){\n for(int j=i;j>=1;j--)\nSystem.out.print(j+\" \");\n System.out.println();\n}",
       "learningOutcome": "Combine descending loops."
     }
   ]

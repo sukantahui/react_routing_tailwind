@@ -6,6 +6,7 @@ import {
   Code,
   Terminal,
   Lightbulb,
+  BookOpen,
 } from "lucide-react";
 
 import JavaCodeBlock from "../../common/JavaCodeBlock";
@@ -23,12 +24,12 @@ export default function JavaProjectAnswerTemplate({ data }) {
     projects,
   } = data;
 
-  // Simple heuristic: detect code vs text
   const isCode = (answer = "") =>
     answer.includes("\n") ||
     answer.includes("for(") ||
     answer.includes("int ") ||
-    answer.includes("boolean ");
+    answer.includes("boolean ") ||
+    answer.includes("while(");
 
   return (
     <div className="space-y-12">
@@ -62,7 +63,6 @@ export default function JavaProjectAnswerTemplate({ data }) {
           >
             {/* ---------- PROJECT HEADER ---------- */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-
               <div className="flex items-center gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-600/20 text-indigo-300 font-semibold text-sm border border-indigo-500/30">
                   {project.projectId}
@@ -94,16 +94,26 @@ export default function JavaProjectAnswerTemplate({ data }) {
               {project.description}
             </p>
 
-            {/* ---------- EXAMPLE ---------- */}
-            {project.example && (
-              <div className="mt-3 text-sm text-slate-400">
-                <b className="text-indigo-300">Example:</b> {project.example}
+            {/* ---------- EXAMPLE TEXT ---------- */}
+            {project.exampleText && (
+              <div className="mt-4 flex items-center gap-2 text-sm text-slate-300">
+                <BookOpen size={16} className="text-indigo-300" />
+                <span><b>Example:</b> {project.exampleText}</span>
+              </div>
+            )}
+
+            {/* ---------- EXAMPLE OUTPUT (PATTERN SAFE) ---------- */}
+            {project.exampleOutput && (
+              <div className="mt-3 rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                <div className="text-xs text-slate-400 mb-2">Example Output</div>
+                <pre className="text-slate-200 text-sm font-mono leading-snug whitespace-pre">
+{project.exampleOutput}
+                </pre>
               </div>
             )}
 
             {/* ---------- ANSWER ---------- */}
             <div className="mt-5 border border-slate-700 rounded-xl bg-[#0f172a] overflow-hidden">
-
               <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-700 text-slate-300 text-sm">
                 {isCode(project.answer) ? (
                   <>
@@ -144,7 +154,6 @@ export default function JavaProjectAnswerTemplate({ data }) {
         Students should convert logic answers into full BlueJ programs by adding
         class name, <code>main()</code> method, input handling, and output statements.
       </div>
-
     </div>
   );
 }
