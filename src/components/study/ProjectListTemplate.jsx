@@ -5,6 +5,7 @@ import {
   Lightbulb,
   BookOpen,
 } from "lucide-react";
+import JavaCodeBlock from "../../common/JavaCodeBlock";
 
 export default class ProjectListTemplate extends Component {
   render() {
@@ -59,10 +60,9 @@ export default class ProjectListTemplate extends Component {
                 {project.difficulty && (
                   <span
                     className={`rounded-full px-3 py-1 text-xs font-medium
-                      ${
-                        project.difficulty === "Beginner"
-                          ? "bg-emerald-900/40 text-emerald-300"
-                          : project.difficulty === "Intermediate"
+                      ${project.difficulty === "Beginner"
+                        ? "bg-emerald-900/40 text-emerald-300"
+                        : project.difficulty === "Intermediate"
                           ? "bg-amber-900/40 text-amber-300"
                           : "bg-rose-900/40 text-rose-300"
                       }
@@ -105,8 +105,37 @@ export default class ProjectListTemplate extends Component {
                   <p className="text-slate-200 text-sm leading-relaxed">
                     {project.example}
                   </p>
+
                 </div>
               )}
+
+
+              {/* CONCEPTUAL EXPLANATION */}
+              {project.exampleText && (
+                <div className="mt-5 rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <div className="flex items-center gap-2 mb-2 text-slate-300 text-sm font-medium">
+                    <BookOpen size={16} className="text-indigo-300" />
+                    Conceptual Example
+                  </div>
+                  <p className="text-slate-200 text-sm leading-relaxed">
+                    {project.exampleText}
+                  </p>
+                </div>
+              )}
+
+              {/* PATTERN / CONSOLE OUTPUT */}
+              {project.exampleOutput && (
+                <div className="mt-5 rounded-xl border border-slate-700 bg-slate-800/40 p-4">
+                  <div className="flex items-center gap-2 mb-2 text-slate-300 text-sm font-medium">
+                    <BookOpen size={16} className="text-indigo-300" />
+                    Example Output
+                  </div>
+                  <pre className="text-slate-200 text-sm font-mono leading-snug whitespace-pre">
+                    {project.exampleOutput}
+                  </pre>
+                </div>
+              )}
+
 
               {/* LEARNING OUTCOME */}
               {project.learningOutcome && (

@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import JavaCodeBlock from "../../../../../common/JavaCodeBlock";
 import { Lightbulb, AlertTriangle, CheckCircle2 } from "lucide-react";
-
+import QuizIfElse from "./QuizIfElse";
 const animationStyles = `
 @keyframes fadeSlideUp {
   0%{opacity:0; transform:translateY(20px);}
@@ -131,8 +131,10 @@ if(delay <= 10){
             convert daily decisions into code.
           </p>
         </div>
-
+        <QuizIfElse/>
       </section>
+
+        
     );
   }
 }

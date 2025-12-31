@@ -1,410 +1,564 @@
 {
-    "projectCategory": "ICSE Class IX Java Project Work (BlueJ)",
-    "subject": "Java Programming",
-    "board": "ICSE",
-    "class": "IX",
-    "tools": [
-        "BlueJ"
-    ],
-    "institute": {
-        "name": "Coder & AccoTax",
-        "author": "Sukanta Hui",
-        "location": "Barrackpore, West Bengal, India"
+  "projectCategory": "ICSE Class IX Java Project Work (BlueJ)",
+  "subject": "Java Programming",
+  "board": "ICSE",
+  "class": "IX",
+  "tools": ["BlueJ"],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India"
+  },
+  "projects": [
+    {
+      "projectId": 1,
+      "title": "Print First N Natural Numbers",
+      "difficulty": "Beginner",
+      "concepts": ["for loop syntax", "loop flow", "output"],
+      "description": "Write a program to print the first N natural numbers using a for loop.",
+      "exampleText": "First 5 natural numbers",
+      "exampleOutput": "1 2 3 4 5",
+      "answer": "for(int i=1;i<=n;i++) System.out.print(i+\" \");",
+      "learningOutcome": "Understand basic loop syntax and execution flow."
     },
-    "projects": [
-        {
-            "projectId": 1,
-            "title": "Print First N Natural Numbers",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop syntax",
-                "loop flow",
-                "output"
-            ],
-            "description": "Write a program to print the first N natural numbers using a for loop.",
-            "example": "If N = 5 → Output: 1 2 3 4 5",
-            "answer": "The numbers from 1 to N are printed sequentially using a loop.",
-            "learningOutcome": "Understand basic loop syntax and execution flow."
-        },
-        {
-            "projectId": 2,
-            "title": "Sum of First N Natural Numbers",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "accumulator variable"
-            ],
-            "description": "Accept a number N and calculate the sum of numbers from 1 to N.",
-            "example": "If N = 5 → Sum = 15",
-            "answer": "The sum of the first N natural numbers is calculated correctly.",
-            "learningOutcome": "Learn how accumulation works inside loops."
-        },
-        {
-            "projectId": 3,
-            "title": "Multiplication Table Generator",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "repetition"
-            ],
-            "description": "Generate the multiplication table of a given number up to 10.",
-            "example": "If N = 3 → Table of 3",
-            "answer": "The multiplication table of the given number from 1 to 10 is displayed.",
-            "learningOutcome": "Apply loop repetition to real-life problems."
-        },
-        {
-            "projectId": 4,
-            "title": "Count Digits of a Number",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "digit extraction"
-            ],
-            "description": "Count the number of digits in a given integer.",
-            "example": "4567 → 4 digits",
-            "answer": "The total number of digits in the given number is determined.",
-            "learningOutcome": "Understand how numbers are processed digit by digit."
-        },
-        {
-            "projectId": 5,
-            "title": "Sum of Digits of a Number",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "modulus operator"
-            ],
-            "description": "Find the sum of digits of a given number.",
-            "example": "248 → 14",
-            "answer": "All digits of the number are added to obtain the final sum.",
-            "learningOutcome": "Use % and / operators with loops."
-        },
-        {
-            "projectId": 6,
-            "title": "Reverse a Number",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "number reversal"
-            ],
-            "description": "Reverse the digits of a given number using a for loop.",
-            "example": "1234 → 4321",
-            "answer": "The digits of the number are reversed successfully.",
-            "learningOutcome": "Strengthen loop logic and digit manipulation."
-        },
-        {
-            "projectId": 7,
-            "title": "Palindrome Number Checker",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "logical comparison"
-            ],
-            "description": "Check whether a given number is a palindrome.",
-            "example": "121 → Palindrome",
-            "answer": "The number is checked and correctly identified as palindrome or not.",
-            "learningOutcome": "Combine looping with condition checking."
-        },
-        {
-            "projectId": 8,
-            "title": "Factorial Calculator",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "multiplication"
-            ],
-            "description": "Calculate the factorial of a number using a for loop.",
-            "example": "5! = 120",
-            "answer": "The factorial of the given number is calculated correctly.",
-            "learningOutcome": "Understand multiplicative loops."
-        },
-        {
-            "projectId": 9,
-            "title": "Count Factors of a Number",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "divisibility"
-            ],
-            "description": "Count how many factors a given number has.",
-            "example": "6 → 4 factors",
-            "answer": "The total number of factors of the number is found.",
-            "learningOutcome": "Apply loop with condition checking."
-        },
-        {
-            "projectId": 10,
-            "title": "Prime Number Checker",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "factor counting"
-            ],
-            "description": "Check whether a number is prime.",
-            "example": "7 → Prime",
-            "answer": "The number is checked and identified as prime or composite.",
-            "learningOutcome": "Learn efficient loop termination."
-        },
-        {
-            "projectId": 11,
-            "title": "Armstrong Number Checker",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "digit cube logic"
-            ],
-            "description": "Check whether a number is an Armstrong number.",
-            "example": "153 → Armstrong",
-            "answer": "int sum = 0;\nfor(int t = n; t > 0; t = t / 10)\n{\n    int d = t % 10;\n    sum += d * d * d;\n}\nboolean isArmstrong = (sum == n);",
-            "learningOutcome": "Combine math logic with looping."
-        },
-        {
-            "projectId": 12,
-            "title": "Perfect Number Checker",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "sum of factors"
-            ],
-            "description": "Check whether a number is a perfect number.",
-            "example": "28 → Perfect",
-            "answer": "int sum = 0;\nfor(int i = 1; i < n; i++)\n{\n    if(n % i == 0)\n        sum += i;\n}\nboolean isPerfect = (sum == n);",
-            "learningOutcome": "Apply loop-based factor summation."
-        },
-        {
-            "projectId": 13,
-            "title": "Even and Odd Number Counter",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "conditional logic"
-            ],
-            "description": "Count how many even and odd numbers exist between 1 and N.",
-            "example": "1–10 → Even = 5, Odd = 5",
-            "answer": "int even = 0, odd = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 2 == 0)\n        even++;\n    else\n        odd++;\n}",
-            "learningOutcome": "Improve conditional decision-making."
-        },
-        {
-            "projectId": 14,
-            "title": "Common Logical Errors Demonstration",
-            "difficulty": "Advanced",
-            "concepts": [
-                "logical errors",
-                "infinite loop",
-                "dry run"
-            ],
-            "description": "Demonstrate common logical errors in for loops and correct them.",
-            "example": "Wrong update statement",
-            "answer": "// Incorrect\nfor(int i = 1; i <= 5; i--)\n{\n    System.out.println(i);\n}\n\n// Correct\nfor(int i = 1; i <= 5; i++)\n{\n    System.out.println(i);\n}",
-            "learningOutcome": "Learn debugging and error identification."
-        },
-        {
-            "projectId": 15,
-            "title": "Loop Flow Visualizer (Dry Run Table)",
-            "difficulty": "Advanced",
-            "concepts": [
-                "loop flow",
-                "execution order"
-            ],
-            "description": "Create a program that prints iteration values to visualize loop flow.",
-            "example": "i = 1 to 3",
-            "answer": "for(int i = 1; i <= 3; i++)\n{\n    System.out.println(\"i = \" + i);\n}",
-            "learningOutcome": "Understand execution order clearly (ICSE favorite)."
-        },
-        {
-            "projectId": 16,
-            "title": "Print Even Numbers up to N",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "even numbers"
-            ],
-            "description": "Print all even numbers from 1 to N using a for loop.",
-            "example": "If N = 10 → Output: 2 4 6 8 10",
-            "answer": "for(int i = 1; i <= n; i++)\n{\n    if(i % 2 == 0)\n        System.out.print(i + \" \");\n}",
-            "learningOutcome": "Understand conditional checks inside loops."
-        },
-        {
-            "projectId": 17,
-            "title": "Print Odd Numbers up to N",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "odd numbers"
-            ],
-            "description": "Print all odd numbers from 1 to N.",
-            "example": "If N = 9 → Output: 1 3 5 7 9",
-            "answer": "for(int i = 1; i <= n; i++)\n{\n    if(i % 2 != 0)\n        System.out.print(i + \" \");\n}",
-            "learningOutcome": "Differentiate even and odd logic."
-        },
-        {
-            "projectId": 18,
-            "title": "Sum of Even Numbers up to N",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "even logic",
-                "sum"
-            ],
-            "description": "Calculate the sum of all even numbers between 1 and N.",
-            "example": "If N = 10 → Sum = 30",
-            "answer": "int sum = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 2 == 0)\n        sum += i;\n}",
-            "learningOutcome": "Apply accumulation with conditions."
-        },
-        {
-            "projectId": 19,
-            "title": "Sum of Odd Numbers up to N",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "odd logic"
-            ],
-            "description": "Calculate the sum of all odd numbers between 1 and N.",
-            "example": "If N = 9 → Sum = 25",
-            "answer": "int sum = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(i % 2 != 0)\n        sum += i;\n}",
-            "learningOutcome": "Practice conditional summation."
-        },
-        {
-            "projectId": 20,
-            "title": "Print Squares of Numbers",
-            "difficulty": "Beginner",
-            "concepts": [
-                "for loop",
-                "square calculation"
-            ],
-            "description": "Print square of numbers from 1 to N.",
-            "example": "If N = 4 → Output: 1, 4, 9, 16",
-            "answer": "for(int i = 1; i <= n; i++)\n{\n    System.out.print((i * i) + \" \");\n}",
-            "learningOutcome": "Use mathematical expressions in loops."
-        },
-        {
-            "projectId": 21,
-            "title": "Print Cubes of Numbers",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "cube calculation"
-            ],
-            "description": "Print cube of numbers from 1 to N.",
-            "example": "If N = 3 → Output: 1, 8, 27",
-            "answer": "for(int i = 1; i <= n; i++)\n{\n    System.out.print((i * i * i) + \" \");\n}",
-            "learningOutcome": "Reinforce power-based calculations."
-        },
-        {
-            "projectId": 22,
-            "title": "Check Strong Number",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "factorial",
-                "digits"
-            ],
-            "description": "Check whether a number is a Strong number.",
-            "example": "145 → 1! + 4! + 5! = 145",
-            "answer": "int sum = 0;\nfor(int t = n; t > 0; t = t / 10)\n{\n    int d = t % 10;\n    int fact = 1;\n    for(int i = 1; i <= d; i++)\n        fact *= i;\n    sum += fact;\n}\nboolean isStrong = (sum == n);",
-            "learningOutcome": "Combine digit processing with factorial logic."
-        },
-        {
-            "projectId": 23,
-            "title": "Print Factors of a Number",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "divisibility"
-            ],
-            "description": "Print all factors of a given number.",
-            "example": "Factors of 12 → 1, 2, 3, 4, 6, 12",
-            "answer": "for(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        System.out.print(i + \" \");\n}",
-            "learningOutcome": "Understand divisor-based looping."
-        },
-        {
-            "projectId": 24,
-            "title": "Check Composite Number",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "factors"
-            ],
-            "description": "Check whether a number is composite.",
-            "example": "6 → Composite number",
-            "answer": "int count = 0;\nfor(int i = 1; i <= n; i++)\n{\n    if(n % i == 0)\n        count++;\n}\nboolean isComposite = (count > 2);",
-            "learningOutcome": "Differentiate between prime and composite numbers."
-        },
-        {
-            "projectId": 25,
-            "title": "Generate Fibonacci Series (N terms)",
-            "difficulty": "Intermediate",
-            "concepts": [
-                "for loop",
-                "series generation"
-            ],
-            "description": "Generate Fibonacci series up to N terms.",
-            "example": "First 5 terms → 0, 1, 1, 2, 3",
-            "answer": "int a = 0, b = 1;\nSystem.out.print(a + \" \" + b + \" \");\nfor(int i = 3; i <= n; i++)\n{\n    int c = a + b;\n    System.out.print(c + \" \");\n    a = b;\n    b = c;\n}",
-            "learningOutcome": "Understand dependency between loop variables."
-        },
-        {
-            "projectId": 26,
-            "title": "Find Greatest Digit in a Number",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "digit comparison"
-            ],
-            "description": "Find the greatest digit in a given number.",
-            "example": "5824 → Greatest digit = 8",
-            "answer": "int max = 0;\nfor(int t = n; t > 0; t = t / 10)\n{\n    int d = t % 10;\n    if(d > max)\n        max = d;\n}",
-            "learningOutcome": "Apply comparison logic inside loops."
-        },
-        {
-            "projectId": 27,
-            "title": "Find Smallest Digit in a Number",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "digit processing"
-            ],
-            "description": "Find the smallest digit in a given number.",
-            "example": "7392 → Smallest digit = 2",
-            "answer": "int min = 9;\nfor(int t = n; t > 0; t = t / 10)\n{\n    int d = t % 10;\n    if(d < min)\n        min = d;\n}",
-            "learningOutcome": "Strengthen digit-wise traversal logic."
-        },
-        {
-            "projectId": 28,
-            "title": "Count Prime Numbers between 1 and N",
-            "difficulty": "Advanced",
-            "concepts": [
-                "nested loop",
-                "prime logic"
-            ],
-            "description": "Count how many prime numbers exist between 1 and N.",
-            "example": "Between 1 and 10 → 4 prime numbers",
-            "answer": "int primeCount = 0;\nfor(int i = 2; i <= n; i++)\n{\n    int count = 0;\n    for(int j = 1; j <= i; j++)\n    {\n        if(i % j == 0)\n            count++;\n    }\n    if(count == 2)\n        primeCount++;\n}",
-            "learningOutcome": "Introduce nested looping safely."
-        },
-        {
-            "projectId": 29,
-            "title": "Check Duck Number",
-            "difficulty": "Advanced",
-            "concepts": [
-                "for loop",
-                "digit scanning"
-            ],
-            "description": "Check whether a number is a Duck number.",
-            "example": "102 → Duck number",
-            "answer": "boolean hasZero = false;\nfor(int t = n; t > 0; t = t / 10)\n{\n    if(t % 10 == 0)\n        hasZero = true;\n}",
-            "learningOutcome": "Understand special number categories."
-        },
-        {
-            "projectId": 30,
-            "title": "Loop Execution Counter",
-            "difficulty": "Advanced",
-            "concepts": [
-                "loop flow",
-                "iteration count"
-            ],
-            "description": "Count how many times a loop executes.",
-            "example": "for i = 1 to 5 → 5 times",
-            "answer": "int count = 0;\nfor(int i = 1; i <= n; i++)\n{\n    count++;\n}",
-            "learningOutcome": "Understand loop execution and control."
-        }
-    ]
+    {
+      "projectId": 2,
+      "title": "Sum of First N Natural Numbers",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "accumulator variable"],
+      "description": "Accept a number N and calculate the sum of numbers from 1 to N.",
+      "exampleText": "Sum when N = 5",
+      "exampleOutput": "15",
+      "answer": "int sum=0;\nfor(int i=1;i<=n;i++) sum+=i;",
+      "learningOutcome": "Learn how accumulation works inside loops."
+    },
+    {
+      "projectId": 3,
+      "title": "Multiplication Table Generator",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "repetition"],
+      "description": "Generate the multiplication table of a given number up to 10.",
+      "exampleText": "Table of 3",
+      "exampleOutput": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9",
+      "answer": "for(int i=1;i<=10;i++) System.out.println(n+\" x \"+i+\" = \"+(n*i));",
+      "learningOutcome": "Apply loop repetition to real-life problems."
+    },
+    {
+      "projectId": 4,
+      "title": "Count Digits of a Number",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "digit extraction"],
+      "description": "Count the number of digits in a given integer.",
+      "exampleText": "Digits in 4567",
+      "exampleOutput": "4",
+      "answer": "int count=0;\nfor(int t=n;t>0;t/=10) count++;",
+      "learningOutcome": "Understand how numbers are processed digit by digit."
+    },
+    {
+      "projectId": 5,
+      "title": "Sum of Digits of a Number",
+      "difficulty": "Beginner",
+      "concepts": ["for loop", "modulus operator"],
+      "description": "Find the sum of digits of a given number.",
+      "exampleText": "Sum of digits of 248",
+      "exampleOutput": "14",
+      "answer": "int sum=0;\nfor(int t=n;t>0;t/=10) sum+=t%10;",
+      "learningOutcome": "Use % and / operators with loops."
+    },
+    {
+      "projectId": 6,
+      "title": "Reverse a Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "number reversal"],
+      "description": "Reverse the digits of a given number using a for loop.",
+      "exampleText": "Reverse of 1234",
+      "exampleOutput": "4321",
+      "answer": "int rev=0;\nfor(int t=n;t>0;t/=10) rev=rev*10+(t%10);",
+      "learningOutcome": "Strengthen loop logic and digit manipulation."
+    },
+    {
+      "projectId": 7,
+      "title": "Palindrome Number Checker",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "logical comparison"],
+      "description": "Check whether a given number is a palindrome.",
+      "exampleText": "Check number 121",
+      "exampleOutput": "Palindrome",
+      "answer": "int rev=0,temp=n;\nfor(int t=n;t>0;t/=10) rev=rev*10+(t%10);\nboolean isPal=(rev==temp);",
+      "learningOutcome": "Combine looping with condition checking."
+    },
+    {
+      "projectId": 8,
+      "title": "Factorial Calculator",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "multiplication"],
+      "description": "Calculate the factorial of a number using a for loop.",
+      "exampleText": "Factorial of 5",
+      "exampleOutput": "120",
+      "answer": "int fact=1;\nfor(int i=1;i<=n;i++) fact*=i;",
+      "learningOutcome": "Understand multiplicative loops."
+    },
+    {
+      "projectId": 9,
+      "title": "Count Factors of a Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "divisibility"],
+      "description": "Count how many factors a given number has.",
+      "exampleText": "Factors count of 6",
+      "exampleOutput": "4",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) if(n%i==0) count++;",
+      "learningOutcome": "Apply loop with condition checking."
+    },
+    {
+      "projectId": 10,
+      "title": "Prime Number Checker",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "factor counting"],
+      "description": "Check whether a number is prime.",
+      "exampleText": "Check number 7",
+      "exampleOutput": "Prime",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) if(n%i==0) count++;\nboolean isPrime=(count==2);",
+      "learningOutcome": "Learn efficient loop termination."
+    },
+    {
+      "projectId": 21,
+      "title": "Print Cubes of Numbers",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "cube calculation"],
+      "description": "Print cube of numbers from 1 to N.",
+      "exampleText": "Cubes from 1 to 3",
+      "exampleOutput": "1 8 27",
+      "answer": "for(int i=1;i<=n;i++) System.out.print((i*i*i)+\" \");",
+      "learningOutcome": "Reinforce power-based calculations."
+    },
+    {
+      "projectId": 22,
+      "title": "Check Strong Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "factorial", "digits"],
+      "description": "Check whether a number is a Strong number.",
+      "exampleText": "Check number 145",
+      "exampleOutput": "Strong Number",
+      "answer": "int sum=0;\nfor(int t=n;t>0;t/=10){\n int d=t%10,fact=1;\n for(int i=1;i<=d;i++) fact*=i;\n sum+=fact;\n}\nboolean isStrong=(sum==n);",
+      "learningOutcome": "Combine digit processing with factorial logic."
+    },
+    {
+      "projectId": 23,
+      "title": "Print Factors of a Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "divisibility"],
+      "description": "Print all factors of a given number.",
+      "exampleText": "Factors of 12",
+      "exampleOutput": "1 2 3 4 6 12",
+      "answer": "for(int i=1;i<=n;i++) if(n%i==0) System.out.print(i+\" \");",
+      "learningOutcome": "Understand divisor-based looping."
+    },
+    {
+      "projectId": 24,
+      "title": "Check Composite Number",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "factors"],
+      "description": "Check whether a number is composite.",
+      "exampleText": "Check number 6",
+      "exampleOutput": "Composite",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) if(n%i==0) count++;\nboolean isComposite=(count>2);",
+      "learningOutcome": "Differentiate between prime and composite numbers."
+    },
+    {
+      "projectId": 25,
+      "title": "Generate Fibonacci Series",
+      "difficulty": "Intermediate",
+      "concepts": ["for loop", "series generation"],
+      "description": "Generate Fibonacci series up to N terms.",
+      "exampleText": "First 6 Fibonacci terms",
+      "exampleOutput": "0 1 1 2 3 5",
+      "answer": "int a=0,b=1,c;\nSystem.out.print(a+\" \"+b+\" \");\nfor(int i=3;i<=n;i++){c=a+b;System.out.print(c+\" \");a=b;b=c;}",
+      "learningOutcome": "Understand dependency between loop variables."
+    },
+    {
+      "projectId": 26,
+      "title": "Find Greatest Digit",
+      "difficulty": "Advanced",
+      "concepts": ["digit comparison"],
+      "description": "Find the greatest digit in a number.",
+      "exampleText": "Greatest digit of 5824",
+      "exampleOutput": "8",
+      "answer": "int max=0;\nfor(int t=n;t>0;t/=10){int d=t%10;if(d>max)max=d;}",
+      "learningOutcome": "Apply comparison logic inside loops."
+    },
+    {
+      "projectId": 27,
+      "title": "Find Smallest Digit",
+      "difficulty": "Advanced",
+      "concepts": ["digit processing"],
+      "description": "Find the smallest digit in a number.",
+      "exampleText": "Smallest digit of 7392",
+      "exampleOutput": "2",
+      "answer": "int min=9;\nfor(int t=n;t>0;t/=10){int d=t%10;if(d<min)min=d;}",
+      "learningOutcome": "Strengthen digit-wise traversal logic."
+    },
+    {
+      "projectId": 28,
+      "title": "Count Prime Numbers up to N",
+      "difficulty": "Advanced",
+      "concepts": ["nested loop", "prime logic"],
+      "description": "Count how many prime numbers exist between 1 and N.",
+      "exampleText": "Prime numbers between 1 and 10",
+      "exampleOutput": "4",
+      "answer": "int pc=0;\nfor(int i=2;i<=n;i++){int c=0;for(int j=1;j<=i;j++) if(i%j==0)c++;if(c==2)pc++;}",
+      "learningOutcome": "Introduce nested looping safely."
+    },
+    {
+      "projectId": 29,
+      "title": "Check Duck Number",
+      "difficulty": "Advanced",
+      "concepts": ["digit scanning"],
+      "description": "Check whether a number is a Duck number.",
+      "exampleText": "Check number 102",
+      "exampleOutput": "Duck Number",
+      "answer": "boolean hasZero=false;\nfor(int t=n;t>0;t/=10) if(t%10==0) hasZero=true;",
+      "learningOutcome": "Understand special number categories."
+    },
+    {
+      "projectId": 30,
+      "title": "Loop Execution Counter",
+      "difficulty": "Advanced",
+      "concepts": ["loop flow"],
+      "description": "Count how many times a loop executes.",
+      "exampleText": "Loop from 1 to 5",
+      "exampleOutput": "5",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) count++;",
+      "learningOutcome": "Understand loop execution and control."
+    },
+    {
+      "projectId": 31,
+      "title": "Sum of Squares",
+      "difficulty": "Moderate",
+      "concepts": ["square calculation"],
+      "description": "Calculate sum of squares from 1 to N.",
+      "exampleText": "Sum of squares when N=4",
+      "exampleOutput": "30",
+      "answer": "int sum=0;\nfor(int i=1;i<=n;i++) sum+=i*i;",
+      "learningOutcome": "Use mathematical expressions inside loops."
+    },
+    {
+      "projectId": 32,
+      "title": "Count Numbers Divisible by 5",
+      "difficulty": "Moderate",
+      "concepts": ["divisibility check"],
+      "description": "Count how many numbers between 1 and N are divisible by 5.",
+      "exampleText": "Divisible by 5 between 1–20",
+      "exampleOutput": "4",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) if(i%5==0) count++;",
+      "learningOutcome": "Practice conditional counting."
+    },
+    {
+      "projectId": 33,
+      "title": "Find Product of Digits",
+      "difficulty": "Moderate",
+      "concepts": ["digit extraction"],
+      "description": "Find product of digits of a number.",
+      "exampleText": "Product of digits of 234",
+      "exampleOutput": "24",
+      "answer": "int prod=1;\nfor(int t=n;t>0;t/=10) prod*=t%10;",
+      "learningOutcome": "Strengthen digit multiplication logic."
+    },
+    {
+      "projectId": 34,
+      "title": "Print Numbers in Reverse",
+      "difficulty": "Moderate",
+      "concepts": ["reverse traversal"],
+      "description": "Print numbers from N down to 1.",
+      "exampleText": "Reverse from 5 to 1",
+      "exampleOutput": "5 4 3 2 1",
+      "answer": "for(int i=n;i>=1;i--) System.out.print(i+\" \");",
+      "learningOutcome": "Learn reverse looping logic."
+    },
+    {
+      "projectId": 35,
+      "title": "Check Harshad Number",
+      "difficulty": "Moderate",
+      "concepts": ["digit sum"],
+      "description": "Check whether a number is a Harshad number.",
+      "exampleText": "Check number 18",
+      "exampleOutput": "Harshad Number",
+      "answer": "int sum=0;\nfor(int t=n;t>0;t/=10) sum+=t%10;\nboolean isHarshad=(n%sum==0);",
+      "learningOutcome": "Combine digit summation with divisibility."
+    },
+    {
+      "projectId": 36,
+      "title": "Print First N Odd Numbers",
+      "difficulty": "Moderate",
+      "concepts": ["odd number logic"],
+      "description": "Print first N odd numbers.",
+      "exampleText": "First 5 odd numbers",
+      "exampleOutput": "1 3 5 7 9",
+      "answer": "int num=1;\nfor(int i=1;i<=n;i++){System.out.print(num+\" \");num+=2;}",
+      "learningOutcome": "Generate sequences using loops."
+    },
+    {
+      "projectId": 37,
+      "title": "Print First N Even Numbers",
+      "difficulty": "Moderate",
+      "concepts": ["even number logic"],
+      "description": "Print first N even numbers.",
+      "exampleText": "First 4 even numbers",
+      "exampleOutput": "2 4 6 8",
+      "answer": "int num=2;\nfor(int i=1;i<=n;i++){System.out.print(num+\" \");num+=2;}",
+      "learningOutcome": "Understand numeric sequence generation."
+    },
+    {
+      "projectId": 38,
+      "title": "Count Digits from 1 to N",
+      "difficulty": "Moderate",
+      "concepts": ["nested loop"],
+      "description": "Count digits used while writing all numbers from 1 to N.",
+      "exampleText": "Digits used till 12",
+      "exampleOutput": "15",
+      "answer": "int count=0;\nfor(int i=1;i<=n;i++) for(int t=i;t>0;t/=10) count++;",
+      "learningOutcome": "Apply nested loops for range analysis."
+    },
+    {
+      "projectId": 39,
+      "title": "Print Two Digit Numbers",
+      "difficulty": "Moderate",
+      "concepts": ["range filtering"],
+      "description": "Print all two digit numbers up to N.",
+      "exampleText": "Two digit numbers till 120",
+      "exampleOutput": "10 11 12 ... 99",
+      "answer": "for(int i=10;i<=n && i<=99;i++) System.out.print(i+\" \");",
+      "learningOutcome": "Use logical range constraints."
+    },
+    {
+      "projectId": 40,
+      "title": "Sum of Prime Numbers",
+      "difficulty": "Moderate",
+      "concepts": ["nested loop", "prime logic"],
+      "description": "Calculate sum of all prime numbers between 1 and N.",
+      "exampleText": "Sum of primes till 10",
+      "exampleOutput": "17",
+      "answer": "int sum=0;\nfor(int i=2;i<=n;i++){int c=0;for(int j=1;j<=i;j++) if(i%j==0)c++;if(c==2) sum+=i;}",
+      "learningOutcome": "Combine nested loops with conditional summation."
+    },
+    {
+      "projectId": 41,
+      "title": "Fibonacci Series",
+      "difficulty": "Moderate",
+      "concepts": ["for loop", "series generation"],
+      "description": "Generate Fibonacci series up to N terms.",
+      "exampleText": "First 6 Fibonacci numbers",
+      "exampleOutput": "0 1 1 2 3 5",
+      "answer": "int a=0,b=1,c;\nSystem.out.print(a+\" \"+b+\" \");\nfor(int i=3;i<=n;i++){c=a+b;System.out.print(c+\" \");a=b;b=c;}",
+      "learningOutcome": "Understand dependency between loop variables."
+    },
+    {
+      "projectId": 42,
+      "title": "Factorial Series",
+      "difficulty": "Moderate",
+      "concepts": ["for loop", "factorial"],
+      "description": "Print factorial series up to N.",
+      "exampleText": "Factorials up to 5",
+      "exampleOutput": "1 2 6 24 120",
+      "answer": "int fact=1;\nfor(int i=1;i<=n;i++){fact*=i;System.out.print(fact+\" \");}",
+      "learningOutcome": "Use cumulative multiplication."
+    },
+    {
+      "projectId": 43,
+      "title": "Square Series",
+      "difficulty": "Moderate",
+      "concepts": ["for loop", "square calculation"],
+      "description": "Print square series.",
+      "exampleText": "Squares till 4",
+      "exampleOutput": "1 4 9 16",
+      "answer": "for(int i=1;i<=n;i++) System.out.print((i*i)+\" \");",
+      "learningOutcome": "Apply arithmetic expressions."
+    },
+    {
+      "projectId": 44,
+      "title": "Cube Series",
+      "difficulty": "Moderate",
+      "concepts": ["cube calculation"],
+      "description": "Print cube series.",
+      "exampleText": "Cubes till 3",
+      "exampleOutput": "1 8 27",
+      "answer": "for(int i=1;i<=n;i++) System.out.print((i*i*i)+\" \");",
+      "learningOutcome": "Understand cubic calculation."
+    },
+    {
+      "projectId": 45,
+      "title": "Sum of Even Series",
+      "difficulty": "Moderate",
+      "concepts": ["even logic"],
+      "description": "Calculate sum of first N even numbers.",
+      "exampleText": "Sum of first 5 even numbers",
+      "exampleOutput": "30",
+      "answer": "int sum=0;for(int i=1;i<=n;i++) sum+=2*i;",
+      "learningOutcome": "Understand series summation."
+    },
+    {
+      "projectId": 46,
+      "title": "Sum of Odd Series",
+      "difficulty": "Moderate",
+      "concepts": ["odd logic"],
+      "description": "Calculate sum of first N odd numbers.",
+      "exampleText": "Sum of first 5 odd numbers",
+      "exampleOutput": "25",
+      "answer": "int sum=0;for(int i=1;i<=n;i++) sum+=(2*i-1);",
+      "learningOutcome": "Practice pattern-based summation."
+    },
+    {
+      "projectId": 47,
+      "title": "Series: 1, 11, 111",
+      "difficulty": "Moderate",
+      "concepts": ["number formation"],
+      "description": "Generate 1, 11, 111 series.",
+      "exampleText": "First 4 terms",
+      "exampleOutput": "1 11 111 1111",
+      "answer": "int num=0;for(int i=1;i<=n;i++){num=num*10+1;System.out.print(num+\" \");}",
+      "learningOutcome": "Understand number construction."
+    },
+    {
+      "projectId": 48,
+      "title": "Alternate Squares",
+      "difficulty": "Moderate",
+      "concepts": ["step increment"],
+      "description": "Print squares of alternate numbers.",
+      "exampleText": "Squares of odd numbers till 9",
+      "exampleOutput": "1 9 25 49 81",
+      "answer": "for(int i=1;i<=n;i+=2) System.out.print((i*i)+\" \");",
+      "learningOutcome": "Use custom increments."
+    },
+    {
+      "projectId": 49,
+      "title": "Multiples of 7",
+      "difficulty": "Moderate",
+      "concepts": ["multiplication series"],
+      "description": "Print multiples of 7.",
+      "exampleText": "First 4 multiples of 7",
+      "exampleOutput": "7 14 21 28",
+      "answer": "for(int i=1;i<=n;i++) System.out.print((7*i)+\" \");",
+      "learningOutcome": "Apply table-based logic."
+    },
+    {
+      "projectId": 50,
+      "title": "Harmonic Series",
+      "difficulty": "Moderate",
+      "concepts": ["double type"],
+      "description": "Calculate harmonic series sum.",
+      "exampleText": "Sum till 3 terms",
+      "exampleOutput": "1.83",
+      "answer": "double sum=0;for(int i=1;i<=n;i++) sum+=1.0/i;",
+      "learningOutcome": "Use floating-point accumulation."
+    },
+    {
+      "projectId": 51,
+      "title": "Square Star Pattern",
+      "difficulty": "Moderate",
+      "concepts": ["nested loop", "pattern printing"],
+      "description": "Print square star pattern.",
+      "exampleText": "N = 3",
+      "exampleOutput": "***\n***\n***",
+      "answer": "for(int i=1;i<=n;i++){for(int j=1;j<=n;j++)System.out.print(\"*\");System.out.println();}",
+      "learningOutcome": "Understand nested loops."
+    },
+    {
+      "projectId": 52,
+      "title": "Right Triangle Pattern",
+      "difficulty": "Moderate",
+      "concepts": ["nested loop"],
+      "description": "Print right triangle star pattern.",
+      "exampleText": "N = 4",
+      "exampleOutput": "*\n**\n***\n****",
+      "answer": "for(int i=1;i<=n;i++){for(int j=1;j<=i;j++)System.out.print(\"*\");System.out.println();}",
+      "learningOutcome": "Control row growth."
+    },
+    {
+      "projectId": 53,
+      "title": "Inverted Right Triangle",
+      "difficulty": "Moderate",
+      "concepts": ["reverse loop"],
+      "description": "Print inverted star triangle.",
+      "exampleText": "N = 4",
+      "exampleOutput": "****\n***\n**\n*",
+      "answer": "for(int i=n;i>=1;i--){for(int j=1;j<=i;j++)System.out.print(\"*\");System.out.println();}",
+      "learningOutcome": "Practice reverse logic."
+    },
+    {
+      "projectId": 54,
+      "title": "Number Triangle",
+      "difficulty": "Moderate",
+      "concepts": ["nested loop"],
+      "description": "Print number triangle.",
+      "exampleText": "N = 3",
+      "exampleOutput": "1\n12\n123",
+      "answer": "for(int i=1;i<=n;i++){for(int j=1;j<=i;j++)System.out.print(j);System.out.println();}",
+      "learningOutcome": "Understand nested number patterns."
+    },
+    {
+      "projectId": 55,
+      "title": "Same Number Rows",
+      "difficulty": "Moderate",
+      "concepts": ["row logic"],
+      "description": "Print same number in each row.",
+      "exampleText": "N = 3",
+      "exampleOutput": "1\n22\n333",
+      "answer": "for(int i=1;i<=n;i++){for(int j=1;j<=i;j++)System.out.print(i);System.out.println();}",
+      "learningOutcome": "Understand row-based printing."
+    },
+    {
+      "projectId": 56,
+      "title": "Floyd Triangle",
+      "difficulty": "Moderate",
+      "concepts": ["continuous counter"],
+      "description": "Print Floyd triangle.",
+      "exampleText": "N = 3",
+      "exampleOutput": "1\n23\n456",
+      "answer": "int num=1;for(int i=1;i<=n;i++){for(int j=1;j<=i;j++)System.out.print(num++);System.out.println();}",
+      "learningOutcome": "Use external counter."
+    },
+    {
+      "projectId": 57,
+      "title": "Reverse Number Triangle",
+      "difficulty": "Moderate",
+      "concepts": ["descending loops"],
+      "description": "Print reverse number triangle.",
+      "exampleText": "N = 4",
+      "exampleOutput": "4321\n321\n21\n1",
+      "answer": "for(int i=n;i>=1;i--){for(int j=i;j>=1;j--)System.out.print(j);System.out.println();}",
+      "learningOutcome": "Combine descending loops."
+    },
+    {
+      "projectId": 58,
+      "title": "Star Pyramid",
+      "difficulty": "Moderate",
+      "concepts": ["spacing logic"],
+      "description": "Print centered pyramid.",
+      "exampleText": "N = 3",
+      "exampleOutput": "  *\n ***\n*****",
+      "answer": "for(int i=1;i<=n;i++){for(int s=n;s>i;s--)System.out.print(\" \");for(int j=1;j<=2*i-1;j++)System.out.print(\"*\");System.out.println();}",
+      "learningOutcome": "Understand alignment using spaces."
+    },
+    {
+      "projectId": 59,
+      "title": "Inverted Pyramid",
+      "difficulty": "Moderate",
+      "concepts": ["reverse spacing"],
+      "description": "Print inverted pyramid.",
+      "exampleText": "N = 3",
+      "exampleOutput": "*****\n ***\n  *",
+      "answer": "for(int i=n;i>=1;i--){for(int s=n;s>i;s--)System.out.print(\" \");for(int j=1;j<=2*i-1;j++)System.out.print(\"*\");System.out.println();}",
+      "learningOutcome": "Reverse row spacing logic."
+    },
+    {
+      "projectId": 60,
+      "title": "Hollow Square",
+      "difficulty": "Moderate",
+      "concepts": ["boundary condition"],
+      "description": "Print hollow square pattern.",
+      "exampleText": "N = 4",
+      "exampleOutput": "****\n*  *\n*  *\n****",
+      "answer": "for(int i=1;i<=n;i++){for(int j=1;j<=n;j++){if(i==1||i==n||j==1||j==n)System.out.print(\"*\");else System.out.print(\" \");}System.out.println();}",
+      "learningOutcome": "Apply boundary checking."
+    }
+  ]
 }
