@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EditableCodeBlock from "../../../../../common/EditableCodeBlock";
 import { ArrowUpRight } from "lucide-react";
+import Whiteboard from "../../../../../common/Whiteboard";
 export default class Topic0 extends Component {
   render() {
     return (
@@ -132,6 +133,8 @@ console.log(nums.length); // 4`}
           for working with loops, array methods (map, filter, reduce), and
           real-world data operations.
         </p>
+        my whiteboard
+        <Whiteboard/>
       </div>
     );
   }
