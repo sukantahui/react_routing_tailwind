@@ -81,7 +81,8 @@ export default function Whiteboard() {
 
     if (tool === "rect" || tool === "circle") {
       c.on("mouse:down", (opt) => {
-        const p = c.getPointer(opt.e);
+        const p = c.getScenePoint(opt.e);
+
         start.current = p;
 
         drawingObj.current =
@@ -92,30 +93,49 @@ export default function Whiteboard() {
               fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
             })
             : new Circle({
-              left: p.x, top: p.y, radius: 1,
-              stroke: strokeColor, strokeWidth: lineWidth,
-              fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
+              left: p.x,
+              top: p.y,
+              radius: 1,
+              originX: "left",
+              originY: "top",
+              stroke: strokeColor,
+              strokeWidth: lineWidth,
+              fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor,
+              dirty: true
             });
+
 
         c.add(drawingObj.current);
       });
 
       c.on("mouse:move", (opt) => {
         if (!drawingObj.current) return;
-        const p = c.getPointer(opt.e);
+
+        const p = c.getScenePoint(opt.e);
 
         if (tool === "rect") {
           drawingObj.current.set({
             width: Math.abs(p.x - start.current.x),
             height: Math.abs(p.y - start.current.y)
           });
-        } else {
-          drawingObj.current.set({
-            radius: Math.abs(p.x - start.current.x) / 2
-          });
         }
+
+        if (tool === "circle") {
+  const r = Math.max(
+    Math.abs(p.x - start.current.x),
+    Math.abs(p.y - start.current.y)
+  );
+
+  drawingObj.current.set({
+    radius: r / 2,
+    dirty: true
+  });
+}
+
+        drawingObj.current.setCoords();
         c.requestRenderAll();
       });
+
 
       c.on("mouse:up", () => {
         drawingObj.current = null;
