@@ -26,6 +26,59 @@ export default function Whiteboard() {
   const [lineWidth, setLineWidth] = useState(2);
   const [bgColor, setBgColor] = useState("#0f172a");
 
+
+  const isTrueCircle = (points) => {
+  if (points.length < 80) return false;
+
+  const cx = points.reduce((s,p)=>s+p.x,0)/points.length;
+  const cy = points.reduce((s,p)=>s+p.y,0)/points.length;
+
+  const radii = points.map(p => Math.hypot(p.x-cx, p.y-cy));
+  const avg = radii.reduce((a,b)=>a+b,0)/radii.length;
+
+  let dev = 0;
+  for (let r of radii) dev += Math.abs(r-avg);
+
+  dev /= radii.length;
+
+  // 🔥 critical rule: real circles stay inside 6px variance
+  return dev < 6;
+};
+
+
+
+const detectAndReplaceCircle = (path) => {
+  const pts = [];
+
+  path.path.forEach(p => {
+    if (p[0] === "Q" || p[0] === "L") pts.push({ x: p[1], y: p[2] });
+  });
+
+  if (!isTrueCircle(pts)) return;
+
+  const cx = pts.reduce((s,p)=>s+p.x,0)/pts.length;
+  const cy = pts.reduce((s,p)=>s+p.y,0)/pts.length;
+  const r  = pts.reduce((s,p)=>s+Math.hypot(p.x-cx,p.y-cy),0)/pts.length;
+
+  const circle = new Circle({
+    left: cx-r,
+    top: cy-r,
+    radius: r,
+    stroke: path.stroke,
+    strokeWidth: path.strokeWidth,
+    fill: path.fill || "transparent"
+  });
+
+  const c = board.current;
+  c.remove(path);
+  c.add(circle);
+  c.setActiveObject(circle);
+  c.requestRenderAll();
+};
+
+
+
+
   /* ============== INIT ============== */
 
   useEffect(() => {
@@ -44,6 +97,12 @@ export default function Whiteboard() {
     });
 
     board.current = c;
+
+    c.on("path:created", (e) => {
+      if (tool === "draw") {
+        detectAndReplaceCircle(e.path);
+      }
+    });
 
     let ctrlDown = false;
 
