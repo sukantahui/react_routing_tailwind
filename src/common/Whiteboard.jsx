@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, Rect, Circle, Textbox, PencilBrush } from "fabric";
 import {
-  Pencil, Square, Circle as CircleIcon,
-  Trash2, Download, Undo, Redo, Type
+  MousePointer2,
+  Pencil,
+  Square,
+  Circle as CircleIcon,
+  Trash2,
+  Download,
+  Undo,
+  Redo,
+  Type
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -14,7 +21,7 @@ export default function Whiteboard() {
   const redoStack = useRef([]);
   const restoring = useRef(false);
 
-  const [tool, setTool] = useState("draw");
+  const [tool, setTool] = useState("select");
   const [color, setColor] = useState("#38bdf8");
 
   /* ================= INIT ================= */
@@ -37,7 +44,6 @@ export default function Whiteboard() {
     c.on("object:modified", save);
     save();
 
-    // DELETE KEY HANDLER
     const handleKey = (e) => {
       if (e.key === "Delete" || e.key === "Backspace") {
         const canvas = board.current;
@@ -57,7 +63,6 @@ export default function Whiteboard() {
     };
 
     window.addEventListener("keydown", handleKey);
-
     return () => {
       window.removeEventListener("keydown", handleKey);
       c.dispose();
@@ -72,6 +77,12 @@ export default function Whiteboard() {
     }`;
 
   /* ================= TOOLS ================= */
+
+  const selectTool = () => {
+    const c = board.current;
+    c.isDrawingMode = false;
+    setTool("select");
+  };
 
   const draw = () => {
     const c = board.current;
@@ -123,7 +134,7 @@ export default function Whiteboard() {
     setTool("text");
   };
 
-  /* ================= DELETE BUTTON ================= */
+  /* ================= DELETE ================= */
 
   const deleteSelected = () => {
     const canvas = board.current;
@@ -176,6 +187,7 @@ export default function Whiteboard() {
     <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
 
       <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700 items-center">
+        <button className={btn("select")} onClick={selectTool}><MousePointer2 size={18} /></button>
         <button className={btn("draw")} onClick={draw}><Pencil size={18} /></button>
         <button className={btn("rect")} onClick={rect}><Square size={18} /></button>
         <button className={btn("circle")} onClick={circle}><CircleIcon size={18} /></button>
