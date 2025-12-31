@@ -1,15 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, Rect, Circle, Textbox, PencilBrush } from "fabric";
 import {
-  MousePointer2,
-  Pencil,
-  Square,
-  Circle as CircleIcon,
-  Trash2,
-  Download,
-  Undo,
-  Redo,
-  Type
+  MousePointer2, Pencil, Square, Circle as CircleIcon,
+  Trash2, Download, Undo, Redo, Type
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -23,6 +16,7 @@ export default function Whiteboard() {
 
   const [tool, setTool] = useState("select");
   const [color, setColor] = useState("#38bdf8");
+  const [lineWidth, setLineWidth] = useState(2);
 
   /* ================= INIT ================= */
   useEffect(() => {
@@ -53,9 +47,7 @@ export default function Whiteboard() {
         if (active.type === "activeSelection") {
           active.forEachObject(obj => canvas.remove(obj));
           canvas.discardActiveObject();
-        } else {
-          canvas.remove(active);
-        }
+        } else canvas.remove(active);
 
         canvas.requestRenderAll();
         save();
@@ -89,7 +81,7 @@ export default function Whiteboard() {
     c.isDrawingMode = true;
     c.freeDrawingBrush = new PencilBrush(c);
     c.freeDrawingBrush.color = color;
-    c.freeDrawingBrush.width = 2;
+    c.freeDrawingBrush.width = lineWidth;
     setTool("draw");
   };
 
@@ -102,7 +94,7 @@ export default function Whiteboard() {
       left: 80,
       top: 80,
       stroke: color,
-      strokeWidth: 2,
+      strokeWidth: lineWidth,
       fill: "transparent"
     }));
     setTool("rect");
@@ -116,7 +108,7 @@ export default function Whiteboard() {
       left: 120,
       top: 120,
       stroke: color,
-      strokeWidth: 2,
+      strokeWidth: lineWidth,
       fill: "transparent"
     }));
     setTool("circle");
@@ -129,27 +121,22 @@ export default function Whiteboard() {
       left: 180,
       top: 150,
       fill: color,
-      fontSize: 18
+      fontSize: 18 + lineWidth
     }));
     setTool("text");
   };
 
-  /* ================= DELETE ================= */
+  /* ================= LIVE UPDATE ================= */
 
-  const deleteSelected = () => {
+  useEffect(() => {
     const canvas = board.current;
-    const active = canvas.getActiveObject();
-    if (!active) return;
+    if (!canvas) return;
+    const obj = canvas.getActiveObject();
+    if (!obj) return;
 
-    if (active.type === "activeSelection") {
-      active.forEachObject(obj => canvas.remove(obj));
-      canvas.discardActiveObject();
-    } else {
-      canvas.remove(active);
-    }
-
+    obj.set({ stroke: color, strokeWidth: lineWidth, fill: obj.type === "textbox" ? color : "transparent" });
     canvas.requestRenderAll();
-  };
+  }, [color, lineWidth]);
 
   /* ================= HISTORY ================= */
 
@@ -195,15 +182,23 @@ export default function Whiteboard() {
 
         <button className="p-2 hover:bg-slate-700" onClick={undo}><Undo size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={redo}><Redo size={18} /></button>
-        <button className="p-2 hover:bg-slate-700" onClick={deleteSelected}><Trash2 size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={() => board.current.getActiveObject() && board.current.remove(board.current.getActiveObject())}><Trash2 size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
 
+        {/* Color Picker */}
+        <input type="color" value={color} onChange={e => setColor(e.target.value)}
+          className="w-8 h-8 ml-2 border border-slate-600 bg-transparent rounded" />
+
+        {/* Line Width */}
         <input
-          type="color"
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          className="w-8 h-8 border border-slate-600 bg-transparent rounded cursor-pointer ml-2"
+          type="range"
+          min="1"
+          max="10"
+          value={lineWidth}
+          onChange={(e) => setLineWidth(Number(e.target.value))}
+          className="w-24 ml-2"
         />
+        <span className="text-xs text-slate-400">{lineWidth}px</span>
       </div>
 
       <canvas ref={canvasRef} width={1100} height={600} />
