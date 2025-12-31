@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Canvas, Rect, Circle, Textbox, PencilBrush } from "fabric";
 import {
   MousePointer2, Pencil, Square, Circle as CircleIcon,
-  Trash2, Download, Undo, Redo, Type
+  Trash2, Download, Undo, Redo, Type, Eraser
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -18,7 +18,7 @@ export default function Whiteboard() {
   const [color, setColor] = useState("#38bdf8");
   const [lineWidth, setLineWidth] = useState(2);
 
-  /* ================= INIT ================= */
+  // ================= INIT =================
   useEffect(() => {
     const c = new Canvas(canvasRef.current, {
       backgroundColor: "#0f172a",
@@ -39,19 +39,7 @@ export default function Whiteboard() {
     save();
 
     const handleKey = (e) => {
-      if (e.key === "Delete" || e.key === "Backspace") {
-        const canvas = board.current;
-        const active = canvas.getActiveObject();
-        if (!active) return;
-
-        if (active.type === "activeSelection") {
-          active.forEachObject(obj => canvas.remove(obj));
-          canvas.discardActiveObject();
-        } else canvas.remove(active);
-
-        canvas.requestRenderAll();
-        save();
-      }
+      if (e.key === "Delete" || e.key === "Backspace") deleteSelected();
     };
 
     window.addEventListener("keydown", handleKey);
@@ -68,11 +56,10 @@ export default function Whiteboard() {
         : "text-slate-300 hover:bg-slate-700"
     }`;
 
-  /* ================= TOOLS ================= */
+  // ================= TOOLS =================
 
   const selectTool = () => {
-    const c = board.current;
-    c.isDrawingMode = false;
+    board.current.isDrawingMode = false;
     setTool("select");
   };
 
@@ -126,20 +113,32 @@ export default function Whiteboard() {
     setTool("text");
   };
 
-  /* ================= LIVE UPDATE ================= */
+  // ================= DELETE SELECTED =================
+  const deleteSelected = () => {
+    const c = board.current;
+    const active = c.getActiveObject();
+    if (!active) return;
 
-  useEffect(() => {
-    const canvas = board.current;
-    if (!canvas) return;
-    const obj = canvas.getActiveObject();
-    if (!obj) return;
+    if (active.type === "activeSelection") {
+      active.forEachObject(obj => c.remove(obj));
+      c.discardActiveObject();
+    } else c.remove(active);
 
-    obj.set({ stroke: color, strokeWidth: lineWidth, fill: obj.type === "textbox" ? color : "transparent" });
-    canvas.requestRenderAll();
-  }, [color, lineWidth]);
+    c.requestRenderAll();
+  };
 
-  /* ================= HISTORY ================= */
+  // ================= CLEAR CANVAS =================
+  const clearCanvas = () => {
+    const c = board.current;
+    c.getObjects().forEach(obj => c.remove(obj));
+    c.backgroundColor = "#0f172a";
+    c.requestRenderAll();
 
+    history.current = [];
+    redoStack.current = [];
+  };
+
+  // ================= HISTORY =================
   const undo = () => {
     if (history.current.length < 2) return;
     restoring.current = true;
@@ -161,15 +160,13 @@ export default function Whiteboard() {
     });
   };
 
-  /* ================= EXPORT ================= */
-
+  // ================= EXPORT =================
   const exportPNG = () => {
     const url = board.current.toDataURL({ format: "png" });
     fetch(url).then(r => r.blob()).then(b => saveAs(b, "whiteboard.png"));
   };
 
-  /* ================= UI ================= */
-
+  // ================= UI =================
   return (
     <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
 
@@ -182,22 +179,17 @@ export default function Whiteboard() {
 
         <button className="p-2 hover:bg-slate-700" onClick={undo}><Undo size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={redo}><Redo size={18} /></button>
-        <button className="p-2 hover:bg-slate-700" onClick={() => board.current.getActiveObject() && board.current.remove(board.current.getActiveObject())}><Trash2 size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={deleteSelected}><Trash2 size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={clearCanvas}><Eraser size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
 
-        {/* Color Picker */}
         <input type="color" value={color} onChange={e => setColor(e.target.value)}
           className="w-8 h-8 ml-2 border border-slate-600 bg-transparent rounded" />
 
-        {/* Line Width */}
-        <input
-          type="range"
-          min="1"
-          max="10"
-          value={lineWidth}
-          onChange={(e) => setLineWidth(Number(e.target.value))}
-          className="w-24 ml-2"
-        />
+        <input type="range" min="1" max="10" value={lineWidth}
+          onChange={(e) => setLineWidth(+e.target.value)}
+          className="w-24 ml-2" />
+
         <span className="text-xs text-slate-400">{lineWidth}px</span>
       </div>
 
