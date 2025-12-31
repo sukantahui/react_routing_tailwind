@@ -63,7 +63,6 @@ export default function Whiteboard() {
   }, []);
 
   /* ============== TOOL HANDLING ============== */
-
   useEffect(() => {
     const c = board.current;
     if (!c) return;
@@ -88,15 +87,15 @@ export default function Whiteboard() {
         drawingObj.current =
           tool === "rect"
             ? new Rect({
-                left: p.x, top: p.y, width: 1, height: 1,
-                stroke: strokeColor, strokeWidth: lineWidth,
-                fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
-              })
+              left: p.x, top: p.y, width: 1, height: 1,
+              stroke: strokeColor, strokeWidth: lineWidth,
+              fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
+            })
             : new Circle({
-                left: p.x, top: p.y, radius: 1,
-                stroke: strokeColor, strokeWidth: lineWidth,
-                fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
-              });
+              left: p.x, top: p.y, radius: 1,
+              stroke: strokeColor, strokeWidth: lineWidth,
+              fill: fillColor === "#00000000" ? "rgba(0,0,0,0)" : fillColor
+            });
 
         c.add(drawingObj.current);
       });
@@ -118,7 +117,11 @@ export default function Whiteboard() {
         c.requestRenderAll();
       });
 
-      c.on("mouse:up", () => drawingObj.current = null);
+      c.on("mouse:up", () => {
+        drawingObj.current = null;
+        setTool("select");          // 👈 AUTO SWITCH TO SELECTION TOOL
+      });
+
     }
   }, [tool, strokeColor, fillColor, lineWidth]);
 
@@ -180,15 +183,34 @@ export default function Whiteboard() {
         <button className={btn("draw")} onClick={() => setTool("draw")}><Pencil size={18} /></button>
         <button className={btn("rect")} onClick={() => setTool("rect")}><Square size={18} /></button>
         <button className={btn("circle")} onClick={() => setTool("circle")}><CircleIcon size={18} /></button>
-        <button className={btn("text")} onClick={() => board.current.add(new Textbox("Type here",{ left:100,top:100,fill:strokeColor }))}><Type size={18} /></button>
+
+        {/* FIXED TEXT SIZE */}
+        <button
+          className={btn("text")}
+          onClick={() =>
+            board.current.add(
+              new Textbox("Type here", {
+                left: 100,
+                top: 100,
+                fill: strokeColor,
+                fontSize: 16,
+                editable: true,
+                width: 200
+              })
+            )
+          }
+        >
+          <Type size={18} />
+        </button>
+
         <button onClick={undo}><Undo size={18} /></button>
         <button onClick={redo}><Redo size={18} /></button>
         <button onClick={clearCanvas}><Trash size={18} /></button>
         <button onClick={exportPNG}><Download size={18} /></button>
 
-        <input type="color" value={strokeColor} onChange={e=>setStrokeColor(e.target.value)} />
-        <input type="color" value={fillColor.slice(0,7)} onChange={e=>setFillColor(e.target.value)} />
-        <input type="range" min="1" max="10" value={lineWidth} onChange={e=>setLineWidth(+e.target.value)} />
+        <input type="color" value={strokeColor} onChange={e => setStrokeColor(e.target.value)} />
+        <input type="color" value={fillColor.slice(0, 7)} onChange={e => setFillColor(e.target.value)} />
+        <input type="range" min="1" max="10" value={lineWidth} onChange={e => setLineWidth(+e.target.value)} />
       </div>
 
       <canvas ref={canvasRef} width={1100} height={600} />
