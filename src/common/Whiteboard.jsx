@@ -1,20 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Canvas, Rect, Circle, Textbox, PencilBrush } from "fabric";
 import {
-  Canvas,
-  Rect,
-  Circle,
-  Textbox,
-  PencilBrush
-} from "fabric";
-import {
-  Pencil,
-  Square,
-  Circle as CircleIcon,
-  Trash2,
-  Download,
-  Undo,
-  Redo,
-  Type
+  Pencil, Square, Circle as CircleIcon,
+  Trash2, Download, Undo, Redo, Type
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -26,15 +14,15 @@ export default function Whiteboard() {
   const redoStack = useRef([]);
   const restoring = useRef(false);
 
-  const [tool, setTool] = useState("select");
+  const [tool, setTool] = useState("draw");
   const [color, setColor] = useState("#38bdf8");
 
-  // ================= INIT =================
+  /* ================= INIT ================= */
   useEffect(() => {
     const c = new Canvas(canvasRef.current, {
       backgroundColor: "#0f172a",
       preserveObjectStacking: true,
-      selection: true,
+      selection: true
     });
 
     board.current = c;
@@ -47,17 +35,45 @@ export default function Whiteboard() {
 
     c.on("mouse:up", save);
     c.on("object:modified", save);
-
     save();
-    return () => c.dispose();
+
+    // DELETE KEY HANDLER
+    const handleKey = (e) => {
+      if (e.key === "Delete" || e.key === "Backspace") {
+        const canvas = board.current;
+        const active = canvas.getActiveObject();
+        if (!active) return;
+
+        if (active.type === "activeSelection") {
+          active.forEachObject(obj => canvas.remove(obj));
+          canvas.discardActiveObject();
+        } else {
+          canvas.remove(active);
+        }
+
+        canvas.requestRenderAll();
+        save();
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      c.dispose();
+    };
   }, []);
 
   const btn = (name) =>
-    `p-2 rounded-md transition
-     ${tool === name ? "bg-sky-600 text-white shadow" : "text-slate-300 hover:bg-slate-700"}`;
+    `p-2 rounded-md transition ${
+      tool === name
+        ? "bg-sky-600 text-white shadow"
+        : "text-slate-300 hover:bg-slate-700"
+    }`;
 
-  // ================= TOOLS =================
-  const enableDraw = () => {
+  /* ================= TOOLS ================= */
+
+  const draw = () => {
     const c = board.current;
     c.isDrawingMode = true;
     c.freeDrawingBrush = new PencilBrush(c);
@@ -66,7 +82,7 @@ export default function Whiteboard() {
     setTool("draw");
   };
 
-  const addRect = () => {
+  const rect = () => {
     const c = board.current;
     c.isDrawingMode = false;
     c.add(new Rect({
@@ -76,12 +92,12 @@ export default function Whiteboard() {
       top: 80,
       stroke: color,
       strokeWidth: 2,
-      fill: "transparent",
+      fill: "transparent"
     }));
     setTool("rect");
   };
 
-  const addCircle = () => {
+  const circle = () => {
     const c = board.current;
     c.isDrawingMode = false;
     c.add(new Circle({
@@ -90,47 +106,42 @@ export default function Whiteboard() {
       top: 120,
       stroke: color,
       strokeWidth: 2,
-      fill: "transparent",
+      fill: "transparent"
     }));
     setTool("circle");
   };
 
-  const addText = () => {
+  const text = () => {
     const c = board.current;
     c.isDrawingMode = false;
+    c.add(new Textbox("Type here", {
+      left: 180,
+      top: 150,
+      fill: color,
+      fontSize: 18
+    }));
     setTool("text");
-
-    c.once("mouse:down", (opt) => {
-      const p = c.getScenePoint(opt.e);
-
-      const text = new Textbox("Type here", {
-        left: p.x,
-        top: p.y,
-        fill: color,
-        fontSize: 18,
-      });
-
-      c.add(text);
-      c.setActiveObject(text);
-      c.renderAll();
-    });
   };
+
+  /* ================= DELETE BUTTON ================= */
 
   const deleteSelected = () => {
-    const c = board.current;
-    const obj = c.getActiveObject();
-    if (obj) c.remove(obj);
+    const canvas = board.current;
+    const active = canvas.getActiveObject();
+    if (!active) return;
+
+    if (active.type === "activeSelection") {
+      active.forEachObject(obj => canvas.remove(obj));
+      canvas.discardActiveObject();
+    } else {
+      canvas.remove(active);
+    }
+
+    canvas.requestRenderAll();
   };
 
-  const clearBoard = () => {
-    const c = board.current;
-    c.clear();
-    c.setBackgroundColor("#0f172a", c.renderAll.bind(c));
-    history.current = [];
-    redoStack.current = [];
-  };
+  /* ================= HISTORY ================= */
 
-  // ================= HISTORY =================
   const undo = () => {
     if (history.current.length < 2) return;
     restoring.current = true;
@@ -152,35 +163,35 @@ export default function Whiteboard() {
     });
   };
 
+  /* ================= EXPORT ================= */
+
   const exportPNG = () => {
     const url = board.current.toDataURL({ format: "png" });
     fetch(url).then(r => r.blob()).then(b => saveAs(b, "whiteboard.png"));
   };
 
-  // ================= UI =================
+  /* ================= UI ================= */
+
   return (
     <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
-      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700 items-center">
 
-        <button className={btn("draw")} onClick={enableDraw}><Pencil size={18} /></button>
-        <button className={btn("rect")} onClick={addRect}><Square size={18} /></button>
-        <button className={btn("circle")} onClick={addCircle}><CircleIcon size={18} /></button>
-        <button className={btn("text")} onClick={addText}><Type size={18} /></button>
+      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700 items-center">
+        <button className={btn("draw")} onClick={draw}><Pencil size={18} /></button>
+        <button className={btn("rect")} onClick={rect}><Square size={18} /></button>
+        <button className={btn("circle")} onClick={circle}><CircleIcon size={18} /></button>
+        <button className={btn("text")} onClick={text}><Type size={18} /></button>
+
         <button className="p-2 hover:bg-slate-700" onClick={undo}><Undo size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={redo}><Redo size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={deleteSelected}><Trash2 size={18} /></button>
-        <button className="p-2 hover:bg-slate-700" onClick={clearBoard}>🧹</button>
         <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
 
-        {/* 🎨 COLOR PICKER */}
         <input
           type="color"
           value={color}
           onChange={(e) => setColor(e.target.value)}
-          className="ml-3 w-8 h-8 cursor-pointer rounded"
-          title="Pick color"
+          className="w-8 h-8 border border-slate-600 bg-transparent rounded cursor-pointer ml-2"
         />
-
       </div>
 
       <canvas ref={canvasRef} width={1100} height={600} />
