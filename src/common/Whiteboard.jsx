@@ -1,21 +1,32 @@
-import React, { useEffect, useRef } from "react";
-import { Canvas, Rect, PencilBrush } from "fabric";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Canvas,
+  Rect,
+  Circle,
+  Textbox,
+  PencilBrush
+} from "fabric";
 import {
   Pencil,
   Square,
+  Circle as CircleIcon,
   Trash2,
   Download,
   Undo,
   Redo,
+  Type
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
 export default function Whiteboard() {
+
   const canvasRef = useRef(null);
-  const canvas = useRef(null);
+  const board = useRef(null);
   const history = useRef([]);
   const redoStack = useRef([]);
-  const isRestoring = useRef(false);
+  const restoring = useRef(false);
+
+  const [tool, setTool] = useState("select");
 
   // ================= INIT =================
   useEffect(() => {
@@ -25,99 +36,140 @@ export default function Whiteboard() {
       selection: true,
     });
 
-    canvas.current = c;
+    board.current = c;
 
     const save = () => {
-      if (isRestoring.current) return;
+      if (restoring.current) return;
       history.current.push(JSON.stringify(c.toJSON()));
       redoStack.current = [];
     };
 
     c.on("mouse:up", save);
     c.on("object:modified", save);
+
     save();
 
     return () => c.dispose();
   }, []);
 
-  // ================= DRAW =================
-  const draw = () => {
-    const c = canvas.current;
+  const btn = (name) =>
+    `p-2 rounded-md transition
+     ${tool === name ? "bg-sky-600 text-white shadow" : "text-slate-300 hover:bg-slate-700"}`;
+
+  // ================= TOOLS =================
+  const enableDraw = () => {
+    const c = board.current;
     c.isDrawingMode = true;
     c.freeDrawingBrush = new PencilBrush(c);
     c.freeDrawingBrush.color = "#38bdf8";
     c.freeDrawingBrush.width = 2;
+    setTool("draw");
   };
 
-  // ================= RECT =================
-  const rect = () => {
-    const c = canvas.current;
+  const addRect = () => {
+    const c = board.current;
     c.isDrawingMode = false;
-    c.add(
-      new Rect({
-        width: 140,
-        height: 70,
-        left: 80,
-        top: 80,
-        stroke: "#38bdf8",
-        strokeWidth: 2,
-        fill: "transparent",
-        rx: 6,
-        ry: 6,
-      })
-    );
+    c.add(new Rect({
+      width: 140,
+      height: 70,
+      left: 80,
+      top: 80,
+      stroke: "#38bdf8",
+      strokeWidth: 2,
+      fill: "transparent",
+    }));
+    setTool("rect");
   };
 
-  // ================= UNDO =================
-  const undo = () => {
-    if (history.current.length < 2) return;
-    isRestoring.current = true;
-    redoStack.current.push(history.current.pop());
+  const addCircle = () => {
+    const c = board.current;
+    c.isDrawingMode = false;
+    c.add(new Circle({
+      radius: 35,
+      left: 120,
+      top: 120,
+      stroke: "#38bdf8",
+      strokeWidth: 2,
+      fill: "transparent",
+    }));
+    setTool("circle");
+  };
 
-    canvas.current.loadFromJSON(history.current.at(-1), () => {
-      canvas.current.renderAll();
-      isRestoring.current = false;
+  const addText = () => {
+    const c = board.current;
+    c.isDrawingMode = false;
+    setTool("text");
+
+    c.once("mouse:down", (opt) => {
+      const pointer = c.getScenePoint(opt.e);
+
+      const text = new Textbox("Type here", {
+        left: pointer.x,
+        top: pointer.y,
+        fill: "#ffffff",
+        fontSize: 18,
+      });
+
+      c.add(text);
+      c.setActiveObject(text);
+      c.renderAll();
     });
   };
 
-  // ================= REDO =================
-  const redo = () => {
-    if (!redoStack.current.length) return;
-    isRestoring.current = true;
-    const next = redoStack.current.pop();
-    history.current.push(next);
-
-    canvas.current.loadFromJSON(next, () => {
-      canvas.current.renderAll();
-      isRestoring.current = false;
-    });
+  const deleteSelected = () => {
+    const c = board.current;
+    const obj = c.getActiveObject();
+    if (obj) c.remove(obj);
   };
 
-  // ================= EXPORT =================
-  const exportPNG = () => {
-    const url = canvas.current.toDataURL({ format: "png" });
-    fetch(url)
-      .then((r) => r.blob())
-      .then((b) => saveAs(b, "board.png"));
-  };
-
-  // ================= CLEAR =================
-  const clear = () => {
-    canvas.current.clear();
-    canvas.current.setBackgroundColor("#0f172a", canvas.current.renderAll.bind(canvas.current));
+  const clearBoard = () => {
+    const c = board.current;
+    c.clear();
+    c.setBackgroundColor("#0f172a", c.renderAll.bind(c));
     history.current = [];
     redoStack.current = [];
   };
 
+  // ================= HISTORY =================
+  const undo = () => {
+    if (history.current.length < 2) return;
+    restoring.current = true;
+    redoStack.current.push(history.current.pop());
+    board.current.loadFromJSON(history.current.at(-1), () => {
+      board.current.renderAll();
+      restoring.current = false;
+    });
+  };
+
+  const redo = () => {
+    if (!redoStack.current.length) return;
+    restoring.current = true;
+    const next = redoStack.current.pop();
+    history.current.push(next);
+    board.current.loadFromJSON(next, () => {
+      board.current.renderAll();
+      restoring.current = false;
+    });
+  };
+
+  const exportPNG = () => {
+    const url = board.current.toDataURL({ format: "png" });
+    fetch(url).then(r => r.blob()).then(b => saveAs(b, "whiteboard.png"));
+  };
+
+  // ================= UI =================
   return (
     <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
-      <div className="flex gap-2 p-3 bg-slate-800 border-b border-slate-700">
-        <button onClick={draw}><Pencil size={18} /></button>
-        <button onClick={rect}><Square size={18} /></button>
-        <button onClick={undo}><Undo size={18} /></button>
-        <button onClick={redo}><Redo size={18} /></button>
-        <button onClick={exportPNG}><Download size={18} /></button>
-        <button onClick={clear}><Trash2 size={18} /></button>
+      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700">
+        <button className={btn("draw")} onClick={enableDraw}><Pencil size={18} /></button>
+        <button className={btn("rect")} onClick={addRect}><Square size={18} /></button>
+        <button className={btn("circle")} onClick={addCircle}><CircleIcon size={18} /></button>
+        <button className={btn("text")} onClick={addText}><Type size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={undo}><Undo size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={redo}><Redo size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={deleteSelected}><Trash2 size={18} /></button>
+        <button className="p-2 hover:bg-slate-700" onClick={clearBoard}>🧹</button>
+        <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
       </div>
 
       <canvas ref={canvasRef} width={1100} height={600} />
