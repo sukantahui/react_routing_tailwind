@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as fabric from "fabric";
+import React, { useEffect, useRef } from "react";
+import { Canvas, Rect, PencilBrush } from "fabric";
 import {
   Pencil,
   Square,
-  Circle,
   Trash2,
-  Type,
   Download,
   Undo,
   Redo,
@@ -13,127 +11,116 @@ import {
 import { saveAs } from "file-saver";
 
 export default function Whiteboard() {
-  const canvasEl = useRef(null);
+  const canvasRef = useRef(null);
   const canvas = useRef(null);
-  const [history, setHistory] = useState([]);
-  const [redoStack, setRedoStack] = useState([]);
+  const history = useRef([]);
+  const redoStack = useRef([]);
+  const isRestoring = useRef(false);
 
+  // ================= INIT =================
   useEffect(() => {
-    canvas.current = new fabric.Canvas(canvasEl.current, {
+    const c = new Canvas(canvasRef.current, {
       backgroundColor: "#0f172a",
-      isDrawingMode: false,
+      preserveObjectStacking: true,
+      selection: true,
     });
 
-    canvas.current.on("object:added", saveState);
-    canvas.current.on("object:modified", saveState);
-    canvas.current.on("object:removed", saveState);
+    canvas.current = c;
 
-    saveState();
+    const save = () => {
+      if (isRestoring.current) return;
+      history.current.push(JSON.stringify(c.toJSON()));
+      redoStack.current = [];
+    };
 
-    return () => canvas.current.dispose();
+    c.on("mouse:up", save);
+    c.on("object:modified", save);
+    save();
+
+    return () => c.dispose();
   }, []);
 
-  const saveState = () => {
-    setHistory((h) => [...h, JSON.stringify(canvas.current.toJSON())]);
-    setRedoStack([]);
+  // ================= DRAW =================
+  const draw = () => {
+    const c = canvas.current;
+    c.isDrawingMode = true;
+    c.freeDrawingBrush = new PencilBrush(c);
+    c.freeDrawingBrush.color = "#38bdf8";
+    c.freeDrawingBrush.width = 2;
   };
 
+  // ================= RECT =================
+  const rect = () => {
+    const c = canvas.current;
+    c.isDrawingMode = false;
+    c.add(
+      new Rect({
+        width: 140,
+        height: 70,
+        left: 80,
+        top: 80,
+        stroke: "#38bdf8",
+        strokeWidth: 2,
+        fill: "transparent",
+        rx: 6,
+        ry: 6,
+      })
+    );
+  };
+
+  // ================= UNDO =================
   const undo = () => {
-    if (history.length < 2) return;
-    const prev = history[history.length - 2];
-    setRedoStack((r) => [history[history.length - 1], ...r]);
-    canvas.current.loadFromJSON(prev, () => canvas.current.renderAll());
-    setHistory((h) => h.slice(0, -1));
+    if (history.current.length < 2) return;
+    isRestoring.current = true;
+    redoStack.current.push(history.current.pop());
+
+    canvas.current.loadFromJSON(history.current.at(-1), () => {
+      canvas.current.renderAll();
+      isRestoring.current = false;
+    });
   };
 
+  // ================= REDO =================
   const redo = () => {
-    if (!redoStack.length) return;
-    const next = redoStack[0];
-    canvas.current.loadFromJSON(next, () => canvas.current.renderAll());
-    setRedoStack((r) => r.slice(1));
-    setHistory((h) => [...h, next]);
+    if (!redoStack.current.length) return;
+    isRestoring.current = true;
+    const next = redoStack.current.pop();
+    history.current.push(next);
+
+    canvas.current.loadFromJSON(next, () => {
+      canvas.current.renderAll();
+      isRestoring.current = false;
+    });
   };
 
-  const enableDraw = () => {
-    canvas.current.isDrawingMode = true;
-    canvas.current.freeDrawingBrush = new fabric.PencilBrush(canvas.current);
-    canvas.current.freeDrawingBrush.color = "#38bdf8";
-    canvas.current.freeDrawingBrush.width = 2;
+  // ================= EXPORT =================
+  const exportPNG = () => {
+    const url = canvas.current.toDataURL({ format: "png" });
+    fetch(url)
+      .then((r) => r.blob())
+      .then((b) => saveAs(b, "board.png"));
   };
 
-  const disableDraw = () => (canvas.current.isDrawingMode = false);
-
-  const addRect = () => {
-    disableDraw();
-    canvas.current.add(
-      new fabric.Rect({
-        width: 120,
-        height: 60,
-        fill: "transparent",
-        stroke: "#fff",
-        left: 50,
-        top: 50,
-      })
-    );
-  };
-
-  const addCircle = () => {
-    disableDraw();
-    canvas.current.add(
-      new fabric.Circle({
-        radius: 30,
-        fill: "transparent",
-        stroke: "#fff",
-        left: 100,
-        top: 100,
-      })
-    );
-  };
-
-  const addText = () => {
-    disableDraw();
-    canvas.current.add(
-      new fabric.Textbox("Type here", {
-        fill: "#fff",
-        left: 150,
-        top: 150,
-        fontSize: 16,
-      })
-    );
-  };
-
-  const clearBoard = () => {
+  // ================= CLEAR =================
+  const clear = () => {
     canvas.current.clear();
     canvas.current.setBackgroundColor("#0f172a", canvas.current.renderAll.bind(canvas.current));
-    saveState();
-  };
-
-  const exportPNG = () => {
-    const dataURL = canvas.current.toDataURL({ format: "png" });
-    fetch(dataURL)
-      .then((res) => res.blob())
-      .then((blob) => saveAs(blob, "whiteboard.png"));
+    history.current = [];
+    redoStack.current = [];
   };
 
   return (
-    <div className="w-full h-full bg-slate-900 rounded-xl border border-slate-700">
-      <div className="flex gap-3 p-3 border-b border-slate-700 bg-slate-800">
-        <button onClick={enableDraw}><Pencil size={18} /></button>
-        <button onClick={addRect}><Square size={18} /></button>
-        <button onClick={addCircle}><Circle size={18} /></button>
-        <button onClick={addText}><Type size={18} /></button>
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
+      <div className="flex gap-2 p-3 bg-slate-800 border-b border-slate-700">
+        <button onClick={draw}><Pencil size={18} /></button>
+        <button onClick={rect}><Square size={18} /></button>
         <button onClick={undo}><Undo size={18} /></button>
         <button onClick={redo}><Redo size={18} /></button>
         <button onClick={exportPNG}><Download size={18} /></button>
-        <button onClick={clearBoard}><Trash2 size={18} /></button>
+        <button onClick={clear}><Trash2 size={18} /></button>
       </div>
 
-      <canvas
-        ref={canvasEl}
-        width={1100}
-        height={600}
-        className="rounded-b-xl"
-      />
+      <canvas ref={canvasRef} width={1100} height={600} />
     </div>
   );
 }
