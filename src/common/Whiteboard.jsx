@@ -45,14 +45,27 @@ export default function Whiteboard() {
 
     board.current = c;
 
-    c.on("mouse:wheel", function (opt) {
+    let ctrlDown = false;
+
+    window.addEventListener("keydown", e => {
+      if (e.key === "Control") ctrlDown = true;
+    });
+    window.addEventListener("keyup", e => {
+      if (e.key === "Control") ctrlDown = false;
+    });
+
+    c.on("mouse:wheel", opt => {
+      if (!ctrlDown) return;   // 🛡 only zoom with Ctrl
+
       let zoom = c.getZoom();
       zoom *= 0.999 ** opt.e.deltaY;
       zoom = Math.min(3, Math.max(0.5, zoom));
       c.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+
       opt.e.preventDefault();
       opt.e.stopPropagation();
     });
+
 
 
     const save = () => {
@@ -117,7 +130,7 @@ export default function Whiteboard() {
       c.on("mouse:move", (opt) => {
         if (!drawingObj.current) return;
         let p = c.getScenePoint(opt.e);
-        if (showGrid) {
+        if (showGrid && tool !== "draw") {
           p = { x: snap(p.x), y: snap(p.y) };
         }
 
@@ -188,7 +201,12 @@ export default function Whiteboard() {
   };
 
   /* ============== NEW FEATURES ============== */
-  const snap = (v, size = 20) => Math.round(v / size) * size;
+  // const snap = (v, size = 20) => Math.round(v / size) * size;
+  // const snap = (v, size = 20) => showGrid ? Math.round(v / size) * size : v;
+  const snap = (v, size = 20) => {
+    if (!showGrid) return v;
+    return Math.round(v / size) * size;
+  };
   const toggleGrid = () => {
     const c = board.current;
     if (!c) return;
@@ -211,26 +229,37 @@ export default function Whiteboard() {
 
   const duplicateObject = () => {
     const c = board.current;
-    const obj = c.getActiveObject();
-    if (!obj) return;
+    const active = c.getActiveObject();
+    if (!active) return;
 
-    if (obj.type === "activeSelection") {
-      obj.clone(clone => {
-        clone.set({ left: obj.left + 30, top: obj.top + 30 });
-        c.discardActiveObject();
-        clone.forEachObject(o => c.add(o));
-        c.setActiveObject(clone);
-        c.requestRenderAll();
+    if (active.type === "activeSelection") {
+      const objects = active.getObjects();
+      c.discardActiveObject();
+
+      objects.forEach(obj => {
+        obj.clone(clone => {
+          clone.set({
+            left: obj.left + 30,
+            top: obj.top + 30
+          });
+          c.add(clone);
+        });
       });
+
     } else {
-      obj.clone(clone => {
-        clone.set({ left: obj.left + 30, top: obj.top + 30 });
+      active.clone(clone => {
+        clone.set({
+          left: active.left + 30,
+          top: active.top + 30
+        });
         c.add(clone);
         c.setActiveObject(clone);
-        c.requestRenderAll();
       });
     }
+
+    c.requestRenderAll();
   };
+
 
 
 
