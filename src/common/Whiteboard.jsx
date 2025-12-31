@@ -27,6 +27,7 @@ export default function Whiteboard() {
   const restoring = useRef(false);
 
   const [tool, setTool] = useState("select");
+  const [color, setColor] = useState("#38bdf8");
 
   // ================= INIT =================
   useEffect(() => {
@@ -48,7 +49,6 @@ export default function Whiteboard() {
     c.on("object:modified", save);
 
     save();
-
     return () => c.dispose();
   }, []);
 
@@ -61,7 +61,7 @@ export default function Whiteboard() {
     const c = board.current;
     c.isDrawingMode = true;
     c.freeDrawingBrush = new PencilBrush(c);
-    c.freeDrawingBrush.color = "#38bdf8";
+    c.freeDrawingBrush.color = color;
     c.freeDrawingBrush.width = 2;
     setTool("draw");
   };
@@ -74,7 +74,7 @@ export default function Whiteboard() {
       height: 70,
       left: 80,
       top: 80,
-      stroke: "#38bdf8",
+      stroke: color,
       strokeWidth: 2,
       fill: "transparent",
     }));
@@ -88,7 +88,7 @@ export default function Whiteboard() {
       radius: 35,
       left: 120,
       top: 120,
-      stroke: "#38bdf8",
+      stroke: color,
       strokeWidth: 2,
       fill: "transparent",
     }));
@@ -101,12 +101,12 @@ export default function Whiteboard() {
     setTool("text");
 
     c.once("mouse:down", (opt) => {
-      const pointer = c.getScenePoint(opt.e);
+      const p = c.getScenePoint(opt.e);
 
       const text = new Textbox("Type here", {
-        left: pointer.x,
-        top: pointer.y,
-        fill: "#ffffff",
+        left: p.x,
+        top: p.y,
+        fill: color,
         fontSize: 18,
       });
 
@@ -160,7 +160,8 @@ export default function Whiteboard() {
   // ================= UI =================
   return (
     <div className="w-full bg-slate-900 border border-slate-700 rounded-xl">
-      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700">
+      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700 items-center">
+
         <button className={btn("draw")} onClick={enableDraw}><Pencil size={18} /></button>
         <button className={btn("rect")} onClick={addRect}><Square size={18} /></button>
         <button className={btn("circle")} onClick={addCircle}><CircleIcon size={18} /></button>
@@ -170,6 +171,16 @@ export default function Whiteboard() {
         <button className="p-2 hover:bg-slate-700" onClick={deleteSelected}><Trash2 size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={clearBoard}>🧹</button>
         <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
+
+        {/* 🎨 COLOR PICKER */}
+        <input
+          type="color"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+          className="ml-3 w-8 h-8 cursor-pointer rounded"
+          title="Pick color"
+        />
+
       </div>
 
       <canvas ref={canvasRef} width={1100} height={600} />
