@@ -9,7 +9,8 @@ import {
   Download,
   Undo,
   Redo,
-  Type
+  Type,
+  PaintBucket
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -21,7 +22,8 @@ export default function Whiteboard() {
   const restoring = useRef(false);
 
   const [tool, setTool] = useState("select");
-  const [color, setColor] = useState("#38bdf8");
+  const [strokeColor, setStrokeColor] = useState("#38bdf8");
+  const [fillColor, setFillColor] = useState("transparent");
   const [lineWidth, setLineWidth] = useState(2);
 
   // ================= INIT =================
@@ -84,7 +86,7 @@ export default function Whiteboard() {
     const c = board.current;
     c.isDrawingMode = true;
     c.freeDrawingBrush = new PencilBrush(c);
-    c.freeDrawingBrush.color = color;
+    c.freeDrawingBrush.color = strokeColor;
     c.freeDrawingBrush.width = lineWidth;
     setTool("draw");
   };
@@ -92,51 +94,59 @@ export default function Whiteboard() {
   const rect = () => {
     const c = board.current;
     c.isDrawingMode = false;
-
     c.add(new Rect({
       left: 120,
       top: 120,
       width: 120,
       height: 70,
-      stroke: color,
+      stroke: strokeColor,
       strokeWidth: lineWidth,
-      fill: "transparent",
+      fill: fillColor,
       strokeUniform: true
     }));
-
     setTool("rect");
   };
 
   const circle = () => {
     const c = board.current;
     c.isDrawingMode = false;
-
     c.add(new Circle({
       left: 200,
       top: 200,
       radius: 40,
-      stroke: color,
+      stroke: strokeColor,
       strokeWidth: lineWidth,
-      fill: "transparent",
+      fill: fillColor,
       strokeUniform: true
     }));
-
     setTool("circle");
   };
 
   const text = () => {
     const c = board.current;
     c.isDrawingMode = false;
-
     c.add(new Textbox("Type here", {
       left: 220,
       top: 180,
-      fill: color,
+      fill: strokeColor,
       fontSize: 18 + lineWidth,
       strokeUniform: true
     }));
-
     setTool("text");
+  };
+
+  const applyFill = () => {
+    const c = board.current;
+    const obj = c.getActiveObject();
+    if (!obj) return;
+
+    if (obj.type === "activeSelection") {
+      obj.forEachObject(o => o.set("fill", fillColor));
+    } else {
+      obj.set("fill", fillColor);
+    }
+
+    c.requestRenderAll();
   };
 
   const clearBoard = () => {
@@ -192,10 +202,21 @@ export default function Whiteboard() {
         <button className="p-2 hover:bg-slate-700" onClick={clearBoard}><Trash2 size={18} /></button>
         <button className="p-2 hover:bg-slate-700" onClick={exportPNG}><Download size={18} /></button>
 
-        <input type="color" value={color}
-          onChange={e => setColor(e.target.value)}
+        {/* Stroke Color */}
+        <input type="color" value={strokeColor}
+          onChange={e => setStrokeColor(e.target.value)}
           className="w-8 h-8 ml-2 border border-slate-600 bg-transparent rounded" />
 
+        {/* Fill Color */}
+        <input type="color" value={fillColor === "transparent" ? "#000000" : fillColor}
+          onChange={e => setFillColor(e.target.value)}
+          className="w-8 h-8 border border-slate-600 bg-transparent rounded" />
+
+        <button className="p-2 hover:bg-slate-700" onClick={applyFill}>
+          <PaintBucket size={18} />
+        </button>
+
+        {/* Line Width */}
         <input type="range" min="1" max="10"
           value={lineWidth}
           onChange={e => setLineWidth(Number(e.target.value))}
