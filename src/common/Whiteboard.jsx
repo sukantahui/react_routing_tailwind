@@ -45,6 +45,16 @@ export default function Whiteboard() {
 
     board.current = c;
 
+    c.on("mouse:wheel", function (opt) {
+      let zoom = c.getZoom();
+      zoom *= 0.999 ** opt.e.deltaY;
+      zoom = Math.min(3, Math.max(0.5, zoom));
+      c.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+      opt.e.preventDefault();
+      opt.e.stopPropagation();
+    });
+
+
     const save = () => {
       if (restoring.current) return;
       history.current.push(JSON.stringify(c.toJSON()));
@@ -106,18 +116,27 @@ export default function Whiteboard() {
 
       c.on("mouse:move", (opt) => {
         if (!drawingObj.current) return;
-        const p = c.getScenePoint(opt.e);
+        let p = c.getScenePoint(opt.e);
+        if (showGrid) {
+          p = { x: snap(p.x), y: snap(p.y) };
+        }
 
         if (tool === "rect") {
           const x = Math.min(p.x, start.current.x);
           const y = Math.min(p.y, start.current.y);
-          const w = Math.abs(p.x - start.current.x);
-          const h = Math.abs(p.y - start.current.y);
+          let w = Math.abs(p.x - start.current.x);
+          let h = Math.abs(p.y - start.current.y);
+
+          if (opt.e.shiftKey) {
+            const size = Math.max(w, h);
+            w = h = size;
+          }
           drawingObj.current.set({ left: x, top: y, width: w || 1, height: h || 1 });
         }
 
         if (tool === "circle") {
-          const r = Math.max(Math.abs(p.x - start.current.x), Math.abs(p.y - start.current.y));
+          let r = Math.max(Math.abs(p.x - start.current.x), Math.abs(p.y - start.current.y));
+          if (opt.e.shiftKey) r = r;
           drawingObj.current.set({ radius: r / 2 });
         }
 
@@ -169,7 +188,7 @@ export default function Whiteboard() {
   };
 
   /* ============== NEW FEATURES ============== */
-
+  const snap = (v, size = 20) => Math.round(v / size) * size;
   const toggleGrid = () => {
     const c = board.current;
     if (!c) return;
@@ -192,25 +211,27 @@ export default function Whiteboard() {
 
   const duplicateObject = () => {
     const c = board.current;
-    const active = c.getActiveObject();
-    if (!active) return;
+    const obj = c.getActiveObject();
+    if (!obj) return;
 
-    restoring.current = true;
-
-    const json = c.toJSON();
-    const index = c.getObjects().indexOf(active);
-
-    c.loadFromJSON(json, () => {
-      const cloned = c.getObjects()[index];
-      cloned.set({
-        left: (cloned.left || 0) + 30,
-        top: (cloned.top || 0) + 30
+    if (obj.type === "activeSelection") {
+      obj.clone(clone => {
+        clone.set({ left: obj.left + 30, top: obj.top + 30 });
+        c.discardActiveObject();
+        clone.forEachObject(o => c.add(o));
+        c.setActiveObject(clone);
+        c.requestRenderAll();
       });
-      c.setActiveObject(cloned);
-      c.requestRenderAll();
-      restoring.current = false;
-    });
+    } else {
+      obj.clone(clone => {
+        clone.set({ left: obj.left + 30, top: obj.top + 30 });
+        c.add(clone);
+        c.setActiveObject(clone);
+        c.requestRenderAll();
+      });
+    }
   };
+
 
 
 
