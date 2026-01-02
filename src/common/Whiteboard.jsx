@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Canvas, Rect, Circle, Textbox, PencilBrush, Line } from "fabric";
 import {
   MousePointer2, Pencil, Square, Circle as CircleIcon,
-  Download, Undo, Redo, Type, Trash, Grid3X3, Copy, ArrowUp, ArrowDown
+  Download, Undo, Redo, Type, Trash, Trash2, Grid3X3, Copy, ArrowUp, ArrowDown
 } from "lucide-react";
 import { saveAs } from "file-saver";
 
@@ -26,8 +26,28 @@ export default function Whiteboard() {
   const [lineWidth, setLineWidth] = useState(2);
   const [bgColor, setBgColor] = useState("#0f172a");
   const toolRef = useRef("select");
-useEffect(() => { toolRef.current = tool; }, [tool]);
+  useEffect(() => { toolRef.current = tool; }, [tool]);
 
+  const deleteSelected = () => {
+    const c = board.current;
+    if (!c) return;
+
+    const obj = c.getActiveObject();
+    if (!obj) return;
+
+    if (obj.type === "activeSelection") {
+      obj.forEachObject(o => c.remove(o));
+    } else {
+      c.remove(obj);
+    }
+
+    c.discardActiveObject();
+    c.requestRenderAll();
+
+    // push to history
+    history.current.push(JSON.stringify(c.toJSON()));
+    redoStack.current = [];
+  };
 
   const isTrueCircle = (points) => {
     if (points.length < 80) return false;
@@ -49,39 +69,39 @@ useEffect(() => { toolRef.current = tool; }, [tool]);
 
 
 
-const detectAndReplaceCircle = (path) => {
-  const pts = [];
+  const detectAndReplaceCircle = (path) => {
+    const pts = [];
 
-  path.path.forEach(p => {
-    if (p[0] === "M" || p[0] === "L" || p[0] === "Q") {
-      pts.push({
-        x: path.left + p[1],
-        y: path.top  + p[2]
-      });
-    }
-  });
+    path.path.forEach(p => {
+      if (p[0] === "M" || p[0] === "L" || p[0] === "Q") {
+        pts.push({
+          x: path.left + p[1],
+          y: path.top + p[2]
+        });
+      }
+    });
 
-  if (!isTrueCircle(pts)) return;
+    if (!isTrueCircle(pts)) return;
 
-  const cx = pts.reduce((s,p)=>s+p.x,0) / pts.length;
-  const cy = pts.reduce((s,p)=>s+p.y,0) / pts.length;
-  const r  = pts.reduce((s,p)=>s+Math.hypot(p.x-cx,p.y-cy),0) / pts.length;
+    const cx = pts.reduce((s, p) => s + p.x, 0) / pts.length;
+    const cy = pts.reduce((s, p) => s + p.y, 0) / pts.length;
+    const r = pts.reduce((s, p) => s + Math.hypot(p.x - cx, p.y - cy), 0) / pts.length;
 
-  const circle = new Circle({
-    left: cx - r,
-    top: cy - r,
-    radius: r,
-    stroke: path.stroke,
-    strokeWidth: path.strokeWidth,
-    fill: path.fill || "transparent"
-  });
+    const circle = new Circle({
+      left: cx - r,
+      top: cy - r,
+      radius: r,
+      stroke: path.stroke,
+      strokeWidth: path.strokeWidth,
+      fill: path.fill || "transparent"
+    });
 
-  const c = board.current;
-  c.remove(path);
-  c.add(circle);
-  c.setActiveObject(circle);
-  c.requestRenderAll();
-};
+    const c = board.current;
+    c.remove(path);
+    c.add(circle);
+    c.setActiveObject(circle);
+    c.requestRenderAll();
+  };
 
 
 
@@ -107,9 +127,9 @@ const detectAndReplaceCircle = (path) => {
     board.current = c;
 
     c.on("path:created", (e) => {
-  if (toolRef.current !== "draw") return;
-  detectAndReplaceCircle(e.path);
-});
+      if (toolRef.current !== "draw") return;
+      detectAndReplaceCircle(e.path);
+    });
 
     let ctrlDown = false;
 
@@ -375,6 +395,9 @@ const detectAndReplaceCircle = (path) => {
         <button onClick={undo}><Undo size={18} /></button>
         <button onClick={redo}><Redo size={18} /></button>
         <button onClick={clearCanvas}><Trash size={18} /></button>
+        <button onClick={deleteSelected} title="Delete Selected">
+          <Trash2 size={18} />
+        </button>
         <button onClick={toggleGrid}><Grid3X3 size={18} /></button>
         <button onClick={duplicateObject}><Copy size={18} /></button>
         <button onClick={bringToFront}><ArrowUp size={18} /></button>

@@ -59,6 +59,9 @@ import CssModuleView from '../components/study/css/CssModuleView';
 import CssTopicView from '../components/study/css/CssTopicView';
 // ⬇️ Import Study component
 import Study from '../components/study/Study';
+import IscElevenRoadmap from '../components/study/isc-11/IscElevenRoadmap';
+import IscElevenModuleView from '../components/study/isc-11/IscElevenModuleView';
+import IscElevenTopicView from '../components/study/isc-11/IscElevenTopicView';
 
 
 
@@ -174,6 +177,11 @@ export default function AppRoutes() {
       <Route path="/css/roadmap" element={<CssRoadmap />} />
       <Route path="/css/module/:slug" element={<CssModuleView />} />
       <Route path="/css/topic/:moduleSlug/:topicIndex"  element={<CssTopicView/>}/>
+
+      {/* For ISC 11  */}
+      <Route path="/isc-11/roadmap" element={<IscElevenRoadmap />} />
+      <Route path="/isc-11/module/:slug" element={<IscElevenModuleView />} />
+      <Route path="/isc-11/topic/:moduleSlug/:topicIndex"  element={<IscElevenTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

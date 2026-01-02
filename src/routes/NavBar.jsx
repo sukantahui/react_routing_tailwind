@@ -35,12 +35,12 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-  document.addEventListener("pointerdown", this.handleClickOutside);
-}
+    document.addEventListener("pointerdown", this.handleClickOutside);
+  }
 
-componentWillUnmount() {
-  document.removeEventListener("pointerdown", this.handleClickOutside);
-}
+  componentWillUnmount() {
+    document.removeEventListener("pointerdown", this.handleClickOutside);
+  }
 
   toggleMenu = () => {
     this.setState({
@@ -85,24 +85,24 @@ componentWillUnmount() {
     };
 
     return `flex items-center px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${isActive
-        ? `bg-gradient-to-r ${activeColors[key]} text-white`
-        : "text-gray-300 hover:text-white hover:bg-gray-800/70"
+      ? `bg-gradient-to-r ${activeColors[key]} text-white`
+      : "text-gray-300 hover:text-white hover:bg-gray-800/70"
       }`;
   };
 
 
   handleClickOutside = (event) => {
-  if (
-    this.navRef.current &&
-    !this.navRef.current.contains(event.target)
-  ) {
-    this.setState({
-      isOpen: false,
-      servicesOpen: false,
-      tutorialsOpen: false,
-    });
-  }
-};
+    if (
+      this.navRef.current &&
+      !this.navRef.current.contains(event.target)
+    ) {
+      this.setState({
+        isOpen: false,
+        servicesOpen: false,
+        tutorialsOpen: false,
+      });
+    }
+  };
 
   render() {
     const { location } = this.props;
@@ -210,42 +210,49 @@ componentWillUnmount() {
                       className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
                       <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/javascript.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="js" />
+                        <img src="/logos/javascript.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="js" />
                         JavaScript
                       </NavLink>
                       <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/python.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="python" />
+                        <img src="/logos/python.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="python" />
                         Python
                       </NavLink>
                       <NavLink to="/c-language/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/c.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="c" />
+                        <img src="/logos/c.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="c" />
                         C Programming
                       </NavLink>
                       <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/tally-prime.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="tally" />
+                        <img src="/logos/tally-prime.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="tally" />
                         Tally
                       </NavLink>
                       <NavLink to="/excel/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/excel.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="excel" />
+                        <img src="/logos/excel.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="excel" />
                         Excel
                       </NavLink>
                       <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/java.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         ICSE Class 9
                       </NavLink>
                       <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/java.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         Core Java
                       </NavLink>
                       <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         General
                       </NavLink>
                       {isDev && (
-                      <NavLink to="/css/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        CSS
-                      </NavLink>)}
+                        <NavLink to="/css/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                          CSS
+                        </NavLink>
+                      )}
+
+                      <NavLink to="/isc-11/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        ISC 11 Com. Sc.
+                      </NavLink>
+
 
                     </motion.div>
                   )}
@@ -292,7 +299,7 @@ componentWillUnmount() {
                   >
                     Tools ▾
                   </button>
- 
+
                   {servicesOpen && (
                     <div className="ml-4 flex flex-col">
                       <NavLink to="/tools/type-test" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Test</NavLink>
@@ -320,7 +327,7 @@ componentWillUnmount() {
                       <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
                       <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Core Java</NavLink>
                       <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg"  className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         General
                       </NavLink>
                     </div>

@@ -1,0 +1,245 @@
+{
+  "trackId": "isc-class11-computer-science-868",
+  "trackTitle": "ISC Class 11 Computer Science Complete Roadmap",
+  "description": "A complete ISC Class 11 Computer Science learning roadmap covering hardware fundamentals, propositional logic, Java programming, algorithms, data structures, input-output, recursion, ethical issues and practical projects as prescribed by CISCE.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "ISC Class 11 Computer Science Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-03"
+  },
+  "folder": "isc-11",
+  "subject": "Computer Science",
+  "subjectLogo": {
+    "name": "ISC Computer Science",
+    "icon": "Computer",
+    "type": "svg",
+    "path": "/logos/isc-computer-science.svg",
+    "alt": "ISC Computer Science Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "section-a",
+      "title": "Section A – Basic Computer Hardware and Software",
+      "level": "Beginner",
+      "summary": "Understand number systems, positional logic, propositional logic, computer architecture and hardware fundamentals.",
+      "modules": [
+        {
+          "moduleId": "numbers",
+          "slug": "number-systems-and-complements",
+          "title": "Numbers and Number Systems",
+          "level": "Beginner",
+          "estimatedHours": 10,
+          "tags": [
+            "binary",
+            "decimal",
+            "octal",
+            "hexadecimal",
+            "complements"
+          ],
+          "topics": [
+            "Representation of numbers in different bases",
+            "Interconversion between binary, octal, decimal and hexadecimal",
+            "Addition and subtraction in different bases",
+            "Positional number system and base",
+            "1's and 2's complement",
+            "Use of complements in arithmetic",
+            "Algorithms for base conversion"
+          ],
+          "learningOutcomes": [
+            "Convert numbers between different number systems",
+            "Perform arithmetic operations in different bases",
+            "Apply complements to simplify arithmetic"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Master number representation and conversions as required in ISC examinations.",
+          "miniProjects": [
+            "Number System Converter"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Worksheet + Test",
+            "passScore": 70
+          },
+          "previousModule": null,
+          "nextModule": "positional-logic",
+          "badge": "Number Systems Badge"
+        },
+        {
+          "moduleId": "proposition-logic",
+          "slug": "proposition-logic-and-truth-values",
+          "title": "Positional (Propositional) Logic – Fundamentals",
+          "level": "Beginner",
+          "estimatedHours": 8,
+          "tags": [
+            "positional-logic",
+            "truth-values",
+            "wff"
+          ],
+          "topics": [
+            "Meaning and definition of a proposition",
+            "Difference between proposition and non-proposition (commands, questions, exclamations)",
+            "Simple propositions and compound propositions",
+            "Propositional variables and symbolic representation (p, q, r...)",
+            "Well-Formed Formula (WFF) – meaning, syntax rules and examples",
+            "Truth values – True and False",
+            "Basic logical connectives – NOT (¬), AND (∧), OR (∨)",
+            "Negation of a proposition and common mistakes",
+            "Conjunction and disjunction – real life examples",
+            "Truth tables for NOT, AND and OR",
+            "Formation of compound statements using logical connectives",
+            "Translation of English statements into symbolic form",
+            "Translation of symbolic form into English statements",
+            "Identification of propositions in a paragraph",
+            "Common logical symbols and their meanings",
+            "Word problems based on propositions",
+            "Introduction to tautology and contradiction (conceptual)",
+            "Introduction to logical equivalence (conceptual)",
+            "Common errors in forming propositions",
+            "Practice set on truth value evaluation",
+            "Revision & Mixed Practice on Propositional Logic",
+            "Practice your Skill"
+          ],
+          "learningOutcomes": [
+            "Identify propositions and non-propositions",
+            "Write WFF for compound statements",
+            "Find truth values of basic compound propositions"
+          ],
+          "prerequisites": [
+            "numbers"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 2,
+          "summary": "Learn how logical statements are formed and evaluated using positional logic.",
+          "miniProjects": [
+            "Truth Value Analyzer"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Worksheet + Practice Test",
+            "passScore": 70
+          },
+          "previousModule": "numbers",
+          "nextModule": "propositional-logic",
+          "badge": "Logic Basics Badge"
+        },
+        {
+          "moduleId": "propositional-logic",
+          "slug": "propositional-logic-and-gates",
+          "title": "Propositional Logic, Logic Gates & Arithmetic Circuits",
+          "level": "Beginner",
+          "estimatedHours": 12,
+          "tags": [
+            "logic",
+            "truth-table",
+            "logic-gates",
+            "half-adder",
+            "full-adder"
+          ],
+          "topics": [
+            "Truth tables for compound propositions",
+            "Tautology, contradiction and equivalence",
+            "Implication and bi-conditional",
+            "Logic gates: AND, OR, NOT, NAND, NOR, XOR, XNOR",
+            "Half adder and full adder",
+            "Hardware implementation of arithmetic operations",
+            "Use of 2's complement in arithmetic"
+          ],
+          "learningOutcomes": [
+            "Construct truth tables for logical expressions",
+            "Identify tautologies and contradictions",
+            "Understand hardware circuits for binary arithmetic"
+          ],
+          "prerequisites": [
+            "positional-logic"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "summary": "Learn the foundation of logical reasoning and its hardware implementation.",
+          "miniProjects": [
+            "Logic Gate Simulator"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Worksheet + Practical",
+            "passScore": 70
+          },
+          "previousModule": "positional-logic",
+          "nextModule": "oop-java",
+          "badge": "Logic Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-b",
+      "title": "Section B – Java Programming & Algorithms",
+      "level": "Intermediate",
+      "summary": "Develop programming skills in Java including OOP concepts, arrays, methods and recursion.",
+      "modules": [
+        {
+          "moduleId": "oop-java",
+          "slug": "oop-in-java",
+          "title": "Object Oriented Programming using Java",
+          "level": "Intermediate",
+          "estimatedHours": 15,
+          "tags": [
+            "java",
+            "oop",
+            "jvm"
+          ],
+          "topics": [
+            "Objects and classes",
+            "Instance and class difference",
+            "Java Virtual Machine",
+            "Compile time and run time errors",
+            "try, catch, throw, throws and finally",
+            "User defined exceptions"
+          ],
+          "learningOutcomes": [
+            "Explain JVM architecture",
+            "Create simple Java classes and objects",
+            "Handle runtime errors using exceptions"
+          ],
+          "prerequisites": [
+            "propositional-logic"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Start programming in Java using object oriented principles.",
+          "miniProjects": [
+            "Student Record System"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Coding Test",
+            "passScore": 70
+          },
+          "previousModule": "propositional-logic",
+          "nextModule": "arrays-strings",
+          "badge": "Java Beginner Badge"
+        }
+      ]
+    }
+  ]
+}

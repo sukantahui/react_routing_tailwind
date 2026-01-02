@@ -1,0 +1,831 @@
+[
+  {
+    "id": 1,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is a proposition?",
+    "options": [
+      "Open the door.",
+      "Is today Monday?",
+      "Barrackpore is in West Bengal.",
+      "How are you?"
+    ],
+    "answerIndex": 2,
+    "explanation": "A proposition must be a declarative statement with a definite truth value."
+  },
+  {
+    "id": 2,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the negation of the proposition p?",
+    "options": ["p", "¬p", "p ∧ q", "p ∨ q"],
+    "answerIndex": 1,
+    "explanation": "The negation of p is written as ¬p."
+  },
+  {
+    "id": 3,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p is True, what is the truth value of ¬p?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "Negation of True is False."
+  },
+  {
+    "id": 4,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which connective is used to represent logical AND?",
+    "options": ["∨", "∧", "¬", "→"],
+    "answerIndex": 1,
+    "explanation": "The symbol ∧ represents logical AND."
+  },
+  {
+    "id": 5,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the truth value of p ∨ q if both p and q are False?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "OR is False only when both operands are False."
+  },
+  {
+    "id": 6,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is a contradiction?",
+    "options": ["p ∨ ¬p", "p ∧ ¬p", "p ∨ q", "¬p"],
+    "answerIndex": 1,
+    "explanation": "p ∧ ¬p is always False, hence a contradiction."
+  },
+  {
+    "id": 7,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is a tautology?",
+    "options": ["p ∧ q", "p ∨ q", "p ∧ ¬p", "p ∨ ¬p"],
+    "answerIndex": 3,
+    "explanation": "p ∨ ¬p is always True, hence a tautology."
+  },
+  {
+    "id": 8,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which symbol is used for logical OR?",
+    "options": ["¬", "∧", "∨", "↔"],
+    "answerIndex": 2,
+    "explanation": "The symbol ∨ denotes logical OR."
+  },
+  {
+    "id": 9,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p = False, what is the truth value of ¬p?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "Negation of False is True."
+  },
+  {
+    "id": 10,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is NOT a proposition?",
+    "options": [
+      "Kolkata is in India.",
+      "Please sit down.",
+      "2 is an even number.",
+      "The lab is open."
+    ],
+    "answerIndex": 1,
+    "explanation": "Commands do not have truth values, so they are not propositions."
+  },
+  {
+    "id": 11,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the symbolic form of: 'p and q'?",
+    "options": ["p ∨ q", "¬p", "p ∧ q", "p → q"],
+    "answerIndex": 2,
+    "explanation": "The connective for AND is ∧, so p ∧ q."
+  },
+  {
+    "id": 12,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following pairs are logically equivalent?",
+    "options": ["p and q, p ∨ q", "p ∨ ¬p, True", "p ∧ q, False", "¬p, p"],
+    "answerIndex": 1,
+    "explanation": "p ∨ ¬p is always True, hence equivalent to True."
+  },
+  {
+    "id": 13,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is always False?",
+    "options": ["p ∨ q", "¬p", "p ∧ ¬p", "p ∧ q"],
+    "answerIndex": 2,
+    "explanation": "p ∧ ¬p is a contradiction, always False."
+  },
+  {
+    "id": 14,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the truth value of p ∧ q if p is True and q is True?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "True AND True results in True."
+  },
+  {
+    "id": 15,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which statement correctly describes a proposition?",
+    "options": [
+      "It must be a command.",
+      "It must be a question.",
+      "It must have a truth value.",
+      "It must contain numbers."
+    ],
+    "answerIndex": 2,
+    "explanation": "A proposition must have a definite truth value."
+  },
+  {
+    "id": 16,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What does the symbol ¬ represent?",
+    "options": ["AND", "OR", "IMPLIES", "NOT"],
+    "answerIndex": 3,
+    "explanation": "¬ is the symbol for logical NOT."
+  },
+  {
+    "id": 17,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is a compound proposition?",
+    "options": ["p", "¬p", "q", "r"],
+    "answerIndex": 1,
+    "explanation": "¬p is formed using a connective, so it is a compound proposition."
+  },
+  {
+    "id": 18,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which logical connective is used in 'p or q'?",
+    "options": ["¬", "∧", "∨", "→"],
+    "answerIndex": 2,
+    "explanation": "The word 'or' corresponds to the symbol ∨."
+  },
+  {
+    "id": 19,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p is False, what is the truth value of p ∨ q when q is True?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "OR is True when at least one operand is True."
+  },
+  {
+    "id": 20,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following expressions is always True?",
+    "options": ["p ∧ q", "p ∧ ¬p", "p ∨ ¬p", "¬p"],
+    "answerIndex": 2,
+    "explanation": "p ∨ ¬p is a tautology, always True."
+  },
+  {
+    "id": 21,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the truth value of ¬(p ∨ q) when p = False and q = False?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "p ∨ q = False, so ¬False = True."
+  },
+  {
+    "id": 22,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which expression represents 'p is false'?",
+    "options": ["p", "¬p", "p ∧ q", "p ∨ q"],
+    "answerIndex": 1,
+    "explanation": "¬p represents the negation of p."
+  },
+  {
+    "id": 23,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is logically equivalent to p ∨ ¬p?",
+    "options": ["False", "True", "p ∧ q", "¬p"],
+    "answerIndex": 1,
+    "explanation": "p ∨ ¬p is always True."
+  },
+  {
+    "id": 24,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the truth value of p ∧ ¬p?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "p ∧ ¬p is always False."
+  },
+  {
+    "id": 25,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is NOT a compound proposition?",
+    "options": ["¬p", "p ∧ q", "p ∨ q", "p"],
+    "answerIndex": 3,
+    "explanation": "p alone is a simple proposition, not compound."
+  },
+  {
+    "id": 26,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p = True and q = False, what is the truth value of p ∧ ¬q?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "¬q = True, so True ∧ True = True."
+  },
+  {
+    "id": 27,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which connective is used in the expression ¬(p ∧ q)?",
+    "options": ["¬", "∧", "∨", "↔"],
+    "answerIndex": 0,
+    "explanation": "The main connective is ¬ (NOT)."
+  },
+  {
+    "id": 28,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the symbolic form of: 'p is true or q is false'?",
+    "options": ["p ∨ q", "p ∧ ¬q", "p ∨ ¬q", "¬p ∨ q"],
+    "answerIndex": 2,
+    "explanation": "The statement is p OR (NOT q), so p ∨ ¬q."
+  },
+  {
+    "id": 29,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which expression is a tautology?",
+    "options": ["p ∧ q", "p ∨ q", "p ∨ ¬p", "p ∧ ¬q"],
+    "answerIndex": 2,
+    "explanation": "p ∨ ¬p is always True."
+  },
+  {
+    "id": 30,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which expression is a contradiction?",
+    "options": ["p ∧ ¬p", "p ∨ q", "¬p", "p ∧ q"],
+    "answerIndex": 0,
+    "explanation": "p ∧ ¬p is always False."
+  },
+  {
+    "id": 31,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p = False, what is the truth value of ¬p?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "Negation of False is True."
+  },
+  {
+    "id": 32,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following best represents a proposition?",
+    "options": [
+      "Close the door.",
+      "Is today Sunday?",
+      "The sun rises in the east.",
+      "Wow!"
+    ],
+    "answerIndex": 2,
+    "explanation": "A proposition must be declarative with a truth value."
+  },
+  {
+    "id": 33,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which symbol represents logical AND?",
+    "options": ["∨", "¬", "∧", "→"],
+    "answerIndex": 2,
+    "explanation": "The symbol ∧ denotes AND."
+  },
+  {
+    "id": 34,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p = True and q = True, what is p ∨ q?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "True OR True is True."
+  },
+  {
+    "id": 35,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which expression represents 'not p and q'?",
+    "options": ["¬p ∨ q", "¬(p ∧ q)", "¬p ∧ q", "p ∧ ¬q"],
+    "answerIndex": 2,
+    "explanation": "¬p ∧ q correctly represents 'not p and q'."
+  },
+  {
+    "id": 36,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "What is the truth value of p ∨ q if p = False and q = False?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 1,
+    "explanation": "False OR False = False."
+  },
+  {
+    "id": 37,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which connective is used in the statement 'p or q'?",
+    "options": ["¬", "∧", "∨", "↔"],
+    "answerIndex": 2,
+    "explanation": "The word 'or' corresponds to ∨."
+  },
+  {
+    "id": 38,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following is always False?",
+    "options": ["p ∧ ¬p", "p ∨ q", "¬p", "p"],
+    "answerIndex": 0,
+    "explanation": "p ∧ ¬p is always False."
+  },
+  {
+    "id": 39,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "If p is True, what is the truth value of p ∨ ¬p?",
+    "options": ["True", "False", "None", "Error"],
+    "answerIndex": 0,
+    "explanation": "p ∨ ¬p is always True regardless of p."
+  },
+  {
+    "id": 40,
+    "topic": "Propositional Logic",
+    "level": "moderate",
+    "type": "mcq",
+    "question": "Which of the following best describes a contradiction?",
+    "options": [
+      "Always true",
+      "Always false",
+      "Sometimes true",
+      "Depends on p"
+    ],
+    "answerIndex": 1,
+    "explanation": "A contradiction is a statement that is always false."
+  },
+  {
+    "id": 41,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is logically equivalent to ¬(p ∨ q)?",
+    "options": ["¬p ∧ ¬q", "¬p ∨ ¬q", "p ∧ q", "p ∨ q"],
+    "answerIndex": 0,
+    "explanation": "By De Morgan's law, ¬(p ∨ q) ≡ ¬p ∧ ¬q."
+  },
+  {
+    "id": 42,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is logically equivalent to ¬(p ∧ q)?",
+    "options": ["¬p ∧ ¬q", "¬p ∨ ¬q", "p ∨ q", "p ∧ q"],
+    "answerIndex": 1,
+    "explanation": "By De Morgan's law, ¬(p ∧ q) ≡ ¬p ∨ ¬q."
+  },
+  {
+    "id": 43,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is a tautology?",
+    "options": ["(p ∧ q) → p", "p ∧ ¬p", "p ∨ q", "¬p"],
+    "answerIndex": 0,
+    "explanation": "(p ∧ q) → p is always true."
+  },
+  {
+    "id": 44,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is logically equivalent to p → q?",
+    "options": ["¬p ∧ q", "p ∧ ¬q", "¬p ∨ q", "p ∨ ¬q"],
+    "answerIndex": 2,
+    "explanation": "p → q ≡ ¬p ∨ q."
+  },
+  {
+    "id": 45,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "What is the negation of (p → q)?",
+    "options": ["¬p ∨ q", "p ∧ ¬q", "¬p ∧ q", "p ∨ ¬q"],
+    "answerIndex": 1,
+    "explanation": "Negation of p → q is p ∧ ¬q."
+  },
+  {
+    "id": 46,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law is used in transforming ¬(p ∨ q) to ¬p ∧ ¬q?",
+    "options": ["Associative law", "Distributive law", "De Morgan's law", "Identity law"],
+    "answerIndex": 2,
+    "explanation": "This is De Morgan's law."
+  },
+  {
+    "id": 47,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is a contradiction?",
+    "options": ["p ∨ ¬p", "p ∧ ¬p", "p → p", "p ↔ p"],
+    "answerIndex": 1,
+    "explanation": "p ∧ ¬p is always false."
+  },
+  {
+    "id": 48,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which statement is logically equivalent to p ↔ q?",
+    "options": ["(p → q) ∧ (q → p)", "(p ∧ q)", "(p ∨ q)", "¬p ∨ q"],
+    "answerIndex": 0,
+    "explanation": "p ↔ q is equivalent to (p → q) ∧ (q → p)."
+  },
+  {
+    "id": 49,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is a contingency?",
+    "options": ["p ∧ ¬p", "p ∨ ¬p", "p → q", "¬(p ∨ ¬p)"],
+    "answerIndex": 2,
+    "explanation": "p → q is sometimes true and sometimes false."
+  },
+  {
+    "id": 50,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "What is the contrapositive of p → q?",
+    "options": ["¬p → ¬q", "¬q → ¬p", "q → p", "p → q"],
+    "answerIndex": 1,
+    "explanation": "Contrapositive of p → q is ¬q → ¬p."
+  },
+  {
+    "id": 51,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states that p ∨ False ≡ p?",
+    "options": ["Identity law", "Domination law", "Idempotent law", "Absorption law"],
+    "answerIndex": 0,
+    "explanation": "This is the identity law."
+  },
+  {
+    "id": 52,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states that p ∧ True ≡ p?",
+    "options": ["Domination law", "Identity law", "Complement law", "Distributive law"],
+    "answerIndex": 1,
+    "explanation": "This is the identity law."
+  },
+  {
+    "id": 53,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is equivalent to ¬¬p?",
+    "options": ["¬p", "p", "p ∧ ¬p", "p ∨ ¬p"],
+    "answerIndex": 1,
+    "explanation": "Double negation of p is p."
+  },
+  {
+    "id": 54,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which rule converts (p ∧ q) ∨ (p ∧ r) to p ∧ (q ∨ r)?",
+    "options": ["Associative law", "Distributive law", "De Morgan's law", "Idempotent law"],
+    "answerIndex": 1,
+    "explanation": "This is the distributive law."
+  },
+  {
+    "id": 55,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which statement is logically equivalent to ¬p ∨ q?",
+    "options": ["p → q", "q → p", "p ∧ q", "¬(p ∨ q)"],
+    "answerIndex": 0,
+    "explanation": "p → q ≡ ¬p ∨ q."
+  },
+  {
+    "id": 56,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states p ∨ p ≡ p?",
+    "options": ["Idempotent law", "Absorption law", "Identity law", "Complement law"],
+    "answerIndex": 0,
+    "explanation": "This is the idempotent law."
+  },
+  {
+    "id": 57,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states p ∧ (p ∨ q) ≡ p?",
+    "options": ["Identity law", "Absorption law", "Domination law", "Idempotent law"],
+    "answerIndex": 1,
+    "explanation": "This is the absorption law."
+  },
+  {
+    "id": 58,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "What is the inverse of p → q?",
+    "options": ["¬q → ¬p", "¬p → ¬q", "q → p", "p → q"],
+    "answerIndex": 1,
+    "explanation": "The inverse of p → q is ¬p → ¬q."
+  },
+  {
+    "id": 59,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which statement is always true?",
+    "options": ["p ∧ q", "p ∧ ¬p", "p ∨ ¬p", "¬p ∧ q"],
+    "answerIndex": 2,
+    "explanation": "p ∨ ¬p is a tautology."
+  },
+  {
+    "id": 60,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which pair of statements are logically equivalent?",
+    "options": ["p → q and ¬p ∨ q", "p ∧ q and p ∨ q", "p ↔ q and p ∨ q", "¬p ∧ q and p → q"],
+    "answerIndex": 0,
+    "explanation": "p → q is logically equivalent to ¬p ∨ q."
+  },
+  {
+    "id": 61,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is the converse of p → q?",
+    "options": ["q → p", "¬q → ¬p", "¬p → ¬q", "p → q"],
+    "answerIndex": 0,
+    "explanation": "The converse of p → q is q → p."
+  },
+  {
+    "id": 62,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is the negation of p ↔ q?",
+    "options": ["(p ∧ ¬q) ∨ (¬p ∧ q)", "p ∧ q", "¬p ∧ ¬q", "p → q"],
+    "answerIndex": 0,
+    "explanation": "Negation of p ↔ q is (p ∧ ¬q) ∨ (¬p ∧ q)."
+  },
+  {
+    "id": 63,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law converts p ∨ (p ∧ q) into p?",
+    "options": ["Idempotent law", "Absorption law", "Distributive law", "De Morgan's law"],
+    "answerIndex": 1,
+    "explanation": "This is the absorption law."
+  },
+  {
+    "id": 64,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is equivalent to ¬(¬p ∨ q)?",
+    "options": ["p ∧ ¬q", "¬p ∧ q", "p ∨ q", "¬p ∨ ¬q"],
+    "answerIndex": 0,
+    "explanation": "By De Morgan’s law, ¬(¬p ∨ q) ≡ p ∧ ¬q."
+  },
+  {
+    "id": 65,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states that p ∨ True ≡ True?",
+    "options": ["Domination law", "Identity law", "Absorption law", "Complement law"],
+    "answerIndex": 0,
+    "explanation": "This is the domination law."
+  },
+  {
+    "id": 66,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is logically equivalent to (p → q) ∧ p?",
+    "options": ["p ∧ q", "p ∨ q", "¬p ∨ q", "q"],
+    "answerIndex": 3,
+    "explanation": "By modus ponens, (p → q) ∧ p implies q."
+  },
+  {
+    "id": 67,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law is used to transform p ∧ (q ∨ r) into (p ∧ q) ∨ (p ∧ r)?",
+    "options": ["Distributive law", "Associative law", "Absorption law", "Identity law"],
+    "answerIndex": 0,
+    "explanation": "This is the distributive law."
+  },
+  {
+    "id": 68,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is a contingency?",
+    "options": ["p ∧ ¬p", "p ∨ ¬p", "p ↔ q", "¬(p ∨ ¬p)"],
+    "answerIndex": 2,
+    "explanation": "p ↔ q is sometimes true and sometimes false."
+  },
+  {
+    "id": 69,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "What is the contrapositive of ¬p → q?",
+    "options": ["¬q → p", "q → p", "¬q → ¬p", "p → ¬q"],
+    "answerIndex": 0,
+    "explanation": "Contrapositive of ¬p → q is ¬q → p."
+  },
+  {
+    "id": 70,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is equivalent to (p ↔ q)?",
+    "options": ["(p ∧ q) ∨ (¬p ∧ ¬q)", "p ∨ q", "¬p ∨ q", "p ∧ q"],
+    "answerIndex": 0,
+    "explanation": "p ↔ q is equivalent to (p ∧ q) ∨ (¬p ∧ ¬q)."
+  },
+  {
+    "id": 71,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states p ∧ False ≡ False?",
+    "options": ["Domination law", "Identity law", "Complement law", "Absorption law"],
+    "answerIndex": 0,
+    "explanation": "This is the domination law."
+  },
+  {
+    "id": 72,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is logically equivalent to p → (q ∧ r)?",
+    "options": ["(p → q) ∧ (p → r)", "(p ∧ q) → r", "p ∧ (q → r)", "¬p ∨ q ∨ r"],
+    "answerIndex": 0,
+    "explanation": "p → (q ∧ r) is equivalent to (p → q) ∧ (p → r)."
+  },
+  {
+    "id": 73,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which statement represents the biconditional p ↔ q?",
+    "options": ["p → q", "q → p", "(p → q) ∧ (q → p)", "p ∨ q"],
+    "answerIndex": 2,
+    "explanation": "p ↔ q means both p → q and q → p."
+  },
+  {
+    "id": 74,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which of the following is a tautology?",
+    "options": ["(p → q) ∨ (q → p)", "p ∧ q", "¬p ∧ q", "p ∧ ¬p"],
+    "answerIndex": 0,
+    "explanation": "(p → q) ∨ (q → p) is always true."
+  },
+  {
+    "id": 75,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "What is the inverse of ¬p → q?",
+    "options": ["p → ¬q", "p → q", "¬q → p", "q → ¬p"],
+    "answerIndex": 0,
+    "explanation": "Inverse of ¬p → q is p → ¬q."
+  },
+  {
+    "id": 76,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law removes double negation in ¬¬p?",
+    "options": ["Complement law", "Identity law", "Double negation law", "Absorption law"],
+    "answerIndex": 2,
+    "explanation": "This is the double negation law."
+  },
+  {
+    "id": 77,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is logically equivalent to ¬(p ↔ q)?",
+    "options": ["(p ∧ ¬q) ∨ (¬p ∧ q)", "p ∧ q", "¬p ∧ ¬q", "p → q"],
+    "answerIndex": 0,
+    "explanation": "Negation of biconditional is XOR form."
+  },
+  {
+    "id": 78,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which law states p ∨ p ≡ p?",
+    "options": ["Idempotent law", "Absorption law", "Domination law", "Identity law"],
+    "answerIndex": 0,
+    "explanation": "This is the idempotent law."
+  },
+  {
+    "id": 79,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which expression is equivalent to ¬(p → q)?",
+    "options": ["p ∧ ¬q", "¬p ∨ q", "¬p ∧ q", "p ∨ ¬q"],
+    "answerIndex": 0,
+    "explanation": "Negation of implication is p ∧ ¬q."
+  },
+  {
+    "id": 80,
+    "topic": "Propositional Logic",
+    "level": "advanced",
+    "type": "mcq",
+    "question": "Which statement is always false?",
+    "options": ["p ∧ ¬p", "p ∨ q", "p → p", "p ↔ p"],
+    "answerIndex": 0,
+    "explanation": "p ∧ ¬p is a contradiction."
+  }
+
+
+
+  
+]
