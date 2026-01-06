@@ -77,6 +77,85 @@ export default class Topic6 extends Component {
         </div>
       </div>
 
+      <div class="max-w-5xl mx-auto mt-10 p-6">
+  <h2 class="text-2xl font-bold text-sky-400 mb-4">Logical Connectives</h2>
+
+  <div class="overflow-x-auto">
+    <table class="w-full border border-slate-600 text-slate-200">
+      <thead class="bg-slate-800 text-sky-300">
+        <tr>
+          <th class="border border-slate-600 px-4 py-2 text-left">
+            Logical Connectives Words
+          </th>
+          <th class="border border-slate-600 px-4 py-2 text-center">Symbol</th>
+          <th class="border border-slate-600 px-4 py-2 text-center">Uses</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">And / Conjunction / Join</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">∧</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ∧ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">Or / Disjunction / Meet</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">∨</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ∨ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">Negation</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">¬ or ~</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">~p</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">Equivalent</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">↔</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ↔ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">
+            Conditional <span class="italic">“if … then …”</span>
+          </td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">⇒</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ⇒ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">
+            Biconditional <span class="italic">“if and only if” (iff)</span>
+          </td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">⇔</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ⇔ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">NAND (NOT + AND)</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">↑</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ↑ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">NOR (NOT + OR)</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">↓</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ↓ q</td>
+        </tr>
+
+        <tr class="hover:bg-slate-800">
+          <td class="border border-slate-600 px-4 py-2">XOR (Exclusive OR)</td>
+          <td class="border border-slate-600 px-4 py-2 text-center font-bold">⊕</td>
+          <td class="border border-slate-600 px-4 py-2 text-center">p ⊕ q</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
       {/* Truth Table */}
       <div className={`mt-12 ${reveal} animation-delay-[240ms]`}>
         <div className={card}>

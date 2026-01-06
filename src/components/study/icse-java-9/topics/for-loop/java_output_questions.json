@@ -1,0 +1,808 @@
+{
+    "subject": "Java Programming",
+    "class": "IX",
+    "board": "ICSE",
+    "topic": "For Loop – Output Based Questions",
+    "questions": [
+        {
+            "id": 1,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=5;i++)\n\tSystem.out.print(i+\" \");",
+            "output": "1 2 3 4 5",
+            "explanation": "The loop prints numbers from 1 to 5."
+        },
+        {
+            "id": 2,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=4;i++)\n\tsum+=i;\nSystem.out.println(sum);",
+            "output": "10",
+            "explanation": "1+2+3+4 = 10."
+        },
+        {
+            "id": 3,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=2;i<=10;i+=2)\n\tSystem.out.print(i+\" \");",
+            "output": "2 4 6 8 10",
+            "explanation": "The loop increments i by 2 starting from 2."
+        },
+        {
+            "id": 4,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=5;i>=1;i--)\n\tSystem.out.print(i+\" \");",
+            "output": "5 4 3 2 1",
+            "explanation": "The loop runs in reverse from 5 to 1."
+        },
+        {
+            "id": 5,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=10;i++)\n\tif(i%2==0)\n\t\tsum+=i;\nSystem.out.println(sum);",
+            "output": "30",
+            "explanation": "Even numbers 2+4+6+8+10 = 30."
+        },
+        {
+            "id": 6,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n\tSystem.out.print(i*i+\" \");",
+            "output": "1 4 9",
+            "explanation": "Each value of i is squared."
+        },
+        {
+            "id": 7,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=4;i++)\n\tp*=i;\nSystem.out.println(p);",
+            "output": "24",
+            "explanation": "1×2×3×4 = 24."
+        },
+        {
+            "id": 8,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=10;i>=2;i-=2)\n\tSystem.out.print(i+\" \");",
+            "output": "10 8 6 4 2",
+            "explanation": "The loop prints even numbers in reverse."
+        },
+        {
+            "id": 9,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int count=0;\nfor(int i=1;i<=7;i++)\n\tif(i%2!=0)\n\t\tcount++;\nSystem.out.println(count);",
+            "output": "4",
+            "explanation": "Odd numbers: 1,3,5,7 → 4 values."
+        },
+        {
+            "id": 10,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=5;i++)\n\tSystem.out.print((i*2)+\" \");",
+            "output": "2 4 6 8 10",
+            "explanation": "Each i is multiplied by 2."
+        },
+        {
+            "id": 11,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tif(i%3==0)\n\t\tsum+=i;\nSystem.out.println(sum);",
+            "output": "3",
+            "explanation": "Only 3 is divisible by 3 between 1 and 5."
+        },
+        {
+            "id": 12,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=4;i++)\n\ts+=i*i;\nSystem.out.println(s);",
+            "output": "30",
+            "explanation": "1²+2²+3²+4² = 30."
+        },
+        {
+            "id": 13,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=0,b=1,c;\nSystem.out.print(a+\" \"+b+\" \");\nfor(int i=3;i<=5;i++)\n{\n\tc=a+b;\n\tSystem.out.print(c+\" \");\n\ta=b;\n\tb=c;\n}",
+            "output": "0 1 1 2 3",
+            "explanation": "Fibonacci series up to 5 terms."
+        },
+        {
+            "id": 14,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int num=1;\nfor(int i=1;i<=4;i++)\n{\n\tSystem.out.print(num+\" \");\n\tnum=num*10+1;\n}",
+            "output": "1 11 111 1111",
+            "explanation": "Each time 1 is appended to the number."
+        },
+        {
+            "id": 15,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=246,sum=0;\nfor(int t=n;t>0;t/=10)\n\tsum+=t%10;\nSystem.out.println(sum);",
+            "output": "12",
+            "explanation": "2+4+6 = 12."
+        },
+        {
+            "id": 16,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int rev=0,n=135;\nfor(int t=n;t>0;t/=10)\n\trev=rev*10+(t%10);\nSystem.out.println(rev);",
+            "output": "531",
+            "explanation": "The digits are reversed."
+        },
+        {
+            "id": 17,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=10;i++)\n\tif(i%4==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "2",
+            "explanation": "4 and 8 are divisible by 4."
+        },
+        {
+            "id": 18,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int f=1;\nfor(int i=1;i<=3;i++)\n\tf*=i;\nSystem.out.println(f);",
+            "output": "6",
+            "explanation": "3! = 6."
+        },
+        {
+            "id": 19,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=9;i+=2)\n\tSystem.out.print(i+\" \");",
+            "output": "1 3 5 7 9",
+            "explanation": "Loop increments by 2 starting from 1."
+        },
+        {
+            "id": 20,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tsum+=i*2;\nSystem.out.println(sum);",
+            "output": "30",
+            "explanation": "2+4+6+8+10 = 30."
+        },
+        {
+            "id": 21,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=10;i++)\n\tif(i%3==0)\n\t\ts+=i;\nSystem.out.println(s);",
+            "output": "18",
+            "explanation": "Multiples of 3 between 1 and 10 are 3,6,9. Their sum is 18."
+        },
+        {
+            "id": 22,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=10;i>=1;i--)\n\tif(i%5==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "2",
+            "explanation": "10 and 5 are divisible by 5."
+        },
+        {
+            "id": 23,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=5;i++)\n\tSystem.out.print((i*i*i)+\" \");",
+            "output": "1 8 27 64 125",
+            "explanation": "Each number is cubed."
+        },
+        {
+            "id": 24,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=2;i<=10;i+=2)\n\tsum+=i;\nSystem.out.println(sum);",
+            "output": "30",
+            "explanation": "Even numbers: 2+4+6+8+10 = 30."
+        },
+        {
+            "id": 25,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=3;i++)\n\tp*=2;\nSystem.out.println(p);",
+            "output": "8",
+            "explanation": "2×2×2 = 8."
+        },
+        {
+            "id": 26,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=482,max=0;\nfor(int t=n;t>0;t/=10)\n{\n\tint d=t%10;\n\tif(d>max)\n\t\tmax=d;\n}\nSystem.out.println(max);",
+            "output": "8",
+            "explanation": "Digits are 4,8,2. Maximum is 8."
+        },
+        {
+            "id": 27,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=739,min=9;\nfor(int t=n;t>0;t/=10)\n{\n\tint d=t%10;\n\tif(d<min)\n\t\tmin=d;\n}\nSystem.out.println(min);",
+            "output": "3",
+            "explanation": "Digits are 7,3,9. Smallest is 3."
+        },
+        {
+            "id": 28,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tsum+=i*3;\nSystem.out.println(sum);",
+            "output": "45",
+            "explanation": "3+6+9+12+15 = 45."
+        },
+        {
+            "id": 29,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int count=0;\nfor(int i=1;i<=20;i++)\n\tif(i%7==0)\n\t\tcount++;\nSystem.out.println(count);",
+            "output": "2",
+            "explanation": "Multiples of 7 are 7 and 14."
+        },
+        {
+            "id": 30,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=4;i++)\n\tsum+=i*i*i;\nSystem.out.println(sum);",
+            "output": "100",
+            "explanation": "1³+2³+3³+4³ = 100."
+        },
+        {
+            "id": 31,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=2;i<=10;i++)\n{\n\tint f=0;\n\tfor(int j=1;j<=i;j++)\n\t\tif(i%j==0)\n\t\t\tf++;\n\tif(f==2)\n\t\tc++;\n}\nSystem.out.println(c);",
+            "output": "4",
+            "explanation": "Prime numbers between 1 and 10 are 2,3,5,7."
+        },
+        {
+            "id": 32,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=2;i<=10;i++)\n{\n\tint f=0;\n\tfor(int j=1;j<=i;j++)\n\t\tif(i%j==0)\n\t\t\tf++;\n\tif(f==2)\n\t\tsum+=i;\n}\nSystem.out.println(sum);",
+            "output": "17",
+            "explanation": "Sum of primes: 2+3+5+7 = 17."
+        },
+        {
+            "id": 33,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=145,sum=0;\nfor(int t=n;t>0;t/=10)\n{\n\tint d=t%10,f=1;\n\tfor(int i=1;i<=d;i++)\n\t\tf*=i;\n\tsum+=f;\n}\nSystem.out.println(sum);",
+            "output": "145",
+            "explanation": "145 is a Strong number."
+        },
+        {
+            "id": 34,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int count=0;\nfor(int i=1;i<=100;i++)\n\tif(i%10==0)\n\t\tcount++;\nSystem.out.println(count);",
+            "output": "10",
+            "explanation": "Multiples of 10 from 1 to 100 = 10."
+        },
+        {
+            "id": 35,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=102,flag=0;\nfor(int t=n;t>0;t/=10)\n\tif(t%10==0)\n\t\tflag=1;\nSystem.out.println(flag);",
+            "output": "1",
+            "explanation": "Number contains zero, so flag becomes 1."
+        },
+        {
+            "id": 36,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=3;i++)\n\tfor(int j=1;j<=i;j++)\n\t\tsum++;\nSystem.out.println(sum);",
+            "output": "6",
+            "explanation": "Total loop executions = 1+2+3 = 6."
+        },
+        {
+            "id": 37,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(j);\n\tSystem.out.println();\n}",
+            "output": "1\n12\n123",
+            "explanation": "Number triangle pattern."
+        },
+        {
+            "id": 38,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=3;i>=1;i--)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(\"*\");\n\tSystem.out.println();\n}",
+            "output": "***\n**\n*",
+            "explanation": "Inverted star pattern."
+        },
+        {
+            "id": 39,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=1;\nfor(int i=1;i<=4;i++)\n\tx+=i;\nSystem.out.println(x);",
+            "output": "11",
+            "explanation": "x = 1+1+2+3+4 = 11."
+        },
+        {
+            "id": 40,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=5;i++)\n\tfor(int j=1;j<=5;j++)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "25",
+            "explanation": "5×5 = 25 loop executions."
+        },
+        {
+            "id": 41,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=4;i++)\n\tSystem.out.print((i+1)+\" \");",
+            "output": "2 3 4 5",
+            "explanation": "Each value of i is increased by 1 before printing."
+        },
+        {
+            "id": 42,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=5;i>=1;i--)\n\tsum+=i;\nSystem.out.println(sum);",
+            "output": "15",
+            "explanation": "5+4+3+2+1 = 15."
+        },
+        {
+            "id": 43,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=5;i++)\n\tSystem.out.print((i%2)+\" \");",
+            "output": "1 0 1 0 1",
+            "explanation": "Remainder when i is divided by 2 is printed."
+        },
+        {
+            "id": 44,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=10;i++)\n\tif(i>5)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "5",
+            "explanation": "Numbers greater than 5 are 6,7,8,9,10."
+        },
+        {
+            "id": 45,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tif(i%2==0)\n\t\tsum+=i*i;\nSystem.out.println(sum);",
+            "output": "20",
+            "explanation": "Even squares: 2² + 4² = 4 + 16 = 20."
+        },
+        {
+            "id": 46,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int x=1;\nfor(int i=1;i<=3;i++)\n\tx=x*2+1;\nSystem.out.println(x);",
+            "output": "15",
+            "explanation": "x updates as: 3,7,15."
+        },
+        {
+            "id": 47,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=1;j<=3;j++)\n\t\tSystem.out.print(i);\n\tSystem.out.println();\n}",
+            "output": "111\n222\n333",
+            "explanation": "Each row prints the same number three times."
+        },
+        {
+            "id": 48,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=5;i++)\n\ts+=i*2;\nSystem.out.println(s);",
+            "output": "30",
+            "explanation": "2+4+6+8+10 = 30."
+        },
+        {
+            "id": 49,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=357,p=1;\nfor(int t=n;t>0;t/=10)\n\tp*=t%10;\nSystem.out.println(p);",
+            "output": "105",
+            "explanation": "3×5×7 = 105."
+        },
+        {
+            "id": 50,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=50;i++)\n\tif(i%10==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "5",
+            "explanation": "10,20,30,40,50 → 5 numbers."
+        },
+        {
+            "id": 51,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=4;i++)\n\tfor(int j=1;j<=i;j++)\n\t\tsum+=j;\nSystem.out.println(sum);",
+            "output": "20",
+            "explanation": "Series: (1)+(1+2)+(1+2+3)+(1+2+3+4) = 20."
+        },
+        {
+            "id": 52,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(i*j+\" \");\n\tSystem.out.println();\n}",
+            "output": "1 \n2 4 \n3 6 9 ",
+            "explanation": "Each row prints multiplication pattern."
+        },
+        {
+            "id": 53,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=0;\nfor(int i=1;i<=5;i++)\n\tx+=i%2;\nSystem.out.println(x);",
+            "output": "3",
+            "explanation": "Odd numbers contribute 1: 1,3,5."
+        },
+        {
+            "id": 54,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=10101,c=0;\nfor(int t=n;t>0;t/=10)\n\tif(t%10==1)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "3",
+            "explanation": "Digits are 1,0,1,0,1 → three 1s."
+        },
+        {
+            "id": 55,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=3;j>=i;j--)\n\t\tSystem.out.print(j);\n\tSystem.out.println();\n}",
+            "output": "321\n32\n3",
+            "explanation": "Reverse descending number pattern."
+        },
+        {
+            "id": 56,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=1;\nfor(int i=1;i<=4;i++)\n\tx+=i*i;\nSystem.out.println(x);",
+            "output": "31",
+            "explanation": "x = 1 + (1+4+9+16) = 31."
+        },
+        {
+            "id": 57,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(\"*\");\n\tSystem.out.println();\n}",
+            "output": "*\n**\n***",
+            "explanation": "Right angled triangle star pattern."
+        },
+        {
+            "id": 58,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=100;i++)\n\tif(i%3==0 && i%5==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "6",
+            "explanation": "Multiples of 15 between 1 and 100."
+        },
+        {
+            "id": 59,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=222,sum=0;\nfor(int t=n;t>0;t/=10)\n\tsum+=t%10;\nSystem.out.println(sum);",
+            "output": "6",
+            "explanation": "2+2+2 = 6."
+        },
+        {
+            "id": 60,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=5;i++)\n\tp*=i%2+1;\nSystem.out.println(p);",
+            "output": "8",
+            "explanation": "Odd i gives ×2, even i gives ×1."
+        },
+        {
+            "id": 61,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int x=0;\nfor(int i=1;i<=5;i++)\n\tx++;\nSystem.out.println(x);",
+            "output": "5",
+            "explanation": "x is incremented 5 times."
+        },
+        {
+            "id": 62,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=5;i>=1;i--)\n\tSystem.out.print(i*i+\" \");",
+            "output": "25 16 9 4 1",
+            "explanation": "Squares printed in reverse order."
+        },
+        {
+            "id": 63,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tsum+=10;\nSystem.out.println(sum);",
+            "output": "50",
+            "explanation": "10 is added five times."
+        },
+        {
+            "id": 64,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=5;i++)\n\tSystem.out.print((i%3)+\" \");",
+            "output": "1 2 0 1 2",
+            "explanation": "Remainders when divided by 3."
+        },
+        {
+            "id": 65,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=5;i++)\n\tif(i%2==0)\n\t\ts+=i*2;\nSystem.out.println(s);",
+            "output": "12",
+            "explanation": "Only even i: 2×2 + 4×2 = 12."
+        },
+        {
+            "id": 66,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=246,c=0;\nfor(int t=n;t>0;t/=10)\n\tif(t%10%2==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "3",
+            "explanation": "All digits 2,4,6 are even."
+        },
+        {
+            "id": 67,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=4;i++)\n\tp+=i;\nSystem.out.println(p);",
+            "output": "11",
+            "explanation": "p = 1+1+2+3+4 = 11."
+        },
+        {
+            "id": 68,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int x=5;\nfor(int i=1;i<=3;i++)\n\tx*=2;\nSystem.out.println(x);",
+            "output": "40",
+            "explanation": "x becomes 10, 20, 40."
+        },
+        {
+            "id": 69,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=6;i++)\n\tif(i%3!=0)\n\t\tsum+=i;\nSystem.out.println(sum);",
+            "output": "12",
+            "explanation": "Exclude 3 and 6: 1+2+4+5 = 12."
+        },
+        {
+            "id": 70,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=4;i++)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(\"#\");\n\tSystem.out.println();\n}",
+            "output": "#\n##\n###\n####",
+            "explanation": "Triangle of # symbols."
+        },
+        {
+            "id": 71,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=20;i++)\n\tif(i%2==0 && i%3==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "3",
+            "explanation": "6,12,18 are divisible by both 2 and 3."
+        },
+        {
+            "id": 72,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=4;i++)\n\tfor(int j=1;j<=i;j++)\n\t\tsum+=i;\nSystem.out.println(sum);",
+            "output": "20",
+            "explanation": "i added i times: 1+2+2+3+3+3+4+4+4+4 = 20."
+        },
+        {
+            "id": 73,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=1234,sum=0;\nfor(int t=n;t>0;t/=10)\n\tif((t%10)%2!=0)\n\t\tsum+=t%10;\nSystem.out.println(sum);",
+            "output": "4",
+            "explanation": "Odd digits: 1 and 3 → sum = 4."
+        },
+        {
+            "id": 74,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=4;i>=1;i--)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(j);\n\tSystem.out.println();\n}",
+            "output": "1234\n123\n12\n1",
+            "explanation": "Reverse number triangle."
+        },
+        {
+            "id": 75,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=0;\nfor(int i=1;i<=5;i++)\n\tx+=i%2==0?2:1;\nSystem.out.println(x);",
+            "output": "7",
+            "explanation": "Odd adds 1, even adds 2."
+        },
+        {
+            "id": 76,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=3;i++)\n\tfor(int j=1;j<=3;j++)\n\t\ts+=i*j;\nSystem.out.println(s);",
+            "output": "36",
+            "explanation": "Sum of multiplication table 1–3."
+        },
+        {
+            "id": 77,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=5;i++)\n\tp*=i%3+1;\nSystem.out.println(p);",
+            "output": "48",
+            "explanation": "Values multiplied are: 2,3,1,2,3."
+        },
+        {
+            "id": 78,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=50;i++)\n\tif(i%4==0 || i%6==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "16",
+            "explanation": "Counts multiples of 4 or 6."
+        },
+        {
+            "id": 79,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=444,sum=0;\nfor(int t=n;t>0;t/=10)\n\tsum+=t%10;\nSystem.out.println(sum);",
+            "output": "12",
+            "explanation": "4+4+4 = 12."
+        },
+        {
+            "id": 80,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=1;\nfor(int i=1;i<=4;i++)\n\tx+=x+i;\nSystem.out.println(x);",
+            "output": "31",
+            "explanation": "x doubles and adds i each time."
+        },
+        {
+            "id": 81,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=4;i++)\n\tSystem.out.print(i+\" \");",
+            "output": "1 2 3 4",
+            "explanation": "Loop prints numbers from 1 to 4."
+        },
+        {
+            "id": 82,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=3;i++)\n\tsum+=5;\nSystem.out.println(sum);",
+            "output": "15",
+            "explanation": "5 is added three times."
+        },
+        {
+            "id": 83,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "for(int i=2;i<=8;i+=2)\n\tSystem.out.print(i+\" \");",
+            "output": "2 4 6 8",
+            "explanation": "Even numbers from 2 to 8."
+        },
+        {
+            "id": 84,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=10;i++)\n\tif(i>7)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "3",
+            "explanation": "Numbers greater than 7 are 8,9,10."
+        },
+        {
+            "id": 85,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=3;i++)\n\tp+=p;\nSystem.out.println(p);",
+            "output": "8",
+            "explanation": "p becomes 2,4,8."
+        },
+        {
+            "id": 86,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=5;i++)\n\tsum+=i%2==0?2:1;\nSystem.out.println(sum);",
+            "output": "7",
+            "explanation": "Odd adds 1, even adds 2."
+        },
+        {
+            "id": 87,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int n=246,sum=0;\nfor(int t=n;t>0;t/=10)\n\tsum+=t%10;\nSystem.out.println(sum);",
+            "output": "12",
+            "explanation": "2+4+6 = 12."
+        },
+        {
+            "id": 88,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=4;i++)\n{\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(i);\n\tSystem.out.println();\n}",
+            "output": "1\n22\n333\n4444",
+            "explanation": "Each row prints the row number."
+        },
+        {
+            "id": 89,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int x=10;\nfor(int i=1;i<=3;i++)\n\tx-=i;\nSystem.out.println(x);",
+            "output": "4",
+            "explanation": "x becomes 9,7,4."
+        },
+        {
+            "id": 90,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=4;i++)\n\tsum+=i*i;\nSystem.out.println(sum);",
+            "output": "30",
+            "explanation": "1²+2²+3²+4² = 30."
+        },
+        {
+            "id": 91,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int c=0;\nfor(int i=1;i<=30;i++)\n\tif(i%6==0)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "5",
+            "explanation": "Multiples of 6: 6,12,18,24,30."
+        },
+        {
+            "id": 92,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=3;i++)\n\tfor(int j=1;j<=i;j++)\n\t\tsum+=j;\nSystem.out.println(sum);",
+            "output": "10",
+            "explanation": "1 + (1+2) + (1+2+3) = 10."
+        },
+        {
+            "id": 93,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=909,c=0;\nfor(int t=n;t>0;t/=10)\n\tif(t%10==9)\n\t\tc++;\nSystem.out.println(c);",
+            "output": "2",
+            "explanation": "Two digits are 9."
+        },
+        {
+            "id": 94,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=1;\nfor(int i=1;i<=4;i++)\n\tp*=i%2+1;\nSystem.out.println(p);",
+            "output": "8",
+            "explanation": "Values multiplied: 2,1,2,1."
+        },
+        {
+            "id": 95,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "for(int i=1;i<=3;i++)\n{\n\tfor(int j=3;j>=i;j--)\n\t\tSystem.out.print(\"*\");\n\tSystem.out.println();\n}",
+            "output": "***\n**\n*",
+            "explanation": "Inverted star pattern."
+        },
+        {
+            "id": 96,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=1;\nfor(int i=1;i<=4;i++)\n\tx+=i*i;\nSystem.out.println(x);",
+            "output": "31",
+            "explanation": "1 + (1+4+9+16) = 31."
+        },
+        {
+            "id": 97,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int sum=0;\nfor(int i=1;i<=10;i++)\n\tif(i%2!=0)\n\t\tsum+=i;\nSystem.out.println(sum);",
+            "output": "25",
+            "explanation": "1+3+5+7+9 = 25."
+        },
+        {
+            "id": 98,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int n=12345,c=0;\nfor(int t=n;t>0;t/=10)\n\tc++;\nSystem.out.println(c);",
+            "output": "5",
+            "explanation": "Number has 5 digits."
+        },
+        {
+            "id": 99,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int s=0;\nfor(int i=1;i<=3;i++)\n\tfor(int j=1;j<=i;j++)\n\t\ts+=i+j;\nSystem.out.println(s);",
+            "output": "18",
+            "explanation": "Adds i+j for each nested loop."
+        },
+        {
+            "id": 100,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=0;\nfor(int i=1;i<=4;i++)\n\tx=x*2+1;\nSystem.out.println(x);",
+            "output": "15",
+            "explanation": "x becomes 1,3,7,15."
+        }
+    ]
+}
