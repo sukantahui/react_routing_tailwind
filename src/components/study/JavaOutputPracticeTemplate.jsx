@@ -10,7 +10,7 @@ function shuffleArray(arr) {
   return copy;
 }
 
-export default function OutputPracticeTemplate({ data }) {
+export default function JavaOutputPracticeTemplate({ data }) {
 
   const [showAns, setShowAns] = useState([]);
   const [level, setLevel] = useState("all");
@@ -26,9 +26,9 @@ export default function OutputPracticeTemplate({ data }) {
       ? data.questions
       : data.questions.filter(q => q.difficulty === level);
 
-//   const questions = started
-//     ? shuffleArray(filteredByLevel).slice(0, limit)
-//     : [];
+  //   const questions = started
+  //     ? shuffleArray(filteredByLevel).slice(0, limit)
+  //     : [];
 
   function toggle(id) {
     setShowAns(prev =>
@@ -44,14 +44,38 @@ export default function OutputPracticeTemplate({ data }) {
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
-        <div className="flex items-center gap-4 mb-6">
-          <svg className="w-10 h-10 text-sky-400" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
-          </svg>
-          <h1 className="text-3xl font-bold text-sky-400 tracking-wide">
-            {data.title || "Java Output Practice"}
-          </h1>
+        <div className="flex items-center gap-4 mb-8">
+
+          {/* Logo Container */}
+          <div className="
+            p-3 rounded-2xl
+            bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900
+            shadow-[0_0_30px_rgba(56,189,248,0.35)]
+            ring-1 ring-sky-500/40
+          ">
+            <img
+              src={data.subjectLogo?.path}
+              alt={data.subjectLogo?.alt || "Logo"}
+              className="
+                w-12 h-12 object-contain
+                dark:invert dark:brightness-125 dark:contrast-125
+                dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]
+              "
+            />
+          </div>
+
+          {/* Title */}
+          <div>
+            <h1 className="text-3xl font-bold text-sky-400 tracking-wide">
+              {data.topic}
+            </h1>
+            <p className="text-sm text-zinc-400">
+              {data.subject} • Class {data.class} • {data.board}
+            </p>
+          </div>
+
         </div>
+
 
         {/* Control Panel */}
         <div className="bg-zinc-900/80 border border-zinc-800 p-5 rounded-xl mb-8 flex flex-wrap gap-4 items-center justify-between">
@@ -86,15 +110,15 @@ export default function OutputPracticeTemplate({ data }) {
           </div>
 
           <button
-  onClick={() => {
-    setShowAns([]);
-    setSessionQ(shuffleArray(filteredByLevel).slice(0, limit));
-    setStarted(true);
-  }}
-  className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
->
-  Start Practice
-</button>
+            onClick={() => {
+              setShowAns([]);
+              setSessionQ(shuffleArray(filteredByLevel).slice(0, limit));
+              setStarted(true);
+            }}
+            className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
+          >
+            Start Practice
+          </button>
 
         </div>
 

@@ -3,6 +3,13 @@
     "class": "IX",
     "board": "ICSE",
     "topic": "For Loop – Output Based Questions",
+    "subjectLogo": {
+        "name": "Java",
+        "icon": "java",
+        "type": "svg",
+        "path": "/logos/Java-original.svg",
+        "alt": "Java Programming Logo"
+    },
     "questions": [
         {
             "id": 1,
