@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Prism from "prismjs";
-import html2canvas from "html2canvas";
+import QRCode from "qrcode";
 
 // Theme
 import "prismjs/themes/prism-tomorrow.css";
@@ -36,7 +36,7 @@ async function saveAsImage() {
 
   const lines = code.split("\n");
   const width = 900;
-  const height = padding * 2 + lines.length * lineHeight + 60;
+  const height = padding * 2 + lines.length * lineHeight + 100;
 
   canvas.width = width;
   canvas.height = height;
@@ -45,7 +45,7 @@ async function saveAsImage() {
   ctx.fillStyle = "#020617";
   ctx.fillRect(0, 0, width, height);
 
-  // Header bar
+  // Header
   ctx.fillStyle = "#0f172a";
   ctx.fillRect(0, 0, width, 42);
 
@@ -72,10 +72,27 @@ async function saveAsImage() {
   ctx.fillText("Coder & AccoTax", 0, 0);
   ctx.restore();
 
+  // -------------------- QR CODE --------------------
+  const qrDataUrl = await QRCode.toDataURL(window.location.href, {
+    margin: 0,
+    width: 90,
+    color: {
+      dark: "#38bdf8",
+      light: "#020617"
+    }
+  });
+
+  const qrImg = new Image();
+  qrImg.src = qrDataUrl;
+
+  await new Promise(res => (qrImg.onload = res));
+  ctx.drawImage(qrImg, width - 110, height - 110, 90, 90);
+
   // Footer branding
   ctx.fillStyle = "#64748b";
   ctx.font = "11px sans-serif";
-  ctx.fillText("© Coder & AccoTax – Barrackpore", width - 260, height - 12);
+  ctx.fillText("Scan for live practice", width - 145, height - 15);
+  ctx.fillText("© Coder & AccoTax – Barrackpore", 15, height - 15);
 
   // Download
   const link = document.createElement("a");
@@ -83,6 +100,7 @@ async function saveAsImage() {
   link.href = canvas.toDataURL("image/jpeg", 0.95);
   link.click();
 }
+
 
 
 

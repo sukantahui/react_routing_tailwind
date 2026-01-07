@@ -2280,6 +2280,12 @@
       background-color: color-mix(in oklab, var(--color-emerald-950) 30%, transparent);
     }
   }
+  .bg-emerald-950\/40 {
+    background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-emerald-950) 40%, transparent);
+    }
+  }
   .bg-emerald-950\/50 {
     background-color: color-mix(in srgb, oklch(26.2% 0.051 172.552) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -5577,6 +5583,16 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-sky-700);
+      }
+    }
+  }
+  .hover\:bg-sky-700\/40 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(50% 0.134 242.749) 40%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-sky-700) 40%, transparent);
+        }
       }
     }
   }

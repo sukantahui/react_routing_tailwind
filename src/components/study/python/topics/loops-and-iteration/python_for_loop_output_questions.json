@@ -1,0 +1,498 @@
+{
+  "subject": "Python Programming",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "For Loop – Output Based Questions",
+  "subjectLogo": {
+    "name": "Python",
+    "icon": "python",
+    "type": "svg",
+    "path": "/logos/python.svg",
+    "alt": "Python Programming Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(1,6):\n\tprint(i, end=\" \")",
+      "output": "1 2 3 4 5",
+      "explanation": "range(1,6) generates numbers from 1 to 5."
+    },
+    {
+      "id": 2,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,5):\n\ts+=i\nprint(s)",
+      "output": "10",
+      "explanation": "Adds 1+2+3+4."
+    },
+    {
+      "id": 3,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(2,11,2):\n\tprint(i, end=\" \")",
+      "output": "2 4 6 8 10",
+      "explanation": "range(start, stop, step)."
+    },
+    {
+      "id": 4,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(5,0,-1):\n\tprint(i, end=\" \")",
+      "output": "5 4 3 2 1",
+      "explanation": "Loop runs backwards."
+    },
+    {
+      "id": 5,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,11):\n\tif i%2==0:\n\t\ts+=i\nprint(s)",
+      "output": "30",
+      "explanation": "Sum of even numbers from 1 to 10."
+    },
+    {
+      "id": 6,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(1,4):\n\tprint(i*i, end=\" \")",
+      "output": "1 4 9",
+      "explanation": "Each number is squared."
+    },
+    {
+      "id": 7,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "p=1\nfor i in range(1,5):\n\tp*=i\nprint(p)",
+      "output": "24",
+      "explanation": "Factorial of 4."
+    },
+    {
+      "id": 8,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(10,1,-2):\n\tprint(i, end=\" \")",
+      "output": "10 8 6 4 2",
+      "explanation": "Even numbers in reverse."
+    },
+    {
+      "id": 9,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,8):\n\tif i%2!=0:\n\t\tc+=1\nprint(c)",
+      "output": "4",
+      "explanation": "Counts odd numbers."
+    },
+    {
+      "id": 10,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(1,6):\n\tprint(i*2, end=\" \")",
+      "output": "2 4 6 8 10",
+      "explanation": "Each i multiplied by 2."
+    },
+
+    {
+      "id": 11,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,6):\n\tif i%3==0:\n\t\ts+=i\nprint(s)",
+      "output": "3",
+      "explanation": "Only 3 is divisible by 3."
+    },
+    {
+      "id": 12,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,5):\n\ts+=i*i\nprint(s)",
+      "output": "30",
+      "explanation": "1²+2²+3²+4²."
+    },
+    {
+      "id": 13,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "a,b=0,1\nprint(a,b,end=\" \")\nfor i in range(3,6):\n\tc=a+b\n\tprint(c,end=\" \")\n\ta=b\n\tb=c",
+      "output": "0 1 1 2 3",
+      "explanation": "Fibonacci series."
+    },
+    {
+      "id": 14,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=1\nfor i in range(4):\n\tprint(n,end=\" \")\n\tn=n*10+1",
+      "output": "1 11 111 1111",
+      "explanation": "Each time 1 is appended."
+    },
+    {
+      "id": 15,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=246\ns=0\nfor d in str(n):\n\ts+=int(d)\nprint(s)",
+      "output": "12",
+      "explanation": "Digit sum."
+    },
+    {
+      "id": 16,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=135\nrev=0\nfor d in str(n):\n\trev=int(d)+rev*10\nprint(rev)",
+      "output": "531",
+      "explanation": "Digits are reversed using string traversal."
+    },
+    {
+      "id": 17,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,11):\n\tif i%4==0:\n\t\tc+=1\nprint(c)",
+      "output": "2",
+      "explanation": "4 and 8 are divisible by 4."
+    },
+    {
+      "id": 18,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "f=1\nfor i in range(1,4):\n\tf*=i\nprint(f)",
+      "output": "6",
+      "explanation": "Factorial of 3."
+    },
+    {
+      "id": 19,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "for i in range(1,10,2):\n\tprint(i, end=\" \")",
+      "output": "1 3 5 7 9",
+      "explanation": "Odd numbers from 1 to 9."
+    },
+    {
+      "id": 20,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,6):\n\ts+=i*2\nprint(s)",
+      "output": "30",
+      "explanation": "2+4+6+8+10."
+    },
+    {
+      "id": 21,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,11):\n\tif i%3==0:\n\t\ts+=i\nprint(s)",
+      "output": "18",
+      "explanation": "3+6+9 = 18."
+    },
+    {
+      "id": 22,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(10,0,-1):\n\tif i%5==0:\n\t\tc+=1\nprint(c)",
+      "output": "2",
+      "explanation": "10 and 5 are divisible by 5."
+    },
+    {
+      "id": 23,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "for i in range(1,6):\n\tprint(i**3, end=\" \")",
+      "output": "1 8 27 64 125",
+      "explanation": "Each number is cubed."
+    },
+    {
+      "id": 24,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(2,11,2):\n\ts+=i\nprint(s)",
+      "output": "30",
+      "explanation": "Sum of even numbers."
+    },
+    {
+      "id": 25,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "p=1\nfor i in range(3):\n\tp*=2\nprint(p)",
+      "output": "8",
+      "explanation": "2×2×2."
+    },
+    {
+      "id": 26,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=482\nm=0\nfor d in str(n):\n\tif int(d)>m:\n\t\tm=int(d)\nprint(m)",
+      "output": "8",
+      "explanation": "Finds the largest digit."
+    },
+    {
+      "id": 27,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=739\nm=9\nfor d in str(n):\n\tif int(d)<m:\n\t\tm=int(d)\nprint(m)",
+      "output": "3",
+      "explanation": "Finds the smallest digit."
+    },
+    {
+      "id": 28,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,6):\n\ts+=i*3\nprint(s)",
+      "output": "45",
+      "explanation": "3+6+9+12+15."
+    },
+    {
+      "id": 29,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,21):\n\tif i%7==0:\n\t\tc+=1\nprint(c)",
+      "output": "2",
+      "explanation": "7 and 14 are multiples of 7."
+    },
+    {
+      "id": 30,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,5):\n\ts+=i**3\nprint(s)",
+      "output": "100",
+      "explanation": "1³+2³+3³+4³."
+    },
+    {
+      "id": 71,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,21):\n\tif i%2==0 and i%3==0:\n\t\tc+=1\nprint(c)",
+      "output": "3",
+      "explanation": "6, 12 and 18 are divisible by both 2 and 3."
+    },
+    {
+      "id": 72,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,5):\n\tfor j in range(1,i+1):\n\t\ts+=i\nprint(s)",
+      "output": "20",
+      "explanation": "Each i is added i times."
+    },
+    {
+      "id": 73,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "n=1234\ns=0\nfor d in str(n):\n\tif int(d)%2!=0:\n\t\ts+=int(d)\nprint(s)",
+      "output": "4",
+      "explanation": "Odd digits are 1 and 3. Sum = 4."
+    },
+    {
+      "id": 74,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "for i in range(4,0,-1):\n\tfor j in range(1,i+1):\n\t\tprint(j, end=\"\")\n\tprint()",
+      "output": "1234\n123\n12\n1",
+      "explanation": "Reverse number triangle pattern."
+    },
+    {
+      "id": 75,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "x=0\nfor i in range(1,6):\n\tx+=2 if i%2==0 else 1\nprint(x)",
+      "output": "7",
+      "explanation": "Even adds 2, odd adds 1."
+    },
+    {
+      "id": 76,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,4):\n\tfor j in range(1,4):\n\t\ts+=i*j\nprint(s)",
+      "output": "36",
+      "explanation": "Sum of multiplication table 1–3."
+    },
+    {
+      "id": 77,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "p=1\nfor i in range(1,6):\n\tp*=i%3+1\nprint(p)",
+      "output": "48",
+      "explanation": "Multipliers are 2,3,1,2,3."
+    },
+    {
+      "id": 78,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,51):\n\tif i%4==0 or i%6==0:\n\t\tc+=1\nprint(c)",
+      "output": "16",
+      "explanation": "Counts multiples of 4 or 6."
+    },
+    {
+      "id": 79,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "n=444\ns=0\nfor d in str(n):\n\ts+=int(d)\nprint(s)",
+      "output": "12",
+      "explanation": "4+4+4 = 12."
+    },
+    {
+      "id": 80,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "x=1\nfor i in range(1,5):\n\tx+=x+i\nprint(x)",
+      "output": "31",
+      "explanation": "x doubles and adds i each time."
+    },
+    {
+      "id": 81,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(1,5):\n\tprint(i, end=\" \")",
+      "output": "1 2 3 4",
+      "explanation": "Prints numbers from 1 to 4."
+    },
+    {
+      "id": 82,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(3):\n\ts+=5\nprint(s)",
+      "output": "15",
+      "explanation": "5 added three times."
+    },
+    {
+      "id": 83,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "for i in range(2,9,2):\n\tprint(i, end=\" \")",
+      "output": "2 4 6 8",
+      "explanation": "Even numbers from 2 to 8."
+    },
+    {
+      "id": 84,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,11):\n\tif i>7:\n\t\tc+=1\nprint(c)",
+      "output": "3",
+      "explanation": "8, 9 and 10."
+    },
+    {
+      "id": 85,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "p=1\nfor i in range(3):\n\tp+=p\nprint(p)",
+      "output": "8",
+      "explanation": "p doubles three times."
+    },
+    {
+      "id": 86,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,6):\n\ts+=2 if i%2==0 else 1\nprint(s)",
+      "output": "7",
+      "explanation": "Even adds 2, odd adds 1."
+    },
+    {
+      "id": 87,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "n=246\ns=0\nfor d in str(n):\n\ts+=int(d)\nprint(s)",
+      "output": "12",
+      "explanation": "Digit sum."
+    },
+    {
+      "id": 88,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "for i in range(1,5):\n\tfor j in range(i):\n\t\tprint(i, end=\"\")\n\tprint()",
+      "output": "1\n22\n333\n4444",
+      "explanation": "Row number printed i times."
+    },
+    {
+      "id": 89,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "x=10\nfor i in range(1,4):\n\tx-=i\nprint(x)",
+      "output": "4",
+      "explanation": "10-1-2-3 = 4."
+    },
+    {
+      "id": 90,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,5):\n\ts+=i*i\nprint(s)",
+      "output": "30",
+      "explanation": "1²+2²+3²+4²."
+    },
+    {
+      "id": 91,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "c=0\nfor i in range(1,31):\n\tif i%6==0:\n\t\tc+=1\nprint(c)",
+      "output": "5",
+      "explanation": "6,12,18,24,30."
+    },
+    {
+      "id": 92,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,4):\n\tfor j in range(1,i+1):\n\t\ts+=j\nprint(s)",
+      "output": "10",
+      "explanation": "1+(1+2)+(1+2+3)."
+    },
+    {
+      "id": 93,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "n=909\nc=0\nfor d in str(n):\n\tif d=='9':\n\t\tc+=1\nprint(c)",
+      "output": "2",
+      "explanation": "Two digits are 9."
+    },
+    {
+      "id": 94,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "p=1\nfor i in range(1,5):\n\tp*=i%2+1\nprint(p)",
+      "output": "8",
+      "explanation": "Multipliers: 2,1,2,1."
+    },
+    {
+      "id": 95,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "for i in range(1,4):\n\tfor j in range(3,i-1,-1):\n\t\tprint('*', end=\"\")\n\tprint()",
+      "output": "***\n**\n*",
+      "explanation": "Inverted star pattern."
+    },
+    {
+      "id": 96,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "x=1\nfor i in range(1,5):\n\tx+=i*i\nprint(x)",
+      "output": "31",
+      "explanation": "1+(1+4+9+16)."
+    },
+    {
+      "id": 97,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,11):\n\tif i%2!=0:\n\t\ts+=i\nprint(s)",
+      "output": "25",
+      "explanation": "1+3+5+7+9."
+    },
+    {
+      "id": 98,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "n=12345\nc=0\nfor d in str(n):\n\tc+=1\nprint(c)",
+      "output": "5",
+      "explanation": "Counts digits."
+    },
+    {
+      "id": 99,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "s=0\nfor i in range(1,4):\n\tfor j in range(1,i+1):\n\t\ts+=i+j\nprint(s)",
+      "output": "18",
+      "explanation": "Adds i+j for each iteration."
+    },
+    {
+      "id": 100,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "x=0\nfor i in range(1,5):\n\tx=x*2+1\nprint(x)",
+      "output": "15",
+      "explanation": "x becomes 1,3,7,15."
+    }
+  ]
+}
+
+
