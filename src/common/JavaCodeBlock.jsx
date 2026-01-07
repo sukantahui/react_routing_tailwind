@@ -26,7 +26,7 @@ export default function JavaCodeBlock({
     setTimeout(() => setCopied(false), 1500);
   }
 
-  async function saveAsImage() {
+async function saveAsImage() {
   const padding = 30;
   const lineHeight = 22;
   const font = "14px 'Fira Code', monospace";
@@ -36,7 +36,7 @@ export default function JavaCodeBlock({
 
   const lines = code.split("\n");
   const width = 900;
-  const height = padding * 2 + lines.length * lineHeight;
+  const height = padding * 2 + lines.length * lineHeight + 60;
 
   canvas.width = width;
   canvas.height = height;
@@ -47,20 +47,37 @@ export default function JavaCodeBlock({
 
   // Header bar
   ctx.fillStyle = "#0f172a";
-  ctx.fillRect(0, 0, width, 40);
+  ctx.fillRect(0, 0, width, 42);
 
   ctx.fillStyle = "#38bdf8";
   ctx.font = "bold 13px sans-serif";
-  ctx.fillText(`☕ ${title}`, 15, 25);
+  ctx.fillText(`☕ ${title}`, 15, 26);
 
-  // Code text
+  // Code
   ctx.font = font;
   ctx.fillStyle = "#e5e7eb";
 
   lines.forEach((line, i) => {
-    ctx.fillText(line, padding, padding + 40 + i * lineHeight);
+    ctx.fillText(line, padding, padding + 45 + i * lineHeight);
   });
 
+  // -------------------- WATERMARK --------------------
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.font = "bold 38px sans-serif";
+  ctx.fillStyle = "#ffffff";
+  ctx.translate(width / 2, height / 2);
+  ctx.rotate(-Math.PI / 6);
+  ctx.textAlign = "center";
+  ctx.fillText("Coder & AccoTax", 0, 0);
+  ctx.restore();
+
+  // Footer branding
+  ctx.fillStyle = "#64748b";
+  ctx.font = "11px sans-serif";
+  ctx.fillText("© Coder & AccoTax – Barrackpore", width - 260, height - 12);
+
+  // Download
   const link = document.createElement("a");
   link.download = "java-code.jpg";
   link.href = canvas.toDataURL("image/jpeg", 0.95);
