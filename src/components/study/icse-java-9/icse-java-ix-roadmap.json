@@ -198,6 +198,24 @@
           ]
         }
       ]
+    },
+    {
+      "segmentId": "final-exam",
+      "title": "Final Exam",
+      "level": "Theory & Practical",
+      "modules": [
+        {
+          "moduleId": "test1",
+          "slug": "final-exam-test-one",
+          "title": "Test 1",
+          "topics": [
+            "Ethical use of computers",
+            "Cyber safety",
+            "Intellectual property",
+            "Responsible computing"
+          ]
+        }
+      ]
     }
   ]
 }
