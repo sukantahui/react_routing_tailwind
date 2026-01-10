@@ -125,11 +125,33 @@ export default function Whiteboard() {
     });
 
     board.current = c;
+    const resize = () => {
+  const wrap = document.getElementById("canvasWrap");
+  if (!wrap) return;
 
-    c.on("path:created", (e) => {
-      if (toolRef.current !== "draw") return;
-      detectAndReplaceCircle(e.path);
-    });
+  const w = wrap.clientWidth;
+  const h = wrap.clientHeight;
+
+  c.setDimensions({ width: w, height: h }, { cssOnly: false });
+  c.calcOffset();
+  c.requestRenderAll();
+};
+
+
+    resize();
+    window.addEventListener("resize", resize);
+
+
+
+
+    // resizeCanvas();
+    // window.addEventListener("resize", resizeCanvas);
+
+
+    // c.on("path:created", (e) => {
+    //   if (toolRef.current !== "draw") return;
+    //   detectAndReplaceCircle(e.path);
+    // });
 
     let ctrlDown = false;
 
@@ -178,6 +200,8 @@ export default function Whiteboard() {
 
     window.addEventListener("keydown", handleKey);
     return () => {
+
+      window.removeEventListener("resize", resize);
       window.removeEventListener("keydown", handleKey);
       c.dispose();
     };
@@ -303,9 +327,12 @@ export default function Whiteboard() {
 
     if (!showGrid) {
       const size = 20;   // 🔹 grid cell size
-      for (let i = 0; i < 1100; i += size) {
-        const v = new Line([i, 0, i, 600], { stroke: "#1e293b", selectable: false, evented: false });
-        const h = new Line([0, i, 1100, i], { stroke: "#1e293b", selectable: false, evented: false });
+      const w = c.getWidth();
+      const h = c.getHeight();
+
+      for (let i = 0; i < Math.max(w, h); i += size) {
+        const v = new Line([i, 0, i, c.getHeight()], { stroke: "#1e293b", selectable: false, evented: false });
+        const h = new Line([0, i, c.getWidth(), i], { stroke: "#1e293b", selectable: false, evented: false });
         gridLines.current.push(v, h);
         c.add(v); c.add(h);
       }
@@ -385,7 +412,7 @@ export default function Whiteboard() {
     `p-2 rounded-md ${tool === n ? "bg-sky-600 text-white" : "text-slate-300 hover:bg-slate-700"}`;
 
   return (
-    <div className="bg-slate-900 border border-slate-700 rounded-xl">
+    <div className="bg-slate-900 border border-slate-700 rounded-xl h-screen flex flex-col">
       <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700">
         <button className={btn("select")} onClick={() => setTool("select")}><MousePointer2 size={18} /></button>
         <button className={btn("draw")} onClick={() => setTool("draw")}><Pencil size={18} /></button>
@@ -416,7 +443,9 @@ export default function Whiteboard() {
         <input type="range" min="1" max="10" value={lineWidth} onChange={e => setLineWidth(+e.target.value)} />
       </div>
 
-      <canvas ref={canvasRef} width={1100} height={600} />
+      <div id="canvasWrap" className="flex-1 overflow-hidden">
+        <canvas ref={canvasRef} />
+      </div>
     </div>
   );
 }
