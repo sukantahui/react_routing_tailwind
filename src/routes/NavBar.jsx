@@ -185,6 +185,7 @@ class NavBar extends Component {
                       <NavLink to="/play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>JavaScript Editor</NavLink>
                       <NavLink to="/icons" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Icons</NavLink>
                       <NavLink to="/vscode" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>VScode</NavLink>
+                      <NavLink to="/whiteBoard" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Whiteboard</NavLink>
 
                     </motion.div>
                   )}

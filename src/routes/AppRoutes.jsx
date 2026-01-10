@@ -62,6 +62,7 @@ import Study from '../components/study/Study';
 import IscElevenRoadmap from '../components/study/isc-11/IscElevenRoadmap';
 import IscElevenModuleView from '../components/study/isc-11/IscElevenModuleView';
 import IscElevenTopicView from '../components/study/isc-11/IscElevenTopicView';
+import PlayWhiteBoard from '../components/PlayWhiteBoard';
 
 
 
@@ -186,6 +187,7 @@ export default function AppRoutes() {
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
       <Route path="/vscode" element={<VSCodeUltraExpertGuide />} />
+      <Route path="/whiteBoard" element={<PlayWhiteBoard />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -910,7 +910,7 @@
     },
     {
       "segmentId": "excel-tests",
-      "title": "Segment 2 - Excel Test & Assessment Zone",
+      "title": "Segment 4 - Excel Test & Assessment Zone",
       "level": "All Levels",
       "summary": "A dedicated testing zone to evaluate Excel skills through structured quizzes, scenario-based questions, practical tasks and final certification assessments.",
       "modules": [
@@ -1127,6 +1127,153 @@
           "badge": "Excel Certified Professional Badge",
           "previousModule": "excel-test-advanced",
           "nextModule": null
+        }
+      ]
+    },
+    {
+      "segmentId": "professional",
+      "title": "Segment 5 - Excel Automation & Smart Analytics (Professional)",
+      "level": "Professional",
+      "summary": "Master automation, advanced lookups, dynamic arrays, Power tools and AI-driven Excel workflows for real business environments.",
+      "modules": [
+        {
+          "moduleId": "excel-modern-functions",
+          "slug": "modern-lookup-dynamic-arrays",
+          "title": "Modern Lookup & Dynamic Array Functions",
+          "level": "Professional",
+          "estimatedHours": 6,
+          "tags": [
+            "xlookup",
+            "filter",
+            "unique",
+            "sort",
+            "dynamic-arrays"
+          ],
+          "topics": [
+            "Why XLOOKUP replaces VLOOKUP & HLOOKUP",
+            "XLOOKUP syntax with exact, approximate & reverse search",
+            "Dynamic array concept & spill behaviour",
+            "FILTER, UNIQUE, SORT, SORTBY practical usage",
+            "Combining dynamic arrays with dashboards",
+            "Replacing complex formulas with clean dynamic arrays"
+          ],
+          "learningOutcomes": [
+            "Build fully dynamic reports without helper columns",
+            "Use modern Excel tools used in MNC offices"
+          ],
+          "prerequisites": [
+            "excel-lookup-basics"
+          ]
+        },
+        {
+          "moduleId": "excel-power-query",
+          "slug": "power-query-data-cleaning",
+          "title": "Power Query – Import, Transform & Clean Data",
+          "level": "Professional",
+          "estimatedHours": 7,
+          "tags": [
+            "power-query",
+            "data-cleaning",
+            "automation"
+          ],
+          "topics": [
+            "Importing CSV, TXT, PDF & Excel files",
+            "Removing errors, duplicates & unwanted columns",
+            "Splitting, merging & transforming columns",
+            "Creating reusable refreshable queries",
+            "Connecting multiple data sources automatically"
+          ],
+          "learningOutcomes": [
+            "Automate raw data cleaning",
+            "Prepare datasets for reporting in seconds"
+          ]
+        },
+        {
+          "moduleId": "excel-power-pivot",
+          "slug": "power-pivot-data-model",
+          "title": "Power Pivot & Data Modeling",
+          "level": "Professional",
+          "estimatedHours": 6,
+          "tags": [
+            "power-pivot",
+            "relationships",
+            "dax"
+          ],
+          "topics": [
+            "Creating relationships between tables",
+            "Understanding Data Model",
+            "Calculated columns & measures",
+            "Intro to DAX formulas",
+            "Building multi-table pivot reports"
+          ],
+          "learningOutcomes": [
+            "Handle datasets with 1 lakh+ records",
+            "Create relational Excel models like databases"
+          ]
+        },
+        {
+          "moduleId": "excel-vba-macros",
+          "slug": "vba-and-macro-automation",
+          "title": "VBA & Macro Automation",
+          "level": "Professional",
+          "estimatedHours": 8,
+          "tags": [
+            "vba",
+            "macros",
+            "automation"
+          ],
+          "topics": [
+            "Recording & editing macros",
+            "VBA editor overview",
+            "Writing basic VBA code",
+            "Automating reports & formatting",
+            "Button-based automation"
+          ],
+          "learningOutcomes": [
+            "Eliminate repetitive manual work",
+            "Build one-click Excel solutions"
+          ]
+        },
+        {
+          "moduleId": "excel-ai-tools",
+          "slug": "ai-in-excel",
+          "title": "Using AI with Excel for Productivity",
+          "level": "Professional",
+          "estimatedHours": 4,
+          "tags": [
+            "ai",
+            "copilot",
+            "chatgpt",
+            "productivity"
+          ],
+          "topics": [
+            "Excel Copilot overview",
+            "Using ChatGPT to generate formulas",
+            "Error debugging using AI",
+            "AI-powered data analysis examples"
+          ],
+          "learningOutcomes": [
+            "Work 5x faster using AI support",
+            "Debug & build formulas intelligently"
+          ]
+        },
+        {
+          "moduleId": "excel-capstone-project",
+          "slug": "excel-real-world-project",
+          "title": "Professional Capstone – Real Business Dashboard",
+          "level": "Professional",
+          "estimatedHours": 10,
+          "topics": [
+            "Raw data import using Power Query",
+            "Clean & model using Power Pivot",
+            "Dynamic dashboard using XLOOKUP & FILTER",
+            "Automation with VBA",
+            "Final presentation & documentation"
+          ],
+          "learningOutcomes": [
+            "Deliver corporate-level Excel solutions",
+            "Become fully job-ready"
+          ]
         }
       ]
     }
