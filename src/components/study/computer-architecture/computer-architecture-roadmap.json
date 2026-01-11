@@ -1,0 +1,371 @@
+{
+  "trackId": "computer-architecture-expert",
+  "trackTitle": "Computer Architecture – From Core Systems to Performance Engineering",
+  "description": "A complete expert-level learning path covering digital logic, CPU design, memory systems, pipelining, parallelism and real-world performance engineering.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "Computer Architecture Expert Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-12"
+  },
+  "folder": "computer-architecture",
+  "subject": "Computer Architecture",
+  "subjectLogo": {
+    "name": "Computer Architecture",
+    "icon": "Cpu",
+    "type": "svg",
+    "path": "/logos/computer-architecture.svg",
+    "alt": "Computer Architecture Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 – Digital Foundations",
+      "level": "Beginner",
+      "summary": "Build strong fundamentals of digital systems and number representations.",
+      "modules": [
+        {
+          "moduleId": "num-systems",
+          "slug": "number-systems-and-codes",
+          "title": "Number Systems & Binary Codes",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": [
+            "binary",
+            "hex",
+            "complements"
+          ],
+          "topics": [
+            "Decimal, Binary, Octal, Hexadecimal conversions",
+            "Conversion from Decimal to Binary",
+            "Conversion from Decimal to Octal",
+            "Conversion from Decimal to HexaDecimal",
+            "Unsigned vs Signed number representation",
+            "Sign-Magnitude representation of negative numbers",
+            "1’s Complement representation of negative numbers",
+            "2’s Complement representation of negative numbers",
+            "Range of numbers in n-bit signed systems",
+            "Binary arithmetic with signed numbers",
+            "Overflow detection in signed arithmetic",
+            "Binary arithmetic: addition, subtraction",
+            "ASCII, Unicode, BCD and Gray code",
+            "Why 2’s Complement is preferred in computer systems"
+          ],
+          "learningOutcomes": [
+            "Convert between number systems",
+            "Perform binary arithmetic confidently"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Understand how computers represent numbers and characters.",
+          "miniProjects": [
+            "Practice: Binary Calculator"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practice",
+            "passScore": 70
+          },
+          "useCases": [
+            "Low-level debugging",
+            "Memory representation"
+          ],
+          "careerSkills": [
+            "Digital logic basics"
+          ],
+          "commonMistakes": [
+            "Sign bit confusion",
+            "Wrong complement usage"
+          ],
+          "references": [
+            "Morris Mano – Digital Logic"
+          ],
+          "teachingTips": [
+            "Use paper conversion drills"
+          ],
+          "preReading": [],
+          "previousModule": null,
+          "nextModule": "logic-gates",
+          "badge": "Binary Master Badge"
+        },
+        {
+          "moduleId": "logic-gates",
+          "slug": "logic-gates-and-circuits",
+          "title": "Logic Gates & Combinational Circuits",
+          "level": "Beginner",
+          "estimatedHours": 6,
+          "tags": [
+            "gates",
+            "kmap"
+          ],
+          "topics": [
+            "Basic gates AND, OR, NOT, NAND, NOR, XOR",
+            "Truth tables & Boolean expressions",
+            "Karnaugh Maps simplification",
+            "Adders, subtractors, multiplexers",
+            "Encoders and decoders"
+          ],
+          "learningOutcomes": [
+            "Design simple combinational circuits",
+            "Minimize logic using K-maps"
+          ],
+          "prerequisites": [
+            "num-systems"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Learn how hardware logic is constructed.",
+          "miniProjects": [
+            "Design 4-bit adder"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 5,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 70
+          },
+          "useCases": [
+            "CPU arithmetic units"
+          ],
+          "careerSkills": [
+            "Circuit reasoning"
+          ],
+          "commonMistakes": [
+            "Wrong Karnaugh grouping"
+          ],
+          "references": [
+            "Digital Design – Mano"
+          ],
+          "teachingTips": [
+            "Use colored K-map blocks"
+          ],
+          "preReading": [
+            "num-systems"
+          ],
+          "previousModule": "num-systems",
+          "nextModule": null,
+          "badge": "Logic Builder Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "core-cpu",
+      "title": "Segment 2 – CPU Organization & Instruction Cycle",
+      "level": "Intermediate",
+      "summary": "Understand how the processor executes instructions.",
+      "modules": [
+        {
+          "moduleId": "cpu-basics",
+          "slug": "cpu-organization",
+          "title": "CPU Organization & Registers",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "cpu",
+            "registers"
+          ],
+          "topics": [
+            "CPU components: ALU, CU, Registers",
+            "Register Transfer Language",
+            "Instruction cycle: Fetch, Decode, Execute",
+            "Instruction formats and opcodes",
+            "Addressing modes"
+          ],
+          "learningOutcomes": [
+            "Explain CPU working step-by-step",
+            "Differentiate instruction formats"
+          ],
+          "prerequisites": [
+            "logic-gates"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Discover how instructions move inside CPU.",
+          "miniProjects": [
+            "Trace execution of sample instructions"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 6,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Assembly understanding"
+          ],
+          "careerSkills": [
+            "Processor flow analysis"
+          ],
+          "commonMistakes": [
+            "Confusing opcode & operand"
+          ],
+          "references": [
+            "William Stallings – Computer Architecture"
+          ],
+          "teachingTips": [
+            "Draw datapath diagrams"
+          ],
+          "preReading": [
+            "logic-gates"
+          ],
+          "previousModule": null,
+          "nextModule": "pipelining",
+          "badge": "CPU Explorer Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced",
+      "title": "Segment 3 – Pipelining, Memory & I/O",
+      "level": "Advanced",
+      "summary": "Dive into performance-critical components of systems.",
+      "modules": [
+        {
+          "moduleId": "pipelining",
+          "slug": "pipelining-and-hazards",
+          "title": "Pipelining & Hazard Handling",
+          "level": "Advanced",
+          "estimatedHours": 7,
+          "tags": [
+            "pipeline",
+            "hazards"
+          ],
+          "topics": [
+            "Pipeline stages",
+            "Structural, data & control hazards",
+            "Forwarding and stalling",
+            "Branch prediction",
+            "RISC pipeline models"
+          ],
+          "learningOutcomes": [
+            "Explain pipeline behavior",
+            "Resolve pipeline hazards"
+          ],
+          "prerequisites": [
+            "cpu-basics"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 8,
+          "summary": "Learn how modern CPUs execute multiple instructions in parallel.",
+          "miniProjects": [
+            "Pipeline hazard analyzer"
+          ],
+          "exercises": {
+            "mcq": 22,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Assignment",
+            "passScore": 80
+          },
+          "useCases": [
+            "Processor optimization"
+          ],
+          "careerSkills": [
+            "Performance engineering"
+          ],
+          "commonMistakes": [
+            "Ignoring branch penalties"
+          ],
+          "references": [
+            "Hennessy & Patterson"
+          ],
+          "teachingTips": [
+            "Use cycle-by-cycle tables"
+          ],
+          "preReading": [
+            "cpu-basics"
+          ],
+          "previousModule": "cpu-basics",
+          "nextModule": null,
+          "badge": "Pipeline Pro Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "ultra-expert",
+      "title": "Segment 4 – Multiprocessors & Performance Engineering",
+      "level": "Ultra Expert",
+      "summary": "Master modern computing systems & optimization strategies.",
+      "modules": [
+        {
+          "moduleId": "parallelism",
+          "slug": "parallel-architectures",
+          "title": "Parallel Processing & Multiprocessors",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "parallel",
+            "multicore"
+          ],
+          "topics": [
+            "SISD, SIMD, MISD, MIMD",
+            "Multicore architectures",
+            "Cache coherence",
+            "Amdahl’s law",
+            "Performance benchmarking"
+          ],
+          "learningOutcomes": [
+            "Design and analyze parallel systems",
+            "Apply performance formulas"
+          ],
+          "prerequisites": [
+            "pipelining"
+          ],
+          "difficulty": "Ultra Expert",
+          "difficultyIndex": 10,
+          "summary": "Become capable of reasoning about high-performance computing systems.",
+          "miniProjects": [
+            "Parallel speedup calculator"
+          ],
+          "exercises": {
+            "mcq": 24,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Capstone",
+            "passScore": 85
+          },
+          "useCases": [
+            "HPC systems",
+            "Cloud servers"
+          ],
+          "careerSkills": [
+            "System optimization"
+          ],
+          "commonMistakes": [
+            "Overestimating parallel speedup"
+          ],
+          "references": [
+            "Hennessy & Patterson"
+          ],
+          "teachingTips": [
+            "Use real CPU benchmark charts"
+          ],
+          "preReading": [
+            "pipelining"
+          ],
+          "previousModule": "pipelining",
+          "nextModule": null,
+          "badge": "Architecture Grandmaster Badge"
+        }
+      ]
+    }
+  ]
+}

@@ -205,11 +205,11 @@
       "level": "Theory & Practical",
       "modules": [
         {
-          "moduleId": "test1",
+          "moduleId": "first-test",
           "slug": "final-exam-test-one",
           "title": "Test 1",
           "topics": [
-            "Ethical use of computers",
+            "First Test",
             "Cyber safety",
             "Intellectual property",
             "Responsible computing"

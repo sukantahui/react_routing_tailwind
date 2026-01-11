@@ -10,7 +10,7 @@ import {
   Clock,
 } from "lucide-react";
 
-import roadmapData from "./tally-prime-roadmap.json";
+import roadmapData from "./computer-architecture-roadmap.json";
 import teacherPhoto from "../../../assets/teachers/teacher1.jpg";
 import {
   Linkedin,
@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 
-export default class TallyRoadmap extends Component {
+export default class ComputerArchitectureRoadmap extends Component {
   // ==========================================================
   // Dynamic Segment Colors
   // ==========================================================

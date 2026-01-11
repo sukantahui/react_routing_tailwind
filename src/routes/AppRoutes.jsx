@@ -64,6 +64,10 @@ import IscElevenModuleView from '../components/study/isc-11/IscElevenModuleView'
 import IscElevenTopicView from '../components/study/isc-11/IscElevenTopicView';
 import PlayWhiteBoard from '../components/PlayWhiteBoard';
 
+import ComputerArchitectureRoadmap from '../components/study/computer-architecture/ComputerArchitectureRoadmap';
+import ComputerArchitectureModuleView from '../components/study/computer-architecture/ComputerArchitectureModuleView';
+import ComputerArchitectureTopicView from '../components/study/computer-architecture/ComputerArchitectureTopicView';
+
 
 
 export default function AppRoutes() {
@@ -183,6 +187,11 @@ export default function AppRoutes() {
       <Route path="/isc-11/roadmap" element={<IscElevenRoadmap />} />
       <Route path="/isc-11/module/:slug" element={<IscElevenModuleView />} />
       <Route path="/isc-11/topic/:moduleSlug/:topicIndex"  element={<IscElevenTopicView/>}/>
+
+      {/* Computer Architecture  */}
+      <Route path="/computer-architecture/roadmap" element={<ComputerArchitectureRoadmap />} />
+      <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
+      <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex"  element={<ComputerArchitectureTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

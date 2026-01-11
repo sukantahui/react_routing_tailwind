@@ -28,6 +28,34 @@ export default function Whiteboard() {
   const toolRef = useRef("select");
   useEffect(() => { toolRef.current = tool; }, [tool]);
 
+  const safeAdd = (obj) => {
+  const c = board.current;
+  if (!c) return;
+
+  c.add(obj);
+  c.setActiveObject(obj);
+  c.requestRenderAll();
+
+  history.current.push(JSON.stringify(c.toJSON()));
+  redoStack.current = [];
+};
+
+
+  function saveAsPNG() {
+    if (!board.current) return;
+
+    const dataURL = board.current.toDataURL({
+      format: "png",
+      quality: 1,
+      multiplier: 2   // makes the image HD
+    });
+
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "my_drawing.png";
+    link.click();
+  }
+
   const deleteSelected = () => {
     const c = board.current;
     if (!c) return;
@@ -132,10 +160,12 @@ export default function Whiteboard() {
   const w = wrap.clientWidth;
   const h = wrap.clientHeight;
 
-  c.setDimensions({ width: w, height: h }, { cssOnly: false });
+  // ✅ Fabric v6 supported API only
+  c.setDimensions({ width: w, height: h });
   c.calcOffset();
-  c.requestRenderAll();
+  c.renderAll();
 };
+
 
 
     resize();
@@ -289,6 +319,7 @@ export default function Whiteboard() {
 
   /* ============== HISTORY ============== */
   const undo = () => {
+    if (!board.current) return;
     if (history.current.length < 2) return;
     restoring.current = true;
     redoStack.current.push(history.current.pop());
@@ -409,27 +440,44 @@ export default function Whiteboard() {
   };
 
   const btn = (n) =>
-    `p-2 rounded-md ${tool === n ? "bg-sky-600 text-white" : "text-slate-300 hover:bg-slate-700"}`;
+    `p-2 shrink-0 rounded-md ${tool === n ? "bg-sky-600 text-white" : "text-slate-300 hover:bg-slate-700"}`;
 
   return (
-    <div className="bg-slate-900 border border-slate-700 rounded-xl h-screen flex flex-col">
-      <div className="flex flex-wrap gap-2 p-3 bg-slate-800 border-b border-slate-700">
+    <div className="bg-slate-900 border border-slate-700 rounded-xl h-[100dvh] flex flex-col">
+      <div className="flex gap-2 p-3 bg-slate-800 border-b border-slate-700 overflow-x-auto">
+
         <button className={btn("select")} onClick={() => setTool("select")}><MousePointer2 size={18} /></button>
         <button className={btn("draw")} onClick={() => setTool("draw")}><Pencil size={18} /></button>
         <button className={btn("rect")} onClick={() => setTool("rect")}><Square size={18} /></button>
         <button className={btn("circle")} onClick={() => setTool("circle")}><CircleIcon size={18} /></button>
-        <button onClick={() => board.current.add(new Textbox("Type here", { left: 100, top: 100, fill: strokeColor, fontSize: 16, width: 200 }))}><Type size={18} /></button>
-        <button onClick={undo}><Undo size={18} /></button>
-        <button onClick={redo}><Redo size={18} /></button>
-        <button onClick={clearCanvas}><Trash size={18} /></button>
-        <button onClick={deleteSelected} title="Delete Selected">
+
+        <button
+          className="flex items-center justify-center p-2 min-w-[36px]"
+          onClick={() =>
+            safeAdd(
+              new Textbox("Type here", {
+                left: 100,
+                top: 100,
+                fill: strokeColor,
+                fontSize: 16,
+                width: 200
+              })
+            )
+          }
+        >
+          <Type size={18} /><span>Text</span>
+        </button>
+        <button className="shrink-0" onClick={undo}><Undo size={18} /></button>
+        <button className="shrink-0" onClick={redo}><Redo size={18} /></button>
+        <button className="shrink-0" onClick={clearCanvas}><Trash size={18} /></button>
+        <button className="shrink-0" onClick={deleteSelected} title="Delete Selected">
           <Trash2 size={18} />
         </button>
-        <button onClick={toggleGrid}><Grid3X3 size={18} /></button>
-        <button onClick={duplicateObject}><Copy size={18} /></button>
-        <button onClick={bringToFront}><ArrowUp size={18} /></button>
-        <button onClick={sendToBack}><ArrowDown size={18} /></button>
-        <button onClick={exportPNG}><Download size={18} /></button>
+        <button className="shrink-0" onClick={toggleGrid}><Grid3X3 size={18} /></button>
+        <button className="shrink-0" onClick={duplicateObject}><Copy size={18} /></button>
+        <button className="shrink-0" onClick={bringToFront}><ArrowUp size={18} /></button>
+        <button className="shrink-0" onClick={sendToBack}><ArrowDown size={18} /></button>
+        <button className="shrink-0" onClick={exportPNG}><Download size={18} /></button>
 
         <input type="color" value={strokeColor} onChange={e => setStrokeColor(e.target.value)} />
         <input type="color" value={fillColor} onChange={e => setFillColor(e.target.value)} />
