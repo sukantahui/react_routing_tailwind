@@ -242,16 +242,21 @@ class NavBar extends Component {
                         <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         General
                       </NavLink>
-                      {isDev && (
-                        <NavLink to="/css/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                          CSS
-                        </NavLink>
-                      )}
+
+                      <NavLink to="/css/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        CSS
+                      </NavLink>
+
 
                       <NavLink to="/isc-11/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
                         <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         ISC 11 Com. Sc.
+                      </NavLink>
+
+                      <NavLink to="/computer-architecture/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Computer Architecture" />
+                        Computer Architecture
                       </NavLink>
 
 
@@ -326,10 +331,23 @@ class NavBar extends Component {
                       <NavLink to="/tally/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Tally</NavLink>
                       <NavLink to="/excel/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Excel</NavLink>
                       <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
-                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Core Java</NavLink>
+                      
+                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        Core Java
+                      </NavLink>
+                      
                       <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
                         <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         General
+                      </NavLink>
+
+                      <NavLink to="/computer-architecture/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Computer Architecture" />
+                        Computer Architecture
+                      </NavLink>
+                      <NavLink to="/isc-11/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
+                        ISC 11 Com. Sc.
                       </NavLink>
                     </div>
                   )}

@@ -227,7 +227,6 @@
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
-    --drop-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.15);
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -877,6 +876,9 @@
   }
   .h-\[350px\] {
     height: 350px;
+  }
+  .h-\[450px\] {
+    height: 450px;
   }
   .h-\[500px\] {
     height: 500px;
@@ -6222,29 +6224,14 @@
       color: var(--color-slate-500);
     }
   }
-  .motion-safe\:animate-\[fadeSlideUp_0\.6s_ease-out\] {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: fadeSlideUp 0.6s ease-out;
-    }
-  }
   .motion-safe\:animate-\[fadeSlideUp_0\.6s_ease-out_forwards\] {
     @media (prefers-reduced-motion: no-preference) {
       animation: fadeSlideUp 0.6s ease-out forwards;
     }
   }
-  .motion-safe\:animate-\[fadeSlideUp_0\.7s_ease-out\] {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: fadeSlideUp 0.7s ease-out;
-    }
-  }
   .motion-safe\:animate-\[fadeSlideUp_0\.7s_ease-out_forwards\] {
     @media (prefers-reduced-motion: no-preference) {
       animation: fadeSlideUp 0.7s ease-out forwards;
-    }
-  }
-  .motion-safe\:animate-\[fadeSlideUp_0\.8s_ease-out\] {
-    @media (prefers-reduced-motion: no-preference) {
-      animation: fadeSlideUp 0.8s ease-out;
     }
   }
   .motion-safe\:animate-\[fadeUp_0\.6s_ease-out\] {

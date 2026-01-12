@@ -13,6 +13,7 @@ import {
   Star,
 } from "lucide-react";
 import roadmapData from "./computer-architecture-roadmap.json";
+import Whiteboard from "../../../common/Whiteboard";
 
 export default function ComputerArchitectureModuleView() {
   const { slug } = useParams();
@@ -105,13 +106,18 @@ export default function ComputerArchitectureModuleView() {
   //  NEW: SEARCH TOPICS
   // -------------------------------------------
   const [searchTopic, setSearchTopic] = useState("");
+  const [showWhiteboard, setShowWhiteboard] = useState(false);
+
+  const toggleWhiteboard = () => {
+    setShowWhiteboard(prev => !prev);
+  };
 
   useEffect(() => {
     try {
       const raw = localStorage.getItem(PROGRESS_KEY) || "[]";
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) setCompletedTopics(parsed);
-    } catch {}
+    } catch { }
 
     try {
       const rawLast = localStorage.getItem(LAST_TOPIC_KEY);
@@ -119,7 +125,7 @@ export default function ComputerArchitectureModuleView() {
         const idx = parseInt(rawLast, 10);
         if (!isNaN(idx)) setLastTopicIndex(idx);
       }
-    } catch {}
+    } catch { }
   }, [PROGRESS_KEY, LAST_TOPIC_KEY]);
 
   const toggleTopicComplete = (index) => {
@@ -196,6 +202,7 @@ export default function ComputerArchitectureModuleView() {
           {/* ------------------------------------------- */}
           {/* TOPICS + SEARCH */}
           {/* ------------------------------------------- */}
+
           <section className="border border-slate-800 bg-slate-900/80 p-6 rounded-3xl shadow-lg">
 
             <div className="flex items-center justify-between mb-4">
@@ -240,10 +247,9 @@ export default function ComputerArchitectureModuleView() {
                       key={idx}
                       className={`
                         group flex items-center gap-3 px-4 py-3 rounded-xl border text-sm
-                        ${
-                          isDone
-                            ? "bg-emerald-900/20 border-emerald-500 text-emerald-200"
-                            : "bg-slate-900/80 border-slate-700 text-slate-200 hover:border-sky-500"
+                        ${isDone
+                          ? "bg-emerald-900/20 border-emerald-500 text-emerald-200"
+                          : "bg-slate-900/80 border-slate-700 text-slate-200 hover:border-sky-500"
                         }
                       `}
                     >
@@ -282,10 +288,10 @@ export default function ComputerArchitectureModuleView() {
               {topics.filter((t) =>
                 t.toLowerCase().includes(searchTopic.toLowerCase())
               ).length === 0 && (
-                <p className="text-slate-500 text-sm italic mt-2">
-                  No topics matched your search…
-                </p>
-              )}
+                  <p className="text-slate-500 text-sm italic mt-2">
+                    No topics matched your search…
+                  </p>
+                )}
             </div>
           </section>
 
@@ -316,6 +322,21 @@ export default function ComputerArchitectureModuleView() {
               <span className="text-slate-600">End of track</span>
             )}
 
+          </section>
+
+          <section className="bg-slate-900 text-slate-200 p-6 rounded-2xl shadow-xl space-y-4">
+            <button
+              onClick={toggleWhiteboard}
+              className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-xl"
+            >
+              {showWhiteboard ? "Hide Whiteboard" : "Show Whiteboard"}
+            </button>
+
+            {showWhiteboard && (
+              <div className="border border-slate-700 rounded-xl overflow-hidden h-[450px] bg-slate-800">
+                <Whiteboard />
+              </div>
+            )}
           </section>
 
         </div>
