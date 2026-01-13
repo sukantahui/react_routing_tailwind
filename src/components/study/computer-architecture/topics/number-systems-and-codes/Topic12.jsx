@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Binary, Calculator, AlertTriangle, CheckCircle, ArrowRight } from "lucide-react";
 import Whiteboard from "../../../../../common/Whiteboard";
 
 export default class Topic12 extends Component {
@@ -213,6 +214,95 @@ Gray Code  Error reduction           Same as binary   Encoders
 `}
                     </pre>
                 </section>
+
+                
+                    <h1 className="text-3xl font-bold text-sky-400 flex items-center gap-3">
+                        <Binary className="w-8 h-8" />
+                        Binary to BCD Conversion – Theory
+                    </h1>
+
+                    {/* What is BCD */}
+                    <section className="bg-slate-900 p-6 rounded-2xl shadow-lg animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out]">
+                        <h2 className="text-xl font-semibold text-emerald-400 flex items-center gap-2">
+                            <Calculator className="w-5 h-5" /> What is BCD?
+                        </h2>
+
+                        <p className="mt-3 leading-relaxed">
+                            <strong>BCD (Binary Coded Decimal)</strong> is a system where
+                            <span className="text-sky-400"> each decimal digit (0–9)</span> is
+                            individually represented using a <strong>4-bit binary code</strong>.
+                        </p>
+
+                        <div className="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-3 text-sm">
+                            {[
+                                ["0", "0000"], ["1", "0001"], ["2", "0010"], ["3", "0011"], ["4", "0100"],
+                                ["5", "0101"], ["6", "0110"], ["7", "0111"], ["8", "1000"], ["9", "1001"]
+                            ].map(([d, b]) => (
+                                <div key={d} className="bg-slate-800 p-3 rounded-xl text-center shadow">
+                                    <p className="text-emerald-300 font-bold">{d}</p>
+                                    <p className="text-sky-300 font-mono">{b}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Why conversion is needed */}
+                    <section className="bg-slate-900 p-6 rounded-2xl shadow-lg animate-[fadeSlideUp_0.8s_ease-out] motion-safe:animate-[fadeSlideUp_0.8s_ease-out]">
+                        <h2 className="text-xl font-semibold text-yellow-400 flex items-center gap-2">
+                            <AlertTriangle className="w-5 h-5" /> Why Binary cannot be directly converted to BCD?
+                        </h2>
+
+                        <p className="mt-3 leading-relaxed">
+                            Binary is a <strong>base-2 positional system</strong>, while BCD is a
+                            <strong> digit-wise decimal coding system</strong>.
+                        </p>
+
+                        <p className="mt-2 text-sky-300">
+                            So we must first convert binary → decimal, then decimal → BCD.
+                        </p>
+                    </section>
+
+                    {/* Steps */}
+                    <section className="bg-slate-900 p-6 rounded-2xl shadow-lg animate-[fadeSlideUp_0.9s_ease-out] motion-safe:animate-[fadeSlideUp_0.9s_ease-out]">
+                        <h2 className="text-xl font-semibold text-pink-400 flex items-center gap-2">
+                            <CheckCircle className="w-5 h-5" /> Steps to Convert Binary to BCD
+                        </h2>
+
+                        {/* Step 1 */}
+                        <div className="mt-4 bg-slate-800 p-4 rounded-xl">
+                            <p className="text-emerald-300 font-semibold">Step 1: Convert Binary to Decimal</p>
+                            <pre className="bg-slate-950 p-4 mt-3 rounded-xl text-sky-300 text-sm">
+                                {`Binary = 101101
+
+= (1×2⁵) + (0×2⁴) + (1×2³) + (1×2²) + (0×2¹) + (1×2⁰)
+= 32 + 0 + 8 + 4 + 0 + 1
+= 45₁₀`}
+                            </pre>
+                        </div>
+
+                        {/* Step 2 */}
+                        <div className="mt-5 bg-slate-800 p-4 rounded-xl">
+                            <p className="text-emerald-300 font-semibold">Step 2: Convert each Decimal Digit to BCD</p>
+
+                            <pre className="bg-slate-950 p-4 mt-3 rounded-xl text-sky-300 text-sm">
+                                {`45₁₀ → 4 and 5
+
+4 = 0100
+5 = 0101`}
+                            </pre>
+                        </div>
+
+                        {/* Final Answer */}
+                        <div className="mt-6 flex items-center gap-3 bg-gradient-to-r from-sky-900 to-indigo-900 p-4 rounded-xl">
+                            <ArrowRight className="text-green-400" />
+                            <p className="text-green-300 font-semibold">
+                                Final Answer: 101101₂ = <span className="text-white">0100 0101 (BCD)</span>
+                            </p>
+                        </div>
+
+
+                    </section>
+                
 
                 {/* ===================== PRACTICE ===================== */}
                 <section className="bg-slate-900 text-slate-200 p-6 rounded-2xl shadow-xl space-y-4">

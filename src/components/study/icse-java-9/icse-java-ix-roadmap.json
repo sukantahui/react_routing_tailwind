@@ -206,13 +206,11 @@
       "modules": [
         {
           "moduleId": "first-test",
-          "slug": "final-exam-test-one",
+          "slug": "final-exam-test",
           "title": "Test 1",
           "topics": [
             "First Test",
-            "Cyber safety",
-            "Intellectual property",
-            "Responsible computing"
+            "Output Practice"
           ]
         }
       ]

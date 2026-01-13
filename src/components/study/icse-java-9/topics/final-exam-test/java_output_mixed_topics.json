@@ -1,0 +1,175 @@
+{
+  "subject": "Java Programming",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "Mixed Topics – Output Based Practice",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/logos/Java-original.svg",
+    "alt": "Java Programming Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "class Test {\n\tint x=5;\n\tpublic static void main(String args[]){\n\t\tTest t = new Test();\n\t\tSystem.out.println(t.x);\n\t}\n}",
+      "output": "5",
+      "explanation": "Object t accesses instance variable x."
+    },
+    {
+      "id": 2,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "int a=10,b=3;\nSystem.out.println(a/b);",
+      "output": "3",
+      "explanation": "Both are integers, so integer division is used."
+    },
+    {
+      "id": 3,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "double x = Math.sqrt(16);\nSystem.out.println(x);",
+      "output": "4.0",
+      "explanation": "Square root of 16 is 4."
+    },
+    {
+      "id": 4,
+      "difficulty": "Beginner",
+      "question": "Find the output:",
+      "code": "int a=5;\nSystem.out.println(a++ + ++a);",
+      "output": "12",
+      "explanation": "a++ gives 5 then a becomes 6, ++a makes it 7 → 5+7=12."
+    },
+    {
+      "id": 5,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int x=10;\nif(x>5)\n\tSystem.out.println(\"High\");\nelse\n\tSystem.out.println(\"Low\");",
+      "output": "High",
+      "explanation": "10 is greater than 5."
+    },
+    {
+      "id": 6,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int n=7;\nif(n%2==0)\n\tSystem.out.print(\"Even\");\nelse if(n%3==0)\n\tSystem.out.print(\"Div by 3\");\nelse\n\tSystem.out.print(\"Odd\");",
+      "output": "Odd",
+      "explanation": "7 is neither even nor divisible by 3."
+    },
+    {
+      "id": 7,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int a=3,b=4;\nSystem.out.println(Math.max(a,b));",
+      "output": "4",
+      "explanation": "max(3,4) is 4."
+    },
+    {
+      "id": 8,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int a=5;\nswitch(a){\n\tcase 4: System.out.print(\"Four\"); break;\n\tcase 5: System.out.print(\"Five\"); break;\n\tdefault: System.out.print(\"None\");\n}",
+      "output": "Five",
+      "explanation": "Case 5 is matched."
+    },
+    {
+      "id": 9,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int i=1;\nwhile(i<=3){\n\tSystem.out.print(i);\n\ti++;\n}",
+      "output": "123",
+      "explanation": "While loop prints 1 to 3."
+    },
+    {
+      "id": 10,
+      "difficulty": "Intermediate",
+      "question": "Find the output:",
+      "code": "int i=1;\ndo{\n\tSystem.out.print(i);\n\ti++;\n}while(i<=3);",
+      "output": "123",
+      "explanation": "do-while executes at least once."
+    },
+    {
+      "id": 11,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "int i;\nfor(i=1;i<=5;i++){\n\tif(i==3)\n\t\tbreak;\n\tSystem.out.print(i);\n}",
+      "output": "12",
+      "explanation": "Loop stops when i becomes 3."
+    },
+    {
+      "id": 12,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "for(int i=1;i<=5;i++){\n\tif(i==3)\n\t\tcontinue;\n\tSystem.out.print(i);\n}",
+      "output": "1245",
+      "explanation": "3 is skipped due to continue."
+    },
+    {
+      "id": 13,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "for(int i=1;i<=3;i++){\n\tfor(int j=1;j<=i;j++)\n\t\tSystem.out.print(\"*\");\n\tSystem.out.println();\n}",
+      "output": "*\n**\n***",
+      "explanation": "Nested loop creates a star pattern."
+    },
+    {
+      "id": 14,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "double x = Math.ceil(4.2);\nSystem.out.println(x);",
+      "output": "5.0",
+      "explanation": "Ceil rounds up to nearest integer."
+    },
+    {
+      "id": 15,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "double x = Math.floor(4.9);\nSystem.out.println(x);",
+      "output": "4.0",
+      "explanation": "Floor rounds down."
+    },
+    {
+      "id": 16,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "int a=5,b=10;\nSystem.out.println(Math.min(a,b));",
+      "output": "5",
+      "explanation": "Minimum of 5 and 10 is 5."
+    },
+    {
+      "id": 17,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "int x = (int)(Math.random()*10);\nSystem.out.println(x<10);",
+      "output": "true",
+      "explanation": "Math.random()*10 gives value from 0 to 9."
+    },
+    {
+      "id": 18,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "class Demo{\n\tstatic int a=10;\n\tpublic static void main(String args[]){\n\t\tSystem.out.println(Demo.a);\n\t}\n}",
+      "output": "10",
+      "explanation": "Static variable accessed using class name."
+    },
+    {
+      "id": 19,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "int i=1,sum=0;\nwhile(i<=5){\n\tsum+=i;\n\ti++;\n}\nSystem.out.println(sum);",
+      "output": "15",
+      "explanation": "1+2+3+4+5 = 15."
+    },
+    {
+      "id": 20,
+      "difficulty": "Advanced",
+      "question": "Find the output:",
+      "code": "for(int i=1;i<=3;i++){\n\tfor(int j=3;j>=i;j--)\n\t\tSystem.out.print(j);\n\tSystem.out.println();\n}",
+      "output": "321\n32\n3",
+      "explanation": "Nested loop reverse number pattern."
+    }
+  ]
+}

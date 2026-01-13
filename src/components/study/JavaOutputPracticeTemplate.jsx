@@ -26,10 +26,6 @@ export default function JavaOutputPracticeTemplate({ data }) {
       ? data.questions
       : data.questions.filter(q => q.difficulty === level);
 
-  //   const questions = started
-  //     ? shuffleArray(filteredByLevel).slice(0, limit)
-  //     : [];
-
   function toggle(id) {
     setShowAns(prev =>
       prev.includes(id)
@@ -40,31 +36,20 @@ export default function JavaOutputPracticeTemplate({ data }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-black to-zinc-900 text-zinc-200 p-6">
-
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-
-          {/* Logo Container */}
-          <div className="
-            p-3 rounded-2xl
-            bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900
-            shadow-[0_0_30px_rgba(56,189,248,0.35)]
-            ring-1 ring-sky-500/40
-          ">
+          <div className="p-3 rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900
+              shadow-[0_0_30px_rgba(56,189,248,0.35)] ring-1 ring-sky-500/40">
             <img
               src={data.subjectLogo?.path}
               alt={data.subjectLogo?.alt || "Logo"}
-              className="
-                w-12 h-12 object-contain
-                dark:invert dark:brightness-125 dark:contrast-125
-                dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]
-              "
+              className="w-12 h-12 object-contain dark:invert dark:brightness-125 dark:contrast-125
+                dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]"
             />
           </div>
 
-          {/* Title */}
           <div>
             <h1 className="text-3xl font-bold text-sky-400 tracking-wide">
               {data.topic}
@@ -73,9 +58,7 @@ export default function JavaOutputPracticeTemplate({ data }) {
               {data.subject} • Class {data.class} • {data.board}
             </p>
           </div>
-
         </div>
-
 
         {/* Control Panel */}
         <div className="bg-zinc-900/80 border border-zinc-800 p-5 rounded-xl mb-8 flex flex-wrap gap-4 items-center justify-between">
@@ -99,35 +82,38 @@ export default function JavaOutputPracticeTemplate({ data }) {
             <span className="text-sm text-zinc-400">Questions</span>
             <select
               value={limit}
-              onChange={e => { setLimit(Number(e.target.value)); setStarted(false); }}
+              onChange={e => {
+                const val = e.target.value;
+                setLimit(val === "all" ? "all" : Number(val));
+                setStarted(false);
+              }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
             >
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
+              <option value="all">All</option>
+              {[5,10,20,30,40,50,60,70,80,90,100].map(n =>
+                <option key={n} value={n}>{n}</option>
+              )}
             </select>
           </div>
 
           <button
             onClick={() => {
               setShowAns([]);
-              setSessionQ(shuffleArray(filteredByLevel).slice(0, limit));
+              const pool = shuffleArray(filteredByLevel);
+              setSessionQ(limit === "all" ? pool : pool.slice(0, limit));
               setStarted(true);
             }}
             className="px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg shadow"
           >
             Start Practice
           </button>
-
         </div>
 
         {/* Questions */}
         {started && sessionQ.map((q, index) => (
-          <div
-            key={q.id}
-            className="bg-zinc-900/80 border border-zinc-800 p-5 mb-6 rounded-2xl shadow-lg hover:shadow-sky-900/30 transition"
-          >
+          <div key={q.id}
+            className="bg-zinc-900/80 border border-zinc-800 p-5 mb-6 rounded-2xl shadow-lg hover:shadow-sky-900/30 transition">
+
             <div className="flex justify-between items-center mb-3">
               <p className="font-semibold text-zinc-100">
                 Q{index + 1}. {q.question}
@@ -139,16 +125,33 @@ export default function JavaOutputPracticeTemplate({ data }) {
 
             <JavaCodeBlock code={q.code} />
 
+            {/* Eye Button */}
             <button
               onClick={() => toggle(q.id)}
-              className="mt-3 px-4 py-1.5 bg-sky-600 hover:bg-sky-500 rounded-md text-white"
+              className="mt-3 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
+              title={showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
             >
-              {showAns.includes(q.id) ? "Hide Answer" : "Show Answer"}
+              {showAns.includes(q.id) ? (
+                <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.05 11.05 0 014.95-5.9M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.12 5.88L3 3" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm7.5 0S18.27 4.5 12 4.5 1.5 12 1.5 12 5.73 19.5 12 19.5 22.5 12 22.5 12z" />
+                </svg>
+              )}
             </button>
 
             {showAns.includes(q.id) && (
               <div className="mt-3 bg-emerald-950/60 border border-emerald-800 p-3 rounded-xl">
-                <p className="text-emerald-300"><b>Output:</b> {q.output}</p>
+                <div className="text-emerald-300">
+                  <b>Output:</b>
+                  <pre className="mt-1 bg-emerald-950/40 p-2 rounded-lg text-sm whitespace-pre-wrap">
+                    {q.output}
+                  </pre>
+                </div>
                 <p className="text-sm text-emerald-200 mt-1">
                   <b>Explanation:</b> {q.explanation}
                 </p>
@@ -162,6 +165,7 @@ export default function JavaOutputPracticeTemplate({ data }) {
             Select difficulty & number of questions, then click <b>Start Practice</b>.
           </p>
         )}
+
       </div>
     </div>
   );
