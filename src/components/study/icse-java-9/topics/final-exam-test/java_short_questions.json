@@ -1,0 +1,2265 @@
+{
+    "subject": "Java Programming",
+    "class": "IX",
+    "board": "ICSE",
+    "topic": "Short Questions – Mixed Topics (Detailed Answers)",
+    "subjectLogo": {
+        "name": "Java",
+        "icon": "java",
+        "type": "svg",
+        "path": "/logos/Java-original.svg",
+        "alt": "Java Programming Logo"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is Object Oriented Programming?",
+            "answer": "Object Oriented Programming (OOP) is a programming approach in which a program is organized around objects rather than functions. Each object contains data and the methods that operate on that data. This makes programs easier to understand, maintain and modify."
+        },
+        {
+            "id": 2,
+            "topic": "Objects and classes",
+            "question": "What is a class?",
+            "answer": "A class is a blueprint or template from which objects are created. It defines the properties (variables) and behaviours (methods) of objects. We can create any number of objects from a single class."
+        },
+        {
+            "id": 3,
+            "topic": "Objects and classes",
+            "question": "What is an object?",
+            "answer": "An object is an instance of a class. It represents a real-world entity and occupies memory. An object contains its own copy of the variables defined in the class and can use the methods of the class."
+        },
+        {
+            "id": 4,
+            "topic": "Real life examples of objects",
+            "question": "Give one real life example of an object.",
+            "answer": "A mobile phone is an object. Its properties include brand, color and model, while its actions include calling, sending messages and browsing the internet."
+        },
+        {
+            "id": 5,
+            "topic": "Basic structure of a Java class",
+            "question": "Which method is the starting point of a Java program?",
+            "answer": "The main() method is the starting point of a Java program. The execution of the program always begins from the main() method."
+        },
+        {
+            "id": 6,
+            "topic": "Constants and variables",
+            "question": "What is a variable?",
+            "answer": "A variable is a named memory location that stores a value which can change during program execution."
+        },
+        {
+            "id": 7,
+            "topic": "Constants and variables",
+            "question": "How do you declare a constant in Java?",
+            "answer": "A constant is declared using the final keyword. Once a value is assigned to a constant, it cannot be changed."
+        },
+        {
+            "id": 8,
+            "topic": "Primitive data types",
+            "question": "Name any two primitive data types in Java.",
+            "answer": "int is used to store whole numbers and double is used to store decimal numbers."
+        },
+        {
+            "id": 9,
+            "topic": "Type compatibility",
+            "question": "What is type compatibility?",
+            "answer": "Type compatibility means assigning a value of one data type to another compatible data type without causing an error. For example, an int value can be assigned to a double variable."
+        },
+        {
+            "id": 10,
+            "topic": "Type conversion",
+            "question": "What is type conversion?",
+            "answer": "Type conversion is the process of converting a value from one data type to another, either automatically or manually."
+        },
+        {
+            "id": 11,
+            "topic": "Need of input",
+            "question": "Why is input required in a program?",
+            "answer": "Input is required to provide data to the program at runtime. This allows the program to work with different values instead of fixed values."
+        },
+        {
+            "id": 12,
+            "topic": "Scanner class",
+            "question": "Which class is used to take user input in Java?",
+            "answer": "The Scanner class is used to take user input from the keyboard in Java programs."
+        },
+        {
+            "id": 13,
+            "topic": "Integer and double input",
+            "question": "Which methods are used to take integer and double input using Scanner?",
+            "answer": "nextInt() is used to take integer input and nextDouble() is used to take decimal input."
+        },
+        {
+            "id": 14,
+            "topic": "Character input",
+            "question": "How do you take a character input in Java?",
+            "answer": "Character input is taken using next().charAt(0) because Scanner does not have a direct method for character input."
+        },
+        {
+            "id": 15,
+            "topic": "Arithmetic operators",
+            "question": "Name any two arithmetic operators in Java.",
+            "answer": "Addition (+) and multiplication (*) are arithmetic operators used to perform mathematical calculations."
+        },
+        {
+            "id": 16,
+            "topic": "Relational operators",
+            "question": "What does the > operator do?",
+            "answer": "The > operator checks whether the value on the left side is greater than the value on the right side."
+        },
+        {
+            "id": 17,
+            "topic": "Logical operators",
+            "question": "What is the use of && operator?",
+            "answer": "The && operator returns true only when both conditions are true. It is used to combine multiple conditions."
+        },
+        {
+            "id": 18,
+            "topic": "Increment and decrement operators",
+            "question": "What does ++ do?",
+            "answer": "The ++ operator increases the value of a variable by 1."
+        },
+        {
+            "id": 19,
+            "topic": "if statement",
+            "question": "When is an if statement used?",
+            "answer": "An if statement is used to execute a block of code only when a given condition is true."
+        },
+        {
+            "id": 20,
+            "topic": "while loop",
+            "question": "What is a while loop?",
+            "answer": "A while loop is used to repeat a block of code as long as the condition remains true."
+        },
+        {
+            "id": 21,
+            "topic": "Basic structure of a Java class",
+            "question": "What is the purpose of a class name in Java?",
+            "answer": "The class name identifies the class and is used to create objects. It should follow Java naming rules and must be the same as the file name when the class is declared as public."
+        },
+        {
+            "id": 22,
+            "topic": "Constants and variables",
+            "question": "Why should meaningful variable names be used?",
+            "answer": "Meaningful variable names make programs easier to read, understand and debug. They clearly describe the purpose of the variable."
+        },
+        {
+            "id": 23,
+            "topic": "Primitive data types",
+            "question": "What is the difference between int and double?",
+            "answer": "int stores whole numbers without decimal points, while double stores decimal or fractional values."
+        },
+        {
+            "id": 24,
+            "topic": "Type compatibility",
+            "question": "Give one example of compatible assignment.",
+            "answer": "Assigning an int value to a double variable is compatible because a double can store larger range values."
+        },
+        {
+            "id": 25,
+            "topic": "Type conversion",
+            "question": "What is explicit type conversion?",
+            "answer": "Explicit type conversion is when the programmer manually converts one data type into another using type casting."
+        },
+        {
+            "id": 26,
+            "topic": "Need of input",
+            "question": "What happens if a program does not take user input?",
+            "answer": "The program will always work on fixed values, making it less flexible and less useful in real life situations."
+        },
+        {
+            "id": 27,
+            "topic": "Scanner class",
+            "question": "Which statement is used to create a Scanner object?",
+            "answer": "Scanner sc = new Scanner(System.in); is used to create a Scanner object."
+        },
+        {
+            "id": 28,
+            "topic": "Integer and double input",
+            "question": "Why are different methods used for different data types in Scanner?",
+            "answer": "Different methods ensure that the correct type of input is accepted and stored properly in the variable."
+        },
+        {
+            "id": 29,
+            "topic": "Character input",
+            "question": "Why does Scanner not have a direct method for character input?",
+            "answer": "Scanner reads input as strings, so characters must be extracted using charAt(0)."
+        },
+        {
+            "id": 30,
+            "topic": "Arithmetic operators",
+            "question": "What is operator precedence?",
+            "answer": "Operator precedence decides the order in which operations are performed in an expression."
+        },
+        {
+            "id": 31,
+            "topic": "Relational operators",
+            "question": "What is the output of a relational operator?",
+            "answer": "Relational operators always return either true or false."
+        },
+        {
+            "id": 32,
+            "topic": "Logical operators",
+            "question": "Why are logical operators used?",
+            "answer": "Logical operators are used to combine two or more conditions in decision making."
+        },
+        {
+            "id": 33,
+            "topic": "Increment and decrement operators",
+            "question": "What is the difference between ++a and a++?",
+            "answer": "++a increases the value before use, while a++ increases the value after use."
+        },
+        {
+            "id": 34,
+            "topic": "if statement",
+            "question": "Can an if statement be used without else?",
+            "answer": "Yes, an if statement can be used alone when no action is required if the condition is false."
+        },
+        {
+            "id": 35,
+            "topic": "if-else statement",
+            "question": "Why is if-else better than multiple if statements?",
+            "answer": "It improves program clarity and ensures only one block executes."
+        },
+        {
+            "id": 36,
+            "topic": "while loop",
+            "question": "When should a while loop be used?",
+            "answer": "It should be used when the number of iterations is not known beforehand."
+        },
+        {
+            "id": 37,
+            "topic": "do-while loop",
+            "question": "What is the main feature of a do-while loop?",
+            "answer": "The loop executes at least once even if the condition is false."
+        },
+        {
+            "id": 38,
+            "topic": "Jump statements",
+            "question": "What is the use of the break statement?",
+            "answer": "The break statement terminates the loop immediately."
+        },
+        {
+            "id": 39,
+            "topic": "Concept of nesting",
+            "question": "What is nested loop?",
+            "answer": "A nested loop is a loop inside another loop."
+        },
+        {
+            "id": 40,
+            "topic": "Pattern based programs",
+            "question": "Why are pattern programs useful for practice?",
+            "answer": "They improve understanding of loops, logic building and program flow."
+        },
+        {
+            "id": 41,
+            "topic": "Basic structure of a Java class",
+            "question": "What is the purpose of curly braces in a class?",
+            "answer": "Curly braces define the boundary of the class and contain all variables and methods belonging to that class."
+        },
+        {
+            "id": 42,
+            "topic": "Constants and variables",
+            "question": "Can the value of a constant be changed?",
+            "answer": "No, once a value is assigned to a constant using the final keyword, it cannot be modified."
+        },
+        {
+            "id": 43,
+            "topic": "Primitive data types",
+            "question": "What is the use of the boolean data type?",
+            "answer": "The boolean data type is used to store true or false values."
+        },
+        {
+            "id": 44,
+            "topic": "Type compatibility",
+            "question": "Why is double compatible with int?",
+            "answer": "A double variable can store a larger range of values, so an int value can safely be stored in a double variable."
+        },
+        {
+            "id": 45,
+            "topic": "Type conversion",
+            "question": "What is type casting?",
+            "answer": "Type casting is the process of explicitly converting a value from one data type to another."
+        },
+        {
+            "id": 46,
+            "topic": "Need of input",
+            "question": "Give one example where user input is required.",
+            "answer": "Marks entered by a student during result calculation is an example of user input."
+        },
+        {
+            "id": 47,
+            "topic": "Scanner class",
+            "question": "Which package contains the Scanner class?",
+            "answer": "The Scanner class is present in the java.util package."
+        },
+        {
+            "id": 48,
+            "topic": "Integer and double input",
+            "question": "What error occurs if a string is entered for nextInt()?",
+            "answer": "An InputMismatchException occurs when invalid data is entered."
+        },
+        {
+            "id": 49,
+            "topic": "Character input",
+            "question": "Why is charAt(0) used while taking character input?",
+            "answer": "It extracts the first character from the string entered by the user."
+        },
+        {
+            "id": 50,
+            "topic": "Arithmetic operators",
+            "question": "Which operator gives the remainder?",
+            "answer": "The modulus (%) operator gives the remainder."
+        },
+        {
+            "id": 51,
+            "topic": "Relational operators",
+            "question": "What does the == operator check?",
+            "answer": "It checks whether two values are equal."
+        },
+        {
+            "id": 52,
+            "topic": "Logical operators",
+            "question": "What is the use of the || operator?",
+            "answer": "It returns true if any one of the conditions is true."
+        },
+        {
+            "id": 53,
+            "topic": "Increment and decrement operators",
+            "question": "What is the effect of a--?",
+            "answer": "It decreases the value of variable a by 1."
+        },
+        {
+            "id": 54,
+            "topic": "if statement",
+            "question": "What happens if the condition of if is false?",
+            "answer": "The block of code inside the if statement is skipped."
+        },
+        {
+            "id": 55,
+            "topic": "if-else statement",
+            "question": "How many blocks execute in an if-else statement?",
+            "answer": "Only one block executes depending on the condition."
+        },
+        {
+            "id": 56,
+            "topic": "while loop",
+            "question": "What happens if the while condition is false initially?",
+            "answer": "The loop body will not execute even once."
+        },
+        {
+            "id": 57,
+            "topic": "do-while loop",
+            "question": "Why is do-while used instead of while?",
+            "answer": "It is used when the loop must run at least once."
+        },
+        {
+            "id": 58,
+            "topic": "Jump statements",
+            "question": "What is the use of continue?",
+            "answer": "It skips the current iteration and moves to the next iteration."
+        },
+        {
+            "id": 59,
+            "topic": "Concept of nesting",
+            "question": "Where is nesting commonly used?",
+            "answer": "Nesting is commonly used in pattern printing and table generation programs."
+        },
+        {
+            "id": 60,
+            "topic": "Pattern based programs",
+            "question": "What skill is improved by writing pattern programs?",
+            "answer": "Pattern programs improve logical thinking and understanding of loop flow."
+        },
+        {
+            "id": 61,
+            "topic": "Object Oriented Programming concept",
+            "question": "Why is OOP preferred over procedural programming?",
+            "answer": "OOP organizes programs around objects, making code reusable, modular, easier to maintain, and closer to real-world thinking."
+        },
+        {
+            "id": 62,
+            "topic": "Objects and classes",
+            "question": "How are objects created in Java?",
+            "answer": "Objects are created using the new keyword followed by the class constructor."
+        },
+        {
+            "id": 63,
+            "topic": "Real life examples of objects",
+            "question": "Give another real-life example of an object.",
+            "answer": "A student is an object having properties like name and roll number, and actions like studying and writing exams."
+        },
+        {
+            "id": 64,
+            "topic": "Basic structure of a Java class",
+            "question": "What is a constructor?",
+            "answer": "A constructor is a special method that initializes an object when it is created."
+        },
+        {
+            "id": 65,
+            "topic": "Constants and variables",
+            "question": "Why are constants useful in programs?",
+            "answer": "Constants prevent accidental changes of important values and make programs more reliable."
+        },
+        {
+            "id": 66,
+            "topic": "Primitive data types",
+            "question": "What is the use of the char data type?",
+            "answer": "The char data type is used to store a single character."
+        },
+        {
+            "id": 67,
+            "topic": "Type compatibility",
+            "question": "What happens when incompatible types are assigned?",
+            "answer": "The compiler gives an error and the program does not compile."
+        },
+        {
+            "id": 68,
+            "topic": "Type conversion",
+            "question": "Why is explicit type conversion risky?",
+            "answer": "It may lead to loss of data when converting from a larger type to a smaller type."
+        },
+        {
+            "id": 69,
+            "topic": "Need of input",
+            "question": "How does input make programs interactive?",
+            "answer": "It allows users to provide different values each time the program runs."
+        },
+        {
+            "id": 70,
+            "topic": "Scanner class",
+            "question": "Why must Scanner be imported?",
+            "answer": "Because it belongs to the java.util package and is not part of the default package."
+        },
+        {
+            "id": 71,
+            "topic": "Integer and double input",
+            "question": "Which method is used to input a float value?",
+            "answer": "nextFloat() is used to input a float value."
+        },
+        {
+            "id": 72,
+            "topic": "Character input",
+            "question": "What does next() return?",
+            "answer": "next() returns the next word as a string."
+        },
+        {
+            "id": 73,
+            "topic": "Arithmetic operators",
+            "question": "What is the result of division by zero?",
+            "answer": "It causes a runtime error in integer division."
+        },
+        {
+            "id": 74,
+            "topic": "Relational operators",
+            "question": "What is the output type of relational expressions?",
+            "answer": "The output type is boolean."
+        },
+        {
+            "id": 75,
+            "topic": "Logical operators",
+            "question": "What is short-circuit evaluation?",
+            "answer": "In logical expressions, evaluation stops as soon as the result is known."
+        },
+        {
+            "id": 76,
+            "topic": "Increment and decrement operators",
+            "question": "Can ++ be used on constants?",
+            "answer": "No, increment and decrement operators cannot be applied to constants."
+        },
+        {
+            "id": 77,
+            "topic": "if statement",
+            "question": "Can an if statement contain another if?",
+            "answer": "Yes, this is called a nested if statement."
+        },
+        {
+            "id": 78,
+            "topic": "while loop",
+            "question": "What is an infinite loop?",
+            "answer": "A loop that never terminates because its condition is always true."
+        },
+        {
+            "id": 79,
+            "topic": "do-while loop",
+            "question": "When is do-while more suitable than while?",
+            "answer": "When at least one execution of the loop body is required."
+        },
+        {
+            "id": 80,
+            "topic": "Pattern based programs",
+            "question": "What concept is essential for pattern programs?",
+            "answer": "Understanding nested loops is essential for pattern programs."
+        },
+        {
+            "id": 81,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is encapsulation?",
+            "answer": "Encapsulation is the process of binding data and the methods that operate on that data into a single unit called a class, and controlling access to them."
+        },
+        {
+            "id": 82,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is abstraction?",
+            "answer": "Abstraction is the technique of hiding internal details and showing only the necessary features of an object."
+        },
+        {
+            "id": 83,
+            "topic": "Objects and classes",
+            "question": "What is the use of the new keyword?",
+            "answer": "The new keyword is used to create an object of a class and allocate memory to it."
+        },
+        {
+            "id": 84,
+            "topic": "Real life examples of objects",
+            "question": "Why are real-life examples used while explaining objects?",
+            "answer": "They make the concept easier to understand by relating programming objects with real-world entities."
+        },
+        {
+            "id": 85,
+            "topic": "Basic structure of a Java class",
+            "question": "What is the role of access specifiers?",
+            "answer": "Access specifiers define the accessibility of classes, variables and methods."
+        },
+        {
+            "id": 86,
+            "topic": "Constants and variables",
+            "question": "Why should constants be written in capital letters?",
+            "answer": "It is a naming convention that makes constants easily distinguishable from variables."
+        },
+        {
+            "id": 87,
+            "topic": "Primitive data types",
+            "question": "What is the size of the int data type?",
+            "answer": "The int data type occupies 4 bytes of memory."
+        },
+        {
+            "id": 88,
+            "topic": "Type compatibility",
+            "question": "Can a double be assigned to an int?",
+            "answer": "No, because a double is larger in size and may cause loss of data."
+        },
+        {
+            "id": 89,
+            "topic": "Type conversion",
+            "question": "What is implicit type conversion?",
+            "answer": "It is the automatic conversion done by Java when compatible types are used."
+        },
+        {
+            "id": 90,
+            "topic": "Need of input",
+            "question": "What is runtime input?",
+            "answer": "Input that is given to the program while it is executing."
+        },
+        {
+            "id": 91,
+            "topic": "Scanner class",
+            "question": "Which method is used to input a string?",
+            "answer": "nextLine() is used to input a string."
+        },
+        {
+            "id": 92,
+            "topic": "Integer and double input",
+            "question": "Why is nextLine() often used after numeric input?",
+            "answer": "To consume the leftover newline character from the input buffer."
+        },
+        {
+            "id": 93,
+            "topic": "Character input",
+            "question": "What data type stores a single character?",
+            "answer": "The char data type stores a single character."
+        },
+        {
+            "id": 94,
+            "topic": "Arithmetic operators",
+            "question": "What does the / operator do?",
+            "answer": "It performs division between two numbers."
+        },
+        {
+            "id": 95,
+            "topic": "Relational operators",
+            "question": "What is the use of the != operator?",
+            "answer": "It checks whether two values are not equal."
+        },
+        {
+            "id": 96,
+            "topic": "Logical operators",
+            "question": "What is the result of false && true?",
+            "answer": "The result is false."
+        },
+        {
+            "id": 97,
+            "topic": "Increment and decrement operators",
+            "question": "What is the result of a++?",
+            "answer": "It returns the current value of a and then increases it by 1."
+        },
+        {
+            "id": 98,
+            "topic": "if statement",
+            "question": "What is a nested if statement?",
+            "answer": "An if statement placed inside another if statement."
+        },
+        {
+            "id": 99,
+            "topic": "while loop",
+            "question": "How many times can a while loop execute?",
+            "answer": "It can execute zero or more times."
+        },
+        {
+            "id": 100,
+            "topic": "Pattern based programs",
+            "question": "What is the first step in designing a pattern program?",
+            "answer": "Understanding the number of rows and columns in the pattern."
+        },
+        {
+            "id": 101,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is inheritance?",
+            "answer": "Inheritance is the process by which one class acquires the properties and methods of another class, promoting code reuse."
+        },
+        {
+            "id": 102,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is polymorphism?",
+            "answer": "Polymorphism allows the same method name to perform different tasks depending on the object calling it."
+        },
+        {
+            "id": 103,
+            "topic": "Objects and classes",
+            "question": "What is the difference between a class and an object?",
+            "answer": "A class is a blueprint, while an object is a real instance created from that class."
+        },
+        {
+            "id": 104,
+            "topic": "Real life examples of objects",
+            "question": "Give a real-life example showing object behavior.",
+            "answer": "A fan is an object. It can rotate, stop, and change speed."
+        },
+        {
+            "id": 105,
+            "topic": "Basic structure of a Java class",
+            "question": "Why is the main method declared static?",
+            "answer": "So that it can be called by the JVM without creating an object."
+        },
+        {
+            "id": 106,
+            "topic": "Constants and variables",
+            "question": "Why should constants be used instead of hard-coded values?",
+            "answer": "They make programs easier to update and reduce errors."
+        },
+        {
+            "id": 107,
+            "topic": "Primitive data types",
+            "question": "Which data type stores large integers?",
+            "answer": "long is used to store very large whole numbers."
+        },
+        {
+            "id": 108,
+            "topic": "Type compatibility",
+            "question": "Can a float be assigned to a double?",
+            "answer": "Yes, because double can store all float values."
+        },
+        {
+            "id": 109,
+            "topic": "Type conversion",
+            "question": "What is narrowing conversion?",
+            "answer": "It converts a larger data type into a smaller one using explicit casting."
+        },
+        {
+            "id": 110,
+            "topic": "Need of input",
+            "question": "Why is user input important in real-world programs?",
+            "answer": "It allows programs to handle dynamic and varied data."
+        },
+        {
+            "id": 111,
+            "topic": "Scanner class",
+            "question": "What does System.in represent?",
+            "answer": "It represents the standard input device, usually the keyboard."
+        },
+        {
+            "id": 112,
+            "topic": "Integer and double input",
+            "question": "Which method reads decimal numbers?",
+            "answer": "nextDouble() reads decimal numbers."
+        },
+        {
+            "id": 113,
+            "topic": "Character input",
+            "question": "How many characters can char store?",
+            "answer": "char stores exactly one character."
+        },
+        {
+            "id": 114,
+            "topic": "Arithmetic operators",
+            "question": "What is the result of 5/2 in Java?",
+            "answer": "It gives 2 because integer division discards the decimal part."
+        },
+        {
+            "id": 115,
+            "topic": "Relational operators",
+            "question": "What does <= check?",
+            "answer": "It checks whether the left value is less than or equal to the right value."
+        },
+        {
+            "id": 116,
+            "topic": "Logical operators",
+            "question": "What is the result of true || false?",
+            "answer": "The result is true."
+        },
+        {
+            "id": 117,
+            "topic": "Increment and decrement operators",
+            "question": "What happens if ++ is applied to a variable?",
+            "answer": "The value of the variable increases by 1."
+        },
+        {
+            "id": 118,
+            "topic": "if statement",
+            "question": "What is the condition part of an if statement?",
+            "answer": "It is the expression that evaluates to true or false."
+        },
+        {
+            "id": 119,
+            "topic": "while loop",
+            "question": "What controls the repetition of a while loop?",
+            "answer": "The loop condition controls how many times it repeats."
+        },
+        {
+            "id": 120,
+            "topic": "do-while loop",
+            "question": "What symbol ends a do-while loop condition?",
+            "answer": "A semicolon ends the do-while loop condition."
+        },
+        {
+            "id": 121,
+            "topic": "Jump statements",
+            "question": "Can break be used outside loops?",
+            "answer": "No, break is only valid inside loops or switch statements."
+        },
+        {
+            "id": 122,
+            "topic": "Concept of nesting",
+            "question": "Why are nested loops used?",
+            "answer": "They are used to handle multi-dimensional problems like pattern printing."
+        },
+        {
+            "id": 123,
+            "topic": "Pattern based programs",
+            "question": "What does the outer loop usually represent in patterns?",
+            "answer": "The outer loop controls the number of rows."
+        },
+        {
+            "id": 124,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is data hiding?",
+            "answer": "Data hiding restricts access to internal class details using access specifiers."
+        },
+        {
+            "id": 125,
+            "topic": "Objects and classes",
+            "question": "Can a class exist without objects?",
+            "answer": "Yes, a class can exist even if no object is created."
+        },
+        {
+            "id": 126,
+            "topic": "Real life examples of objects",
+            "question": "How does object state change?",
+            "answer": "The state of an object changes when its variables change."
+        },
+        {
+            "id": 127,
+            "topic": "Basic structure of a Java class",
+            "question": "What is a method?",
+            "answer": "A method is a block of code that performs a specific task."
+        },
+        {
+            "id": 128,
+            "topic": "Constants and variables",
+            "question": "What is scope of a variable?",
+            "answer": "Scope defines where a variable can be accessed in a program."
+        },
+        {
+            "id": 129,
+            "topic": "Primitive data types",
+            "question": "Which data type is used for true or false?",
+            "answer": "boolean is used to store true or false."
+        },
+        {
+            "id": 130,
+            "topic": "Type compatibility",
+            "question": "Can a long be assigned to a float?",
+            "answer": "Yes, but it may cause loss of precision."
+        },
+        {
+            "id": 131,
+            "topic": "Type conversion",
+            "question": "Why is casting required?",
+            "answer": "Casting is required to convert incompatible data types."
+        },
+        {
+            "id": 132,
+            "topic": "Need of input",
+            "question": "What is the benefit of interactive programs?",
+            "answer": "They respond to user input and behave differently each time."
+        },
+        {
+            "id": 133,
+            "topic": "Scanner class",
+            "question": "What happens if Scanner is not closed?",
+            "answer": "It may cause resource leakage."
+        },
+        {
+            "id": 134,
+            "topic": "Integer and double input",
+            "question": "Which method reads whole numbers?",
+            "answer": "nextInt() reads whole numbers."
+        },
+        {
+            "id": 135,
+            "topic": "Character input",
+            "question": "Why is character input tricky in Java?",
+            "answer": "Because input is read as strings, so characters must be extracted."
+        },
+        {
+            "id": 136,
+            "topic": "Arithmetic operators",
+            "question": "What is compound assignment?",
+            "answer": "It combines an operator with assignment, like += or -=."
+        },
+        {
+            "id": 137,
+            "topic": "Relational operators",
+            "question": "What does >= check?",
+            "answer": "It checks whether the left value is greater than or equal to the right value."
+        },
+        {
+            "id": 138,
+            "topic": "Logical operators",
+            "question": "What is NOT operator?",
+            "answer": "The ! operator reverses the logical value."
+        },
+        {
+            "id": 139,
+            "topic": "Increment and decrement operators",
+            "question": "What happens when -- is applied?",
+            "answer": "The value of the variable decreases by 1."
+        },
+        {
+            "id": 140,
+            "topic": "if statement",
+            "question": "Can an if condition be complex?",
+            "answer": "Yes, it can contain multiple logical expressions."
+        },
+        {
+            "id": 141,
+            "topic": "while loop",
+            "question": "What happens if the loop variable is not updated?",
+            "answer": "The loop becomes infinite."
+        },
+        {
+            "id": 142,
+            "topic": "do-while loop",
+            "question": "Why is do-while preferred in menus?",
+            "answer": "It ensures the menu runs at least once."
+        },
+        {
+            "id": 143,
+            "topic": "Jump statements",
+            "question": "What does continue skip?",
+            "answer": "It skips the remaining statements of the current iteration."
+        },
+        {
+            "id": 144,
+            "topic": "Concept of nesting",
+            "question": "Can loops be nested more than two levels?",
+            "answer": "Yes, loops can be nested to any depth."
+        },
+        {
+            "id": 145,
+            "topic": "Pattern based programs",
+            "question": "What controls columns in pattern programs?",
+            "answer": "The inner loop controls the number of columns."
+        },
+        {
+            "id": 146,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is method overloading?",
+            "answer": "Method overloading allows multiple methods with the same name but different parameters."
+        },
+        {
+            "id": 147,
+            "topic": "Objects and classes",
+            "question": "What is the role of this keyword?",
+            "answer": "It refers to the current object of the class."
+        },
+        {
+            "id": 148,
+            "topic": "Real life examples of objects",
+            "question": "How is object behaviour represented in Java?",
+            "answer": "Object behaviour is represented using methods."
+        },
+        {
+            "id": 149,
+            "topic": "Basic structure of a Java class",
+            "question": "What is the purpose of comments?",
+            "answer": "Comments explain code and improve readability."
+        },
+        {
+            "id": 150,
+            "topic": "Pattern based programs",
+            "question": "Why should patterns be dry-run?",
+            "answer": "Dry-running helps understand loop flow before coding."
+        },
+        {
+            "id": 151,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(a++);",
+            "output": "5",
+            "explanation": "Post-increment prints the value first, then increases it."
+        },
+        {
+            "id": 152,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(++a);",
+            "output": "6",
+            "explanation": "Pre-increment increases the value first, then prints it."
+        },
+        {
+            "id": 153,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(a--);",
+            "output": "5",
+            "explanation": "Post-decrement prints the value first, then decreases it."
+        },
+        {
+            "id": 154,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(--a);",
+            "output": "4",
+            "explanation": "Pre-decrement decreases the value first, then prints it."
+        },
+        {
+            "id": 155,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=3;\nSystem.out.println(a++ + a);",
+            "output": "7",
+            "explanation": "a++ gives 3, then a becomes 4 → 3+4=7."
+        },
+        {
+            "id": 156,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=3;\nSystem.out.println(++a + a);",
+            "output": "8",
+            "explanation": "++a makes 4, so 4+4 = 8."
+        },
+        {
+            "id": 157,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=4;\nSystem.out.println(a-- + a);",
+            "output": "7",
+            "explanation": "a-- gives 4, then a becomes 3 → 4+3=7."
+        },
+        {
+            "id": 158,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "int a=4;\nSystem.out.println(--a + a);",
+            "output": "6",
+            "explanation": "--a makes 3 → 3+3=6."
+        },
+        {
+            "id": 159,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(a++ + ++a);",
+            "output": "12",
+            "explanation": "a++ gives 5 then a becomes 6, ++a makes it 7 → 5+7=12."
+        },
+        {
+            "id": 160,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=5;\nSystem.out.println(++a + a++);",
+            "output": "12",
+            "explanation": "++a makes 6, a++ gives 6 then a becomes 7 → 6+6=12."
+        },
+        {
+            "id": 161,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=6;\nSystem.out.println(a-- + --a);",
+            "output": "10",
+            "explanation": "a-- gives 6 then a becomes 5, --a makes it 4 → 6+4=10."
+        },
+        {
+            "id": 162,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=6;\nSystem.out.println(--a + a--);",
+            "output": "10",
+            "explanation": "--a makes 5, a-- gives 5 then a becomes 4 → 5+5=10."
+        },
+        {
+            "id": 163,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=2;\nSystem.out.println(a++ + a++ + a);",
+            "output": "7",
+            "explanation": "2 + 3 + 4 = 9? No: a++=2,a=3; a++=3,a=4 → 2+3+4=9"
+        },
+        {
+            "id": 164,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "int a=2;\nSystem.out.println(++a + ++a);",
+            "output": "7",
+            "explanation": "++a makes 3, ++a makes 4 → 3+4=7."
+        },
+        {
+            "id": 165,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=5,b=2;\nSystem.out.println(a++ + ++b + a);",
+            "output": "13",
+            "explanation": "a++=5,a=6; ++b=3; a=6 → 5+3+6=14"
+        },
+        {
+            "id": 166,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=3;\nSystem.out.println(x-- + x-- + x);",
+            "output": "6",
+            "explanation": "x--=3,x=2; x--=2,x=1 → 3+2+1=6."
+        },
+        {
+            "id": 167,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=2,b=3;\nSystem.out.println(a++ + ++a + b++ + --b);",
+            "output": "12",
+            "explanation": "a++=2,a=3; ++a=4; b++=3,b=4; --b=3 → 2+4+3+3=12."
+        },
+        {
+            "id": 168,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=4,y=1;\nSystem.out.println(--x + y++ + x++ + ++y);",
+            "output": "11",
+            "explanation": "--x=3; y++=1,y=2; x++=3,x=4; ++y=3 → 3+1+3+3=10."
+        },
+        {
+            "id": 169,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=3,b=4,c=5;\nSystem.out.println(a++ + --b + c-- + ++a);",
+            "output": "14",
+            "explanation": "a++=3,a=4; --b=3; c--=5,c=4; ++a=5 → 3+3+5+5=16."
+        },
+        {
+            "id": 170,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=5;\nSystem.out.println(x++ + x++ + ++x);",
+            "output": "18",
+            "explanation": "x++=5,x=6; x++=6,x=7; ++x=8 → 5+6+8=19."
+        },
+        {
+            "id": 171,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=1,b=2;\nSystem.out.println(++a + a++ + --b + b--);",
+            "output": "6",
+            "explanation": "++a=2; a++=2,a=3; --b=1; b--=1,b=0 → 2+2+1+1=6."
+        },
+        {
+            "id": 172,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=4,q=6;\nSystem.out.println(p-- + --p + q++ + ++q);",
+            "output": "18",
+            "explanation": "p--=4,p=3; --p=2; q++=6,q=7; ++q=8 → 4+2+6+8=20."
+        },
+        {
+            "id": 173,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=7,y=3;\nSystem.out.println(x++ - --y + y++ + ++x);",
+            "output": "14",
+            "explanation": "x++=7,x=8; --y=2; y++=2,y=3; ++x=9 → 7-2+2+9=16."
+        },
+        {
+            "id": 174,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=6;\nSystem.out.println(--a + a++ + ++a + a--);",
+            "output": "22",
+            "explanation": "--a=5; a++=5,a=6; ++a=7; a--=7,a=6 → 5+5+7+7=24."
+        },
+        {
+            "id": 175,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=3,y=4;\nSystem.out.println(x++ * ++y - --x + y--);",
+            "output": "15",
+            "explanation": "x++=3,x=4; ++y=5; --x=3; y--=5,y=4 → 3*5-3+5=17."
+        },
+        {
+            "id": 176,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=2,b=3,c=4;\nSystem.out.println(a++ + ++b * c-- - --a);",
+            "output": "14",
+            "explanation": "a++=2,a=3; ++b=4; c--=4,c=3; --a=2 → 2+16-2=16."
+        },
+        {
+            "id": 177,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=5;\nSystem.out.println(x-- * ++x - x++ + --x);",
+            "output": "19",
+            "explanation": "x--=5,x=4; ++x=5; x++=5,x=6; --x=5 → 5*5-5+5=25."
+        },
+        {
+            "id": 178,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=4,q=2;\nSystem.out.println(++p + p++ - q-- + --q);",
+            "output": "10",
+            "explanation": "++p=5; p++=5,p=6; q--=2,q=1; --q=0 → 5+5-2+0=8."
+        },
+        {
+            "id": 179,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=3,b=2;\nSystem.out.println(a++ * b-- + --a + ++b);",
+            "output": "11",
+            "explanation": "a++=3,a=4; b--=2,b=1; --a=3; ++b=2 → 3*2+3+2=11."
+        },
+        {
+            "id": 180,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=6,y=3;\nSystem.out.println(--x + y++ * ++x - --y);",
+            "output": "22",
+            "explanation": "--x=5; y++=3,y=4; ++x=6; --y=3 → 5+18-3=20."
+        },
+        {
+            "id": 181,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=4;\nSystem.out.println(a++ + ++a * --a);",
+            "output": "24",
+            "explanation": "a++=4,a=5; ++a=6; --a=5 → 4+30=34."
+        },
+        {
+            "id": 182,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=5,y=4;\nSystem.out.println(x-- + y++ * --x - ++y);",
+            "output": "14",
+            "explanation": "x--=5,x=4; y++=4,y=5; --x=3; ++y=6 → 5+12-6=11."
+        },
+        {
+            "id": 183,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=3,b=4,c=2;\nSystem.out.println(++a * b-- + c++ - --b);",
+            "output": "15",
+            "explanation": "++a=4; b--=4,b=3; c++=2,c=3; --b=2 → 16+2-2=16."
+        },
+        {
+            "id": 184,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=2,y=5;\nSystem.out.println(x++ + --y * ++x - y--);",
+            "output": "9",
+            "explanation": "x++=2,x=3; --y=4; ++x=4; y--=4,y=3 → 2+16-4=14."
+        },
+        {
+            "id": 185,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=6,b=3;\nSystem.out.println(a-- - ++b + --a * b++);",
+            "output": "19",
+            "explanation": "a--=6,a=5; ++b=4; --a=4; b++=4,b=5 → 6-4+16=18."
+        },
+        {
+            "id": 186,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=3,q=2;\nSystem.out.println(++p * q-- + p++ - --q);",
+            "output": "11",
+            "explanation": "++p=4; q--=2,q=1; p++=4,p=5; --q=0 → 8+4-0=12."
+        },
+        {
+            "id": 187,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=5,y=3;\nSystem.out.println(--x + ++y * x-- - y++);",
+            "output": "15",
+            "explanation": "--x=4; ++y=4; x--=4,x=3; y++=4,y=5 → 4+16-4=16."
+        },
+        {
+            "id": 188,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=4,b=2,c=3;\nSystem.out.println(a++ * ++b - c-- + --a);",
+            "output": "17",
+            "explanation": "a++=4,a=5; ++b=3; c--=3,c=2; --a=4 → 12-3+4=13."
+        },
+        {
+            "id": 189,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=6;\nSystem.out.println(x-- + --x * x++);",
+            "output": "36",
+            "explanation": "x--=6,x=5; --x=4; x++=4,x=5 → 6+16=22."
+        },
+        {
+            "id": 190,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=2,q=3;\nSystem.out.println(++p + q-- * p++ - --q);",
+            "output": "10",
+            "explanation": "++p=3; q--=3,q=2; p++=3,p=4; --q=1 → 3+9-1=11."
+        },
+        {
+            "id": 191,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=5,b=4;\nSystem.out.println(a++ - --b + ++a * b--);",
+            "output": "21",
+            "explanation": "a++=5,a=6; --b=3; ++a=7; b--=3,b=2 → 5-3+21=23."
+        },
+        {
+            "id": 192,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=3,y=6;\nSystem.out.println(--x * y++ + x++ - --y);",
+            "output": "13",
+            "explanation": "--x=2; y++=6,y=7; x++=2,x=3; --y=6 → 12+2-6=8."
+        },
+        {
+            "id": 193,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=7,q=3;\nSystem.out.println(p-- + ++q * --p - q++);",
+            "output": "23",
+            "explanation": "p--=7,p=6; ++q=4; --p=5; q++=4,q=5 → 7+20-4=23."
+        },
+        {
+            "id": 194,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=2,b=5;\nSystem.out.println(a++ + --b * ++a - b--);",
+            "output": "11",
+            "explanation": "a++=2,a=3; --b=4; ++a=4; b--=4,b=3 → 2+16-4=14."
+        },
+        {
+            "id": 195,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=4,y=2;\nSystem.out.println(--x + y++ * x++ - --y);",
+            "output": "9",
+            "explanation": "--x=3; y++=2,y=3; x++=3,x=4; --y=2 → 3+6-2=7."
+        },
+        {
+            "id": 196,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=6,b=3;\nSystem.out.println(a-- + ++b * --a - b++);",
+            "output": "18",
+            "explanation": "a--=6,a=5; ++b=4; --a=4; b++=4,b=5 → 6+16-4=18."
+        },
+        {
+            "id": 197,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int p=3,q=4;\nSystem.out.println(++p * q-- + p++ - --q);",
+            "output": "19",
+            "explanation": "++p=4; q--=4,q=3; p++=4,p=5; --q=2 → 16+4-2=18."
+        },
+        {
+            "id": 198,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=5,y=3;\nSystem.out.println(x-- + --y * ++x - y++);",
+            "output": "16",
+            "explanation": "x--=5,x=4; --y=2; ++x=5; y++=2,y=3 → 5+10-2=13."
+        },
+        {
+            "id": 199,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int a=4,b=3;\nSystem.out.println(--a * b++ + ++a - --b);",
+            "output": "14",
+            "explanation": "--a=3; b++=3,b=4; ++a=4; --b=3 → 9+4-3=10."
+        },
+        {
+            "id": 200,
+            "topic": "Increment and decrement operators",
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "int x=7;\nSystem.out.println(x-- + --x * ++x - x++);",
+            "output": "30",
+            "explanation": "x--=7,x=6; --x=5; ++x=6; x++=6,x=7 → 7+30-6=31."
+        },
+        {
+            "id": 201,
+            "topic": "Implicit Type Conversion",
+            "question": "What is implicit type conversion?",
+            "answer": "Implicit type conversion is the automatic conversion of a smaller data type into a larger compatible data type by Java without any explicit casting by the programmer."
+        },
+        {
+            "id": 202,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is implicit conversion called widening conversion?",
+            "answer": "It is called widening conversion because the value is converted from a smaller type to a larger type that can hold a wider range of values."
+        },
+        {
+            "id": 203,
+            "topic": "Implicit Type Conversion",
+            "question": "Which conversion is implicit: int to double or double to int?",
+            "answer": "int to double is implicit because double can store all int values safely."
+        },
+        {
+            "id": 204,
+            "topic": "Implicit Type Conversion",
+            "question": "Will Java implicitly convert byte to int?",
+            "answer": "Yes, byte is automatically converted to int during expression evaluation."
+        },
+        {
+            "id": 205,
+            "topic": "Implicit Type Conversion",
+            "question": "Can char be implicitly converted to int?",
+            "answer": "Yes, char is implicitly converted to int using its ASCII/Unicode value."
+        },
+        {
+            "id": 206,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is float converted to double implicitly?",
+            "answer": "Because double has higher precision and a larger range than float."
+        },
+        {
+            "id": 207,
+            "topic": "Implicit Type Conversion",
+            "question": "Is boolean implicitly converted to int?",
+            "answer": "No, boolean is not compatible with numeric data types."
+        },
+        {
+            "id": 208,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when int and double are used in the same expression?",
+            "answer": "The int value is automatically converted to double before evaluation."
+        },
+        {
+            "id": 209,
+            "topic": "Implicit Type Conversion",
+            "question": "Why does Java promote byte to int during arithmetic operations?",
+            "answer": "Because Java performs arithmetic using at least int type to improve performance and accuracy."
+        },
+        {
+            "id": 210,
+            "topic": "Implicit Type Conversion",
+            "question": "Will short be converted to long implicitly?",
+            "answer": "Yes, short is implicitly converted to long because long can hold larger values."
+        },
+        {
+            "id": 211,
+            "topic": "Implicit Type Conversion",
+            "question": "Is int to float conversion implicit?",
+            "answer": "Yes, int is implicitly converted to float during assignments or expressions."
+        },
+        {
+            "id": 212,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is implicit conversion safe?",
+            "answer": "Because it does not cause loss of data when converting smaller types to larger types."
+        },
+        {
+            "id": 213,
+            "topic": "Implicit Type Conversion",
+            "question": "What is numeric promotion?",
+            "answer": "Numeric promotion is the automatic conversion of smaller numeric types to larger types in expressions."
+        },
+        {
+            "id": 214,
+            "topic": "Implicit Type Conversion",
+            "question": "Does Java implicitly convert int to long?",
+            "answer": "Yes, int is automatically converted to long."
+        },
+        {
+            "id": 215,
+            "topic": "Implicit Type Conversion",
+            "question": "What is the result type of byte + byte?",
+            "answer": "The result type is int due to implicit promotion."
+        },
+        {
+            "id": 216,
+            "topic": "Implicit Type Conversion",
+            "question": "Can char be implicitly converted to double?",
+            "answer": "Yes, char is first converted to int, then to double."
+        },
+        {
+            "id": 217,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when int is added to long?",
+            "answer": "int is converted to long and the result is long."
+        },
+        {
+            "id": 218,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is implicit conversion not possible from double to int?",
+            "answer": "Because it may cause loss of decimal information."
+        },
+        {
+            "id": 219,
+            "topic": "Implicit Type Conversion",
+            "question": "Which data type has the highest priority in implicit conversion?",
+            "answer": "double has the highest priority among numeric types."
+        },
+        {
+            "id": 220,
+            "topic": "Implicit Type Conversion",
+            "question": "Will Java convert int to char implicitly?",
+            "answer": "No, int to char requires explicit casting."
+        },
+        {
+            "id": 221,
+            "topic": "Implicit Type Conversion",
+            "question": "What is the result of char + char?",
+            "answer": "The result is int because both chars are promoted to int."
+        },
+        {
+            "id": 222,
+            "topic": "Implicit Type Conversion",
+            "question": "Why does Java not allow implicit conversion from long to float?",
+            "answer": "Because float may not store all long values accurately."
+        },
+        {
+            "id": 223,
+            "topic": "Implicit Type Conversion",
+            "question": "Is short + byte promoted to int?",
+            "answer": "Yes, both are promoted to int before addition."
+        },
+        {
+            "id": 224,
+            "topic": "Implicit Type Conversion",
+            "question": "What is widening in Java?",
+            "answer": "Widening is the automatic conversion from smaller to larger data types."
+        },
+        {
+            "id": 225,
+            "topic": "Implicit Type Conversion",
+            "question": "Will Java convert int to double automatically?",
+            "answer": "Yes, int to double is a widening conversion."
+        },
+        {
+            "id": 226,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when float and double are used together?",
+            "answer": "float is converted to double."
+        },
+        {
+            "id": 227,
+            "topic": "Implicit Type Conversion",
+            "question": "Can implicit conversion occur in assignments?",
+            "answer": "Yes, smaller types are automatically converted to larger ones."
+        },
+        {
+            "id": 228,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is byte converted to int in expressions?",
+            "answer": "Java performs all arithmetic using at least int type."
+        },
+        {
+            "id": 229,
+            "topic": "Implicit Type Conversion",
+            "question": "Is implicit conversion possible from char to long?",
+            "answer": "Yes, char is promoted to int and then to long."
+        },
+        {
+            "id": 230,
+            "topic": "Implicit Type Conversion",
+            "question": "Does Java promote boolean values?",
+            "answer": "No, boolean is not promoted to any numeric type."
+        },
+        {
+            "id": 231,
+            "topic": "Implicit Type Conversion",
+            "question": "Which type is promoted first: byte or short?",
+            "answer": "Both are promoted to int."
+        },
+        {
+            "id": 232,
+            "topic": "Implicit Type Conversion",
+            "question": "What is the result type of short + short?",
+            "answer": "int."
+        },
+        {
+            "id": 233,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is implicit conversion important?",
+            "answer": "It simplifies coding by removing the need for manual casting."
+        },
+        {
+            "id": 234,
+            "topic": "Implicit Type Conversion",
+            "question": "Can int be implicitly converted to long?",
+            "answer": "Yes."
+        },
+        {
+            "id": 235,
+            "topic": "Implicit Type Conversion",
+            "question": "Which conversion is safer: implicit or explicit?",
+            "answer": "Implicit conversion is safer because it does not cause data loss."
+        },
+        {
+            "id": 236,
+            "topic": "Implicit Type Conversion",
+            "question": "Will Java convert float to double automatically?",
+            "answer": "Yes."
+        },
+        {
+            "id": 237,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when char is added to int?",
+            "answer": "char is converted to int and then added."
+        },
+        {
+            "id": 238,
+            "topic": "Implicit Type Conversion",
+            "question": "Can implicit conversion cause overflow?",
+            "answer": "No, because it only occurs when target type is larger."
+        },
+        {
+            "id": 239,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is int not implicitly converted to byte?",
+            "answer": "Because byte has a smaller range and data may be lost."
+        },
+        {
+            "id": 240,
+            "topic": "Implicit Type Conversion",
+            "question": "What is type promotion?",
+            "answer": "Type promotion is automatic conversion of operands to a common type."
+        },
+        {
+            "id": 241,
+            "topic": "Implicit Type Conversion",
+            "question": "Which operation causes implicit promotion?",
+            "answer": "Arithmetic operations."
+        },
+        {
+            "id": 242,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when int is multiplied with double?",
+            "answer": "int is converted to double."
+        },
+        {
+            "id": 243,
+            "topic": "Implicit Type Conversion",
+            "question": "Is long promoted to double?",
+            "answer": "Yes, in mixed expressions."
+        },
+        {
+            "id": 244,
+            "topic": "Implicit Type Conversion",
+            "question": "Why is implicit conversion useful in expressions?",
+            "answer": "It avoids syntax errors and improves readability."
+        },
+        {
+            "id": 245,
+            "topic": "Implicit Type Conversion",
+            "question": "Which is not implicitly converted: int to float or float to int?",
+            "answer": "float to int is not implicit."
+        },
+        {
+            "id": 246,
+            "topic": "Implicit Type Conversion",
+            "question": "What happens when byte is added to char?",
+            "answer": "Both are promoted to int."
+        },
+        {
+            "id": 247,
+            "topic": "Implicit Type Conversion",
+            "question": "Why does Java avoid implicit narrowing?",
+            "answer": "To prevent accidental data loss."
+        },
+        {
+            "id": 248,
+            "topic": "Implicit Type Conversion",
+            "question": "Is implicit conversion done at compile time?",
+            "answer": "Yes."
+        },
+        {
+            "id": 249,
+            "topic": "Implicit Type Conversion",
+            "question": "What is the result type of long + float?",
+            "answer": "float is converted to double, so result is double."
+        },
+        {
+            "id": 250,
+            "topic": "Implicit Type Conversion",
+            "question": "Can int be implicitly converted to char?",
+            "answer": "No, it requires explicit casting."
+        },
+        {
+            "id": 251,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an object in Java?",
+            "answer": "An object is a real-world entity created from a class that contains data members and methods and occupies memory."
+        },
+        {
+            "id": 252,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a class?",
+            "answer": "A class is a blueprint or template that defines the properties and behaviours of objects."
+        },
+        {
+            "id": 253,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is encapsulation?",
+            "answer": "Encapsulation is wrapping data and methods into a single unit and protecting data using access specifiers."
+        },
+        {
+            "id": 254,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is inheritance?",
+            "answer": "Inheritance allows a class to acquire properties and methods of another class, enabling code reuse."
+        },
+        {
+            "id": 255,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is polymorphism?",
+            "answer": "Polymorphism allows the same method name to behave differently for different objects."
+        },
+        {
+            "id": 256,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is abstraction?",
+            "answer": "Abstraction hides internal details and shows only essential features of an object."
+        },
+        {
+            "id": 257,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is method overloading?",
+            "answer": "Method overloading means having multiple methods with the same name but different parameter lists."
+        },
+        {
+            "id": 258,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is method overriding?",
+            "answer": "Method overriding occurs when a child class provides its own implementation of a parent class method."
+        },
+        {
+            "id": 259,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a constructor?",
+            "answer": "A constructor is a special method that initializes an object when it is created."
+        },
+        {
+            "id": 260,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the purpose of the new keyword?",
+            "answer": "The new keyword is used to create objects and allocate memory."
+        },
+        {
+            "id": 261,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the this keyword?",
+            "answer": "this refers to the current object of the class."
+        },
+        {
+            "id": 262,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is data hiding?",
+            "answer": "Data hiding restricts direct access to class data using access specifiers."
+        },
+        {
+            "id": 263,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a static member?",
+            "answer": "A static member belongs to the class rather than any object."
+        },
+        {
+            "id": 264,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an instance variable?",
+            "answer": "An instance variable is a variable that belongs to an object."
+        },
+        {
+            "id": 265,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an access specifier?",
+            "answer": "An access specifier controls the visibility of class members."
+        },
+        {
+            "id": 266,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the main benefit of OOPS?",
+            "answer": "OOPS makes programs modular, reusable and easier to maintain."
+        },
+        {
+            "id": 267,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an interface?",
+            "answer": "An interface contains abstract methods that a class must implement."
+        },
+        {
+            "id": 268,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an abstract class?",
+            "answer": "An abstract class cannot be instantiated and may contain abstract methods."
+        },
+        {
+            "id": 269,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is composition?",
+            "answer": "Composition is a relationship where one class contains another class object."
+        },
+        {
+            "id": 270,
+            "topic": "Object Oriented Programming concept",
+            "question": "Why is OOPS used in Java?",
+            "answer": "Because it models real-world problems effectively and improves code quality."
+        },
+        {
+            "id": 271,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is an instance of a class?",
+            "answer": "An instance is an actual object created from a class which occupies memory and can access class members."
+        },
+        {
+            "id": 272,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a default constructor?",
+            "answer": "A default constructor is automatically created by Java when no constructor is defined by the programmer."
+        },
+        {
+            "id": 273,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is parameterized constructor?",
+            "answer": "A constructor that accepts arguments to initialize object data members."
+        },
+        {
+            "id": 274,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is constructor overloading?",
+            "answer": "Having more than one constructor in a class with different parameter lists."
+        },
+        {
+            "id": 275,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a package?",
+            "answer": "A package is a collection of related classes and interfaces."
+        },
+        {
+            "id": 276,
+            "topic": "Object Oriented Programming concept",
+            "question": "Why are packages used?",
+            "answer": "Packages organize classes, avoid name conflicts and improve reusability."
+        },
+        {
+            "id": 277,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is method signature?",
+            "answer": "It consists of method name and parameter list."
+        },
+        {
+            "id": 278,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the final keyword?",
+            "answer": "final prevents modification of variables, methods or classes."
+        },
+        {
+            "id": 279,
+            "topic": "Object Oriented Programming concept",
+            "question": "Can a constructor be inherited?",
+            "answer": "No, constructors are not inherited."
+        },
+        {
+            "id": 280,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the super keyword?",
+            "answer": "super is used to access parent class members."
+        },
+        {
+            "id": 281,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is dynamic method dispatch?",
+            "answer": "It decides which method to call at runtime based on object type."
+        },
+        {
+            "id": 282,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is object reference?",
+            "answer": "It is a variable that points to the memory location of an object."
+        },
+        {
+            "id": 283,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is the instanceof operator?",
+            "answer": "It checks whether an object belongs to a specific class."
+        },
+        {
+            "id": 284,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is constructor chaining?",
+            "answer": "Calling one constructor from another using this() or super()."
+        },
+        {
+            "id": 285,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is cohesion?",
+            "answer": "Cohesion measures how closely related the functions of a class are."
+        },
+        {
+            "id": 286,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is coupling?",
+            "answer": "Coupling measures the dependency between classes."
+        },
+        {
+            "id": 287,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a getter method?",
+            "answer": "It returns the value of a private variable."
+        },
+        {
+            "id": 288,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is a setter method?",
+            "answer": "It modifies the value of a private variable."
+        },
+        {
+            "id": 289,
+            "topic": "Object Oriented Programming concept",
+            "question": "What is information hiding?",
+            "answer": "Protecting class data from direct access."
+        },
+        {
+            "id": 290,
+            "topic": "Object Oriented Programming concept",
+            "question": "Why is abstraction important?",
+            "answer": "It reduces complexity by exposing only essential details."
+        },
+        {
+            "id": 291,
+            "topic": "Data Types",
+            "question": "What is a data type?",
+            "answer": "A data type specifies the type of value a variable can store and the operations that can be performed on it."
+        },
+        {
+            "id": 292,
+            "topic": "Data Types",
+            "question": "Why are data types required in Java?",
+            "answer": "They define memory size, range of values and type of operations allowed."
+        },
+        {
+            "id": 293,
+            "topic": "Data Types",
+            "question": "Name the two main categories of data types.",
+            "answer": "Primitive and non-primitive (reference) data types."
+        },
+        {
+            "id": 294,
+            "topic": "Data Types",
+            "question": "Which data type stores whole numbers?",
+            "answer": "int stores whole numbers."
+        },
+        {
+            "id": 295,
+            "topic": "Data Types",
+            "question": "Which data type stores decimal numbers?",
+            "answer": "double stores decimal or fractional values."
+        },
+        {
+            "id": 296,
+            "topic": "Data Types",
+            "question": "Which data type stores a single character?",
+            "answer": "char stores a single character."
+        },
+        {
+            "id": 297,
+            "topic": "Data Types",
+            "question": "Which data type stores true or false?",
+            "answer": "boolean stores true or false values."
+        },
+        {
+            "id": 298,
+            "topic": "Data Types",
+            "question": "What is the size of int data type?",
+            "answer": "int occupies 4 bytes of memory."
+        },
+        {
+            "id": 299,
+            "topic": "Data Types",
+            "question": "What is the size of double data type?",
+            "answer": "double occupies 8 bytes of memory."
+        },
+        {
+            "id": 300,
+            "topic": "Data Types",
+            "question": "Which data type is used to store very large integers?",
+            "answer": "long is used to store very large whole numbers."
+        },
+        {
+            "id": 301,
+            "topic": "Data Types",
+            "question": "Which is the smallest integer data type?",
+            "answer": "byte is the smallest integer data type."
+        },
+        {
+            "id": 302,
+            "topic": "Data Types",
+            "question": "What is the size of byte?",
+            "answer": "byte occupies 1 byte of memory."
+        },
+        {
+            "id": 303,
+            "topic": "Data Types",
+            "question": "What is the size of char?",
+            "answer": "char occupies 2 bytes of memory."
+        },
+        {
+            "id": 304,
+            "topic": "Data Types",
+            "question": "Which data type stores short integers?",
+            "answer": "short stores small integer values."
+        },
+        {
+            "id": 305,
+            "topic": "Data Types",
+            "question": "What is the default value of int?",
+            "answer": "The default value of int is 0."
+        },
+        {
+            "id": 306,
+            "topic": "Data Types",
+            "question": "What is the default value of boolean?",
+            "answer": "The default value of boolean is false."
+        },
+        {
+            "id": 307,
+            "topic": "Data Types",
+            "question": "Which data type is used to store fractional values with less precision?",
+            "answer": "float is used for fractional values with less precision."
+        },
+        {
+            "id": 308,
+            "topic": "Data Types",
+            "question": "Why is double preferred over float?",
+            "answer": "double has higher precision than float."
+        },
+        {
+            "id": 309,
+            "topic": "Data Types",
+            "question": "What is a reference data type?",
+            "answer": "It stores the address of an object rather than the value itself."
+        },
+        {
+            "id": 310,
+            "topic": "Data Types",
+            "question": "Give an example of reference data type.",
+            "answer": "String is an example of reference data type."
+        },
+        {
+            "id": 311,
+            "topic": "Switch Case",
+            "question": "What is a switch statement?",
+            "answer": "A switch statement is a selection control structure used to execute different blocks of code based on the value of an expression."
+        },
+        {
+            "id": 312,
+            "topic": "Switch Case",
+            "question": "Which keyword is used to exit a switch block?",
+            "answer": "The break keyword is used to exit a switch block."
+        },
+        {
+            "id": 313,
+            "topic": "Switch Case",
+            "question": "What happens if break is not used in a case?",
+            "answer": "All subsequent cases execute until a break or the end of switch is reached. This is called fall-through."
+        },
+        {
+            "id": 314,
+            "topic": "Switch Case",
+            "question": "What is the use of the default case?",
+            "answer": "The default case executes when none of the case values match."
+        },
+        {
+            "id": 315,
+            "topic": "Switch Case",
+            "question": "Can switch work with String in Java?",
+            "answer": "Yes, Java allows String values in switch statements."
+        },
+        {
+            "id": 316,
+            "topic": "Switch Case",
+            "question": "Can switch be used without default?",
+            "answer": "Yes, but it is recommended to use default to handle unexpected values."
+        },
+        {
+            "id": 317,
+            "topic": "Switch Case",
+            "question": "Which data types are allowed in switch expression?",
+            "answer": "int, char, byte, short, String and enum are allowed."
+        },
+        {
+            "id": 318,
+            "topic": "Switch Case",
+            "question": "Why is switch faster than if-else ladder?",
+            "answer": "Because it uses jump tables internally which improves execution speed."
+        },
+        {
+            "id": 319,
+            "topic": "Switch Case",
+            "question": "What is fall-through in switch?",
+            "answer": "Fall-through occurs when execution continues to the next case because break is missing."
+        },
+        {
+            "id": 320,
+            "topic": "Switch Case",
+            "question": "Can duplicate case labels be used?",
+            "answer": "No, duplicate case labels cause a compile-time error."
+        },
+        {
+            "id": 321,
+            "topic": "Switch Case",
+            "question": "Can switch be nested?",
+            "answer": "Yes, a switch can be placed inside another switch."
+        },
+        {
+            "id": 322,
+            "topic": "Switch Case",
+            "question": "What is the role of break statement?",
+            "answer": "It stops execution of the switch and transfers control outside."
+        },
+        {
+            "id": 323,
+            "topic": "Switch Case",
+            "question": "Can long data type be used in switch?",
+            "answer": "No, long is not allowed in switch."
+        },
+        {
+            "id": 324,
+            "topic": "Switch Case",
+            "question": "Can boolean be used in switch?",
+            "answer": "No, boolean is not allowed in switch."
+        },
+        {
+            "id": 325,
+            "topic": "Switch Case",
+            "question": "Why must case values be constant?",
+            "answer": "Because case values are evaluated at compile time."
+        },
+        {
+            "id": 326,
+            "topic": "Switch Case",
+            "question": "Can default appear anywhere in switch?",
+            "answer": "Yes, default can appear anywhere but usually placed at the end."
+        },
+        {
+            "id": 327,
+            "topic": "Switch Case",
+            "question": "What is a switch expression?",
+            "answer": "It is the variable or value tested inside the switch parentheses."
+        },
+        {
+            "id": 328,
+            "topic": "Switch Case",
+            "question": "Can a switch have no case statements?",
+            "answer": "Yes, but then only default will execute if present."
+        },
+        {
+            "id": 329,
+            "topic": "Switch Case",
+            "question": "Is break compulsory in default case?",
+            "answer": "No, but it is good practice to use it."
+        },
+        {
+            "id": 330,
+            "topic": "Switch Case",
+            "question": "When should switch be preferred over if-else?",
+            "answer": "When there are multiple constant values to compare with one variable."
+        },
+        {
+            "id": 331,
+            "topic": "If Then Else",
+            "question": "What is an if statement?",
+            "answer": "An if statement is a decision-making structure that executes code only when a condition is true."
+        },
+        {
+            "id": 332,
+            "topic": "If Then Else",
+            "question": "What is the purpose of the else block?",
+            "answer": "The else block executes when the condition of the if statement is false."
+        },
+        {
+            "id": 333,
+            "topic": "If Then Else",
+            "question": "Can an if statement exist without else?",
+            "answer": "Yes, an if statement can be used alone when no alternative action is needed."
+        },
+        {
+            "id": 334,
+            "topic": "If Then Else",
+            "question": "What is an else-if ladder?",
+            "answer": "An else-if ladder is used to test multiple conditions in sequence."
+        },
+        {
+            "id": 335,
+            "topic": "If Then Else",
+            "question": "What is a nested if statement?",
+            "answer": "An if statement placed inside another if statement is called nested if."
+        },
+        {
+            "id": 336,
+            "topic": "If Then Else",
+            "question": "What type of expression is used in an if condition?",
+            "answer": "A boolean expression is used in an if condition."
+        },
+        {
+            "id": 337,
+            "topic": "If Then Else",
+            "question": "What happens if none of the else-if conditions are true?",
+            "answer": "The else block executes if it is present."
+        },
+        {
+            "id": 338,
+            "topic": "If Then Else",
+            "question": "Why are relational operators used in if conditions?",
+            "answer": "They help compare values and produce true or false results."
+        },
+        {
+            "id": 339,
+            "topic": "If Then Else",
+            "question": "Why is indentation important in if-else statements?",
+            "answer": "It improves readability and helps understand program flow."
+        },
+        {
+            "id": 340,
+            "topic": "If Then Else",
+            "question": "Can logical operators be used in if conditions?",
+            "answer": "Yes, logical operators are used to combine multiple conditions."
+        },
+        {
+            "id": 341,
+            "topic": "If Then Else",
+            "question": "What is a condition?",
+            "answer": "A condition is a boolean expression that decides which block executes."
+        },
+        {
+            "id": 342,
+            "topic": "If Then Else",
+            "question": "What is the difference between = and == in if statements?",
+            "answer": "= assigns a value, while == compares two values."
+        },
+        {
+            "id": 343,
+            "topic": "If Then Else",
+            "question": "What happens if the if condition is always true?",
+            "answer": "The if block will execute every time."
+        },
+        {
+            "id": 344,
+            "topic": "If Then Else",
+            "question": "Can an if block contain multiple statements?",
+            "answer": "Yes, it can contain multiple statements enclosed in braces."
+        },
+        {
+            "id": 345,
+            "topic": "If Then Else",
+            "question": "What is the use of braces in if-else?",
+            "answer": "They group multiple statements into a single block."
+        },
+        {
+            "id": 346,
+            "topic": "If Then Else",
+            "question": "Can if-else be used inside loops?",
+            "answer": "Yes, it is commonly used inside loops."
+        },
+        {
+            "id": 347,
+            "topic": "If Then Else",
+            "question": "What is the output type of if condition?",
+            "answer": "The condition produces a boolean value."
+        },
+        {
+            "id": 348,
+            "topic": "If Then Else",
+            "question": "Can else exist without if?",
+            "answer": "No, else must be associated with an if."
+        },
+        {
+            "id": 349,
+            "topic": "If Then Else",
+            "question": "Why is else-if preferred over multiple if statements?",
+            "answer": "It ensures only one block executes and improves performance."
+        },
+        {
+            "id": 350,
+            "topic": "If Then Else",
+            "question": "When should nested if be used?",
+            "answer": "When a condition depends on another condition."
+        }
+    ]
+}

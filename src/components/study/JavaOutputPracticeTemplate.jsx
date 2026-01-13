@@ -14,7 +14,7 @@ export default function JavaOutputPracticeTemplate({ data }) {
 
   const [showAns, setShowAns] = useState([]);
   const [level, setLevel] = useState("all");
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(30);
   const [started, setStarted] = useState(false);
   const [sessionQ, setSessionQ] = useState([]);
 

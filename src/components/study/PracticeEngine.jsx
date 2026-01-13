@@ -405,8 +405,8 @@ export default function PracticeEngine({
     timerMode === "stopwatch"
       ? formatTime(elapsedSeconds)
       : timerMode === "countdown"
-      ? formatTime(remainingSeconds)
-      : "--:--";
+        ? formatTime(remainingSeconds)
+        : "--:--";
 
   // Suggested next difficulty
   let suggestedNext = "Beginner";
@@ -528,11 +528,10 @@ export default function PracticeEngine({
       >
         {/* STICKY TOP RIBBON */}
         <div
-          className={`sticky top-16 z-20 mb-1 rounded-2xl border ${
-            reviewMode
+          className={`sticky top-16 z-20 mb-1 rounded-2xl border ${reviewMode
               ? "border-amber-500/40 bg-amber-950/60"
               : "border-slate-700 bg-slate-950/70"
-          } px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 backdrop-blur-md shadow-md shadow-black/40`}
+            } px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 backdrop-blur-md shadow-md shadow-black/40`}
         >
           <div className="space-y-0.5">
             <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400">
@@ -584,11 +583,10 @@ export default function PracticeEngine({
                         setRemainingSeconds(countdownSeconds);
                       }
                     }}
-                    className={`px-2 py-0.5 rounded-full border text-[10px] capitalize ${
-                      timerMode === m
+                    className={`px-2 py-0.5 rounded-full border text-[10px] capitalize ${timerMode === m
                         ? "bg-sky-600 text-white border-sky-400"
                         : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
-                    }`}
+                      }`}
                   >
                     {m}
                   </button>
@@ -600,11 +598,10 @@ export default function PracticeEngine({
             <button
               type="button"
               onClick={() => setSoundOn((prev) => !prev)}
-              className={`px-3 py-1 rounded-full text-[11px] border ${
-                soundOn
+              className={`px-3 py-1 rounded-full text-[11px] border ${soundOn
                   ? "bg-emerald-600 text-white border-emerald-400"
                   : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
-              }`}
+                }`}
             >
               {soundOn ? "🔊 Sound On" : "🔈 Sound Off"}
             </button>
@@ -637,11 +634,10 @@ export default function PracticeEngine({
                       key={d.key}
                       type="button"
                       onClick={() => setDifficulty(d.key)}
-                      className={`px-3 py-1.5 rounded-full text-xs border transition ${
-                        active
+                      className={`px-3 py-1.5 rounded-full text-xs border transition ${active
                           ? "bg-sky-600 text-white border-sky-400"
                           : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
-                      }`}
+                        }`}
                     >
                       {d.label}
                     </button>
@@ -660,8 +656,8 @@ export default function PracticeEngine({
                   const value =
                     n === "All"
                       ? questions.length ||
-                        quiz.length ||
-                        questionCount
+                      quiz.length ||
+                      questionCount
                       : n;
                   const active = questionCount === value;
                   return (
@@ -676,11 +672,10 @@ export default function PracticeEngine({
                           )
                         )
                       }
-                      className={`px-3 py-1.5 rounded-full text-xs border transition ${
-                        active
+                      className={`px-3 py-1.5 rounded-full text-xs border transition ${active
                           ? "bg-emerald-600 text-white border-emerald-400"
                           : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
-                      }`}
+                        }`}
                     >
                       {n === "All" ? "All" : n}
                     </button>
@@ -753,11 +748,10 @@ export default function PracticeEngine({
           {/* Certificate + Name */}
           {isFinished && (
             <div
-              className={`mt-3 p-3 rounded-xl border ${
-                score / (total || 1) >= 0.6
+              className={`mt-3 p-3 rounded-xl border ${score / (total || 1) >= 0.6
                   ? "bg-emerald-950/50 border-emerald-500/40"
                   : "bg-slate-900/60 border-slate-700"
-              } space-y-2`}
+                } space-y-2`}
             >
               {showStudentName && (
                 <input
@@ -836,8 +830,8 @@ export default function PracticeEngine({
                     {timerMode === "stopwatch"
                       ? formatTime(elapsedSeconds)
                       : formatTime(
-                          countdownSeconds - remainingSeconds
-                        )}
+                        countdownSeconds - remainingSeconds
+                      )}
                   </span>
                 </div>
               )}
@@ -873,11 +867,10 @@ export default function PracticeEngine({
               <article
                 key={q.id}
                 ref={(el) => (questionRefs.current[index] = el)}
-                className={`border border-slate-800 bg-slate-900/70 rounded-2xl p-4 md:p-5 space-y-3 shadow-lg shadow-black/40 transition-transform duration-200 ${
-                  isActive
+                className={`border border-slate-800 bg-slate-900/70 rounded-2xl p-4 md:p-5 space-y-3 shadow-lg shadow-black/40 transition-transform duration-200 ${isActive
                     ? "ring-1 ring-sky-500/70 scale-[1.01]"
                     : "scale-[1.0]"
-                }`}
+                  }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="space-y-1">
@@ -885,11 +878,19 @@ export default function PracticeEngine({
                       <span className="inline-flex h-6 min-w-[2rem] items-center justify-center rounded-full bg-slate-800 text-[11px] text-slate-300 border border-slate-700">
                         Q{index + 1}
                       </span>
+
+                      {/* Original Question ID */}
+                      <span className="inline-flex items-center rounded-full bg-violet-500/10 border border-violet-500/40 px-2 py-0.5 text-[10px] uppercase tracking-wide text-violet-300">
+                        ID: {q.id}
+                      </span>
+
                       {q.topic && (
                         <span className="inline-flex items-center rounded-full bg-sky-500/10 border border-sky-500/40 px-2 py-0.5 text-[10px] uppercase tracking-wide text-sky-200">
                           {q.topic}
                         </span>
+
                       )}
+
                     </div>
                     <h3 className="font-semibold text-slate-100 text-sm md:text-base">
                       {q.question}
@@ -898,13 +899,12 @@ export default function PracticeEngine({
 
                   {q.level && (
                     <span
-                      className={`px-2 py-0.5 rounded-full text-[10px] border bg-slate-800 ${
-                        q.level === "beginner"
+                      className={`px-2 py-0.5 rounded-full text-[10px] border bg-slate-800 ${q.level === "beginner"
                           ? "border-emerald-500/60 text-emerald-300"
                           : q.level === "moderate"
-                          ? "border-amber-500/60 text-amber-300"
-                          : "border-rose-500/60 text-rose-300"
-                      }`}
+                            ? "border-amber-500/60 text-amber-300"
+                            : "border-rose-500/60 text-rose-300"
+                        }`}
                     >
                       {q.level.toUpperCase()}
                     </span>
@@ -1008,11 +1008,10 @@ export default function PracticeEngine({
                 ) : (
                   <>
                     <p
-                      className={`text-xs mt-1 ${
-                        isCorrect
+                      className={`text-xs mt-1 ${isCorrect
                           ? "text-emerald-400"
                           : "text-rose-400"
-                      }`}
+                        }`}
                     >
                       {isCorrect ? "Correct!" : "Incorrect."}{" "}
                       Correct Answer:{" "}

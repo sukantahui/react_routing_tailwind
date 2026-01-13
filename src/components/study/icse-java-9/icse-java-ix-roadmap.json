@@ -207,10 +207,11 @@
         {
           "moduleId": "first-test",
           "slug": "final-exam-test",
-          "title": "Test 1",
+          "title": "Final Test",
           "topics": [
             "First Test",
-            "Output Practice"
+            "Output Practice",
+            "Short Question"
           ]
         }
       ]
