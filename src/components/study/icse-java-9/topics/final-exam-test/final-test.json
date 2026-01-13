@@ -357,7 +357,7 @@
             "18",
             "21"
         ],
-        "answerIndex": 1,
+        "answerIndex": 0,
         "explanation": "3 and 6 skipped → 1+2+4+5=12? Actually =12."
     },
     {
@@ -664,7 +664,7 @@
         "question": "What is the output?",
         "code": "int i=1;\nfor(;i<=3;)\n{\n    System.out.print(i);\n    i+=2;\n}",
         "options": [
-            "135",
+            "13",
             "123",
             "246",
             "Error"

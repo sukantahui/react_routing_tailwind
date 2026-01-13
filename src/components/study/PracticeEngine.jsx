@@ -117,7 +117,8 @@ export default function PracticeEngine({
   countdownSeconds = 30 * 60, // 30 minutes default for countdown
 }) {
   const STORAGE_KEY = STORAGE_PREFIX + testId;
-
+  const [searchQid, setSearchQid] = useState("");
+  const [qidError, setQidError] = useState("");
   const [quiz, setQuiz] = useState([]);
   const [responses, setResponses] = useState({});
   const [submitted, setSubmitted] = useState({});
@@ -236,6 +237,25 @@ export default function PracticeEngine({
     soundOn,
     STORAGE_KEY,
   ]);
+
+  const jumpToQuestionById = () => {
+    const id = Number(searchQid);
+    if (!id) {
+      setQidError("Enter a valid Question ID");
+      return;
+    }
+
+    const index = quiz.findIndex((q) => q.id === id);
+    if (index === -1) {
+      setQidError(`Question ID ${id} not found in this test`);
+      return;
+    }
+
+    setQidError("");
+    setActiveQuestionIndex(index);
+    scrollToQuestion(index);
+  };
+
 
   // ------------------- SCROLL TO ACTIVE QUESTION -------------------
   const scrollToQuestion = useCallback((index) => {
@@ -529,8 +549,8 @@ export default function PracticeEngine({
         {/* STICKY TOP RIBBON */}
         <div
           className={`sticky top-16 z-20 mb-1 rounded-2xl border ${reviewMode
-              ? "border-amber-500/40 bg-amber-950/60"
-              : "border-slate-700 bg-slate-950/70"
+            ? "border-amber-500/40 bg-amber-950/60"
+            : "border-slate-700 bg-slate-950/70"
             } px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 backdrop-blur-md shadow-md shadow-black/40`}
         >
           <div className="space-y-0.5">
@@ -560,6 +580,31 @@ export default function PracticeEngine({
             </div>
           </div>
 
+          {/* Question Id Search */}
+          <section>
+            <div className="flex items-center gap-2">
+              <input
+                type="number"
+                placeholder="Go to ID"
+                value={searchQid}
+                onChange={(e) => setSearchQid(e.target.value)}
+                className="w-24 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-slate-200 text-xs"
+              />
+              <button
+                type="button"
+                onClick={jumpToQuestionById}
+                className="px-3 py-1 rounded-md bg-violet-600 hover:bg-violet-500 text-white text-xs"
+              >
+                Go
+              </button>
+            </div>
+            {qidError && (
+              <p className="text-[10px] text-rose-400 mt-0.5">
+                {qidError}
+              </p>
+            )}
+          </section>
+
           {/* Timer + sound toggle */}
           <div className="flex items-center gap-3 text-xs">
             <div className="flex flex-col items-end gap-1">
@@ -584,8 +629,8 @@ export default function PracticeEngine({
                       }
                     }}
                     className={`px-2 py-0.5 rounded-full border text-[10px] capitalize ${timerMode === m
-                        ? "bg-sky-600 text-white border-sky-400"
-                        : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                      ? "bg-sky-600 text-white border-sky-400"
+                      : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                       }`}
                   >
                     {m}
@@ -599,8 +644,8 @@ export default function PracticeEngine({
               type="button"
               onClick={() => setSoundOn((prev) => !prev)}
               className={`px-3 py-1 rounded-full text-[11px] border ${soundOn
-                  ? "bg-emerald-600 text-white border-emerald-400"
-                  : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                ? "bg-emerald-600 text-white border-emerald-400"
+                : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                 }`}
             >
               {soundOn ? "🔊 Sound On" : "🔈 Sound Off"}
@@ -635,8 +680,8 @@ export default function PracticeEngine({
                       type="button"
                       onClick={() => setDifficulty(d.key)}
                       className={`px-3 py-1.5 rounded-full text-xs border transition ${active
-                          ? "bg-sky-600 text-white border-sky-400"
-                          : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                        ? "bg-sky-600 text-white border-sky-400"
+                        : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                         }`}
                     >
                       {d.label}
@@ -673,8 +718,8 @@ export default function PracticeEngine({
                         )
                       }
                       className={`px-3 py-1.5 rounded-full text-xs border transition ${active
-                          ? "bg-emerald-600 text-white border-emerald-400"
-                          : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
+                        ? "bg-emerald-600 text-white border-emerald-400"
+                        : "bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800"
                         }`}
                     >
                       {n === "All" ? "All" : n}
@@ -749,8 +794,8 @@ export default function PracticeEngine({
           {isFinished && (
             <div
               className={`mt-3 p-3 rounded-xl border ${score / (total || 1) >= 0.6
-                  ? "bg-emerald-950/50 border-emerald-500/40"
-                  : "bg-slate-900/60 border-slate-700"
+                ? "bg-emerald-950/50 border-emerald-500/40"
+                : "bg-slate-900/60 border-slate-700"
                 } space-y-2`}
             >
               {showStudentName && (
@@ -868,8 +913,8 @@ export default function PracticeEngine({
                 key={q.id}
                 ref={(el) => (questionRefs.current[index] = el)}
                 className={`border border-slate-800 bg-slate-900/70 rounded-2xl p-4 md:p-5 space-y-3 shadow-lg shadow-black/40 transition-transform duration-200 ${isActive
-                    ? "ring-1 ring-sky-500/70 scale-[1.01]"
-                    : "scale-[1.0]"
+                  ? "ring-1 ring-sky-500/70 scale-[1.01]"
+                  : "scale-[1.0]"
                   }`}
               >
                 <div className="flex items-start justify-between gap-3">
@@ -900,10 +945,10 @@ export default function PracticeEngine({
                   {q.level && (
                     <span
                       className={`px-2 py-0.5 rounded-full text-[10px] border bg-slate-800 ${q.level === "beginner"
-                          ? "border-emerald-500/60 text-emerald-300"
-                          : q.level === "moderate"
-                            ? "border-amber-500/60 text-amber-300"
-                            : "border-rose-500/60 text-rose-300"
+                        ? "border-emerald-500/60 text-emerald-300"
+                        : q.level === "moderate"
+                          ? "border-amber-500/60 text-amber-300"
+                          : "border-rose-500/60 text-rose-300"
                         }`}
                     >
                       {q.level.toUpperCase()}
@@ -1009,8 +1054,8 @@ export default function PracticeEngine({
                   <>
                     <p
                       className={`text-xs mt-1 ${isCorrect
-                          ? "text-emerald-400"
-                          : "text-rose-400"
+                        ? "text-emerald-400"
+                        : "text-rose-400"
                         }`}
                     >
                       {isCorrect ? "Correct!" : "Incorrect."}{" "}

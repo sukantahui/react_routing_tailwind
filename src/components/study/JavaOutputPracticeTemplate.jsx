@@ -90,7 +90,7 @@ export default function JavaOutputPracticeTemplate({ data }) {
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
             >
               <option value="all">All</option>
-              {[5,10,20,30,40,50,60,70,80,90,100].map(n =>
+              {[5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map(n =>
                 <option key={n} value={n}>{n}</option>
               )}
             </select>
@@ -116,7 +116,15 @@ export default function JavaOutputPracticeTemplate({ data }) {
 
             <div className="flex justify-between items-center mb-3">
               <p className="font-semibold text-zinc-100">
-                Q{index + 1}. {q.question}
+                <span>Q{index + 1}</span>&nbsp;
+
+                
+
+                <span>{q.question}</span>&nbsp;&nbsp;
+                {/* Question ID badge */}
+                <span className="px-2 py-0.5 rounded-full text-[10px] bg-violet-900/40 border border-violet-500/50 text-violet-300">
+                  ID: {q.id}
+                </span>
               </p>
               <span className="text-xs px-2 py-1 rounded bg-sky-900 text-sky-300">
                 {q.difficulty}

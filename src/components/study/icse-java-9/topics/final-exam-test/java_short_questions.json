@@ -1340,7 +1340,7 @@
             "difficulty": "Advanced",
             "question": "Find the output:",
             "code": "int x=5,y=3;\nSystem.out.println(x-- + --y * ++x - y++);",
-            "output": "16",
+            "output": "13",
             "explanation": "x--=5,x=4; --y=2; ++x=5; y++=2,y=3 → 5+10-2=13."
         },
         {

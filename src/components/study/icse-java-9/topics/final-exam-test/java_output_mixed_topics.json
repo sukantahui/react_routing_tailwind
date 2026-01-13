@@ -336,7 +336,7 @@
       "difficulty": "Advanced",
       "question": "Find the output:",
       "code": "int a=5;\nSystem.out.println(a++ + ++a + a--);",
-      "output": "18",
+      "output": "19",
       "explanation": "a++=5,a=6; ++a=7; a--=7,a=6 → 5+7+7=19."
     },
     {
