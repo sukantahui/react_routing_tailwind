@@ -370,6 +370,57 @@ export default class Topic0 extends Component {
     </text>
   </svg>
 
+  {/* ================== EMOTIONAL BENGALI QUOTE ================== */}
+<section className="reveal p-6 rounded-2xl bg-gradient-to-br from-rose-50 to-amber-50 dark:from-slate-900 dark:to-slate-800 border border-rose-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+
+  <blockquote className="
+    text-center text-2xl md:text-3xl font-semibold italic
+    text-rose-600 dark:text-rose-400
+    leading-relaxed
+    animate-[fadeSlideUp_0.8s_ease-out]
+  ">
+    “তুমি জানতে পারো না তোমারে কোতো ভালবেসেছি”
+  </blockquote>
+
+  <p className="mt-4 text-center text-sm text-slate-600 dark:text-slate-400 italic">
+    — My eternal confession to UNIX & Linux, even after switching to Windows 😅
+  </p>
+
+</section>
+
+
+
+  {/* ================== FUN CLOSER — SONG LINK ================== */}
+<section className="reveal p-6 rounded-2xl bg-gradient-to-br from-indigo-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
+
+  <h2 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400">
+    🎵 Fun Playlist Break
+  </h2>
+
+  <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">
+    After all these emotional twists between UNIX, Linux and even Windows,
+    here’s a light musical moment — a link to a song you enjoy. Think of it as
+    the “post-lecture unwind tune” 🎧:
+  </p>
+
+  <div className="mt-4 text-center">
+    <a
+      href="https://www.youtube.com/watch?v=fOedIT6-PdY&list=RDMMso2HoeW9gPA&index=8"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-6 py-3 bg-sky-600 hover:bg-sky-500 text-white font-medium rounded-full transition-all duration-300"
+    >
+      ▶️ Watch the Song on YouTube
+    </a>
+  </div>
+
+  <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic">
+    Note: This opens in a new tab — enjoy a melodic break before diving back
+    into UNIX philosophy or system internals.
+  </p>
+
+</section>
+
   {/* Teacher's Note */}
   <div className="mt-6 p-4 rounded-xl bg-amber-50 dark:bg-slate-800 border-l-4 border-amber-400 hover:shadow-md transition-all">
     <p className="font-semibold text-amber-700 dark:text-amber-400">
