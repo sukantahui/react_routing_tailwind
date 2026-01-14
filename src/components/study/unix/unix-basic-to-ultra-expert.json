@@ -56,7 +56,9 @@
                         "Root user vs normal user – concept and importance",
                         "Understanding shell prompt symbols and working directory display",
                         "Practice Lab: Running your first 10 Linux commands",
-                        "Common beginner mistakes in terminal usage"
+                        "Common beginner mistakes in terminal usage",
+                        "Practice your Skill",
+                        "Short Questions"
                     ],
                     "learningOutcomes": [
                         "Explain what UNIX/Linux is",

@@ -1,0 +1,1086 @@
+[
+  {
+    "id": 1,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Where was UNIX originally developed?",
+    "options": ["MIT Labs", "Bell Labs", "IBM Research", "Google Labs"],
+    "answerIndex": 1,
+    "explanation": "UNIX was developed at Bell Labs in the late 1960s and early 1970s."
+  },
+  {
+    "id": 2,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which statement correctly describes GNU/Linux?",
+    "options": [
+      "GNU is the kernel of Linux",
+      "Linux is a complete operating system without GNU",
+      "GNU tools combined with Linux kernel form GNU/Linux",
+      "GNU is a distribution of Windows"
+    ],
+    "answerIndex": 2,
+    "explanation": "GNU provides tools and Linux provides the kernel, together forming GNU/Linux."
+  },
+  {
+    "id": 3,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which component is responsible for managing memory and processes?",
+    "options": ["Shell", "Terminal", "Kernel", "Editor"],
+    "answerIndex": 2,
+    "explanation": "The kernel handles memory management, process scheduling, and hardware control."
+  },
+  {
+    "id": 4,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which is a popular Linux shell?",
+    "options": ["Explorer", "Bash", "Finder", "PowerPoint"],
+    "answerIndex": 1,
+    "explanation": "Bash is a widely used Linux shell."
+  },
+  {
+    "id": 5,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is NOT a shell?",
+    "options": ["Bash", "Zsh", "Sh", "Chrome"],
+    "answerIndex": 3,
+    "explanation": "Chrome is a web browser, not a shell."
+  },
+  {
+    "id": 6,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Terminal is best described as:",
+    "options": [
+      "A text editor",
+      "A hardware device only",
+      "An interface to interact with the shell",
+      "The Linux kernel"
+    ],
+    "answerIndex": 2,
+    "explanation": "Terminal is the interface that allows users to interact with the shell."
+  },
+  {
+    "id": 7,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows the current directory?",
+    "options": ["ls", "pwd", "cd", "dir"],
+    "answerIndex": 1,
+    "explanation": "pwd stands for Present Working Directory."
+  },
+  {
+    "id": 8,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this command?",
+    "code": "pwd",
+    "options": ["/home/student", "List of files", "root", "Permission denied"],
+    "answerIndex": 0,
+    "explanation": "pwd prints the current working directory path."
+  },
+  {
+    "id": 9,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command changes directory?",
+    "options": ["pwd", "mv", "cd", "ls"],
+    "answerIndex": 2,
+    "explanation": "cd stands for Change Directory."
+  },
+  {
+    "id": 10,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of command is -l in 'ls -l'?",
+    "options": ["Command", "Option", "Argument", "File"],
+    "answerIndex": 1,
+    "explanation": "-l is an option that modifies how the command works."
+  },
+  {
+    "id": 11,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Linux file names are:",
+    "options": [
+      "Not case sensitive",
+      "Case sensitive",
+      "Only uppercase",
+      "Only lowercase"
+    ],
+    "answerIndex": 1,
+    "explanation": "Linux treats file.txt and File.txt as different files."
+  },
+  {
+    "id": 12,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows help for ls?",
+    "options": ["ls --help", "help ls", "ls -h", "man --ls"],
+    "answerIndex": 0,
+    "explanation": "ls --help displays help information."
+  },
+  {
+    "id": 13,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does PATH variable store?",
+    "options": [
+      "List of running processes",
+      "Paths to system libraries",
+      "Locations where executable files are searched",
+      "User passwords"
+    ],
+    "answerIndex": 2,
+    "explanation": "PATH contains directories where the shell searches for commands."
+  },
+  {
+    "id": 14,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which user has full control of the system?",
+    "options": ["guest", "admin", "root", "student"],
+    "answerIndex": 2,
+    "explanation": "Root user has complete administrative privileges."
+  },
+  {
+    "id": 15,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distribution is commonly used on servers?",
+    "options": ["Ubuntu", "Debian", "CentOS", "All of these"],
+    "answerIndex": 3,
+    "explanation": "All listed distributions are used on servers."
+  },
+  {
+    "id": 16,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which is best suited for desktop use?",
+    "options": ["Ubuntu Desktop", "CentOS Stream", "RedHat Server", "FreeDOS"],
+    "answerIndex": 0,
+    "explanation": "Ubuntu Desktop is designed for personal desktop use."
+  },
+  {
+    "id": 17,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the $ symbol in shell prompt represent?",
+    "options": ["Root user", "Normal user", "File name", "Process ID"],
+    "answerIndex": 1,
+    "explanation": "$ indicates a normal user shell prompt."
+  },
+  {
+    "id": 18,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol indicates root prompt?",
+    "options": ["#", "$", "&", "@"],
+    "answerIndex": 0,
+    "explanation": "# symbol indicates root user prompt."
+  },
+  {
+    "id": 19,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shortcut usually opens terminal in Linux?",
+    "options": ["Ctrl + Alt + T", "Ctrl + Shift + S", "Alt + F4", "Ctrl + Tab"],
+    "answerIndex": 0,
+    "explanation": "Ctrl + Alt + T is the common shortcut to open terminal."
+  },
+  {
+    "id": 20,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which core GNU tool copies files?",
+    "options": ["mv", "cp", "rm", "touch"],
+    "answerIndex": 1,
+    "explanation": "cp is used to copy files and directories."
+  },
+
+  {
+    "id": 21,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which operating system is the ancestor of Linux?",
+    "options": ["DOS", "UNIX", "Windows NT", "macOS"],
+    "answerIndex": 1,
+    "explanation": "Linux was inspired by UNIX design principles."
+  },
+  {
+    "id": 22,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Who created the Linux kernel?",
+    "options": ["Richard Stallman", "Bill Gates", "Linus Torvalds", "Steve Jobs"],
+    "answerIndex": 2,
+    "explanation": "Linus Torvalds created the Linux kernel in 1991."
+  },
+  {
+    "id": 23,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which GNU tool is used to compile C programs?",
+    "options": ["bash", "gcc", "ls", "nano"],
+    "answerIndex": 1,
+    "explanation": "gcc is the GNU Compiler Collection."
+  },
+  {
+    "id": 24,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shell is default on most Linux systems?",
+    "options": ["Zsh", "Fish", "Bash", "Csh"],
+    "answerIndex": 2,
+    "explanation": "Bash is the default shell on most Linux distributions."
+  },
+  {
+    "id": 25,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this command?",
+    "code": "ls",
+    "options": ["List of files", "Current path", "System shutdown", "Error"],
+    "answerIndex": 0,
+    "explanation": "ls lists files and directories in the current folder."
+  },
+  {
+    "id": 26,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file extension is commonly used for shell scripts?",
+    "options": [".exe", ".sh", ".txt", ".bat"],
+    "answerIndex": 1,
+    "explanation": "Shell scripts commonly use the .sh extension."
+  },
+  {
+    "id": 27,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command removes a file?",
+    "options": ["rm", "cp", "ls", "pwd"],
+    "answerIndex": 0,
+    "explanation": "rm is used to delete files."
+  },
+  {
+    "id": 28,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distribution is sponsored by Red Hat?",
+    "options": ["Ubuntu", "Debian", "Fedora", "Arch"],
+    "answerIndex": 2,
+    "explanation": "Fedora is sponsored by Red Hat."
+  },
+  {
+    "id": 29,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does GUI stand for?",
+    "options": [
+      "General Utility Interface",
+      "Graphical User Interface",
+      "Graph Unit Input",
+      "Global Unix Interface"
+    ],
+    "answerIndex": 1,
+    "explanation": "GUI stands for Graphical User Interface."
+  },
+  {
+    "id": 30,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool moves files?",
+    "options": ["rm", "ls", "mv", "pwd"],
+    "answerIndex": 2,
+    "explanation": "mv is used to move or rename files."
+  },
+  {
+    "id": 31,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distro is famous for stability on servers?",
+    "options": ["Debian", "Ubuntu", "PopOS", "Mint"],
+    "answerIndex": 0,
+    "explanation": "Debian is well known for its stability."
+  },
+  {
+    "id": 32,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does cd .. do?",
+    "options": [
+      "Moves to root directory",
+      "Moves to home directory",
+      "Moves one level up",
+      "Deletes directory"
+    ],
+    "answerIndex": 2,
+    "explanation": "cd .. moves to the parent directory."
+  },
+  {
+    "id": 33,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows running processes?",
+    "options": ["ps", "ls", "pwd", "cd"],
+    "answerIndex": 0,
+    "explanation": "ps lists currently running processes."
+  },
+  {
+    "id": 34,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command clears the terminal screen?",
+    "options": ["cls", "clear", "reset", "wipe"],
+    "answerIndex": 1,
+    "explanation": "clear clears the terminal display."
+  },
+  {
+    "id": 35,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does chmod control?",
+    "options": ["Memory", "Processes", "Permissions", "Kernel"],
+    "answerIndex": 2,
+    "explanation": "chmod changes file permissions."
+  },
+  {
+    "id": 36,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file shows system users?",
+    "options": ["/etc/users", "/etc/passwd", "/etc/shadow", "/etc/group"],
+    "answerIndex": 1,
+    "explanation": "/etc/passwd stores user account information."
+  },
+  {
+    "id": 37,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command creates a new empty file?",
+    "options": ["mkfile", "touch", "newfile", "create"],
+    "answerIndex": 1,
+    "explanation": "touch creates empty files."
+  },
+  {
+    "id": 38,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does sudo allow?",
+    "options": [
+      "Login as guest",
+      "Run commands as root",
+      "Change shell",
+      "Delete kernel"
+    ],
+    "answerIndex": 1,
+    "explanation": "sudo allows executing commands with root privileges."
+  },
+  {
+    "id": 39,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command prints text on terminal?",
+    "options": ["show", "print", "echo", "say"],
+    "answerIndex": 2,
+    "explanation": "echo prints text on the terminal."
+  },
+  {
+    "id": 40,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command displays current date?",
+    "options": ["time", "date", "now", "clock"],
+    "answerIndex": 1,
+    "explanation": "date shows the current system date and time."
+  },
+
+  {
+    "id": 41,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux command shows the current working directory?",
+    "options": ["ls", "pwd", "cd", "dir"],
+    "answerIndex": 1,
+    "explanation": "pwd stands for Present Working Directory."
+  },
+  {
+    "id": 42,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which part of GNU/Linux manages memory and CPU?",
+    "options": ["Shell", "Kernel", "Terminal", "Compiler"],
+    "answerIndex": 1,
+    "explanation": "The kernel controls CPU scheduling and memory management."
+  },
+  {
+    "id": 43,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shell is known for powerful auto-completion?",
+    "options": ["Sh", "Bash", "Zsh", "Dash"],
+    "answerIndex": 2,
+    "explanation": "Zsh offers advanced auto-completion and theming."
+  },
+  {
+    "id": 44,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file stores environment variables globally?",
+    "options": ["/etc/profile", "/etc/hosts", "/etc/passwd", "/bin/bash"],
+    "answerIndex": 0,
+    "explanation": "/etc/profile stores system-wide environment variables."
+  },
+  {
+    "id": 45,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the full form of GNU?",
+    "options": [
+      "Global Network Utility",
+      "GNU's Not Unix",
+      "Graphical Network Unit",
+      "General Numeric Unit"
+    ],
+    "answerIndex": 1,
+    "explanation": "GNU stands for 'GNU's Not Unix'."
+  },
+  {
+    "id": 46,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distro is widely used for cloud servers?",
+    "options": ["Ubuntu Server", "Linux Mint", "Kali", "Elementary"],
+    "answerIndex": 0,
+    "explanation": "Ubuntu Server is widely used in cloud environments."
+  },
+  {
+    "id": 47,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command changes file ownership?",
+    "options": ["chmod", "chown", "mv", "cp"],
+    "answerIndex": 1,
+    "explanation": "chown changes file owner."
+  },
+  {
+    "id": 48,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does PATH environment variable store?",
+    "options": [
+      "List of users",
+      "Folder locations of executables",
+      "Kernel modules",
+      "System logs"
+    ],
+    "answerIndex": 1,
+    "explanation": "PATH contains directories where executable programs are searched."
+  },
+  {
+    "id": 49,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which symbol usually represents the root user prompt?",
+    "options": ["$", "#", ">", "&"],
+    "answerIndex": 1,
+    "explanation": "Root shell prompt is represented by #."
+  },
+  {
+    "id": 50,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "output",
+    "question": "What is the output of this command?",
+    "code": "pwd",
+    "options": [
+      "List of files",
+      "Current directory path",
+      "System version",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "explanation": "pwd prints the current working directory path."
+  },
+  {
+    "id": 51,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command copies files?",
+    "options": ["mv", "cp", "rm", "ls"],
+    "answerIndex": 1,
+    "explanation": "cp is used to copy files."
+  },
+  {
+    "id": 52,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file stores user passwords securely?",
+    "options": ["/etc/passwd", "/etc/shadow", "/etc/users", "/etc/login"],
+    "answerIndex": 1,
+    "explanation": "/etc/shadow stores encrypted user passwords."
+  },
+  {
+    "id": 53,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does man ls show?",
+    "options": [
+      "Manual of ls",
+      "Run ls",
+      "Remove ls",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "explanation": "man ls displays the manual page of ls command."
+  },
+  {
+    "id": 54,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command is used to shut down Linux?",
+    "options": ["halt", "stop", "kill", "close"],
+    "answerIndex": 0,
+    "explanation": "halt shuts down the system."
+  },
+  {
+    "id": 55,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which distro is maintained by the Debian community?",
+    "options": ["Ubuntu", "Debian", "Fedora", "CentOS"],
+    "answerIndex": 1,
+    "explanation": "Debian is maintained by the Debian community."
+  },
+  {
+    "id": 56,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows disk usage?",
+    "options": ["df", "du", "top", "ps"],
+    "answerIndex": 0,
+    "explanation": "df shows disk free space."
+  },
+  {
+    "id": 57,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does cd ~ do?",
+    "options": [
+      "Moves to root directory",
+      "Moves to home directory",
+      "Deletes files",
+      "Lists files"
+    ],
+    "answerIndex": 1,
+    "explanation": "cd ~ moves to the home directory."
+  },
+  {
+    "id": 58,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command lists hidden files?",
+    "options": ["ls -l", "ls -h", "ls -a", "ls -s"],
+    "answerIndex": 2,
+    "explanation": "ls -a lists all files including hidden ones."
+  },
+  {
+    "id": 59,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux component interacts directly with hardware?",
+    "options": ["Shell", "Kernel", "Terminal", "Editor"],
+    "answerIndex": 1,
+    "explanation": "The kernel communicates directly with hardware."
+  },
+  {
+    "id": 60,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command displays active processes in real time?",
+    "options": ["ps", "top", "ls", "df"],
+    "answerIndex": 1,
+    "explanation": "top shows real-time process information."
+  },
+  {
+    "id": 61,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command is used to remove a directory?",
+    "options": ["rmdir", "del", "erase", "rmfile"],
+    "answerIndex": 0,
+    "explanation": "rmdir removes empty directories."
+  },
+  {
+    "id": 62,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does the kernel do?",
+    "options": [
+      "Manages hardware and system resources",
+      "Designs UI",
+      "Edits files",
+      "Runs shell scripts"
+    ],
+    "answerIndex": 0,
+    "explanation": "Kernel controls hardware, CPU, memory and I/O."
+  },
+  {
+    "id": 63,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux shell is default in Ubuntu?",
+    "options": ["Sh", "Dash", "Bash", "Zsh"],
+    "answerIndex": 2,
+    "explanation": "Bash is the default shell in Ubuntu."
+  },
+  {
+    "id": 64,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows system uptime?",
+    "options": ["uptime", "whoami", "date", "top"],
+    "answerIndex": 0,
+    "explanation": "uptime displays how long the system has been running."
+  },
+  {
+    "id": 65,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does PATH variable control?",
+    "options": [
+      "Location of user files",
+      "Directories searched for commands",
+      "User passwords",
+      "Hardware devices"
+    ],
+    "answerIndex": 1,
+    "explanation": "PATH stores directories where executables are searched."
+  },
+  {
+    "id": 66,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distro is community driven and stable?",
+    "options": ["Debian", "Ubuntu", "Kali", "Arch"],
+    "answerIndex": 0,
+    "explanation": "Debian is known for its stability and community support."
+  },
+  {
+    "id": 67,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command prints the logged-in user?",
+    "options": ["whoami", "users", "me", "id"],
+    "answerIndex": 0,
+    "explanation": "whoami shows the current logged in user."
+  },
+  {
+    "id": 68,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which shell is famous for plugins and themes?",
+    "options": ["Sh", "Bash", "Zsh", "Ksh"],
+    "answerIndex": 2,
+    "explanation": "Zsh supports plugins and theming extensively."
+  },
+  {
+    "id": 69,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows memory usage?",
+    "options": ["df", "du", "free", "top"],
+    "answerIndex": 2,
+    "explanation": "free displays memory usage."
+  },
+  {
+    "id": 70,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does 'sudo' allow?",
+    "options": [
+      "Switch directory",
+      "Run commands as superuser",
+      "Shutdown system",
+      "Delete files"
+    ],
+    "answerIndex": 1,
+    "explanation": "sudo allows a normal user to run commands as root."
+  },
+  {
+    "id": 71,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command compresses files?",
+    "options": ["zip", "tar", "pack", "cmp"],
+    "answerIndex": 1,
+    "explanation": "tar is used to archive/compress files."
+  },
+  {
+    "id": 72,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux command edits files?",
+    "options": ["nano", "cat", "ls", "pwd"],
+    "answerIndex": 0,
+    "explanation": "nano is a text editor."
+  },
+  {
+    "id": 73,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux component loads at system boot?",
+    "options": ["Shell", "Kernel", "Terminal", "Editor"],
+    "answerIndex": 1,
+    "explanation": "Kernel loads first during boot."
+  },
+  {
+    "id": 74,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command lists all running processes?",
+    "options": ["ps aux", "top", "free", "ls"],
+    "answerIndex": 0,
+    "explanation": "ps aux shows all running processes."
+  },
+  {
+    "id": 75,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which prompt symbol shows normal user?",
+    "options": ["#", "$", ">", "%"],
+    "answerIndex": 1,
+    "explanation": "Normal user shell prompt uses $."
+  },
+  {
+    "id": 76,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which distro is widely used in RedHat ecosystem?",
+    "options": ["Debian", "CentOS", "Ubuntu", "Mint"],
+    "answerIndex": 1,
+    "explanation": "CentOS is based on RedHat."
+  },
+  {
+    "id": 77,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows file permissions?",
+    "options": ["ls -l", "ls -a", "ls -h", "ls -s"],
+    "answerIndex": 0,
+    "explanation": "ls -l displays permissions."
+  },
+  {
+    "id": 78,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command clears terminal screen?",
+    "options": ["clear", "cls", "reset", "wipe"],
+    "answerIndex": 0,
+    "explanation": "clear clears the terminal screen."
+  },
+  {
+    "id": 79,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux file contains user account info?",
+    "options": ["/etc/passwd", "/etc/users", "/etc/login", "/etc/profile"],
+    "answerIndex": 0,
+    "explanation": "/etc/passwd stores user account information."
+  },
+  {
+    "id": 80,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which distro is known for bleeding-edge packages?",
+    "options": ["Ubuntu", "Debian", "Arch Linux", "CentOS"],
+    "answerIndex": 2,
+    "explanation": "Arch Linux is known for rolling releases."
+  },
+  {
+    "id": 81,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows disk free space?",
+    "options": ["du", "df", "free", "ls"],
+    "answerIndex": 1,
+    "explanation": "df shows available disk space."
+  },
+  {
+    "id": 82,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file stores environment variables globally?",
+    "options": ["/etc/environment", "/etc/shell", "/etc/path", "/bin/env"],
+    "answerIndex": 0,
+    "explanation": "/etc/environment defines system-wide variables."
+  },
+  {
+    "id": 83,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command searches inside a file?",
+    "options": ["grep", "find", "locate", "cat"],
+    "answerIndex": 0,
+    "explanation": "grep searches text patterns inside files."
+  },
+  {
+    "id": 84,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What is the default shell prompt symbol for root?",
+    "options": ["$", ">", "%", "#"],
+    "answerIndex": 3,
+    "explanation": "Root shell prompt shows #."
+  },
+  {
+    "id": 85,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distro is sponsored by Red Hat?",
+    "options": ["Ubuntu", "Fedora", "Debian", "Slackware"],
+    "answerIndex": 1,
+    "explanation": "Fedora is backed by Red Hat."
+  },
+  {
+    "id": 86,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command shows current working directory?",
+    "options": ["ls", "pwd", "dir", "cd"],
+    "answerIndex": 1,
+    "explanation": "pwd prints the present working directory."
+  },
+  {
+    "id": 87,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command displays file content page by page?",
+    "options": ["cat", "nano", "less", "vi"],
+    "answerIndex": 2,
+    "explanation": "less allows scrolling through file content."
+  },
+  {
+    "id": 88,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which variable tells shell where to find commands?",
+    "options": ["PATH", "HOME", "USER", "SHELL"],
+    "answerIndex": 0,
+    "explanation": "PATH contains command search locations."
+  },
+  {
+    "id": 89,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command moves a file?",
+    "options": ["mv", "cp", "rm", "ls"],
+    "answerIndex": 0,
+    "explanation": "mv moves or renames files."
+  },
+  {
+    "id": 90,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which OS uses BSD internally?",
+    "options": ["Windows", "macOS", "Android", "ChromeOS"],
+    "answerIndex": 1,
+    "explanation": "macOS is based on BSD."
+  },
+  {
+    "id": 91,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command creates directories?",
+    "options": ["mkdir", "touch", "rmdir", "newdir"],
+    "answerIndex": 0,
+    "explanation": "mkdir creates new directories."
+  },
+  {
+    "id": 92,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command prints system date?",
+    "options": ["time", "date", "clock", "now"],
+    "answerIndex": 1,
+    "explanation": "date prints system date and time."
+  },
+  {
+    "id": 93,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which file defines user-specific shell settings?",
+    "options": ["~/.bashrc", "/etc/passwd", "/etc/shell", "/bin/bash"],
+    "answerIndex": 0,
+    "explanation": "~/.bashrc configures user shell environment."
+  },
+  {
+    "id": 94,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux tool installs software?",
+    "options": ["apt", "setup", "pkg", "rpmget"],
+    "answerIndex": 0,
+    "explanation": "apt installs packages in Debian-based systems."
+  },
+  {
+    "id": 95,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command changes file ownership?",
+    "options": ["chmod", "chown", "grp", "perm"],
+    "answerIndex": 1,
+    "explanation": "chown changes ownership."
+  },
+  {
+    "id": 96,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which distro is preferred for security testing?",
+    "options": ["Ubuntu", "Mint", "Kali Linux", "CentOS"],
+    "answerIndex": 2,
+    "explanation": "Kali Linux is used for penetration testing."
+  },
+  {
+    "id": 97,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command exits the shell?",
+    "options": ["exit", "close", "logout", "stop"],
+    "answerIndex": 0,
+    "explanation": "exit terminates the shell session."
+  },
+  {
+    "id": 98,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which tool views system logs?",
+    "options": ["dmesg", "logcat", "syslog", "log"],
+    "answerIndex": 0,
+    "explanation": "dmesg shows kernel messages."
+  },
+  {
+    "id": 99,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which command lists hidden files?",
+    "options": ["ls -h", "ls -a", "ls -l", "ls -s"],
+    "answerIndex": 1,
+    "explanation": "ls -a shows hidden files."
+  },
+  {
+    "id": 100,
+    "topic": "Topic0",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Linux distro is lightweight for old PCs?",
+    "options": ["Ubuntu", "Fedora", "Lubuntu", "CentOS"],
+    "answerIndex": 2,
+    "explanation": "Lubuntu is lightweight for low-end systems."
+  }
+
+
+
+
+]

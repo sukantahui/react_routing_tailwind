@@ -1,0 +1,855 @@
+{
+  "subject": "UNIX & Linux",
+  "class": "XI",
+  "board": "ISC",
+  "topic": "Short Questions – UNIX & Linux Fundamentals",
+  "subjectLogo": {
+    "name": "UNIX",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/unix.svg",
+    "alt": "UNIX Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "Where was UNIX originally developed?",
+      "answer": "UNIX was originally developed at Bell Labs in the late 1960s."
+    },
+    {
+      "id": 2,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "Why was UNIX considered revolutionary?",
+      "answer": "Because it was portable, multi-user, and written in the C programming language."
+    },
+    {
+      "id": 3,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "What is GNU/Linux?",
+      "answer": "GNU/Linux is the combination of GNU tools and the Linux kernel forming a complete operating system."
+    },
+    {
+      "id": 4,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "Is Linux a UNIX system?",
+      "answer": "No, Linux is UNIX-like but not original UNIX."
+    },
+    {
+      "id": 5,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "What is the kernel?",
+      "answer": "The kernel is the core part of an operating system that manages hardware resources."
+    },
+    {
+      "id": 6,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "Name two responsibilities of the kernel.",
+      "answer": "Process management and memory management."
+    },
+    {
+      "id": 7,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "What is a shell?",
+      "answer": "A shell is a command-line interpreter that allows users to interact with the operating system."
+    },
+    {
+      "id": 8,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "Which shell is the default in most Linux systems?",
+      "answer": "Bash is the default shell in most Linux systems."
+    },
+    {
+      "id": 9,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "What is a terminal?",
+      "answer": "A terminal is a program that provides access to the shell."
+    },
+    {
+      "id": 10,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "What is a console?",
+      "answer": "A console is the physical or virtual interface directly connected to the system."
+    },
+    {
+      "id": 11,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "Name one core GNU utility.",
+      "answer": "ls is a core GNU utility."
+    },
+    {
+      "id": 12,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What is the use of cp command?",
+      "answer": "cp is used to copy files and directories."
+    },
+    {
+      "id": 13,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "question": "Which distribution is widely used on desktops?",
+      "answer": "Ubuntu is widely used on desktops."
+    },
+    {
+      "id": 14,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "question": "Which Linux distribution is famous for servers?",
+      "answer": "CentOS is famous for servers."
+    },
+    {
+      "id": 15,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "What is a desktop Linux used for?",
+      "answer": "Desktop Linux is used for personal computing like browsing, coding, and office work."
+    },
+    {
+      "id": 16,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "What is server Linux mainly used for?",
+      "answer": "Server Linux is used to host websites, databases and applications."
+    },
+    {
+      "id": 17,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "Which shortcut opens terminal in Ubuntu?",
+      "answer": "Ctrl + Alt + T opens the terminal."
+    },
+    {
+      "id": 18,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "What symbol shows command prompt?",
+      "answer": "The $ symbol shows the command prompt."
+    },
+    {
+      "id": 19,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "question": "What is the full form of pwd?",
+      "answer": "pwd means Present Working Directory."
+    },
+    {
+      "id": 20,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "question": "What does cd stand for?",
+      "answer": "cd means Change Directory."
+    },
+    {
+      "id": 21,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "What is a command?",
+      "answer": "A command is an instruction given to the shell to perform a task."
+    },
+    {
+      "id": 22,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "What is an option?",
+      "answer": "An option modifies the behavior of a command."
+    },
+    {
+      "id": 23,
+      "topic": "Case sensitivity in Linux file names",
+      "question": "Are Linux file names case-sensitive?",
+      "answer": "Yes, Linux file names are case-sensitive."
+    },
+    {
+      "id": 24,
+      "topic": "Case sensitivity in Linux file names",
+      "question": "Is file.txt same as File.txt?",
+      "answer": "No, they are treated as different files."
+    },
+    {
+      "id": 25,
+      "topic": "Using manual pages: man command and --help flag",
+      "question": "What does man command do?",
+      "answer": "man displays the manual pages of commands."
+    },
+    {
+      "id": 26,
+      "topic": "Using manual pages: man command and --help flag",
+      "question": "What is --help used for?",
+      "answer": "It displays brief usage information about a command."
+    },
+    {
+      "id": 27,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "What is PATH?",
+      "answer": "PATH is an environment variable that stores directories containing executable files."
+    },
+    {
+      "id": 28,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "Why is PATH important?",
+      "answer": "It helps the system locate commands without full paths."
+    },
+    {
+      "id": 29,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Who is the root user?",
+      "answer": "The root user is the superuser with full system privileges."
+    },
+    {
+      "id": 30,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Why should root access be limited?",
+      "answer": "Because it can modify or delete critical system files."
+    },
+    {
+      "id": 31,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does ~ symbol represent?",
+      "answer": "It represents the home directory."
+    },
+    {
+      "id": 32,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does # indicate in shell?",
+      "answer": "It indicates root user prompt."
+    },
+    {
+      "id": 33,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command lists files?",
+      "answer": "ls lists files."
+    },
+    {
+      "id": 34,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows current directory?",
+      "answer": "pwd shows current directory."
+    },
+    {
+      "id": 35,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command creates a folder?",
+      "answer": "mkdir creates a folder."
+    },
+    {
+      "id": 36,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command deletes a file?",
+      "answer": "rm deletes a file."
+    },
+    {
+      "id": 37,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command copies a file?",
+      "answer": "cp copies a file."
+    },
+    {
+      "id": 38,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command moves a file?",
+      "answer": "mv moves or renames a file."
+    },
+    {
+      "id": 39,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command clears terminal?",
+      "answer": "clear clears the terminal screen."
+    },
+    {
+      "id": 40,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows file content?",
+      "answer": "cat displays file content."
+    },
+    {
+      "id": 41,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "Who were the main creators of UNIX?",
+      "answer": "Ken Thompson and Dennis Ritchie were the main creators of UNIX."
+    },
+    {
+      "id": 42,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "In which language was UNIX rewritten?",
+      "answer": "UNIX was rewritten in the C programming language."
+    },
+    {
+      "id": 43,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "What does GNU stand for?",
+      "answer": "GNU stands for 'GNU's Not UNIX'."
+    },
+    {
+      "id": 44,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "What is Linux kernel?",
+      "answer": "Linux kernel is the core part of the Linux operating system that manages system resources."
+    },
+    {
+      "id": 45,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "What is process scheduling?",
+      "answer": "It is the method used by the kernel to decide which process runs next."
+    },
+    {
+      "id": 46,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "What is virtual memory?",
+      "answer": "Virtual memory allows the system to use disk space as extra RAM."
+    },
+    {
+      "id": 47,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "Which shell provides advanced auto-completion?",
+      "answer": "Zsh provides advanced auto-completion features."
+    },
+    {
+      "id": 48,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "Which is the original Bourne shell?",
+      "answer": "sh is the original Bourne shell."
+    },
+    {
+      "id": 49,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "Is terminal the same as shell?",
+      "answer": "No, terminal is the interface while shell is the program running inside it."
+    },
+    {
+      "id": 50,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "Can multiple terminals run the same shell?",
+      "answer": "Yes, many terminals can access the same type of shell."
+    },
+    {
+      "id": 51,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What is the use of mv?",
+      "answer": "mv is used to move or rename files and directories."
+    },
+    {
+      "id": 52,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does rm -r do?",
+      "answer": "It deletes directories along with their contents."
+    },
+    {
+      "id": 53,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which distribution is known for stability?",
+      "answer": "Debian is known for stability."
+    },
+    {
+      "id": 54,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which Linux distribution is community-driven?",
+      "answer": "Fedora is a community-driven Linux distribution."
+    },
+    {
+      "id": 55,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "Why is server Linux usually headless?",
+      "answer": "Because it does not require a graphical interface for performance reasons."
+    },
+    {
+      "id": 56,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "Which Linux is preferred for web hosting?",
+      "answer": "Server Linux distributions like Ubuntu Server or CentOS are preferred."
+    },
+    {
+      "id": 57,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "What key closes the terminal?",
+      "answer": "The exit command or Ctrl+D closes the terminal."
+    },
+    {
+      "id": 58,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "What does the blinking cursor indicate?",
+      "answer": "It shows the position where the next command will be typed."
+    },
+    {
+      "id": 59,
+      "topic": "Basic navigation commands: pwd, ls, cd",
+      "question": "What does ls -l display?",
+      "answer": "It shows detailed file information."
+    },
+    {
+      "id": 60,
+      "topic": "Basic navigation commands: pwd, ls, cd",
+      "question": "What does cd .. do?",
+      "answer": "It moves to the parent directory."
+    },
+    {
+      "id": 61,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "What is an argument?",
+      "answer": "An argument is the target on which the command operates."
+    },
+    {
+      "id": 62,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "Give an example of a command with option.",
+      "answer": "ls -a is a command with an option."
+    },
+    {
+      "id": 63,
+      "topic": "Case sensitivity in Linux file names",
+      "question": "Are README and readme same?",
+      "answer": "No, they are different files in Linux."
+    },
+    {
+      "id": 64,
+      "topic": "Using manual pages: man command and --help flag",
+      "question": "How do you exit a man page?",
+      "answer": "Press q to exit."
+    },
+    {
+      "id": 65,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "What happens if a command is not in PATH?",
+      "answer": "The shell cannot find or execute the command."
+    },
+    {
+      "id": 66,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "Which command shows PATH value?",
+      "answer": "echo $PATH displays the PATH variable."
+    },
+    {
+      "id": 67,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Which command is used to switch to root?",
+      "answer": "su is used to switch to root user."
+    },
+    {
+      "id": 68,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Which command provides temporary root access?",
+      "answer": "sudo provides temporary root access."
+    },
+    {
+      "id": 69,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does $ represent?",
+      "answer": "It indicates a normal user prompt."
+    },
+    {
+      "id": 70,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does the prompt usually show?",
+      "answer": "It shows the username, hostname and current directory."
+    },
+    {
+      "id": 71,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows hidden files?",
+      "answer": "ls -a shows hidden files."
+    },
+    {
+      "id": 72,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command creates an empty file?",
+      "answer": "touch creates an empty file."
+    },
+    {
+      "id": 73,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command removes a directory?",
+      "answer": "rmdir removes an empty directory."
+    },
+    {
+      "id": 74,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows file permissions?",
+      "answer": "ls -l shows file permissions."
+    },
+    {
+      "id": 75,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command prints text on screen?",
+      "answer": "echo prints text on screen."
+    },
+    {
+      "id": 76,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command renames a file?",
+      "answer": "mv renames a file."
+    },
+    {
+      "id": 77,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows current user?",
+      "answer": "whoami shows the current user."
+    },
+    {
+      "id": 78,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command displays calendar?",
+      "answer": "cal displays the calendar."
+    },
+    {
+      "id": 79,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows system date?",
+      "answer": "date shows system date."
+    },
+    {
+      "id": 80,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shuts down terminal session?",
+      "answer": "exit closes the terminal session."
+    },
+    {
+      "id": 81,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does head command do?",
+      "answer": "head shows the first lines of a file."
+    },
+    {
+      "id": 82,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does tail command do?",
+      "answer": "tail shows the last lines of a file."
+    },
+    {
+      "id": 83,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does grep do?",
+      "answer": "grep searches text patterns in files."
+    },
+    {
+      "id": 84,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What is wc used for?",
+      "answer": "wc counts lines, words and characters."
+    },
+    {
+      "id": 85,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "Why is order of PATH important?",
+      "answer": "The first matching command found in PATH is executed."
+    },
+    {
+      "id": 86,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Why should sudo be used carefully?",
+      "answer": "Because it can modify critical system settings."
+    },
+    {
+      "id": 87,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "What program runs inside terminal?",
+      "answer": "The shell runs inside the terminal."
+    },
+    {
+      "id": 88,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which distribution is maintained by Red Hat?",
+      "answer": "Fedora is maintained by Red Hat."
+    },
+    {
+      "id": 89,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "Why are updates critical for server Linux?",
+      "answer": "To fix security vulnerabilities."
+    },
+    {
+      "id": 90,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "What does Ctrl + L do?",
+      "answer": "It clears the terminal screen."
+    },
+    {
+      "id": 91,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "In which decade was UNIX first released?",
+      "answer": "UNIX was first released in the 1970s."
+    },
+    {
+      "id": 92,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "question": "Why is C language important in UNIX history?",
+      "answer": "Because rewriting UNIX in C made it portable across different machines."
+    },
+    {
+      "id": 93,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "What makes GNU/Linux free and open source?",
+      "answer": "Its source code is freely available and modifiable."
+    },
+    {
+      "id": 94,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "question": "What is proprietary UNIX?",
+      "answer": "Proprietary UNIX is a closed-source UNIX system sold by companies."
+    },
+    {
+      "id": 95,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "What is multitasking?",
+      "answer": "It allows multiple programs to run at the same time."
+    },
+    {
+      "id": 96,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "question": "What is a device driver?",
+      "answer": "It is a program that helps the kernel communicate with hardware."
+    },
+    {
+      "id": 97,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "Which shell supports scripting?",
+      "answer": "All major shells like Bash, Zsh and Sh support scripting."
+    },
+    {
+      "id": 98,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "question": "Which shell is lighter and simpler?",
+      "answer": "sh is lighter and simpler."
+    },
+    {
+      "id": 99,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "Can a terminal exist without a shell?",
+      "answer": "No, a terminal needs a shell to run commands."
+    },
+    {
+      "id": 100,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "question": "What does terminal emulator mean?",
+      "answer": "It is software that mimics the behavior of a physical terminal."
+    },
+    {
+      "id": 101,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does chmod do?",
+      "answer": "chmod changes file permissions."
+    },
+    {
+      "id": 102,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does chown do?",
+      "answer": "chown changes file ownership."
+    },
+    {
+      "id": 103,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which Linux distribution is known for long-term support?",
+      "answer": "Ubuntu LTS is known for long-term support."
+    },
+    {
+      "id": 104,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which distribution is preferred for learning Linux?",
+      "answer": "Ubuntu is preferred for beginners."
+    },
+    {
+      "id": 105,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "What is a headless server?",
+      "answer": "A server without graphical interface."
+    },
+    {
+      "id": 106,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "Why are servers optimized for stability?",
+      "answer": "Because uptime and reliability are critical."
+    },
+    {
+      "id": 107,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "Which key combination opens new terminal tab?",
+      "answer": "Ctrl + Shift + T opens a new terminal tab."
+    },
+    {
+      "id": 108,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "Which command clears screen?",
+      "answer": "clear clears the screen."
+    },
+    {
+      "id": 109,
+      "topic": "Basic navigation commands: pwd, ls, cd",
+      "question": "What does ls -a show?",
+      "answer": "It shows hidden files also."
+    },
+    {
+      "id": 110,
+      "topic": "Basic navigation commands: pwd, ls, cd",
+      "question": "What is the home directory shortcut?",
+      "answer": "~ is the shortcut for home directory."
+    },
+    {
+      "id": 111,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "Which part of ls -l /home is /home?",
+      "answer": "It is the argument."
+    },
+    {
+      "id": 112,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "What is ls in ls -a?",
+      "answer": "ls is the command."
+    },
+    {
+      "id": 113,
+      "topic": "Case sensitivity in Linux file names",
+      "question": "Are Test.txt and test.txt different?",
+      "answer": "Yes, they are different files."
+    },
+    {
+      "id": 114,
+      "topic": "Using manual pages: man command and --help flag",
+      "question": "Which command shows help for mkdir?",
+      "answer": "mkdir --help"
+    },
+    {
+      "id": 115,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "Which file stores PATH settings?",
+      "answer": "Files like .bashrc or .profile store PATH settings."
+    },
+    {
+      "id": 116,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "What symbol is used to access variables?",
+      "answer": "$ symbol is used."
+    },
+    {
+      "id": 117,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "What happens if a normal user deletes system files?",
+      "answer": "Normally it is prevented due to lack of permission."
+    },
+    {
+      "id": 118,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "Why is sudo safer than su?",
+      "answer": "Because it grants limited access only for one command."
+    },
+    {
+      "id": 119,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does hostname represent?",
+      "answer": "It represents the system name."
+    },
+    {
+      "id": 120,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What does [user@host] mean?",
+      "answer": "It shows the username and system name."
+    },
+    {
+      "id": 121,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command creates multiple folders?",
+      "answer": "mkdir folder1 folder2 creates multiple folders."
+    },
+    {
+      "id": 122,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows disk usage?",
+      "answer": "df shows disk usage."
+    },
+    {
+      "id": 123,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows memory usage?",
+      "answer": "free shows memory usage."
+    },
+    {
+      "id": 124,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows running processes?",
+      "answer": "ps shows running processes."
+    },
+    {
+      "id": 125,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command ends a process?",
+      "answer": "kill ends a process."
+    },
+    {
+      "id": 126,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does tar do?",
+      "answer": "tar creates and extracts archive files."
+    },
+    {
+      "id": 127,
+      "topic": "Understanding system utilities and core GNU tools",
+      "question": "What does unzip do?",
+      "answer": "unzip extracts ZIP files."
+    },
+    {
+      "id": 128,
+      "topic": "Popular Linux distributions and where they are used",
+      "question": "Which Linux is widely used in cloud servers?",
+      "answer": "Ubuntu Server is widely used in cloud."
+    },
+    {
+      "id": 129,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "question": "Why is GUI unnecessary on servers?",
+      "answer": "Because servers are managed remotely via terminal."
+    },
+    {
+      "id": 130,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "question": "What does Ctrl + Shift + C do?",
+      "answer": "It copies selected text in terminal."
+    },
+    {
+      "id": 131,
+      "topic": "Basic navigation commands: pwd, ls, cd",
+      "question": "What does cd ~ do?",
+      "answer": "It moves to the home directory."
+    },
+    {
+      "id": 132,
+      "topic": "Understanding command structure: command, options, arguments",
+      "question": "What is -l in ls -l?",
+      "answer": "It is an option."
+    },
+    {
+      "id": 133,
+      "topic": "Case sensitivity in Linux file names",
+      "question": "Is MyFile same as myfile?",
+      "answer": "No, Linux treats them as different files."
+    },
+    {
+      "id": 134,
+      "topic": "Using manual pages: man command and --help flag",
+      "question": "What does man pwd show?",
+      "answer": "It shows the manual page of pwd command."
+    },
+    {
+      "id": 135,
+      "topic": "Understanding environment variables – PATH overview",
+      "question": "Why is /bin included in PATH?",
+      "answer": "It contains essential system commands."
+    },
+    {
+      "id": 136,
+      "topic": "Root user vs normal user – concept and importance",
+      "question": "What is dangerous about root?",
+      "answer": "It can delete or modify any system file."
+    },
+    {
+      "id": 137,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "question": "What symbol shows current directory?",
+      "answer": "The directory path in prompt shows current directory."
+    },
+    {
+      "id": 138,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command shows command history?",
+      "answer": "history shows previous commands."
+    },
+    {
+      "id": 139,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command clears history?",
+      "answer": "history -c clears history."
+    },
+    {
+      "id": 140,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "question": "Which command locates a file?",
+      "answer": "locate searches files quickly."
+    }
+  ]
+}
