@@ -68,6 +68,8 @@ import ComputerArchitectureRoadmap from '../components/study/computer-architectu
 import ComputerArchitectureModuleView from '../components/study/computer-architecture/ComputerArchitectureModuleView';
 import ComputerArchitectureTopicView from '../components/study/computer-architecture/ComputerArchitectureTopicView';
 
+import UnixRoadmap from '../components/study/unix/UnixRoadmap';
+
 
 
 export default function AppRoutes() {
@@ -192,6 +194,11 @@ export default function AppRoutes() {
       <Route path="/computer-architecture/roadmap" element={<ComputerArchitectureRoadmap />} />
       <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
       <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex"  element={<ComputerArchitectureTopicView/>}/>
+
+      {/* Computer Architecture  */}
+      <Route path="/unix/roadmap" element={<UnixRoadmap />} />
+      {/* <Route path="/unix/module/:slug" element={<UnixModuleView />} /> */}
+      {/* <Route path="/unix/topic/:moduleSlug/:topicIndex"  element={<UnixTopicView/>}/> */}
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

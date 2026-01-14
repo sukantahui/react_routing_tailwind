@@ -1,0 +1,348 @@
+{
+    "trackId": "unix-basic-to-ultra-expert",
+    "trackTitle": "UNIX & Linux from Basic to Ultra Expert",
+    "description": "A complete UNIX/Linux learning path from beginner shell usage to advanced system administration, shell scripting, performance tuning and automation.",
+    "institute": {
+        "name": "Coder & AccoTax",
+        "website": "https://www.codernaccotax.co.in",
+        "author": "Sukanta Hui",
+        "location": "Barrackpore, West Bengal, India",
+        "trackType": "UNIX & Linux Tutorial Roadmap",
+        "version": "1.0.0",
+        "lastUpdated": "2026-01-14"
+    },
+    "folder": "unix",
+    "subject": "UNIX & Linux",
+    "subjectLogo": {
+        "name": "UNIX",
+        "icon": "terminal",
+        "type": "svg",
+        "path": "/logos/unix.svg",
+        "alt": "unix Logo"
+    },
+    "segments": [
+        {
+            "segmentId": "basic",
+            "title": "Segment 1 – UNIX Foundations (Beginner)",
+            "level": "Beginner",
+            "summary": "Learn the basics of UNIX environment, file system structure and essential commands.",
+            "modules": [
+                {
+                    "moduleId": "unix-intro",
+                    "slug": "introduction-to-unix",
+                    "title": "Introduction to UNIX & Linux",
+                    "level": "Beginner",
+                    "estimatedHours": 3,
+                    "tags": [
+                        "unix",
+                        "linux",
+                        "terminal"
+                    ],
+                    "topics": [
+                        "Evolution of UNIX – Bell Labs to modern Linux",
+                        "Difference between UNIX, Linux and GNU/Linux",
+                        "Role of the kernel: process, memory and device management (conceptual)",
+                        "What is a shell? Bash vs Zsh vs Sh",
+                        "Shell vs Terminal vs Console – clearing the confusion",
+                        "Understanding system utilities and core GNU tools",
+                        "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+                        "Desktop vs Server Linux – real-world usage",
+                        "Opening terminal: shortcuts and interface tour",
+                        "Basic navigation commands: pwd, ls, cd – with live examples",
+                        "Understanding command structure: command, options, arguments",
+                        "Case sensitivity in Linux file names",
+                        "Using manual pages: man command and --help flag",
+                        "Understanding environment variables – PATH overview",
+                        "Root user vs normal user – concept and importance",
+                        "Understanding shell prompt symbols and working directory display",
+                        "Practice Lab: Running your first 10 Linux commands",
+                        "Common beginner mistakes in terminal usage"
+                    ],
+                    "learningOutcomes": [
+                        "Explain what UNIX/Linux is",
+                        "Use terminal confidently",
+                        "Identify components of UNIX system"
+                    ],
+                    "difficulty": "Easy",
+                    "difficultyIndex": 1,
+                    "summary": "Get comfortable with UNIX environment and shell interface.",
+                    "miniProjects": [
+                        "Practice: First UNIX Commands"
+                    ],
+                    "assessment": {
+                        "type": "Quiz",
+                        "passScore": 70
+                    },
+                    "badge": "UNIX Beginner Badge"
+                },
+                {
+                    "moduleId": "filesystem",
+                    "slug": "filesystem-and-navigation",
+                    "title": "File System & Navigation",
+                    "level": "Beginner",
+                    "estimatedHours": 4,
+                    "tags": [
+                        "filesystem",
+                        "navigation"
+                    ],
+                    "topics": [
+                        "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+                        "Understanding the role of each system directory",
+                        "pwd, ls, cd – absolute mastery",
+                        "ls advanced options: -l, -a, -h, -R, -t, -S",
+                        "Understanding inode numbers and file metadata",
+                        "Absolute vs relative paths with real-world folder trees",
+                        "Hidden files and folders – why they exist and how they are used",
+                        "Tree command – visualizing directory hierarchy",
+                        "Understanding file types: regular, directory, symbolic link, device file",
+                        "Symbolic links vs hard links – concept and use cases",
+                        "stat command – reading file metadata",
+                        "locate, updatedb and find – searching files in large systems",
+                        "find with conditions: name, size, type, permissions, time",
+                        "Tab completion and command history navigation",
+                        "Globbing patterns and pathname expansion",
+                        "File system mounting concept (mount, umount – overview)",
+                        "Understanding disk partitions at a conceptual level",
+                        "Practice Lab: Build your own directory tree for a project",
+                        "Common mistakes beginners make while navigating file systems"
+                    ],
+                    "learningOutcomes": [
+                        "Navigate Linux file system",
+                        "Understand standard directory layout"
+                    ],
+                    "difficulty": "Easy",
+                    "difficultyIndex": 2,
+                    "summary": "Move confidently inside Linux directories.",
+                    "badge": "Filesystem Explorer Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "intermediate",
+            "title": "Segment 2 – File Handling & Shell Skills",
+            "level": "Intermediate",
+            "summary": "Master file operations, permissions and piping.",
+            "modules": [
+                {
+                    "moduleId": "file-ops",
+                    "slug": "file-operations",
+                    "title": "File & Directory Operations",
+                    "level": "Intermediate",
+                    "estimatedHours": 5,
+                    "tags": [
+                        "cp",
+                        "mv",
+                        "rm",
+                        "mkdir"
+                    ],
+                    "topics": [
+                        "Creating files: touch, echo redirection, text editors overview (nano, vi)",
+                        "Creating directories: mkdir, mkdir -p (nested directories)",
+                        "Copying files and folders: cp, cp -r, cp -a (archive mode)",
+                        "Moving and renaming: mv – renaming tricks and overwriting rules",
+                        "Deleting files and directories: rm, rm -r, rm -f – dangers and safety tips",
+                        "Understanding file overwrite behavior and prompts (-i, -v)",
+                        "Viewing files: cat, less, more, head, tail – paging large files",
+                        "tail -f – monitoring live log files",
+                        "Wildcards: *, ?, [] – complex pattern matching",
+                        "Brace expansion and advanced globbing",
+                        "Working with large directories efficiently",
+                        "Counting files and directories using shell tools",
+                        "Understanding file timestamps: access, modify, change time",
+                        "Using stat to inspect file details",
+                        "Practical lab: Organize a messy folder into structured directories",
+                        "Common mistakes in file deletion and how to recover mindset"
+                    ],
+                    "learningOutcomes": [
+                        "Create, copy, move and delete files",
+                        "Use wildcards efficiently"
+                    ],
+                    "difficulty": "Medium",
+                    "difficultyIndex": 4,
+                    "summary": "Perform daily file management tasks in UNIX.",
+                    "badge": "File Master Badge"
+                },
+                {
+                    "moduleId": "permissions",
+                    "slug": "permissions-and-ownership",
+                    "title": "Permissions & Ownership",
+                    "level": "Intermediate",
+                    "estimatedHours": 5,
+                    "tags": [
+                        "chmod",
+                        "chown"
+                    ],
+                    "topics": [
+                        "Understanding file permission structure: rwx for owner, group and others",
+                        "Reading permission strings: -rwxr-xr-- explained character by character",
+                        "Numeric permission system: 4-2-1 model in depth",
+                        "chmod symbolic mode: u, g, o, a with +, - and =",
+                        "Recursive permission changes: chmod -R and real-world dangers",
+                        "Understanding file ownership: user and group roles",
+                        "chown and chgrp – changing owner and group",
+                        "Difference between ownership and permission control",
+                        "Special permissions: setuid, setgid and sticky bit",
+                        "Practical use of sticky bit in /tmp directory",
+                        "umask – default permission mask and calculation",
+                        "Default permission creation logic for files vs directories",
+                        "Checking effective permissions using ls -l and stat",
+                        "Access Control Lists (ACL) – concept and overview",
+                        "Security best practices for multi-user systems",
+                        "Practical lab: Secure a project directory for multi-user access",
+                        "Common permission-related mistakes and troubleshooting"
+                    ],
+                    "learningOutcomes": [
+                        "Modify file permissions",
+                        "Apply UNIX security basics"
+                    ],
+                    "difficulty": "Medium",
+                    "difficultyIndex": 5,
+                    "summary": "Control who can access files and folders.",
+                    "badge": "Permission Pro Badge"
+                },
+                {
+                    "moduleId": "text-processing",
+                    "slug": "text-processing-tools",
+                    "title": "Text Processing with grep, sed & awk",
+                    "level": "Intermediate",
+                    "estimatedHours": 6,
+                    "tags": [
+                        "grep",
+                        "sed",
+                        "awk"
+                    ],
+                    "topics": [
+                        "Pattern searching using grep, egrep, fgrep",
+                        "Regular expressions basics for text filtering",
+                        "Using sed for find & replace and inline editing",
+                        "awk for column based processing and reports",
+                        "Pipelines: combining grep, sed, awk",
+                        "Practical lab: Generate student marks reports from text files"
+                    ],
+                    "badge": "Text Processing Ninja Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "advanced",
+            "title": "Segment 3 – Shell Scripting & Automation",
+            "level": "Advanced",
+            "summary": "Automate tasks with shell scripts and text processing tools.",
+            "modules": [
+                {
+                    "moduleId": "shell-script",
+                    "slug": "shell-scripting",
+                    "title": "Shell Scripting Essentials",
+                    "level": "Advanced",
+                    "estimatedHours": 7,
+                    "tags": [
+                        "bash",
+                        "scripts"
+                    ],
+                    "topics": [
+                        "Shell script anatomy: shebang, execution permission and script lifecycle",
+                        "Understanding PATH and how scripts are located and executed",
+                        "Variables: local, global and environment variables",
+                        "Reading user input: read, positional parameters ($1, $2...)",
+                        "Command substitution: $(command) and backticks",
+                        "Quoting rules: single, double quotes and escaping characters",
+                        "Conditional statements: if, elif, else, test, [ ] and [[ ]]",
+                        "Loops: for, while, until with practical patterns",
+                        "Case statement for menu-driven programs",
+                        "Functions: defining, calling, returning values",
+                        "Exit status and error codes ($?)",
+                        "Redirection: >, >>, <, 2>, &>",
+                        "Pipes: chaining commands with |",
+                        "Here documents (<<EOF) and here strings (<<<)",
+                        "Debugging techniques: set -x, set -e, bash -x",
+                        "Traps and signals: INT, TERM, EXIT",
+                        "Scheduling scripts with cron (overview)",
+                        "Writing reusable utility scripts",
+                        "Mini Project: Automated backup script",
+                        "Common shell scripting mistakes and best practices"
+                    ],
+                    "learningOutcomes": [
+                        "Write automation scripts",
+                        "Solve repetitive tasks"
+                    ],
+                    "difficulty": "Advanced",
+                    "difficultyIndex": 8,
+                    "summary": "Automate system tasks using shell scripting.",
+                    "badge": "Shell Automation Badge"
+                },
+                {
+                    "moduleId": "networking-basics",
+                    "slug": "linux-networking",
+                    "title": "Linux Networking Essentials",
+                    "level": "Advanced",
+                    "estimatedHours": 5,
+                    "tags": [
+                        "networking",
+                        "ssh"
+                    ],
+                    "topics": [
+                        "IP, subnet, DNS basics",
+                        "Network configuration: ip, nmcli",
+                        "Testing connectivity: ping, traceroute, nslookup",
+                        "Secure shell: ssh, scp, rsync",
+                        "Firewall basics: ufw and iptables (overview)",
+                        "Mini project: Setup SSH based file transfer system"
+                    ],
+                    "badge": "Linux Networking Pro Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "ultra-expert",
+            "title": "Segment 4 – System Administration & Performance",
+            "level": "Ultra Expert",
+            "summary": "Advanced system monitoring, performance tuning and enterprise skills.",
+            "modules": [
+                {
+                    "moduleId": "sysadmin",
+                    "slug": "system-administration",
+                    "title": "System Administration & Performance Tuning",
+                    "level": "Ultra Expert",
+                    "estimatedHours": 8,
+                    "tags": [
+                        "process",
+                        "memory",
+                        "disk"
+                    ],
+                    "topics": [
+                        "Understanding Linux process lifecycle and states",
+                        "Process management: ps, top, htop, atop, kill, killall, pkill",
+                        "Nice and renice – CPU priority control",
+                        "Foreground vs background jobs: jobs, fg, bg, nohup",
+                        "System resource monitoring: uptime, vmstat, iostat, free",
+                        "Disk usage analysis: df, du, lsblk, mount, umount",
+                        "File system health: fsck (concept overview)",
+                        "Understanding memory: buffers, cache and swap",
+                        "Swap management: swapon, swapoff",
+                        "CPU and load average interpretation",
+                        "Cron jobs: crontab syntax, scheduling automation",
+                        "at and batch commands for one-time scheduling",
+                        "System logs: journalctl, /var/log/syslog, /var/log/auth.log",
+                        "Boot process overview: BIOS/UEFI → GRUB → systemd",
+                        "Managing services: systemctl start, stop, restart, enable, status",
+                        "Network diagnostics basics: ping, traceroute, netstat, ss",
+                        "User activity monitoring: who, w, last",
+                        "Detecting and handling zombie and orphan processes",
+                        "Performance bottleneck identification",
+                        "Server hardening basics and auditing mindset",
+                        "Mini Project: Build a system health monitoring checklist",
+                        "Common admin mistakes and disaster recovery mindset"
+                    ],
+                    "learningOutcomes": [
+                        "Monitor Linux system health",
+                        "Optimize server performance"
+                    ],
+                    "difficulty": "Ultra Expert",
+                    "difficultyIndex": 12,
+                    "summary": "Become a confident Linux system administrator.",
+                    "badge": "UNIX SysAdmin Expert Badge"
+                }
+            ]
+        }
+    ]
+}
