@@ -106,7 +106,7 @@ export default class Topic16 extends React.Component {
             </div>
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
-                Topic 16: Understanding Disk Partitions at a Conceptual Level
+                Topic 17: Understanding Disk Partitions at a Conceptual Level
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">
                 Dividing storage space logically - The foundation of organized data management

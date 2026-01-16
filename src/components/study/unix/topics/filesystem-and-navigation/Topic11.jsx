@@ -1307,7 +1307,7 @@ export default class Topic11 extends Component {
             </div>
             
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-500">
-              <p>Topic 11: File Searching Tools • System Administration • Barrackpore Institute</p>
+              <p>Topic 12: File Searching Tools • System Administration • Barrackpore Institute</p>
             </div>
           </div>
         </footer>

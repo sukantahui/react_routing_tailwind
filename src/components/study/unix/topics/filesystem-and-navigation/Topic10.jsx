@@ -1223,7 +1223,7 @@ export default class Topic10 extends Component {
             </div>
             
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500 dark:text-gray-500">
-              <p>Topic 10: stat Command • File Metadata Analysis • Barrackpore Institute</p>
+              <p>Topic 11: stat Command • File Metadata Analysis • Barrackpore Institute</p>
             </div>
           </div>
         </footer>
