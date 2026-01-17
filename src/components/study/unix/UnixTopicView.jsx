@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import roadmapData from "./unix-basic-to-ultra-expert.json";
+import roadmapData from "./unix-basic-to-ultra-expert-roadmap.json";
 
 
 // Auto-import Topic*.jsx

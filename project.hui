@@ -786,8 +786,13 @@ Teacher’s Note (MANDATORY IN EVERY TOPIC)
     - Primary teacher: Sukanta Hui
     - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
 
-Teacher’s professional description must be fetched from a JSON file.
-Ask me for this JSON file if you dont have before starting.
+Teacher’s professional description must be fetched from below:
+    - Name: Sukanta Hui
+    - email: sukantahui@codernaccotax.co.in
+    - mobile: 7003756860
+    - skill: Programming Language, RDBMs, Operating System, Web Development
+    - Experience: 27 years
+
 
 Example Name to be used
     - While explaining concepts, naturally include examples involving:
@@ -807,6 +812,8 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
         -- Commented
         -- Industry-standard
         -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
 
 
 

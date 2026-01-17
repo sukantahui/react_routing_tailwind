@@ -11,7 +11,7 @@ import {
   Star,
 } from "lucide-react";
 
-import roadmapData from "./unix-basic-to-ultra-expert.json";
+import roadmapData from "./unix-basic-to-ultra-expert-roadmap.json";
 
 export default function UnixModuleView() {
   const { slug } = useParams();
