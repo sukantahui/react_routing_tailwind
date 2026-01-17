@@ -153,7 +153,8 @@
                         "Understanding file timestamps: access, modify, change time",
                         "Using stat to inspect file details",
                         "Practical lab: Organize a messy folder into structured directories",
-                        "Common mistakes in file deletion and how to recover mindset"
+                        "Common mistakes in file deletion and how to recover mindset",
+                        "wsl a helpful tool for windows user"
                     ],
                     "learningOutcomes": [
                         "Create, copy, move and delete files",

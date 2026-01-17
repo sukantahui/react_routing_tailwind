@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Topic0 extends React.Component {
+export default class Topic0 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -188,7 +188,7 @@ class Topic0 extends React.Component {
                 
                 <div className="mb-6">
                   <div className="inline-block px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm font-mono mb-3">
-                    Prototype: echo "content" > filename
+                    Prototype: echo "content" {'>'} filename
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                     Using <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-red-600 dark:text-red-400">echo</code> with redirection operators creates files with content in a single command. Tuhina at Shyamnagar college needed to quickly create a configuration file for her Python project.
@@ -217,7 +217,7 @@ class Topic0 extends React.Component {
                     {/* Terminal */}
                     <rect x="20" y="20" width="360" height="40" rx="5" fill="#1f2937" className="group-hover:fill-gray-800 transition-colors duration-300"/>
                     <text x="40" y="40" fill="#10b981" fontFamily="monospace" fontSize="12">
-                      $ echo "Hello" > greeting.txt
+                      {'$ echo "Hello" > greeting.txt'}
                     </text>
                     
                     {/* Arrow */}
@@ -236,10 +236,10 @@ class Topic0 extends React.Component {
                   <div>
                     <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-3">Redirection Operators:</h4>
                     <ul className="list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-2">
-                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">></code> - Creates/overwrites file</li>
-                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">>></code> - Appends to existing file</li>
-                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">2></code> - Redirects error output</li>
-                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">&></code> - Redirects both output and errors</li>
+                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">{'>'}</code> - Creates/overwrites file</li>
+                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">{'>>'}</code> - Appends to existing file</li>
+                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">2{'>'}</code> - Redirects error output</li>
+                      <li><code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">&{'>'}</code> - Redirects both output and errors</li>
                     </ul>
                   </div>
                   
@@ -443,10 +443,10 @@ class Topic0 extends React.Component {
                       Overwriting Important Files
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Using <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-red-500">echo "new" > existing.txt</code> instead of <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-green-500">echo "new" >> existing.txt</code> can completely overwrite critical configuration files.
+                      Using <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-red-500">{'echo "new" > existing.txt'}</code> instead of <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-green-500">echo "new" >> existing.txt</code> can completely overwrite critical configuration files.
                     </p>
                     <div className="mt-2 text-sm text-gray-500 dark:text-gray-500">
-                      <strong>Solution:</strong> Always check if a file exists before using <code>></code>, or use <code>>></code> to append.
+                      <strong>Solution:</strong> Always check if a file exists before using <code>{'>'}</code>, or use <code>{'>>'}</code> to append.
                     </div>
                   </div>
                   
@@ -597,7 +597,7 @@ class Topic0 extends React.Component {
                       </div>
                       <div>
                         <p className="text-gray-700 dark:text-gray-300 italic mb-2">
-                          "Observe carefully: How does <code>echo "text" > file</code> differ from <code>echo "text" >> file</code> in terms of file size and content?"
+                          "Observe carefully: How does <code>{'echo "text" > file'}</code> differ from <code>{'echo "text" >> file'}</code> in terms of file size and content?"
                         </p>
                         <div className="text-sm text-gray-500 dark:text-gray-500 mt-2">
                           <strong>Hint:</strong> Create a file, use both commands, then check with <code>cat file</code> and <code>wc -l file</code>.
@@ -640,7 +640,7 @@ class Topic0 extends React.Component {
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">
                       <span className="text-indigo-600 font-bold">2</span>
                     </div>
-                    <span>> overwrites, >> appends content</span>
+                    <span>{'> overwrites, >> appends content'}</span>
                   </div>
                   <div className="flex items-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">
@@ -733,4 +733,3 @@ class Topic0 extends React.Component {
   }
 }
 
-export default Topic0;

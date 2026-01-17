@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Topic6 extends React.Component {
+export default class Topic6 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,7 +42,7 @@ class Topic6 extends React.Component {
                             </p>
                             <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-lg">
                                 <p className="text-gray-700 dark:text-gray-300">
-                                    When <span className="font-semibold text-blue-600 dark:text-blue-400">Swadeep</span> at Barrackpore University 
+                                    When <span className="font-semibold text-blue-600 dark:text-blue-400">Swadeep</span> at Barrackpore CNAT 
                                     needs to check a 2GB log file, choosing the right tool makes all the difference.
                                 </p>
                             </div>
@@ -405,7 +405,7 @@ class Topic6 extends React.Component {
                                         </div>
                                         <p className="text-gray-600 dark:text-gray-400 text-sm mt-3">
                                             <span className="font-semibold">Swadeep</span> uses <code>tail -F</code> for production log monitoring 
-                                            at Barrackpore University servers.
+                                            at Barrackpore CNAT servers.
                                         </p>
                                     </div>
                                 </div>
@@ -569,7 +569,7 @@ class Topic6 extends React.Component {
                                         <span className="flex-shrink-0 w-6 h-6 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mt-1">
                                             <span className="text-indigo-600 dark:text-indigo-300 font-bold">2</span>
                                         </span>
-                                        <span className="text-gray-700 dark:text-gray-300">For reading: <code>less</code> (always, for files > 100 lines)</span>
+                                        <span className="text-gray-700 dark:text-gray-300">For reading: <code>less</code> (always, for files {'>'} 100 lines)</span>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="flex-shrink-0 w-6 h-6 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mt-1">
@@ -620,7 +620,7 @@ class Topic6 extends React.Component {
                             <div className="mt-6 p-4 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900 dark:to-cyan-900 rounded-xl">
                                 <h3 className="font-bold text-gray-800 dark:text-gray-200 mb-2">Professional Workflow</h3>
                                 <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
-                                    <span className="font-semibold">Swadeep</span>'s debugging workflow at Barrackpore University:
+                                    <span className="font-semibold">Swadeep</span>'s debugging workflow at Barrackpore CNAT:
                                 </p>
                                 <div className="bg-gray-900 text-gray-100 p-3 rounded-lg font-mono text-sm">
                                     <code>{'# 1. Quick check: Is this the right file?'}</code><br />
@@ -780,4 +780,3 @@ class Topic6 extends React.Component {
     }
 }
 
-export default Topic6;

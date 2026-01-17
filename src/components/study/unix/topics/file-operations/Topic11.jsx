@@ -110,6 +110,7 @@ export default class Topic11 extends React.Component {
 
                             <div className="mb-6">
                                 <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">Prototype & Purpose</h3>
+                                <h4>wc stands for Word Count</h4>
                                 <div className="bg-gray-800 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono">
                                     <div className="text-cyan-400">Command:</div>
                                     <div>wc -l [file]</div>
@@ -537,11 +538,12 @@ export default class Topic11 extends React.Component {
                                 <p className="text-gray-700 dark:text-gray-300 mb-4">
                                     Create a cron job to track file count growth over time.
                                 </p>
-                                <div className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm">
-                                    # Daily count tracker<br />
-                                    date >> ~/file_counts.log<br />
-                                    find /data -type f -print0 | tr -cd '\\0' | wc -c >> ~/file_counts.log
-                                </div>
+                                <pre className="bg-gray-900 text-gray-100 dark:bg-gray-900 dark:text-gray-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                                    <code>{`# Daily count tracker
+                                    date >> ~/file_counts.log
+                                    find /data -type f -print0 | tr -cd '\\0' | wc -c >> ~/file_counts.log`}
+                                    </code>
+                                </pre>
                             </div>
 
                             <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-900 rounded-xl border border-green-200 dark:border-green-800">
