@@ -576,8 +576,8 @@
       "difficulty": "Advanced",
       "question": "Find the output:",
       "code": "int p=1;\nfor(int i=1;i<=4;i++)\n\tp+=p*i;\nSystem.out.println(p);",
-      "output": "65",
-      "explanation": "p evolves as 2,6,24,65."
+      "output": "120",
+      "explanation": "p evolves as 2,6,24,120."
     },
     {
       "id": 72,

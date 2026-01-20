@@ -154,7 +154,9 @@
                         "Using stat to inspect file details",
                         "Practical lab: Organize a messy folder into structured directories",
                         "Common mistakes in file deletion and how to recover mindset",
-                        "wsl a helpful tool for windows user"
+                        "wsl a helpful tool for windows user",
+                        "Practice your Skill",
+                        "Short Questions"
                     ],
                     "learningOutcomes": [
                         "Create, copy, move and delete files",
@@ -192,7 +194,9 @@
                         "Access Control Lists (ACL) – concept and overview",
                         "Security best practices for multi-user systems",
                         "Practical lab: Secure a project directory for multi-user access",
-                        "Common permission-related mistakes and troubleshooting"
+                        "Common permission-related mistakes and troubleshooting",
+                        "Practice your Skill",
+                        "Short Questions"
                     ],
                     "learningOutcomes": [
                         "Modify file permissions",
@@ -217,10 +221,30 @@
                     "topics": [
                         "Pattern searching using grep, egrep, fgrep",
                         "Regular expressions basics for text filtering",
+                        "Advanced regex: quantifiers, anchors, character classes",
+                        "Case-insensitive, inverted, and recursive search with grep",
+                        "Searching multiple files and highlighting matches",
                         "Using sed for find & replace and inline editing",
-                        "awk for column based processing and reports",
+                        "sed addressing: line numbers, ranges, and patterns",
+                        "Deleting, inserting, appending lines using sed",
+                        "Using sed with files vs streams",
+                        "awk for column-based processing and reports",
+                        "Built-in variables in awk (NR, NF, FS, OFS, $0, $1...)",
+                        "Conditional logic and loops in awk",
+                        "Formatting output using awk printf",
+                        "Aggregations: sum, average, min, max using awk",
+                        "Working with CSV and delimited files using awk",
                         "Pipelines: combining grep, sed, awk",
-                        "Practical lab: Generate student marks reports from text files"
+                        "Text processing with pipes and redirection",
+                        "Sorting and filtering output using sort, uniq, wc",
+                        "Log file analysis using grep and awk",
+                        "Data cleanup and normalization using sed",
+                        "Error detection and pattern validation in text files",
+                        "Performance tips for large text files",
+                        "Common mistakes and debugging text-processing commands",
+                        "Practical lab: Generate student marks reports from text files",
+                        "Mini project: Analyze server access logs",
+                        "Mini project: Clean and transform raw CSV data"
                     ],
                     "badge": "Text Processing Ninja Badge"
                 }
