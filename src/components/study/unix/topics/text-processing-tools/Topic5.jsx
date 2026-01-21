@@ -496,7 +496,7 @@ class Topic5 extends React.Component {
                                 </p>
                                 <div className="font-mono bg-gray-900 text-emerald-400 p-4 rounded-lg text-sm">
                                     <code>
-                                        sed 's/\\([0-9]\\{2\\}\\)-\\([0-9]\\{2\\}\\)-\\([0-9]\\{4\\}\\)/\\3\\/\\2\\/\\1/g' students.csv
+                                        {`sed 's/\\([0-9]\\{2\\}\\)-\\([0-9]\\{2\\}\\)-\\([0-9]\\{4\\}\\)/\\3\\/\\2\\/\\1/g' students.csv`}
                                     </code>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4">
@@ -700,7 +700,7 @@ class Topic5 extends React.Component {
                                             <div>def process_data(data):</div>
                                             <div>    print("DEBUG: Processing started")</div>
                                             <div>    result = data * 2</div>
-                                            <div>    print(f"DEBUG: Result: {result}")</div>
+                                            <div>    {`print(f"DEBUG: Result: {result}")`}</div>
                                             <div>    return result</div>
                                         </div>
                                     </div>

@@ -833,8 +833,8 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Colorized output:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -C<br/>
-                        # Use colors to differentiate file types
+                        {`$ tree -C`}<br/>
+                        {`# Use colors to differentiate file types`}
                       </code>
                       <div className="mt-2 text-xs text-gray-500">
                         Directories: <span className="text-blue-400">blue</span>, 
@@ -846,8 +846,9 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Generate directory map:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -d -L 3 /home > directory_map.txt<br/>
-                        # Create documentation of directory structure
+                        {`$ tree -d -L 3 /home > directory_map.txt`}
+                        <br/>
+                        {`# Create documentation of directory structure`}
                       </code>
                     </div>
                   </div>
@@ -861,7 +862,7 @@ export default class Topic7 extends Component {
                     <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                       <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-1">tree vs ls -R</h4>
                       <div className="text-sm text-gray-700 dark:text-gray-400 mb-2">
-                        <code>ls -R</code> shows recursive listing but without visual hierarchy
+                        <code>{`ls -R`}</code> shows recursive listing but without visual hierarchy
                       </div>
                       <div className="grid grid-cols-2 gap-2">
                         <div className="text-xs">
@@ -870,7 +871,9 @@ export default class Topic7 extends Component {
                         </div>
                         <div className="text-xs">
                           <div className="font-semibold text-green-600 dark:text-green-400">tree output:</div>
-                          <code className="text-xs">├── dir1/<br/>│ ├── file1<br/>│ └── file2<br/>└── dir2/<br/> └── file3</code>
+                          <code className="text-xs">
+                            {`├── dir1/<br/>│ ├── file1<br/>│ └── file2<br/>└── dir2/<br/> └── file3`}
+                          </code>
                         </div>
                       </div>
                     </div>
@@ -882,10 +885,10 @@ export default class Topic7 extends Component {
                       </div>
                       <div className="mt-2 grid grid-cols-2 gap-2">
                         <code className="text-xs bg-gray-100 dark:bg-gray-700 p-1 rounded">
-                          $ find . -name "*.py"
+                          {`$ find . -name "*.py"`}
                         </code>
                         <code className="text-xs bg-gray-100 dark:bg-gray-700 p-1 rounded">
-                          $ tree -P "*.py"
+                          {`$ tree -P "*.py"`}
                         </code>
                       </div>
                     </div>
@@ -958,7 +961,7 @@ export default class Topic7 extends Component {
                     <h4 className="font-semibold text-green-800 dark:text-green-300 mb-1">Pro Tip</h4>
                     <p className="text-sm text-gray-700 dark:text-gray-400">
                       Create alias in .bashrc:<br/>
-                      <code>alias tt="tree -C -L 3"</code>
+                      <code>{`alias tt="tree -C -L 3"`}</code>
                     </p>
                   </div>
                   
@@ -998,7 +1001,8 @@ export default class Topic7 extends Component {
                     </p>
                     <div className="mt-2 flex items-center space-x-2">
                       <code className="text-xs font-mono bg-black/50 p-2 rounded flex-1">
-                        $ tree <input type="text" className="bg-transparent border-b border-gray-600 w-24" placeholder="options" />
+                        {`$ tree`} 
+                        <input type="text" className="bg-transparent border-b border-gray-600 w-24" placeholder="options" />
                       </code>
                       <button className="px-3 py-1 bg-green-600 text-white text-xs rounded hover:bg-green-700">
                         Check

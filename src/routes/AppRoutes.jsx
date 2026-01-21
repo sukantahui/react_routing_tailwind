@@ -72,6 +72,10 @@ import UnixRoadmap from '../components/study/unix/UnixRoadmap';
 import UnixModuleView from '../components/study/unix/UnixModuleView';
 import UnixTopicView from '../components/study/unix/UnixTopicView';
 
+import ReactRoadmap from '../components/study/react/ReactRoadmap';
+import ReactModuleView from '../components/study/react/ReactModuleView';
+import ReactTopicView from '../components/study/react/ReactTopicView';
+
 
 
 export default function AppRoutes() {
@@ -197,10 +201,15 @@ export default function AppRoutes() {
       <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
       <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex"  element={<ComputerArchitectureTopicView/>}/>
 
-      {/* Computer Architecture  */}
+      {/* Unix  */}
       <Route path="/unix/roadmap" element={<UnixRoadmap />} />
       <Route path="/unix/module/:slug" element={<UnixModuleView />} />
       <Route path="/unix/topic/:moduleSlug/:topicIndex"  element={<UnixTopicView/>}/>
+
+      {/* React  */}
+      <Route path="/react/roadmap" element={<ReactRoadmap />} />
+      <Route path="/react/module/:slug" element={<ReactModuleView />} />
+      <Route path="/react/topic/:moduleSlug/:topicIndex"  element={<ReactTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
