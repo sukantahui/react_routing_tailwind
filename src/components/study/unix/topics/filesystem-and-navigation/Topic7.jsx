@@ -340,7 +340,9 @@ export default class Topic7 extends Component {
                   
                   <div className="space-y-4">
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      The <code className="font-mono text-green-600 dark:text-green-400">tree</code> command is a recursive directory listing program 
+                      The <code className="font-mono text-green-600 dark:text-green-400">
+                        {`tree`}
+                        </code> command is a recursive directory listing program 
                       that produces a depth-indented listing of files and directories in a tree-like format.
                     </p>
                     
@@ -357,7 +359,7 @@ export default class Topic7 extends Component {
                       <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                         <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-1">Without tree</h4>
                         <code className="font-mono text-sm block text-gray-600 dark:text-gray-400">
-                          $ ls -R<br/>
+                          {`$ ls -R`}<br/>
                           Confusing, flat output
                         </code>
                       </div>
@@ -365,7 +367,7 @@ export default class Topic7 extends Component {
                       <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
                         <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-1">With tree</h4>
                         <code className="font-mono text-sm block text-green-600 dark:text-green-400">
-                          $ tree<br/>
+                          {`$ tree`}<br/>
                           Clear, visual hierarchy
                         </code>
                       </div>
@@ -382,16 +384,16 @@ export default class Topic7 extends Component {
                       <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-2">Install tree command:</h4>
                       <div className="space-y-2">
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          # Ubuntu/Debian<br/>
-                          $ sudo apt install tree
+                          {`# Ubuntu/Debian`}<br/>
+                          {`$ sudo apt install tree`}
                         </code>
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          # CentOS/RHEL<br/>
-                          $ sudo yum install tree
+                          {`# CentOS/RHEL`}<br/>
+                          {`$ sudo yum install tree`}
                         </code>
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          # macOS<br/>
-                          $ brew install tree
+                          {`# macOS`}<br/>
+                          {`$ brew install tree`}
                         </code>
                       </div>
                     </div>
@@ -400,11 +402,11 @@ export default class Topic7 extends Component {
                       <h4 className="font-semibold text-blue-600 dark:text-blue-400 mb-2">Basic commands:</h4>
                       <div className="space-y-2">
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          $ tree<br/>
+                          {`$ tree`}<br/>
                           # Show current directory structure
                         </code>
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                          $ tree /path/to/directory<br/>
+                          {`$ tree /path/to/directory`}<br/>
                           # Show specific directory
                         </code>
                         <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
@@ -494,7 +496,7 @@ export default class Topic7 extends Component {
                   <div className="mb-6">
                     <div className="text-gray-400 mb-2">Generated Command:</div>
                     <code className="block font-mono text-lg text-green-400 bg-black/50 p-4 rounded-lg">
-                      $ {treeCommand}
+                      {`$ {treeCommand}`}
                     </code>
                   </div>
 
@@ -527,7 +529,7 @@ export default class Topic7 extends Component {
                   <div className="space-y-3">
                     <div>
                       <code className="block font-mono text-sm bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                        $ tree -d<br/>
+                        {`$ tree -d`}<br/>
                         # Show directories only
                       </code>
                     </div>
@@ -644,7 +646,7 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Filter by file type:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -P "*.py"<br/>
+                        {`$ tree -P "*.py"`}<br/>
                         # Show only Python files
                       </code>
                     </div>
@@ -652,7 +654,7 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Exclude patterns:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -I "*.log|temp*|backup"<br/>
+                        {`$ tree -I "*.log|temp*|backup"`}<br/>
                         # Exclude logs, temp files, and backups
                       </code>
                     </div>
@@ -660,8 +662,8 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">Output to file:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -h > project_structure.txt<br/>
-                        # Save tree output to file
+                        {`$ tree -h > project_structure.txt`}<br/>
+                        {`# Save tree output to file`}
                       </code>
                     </div>
                     
@@ -676,8 +678,8 @@ export default class Topic7 extends Component {
                     <div>
                       <div className="text-gray-400 text-sm mb-2">HTML output:</div>
                       <code className="block font-mono text-green-400 bg-black/50 p-3 rounded">
-                        $ tree -H . > index.html<br/>
-                        # Generate HTML directory listing
+                        {`$ tree -H . > index.html`}<br/>
+                        {`# Generate HTML directory listing`}
                       </code>
                     </div>
                   </div>
@@ -731,8 +733,8 @@ export default class Topic7 extends Component {
                         Creating backup list for Shyamnagar server:
                       </p>
                       <code className="block text-xs font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded">
-                        $ tree -af --noreport /etc > backup_list.txt<br/>
-                        # List all config files for backup
+                        {`$ tree -af --noreport /etc > backup_list.txt`}<br/>
+                        {`# List all config files for backup`}
                       </code>
                     </div>
                   </div>
@@ -751,7 +753,7 @@ export default class Topic7 extends Component {
                 {/* Common Project Structures */}
                 <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
                   <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
-                    <span className="mr-3">🏗️</span> Common Project Structures
+                    <span className="mr-3">{`🏗️`}</span> Common Project Structures
                   </h2>
                   
                   <div className="space-y-6">

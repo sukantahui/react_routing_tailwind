@@ -1,0 +1,1782 @@
+[
+  {
+    "id": 1,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Part of the Indian Constitution deals with Fundamental Rights?",
+    "options": ["Part II", "Part III", "Part IV", "Part V"],
+    "answerIndex": 1,
+    "explanation": "Fundamental Rights are contained in Part III of the Indian Constitution."
+  },
+  {
+    "id": 2,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Rights are called fundamental mainly because they are:",
+    "options": [
+      "Granted by the Government",
+      "Included in the Constitution and enforceable by courts",
+      "Absolute and unlimited",
+      "Based only on traditions"
+    ],
+    "answerIndex": 1,
+    "explanation": "They are included in the Constitution and can be enforced by the courts."
+  },
+  {
+    "id": 3,
+    "topic": "Human Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which international document was adopted on 10 December 1948?",
+    "options": [
+      "Indian Constitution",
+      "Universal Declaration of Human Rights",
+      "Geneva Convention",
+      "League of Nations Charter"
+    ],
+    "answerIndex": 1,
+    "explanation": "The UN General Assembly adopted the Universal Declaration of Human Rights on 10 December 1948."
+  },
+  {
+    "id": 4,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following explains why Fundamental Rights are not absolute?",
+    "options": [
+      "They can be misused",
+      "They are subject to reasonable restrictions",
+      "They are only moral rights",
+      "They apply only during emergencies"
+    ],
+    "answerIndex": 1,
+    "explanation": "The State may impose reasonable restrictions in public interest."
+  },
+  {
+    "id": 5,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Article 14 of the Indian Constitution deals with:",
+    "options": [
+      "Right to Freedom",
+      "Equality before Law",
+      "Freedom of Religion",
+      "Right to Education"
+    ],
+    "answerIndex": 1,
+    "explanation": "Article 14 guarantees equality before the law."
+  },
+  {
+    "id": 6,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which practice was abolished by the Constitution of India?",
+    "options": [
+      "Reservation",
+      "Untouchability",
+      "Caste system",
+      "Religion"
+    ],
+    "answerIndex": 1,
+    "explanation": "Untouchability was abolished and its practice was forbidden."
+  },
+  {
+    "id": 7,
+    "topic": "Right to Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many freedoms are guaranteed under Article 19?",
+    "options": ["Four", "Five", "Six", "Seven"],
+    "answerIndex": 2,
+    "explanation": "Article 19 guarantees six fundamental freedoms to citizens."
+  },
+  {
+    "id": 8,
+    "topic": "Right to Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom of speech and expression can be restricted in the interest of:",
+    "options": [
+      "Personal opinion",
+      "Public order and morality",
+      "Private profit",
+      "Political pressure"
+    ],
+    "answerIndex": 1,
+    "explanation": "Reasonable restrictions can be imposed in the interest of public order, decency or morality."
+  },
+  {
+    "id": 9,
+    "topic": "Life and Liberty",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Article guarantees the Right to Life and Personal Liberty?",
+    "options": ["Article 19", "Article 20", "Article 21", "Article 22"],
+    "answerIndex": 2,
+    "explanation": "Article 21 protects life and personal liberty."
+  },
+  {
+    "id": 10,
+    "topic": "Emergency Provisions",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Fundamental Rights cannot be suspended during an Emergency?",
+    "options": [
+      "Articles 14 and 15",
+      "Articles 19 and 20",
+      "Articles 20 and 21",
+      "Articles 21 and 22"
+    ],
+    "answerIndex": 2,
+    "explanation": "Rights under Articles 20 and 21 remain enforceable even during Emergency."
+  },
+  {
+    "id": 11,
+    "topic": "Right to Education",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The Right to Education was inserted by which Constitutional Amendment?",
+    "options": [
+      "42nd Amendment",
+      "44th Amendment",
+      "86th Amendment",
+      "73rd Amendment"
+    ],
+    "answerIndex": 2,
+    "explanation": "The 86th Amendment Act, 2002 introduced the Right to Education."
+  },
+  {
+    "id": 12,
+    "topic": "Right to Education",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Right to Education applies to children of which age group?",
+    "options": [
+      "5–10 years",
+      "6–14 years",
+      "7–15 years",
+      "8–16 years"
+    ],
+    "answerIndex": 1,
+    "explanation": "Free and compulsory education is provided to children aged 6–14 years."
+  },
+  {
+    "id": 13,
+    "topic": "Right against Exploitation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "What does 'Begar' mean?",
+    "options": [
+      "Paid labour",
+      "Forced labour without wages",
+      "Child labour",
+      "Volunteer service"
+    ],
+    "answerIndex": 1,
+    "explanation": "Begar refers to forced labour without payment."
+  },
+  {
+    "id": 14,
+    "topic": "Child Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Employment of children below 14 years is prohibited in:",
+    "options": [
+      "Offices only",
+      "Factories and mines",
+      "Shops",
+      "Schools"
+    ],
+    "answerIndex": 1,
+    "explanation": "Children below 14 cannot be employed in factories, mines or hazardous work."
+  },
+  {
+    "id": 15,
+    "topic": "Freedom of Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "India is described as a:",
+    "options": [
+      "Religious State",
+      "Theocratic State",
+      "Secular State",
+      "Federal State"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Constitution establishes India as a Secular State."
+  },
+  {
+    "id": 16,
+    "topic": "Cultural Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which group enjoys Cultural and Educational Rights?",
+    "options": [
+      "Only majority communities",
+      "Only citizens",
+      "Minorities",
+      "Foreigners"
+    ],
+    "answerIndex": 2,
+    "explanation": "Cultural and Educational Rights protect the interests of minorities."
+  },
+  {
+    "id": 17,
+    "topic": "Constitutional Remedies",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Article is known as the Right to Constitutional Remedies?",
+    "options": ["Article 21", "Article 30", "Article 32", "Article 51A"],
+    "answerIndex": 2,
+    "explanation": "Article 32 allows citizens to move the Supreme Court for enforcement of rights."
+  },
+  {
+    "id": 18,
+    "topic": "Writs",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which writ is used to produce a detained person before the court?",
+    "options": [
+      "Mandamus",
+      "Certiorari",
+      "Habeas Corpus",
+      "Quo Warranto"
+    ],
+    "answerIndex": 2,
+    "explanation": "Habeas Corpus protects against illegal detention."
+  },
+  {
+    "id": 19,
+    "topic": "Fundamental Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Duties were added by which Amendment Act?",
+    "options": [
+      "44th Amendment",
+      "42nd Amendment",
+      "86th Amendment",
+      "52nd Amendment"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fundamental Duties were added by the 42nd Amendment Act, 1976."
+  },
+  {
+    "id": 20,
+    "topic": "Directive Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles of State Policy are:",
+    "options": [
+      "Justiciable",
+      "Enforceable by courts",
+      "Non-justiciable",
+      "Temporary provisions"
+    ],
+    "answerIndex": 2,
+    "explanation": "Directive Principles are non-justiciable but fundamental in governance."
+  },
+  {
+    "id": 21,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Rights in India have their roots in:",
+    "options": [
+      "British Parliament",
+      "Struggle for Independence",
+      "French Revolution",
+      "United Nations Charter"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fundamental Rights had their deep roots in India's struggle for Independence."
+  },
+  {
+    "id": 22,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which body can issue orders to enforce Fundamental Rights?",
+    "options": [
+      "Parliament",
+      "President",
+      "Supreme Court and High Courts",
+      "Election Commission"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Supreme Court and High Courts can issue orders for enforcement of Fundamental Rights."
+  },
+  {
+    "id": 23,
+    "topic": "Human Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Human Rights Day is celebrated on:",
+    "options": [
+      "26 January",
+      "15 August",
+      "10 December",
+      "14 November"
+    ],
+    "answerIndex": 2,
+    "explanation": "Human Rights Day is observed on 10 December."
+  },
+  {
+    "id": 24,
+    "topic": "State",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which of the following is included in the term 'State'?",
+    "options": [
+      "Only Central Government",
+      "Only State Governments",
+      "Municipal Corporations",
+      "Private companies"
+    ],
+    "answerIndex": 2,
+    "explanation": "Local authorities like Municipal Corporations are included in the term 'State'."
+  },
+  {
+    "id": 25,
+    "topic": "Citizenship",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which right is available only to citizens and not to foreigners?",
+    "options": [
+      "Right to Life",
+      "Freedom of Religion",
+      "Freedom of Speech",
+      "Equality before Law"
+    ],
+    "answerIndex": 2,
+    "explanation": "Freedom of Speech is available only to citizens."
+  },
+  {
+    "id": 26,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which right protects individuals from actions of private citizens?",
+    "options": [
+      "Right to Freedom",
+      "Right to Equality",
+      "Right against Untouchability",
+      "Right to Property"
+    ],
+    "answerIndex": 2,
+    "explanation": "The abolition of untouchability protects individuals against private citizens."
+  },
+  {
+    "id": 27,
+    "topic": "Emergency",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Article remains suspended during an Emergency?",
+    "options": [
+      "Article 14",
+      "Article 19",
+      "Article 20",
+      "Article 21"
+    ],
+    "answerIndex": 1,
+    "explanation": "Article 19 remains suspended during an Emergency."
+  },
+  {
+    "id": 28,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which groups can receive special provisions under the Right to Equality?",
+    "options": [
+      "Foreigners",
+      "Women and children",
+      "Government employees",
+      "Judges"
+    ],
+    "answerIndex": 1,
+    "explanation": "Special provisions may be made for women and children."
+  },
+  {
+    "id": 29,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Reservation in public employment is mainly meant to help:",
+    "options": [
+      "Economically rich",
+      "Upper castes",
+      "Backward classes",
+      "Private sector"
+    ],
+    "answerIndex": 2,
+    "explanation": "Reservation helps backward classes to reach the level of advanced sections."
+  },
+  {
+    "id": 30,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Act was renamed as the Protection of Civil Rights Act?",
+    "options": [
+      "Child Labour Act",
+      "Untouchability Offences Act",
+      "Minimum Wages Act",
+      "RTI Act"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Untouchability Offences Act was renamed as the Protection of Civil Rights Act."
+  },
+  {
+    "id": 31,
+    "topic": "Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom of the press is included under:",
+    "options": [
+      "Right to Equality",
+      "Freedom of Religion",
+      "Freedom of Speech and Expression",
+      "Right to Education"
+    ],
+    "answerIndex": 2,
+    "explanation": "Freedom of the press is part of freedom of speech and expression."
+  },
+  {
+    "id": 32,
+    "topic": "Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom to assemble must be:",
+    "options": [
+      "Violent",
+      "With arms",
+      "Peaceful and unarmed",
+      "Secret"
+    ],
+    "answerIndex": 2,
+    "explanation": "Assembly must be peaceful and without arms."
+  },
+  {
+    "id": 33,
+    "topic": "Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom to reside and settle may be restricted to protect:",
+    "options": [
+      "Urban population",
+      "Scheduled Tribes",
+      "Tourists",
+      "Industrialists"
+    ],
+    "answerIndex": 1,
+    "explanation": "Restrictions protect the interests of Scheduled Tribes."
+  },
+  {
+    "id": 34,
+    "topic": "Profession",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which profession can be restricted by the State?",
+    "options": [
+      "Teaching",
+      "Medical practice",
+      "Dangerous or immoral business",
+      "Farming"
+    ],
+    "answerIndex": 2,
+    "explanation": "There is no right to carry on dangerous or immoral business."
+  },
+  {
+    "id": 35,
+    "topic": "Arrest Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Within how many hours must an arrested person be produced before a magistrate?",
+    "options": [
+      "12 hours",
+      "24 hours",
+      "48 hours",
+      "72 hours"
+    ],
+    "answerIndex": 1,
+    "explanation": "An arrested person must be produced within 24 hours."
+  },
+  {
+    "id": 36,
+    "topic": "Preventive Detention",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Preventive detention is mainly a:",
+    "options": [
+      "Punitive measure",
+      "Corrective measure",
+      "Precautionary measure",
+      "Judicial punishment"
+    ],
+    "answerIndex": 2,
+    "explanation": "Preventive detention is a precautionary measure."
+  },
+  {
+    "id": 37,
+    "topic": "Education",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The Right to Education Act came into force in:",
+    "options": [
+      "2002",
+      "2005",
+      "2010",
+      "2012"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Right to Education Act came into force on 1 April 2010."
+  },
+  {
+    "id": 38,
+    "topic": "Education",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Under the RTE Act, how much reservation is provided in private schools?",
+    "options": [
+      "15%",
+      "20%",
+      "25%",
+      "30%"
+    ],
+    "answerIndex": 2,
+    "explanation": "25% reservation is provided for weaker sections."
+  },
+  {
+    "id": 39,
+    "topic": "Exploitation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Traffic in human beings refers to:",
+    "options": [
+      "Migration",
+      "Selling and buying of persons",
+      "Tourism",
+      "Employment"
+    ],
+    "answerIndex": 1,
+    "explanation": "Traffic in human beings means dealing in men and women like goods."
+  },
+  {
+    "id": 40,
+    "topic": "Exploitation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Compulsory military service is an exception to:",
+    "options": [
+      "Child labour",
+      "Forced labour",
+      "Freedom of speech",
+      "Preventive detention"
+    ],
+    "answerIndex": 1,
+    "explanation": "Compulsory military service is an exception to the prohibition of forced labour."
+  },
+  {
+    "id": 41,
+    "topic": "Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Wearing and carrying of Kirpan is related to:",
+    "options": [
+      "Hindu religion",
+      "Islam",
+      "Sikh religion",
+      "Christianity"
+    ],
+    "answerIndex": 2,
+    "explanation": "Wearing and carrying Kirpan is part of Sikh religious practice."
+  },
+  {
+    "id": 42,
+    "topic": "Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Taxes cannot be used for the promotion of:",
+    "options": [
+      "Education",
+      "Health",
+      "Any particular religion",
+      "Infrastructure"
+    ],
+    "answerIndex": 2,
+    "explanation": "Taxes cannot promote any particular religion."
+  },
+  {
+    "id": 43,
+    "topic": "Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Religious instruction is prohibited in institutions:",
+    "options": [
+      "Private",
+      "State-aided",
+      "Fully State-funded",
+      "Minority-run"
+    ],
+    "answerIndex": 2,
+    "explanation": "No religious instruction is allowed in institutions fully maintained by the State."
+  },
+  {
+    "id": 44,
+    "topic": "Minority Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Minorities have the right to:",
+    "options": [
+      "Form political parties",
+      "Establish educational institutions",
+      "Reserve government jobs",
+      "Collect taxes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Minorities can establish and administer educational institutions."
+  },
+  {
+    "id": 45,
+    "topic": "Remedies",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which writ means 'we command'?",
+    "options": [
+      "Mandamus",
+      "Habeas Corpus",
+      "Certiorari",
+      "Prohibition"
+    ],
+    "answerIndex": 0,
+    "explanation": "Mandamus means 'we command'."
+  },
+  {
+    "id": 46,
+    "topic": "Remedies",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which writ prevents a lower court from exceeding its authority?",
+    "options": [
+      "Mandamus",
+      "Prohibition",
+      "Quo Warranto",
+      "Certiorari"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prohibition prevents inferior courts from exceeding their powers."
+  },
+  {
+    "id": 47,
+    "topic": "Remedies",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which writ questions the legality of holding a public office?",
+    "options": [
+      "Certiorari",
+      "Mandamus",
+      "Quo Warranto",
+      "Habeas Corpus"
+    ],
+    "answerIndex": 2,
+    "explanation": "Quo Warranto questions the authority of a person holding an office."
+  },
+  {
+    "id": 48,
+    "topic": "Property",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Amendment removed the Right to Property from Fundamental Rights?",
+    "options": [
+      "42nd",
+      "44th",
+      "86th",
+      "73rd"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 44th Amendment Act removed the Right to Property."
+  },
+  {
+    "id": 49,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "How many Fundamental Duties are there at present?",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "answerIndex": 2,
+    "explanation": "There are 11 Fundamental Duties."
+  },
+  {
+    "id": 50,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which duty relates to protection of environment?",
+    "options": [
+      "Respect the Flag",
+      "Scientific temper",
+      "Protect forests and wildlife",
+      "Defend the country"
+    ],
+    "answerIndex": 2,
+    "explanation": "Citizens must protect and improve the natural environment."
+  },
+  {
+    "id": 51,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Duty to educate children applies to parents of children aged:",
+    "options": [
+      "5–10 years",
+      "6–14 years",
+      "7–15 years",
+      "8–16 years"
+    ],
+    "answerIndex": 1,
+    "explanation": "Parents must educate children between 6 and 14 years."
+  },
+  {
+    "id": 52,
+    "topic": "Directive Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles are contained in which Part of the Constitution?",
+    "options": [
+      "Part II",
+      "Part III",
+      "Part IV",
+      "Part V"
+    ],
+    "answerIndex": 2,
+    "explanation": "Directive Principles are contained in Part IV."
+  },
+  {
+    "id": 53,
+    "topic": "Directive Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles are:",
+    "options": [
+      "Legally enforceable",
+      "Non-justiciable",
+      "Temporary",
+      "Optional"
+    ],
+    "answerIndex": 1,
+    "explanation": "Directive Principles are non-justiciable."
+  },
+  {
+    "id": 54,
+    "topic": "Gandhian Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Directive aims at organising Village Panchayats?",
+    "options": [
+      "Socialist principle",
+      "Gandhian principle",
+      "Liberal principle",
+      "Judicial principle"
+    ],
+    "answerIndex": 1,
+    "explanation": "Organisation of Panchayats is a Gandhian principle."
+  },
+  {
+    "id": 55,
+    "topic": "Economy",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fair distribution of wealth reflects which principle?",
+    "options": [
+      "Capitalist",
+      "Socialist",
+      "Federal",
+      "Judicial"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fair distribution of wealth reflects socialist principles."
+  },
+  {
+    "id": 56,
+    "topic": "Environment",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Amendment emphasised environmental protection?",
+    "options": [
+      "42nd",
+      "44th",
+      "52nd",
+      "86th"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 42nd Amendment stressed environmental protection."
+  },
+  {
+    "id": 57,
+    "topic": "Directive Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles aim to establish India as a:",
+    "options": [
+      "Capitalist State",
+      "Police State",
+      "Welfare State",
+      "Religious State"
+    ],
+    "answerIndex": 2,
+    "explanation": "Directive Principles aim to establish a Welfare State."
+  },
+  {
+    "id": 58,
+    "topic": "Welfare State",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "A Welfare State provides assistance mainly in cases of:",
+    "options": [
+      "Business loss",
+      "Old age and sickness",
+      "Foreign travel",
+      "Political campaigns"
+    ],
+    "answerIndex": 1,
+    "explanation": "A Welfare State assists citizens in old age, sickness and unemployment."
+  },
+  {
+    "id": 59,
+    "topic": "Conflict",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ordinarily, which prevails over Directive Principles?",
+    "options": [
+      "State policy",
+      "Fundamental Rights",
+      "Judicial orders",
+      "Customary law"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fundamental Rights generally prevail over Directive Principles."
+  },
+  {
+    "id": 60,
+    "topic": "Conflict",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which principle should prevail over individual rights?",
+    "options": [
+      "Personal benefit",
+      "General welfare",
+      "Judicial opinion",
+      "Political power"
+    ],
+    "answerIndex": 1,
+    "explanation": "General welfare should prevail over individual rights."
+  },
+  {
+    "id": 61,
+    "topic": "Article 31C",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Article 31C strengthens the position of:",
+    "options": [
+      "Fundamental Rights",
+      "Fundamental Duties",
+      "Directive Principles",
+      "Judiciary"
+    ],
+    "answerIndex": 2,
+    "explanation": "Article 31C enhances the value of Directive Principles."
+  },
+  {
+    "id": 62,
+    "topic": "Welfare Measures",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Act guarantees 100 days of employment?",
+    "options": [
+      "RTI Act",
+      "Right to Education Act",
+      "NREGA",
+      "Food Security Act"
+    ],
+    "answerIndex": 2,
+    "explanation": "NREGA guarantees 100 days of employment."
+  },
+  {
+    "id": 63,
+    "topic": "Food Security",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "The Right to Food Security Act was enacted in:",
+    "options": [
+      "2010",
+      "2012",
+      "2013",
+      "2015"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Right to Food Security Act was enacted in 2013."
+  },
+  {
+    "id": 64,
+    "topic": "Health",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ayushman Bharat is related to:",
+    "options": [
+      "Education",
+      "Employment",
+      "Health insurance",
+      "Housing"
+    ],
+    "answerIndex": 2,
+    "explanation": "Ayushman Bharat provides health insurance."
+  },
+  {
+    "id": 65,
+    "topic": "Banking",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Jan-Dhan Yojana mainly promotes:",
+    "options": [
+      "Industrial growth",
+      "Banking inclusion",
+      "Tourism",
+      "Education loans"
+    ],
+    "answerIndex": 1,
+    "explanation": "Jan-Dhan Yojana promotes banking inclusion."
+  },
+  {
+    "id": 66,
+    "topic": "Housing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Rural Housing Programme funding was highlighted in which Budget year?",
+    "options": [
+      "2016–17",
+      "2018–19",
+      "2020–21",
+      "2022–23"
+    ],
+    "answerIndex": 2,
+    "explanation": "₹19,500 crore was allocated in the 2020–21 Budget."
+  },
+  {
+    "id": 67,
+    "topic": "Constitution",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Rights and Directive Principles are:",
+    "options": [
+      "Opposed to each other",
+      "Unrelated",
+      "Complementary",
+      "Temporary"
+    ],
+    "answerIndex": 2,
+    "explanation": "Fundamental Rights and Directive Principles complement each other."
+  },
+  {
+    "id": 68,
+    "topic": "Democracy",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Civil liberties are essential for:",
+    "options": [
+      "Monarchy",
+      "Dictatorship",
+      "Democracy",
+      "Colonial rule"
+    ],
+    "answerIndex": 2,
+    "explanation": "Civil liberties are essential for democracy."
+  },
+  {
+    "id": 69,
+    "topic": "Courts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Public Interest Litigation allows:",
+    "options": [
+      "Only victims to file cases",
+      "Only lawyers to file cases",
+      "Anyone to file in public interest",
+      "Only judges to file cases"
+    ],
+    "answerIndex": 2,
+    "explanation": "Anyone can initiate litigation in public interest."
+  },
+  {
+    "id": 70,
+    "topic": "Judiciary",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which court is the guardian of Fundamental Rights?",
+    "options": [
+      "District Court",
+      "High Court",
+      "Supreme Court",
+      "Lok Adalat"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Supreme Court is the guardian of Fundamental Rights."
+  },
+  {
+    "id": 71,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Rights are guaranteed to ensure:",
+    "options": [
+      "Absolute freedom",
+      "Personal and common good",
+      "Political dominance",
+      "Economic monopoly"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fundamental Rights ensure personal and common good."
+  },
+  {
+    "id": 72,
+    "topic": "Fundamental Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which institution finally interprets Fundamental Rights?",
+    "options": [
+      "Parliament",
+      "President",
+      "Judiciary",
+      "Election Commission"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Judiciary interprets Fundamental Rights."
+  },
+  {
+    "id": 73,
+    "topic": "Human Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Universal Declaration of Human Rights was adopted by:",
+    "options": [
+      "League of Nations",
+      "UN General Assembly",
+      "World Court",
+      "UNESCO"
+    ],
+    "answerIndex": 1,
+    "explanation": "It was adopted by the UN General Assembly."
+  },
+  {
+    "id": 74,
+    "topic": "State",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which body is NOT included in the term 'State'?",
+    "options": [
+      "Parliament of India",
+      "Municipal Corporation",
+      "Private factory",
+      "State Legislature"
+    ],
+    "answerIndex": 2,
+    "explanation": "Private factories are not included in the term 'State'."
+  },
+  {
+    "id": 75,
+    "topic": "Citizenship",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which right is available to both citizens and foreigners?",
+    "options": [
+      "Freedom of speech",
+      "Right to Life",
+      "Freedom of movement",
+      "Right to vote"
+    ],
+    "answerIndex": 1,
+    "explanation": "Right to Life is available to all persons."
+  },
+  {
+    "id": 76,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Equality before law means:",
+    "options": [
+      "Equal income for all",
+      "Same laws for all persons",
+      "No laws at all",
+      "Special laws for rich"
+    ],
+    "answerIndex": 1,
+    "explanation": "Equality before law means equal laws for all."
+  },
+  {
+    "id": 77,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Article abolishes untouchability?",
+    "options": [
+      "Article 14",
+      "Article 15",
+      "Article 17",
+      "Article 18"
+    ],
+    "answerIndex": 2,
+    "explanation": "Article 17 abolishes untouchability."
+  },
+  {
+    "id": 78,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Abolition of titles is mentioned in:",
+    "options": [
+      "Article 16",
+      "Article 17",
+      "Article 18",
+      "Article 19"
+    ],
+    "answerIndex": 2,
+    "explanation": "Article 18 abolishes titles."
+  },
+  {
+    "id": 79,
+    "topic": "Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom of association allows citizens to:",
+    "options": [
+      "Form unions",
+      "Disobey laws",
+      "Avoid taxes",
+      "Reject courts"
+    ],
+    "answerIndex": 0,
+    "explanation": "Citizens may form associations or unions."
+  },
+  {
+    "id": 80,
+    "topic": "Freedom",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which freedom allows movement across India?",
+    "options": [
+      "Freedom of religion",
+      "Right to move freely",
+      "Right to equality",
+      "Right to education"
+    ],
+    "answerIndex": 1,
+    "explanation": "Citizens have the right to move freely throughout India."
+  },
+  {
+    "id": 81,
+    "topic": "Emergency",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "During Emergency, who may suspend the right to move the courts?",
+    "options": [
+      "Prime Minister",
+      "Chief Justice",
+      "President",
+      "Governor"
+    ],
+    "answerIndex": 2,
+    "explanation": "The President may suspend the right to move courts."
+  },
+  {
+    "id": 82,
+    "topic": "Life and Liberty",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Procedure established by law refers to:",
+    "options": [
+      "Arbitrary action",
+      "Fair legal procedure",
+      "Police decision",
+      "Political order"
+    ],
+    "answerIndex": 1,
+    "explanation": "It means a fair and just legal procedure."
+  },
+  {
+    "id": 83,
+    "topic": "Arrest Rights",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which right is NOT available under preventive detention?",
+    "options": [
+      "Right to know grounds",
+      "Right to lawyer",
+      "Right to Advisory Board review",
+      "Right to limited detention period"
+    ],
+    "answerIndex": 1,
+    "explanation": "Right to lawyer is not guaranteed under preventive detention."
+  },
+  {
+    "id": 84,
+    "topic": "Education",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Right to Education has the same legal force as:",
+    "options": [
+      "Right to Equality",
+      "Right to Property",
+      "Right to Life",
+      "Right to Religion"
+    ],
+    "answerIndex": 2,
+    "explanation": "Right to Education has the same force as Right to Life."
+  },
+  {
+    "id": 85,
+    "topic": "Exploitation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Article prohibits traffic in human beings?",
+    "options": [
+      "Article 21",
+      "Article 22",
+      "Article 23",
+      "Article 24"
+    ],
+    "answerIndex": 2,
+    "explanation": "Article 23 prohibits traffic in human beings."
+  },
+  {
+    "id": 86,
+    "topic": "Exploitation",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Article 24 deals with:",
+    "options": [
+      "Forced labour",
+      "Child labour",
+      "Human trafficking",
+      "Minimum wages"
+    ],
+    "answerIndex": 1,
+    "explanation": "Article 24 prohibits child labour in factories and mines."
+  },
+  {
+    "id": 87,
+    "topic": "Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Freedom of conscience means:",
+    "options": [
+      "Freedom to change government",
+      "Freedom to choose beliefs",
+      "Freedom to break laws",
+      "Freedom to avoid duties"
+    ],
+    "answerIndex": 1,
+    "explanation": "It means freedom to choose one’s beliefs."
+  },
+  {
+    "id": 88,
+    "topic": "Religion",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Promotion of any religion using public funds is:",
+    "options": [
+      "Allowed",
+      "Encouraged",
+      "Prohibited",
+      "Optional"
+    ],
+    "answerIndex": 2,
+    "explanation": "Public funds cannot promote any religion."
+  },
+  {
+    "id": 89,
+    "topic": "Minorities",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Minority institutions are protected under:",
+    "options": [
+      "Article 28",
+      "Article 29 and 30",
+      "Article 32",
+      "Article 51A"
+    ],
+    "answerIndex": 1,
+    "explanation": "Articles 29 and 30 protect minority interests."
+  },
+  {
+    "id": 90,
+    "topic": "Remedies",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which writ transfers a case from lower to higher court?",
+    "options": [
+      "Habeas Corpus",
+      "Mandamus",
+      "Certiorari",
+      "Quo Warranto"
+    ],
+    "answerIndex": 2,
+    "explanation": "Certiorari transfers records to higher courts."
+  },
+  {
+    "id": 91,
+    "topic": "Property",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Right to Property is now:",
+    "options": [
+      "Fundamental right",
+      "Legal right",
+      "Moral right",
+      "Political right"
+    ],
+    "answerIndex": 1,
+    "explanation": "Right to Property is now a legal right."
+  },
+  {
+    "id": 92,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which Amendment added Fundamental Duties?",
+    "options": [
+      "44th",
+      "42nd",
+      "73rd",
+      "86th"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 42nd Amendment added Fundamental Duties."
+  },
+  {
+    "id": 93,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which duty promotes national unity?",
+    "options": [
+      "Scientific temper",
+      "Common brotherhood",
+      "Environmental protection",
+      "Education of children"
+    ],
+    "answerIndex": 1,
+    "explanation": "Promoting common brotherhood strengthens unity."
+  },
+  {
+    "id": 94,
+    "topic": "Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Disrespect to the National Flag is:",
+    "options": [
+      "Allowed",
+      "Optional",
+      "Punishable",
+      "Encouraged"
+    ],
+    "answerIndex": 2,
+    "explanation": "Disrespect to the National Flag is punishable."
+  },
+  {
+    "id": 95,
+    "topic": "Directive Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles guide:",
+    "options": [
+      "Judges only",
+      "Citizens only",
+      "Legislature and Executive",
+      "Army"
+    ],
+    "answerIndex": 2,
+    "explanation": "They guide the legislature and executive."
+  },
+  {
+    "id": 96,
+    "topic": "Gandhian Principles",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Prohibition of liquor reflects:",
+    "options": [
+      "Capitalist principle",
+      "Gandhian principle",
+      "Federal principle",
+      "Judicial principle"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prohibition of liquor is a Gandhian principle."
+  },
+  {
+    "id": 97,
+    "topic": "Economy",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Providing adequate means of livelihood reflects:",
+    "options": [
+      "Socialist principle",
+      "Capitalist principle",
+      "Colonial policy",
+      "Judicial reform"
+    ],
+    "answerIndex": 0,
+    "explanation": "It reflects socialist principles."
+  },
+  {
+    "id": 98,
+    "topic": "Environment",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Protection of forests is mentioned under:",
+    "options": [
+      "Fundamental Rights",
+      "Fundamental Duties",
+      "Directive Principles",
+      "Emergency provisions"
+    ],
+    "answerIndex": 2,
+    "explanation": "Environmental protection is a Directive Principle."
+  },
+  {
+    "id": 99,
+    "topic": "Welfare State",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which is NOT a feature of a Welfare State?",
+    "options": [
+      "Social security",
+      "Public health",
+      "Absolute monarchy",
+      "Education"
+    ],
+    "answerIndex": 2,
+    "explanation": "A Welfare State is not a monarchy."
+  },
+  {
+    "id": 100,
+    "topic": "Welfare State",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "India is called a Welfare State because:",
+    "options": [
+      "It follows capitalism",
+      "It protects only rich citizens",
+      "It follows Directive Principles",
+      "It has no Constitution"
+    ],
+    "answerIndex": 2,
+    "explanation": "Directive Principles make India a Welfare State."
+  },
+  {
+    "id": 101,
+    "topic": "Conflict",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which doctrine resolves conflict between Rights and Directives?",
+    "options": [
+      "Judicial supremacy",
+      "General welfare",
+      "Political convenience",
+      "Colonial policy"
+    ],
+    "answerIndex": 1,
+    "explanation": "General welfare should prevail."
+  },
+  {
+    "id": 102,
+    "topic": "Article 31C",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Article 31C protects laws implementing:",
+    "options": [
+      "Fundamental Duties",
+      "Emergency provisions",
+      "Directive Principles",
+      "Election laws"
+    ],
+    "answerIndex": 2,
+    "explanation": "Article 31C protects Directive Principles."
+  },
+  {
+    "id": 103,
+    "topic": "Employment",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "NREGA is now named after:",
+    "options": [
+      "Jawaharlal Nehru",
+      "B. R. Ambedkar",
+      "Mahatma Gandhi",
+      "Sardar Patel"
+    ],
+    "answerIndex": 2,
+    "explanation": "NREGA is named after Mahatma Gandhi."
+  },
+  {
+    "id": 104,
+    "topic": "Food Security",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Right to Food Security ensures:",
+    "options": [
+      "Free meals",
+      "Subsidised food grains",
+      "Luxury food",
+      "Export of grains"
+    ],
+    "answerIndex": 1,
+    "explanation": "It ensures subsidised food grains."
+  },
+  {
+    "id": 105,
+    "topic": "Health",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Ayushman Bharat provides insurance cover up to:",
+    "options": [
+      "₹2 lakh",
+      "₹3 lakh",
+      "₹5 lakh",
+      "₹10 lakh"
+    ],
+    "answerIndex": 2,
+    "explanation": "Ayushman Bharat provides ₹5 lakh cover."
+  },
+  {
+    "id": 106,
+    "topic": "Banking",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "PMJDY mainly benefits:",
+    "options": [
+      "Corporates",
+      "Urban elites",
+      "Poor and unbanked",
+      "Foreign investors"
+    ],
+    "answerIndex": 2,
+    "explanation": "PMJDY targets the poor and unbanked."
+  },
+  {
+    "id": 107,
+    "topic": "Housing",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Rural Housing Programme mainly supports:",
+    "options": [
+      "Urban housing",
+      "Rural poor",
+      "Industrial workers",
+      "Government officers"
+    ],
+    "answerIndex": 1,
+    "explanation": "It supports rural poor families."
+  },
+  {
+    "id": 108,
+    "topic": "Judiciary",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Public Interest Litigation promotes:",
+    "options": [
+      "Private disputes",
+      "Public welfare",
+      "Political rivalry",
+      "Corporate interests"
+    ],
+    "answerIndex": 1,
+    "explanation": "PIL promotes public welfare."
+  },
+  {
+    "id": 109,
+    "topic": "Courts",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "High Courts can issue writs under:",
+    "options": [
+      "Article 21",
+      "Article 32",
+      "Article 226",
+      "Article 368"
+    ],
+    "answerIndex": 2,
+    "explanation": "High Courts issue writs under Article 226."
+  },
+  {
+    "id": 110,
+    "topic": "Democracy",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Rights are essential for:",
+    "options": [
+      "Dictatorship",
+      "Democracy",
+      "Colonial rule",
+      "Military rule"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fundamental Rights are essential for democracy."
+  },
+  {
+    "id": 111,
+    "topic": "Constitution",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Fundamental Duties are contained in:",
+    "options": [
+      "Part III",
+      "Part IV",
+      "Part IV-A",
+      "Part V"
+    ],
+    "answerIndex": 2,
+    "explanation": "Fundamental Duties are in Part IV-A."
+  },
+  {
+    "id": 112,
+    "topic": "Constitution",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles act as a:",
+    "options": [
+      "Punishment",
+      "Beacon light",
+      "Law code",
+      "Emergency rule"
+    ],
+    "answerIndex": 1,
+    "explanation": "They act as a beacon light to the State."
+  },
+  {
+    "id": 113,
+    "topic": "Judiciary",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Which body upheld land reform laws?",
+    "options": [
+      "Parliament",
+      "Supreme Court",
+      "Cabinet",
+      "Election Commission"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Supreme Court upheld land reform laws."
+  },
+  {
+    "id": 114,
+    "topic": "Land Reforms",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Land reforms aimed to benefit:",
+    "options": [
+      "Big landlords",
+      "Poor farmers",
+      "Industrialists",
+      "Foreign investors"
+    ],
+    "answerIndex": 1,
+    "explanation": "Land reforms aimed to help poor farmers."
+  },
+  {
+    "id": 115,
+    "topic": "Equality",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Special provisions for backward classes promote:",
+    "options": [
+      "Discrimination",
+      "Social justice",
+      "Capitalism",
+      "Authoritarianism"
+    ],
+    "answerIndex": 1,
+    "explanation": "They promote social justice."
+  },
+  {
+    "id": 116,
+    "topic": "Social Justice",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Reservation policy mainly aims at:",
+    "options": [
+      "Economic profit",
+      "Political gain",
+      "Social equality",
+      "Foreign trade"
+    ],
+    "answerIndex": 2,
+    "explanation": "Reservation aims at social equality."
+  },
+  {
+    "id": 117,
+    "topic": "Liberty",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Liberty without restrictions may lead to:",
+    "options": [
+      "Discipline",
+      "Lawlessness",
+      "Equality",
+      "Justice"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unrestricted liberty may lead to lawlessness."
+  },
+  {
+    "id": 118,
+    "topic": "Rights and Duties",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Rights and duties are like:",
+    "options": [
+      "Opposites",
+      "Two sides of a coin",
+      "Separate ideas",
+      "Optional values"
+    ],
+    "answerIndex": 1,
+    "explanation": "Rights and duties are two sides of the same coin."
+  },
+  {
+    "id": 119,
+    "topic": "Environment",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Compassion for living creatures is part of:",
+    "options": [
+      "Fundamental Rights",
+      "Fundamental Duties",
+      "Emergency powers",
+      "Judicial review"
+    ],
+    "answerIndex": 1,
+    "explanation": "It is a Fundamental Duty."
+  },
+  {
+    "id": 120,
+    "topic": "Governance",
+    "level": "Beginner",
+    "type": "mcq",
+    "question": "Directive Principles are fundamental in:",
+    "options": [
+      "Judicial review",
+      "Governance of the country",
+      "Emergency rule",
+      "Election process"
+    ],
+    "answerIndex": 1,
+    "explanation": "They are fundamental in the governance of the country."
+  }
+]

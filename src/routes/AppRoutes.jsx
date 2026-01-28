@@ -76,6 +76,10 @@ import ReactRoadmap from '../components/study/react/ReactRoadmap';
 import ReactModuleView from '../components/study/react/ReactModuleView';
 import ReactTopicView from '../components/study/react/ReactTopicView';
 
+import NodeRoadmap from '../components/study/node/NodeRoadmap';
+import NodeModuleView from '../components/study/node/NodeModuleView';
+import NodeTopicView from '../components/study/node/NodeTopicView';
+
 
 
 export default function AppRoutes() {
@@ -210,6 +214,11 @@ export default function AppRoutes() {
       <Route path="/react/roadmap" element={<ReactRoadmap />} />
       <Route path="/react/module/:slug" element={<ReactModuleView />} />
       <Route path="/react/topic/:moduleSlug/:topicIndex"  element={<ReactTopicView/>}/>
+
+       {/* Node  */}
+      <Route path="/node/roadmap" element={<NodeRoadmap />} />
+      <Route path="/node/module/:slug" element={<NodeModuleView />} />
+      <Route path="/node/topic/:moduleSlug/:topicIndex"  element={<NodeTopicView/>}/>
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
