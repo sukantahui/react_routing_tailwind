@@ -122,8 +122,9 @@
                         "Updating Object State Using Spread Operator",
                         "Updating Array State Using map, filter, and concat",
                         "Event Handling in React Components",
-                        "Handling onClick, onChange, and onSubmit Events",
+                       
                         "Passing Arguments to Event Handlers",
+                        "Understanding Argument Passing in Event Handlers",
                         "Preventing Default Form Behavior",
                         "Controlled Components in React Forms",
                         "Handling Single Input Forms",
@@ -150,7 +151,8 @@
                         "Conditional Data Fetching",
                         "Combining useState and useEffect Patterns",
                         "Derived State vs Stored State",
-                        "Intro to Lifting State Up (Preview Concept)"
+                        "Intro to Lifting State Up (Preview Concept)",
+                        "Handling onClick, onChange, and onSubmit Events"
                     ],
                     "learningOutcomes": [
                         "Manage component state with hooks",

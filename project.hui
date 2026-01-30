@@ -861,6 +861,8 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
 use clsx to avoid backtik
 import clsx from "clsx";
 
-make dark mode as default, place divs one after another not side by side, maintain it for all tipics
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+First 24 topics already completed, you well start from 25th Topic and file will be Topic24.jsx
 
  
