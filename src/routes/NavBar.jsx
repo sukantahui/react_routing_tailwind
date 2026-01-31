@@ -279,6 +279,13 @@ class NavBar extends Component {
                         </NavLink>
                       )}
 
+                      {isDev && (
+                        <NavLink to="/java-web/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="React" />
+                          Java Web
+                        </NavLink>
+                      )}
+
 
                     </motion.div>
                   )}

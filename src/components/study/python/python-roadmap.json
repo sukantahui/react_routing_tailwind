@@ -724,17 +724,78 @@
           "difficultyIndex": 8
         },
         {
-          "moduleId": "exceptions",
-          "slug": "error-handling",
-          "title": "Exception Handling & Debugging",
-          "estimatedHours": 5,
+          "moduleId": "exceptions-basic",
+          "slug": "basic-exception-handling",
+          "title": "Basic Exception Handling",
+          "level": "Beginner–Intermediate",
+          "estimatedHours": 3,
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Learn how to handle runtime errors gracefully and make Python programs robust, user-friendly, and crash-free.",
           "topics": [
-            "try, except, else, finally",
+            "What are runtime errors and why they occur",
+            "Difference between syntax errors and runtime errors",
+            "Common Python exceptions: ValueError, TypeError, ZeroDivisionError",
+            "try and except blocks",
+            "Handling multiple exceptions",
+            "Using else with try-except",
+            "Basic input validation using exception handling",
             "Raising custom exceptions",
             "Debugging using breakpoints",
-            "Common Python errors"
+            "Common Python errors",
+            "Writing safe and fault-tolerant programs"
           ],
-          "difficultyIndex": 8
+          "learningOutcomes": [
+            "Explain the difference between syntax errors and runtime errors",
+            "Handle common Python exceptions confidently",
+            "Prevent program crashes using try-except blocks",
+            "Validate user input safely",
+            "Write beginner-level robust Python programs"
+          ],
+          "prerequisites": [
+            "control-flow",
+            "loops"
+          ],
+          "miniProjects": [
+            "Safe Calculator with Exception Handling",
+            "Student Marks Input Validation System"
+          ],
+          "exercises": {
+            "mcq": 12,
+            "coding": 8,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Coding Exercise",
+            "passScore": 70
+          },
+          "useCases": [
+            "Preventing program crashes due to wrong input",
+            "Building reliable calculators",
+            "Handling unexpected user behavior"
+          ],
+          "careerSkills": [
+            "Defensive programming mindset",
+            "Writing production-safe beginner code",
+            "Understanding real-world error scenarios"
+          ],
+          "commonMistakes": [
+            "Catching all exceptions using bare except",
+            "Using exceptions instead of proper logic checks",
+            "Ignoring error messages without understanding them"
+          ],
+          "teachingTips": [
+            "Demonstrate program crash vs handled execution",
+            "Use real-life analogies (seat belts, safety nets)",
+            "Encourage students to read error messages carefully"
+          ],
+          "references": [
+            "Python Docs – Errors and Exceptions",
+            "Real Python – Python Exceptions"
+          ],
+          "badge": "Exception Handler Badge",
+          "previousModule": "loops",
+          "nextModule": "functions-core"
         },
         {
           "moduleId": "decorators-gen",

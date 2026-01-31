@@ -1,0 +1,257 @@
+{
+  "trackId": "bcac601-advanced-java-web",
+  "trackTitle": "Advanced Java with Web Application",
+  "description": "An academic and industry-aligned Java Web development course covering Java EE, JDBC, JSP, Servlets, MVC architecture, and Hibernate, designed as per MAKAUT BCA Semester VI syllabus.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "University Core Major Course (MAKAUT)",
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-22"
+  },
+  "folder": "java-web",
+  "subject": "Java Web",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/logos/java.svg",
+    "alt": "Java Logo"
+  },
+  "prerequisites": [
+    "Core Java Fundamentals",
+    "Object-Oriented Programming Concepts",
+    "Basic SQL Queries",
+    "HTML Basics"
+  ],
+  "academicInfo": {
+    "subjectCode": "BCAC601",
+    "courseType": "Core Major",
+    "semester": 6,
+    "credits": {
+      "total": 5,
+      "theory": "3L",
+      "practical": "2P"
+    },
+    "university": {
+      "name": "Maulana Abul Kalam Azad University of Technology",
+      "formerly": "West Bengal University of Technology",
+      "academicSession": "2023-24 onwards"
+    }
+  },
+  "courseObjective": [
+    "Provide comprehensive understanding of Java EE technologies",
+    "Bridge core Java programming with real-world web applications",
+    "Develop scalable, secure, and maintainable Java-based web solutions",
+    "Apply MVC architecture, session management, and database integration",
+    "Prepare students for enterprise Java development practices"
+  ],
+  "courseOutcomes": [
+    {
+      "co": "CO1",
+      "description": "Design and develop dynamic and scalable web applications using Servlets, JSP, and JDBC"
+    },
+    {
+      "co": "CO2",
+      "description": "Implement client-server communication, session management, and MVC architecture"
+    },
+    {
+      "co": "CO3",
+      "description": "Perform secure CRUD operations using JDBC with transaction management"
+    },
+    {
+      "co": "CO4",
+      "description": "Deploy Java web applications on servers and integrate RESTful and security features"
+    }
+  ],
+  "segments": [
+    {
+      "segmentId": "java-ee-foundation",
+      "title": "Segment 1 – Java EE Foundations",
+      "level": "Beginner",
+      "summary": "Introduction to Java EE architecture and core web technologies.",
+      "modules": [
+        {
+          "moduleId": "java-ee-intro",
+          "slug": "introduction-to-java-ee",
+          "title": "Introduction to Java EE",
+          "level": "Beginner",
+          "estimatedHours": 3,
+          "tags": ["java-ee", "architecture"],
+          "topics": [
+            "Overview of Java EE Architecture",
+            "Java SE vs Java EE",
+            "Role of JDBC, JSP, and Servlets",
+            "Web Application Architecture Fundamentals"
+          ],
+          "learningOutcomes": [
+            "Understand Java EE ecosystem",
+            "Differentiate Java SE and Java EE",
+            "Explain core Java web components"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "Foundation of enterprise Java web development."
+        }
+      ]
+    },
+    {
+      "segmentId": "jdbc-database-layer",
+      "title": "Segment 2 – Database Connectivity with JDBC",
+      "level": "Beginner",
+      "summary": "Database access and transaction management using JDBC.",
+      "modules": [
+        {
+          "moduleId": "jdbc-core",
+          "slug": "jdbc-java-database-connectivity",
+          "title": "JDBC – Java Database Connectivity",
+          "level": "Beginner",
+          "estimatedHours": 9,
+          "tags": ["jdbc", "sql", "database"],
+          "topics": [
+            "Introduction to JDBC",
+            "JDBC Drivers and Architecture",
+            "Connecting Java with Databases",
+            "Executing SQL Queries (CRUD)",
+            "Statement vs PreparedStatement",
+            "ResultSet and Metadata",
+            "Transaction Management",
+            "Commit, Rollback, Savepoint",
+            "Batch Processing"
+          ],
+          "learningOutcomes": [
+            "Connect Java applications to databases",
+            "Perform secure CRUD operations",
+            "Handle database transactions"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "summary": "Foundation of Java database integration."
+        }
+      ]
+    },
+    {
+      "segmentId": "presentation-layer",
+      "title": "Segment 3 – JSP & Presentation Layer",
+      "level": "Intermediate",
+      "summary": "Dynamic page generation using JSP, EL, and JSTL.",
+      "modules": [
+        {
+          "moduleId": "jsp-core",
+          "slug": "java-server-pages",
+          "title": "Java Server Pages (JSP)",
+          "level": "Intermediate",
+          "estimatedHours": 12,
+          "tags": ["jsp", "jstl", "el"],
+          "topics": [
+            "JSP Lifecycle",
+            "Scriptlet, Expression, Declaration",
+            "JSP Implicit Objects",
+            "JSP Directives",
+            "JavaBeans in JSP",
+            "Expression Language (EL)",
+            "JSTL Core Tags",
+            "Custom Tag Libraries"
+          ],
+          "learningOutcomes": [
+            "Create dynamic JSP pages",
+            "Use JSTL and EL effectively",
+            "Separate presentation logic"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "summary": "Dynamic UI layer using JSP technologies."
+        }
+      ]
+    },
+    {
+      "segmentId": "controller-layer",
+      "title": "Segment 4 – Servlets & MVC Architecture",
+      "level": "Intermediate",
+      "summary": "Controller logic, session handling, and MVC implementation.",
+      "modules": [
+        {
+          "moduleId": "servlet-core",
+          "slug": "servlet-technology",
+          "title": "Servlet Technology",
+          "level": "Intermediate",
+          "estimatedHours": 12,
+          "tags": ["servlet", "http", "session"],
+          "topics": [
+            "Servlet Lifecycle",
+            "HTTP Request and Response",
+            "Deployment Descriptor",
+            "ServletConfig and ServletContext",
+            "Session Management",
+            "Cookies and HttpSession",
+            "Filters",
+            "File Upload and Download"
+          ],
+          "learningOutcomes": [
+            "Handle client-server requests",
+            "Manage sessions securely",
+            "Implement filters"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Controller layer of Java web applications."
+        }
+      ]
+    },
+    {
+      "segmentId": "enterprise-persistence",
+      "title": "Segment 5 – ORM with Hibernate",
+      "level": "Advanced",
+      "summary": "Enterprise-level persistence using Hibernate ORM.",
+      "modules": [
+        {
+          "moduleId": "hibernate-core",
+          "slug": "hibernate-framework",
+          "title": "Hibernate Framework",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": ["hibernate", "orm"],
+          "topics": [
+            "ORM vs JDBC",
+            "Hibernate Architecture",
+            "Configuration (XML & Annotations)",
+            "Entity Mapping",
+            "CRUD Operations",
+            "Hibernate Query Language (HQL)"
+          ],
+          "learningOutcomes": [
+            "Implement ORM-based persistence",
+            "Use Hibernate for CRUD",
+            "Write HQL queries"
+          ],
+          "difficulty": "Advanced",
+          "difficultyIndex": 7,
+          "summary": "Enterprise persistence layer."
+        }
+      ]
+    }
+  ],
+  "practicalLab": {
+    "labCode": "BCAC691",
+    "credit": 2,
+    "miniProjects": [
+      "Online Bookstore Application",
+      "Employee Management System"
+    ]
+  },
+  "assessment": {
+    "internalExam": {
+      "hours": 3,
+      "marks": 30
+    },
+    "totalMarks": 100
+  },
+  "learningPath": {
+    "weeks": 12,
+    "weeklyCommitment": "8-10 hours",
+    "totalEstimatedHours": 48,
+    "outcome": "Industry-ready Java Web Developer (Academic + Practical)"
+  }
+}

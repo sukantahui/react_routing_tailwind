@@ -80,6 +80,10 @@ import NodeRoadmap from '../components/study/node/NodeRoadmap';
 import NodeModuleView from '../components/study/node/NodeModuleView';
 import NodeTopicView from '../components/study/node/NodeTopicView';
 
+import JavaWebRoadmap from '../components/study/java-web/JavaWebRoadmap';
+import JavaWebModuleView from '../components/study/java-web/JavaWebModuleView';
+import JavaWebTopicView from '../components/study/java-web/JavaWebTopicView';
+
 
 
 export default function AppRoutes() {
@@ -219,6 +223,14 @@ export default function AppRoutes() {
       <Route path="/node/roadmap" element={<NodeRoadmap />} />
       <Route path="/node/module/:slug" element={<NodeModuleView />} />
       <Route path="/node/topic/:moduleSlug/:topicIndex"  element={<NodeTopicView/>}/>
+
+
+
+      {/* Java Web  */}
+      <Route path="/java-web/roadmap" element={<JavaWebRoadmap />} />
+      <Route path="/java-web/module/:slug" element={<JavaWebModuleView />} />
+      <Route path="/java-web/topic/:moduleSlug/:topicIndex"  element={<JavaWebTopicView/>}/>
+
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />

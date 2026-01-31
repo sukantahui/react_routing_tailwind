@@ -31,7 +31,7 @@ const Topic35 = () => {
   // Track render count
   useEffect(() => {
     setRenderCount(prev => prev + 1);
-  });
+  },[]);
 
   // Start performance measurement
   const startPerformanceMeasurement = () => {
@@ -55,23 +55,14 @@ const Topic35 = () => {
 
   // ============ MISTAKE 1: Missing Dependencies ============
   useEffect(() => {
-    if (mistakeType === 'missing') {
-      effectRunCountRef.current += 1;
-      setEffectRuns(effectRunCountRef.current);
-      
-      // This effect uses counter but doesn't list it as dependency
-      // This creates a stale closure - it will always log the initial counter value
-      console.log('Missing dependency: Counter value in effect:', counter);
-      
-      // Example of problem: timer that captures stale value
-      if (effectRunCountRef.current === 1) {
-        setTimeout(() => {
-          console.log('Missing dependency: Stale counter after timeout:', counter);
-          setStaleValue(counter);
-        }, 3000);
-      }
-    }
-  }, []); // ❌ Missing [counter] dependency
+  if (mistakeType !== 'missing') return;
+
+  const id = setTimeout(() => {
+    setStaleValue(counter); // stale on purpose
+  }, 3000);
+
+  return () => clearTimeout(id); // ✅ prevents stacking
+}, [mistakeType]); // ❌ Missing [counter] dependency
 
   // ============ MISTAKE 2: Infinite Loop ============
   useEffect(() => {
@@ -1311,7 +1302,7 @@ useEffect(() => {
       </div>
 
       {/* Animation Styles */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
