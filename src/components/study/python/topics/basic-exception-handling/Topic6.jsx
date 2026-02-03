@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import EditablePythonCodeBlock from "../../../../../common/EditablePythonCodeBlock";
+import PythonFileLoader from "../../../../../common/PythonFileLoader";
+import validateAgePy from "./topic6_files/validate_age.py?raw";
+import getNumberPy from "./topic6_files/get_number.py?raw";
+import loggingInvalidAgePy from "./topic6_files/logging_invalid_age.py?raw";
+import raiseValueErrorPy from "./topic6_files/raise_value_error.py?raw";
+import getPositiveIntegerPy from "./topic6_files/get_positive_integer.py?raw";
+import getStudentGradePy from "./topic6_files/get_student_grade.py?raw";
+import studentManagementSystemPy from "./topic6_files/student_management_system.py?raw";
+import ageValidationBasicPy from "./topic6_files/age_validation_basic.py?raw";
 
 const Topic6 = () => {
   const [activeValidation, setActiveValidation] = useState(null);
@@ -52,7 +61,7 @@ const Topic6 = () => {
               Why Validate Input?
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div className="space-y-6">
                 <div className="bg-gray-900/60 p-5 rounded-xl border-l-4 border-amber-500">
                   <h3 className="text-xl font-semibold text-white mb-3">The Problem</h3>
@@ -160,7 +169,7 @@ const Topic6 = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div className="space-y-6">
                 <div className="bg-gray-900/60 p-5 rounded-xl">
                   <h3 className="text-xl font-semibold text-white mb-3">Common Issues</h3>
@@ -214,8 +223,10 @@ const Topic6 = () => {
 
               <div>
                 <h3 className="text-xl font-semibold text-white mb-4">Interactive Example</h3>
-                <EditablePythonCodeBlock
-                  initialCode={`# Pattern 1: Basic numeric input validation\ndef get_positive_integer():\n    \"\"\"Get a positive integer from user with validation\"\"\"\n    while True:  # Keep asking until valid input\n        user_input = input(\"Enter a positive integer: \")\n        \n        try:\n            # Try to convert to integer\n            number = int(user_input)\n            \n            # Check if positive\n            if number <= 0:\n                print(\"Error: Number must be positive!\")\n                continue  # Ask again\n            \n            # If we get here, input is valid\n            return number\n            \n        except ValueError:\n            # Handle conversion errors\n            if user_input.strip() == \"\":\n                print(\"Error: Input cannot be empty!\")\n            else:\n                print(f\"Error: '{user_input}' is not a valid integer!\")\n\n# Test the function\nprint(\"=== Testing Input Validation ===\\n\")\nprint(\"Try entering:\\n1. Valid number (e.g., 42)\\n2. Text (e.g., abc)\\n3. Negative number\\n4. Empty input\\n5. Decimal (e.g., 3.14)\\n\")\n\n# Uncomment to test:\n# result = get_positive_integer()\n# print(f\"\\nSuccess! You entered: {result}\")`}
+                <PythonFileLoader
+                  fileModule={getPositiveIntegerPy}
+                  title="Python: Positive Integer Input Validation"
+                  highlightLines={[]}
                 />
                 
                 <div className="mt-4 p-4 bg-blue-900/20 rounded-lg border border-blue-700/30">
@@ -258,12 +269,14 @@ const Topic6 = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">Example: Student Grade Validator</h3>
-                <EditablePythonCodeBlock
-                  initialCode={`# Pattern 2: Advanced validation with multiple constraints\ndef get_student_grade():\n    \"\"\"Get a valid student grade (0-100) with detailed error messages\"\"\"\n    while True:\n        print(\"\\n\" + \"=\"*50)\n        print(\"Enter a student grade (0-100) or 'quit' to exit\")\n        user_input = input(\"Grade: \").strip()\n        \n        # Allow user to exit\n        if user_input.lower() == 'quit':\n            print(\"Exiting grade entry...\")\n            return None\n        \n        try:\n            # Try to convert to float (allow decimal grades)\n            grade = float(user_input)\n            \n            # Multiple validation checks\n            if grade < 0:\n                raise ValueError(\"Grade cannot be negative!\")\n            elif grade > 100:\n                raise ValueError(\"Grade cannot exceed 100!\")\n            elif grade.is_integer() and grade != int(grade):\n                # This shouldn't happen, but good defensive programming\n                raise ValueError(\"Integer grade expected!\")\n            \n            # Additional business logic\n            if grade >= 90:\n                category = \"A (Excellent)\"\n            elif grade >= 75:\n                category = \"B (Good)\"\n            elif grade >= 60:\n                category = \"C (Average)\"\n            elif grade >= 40:\n                category = \"D (Pass)\"\n            else:\n                category = \"F (Fail)\"\n            \n            # Success!\n            print(f\"✓ Valid grade entered: {grade}\")\n            print(f\"  Grade Category: {category}\")\n            return grade\n            \n        except ValueError as e:\n            print(f\"✗ Error: {e}\")\n            print(\"  Please enter a number between 0 and 100\")\n        except Exception as e:\n            print(f\"✗ Unexpected error: {type(e).__name__}\")\n            print(\"  Please try again\")\n\n# Test with various inputs\nprint(\"=== Student Grade Validator ===\\n\")\nget_student_grade()`}
+                <PythonFileLoader
+                  fileModule={getStudentGradePy}
+                  title="Python: Positive Integer Input Validation"
+                  highlightLines={[]}
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-1 gap-8">
                 <div className="bg-gray-900/60 p-5 rounded-xl">
                   <h3 className="text-xl font-semibold text-white mb-3">Custom Validation Rules</h3>
                   <div className="space-y-4">
@@ -271,7 +284,11 @@ const Topic6 = () => {
                       <div className="px-2 py-1 bg-purple-900/40 rounded text-xs text-purple-300 mt-1">Rule</div>
                       <div>
                         <p className="text-gray-300 font-medium">Range checking</p>
-                        <p className="text-gray-400 text-sm"><code>if not (0 <= value <= 100): raise ValueError(...)</code></p>
+                        <p className="text-gray-400 text-sm">
+                          <code>
+                            {`if not (0 <= value <= 100): raise ValueError(...)`}
+                          </code>
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
@@ -298,14 +315,11 @@ const Topic6 = () => {
                     trigger consistent error handling:
                   </p>
                   <div className="bg-gray-800/50 p-4 rounded-lg">
-                    <code className="text-sm text-gray-300 block">
-                      try:<br />
-                      &nbsp;&nbsp;value = int(input)<br />
-                      &nbsp;&nbsp;if value < 0:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;raise ValueError("Must be positive")<br />
-                      except ValueError as e:<br />
-                      &nbsp;&nbsp;print(f"Error: {e}")
-                    </code>
+                    <PythonFileLoader
+                      fileModule={raiseValueErrorPy}
+                      title="Python: Raising a ValueError"
+                      highlightLines={[]}
+                    />
                   </div>
                 </div>
               </div>
@@ -338,11 +352,11 @@ const Topic6 = () => {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-white mb-4">Interactive Example</h3>
                 <EditablePythonCodeBlock
-                  initialCode={`# Pattern 3: Menu system with validation\ndef student_management_system():\n    \"\"\"A menu-driven student management system\"\"\"\n    students = []\n    \n    while True:\n        print(\"\\n\" + \"=\"*50)\n        print(\"STUDENT MANAGEMENT SYSTEM\")\n        print(\"1. Add Student\")\n        print(\"2. View All Students\")\n        print(\"3. Calculate Class Average\")\n        print(\"4. Exit\")\n        \n        choice = input(\"Enter your choice (1-4): \").strip()\n        \n        try:\n            # Convert choice to integer\n            choice_int = int(choice)\n            \n            # Validate menu range\n            if choice_int < 1 or choice_int > 4:\n                print(\"Error: Choice must be between 1 and 4!\")\n                continue\n            \n            # Handle menu options\n            if choice_int == 1:\n                add_student(students)\n            elif choice_int == 2:\n                view_students(students)\n            elif choice_int == 3:\n                calculate_average(students)\n            elif choice_int == 4:\n                print(\"Thank you for using the Student Management System!\")\n                break\n                \n        except ValueError:\n            print(f\"Error: '{choice}' is not a valid number!\")\n        except Exception as e:\n            print(f\"Unexpected error: {type(e).__name__}\")\n\ndef add_student(students):\n    \"\"\"Add a student with validation\"\"\"\n    print(\"\\n--- Add New Student ---\")\n    \n    while True:\n        name = input(\"Student Name: \").strip()\n        if name == \"\":\n            print(\"Error: Name cannot be empty!\")\n        else:\n            break\n    \n    while True:\n        try:\n            age = int(input(\"Age: \"))\n            if age < 5 or age > 60:\n                print(\"Error: Age must be between 5 and 60!\")\n            else:\n                break\n        except ValueError:\n            print(\"Error: Please enter a valid number for age!\")\n    \n    while True:\n        try:\n            grade = float(input(\"Grade (0-100): \"))\n            if grade < 0 or grade > 100:\n                print(\"Error: Grade must be between 0 and 100!\")\n            else:\n                break\n        except ValueError:\n            print(\"Error: Please enter a valid number for grade!\")\n    \n    students.append({\"name\": name, \"age\": age, \"grade\": grade})\n    print(f\"✓ Student {name} added successfully!\")\n\ndef view_students(students):\n    \"\"\"View all students\"\"\"\n    print(\"\\n--- All Students ---\")\n    if not students:\n        print(\"No students in the system yet.\")\n    else:\n        for i, student in enumerate(students, 1):\n            print(f\"{i}. {student['name']} (Age: {student['age']}, Grade: {student['grade']})\")\n\ndef calculate_average(students):\n    \"\"\"Calculate class average\"\"\"\n    if not students:\n        print(\"No students to calculate average.\")\n    else:\n        total = sum(student['grade'] for student in students)\n        average = total / len(students)\n        print(f\"\\nClass Average: {average:.2f}\")\n\n# Run the system\nstudent_management_system()`}
+                  initialCode={studentManagementSystemPy}
                 />
               </div>
 
@@ -507,7 +521,7 @@ const Topic6 = () => {
               Common Validation Mistakes
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div className="space-y-6">
                 <div className="bg-gray-900/70 p-5 rounded-xl border border-red-700/30">
                   <h4 className="text-lg font-bold text-red-400 mb-3">Mistake 1: No Validation</h4>
@@ -522,14 +536,10 @@ const Topic6 = () => {
 
                 <div className="bg-gray-900/70 p-5 rounded-xl border border-red-700/30">
                   <h4 className="text-lg font-bold text-red-400 mb-3">Mistake 2: Incomplete Validation</h4>
-                  <code className="block bg-gray-800/50 p-3 rounded-lg text-red-300 text-sm font-mono mb-3">
-                    try:<br />
-                    &nbsp;&nbsp;age = int(input("Age: "))<br />
-                    except ValueError:<br />
-                    &nbsp;&nbsp;print("Invalid number")<br />
-                    # ❌ What about negative ages? Or age 200?
-                  </code>
-                  <p className="text-gray-300">
+                  <PythonFileLoader
+                    initialCode={ageValidationBasicPy}
+                  />
+                                    <p className="text-gray-300">
                     Validation isn't complete until you check for <span className="text-red-400">all possible invalid values</span>.
                   </p>
                 </div>
@@ -603,7 +613,7 @@ const Topic6 = () => {
                     </p>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div className="grid grid-cols-1 gap-4 mt-4">
                     <div className="p-3 bg-gray-900/40 rounded-lg">
                       <p className="text-red-400 font-bold text-sm">Bad Validation</p>
                       <p className="text-xs text-gray-400 mt-1">"ValueError" (cryptic)</p>
@@ -643,7 +653,7 @@ const Topic6 = () => {
               Professional Best Practices
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div className="space-y-6">
                 <div className="bg-gray-900/60 p-5 rounded-xl border border-emerald-700/30">
                   <h4 className="text-xl font-bold text-emerald-300 mb-3">1. Create Validation Functions</h4>
@@ -651,16 +661,11 @@ const Topic6 = () => {
                     Reusable validation functions make code cleaner:
                   </p>
                   <div className="bg-gray-800/50 p-4 rounded-lg">
-                    <code className="text-sm text-gray-300 block">
-                      def validate_age(age_str):<br />
-                      &nbsp;&nbsp;try:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;age = int(age_str)<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;if age < 0 or age > 120:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False, "Age must be 0-120"<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;return True, age<br />
-                      &nbsp;&nbsp;except ValueError:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;return False, "Please enter a valid number"
-                    </code>
+                   <PythonFileLoader
+                      fileModule={validateAgePy}
+                      title="Python: Validate Age Function"
+                      highlightLines={[]}
+                    />
                   </div>
                 </div>
 
@@ -669,7 +674,7 @@ const Topic6 = () => {
                   <p className="text-gray-300">
                     Error messages should guide users:
                   </p>
-                  <div className="mt-3 grid grid-cols-2 gap-2">
+                  <div className="mt-3 grid grid-cols-1 gap-2">
                     <div className="p-3 bg-red-900/20 rounded-lg">
                       <p className="text-red-400 text-xs">❌ Bad:</p>
                       <p className="text-red-300 text-xs">"Invalid input"</p>
@@ -689,14 +694,11 @@ const Topic6 = () => {
                     Sometimes it's helpful to suggest defaults:
                   </p>
                   <div className="bg-gray-800/50 p-4 rounded-lg">
-                    <code className="text-sm text-gray-300 block">
-                      def get_number(prompt, default=None):<br />
-                      &nbsp;&nbsp;while True:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;user_input = input(f"{prompt} [{default}]: ")<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;if user_input == "" and default is not None:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return default  # Use default if empty<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;# ... validation logic ...
-                    </code>
+                    <PythonFileLoader
+                      fileModule={getNumberPy}
+                      title="Python: get_number() with Default Input"
+                      highlightLines={[]}
+                    />
                   </div>
                 </div>
 
@@ -706,15 +708,11 @@ const Topic6 = () => {
                     For professional applications, log validation failures:
                   </p>
                   <div className="mt-3 bg-gray-800/50 p-4 rounded-lg">
-                    <code className="text-sm text-gray-300 block">
-                      import logging<br />
-                      <br />
-                      try:<br />
-                      &nbsp;&nbsp;age = int(input("Age: "))<br />
-                      except ValueError as e:<br />
-                      &nbsp;&nbsp;logging.warning(f"Invalid age input: {e}")<br />
-                      &nbsp;&nbsp;print("Please enter a valid number")
-                    </code>
+                    <PythonFileLoader
+                      fileModule={loggingInvalidAgePy}
+                      title="Python: Logging Invalid Age Input"
+                      highlightLines={[]}
+                    />
                   </div>
                 </div>
               </div>
@@ -741,7 +739,7 @@ const Topic6 = () => {
               Input Validation Checklist
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-8">
               <div className="space-y-6">
                 <div className="bg-gray-900/60 p-5 rounded-xl">
                   <h4 className="text-xl font-bold text-emerald-400 mb-4">Always Do These</h4>

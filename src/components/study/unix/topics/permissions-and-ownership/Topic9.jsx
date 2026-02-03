@@ -1,6 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import ShellFileLoader from "../../../../../common/ShellFileLoader";
+import lsExampleSh from "./topic9_files/list_files.sh?raw";
+
 class Topic9 extends React.Component {
   constructor(props) {
     super(props);
@@ -272,7 +275,7 @@ class Topic9 extends React.Component {
                     </button>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                     <div className={clsx(
                       "p-4 rounded-lg border-l-4",
                       isDarkMode ? "border-blue-500/50 bg-blue-900/10" : "border-blue-400 bg-blue-50"
@@ -384,7 +387,7 @@ class Topic9 extends React.Component {
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                         <div>
                           <h4 className="font-bold text-green-400 mb-3">What Users Can Do</h4>
                           <ul className="space-y-2 text-sm">
@@ -515,7 +518,7 @@ class Topic9 extends React.Component {
                         {/* User Actions */}
                         <div>
                           <h5 className="font-bold text-purple-400 mb-3">Try Deleting Files:</h5>
-                          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-4">
+                          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 mb-4">
                             {users.map((user) => (
                               <div key={user} className="text-center">
                                 <div className={clsx(
@@ -535,7 +538,7 @@ class Topic9 extends React.Component {
                             ))}
                           </div>
                           
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                             <div>
                               <div className="text-sm mb-2">Select user:</div>
                               <select 
@@ -630,7 +633,7 @@ class Topic9 extends React.Component {
                         isDarkMode ? "border-blue-500/50 bg-blue-900/10" : "border-blue-400 bg-blue-50"
                       )}>
                         <h4 className="font-bold text-blue-400 mb-3">Scenario 1: Barrackpore College Lab</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                           <div>
                             <p className="text-sm mb-3">
                               Multiple students use shared computers for programming assignments.
@@ -672,7 +675,7 @@ class Topic9 extends React.Component {
                         isDarkMode ? "border-green-500/50 bg-green-900/10" : "border-green-400 bg-green-50"
                       )}>
                         <h4 className="font-bold text-green-400 mb-3">Scenario 2: Shyamnagar Web Server</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                           <div>
                             <p className="text-sm mb-3">
                               Apache web server running multiple virtual hosts with file uploads.
@@ -768,7 +771,7 @@ class Topic9 extends React.Component {
                     <h3 className="text-xl font-bold mb-4 text-red-400">Security Implications</h3>
                     
                     <div className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                         <div className={clsx(
                           "p-4 rounded-lg",
                           isDarkMode ? "bg-green-900/20 border border-green-700/30" : "bg-green-50 border border-green-200"
@@ -827,7 +830,7 @@ class Topic9 extends React.Component {
                         <h4 className="font-bold text-yellow-400 mb-4">Best Practices for /tmp Usage</h4>
                         
                         <div className="space-y-4">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                             <div className="p-3 bg-black/20 rounded">
                               <div className="font-semibold text-green-400">For System Administrators:</div>
                               <ul className="text-sm mt-2 space-y-1">
@@ -899,7 +902,7 @@ class Topic9 extends React.Component {
                 )}>
                   <h3 className="text-xl font-bold mb-4 text-blue-400">When to Use Sticky Bit</h3>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                     <div>
                       <h4 className="font-bold text-green-400 mb-3">✅ Good Use Cases</h4>
                       <ul className="space-y-3">
@@ -1025,7 +1028,7 @@ class Topic9 extends React.Component {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                   <div className={clsx(
                     "p-4 rounded-lg",
                     isDarkMode ? "bg-yellow-900/20 border border-yellow-700/30" : "bg-yellow-50 border border-yellow-200"
@@ -1054,8 +1057,11 @@ class Topic9 extends React.Component {
                     <h4 className="font-bold text-blue-400 mb-3">Maintenance Commands</h4>
                     <div className="space-y-2 text-sm">
                       <div className="font-mono p-2 bg-black/20 rounded">
-                        # Find all sticky directories:<br/>
-                        $ find / -type d -perm /1000 2>/dev/null
+                        <ShellFileLoader
+                          fileModule={lsExampleSh}
+                          title="Listing Files in Unix"
+                          highlightLines={[1, 3, 5]}
+                        />
                       </div>
                       <div className="font-mono p-2 bg-black/20 rounded">
                         # Clean old files from /tmp:<br/>
