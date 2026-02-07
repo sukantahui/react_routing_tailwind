@@ -627,51 +627,33 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
 
 
 
- "What is State in React",
-  "What are Hooks in React",
-  "Why Hooks Exist (Life Before Hooks)",
-  "State vs Hooks – Conceptual Comparison",
-  "Props vs State – Conceptual Differences",
-  "When to Use State and When Not To",
-  "Introduction to the useState Hook",
-  "Declaring and Reading State Values",
-  "State Initialization: Primitive, Object, and Array",
-  "Updating State Correctly (Immutability Principle)",
-  "Why State Updates Are Asynchronous",
-  "Functional Updates with useState",
-  "Updating Object State Using Spread Operator",
-  "Updating Array State Using map, filter, and concat",
-  "Event Handling in React Components",
-  "Handling onClick, onChange, and onSubmit Events",
-  "Passing Arguments to Event Handlers",
-  "Preventing Default Form Behavior",
-  "Controlled Components in React Forms",
-  "Handling Single Input Forms",
-  "Handling Multiple Inputs with One State Object",
-  "Checkbox, Radio, and Select Input Handling",
-  "Basic Form Validation with State",
-  "Conditional Rendering Using if and Ternary Operators",
-  "Conditional Rendering Using Logical AND (&&)",
-  "Showing Loading and Empty States",
-  "Rendering Lists Using Array.map()",
-  "Understanding Keys in List Rendering",
-  "Common Mistakes with Keys (Index as Key)",
-  "Introduction to the useEffect Hook",
-  "Understanding Side Effects in React",
-  "useEffect Execution Timing Explained",
-  "Dependency Array Fundamentals",
-  "useEffect with Empty Dependency Array",
-  "useEffect with Specific Dependencies",
-  "Common Dependency Array Mistakes",
-  "Cleanup Functions in useEffect",
-  "Simulating Component Lifecycle Using useEffect",
-  "Fetching Data with useEffect",
-  "Handling Loading and Error States in API Calls",
-  "Conditional Data Fetching",
-  "Combining useState and useEffect Patterns",
-  "Derived State vs Stored State",
-  "Intro to Lifting State Up (Preview Concept)"
-Topics are delimited by comma
+Topic: "Pattern searching using grep, egrep, fgrep", file: Topic0.jsx
+Topic: "Regular expressions basics for text filtering", file: Topic1.jsx
+Topic: "Advanced regex: quantifiers, anchors, character classes", file: Topic2.jsx
+Topic: "Case-insensitive, inverted, and recursive search with grep", file: Topic3.jsx
+Topic: "Searching multiple files and highlighting matches", file: Topic4.jsx
+Topic: "Using sed for find & replace and inline editing", file: Topic5.jsx
+Topic: "sed addressing: line numbers, ranges, and patterns", file: Topic6.jsx
+Topic: "Deleting, inserting, appending lines using sed", file: Topic7.jsx
+Topic: "Using sed with files vs streams", file: Topic8.jsx
+Topic: "awk for column-based processing and reports", file: Topic9.jsx
+Topic: "Built-in variables in awk (NR, NF, FS, OFS, $0, $1...)", file: Topic10.jsx
+Topic: "Conditional logic and loops in awk", file: Topic11.jsx
+Topic: "Formatting output using awk printf", file: Topic12.jsx
+Topic: "Aggregations: sum, average, min, max using awk", file: Topic13.jsx
+Topic: "Working with CSV and delimited files using awk", file: Topic14.jsx
+Topic: "Pipelines: combining grep, sed, awk", file: Topic15.jsx
+Topic: "Text processing with pipes and redirection", file: Topic16.jsx
+Topic: "Sorting and filtering output using sort, uniq, wc", file: Topic17.jsx
+Topic: "Log file analysis using grep and awk", file: Topic18.jsx
+Topic: "Data cleanup and normalization using sed", file: Topic19.jsx
+Topic: "Error detection and pattern validation in text files", file: Topic20.jsx
+Topic: "Performance tips for large text files", file: Topic21.jsx
+Topic: "Common mistakes and debugging text-processing commands", file: Topic22.jsx
+Topic: "Practical lab: Generate student marks reports from text files", file: Topic23.jsx
+Topic: "Mini project: Analyze server access logs", file: Topic24.jsx
+Topic: "Mini project: Clean and transform raw CSV data", file: Topic25.jsx
+
 
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
@@ -706,9 +688,8 @@ Component Rules (STRICT – MUST FOLLOW)
         -- Do not misuse useEffect, useState, or other hooks
         -- No unnecessary hooks
     - File Naming Convention (MANDATORY)
-        -- Topic0.jsx → Topic 1
-        -- Topic1.jsx → Topic 2
-        -- Topic2.jsx → Topic 3
+        -- given topic and its file name
+
         -- Continue sequentially without skipping numbers
     - One Topic = One File
         -- Each file must contain only one topic
