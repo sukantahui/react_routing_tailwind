@@ -1,18 +1,31 @@
+import Prism from "prismjs";
+import "prismjs/components/prism-bash";
+import "prismjs/themes/prism-tomorrow.css"; // VS Code–style dark theme
+import { useEffect, useRef } from "react";
+
 export default function ShellCodeBlock({
   code,
-  title,
+  title = "Shell Script",
   highlightLines = [],
 }) {
-  return (
-    <div className="rounded-lg overflow-hidden border border-white/10">
-      {title && (
-        <div className="bg-black/40 px-3 py-2 text-sm font-semibold text-emerald-400">
-          {title}
-        </div>
-      )}
+  const codeRef = useRef(null);
 
-      <pre className="bg-black/80 text-green-300 p-4 text-sm font-mono whitespace-pre overflow-x-auto">
-        <code>{code}</code>
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [code]);
+
+  return (
+    <div className="rounded-xl overflow-hidden border border-slate-700 bg-[#1e1e1e]">
+      {/* Header */}
+      <div className="px-4 py-2 text-sm bg-[#252526] text-slate-200 border-b border-slate-700">
+        {title}
+      </div>
+
+      {/* Code */}
+      <pre className="p-4 overflow-x-auto text-sm leading-relaxed">
+        <code ref={codeRef} className="language-bash">
+          {code}
+        </code>
       </pre>
     </div>
   );

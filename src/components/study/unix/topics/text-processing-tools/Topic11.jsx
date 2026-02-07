@@ -5,6 +5,8 @@ import ifExampleSh1 from "./topic11_files/if_example1.sh?raw";
 import ifExampleSh2 from "./topic11_files/if_example2.sh?raw";
 import ifExampleSh3 from "./topic11_files/if_example3.sh?raw";
 import switchExample1 from "./topic11_files/switch_example1.sh?raw";
+import ifElseLadder1 from "./topic11_files/if_else_ladder1.sh?raw";
+import awkScript1 from "./topic11_files/awk_script1.sh?raw";
 
 const Topic11 = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -533,45 +535,13 @@ do {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Complex if-else Ladder:</h4>
-                    <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
-{`awk -F',' '{
-    # Calculate average of 5 subjects
-    total = $2 + $3 + $4 + $5 + $6
-    avg = total / 5
-    
-    # Multi-level grade classification
-    if (avg >= 90) {
-        grade = "A+"
-        category = "Excellent"
-    } else if (avg >= 80) {
-        grade = "A"
-        category = "Very Good"
-    } else if (avg >= 70) {
-        grade = "B+"
-        category = "Good"
-    } else if (avg >= 60) {
-        grade = "B"
-        category = "Above Average"
-    } else if (avg >= 50) {
-        grade = "C"
-        category = "Average"
-    } else if (avg >= 40) {
-        grade = "D"
-        category = "Below Average"
-    } else {
-        grade = "F"
-        category = "Fail"
-    }
-    
-    # Additional conditions
-    if ($2 < 40 || $3 < 40 || $4 < 40 || $5 < 40 || $6 < 40) {
-        grade = "F"
-        category = "Fail in one or more subjects"
-    }
-    
-    print $1, "Average:", avg, "Grade:", grade, "Category:", category
-}' students.txt`}
-                    </pre>
+                    <div className="bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto text-xs">
+                        <ShellFileLoader
+                                fileModule={ifElseLadder1}
+                                title="if else ladder"
+                                highlightLines={[]}
+                            />
+                    </div>
                   </div>
                   
                   <div>
@@ -887,95 +857,11 @@ for (i=1; i<=NF; i++) print $i`}
             <div className="mt-6 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6">
               <h3 className="font-bold text-lg mb-4 text-indigo-600 dark:text-indigo-400">Professional Pattern: Complex Data Processing</h3>
               <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-{`#!/usr/bin/awk -f
-# Professional awk script with conditionals and loops
-BEGIN {
-    FS = ","
-    OFS = "|"
-    
-    # Initialize counters
-    excellent = 0
-    good = 0
-    average = 0
-    poor = 0
-    failures = 0
-    
-    print "Student Analysis Report"
-    print "======================="
-}
-
-# Main processing with nested logic
-{
-    # Validate record
-    if (NF < 5) {
-        printf "ERROR: Record %d has only %d fields\\n", NR, NF >> "/dev/stderr"
-        next  # Skip to next record
-    }
-    
-    # Calculate average using loop
-    total = 0
-    subject_count = 0
-    
-    # Process subject columns (fields 2-5)
-    for (i = 2; i <= 5; i++) {
-        if ($i >= 0 && $i <= 100) {
-            total += $i
-            subject_count++
-        } else {
-            printf "WARNING: Invalid mark %s for %s\\n", $i, $1 >> "/dev/stderr"
-        }
-    }
-    
-    # Skip if no valid marks
-    if (subject_count == 0) {
-        next
-    }
-    
-    average_mark = total / subject_count
-    
-    # Complex grading logic
-    if (average_mark >= 90) {
-        grade = "A+"
-        excellent++
-        comment = "Outstanding!"
-    } else if (average_mark >= 80) {
-        grade = "A"
-        good++
-        comment = "Very Good"
-    } else if (average_mark >= 70) {
-        grade = "B+"
-        average++
-        comment = "Good"
-    } else if (average_mark >= 60) {
-        grade = "B"
-        average++
-        comment = "Above Average"
-    } else if (average_mark >= 50) {
-        grade = "C"
-        poor++
-        comment = "Needs Improvement"
-    } else {
-        grade = "F"
-        failures++
-        comment = "Failed - Requires attention"
-    }
-    
-    # Output formatted result
-    printf "%-20s %6.2f %-4s %-20s\\n", $1, average_mark, grade, comment
-}
-
-END {
-    # Generate summary
-    print "\\n======================="
-    print "SUMMARY STATISTICS"
-    print "======================="
-    printf "Excellent (A+): %d\\n", excellent
-    printf "Good (A): %d\\n", good
-    printf "Average (B): %d\\n", average
-    printf "Poor (C): %d\\n", poor
-    printf "Failures (F): %d\\n", failures
-    printf "Total Students: %d\\n", NR
-}`}
+                    <ShellFileLoader
+                        fileModule={awkScript1}
+                        title="Complex Data Processing"
+                        highlightLines={[]}
+                    />
               </pre>
             </div>
           </div>
