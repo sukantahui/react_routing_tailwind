@@ -627,32 +627,32 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
 
 
 
-Topic: "Pattern searching using grep, egrep, fgrep", file: Topic0.jsx
-Topic: "Regular expressions basics for text filtering", file: Topic1.jsx
-Topic: "Advanced regex: quantifiers, anchors, character classes", file: Topic2.jsx
-Topic: "Case-insensitive, inverted, and recursive search with grep", file: Topic3.jsx
-Topic: "Searching multiple files and highlighting matches", file: Topic4.jsx
-Topic: "Using sed for find & replace and inline editing", file: Topic5.jsx
-Topic: "sed addressing: line numbers, ranges, and patterns", file: Topic6.jsx
-Topic: "Deleting, inserting, appending lines using sed", file: Topic7.jsx
-Topic: "Using sed with files vs streams", file: Topic8.jsx
-Topic: "awk for column-based processing and reports", file: Topic9.jsx
-Topic: "Built-in variables in awk (NR, NF, FS, OFS, $0, $1...)", file: Topic10.jsx
-Topic: "Conditional logic and loops in awk", file: Topic11.jsx
-Topic: "Formatting output using awk printf", file: Topic12.jsx
-Topic: "Aggregations: sum, average, min, max using awk", file: Topic13.jsx
-Topic: "Working with CSV and delimited files using awk", file: Topic14.jsx
-Topic: "Pipelines: combining grep, sed, awk", file: Topic15.jsx
-Topic: "Text processing with pipes and redirection", file: Topic16.jsx
-Topic: "Sorting and filtering output using sort, uniq, wc", file: Topic17.jsx
-Topic: "Log file analysis using grep and awk", file: Topic18.jsx
-Topic: "Data cleanup and normalization using sed", file: Topic19.jsx
-Topic: "Error detection and pattern validation in text files", file: Topic20.jsx
-Topic: "Performance tips for large text files", file: Topic21.jsx
-Topic: "Common mistakes and debugging text-processing commands", file: Topic22.jsx
-Topic: "Practical lab: Generate student marks reports from text files", file: Topic23.jsx
-Topic: "Mini project: Analyze server access logs", file: Topic24.jsx
-Topic: "Mini project: Clean and transform raw CSV data", file: Topic25.jsx
+Topic 0: "Pattern searching using grep, egrep, fgrep", file: Topic0.jsx
+Topic 1: "Regular expressions basics for text filtering", file: Topic1.jsx
+Topic 2: "Advanced regex: quantifiers, anchors, character classes", file: Topic2.jsx
+Topic 3: "Case-insensitive, inverted, and recursive search with grep", file: Topic3.jsx
+Topic 4: "Searching multiple files and highlighting matches", file: Topic4.jsx
+Topic 5: "Using sed for find & replace and inline editing", file: Topic5.jsx
+Topic 6: "sed addressing: line numbers, ranges, and patterns", file: Topic6.jsx
+Topic 7: "Deleting, inserting, appending lines using sed", file: Topic7.jsx
+Topic 8: "Using sed with files vs streams", file: Topic8.jsx
+Topic 9: "awk for column-based processing and reports", file: Topic9.jsx
+Topic 10: "Built-in variables in awk (NR, NF, FS, OFS, $0, $1...)", file: Topic10.jsx
+Topic 11: "Conditional logic and loops in awk", file: Topic11.jsx
+Topic 12: "Formatting output using awk printf", file: Topic12.jsx
+Topic 13: "Aggregations: sum, average, min, max using awk", file: Topic13.jsx
+Topic 14: "Working with CSV and delimited files using awk", file: Topic14.jsx
+Topic 15: "Pipelines: combining grep, sed, awk", file: Topic15.jsx
+Topic 16: "Text processing with pipes and redirection", file: Topic16.jsx
+Topic 17: "Sorting and filtering output using sort, uniq, wc", file: Topic17.jsx
+Topic 18: "Log file analysis using grep and awk", file: Topic18.jsx
+Topic 19: "Data cleanup and normalization using sed", file: Topic19.jsx
+Topic 20: "Error detection and pattern validation in text files", file: Topic20.jsx
+Topic 21: "Performance tips for large text files", file: Topic21.jsx
+Topic 22: "Common mistakes and debugging text-processing commands", file: Topic22.jsx
+Topic 23: "Practical lab: Generate student marks reports from text files", file: Topic23.jsx
+Topic 24: "Mini project: Analyze server access logs", file: Topic24.jsx
+Topic 25: "Mini project: Clean and transform raw CSV data", file: Topic25.jsx
 
 
 
@@ -844,7 +844,26 @@ import clsx from "clsx";
 
 make dark mode as default, place divs one after another not side by side, maintain it for all topics
 
-First 24 topics already completed, you well start from 25th Topic and file will be Topic24.jsx
+i like to show my Shell Script as follows:
+<ShellFileLoader
+                        fileModule={awkScript1}
+                        title="Complex Data Processing"
+                        highlightLines={[]}
+                    />
+import ShellFileLoader from "../../../../../common/ShellFileLoader";
+import ifExampleSh1 from "./topic[topic_no]_files/if_example1.sh?raw";
+import ifExampleSh2 from "./topic[topic_no]_files/if_example2.sh?raw";
+import ifExampleSh3 from "./topic[topic_no]_files/if_example3.sh?raw";
+import switchExample1 from "./topic[topic_no]_files/switch_example1.sh?raw";
+import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.sh?raw";
+import awkScript1 from "./topic[topic_no]_files/awk_script1.sh?raw";
+
+and keep mu .sh file separately in a folder, so show them separately
+
+start from Topic
+
+
+
 
 <JavaFileLoader 
         fileModule={MainJavaCode}
