@@ -627,33 +627,48 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
 
 
 
-Topic 0: "Pattern searching using grep, egrep, fgrep", file: Topic0.jsx
-Topic 1: "Regular expressions basics for text filtering", file: Topic1.jsx
-Topic 2: "Advanced regex: quantifiers, anchors, character classes", file: Topic2.jsx
-Topic 3: "Case-insensitive, inverted, and recursive search with grep", file: Topic3.jsx
-Topic 4: "Searching multiple files and highlighting matches", file: Topic4.jsx
-Topic 5: "Using sed for find & replace and inline editing", file: Topic5.jsx
-Topic 6: "sed addressing: line numbers, ranges, and patterns", file: Topic6.jsx
-Topic 7: "Deleting, inserting, appending lines using sed", file: Topic7.jsx
-Topic 8: "Using sed with files vs streams", file: Topic8.jsx
-Topic 9: "awk for column-based processing and reports", file: Topic9.jsx
-Topic 10: "Built-in variables in awk (NR, NF, FS, OFS, $0, $1...)", file: Topic10.jsx
-Topic 11: "Conditional logic and loops in awk", file: Topic11.jsx
-Topic 12: "Formatting output using awk printf", file: Topic12.jsx
-Topic 13: "Aggregations: sum, average, min, max using awk", file: Topic13.jsx
-Topic 14: "Working with CSV and delimited files using awk", file: Topic14.jsx
-Topic 15: "Pipelines: combining grep, sed, awk", file: Topic15.jsx
-Topic 16: "Text processing with pipes and redirection", file: Topic16.jsx
-Topic 17: "Sorting and filtering output using sort, uniq, wc", file: Topic17.jsx
-Topic 18: "Log file analysis using grep and awk", file: Topic18.jsx
-Topic 19: "Data cleanup and normalization using sed", file: Topic19.jsx
-Topic 20: "Error detection and pattern validation in text files", file: Topic20.jsx
-Topic 21: "Performance tips for large text files", file: Topic21.jsx
-Topic 22: "Common mistakes and debugging text-processing commands", file: Topic22.jsx
-Topic 23: "Practical lab: Generate student marks reports from text files", file: Topic23.jsx
-Topic 24: "Mini project: Analyze server access logs", file: Topic24.jsx
-Topic 25: "Mini project: Clean and transform raw CSV data", file: Topic25.jsx
-
+sl: 0, topic: Shell script anatomy: shebang, execution permission and script lifecycle, file: Topic0.jsx,
+sl: 1, topic: Interactive vs non-interactive and login shells, file: Topic1.jsx,
+sl: 2, topic: Bash startup files: .bashrc, .bash_profile, .profile, file: Topic2.jsx,
+sl: 3, topic: Understanding PATH and how scripts are located and executed, file: Topic3.jsx,
+sl: 4, topic: Variables: local, global and environment variables, file: Topic4.jsx,
+sl: 5, topic: Arithmetic operations: (( )), let, expr, file: Topic5.jsx,
+sl: 6, topic: Arrays: indexed and associative arrays, file: Topic6.jsx,
+sl: 7, topic: String manipulation: length, substring, replace, regex matching, file: Topic7.jsx,
+sl: 8, topic: Reading user input: read, positional parameters ($1, $2...), file: Topic8.jsx,
+sl: 9, topic: Command substitution: $(command) and backticks, file: Topic9.jsx,
+sl: 10, topic: Quoting rules: single, double quotes and escaping characters, file: Topic10.jsx,
+sl: 11, topic: Conditional statements: if, elif, else, test, [ ] and [[ ]], file: Topic11.jsx,
+sl: 12, topic: File and directory tests: -f, -d, -e, -s, file: Topic12.jsx,
+sl: 13, topic: Loops: for, while, until with practical patterns, file: Topic13.jsx,
+sl: 14, topic: Case statement for menu-driven programs, file: Topic14.jsx,
+sl: 15, topic: Functions: defining, calling, returning values, file: Topic15.jsx,
+sl: 16, topic: Subshells vs command grouping using { }, file: Topic16.jsx,
+sl: 17, topic: Exit status and error codes ($?), file: Topic17.jsx,
+sl: 18, topic: Redirection: >, >>, <, 2>, &>, file: Topic18.jsx,
+sl: 19, topic: Pipes: chaining commands with |, file: Topic19.jsx,
+sl: 20, topic: Here documents (<<EOF) and here strings (<<<), file: Topic20.jsx,
+sl: 21, topic: Process management: ps, top, kill, wait, background jobs (&), file: Topic21.jsx,
+sl: 22, topic: Command-line option parsing using getopts, file: Topic22.jsx,
+sl: 23, topic: Using sed and awk within shell scripts, file: Topic23.jsx,
+sl: 24, topic: Debugging techniques: set -x, set -e, bash -x, file: Topic24.jsx,
+sl: 25, topic: Traps and signals: INT, TERM, EXIT, file: Topic25.jsx,
+sl: 26, topic: Logging strategies and basic log rotation, file: Topic26.jsx,
+sl: 27, topic: Scheduling scripts with cron (overview), file: Topic27.jsx,
+sl: 28, topic: Writing defensive and secure shell scripts, file: Topic28.jsx,
+sl: 29, topic: Portable shell scripting (bash vs sh), file: Topic29.jsx,
+sl: 30, topic: Version controlling shell scripts with Git, file: Topic30.jsx,
+sl: 31, topic: Writing reusable utility scripts, file: Topic31.jsx,
+sl: 32, topic: Mini Project: Automated backup script, file: Topic32.jsx,
+sl: 33, topic: Common shell scripting mistakes and best practices, file: Topic33.jsx,
+sl: 34, topic: Practical Examples and Reference Scripts, file: Topic34.jsx,
+sl: 35, topic: Example Script: User input validation, file: Topic35.jsx,
+sl: 36, topic: Example Script: Looping through files, file: Topic36.jsx,
+sl: 37, topic: Example Script: Checking exit status, file: Topic37.jsx,
+sl: 38, topic: Example Script: Automated backup utility, file: Topic38.jsx,
+sl: 39, topic: Example Script: Cron scheduling, file: Topic39.jsx,
+sl: 40, topic: Example Script: Debugging with set -x, file: Topic40.jsx,
+sl: 41, topic: Example Script: Signal handling using trap, file: Topic41.jsx,
 
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
@@ -867,6 +882,21 @@ if you have braces, >, < in your text, especially in code block,<code></code> wh
     <code>
         {`script.sh 2>&1 | tee transformation.log`}
     </code>
+
+dont use the following style creae separate .sh file as stated earlier    
+    <pre className="text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 p-3 rounded">
+        {`#!/bin/bash
+        # debug_wrapper.sh - Test script in different modes
+        echo "=== Testing in different modes ==="
+        echo "1. Interactive Login:"
+        bash --login -i <<'EOF'
+            echo "  PS1: \$PS1"
+            echo "  Shell type: \$0"
+        EOF
+
+        echo -e "\n2. Non-Interactive Non-Login:"
+        bash -c "echo '  PS1: \$PS1'; echo '  Shell type: \$0'"`}
+    </pre>
 
 start from Topic
 

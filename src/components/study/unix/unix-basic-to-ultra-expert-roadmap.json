@@ -261,40 +261,99 @@
                     "slug": "shell-scripting",
                     "title": "Shell Scripting Essentials",
                     "level": "Advanced",
-                    "estimatedHours": 7,
+                    "estimatedHours": 9,
                     "tags": [
                         "bash",
-                        "scripts"
+                        "shell",
+                        "automation",
+                        "linux"
                     ],
                     "topics": [
                         "Shell script anatomy: shebang, execution permission and script lifecycle",
+                        "Interactive vs non-interactive and login shells",
+                        "Bash startup files: .bashrc, .bash_profile, .profile",
                         "Understanding PATH and how scripts are located and executed",
                         "Variables: local, global and environment variables",
+                        "Arithmetic operations: (( )), let, expr",
+                        "Arrays: indexed and associative arrays",
+                        "String manipulation: length, substring, replace, regex matching",
                         "Reading user input: read, positional parameters ($1, $2...)",
                         "Command substitution: $(command) and backticks",
                         "Quoting rules: single, double quotes and escaping characters",
                         "Conditional statements: if, elif, else, test, [ ] and [[ ]]",
+                        "File and directory tests: -f, -d, -e, -s",
                         "Loops: for, while, until with practical patterns",
                         "Case statement for menu-driven programs",
                         "Functions: defining, calling, returning values",
+                        "Subshells vs command grouping using { }",
                         "Exit status and error codes ($?)",
                         "Redirection: >, >>, <, 2>, &>",
                         "Pipes: chaining commands with |",
                         "Here documents (<<EOF) and here strings (<<<)",
+                        "Process management: ps, top, kill, wait, background jobs (&)",
+                        "Command-line option parsing using getopts",
+                        "Using sed and awk within shell scripts",
                         "Debugging techniques: set -x, set -e, bash -x",
                         "Traps and signals: INT, TERM, EXIT",
+                        "Logging strategies and basic log rotation",
                         "Scheduling scripts with cron (overview)",
+                        "Writing defensive and secure shell scripts",
+                        "Portable shell scripting (bash vs sh)",
+                        "Version controlling shell scripts with Git",
                         "Writing reusable utility scripts",
                         "Mini Project: Automated backup script",
-                        "Common shell scripting mistakes and best practices"
+                        "Common shell scripting mistakes and best practices",
+                        "Practical Examples and Reference Scripts",
+                        "Example Script: User input validation",
+                        "Example Script: Looping through files",
+                        "Example Script: Checking exit status",
+                        "Example Script: Automated backup utility",
+                        "Example Script: Cron scheduling",
+                        "Example Script: Debugging with set -x",
+                        "Example Script: Signal handling using trap"
+                    ],
+                    "exampleScripts": [
+                        {
+                            "title": "User Input Validation",
+                            "script": "#!/bin/bash\n\nread -p \"Enter your age: \" age\n\nif [[ $age =~ ^[0-9]+$ ]]; then\n    echo \"Your age is $age\"\nelse\n    echo \"Invalid input! Please enter a number.\"\nfi"
+                        },
+                        {
+                            "title": "Loop Through Files",
+                            "script": "#!/bin/bash\n\nfor file in *.txt\ndo\n    echo \"Processing file: $file\"\ndone"
+                        },
+                        {
+                            "title": "Exit Status Check",
+                            "script": "#!/bin/bash\n\ncp source.txt backup.txt\n\nif [ $? -eq 0 ]; then\n    echo \"Backup successful\"\nelse\n    echo \"Backup failed\"\nfi"
+                        },
+                        {
+                            "title": "Automated Backup Script",
+                            "script": "#!/bin/bash\n\nSOURCE=\"$HOME/documents\"\nDEST=\"$HOME/backup\"\nDATE=$(date +%Y-%m-%d)\n\nmkdir -p \"$DEST\"\n\ntar -czf \"$DEST/backup-$DATE.tar.gz\" \"$SOURCE\"\n\nif [ $? -eq 0 ]; then\n    echo \"Backup completed on $DATE\"\nelse\n    echo \"Backup failed!\"\nfi"
+                        },
+                        {
+                            "title": "Cron Job Example",
+                            "script": "0 2 * * * /home/user/scripts/backup.sh >> /home/user/backup.log 2>&1"
+                        },
+                        {
+                            "title": "Debugging Script",
+                            "script": "#!/bin/bash\nset -x\n\necho \"Debugging enabled\"\nls /nonexistent"
+                        },
+                        {
+                            "title": "Signal Handling with Trap",
+                            "script": "#!/bin/bash\n\ntrap \"echo 'Script interrupted'; exit\" INT\n\nwhile true\ndo\n    echo \"Running...\"\n    sleep 2\ndone"
+                        }
                     ],
                     "learningOutcomes": [
-                        "Write automation scripts",
-                        "Solve repetitive tasks"
+                        "Write robust and reusable shell scripts",
+                        "Automate administrative and system-level tasks",
+                        "Handle errors, signals, and failures gracefully",
+                        "Work confidently with files, processes, and user input",
+                        "Build production-ready automation utilities",
+                        "Debug and optimize shell scripts effectively",
+                        "Apply security and best practices in scripting"
                     ],
                     "difficulty": "Advanced",
                     "difficultyIndex": 8,
-                    "summary": "Automate system tasks using shell scripting.",
+                    "summary": "Master advanced shell scripting concepts to automate Linux system tasks, manage processes, and build secure, reusable automation scripts.",
                     "badge": "Shell Automation Badge"
                 },
                 {
