@@ -4498,6 +4498,12 @@
   .bg-indigo-800 {
     background-color: var(--color-indigo-800);
   }
+  .bg-indigo-800\/30 {
+    background-color: color-mix(in srgb, oklch(39.8% 0.195 277.366) 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-indigo-800) 30%, transparent);
+    }
+  }
   .bg-indigo-900 {
     background-color: var(--color-indigo-900);
   }
@@ -11528,6 +11534,13 @@
       }
     }
   }
+  .hover\:border-rose-300 {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-rose-300);
+      }
+    }
+  }
   .hover\:border-rose-400 {
     &:hover {
       @media (hover: hover) {
@@ -12534,6 +12547,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-rose-500);
+      }
+    }
+  }
+  .hover\:bg-rose-700 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-rose-700);
       }
     }
   }
@@ -18266,6 +18286,12 @@
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
   }
+  .dark\:from-rose-400 {
+    @media (prefers-color-scheme: dark) {
+      --tw-gradient-from: var(--color-rose-400);
+      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    }
+  }
   .dark\:from-rose-800 {
     @media (prefers-color-scheme: dark) {
       --tw-gradient-from: var(--color-rose-800);
@@ -20388,6 +20414,15 @@
       &:hover {
         @media (hover: hover) {
           border-color: var(--color-red-700);
+        }
+      }
+    }
+  }
+  .dark\:hover\:border-rose-500 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          border-color: var(--color-rose-500);
         }
       }
     }
