@@ -1657,6 +1657,9 @@
   .animate-\[fadeInUp_1\.5s_ease-out\] {
     animation: fadeInUp 1.5s ease-out;
   }
+  .animate-\[fadeInUp_1\.6s_ease-out\] {
+    animation: fadeInUp 1.6s ease-out;
+  }
   .animate-\[fadeInUp_1s_ease-out\] {
     animation: fadeInUp 1s ease-out;
   }

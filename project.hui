@@ -860,6 +860,14 @@ import awkScript1 from "./topic[topic_no]_files/awk_script1.sh?raw";
 
 and keep mu .sh file separately in a folder, so show them separately
 
+if you have braces, >, < in your text, especially in code block,<code></code> which is a code please write like following style
+    <code className="text-sm text-gray-700 dark:text-gray-300 block">
+        {`awk 'END {print NR}' file.csv`}
+    </code>
+    <code>
+        {`script.sh 2>&1 | tee transformation.log`}
+    </code>
+
 start from Topic
 
 
