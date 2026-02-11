@@ -18,8 +18,8 @@ import Services from "./Services";
 import Teachers from "./Teachers";
 import Courses from "./Courses";
 import HomeSeo from "../../seo/HomeSeo"
-import LocalSEO from "./LocalSeo";
-import Facilities from "./Facilities";
+import LocalSEO from "./LocalSEO";
+import Facilities from "./Facilities"
 import WhyChooseUs from "./WhyChooseUs";
 
 export default function Home() {

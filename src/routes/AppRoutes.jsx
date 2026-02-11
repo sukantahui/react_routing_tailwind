@@ -22,7 +22,7 @@ import JavaScriptRoadmap from '../components/study/javaScript/JavaScriptRoadmap'
 import JavaScriptModuleView from '../components/study/javaScript/JavaScriptModuleView';
 import JavaScriptTopicView from '../components/study/javaScript/JavaScriptTopicView';
 import Playground from '../common/Playground';
-import PythonRoadmap from '../components/study/python/PythonRoadMap';
+import PythonRoadmap from '../components/study/python/PythonRoadmap';
 import PythonModuleView from '../components/study/python/PythonModuleView';
 import PythonTopicView from '../components/study/python/PythonTopicView';
 import PythonPlayground from '../common/PythonPlayground';
