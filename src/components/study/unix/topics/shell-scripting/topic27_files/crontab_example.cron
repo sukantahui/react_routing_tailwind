@@ -1,0 +1,8 @@
+# m h  dom mon dow   command
+30 2 * * * /home/abhronila/scripts/daily_backup.sh >> /var/log/backup.log 2>&1
+
+# Run every Monday at 9:15 AM
+15 9 * * 1 /home/tuhina/cleanup.sh
+
+# Run at reboot (delayed 2 minutes)
+@reboot sleep 120 && /home/swadeep/start_service.sh

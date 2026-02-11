@@ -322,7 +322,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
       {/* MAIN LAYOUT */}
       <div className="relative z-20 flex-1 flex justify-center">
-        <div className="w-full max-w-6xl mx-auto flex">
+        <div className="w-full max-w-7xl mx-auto flex">
 
           {/* ====================== DESKTOP SIDEBAR ====================== */}
           <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
@@ -704,7 +704,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
           {/* ====================== MAIN TOPIC READER ====================== */}
           <main className="flex-1 flex justify-center px-4 lg:px-8 py-6 lg:py-10">
-            <div className="w-full max-w-3xl">
+            <div className="w-full max-w-5xl">
 
               {/* Topic Header */}
               <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-xl relative overflow-hidden">
