@@ -53,7 +53,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   let moduleData = null;
   let segmentData = null;
 
-  
+
 
   for (const segment of roadmapData.segments) {
     const found = segment.modules.find((m) => m.slug === moduleSlug);
@@ -142,7 +142,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   useEffect(() => {
     setWaBoxOpen(false);
   }, [index]);
-  
+
   useEffect(() => {
     const handler = (e) => {
       if (e.key === "ArrowRight" && hasNext)
@@ -322,10 +322,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
       {/* MAIN LAYOUT */}
       <div className="relative z-20 flex-1 flex justify-center">
-        <div className="w-full max-w-7xl mx-auto flex">
+        <div className="w-full max-w-7xl mx-auto flex overflow-visible">
+
 
           {/* ====================== DESKTOP SIDEBAR ====================== */}
-          <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
+          <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4 relative overflow-visible">
+
+
             {/* Progress Card */}
             <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
               <div className="flex items-center justify-between mb-1">
@@ -355,44 +358,123 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
 
             {/* Topic List */}
+            {/* ===================== GAMIFIED TOPIC LIST ===================== */}
             <div className="space-y-2 text-sm">
               {moduleData.topics.map((title, i) => {
                 const isActive = i === index;
                 const isCompleted = completedTopics.includes(i);
 
+                // Unlock Logic: allow completed topics + next 2 topics
+                const maxUnlockedIndex =
+                  completedTopics.length > 0
+                    ? Math.max(...completedTopics) + 2
+                    : 2;
+
+                const isLocked = i > maxUnlockedIndex;
+
+                // ================= LOCKED =================
+                if (isLocked) {
+                  return (
+                    <div
+                      key={i}
+                      title="Complete previous topics to unlock this topic."
+                      className="
+            relative flex items-center gap-3 px-3 py-2 rounded-xl
+            border border-slate-800
+            bg-slate-900/60 text-slate-500
+            cursor-not-allowed opacity-60
+          "
+                    >
+                      <span className="absolute left-0 top-0 h-full w-[3px] bg-slate-700" />
+
+                      <span className="text-lg shrink-0">🔒</span>
+
+                      <div className="relative flex-1 min-w-0 group">
+                        <span className="block truncate">
+                          <span className="mr-1 text-xs">{i + 1}.</span>
+                          {title}
+                        </span>
+
+                        <div
+                          className="
+      absolute left-0 top-full mt-2
+      opacity-0 group-hover:opacity-100
+      pointer-events-none
+      transition-all duration-200
+      translate-y-1 group-hover:translate-y-0
+      bg-slate-900 border border-slate-700
+      text-xs text-slate-200
+      px-3 py-2 rounded-lg shadow-xl
+      w-max max-w-xs z-50
+    "
+                        >
+                          {title}
+                        </div>
+                      </div>
+
+                    </div>
+                  );
+                }
+
+                // ================= UNLOCKED =================
                 return (
                   <Link
                     key={i}
                     ref={isActive ? activeTopicRef : null}
                     to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
                     className={`
-                      relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
-                      ${isActive
+          relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
+          ${isActive
                         ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
                         : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
                       }
-                    `}
+        `}
                   >
-                    {/* Accent bar */}
                     <span
                       className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
                         }`}
                     />
 
                     {isCompleted ? (
-                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                      <CheckCircle2
+                        size={16}
+                        className="text-emerald-400 shrink-0"
+                      />
                     ) : (
                       <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                     )}
 
-                    <span className="truncate">
-                      <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
-                      {title}
-                    </span>
+                    <div className="relative flex-1 min-w-0 group">
+  <span className="block truncate">
+    <span className="text-sky-300 mr-1 text-xs">
+      {i + 1}.
+    </span>
+    {title}
+  </span>
+
+  {/* Premium Tooltip */}
+  <div
+    className="
+      absolute left-0 top-full mt-2
+      opacity-0 group-hover:opacity-100
+      pointer-events-none
+      transition-all duration-200
+      translate-y-1 group-hover:translate-y-0
+      bg-slate-900 border border-slate-700
+      text-xs text-slate-200
+      px-3 py-2 rounded-lg shadow-xl
+      w-max max-w-xs z-[9999]
+    "
+  >
+    {title}
+  </div>
+</div>
+
                   </Link>
                 );
               })}
             </div>
+
 
             {/* Sidebar Footer */}
             <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
@@ -662,10 +744,32 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                           <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                         )}
 
-                        <span className="truncate">
-                          <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
-                          {title}
-                        </span>
+                        <div className="relative flex-1 min-w-0 group">
+                          <span className="block truncate">
+                            <span className="text-sky-300 mr-1 text-xs">
+                              {i + 1}.
+                            </span>
+                            {title}
+                          </span>
+
+                          {/* Premium Tooltip */}
+                          <div
+                            className="
+      absolute left-0 top-full mt-2
+      opacity-0 group-hover:opacity-100
+      pointer-events-none
+      transition-all duration-200
+      translate-y-1 group-hover:translate-y-0
+      bg-slate-900 border border-slate-700
+      text-xs text-slate-200
+      px-3 py-2 rounded-lg shadow-xl
+      w-max max-w-xs z-[9999]
+    "
+                          >
+                            {title}
+                          </div>
+                        </div>
+
                       </Link>
                     );
                   })}
@@ -825,9 +929,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
             </div>
             {/* FLOATING WHATSAPP BUTTON – PREMIUM DESIGN */}
             {!sidebarOpen && (
-            <div className="fixed bottom-6 right-6 z-[9999] group">
-              {/* Tooltip */}
-              <div className="
+              <div className="fixed bottom-6 right-6 z-[9999] group">
+                {/* Tooltip */}
+                <div className="
       absolute right-14 bottom-1
       opacity-0 group-hover:opacity-100
       transition-opacity duration-300
@@ -836,16 +940,16 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       text-xs px-3 py-1.5 rounded-lg shadow-lg
       whitespace-nowrap
     "
-              >
-                Ask your question on WhatsApp
-              </div>
+                >
+                  Ask your question on WhatsApp
+                </div>
 
-              {/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
-              <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
+                {/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
+                <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
 
-                {/* BOX */}
-                <div
-                  className={`
+                  {/* BOX */}
+                  <div
+                    className={`
                     w-72 bg-slate-900/90 backdrop-blur-xl
                     border border-slate-700/60
                     shadow-[0_8px_30px_rgba(0,0,0,0.55)]
@@ -853,33 +957,33 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     animate-fadeIn
                     ${waBoxOpen ? "block" : "hidden"}
                   `}
-                >
+                  >
 
-                  <p className="text-[11px] text-slate-400 mb-2">
-                    Ask your question regarding this topic:
-                  </p>
+                    <p className="text-[11px] text-slate-400 mb-2">
+                      Ask your question regarding this topic:
+                    </p>
 
-                  <textarea
-                    id="waMessage"
-                    placeholder="Type your doubt here…"
-                    rows={3}
-                    className="
+                    <textarea
+                      id="waMessage"
+                      placeholder="Type your doubt here…"
+                      rows={3}
+                      className="
         w-full bg-slate-800 text-slate-200
         border border-slate-600
         rounded-lg text-sm p-2
         focus:outline-none focus:border-sky-500
       "
-                  ></textarea>
+                    ></textarea>
 
-                  <button
-                    onClick={() => {
-                      const rawMsg = document.getElementById("waMessage").value.trim();
-                      const userMsg = rawMsg || "(No question typed)";
+                    <button
+                      onClick={() => {
+                        const rawMsg = document.getElementById("waMessage").value.trim();
+                        const userMsg = rawMsg || "(No question typed)";
 
-                      const phone = "919432456083";
+                        const phone = "919432456083";
 
-                      const text = encodeURIComponent(
-                        `📘 *Topic Support Query*
+                        const text = encodeURIComponent(
+                          `📘 *Topic Support Query*
 
 • *Module:* ${moduleData.title}
 • *Topic:* ${topicTitle}
@@ -888,25 +992,25 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 ${userMsg}
 
 — Sent from Coder & AccoTax Learning Platform`
-                      );
+                        );
 
-                      window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-                    }}
-                    className="
+                        window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+                      }}
+                      className="
         w-full mt-3 py-2
         bg-green-600 hover:bg-green-500
         rounded-lg text-sm font-semibold
         text-white transition
       "
-                  >
-                    📲 Send on WhatsApp
-                  </button>
-                </div>
+                    >
+                      📲 Send on WhatsApp
+                    </button>
+                  </div>
 
-                {/* TOGGLE BUTTON */}
-                <button
-                  onClick={() => setWaBoxOpen(v => !v)}
-                  className="
+                  {/* TOGGLE BUTTON */}
+                  <button
+                    onClick={() => setWaBoxOpen(v => !v)}
+                    className="
       w-14 h-14 rounded-full
       bg-gradient-to-br from-green-500 to-green-600
       hover:from-green-400 hover:to-green-500
@@ -917,12 +1021,12 @@ ${userMsg}
       hover:scale-[1.06]
       transition-all
     "
-                >
-                  💬
-                </button>
-              </div>
+                  >
+                    💬
+                  </button>
+                </div>
 
-            </div>
+              </div>
             )}
 
           </main>
