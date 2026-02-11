@@ -1,50 +1,48 @@
-sl: 0, topic: Shell script anatomy: shebang, execution permission and script lifecycle, file: Topic0.jsx,
-sl: 1, topic: Interactive vs non-interactive and login shells, file: Topic1.jsx,
-sl: 2, topic: Bash startup files: .bashrc, .bash_profile, .profile, file: Topic2.jsx,
-sl: 3, topic: Understanding PATH and how scripts are located and executed, file: Topic3.jsx,
-sl: 4, topic: Variables: local, global and environment variables, file: Topic4.jsx,
-sl: 5, topic: Arithmetic operations: (( )), let, expr, file: Topic5.jsx,
-sl: 6, topic: Arrays: indexed and associative arrays, file: Topic6.jsx,
-sl: 7, topic: String manipulation: length, substring, replace, regex matching, file: Topic7.jsx,
-sl: 8, topic: Reading user input: read, positional parameters ($1, $2...), file: Topic8.jsx,
-sl: 9, topic: Command substitution: $(command) and backticks, file: Topic9.jsx,
-sl: 10, topic: Quoting rules: single, double quotes and escaping characters, file: Topic10.jsx,
-sl: 11, topic: Conditional statements: if, elif, else, test, [ ] and [[ ]], file: Topic11.jsx,
-sl: 12, topic: File and directory tests: -f, -d, -e, -s, file: Topic12.jsx,
-sl: 13, topic: Loops: for, while, until with practical patterns, file: Topic13.jsx,
-sl: 14, topic: Case statement for menu-driven programs, file: Topic14.jsx,
-sl: 15, topic: Functions: defining, calling, returning values, file: Topic15.jsx,
-sl: 16, topic: Subshells vs command grouping using { }, file: Topic16.jsx,
-sl: 17, topic: Exit status and error codes ($?), file: Topic17.jsx,
-sl: 18, topic: Redirection: >, >>, <, 2>, &>, file: Topic18.jsx,
-sl: 19, topic: Pipes: chaining commands with |, file: Topic19.jsx,
-sl: 20, topic: Here documents (<<EOF) and here strings (<<<), file: Topic20.jsx,
-sl: 21, topic: Process management: ps, top, kill, wait, background jobs (&), file: Topic21.jsx,
-sl: 22, topic: Command-line option parsing using getopts, file: Topic22.jsx,
-sl: 23, topic: Using sed and awk within shell scripts, file: Topic23.jsx,
-sl: 24, topic: Debugging techniques: set -x, set -e, bash -x, file: Topic24.jsx,
-sl: 25, topic: Traps and signals: INT, TERM, EXIT, file: Topic25.jsx,
-sl: 26, topic: Logging strategies and basic log rotation, file: Topic26.jsx,
-sl: 27, topic: Scheduling scripts with cron (overview), file: Topic27.jsx,
-sl: 28, topic: Writing defensive and secure shell scripts, file: Topic28.jsx,
-sl: 29, topic: Portable shell scripting (bash vs sh), file: Topic29.jsx,
-sl: 30, topic: Version controlling shell scripts with Git, file: Topic30.jsx,
-sl: 31, topic: Writing reusable utility scripts, file: Topic31.jsx,
-sl: 32, topic: Mini Project: Automated backup script, file: Topic32.jsx,
-sl: 33, topic: Common shell scripting mistakes and best practices, file: Topic33.jsx,
-sl: 34, topic: Practical Examples and Reference Scripts, file: Topic34.jsx,
-sl: 35, topic: Example Script: User input validation 10 examples, file: Topic35.jsx,
-sl: 36, topic: Example Script: Looping through files 10 Examples, file: Topic36.jsx,
-sl: 37, topic: Example Script: Checking exit status 10 Examples, file: Topic37.jsx,
-sl: 38, topic: Example Script: Automated backup utility 10 Examples, file: Topic38.jsx,
-sl: 39, topic: Example Script: Cron scheduling 10 Examples, file: Topic39.jsx,
-sl: 40, topic: Example Script: Debugging with set -x, file: Topic40.jsx,
-sl: 41, topic: Example Script: Signal handling using trap, file: Topic41.jsx,
-sl: 42, topic: XONSH, Unix Shell with Python Integration, file: Topic42.jsx,
-sl: 43, topic: XONSH Installation: Topic43.jsx,
-sl: 44, topic: XONSH Examples Basic 10 examples, file: Topic44.jsx,
-sl: 45, topic: XONSH Examples Medium 10 examples, file: Topic45.jsx,
-sl: 46, topic: XONSH Examples Expert 10 examples, file: Topic46.jsx,
+Topic 0, topic: What is State in React, file: Topic0.jsx
+Topic 1, topic: What are Hooks in React, file: Topic1.jsx
+Topic 2, topic: Why Hooks Exist (Life Before Hooks), file: Topic2.jsx
+Topic 3, topic: State vs Hooks – Conceptual Comparison, file: Topic3.jsx
+Topic 4, topic: Props vs State – Conceptual Differences, file: Topic4.jsx
+Topic 5, topic: When to Use State and When Not To, file: Topic5.jsx
+Topic 6, topic: Introduction to the useState Hook, file: Topic6.jsx
+Topic 7, topic: Declaring and Reading State Values, file: Topic7.jsx
+Topic 8, topic: State Initialization: Primitive, Object, and Array, file: Topic8.jsx
+Topic 9, topic: Updating State Correctly (Immutability Principle), file: Topic9.jsx
+Topic 10, topic: Why State Updates Are Asynchronous, file: Topic10.jsx
+Topic 11, topic: Functional Updates with useState, file: Topic11.jsx
+Topic 12, topic: Updating Object State Using Spread Operator, file: Topic12.jsx
+Topic 13, topic: Updating Array State Using map, filter, and concat, file: Topic13.jsx
+Topic 14, topic: Event Handling in React Components, file: Topic14.jsx
+Topic 15, topic: Passing Arguments to Event Handlers, file: Topic15.jsx
+Topic 16, topic: Understanding Argument Passing in Event Handlers, file: Topic16.jsx
+Topic 17, topic: Preventing Default Form Behavior, file: Topic17.jsx
+Topic 18, topic: Controlled Components in React Forms, file: Topic18.jsx
+Topic 19, topic: Handling Single Input Forms, file: Topic19.jsx
+Topic 20, topic: Handling Multiple Inputs with One State Object, file: Topic20.jsx
+Topic 21, topic: Checkbox, Radio, and Select Input Handling, file: Topic21.jsx
+Topic 22, topic: Basic Form Validation with State, file: Topic22.jsx
+Topic 23, topic: Conditional Rendering Using if and Ternary Operators, file: Topic23.jsx
+Topic 24, topic: Conditional Rendering Using Logical AND (&&), file: Topic24.jsx
+Topic 25, topic: Showing Loading and Empty States, file: Topic25.jsx
+Topic 26, topic: Rendering Lists Using Array.map(), file: Topic26.jsx
+Topic 27, topic: Understanding Keys in List Rendering, file: Topic27.jsx
+Topic 28, topic: Common Mistakes with Keys (Index as Key), file: Topic28.jsx
+Topic 29, topic: Introduction to the useEffect Hook, file: Topic29.jsx
+Topic 30, topic: Understanding Side Effects in React, file: Topic30.jsx
+Topic 31, topic: useEffect Execution Timing Explained, file: Topic31.jsx
+Topic 32, topic: Dependency Array Fundamentals, file: Topic32.jsx
+Topic 33, topic: useEffect with Empty Dependency Array, file: Topic33.jsx
+Topic 34, topic: useEffect with Specific Dependencies, file: Topic34.jsx
+Topic 35, topic: Common Dependency Array Mistakes, file: Topic35.jsx
+Topic 36, topic: Cleanup Functions in useEffect, file: Topic36.jsx
+Topic 37, topic: Simulating Component Lifecycle Using useEffect, file: Topic37.jsx
+Topic 38, topic: Fetching Data with useEffect, file: Topic38.jsx
+Topic 39, topic: Handling Loading and Error States in API Calls, file: Topic39.jsx
+Topic 40, topic: Conditional Data Fetching, file: Topic40.jsx
+Topic 41, topic: Combining useState and useEffect Patterns, file: Topic41.jsx
+Topic 42, topic: Derived State vs Stored State, file: Topic42.jsx
+Topic 43, topic: Intro to Lifting State Up (Preview Concept), file: Topic43.jsx
+Topic 44, topic: Handling onClick, onChange, and onSubmit Events, file: Topic44.jsx
 
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
@@ -235,43 +233,6 @@ import clsx from "clsx";
 
 make dark mode as default, place divs one after another not side by side, maintain it for all topics
 
-i like to show my Shell Script as follows:
-<ShellFileLoader
-                        fileModule={awkScript1}
-                        title="Complex Data Processing"
-                        highlightLines={[]}
-                    />
-import ShellFileLoader from "../../../../../common/ShellFileLoader";
-import ifExampleSh1 from "./topic[topic_no]_files/if_example1.sh?raw";
-import ifExampleSh2 from "./topic[topic_no]_files/if_example2.sh?raw";
-import ifExampleSh3 from "./topic[topic_no]_files/if_example3.sh?raw";
-import switchExample1 from "./topic[topic_no]_files/switch_example1.sh?raw";
-import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.sh?raw";
-import awkScript1 from "./topic[topic_no]_files/awk_script1.sh?raw";
 
-and keep mu .sh file separately in a folder, so show them separately
-
-if you have braces, >, < in your text, especially in code block,<code></code> which is a code please write like following style
-    <code className="text-sm text-gray-700 dark:text-gray-300 block">
-        {`awk 'END {print NR}' file.csv`}
-    </code>
-    <code>
-        {`script.sh 2>&1 | tee transformation.log`}
-    </code>
-
-dont use the following style creae separate .sh file as stated earlier    
-    <pre className="text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 p-3 rounded">
-        {`#!/bin/bash
-        # debug_wrapper.sh - Test script in different modes
-        echo "=== Testing in different modes ==="
-        echo "1. Interactive Login:"
-        bash --login -i <<'EOF'
-            echo "  PS1: \$PS1"
-            echo "  Shell type: \$0"
-        EOF
-
-        echo -e "\n2. Non-Interactive Non-Login:"
-        bash -c "echo '  PS1: \$PS1'; echo '  Shell type: \$0'"`}
-    </pre>
-
-start from Topic
+start from Topic 1
+Topic 1, topic: What are Hooks in React, file: Topic1.jsx

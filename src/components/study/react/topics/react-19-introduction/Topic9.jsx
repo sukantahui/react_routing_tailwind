@@ -5,26 +5,32 @@ import { ArrowRight, Code, Zap, GitBranch, Cpu, Layers, Link as LinkIcon } from 
 import { useParams } from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import { useNavigate } from "react-router-dom";
+import roadmapData from "../../react19-roadmap.json";
 
 const Topic9 = () => {
+
+  const [activeTab, setActiveTab] = useState("main");
+  const [flowStep, setFlowStep] = useState(1);
+  const [isHydrationComplete, setIsHydationComplete] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
-    const navigate = useNavigate();
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-    };
-    const { moduleSlug, topicIndex } = useParams();
-    const currentIndex = Number(topicIndex);
-    const folder = roadmapData.folder;
 
-    // find the current module
-    const currentModule = roadmapData.segments
-        .flatMap(segment => segment.modules)
-        .find(module => module.slug === moduleSlug);
+  const navigate = useNavigate();
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+  const { moduleSlug, topicIndex } = useParams();
+  const currentIndex = Number(topicIndex);
+  const folder = roadmapData.folder;
 
-    // safety guard
-    if (!currentModule) return null;
-    const totalTopics = currentModule.topics.length;
-    const hasNext = currentIndex < totalTopics - 1;
+  // find the current module
+  const currentModule = roadmapData.segments
+    .flatMap(segment => segment.modules)
+    .find(module => module.slug === moduleSlug);
+
+  // safety guard
+  if (!currentModule) return null;
+  const totalTopics = currentModule.topics.length;
+  const hasNext = currentIndex < totalTopics - 1;
 
   useEffect(() => {
     // Simulate hydration completion for visualization
@@ -421,14 +427,14 @@ root.render(
                   </p>
                 </div>
               </div>
-              
+
               <p className="text-xl mb-8 text-gray-300 leading-relaxed">
-                When Debangshu from Naihati runs his React app, two files work together like a relay race: 
-                <strong className="text-blue-300"> main.tsx</strong> starts React, then passes the baton to 
-                <strong className="text-purple-300"> App.tsx</strong> which builds the entire interface. 
+                When Debangshu from Naihati runs his React app, two files work together like a relay race:
+                <strong className="text-blue-300"> main.tsx</strong> starts React, then passes the baton to
+                <strong className="text-purple-300"> App.tsx</strong> which builds the entire interface.
                 Today, you'll master this critical handoff.
               </p>
-              
+
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-blue-900/30 text-blue-300 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105">
                   Entry Point Mastery
@@ -441,7 +447,7 @@ root.render(
                 </span>
               </div>
             </div>
-            
+
             {/* Animated Entry Points */}
             <div className="absolute right-8 top-8 opacity-10">
               <svg width="200" height="150" viewBox="0 0 200 150" className="animate-[float_6s_ease-in-out_infinite]">
@@ -449,12 +455,12 @@ root.render(
                   <animate attributeName="x" from="30" to="50" dur="2s" repeatCount="indefinite" />
                 </rect>
                 <text x="60" y="58" textAnchor="middle" fontSize="10" fill="#3B82F6">main.tsx</text>
-                
+
                 <rect x="110" y="40" width="60" height="30" rx="5" fill="none" stroke="#8B5CF6" strokeWidth="2">
                   <animate attributeName="x" from="110" to="90" dur="2s" repeatCount="indefinite" />
                 </rect>
                 <text x="140" y="58" textAnchor="middle" fontSize="10" fill="#8B5CF6">App.tsx</text>
-                
+
                 <path d="M90,55 L110,55" stroke="#10B981" strokeWidth="2">
                   <animate attributeName="stroke-dashoffset" from="20" to="0" dur="1s" repeatCount="indefinite" />
                 </path>
@@ -484,14 +490,14 @@ root.render(
 
           <div className="grid md:grid-cols-1 gap-6 mb-8">
             {Object.entries(entryPoints).map(([key, file]) => (
-              <div 
+              <div
                 key={key}
                 onClick={() => setActiveTab(key)}
                 className={clsx(
                   "rounded-xl p-6 cursor-pointer transition-all duration-300 hover:scale-[1.02]",
                   "border",
-                  activeTab === key 
-                    ? "border-blue-500 bg-blue-900/20 ring-2 ring-blue-500 ring-opacity-50" 
+                  activeTab === key
+                    ? "border-blue-500 bg-blue-900/20 ring-2 ring-blue-500 ring-opacity-50"
                     : "border-gray-700 hover:border-gray-600",
                   "bg-gradient-to-br from-gray-800 to-gray-900",
                   "hover:shadow-lg"
@@ -509,18 +515,18 @@ root.render(
                     <p className="text-gray-500">{file.description}</p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-200 mb-2">Purpose:</h4>
                     <p className="text-gray-400 text-sm">{file.purpose}</p>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-200 mb-2">Analogy:</h4>
                     <p className="text-gray-400 text-sm italic">"{file.analogy}"</p>
                   </div>
-                  
+
                   <div className="p-3 rounded-lg bg-gray-900/50 border border-gray-700">
                     <h4 className="font-semibold text-gray-200 mb-2">Key Responsibilities:</h4>
                     <ul className="space-y-1">
@@ -555,7 +561,7 @@ root.render(
                 <p className="text-gray-500">Complete code with annotations</p>
               </div>
             </div>
-            
+
             <div className="grid md:grid-cols-1 gap-6">
               <div>
                 <div className="mb-4">
@@ -570,7 +576,7 @@ root.render(
                   </pre>
                 </div>
               </div>
-              
+
               <div>
                 <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700 mb-6">
                   <h4 className="font-semibold text-gray-200 mb-3">Line-by-Line Explanation:</h4>
@@ -578,7 +584,7 @@ root.render(
                     {activeTab === 'main' && (
                       <>
                         <div className="p-3 rounded bg-gray-800">
-                          <div className="font-mono text-green-300 text-sm">import { createRoot } from 'react-dom/client'</div>
+                          <div className="font-mono text-green-300 text-sm">import {createRoot} from 'react-dom/client'</div>
                           <p className="text-gray-400 text-xs mt-1">Imports the function that connects React to DOM</p>
                         </div>
                         <div className="p-3 rounded bg-gray-800">
@@ -621,12 +627,12 @@ root.render(
                     )}
                   </div>
                 </div>
-                
+
                 <div className="p-4 rounded-lg bg-blue-900/20 border border-blue-800">
                   <h4 className="font-semibold text-blue-300 mb-2">Student Exercise:</h4>
                   <p className="text-gray-400 text-sm">
-                    Open your project's {entryPoints[activeTab].title}. Try adding a console.log() at the top. 
-                    For main.tsx: <code className="text-green-300">console.log('React is starting!')</code>. 
+                    Open your project's {entryPoints[activeTab].title}. Try adding a console.log() at the top.
+                    For main.tsx: <code className="text-green-300">console.log('React is starting!')</code>.
                     Check browser console after refresh.
                   </p>
                 </div>
@@ -670,7 +676,7 @@ root.render(
                   </button>
                 ))}
               </div>
-              
+
               <div className="flex space-x-3">
                 <button
                   onClick={prevFlowStep}
@@ -723,30 +729,30 @@ root.render(
                 <p className="text-gray-400">{flowSteps[flowStep - 1].description}</p>
               </div>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6">
               <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-700">
                 <h4 className="font-semibold text-gray-200 mb-2">Technical Details:</h4>
                 <p className="text-gray-400 text-sm">{flowSteps[flowStep - 1].details}</p>
               </div>
-              
+
               <div className="p-4 rounded-lg bg-gray-900 border border-gray-700">
                 <h4 className="font-semibold text-gray-200 mb-2">Visual Flow:</h4>
                 <div className="font-mono text-sm text-green-300 bg-black/30 p-3 rounded">
                   {flowSteps[flowStep - 1].visual}
                 </div>
               </div>
-              
+
               <div className="md:col-span-2 p-4 rounded-lg bg-blue-900/20 border border-blue-800">
                 <h4 className="font-semibold text-blue-300 mb-2">Student Connection:</h4>
                 <p className="text-gray-400 text-sm">{flowSteps[flowStep - 1].studentTip}</p>
               </div>
             </div>
-            
+
             {/* Visual Diagram */}
             <div className="mt-8 p-6 rounded-lg bg-gray-900 border border-gray-700">
               <h4 className="font-semibold text-gray-200 mb-4 text-center">Process Flow Diagram</h4>
-              
+
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
                 {/* Step 1 */}
                 <div className={clsx(
@@ -764,13 +770,13 @@ root.render(
                     <div className="text-sm text-gray-300">Loads HTML</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 2 ? "bg-green-500" : "bg-gray-700"
                 )}></div>
-                
+
                 {/* Step 2 */}
                 <div className={clsx(
                   "flex flex-col items-center",
@@ -787,13 +793,13 @@ root.render(
                     <div className="text-sm text-gray-300">Loads main.tsx</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 3 ? "bg-purple-500" : "bg-gray-700"
                 )}></div>
-                
+
                 {/* Step 3 */}
                 <div className={clsx(
                   "flex flex-col items-center",
@@ -810,13 +816,13 @@ root.render(
                     <div className="text-sm text-gray-300">createRoot()</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 4 ? "bg-yellow-500" : "bg-gray-700"
                 )}></div>
-                
+
                 {/* Step 4 */}
                 <div className={clsx(
                   "flex flex-col items-center",
@@ -833,13 +839,13 @@ root.render(
                     <div className="text-sm text-gray-300">App Component</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 5 ? "bg-red-500" : "bg-gray-700"
                 )}></div>
-                
+
                 {/* Step 5 */}
                 <div className={clsx(
                   "flex flex-col items-center",
@@ -856,13 +862,13 @@ root.render(
                     <div className="text-sm text-gray-300">Component Tree</div>
                   </div>
                 </div>
-                
+
                 {/* Arrow */}
                 <div className={clsx(
                   "hidden md:block w-16 h-1",
                   flowStep >= 6 ? "bg-indigo-500" : "bg-gray-700"
                 )}></div>
-                
+
                 {/* Step 6 */}
                 <div className={clsx(
                   "flex flex-col items-center",
@@ -890,49 +896,49 @@ root.render(
             "bg-gradient-to-br from-gray-800 to-gray-900"
           )}>
             <h3 className="text-xl font-semibold mb-6 text-green-300">Hydration Process: From Empty to Interactive</h3>
-            
+
             <div className="grid md:grid-cols-4 gap-4 mb-6">
               {hydrationStages.map((stage, index) => (
-                <div 
+                <div
                   key={index}
                   className={clsx(
                     "rounded-lg p-4 transition-all duration-300",
                     "border",
-                    isHydrationComplete && index === 3 
-                      ? "border-green-500 bg-green-900/20" 
+                    isHydrationComplete && index === 3
+                      ? "border-green-500 bg-green-900/20"
                       : index <= (isHydrationComplete ? 3 : flowStep - 1)
-                      ? "border-gray-700 bg-gray-900/50"
-                      : "border-gray-800 bg-gray-900/30 opacity-50"
+                        ? "border-gray-700 bg-gray-900/50"
+                        : "border-gray-800 bg-gray-900/30 opacity-50"
                   )}
                 >
                   <div className="flex items-center mb-3">
                     <div className={clsx(
                       "w-8 h-8 rounded-full flex items-center justify-center mr-3",
-                      isHydrationComplete && index === 3 
-                        ? "bg-green-600" 
+                      isHydrationComplete && index === 3
+                        ? "bg-green-600"
                         : index <= (isHydrationComplete ? 3 : flowStep - 1)
-                        ? "bg-blue-600"
-                        : "bg-gray-700"
+                          ? "bg-blue-600"
+                          : "bg-gray-700"
                     )}>
                       <span className="text-white text-sm">{index + 1}</span>
                     </div>
                     <h4 className="font-semibold text-gray-200">{stage.stage}</h4>
                   </div>
-                  
+
                   <pre className="text-xs text-gray-300 bg-black p-3 rounded mb-2 overflow-x-auto">
                     {stage.content}
                   </pre>
-                  
+
                   <p className="text-gray-500 text-xs">{stage.state}</p>
                 </div>
               ))}
             </div>
-            
+
             <div className="p-4 rounded-lg bg-green-900/20 border border-green-800">
               <h4 className="font-semibold text-green-300 mb-2">Hydration Explained:</h4>
               <p className="text-gray-400 text-sm">
-                Hydration is React's process of attaching event listeners and making the initial HTML interactive. 
-                When Tuhina clicks a button in her app, hydration made that possible. The #root div starts empty, 
+                Hydration is React's process of attaching event listeners and making the initial HTML interactive.
+                When Tuhina clicks a button in her app, hydration made that possible. The #root div starts empty,
                 React fills it, then adds interactivity.
               </p>
             </div>
@@ -957,7 +963,7 @@ root.render(
 
           <div className="grid md:grid-cols-3 gap-6">
             {studentExamples.map((student, index) => (
-              <div 
+              <div
                 key={index}
                 className={clsx(
                   "rounded-xl p-6 transition-all duration-300 hover:scale-[1.02]",
@@ -970,8 +976,8 @@ root.render(
                   <div className={clsx(
                     "w-12 h-12 rounded-xl flex items-center justify-center text-xl mr-4",
                     index === 0 ? "bg-gradient-to-br from-blue-600 to-cyan-600" :
-                    index === 1 ? "bg-gradient-to-br from-purple-600 to-pink-600" :
-                    "bg-gradient-to-br from-green-600 to-emerald-700"
+                      index === 1 ? "bg-gradient-to-br from-purple-600 to-pink-600" :
+                        "bg-gradient-to-br from-green-600 to-emerald-700"
                   )}>
                     {index === 0 ? "🏫" : index === 1 ? "📚" : "🎯"}
                   </div>
@@ -980,7 +986,7 @@ root.render(
                     <p className="text-gray-500">{student.location}</p>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-200 mb-2">main.tsx Pattern:</h4>
@@ -988,14 +994,14 @@ root.render(
                       {student.mainStructure}
                     </pre>
                   </div>
-                  
+
                   <div>
                     <h4 className="font-semibold text-gray-200 mb-2">App.tsx Pattern:</h4>
                     <pre className="text-xs text-gray-300 bg-black p-3 rounded overflow-x-auto">
                       {student.appStructure}
                     </pre>
                   </div>
-                  
+
                   <div className="p-3 rounded-lg bg-gray-900/50 border border-gray-700">
                     <h4 className="font-semibold text-gray-200 mb-1">Architecture:</h4>
                     <p className="text-gray-400 text-sm">{student.pattern}</p>
@@ -1016,7 +1022,7 @@ root.render(
               <div>
                 <h4 className="font-semibold text-gray-200 mb-3">Simple Pattern (Beginner):</h4>
                 <pre className="text-sm text-gray-300 bg-black p-4 rounded overflow-x-auto">
-{`// main.tsx
+                  {`// main.tsx
 createRoot(document.getElementById('root')!).render(<App />)
 
 // App.tsx
@@ -1028,7 +1034,7 @@ function App() {
               <div>
                 <h4 className="font-semibold text-gray-200 mb-3">Advanced Pattern (Production):</h4>
                 <pre className="text-sm text-gray-300 bg-black p-4 rounded overflow-x-auto">
-{`// main.tsx
+                  {`// main.tsx
 const root = createRoot(document.getElementById('root')!)
 root.render(
   <ErrorBoundary>
@@ -1077,7 +1083,7 @@ function App() {
 
               <div className="space-y-4">
                 {commonMistakes.map((mistake, index) => (
-                  <div 
+                  <div
                     key={index}
                     className={clsx(
                       "rounded-lg p-4 transition-all duration-300",
@@ -1092,7 +1098,7 @@ function App() {
                       </div>
                       <h4 className="text-lg font-semibold text-red-300">{mistake.mistake}</h4>
                     </div>
-                    
+
                     <div className="ml-11 space-y-3">
                       <div>
                         <h5 className="font-semibold text-gray-200 mb-1">Error Message:</h5>
@@ -1100,12 +1106,12 @@ function App() {
                           {mistake.error}
                         </code>
                       </div>
-                      
+
                       <div>
                         <h5 className="font-semibold text-gray-200 mb-1">Cause:</h5>
                         <p className="text-gray-400 text-sm">{mistake.cause}</p>
                       </div>
-                      
+
                       <div className="p-3 rounded bg-gray-900 border border-gray-700">
                         <h5 className="font-semibold text-green-300 mb-1">Solution:</h5>
                         <p className="text-gray-400 text-sm">{mistake.solution}</p>
@@ -1132,7 +1138,7 @@ function App() {
 
               <div className="space-y-4">
                 {bestPractices.map((practice, index) => (
-                  <div 
+                  <div
                     key={index}
                     className={clsx(
                       "rounded-lg p-4 transition-all duration-300 hover:scale-[1.02]",
@@ -1147,18 +1153,18 @@ function App() {
                       </div>
                       <h4 className="text-lg font-semibold text-green-300">{practice.practice}</h4>
                     </div>
-                    
+
                     <div className="ml-11 space-y-3">
                       <div>
                         <h5 className="font-semibold text-gray-200 mb-1">Why:</h5>
                         <p className="text-gray-400 text-sm">{practice.reason}</p>
                       </div>
-                      
+
                       <div>
                         <h5 className="font-semibold text-gray-200 mb-1">Example:</h5>
                         <p className="text-gray-400 text-sm italic">{practice.example}</p>
                       </div>
-                      
+
                       <div className="p-3 rounded bg-gray-900 border border-gray-700">
                         <h5 className="font-semibold text-blue-300 mb-1">Teaching Tip:</h5>
                         <p className="text-gray-400 text-sm">{practice.tip}</p>
@@ -1181,25 +1187,25 @@ function App() {
               <div className="p-4 rounded-lg bg-blue-900/20 border border-blue-800">
                 <h4 className="font-semibold text-blue-300 mb-2">Think about...</h4>
                 <p className="text-gray-400">
-                  What happens if you move the createRoot() call inside a useEffect hook? 
+                  What happens if you move the createRoot() call inside a useEffect hook?
                   Would the app still work? Why or why not? Consider the timing of DOM availability.
                 </p>
               </div>
-              
+
               <div className="p-4 rounded-lg bg-purple-900/20 border border-purple-800">
                 <h4 className="font-semibold text-purple-300 mb-2">Observe carefully...</h4>
                 <p className="text-gray-400">
-                  Open your browser's Developer Tools (F12) and look at the Elements tab. 
-                  Find the <code className="text-purple-300">{"<div id='root'>"}</code> element. 
+                  Open your browser's Developer Tools (F12) and look at the Elements tab.
+                  Find the <code className="text-purple-300">{"<div id='root'>"}</code> element.
                   Watch how it changes when your React app loads. This visualization helps understand hydration.
                 </p>
               </div>
-              
+
               <div className="p-4 rounded-lg bg-green-900/20 border border-green-800">
                 <h4 className="font-semibold text-green-300 mb-2">Try changing...</h4>
                 <p className="text-gray-400">
-                  In your App.tsx, add a setTimeout that updates state after 3 seconds. 
-                  Observe how the component re-renders. Now add console.log() in both 
+                  In your App.tsx, add a setTimeout that updates state after 3 seconds.
+                  Observe how the component re-renders. Now add console.log() in both
                   main.tsx and App.tsx - which logs appear first? This shows the execution order.
                 </p>
               </div>
@@ -1230,7 +1236,7 @@ function App() {
                     Sukanta Hui
                   </span>
                 </div>
-                
+
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-semibold text-gray-200 mb-3 flex items-center">
@@ -1238,13 +1244,13 @@ function App() {
                       The Entry Point Mindset Shift:
                     </h4>
                     <p className="text-gray-400 leading-relaxed">
-                      When Swadeep first sees main.tsx and App.tsx, he sees two files. 
-                      When he understands them, he sees a handoff. main.tsx says "React, start here." 
-                      App.tsx says "React, build this." This understanding transforms how students 
+                      When Swadeep first sees main.tsx and App.tsx, he sees two files.
+                      When he understands them, he sees a handoff. main.tsx says "React, start here."
+                      App.tsx says "React, build this." This understanding transforms how students
                       think about React architecture. They stop seeing files and start seeing processes.
                     </p>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-gray-200 mb-3 flex items-center">
@@ -1272,7 +1278,7 @@ function App() {
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-gray-200 mb-3 flex items-center">
                         <span className="w-8 h-8 rounded-full bg-red-900/30 flex items-center justify-center mr-3">⚠️</span>
@@ -1300,21 +1306,21 @@ function App() {
                       </ul>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 p-5 rounded-xl bg-gray-800/50 border border-gray-700">
                     <h5 className="font-semibold text-gray-200 mb-3 flex items-center">
                       <span className="w-8 h-8 rounded-full bg-purple-900/30 flex items-center justify-center mr-3">📚</span>
                       27 Years of Entry Points:
                     </h5>
                     <p className="text-gray-400">
-                      I've taught programming since 1997. Every framework has entry points. 
-                      In C, it's main(). In Java, it's public static void main(). In React, 
-                      it's main.tsx → App.tsx. The concept never changes: somewhere, something 
-                      has to start. Teaching entry points isn't just teaching React - it's 
-                      teaching a fundamental programming concept. When Abhronila understands 
-                      that main.tsx is React's "main()", she suddenly understands all frameworks 
-                      better. She sees patterns. That pattern recognition is what makes a 
-                      developer grow. Entry points seem simple, but understanding them deeply 
+                      I've taught programming since 1997. Every framework has entry points.
+                      In C, it's main(). In Java, it's public static void main(). In React,
+                      it's main.tsx → App.tsx. The concept never changes: somewhere, something
+                      has to start. Teaching entry points isn't just teaching React - it's
+                      teaching a fundamental programming concept. When Abhronila understands
+                      that main.tsx is React's "main()", she suddenly understands all frameworks
+                      better. She sees patterns. That pattern recognition is what makes a
+                      developer grow. Entry points seem simple, but understanding them deeply
                       creates a foundation that supports everything else.
                     </p>
                     <div className="mt-4 pt-4 border-t border-gray-700 text-sm text-gray-500">
@@ -1338,7 +1344,7 @@ function App() {
             <h3 className="text-2xl font-bold mb-8 text-center text-gray-100">
               📋 Topic 9 Checklist
             </h3>
-            
+
             <div className="space-y-4">
               {[
                 "Understand the difference between main.tsx and App.tsx",
@@ -1368,10 +1374,10 @@ function App() {
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-8 text-center">
               <Link
-                 to={`/${folder}/topic/${moduleSlug}/${currentIndex + 1}`}
+                to={`/${folder}/topic/${moduleSlug}/${currentIndex + 1}`}
                 className="inline-flex items-center gap-2
                px-6 py-3 rounded-lg
                bg-gradient-to-r from-blue-500 to-purple-600

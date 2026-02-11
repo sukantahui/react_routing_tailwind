@@ -310,7 +310,12 @@
                         "Example Script: Automated backup utility",
                         "Example Script: Cron scheduling",
                         "Example Script: Debugging with set -x",
-                        "Example Script: Signal handling using trap"
+                        "Example Script: Signal handling using trap",
+                        "XONSH, Unix Shell with Python Integration",
+                        "XONSH Installation: Topic43.jsx",
+                        "XONSH Examples Basic 10 examples",
+                        "XONSH Examples Medium 10 examples",
+                        "XONSH Examples Expert 10 examples"
                     ],
                     "exampleScripts": [
                         {
