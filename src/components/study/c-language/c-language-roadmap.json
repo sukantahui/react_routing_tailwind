@@ -259,74 +259,95 @@
           "badge": "Logic Starter Badge"
         },
         {
-          "moduleId": "control-flow",
-          "slug": "control-flow-decisions",
-          "title": "Control Flow and Decision Making",
+          "moduleId": "loops-basics",
+          "slug": "loops-and-iteration",
+          "title": "Loops and Basic Iteration",
           "level": "Beginner",
-          "estimatedHours": 4,
+          "estimatedHours": 6,
           "tags": [
-            "if-else",
-            "switch",
-            "conditions"
+            "loops",
+            "while",
+            "do-while",
+            "for",
+            "nested loops",
+            "break",
+            "continue",
+            "pattern problems",
+            "algorithm basics"
           ],
           "topics": [
-            "if, else-if and else statements",
-            "Nested conditions and readability",
-            "switch-case with break and default",
-            "Menu-driven programs using switch",
-            "Real examples: grading system, billing system, simple login check",
-            "Practice your Skill",
-            "Test"
+            "Introduction to repetition and why loops are needed in programming",
+            "while loop: syntax, flowchart, and condition-based execution",
+            "do-while loop: exit-controlled loop and real-world usage scenarios",
+            "for loop: counter-controlled iteration and compact loop design",
+            "Using break and continue for advanced loop control",
+            "Classic loop problems: factorial, multiplication table, sum of numbers",
+            "Prime number checking and number series generation",
+            "Introduction to nested loops for pattern-based problems",
+            "Debugging loops: identifying infinite loops and boundary errors"
           ],
           "learningOutcomes": [
-            "Use if-else and switch to control program flow",
-            "Choose appropriate branching structures for a problem",
-            "Write simple menu-driven programs"
+            "Write structured loops to automate repetitive tasks in C",
+            "Differentiate between while, do-while, and for loops",
+            "Use break and continue to control program flow effectively",
+            "Solve mathematical and pattern-based programming problems",
+            "Debug common loop-related logical errors"
           ],
           "prerequisites": [
-            "operators-expressions"
+            "control-flow"
           ],
-          "difficulty": "Easy-Medium",
-          "difficultyIndex": 4,
-          "summary": "Use conditional logic to control which parts of your program run.",
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "This module introduces structured repetition in C using while, do-while, and for loops. Students learn to design algorithms, solve mathematical problems, build pattern programs, and avoid common logical mistakes such as infinite loops and off-by-one errors.",
           "miniProjects": [
-            "Practice: Control Flow and Decision Making - Mini Project 1"
+            "Build a menu-driven calculator using loops",
+            "Create a pattern generator using nested loops"
           ],
           "exercises": {
-            "mcq": 16,
-            "coding": 8,
-            "projects": 1
+            "mcq": 20,
+            "coding": 12,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Coding Practice",
+            "type": "Quiz + Coding Practice + Debugging Test",
             "passScore": 70
           },
           "useCases": [
-            "Eligibility and validation checks",
-            "Building simple console menus"
+            "Generating numeric tables and sequences",
+            "Processing repeated user input",
+            "Building menu-driven programs",
+            "Automating calculations in billing systems",
+            "Iterating through structured numeric ranges"
           ],
           "careerSkills": [
-            "Designing decision trees",
-            "Implementing text based workflows"
+            "Algorithmic thinking in structured steps",
+            "Breaking repetitive work into efficient code",
+            "Logical debugging and boundary testing",
+            "Understanding time complexity at a basic level"
           ],
           "commonMistakes": [
-            "Forgetting break in switch and causing fall-through bugs",
-            "Creating deeply nested if blocks instead of simplifying logic"
+            "Creating infinite loops by not updating the loop variable",
+            "Off-by-one errors in loop boundaries",
+            "Incorrect nesting of loops leading to wrong pattern output",
+            "Misuse of break causing premature termination"
           ],
           "references": [
-            "C decision making documentation",
-            "Introductory C books on control flow"
+            "C loops and iteration tutorials",
+            "The C Programming Language - loop constructs",
+            "Beginner algorithm practice resources"
           ],
           "teachingTips": [
-            "Make students draw flowcharts before coding if-else chains.",
-            "Show when switch is cleaner than many else-if blocks."
+            "Trace loop execution step-by-step using dry run tables.",
+            "Encourage students to predict output before running programs.",
+            "Provide intentionally broken loop examples for debugging practice.",
+            "Use board-based visual pattern drawing before coding nested loops."
           ],
           "preReading": [
-            "Operators, Expressions and Basic Logic module"
+            "Control Flow and Decision Making module"
           ],
-          "previousModule": "operators-expressions",
-          "nextModule": "loops-basics",
-          "badge": "Decision Maker Badge"
+          "previousModule": "control-flow",
+          "nextModule": "functions-basics",
+          "badge": "Loop Wizard Badge"
         },
         {
           "moduleId": "loops-basics",

@@ -1,0 +1,266 @@
+Topic 0, topic: Concept of functions and why they are needed, file: Topic0.jsx,
+Topic 1, topic: Advantages of modular programming, file: Topic1.jsx,
+Topic 2, topic: Function declaration (prototype) – syntax and purpose, file: Topic2.jsx,
+Topic 3, topic: Function definition – structure and components, file: Topic3.jsx,
+Topic 4, topic: Function call and flow of execution, file: Topic4.jsx,
+Topic 5, topic: Parameters vs arguments – clear distinction, file: Topic5.jsx,
+Topic 6, topic: Actual parameters and formal parameters, file: Topic6.jsx,
+Topic 7, topic: Return statement – rules and limitations, file: Topic7.jsx,
+Topic 8, topic: Functions with no arguments and no return value, file: Topic8.jsx,
+Topic 9, topic: Functions with arguments and no return value, file: Topic9.jsx,
+Topic 10, topic: Functions with arguments and return value, file: Topic10.jsx,
+Topic 11, topic: Functions with no arguments but return value, file: Topic11.jsx,
+Topic 12, topic: Call by value mechanism in C, file: Topic12.jsx,
+Topic 13, topic: Why C does not support call by reference directly, file: Topic13.jsx,
+Topic 14, topic: Limitations of call by value, file: Topic14.jsx,
+Topic 15, topic: Using pointers to simulate call by reference (intro), file: Topic15.jsx,
+Topic 16, topic: Local variables – scope and lifetime, file: Topic16.jsx,
+Topic 17, topic: Global variables – scope, lifetime and risks, file: Topic17.jsx,
+Topic 18, topic: Difference between local and global variables, file: Topic18.jsx,
+Topic 19, topic: Static variables inside functions (intro), file: Topic19.jsx,
+Topic 20, topic: Nested function calls and execution order, file: Topic20.jsx,
+Topic 21, topic: Recursive functions – concept and definition, file: Topic21.jsx,
+Topic 22, topic: Base condition and recursive case, file: Topic22.jsx,
+Topic 23, topic: Stack memory behavior in recursion, file: Topic23.jsx,
+Topic 24, topic: Advantages and disadvantages of recursion, file: Topic24.jsx,
+Topic 25, topic: Simple recursion examples (factorial, sum of digits), file: Topic25.jsx,
+Topic 26, topic: When to avoid recursion, file: Topic26.jsx,
+Topic 27, topic: Header files – purpose and structure, file: Topic27.jsx,
+Topic 28, topic: User-defined header files (.h), file: Topic28.jsx,
+Topic 29, topic: Separating declaration and definition using header files, file: Topic29.jsx,
+Topic 30, topic: Multiple source files and modular compilation, file: Topic30.jsx,
+Topic 31, topic: Using #include for modular programming, file: Topic31.jsx,
+Topic 32, topic: Common function-related compiler errors, file: Topic32.jsx,
+Topic 33, topic: Best practices for writing reusable functions, file: Topic33.jsx,
+Topic 34, topic: Designing function names for readability, file: Topic34.jsx,
+Topic 35, topic: Refactoring repeated code into functions, file: Topic35.jsx,
+Topic 36, topic: Real-world use cases of modular programming, file: Topic36.jsx,
+Topic 37, topic: Function prototype vs function definition, file: Topic37.jsx,
+Topic 38, topic: Why function declarations must appear before usage, file: Topic38.jsx,
+Topic 39, topic: Compiler errors caused by missing or wrong prototypes, file: Topic39.jsx,
+Topic 40, topic: Call stack and stack frames in function calls, file: Topic40.jsx,
+Topic 41, topic: Memory allocation during function execution, file: Topic41.jsx,
+Topic 42, topic: How return values travel back through the stack, file: Topic42.jsx,
+Topic 43, topic: Recursion vs iteration – comparison, file: Topic43.jsx,
+Topic 44, topic: When recursion is elegant and when it is dangerous, file: Topic44.jsx,
+Topic 45, topic: Converting recursive logic to iterative logic, file: Topic45.jsx,
+Topic 46, topic: Single responsibility principle for functions, file: Topic46.jsx,
+Topic 47, topic: Designing small, reusable, testable functions, file: Topic47.jsx,
+Topic 48, topic: Avoiding functions that do too many tasks, file: Topic48.jsx,
+Topic 49, topic: Validating inputs inside functions, file: Topic49.jsx,
+Topic 50, topic: Returning error codes from functions, file: Topic50.jsx,
+Topic 51, topic: Using functions to isolate error handling logic, file: Topic51.jsx,
+Topic 52, topic: Header file naming conventions, file: Topic52.jsx,
+Topic 53, topic: Include guards (#ifndef, #define, #endif), file: Topic53.jsx,
+Topic 54, topic: Avoiding multiple definition errors, file: Topic54.jsx,
+Topic 55, topic: Inline functions – concept and trade-offs, file: Topic55.jsx,
+Topic 56, topic: Function pointers – introduction and use cases, file: Topic56.jsx,
+Topic 57, topic: Using functions for callback-style programming, file: Topic57.jsx
+
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    -- Teacher note must have:
+    -- Icon emphasis
+    -- Hover highlight
+    -- SVG steps should visually respond on hover
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - Primary teacher: Sukanta Hui
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+Teacher’s professional description must be fetched from below:
+    - Name: Sukanta Hui
+    - email: sukantahui@codernaccotax.co.in
+    - mobile: 7003756860
+    - skill: Programming Language, RDBMs, Operating System, Web Development
+    - Experience: 27 years, calculate it from the year 1998, 27 should not be fixed, it will be dippend on current year based on year 1998
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Debangshu, Ritaja,  etc.
+        -- Places:
+            --- Barrackpore CNAT,   Naihati CNAT
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+use this to show C Codes
+
+place C Codes in separate file and show them as follows
+import EditableCCodeBlock from "../../../../../common/EditableCCodeBlock";
+import ifExample1 from "./topic[topic_no]_files/if_example1.c?raw";
+import ifExampleh2 from "./topic[topic_no]_files/if_example2.c?raw";
+import ifExample3 from "./topic[topic_no]_files/if_example3.c?raw";
+
+<EditableCCodeBlock
+        title="Example 1: if example"
+        initialCode={ifExample1}
+/>
+
+<EditableCCodeBlock
+        title="Example 2: if example"
+        initialCode={ifExample2}
+/>
+like this
+start from Topic 0
