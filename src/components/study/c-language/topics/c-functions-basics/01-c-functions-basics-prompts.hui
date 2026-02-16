@@ -257,7 +257,7 @@ import ifExample3 from "./topic[topic_no]_files/if_example3.c?raw";
         title="Example 1: if example"
         initialCode={ifExample1}
 />
-
+provide me the .c files separately, dont add them in the component
 <EditableCCodeBlock
         title="Example 2: if example"
         initialCode={ifExample2}
