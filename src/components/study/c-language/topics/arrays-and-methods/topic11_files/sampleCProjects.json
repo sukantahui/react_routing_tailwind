@@ -1,0 +1,514 @@
+{
+  "projectCategory": "C Programming – 50 Array-Based Projects (Moderate Level)",
+  "subject": "Computer Science (C Programming)",
+  "board": "WBCHSE / CBSE / ISC",
+  "class": "XI - XII",
+  "tools": ["GCC", "Turbo C", "VS Code", "Code::Blocks"],
+  "institute": {
+    "author": "Sukanta Hui",
+    "name": "Coder & AccoTax",
+    "location": "Barrackpore & Naihati"
+  },
+  "projects": [
+    {
+      "projectId": "A001",
+      "title": "Sum and Average of Array Elements",
+      "difficulty": "Beginner",
+      "description": "Read N integers into an array and compute their sum and average.",
+      "exampleText": "Enter size: 5\nEnter elements: 10 20 30 40 50",
+      "exampleOutput": "Sum = 150, Average = 30.00",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], sum = 0;\n    float avg;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n    avg = (float)sum / n;\n    printf(\"Sum = %d, Average = %.2f\\n\", sum, avg);\n    return 0;\n}",
+      "learningOutcome": "Basic array traversal and accumulation."
+    },
+    {
+      "projectId": "A002",
+      "title": "Find Maximum and Minimum in Array",
+      "difficulty": "Beginner",
+      "description": "Find the largest and smallest element in an array.",
+      "exampleText": "Enter size: 6\nEnter elements: 12 7 45 9 23 18",
+      "exampleOutput": "Maximum = 45, Minimum = 7",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], max, min;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    max = min = arr[0];\n    for(int i = 1; i < n; i++) {\n        if(arr[i] > max) max = arr[i];\n        if(arr[i] < min) min = arr[i];\n    }\n    printf(\"Maximum = %d, Minimum = %d\\n\", max, min);\n    return 0;\n}",
+      "learningOutcome": "Comparison and tracking extremes."
+    },
+    {
+      "projectId": "A003",
+      "title": "Reverse an Array (using temporary array)",
+      "difficulty": "Beginner",
+      "description": "Reverse the elements of an array using a second array.",
+      "exampleText": "Enter size: 5\nEnter elements: 1 2 3 4 5",
+      "exampleOutput": "Reversed array: 5 4 3 2 1",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], rev[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 0; i < n; i++) rev[i] = arr[n-1-i];\n    printf(\"Reversed array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", rev[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Array indexing and reversal logic."
+    },
+    {
+      "projectId": "A004",
+      "title": "Reverse an Array (in-place)",
+      "difficulty": "Intermediate",
+      "description": "Reverse an array without using another array (two-pointer swap).",
+      "exampleText": "Enter size: 6\nEnter elements: 10 20 30 40 50 60",
+      "exampleOutput": "Reversed array: 60 50 40 30 20 10",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 0, j = n-1; i < j; i++, j--) {\n        int temp = arr[i];\n        arr[i] = arr[j];\n        arr[j] = temp;\n    }\n    printf(\"Reversed array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "In-place reversal using two pointers."
+    },
+    {
+      "projectId": "A005",
+      "title": "Count Even and Odd Elements",
+      "difficulty": "Beginner",
+      "description": "Count the number of even and odd elements in an array.",
+      "exampleText": "Enter size: 7\nEnter elements: 12 7 5 8 10 3 6",
+      "exampleOutput": "Even: 4, Odd: 3",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], even = 0, odd = 0;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        if(arr[i] % 2 == 0) even++;\n        else odd++;\n    }\n    printf(\"Even: %d, Odd: %d\\n\", even, odd);\n    return 0;\n}",
+      "learningOutcome": "Conditional counting."
+    },
+    {
+      "projectId": "A006",
+      "title": "Search an Element (Linear Search)",
+      "difficulty": "Beginner",
+      "description": "Find the index of a given element using linear search. Return -1 if not found.",
+      "exampleText": "Enter size: 5\nEnter elements: 10 23 45 67 89\nEnter element to search: 45",
+      "exampleOutput": "Element 45 found at index 2",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], key, pos = -1;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter element to search: \");\n    scanf(\"%d\", &key);\n    for(int i = 0; i < n; i++) {\n        if(arr[i] == key) {\n            pos = i;\n            break;\n        }\n    }\n    if(pos != -1)\n        printf(\"Element %d found at index %d\\n\", key, pos);\n    else\n        printf(\"Element not found\\n\");\n    return 0;\n}",
+      "learningOutcome": "Linear search algorithm."
+    },
+    {
+      "projectId": "A007",
+      "title": "Second Largest Element in Array",
+      "difficulty": "Intermediate",
+      "description": "Find the second largest element in an array without sorting.",
+      "exampleText": "Enter size: 6\nEnter elements: 12 35 1 10 34 1",
+      "exampleOutput": "Second largest = 34",
+      "answer": "#include <stdio.h>\n#include <limits.h>\n\nint main() {\n    int n, arr[100];\n    int first, second;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    first = second = INT_MIN;\n    for(int i = 0; i < n; i++) {\n        if(arr[i] > first) {\n            second = first;\n            first = arr[i];\n        } else if(arr[i] > second && arr[i] != first) {\n            second = arr[i];\n        }\n    }\n    if(second == INT_MIN)\n        printf(\"No second largest\\n\");\n    else\n        printf(\"Second largest = %d\\n\", second);\n    return 0;\n}",
+      "learningOutcome": "Multiple condition tracking."
+    },
+    {
+      "projectId": "A008",
+      "title": "Remove Duplicates from Sorted Array",
+      "difficulty": "Intermediate",
+      "description": "Given a sorted array, remove duplicates in-place and return new length.",
+      "exampleText": "Enter size: 7\nEnter sorted elements: 1 1 2 2 3 4 4",
+      "exampleOutput": "Array after removing duplicates: 1 2 3 4\nNew length = 4",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter sorted elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int j = 0;\n    for(int i = 0; i < n; i++) {\n        if(arr[i] != arr[i+1]) {\n            arr[j++] = arr[i];\n        }\n    }\n    printf(\"Array after removing duplicates: \");\n    for(int i = 0; i < j; i++) printf(\"%d \", arr[i]);\n    printf(\"\\nNew length = %d\\n\", j);\n    return 0;\n}",
+      "learningOutcome": "In-place duplicate removal."
+    },
+    {
+      "projectId": "A009",
+      "title": "Insert Element at Specific Position",
+      "difficulty": "Intermediate",
+      "description": "Insert an element at a given position in an array (shift right).",
+      "exampleText": "Enter size: 5\nEnter elements: 10 20 30 40 50\nEnter position (0-5) and value: 2 25",
+      "exampleOutput": "Array after insertion: 10 20 25 30 40 50",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], pos, val;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter position and value: \");\n    scanf(\"%d %d\", &pos, &val);\n    if(pos < 0 || pos > n) {\n        printf(\"Invalid position\\n\");\n        return 0;\n    }\n    for(int i = n; i > pos; i--)\n        arr[i] = arr[i-1];\n    arr[pos] = val;\n    n++;\n    printf(\"Array after insertion: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Shifting elements for insertion."
+    },
+    {
+      "projectId": "A010",
+      "title": "Delete Element at Specific Position",
+      "difficulty": "Intermediate",
+      "description": "Delete an element at a given position in an array (shift left).",
+      "exampleText": "Enter size: 6\nEnter elements: 10 20 30 40 50 60\nEnter position to delete (0-5): 2",
+      "exampleOutput": "Array after deletion: 10 20 40 50 60",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], pos;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter position to delete: \");\n    scanf(\"%d\", &pos);\n    if(pos < 0 || pos >= n) {\n        printf(\"Invalid position\\n\");\n        return 0;\n    }\n    for(int i = pos; i < n-1; i++)\n        arr[i] = arr[i+1];\n    n--;\n    printf(\"Array after deletion: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Shifting left for deletion."
+    },
+    {
+      "projectId": "A011",
+      "title": "Rotate Array Left by One",
+      "difficulty": "Beginner",
+      "description": "Rotate the array left by one position (first element moves to end).",
+      "exampleText": "Enter size: 5\nEnter elements: 1 2 3 4 5",
+      "exampleOutput": "Array after left rotation: 2 3 4 5 1",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int first = arr[0];\n    for(int i = 0; i < n-1; i++)\n        arr[i] = arr[i+1];\n    arr[n-1] = first;\n    printf(\"Array after left rotation: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Simple rotation."
+    },
+    {
+      "projectId": "A012",
+      "title": "Rotate Array Right by One",
+      "difficulty": "Beginner",
+      "description": "Rotate the array right by one position (last element moves to front).",
+      "exampleText": "Enter size: 5\nEnter elements: 1 2 3 4 5",
+      "exampleOutput": "Array after right rotation: 5 1 2 3 4",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int last = arr[n-1];\n    for(int i = n-1; i > 0; i--)\n        arr[i] = arr[i-1];\n    arr[0] = last;\n    printf(\"Array after right rotation: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Right rotation logic."
+    },
+    {
+      "projectId": "A013",
+      "title": "Rotate Array Left by K Positions",
+      "difficulty": "Intermediate",
+      "description": "Rotate array left by K positions (efficient method).",
+      "exampleText": "Enter size: 7\nEnter elements: 1 2 3 4 5 6 7\nEnter K: 3",
+      "exampleOutput": "Array after left rotation: 4 5 6 7 1 2 3",
+      "answer": "#include <stdio.h>\n\nvoid reverse(int arr[], int start, int end) {\n    while(start < end) {\n        int temp = arr[start];\n        arr[start] = arr[end];\n        arr[end] = temp;\n        start++; end--;\n    }\n}\n\nint main() {\n    int n, arr[100], k;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter K: \");\n    scanf(\"%d\", &k);\n    k = k % n; // in case k > n\n    reverse(arr, 0, k-1);\n    reverse(arr, k, n-1);\n    reverse(arr, 0, n-1);\n    printf(\"Array after left rotation: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Reversal algorithm for rotation."
+    },
+    {
+      "projectId": "A014",
+      "title": "Rotate Array Right by K Positions",
+      "difficulty": "Intermediate",
+      "description": "Rotate array right by K positions using reversal.",
+      "exampleText": "Enter size: 7\nEnter elements: 1 2 3 4 5 6 7\nEnter K: 3",
+      "exampleOutput": "Array after right rotation: 5 6 7 1 2 3 4",
+      "answer": "#include <stdio.h>\n\nvoid reverse(int arr[], int start, int end) {\n    while(start < end) {\n        int temp = arr[start];\n        arr[start] = arr[end];\n        arr[end] = temp;\n        start++; end--;\n    }\n}\n\nint main() {\n    int n, arr[100], k;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter K: \");\n    scanf(\"%d\", &k);\n    k = k % n;\n    reverse(arr, 0, n-1);\n    reverse(arr, 0, k-1);\n    reverse(arr, k, n-1);\n    printf(\"Array after right rotation: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Right rotation via reversal."
+    },
+    {
+      "projectId": "A015",
+      "title": "Find Missing Number in Consecutive Array",
+      "difficulty": "Intermediate",
+      "description": "Given an array of size n-1 containing numbers from 1 to n with one missing, find the missing number.",
+      "exampleText": "Enter n: 6\nEnter n-1 elements: 1 2 4 5 6",
+      "exampleOutput": "Missing number = 3",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], sum = 0;\n    printf(\"Enter n: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter %d elements: \", n-1);\n    for(int i = 0; i < n-1; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n    int total = n * (n + 1) / 2;\n    printf(\"Missing number = %d\\n\", total - sum);\n    return 0;\n}",
+      "learningOutcome": "Sum formula for missing number."
+    },
+    {
+      "projectId": "A016",
+      "title": "Find Pair with Given Sum (Two Sum)",
+      "difficulty": "Intermediate",
+      "description": "Find if there exists a pair of elements in the array that sum to a given target.",
+      "exampleText": "Enter size: 6\nEnter elements: 8 7 2 5 3 1\nEnter target sum: 10",
+      "exampleOutput": "Pair found: 7 + 3 = 10",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], target, found = 0;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter target sum: \");\n    scanf(\"%d\", &target);\n    for(int i = 0; i < n-1; i++) {\n        for(int j = i+1; j < n; j++) {\n            if(arr[i] + arr[j] == target) {\n                printf(\"Pair found: %d + %d = %d\\n\", arr[i], arr[j], target);\n                found = 1;\n                break;\n            }\n        }\n        if(found) break;\n    }\n    if(!found) printf(\"No pair found\\n\");\n    return 0;\n}",
+      "learningOutcome": "Nested loops for pair finding."
+    },
+    {
+      "projectId": "A017",
+      "title": "Find Majority Element (Moore's Voting Algorithm)",
+      "difficulty": "Advanced",
+      "description": "Find the element that appears more than n/2 times (if exists).",
+      "exampleText": "Enter size: 7\nEnter elements: 2 2 1 1 2 2 3",
+      "exampleOutput": "Majority element = 2",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int candidate = arr[0], count = 1;\n    for(int i = 1; i < n; i++) {\n        if(arr[i] == candidate) count++;\n        else count--;\n        if(count == 0) {\n            candidate = arr[i];\n            count = 1;\n        }\n    }\n    count = 0;\n    for(int i = 0; i < n; i++)\n        if(arr[i] == candidate) count++;\n    if(count > n/2)\n        printf(\"Majority element = %d\\n\", candidate);\n    else\n        printf(\"No majority element\\n\");\n    return 0;\n}",
+      "learningOutcome": "Moore's Voting Algorithm."
+    },
+    {
+      "projectId": "A018",
+      "title": "Move All Zeros to End",
+      "difficulty": "Intermediate",
+      "description": "Given an array, move all zeros to the end while maintaining order of non-zero elements.",
+      "exampleText": "Enter size: 7\nEnter elements: 1 0 2 0 3 0 4",
+      "exampleOutput": "Array after moving zeros: 1 2 3 4 0 0 0",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int j = 0; // index for non-zero\n    for(int i = 0; i < n; i++) {\n        if(arr[i] != 0) {\n            arr[j++] = arr[i];\n        }\n    }\n    while(j < n) arr[j++] = 0;\n    printf(\"Array after moving zeros: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Two-pointer technique."
+    },
+    {
+      "projectId": "A019",
+      "title": "Merge Two Sorted Arrays",
+      "difficulty": "Intermediate",
+      "description": "Merge two sorted arrays into a third sorted array.",
+      "exampleText": "Enter size of first array: 4\nEnter sorted elements: 1 3 5 7\nEnter size of second array: 3\nEnter sorted elements: 2 4 6",
+      "exampleOutput": "Merged array: 1 2 3 4 5 6 7",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n1, n2, a[100], b[100], merged[200];\n    printf(\"Enter size of first array: \");\n    scanf(\"%d\", &n1);\n    printf(\"Enter sorted elements: \");\n    for(int i = 0; i < n1; i++) scanf(\"%d\", &a[i]);\n    printf(\"Enter size of second array: \");\n    scanf(\"%d\", &n2);\n    printf(\"Enter sorted elements: \");\n    for(int i = 0; i < n2; i++) scanf(\"%d\", &b[i]);\n    int i = 0, j = 0, k = 0;\n    while(i < n1 && j < n2) {\n        if(a[i] < b[j]) merged[k++] = a[i++];\n        else merged[k++] = b[j++];\n    }\n    while(i < n1) merged[k++] = a[i++];\n    while(j < n2) merged[k++] = b[j++];\n    printf(\"Merged array: \");\n    for(int idx = 0; idx < k; idx++) printf(\"%d \", merged[idx]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Merge algorithm."
+    },
+    {
+      "projectId": "A020",
+      "title": "Union and Intersection of Two Sorted Arrays",
+      "difficulty": "Intermediate",
+      "description": "Find union and intersection of two sorted arrays.",
+      "exampleText": "Array A: 1 3 4 5 7\nArray B: 2 3 5 6",
+      "exampleOutput": "Union: 1 2 3 4 5 6 7\nIntersection: 3 5",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n1, n2, a[100], b[100];\n    printf(\"Enter size of first sorted array: \");\n    scanf(\"%d\", &n1);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n1; i++) scanf(\"%d\", &a[i]);\n    printf(\"Enter size of second sorted array: \");\n    scanf(\"%d\", &n2);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n2; i++) scanf(\"%d\", &b[i]);\n    // Union\n    int i = 0, j = 0;\n    printf(\"Union: \");\n    while(i < n1 && j < n2) {\n        if(a[i] < b[j]) printf(\"%d \", a[i++]);\n        else if(b[j] < a[i]) printf(\"%d \", b[j++]);\n        else { printf(\"%d \", a[i]); i++; j++; }\n    }\n    while(i < n1) printf(\"%d \", a[i++]);\n    while(j < n2) printf(\"%d \", b[j++]);\n    printf(\"\\n\");\n    // Intersection\n    i = 0; j = 0;\n    printf(\"Intersection: \");\n    while(i < n1 && j < n2) {\n        if(a[i] < b[j]) i++;\n        else if(b[j] < a[i]) j++;\n        else { printf(\"%d \", a[i]); i++; j++; }\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Set operations on arrays."
+    },
+    {
+      "projectId": "A021",
+      "title": "Bubble Sort",
+      "difficulty": "Beginner",
+      "description": "Sort an array using bubble sort.",
+      "exampleText": "Enter size: 6\nEnter elements: 64 34 25 12 22 11",
+      "exampleOutput": "Sorted array: 11 12 22 25 34 64",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 0; i < n-1; i++) {\n        for(int j = 0; j < n-i-1; j++) {\n            if(arr[j] > arr[j+1]) {\n                int temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n            }\n        }\n    }\n    printf(\"Sorted array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Basic sorting."
+    },
+    {
+      "projectId": "A022",
+      "title": "Selection Sort",
+      "difficulty": "Beginner",
+      "description": "Sort an array using selection sort.",
+      "exampleText": "Enter size: 5\nEnter elements: 29 10 14 37 13",
+      "exampleOutput": "Sorted array: 10 13 14 29 37",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 0; i < n-1; i++) {\n        int minIdx = i;\n        for(int j = i+1; j < n; j++) {\n            if(arr[j] < arr[minIdx])\n                minIdx = j;\n        }\n        int temp = arr[i];\n        arr[i] = arr[minIdx];\n        arr[minIdx] = temp;\n    }\n    printf(\"Sorted array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Selection sort logic."
+    },
+    {
+      "projectId": "A023",
+      "title": "Insertion Sort",
+      "difficulty": "Intermediate",
+      "description": "Sort an array using insertion sort.",
+      "exampleText": "Enter size: 6\nEnter elements: 12 11 13 5 6 7",
+      "exampleOutput": "Sorted array: 5 6 7 11 12 13",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i-1;\n        while(j >= 0 && arr[j] > key) {\n            arr[j+1] = arr[j];\n            j--;\n        }\n        arr[j+1] = key;\n    }\n    printf(\"Sorted array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Insertion sort, shifting."
+    },
+    {
+      "projectId": "A024",
+      "title": "Binary Search on Sorted Array",
+      "difficulty": "Intermediate",
+      "description": "Implement binary search to find an element in a sorted array.",
+      "exampleText": "Enter size: 7\nEnter sorted elements: 2 5 8 12 16 23 38\nEnter element to search: 16",
+      "exampleOutput": "Element 16 found at index 4",
+      "answer": "#include <stdio.h>\n\nint binarySearch(int arr[], int low, int high, int key) {\n    while(low <= high) {\n        int mid = low + (high - low) / 2;\n        if(arr[mid] == key) return mid;\n        if(arr[mid] < key) low = mid + 1;\n        else high = mid - 1;\n    }\n    return -1;\n}\n\nint main() {\n    int n, arr[100], key;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter sorted elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    printf(\"Enter element to search: \");\n    scanf(\"%d\", &key);\n    int index = binarySearch(arr, 0, n-1, key);\n    if(index != -1)\n        printf(\"Element %d found at index %d\\n\", key, index);\n    else\n        printf(\"Element not found\\n\");\n    return 0;\n}",
+      "learningOutcome": "Binary search algorithm."
+    },
+    {
+      "projectId": "A025",
+      "title": "Check if Array is Sorted",
+      "difficulty": "Beginner",
+      "description": "Determine if an array is sorted in non-decreasing order.",
+      "exampleText": "Enter size: 5\nEnter elements: 1 3 5 7 9",
+      "exampleOutput": "Array is sorted.",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100], sorted = 1;\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    for(int i = 0; i < n-1; i++) {\n        if(arr[i] > arr[i+1]) {\n            sorted = 0;\n            break;\n        }\n    }\n    if(sorted) printf(\"Array is sorted.\\n\");\n    else printf(\"Array is not sorted.\\n\");\n    return 0;\n}",
+      "learningOutcome": "Simple condition checking."
+    },
+    {
+      "projectId": "A026",
+      "title": "Leaders in an Array",
+      "difficulty": "Intermediate",
+      "description": "Print all leaders (elements greater than all elements to their right).",
+      "exampleText": "Enter size: 6\nEnter elements: 16 17 4 3 5 2",
+      "exampleOutput": "Leaders: 17 5 2",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int maxFromRight = arr[n-1];\n    printf(\"Leaders: %d \", maxFromRight);\n    for(int i = n-2; i >= 0; i--) {\n        if(arr[i] > maxFromRight) {\n            maxFromRight = arr[i];\n            printf(\"%d \", arr[i]);\n        }\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Reverse traversal for leaders."
+    },
+    {
+      "projectId": "A027",
+      "title": "Maximum Subarray Sum (Kadane's Algorithm)",
+      "difficulty": "Advanced",
+      "description": "Find the maximum sum of a contiguous subarray (Kadane's algorithm).",
+      "exampleText": "Enter size: 8\nEnter elements: -2 -3 4 -1 -2 1 5 -3",
+      "exampleOutput": "Maximum subarray sum = 7",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int maxSoFar = arr[0], maxEndingHere = arr[0];\n    for(int i = 1; i < n; i++) {\n        maxEndingHere = (arr[i] > maxEndingHere + arr[i]) ? arr[i] : maxEndingHere + arr[i];\n        maxSoFar = (maxSoFar > maxEndingHere) ? maxSoFar : maxEndingHere;\n    }\n    printf(\"Maximum subarray sum = %d\\n\", maxSoFar);\n    return 0;\n}",
+      "learningOutcome": "Kadane's algorithm."
+    },
+    {
+      "projectId": "A028",
+      "title": "Find Equilibrium Index",
+      "difficulty": "Intermediate",
+      "description": "Find an index where sum of left elements equals sum of right elements.",
+      "exampleText": "Enter size: 7\nEnter elements: -7 1 5 2 -4 3 0",
+      "exampleOutput": "Equilibrium index found at 3",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int total = 0, leftSum = 0;\n    for(int i = 0; i < n; i++) total += arr[i];\n    int found = -1;\n    for(int i = 0; i < n; i++) {\n        total -= arr[i]; // now total is right sum\n        if(leftSum == total) {\n            found = i;\n            break;\n        }\n        leftSum += arr[i];\n    }\n    if(found != -1)\n        printf(\"Equilibrium index found at %d\\n\", found);\n    else\n        printf(\"No equilibrium index\\n\");\n    return 0;\n}",
+      "learningOutcome": "Prefix sums."
+    },
+    {
+      "projectId": "A029",
+      "title": "Wave Array (Sort in Wave Form)",
+      "difficulty": "Intermediate",
+      "description": "Arrange array elements in wave form: arr[0] >= arr[1] <= arr[2] >= arr[3] <= ...",
+      "exampleText": "Enter size: 6\nEnter elements: 3 6 5 10 7 20",
+      "exampleOutput": "Wave array: 6 3 10 5 20 7",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    // Simple approach: swap adjacent pairs\n    for(int i = 0; i < n-1; i += 2) {\n        int temp = arr[i];\n        arr[i] = arr[i+1];\n        arr[i+1] = temp;\n    }\n    printf(\"Wave array: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Wave arrangement."
+    },
+    {
+      "projectId": "A030",
+      "title": "Rearrange Positive and Negative Numbers",
+      "difficulty": "Advanced",
+      "description": "Rearrange array so that positive and negative numbers alternate, preserving order if possible.",
+      "exampleText": "Enter size: 6\nEnter elements: 1 2 -3 -4 5 -6",
+      "exampleOutput": "Rearranged: 1 -3 2 -4 5 -6",
+      "answer": "#include <stdio.h>\n\nvoid rotateRight(int arr[], int from, int to) {\n    int temp = arr[to];\n    for(int i = to; i > from; i--)\n        arr[i] = arr[i-1];\n    arr[from] = temp;\n}\n\nint main() {\n    int n, arr[100];\n    printf(\"Enter size: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++) scanf(\"%d\", &arr[i]);\n    int outOfPlace = -1;\n    for(int i = 0; i < n; i++) {\n        if(outOfPlace == -1) {\n            if((i % 2 == 0 && arr[i] < 0) || (i % 2 == 1 && arr[i] > 0))\n                outOfPlace = i;\n        } else {\n            if((arr[outOfPlace] < 0 && arr[i] > 0) || (arr[outOfPlace] > 0 && arr[i] < 0)) {\n                rotateRight(arr, outOfPlace, i);\n                if(i - outOfPlace >= 2) outOfPlace += 2;\n                else outOfPlace = -1;\n            }\n        }\n    }\n    printf(\"Rearranged: \");\n    for(int i = 0; i < n; i++) printf(\"%d \", arr[i]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Complex rearrangement, rotation."
+    },
+    {
+      "projectId": "A031",
+      "title": "Matrix Addition",
+      "difficulty": "Beginner",
+      "description": "Add two matrices of same dimensions.",
+      "exampleText": "Enter rows and cols: 2 2\nMatrix A: 1 2 3 4\nMatrix B: 5 6 7 8",
+      "exampleOutput": "Sum:\n6 8\n10 12",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], b[10][10], sum[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Matrix A:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    printf(\"Matrix B:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &b[i][j]);\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            sum[i][j] = a[i][j] + b[i][j];\n    printf(\"Sum:\\n\");\n    for(int i = 0; i < r; i++) {\n        for(int j = 0; j < c; j++)\n            printf(\"%d \", sum[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+      "learningOutcome": "2D array traversal."
+    },
+    {
+      "projectId": "A032",
+      "title": "Matrix Multiplication",
+      "difficulty": "Intermediate",
+      "description": "Multiply two matrices (if compatible).",
+      "exampleText": "Enter rows/cols of A: 2 3\nA: 1 2 3 4 5 6\nEnter rows/cols of B: 3 2\nB: 7 8 9 10 11 12",
+      "exampleOutput": "Product:\n58 64\n139 154",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], b[10][10], mul[10][10] = {0};\n    int r1, c1, r2, c2;\n    printf(\"Enter rows and cols of A: \");\n    scanf(\"%d %d\", &r1, &c1);\n    printf(\"Enter A:\\n\");\n    for(int i = 0; i < r1; i++)\n        for(int j = 0; j < c1; j++)\n            scanf(\"%d\", &a[i][j]);\n    printf(\"Enter rows and cols of B: \");\n    scanf(\"%d %d\", &r2, &c2);\n    if(c1 != r2) {\n        printf(\"Multiplication not possible.\\n\");\n        return 0;\n    }\n    printf(\"Enter B:\\n\");\n    for(int i = 0; i < r2; i++)\n        for(int j = 0; j < c2; j++)\n            scanf(\"%d\", &b[i][j]);\n    for(int i = 0; i < r1; i++) {\n        for(int j = 0; j < c2; j++) {\n            for(int k = 0; k < c1; k++) {\n                mul[i][j] += a[i][k] * b[k][j];\n            }\n        }\n    }\n    printf(\"Product:\\n\");\n    for(int i = 0; i < r1; i++) {\n        for(int j = 0; j < c2; j++)\n            printf(\"%d \", mul[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+      "learningOutcome": "Triple nested loops."
+    },
+    {
+      "projectId": "A033",
+      "title": "Transpose of a Matrix",
+      "difficulty": "Beginner",
+      "description": "Find transpose of a matrix.",
+      "exampleText": "Enter rows and cols: 2 3\nMatrix: 1 2 3 4 5 6",
+      "exampleOutput": "Transpose:\n1 4\n2 5\n3 6",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], trans[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            trans[j][i] = a[i][j];\n    printf(\"Transpose:\\n\");\n    for(int i = 0; i < c; i++) {\n        for(int j = 0; j < r; j++)\n            printf(\"%d \", trans[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+      "learningOutcome": "Row-column swap."
+    },
+    {
+      "projectId": "A034",
+      "title": "Check if Matrix is Symmetric",
+      "difficulty": "Intermediate",
+      "description": "Check if a square matrix is symmetric (equal to its transpose).",
+      "exampleText": "Enter order of matrix: 3\nEnter matrix: 1 2 3 2 4 5 3 5 6",
+      "exampleOutput": "Matrix is symmetric.",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n, sym = 1;\n    printf(\"Enter order of matrix: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 0; i < n && sym; i++) {\n        for(int j = 0; j < n; j++) {\n            if(a[i][j] != a[j][i]) {\n                sym = 0;\n                break;\n            }\n        }\n    }\n    if(sym) printf(\"Matrix is symmetric.\\n\");\n    else printf(\"Matrix is not symmetric.\\n\");\n    return 0;\n}",
+      "learningOutcome": "Matrix symmetry."
+    },
+    {
+      "projectId": "A035",
+      "title": "Row-Wise Sum of Matrix",
+      "difficulty": "Beginner",
+      "description": "Compute sum of each row of a matrix.",
+      "exampleText": "Enter rows and cols: 3 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Row sums: Row0=6, Row1=15, Row2=24",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    printf(\"Row sums: \");\n    for(int i = 0; i < r; i++) {\n        int sum = 0;\n        for(int j = 0; j < c; j++)\n            sum += a[i][j];\n        printf(\"Row%d=%d \", i, sum);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Row traversal."
+    },
+    {
+      "projectId": "A036",
+      "title": "Column-Wise Sum of Matrix",
+      "difficulty": "Beginner",
+      "description": "Compute sum of each column of a matrix.",
+      "exampleText": "Enter rows and cols: 3 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Column sums: Col0=12, Col1=15, Col2=18",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    printf(\"Column sums: \");\n    for(int j = 0; j < c; j++) {\n        int sum = 0;\n        for(int i = 0; i < r; i++)\n            sum += a[i][j];\n        printf(\"Col%d=%d \", j, sum);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Column traversal."
+    },
+    {
+      "projectId": "A037",
+      "title": "Matrix Diagonal Sum (Primary)",
+      "difficulty": "Beginner",
+      "description": "Find sum of primary diagonal of a square matrix.",
+      "exampleText": "Enter order: 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Primary diagonal sum = 15",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n, sum = 0;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 0; i < n; i++)\n        sum += a[i][i];\n    printf(\"Primary diagonal sum = %d\\n\", sum);\n    return 0;\n}",
+      "learningOutcome": "Diagonal access."
+    },
+    {
+      "projectId": "A038",
+      "title": "Matrix Secondary Diagonal Sum",
+      "difficulty": "Beginner",
+      "description": "Find sum of secondary diagonal of a square matrix.",
+      "exampleText": "Enter order: 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Secondary diagonal sum = 15",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n, sum = 0;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 0; i < n; i++)\n        sum += a[i][n-1-i];\n    printf(\"Secondary diagonal sum = %d\\n\", sum);\n    return 0;\n}",
+      "learningOutcome": "Secondary diagonal."
+    },
+    {
+      "projectId": "A039",
+      "title": "Check Sparse Matrix",
+      "difficulty": "Intermediate",
+      "description": "Determine if matrix is sparse (more zeros than non-zero).",
+      "exampleText": "Enter rows and cols: 3 3\nMatrix: 0 0 5 0 2 0 1 0 0",
+      "exampleOutput": "Matrix is sparse (zero count = 6/9 > 0.5).",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c, zero = 0;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++) {\n            scanf(\"%d\", &a[i][j]);\n            if(a[i][j] == 0) zero++;\n        }\n    if(zero > (r*c)/2)\n        printf(\"Matrix is sparse.\\n\");\n    else\n        printf(\"Matrix is not sparse.\\n\");\n    return 0;\n}",
+      "learningOutcome": "Sparse condition."
+    },
+    {
+      "projectId": "A040",
+      "title": "Upper Triangular Matrix",
+      "difficulty": "Intermediate",
+      "description": "Check if a matrix is upper triangular (all below main diagonal zero).",
+      "exampleText": "Enter order: 3\nMatrix: 1 2 3 0 5 6 0 0 9",
+      "exampleOutput": "Matrix is upper triangular.",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n, upper = 1;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 1; i < n && upper; i++) {\n        for(int j = 0; j < i; j++) {\n            if(a[i][j] != 0) {\n                upper = 0;\n                break;\n            }\n        }\n    }\n    if(upper) printf(\"Matrix is upper triangular.\\n\");\n    else printf(\"Matrix is not upper triangular.\\n\");\n    return 0;\n}",
+      "learningOutcome": "Triangular matrix condition."
+    },
+    {
+      "projectId": "A041",
+      "title": "Lower Triangular Matrix",
+      "difficulty": "Intermediate",
+      "description": "Check if a matrix is lower triangular (all above main diagonal zero).",
+      "exampleText": "Enter order: 3\nMatrix: 1 0 0 4 5 0 7 8 9",
+      "exampleOutput": "Matrix is lower triangular.",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n, lower = 1;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    for(int i = 0; i < n && lower; i++) {\n        for(int j = i+1; j < n; j++) {\n            if(a[i][j] != 0) {\n                lower = 0;\n                break;\n            }\n        }\n    }\n    if(lower) printf(\"Matrix is lower triangular.\\n\");\n    else printf(\"Matrix is not lower triangular.\\n\");\n    return 0;\n}",
+      "learningOutcome": "Lower triangular condition."
+    },
+    {
+      "projectId": "A042",
+      "title": "Matrix Rotation 90 Degrees Clockwise",
+      "difficulty": "Advanced",
+      "description": "Rotate a square matrix 90 degrees clockwise in-place.",
+      "exampleText": "Enter order: 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Rotated matrix:\n7 4 1\n8 5 2\n9 6 3",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    // transpose\n    for(int i = 0; i < n; i++) {\n        for(int j = i+1; j < n; j++) {\n            int temp = a[i][j];\n            a[i][j] = a[j][i];\n            a[j][i] = temp;\n        }\n    }\n    // reverse each row\n    for(int i = 0; i < n; i++) {\n        for(int j = 0, k = n-1; j < k; j++, k--) {\n            int temp = a[i][j];\n            a[i][j] = a[i][k];\n            a[i][k] = temp;\n        }\n    }\n    printf(\"Rotated matrix:\\n\");\n    for(int i = 0; i < n; i++) {\n        for(int j = 0; j < n; j++)\n            printf(\"%d \", a[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+      "learningOutcome": "In-place matrix rotation."
+    },
+    {
+      "projectId": "A043",
+      "title": "Matrix Rotation 90 Degrees Anticlockwise",
+      "difficulty": "Advanced",
+      "description": "Rotate a square matrix 90 degrees anticlockwise in-place.",
+      "exampleText": "Enter order: 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Rotated matrix:\n3 6 9\n2 5 8\n1 4 7",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    // transpose\n    for(int i = 0; i < n; i++) {\n        for(int j = i+1; j < n; j++) {\n            int temp = a[i][j];\n            a[i][j] = a[j][i];\n            a[j][i] = temp;\n        }\n    }\n    // reverse each column\n    for(int j = 0; j < n; j++) {\n        for(int i = 0, k = n-1; i < k; i++, k--) {\n            int temp = a[i][j];\n            a[i][j] = a[k][j];\n            a[k][j] = temp;\n        }\n    }\n    printf(\"Rotated matrix:\\n\");\n    for(int i = 0; i < n; i++) {\n        for(int j = 0; j < n; j++)\n            printf(\"%d \", a[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+      "learningOutcome": "Anticlockwise rotation."
+    },
+    {
+      "projectId": "A044",
+      "title": "Find Determinant of 2x2 Matrix",
+      "difficulty": "Beginner",
+      "description": "Compute determinant of a 2x2 matrix.",
+      "exampleText": "Enter 2x2 matrix: 4 3 2 1",
+      "exampleOutput": "Determinant = -2",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[2][2];\n    printf(\"Enter 2x2 matrix:\\n\");\n    for(int i = 0; i < 2; i++)\n        for(int j = 0; j < 2; j++)\n            scanf(\"%d\", &a[i][j]);\n    int det = a[0][0]*a[1][1] - a[0][1]*a[1][0];\n    printf(\"Determinant = %d\\n\", det);\n    return 0;\n}",
+      "learningOutcome": "Determinant formula."
+    },
+    {
+      "projectId": "A045",
+      "title": "Find Determinant of 3x3 Matrix",
+      "difficulty": "Intermediate",
+      "description": "Compute determinant of a 3x3 matrix.",
+      "exampleText": "Enter 3x3 matrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Determinant = 0",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[3][3];\n    printf(\"Enter 3x3 matrix:\\n\");\n    for(int i = 0; i < 3; i++)\n        for(int j = 0; j < 3; j++)\n            scanf(\"%d\", &a[i][j]);\n    int det = a[0][0]*(a[1][1]*a[2][2] - a[1][2]*a[2][1])\n            - a[0][1]*(a[1][0]*a[2][2] - a[1][2]*a[2][0])\n            + a[0][2]*(a[1][0]*a[2][1] - a[1][1]*a[2][0]);\n    printf(\"Determinant = %d\\n\", det);\n    return 0;\n}",
+      "learningOutcome": "3x3 determinant expansion."
+    },
+    {
+      "projectId": "A046",
+      "title": "Magic Square Check",
+      "difficulty": "Advanced",
+      "description": "Check if a given square matrix is a magic square (all rows, columns, diagonals sum to same number).",
+      "exampleText": "Enter order: 3\nMatrix: 8 1 6 3 5 7 4 9 2",
+      "exampleOutput": "Matrix is a magic square (sum=15).",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], n;\n    printf(\"Enter order: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < n; i++)\n        for(int j = 0; j < n; j++)\n            scanf(\"%d\", &a[i][j]);\n    int sumD1 = 0, sumD2 = 0;\n    for(int i = 0; i < n; i++) {\n        sumD1 += a[i][i];\n        sumD2 += a[i][n-1-i];\n    }\n    if(sumD1 != sumD2) {\n        printf(\"Not a magic square\\n\");\n        return 0;\n    }\n    int magic = sumD1;\n    for(int i = 0; i < n; i++) {\n        int rowSum = 0, colSum = 0;\n        for(int j = 0; j < n; j++) {\n            rowSum += a[i][j];\n            colSum += a[j][i];\n        }\n        if(rowSum != magic || colSum != magic) {\n            printf(\"Not a magic square\\n\");\n            return 0;\n        }\n    }\n    printf(\"Matrix is a magic square (sum=%d).\\n\", magic);\n    return 0;\n}",
+      "learningOutcome": "Magic square validation."
+    },
+    {
+      "projectId": "A047",
+      "title": "Spiral Traversal of Matrix",
+      "difficulty": "Advanced",
+      "description": "Print matrix elements in spiral order.",
+      "exampleText": "Enter rows and cols: 3 3\nMatrix: 1 2 3 4 5 6 7 8 9",
+      "exampleOutput": "Spiral order: 1 2 3 6 9 8 7 4 5",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    int top = 0, bottom = r-1, left = 0, right = c-1;\n    printf(\"Spiral order: \");\n    while(top <= bottom && left <= right) {\n        for(int i = left; i <= right; i++) printf(\"%d \", a[top][i]);\n        top++;\n        for(int i = top; i <= bottom; i++) printf(\"%d \", a[i][right]);\n        right--;\n        if(top <= bottom) {\n            for(int i = right; i >= left; i--) printf(\"%d \", a[bottom][i]);\n            bottom--;\n        }\n        if(left <= right) {\n            for(int i = bottom; i >= top; i--) printf(\"%d \", a[i][left]);\n            left++;\n        }\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Spiral traversal logic."
+    },
+    {
+      "projectId": "A048",
+      "title": "Find Row with Maximum 1's in Binary Matrix",
+      "difficulty": "Intermediate",
+      "description": "Given a binary matrix sorted row-wise, find row with maximum number of 1's.",
+      "exampleText": "Enter rows and cols: 3 4\nMatrix: 0 0 1 1  0 1 1 1  0 0 0 1",
+      "exampleOutput": "Row 1 has maximum 1's (3).",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter binary matrix row-wise:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    int maxRow = -1, maxCount = -1;\n    for(int i = 0; i < r; i++) {\n        int count = 0;\n        for(int j = 0; j < c; j++) {\n            if(a[i][j] == 1) count++;\n        }\n        if(count > maxCount) {\n            maxCount = count;\n            maxRow = i;\n        }\n    }\n    printf(\"Row %d has maximum 1's (%d).\\n\", maxRow, maxCount);\n    return 0;\n}",
+      "learningOutcome": "Row-wise counting."
+    },
+    {
+      "projectId": "A049",
+      "title": "Boundary Elements of Matrix",
+      "difficulty": "Intermediate",
+      "description": "Print boundary elements of a matrix.",
+      "exampleText": "Enter rows and cols: 3 4\nMatrix: 1 2 3 4 5 6 7 8 9 10 11 12",
+      "exampleOutput": "Boundary elements: 1 2 3 4 8 12 11 10 9 5",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    printf(\"Boundary elements: \");\n    for(int i = 0; i < c; i++) printf(\"%d \", a[0][i]);\n    for(int i = 1; i < r; i++) printf(\"%d \", a[i][c-1]);\n    if(r > 1) for(int i = c-2; i >= 0; i--) printf(\"%d \", a[r-1][i]);\n    if(c > 1) for(int i = r-2; i > 0; i--) printf(\"%d \", a[i][0]);\n    printf(\"\\n\");\n    return 0;\n}",
+      "learningOutcome": "Boundary traversal."
+    },
+    {
+      "projectId": "A050",
+      "title": "Find Peak Element (2D Matrix)",
+      "difficulty": "Advanced",
+      "description": "Find a peak element in a 2D matrix (greater than or equal to its neighbors).",
+      "exampleText": "Enter rows and cols: 3 3\nMatrix: 10 8 10 10 9 9 5 12 7",
+      "exampleOutput": "Peak element found: 12 at (2,1)",
+      "answer": "#include <stdio.h>\n\nint main() {\n    int a[10][10], r, c;\n    printf(\"Enter rows and cols: \");\n    scanf(\"%d %d\", &r, &c);\n    printf(\"Enter matrix:\\n\");\n    for(int i = 0; i < r; i++)\n        for(int j = 0; j < c; j++)\n            scanf(\"%d\", &a[i][j]);\n    int found = 0;\n    for(int i = 0; i < r && !found; i++) {\n        for(int j = 0; j < c; j++) {\n            int val = a[i][j];\n            int left = (j>0) ? a[i][j-1] : -1;\n            int right = (j<c-1) ? a[i][j+1] : -1;\n            int up = (i>0) ? a[i-1][j] : -1;\n            int down = (i<r-1) ? a[i+1][j] : -1;\n            if(val >= left && val >= right && val >= up && val >= down) {\n                printf(\"Peak element found: %d at (%d,%d)\\n\", val, i, j);\n                found = 1;\n                break;\n            }\n        }\n    }\n    if(!found) printf(\"No peak element found.\\n\");\n    return 0;\n}",
+      "learningOutcome": "2D peak finding."
+    }
+  ]
+}

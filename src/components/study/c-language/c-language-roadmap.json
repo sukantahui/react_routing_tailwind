@@ -569,7 +569,9 @@
             "Pointer arithmetic and its relation to array indexing",
             "Introduction to two dimensional arrays for tables and matrices",
             "Memory layout of 2D arrays (row-major order concept)",
-            "Practical debugging of array-based programs"
+            "Practical debugging of array-based programs",
+            "Project Work I",
+            "Project Work DSA Expert Level"
           ],
           "learningOutcomes": [
             "Store and process multiple values using arrays",
