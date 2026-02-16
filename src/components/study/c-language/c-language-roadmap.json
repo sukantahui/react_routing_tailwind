@@ -561,10 +561,15 @@
           "topics": [
             "Creating arrays and accessing elements by index",
             "Array memory model and contiguous memory concept",
-            "Common operations on one dimensional arrays",
-            "Loop patterns for processing arrays",
-            "Passing arrays to functions",
-            "Introduction to two dimensional arrays for tables and matrices"
+            "Understanding zero-based indexing and bounds safety",
+            "Common operations on one dimensional arrays (search, insert, delete)",
+            "Loop patterns for processing arrays (forward, reverse, nested loops)",
+            "Time complexity of array operations",
+            "Passing arrays to functions (call by reference behavior in C)",
+            "Pointer arithmetic and its relation to array indexing",
+            "Introduction to two dimensional arrays for tables and matrices",
+            "Memory layout of 2D arrays (row-major order concept)",
+            "Practical debugging of array-based programs"
           ],
           "learningOutcomes": [
             "Store and process multiple values using arrays",
