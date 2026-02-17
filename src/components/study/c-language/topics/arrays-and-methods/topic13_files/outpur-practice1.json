@@ -1,0 +1,28 @@
+{
+  "subjectLogo": {
+    "path": "/images/c-logo.svg",
+    "alt": "C Programming"
+  },
+  "topic": "C Output Questions",
+  "subject": "Computer Science",
+  "class": 12,
+  "board": "CBSE",
+  "questions": [
+    {
+      "id": "c001",
+      "difficulty": "Beginner",
+      "question": "What is the output of the following code?",
+      "code": "#include <stdio.h>\nint main() {\n    int a = 5;\n    printf(\"%d\", a++);\n    return 0;\n}",
+      "output": "5",
+      "explanation": "The post-increment operator returns the current value (5) before incrementing."
+    },
+    {
+      "id": "c002",
+      "difficulty": "Moderate",
+      "question": "What will be printed?",
+      "code": "#include <stdio.h>\nint main() {\n    int x = 10;\n    printf(\"%d\", x--);\n    return 0;\n}",
+      "output": "10",
+      "explanation": "Post-decrement prints the current value (10) then decrements."
+    }
+  ]
+}

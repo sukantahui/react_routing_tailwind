@@ -1,0 +1,36 @@
+{
+  "subjectLogo": {
+    "path": "/images/c-logo.svg",
+    "alt": "C Programming"
+  },
+  "topic": "C Output Questions – Arrays & Pointers",
+  "subject": "Computer Science",
+  "class": 12,
+  "board": "CBSE",
+  "questions": [
+    {
+      "id": "C001",
+      "difficulty": "Beginner",
+      "question": "What is the output of the following code?",
+      "codeFile": "C001",
+      "output": "5",
+      "explanation": "The post‑increment operator returns the current value (5) before incrementing."
+    },
+    {
+      "id": "C002",
+      "difficulty": "Moderate",
+      "question": "What will be printed?",
+      "codeFile": "C002",
+      "output": "10",
+      "explanation": "Post‑decrement prints the current value (10) then decrements."
+    },
+    {
+      "id": "C003",
+      "difficulty": "Advanced",
+      "question": "Explain the output.",
+      "codeFile": "C003",
+      "output": "8",
+      "explanation": "Pointer arithmetic: `*(p+1)` gives the second element."
+    }
+  ]
+}

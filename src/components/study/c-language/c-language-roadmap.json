@@ -571,7 +571,9 @@
             "Memory layout of 2D arrays (row-major order concept)",
             "Practical debugging of array-based programs",
             "Project Work I",
-            "Project Work DSA Expert Level"
+            "Project Work DSA Expert Level",
+            "Output Practice I",
+            "Output Practice II"
           ],
           "learningOutcomes": [
             "Store and process multiple values using arrays",
