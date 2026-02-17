@@ -1,36 +1,412 @@
 {
   "subjectLogo": {
     "path": "/images/c-logo.svg",
-    "alt": "C Programming"
+    "alt": "C Programming Language"
   },
-  "topic": "C Output Questions – Arrays & Pointers",
+  "topic": "C Array Output Questions – Moderate",
   "subject": "Computer Science",
   "class": 12,
   "board": "CBSE",
   "questions": [
     {
       "id": "C001",
-      "difficulty": "Beginner",
-      "question": "What is the output of the following code?",
-      "codeFile": "C001",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C001.c",
       "output": "5",
-      "explanation": "The post‑increment operator returns the current value (5) before incrementing."
+      "explanation": "The first element of the array is 5."
     },
     {
       "id": "C002",
       "difficulty": "Moderate",
-      "question": "What will be printed?",
-      "codeFile": "C002",
-      "output": "10",
-      "explanation": "Post‑decrement prints the current value (10) then decrements."
+      "question": "What is the output?",
+      "codeFile": "C002.c",
+      "output": "9",
+      "explanation": "The last element of the array is 9."
     },
     {
       "id": "C003",
-      "difficulty": "Advanced",
-      "question": "Explain the output.",
-      "codeFile": "C003",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C003.c",
+      "output": "20",
+      "explanation": "Sum of elements {2,4,6,8} = 20."
+    },
+    {
+      "id": "C004",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C004.c",
+      "output": "5",
+      "explanation": "Average of {2,4,6,8} = 20/4 = 5."
+    },
+    {
+      "id": "C005",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C005.c",
       "output": "8",
-      "explanation": "Pointer arithmetic: `*(p+1)` gives the second element."
+      "explanation": "Maximum element in {2,4,6,8} is 8."
+    },
+    {
+      "id": "C006",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C006.c",
+      "output": "2",
+      "explanation": "Minimum element in {2,4,6,8} is 2."
+    },
+    {
+      "id": "C007",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C007.c",
+      "output": "8 6 4 2",
+      "explanation": "Array printed in reverse order."
+    },
+    {
+      "id": "C008",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C008.c",
+      "output": "2",
+      "explanation": "Count of even numbers in {1,2,3,4,5} is 2."
+    },
+    {
+      "id": "C009",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C009.c",
+      "output": "3",
+      "explanation": "Count of odd numbers in {1,2,3,4,5} is 3."
+    },
+    {
+      "id": "C010",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C010.c",
+      "output": "2 6",
+      "explanation": "Elements at even indices (0,2) of {2,4,6,8} are 2 and 6."
+    },
+    {
+      "id": "C011",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C011.c",
+      "output": "4 8",
+      "explanation": "Elements at odd indices (1,3) of {2,4,6,8} are 4 and 8."
+    },
+    {
+      "id": "C012",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C012.c",
+      "output": "2",
+      "explanation": "Index of value 6 in array {2,4,6,8} is 2."
+    },
+    {
+      "id": "C013",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C013.c",
+      "output": "2 4 6 8",
+      "explanation": "Copied array elements printed."
+    },
+    {
+      "id": "C014",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C014.c",
+      "output": "2 4 6 8 3 5 7 9",
+      "explanation": "Merged array of {2,4,6,8} and {3,5,7,9}."
+    },
+    {
+      "id": "C015",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C015.c",
+      "output": "4 6 8 2",
+      "explanation": "Array left rotated by one: {2,4,6,8} -> {4,6,8,2}."
+    },
+    {
+      "id": "C016",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C016.c",
+      "output": "8 2 4 6",
+      "explanation": "Array right rotated by one: {2,4,6,8} -> {8,2,4,6}."
+    },
+    {
+      "id": "C017",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C017.c",
+      "output": "1 2 3 4 5",
+      "explanation": "Array sorted in ascending order (bubble sort of {5,4,3,2,1})."
+    },
+    {
+      "id": "C018",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C018.c",
+      "output": "6",
+      "explanation": "Second largest in {8,6,4,2} is 6."
+    },
+    {
+      "id": "C019",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C019.c",
+      "output": "4",
+      "explanation": "Second smallest in {8,6,4,2} is 4."
+    },
+    {
+      "id": "C020",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C020.c",
+      "output": "2 4 6 8",
+      "explanation": "After removing duplicates (no duplicates in {2,4,6,8})."
+    },
+    {
+      "id": "C021",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C021.c",
+      "output": "2 appears 2 times\n3 appears 1 time\n4 appears 1 time",
+      "explanation": "Frequency of each element in {2,3,2,4}."
+    },
+    {
+      "id": "C022",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C022.c",
+      "output": "Palindrome",
+      "explanation": "Array {1,2,3,2,1} is a palindrome."
+    },
+    {
+      "id": "C023",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C023.c",
+      "output": "2",
+      "explanation": "First element of the pair with sum 9 in {2,7,4,5}."
+    },
+    {
+      "id": "C024",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C024.c",
+      "output": "6",
+      "explanation": "Maximum subarray sum of {4, -2, 3, -1, 2} is 6."
+    },
+    {
+      "id": "C025",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C025.c",
+      "output": "10",
+      "explanation": "Sum of all elements in 2x2 matrix {{1,2},{3,4}} = 10."
+    },
+    {
+      "id": "C026",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C026.c",
+      "output": "19 22\n43 50",
+      "explanation": "Product of two 2x2 matrices."
+    },
+    {
+      "id": "C027",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C027.c",
+      "output": "1 4 7\n2 5 8\n3 6 9",
+      "explanation": "Transpose of a 3x3 matrix."
+    },
+    {
+      "id": "C028",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C028.c",
+      "output": "15",
+      "explanation": "Sum of diagonal elements of a 3x3 matrix (1+5+9=15)."
+    },
+    {
+      "id": "C029",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C029.c",
+      "output": "6 15 24",
+      "explanation": "Row-wise sums of a 3x3 matrix."
+    },
+    {
+      "id": "C030",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C030.c",
+      "output": "12 15 18",
+      "explanation": "Column-wise sums of a 3x3 matrix."
+    },
+    {
+      "id": "C031",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C031.c",
+      "output": "Hello World",
+      "explanation": "Array of pointers to strings: prints the first two strings."
+    },
+    {
+      "id": "C032",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C032.c",
+      "output": "5",
+      "explanation": "Pointer to array: first element."
+    },
+    {
+      "id": "C033",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C033.c",
+      "output": "15",
+      "explanation": "Passing array to function that returns sum."
+    },
+    {
+      "id": "C034",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C034.c",
+      "output": "2 4 6 8",
+      "explanation": "Function returning pointer to static array."
+    },
+    {
+      "id": "C035",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C035.c",
+      "output": "1 2 3 4 5",
+      "explanation": "Dynamically allocated array printed."
+    },
+    {
+      "id": "C036",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C036.c",
+      "output": "1 2 3\n4 5 6",
+      "explanation": "Traversing a 2D array."
+    },
+    {
+      "id": "C037",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C037.c",
+      "output": "1 2\n3 4 5\n6",
+      "explanation": "Simulated jagged array printed."
+    },
+    {
+      "id": "C038",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C038.c",
+      "output": "Alice 25\nBob 30",
+      "explanation": "Array of structures."
+    },
+    {
+      "id": "C039",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C039.c",
+      "output": "90 85 92",
+      "explanation": "Structure containing array of marks."
+    },
+    {
+      "id": "C040",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C040.c",
+      "output": "10 20 30",
+      "explanation": "Passing array and its size to function."
+    },
+    {
+      "id": "C041",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C041.c",
+      "output": "1 2 3\n4 5 6\n7 8 9",
+      "explanation": "Passing 2D array to function."
+    },
+    {
+      "id": "C042",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C042.c",
+      "output": "garbage value (undefined)",
+      "explanation": "Accessing out of bounds leads to undefined behavior – the output may vary."
+    },
+    {
+      "id": "C043",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C043.c",
+      "output": "40",
+      "explanation": "Using sizeof on array of 10 ints gives 40 bytes."
+    },
+    {
+      "id": "C044",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C044.c",
+      "output": "15",
+      "explanation": "Array of function pointers – calls the add function."
+    },
+    {
+      "id": "C045",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C045.c",
+      "output": "Hello",
+      "explanation": "Character array (string) printed."
+    },
+    {
+      "id": "C046",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C046.c",
+      "output": "HelloWorld",
+      "explanation": "Copying and concatenating strings."
+    },
+    {
+      "id": "C047",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C047.c",
+      "output": "HelloHello",
+      "explanation": "String concatenation."
+    },
+    {
+      "id": "C048",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C048.c",
+      "output": "5",
+      "explanation": "Length of string 'Hello'."
+    },
+    {
+      "id": "C049",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C049.c",
+      "output": "Strings are equal",
+      "explanation": "Comparison of two identical strings."
+    },
+    {
+      "id": "C050",
+      "difficulty": "Moderate",
+      "question": "What is the output?",
+      "codeFile": "C050.c",
+      "output": "Palindrome",
+      "explanation": "Checking if string 'madam' is palindrome."
     }
   ]
 }

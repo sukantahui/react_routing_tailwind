@@ -4,6 +4,6 @@ int main() {
     int sum = 0;
     for (int i = 0; i < 4; i++) 
         sum += arr[i];
-    printf("%d", sum);
+    printf("%d", sum / 4);
     return 0;
 }
