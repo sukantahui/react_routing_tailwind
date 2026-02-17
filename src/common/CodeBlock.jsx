@@ -10,6 +10,9 @@ import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-css";
 import "prismjs/components/prism-json";
+import "prismjs/components/prism-clike";
+import "prismjs/components/prism-c";        // Add C language support
+import "prismjs/components/prism-cpp";      // optional for C++
 
 // Icons
 import { Copy, Check, Play, Download, Moon, Sun, FileCode } from "lucide-react";
@@ -18,7 +21,7 @@ export default function CodeBlock({
   code = "",
   initialCode = "",
   language = "javascript",
-  fileName = "example.js",
+  fileName = "CNAT",
   showRun = true,
 }) {
   const finalCode = initialCode || code;
@@ -84,6 +87,18 @@ export default function CodeBlock({
     a.click();
   };
 
+  // Map language to display name
+  const languageDisplay = {
+    javascript: "JS",
+    jsx: "JSX",
+    html: "HTML",
+    css: "CSS",
+    json: "JSON",
+    c: "C",
+    cpp: "C++",
+    clike: "C-like",
+  }[language] || language.toUpperCase();
+
   return (
     <div
       className={`my-6 border rounded-xl overflow-hidden shadow-xl ${
@@ -103,6 +118,13 @@ export default function CodeBlock({
         <div className="flex gap-2 items-center">
           <FileCode size={14} />
           <span className="font-mono">{fileName}</span>
+          <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-mono ${
+            theme === "dark"
+              ? "bg-slate-700 text-slate-300"
+              : "bg-slate-300 text-slate-800"
+          }`}>
+            {languageDisplay}
+          </span>
         </div>
 
         <div className="flex gap-2 items-center">

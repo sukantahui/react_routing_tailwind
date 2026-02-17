@@ -9,7 +9,7 @@ import {
   EyeOff,
 } from "lucide-react";
 
-import EditableCCodeBlock from "../../common/EditableCCodeBlock";
+import CodeBlock from "../../common/CodeBlock";
 
 /**
  * Helper: decide if answer should be displayed as code block.
@@ -155,14 +155,28 @@ export default function CProjectAnswerTemplate({ data }) {
                 </div>
               )}
 
-              {/* ---------- ANSWER (CONDITIONAL) ---------- */}
+              {/* ---------- LOGIC EXPLANATION (always visible) ---------- */}
+              {project.logicExplanation && (
+                <div className="mt-4">
+                  <div className="flex items-center gap-2 text-sm text-slate-300 mb-1">
+                    <Lightbulb size={16} className="text-yellow-300" />
+                    <span className="font-semibold">Logic Explanation</span>
+                  </div>
+                  <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-wrap bg-slate-800/40 p-3 rounded border border-slate-700">
+                    {project.logicExplanation}
+                  </p>
+                </div>
+              )}
+
+              {/* ---------- ANSWER SECTION (visible only when toggled) ---------- */}
               {isVisible && (
                 <div className="mt-5 border border-slate-700 rounded-xl bg-[#0f172a] overflow-hidden">
+                  {/* Answer header */}
                   <div className="flex items-center gap-2 px-4 py-2 border-b border-slate-700 text-slate-300 text-sm">
                     {isCCode(project.answer) ? (
                       <>
                         <Terminal size={16} className="text-indigo-300" />
-                        C Code (GCC / Turbo C)
+                        Coder & AccoTax
                       </>
                     ) : (
                       <>
@@ -172,15 +186,29 @@ export default function CProjectAnswerTemplate({ data }) {
                     )}
                   </div>
 
+                  {/* The answer itself (code or text) */}
                   <div className="p-4">
                     {isCCode(project.answer) ? (
-                      <EditableCCodeBlock initialCode={project.answer} />
+                      <CodeBlock initialCode={project.answer} language='C Language' fileName={project.projectId+'.c'}/>
                     ) : (
                       <p className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap">
                         {project.answer}
                       </p>
                     )}
                   </div>
+
+                  {/* Code Explanation (shown after the code) */}
+                  {project.codeExplanation && (
+                    <div className="px-4 pb-4">
+                      <div className="flex items-center gap-2 text-sm text-slate-300 mb-1">
+                        <Code size={16} className="text-indigo-300" />
+                        <span className="font-semibold">Code Explanation</span>
+                      </div>
+                      <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-wrap bg-slate-800/40 p-3 rounded border border-slate-700">
+                        {project.codeExplanation}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

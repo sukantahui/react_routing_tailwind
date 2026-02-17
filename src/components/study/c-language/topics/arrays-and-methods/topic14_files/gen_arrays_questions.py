@@ -296,7 +296,8 @@ int main() {
         if (!dup) 
             temp[k++] = arr[i];
     }
-    for (int i = 0; i < k; i++) printf("%d ", temp[i]);
+    for (int i = 0; i < k; i++) 
+        printf("%d ", temp[i]);
     return 0;
 }
 """,
@@ -307,7 +308,8 @@ int main() {
     for (int i = 0; i < 4; i++) 
         freq[arr[i]]++;
     for (int i = 0; i < 10; i++)
-        if (freq[i] > 0) printf("%d appears %d time(s)\\n", i, freq[i]);
+        if (freq[i] > 0) 
+            printf("%d appears %d time(s)\\n", i, freq[i]);
     return 0;
 }
 """,
