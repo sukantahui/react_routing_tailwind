@@ -258,11 +258,11 @@ export default class Topic0 extends Component {
 
   <p className="mt-3 leading-relaxed">
     In 1991, a quiet student in Finland named <strong>Linus Torvalds</strong> posted a small message on the internet:
-    <em>“I’m doing a free operating system — just a hobby, won’t be big.”</em>
+    <em>“I’m doing a free operating system, just a hobby, won’t be big.”</em>
   </p>
 
   <p className="mt-3">
-    That “hobby” became <strong>Linux</strong> — the operating system that now runs:
+    That “hobby” became <strong>Linux</strong>, the operating system that now runs:
     smartphones, servers, railway systems, space missions and even school labs in
     places like <strong>Shyamnagar</strong> and <strong>Ichapur</strong>.
   </p>
@@ -270,11 +270,11 @@ export default class Topic0 extends Component {
   <p className="mt-3">
     But Linus didn’t stop there.
     In 2005, when developers around the world were struggling to manage Linux source code,
-    he built a new tool in just a few weeks — <strong>Git</strong>.
+    he built a new tool in just a few weeks,  <strong>Git</strong>.
   </p>
 
   <p className="mt-3">
-    Today, almost every developer — whether in Coder & AccoTax, Barrackpore centres or Silicon Valley —
+    Today, almost every developer, whether in Coder & AccoTax, Barrackpore centres or Silicon Valley, 
     uses Git to track changes, collaborate and protect their work.
   </p>
 
@@ -306,7 +306,7 @@ export default class Topic0 extends Component {
       Linus did not work for marks or money.
       He worked to solve problems.
       Tell students like Swadeep or Tuhina:
-      <em>great engineers are not born in big companies — they are born in curiosity.</em>
+      <em>great engineers are not born in big companies, they are born in curiosity.</em>
     </p>
   </div>
 
@@ -316,7 +316,7 @@ export default class Topic0 extends Component {
 <section className="reveal p-6 rounded-2xl bg-gradient-to-br from-rose-50 to-amber-50 dark:from-slate-900 dark:to-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all duration-300">
 
   <h2 className="text-xl font-semibold text-rose-600 dark:text-rose-400">
-    💔 My Love Story with UNIX & Linux — And How Windows Stole Me Away
+    💔 My Love Story with UNIX & Linux, And How Windows Stole Me Away
   </h2>
 
   <p className="mt-3 leading-relaxed">
@@ -326,13 +326,13 @@ export default class Topic0 extends Component {
   </p>
 
   <p className="mt-3">
-    UNIX was classy — quiet, efficient, never complained.
-    Linux was honest — if something broke, it told me exactly what went wrong.
-    Together they taught me discipline, logic, and patience — like real life teachers in Coder & AccoTax Class Room.
+    UNIX was classy, quiet, efficient, never complained.
+    Linux was honest, if something broke, it told me exactly what went wrong.
+    Together they taught me discipline, logic, and patience, like real life teachers in Coder & AccoTax Class Room.
   </p>
 
   <p className="mt-3">
-    Then came Windows — shiny, popular, famous everywhere.
+    Then came Windows, shiny, popular, famous everywhere.
     Everyone was using it: in schools, cyber cafés in Naihati, coaching centres in Shyamnagar.
     Students like Abhronila would look at my Linux screen and whisper,
     <em>“Sir, Windows mein hota toh click se ho jata…”</em>
@@ -342,7 +342,7 @@ export default class Topic0 extends Component {
     Slowly I changed.
     I still loved Linux,
     but I started pretending that I was “happy” with Windows.
-    Like many real-life love stories — I didn’t leave Linux…
+    Like many real-life love stories, I didn’t leave Linux…
     I just stopped showing it publicly. 😅
   </p>
 
@@ -379,11 +379,11 @@ export default class Topic0 extends Component {
     leading-relaxed
     animate-[fadeSlideUp_0.8s_ease-out]
   ">
-    “তুমি জানতে পারো না তোমারে কোতো ভালবেসেছি”
+    “তুমি জানতে পারো না তোমারে কতো ভালবেসেছি”
   </blockquote>
 
   <p className="mt-4 text-center text-sm text-slate-600 dark:text-slate-400 italic">
-    — My eternal confession to UNIX & Linux, even after switching to Windows 😅
+    -- My eternal confession to UNIX & Linux, even after switching to Windows 😅
   </p>
 
 </section>
@@ -399,7 +399,7 @@ export default class Topic0 extends Component {
 
   <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">
     After all these emotional twists between UNIX, Linux and even Windows,
-    here’s a light musical moment — a link to a song you enjoy. Think of it as
+    here’s a light musical moment, a link to a song you enjoy. Think of it as
     the “post-lecture unwind tune” 🎧:
   </p>
 
@@ -415,7 +415,7 @@ export default class Topic0 extends Component {
   </div>
 
   <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic">
-    Note: This opens in a new tab — enjoy a melodic break before diving back
+    Note: This opens in a new tab, enjoy a melodic break before diving back
     into UNIX philosophy or system internals.
   </p>
 
@@ -427,7 +427,7 @@ export default class Topic0 extends Component {
       👨‍🏫 Teacher’s Note
     </p>
     <p className="text-sm mt-1 leading-relaxed">
-      Operating systems are tools — not fashion.
+      Operating systems are tools, not fashion.
       Windows may be popular, but Linux makes you powerful.
       Never forget your roots, even if society forces you to use a GUI. 😉
     </p>
