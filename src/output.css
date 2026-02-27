@@ -8282,6 +8282,9 @@
   .text-right {
     text-align: right;
   }
+  .align-sub {
+    vertical-align: sub;
+  }
   .align-top {
     vertical-align: top;
   }
