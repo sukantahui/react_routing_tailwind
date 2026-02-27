@@ -112,7 +112,8 @@ export default class Topic3 extends Component {
               { name: "fish (Friendly Shell)", use: "Beginner friendly. Suggestions like mobile typing.", by: "Community" },
               { name: "csh (C Shell)", use: "C-style syntax. Rare today.", by: "Bill Joy" },
               { name: "tcsh", use: "Improved csh. Still used in universities.", by: "Community" },
-              { name: "ksh (Korn Shell)", use: "Enterprise servers & scripting.", by: "AT&T Bell Labs" }
+              { name: "ksh (Korn Shell)", use: "Enterprise servers & scripting.", by: "AT&T Bell Labs" },
+              { name: "xonsh", use: "Python-based shell. Great for developers.", by: "Community" }
             ].map((s, i) => (
               <div key={i}
                 className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4 rounded-2xl

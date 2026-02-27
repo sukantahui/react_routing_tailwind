@@ -28,9 +28,8 @@ export default class Topic2 extends Component {
 
         {/* ===================== INTRO ===================== */}
         <section
-          className={`bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 shadow transition-all duration-700 hover:shadow-xl motion-safe:animate-[fadeSlideUp_1s_ease-out_forwards] ${
-            this.state.visible ? "opacity-100" : "opacity-0 translate-y-6"
-          }`}
+          className={`bg-white/80 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 shadow transition-all duration-700 hover:shadow-xl motion-safe:animate-[fadeSlideUp_1s_ease-out_forwards] ${this.state.visible ? "opacity-100" : "opacity-0 translate-y-6"
+            }`}
         >
           <h1 className="text-2xl font-bold text-sky-600 dark:text-sky-400 flex items-center gap-2">
             <Cpu size={22} />
@@ -39,7 +38,7 @@ export default class Topic2 extends Component {
 
           <p className="mt-3">
             If UNIX or Linux is a city like Barrackpore, then the <b>Kernel is the Chairman, Police, Traffic Controller,
-            and Power Department combined</b>.  
+              and Power Department combined</b>.
             You never see it directly — but without it, nothing works.
           </p>
         </section>
@@ -61,10 +60,12 @@ export default class Topic2 extends Component {
           </p>
 
           <div className="mt-4 bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-300 dark:border-slate-600 text-sm">
-            <b>Prototype / Signature:</b> Kernel is not a function — it is a resident system program  
-            <b>Return Type:</b> Continuous system control  
-            <b>Purpose:</b> Manage CPU, Memory, Hardware, and System Security  
-            <b>Used when & why:</b> Every time a program runs or hardware is accessed
+            <ul>
+              <li><b>Prototype / Signature:</b> Kernel is not a function — it is a resident system program</li>
+              <li><b>Return Type:</b> Continuous system control</li>
+              <li><b>Purpose:</b> Manage CPU, Memory, Hardware, and System Security</li>
+              <li><b>Used when & why:</b> Every time a program runs or hardware is accessed</li>
+            </ul>
           </div>
         </section>
 
