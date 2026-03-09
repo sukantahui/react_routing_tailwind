@@ -1607,6 +1607,9 @@
   .animate-\[fade-slide-up_0\.6s_ease-out\] {
     animation: fade-slide-up 0.6s ease-out;
   }
+  .animate-\[fadeInSlideUp_0\.6s_ease-out\] {
+    animation: fadeInSlideUp 0.6s ease-out;
+  }
   .animate-\[fadeInUp_0\.5s_ease-out\] {
     animation: fadeInUp 0.5s ease-out;
   }
@@ -15557,6 +15560,11 @@
   .disabled\:cursor-not-allowed {
     &:disabled {
       cursor: not-allowed;
+    }
+  }
+  .disabled\:bg-gray-400 {
+    &:disabled {
+      background-color: var(--color-gray-400);
     }
   }
   .disabled\:bg-slate-700 {

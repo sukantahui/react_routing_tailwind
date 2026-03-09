@@ -84,6 +84,11 @@ import JavaWebRoadmap from '../components/study/java-web/JavaWebRoadmap';
 import JavaWebModuleView from '../components/study/java-web/JavaWebModuleView';
 import JavaWebTopicView from '../components/study/java-web/JavaWebTopicView';
 
+import JavaXRoadmap from '../components/study/icse-java-x/JavaXRoadmap';
+import JavaXModuleView from '../components/study/icse-java-x/JavaXModuleView';
+import JavaXTopicView from '../components/study/icse-java-x/JavaXTopicView';
+
+import QRCodeGenerator from '../common/QRCodeGenerator';
 
 
 export default function AppRoutes() {
@@ -104,9 +109,9 @@ export default function AppRoutes() {
       <Route
         path="/certificates/:certificateId"
         element={
-          <ProtectedRoute>
+          // <ProtectedRoute>
             <Certificate />
-          </ProtectedRoute>
+          // </ProtectedRoute>
         }
       />
 
@@ -126,6 +131,11 @@ export default function AppRoutes() {
             <Bijoya />
           </ProtectedRoute>
         }
+      />
+
+      <Route
+        path="/qrcode"
+        element={<QRCodeGenerator />}
       />
 
       <Route path="/students/add" element={<AddStudent />} />
@@ -179,10 +189,18 @@ export default function AppRoutes() {
       <Route path="/git/module/:slug" element={<GitModuleView />} />
       <Route path="/git/topic/:moduleSlug/:topicIndex"  element={<GitTopicView/>}/>
 
-      {/* For Git  */}
+      {/* For ICSE Java Class IX  */}
       <Route path="/icse-java-ix/roadmap" element={<ICSE9JavaRoadmap />} />
       <Route path="/icse-java-ix/module/:slug" element={<ICSE9JavaModuleView />} />
       <Route path="/icse-java-ix/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/>
+
+
+      {/* For ICSE Java Class X  */}
+      <Route path="/icse-java-x/roadmap" element={<JavaXRoadmap />} />
+      <Route path="/icse-java-x/module/:slug" element={<JavaXModuleView />} />
+      <Route path="/icse-java-x/topic/:moduleSlug/:topicIndex"  element={<JavaXTopicView/>}/>
+
+
 
       {/* For Java  */}
       <Route path="/java-core/roadmap" element={<JavaRoadmap />} />

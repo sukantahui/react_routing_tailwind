@@ -230,10 +230,19 @@ class NavBar extends Component {
                         <img src="/logos/excel.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="excel" />
                         Excel
                       </NavLink>
+
+
                       <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
                         <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         ICSE Class 9
                       </NavLink>
+
+                      <NavLink to="/icse-java-x/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
+                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Java X" />
+                        ICSE Class X
+                      </NavLink>
+
+
                       <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
                         <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
                         Core Java

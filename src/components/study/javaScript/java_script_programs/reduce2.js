@@ -1,7 +1,7 @@
 //find most frequent element 
 const arr=[12,2,4,2,5,2,6,8,3,5,8,4,9,46,9,5,11];
 const freq=arr.reduce((acc,n)=>{
-    acc[n]=(acc[n] || 0)+1
+    acc[n]=(acc[n] || 0)+1;
     return acc;
 },{});
 console.log(freq);
