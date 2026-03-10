@@ -1,306 +1,375 @@
-import React, { useState, useRef, useEffect } from 'react';
-import QRCode from 'qrcode'; // make sure to install: npm install qrcode
+import React, { useState, useRef, useEffect } from "react";
+import QRCode from "qrcode";
 
 const CertificateGenerator = () => {
-    const [name, setName] = useState('John Doe');
-    const [course, setCourse] = useState('React Development');
-    const [date, setDate] = useState('March 15, 2026');
-    const [duration, setDuration] = useState('4 weeks');
-    const [instructor, setInstructor] = useState('Jane Smith');
-    const [certNumber, setCertNumber] = useState('CERT-001');
-    const [bgLoaded, setBgLoaded] = useState(false);
-    const [logoLoaded, setLogoLoaded] = useState(false);
-    const [qrLoaded, setQrLoaded] = useState(false); // track QR generation
-    const [error, setError] = useState('');
+    const [name, setName] = useState("John Doe");
+    const [course, setCourse] = useState("React Development");
+    const [date, setDate] = useState("March 15, 2026");
+    const [duration, setDuration] = useState("4 Weeks");
+    const [instructor, setInstructor] = useState("Jane Smith");
+    const [director, setDirector] = useState("Sukanta Hui");
+    const [certNumber, setCertNumber] = useState("CNAT-2026-001");
+
     const canvasRef = useRef(null);
-    const bgImageRef = useRef(null);
-    const logoImageRef = useRef(null);
-    const qrImageRef = useRef(null); // store generated QR code as Image
 
-    const BACKGROUND_PATH = '/assets/certificate-bg.png';
-    const LOGO_PATH = '/assets/cnat.png';
+    const bgRef = useRef(null);
+    const logoRef = useRef(null);
+    const instructorSignRef = useRef(null);
+    const directorSignRef = useRef(null);
+    const qrRef = useRef(null);
 
-    // Preload background and logo
+    const BG = "/assets/certificate-bg.png";
+    const LOGO = "/assets/cnat.png";
+    const SIGN1 = "/assets/instructor-sign.png";
+    const SIGN2 = "/assets/director-sign.png";
+
+    const [loaded, setLoaded] = useState(false);
+
+    const CANVAS_WIDTH = 2400;
+    const CANVAS_HEIGHT = 3600;
+
+    const courseOptions = [
+        "React Development",
+        "JavaScript Basics",
+        "Python Programming",
+        "Data Science Fundamentals",
+        "Web Development Bootcamp",
+        "Mobile App Development",
+    ];
+
     useEffect(() => {
-        let bgReady = false;
-        let logoReady = false;
+        let count = 0;
 
-        const checkAllLoaded = () => {
-            if (bgReady && logoReady) drawCertificate();
+        const check = () => {
+            count++;
+            if (count === 4) {
+                setLoaded(true);
+                draw();
+            }
         };
 
-        const bgImg = new Image();
-        bgImg.crossOrigin = 'anonymous';
-        bgImg.onload = () => {
-            bgImageRef.current = bgImg;
-            setBgLoaded(true);
-            bgReady = true;
-            checkAllLoaded();
+        const bg = new Image();
+        bg.onload = () => {
+            bgRef.current = bg;
+            check();
         };
-        bgImg.onerror = () => setError('Background image failed to load.');
-        bgImg.src = BACKGROUND_PATH;
+        bg.src = BG;
 
-        const logoImg = new Image();
-        logoImg.crossOrigin = 'anonymous';
-        logoImg.onload = () => {
-            logoImageRef.current = logoImg;
-            setLogoLoaded(true);
-            logoReady = true;
-            checkAllLoaded();
+        const logo = new Image();
+        logo.onload = () => {
+            logoRef.current = logo;
+            check();
         };
-        logoImg.onerror = () => setError('Logo image failed to load.');
-        logoImg.src = LOGO_PATH;
+        logo.src = LOGO;
+
+        const s1 = new Image();
+        s1.onload = () => {
+            instructorSignRef.current = s1;
+            check();
+        };
+        s1.src = SIGN1;
+
+        const s2 = new Image();
+        s2.onload = () => {
+            directorSignRef.current = s2;
+            check();
+        };
+        s2.src = SIGN2;
     }, []);
 
-    // Generate QR code whenever certificate number changes
     useEffect(() => {
-        if (!certNumber || certNumber.trim() === '') {
-            qrImageRef.current = null;
-            setQrLoaded(false);
-            if (bgLoaded && logoLoaded) drawCertificate();
-            return;
-        }
+        if (!certNumber) return;
 
-        const url = `https://codernaccotax.co.in/certificates/${encodeURIComponent(certNumber.trim())}`;
-        QRCode.toDataURL(url, { width: 200, margin: 1 }, (err, dataUrl) => {
-            if (err) {
-                console.error('QR generation failed:', err);
-                setError('QR code could not be generated.');
-                return;
-            }
+        const url = `https://codernaccotax.co.in/certificates/${certNumber}`;
+
+        QRCode.toDataURL(url, { width: 400 }, (err, data) => {
             const img = new Image();
             img.onload = () => {
-                qrImageRef.current = img;
-                setQrLoaded(true);
-                if (bgLoaded && logoLoaded) drawCertificate();
+                qrRef.current = img;
+                draw();
             };
-            img.src = dataUrl;
+            img.src = data;
         });
-    }, [certNumber, bgLoaded, logoLoaded]);
+    }, [certNumber]);
 
-    // Redraw on input changes (excluding qrLoaded to avoid loops)
+    // Redraw when any relevant state changes – including certNumber
     useEffect(() => {
-        if (bgLoaded && logoLoaded) drawCertificate();
-    }, [name, course, date, duration, instructor, certNumber, bgLoaded, logoLoaded]);
+        if (!loaded) return;
 
-    // Helper: wrap text
+        const timeout = setTimeout(() => {
+            draw();
+        }, 50);
+
+        return () => clearTimeout(timeout);
+
+    }, [loaded, name, course, date, duration, instructor, director, certNumber]);
+
     const wrapText = (ctx, text, maxWidth) => {
-        const words = text.split(' ');
-        const lines = [];
-        let currentLine = words[0];
+        const words = text.split(" ");
+        let lines = [];
+        let line = words[0];
+
         for (let i = 1; i < words.length; i++) {
-            const word = words[i];
-            const width = ctx.measureText(currentLine + ' ' + word).width;
+            let test = line + " " + words[i];
+            let width = ctx.measureText(test).width;
+
             if (width < maxWidth) {
-                currentLine += ' ' + word;
+                line = test;
             } else {
-                lines.push(currentLine);
-                currentLine = word;
+                lines.push(line);
+                line = words[i];
             }
         }
-        lines.push(currentLine);
+
+        lines.push(line);
         return lines;
     };
 
-    // Draw certificate at given dimensions
-    const drawCertificateOnCanvas = (ctx, width, height) => {
-        const bg = bgImageRef.current;
-        const logo = logoImageRef.current;
-        const qr = qrImageRef.current;
-        if (!bg) return;
+    const autoFontSize = (ctx, text, maxWidth, startSize) => {
+        let size = startSize;
+        ctx.font = `bold ${size}px Times New Roman`;
+        while (ctx.measureText(text).width > maxWidth && size > 20) {
+            size--;
+            ctx.font = `bold ${size}px Times New Roman`;
+        }
+        return size;
+    };
 
+    const drawCertificate = (ctx, width, height) => {
         ctx.clearRect(0, 0, width, height);
-        ctx.drawImage(bg, 0, 0, width, height);
 
-        // Subtle inner border
-        ctx.strokeStyle = '#c9a959';
-        ctx.lineWidth = height * 0.006;
-        ctx.strokeRect(width * 0.03, height * 0.03, width * 0.94, height * 0.94);
+        ctx.drawImage(bgRef.current, 0, 0, width, height);
 
-        // Logo top left
+        ctx.strokeStyle = "#c9a959";
+        ctx.lineWidth = 20;
+        ctx.strokeRect(120, 120, width - 240, height - 240);
+
+        ctx.lineWidth = 6;
+        ctx.strokeRect(200, 200, width - 400, height - 400);
+
+        const logo = logoRef.current;
+
         if (logo) {
-            const logoWidth = width * 0.1;
+            ctx.globalAlpha = 0.5;
+            const logoWidth = width * 0.12;
             const logoHeight = (logo.height / logo.width) * logoWidth;
-            ctx.drawImage(logo, width * 0.05, height * 0.05, logoWidth, logoHeight);
+            ctx.drawImage(logo, 220, 220, logoWidth, logoHeight);
+
+            ctx.globalAlpha = 0.08;
+            const watermarkWidth = width * 0.45;
+            const watermarkHeight = (logo.height / logo.width) * watermarkWidth;
+            const wmX = (width - watermarkWidth) / 2;
+            const wmY = (height - watermarkHeight) / 2;
+            ctx.drawImage(logo, wmX, wmY, watermarkWidth, watermarkHeight);
+
+            ctx.globalAlpha = 1;
         }
 
-        // Organization name and tagline (top center)
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.shadowColor = 'rgba(0,0,0,0.5)';
-        ctx.shadowBlur = 8;
-        ctx.shadowOffsetX = 2;
-        ctx.shadowOffsetY = 2;
+        ctx.textAlign = "center";
 
-        ctx.font = `bold ${height * 0.03}px "Georgia", serif`;
-        ctx.fillStyle = '#f0e6d2';
-        ctx.fillText('Coder & AccoTax', width / 2, height * 0.08);
+        ctx.fillStyle = "#f0e6d2";
+        ctx.font = `bold ${height * 0.035}px Georgia`;
+        ctx.fillText("Coder & AccoTax", width / 2, height * 0.1);
 
-        ctx.font = `${height * 0.018}px "Arial", sans-serif`;
-        ctx.fillStyle = '#c9a959';
-        ctx.fillText('Empowering Tech Professionals', width / 2, height * 0.12);
+        ctx.fillStyle = "#c9a959";
+        ctx.font = `${height * 0.018}px Arial`;
+        ctx.fillText("Empowering Tech Professionals", width / 2, height * 0.13);
 
-        // Main title
-        ctx.font = `bold ${height * 0.055}px "Times New Roman", serif`;
-        ctx.fillStyle = '#f5e6b3';
-        ctx.fillText('Certificate of Completion', width / 2, height * 0.26);
+        const title = "Certificate of Completion";
+        ctx.fillStyle = "#f5e6b3";
+        const titleFont = autoFontSize(ctx, title, width * 0.75, height * 0.06);
+        ctx.font = `bold ${titleFont}px Times New Roman`;
+        ctx.fillText(title, width / 2, height * 0.26);
 
-        // Presentation line
-        ctx.font = `${height * 0.022}px "Arial", sans-serif`;
-        ctx.fillStyle = '#dcdcdc';
-        ctx.fillText('This is awarded to', width / 2, height * 0.38);
+        ctx.fillStyle = "#ddd";
+        ctx.font = `${height * 0.022}px Arial`;
+        ctx.fillText("This certificate is proudly presented to", width / 2, height * 0.38);
 
-        // Student name (with possible wrapping)
-        ctx.font = `bold ${height * 0.05}px "Times New Roman", serif`;
-        ctx.fillStyle = '#ffffff';
-        ctx.shadowBlur = 10;
-        const maxNameWidth = width * 0.6;
-        const nameLines = wrapText(ctx, name, maxNameWidth);
-        nameLines.forEach((line, i) => {
-            ctx.fillText(line, width / 2, height * 0.45 + i * height * 0.07);
-        });
+        const maxWidth = width * 0.65;
+        const nameSize = autoFontSize(ctx, name, maxWidth, height * 0.055);
+        ctx.font = `bold ${nameSize}px Times New Roman`;
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(name, width / 2, height * 0.46);
 
-        // Course completion line
-        ctx.font = `${height * 0.022}px "Arial", sans-serif`;
-        ctx.fillStyle = '#dcdcdc';
-        ctx.shadowBlur = 6;
-        const courseY = height * 0.52 + (nameLines.length - 1) * height * 0.07;
-        ctx.fillText('for successfully completing the course', width / 2, courseY);
+        ctx.fillStyle = "#ddd";
+        ctx.font = `${height * 0.022}px Arial`;
+        ctx.fillText("for successfully completing", width / 2, height * 0.54);
 
-        // Course name
-        ctx.font = `bold ${height * 0.035}px "Georgia", serif`;
-        ctx.fillStyle = '#f0e6d2';
-        const maxCourseWidth = width * 0.5;
-        const courseLines = wrapText(ctx, course, maxCourseWidth);
+        ctx.fillStyle = "#f0e6d2";
+        ctx.font = `bold ${height * 0.038}px Georgia`;
+        const courseLines = wrapText(ctx, course, width * 0.6);
         courseLines.forEach((line, i) => {
-            ctx.fillText(line, width / 2, courseY + height * 0.06 + i * height * 0.045);
+            ctx.fillText(line, width / 2, height * 0.6 + i * height * 0.05);
         });
 
-        // Date and duration
-        const infoY = courseY + height * 0.12 + (courseLines.length - 1) * height * 0.045;
-        ctx.font = `${height * 0.02}px "Arial", sans-serif`;
-        ctx.fillStyle = '#c9a959';
-        ctx.fillText(`${date}  |  ${duration}`, width / 2, infoY);
+        ctx.fillStyle = "#c9a959";
+        ctx.font = `${height * 0.02}px Arial`;
+        ctx.fillText(`${date} | ${duration}`, width / 2, height * 0.7);
 
-        // Signature lines
-        ctx.shadowBlur = 4;
-        ctx.strokeStyle = '#c9a959';
-        ctx.lineWidth = 2;
-        const signatureY = height * 0.75;
+        const sigY = height * 0.78;
+
+        ctx.strokeStyle = "#c9a959";
+        ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.moveTo(width * 0.2, signatureY);
-        ctx.lineTo(width * 0.4, signatureY);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(width * 0.6, signatureY);
-        ctx.lineTo(width * 0.8, signatureY);
+        ctx.moveTo(width * 0.2, sigY);
+        ctx.lineTo(width * 0.4, sigY);
         ctx.stroke();
 
-        ctx.font = `${height * 0.018}px "Arial", sans-serif`;
-        ctx.fillStyle = '#dcdcdc';
-        ctx.fillText('Instructor', width * 0.3, signatureY + height * 0.02);
-        ctx.fillText('Director', width * 0.7, signatureY + height * 0.02);
+        ctx.beginPath();
+        ctx.moveTo(width * 0.6, sigY);
+        ctx.lineTo(width * 0.8, sigY);
+        ctx.stroke();
 
-        if (instructor) {
-            ctx.font = `${height * 0.02}px "Arial", sans-serif`;
-            ctx.fillStyle = '#f0e6d2';
-            ctx.fillText(instructor, width * 0.3, signatureY - height * 0.02);
+        if (instructorSignRef.current) {
+            ctx.drawImage(
+                instructorSignRef.current,
+                width * 0.23,
+                sigY - height * 0.06,
+                width * 0.15,
+                height * 0.05
+            );
         }
 
-        // Certificate Number (bottom right)
-        if (certNumber && certNumber.trim() !== '') {
-            ctx.shadowBlur = 2;
-            ctx.font = `${height * 0.015}px "Arial", sans-serif`;
-            ctx.fillStyle = '#888';
-            ctx.textAlign = 'right';
-            ctx.fillText(certNumber, width - width * 0.05, height * 0.96);
+        if (directorSignRef.current) {
+            ctx.drawImage(
+                directorSignRef.current,
+                width * 0.63,
+                sigY - height * 0.06,
+                width * 0.15,
+                height * 0.05
+            );
         }
 
-        // QR Code – centered between signature lines, below them
-        if (qr) {
-            const qrSize = width * 0.15; // 15% of canvas width (a bit bigger)
-            const qrX = (width - qrSize) / 2; // centered horizontally
-            const qrY = signatureY + height * 0.05; // just below signature lines (5% of height down)
+        ctx.fillStyle = "#ddd";
+        ctx.font = `${height * 0.018}px Arial`;
+        ctx.fillText("Instructor", width * 0.3, sigY + 60);
+        ctx.fillText("Director", width * 0.7, sigY + 60);
 
-            // Draw QR
-            ctx.drawImage(qr, qrX, qrY, qrSize, qrSize);
+        ctx.fillStyle = "#aaa";
+        ctx.font = `${height * 0.018}px Arial`;
+        ctx.fillText(instructor, width * 0.3, sigY - 40);
+        ctx.fillText(director, width * 0.7, sigY - 40);
 
-            // Add label below QR
-            ctx.font = `${height * 0.016}px "Arial", sans-serif`;
-            ctx.fillStyle = '#aaaaaa';
-            ctx.textAlign = 'center';
-            ctx.fillText('Verify the certificate', width / 2, qrY + qrSize + height * 0.02);
+        if (certNumber) {
+            ctx.textAlign = "right";
+            ctx.fillStyle = "#888";
+            ctx.font = `${height * 0.018}px Arial`;
+            ctx.fillText(certNumber, width - 210, height - 210);
+        }
+
+        if (qrRef.current) {
+            const size = width * 0.12;
+            const x = (width - size) / 2;
+            const y = sigY + 120;
+            ctx.drawImage(qrRef.current, x, y, size, size);
+
+            ctx.textAlign = "center";
+            ctx.fillStyle = "#aaa";
+            ctx.font = `${height * 0.016}px Arial`;
+            ctx.fillText(
+                `Verify: https://codernaccotax.co.in/certificates/${certNumber}`,
+                width / 2,
+                y + size + 60
+            );
         }
     };
 
-    const drawCertificate = () => {
+    const draw = () => {
         const canvas = canvasRef.current;
-        if (!canvas || !bgImageRef.current || !logoImageRef.current) return;
-        drawCertificateOnCanvas(canvas.getContext('2d'), 600, 800);
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        drawCertificate(ctx, CANVAS_WIDTH, CANVAS_HEIGHT);
     };
 
-    const sanitizeFilename = (str) => str.replace(/[^a-z0-9]/gi, '_').toLowerCase() || 'certificate';
-
-    const handleDownloadHighRes = () => {
-        if (!bgImageRef.current || !logoImageRef.current) return;
-        const canvas = document.createElement('canvas');
-        canvas.width = 2400;
-        canvas.height = 3600;
-        drawCertificateOnCanvas(canvas.getContext('2d'), 2400, 3600);
-        const link = document.createElement('a');
-        link.download = `${sanitizeFilename(name)}_certificate_8x12.png`;
-        link.href = canvas.toDataURL('image/png');
+    const download = () => {
+        const canvas = canvasRef.current;
+        const link = document.createElement("a");
+        link.download = `${name.replace(/\s/g, "_")}_certificate.png`;
+        link.href = canvas.toDataURL("image/png");
         link.click();
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-5xl">
-                <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                    Professional Certificate Generator
-                </h1>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+            <div className="bg-white p-8 rounded-xl shadow-xl w-full max-w-5xl">
+                <h2 className="text-2xl font-bold mb-6 text-center">
+                    Coder & AccoTax Certificate Generator
+                </h2>
 
-                {error && <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-lg">{error}</div>}
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-8">
                     <div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Student Name</label>
-                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Course Name</label>
-                            <input type="text" value={course} onChange={(e) => setCourse(e.target.value)} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Completion Date</label>
-                            <input type="text" value={date} onChange={(e) => setDate(e.target.value)} placeholder="March 15, 2026" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
-                            <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} placeholder="4 weeks" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Instructor Name (optional)</label>
-                            <input type="text" value={instructor} onChange={(e) => setInstructor(e.target.value)} placeholder="Jane Smith" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Certificate Number</label>
-                            <input type="text" value={certNumber} onChange={(e) => setCertNumber(e.target.value)} placeholder="e.g., CERT-001" className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" />
-                        </div>
-                        <button onClick={handleDownloadHighRes} disabled={!bgLoaded || !logoLoaded} className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded-lg">
-                            Download 8×12 inch Certificate (300 DPI)
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="Student Name"
+                        />
+
+                        <select
+                            className="border p-2 w-full mb-3"
+                            value={course}
+                            onChange={(e) => setCourse(e.target.value)}
+                        >
+                            {courseOptions.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
+
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={date}
+                            onChange={(e) => setDate(e.target.value)}
+                            placeholder="Completion Date"
+                        />
+
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={duration}
+                            onChange={(e) => setDuration(e.target.value)}
+                            placeholder="Duration"
+                        />
+
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={instructor}
+                            onChange={(e) => setInstructor(e.target.value)}
+                            placeholder="Instructor"
+                        />
+
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={director}
+                            onChange={(e) => setDirector(e.target.value)}
+                            placeholder="Director"
+                        />
+
+                        <input
+                            className="border p-2 w-full mb-3"
+                            value={certNumber}
+                            onChange={(e) => setCertNumber(e.target.value)}
+                            placeholder="Certificate Number"
+                        />
+
+                        <button
+                            onClick={download}
+                            className="bg-green-600 text-white w-full py-2 rounded-lg"
+                        >
+                            Download Certificate
                         </button>
                     </div>
 
-                    <div className="flex justify-center items-start">
-                        <canvas ref={canvasRef} width={600} height={800} className="w-full max-w-sm border rounded-lg shadow-lg" />
+                    <div className="flex justify-center">
+                        <canvas
+                            ref={canvasRef}
+                            width={2400}
+                            height={3600}
+                            className="w-full max-w-sm border shadow-lg"
+                        />
                     </div>
                 </div>
-
-                <p className="text-xs text-gray-500 text-center mt-6">
-                    Place background in <code>public/assets/certificate-bg.png</code> and logo in <code>public/assets/cnat.png</code>
-                </p>
             </div>
         </div>
     );
