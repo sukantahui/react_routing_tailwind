@@ -90,6 +90,7 @@ import JavaXTopicView from '../components/study/icse-java-x/JavaXTopicView';
 
 import QRCodeGenerator from '../common/QRCodeGenerator';
 import CertificateGenerator from '../common/CertificateGenerator';
+import StudentAdmission from '../components/StudentAdmission';
 
 
 export default function AppRoutes() {
@@ -140,7 +141,20 @@ export default function AppRoutes() {
       />
       <Route
         path="/certificate"
-        element={<CertificateGenerator />}
+        element={
+        <ProtectedRoute>
+          <CertificateGenerator />
+        </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admission"
+        element={
+        <ProtectedRoute>
+          <StudentAdmission />
+        </ProtectedRoute>
+        }
       />
 
       <Route path="/students/add" element={<AddStudent />} />

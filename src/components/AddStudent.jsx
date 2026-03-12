@@ -250,6 +250,7 @@ export default function AddStudent() {
             >
               Cancel
             </button>
+            
             <button
               type="submit"
               disabled={loading}
