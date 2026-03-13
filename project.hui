@@ -627,21 +627,48 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
 
 
 
-"Decimal, Binary, Octal, Hexadecimal conversions",
-            "Conversion from Decimal to Binary",
-            "Conversion from Decimal to Octal",
-            "Conversion from Decimal to HexaDecimal",
-            "Unsigned vs Signed number representation",
-            "Sign-Magnitude representation of negative numbers",
-            "1’s Complement representation of negative numbers",
-            "2’s Complement representation of negative numbers",
-            "Range of numbers in n-bit signed systems",
-            "Binary arithmetic with signed numbers",
-            "Overflow detection in signed arithmetic",
-            "Binary arithmetic: addition, subtraction",
-            "ASCII, Unicode, BCD and Gray code",
-            "Why 2’s Complement is preferred in computer systems"
-Topics are delimited by comma
+sl: 0, topic: Shell script anatomy: shebang, execution permission and script lifecycle, file: Topic0.jsx,
+sl: 1, topic: Interactive vs non-interactive and login shells, file: Topic1.jsx,
+sl: 2, topic: Bash startup files: .bashrc, .bash_profile, .profile, file: Topic2.jsx,
+sl: 3, topic: Understanding PATH and how scripts are located and executed, file: Topic3.jsx,
+sl: 4, topic: Variables: local, global and environment variables, file: Topic4.jsx,
+sl: 5, topic: Arithmetic operations: (( )), let, expr, file: Topic5.jsx,
+sl: 6, topic: Arrays: indexed and associative arrays, file: Topic6.jsx,
+sl: 7, topic: String manipulation: length, substring, replace, regex matching, file: Topic7.jsx,
+sl: 8, topic: Reading user input: read, positional parameters ($1, $2...), file: Topic8.jsx,
+sl: 9, topic: Command substitution: $(command) and backticks, file: Topic9.jsx,
+sl: 10, topic: Quoting rules: single, double quotes and escaping characters, file: Topic10.jsx,
+sl: 11, topic: Conditional statements: if, elif, else, test, [ ] and [[ ]], file: Topic11.jsx,
+sl: 12, topic: File and directory tests: -f, -d, -e, -s, file: Topic12.jsx,
+sl: 13, topic: Loops: for, while, until with practical patterns, file: Topic13.jsx,
+sl: 14, topic: Case statement for menu-driven programs, file: Topic14.jsx,
+sl: 15, topic: Functions: defining, calling, returning values, file: Topic15.jsx,
+sl: 16, topic: Subshells vs command grouping using { }, file: Topic16.jsx,
+sl: 17, topic: Exit status and error codes ($?), file: Topic17.jsx,
+sl: 18, topic: Redirection: >, >>, <, 2>, &>, file: Topic18.jsx,
+sl: 19, topic: Pipes: chaining commands with |, file: Topic19.jsx,
+sl: 20, topic: Here documents (<<EOF) and here strings (<<<), file: Topic20.jsx,
+sl: 21, topic: Process management: ps, top, kill, wait, background jobs (&), file: Topic21.jsx,
+sl: 22, topic: Command-line option parsing using getopts, file: Topic22.jsx,
+sl: 23, topic: Using sed and awk within shell scripts, file: Topic23.jsx,
+sl: 24, topic: Debugging techniques: set -x, set -e, bash -x, file: Topic24.jsx,
+sl: 25, topic: Traps and signals: INT, TERM, EXIT, file: Topic25.jsx,
+sl: 26, topic: Logging strategies and basic log rotation, file: Topic26.jsx,
+sl: 27, topic: Scheduling scripts with cron (overview), file: Topic27.jsx,
+sl: 28, topic: Writing defensive and secure shell scripts, file: Topic28.jsx,
+sl: 29, topic: Portable shell scripting (bash vs sh), file: Topic29.jsx,
+sl: 30, topic: Version controlling shell scripts with Git, file: Topic30.jsx,
+sl: 31, topic: Writing reusable utility scripts, file: Topic31.jsx,
+sl: 32, topic: Mini Project: Automated backup script, file: Topic32.jsx,
+sl: 33, topic: Common shell scripting mistakes and best practices, file: Topic33.jsx,
+sl: 34, topic: Practical Examples and Reference Scripts, file: Topic34.jsx,
+sl: 35, topic: Example Script: User input validation, file: Topic35.jsx,
+sl: 36, topic: Example Script: Looping through files, file: Topic36.jsx,
+sl: 37, topic: Example Script: Checking exit status, file: Topic37.jsx,
+sl: 38, topic: Example Script: Automated backup utility, file: Topic38.jsx,
+sl: 39, topic: Example Script: Cron scheduling, file: Topic39.jsx,
+sl: 40, topic: Example Script: Debugging with set -x, file: Topic40.jsx,
+sl: 41, topic: Example Script: Signal handling using trap, file: Topic41.jsx,
 
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
@@ -666,16 +693,31 @@ Hover emphasis on:
     -- Teacher note
 
 
-Component Rules (VERY IMPORTANT)
-    - Use React 19 CLASS-BASED components only
-    - Lifecycle methods (constructor, componentDidMount, render, etc.) must be used appropriately.
-    - File naming must be:
-        -- Topic0.jsx → Topic 1
-        -- Topic1.jsx → Topic 2
-        -- and so on…
-    - One topic per file
-    - Do NOT combine topics
-    - Do NOT jump ahead
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
 
 
 UI / UX Requirements
@@ -786,8 +828,13 @@ Teacher’s Note (MANDATORY IN EVERY TOPIC)
     - Primary teacher: Sukanta Hui
     - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
 
-Teacher’s professional description must be fetched from a JSON file.
-Ask me for this JSON file if you dont have before starting.
+Teacher’s professional description must be fetched from below:
+    - Name: Sukanta Hui
+    - email: sukantahui@codernaccotax.co.in
+    - mobile: 7003756860
+    - skill: Programming Language, RDBMs, Operating System, Web Development
+    - Experience: 27 years
+
 
 Example Name to be used
     - While explaining concepts, naturally include examples involving:
@@ -807,6 +854,59 @@ Always ask before proceeding if required assets (JSON, layout base, SVG library)
         -- Commented
         -- Industry-standard
         -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+i like to show my Shell Script as follows:
+<ShellFileLoader
+                        fileModule={awkScript1}
+                        title="Complex Data Processing"
+                        highlightLines={[]}
+                    />
+import ShellFileLoader from "../../../../../common/ShellFileLoader";
+import ifExampleSh1 from "./topic[topic_no]_files/if_example1.sh?raw";
+import ifExampleSh2 from "./topic[topic_no]_files/if_example2.sh?raw";
+import ifExampleSh3 from "./topic[topic_no]_files/if_example3.sh?raw";
+import switchExample1 from "./topic[topic_no]_files/switch_example1.sh?raw";
+import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.sh?raw";
+import awkScript1 from "./topic[topic_no]_files/awk_script1.sh?raw";
+
+and keep mu .sh file separately in a folder, so show them separately
+
+if you have braces, >, < in your text, especially in code block,<code></code> which is a code please write like following style
+    <code className="text-sm text-gray-700 dark:text-gray-300 block">
+        {`awk 'END {print NR}' file.csv`}
+    </code>
+    <code>
+        {`script.sh 2>&1 | tee transformation.log`}
+    </code>
+
+dont use the following style creae separate .sh file as stated earlier    
+    <pre className="text-xs text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 p-3 rounded">
+        {`#!/bin/bash
+        # debug_wrapper.sh - Test script in different modes
+        echo "=== Testing in different modes ==="
+        echo "1. Interactive Login:"
+        bash --login -i <<'EOF'
+            echo "  PS1: \$PS1"
+            echo "  Shell type: \$0"
+        EOF
+
+        echo -e "\n2. Non-Interactive Non-Login:"
+        bash -c "echo '  PS1: \$PS1'; echo '  Shell type: \$0'"`}
+    </pre>
+
+start from Topic
 
 
 
+
+<JavaFileLoader 
+        fileModule={MainJavaCode}
+        title="Main.java"
+        highlightLines={[]}
+      /> 
+
+      i am testing

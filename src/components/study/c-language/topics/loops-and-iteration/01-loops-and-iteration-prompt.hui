@@ -1,0 +1,217 @@
+Topic 0, topic: Introduction to repetition and why loops are needed in programming, Topic0
+Topic 1, topic: while loop: syntax, flowchart, and condition-based execution, Topic1
+Topic 2, topic: do-while loop: exit-controlled loop and real-world usage scenarios, Topic2
+Topic 3, topic: for loop: counter-controlled iteration and compact loop design, Topic3
+Topic 4, topic: Using break and continue for advanced loop control, Topic4
+Topic 5, topic: Classic loop problems: factorial, multiplication table, sum of numbers, Topic5
+Topic 6, topic: Prime number checking and number series generation, Topic6
+Topic 7, topic: Introduction to nested loops for pattern-based problems, Topic7
+Topic 8, topic: Debugging loops: identifying infinite loops and boundary errors, Topic8
+
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    -- Teacher note must have:
+    -- Icon emphasis
+    -- Hover highlight
+    -- SVG steps should visually respond on hover
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - Primary teacher: Sukanta Hui
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+Teacher’s professional description must be fetched from below:
+    - Name: Sukanta Hui
+    - email: sukantahui@codernaccotax.co.in
+    - mobile: 7003756860
+    - skill: Programming Language, RDBMs, Operating System, Web Development
+    - Experience: 27 years, calculate it from the year 1998, 27 should not be fixed, it will be dippend on current year based on year 1998
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+use this to show C Codes
+
+place C Codes in separate file and show them as follows
+import EditableCCodeBlock from "../../../../../common/EditableCCodeBlock";
+import ifExample1 from "./topic[topic_no]_files/if_example1.c?raw";
+import ifExampleh2 from "./topic[topic_no]_files/if_example2.c?raw";
+import ifExample3 from "./topic[topic_no]_files/if_example3.c?raw";
+
+<EditableCCodeBlock
+        title="Example 1: if example"
+        initialCode={ifExample1}
+/>
+
+<EditableCCodeBlock
+        title="Example 2: if example"
+        initialCode={ifExample2}
+/>
+like this
+start from Topic 0

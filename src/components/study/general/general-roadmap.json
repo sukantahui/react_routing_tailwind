@@ -45,6 +45,26 @@
             "summary": "Practicing Fundamental Test",
             "modules": [
                 {
+                    "moduleId": "general-topic",
+                    "slug": "general-topics",
+                    "title": "General Topics",
+                    "estimatedHours": 3,
+                    "topics": [
+                        "What is Programming?",
+                        "What is a Programming Language?",
+                        "History and Evolution of Programming Languages",
+                        "Machine Language, Assembly Language, High-Level Language",
+                        "Compiled vs Interpreted Languages",
+                        "Syntax vs Semantics",
+                        "Source Code, Object Code, Executable Code",
+                        "What is an Algorithm?",
+                        "What is a Flowchart?",
+                        "What is Pseudocode?"
+                    ],
+                    "difficultyIndex": 1,
+                    "badge": "General"
+                },
+                {
                     "moduleId": "test-all",
                     "slug": "general-practice-test-one",
                     "title": "Getting Started with Practice and Test",
@@ -55,7 +75,9 @@
                         "Virus",
                         "OSI Layer",
                         "Practice 1",
-                        "Math Practice"
+                        "Math Practice",
+                        "FUNDAMENTAL RIGHTS MCQ",
+                        "Fundamenta Short Question"
                     ],
                     "difficultyIndex": 1,
                     "badge": "Test Clerical"

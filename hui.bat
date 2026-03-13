@@ -21,3 +21,6 @@ start "" "https://titus.protondns.net:2083/cpsess2424099602/frontend/jupiter/ter
 
 echo Opening chatGpt Terminal in new tab...
 start "" "https://chatgpt.com/"
+
+echo Opening Deepseek in new tab...
+start "" "https://chat.deepseek.com/"

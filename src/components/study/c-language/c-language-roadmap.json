@@ -259,74 +259,95 @@
           "badge": "Logic Starter Badge"
         },
         {
-          "moduleId": "control-flow",
-          "slug": "control-flow-decisions",
-          "title": "Control Flow and Decision Making",
+          "moduleId": "loops-basics",
+          "slug": "loops-and-iteration",
+          "title": "Loops and Basic Iteration",
           "level": "Beginner",
-          "estimatedHours": 4,
+          "estimatedHours": 6,
           "tags": [
-            "if-else",
-            "switch",
-            "conditions"
+            "loops",
+            "while",
+            "do-while",
+            "for",
+            "nested loops",
+            "break",
+            "continue",
+            "pattern problems",
+            "algorithm basics"
           ],
           "topics": [
-            "if, else-if and else statements",
-            "Nested conditions and readability",
-            "switch-case with break and default",
-            "Menu-driven programs using switch",
-            "Real examples: grading system, billing system, simple login check",
-            "Practice your Skill",
-            "Test"
+            "Introduction to repetition and why loops are needed in programming",
+            "while loop: syntax, flowchart, and condition-based execution",
+            "do-while loop: exit-controlled loop and real-world usage scenarios",
+            "for loop: counter-controlled iteration and compact loop design",
+            "Using break and continue for advanced loop control",
+            "Classic loop problems: factorial, multiplication table, sum of numbers",
+            "Prime number checking and number series generation",
+            "Introduction to nested loops for pattern-based problems",
+            "Debugging loops: identifying infinite loops and boundary errors"
           ],
           "learningOutcomes": [
-            "Use if-else and switch to control program flow",
-            "Choose appropriate branching structures for a problem",
-            "Write simple menu-driven programs"
+            "Write structured loops to automate repetitive tasks in C",
+            "Differentiate between while, do-while, and for loops",
+            "Use break and continue to control program flow effectively",
+            "Solve mathematical and pattern-based programming problems",
+            "Debug common loop-related logical errors"
           ],
           "prerequisites": [
-            "operators-expressions"
+            "control-flow"
           ],
-          "difficulty": "Easy-Medium",
-          "difficultyIndex": 4,
-          "summary": "Use conditional logic to control which parts of your program run.",
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "This module introduces structured repetition in C using while, do-while, and for loops. Students learn to design algorithms, solve mathematical problems, build pattern programs, and avoid common logical mistakes such as infinite loops and off-by-one errors.",
           "miniProjects": [
-            "Practice: Control Flow and Decision Making - Mini Project 1"
+            "Build a menu-driven calculator using loops",
+            "Create a pattern generator using nested loops"
           ],
           "exercises": {
-            "mcq": 16,
-            "coding": 8,
-            "projects": 1
+            "mcq": 20,
+            "coding": 12,
+            "projects": 2
           },
           "assessment": {
-            "type": "Quiz + Coding Practice",
+            "type": "Quiz + Coding Practice + Debugging Test",
             "passScore": 70
           },
           "useCases": [
-            "Eligibility and validation checks",
-            "Building simple console menus"
+            "Generating numeric tables and sequences",
+            "Processing repeated user input",
+            "Building menu-driven programs",
+            "Automating calculations in billing systems",
+            "Iterating through structured numeric ranges"
           ],
           "careerSkills": [
-            "Designing decision trees",
-            "Implementing text based workflows"
+            "Algorithmic thinking in structured steps",
+            "Breaking repetitive work into efficient code",
+            "Logical debugging and boundary testing",
+            "Understanding time complexity at a basic level"
           ],
           "commonMistakes": [
-            "Forgetting break in switch and causing fall-through bugs",
-            "Creating deeply nested if blocks instead of simplifying logic"
+            "Creating infinite loops by not updating the loop variable",
+            "Off-by-one errors in loop boundaries",
+            "Incorrect nesting of loops leading to wrong pattern output",
+            "Misuse of break causing premature termination"
           ],
           "references": [
-            "C decision making documentation",
-            "Introductory C books on control flow"
+            "C loops and iteration tutorials",
+            "The C Programming Language - loop constructs",
+            "Beginner algorithm practice resources"
           ],
           "teachingTips": [
-            "Make students draw flowcharts before coding if-else chains.",
-            "Show when switch is cleaner than many else-if blocks."
+            "Trace loop execution step-by-step using dry run tables.",
+            "Encourage students to predict output before running programs.",
+            "Provide intentionally broken loop examples for debugging practice.",
+            "Use board-based visual pattern drawing before coding nested loops."
           ],
           "preReading": [
-            "Operators, Expressions and Basic Logic module"
+            "Control Flow and Decision Making module"
           ],
-          "previousModule": "operators-expressions",
-          "nextModule": "loops-basics",
-          "badge": "Decision Maker Badge"
+          "previousModule": "control-flow",
+          "nextModule": "functions-basics",
+          "badge": "Loop Wizard Badge"
         },
         {
           "moduleId": "loops-basics",
@@ -396,6 +417,87 @@
           "previousModule": "control-flow",
           "nextModule": null,
           "badge": "Loop Wizard Badge"
+        },
+        {
+          "moduleId": "practice-consolidation",
+          "slug": "practice-projects-mcqs",
+          "title": "Practice Module: Projects, MCQs, and Programming Challenges",
+          "level": "Beginner",
+          "estimatedHours": 8,
+          "tags": [
+            "practice",
+            "projects",
+            "mcq",
+            "coding-challenges"
+          ],
+          "topics": [
+            "Proram Practice",
+            "Programming exercises on variables, operators, control flow, loops",
+            "Mini projects to apply all concepts",
+            "Debugging exercises",
+            "Code review and optimization tasks"
+          ],
+          "learningOutcomes": [
+            "Consolidate all beginner concepts through extensive practice",
+            "Solve complex problems combining multiple concepts",
+            "Build complete mini projects from scratch",
+            "Identify and fix common bugs in C programs"
+          ],
+          "prerequisites": [
+            "c-intro",
+            "syntax-basics",
+            "operators-expressions",
+            "loops-basics"
+          ],
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 6,
+          "summary": "Reinforce your learning by solving a variety of MCQs, coding challenges, and building small projects that integrate all beginner topics.",
+          "miniProjects": [
+            "Pattern printing program with user-defined size",
+            "Menu-driven arithmetic calculator",
+            "Number to words converter (1-999)",
+            "Multiplication table generator",
+            "Prime number checker with range"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 15,
+            "projects": 4
+          },
+          "assessment": {
+            "type": "Comprehensive Quiz + Project Submission",
+            "passScore": 70
+          },
+          "useCases": [
+            "Reinforcement learning through varied problems",
+            "Preparation for exams and interviews",
+            "Building confidence to tackle larger programs"
+          ],
+          "careerSkills": [
+            "Problem-solving under time constraints",
+            "Attention to detail through debugging",
+            "Project planning and implementation"
+          ],
+          "commonMistakes": [
+            "Not reading problem statements carefully",
+            "Overlooking edge cases in coding challenges",
+            "Poor code organization in projects"
+          ],
+          "references": [
+            "Online practice platforms (HackerRank, CodeChef)",
+            "C programming exercise books"
+          ],
+          "teachingTips": [
+            "Encourage peer review of mini projects",
+            "Use timed MCQ sessions to simulate exam conditions",
+            "Provide partial solutions and ask students to complete them"
+          ],
+          "preReading": [
+            "Review all previous modules"
+          ],
+          "previousModule": "loops-basics",
+          "nextModule": null,
+          "badge": "Practice Champion Badge"
         }
       ]
     },
@@ -474,7 +576,12 @@
             "Avoiding multiple definition errors",
             "Inline functions – concept and trade-offs",
             "Function pointers – introduction and use cases",
-            "Using functions for callback-style programming"
+            "Using functions for callback-style programming",
+            "Output Check Practice",
+            "Function Problem Practice I",
+            "Problem",
+            "Problem",
+            "Advance Problem Solving"
           ],
           "learningOutcomes": [
             "Define and call functions to reuse code",
@@ -540,10 +647,19 @@
           "topics": [
             "Creating arrays and accessing elements by index",
             "Array memory model and contiguous memory concept",
-            "Common operations on one dimensional arrays",
-            "Loop patterns for processing arrays",
-            "Passing arrays to functions",
-            "Introduction to two dimensional arrays for tables and matrices"
+            "Understanding zero-based indexing and bounds safety",
+            "Common operations on one dimensional arrays (search, insert, delete)",
+            "Loop patterns for processing arrays (forward, reverse, nested loops)",
+            "Time complexity of array operations",
+            "Passing arrays to functions (call by reference behavior in C)",
+            "Pointer arithmetic and its relation to array indexing",
+            "Introduction to two dimensional arrays for tables and matrices",
+            "Memory layout of 2D arrays (row-major order concept)",
+            "Practical debugging of array-based programs",
+            "Project Work I",
+            "Project Work DSA Expert Level",
+            "Output Practice I",
+            "Output Practice II"
           ],
           "learningOutcomes": [
             "Store and process multiple values using arrays",

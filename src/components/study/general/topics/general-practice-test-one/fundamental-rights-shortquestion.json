@@ -1,0 +1,428 @@
+{
+  "subject": "Civics",
+  "class": "X",
+  "board": "ICSE",
+  "topic": "Fundamental Rights, Duties and Directive Principles – Short Questions (Detailed Answers)",
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Fundamental Rights",
+      "question": "What are Fundamental Rights?",
+      "answer": "Fundamental Rights are basic freedoms guaranteed to citizens by the Indian Constitution. They ensure the personal liberty, equality and dignity of individuals and protect them against arbitrary actions of the State."
+    },
+    {
+      "id": 2,
+      "topic": "Fundamental Rights",
+      "question": "Why are Fundamental Rights called fundamental?",
+      "answer": "They are called fundamental because they are included in the Constitution and are enforceable by courts. They form the foundation of democracy and protect individual freedom."
+    },
+    {
+      "id": 3,
+      "topic": "Fundamental Rights",
+      "question": "In which Part of the Constitution are Fundamental Rights mentioned?",
+      "answer": "Fundamental Rights are mentioned in Part III of the Indian Constitution."
+    },
+    {
+      "id": 4,
+      "topic": "Fundamental Rights",
+      "question": "Are Fundamental Rights absolute?",
+      "answer": "No, Fundamental Rights are not absolute. The State can impose reasonable restrictions in the interest of public order, morality and national security."
+    },
+    {
+      "id": 5,
+      "topic": "Right to Equality",
+      "question": "What does equality before law mean?",
+      "answer": "Equality before law means that all persons are equal in the eyes of law and no one is above the law, irrespective of status, caste or wealth."
+    },
+    {
+      "id": 6,
+      "topic": "Right to Equality",
+      "question": "What is meant by abolition of untouchability?",
+      "answer": "Abolition of untouchability means that the practice of treating certain sections of society as inferior is prohibited and punishable by law."
+    },
+    {
+      "id": 7,
+      "topic": "Right to Freedom",
+      "question": "Name any two freedoms guaranteed under Article 19.",
+      "answer": "Freedom of speech and expression and freedom of movement are two freedoms guaranteed under Article 19."
+    },
+    {
+      "id": 8,
+      "topic": "Right to Freedom",
+      "question": "What is the Right to Life?",
+      "answer": "The Right to Life under Article 21 guarantees that no person shall be deprived of life or personal liberty except according to procedure established by law."
+    },
+    {
+      "id": 9,
+      "topic": "Right against Exploitation",
+      "question": "What is meant by begar?",
+      "answer": "Begar means forced labour without payment. It is prohibited under the Right against Exploitation."
+    },
+    {
+      "id": 10,
+      "topic": "Right against Exploitation",
+      "question": "Why is child labour prohibited?",
+      "answer": "Child labour is prohibited to protect children from exploitation and to ensure their physical, mental and moral development."
+    },
+    {
+      "id": 11,
+      "topic": "Right to Freedom of Religion",
+      "question": "What does freedom of conscience mean?",
+      "answer": "Freedom of conscience means the freedom to follow, practise and believe in any religion of one’s choice."
+    },
+    {
+      "id": 12,
+      "topic": "Right to Freedom of Religion",
+      "question": "Why is India called a secular state?",
+      "answer": "India is called a secular state because it does not have an official religion and treats all religions equally."
+    },
+    {
+      "id": 13,
+      "topic": "Cultural and Educational Rights",
+      "question": "Who enjoys Cultural and Educational Rights?",
+      "answer": "Minority communities enjoy Cultural and Educational Rights to preserve their language, script and culture."
+    },
+    {
+      "id": 14,
+      "topic": "Right to Constitutional Remedies",
+      "question": "Why is Article 32 called the heart and soul of the Constitution?",
+      "answer": "Article 32 is called the heart and soul of the Constitution because it enables citizens to move the Supreme Court for enforcement of Fundamental Rights."
+    },
+    {
+      "id": 15,
+      "topic": "Fundamental Duties",
+      "question": "What are Fundamental Duties?",
+      "answer": "Fundamental Duties are moral obligations of citizens towards the nation, included in the Constitution to promote discipline, unity and patriotism."
+    },
+    {
+      "id": 16,
+      "topic": "Fundamental Duties",
+      "question": "How many Fundamental Duties are there at present?",
+      "answer": "At present, there are eleven Fundamental Duties."
+    },
+    {
+      "id": 17,
+      "topic": "Directive Principles",
+      "question": "What are Directive Principles of State Policy?",
+      "answer": "Directive Principles are guidelines given to the State to establish social and economic democracy and promote the welfare of the people."
+    },
+    {
+      "id": 18,
+      "topic": "Directive Principles",
+      "question": "Are Directive Principles enforceable by courts?",
+      "answer": "No, Directive Principles are non-justiciable and cannot be enforced by courts."
+    },
+    {
+      "id": 19,
+      "topic": "Directive Principles",
+      "question": "Why are Directive Principles important?",
+      "answer": "They help the government in making laws and policies aimed at establishing a welfare state."
+    },
+    {
+      "id": 20,
+      "topic": "Welfare State",
+      "question": "What is meant by a Welfare State?",
+      "answer": "A Welfare State is one that works for the overall development and well-being of its citizens by providing education, healthcare and social security."
+    },
+    {
+      "id": 21,
+      "topic": "Fundamental Rights",
+      "question": "Who enjoys Fundamental Rights in India?",
+      "answer": "Fundamental Rights are mainly enjoyed by citizens of India, though some rights are available to all persons."
+    },
+    {
+      "id": 22,
+      "topic": "Fundamental Rights",
+      "question": "Can Fundamental Rights be suspended?",
+      "answer": "Yes, some Fundamental Rights can be suspended during a National Emergency, except the Right to Life and Personal Liberty."
+    },
+    {
+      "id": 23,
+      "topic": "Right to Equality",
+      "question": "What is meant by equality of opportunity?",
+      "answer": "Equality of opportunity means that every citizen has equal chances in matters of public employment without discrimination."
+    },
+    {
+      "id": 24,
+      "topic": "Right to Equality",
+      "question": "Name one provision that promotes social equality.",
+      "answer": "Abolition of untouchability promotes social equality."
+    },
+    {
+      "id": 25,
+      "topic": "Right to Freedom",
+      "question": "Why are restrictions imposed on the Right to Freedom?",
+      "answer": "Restrictions are imposed to maintain public order, security, morality and national interest."
+    },
+    {
+      "id": 26,
+      "topic": "Right to Freedom",
+      "question": "What is preventive detention?",
+      "answer": "Preventive detention means arresting a person to prevent them from committing a crime in the future."
+    },
+    {
+      "id": 27,
+      "topic": "Right against Exploitation",
+      "question": "Which forms of exploitation are prohibited by the Constitution?",
+      "answer": "Human trafficking, forced labour and child labour are prohibited."
+    },
+    {
+      "id": 28,
+      "topic": "Right against Exploitation",
+      "question": "Why is trafficking prohibited?",
+      "answer": "Trafficking is prohibited because it violates human dignity and freedom."
+    },
+    {
+      "id": 29,
+      "topic": "Right to Freedom of Religion",
+      "question": "Can the State interfere in religious matters?",
+      "answer": "The State can interfere only to maintain public order, morality and health."
+    },
+    {
+      "id": 30,
+      "topic": "Right to Freedom of Religion",
+      "question": "What is meant by secularism?",
+      "answer": "Secularism means equal respect for all religions and no official religion of the State."
+    },
+    {
+      "id": 31,
+      "topic": "Cultural and Educational Rights",
+      "question": "Why are Cultural Rights important?",
+      "answer": "They help minorities preserve their language, culture and traditions."
+    },
+    {
+      "id": 32,
+      "topic": "Cultural and Educational Rights",
+      "question": "Can minorities establish educational institutions?",
+      "answer": "Yes, minorities have the right to establish and administer educational institutions."
+    },
+    {
+      "id": 33,
+      "topic": "Right to Constitutional Remedies",
+      "question": "What is a writ?",
+      "answer": "A writ is a legal order issued by a court to enforce Fundamental Rights."
+    },
+    {
+      "id": 34,
+      "topic": "Right to Constitutional Remedies",
+      "question": "Name any one type of writ.",
+      "answer": "Habeas Corpus is a type of writ."
+    },
+    {
+      "id": 35,
+      "topic": "Fundamental Duties",
+      "question": "Why were Fundamental Duties added to the Constitution?",
+      "answer": "They were added to remind citizens of their responsibilities towards the nation."
+    },
+    {
+      "id": 36,
+      "topic": "Fundamental Duties",
+      "question": "Are Fundamental Duties enforceable by law?",
+      "answer": "No, Fundamental Duties are non-justiciable."
+    },
+    {
+      "id": 37,
+      "topic": "Fundamental Duties",
+      "question": "Name one Fundamental Duty related to the environment.",
+      "answer": "To protect and improve the natural environment."
+    },
+    {
+      "id": 38,
+      "topic": "Directive Principles",
+      "question": "In which Part of the Constitution are Directive Principles mentioned?",
+      "answer": "Directive Principles are mentioned in Part IV of the Constitution."
+    },
+    {
+      "id": 39,
+      "topic": "Directive Principles",
+      "question": "Why are Directive Principles non-justiciable?",
+      "answer": "They are guidelines for governance and cannot be enforced by courts."
+    },
+    {
+      "id": 40,
+      "topic": "Directive Principles",
+      "question": "Name one Directive Principle promoting social justice.",
+      "answer": "Equal pay for equal work promotes social justice."
+    },
+    {
+      "id": 41,
+      "topic": "Directive Principles",
+      "question": "How do Directive Principles help the government?",
+      "answer": "They guide the government in making policies for public welfare."
+    },
+    {
+      "id": 42,
+      "topic": "Fundamental Rights",
+      "question": "Which Fundamental Right protects personal liberty?",
+      "answer": "Right to Life and Personal Liberty protects personal freedom."
+    },
+    {
+      "id": 43,
+      "topic": "Right to Equality",
+      "question": "What is the rule of law?",
+      "answer": "Rule of law means that the law is supreme and applies equally to all."
+    },
+    {
+      "id": 44,
+      "topic": "Right to Freedom",
+      "question": "Can freedom of speech be misused?",
+      "answer": "Yes, hence reasonable restrictions are imposed on it."
+    },
+    {
+      "id": 45,
+      "topic": "Right against Exploitation",
+      "question": "Why is forced labour considered unjust?",
+      "answer": "It violates human dignity and freedom."
+    },
+    {
+      "id": 46,
+      "topic": "Right to Freedom of Religion",
+      "question": "Can a person change his religion?",
+      "answer": "Yes, every individual has freedom of conscience."
+    },
+    {
+      "id": 47,
+      "topic": "Cultural and Educational Rights",
+      "question": "Do Cultural Rights promote unity?",
+      "answer": "Yes, they promote unity by respecting diversity."
+    },
+    {
+      "id": 48,
+      "topic": "Right to Constitutional Remedies",
+      "question": "Which court can issue writs?",
+      "answer": "The Supreme Court and High Courts can issue writs."
+    },
+    {
+      "id": 49,
+      "topic": "Fundamental Duties",
+      "question": "Name one duty related to national symbols.",
+      "answer": "To respect the National Flag and National Anthem."
+    },
+    {
+      "id": 50,
+      "topic": "Fundamental Duties",
+      "question": "Why should citizens follow Fundamental Duties?",
+      "answer": "They help in building a disciplined and responsible society."
+    },
+    {
+      "id": 51,
+      "topic": "Directive Principles",
+      "question": "What is the goal of Directive Principles?",
+      "answer": "To establish a welfare state."
+    },
+    {
+      "id": 52,
+      "topic": "Directive Principles",
+      "question": "Name one Directive Principle related to education.",
+      "answer": "Free and compulsory education for children."
+    },
+    {
+      "id": 53,
+      "topic": "Welfare State",
+      "question": "Why is India described as a welfare state?",
+      "answer": "Because it aims to promote the social and economic well-being of citizens."
+    },
+    {
+      "id": 54,
+      "topic": "Welfare State",
+      "question": "Name one feature of a welfare state.",
+      "answer": "Provision of education and healthcare."
+    },
+    {
+      "id": 55,
+      "topic": "Fundamental Rights",
+      "question": "Can Fundamental Rights be amended?",
+      "answer": "Yes, but they cannot destroy the basic structure of the Constitution."
+    },
+    {
+      "id": 56,
+      "topic": "Right to Equality",
+      "question": "Does equality mean treating everyone identically?",
+      "answer": "No, it means fair treatment according to circumstances."
+    },
+    {
+      "id": 57,
+      "topic": "Right to Freedom",
+      "question": "Is freedom unlimited in a democracy?",
+      "answer": "No, freedom is balanced with responsibility."
+    },
+    {
+      "id": 58,
+      "topic": "Directive Principles",
+      "question": "Why are Directive Principles important for democracy?",
+      "answer": "They ensure social and economic justice."
+    },
+    {
+      "id": 59,
+      "topic": "Fundamental Duties",
+      "question": "Which duty promotes harmony?",
+      "answer": "To promote harmony and brotherhood among all citizens."
+    },
+    {
+      "id": 60,
+      "topic": "Right to Constitutional Remedies",
+      "question": "Why is judicial protection necessary?",
+      "answer": "To safeguard citizens from violation of their rights."
+    },
+    {
+      "id": 61,
+      "topic": "Fundamental Rights",
+      "question": "Which right ensures freedom of belief?",
+      "answer": "Right to Freedom of Religion ensures freedom of belief."
+    },
+    {
+      "id": 62,
+      "topic": "Directive Principles",
+      "question": "Name one principle promoting economic justice.",
+      "answer": "Prevention of concentration of wealth."
+    },
+    {
+      "id": 63,
+      "topic": "Welfare State",
+      "question": "How does a welfare state reduce inequality?",
+      "answer": "By providing equal opportunities and social security."
+    },
+    {
+      "id": 64,
+      "topic": "Fundamental Duties",
+      "question": "Is respect for the Constitution a duty?",
+      "answer": "Yes, respecting the Constitution is a Fundamental Duty."
+    },
+    {
+      "id": 65,
+      "topic": "Right to Equality",
+      "question": "Can the State make special provisions for women?",
+      "answer": "Yes, to promote equality and social justice."
+    },
+    {
+      "id": 66,
+      "topic": "Right to Freedom",
+      "question": "What does freedom of movement mean?",
+      "answer": "It means citizens can move freely throughout India."
+    },
+    {
+      "id": 67,
+      "topic": "Directive Principles",
+      "question": "Are Directive Principles moral ideals?",
+      "answer": "Yes, they reflect the moral goals of the Constitution."
+    },
+    {
+      "id": 68,
+      "topic": "Fundamental Rights",
+      "question": "Why are Fundamental Rights essential in a democracy?",
+      "answer": "They protect individual liberty and ensure equality."
+    },
+    {
+      "id": 69,
+      "topic": "Welfare State",
+      "question": "What role does the government play in a welfare state?",
+      "answer": "The government works for the welfare of all citizens."
+    },
+    {
+      "id": 70,
+      "topic": "Fundamental Duties",
+      "question": "Which duty promotes scientific thinking?",
+      "answer": "To develop scientific temper and spirit of inquiry."
+    }
+  ]
+}

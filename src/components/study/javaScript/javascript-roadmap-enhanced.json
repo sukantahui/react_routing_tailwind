@@ -649,7 +649,9 @@
             "Chaining array methods (map → filter → reduce)",
             "Deep array transformations inside nested objects",
             "Real-world datasets (students, courses, products, tasks)",
-            "Practice your Skill"
+            "Practice your Skill",
+            "Reduce Examples",
+            "20 examples of reduce()"
           ],
           "learningOutcomes": [
             "Use map(), filter(), reduce() and find() effectively on arrays of objects",

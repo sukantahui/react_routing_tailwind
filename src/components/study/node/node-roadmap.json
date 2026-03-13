@@ -1,0 +1,450 @@
+{
+  "trackId": "node-complete-roadmap",
+  "trackTitle": "Node.js: From Zero to Production Expert",
+  "description": "A complete Node.js learning path covering core concepts, backend development, APIs, databases, authentication, performance, and production deployment.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "Node.js Backend Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-28"
+  },
+  "folder": "node",
+  "subject": "Node.js",
+  "subjectLogo": {
+    "name": "Node.js",
+    "icon": "nodejs",
+    "type": "svg",
+    "path": "/logos/nodejs.svg",
+    "alt": "Node.js Logo"
+  },
+  "prerequisites": [
+    "JavaScript ES6+",
+    "Basic Programming Concepts",
+    "HTTP & Web Basics",
+    "npm basics"
+  ],
+  "segments": [
+    {
+      "segmentId": "node-fundamentals",
+      "title": "Segment 1 – Node.js Foundations",
+      "level": "Beginner",
+      "summary": "Understand Node.js runtime, modules, and core APIs.",
+      "modules": [
+        {
+          "moduleId": "node-intro",
+          "slug": "nodejs-introduction",
+          "title": "Introduction to Node.js",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "tags": [
+            "nodejs",
+            "runtime",
+            "javascript"
+          ],
+          "topics": [
+            "What is Node.js and why it was created",
+            "Problems with traditional server-side technologies (historical context)",
+            "Node.js as a JavaScript runtime (not a framework)",
+            "Node.js vs Browser JavaScript – environment differences",
+            "Understanding the V8 JavaScript engine",
+            "Node.js runtime architecture overview",
+            "Single-threaded model explained clearly",
+            "Event-driven and non-blocking architecture",
+            "Blocking vs Non-blocking I/O with real-world analogies",
+            "Introduction to the Event Loop (conceptual, beginner-friendly)",
+            "Call stack, callback queue, and event loop flow",
+            "How Node.js handles multiple requests concurrently",
+            "Installing Node.js (LTS vs Current explained)",
+            "Understanding npm and Node.js versioning",
+            "Running Node.js files using the terminal",
+            "Node.js REPL: purpose and practical usage",
+            "Global objects in Node.js (global, process, __dirname, __filename)",
+            "Understanding process object and basic environment access",
+            "What is package.json and why it matters",
+            "Scripts section in package.json",
+            "Local vs global npm packages",
+            "Common beginner mistakes in Node.js",
+            "Debugging simple Node.js errors",
+            "Short Questions & Concept Check Quiz"
+          ],
+          "learningOutcomes": [
+            "Understand Node.js runtime",
+            "Run basic Node programs",
+            "Explain event-driven architecture"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "miniProjects": [
+            "CLI Greeting App"
+          ],
+          "badge": "Node Foundations Badge"
+        },
+        {
+          "moduleId": "node-modules",
+          "slug": "nodejs-modules",
+          "title": "Modules & Core APIs",
+          "level": "Beginner",
+          "estimatedHours": 5,
+          "tags": [
+            "modules",
+            "fs",
+            "path"
+          ],
+          "topics": [
+            "Why modules are needed in Node.js",
+            "Understanding module-based architecture",
+            "What is a module in Node.js",
+            "CommonJS module system explained",
+            "require() function and module.exports",
+            "How Node.js loads modules internally (conceptual)",
+            "ES Modules (ESM) in Node.js – overview",
+            "import and export syntax",
+            "CommonJS vs ES Modules – when and why",
+            "package.json type field (commonjs vs module)",
+            "Built-in (core) modules overview",
+            "fs module: reading and writing files",
+            "Synchronous vs asynchronous file operations",
+            "Callbacks vs error-first pattern",
+            "path module: working with file paths safely",
+            "os module: accessing system information",
+            "events module and EventEmitter",
+            "Understanding event-driven programming",
+            "Introduction to Buffer and binary data",
+            "Streams concept explained simply",
+            "Readable vs Writable streams",
+            "Why streams are efficient for large data",
+            "Environment variables using process.env",
+            "Using .env files (conceptual, no framework)",
+            "Basic error handling in Node.js",
+            "try-catch vs async error handling",
+            "Common beginner mistakes with modules and files",
+            "Debugging file system and module errors",
+            "Short Questions & Practice Exercises"
+          ],
+          "learningOutcomes": [
+            "Use Node core modules",
+            "Understand module system",
+            "Handle files and paths"
+          ],
+          "difficulty": "Easy",
+          "difficultyIndex": 2,
+          "miniProjects": [
+            "File Manager Script"
+          ],
+          "badge": "Node Core APIs Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "backend-development",
+      "title": "Segment 2 – Backend Development with Express",
+      "level": "Intermediate",
+      "summary": "Build APIs and web servers using Express.js.",
+      "modules": [
+        {
+          "moduleId": "express-basics",
+          "slug": "express-js-basics",
+          "title": "Express.js Fundamentals",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "express",
+            "api",
+            "middleware"
+          ],
+          "topics": [
+            "Why Express.js is needed on top of Node.js",
+            "Express.js as a minimal web framework",
+            "Creating your first Express server",
+            "Understanding HTTP fundamentals (methods, status codes)",
+            "Request–Response lifecycle in Express",
+            "Understanding req and res objects",
+            "Sending responses: JSON, text, status codes",
+            "Routing fundamentals (GET, POST, PUT, DELETE)",
+            "Route parameters and query strings",
+            "Organizing routes using Router",
+            "Middleware concept explained clearly",
+            "How middleware works in sequence",
+            "Built-in middleware (express.json, express.static)",
+            "Creating custom middleware",
+            "Using middleware for logging and validation",
+            "Serving static files in Express",
+            "Handling JSON and form data",
+            "Error handling in Express",
+            "Creating centralized error-handling middleware",
+            "Handling 404 and server errors properly",
+            "Project structure and folder organization",
+            "Environment configuration using dotenv",
+            "Common beginner mistakes in Express",
+            "Debugging Express applications",
+            "Short Questions & API Practice Tasks"
+          ],
+          "learningOutcomes": [
+            "Build REST APIs",
+            "Use middleware effectively",
+            "Handle requests and responses"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 4,
+          "miniProjects": [
+            "REST API for Notes App"
+          ],
+          "badge": "Express Developer Badge"
+        },
+        {
+          "moduleId": "databases",
+          "slug": "node-database-integration",
+          "title": "Databases with Node.js",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "mongodb",
+            "sql",
+            "mongoose"
+          ],
+          "topics": [
+            "Why databases are needed in backend applications",
+            "Types of databases: relational vs non-relational",
+            "SQL vs NoSQL – real-world use cases",
+            "Introduction to MongoDB and document-based databases",
+            "Installing and running MongoDB",
+            "Understanding collections and documents",
+            "Connecting Node.js to MongoDB",
+            "Using MongoDB drivers vs ODMs",
+            "Introduction to Mongoose",
+            "Defining schemas and models in Mongoose",
+            "Data types and schema design principles",
+            "CRUD operations using Mongoose",
+            "Querying data effectively",
+            "Data validation using schema rules",
+            "Built-in vs custom validation",
+            "Handling database errors gracefully",
+            "Relationships in MongoDB (embedding vs referencing)",
+            "One-to-one and one-to-many relationships",
+            "Population in Mongoose",
+            "Pagination techniques",
+            "Sorting and filtering data",
+            "Indexing basics for performance",
+            "Avoiding common database design mistakes",
+            "Securing database credentials",
+            "Environment-based database configuration",
+            "Short Questions & Database Practice Tasks"
+          ],
+          "learningOutcomes": [
+            "Integrate databases",
+            "Perform CRUD operations",
+            "Design data models"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "miniProjects": [
+            "User Management API"
+          ],
+          "badge": "Database Integration Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced-node",
+      "title": "Segment 3 – Advanced Node.js",
+      "level": "Advanced",
+      "summary": "Authentication, security, performance, and scalability.",
+      "modules": [
+        {
+          "moduleId": "auth-security",
+          "slug": "node-auth-security",
+          "title": "Authentication & Security",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "jwt",
+            "auth",
+            "security"
+          ],
+          "topics": [
+            "Why security is critical in backend applications",
+            "Authentication vs Authorization explained clearly",
+            "Common authentication strategies (session vs token)",
+            "Password storage best practices",
+            "Hashing passwords using bcrypt",
+            "Salting and hashing explained",
+            "User registration and login flow",
+            "JSON Web Tokens (JWT) fundamentals",
+            "JWT structure: header, payload, signature",
+            "Generating and verifying JWTs",
+            "Access tokens vs refresh tokens (conceptual)",
+            "Storing tokens securely",
+            "Protecting routes using authentication middleware",
+            "Role-based access control (RBAC)",
+            "Implementing role and permission checks",
+            "Securing REST APIs",
+            "CORS explained and configured properly",
+            "Rate limiting to prevent abuse",
+            "Brute-force attack prevention",
+            "Securing environment variables",
+            "Avoiding sensitive data leaks",
+            "Common Node.js security vulnerabilities",
+            "Injection attacks and prevention",
+            "Best practices for API security",
+            "Short Questions & Security Scenarios"
+          ],
+          "badge": "Node Security Badge"
+        },
+        {
+          "moduleId": "performance",
+          "slug": "node-performance",
+          "title": "Performance & Scalability",
+          "level": "Advanced",
+          "estimatedHours": 5,
+          "tags": [
+            "performance",
+            "scaling"
+          ],
+          "topics": [
+            "Why performance matters in backend systems",
+            "Understanding Node.js concurrency model",
+            "Event loop deep dive (phases explained clearly)",
+            "Call stack, task queue, and microtask queue",
+            "Blocking operations and their impact",
+            "Identifying CPU-bound vs I/O-bound tasks",
+            "Asynchronous patterns in Node.js",
+            "Callbacks vs Promises vs async/await",
+            "Avoiding callback hell",
+            "Using async/await effectively",
+            "Clustering in Node.js",
+            "Using the cluster module",
+            "Scaling Node applications across CPU cores",
+            "Worker threads and multithreading",
+            "When to use worker threads",
+            "Caching strategies in backend systems",
+            "In-memory caching concepts",
+            "HTTP caching basics",
+            "Load balancing concepts explained",
+            "Horizontal vs vertical scaling",
+            "Detecting and preventing memory leaks",
+            "Common causes of memory leaks in Node.js",
+            "Monitoring memory usage",
+            "Profiling Node.js applications",
+            "Using Node.js built-in profiling tools",
+            "Performance best practices",
+            "Short Questions & Performance Scenarios"
+          ],
+          "badge": "Node Performance Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "production",
+      "title": "Segment 4 – Production & Deployment",
+      "level": "Expert",
+      "summary": "Deploy, monitor, and maintain Node.js applications.",
+      "modules": [
+        {
+          "moduleId": "deployment",
+          "slug": "node-production-deployment",
+          "title": "Deployment & DevOps",
+          "level": "Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "deployment",
+            "docker",
+            "ci-cd"
+          ],
+          "topics": [
+            "What production-ready really means",
+            "Development vs staging vs production environments",
+            "Environment configuration and secrets management",
+            "Using environment variables safely",
+            "Production build and startup strategies",
+            "Process management in Node.js",
+            "Using PM2 for process management",
+            "PM2 cluster mode and zero-downtime restarts",
+            "Logging strategies in production",
+            "Structured logging vs console logs",
+            "Monitoring application health",
+            "Error handling and crash recovery",
+            "Error tracking concepts (Sentry-style tools)",
+            "Introduction to containerization",
+            "Why Docker is used in production",
+            "Dockerizing a Node.js application",
+            "Dockerfile best practices for Node.js",
+            "Environment-specific Docker configurations",
+            "Introduction to CI/CD pipelines",
+            "Automating builds and deployments",
+            "CI/CD concepts using GitHub Actions (conceptual)",
+            "Deploying Node.js applications to a VPS",
+            "Basic deployment flow on cloud servers (AWS / DigitalOcean – conceptual)",
+            "Reverse proxy basics (Nginx overview)",
+            "Scaling Node.js applications in production",
+            "Horizontal vs vertical scaling in real systems",
+            "Handling production incidents",
+            "Backup and rollback strategies",
+            "Security considerations in production",
+            "Production checklist and best practices",
+            "Short Questions & Deployment Scenarios"
+          ],
+          "badge": "Node DevOps Badge"
+        },
+        {
+          "moduleId": "capstone",
+          "slug": "node-capstone-project",
+          "title": "Capstone: Real-World Backend Project",
+          "level": "Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "capstone",
+            "backend"
+          ],
+          "topics": [
+            "Understanding real-world backend requirements",
+            "Choosing the right backend architecture",
+            "Monolithic vs modular backend design",
+            "Designing scalable folder structure",
+            "API-first development approach",
+            "REST API design principles",
+            "Versioning APIs",
+            "Request validation and sanitization",
+            "Authentication strategies (JWT-based)",
+            "Authorization and role-based access control",
+            "Secure password handling",
+            "Designing database schemas for real applications",
+            "Optimizing database queries",
+            "Indexes and performance considerations",
+            "Handling relational and non-relational data",
+            "Pagination, filtering, and sorting",
+            "Centralized error handling",
+            "Logging and monitoring strategies",
+            "API documentation using Swagger/OpenAPI",
+            "Testing APIs with Postman",
+            "Introduction to automated API testing",
+            "Environment-based configuration",
+            "Security hardening before deployment",
+            "Performance tuning and load considerations",
+            "Deploying backend to production",
+            "Running backend with PM2",
+            "Dockerizing the backend service",
+            "Handling production failures and recovery",
+            "Scaling backend services conceptually",
+            "Maintaining and updating live APIs",
+            "Preparing backend for real users",
+            "Project review and best practices discussion"
+          ],
+          "miniProjects": [
+            "E-commerce Backend API",
+            "Authentication Service"
+          ],
+          "badge": "Node Backend Expert Badge"
+        }
+      ]
+    }
+  ],
+  "learningPath": {
+    "weeks": 10,
+    "weeklyCommitment": "10-15 hours",
+    "totalEstimatedHours": 120,
+    "outcome": "Production-ready Node.js Backend Developer"
+  }
+}

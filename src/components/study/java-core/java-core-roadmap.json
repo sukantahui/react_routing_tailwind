@@ -422,6 +422,50 @@
                     "difficultyIndex": 8
                 },
                 {
+                    "moduleId": "java-generics",
+                    "slug": "java-generics",
+                    "title": "Generics in Java",
+                    "level": "Intermediate",
+                    "estimatedHours": 5,
+                    "tags": [
+                        "generics",
+                        "type-safety"
+                    ],
+                    "topics": [
+                        "Introduction to Generics",
+                        "Need for Generics in Java",
+                        "Problems Without Generics (Type Casting and ClassCastException)",
+                        "Generic Classes",
+                        "Defining and Using Generic Classes",
+                        "Generic Methods",
+                        "Generic Constructors (Overview)",
+                        "Type Parameters (T, E, K, V, N)",
+                        "Bounded Type Parameters",
+                        "Multiple Bounds in Generics",
+                        "Upper Bounded Wildcards (? extends)",
+                        "Lower Bounded Wildcards (? super)",
+                        "Unbounded Wildcards (?)",
+                        "PECS Rule (Producer Extends, Consumer Super)",
+                        "Generics with Collections",
+                        "Generics with Custom Classes",
+                        "Restrictions on Generics",
+                        "Type Erasure (Conceptual Understanding)",
+                        "Generics at Compile Time vs Runtime",
+                        "Generics vs Object Class",
+                        "Compile-Time Type Checking",
+                        "Common Mistakes while Using Generics",
+                        "Best Practices for Writing Generic Code"
+                    ],
+                    "learningOutcomes": [
+                        "Write type-safe Java programs using generics",
+                        "Eliminate runtime ClassCastException",
+                        "Apply generics with collections effectively"
+                    ],
+                    "difficulty": "Medium",
+                    "difficultyIndex": 7,
+                    "summary": "Achieve compile-time type safety and reusable code using Java Generics."
+                },
+                {
                     "moduleId": "collections",
                     "slug": "java-collections",
                     "title": "Collections Framework",

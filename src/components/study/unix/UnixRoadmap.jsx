@@ -10,7 +10,7 @@ import {
   Clock,
 } from "lucide-react";
 
-import roadmapData from "./unix-basic-to-ultra-expert.json";
+import roadmapData from "./unix-basic-to-ultra-expert-roadmap.json";
 import teacherPhoto from "../../../assets/teachers/teacher1.jpg";
 import {
   Linkedin,

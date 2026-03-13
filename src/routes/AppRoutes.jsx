@@ -22,7 +22,7 @@ import JavaScriptRoadmap from '../components/study/javaScript/JavaScriptRoadmap'
 import JavaScriptModuleView from '../components/study/javaScript/JavaScriptModuleView';
 import JavaScriptTopicView from '../components/study/javaScript/JavaScriptTopicView';
 import Playground from '../common/Playground';
-import PythonRoadmap from '../components/study/python/PythonRoadMap';
+import PythonRoadmap from '../components/study/python/PythonRoadmap';
 import PythonModuleView from '../components/study/python/PythonModuleView';
 import PythonTopicView from '../components/study/python/PythonTopicView';
 import PythonPlayground from '../common/PythonPlayground';
@@ -71,6 +71,18 @@ import ComputerArchitectureTopicView from '../components/study/computer-architec
 import UnixRoadmap from '../components/study/unix/UnixRoadmap';
 import UnixModuleView from '../components/study/unix/UnixModuleView';
 import UnixTopicView from '../components/study/unix/UnixTopicView';
+
+import ReactRoadmap from '../components/study/react/ReactRoadmap';
+import ReactModuleView from '../components/study/react/ReactModuleView';
+import ReactTopicView from '../components/study/react/ReactTopicView';
+
+import NodeRoadmap from '../components/study/node/NodeRoadmap';
+import NodeModuleView from '../components/study/node/NodeModuleView';
+import NodeTopicView from '../components/study/node/NodeTopicView';
+
+import JavaWebRoadmap from '../components/study/java-web/JavaWebRoadmap';
+import JavaWebModuleView from '../components/study/java-web/JavaWebModuleView';
+import JavaWebTopicView from '../components/study/java-web/JavaWebTopicView';
 
 
 
@@ -197,10 +209,28 @@ export default function AppRoutes() {
       <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
       <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex"  element={<ComputerArchitectureTopicView/>}/>
 
-      {/* Computer Architecture  */}
+      {/* Unix  */}
       <Route path="/unix/roadmap" element={<UnixRoadmap />} />
       <Route path="/unix/module/:slug" element={<UnixModuleView />} />
       <Route path="/unix/topic/:moduleSlug/:topicIndex"  element={<UnixTopicView/>}/>
+
+      {/* React  */}
+      <Route path="/react/roadmap" element={<ReactRoadmap />} />
+      <Route path="/react/module/:slug" element={<ReactModuleView />} />
+      <Route path="/react/topic/:moduleSlug/:topicIndex"  element={<ReactTopicView/>}/>
+
+       {/* Node  */}
+      <Route path="/node/roadmap" element={<NodeRoadmap />} />
+      <Route path="/node/module/:slug" element={<NodeModuleView />} />
+      <Route path="/node/topic/:moduleSlug/:topicIndex"  element={<NodeTopicView/>}/>
+
+
+
+      {/* Java Web  */}
+      <Route path="/java-web/roadmap" element={<JavaWebRoadmap />} />
+      <Route path="/java-web/module/:slug" element={<JavaWebModuleView />} />
+      <Route path="/java-web/topic/:moduleSlug/:topicIndex"  element={<JavaWebTopicView/>}/>
+
 
       {/* Icon Resource */}
       <Route path="/icons" element={<IconResources />} />
