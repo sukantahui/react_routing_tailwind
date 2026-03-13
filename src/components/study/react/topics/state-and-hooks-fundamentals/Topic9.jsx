@@ -51,7 +51,7 @@ const Topic9 = () => {
   const incorrectPrimitiveUpdate = () => {
     try {
       // WRONG: Direct mutation
-      counter = counter + 1;
+      // counter = counter + 1;
       addToHistory('Direct mutation: counter = counter + 1', false);
     } catch (error) {
       addToHistory(`Error: ${error.message}`, false);
