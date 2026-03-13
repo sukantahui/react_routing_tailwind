@@ -1,5 +1,5 @@
 // src/components/AddStudent.jsx
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
@@ -28,8 +28,12 @@ export default function AddStudent() {
     gender_id: 1,
   });
 
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    document.body.classList.add("dark");
+  }, []);
 
+  const [loading, setLoading] = useState(false);
+ 
   // ✅ Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -94,7 +98,7 @@ export default function AddStudent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 pt-24 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 pt-24 p-6 dark:bg-gray-900 dark:text-gray-100">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -250,6 +254,7 @@ export default function AddStudent() {
             >
               Cancel
             </button>
+            
             <button
               type="submit"
               disabled={loading}

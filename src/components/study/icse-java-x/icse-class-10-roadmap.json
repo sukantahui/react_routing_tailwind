@@ -1,0 +1,279 @@
+{
+  "trackId": "icse-class-10-java-bluej",
+  "trackTitle": "ICSE Class X Computer Applications - Java with BlueJ",
+  "description": "Strictly as per ICSE Class X Computer Applications syllabus using Java and BlueJ. Structured roadmap aligned with ICSE board scope.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "ICSE Class X Java Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-01"
+  },
+  "folder": "icse-java-x",
+  "subject": "Computer Applications (ICSE Class X)",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/assets/logos/java-logo.svg",
+    "alt": "Java Programming Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "revision-class-9",
+      "title": "Revision of Class IX Concepts",
+      "level": "Beginner",
+      "modules": [
+        {
+          "moduleId": "class-9-revision",
+          "slug": "class-9-revision",
+          "title": "Revision of Class IX Java Fundamentals",
+          "topics": [
+            "Data types and variables",
+            "Conditional statements",
+            "Loop constructs",
+            "Basic class structure",
+            "User defined methods (intro)"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "array-1d",
+      "title": "Array 1D",
+      "level": "Advanced",
+      "modules": [
+        {
+          "moduleId": "array-1d-numeric",
+          "slug": "array-1d-numeric",
+          "title": "1D Array (Numeric Values)",
+          "topics": [
+            "Concept of array and memory representation",
+            "Declaration and initialization",
+            "Array creation using new keyword",
+            "Default values of numeric arrays",
+            "Input using Scanner",
+            "Traversing an array using for loop",
+            "Traversing using length property",
+            "Displaying array elements",
+            "Linear Search (unsorted array)",
+            "Binary Search (sorted array)",
+            "Bubble Sort (ascending order)",
+            "Bubble Sort (descending order)",
+            "Selection Sort (ascending order)",
+            "Selection Sort (descending order)",
+            "Finding largest element",
+            "Finding smallest element",
+            "Finding second largest element",
+            "Sum of array elements",
+            "Average of array elements",
+            "Counting even and odd numbers",
+            "Counting positive and negative numbers",
+            "Counting frequency of an element",
+            "Shifting elements left and right",
+            "Inserting an element at a position",
+            "Deleting an element from a position",
+            "Merging two arrays",
+            "Board type logical programs",
+            "Common errors in array programs",
+            "Dry run and trace table practice"
+          ]
+        },
+        {
+          "moduleId": "array-1d-string",
+          "slug": "array-1d-string",
+          "title": "1D Array (String Values)",
+          "topics": [
+            "String array declaration",
+            "Searching in string array",
+            "Sorting string array",
+            "Case insensitive comparison",
+            "Board type programs"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "array-2d",
+      "title": "Array 2D",
+      "level": "Advanced",
+      "modules": [
+        {
+          "moduleId": "array-2d-concepts",
+          "slug": "array-2d",
+          "title": "Two Dimensional Array",
+          "topics": [
+            "Declaration and memory representation",
+            "Matrix input and output",
+            "Row sum and column sum",
+            "Diagonal elements",
+            "Matrix addition",
+            "Board pattern programs"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "constructors-and-methods",
+      "title": "Constructors and User Defined Methods",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "constructors",
+          "slug": "constructors-in-java",
+          "title": "Constructors in Java",
+          "topics": [
+            "Need of constructor",
+            "Default constructor",
+            "Parameterized constructor",
+            "Constructor overloading",
+            "Difference between constructor and method"
+          ]
+        },
+        {
+          "moduleId": "user-defined-methods",
+          "slug": "user-defined-methods",
+          "title": "User Defined Methods",
+          "topics": [
+            "Method declaration",
+            "Method definition",
+            "Method calling",
+            "Parameter passing",
+            "Return type",
+            "Scope of variables"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "library-classes",
+      "title": "Java Library Classes",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "wrapper-class-methods",
+          "slug": "wrapper-class-methods",
+          "title": "Wrapper Class Methods",
+          "topics": [
+            "parseInt(String s)",
+            "parseLong(String s)",
+            "parseFloat(String s)",
+            "parseDouble(String s)",
+            "valueOf()",
+            "toString()"
+          ]
+        },
+        {
+          "moduleId": "character-class-methods",
+          "slug": "character-class-methods",
+          "title": "Character Class Methods",
+          "topics": [
+            "isDigit(char ch)",
+            "isLetter(char ch)",
+            "isLetterOrDigit(char ch)",
+            "isLowerCase(char ch)",
+            "isUpperCase(char ch)",
+            "toLowerCase()",
+            "toUpperCase()"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "string-handling",
+      "title": "String Handling",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "basic-string-methods",
+          "slug": "basic-string-methods",
+          "title": "Basic String Methods",
+          "topics": [
+            "length()",
+            "charAt()",
+            "indexOf()",
+            "lastIndexOf()",
+            "trim()",
+            "toLowerCase()",
+            "toUpperCase()"
+          ]
+        },
+        {
+          "moduleId": "advanced-string-methods",
+          "slug": "advanced-string-methods",
+          "title": "Advanced String Methods",
+          "topics": [
+            "concat()",
+            "equals()",
+            "equalsIgnoreCase()",
+            "compareTo()",
+            "compareToIgnoreCase()",
+            "replace()",
+            "substring()",
+            "startsWith()",
+            "endsWith()"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "oop-concepts",
+      "title": "Encapsulation and Inheritance",
+      "level": "Advanced",
+      "modules": [
+        {
+          "moduleId": "encapsulation",
+          "slug": "encapsulation",
+          "title": "Encapsulation",
+          "topics": [
+            "Private data members",
+            "Getter and setter methods",
+            "Data hiding",
+            "Real life examples"
+          ]
+        },
+        {
+          "moduleId": "inheritance",
+          "slug": "inheritance",
+          "title": "Inheritance",
+          "topics": [
+            "Base class and derived class",
+            "Extends keyword",
+            "Method overriding (intro)",
+            "Use of super keyword"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "exam-preparation",
+      "title": "Examination Preparation",
+      "level": "Theory & Practical",
+      "modules": [
+        {
+          "moduleId": "pre-selection-exam",
+          "slug": "pre-selection-exam",
+          "title": "Pre Selection Examination",
+          "topics": [
+            "Chapters from March to August",
+            "Full syllabus mock test",
+            "Output practice",
+            "Important board questions"
+          ]
+        },
+        {
+          "moduleId": "selection-exam",
+          "slug": "selection-exam",
+          "title": "Selection Examination",
+          "topics": [
+            "Full ICSE syllabus",
+            "Previous year questions",
+            "Time bound programming practice"
+          ]
+        }
+      ]
+    }
+  ]
+}

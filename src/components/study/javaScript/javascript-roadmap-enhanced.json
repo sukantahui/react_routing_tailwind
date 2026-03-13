@@ -950,7 +950,9 @@
             "Creating and consuming promises",
             "async/await syntax and error handling with try/catch",
             "Common patterns with async functions",
-            "Practice Set"
+            "Practice Set",
+            "Relation to Promise",
+            "History of Subscription"
           ],
           "learningOutcomes": [
             "Explain how asynchronous code differs from synchronous code",
