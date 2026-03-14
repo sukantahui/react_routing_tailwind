@@ -103,6 +103,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 </NavLink>
 
                 <NavLink
+                  to="/results"
+                  onClick={closeMenus}
+                  className="block px-3 py-2 hover:bg-gray-800 rounded"
+                >
+                  Result
+                </NavLink>
+
+                <NavLink
                   to="/teachers"
                   onClick={closeMenus}
                   className="block px-3 py-2 hover:bg-gray-800 rounded"

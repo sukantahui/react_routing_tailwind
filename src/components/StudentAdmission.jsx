@@ -46,6 +46,8 @@ const StudentAdmission = () => {
     admissionDate: "",
   });
 
+  const [showFormJson, setShowFormJson] = useState(false);
+
   // Helper for SweetAlert2 theme (dark mode aware)
   const getSwalTheme = () => ({
     background: "#111827",
@@ -86,6 +88,7 @@ const StudentAdmission = () => {
     setLoading((prev) => ({ ...prev, courses: true }));
     try {
       const data = await courseService.getAll();
+      console.log("Courses ", data.data);
       setCourses(data.data);
     } catch (error) {
       console.error(error);
@@ -434,8 +437,8 @@ const StudentAdmission = () => {
               required
               disabled={loading.courses}
               options={courses.map((c) => ({
-                value: c.courseId,
-                label: c.courseName,
+                value: c.id,
+                label: `${c.courseCode} | ${c.courseName}`,
               }))}
               loading={loading.courses}
             />
@@ -710,6 +713,34 @@ const StudentAdmission = () => {
             </div>
           )}
         </div>
+        {/* 🧑‍💻 Developer Tools (visible only in development) */}
+        {import.meta.env.MODE === "development" && (
+          <div className="mt-10 p-4 rounded-2xl border border-gray-800 bg-gray-800/60 text-gray-300">
+            <h2 className="text-lg font-semibold text-sky-400 mb-2">
+              🧑‍💻 Developer Tools
+            </h2>
+
+            <p className="text-sm mb-3 text-gray-400">
+              Visible only in{" "}
+              <span className="text-sky-400 font-semibold">development</span> mode.
+            </p>
+
+            {/* Toggle Button */}
+            <button
+              onClick={() => setShowFormJson(!showFormJson)}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm flex items-center gap-2"
+            >
+              {showFormJson ? "Hide Form JSON" : "Show Form JSON"}
+            </button>
+
+            {/* JSON Display */}
+            {showFormJson && (
+              <pre className="mt-4 p-4 bg-black rounded-lg text-green-400 text-xs overflow-x-auto border border-gray-700">
+                {JSON.stringify(formData, null, 2)}
+              </pre>
+            )}
+          </div>
+        )}
       </motion.div>
     </div>
   );

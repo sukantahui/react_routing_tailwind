@@ -92,6 +92,7 @@ import QRCodeGenerator from '../common/QRCodeGenerator';
 import CertificateGenerator from '../common/CertificateGenerator';
 import StudentAdmission from '../components/StudentAdmission';
 import AddCourse from '../components/AddCourse';
+import AddResult from '../components/AddResult';
 
 
 export default function AppRoutes() {
@@ -163,6 +164,15 @@ export default function AppRoutes() {
         element={
         <ProtectedRoute>
           <AddCourse />
+        </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/results"
+        element={
+        <ProtectedRoute>
+          <AddResult />
         </ProtectedRoute>
         }
       />
