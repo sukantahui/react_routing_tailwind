@@ -91,6 +91,7 @@ import JavaXTopicView from '../components/study/icse-java-x/JavaXTopicView';
 import QRCodeGenerator from '../common/QRCodeGenerator';
 import CertificateGenerator from '../common/CertificateGenerator';
 import StudentAdmission from '../components/StudentAdmission';
+import AddCourse from '../components/AddCourse';
 
 
 export default function AppRoutes() {
@@ -153,6 +154,15 @@ export default function AppRoutes() {
         element={
         <ProtectedRoute>
           <StudentAdmission />
+        </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/courses"
+        element={
+        <ProtectedRoute>
+          <AddCourse />
         </ProtectedRoute>
         }
       />

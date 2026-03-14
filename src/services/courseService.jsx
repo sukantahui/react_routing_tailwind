@@ -11,6 +11,15 @@ export const courseService = {
       throw error;
     }
   },
+  getAllWithDetails: async () => {
+    try {
+      const response = await api.get("/courses/details");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching Courses:", error);
+      throw error;
+    }
+  },
   create: async (data) => {
     try {
       const response = await api.post("/courses",data);

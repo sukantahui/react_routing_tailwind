@@ -47,22 +47,18 @@ const StudentAdmission = () => {
   });
 
   // Helper for SweetAlert2 theme (dark mode aware)
-  const getSwalTheme = () => {
-    const isDark = document.documentElement.classList.contains("dark");
-    return {
-      background: isDark ? "#111827" : "#ffffff",
-      color: isDark ? "#f9fafb" : "#111827",
-      confirmButtonColor: "#2563eb",
-      cancelButtonColor: "#6b7280",
-      didOpen: (popup) => {
-        if (isDark) popup.style.border = "1px solid white";
-      },
-    };
-  };
+  const getSwalTheme = () => ({
+    background: "#111827",
+    color: "#f9fafb",
+    confirmButtonColor: "#2563eb",
+    cancelButtonColor: "#6b7280",
+    didOpen: (popup) => {
+      popup.style.border = "1px solid #374151";
+    },
+  });
 
   // Load initial data
   useEffect(() => {
-    document.documentElement.classList.add("dark");
     loadStudents();
     loadCourses();
     loadAdmissions();
@@ -192,7 +188,7 @@ const StudentAdmission = () => {
     }
   };
 
-  // Sorting logic
+  // Sorting logic (unchanged)
   const handleSort = (key) => {
     let direction = "asc";
     if (sortConfig.key === key && sortConfig.direction === "asc") {
@@ -244,7 +240,7 @@ const StudentAdmission = () => {
     return 0;
   });
 
-  // Export to Excel
+  // Export to Excel (unchanged)
   const exportToExcel = () => {
     if (sortedAdmissions.length === 0) {
       Swal.fire({
@@ -289,7 +285,7 @@ const StudentAdmission = () => {
     saveAs(data, "admissions.xlsx");
   };
 
-  // Print function
+  // Print function (unchanged)
   const printAdmissions = () => {
     if (sortedAdmissions.length === 0) {
       Swal.fire({
@@ -384,13 +380,7 @@ const StudentAdmission = () => {
     printWindow.print();
   };
 
-  // Helper classes
-  const inputClass =
-    "w-full pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600";
-  const labelClass =
-    "block mb-1 text-sm font-medium text-gray-700 dark:text-white-300";
-
-  // Sort icon helper
+  // Sort icon helper (unchanged)
   const SortIcon = ({ columnKey }) => {
     if (sortConfig.key !== columnKey) {
       return (
@@ -405,169 +395,120 @@ const StudentAdmission = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900/80 backdrop-blur-lg border-b border-gray-800 text-gray-100 px-6 py-3 flex justify-between items-center shadow-lg">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 pt-24 p-6 dark:bg-gray-900 dark:text-gray-100">
       <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto bg-gray-900/80 border border-gray-800 rounded-3xl shadow-xl p-8"
-            >
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto bg-gray-900/80 border border-gray-800 rounded-3xl shadow-xl p-8"
+      >
         {/* Admission Form Card */}
-        <div className=" bg-gray-900/80 border border-gray-800 p-6 rounded-lg shadow-lg mb-8">
-          <h2 className="text-3xl font-bold text-sky-400 mb-8 text-center">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-sky-400 mb-8 text-center flex items-center justify-center gap-2">
             <User className="w-6 h-6" />
             Student Admission
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Student Select */}
-            <div>
-              <label htmlFor="studentId" className={labelClass}>
-                Student
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
-                <select
-                  id="studentId"
-                  name="studentId"
-                  value={formData.studentId}
-                  onChange={handleChange}
-                  className={inputClass}
-                  required
-                  disabled={loading.students}
-                >
-                  <option value="">Select Student</option>
-                  {students.map((student) => (
-                    <option key={student.studentId} value={student.studentId}>
-                      {student.studentName}
-                    </option>
-                  ))}
-                </select>
-                {loading.students && (
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-                  </div>
-                )}
-              </div>
-            </div>
+            <Select
+              label="Student"
+              name="studentId"
+              value={formData.studentId}
+              onChange={handleChange}
+              required
+              disabled={loading.students}
+              options={students.map((s) => ({
+                value: s.studentId,
+                label: s.studentName,
+              }))}
+              loading={loading.students}
+            />
 
             {/* Course Select */}
-            <div>
-              <label htmlFor="courseId" className={labelClass}>
-                Course
-              </label>
-              <div className="relative">
-                <BookOpen className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
-                <select
-                  id="courseId"
-                  name="courseId"
-                  value={formData.courseId}
-                  onChange={handleChange}
-                  className={inputClass}
-                  required
-                  disabled={loading.courses}
-                >
-                  <option value="">Select Course</option>
-                  {courses.map((course) => (
-                    <option key={course.courseId} value={course.courseId}>
-                      {course.courseName}
-                    </option>
-                  ))}
-                </select>
-                {loading.courses && (
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></div>
-                  </div>
-                )}
-              </div>
-            </div>
+            <Select
+              label="Course"
+              name="courseId"
+              value={formData.courseId}
+              onChange={handleChange}
+              required
+              disabled={loading.courses}
+              options={courses.map((c) => ({
+                value: c.courseId,
+                label: c.courseName,
+              }))}
+              loading={loading.courses}
+            />
 
             {/* Course Fees */}
-            <div>
-              <label htmlFor="courseFees" className={labelClass}>
-                Course Fees
-              </label>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 font-semibold">
-                  ₹
-                </span>
-                <input
-                  type="number"
-                  id="courseFees"
-                  name="courseFees"
-                  value={formData.courseFees}
-                  onChange={handleChange}
-                  className={inputClass}
-                  placeholder="Enter amount"
-                  required
-                  min="0"
-                  step="0.01"
-                />
-              </div>
-            </div>
+            <Input
+              label="Course Fees"
+              name="courseFees"
+              value={formData.courseFees}
+              onChange={handleChange}
+              type="number"
+              required
+              min="0"
+              step="0.01"
+              placeholder="Enter amount"
+            />
 
             {/* Admission Date */}
-            <div>
-              <label htmlFor="admissionDate" className={labelClass}>
-                Admission Date
-              </label>
-              <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
-                <input
-                  type="date"
-                  id="admissionDate"
-                  name="admissionDate"
-                  value={formData.admissionDate}
-                  onChange={handleChange}
-                  className={inputClass}
-                  required
-                />
-              </div>
-            </div>
+            <Input
+              label="Admission Date"
+              name="admissionDate"
+              value={formData.admissionDate}
+              onChange={handleChange}
+              type="date"
+              required
+            />
 
-            {/* Enhanced Save Button */}
-            <button
-              type="submit"
-              disabled={loading.submit}
-              className="w-full relative overflow-hidden group bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-3"
-            >
-              {loading.submit ? (
-                <>
-                  <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
-                  <span>Saving...</span>
-                </>
-              ) : (
-                <>
-                  <Save className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12" />
-                  <span>Save Admission</span>
-                </>
-              )}
-            </button>
+            {/* Submit Button (styled like AddStudent) */}
+            <div className="flex justify-end pt-4">
+              <button
+                type="submit"
+                disabled={loading.submit}
+                className="px-6 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              >
+                {loading.submit ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                    <span>Saving...</span>
+                  </>
+                ) : (
+                  <>
+                    <Save className="w-5 h-5" />
+                    <span>Save Admission</span>
+                  </>
+                )}
+              </button>
+            </div>
           </form>
         </div>
+
         {/* Admissions List Card */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="bg-gray-800/60 border border-gray-700 rounded-2xl p-6">
           {/* Header with Title, Search, and Action Buttons */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+            <h3 className="text-xl font-bold text-gray-100 flex items-center gap-2">
               <List className="w-5 h-5" />
               Admissions List
             </h3>
 
             {/* Search Input */}
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search by student or course..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                className="w-full pl-10 pr-10 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-gray-100 placeholder-gray-400"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm("")}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
                 >
                   <XCircle className="w-5 h-5" />
                 </button>
@@ -579,7 +520,7 @@ const StudentAdmission = () => {
               <button
                 onClick={printAdmissions}
                 disabled={sortedAdmissions.length === 0}
-                className="p-2 text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 text-gray-300 hover:text-purple-400 transition rounded-full hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 title="Print List"
               >
                 <Printer className="w-5 h-5" />
@@ -587,7 +528,7 @@ const StudentAdmission = () => {
               <button
                 onClick={exportToExcel}
                 disabled={sortedAdmissions.length === 0}
-                className="p-2 text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 text-gray-300 hover:text-green-400 transition rounded-full hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 title="Export to Excel"
               >
                 <Download className="w-5 h-5" />
@@ -595,7 +536,7 @@ const StudentAdmission = () => {
               <button
                 onClick={loadAdmissions}
                 disabled={loading.admissions}
-                className="p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="p-2 text-gray-300 hover:text-blue-400 transition rounded-full hover:bg-gray-700"
                 title="Refresh"
               >
                 <RefreshCw
@@ -607,32 +548,30 @@ const StudentAdmission = () => {
 
           {loading.admissions ? (
             <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-10 w-10 border-4 border-blue-500 border-t-transparent"></div>
+              <div className="animate-spin rounded-full h-10 w-10 border-4 border-sky-500 border-t-transparent"></div>
             </div>
           ) : sortedAdmissions.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-400">
                 {searchTerm
                   ? "No admissions match your search."
                   : "No admissions found."}
               </p>
             </div>
           ) : (
-            <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
-              <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <thead className="bg-gray-50 dark:bg-gray-700">
+            <div className="overflow-x-auto rounded-lg border border-gray-700">
+              <table className="min-w-full divide-y divide-gray-700">
+                <thead className="bg-gray-700">
                   <tr>
-                    {/* Serial Number (not sortable) */}
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider w-16"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider w-16"
                     >
                       #
                     </th>
-                    {/* Sortable Columns */}
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("student")}
                     >
                       <div className="flex items-center gap-1">
@@ -642,7 +581,7 @@ const StudentAdmission = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("course")}
                     >
                       <div className="flex items-center gap-1">
@@ -652,7 +591,7 @@ const StudentAdmission = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("fees")}
                     >
                       <div className="flex items-center gap-1">
@@ -662,7 +601,7 @@ const StudentAdmission = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("admissionDate")}
                     >
                       <div className="flex items-center gap-1">
@@ -672,7 +611,7 @@ const StudentAdmission = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("completionDate")}
                     >
                       <div className="flex items-center gap-1">
@@ -682,7 +621,7 @@ const StudentAdmission = () => {
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer group hover:bg-gray-600 transition-colors"
                       onClick={() => handleSort("status")}
                     >
                       <div className="flex items-center gap-1">
@@ -692,7 +631,7 @@ const StudentAdmission = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                <tbody className="bg-gray-800 divide-y divide-gray-700">
                   {sortedAdmissions.map((admission, index) => {
                     const statusColor = () => {
                       const status =
@@ -702,47 +641,47 @@ const StudentAdmission = () => {
                         status.includes("active") ||
                         status.includes("ongoing")
                       )
-                        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+                        return "bg-green-900 text-green-200";
                       if (status.includes("completed"))
-                        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+                        return "bg-blue-900 text-blue-200";
                       if (
                         status.includes("dropped") ||
                         status.includes("cancelled")
                       )
-                        return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200";
-                      return "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300";
+                        return "bg-red-900 text-red-200";
+                      return "bg-gray-700 text-gray-300";
                     };
 
                     return (
                       <tr
                         key={admission.admissionId}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                        className="hover:bg-gray-700/50 transition-colors"
                       >
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 font-mono">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 font-mono">
                           {index + 1}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-100">
                           {admission.student?.studentName ||
                             `ID: ${admission.student?.studentId}`}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                           {admission.course?.courseName ||
                             `ID: ${admission.course?.courseId}`}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300 font-mono">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 font-mono">
                           ₹
                           {admission.courseFees?.toLocaleString(undefined, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2,
                           })}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                           {new Date(admission.admissionDate).toLocaleDateString(
                             "en-US",
                             { year: "numeric", month: "short", day: "numeric" },
                           )}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                           {admission.completionDate ? (
                             new Date(
                               admission.completionDate,
@@ -752,9 +691,7 @@ const StudentAdmission = () => {
                               day: "numeric",
                             })
                           ) : (
-                            <span className="text-gray-400 dark:text-gray-500">
-                              —
-                            </span>
+                            <span className="text-gray-500">—</span>
                           )}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -777,5 +714,53 @@ const StudentAdmission = () => {
     </div>
   );
 };
+
+// 🔹 Input Component (from AddStudent)
+function Input({ label, name, value, onChange, type = "text", required = false, ...props }) {
+  return (
+    <div className="flex flex-col">
+      <label className="text-sm text-gray-400 mb-1">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        className="bg-gray-800 text-gray-100 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500"
+        {...props}
+      />
+    </div>
+  );
+}
+
+// 🔹 Select Component (from AddStudent)
+function Select({ label, name, value, onChange, options = [], required = false, disabled = false, loading = false }) {
+  return (
+    <div className="flex flex-col">
+      <label className="text-sm text-gray-400 mb-1">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        disabled={disabled || loading}
+        className="bg-gray-800 text-gray-100 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500 disabled:opacity-50"
+      >
+        <option value="">
+          {loading ? "Loading..." : `Select ${label}`}
+        </option>
+        {options.map((opt, i) => (
+          <option key={i} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
 
 export default StudentAdmission;
