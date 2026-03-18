@@ -3,8 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { motion, AnimatePresence } from "framer-motion";
 import cnat from "../assets/cnat.png";
-const isDev = import.meta.env.DEV;
 
+const isDev = import.meta.env.DEV;
 
 // Wrapper so that class component can use `location`
 function withLocation(ComponentWithLocation) {
@@ -15,16 +15,14 @@ function withLocation(ComponentWithLocation) {
 }
 
 class NavBar extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
       servicesOpen: false,
-      tutorialsOpen: false,   // ⭐ NEW
+      tutorialsOpen: false,
       activeHash: props.location.hash || "",
     };
-    // for auto closing of menu 
     this.navRef = React.createRef();
   }
 
@@ -43,25 +41,25 @@ class NavBar extends Component {
   }
 
   toggleMenu = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
+    this.setState((prev) => ({
+      isOpen: !prev.isOpen,
       servicesOpen: false,
-      tutorialsOpen: false, // close tutorials when menu toggles
-    });
+      tutorialsOpen: false,
+    }));
   };
 
   toggleServices = () => {
-    this.setState({
-      servicesOpen: !this.state.servicesOpen,
-      tutorialsOpen: false, // keep only one dropdown open
-    });
+    this.setState((prev) => ({
+      servicesOpen: !prev.servicesOpen,
+      tutorialsOpen: false,
+    }));
   };
 
-  toggleTutorials = () => {       // ⭐ NEW
-    this.setState({
-      tutorialsOpen: !this.state.tutorialsOpen,
+  toggleTutorials = () => {
+    this.setState((prev) => ({
+      tutorialsOpen: !prev.tutorialsOpen,
       servicesOpen: false,
-    });
+    }));
   };
 
   closeMobileMenu = () => {
@@ -70,6 +68,45 @@ class NavBar extends Component {
       servicesOpen: false,
       tutorialsOpen: false,
     });
+  };
+
+  // Helper to get icon class based on link key
+  getIconClass = (key) => {
+    const icons = {
+      home: "bi-house-door",
+      about: "bi-info-circle",
+      courses: "bi-book",
+      teachers: "bi-people",
+      services: "bi-tools",
+      tutorials: "bi-collection-play",
+      contact: "bi-envelope",
+      login: "bi-box-arrow-in-right",
+      "typing-test": "bi-keyboard",
+      "typing-learn": "bi-pencil",
+      "python-play": "bi-code-slash",
+      "play": "bi-code-square",
+      icons: "bi-grid-3x3",
+      vscode: "bi-window",
+      whiteboard: "bi-easel",
+      javascript: "bi-filetype-js",
+      python: "bi-filetype-py",
+      "c-language": "bi-filetype-c",
+      tally: "bi-calculator",
+      excel: "bi-file-spreadsheet",
+      "icse-java-ix": "bi-journal-code",
+      "icse-java-x": "bi-journal-code",
+      "java-core": "bi-cpu",
+      general: "bi-files",
+      "computer-architecture": "bi-motherboard",
+      "isc-11": "bi-journal-richtext",
+      css: "bi-filetype-css",
+      unix: "bi-terminal",
+      react: "bi-react",
+      node: "bi-node",
+      "java-web": "bi-globe",
+      "qr-code": "bi-qr-code-scan",
+    };
+    return icons[key] || "bi-link";
   };
 
   linkClass = (key, isActive) => {
@@ -84,18 +121,15 @@ class NavBar extends Component {
       login: "from-red-500 to-pink-500",
     };
 
-    return `flex items-center px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-colors duration-200 ${isActive
-      ? `bg-gradient-to-r ${activeColors[key]} text-white`
-      : "text-gray-300 hover:text-white hover:bg-gray-800/70"
-      }`;
+    return `flex items-center gap-2 px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-all duration-200 ${
+      isActive
+        ? `bg-gradient-to-r ${activeColors[key]} text-white shadow-lg shadow-${activeColors[key].split(" ")[0]}/30`
+        : "text-gray-300 hover:text-white hover:bg-gray-800/70 hover:scale-105"
+    }`;
   };
 
-
   handleClickOutside = (event) => {
-    if (
-      this.navRef.current &&
-      !this.navRef.current.contains(event.target)
-    ) {
+    if (this.navRef.current && !this.navRef.current.contains(event.target)) {
       this.setState({
         isOpen: false,
         servicesOpen: false,
@@ -115,11 +149,10 @@ class NavBar extends Component {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="sticky top-0 z-50 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 border-b border-gray-800"
+        className="sticky top-0 z-50 bg-gradient-to-b from-gray-950/95 via-gray-900/95 to-gray-950/95 backdrop-blur-md border-b border-gray-800"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex items-center justify-between py-3 sm:py-4">
-
             {/* BRAND */}
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -134,7 +167,7 @@ class NavBar extends Component {
             {/* MOBILE TOGGLE */}
             <button
               onClick={this.toggleMenu}
-              className="sm:hidden text-gray-300 text-2xl focus:outline-none"
+              className="sm:hidden text-gray-300 text-2xl focus:outline-none hover:text-white transition"
               aria-label="Toggle navigation"
             >
               {isOpen ? "✕" : "☰"}
@@ -143,31 +176,46 @@ class NavBar extends Component {
             {/* DESKTOP MENU */}
             <nav className="hidden sm:flex items-center gap-2 md:gap-3">
               {!isHome && (
-                <NavLink
-                  to="/"
-                  className={({ isActive }) => this.linkClass("home", isActive)}
-                >
-                  Home
+                <NavLink to="/" className={({ isActive }) => this.linkClass("home", isActive)}>
+                  <i className={`bi ${this.getIconClass("home")}`}></i>
+                  <span>Home</span>
                 </NavLink>
               )}
 
               {isHome && (
                 <>
-                  <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")}>About</HashLink>
-                  <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")}>Courses</HashLink>
-                  <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")}>Teachers</HashLink>
-                  <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")}>Services</HashLink>
-                  <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")}>Contact</HashLink>
+                  <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")}>
+                    <i className={`bi ${this.getIconClass("about")}`}></i>
+                    <span>About</span>
+                  </HashLink>
+                  <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")}>
+                    <i className={`bi ${this.getIconClass("courses")}`}></i>
+                    <span>Courses</span>
+                  </HashLink>
+                  <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")}>
+                    <i className={`bi ${this.getIconClass("teachers")}`}></i>
+                    <span>Teachers</span>
+                  </HashLink>
+                  <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")}>
+                    <i className={`bi ${this.getIconClass("services")}`}></i>
+                    <span>Services</span>
+                  </HashLink>
+                  <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")}>
+                    <i className={`bi ${this.getIconClass("contact")}`}></i>
+                    <span>Contact</span>
+                  </HashLink>
                 </>
               )}
 
-              {/* ===================== DESKTOP DROPDOWN #1 - TOOLS ===================== */}
+              {/* DROPDOWN #1 - TOOLS */}
               <div className="relative">
                 <button
                   onClick={this.toggleServices}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full flex items-center gap-1 transition"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full transition"
                 >
-                  Tools ▾
+                  <i className={`bi ${this.getIconClass("services")}`}></i>
+                  <span>Tools</span>
+                  <i className={`bi bi-chevron-down text-xs transition-transform ${servicesOpen ? "rotate-180" : ""}`}></i>
                 </button>
 
                 <AnimatePresence>
@@ -177,28 +225,43 @@ class NavBar extends Component {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -5 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
+                      className="absolute right-0 mt-2 w-56 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
                     >
-                      <NavLink to="/tools/type-test" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Test</NavLink>
-                      <NavLink to="/tools/typing-learn" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Typing Learn</NavLink>
-                      <NavLink to="/python-play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Python Editor</NavLink>
-                      <NavLink to="/play" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>JavaScript Editor</NavLink>
-                      <NavLink to="/icons" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Icons</NavLink>
-                      <NavLink to="/vscode" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>VScode</NavLink>
-                      <NavLink to="/whiteBoard" onClick={this.toggleServices} className={({ isActive }) => this.linkClass("services", isActive)}>Whiteboard</NavLink>
-
+                      {[
+                        { to: "/tools/type-test", key: "typing-test", label: "Typing Test" },
+                        { to: "/tools/typing-learn", key: "typing-learn", label: "Typing Learn" },
+                        { to: "/python-play", key: "python-play", label: "Python Editor" },
+                        { to: "/play", key: "play", label: "JavaScript Editor" },
+                        { to: "/icons", key: "icons", label: "Icons" },
+                        { to: "/vscode", key: "vscode", label: "VS Code" },
+                        { to: "/whiteBoard", key: "whiteboard", label: "Whiteboard" },
+                        { to: "/qrcode", key: "qr-code", label: "QR Code Generator" }, 
+                        { to: "/LinkedListVisualizer", key: "LinkedListVisualizer", label: "Linked List Visualizer" }, 
+                      ].map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          onClick={this.toggleServices}
+                          className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition ${isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"}`}
+                        >
+                          <i className={`bi ${this.getIconClass(item.key)} text-lg`}></i>
+                          <span>{item.label}</span>
+                        </NavLink>
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
-              {/* ===================== DESKTOP DROPDOWN #2 - TUTORIALS ⭐ NEW ===================== */}
+              {/* DROPDOWN #2 - TUTORIALS */}
               <div className="relative">
                 <button
                   onClick={this.toggleTutorials}
-                  className="px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full flex items-center gap-1 transition"
+                  className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full transition"
                 >
-                  Tutorials ▾
+                  <i className={`bi ${this.getIconClass("tutorials")}`}></i>
+                  <span>Tutorials</span>
+                  <i className={`bi bi-chevron-down text-xs transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
                 </button>
 
                 <AnimatePresence>
@@ -208,105 +271,50 @@ class NavBar extends Component {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -5 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute right-0 mt-2 w-52 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
+                      className="absolute right-0 mt-2 w-64 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50 max-h-96 overflow-y-auto"
                     >
-                      <NavLink to="/javascript/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/javascript.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="js" />
-                        JavaScript
-                      </NavLink>
-                      <NavLink to="/python/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/python.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="python" />
-                        Python
-                      </NavLink>
-                      <NavLink to="/c-language/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/c.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="c" />
-                        C Programming
-                      </NavLink>
-                      <NavLink to="/tally/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/tally-prime.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="tally" />
-                        Tally
-                      </NavLink>
-                      <NavLink to="/excel/roadmap" onClick={this.toggleTutorials} className={({ isActive }) => this.linkClass("tutorials", isActive)}>
-                        <img src="/logos/excel.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="excel" />
-                        Excel
-                      </NavLink>
-
-
-                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        ICSE Class 9
-                      </NavLink>
-
-                      <NavLink to="/icse-java-x/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Java X" />
-                        ICSE Class X
-                      </NavLink>
-
-
-                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/java.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        Core Java
-                      </NavLink>
-                      <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        General
-                      </NavLink>
-
-                      <NavLink to="/css/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        CSS
-                      </NavLink>
-
-
-                      <NavLink to="/isc-11/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        ISC 11 Com. Sc.
-                      </NavLink>
-
-                      <NavLink to="/computer-architecture/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Computer Architecture" />
-                        Computer Architecture
-                      </NavLink>
-                      {isDev && (
-                        <NavLink to="/unix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="unix" />
-                          UNIX
+                      {[
+                        { to: "/javascript/roadmap", key: "javascript", label: "JavaScript", icon: "bi-filetype-js" },
+                        { to: "/python/roadmap", key: "python", label: "Python", icon: "bi-filetype-py" },
+                        { to: "/c-language/roadmap", key: "c-language", label: "C Programming", icon: "bi-filetype-c" },
+                        { to: "/tally/roadmap", key: "tally", label: "Tally", icon: "bi-calculator" },
+                        { to: "/excel/roadmap", key: "excel", label: "Excel", icon: "bi-file-spreadsheet" },
+                        { to: "/icse-java-ix/roadmap", key: "icse-java-ix", label: "ICSE Class 9", icon: "bi-journal-code" },
+                        { to: "/icse-java-x/roadmap", key: "icse-java-x", label: "ICSE Class X", icon: "bi-journal-code" },
+                        { to: "/java-core/roadmap", key: "java-core", label: "Core Java", icon: "bi-cpu" },
+                        { to: "/general/roadmap", key: "general", label: "General", icon: "bi-files" },
+                        { to: "/css/roadmap", key: "css", label: "CSS", icon: "bi-filetype-css" },
+                        { to: "/isc-11/roadmap", key: "isc-11", label: "ISC 11 Com. Sc.", icon: "bi-journal-richtext" },
+                        { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
+                        { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
+                        { to: "/react/roadmap", key: "react", label: "React", icon: "bi-react" },
+                        isDev && { to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" },
+                        isDev &&{ to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
+                      ].filter(Boolean).map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          onClick={this.toggleTutorials}
+                          className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition ${isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"}`}
+                        >
+                          <i className={`bi ${item.icon} text-lg`}></i>
+                          <span>{item.label}</span>
                         </NavLink>
-                      )}
-
-                      {isDev && (
-                        <NavLink to="/react/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="React" />
-                          React
-                        </NavLink>
-                      )}
-
-                      {isDev && (
-                        <NavLink to="/node/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="React" />
-                          Node.js
-                        </NavLink>
-                      )}
-
-                      {isDev && (
-                        <NavLink to="/java-web/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                          <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="React" />
-                          Java Web
-                        </NavLink>
-                      )}
-
-
+                      ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
               {/* LOGIN */}
-              <NavLink to="/login" className={({ isActive }) => this.linkClass("login", isActive)}>Login</NavLink>
+              <NavLink to="/login" className={({ isActive }) => this.linkClass("login", isActive)}>
+                <i className={`bi ${this.getIconClass("login")}`}></i>
+                <span>Login</span>
+              </NavLink>
             </nav>
           </div>
 
-          {/* ===================== MOBILE MENU ===================== */}
+          {/* MOBILE MENU */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -316,20 +324,35 @@ class NavBar extends Component {
                 transition={{ duration: 0.3 }}
                 className="sm:hidden flex flex-col gap-2 pb-4"
               >
-
                 {!isHome && (
                   <NavLink to="/" className={({ isActive }) => this.linkClass("home", isActive)} onClick={this.closeMobileMenu}>
-                    Home
+                    <i className={`bi ${this.getIconClass("home")}`}></i>
+                    <span>Home</span>
                   </NavLink>
                 )}
 
                 {isHome && (
                   <>
-                    <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")} onClick={this.closeMobileMenu}>About</HashLink>
-                    <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")} onClick={this.closeMobileMenu}>Courses</HashLink>
-                    <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")} onClick={this.closeMobileMenu}>Teachers</HashLink>
-                    <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")} onClick={this.closeMobileMenu}>Services</HashLink>
-                    <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")} onClick={this.closeMobileMenu}>Contact</HashLink>
+                    <HashLink smooth to="/#about" className={this.linkClass("about", activeHash === "#about")} onClick={this.closeMobileMenu}>
+                      <i className={`bi ${this.getIconClass("about")}`}></i>
+                      <span>About</span>
+                    </HashLink>
+                    <HashLink smooth to="/#courses" className={this.linkClass("courses", activeHash === "#courses")} onClick={this.closeMobileMenu}>
+                      <i className={`bi ${this.getIconClass("courses")}`}></i>
+                      <span>Courses</span>
+                    </HashLink>
+                    <HashLink smooth to="/#teachers" className={this.linkClass("teachers", activeHash === "#teachers")} onClick={this.closeMobileMenu}>
+                      <i className={`bi ${this.getIconClass("teachers")}`}></i>
+                      <span>Teachers</span>
+                    </HashLink>
+                    <HashLink smooth to="/#services" className={this.linkClass("services", activeHash === "#services")} onClick={this.closeMobileMenu}>
+                      <i className={`bi ${this.getIconClass("services")}`}></i>
+                      <span>Services</span>
+                    </HashLink>
+                    <HashLink smooth to="/#contact" className={this.linkClass("contact", activeHash === "#contact")} onClick={this.closeMobileMenu}>
+                      <i className={`bi ${this.getIconClass("contact")}`}></i>
+                      <span>Contact</span>
+                    </HashLink>
                   </>
                 )}
 
@@ -337,67 +360,101 @@ class NavBar extends Component {
                 <div className="flex flex-col">
                   <button
                     onClick={this.toggleServices}
-                    className="text-gray-300 hover:text-white hover:bg-gray-800/70 px-4 py-2 rounded-full text-left"
+                    className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 rounded-full text-left"
                   >
-                    Tools ▾
+                    <i className={`bi ${this.getIconClass("services")}`}></i>
+                    <span>Tools</span>
+                    <i className={`bi bi-chevron-down text-xs ml-auto transition-transform ${servicesOpen ? "rotate-180" : ""}`}></i>
                   </button>
 
-                  {servicesOpen && (
-                    <div className="ml-4 flex flex-col">
-                      <NavLink to="/tools/type-test" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Test</NavLink>
-                      <NavLink to="/tools/typing-learn" className={({ isActive }) => this.linkClass("services", isActive)} onClick={this.closeMobileMenu}>Typing Learn</NavLink>
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="ml-4 flex flex-col gap-1 overflow-hidden"
+                      >
+                        {[
+                          { to: "/tools/type-test", key: "typing-test", label: "Typing Test" },
+                          { to: "/tools/typing-learn", key: "typing-learn", label: "Typing Learn" },
+                          { to: "/python-play", key: "python-play", label: "Python Editor" },
+                          { to: "/play", key: "play", label: "JavaScript Editor" },
+                          { to: "/icons", key: "icons", label: "Icons" },
+                          { to: "/vscode", key: "vscode", label: "VS Code" },
+                          { to: "/whiteBoard", key: "whiteboard", label: "Whiteboard" },
+                          { to: "/QRCodeGenerator", key: "QRCodeGenerator", label: "QR Code" },
+                        ].map((item) => (
+                          <NavLink
+                            key={item.to}
+                            to={item.to}
+                            onClick={this.closeMobileMenu}
+                            className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition ${isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"}`}
+                          >
+                            <i className={`bi ${this.getIconClass(item.key)}`}></i>
+                            <span>{item.label}</span>
+                          </NavLink>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {/* MOBILE DROPDOWN #2 - Tutorials ⭐ NEW */}
+                {/* MOBILE DROPDOWN #2 - Tutorials */}
                 <div className="flex flex-col">
                   <button
                     onClick={this.toggleTutorials}
-                    className="text-gray-300 hover:text-white hover:bg-gray-800/70 px-4 py-2 rounded-full text-left"
+                    className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 rounded-full text-left"
                   >
-                    Tutorials ▾
+                    <i className={`bi ${this.getIconClass("tutorials")}`}></i>
+                    <span>Tutorials</span>
+                    <i className={`bi bi-chevron-down text-xs ml-auto transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
                   </button>
 
-                  {tutorialsOpen && (
-                    <div className="ml-4 flex flex-col">
-                      <NavLink to="/javascript/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>JavaScript</NavLink>
-                      <NavLink to="/python/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Python</NavLink>
-                      <NavLink to="/c-language/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>C Programming</NavLink>
-                      <NavLink to="/tally/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Tally</NavLink>
-                      <NavLink to="/excel/roadmmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>Excel</NavLink>
-                      <NavLink to="/icse-java-ix/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>ICSE Class 9</NavLink>
-                      
-                      <NavLink to="/java-core/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        Core Java
-                      </NavLink>
-                      
-                      <NavLink to="/general/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        General
-                      </NavLink>
-
-                      <NavLink to="/computer-architecture/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="Computer Architecture" />
-                        Computer Architecture
-                      </NavLink>
-                      <NavLink to="/isc-11/roadmap" className={({ isActive }) => this.linkClass("tutorials", isActive)} onClick={this.closeMobileMenu}>
-                        <img src="/logos/computer.svg" className="h-4 w-4 mr-2 filter invert sepia saturate-500 hue-rotate-[190deg]" alt="java" />
-                        ISC 11 Com. Sc.
-                      </NavLink>
-                    </div>
-                  )}
+                  <AnimatePresence>
+                    {tutorialsOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="ml-4 flex flex-col gap-1 overflow-hidden"
+                      >
+                        {[
+                          { to: "/javascript/roadmap", key: "javascript", label: "JavaScript", icon: "bi-filetype-js" },
+                          { to: "/python/roadmap", key: "python", label: "Python", icon: "bi-filetype-py" },
+                          { to: "/c-language/roadmap", key: "c-language", label: "C Programming", icon: "bi-filetype-c" },
+                          { to: "/tally/roadmap", key: "tally", label: "Tally", icon: "bi-calculator" },
+                          { to: "/excel/roadmap", key: "excel", label: "Excel", icon: "bi-file-spreadsheet" },
+                          { to: "/icse-java-ix/roadmap", key: "icse-java-ix", label: "ICSE Class 9", icon: "bi-journal-code" },
+                          { to: "/icse-java-x/roadmap", key: "icse-java-x", label: "ICSE Class X", icon: "bi-journal-code" },
+                          { to: "/java-core/roadmap", key: "java-core", label: "Core Java", icon: "bi-cpu" },
+                          { to: "/general/roadmap", key: "general", label: "General", icon: "bi-files" },
+                          { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
+                          { to: "/isc-11/roadmap", key: "isc-11", label: "ISC 11 Com. Sc.", icon: "bi-journal-richtext" },
+                        ].map((item) => (
+                          <NavLink
+                            key={item.to}
+                            to={item.to}
+                            onClick={this.closeMobileMenu}
+                            className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition ${isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"}`}
+                          >
+                            <i className={`bi ${item.icon}`}></i>
+                            <span>{item.label}</span>
+                          </NavLink>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* LOGIN */}
                 <NavLink to="/login" className={({ isActive }) => this.linkClass("login", isActive)} onClick={this.closeMobileMenu}>
-                  Login
+                  <i className={`bi ${this.getIconClass("login")}`}></i>
+                  <span>Login</span>
                 </NavLink>
-
               </motion.div>
             )}
           </AnimatePresence>
-
         </div>
       </motion.header>
     );

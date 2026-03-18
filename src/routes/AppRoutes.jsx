@@ -94,6 +94,8 @@ import StudentAdmission from '../components/StudentAdmission';
 import AddCourse from '../components/AddCourse';
 import AddResult from '../components/AddResult';
 
+import LinkedListVisualizer from '../common/LinkedListVisualizer';
+
 
 export default function AppRoutes() {
   return (
@@ -140,6 +142,11 @@ export default function AppRoutes() {
       <Route
         path="/qrcode"
         element={<QRCodeGenerator />}
+      />
+
+      <Route
+        path="/LinkedListVisualizer"
+        element={<LinkedListVisualizer />}
       />
       <Route
         path="/certificate"
