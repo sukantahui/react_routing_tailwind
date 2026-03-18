@@ -1,13 +1,12 @@
 // ===============================================
-// Teachers.jsx
+// Teachers.jsx (with GitHub links)
 // -----------------------------------------------
 // Purpose:
-//   Showcase instructor profiles with photos, bios, and contact details.
+//   Showcase instructor profiles with photos, bios, contact details, and GitHub links.
 // Features:
 // - Interactive cards (expandable bios)
 // - Framer Motion animations
-// - Conditional Helmet for SEO (only on /teachers)
-// - JSON-LD structured data for rich results
+// - GitHub profile links with icons
 // - Accessibility & responsive design
 // ===============================================
 
@@ -34,65 +33,58 @@ const images = {
 };
 
 const Teachers = () => {
-
   return (
-    <>
+    <section
+      id="teachers"
+      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
+    >
+      {/* Background glow */}
+      <div
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
+        aria-hidden="true"
+      ></div>
 
-      {/* ===============================================
-          TEACHERS SECTION
-      =============================================== */}
-      <section
-        id="teachers"
-        className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
-      >
-        {/* Background glow */}
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300 drop-shadow-lg"
+        >
+          Meet Our Instructors
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          viewport={{ once: true }}
+          className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
+        >
+          Learn from <strong className="text-sky-400">industry experts</strong> with years
+          of hands-on experience and mentorship. Our instructors combine practical
+          knowledge with passion for teaching.
+        </motion.p>
+
+        {/* Instructor Grid */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
-          aria-hidden="true"
-        ></div>
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300 drop-shadow-lg"
-          >
-            Meet Our Instructors
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
-          >
-            Learn from <strong className="text-sky-400">industry experts</strong> with years
-            of hands-on experience and mentorship. Our instructors combine practical
-            knowledge with passion for teaching.
-          </motion.p>
-
-          {/* Instructor Grid */}
-          <div
-            className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
-            role="list"
-            aria-label="List of instructors"
-          >
-            {teachers.map((teacher, index) => (
-              <TeacherCard key={teacher.name} teacher={teacher} index={index} />
-            ))}
-          </div>
+          className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
+          role="list"
+          aria-label="List of instructors"
+        >
+          {teachers.map((teacher, index) => (
+            <TeacherCard key={teacher.name} teacher={teacher} index={index} />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
 // ===============================================
-// TeacherCard Component
+// TeacherCard Component (with GitHub link)
 // -----------------------------------------------
 const TeacherCard = ({ teacher, index }) => {
   const [expanded, setExpanded] = useState(false);
@@ -132,15 +124,33 @@ const TeacherCard = ({ teacher, index }) => {
         <p className="text-sm text-indigo-300" itemProp="jobTitle">
           {teacher.title}
         </p>
+
+        {/* Email */}
         {teacher.email && (
-          <p className="text-sm">
-            <span className="text-sky-400 mr-1">📧</span>
+          <p className="text-sm flex items-center justify-center gap-1">
+            <i className="bi bi-envelope text-sky-400" aria-hidden="true"></i>
             <a
               href={`mailto:${teacher.email}`}
               itemProp="email"
               className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
             >
               {teacher.email}
+            </a>
+          </p>
+        )}
+
+        {/* GitHub (new) */}
+        {teacher.github && (
+          <p className="text-sm flex items-center justify-center gap-1">
+            <i className="bi bi-github text-sky-400" aria-hidden="true"></i>
+            <a
+              href={`https://github.com/${teacher.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
+              itemProp="sameAs"
+            >
+              {teacher.github}
             </a>
           </p>
         )}

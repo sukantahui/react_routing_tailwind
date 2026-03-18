@@ -9,6 +9,7 @@ import React, { Component } from "react";
 import nandagopalImg from "../../assets/testimonials/nandagopal.png";
 import arnabImg from "../../assets/testimonials/arnab.png";
 import bhaswatiImg from "../../assets/testimonials/bhaswati.png";
+import abhirupDasImg from "../../assets/testimonials/abhirupadas.png";
 
 class WhyChooseUs extends Component {
   render() {
@@ -182,6 +183,25 @@ class WhyChooseUs extends Component {
               </p>
 
               <p className="text-amber-400 text-xs mt-3">— Arnab Mitra, Software Engineer, Samsung</p>
+            </div>
+
+            {/* Testimonial 4 */}
+            <div className="bg-gray-900/70 border border-gray-800 rounded-3xl p-7 text-center hover:border-sky-500 transition shadow-lg">
+
+              {/* Photo */}
+              <img
+                src={abhirupDasImg}
+                alt="Abhirupa Das"
+                className="w-20 h-20 object-cover rounded-full mx-auto border-2 border-sky-500 shadow-lg mb-4"
+              />
+
+              <h3 className="text-lg font-semibold text-sky-400 mb-1">Strongest brick of my foundation</h3>
+
+              <p className="text-gray-300 text-sm leading-relaxed italic">
+                “My coding journey began under his guidance, and today, as I complete 5 years in my IT career, I can confidently say that the strongest brick of my foundation was laid by him. He is one of those rare teachers who doesn’t just teach syntax or logic—he makes you visualise your code running inside your mind. Concepts that once felt intimidating became clear, intuitive, and exciting because of the way he explained them. His teaching didn’t just help me clear exams or write programs; it shaped the way I think as a developer. Forever grateful to the mentor who turned curiosity into confidence and learning into a lifelong skill.”
+              </p>
+
+              <p className="text-amber-400 text-xs mt-3">— Abhirupa Das, Software Engineer</p>
             </div>
             {/* Google Review Link */} <div className="text-center mt-12"> <a href="https://www.google.com/search?sca_esv=b6f45e0d18a3642b&sxsrf=AE3TifMfkN63JykqF6G3iC0_aAIvRqmH7Q:1763303924763&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-Ey7zsWzoaphhJlShRSwn8RvyM5WSKZyqmWXSgrKFE0sOAoB3NxIsuEZ_4gEoTF7cZR8azWz3GgiUBdUxn3RMP5b_7pET&q=Coder+%26+AccoTax+Reviews&sa=X&ved=2ahUKEwii2sOA8_aQAxVDSWwGHUwUGSIQ0bkNegQIJBAE&biw=2560&bih=947&dpr=1&dlnr=1&sei=-uEZabSgNa2useMPrLSykQ4#lrd=0x39f89b8eb3168ac5:0x7666eac9a1c26430,1,,,," target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-amber-500 to-sky-600 hover:from-amber-400 hover:to-sky-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg shadow-amber-700/20 hover:shadow-sky-600/30 transition-all duration-300" > ⭐ Read More Google Reviews </a> <p className="text-gray-400 text-sm mt-3 italic"> Verified student reviews on Google — 100% genuine. </p> </div>
 

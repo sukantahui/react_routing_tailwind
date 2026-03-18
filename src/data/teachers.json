@@ -4,14 +4,16 @@
     "title": "Head of Software Training & Mentorship",
     "image": "teacher1.jpg",
     "bio": "Mr. Sukanta Hui is a seasoned full-stack developer and programming expert with over 20 years of experience guiding learners from beginner to professional level. With deep expertise in modern programming languages and software development, he has mentored engineers from diverse organizations and guided countless B.Tech and M.Tech students throughout their academic and professional journeys. Beyond technical mastery, Mr. Sukanta is a passionate educator with vast insight into the education system, a dedicated career guide, and a motivational speaker who inspires future technologists to achieve excellence. A true problem solver at heart, he continues to shape the next generation of software engineers through his mentorship and leadership.",
-    "email": "sukantahui@codernaccotax.co.in"
+    "email": "sukantahui@codernaccotax.co.in",
+    "github": "sukantahui"
   },
   {
     "name": "Ms. Tanusree Hui",
     "title": "Data Structures & Algorithms Mentor",
     "image": "teacher2.jpg",
     "bio": "Ms. Tanusree Hui is an accomplished educator and programming instructor with over 18 years of experience teaching a wide range of programming languages and mathematical concepts. With a strong command over complex algorithms and a deep understanding of how students learn, she excels at guiding learners from the fundamentals to advanced problem-solving. As a dedicated high school computer teacher and co-founder of Coder & AccoTax, Ms. Tanusree has developed a unique approach that bridges academic knowledge with real-world application. Her expertise in both mathematics and computer science, combined with her insights into modern education systems, makes her a highly respected mentor who empowers students to build confidence and achieve excellence in technology and learning.",
-    "email": "tanusreehui@codernaccotax.co.in"
+    "email": "tanusreehui@codernaccotax.co.in",
+    "github": "tanusreehui"
   },
   {
     "name": "Mr. Chandan Das",
@@ -25,20 +27,23 @@
     "title": "Data Structures and Algorithms",
     "image": "teacher4.jpg",
     "bio": "Ms. Sreeparna Das simplifies complex DSA topics and focuses on logic building with hands-on coding sessions.",
-    "email": "sreeparnadas@codernaccotax.co.in"
+    "email": "sreeparnadas@codernaccotax.co.in",
+    "github": "sreeparnadas"
   },
   {
     "name": "Ms. Mounita Bhandari",
     "title": "Lab Instructor",
     "image": "teacher5.jpg",
     "bio": "Ms. Mounita Bhandari ensures practical knowledge through lab-based learning, supporting students step-by-step.",
-    "email": "mounitabhandari@codernaccotax.co.in"
+    "email": "mounitabhandari@codernaccotax.co.in",
+    "github": "mounitbhandari"
   },
   {
     "name": "Ms. Ritaja Ghosh",
     "title": "Lab Instructor",
     "image": "teacher6.jpg",
     "bio": "Ms. Ritaja Ghosh guides students in lab sessions with patience and precision, helping them gain real-world skills. She encourages hands-on practice and ensures every student is confident with the tools.",
-    "email": "ritajaghosh@codernaccotax.co.in"
+    "email": "ritajaghosh@codernaccotax.co.in",
+    "github": "ritajaghosh"
   }
 ]
