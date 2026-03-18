@@ -1,307 +1,272 @@
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './HomeComponent/Home';
-import Certificate from './certificates/Certificate';
-import Admin from './Admin';
-import Bijoya from './Bijoya';
 import ProtectedRoute from './ProtectedRoute';
-import NotFound from './NotFound';
-import Login from '../components/Login';
-import Dashboard from '../components/Dashboard';
-import AddStudent from '../components/AddStudent';
-import ClassEleven from '../components/study/class_11/ClassEleven';
-import ClassElevenWbb from '../components/study/class_11/wbb/ClassElevenWbb';
-import ComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/ComputerApplicationWbbEleven';
-import SemTwoComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/semester2/SemTwoComputerApplicationWbbEleven';
-import DataStructureSemTwoComputerApplicationWbbEleven from '../components/study/class_11/wbb/computer_application/semester2/chapters/DataStructureSemTwoComputerApplicationWbbEleven';
-import TypingTest from '../components/TypingTest';
-import Bca from '../components/study/bca/Bca';
-import JavaChapters from '../components/GeneralSubjects/java/JavaChapters';
-import IntroductionToJava from '../components/GeneralSubjects/java/IntroductionToJava';
-import TypingLearn from '../components/typing-app/TypingLearn';
-import JavaScriptRoadmap from '../components/study/javaScript/JavaScriptRoadmap';
-import JavaScriptModuleView from '../components/study/javaScript/JavaScriptModuleView';
-import JavaScriptTopicView from '../components/study/javaScript/JavaScriptTopicView';
-import Playground from '../common/Playground';
-import PythonRoadmap from '../components/study/python/PythonRoadmap';
-import PythonModuleView from '../components/study/python/PythonModuleView';
-import PythonTopicView from '../components/study/python/PythonTopicView';
-import PythonPlayground from '../common/PythonPlayground';
-import CRoadmap from '../components/study/c-language/CRoadmap';
-import CModuleView from '../components/study/c-language/CModuleView';
-import CTopicView from '../components/study/c-language/CTopicView';
 
-import TallyRoadmap from  "../components/study/tally/TallyRoadmap";
-import TallyModuleView from  "../components/study/tally/TallyModuleView";
-import TallyTopicView from  "../components/study/tally/TallyTopicView";
+// Public components (lazy)
+const Home = lazy(() => import('./HomeComponent/Home'));
+const Certificate = lazy(() => import('./certificates/Certificate'));
+const Login = lazy(() => import('../components/Login'));
+const QRCodeGenerator = lazy(() => import('../common/QRCodeGenerator'));
+const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
+const Study = lazy(() => import('../components/study/Study'));
+const ClassEleven = lazy(() => import('../components/study/class_11/ClassEleven'));
+const ClassElevenWbb = lazy(() => import('../components/study/class_11/wbb/ClassElevenWbb'));
+const ComputerApplicationWbbEleven = lazy(() => import('../components/study/class_11/wbb/computer_application/ComputerApplicationWbbEleven'));
+const SemTwoComputerApplicationWbbEleven = lazy(() => import('../components/study/class_11/wbb/computer_application/semester2/SemTwoComputerApplicationWbbEleven'));
+const DataStructureSemTwoComputerApplicationWbbEleven = lazy(() => import('../components/study/class_11/wbb/computer_application/semester2/chapters/DataStructureSemTwoComputerApplicationWbbEleven'));
+const Bca = lazy(() => import('../components/study/bca/Bca'));
+const JavaChapters = lazy(() => import('../components/GeneralSubjects/java/JavaChapters'));
+const IntroductionToJava = lazy(() => import('../components/GeneralSubjects/java/IntroductionToJava'));
+const TypingTest = lazy(() => import('../components/TypingTest'));
+const TypingLearn = lazy(() => import('../components/typing-app/TypingLearn'));
+const JavaScriptRoadmap = lazy(() => import('../components/study/javaScript/JavaScriptRoadmap'));
+const JavaScriptModuleView = lazy(() => import('../components/study/javaScript/JavaScriptModuleView'));
+const JavaScriptTopicView = lazy(() => import('../components/study/javaScript/JavaScriptTopicView'));
+const Playground = lazy(() => import('../common/Playground'));
+const PythonRoadmap = lazy(() => import('../components/study/python/PythonRoadmap'));
+const PythonModuleView = lazy(() => import('../components/study/python/PythonModuleView'));
+const PythonTopicView = lazy(() => import('../components/study/python/PythonTopicView'));
+const PythonPlayground = lazy(() => import('../common/PythonPlayground'));
+const CRoadmap = lazy(() => import('../components/study/c-language/CRoadmap'));
+const CModuleView = lazy(() => import('../components/study/c-language/CModuleView'));
+const CTopicView = lazy(() => import('../components/study/c-language/CTopicView'));
+const TallyRoadmap = lazy(() => import('../components/study/tally/TallyRoadmap'));
+const TallyModuleView = lazy(() => import('../components/study/tally/TallyModuleView'));
+const TallyTopicView = lazy(() => import('../components/study/tally/TallyTopicView'));
+const ExcelRoadmap = lazy(() => import('../components/study/excel/ExcelRoadmap'));
+const ExcelModuleView = lazy(() => import('../components/study/excel/ExcelModuleView'));
+const ExcelTopicView = lazy(() => import('../components/study/excel/ExcelTopicView'));
+const GitRoadmap = lazy(() => import('../components/study/git/GitRoadmap'));
+const GitModuleView = lazy(() => import('../components/study/git/GitModuleView'));
+const GitTopicView = lazy(() => import('../components/study/git/GitTopicView'));
+const IconResources = lazy(() => import('../components/IconResources'));
+const VSCodeUltraExpertGuide = lazy(() => import('../components/VSCodeUltraExpertGuide'));
+const ICSE9JavaRoadmap = lazy(() => import('../components/study/icse-java-9/ICSE9JavaRoadmap'));
+const ICSE9JavaModuleView = lazy(() => import('../components/study/icse-java-9/ICSE9JavaModuleView'));
+const ICSE9JavaTopicView = lazy(() => import('../components/study/icse-java-9/ICSE9JavaTopicView'));
+const JavaRoadmap = lazy(() => import('../components/study/java-core/JavaRoadmap'));
+const JavaModuleView = lazy(() => import('../components/study/java-core/JavaModuleView'));
+const JavaTopicView = lazy(() => import('../components/study/java-core/JavaTopicView'));
+const GeneralRoadmap = lazy(() => import('../components/study/general/GeneralRoadmap'));
+const GeneralModuleView = lazy(() => import('../components/study/general/GeneralModuleView'));
+const GeneralTopicView = lazy(() => import('../components/study/general/GeneralTopicView'));
+const CssRoadmap = lazy(() => import('../components/study/css/CssRoadmap'));
+const CssModuleView = lazy(() => import('../components/study/css/CssModuleView'));
+const CssTopicView = lazy(() => import('../components/study/css/CssTopicView'));
+const IscElevenRoadmap = lazy(() => import('../components/study/isc-11/IscElevenRoadmap'));
+const IscElevenModuleView = lazy(() => import('../components/study/isc-11/IscElevenModuleView'));
+const IscElevenTopicView = lazy(() => import('../components/study/isc-11/IscElevenTopicView'));
+const PlayWhiteBoard = lazy(() => import('../components/PlayWhiteBoard'));
+const ComputerArchitectureRoadmap = lazy(() => import('../components/study/computer-architecture/ComputerArchitectureRoadmap'));
+const ComputerArchitectureModuleView = lazy(() => import('../components/study/computer-architecture/ComputerArchitectureModuleView'));
+const ComputerArchitectureTopicView = lazy(() => import('../components/study/computer-architecture/ComputerArchitectureTopicView'));
+const UnixRoadmap = lazy(() => import('../components/study/unix/UnixRoadmap'));
+const UnixModuleView = lazy(() => import('../components/study/unix/UnixModuleView'));
+const UnixTopicView = lazy(() => import('../components/study/unix/UnixTopicView'));
+const ReactRoadmap = lazy(() => import('../components/study/react/ReactRoadmap'));
+const ReactModuleView = lazy(() => import('../components/study/react/ReactModuleView'));
+const ReactTopicView = lazy(() => import('../components/study/react/ReactTopicView'));
+const NodeRoadmap = lazy(() => import('../components/study/node/NodeRoadmap'));
+const NodeModuleView = lazy(() => import('../components/study/node/NodeModuleView'));
+const NodeTopicView = lazy(() => import('../components/study/node/NodeTopicView'));
+const JavaWebRoadmap = lazy(() => import('../components/study/java-web/JavaWebRoadmap'));
+const JavaWebModuleView = lazy(() => import('../components/study/java-web/JavaWebModuleView'));
+const JavaWebTopicView = lazy(() => import('../components/study/java-web/JavaWebTopicView'));
+const JavaXRoadmap = lazy(() => import('../components/study/icse-java-x/JavaXRoadmap'));
+const JavaXModuleView = lazy(() => import('../components/study/icse-java-x/JavaXModuleView'));
+const JavaXTopicView = lazy(() => import('../components/study/icse-java-x/JavaXTopicView'));
+const CertificateGenerator = lazy(() => import('../common/CertificateGenerator'));
+const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
+const AddCourse = lazy(() => import('../components/AddCourse'));
+const AddResult = lazy(() => import('../components/AddResult'));
 
-import ExcelRoadmap from '../components/study/excel/ExcelRoadmap';
-import ExcelModuleView from '../components/study/excel/ExcelModuleView';
-import ExcelTopicView from '../components/study/excel/ExcelTopicView';
+// Admin / protected components (lazy)
+const Admin = lazy(() => import('./Admin'));
+const Bijoya = lazy(() => import('./Bijoya'));
+const Dashboard = lazy(() => import('../components/Dashboard'));
+const AddStudent = lazy(() => import('../components/AddStudent'));
 
-import GitRoadmap from '../components/study/git/GitRoadmap';
-import GitModuleView from '../components/study/git/GitModuleView';
-import GitTopicView from '../components/study/git/GitTopicView';
-
-import IconResources from '../components/IconResources';
-import VSCodeUltraExpertGuide from '../components/VSCodeUltraExpertGuide';
-
-import ICSE9JavaRoadmap from '../components/study/icse-java-9/ICSE9JavaRoadmap';
-import ICSE9JavaModuleView from '../components/study/icse-java-9/ICSE9JavaModuleView';
-import ICSE9JavaTopicView from '../components/study/icse-java-9/ICSE9JavaTopicView';
-import JavaRoadmap from '../components/study/java-core/JavaRoadmap';
-import JavaModuleView from '../components/study/java-core/JavaModuleView';
-import JavaTopicView from '../components/study/java-core/JavaTopicView';
-import GeneralRoadmap from '../components/study/general/GeneralRoadmap';
-import GeneralModuleView from '../components/study/general/GeneralModuleView';
-import GeneralTopicView from '../components/study/general/GeneralTopicView';
-import CssRoadmap from '../components/study/css/CssRoadmap';
-import CssModuleView from '../components/study/css/CssModuleView';
-import CssTopicView from '../components/study/css/CssTopicView';
-// ⬇️ Import Study component
-import Study from '../components/study/Study';
-import IscElevenRoadmap from '../components/study/isc-11/IscElevenRoadmap';
-import IscElevenModuleView from '../components/study/isc-11/IscElevenModuleView';
-import IscElevenTopicView from '../components/study/isc-11/IscElevenTopicView';
-import PlayWhiteBoard from '../components/PlayWhiteBoard';
-
-import ComputerArchitectureRoadmap from '../components/study/computer-architecture/ComputerArchitectureRoadmap';
-import ComputerArchitectureModuleView from '../components/study/computer-architecture/ComputerArchitectureModuleView';
-import ComputerArchitectureTopicView from '../components/study/computer-architecture/ComputerArchitectureTopicView';
-
-import UnixRoadmap from '../components/study/unix/UnixRoadmap';
-import UnixModuleView from '../components/study/unix/UnixModuleView';
-import UnixTopicView from '../components/study/unix/UnixTopicView';
-
-import ReactRoadmap from '../components/study/react/ReactRoadmap';
-import ReactModuleView from '../components/study/react/ReactModuleView';
-import ReactTopicView from '../components/study/react/ReactTopicView';
-
-import NodeRoadmap from '../components/study/node/NodeRoadmap';
-import NodeModuleView from '../components/study/node/NodeModuleView';
-import NodeTopicView from '../components/study/node/NodeTopicView';
-
-import JavaWebRoadmap from '../components/study/java-web/JavaWebRoadmap';
-import JavaWebModuleView from '../components/study/java-web/JavaWebModuleView';
-import JavaWebTopicView from '../components/study/java-web/JavaWebTopicView';
-
-import JavaXRoadmap from '../components/study/icse-java-x/JavaXRoadmap';
-import JavaXModuleView from '../components/study/icse-java-x/JavaXModuleView';
-import JavaXTopicView from '../components/study/icse-java-x/JavaXTopicView';
-
-import QRCodeGenerator from '../common/QRCodeGenerator';
-import CertificateGenerator from '../common/CertificateGenerator';
-import StudentAdmission from '../components/StudentAdmission';
-import AddCourse from '../components/AddCourse';
-import AddResult from '../components/AddResult';
-
-import LinkedListVisualizer from '../common/LinkedListVisualizer';
-
+// 404 (can be lazy or normal)
+const NotFound = lazy(() => import('./NotFound'));
 
 export default function AppRoutes() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gray-950 text-white">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sky-400 mx-auto mb-4"></div>
+          <p className="text-gray-400">Loading page...</p>
+        </div>
+      </div>
+    }>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
 
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/certificates/:certificateId"
-        element={
-          // <ProtectedRoute>
-            <Certificate />
-          // </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/certificates/:certificateId"
+          element={<Certificate />}   // Public? Originally commented out ProtectedRoute – kept as is
+        />
 
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <Admin />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/bijoya"
-        element={
-          <ProtectedRoute>
-            <Bijoya />
-          </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/bijoya"
+          element={
+            <ProtectedRoute>
+              <Bijoya />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/qrcode"
-        element={<QRCodeGenerator />}
-      />
+        <Route path="/qrcode" element={<QRCodeGenerator />} />
+        <Route path="/LinkedListVisualizer" element={<LinkedListVisualizer />} />
 
-      <Route
-        path="/LinkedListVisualizer"
-        element={<LinkedListVisualizer />}
-      />
-      <Route
-        path="/certificate"
-        element={
-        <ProtectedRoute>
-          <CertificateGenerator />
-        </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/certificate"
+          element={
+            <ProtectedRoute>
+              <CertificateGenerator />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/admission"
-        element={
-        <ProtectedRoute>
-          <StudentAdmission />
-        </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/admission"
+          element={
+            <ProtectedRoute>
+              <StudentAdmission />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/courses"
-        element={
-        <ProtectedRoute>
-          <AddCourse />
-        </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/courses"
+          element={
+            <ProtectedRoute>
+              <AddCourse />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route
-        path="/results"
-        element={
-        <ProtectedRoute>
-          <AddResult />
-        </ProtectedRoute>
-        }
-      />
+        <Route
+          path="/results"
+          element={
+            <ProtectedRoute>
+              <AddResult />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route path="/students/add" element={<AddStudent />} />
+        <Route path="/students/add" element={<AddStudent />} />
 
-      {/* ✅ Public Route (No Login Required) */}
-      <Route path="/study" element={<Study />} />
-      <Route path="/study/class11" element={<ClassEleven />} />
-      <Route path="/study/class11/wbb" element={<ClassElevenWbb />} />
-      <Route path="/study/class11/wbb/computer-application" element={<ComputerApplicationWbbEleven />} />
-      <Route path="/study/class11/wbb/computer-application/sem2" element={<SemTwoComputerApplicationWbbEleven />} />
-      <Route path="/study/class11/wbb/computer-application/sem2/dsa" element={<DataStructureSemTwoComputerApplicationWbbEleven />} />
+        {/* Public Study Routes */}
+        <Route path="/study" element={<Study />} />
+        <Route path="/study/class11" element={<ClassEleven />} />
+        <Route path="/study/class11/wbb" element={<ClassElevenWbb />} />
+        <Route path="/study/class11/wbb/computer-application" element={<ComputerApplicationWbbEleven />} />
+        <Route path="/study/class11/wbb/computer-application/sem2" element={<SemTwoComputerApplicationWbbEleven />} />
+        <Route path="/study/class11/wbb/computer-application/sem2/dsa" element={<DataStructureSemTwoComputerApplicationWbbEleven />} />
 
-      <Route path="/study/bca" element={<Bca />} />
-      <Route path="/study/bca/java" element={<JavaChapters />} />
-      <Route path="/study/bca/java/chapter-1" element={<IntroductionToJava />} />
-      <Route path="/tools/type-test" element={<TypingTest />} />
-      <Route path="/tools/typing-learn" element={<TypingLearn />} />
+        <Route path="/study/bca" element={<Bca />} />
+        <Route path="/study/bca/java" element={<JavaChapters />} />
+        <Route path="/study/bca/java/chapter-1" element={<IntroductionToJava />} />
+        <Route path="/tools/type-test" element={<TypingTest />} />
+        <Route path="/tools/typing-learn" element={<TypingLearn />} />
 
-      {/* <Route path="/tutorial/js" element={<JavaScriptRoadmap />} /> */}
-      <Route path="/javascript/roadmap" element={<JavaScriptRoadmap />} />
-      <Route path="/javascript/module/:slug" element={<JavaScriptModuleView />} />
-      <Route path="/javascript/topic/:moduleSlug/:topicIndex"  element={<JavaScriptTopicView />}/>
+        <Route path="/javascript/roadmap" element={<JavaScriptRoadmap />} />
+        <Route path="/javascript/module/:slug" element={<JavaScriptModuleView />} />
+        <Route path="/javascript/topic/:moduleSlug/:topicIndex" element={<JavaScriptTopicView />} />
 
+        <Route path="/play" element={<Playground />} />
+        <Route path="/python-play" element={<PythonPlayground />} />
 
-      <Route path="/play"  element={<Playground />}/>
-      <Route path="/python-play"  element={<PythonPlayground />}/>
+        <Route path="/python/roadmap" element={<PythonRoadmap />} />
+        <Route path="/python/module/:slug" element={<PythonModuleView />} />
+        <Route path="/python/topic/:moduleSlug/:topicIndex" element={<PythonTopicView />} />
 
+        <Route path="/c-language/roadmap" element={<CRoadmap />} />
+        <Route path="/c-language/module/:slug" element={<CModuleView />} />
+        <Route path="/c-language/topic/:moduleSlug/:topicIndex" element={<CTopicView />} />
 
-      <Route path="/python/roadmap" element={<PythonRoadmap />} />
-      <Route path="/python/module/:slug" element={<PythonModuleView />} />
-      <Route path="/python/topic/:moduleSlug/:topicIndex"  element={<PythonTopicView />}/>
+        <Route path="/tally/roadmap" element={<TallyRoadmap />} />
+        <Route path="/tally/module/:slug" element={<TallyModuleView />} />
+        <Route path="/tally/topic/:moduleSlug/:topicIndex" element={<TallyTopicView />} />
 
-      {/* For C Language */}
-      <Route path="/c-language/roadmap" element={<CRoadmap />} />
-      <Route path="/c-language/module/:slug" element={<CModuleView />} />
-      <Route path="/c-language/topic/:moduleSlug/:topicIndex"  element={<CTopicView />}/>
+        <Route path="/excel/roadmap" element={<ExcelRoadmap />} />
+        <Route path="/excel/module/:slug" element={<ExcelModuleView />} />
+        <Route path="/excel/topic/:moduleSlug/:topicIndex" element={<ExcelTopicView />} />
 
+        <Route path="/git/roadmap" element={<GitRoadmap />} />
+        <Route path="/git/module/:slug" element={<GitModuleView />} />
+        <Route path="/git/topic/:moduleSlug/:topicIndex" element={<GitTopicView />} />
 
-      {/* For Tally Prime */}
-      <Route path="/tally/roadmap" element={<TallyRoadmap />} />
-      <Route path="/tally/module/:slug" element={<TallyModuleView />} />
-      <Route path="/tally/topic/:moduleSlug/:topicIndex"  element={<TallyTopicView />}/>
+        <Route path="/icse-java-ix/roadmap" element={<ICSE9JavaRoadmap />} />
+        <Route path="/icse-java-ix/module/:slug" element={<ICSE9JavaModuleView />} />
+        <Route path="/icse-java-ix/topic/:moduleSlug/:topicIndex" element={<ICSE9JavaTopicView />} />
 
-      {/* For Excel  */}
-      <Route path="/excel/roadmap" element={<ExcelRoadmap />} />
-      <Route path="/excel/module/:slug" element={<ExcelModuleView />} />
-      <Route path="/excel/topic/:moduleSlug/:topicIndex"  element={<ExcelTopicView/>}/>
+        <Route path="/icse-java-x/roadmap" element={<JavaXRoadmap />} />
+        <Route path="/icse-java-x/module/:slug" element={<JavaXModuleView />} />
+        <Route path="/icse-java-x/topic/:moduleSlug/:topicIndex" element={<JavaXTopicView />} />
 
-    {/* For Git  */}
-      <Route path="/git/roadmap" element={<GitRoadmap />} />
-      <Route path="/git/module/:slug" element={<GitModuleView />} />
-      <Route path="/git/topic/:moduleSlug/:topicIndex"  element={<GitTopicView/>}/>
+        <Route path="/java-core/roadmap" element={<JavaRoadmap />} />
+        <Route path="/java-core/module/:slug" element={<JavaModuleView />} />
+        <Route path="/java-core/topic/:moduleSlug/:topicIndex" element={<JavaTopicView />} />
 
-      {/* For ICSE Java Class IX  */}
-      <Route path="/icse-java-ix/roadmap" element={<ICSE9JavaRoadmap />} />
-      <Route path="/icse-java-ix/module/:slug" element={<ICSE9JavaModuleView />} />
-      <Route path="/icse-java-ix/topic/:moduleSlug/:topicIndex"  element={<ICSE9JavaTopicView/>}/>
+        <Route path="/general/roadmap" element={<GeneralRoadmap />} />
+        <Route path="/general/module/:slug" element={<GeneralModuleView />} />
+        <Route path="/general/topic/:moduleSlug/:topicIndex" element={<GeneralTopicView />} />
 
+        <Route path="/css/roadmap" element={<CssRoadmap />} />
+        <Route path="/css/module/:slug" element={<CssModuleView />} />
+        <Route path="/css/topic/:moduleSlug/:topicIndex" element={<CssTopicView />} />
 
-      {/* For ICSE Java Class X  */}
-      <Route path="/icse-java-x/roadmap" element={<JavaXRoadmap />} />
-      <Route path="/icse-java-x/module/:slug" element={<JavaXModuleView />} />
-      <Route path="/icse-java-x/topic/:moduleSlug/:topicIndex"  element={<JavaXTopicView/>}/>
+        <Route path="/isc-11/roadmap" element={<IscElevenRoadmap />} />
+        <Route path="/isc-11/module/:slug" element={<IscElevenModuleView />} />
+        <Route path="/isc-11/topic/:moduleSlug/:topicIndex" element={<IscElevenTopicView />} />
 
+        <Route path="/computer-architecture/roadmap" element={<ComputerArchitectureRoadmap />} />
+        <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
+        <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex" element={<ComputerArchitectureTopicView />} />
 
+        <Route path="/unix/roadmap" element={<UnixRoadmap />} />
+        <Route path="/unix/module/:slug" element={<UnixModuleView />} />
+        <Route path="/unix/topic/:moduleSlug/:topicIndex" element={<UnixTopicView />} />
 
-      {/* For Java  */}
-      <Route path="/java-core/roadmap" element={<JavaRoadmap />} />
-      <Route path="/java-core/module/:slug" element={<JavaModuleView />} />
-      <Route path="/java-core/topic/:moduleSlug/:topicIndex"  element={<JavaTopicView/>}/>
+        <Route path="/react/roadmap" element={<ReactRoadmap />} />
+        <Route path="/react/module/:slug" element={<ReactModuleView />} />
+        <Route path="/react/topic/:moduleSlug/:topicIndex" element={<ReactTopicView />} />
 
-      {/* For Fundamental  */}
-      <Route path="/general/roadmap" element={<GeneralRoadmap />} />
-      <Route path="/general/module/:slug" element={<GeneralModuleView />} />
-      <Route path="/general/topic/:moduleSlug/:topicIndex"  element={<GeneralTopicView/>}/>
+        <Route path="/node/roadmap" element={<NodeRoadmap />} />
+        <Route path="/node/module/:slug" element={<NodeModuleView />} />
+        <Route path="/node/topic/:moduleSlug/:topicIndex" element={<NodeTopicView />} />
 
-      {/* For CSS  */}
-      <Route path="/css/roadmap" element={<CssRoadmap />} />
-      <Route path="/css/module/:slug" element={<CssModuleView />} />
-      <Route path="/css/topic/:moduleSlug/:topicIndex"  element={<CssTopicView/>}/>
+        <Route path="/java-web/roadmap" element={<JavaWebRoadmap />} />
+        <Route path="/java-web/module/:slug" element={<JavaWebModuleView />} />
+        <Route path="/java-web/topic/:moduleSlug/:topicIndex" element={<JavaWebTopicView />} />
 
-      {/* For ISC 11  */}
-      <Route path="/isc-11/roadmap" element={<IscElevenRoadmap />} />
-      <Route path="/isc-11/module/:slug" element={<IscElevenModuleView />} />
-      <Route path="/isc-11/topic/:moduleSlug/:topicIndex"  element={<IscElevenTopicView/>}/>
+        <Route path="/icons" element={<IconResources />} />
+        <Route path="/vscode" element={<VSCodeUltraExpertGuide />} />
+        <Route path="/whiteBoard" element={<PlayWhiteBoard />} />
 
-      {/* Computer Architecture  */}
-      <Route path="/computer-architecture/roadmap" element={<ComputerArchitectureRoadmap />} />
-      <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />
-      <Route path="/computer-architecture/topic/:moduleSlug/:topicIndex"  element={<ComputerArchitectureTopicView/>}/>
-
-      {/* Unix  */}
-      <Route path="/unix/roadmap" element={<UnixRoadmap />} />
-      <Route path="/unix/module/:slug" element={<UnixModuleView />} />
-      <Route path="/unix/topic/:moduleSlug/:topicIndex"  element={<UnixTopicView/>}/>
-
-      {/* React  */}
-      <Route path="/react/roadmap" element={<ReactRoadmap />} />
-      <Route path="/react/module/:slug" element={<ReactModuleView />} />
-      <Route path="/react/topic/:moduleSlug/:topicIndex"  element={<ReactTopicView/>}/>
-
-       {/* Node  */}
-      <Route path="/node/roadmap" element={<NodeRoadmap />} />
-      <Route path="/node/module/:slug" element={<NodeModuleView />} />
-      <Route path="/node/topic/:moduleSlug/:topicIndex"  element={<NodeTopicView/>}/>
-
-
-
-      {/* Java Web  */}
-      <Route path="/java-web/roadmap" element={<JavaWebRoadmap />} />
-      <Route path="/java-web/module/:slug" element={<JavaWebModuleView />} />
-      <Route path="/java-web/topic/:moduleSlug/:topicIndex"  element={<JavaWebTopicView/>}/>
-
-
-      {/* Icon Resource */}
-      <Route path="/icons" element={<IconResources />} />
-      <Route path="/vscode" element={<VSCodeUltraExpertGuide />} />
-      <Route path="/whiteBoard" element={<PlayWhiteBoard />} />
-
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
