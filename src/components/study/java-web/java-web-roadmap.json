@@ -8,7 +8,7 @@
     "author": "Sukanta Hui",
     "location": "Barrackpore, West Bengal, India",
     "trackType": "University Core Major Course (MAKAUT)",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "lastUpdated": "2026-01-22"
   },
   "folder": "java-web",
@@ -78,18 +78,24 @@
           "slug": "introduction-to-java-ee",
           "title": "Introduction to Java EE",
           "level": "Beginner",
-          "estimatedHours": 3,
+          "estimatedHours": 5,
           "tags": ["java-ee", "architecture"],
           "topics": [
             "Overview of Java EE Architecture",
             "Java SE vs Java EE",
             "Role of JDBC, JSP, and Servlets",
-            "Web Application Architecture Fundamentals"
+            "Web Application Architecture Fundamentals",
+            "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "WAR File Structure and Deployment",
+            "Introduction to Servlet Containers"
           ],
           "learningOutcomes": [
             "Understand Java EE ecosystem",
             "Differentiate Java SE and Java EE",
-            "Explain core Java web components"
+            "Explain core Java web components",
+            "Set up a complete Java web development environment"
           ],
           "difficulty": "Easy",
           "difficultyIndex": 1,
@@ -108,7 +114,7 @@
           "slug": "jdbc-java-database-connectivity",
           "title": "JDBC – Java Database Connectivity",
           "level": "Beginner",
-          "estimatedHours": 9,
+          "estimatedHours": 12,
           "tags": ["jdbc", "sql", "database"],
           "topics": [
             "Introduction to JDBC",
@@ -119,12 +125,21 @@
             "ResultSet and Metadata",
             "Transaction Management",
             "Commit, Rollback, Savepoint",
-            "Batch Processing"
+            "Batch Processing",
+            "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+            "DAO (Data Access Object) Design Pattern",
+            "Handling BLOB and CLOB Data",
+            "Calling Stored Procedures with CallableStatement",
+            "RowSet and Its Types (CachedRowSet, etc.)",
+            "Scrollable and Updatable ResultSet",
+            "Database Configuration Using Properties Files",
+            "SQL Exception Handling and Best Practices"
           ],
           "learningOutcomes": [
             "Connect Java applications to databases",
             "Perform secure CRUD operations",
-            "Handle database transactions"
+            "Handle database transactions",
+            "Implement connection pooling and DAO patterns"
           ],
           "difficulty": "Easy",
           "difficultyIndex": 2,
@@ -143,7 +158,7 @@
           "slug": "java-server-pages",
           "title": "Java Server Pages (JSP)",
           "level": "Intermediate",
-          "estimatedHours": 12,
+          "estimatedHours": 15,
           "tags": ["jsp", "jstl", "el"],
           "topics": [
             "JSP Lifecycle",
@@ -153,12 +168,23 @@
             "JavaBeans in JSP",
             "Expression Language (EL)",
             "JSTL Core Tags",
-            "Custom Tag Libraries"
+            "Custom Tag Libraries",
+            "JSP Include Directive vs Include Action",
+            "JSP Error Page Handling",
+            "JSP Fragments and Tag Files",
+            "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+            "MVC with JSP and Servlets (Front Controller Pattern)",
+            "Using JavaBeans as Data Containers",
+            "JSP 2.0 Simple Tag Handlers",
+            "EL Advanced Features (Collections, Operators)",
+            "Introduction to AJAX Integration",
+            "Security Considerations (Avoiding Scriptlets)"
           ],
           "learningOutcomes": [
             "Create dynamic JSP pages",
             "Use JSTL and EL effectively",
-            "Separate presentation logic"
+            "Separate presentation logic",
+            "Apply MVC pattern with JSP"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 4,
@@ -177,26 +203,61 @@
           "slug": "servlet-technology",
           "title": "Servlet Technology",
           "level": "Intermediate",
-          "estimatedHours": 12,
+          "estimatedHours": 16,
           "tags": ["servlet", "http", "session"],
           "topics": [
             "Servlet Lifecycle",
             "HTTP Request and Response",
-            "Deployment Descriptor",
+            "Deployment Descriptor (web.xml)",
             "ServletConfig and ServletContext",
-            "Session Management",
-            "Cookies and HttpSession",
+            "Session Management (Cookies, HttpSession, URL Rewriting)",
             "Filters",
-            "File Upload and Download"
+            "File Upload and Download (Part API)",
+            "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+            "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+            "Asynchronous Servlets",
+            "RequestDispatcher and sendRedirect",
+            "Error Handling and Custom Error Pages",
+            "Authentication Filters and Security Annotations (@ServletSecurity)",
+            "URL Mapping Patterns",
+            "MVC Architecture with Servlets and JSP",
+            "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+            "Introduction to Web Frameworks (Struts, Spring MVC)"
           ],
           "learningOutcomes": [
             "Handle client-server requests",
             "Manage sessions securely",
-            "Implement filters"
+            "Implement filters and listeners",
+            "Develop RESTful endpoints using JAX-RS"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 5,
           "summary": "Controller layer of Java web applications."
+        },
+        {
+          "moduleId": "rest-jaxrs",
+          "slug": "restful-web-services-jaxrs",
+          "title": "RESTful Web Services with JAX-RS",
+          "level": "Intermediate",
+          "estimatedHours": 4,
+          "tags": ["rest", "jax-rs", "web-services"],
+          "topics": [
+            "REST Principles (Resources, HTTP Methods, Statelessness)",
+            "Introduction to JAX-RS and Jersey",
+            "Creating a Simple RESTful Service",
+            "Path Annotations (@Path, @GET, @POST, etc.)",
+            "Handling JSON/XML with JAXB and Jackson",
+            "REST Client with Postman",
+            "Integration with Servlets and JSP"
+          ],
+          "learningOutcomes": [
+            "Design and implement RESTful web services",
+            "Use JAX-RS annotations",
+            "Consume REST APIs"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Building lightweight RESTful services with JAX-RS."
         }
       ]
     },
@@ -211,7 +272,7 @@
           "slug": "hibernate-framework",
           "title": "Hibernate Framework",
           "level": "Advanced",
-          "estimatedHours": 5,
+          "estimatedHours": 9,
           "tags": ["hibernate", "orm"],
           "topics": [
             "ORM vs JDBC",
@@ -219,12 +280,25 @@
             "Configuration (XML & Annotations)",
             "Entity Mapping",
             "CRUD Operations",
-            "Hibernate Query Language (HQL)"
+            "Hibernate Query Language (HQL)",
+            "Relationship Mappings (One-to-One, One-to-Many, Many-to-One, Many-to-Many)",
+            "Inheritance Mapping Strategies",
+            "Caching (First-Level, Second-Level, Query Cache)",
+            "Lazy Loading vs Eager Loading",
+            "Criteria API and HQL Advanced Queries",
+            "Hibernate Configuration Using Properties File",
+            "Transaction Management (Local and JTA)",
+            "Bean Validation (Hibernate Validator)",
+            "Introduction to JPA (Java Persistence API)",
+            "Hibernate Tools (Reverse Engineering, hbm2ddl)",
+            "Connection Pooling with Hibernate (c3p0, HikariCP)",
+            "Performance Tuning Tips"
           ],
           "learningOutcomes": [
             "Implement ORM-based persistence",
             "Use Hibernate for CRUD",
-            "Write HQL queries"
+            "Write HQL queries",
+            "Manage entity relationships and caching"
           ],
           "difficulty": "Advanced",
           "difficultyIndex": 7,
@@ -249,9 +323,9 @@
     "totalMarks": 100
   },
   "learningPath": {
-    "weeks": 12,
+    "weeks": 14,
     "weeklyCommitment": "8-10 hours",
-    "totalEstimatedHours": 48,
+    "totalEstimatedHours": 56,
     "outcome": "Industry-ready Java Web Developer (Academic + Practical)"
   }
 }

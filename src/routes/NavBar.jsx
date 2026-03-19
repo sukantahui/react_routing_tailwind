@@ -289,7 +289,7 @@ class NavBar extends Component {
                         { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
                         { to: "/react/roadmap", key: "react", label: "React", icon: "bi-react" },
                         isDev && { to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" },
-                        isDev &&{ to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
+                        { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
                       ].filter(Boolean).map((item) => (
                         <NavLink
                           key={item.to}

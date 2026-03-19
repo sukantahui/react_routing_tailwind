@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Lightbulb, AlertTriangle, CheckCircle } from "lucide-react";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
 export default class Topic0 extends Component {
   componentDidMount() {
@@ -482,6 +483,8 @@ export default class Topic0 extends Component {
             <li>UNIX philosophy influences all modern OS</li>
           </ul>
         </section>
+        {/* Teacher Description */}
+        <Teacher/>
 
         {/* KEYFRAMES */}
         <style>{`

@@ -1,0 +1,20 @@
+my-webapp.war
+│
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── app.js
+├── WEB-INF/
+│   ├── web.xml
+│   ├── classes/
+│   │   └── com/
+│   │       └── example/
+│   │           └── DemoWARServlet.class
+│   └── lib/
+│       ├── servlet-api.jar        (scope provided, not actually packaged)
+│       ├── jstl-1.2.jar
+│       └── mysql-connector-java.jar
+└── META-INF/
+    ├── MANIFEST.MF
+    └── context.xml                 (Tomcat-specific)

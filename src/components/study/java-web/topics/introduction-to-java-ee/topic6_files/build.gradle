@@ -1,0 +1,29 @@
+plugins {
+    id 'war'
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Servlet API (provided by the server)
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // JSP API (provided)
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
+
+    // JSTL
+    implementation 'javax.servlet:jstl:1.2'
+}
+
+war {
+    archiveName = 'my-webapp.war'
+}
