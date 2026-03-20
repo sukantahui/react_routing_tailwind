@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Lightbulb, AlertTriangle, CheckCircle } from "lucide-react";
-import Teacher from "../../../../../common/TeacherSukantaHui";
+import Teacher from "../../../../../common/TeacherTanusreeHui";
 
 export default class Topic0 extends Component {
   componentDidMount() {

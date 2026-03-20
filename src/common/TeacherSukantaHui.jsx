@@ -1,5 +1,5 @@
 import teacherImage from "../assets/teachers/teacher_sukanta_hui.jpg";
-export default function Teacher() {
+export default function TeacherSukantaHui() {
     const workingFrom='1998-05-20';
     const name='Sukanta Hui';
     const calculateExperience = (date) => {
