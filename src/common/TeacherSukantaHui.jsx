@@ -28,7 +28,7 @@ export default function TeacherSukantaHui({note=''}) {
                 <img
                     src={teacherImage}
                     alt={name}
-                    className="w-36 h-36 rounded-full object-cover 
+                    className="w-20 h-20 rounded-full object-cover 
                                 border-2 border-gray-300
                                 transition duration-300
                                 hover:border-blue-400
@@ -37,6 +37,7 @@ export default function TeacherSukantaHui({note=''}) {
                 <h1 className="text-2xl font-bold mt-4">{name}</h1>
                 <h1>Our Teacher is {name}</h1>
                 <h2>Experience: {experience}+</h2>
+                <h5>Head of Software Training & Mentorship</h5>
                
             </div>
         </>
