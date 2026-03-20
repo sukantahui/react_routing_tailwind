@@ -1,5 +1,5 @@
 import teacherImage from "../assets/teachers/teacher_sukanta_hui.jpg";
-export default function TeacherSukantaHui() {
+export default function TeacherSukantaHui({note=''}) {
     const workingFrom='1998-05-20';
     const name='Sukanta Hui';
     const calculateExperience = (date) => {
@@ -22,6 +22,9 @@ export default function TeacherSukantaHui() {
     return (
         <>
             <div>
+                <p>
+                    {note}
+                </p>
                 <img
                     src={teacherImage}
                     alt={name}

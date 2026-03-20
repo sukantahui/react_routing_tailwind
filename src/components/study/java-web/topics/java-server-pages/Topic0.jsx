@@ -501,6 +501,11 @@ const Topic0 = () => {
               <code>jspInit()</code> is your morning coffee – do it once, do it right."
             </p>
           </div>
+          <Teacher note="I often tell my students – like Swadeep from Barrackpore or Tuhina
+              from Shyamnagar – that the JSP lifecycle is like the daily routine of a
+              school: preparation (translation/compilation), arrival (loading), morning
+              assembly (init), classes (requests), and home time (destroy). Remember,
+              jspInit() is your morning coffee – do it once, do it right."/>
         </section>
 
         {/* Mini Checklist */}
