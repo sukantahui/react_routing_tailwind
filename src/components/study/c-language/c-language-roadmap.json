@@ -791,12 +791,27 @@
             "address"
           ],
           "topics": [
-            "What pointers are and why they matter in C",
-            "Declaring pointer variables and assigning addresses",
-            "Address-of and dereference operators",
-            "Pointer arithmetic for arrays",
-            "Relationship between arrays and pointers",
-            "Pointers to strings and basic pointer pitfalls"
+            "Introduction to memory model: stack vs heap (conceptual overview)",
+            "What pointers are and why they are fundamental in C",
+            "Memory addresses and how variables are stored in RAM",
+            "Declaring pointer variables and type-specific pointers",
+            "Pointer initialization: NULL, valid addresses, and wild pointers",
+            "Address-of operator (&) and dereference operator (*) explained deeply",
+            "Reading and writing values using pointers",
+            "Pointer arithmetic: increment, decrement, addition and subtraction",
+            "How pointer arithmetic depends on data type size",
+            "Relationship between arrays and pointers (array decay concept)",
+            "Accessing arrays using pointers vs indexing",
+            "Pointers and strings: character pointers vs character arrays",
+            "Immutable string literals vs modifiable arrays",
+            "Pointers as function parameters (call by value vs simulated reference)",
+            "Passing arrays and pointers to functions",
+            "Pointer to pointer (double pointer) – basic concept and use cases",
+            "Void pointers (generic pointers) and type casting",
+            "NULL pointers, dangling pointers, and wild pointers",
+            "Common pointer-related runtime errors (segmentation fault basics)",
+            "Introduction to memory safety and safe pointer practices",
+            "Debugging pointer issues using printf and memory tracing"
           ],
           "learningOutcomes": [
             "Use pointers to work with memory addresses",
