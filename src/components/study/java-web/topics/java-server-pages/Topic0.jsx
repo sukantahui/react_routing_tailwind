@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
 // Import raw Java/JSP examples for illustration
 import generatedServletCode from "./topic0_files/GeneratedServlet.java?raw";

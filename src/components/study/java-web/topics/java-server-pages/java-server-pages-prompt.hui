@@ -173,7 +173,9 @@ Tips & Tricks (Professional Level)
 
 Teacher’s Note (MANDATORY IN EVERY TOPIC)
     - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
-    - Primary teacher: Sukanta Hui
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
     - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
 
 Teacher’s professional description must be fetched from below:
