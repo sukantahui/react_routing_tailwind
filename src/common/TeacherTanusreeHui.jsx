@@ -16,9 +16,14 @@ export default function TeacherTanusreeHui() {
         return (
             <>
                 <div>
-                   <img src={teacherImage}  alt={name} className="w-20 h-20 rounded-full"/>
+                   <img src={teacherImage}  alt={name} className="w- h-36 rounded-full object-cover 
+                                border-2 border-gray-300
+                                transition duration-300
+                                hover:border-blue-400
+                                hover:shadow-[0_0_18px_rgba(59,130,246,0.4)]"/>
                     <h1 className="text-2xl font-bold mt-4">{name}</h1>
                     <h5>Our Teacher is {name}</h5>
+                    <h5>Data Structures & Algorithms Mentor</h5>
                     <h5>She is working since {workingFrom}</h5>
                     <h5>She has {experienceYear}+ years of experience</h5>
                 
