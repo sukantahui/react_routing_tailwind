@@ -8033,6 +8033,9 @@
   .stroke-blue-700 {
     stroke: var(--color-blue-700);
   }
+  .stroke-current {
+    stroke: currentcolor;
+  }
   .stroke-cyan-500 {
     stroke: var(--color-cyan-500);
   }
@@ -20797,6 +20800,11 @@
   .dark\:stroke-green-400 {
     @media (prefers-color-scheme: dark) {
       stroke: var(--color-green-400);
+    }
+  }
+  .dark\:stroke-green-500 {
+    @media (prefers-color-scheme: dark) {
+      stroke: var(--color-green-500);
     }
   }
   .dark\:stroke-green-700 {
