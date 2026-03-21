@@ -138,11 +138,14 @@ const Topic1 = () => {
               a few MB). Exceeding this limit causes a <strong>stack overflow</strong>.
             </p>
             <div className="mt-3 bg-gray-100 dark:bg-gray-700 p-3 rounded font-mono text-sm">
-              // Example: variables on the stack
-              void foo() {<br/>
-              &nbsp;&nbsp;int a = 10;        // on stack<br/>
-              &nbsp;&nbsp;char str[20];     // on stack<br/>
-              } // a and str are automatically destroyed here
+              
+              <pre>
+{`// Example: variables on the stack
+void foo() {
+  int a = 10;        // on stack
+  char str[20];      // on stack
+} // a and str are automatically destroyed here`}
+  </pre>
             </div>
           </div>
         </section>
