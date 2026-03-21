@@ -15,6 +15,8 @@ import {
   Layers,
   Menu,
   X,
+  ArrowUp,               // added
+  Map as MapIcon,        // added, aliased to avoid conflict with built‑in Map
 } from "lucide-react";
 import roadmapData from "./c-language-roadmap.json";
 
@@ -42,6 +44,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const index = Number.parseInt(topicIndex, 10) || 0;
   const activeTopicRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);   // added
 
   // -----------------------------------------------------
   //  GET MODULE DATA
@@ -85,9 +88,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   }
 
   // -----------------------------------------------------
-  //  PROGRESS SYSTEM
+  //  PROGRESS SYSTEM (fixed key for C)
   // -----------------------------------------------------
-  const storageKey = `js-progress-${moduleSlug}`;
+  const storageKey = `c-progress-${moduleSlug}`;   // was "js-progress-..."
   const [completedTopics, setCompletedTopics] = useState([]);
 
   useEffect(() => {
@@ -143,10 +146,22 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     setSidebarOpen(false);
   }, [moduleSlug, topicIndex]);
 
-  // Local UI state for enhanced Send Topics List block
+  // -----------------------------------------------------
+  // SCROLL LISTENER FOR SCROLL-TO-TOP BUTTON (added)
+  // -----------------------------------------------------
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // -----------------------------------------------------
+  // WHATSAPP SIDEBAR STATES (unchanged)
+  // -----------------------------------------------------
   const [waPhone, setWaPhone] = useState("");
   const [waStudentName, setWaStudentName] = useState(() => {
-    // Try to prefill from local storage (if quiz/certificate saved it earlier)
     try {
       const s = localStorage.getItem("student_name");
       return s || "";
@@ -158,7 +173,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const [waPreviewOpen, setWaPreviewOpen] = useState(false);
   const [waLastMessage, setWaLastMessage] = useState("");
 
-  // helper to format topics lines (keeps lines short)
   const buildTopicListText = (topics) =>
     topics.map((t, i) => `${i + 1}. ${t}`).join("\n");
 
@@ -167,8 +181,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   // ===================================================================
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col relative overflow-hidden">
-
-      {/* BACKGROUND LAYERS */}
+      {/* BACKGROUND LAYERS (unchanged) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg className="absolute -top-40 -left-40 opacity-40" width="420" height="420">
           <defs>
@@ -204,10 +217,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         </svg>
       </div>
 
-      {/* TOP HEADER */}
+      {/* TOP HEADER (unchanged) */}
       <header className="relative z-30 border-b border-slate-800/70 bg-slate-950/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-          {/* Left: Module Info */}
           <div className="flex items-center gap-3">
             <Link
               to={`/${roadmapData.folder}/roadmap`}
@@ -228,15 +240,12 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
             </div>
           </div>
 
-          {/* Right: Progress + Navigation */}
           <div className="flex items-center gap-3">
-            {/* Progress */}
             <div className="hidden md:flex flex-col items-end gap-1">
               <div className="flex items-center gap-2 text-[11px] text-slate-300">
                 <BookOpen size={13} className="text-sky-400" />
                 <span>Topic {index + 1} of {totalTopics}</span>
               </div>
-
               <div className="flex items-center gap-2">
                 <div className="w-28 h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
                   <div
@@ -250,7 +259,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </div>
             </div>
 
-            {/* Prev/Next */}
             <div className="hidden sm:flex items-center gap-2">
               {hasPrev ? (
                 <Link
@@ -279,7 +287,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               )}
             </div>
 
-            {/* Mobile Topics Button */}
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
@@ -294,10 +301,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       {/* MAIN LAYOUT */}
       <div className="relative z-20 flex-1 flex justify-center">
         <div className="w-full max-w-6xl mx-auto flex">
-
-          {/* ====================== DESKTOP SIDEBAR ====================== */}
+          {/* DESKTOP SIDEBAR – unchanged except progress key fix already applied */}
           <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
-            {/* Progress Card */}
             <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
               <div className="flex items-center justify-between mb-1">
                 <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
@@ -307,14 +312,12 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   {completedCount}/{totalTopics}
                 </span>
               </div>
-
               <div className="w-full h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
-
               <button
                 type="button"
                 onClick={resetProgress}
@@ -324,13 +327,10 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </button>
             </div>
 
-
-            {/* Topic List */}
             <div className="space-y-2 text-sm">
               {moduleData.topics.map((title, i) => {
                 const isActive = i === index;
                 const isCompleted = completedTopics.includes(i);
-
                 return (
                   <Link
                     key={i}
@@ -344,18 +344,14 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       }
                     `}
                   >
-                    {/* Accent bar */}
                     <span
-                      className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
-                        }`}
+                      className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"}`}
                     />
-
                     {isCompleted ? (
                       <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                     ) : (
                       <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                     )}
-
                     <span className="truncate">
                       <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
                       {title}
@@ -365,23 +361,19 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               })}
             </div>
 
-            {/* Sidebar Footer */}
             <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
-
               <Link
                 to={`/${roadmapData.folder}/module/${moduleSlug}`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
                 ← Back to Module Overview
               </Link>
-
               <Link
                 to={`/${roadmapData.folder}/roadmap`}
                 className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
               >
                 📍 {roadmapData.subject} Roadmap
               </Link>
-
               <a
                 href="/play"
                 target="_blank"
@@ -392,9 +384,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </a>
             </div>
 
-            {/* =========================
-                 ENHANCED: Send Topics List (Ultra Premium)
-                 ========================= */}
+            {/* Send Topics List – unchanged */}
             <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500">
@@ -402,8 +392,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 </p>
                 <span className="text-[11px] text-slate-400">{moduleData.topics.length} topics</span>
               </div>
-
-              {/* Student name input */}
               <label className="text-[11px] text-slate-400">Student name (optional)</label>
               <input
                 id="waStudentNameInput"
@@ -413,8 +401,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 placeholder="e.g., Ritaja Ghosh"
                 className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 mb-3 focus:outline-none focus:border-sky-500"
               />
-
-              {/* PHONE NUMBER INPUT */}
               <label className="text-[11px] text-slate-400">WhatsApp number</label>
               <input
                 id="waPhoneInput"
@@ -424,8 +410,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 placeholder="e.g., 919876543210"
                 className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 focus:outline-none focus:border-sky-500"
               />
-
-              {/* Options */}
               <div className="flex items-center gap-2 mt-3">
                 <label className="inline-flex items-center gap-2 text-xs text-slate-300">
                   <input
@@ -436,34 +420,25 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   />
                   Include module link
                 </label>
-
                 <button
                   onClick={() => {
-                    // Copy preview to clipboard (rebuild message)
                     const phone = waPhone.trim();
                     if (!phone) return alert("Please enter a WhatsApp phone number.");
-
                     const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
                     const topicsText = buildTopicListText(moduleData.topics);
-
-                    // Build Ultra Premium message
                     const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
                     const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
                     const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
                     const body = `\n*Topics Preview:*\n${topicsText}\n`;
                     const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
                     const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
-
                     const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
-
-                    // copy to clipboard
                     try {
                       navigator.clipboard.writeText(fullMessage);
                       alert("Message preview copied to clipboard. You can paste it in WhatsApp or preview below.");
                       setWaLastMessage(fullMessage);
                       setWaPreviewOpen(true);
                     } catch (err) {
-                      // fallback: show preview
                       setWaLastMessage(fullMessage);
                       setWaPreviewOpen(true);
                     }
@@ -473,12 +448,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   Copy Preview
                 </button>
               </div>
-
-              {/* Preview toggle */}
               <div className="mt-3">
                 <button
                   onClick={() => {
-                    // Build message for preview only and toggle
                     const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
                     const topicsText = buildTopicListText(moduleData.topics);
                     const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
@@ -488,7 +460,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
                     const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
                     const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
-
                     setWaLastMessage(fullMessage);
                     setWaPreviewOpen((s) => !s);
                   }}
@@ -497,46 +468,33 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   {waPreviewOpen ? "Hide Preview" : "Preview Message"}
                 </button>
               </div>
-
-              {/* Preview area */}
               {waPreviewOpen && (
                 <pre className="mt-3 whitespace-pre-wrap text-[13px] bg-slate-900 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs">
                   {waLastMessage || "No preview available."}
                 </pre>
               )}
-
-              {/* Send button */}
               <button
                 onClick={() => {
                   const phoneRaw = waPhone.trim();
                   if (!phoneRaw) {
                     return alert("Please enter the WhatsApp phone number (with country code). Example: 919876543210");
                   }
-
-                  // sanitize phone (remove leading + or non-digits)
                   const phone = phoneRaw.replace(/[^0-9]/g, "");
                   if (!/^\d{10,15}$/.test(phone)) {
-                    // allow 10..15 digits (local + country)
                     if (!confirm("Phone number looks unusual. Continue anyway?")) return;
                   }
-
                   const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
                   const topicsText = buildTopicListText(moduleData.topics);
-
                   const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
                   const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
                   const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
                   const body = `\n*Topics Preview:*\n${topicsText}\n`;
                   const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
                   const closing = `\n━━━━━━━━━━━━━━━━━━━━\nNeed help? Reply with "HELP" and we'll assist you.\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
-
                   const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${closing}`;
-
-                  // Save student name for convenience
                   try {
                     localStorage.setItem("student_name", waStudentName.trim());
                   } catch { /* ignore */ }
-
                   const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
                   window.open(url, "_blank");
                 }}
@@ -544,21 +502,19 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               >
                 📤 Send Ultra Premium Topic Message
               </button>
-
               <p className="text-[11px] text-slate-500 mt-2">
                 Tip: include country code (e.g., 91 for India). You can preview or copy the message before sending.
               </p>
             </div>
           </aside>
 
-          {/* ====================== MOBILE SIDEBAR (DRAWER) ====================== */}
+          {/* MOBILE SIDEBAR – unchanged */}
           {sidebarOpen && (
             <>
               <div
                 className="fixed inset-0 z-40 bg-black/60 lg:hidden"
                 onClick={() => setSidebarOpen(false)}
               />
-
               <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950/95 backdrop-blur-xl border-r border-slate-800 pt-4 pb-6 px-4 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
@@ -567,7 +523,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       {moduleData.title}
                     </span>
                   </div>
-
                   <button
                     type="button"
                     onClick={() => setSidebarOpen(false)}
@@ -576,8 +531,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     <X size={14} />
                   </button>
                 </div>
-
-                {/* Compact Progress */}
                 <div className="mb-4 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-[11px] text-slate-200">
                   <div className="flex items-center justify-between mb-1">
                     <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
@@ -593,7 +546,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       style={{ width: `${progressPercent}%` }}
                     />
                   </div>
-
                   <button
                     type="button"
                     onClick={resetProgress}
@@ -602,13 +554,10 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     Reset Progress
                   </button>
                 </div>
-
-                {/* Topic List */}
                 <div className="flex-1 overflow-y-auto space-y-2 text-sm">
                   {moduleData.topics.map((title, i) => {
                     const isActive = i === index;
                     const isCompleted = completedTopics.includes(i);
-
                     return (
                       <Link
                         key={i}
@@ -623,16 +572,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                         `}
                       >
                         <span
-                          className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
-                            }`}
+                          className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"}`}
                         />
-
                         {isCompleted ? (
                           <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                         ) : (
                           <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
                         )}
-
                         <span className="truncate">
                           <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
                           {title}
@@ -641,8 +587,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     );
                   })}
                 </div>
-
-                {/* Footer Links */}
                 <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
                   <Link
                     to={`/${roadmapData.folder}/module/${moduleSlug}`}
@@ -651,7 +595,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   >
                     ← Back to Module Overview
                   </Link>
-
                   <Link
                     to={`/${roadmapData.folder}/roadmap`}
                     onClick={() => setSidebarOpen(false)}
@@ -659,7 +602,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   >
                     📍 {roadmapData.subject} Roadmap
                   </Link>
-
                   <a
                     href="/play"
                     target="_blank"
@@ -673,11 +615,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
             </>
           )}
 
-          {/* ====================== MAIN TOPIC READER ====================== */}
+          {/* MAIN TOPIC READER */}
           <main className="flex-1 flex justify-center px-4 lg:px-8 py-6 lg:py-10">
             <div className="w-full max-w-3xl">
-
-              {/* Topic Header */}
               <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-xl relative overflow-hidden">
                 <svg className="absolute top-0 left-0 w-full h-1.5">
                   <defs>
@@ -689,7 +629,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   </defs>
                   <rect width="100%" height="100%" fill="url(#jsTopicHeaderLine)" />
                 </svg>
-
                 <div className="p-6 flex flex-col md:flex-row md:justify-between">
                   <div>
                     <p className="text-[11px] uppercase tracking-[0.18em] text-slate-500 flex items-center gap-2">
@@ -698,17 +637,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       </span>
                       {moduleData.level || "Module"} • {moduleData.difficulty || "Difficulty"}
                     </p>
-
                     <h1 className="text-xl md:text-2xl font-bold text-sky-300">
                       {topicTitle}
                     </h1>
-
                     <p className="text-[12px] text-slate-400 mt-1">
                       Module: <span className="text-slate-200">{moduleData.title}</span>
                     </p>
                   </div>
-
-                  {/* Navigation (compact) */}
                   <div className="flex items-center gap-2 mt-4 md:mt-0">
                     {hasPrev ? (
                       <Link
@@ -722,7 +657,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                         <ArrowLeft size={13} /> Prev
                       </button>
                     )}
-
                     {hasNext ? (
                       <Link
                         to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
@@ -739,9 +673,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 </div>
               </div>
 
-              {/* ===================== TOPIC CONTENT PANEL ===================== */}
               <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
-
                 <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
@@ -755,35 +687,27 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   )}
                 </Suspense>
 
-                {/* ==========================================================
-                    WHATSAPP QUERY BOX (New Feature)
-                ========================================================== */}
                 <div className="mt-10 p-5 rounded-2xl border border-slate-700 bg-slate-900/60 shadow-lg space-y-3">
                   <h3 className="text-lg font-semibold text-sky-300">
                     Have a Question About This Topic?
                   </h3>
-
                   <p className="text-sm text-slate-400">
                     Send your doubts directly on WhatsApp. I will reply as soon as possible.
                   </p>
-
                   <textarea
                     id="waQuery"
                     placeholder="Type your question here..."
                     className="w-full bg-slate-800 text-slate-200 p-3 rounded-xl border border-slate-600 text-sm focus:outline-none focus:border-sky-500"
                     rows={3}
                   ></textarea>
-
                   <button
                     onClick={() => {
                       const msg = document.getElementById("waQuery").value.trim();
                       if (!msg) return alert("Please type your question first.");
-
-                      const phone = "919432456083"; // Your WhatsApp Number
+                      const phone = "919432456083";
                       const text = encodeURIComponent(
                         `Hello Sir,\nI have a query regarding:\n\n• Module: ${moduleData.title}\n• Topic: ${topicTitle}\n\nMy Question:\n${msg}`
                       );
-
                       window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
                     }}
                     className="px-4 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-white text-sm font-semibold transition"
@@ -791,12 +715,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     📲 Send WhatsApp Query
                   </button>
                 </div>
-
               </section>
             </div>
-            {/* FLOATING WHATSAPP BUTTON – PREMIUM DESIGN */}
+
+            {/* FLOATING WHATSAPP BUTTON – unchanged */}
             <div className="fixed bottom-6 right-6 z-[9999] group">
-              {/* Tooltip */}
               <div className="
       absolute right-14 bottom-1
       opacity-0 group-hover:opacity-100
@@ -809,11 +732,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               >
                 Ask your question on WhatsApp
               </div>
-
-              {/* FLOATING WHATSAPP QUERY BOX – FINAL CLEAN VERSION */}
               <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-3">
-
-                {/* BOX */}
                 <div
                   id="waBox"
                   className="
@@ -831,7 +750,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   <p className="text-[11px] text-slate-400 mb-2">
                     Ask your question regarding this topic:
                   </p>
-
                   <textarea
                     id="waMessage"
                     placeholder="Type your doubt here…"
@@ -843,14 +761,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
         focus:outline-none focus:border-sky-500
       "
                   ></textarea>
-
                   <button
                     onClick={() => {
                       const rawMsg = document.getElementById("waMessage").value.trim();
                       const userMsg = rawMsg || "(No question typed)";
-
                       const phone = "919432456083";
-
                       const text = encodeURIComponent(
                         `📘 *Topic Support Query*
 
@@ -862,7 +777,6 @@ ${userMsg}
 
 — Sent from Coder & AccoTax Learning Platform`
                       );
-
                       window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
                     }}
                     className="
@@ -875,8 +789,6 @@ ${userMsg}
                     📲 Send on WhatsApp
                   </button>
                 </div>
-
-                {/* TOGGLE BUTTON */}
                 <button
                   onClick={() => {
                     const box = document.getElementById("waBox");
@@ -897,9 +809,72 @@ ${userMsg}
                   💬
                 </button>
               </div>
-
             </div>
 
+            {/* SCROLL TO TOP BUTTON */}
+            {showScrollTop && (
+              <div className="fixed bottom-6 left-6 z-[9999] group">
+                <div className="
+                    absolute left-14 bottom-1
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-300
+                    bg-slate-900 text-slate-200
+                    border border-slate-700
+                    text-xs px-3 py-1.5 rounded-lg shadow-lg
+                    whitespace-nowrap
+                  "
+                >
+                  Scroll to top
+                </div>
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  className="
+                    w-12 h-12 rounded-full
+                    bg-gradient-to-br from-sky-500 to-indigo-600
+                    hover:from-sky-400 hover:to-indigo-500
+                    shadow-[0_8px_25px_rgba(14,165,233,0.45)]
+                    border border-sky-400/40
+                    flex items-center justify-center
+                    text-white text-xl
+                    hover:scale-[1.06]
+                    transition-all
+                  "
+                >
+                  <ArrowUp size={20} />
+                </button>
+              </div>
+            )}
+
+            {/* ROADMAP FLOATING BUTTON */}
+            <div className="fixed bottom-24 left-6 z-[9999] group">
+              <div className="
+                absolute left-14 bottom-1
+                opacity-0 group-hover:opacity-100
+                transition-opacity duration-300
+                bg-slate-900 text-slate-200
+                border border-slate-700
+                text-xs px-3 py-1.5 rounded-lg shadow-lg
+                whitespace-nowrap
+              ">
+                Go to Roadmap
+              </div>
+              <Link
+                to={`/${roadmapData.folder}/roadmap`}
+                className="
+                  w-12 h-12 rounded-full
+                  bg-gradient-to-br from-purple-500 to-pink-600
+                  hover:from-purple-400 hover:to-pink-500
+                  shadow-[0_8px_25px_rgba(168,85,247,0.45)]
+                  border border-purple-400/40
+                  flex items-center justify-center
+                  text-white text-xl
+                  hover:scale-[1.06]
+                  transition-all
+                "
+              >
+                <MapIcon size={20} />
+              </Link>
+            </div>
           </main>
         </div>
       </div>

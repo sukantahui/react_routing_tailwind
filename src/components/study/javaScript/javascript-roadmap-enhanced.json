@@ -656,7 +656,8 @@
             "Real-world datasets (students, courses, products, tasks)",
             "Practice your Skill",
             "Reduce Examples",
-            "20 examples of reduce()"
+            "20 examples of reduce()",
+            "Projects for you"
           ],
           "learningOutcomes": [
             "Use map(), filter(), reduce() and find() effectively on arrays of objects",
