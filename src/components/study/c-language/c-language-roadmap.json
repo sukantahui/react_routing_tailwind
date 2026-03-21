@@ -878,11 +878,23 @@
           ],
           "topics": [
             "Difference between stack and heap memory",
+            "Memory layout of a C program (code, data, stack, heap)",
+            "Why dynamic memory allocation is needed in real-world programs",
             "Using malloc and calloc to allocate memory",
-            "Resizing memory with realloc",
-            "Releasing memory with free",
-            "Building dynamic arrays and dynamic strings",
-            "Typical patterns and pitfalls in dynamic allocation"
+            "Difference between malloc vs calloc (initialization and performance)",
+            "Resizing memory with realloc (growing and shrinking)",
+            "Releasing memory with free and importance of deallocation",
+            "Dangling pointers after free and how to prevent them",
+            "Double free errors and undefined behavior",
+            "Building dynamic arrays (resizable arrays)",
+            "Building dynamic strings using heap memory",
+            "Memory fragmentation (internal and external)",
+            "Common allocation patterns (single object, arrays, structures)",
+            "Error handling: checking NULL after allocation",
+            "Typical patterns and pitfalls in dynamic allocation",
+            "Introduction to memory leaks and detection techniques",
+            "Basic debugging using printf and pointer tracking",
+            "Using tools like Valgrind (conceptual introduction)"
           ],
           "learningOutcomes": [
             "Allocate and free heap memory correctly",

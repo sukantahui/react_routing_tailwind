@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <malloc.h>
 
 int global_var = 100; // stored in data segment
 
