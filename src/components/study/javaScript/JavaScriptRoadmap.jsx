@@ -20,7 +20,6 @@ import {
   Mail,
 } from "lucide-react";
 
-
 export default class JavaScriptRoadmap extends Component {
   // ==========================================================
   // Dynamic Segment Colors
@@ -52,9 +51,20 @@ export default class JavaScriptRoadmap extends Component {
     const key = `python-module-completed::${moduleId}`;
     const current = this.isCompleted(moduleId);
     localStorage.setItem(key, (!current).toString());
-
-    // force re-render
     this.setState({});
+  }
+
+  // ==========================================================
+  // Last Visited Tracking
+  // ==========================================================
+  setLastVisited(moduleId) {
+    localStorage.setItem("last-visited-module", moduleId);
+    // Force re‑render so the highlight updates immediately (if staying on the page)
+    this.setState({});
+  }
+
+  getLastVisited() {
+    return localStorage.getItem("last-visited-module");
   }
 
   // ==========================================================
@@ -112,6 +122,8 @@ export default class JavaScriptRoadmap extends Component {
   // ==========================================================
   renderModule(module, index) {
     const completed = this.isCompleted(module.moduleId);
+    const lastVisited = this.getLastVisited();
+    const isLastVisited = lastVisited === module.moduleId;
     const directURL = `${window.location.origin}/${roadmapData.folder}/module/${module.slug}`;
 
     return (
@@ -119,9 +131,12 @@ export default class JavaScriptRoadmap extends Component {
         key={module.moduleId}
         className={`
           relative rounded-2xl p-4 sm:p-5 transition-all
-          ${completed
-            ? "border border-emerald-500/60 bg-emerald-900/10"
-            : "border border-slate-700/60 bg-slate-800/50"
+          ${
+            completed
+              ? "border border-emerald-500/60 bg-emerald-900/10"
+              : isLastVisited
+              ? "border border-blue-500/60 bg-blue-900/10"   // 🔥 Last visited module
+              : "border border-slate-700/60 bg-slate-800/50"
           }
           hover:scale-[1.01]
           hover:shadow-[0_0_25px_rgba(56,189,248,0.25)]
@@ -150,6 +165,7 @@ export default class JavaScriptRoadmap extends Component {
             <div className="mt-3 flex flex-wrap gap-2">
               <Link
                 to={`/${roadmapData.folder}/module/${module.slug}`}
+                onClick={() => this.setLastVisited(module.moduleId)} // 👈 Track when clicked
                 className="
                   px-3 py-2 rounded-full border border-sky-500
                   text-sky-300 text-xs hover:bg-sky-500/10
@@ -162,9 +178,10 @@ export default class JavaScriptRoadmap extends Component {
                 onClick={() => this.toggleCompleted(module.moduleId)}
                 className={`
                   px-3 py-2 rounded-full text-xs border transition
-                  ${completed
-                    ? "border-emerald-500 text-emerald-300 hover:bg-emerald-500/10"
-                    : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
+                  ${
+                    completed
+                      ? "border-emerald-500 text-emerald-300 hover:bg-emerald-500/10"
+                      : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
                   }
                 `}
               >
@@ -223,7 +240,6 @@ export default class JavaScriptRoadmap extends Component {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100">
         <div className="max-w-6xl mx-auto px-4 py-12">
-
           {/* Search */}
           <div className="max-w-md mx-auto mb-10">
             <input
@@ -241,22 +257,19 @@ export default class JavaScriptRoadmap extends Component {
 
           {/* Header */}
           <div className="text-center mb-12">
-
             {/* Logo + Title */}
             <div className="flex items-center justify-center gap-4 mb-4">
               {roadmapData.subjectLogo?.path && (
                 <img
                   src={roadmapData.subjectLogo.path}
                   alt={roadmapData.subjectLogo.alt || roadmapData.subject}
-                   className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
+                  className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
                 />
               )}
-
               <h1 className="text-4xl md:text-5xl font-extrabold text-sky-400">
                 {roadmapData.trackTitle}
               </h1>
             </div>
-
             <p className="text-slate-400 mt-3 max-w-2xl mx-auto">
               {roadmapData.description}
               <br />
@@ -266,52 +279,39 @@ export default class JavaScriptRoadmap extends Component {
             </p>
           </div>
 
-
-
-          {/* ================= TEACHER PROFILE ================= */}
+          {/* Teacher Profile */}
           <div className="max-w-4xl mx-auto mb-14 border border-slate-800 bg-slate-900/70 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-[0_0_30px_rgba(0,0,0,0.35)] backdrop-blur-xl">
-
-            {/* Teacher Image */}
             <div className="shrink-0">
               <img
                 src={teacherPhoto}
                 alt="Sukanta Hui"
                 className="
-                    w-28 h-28 sm:w-32 sm:h-32
-                    rounded-full object-cover
-                    border-4 border-sky-500/40
-                    shadow-lg
-                    transition-transform duration-300
-                    hover:scale-105
-                  "
+                  w-28 h-28 sm:w-32 sm:h-32
+                  rounded-full object-cover
+                  border-4 border-sky-500/40
+                  shadow-lg
+                  transition-transform duration-300
+                  hover:scale-105
+                "
               />
             </div>
-
-            {/* Teacher Info */}
             <div className="text-center sm:text-left">
-
               <h3 className="text-xl sm:text-2xl font-bold text-slate-100">
                 Sukanta Hui
               </h3>
-
               <p className="text-sky-400 text-sm font-medium mt-1">
                 Educator · Software Trainer · Mentor
               </p>
-
               <p className="text-emerald-400 text-sm mt-1">
                 Founder, Coder & AccoTax · Barrackpore
               </p>
-
               <p className="text-slate-400 text-sm mt-3 leading-relaxed max-w-xl">
                 This roadmap is designed to take you from <strong>clear fundamentals</strong> to
                 <strong>professional-level confidence</strong>.
                 Every module focuses on <em>why things work</em>, not just how to write code —
                 so you can think like a real programmer.
               </p>
-
-              {/* ===== SOCIAL ICONS (HERE 👇) ===== */}
               <div className="mt-4 flex justify-center sm:justify-start gap-4">
-
                 <a
                   href="https://www.linkedin.com/in/sukantahui/"
                   target="_blank"
@@ -320,7 +320,6 @@ export default class JavaScriptRoadmap extends Component {
                 >
                   <Linkedin size={18} />
                 </a>
-
                 <a
                   href="https://twitter.com/sukantahui"
                   target="_blank"
@@ -329,7 +328,6 @@ export default class JavaScriptRoadmap extends Component {
                 >
                   <Twitter size={18} />
                 </a>
-
                 <a
                   href="https://www.codernaccotax.co.in"
                   target="_blank"
@@ -338,7 +336,6 @@ export default class JavaScriptRoadmap extends Component {
                 >
                   <Globe size={18} />
                 </a>
-
                 <a
                   href="https://github.com/sukantahui"
                   target="_blank"
@@ -347,19 +344,15 @@ export default class JavaScriptRoadmap extends Component {
                 >
                   <Github size={18} />
                 </a>
-
                 <a
                   href="mailto:contact@codernaccotax.co.in"
                   className="p-2 rounded-full border border-slate-700 text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 hover:bg-yellow-500/10 transition hover:scale-110"
                 >
                   <Mail size={18} />
                 </a>
-
               </div>
             </div>
           </div>
-
-
 
           {/* Segments */}
           {visibleSegments.map((seg, i) =>

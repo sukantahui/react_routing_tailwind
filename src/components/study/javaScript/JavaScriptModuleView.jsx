@@ -160,8 +160,18 @@ export default function JavaScriptModuleView() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <div className="relative z-10">
+        {/* Sticky header with Back to Roadmap button */}
         <div className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl">
           <div className="max-w-4xl mx-auto p-4 flex justify-between items-center">
+            {/* Back to Roadmap link */}
+            <Link
+              to={`/${roadmapData.folder}/roadmap`}
+              className="flex items-center gap-1 text-slate-400 hover:text-sky-300 transition text-sm"
+            >
+              <ArrowLeft size={16} />
+              <span className="hidden sm:inline">Back to Roadmap</span>
+            </Link>
+
             <div>
               <p className="text-[11px] uppercase text-slate-500 flex items-center gap-2">
                 <BookOpen size={13} className="text-sky-300" />

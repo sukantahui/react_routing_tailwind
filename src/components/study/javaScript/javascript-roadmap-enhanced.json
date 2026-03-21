@@ -406,7 +406,9 @@
             "Return values and early returns",
             "Function scope basics: local vs global variables",
             "Arrow functions and concise syntax",
-            "Pure functions vs side effects (intro idea)"
+            "Pure functions vs side effects (intro idea)",
+            "Quiz",
+            "Project"
           ],
           "learningOutcomes": [
             "Define and call functions with different types of parameters",
@@ -476,7 +478,9 @@
             "Iterating arrays with for, for-of and forEach",
             "Intro to higher-order methods: map, filter, reduce (light overview)",
             "Practice your Skill",
-            "Test your Skill"
+            "Test your Skill",
+            "Projects Basic",
+            "Project Advance"
           ],
           "learningOutcomes": [
             "Store lists of values and access them efficiently",
@@ -574,7 +578,8 @@
             "super() keyword and method overriding",
             "JSON.parse() and JSON.stringify()",
             "Storing and retrieving objects in LocalStorage",
-            "Merging objects and checking object equality"
+            "Merging objects and checking object equality",
+            "Project Basic"
           ],
           "learningOutcomes": [
             "Model real-world entities using objects",
@@ -728,7 +733,8 @@
             "Changing text, HTML and styles dynamically",
             "Creating, appending and removing elements",
             "Working with attributes, classes and data-* attributes",
-            "Mini projects: counter, show/hide password, FAQ toggle"
+            "Mini projects: counter, show/hide password, FAQ toggle",
+            "project work for practice"
           ],
           "learningOutcomes": [
             "Select and manipulate elements on a web page with JavaScript",

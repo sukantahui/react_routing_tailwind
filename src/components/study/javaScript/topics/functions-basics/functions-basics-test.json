@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(foo());\n\nfunction foo() {\n  return 'A';\n}\n\nvar foo = function() {\n  return 'B';\n};",
+    "options": ["A", "B", "undefined", "TypeError"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var bar = function() {\n  return 'X';\n};\n\nfunction bar() {\n  return 'Y';\n}\n\nconsole.log(bar());",
+    "options": ["X", "Y", "undefined", "TypeError"],
+    "answerIndex": 0
+  },
+  {
+    "id": 3,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const result = (function() {\n  return 'IIFE';\n})();\nconsole.log(result);",
+    "options": ["IIFE", "undefined", "function", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 4,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(typeof greet);\nvar greet = function() {\n  return 'Hello';\n};",
+    "options": ["function", "undefined", "string", "object"],
+    "answerIndex": 1
+  },
+  {
+    "id": 5,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "sayHi();\n\nfunction sayHi() {\n  console.log('Hi');\n}\n\nvar sayHi = function() {\n  console.log('Hello');\n};",
+    "options": ["Hi", "Hello", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 6,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const a = function() { return 1; };\nfunction a() { return 2; }\nconsole.log(a());",
+    "options": ["1", "2", "undefined", "SyntaxError"],
+    "answerIndex": 0
+  },
+  {
+    "id": 7,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(foo);\nvar foo = function() {};\nconsole.log(foo);",
+    "options": ["undefined, function", "function, function", "undefined, undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 8,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return 1;\n}\nvar test = 5;\nconsole.log(test);",
+    "options": ["1", "5", "function test()", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 9,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function multiply(a, b = 2) {\n  return a * b;\n}\nconsole.log(multiply(3));",
+    "options": ["6", "3", "NaN", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 10,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function greet(name, greeting = 'Hello') {\n  return `${greeting}, ${name}`;\n}\nconsole.log(greet('Alice', 'Hi'));",
+    "options": ["Hello, Alice", "Hi, Alice", "Alice, Hi", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 11,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function sum(a, b) {\n  return a + b;\n}\nconsole.log(sum(1));",
+    "options": ["1", "NaN", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 12,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function logArgs(a, b, c) {\n  console.log(arguments.length);\n}\nlogArgs(1, 2);",
+    "options": ["2", "3", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 13,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function test(x = 5, y) {\n  return x + y;\n}\nconsole.log(test(undefined, 10));",
+    "options": ["15", "NaN", "5", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 14,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function show(a, ...rest) {\n  console.log(rest[0]);\n}\nshow(1, 2, 3);",
+    "options": ["2", "1", "3", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 15,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "const fn = (a = b, b = 1) => a + b;\nconsole.log(fn());",
+    "options": ["2", "1", "NaN", "ReferenceError"],
+    "answerIndex": 3
+  },
+  {
+    "id": 16,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function combine(obj = {}) {\n  obj.x = 1;\n  return obj;\n}\nconst result = combine();\nconsole.log(result.x);",
+    "options": ["1", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 17,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function add(a, b = a) {\n  return a + b;\n}\nconsole.log(add(3));",
+    "options": ["6", "3", "NaN", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 18,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function getValue() {\n  return 10;\n  console.log('Done');\n}\nconsole.log(getValue());",
+    "options": ["10", "Done", "10 Done", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 19,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function checkAge(age) {\n  if (age < 18) {\n    return 'Too young';\n  }\n  return 'Welcome';\n}\nconsole.log(checkAge(20));",
+    "options": ["Too young", "Welcome", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 20,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return;\n}\nconsole.log(test());",
+    "options": ["undefined", "null", "0", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 21,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function getMessage() {\n  if (true) {\n    return 'A';\n  }\n  return 'B';\n}\nconsole.log(getMessage());",
+    "options": ["A", "B", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 22,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function calculate(x) {\n  if (x <= 0) return 0;\n  return x * 2;\n}\nconsole.log(calculate(5));",
+    "options": ["10", "0", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 23,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function foo() {\n  try {\n    return 1;\n  } finally {\n    return 2;\n  }\n}\nconsole.log(foo());",
+    "options": ["1", "2", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 24,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function process(value) {\n  if (!value) return 'No value';\n  return value.toUpperCase();\n}\nconsole.log(process('hello'));",
+    "options": ["HELLO", "No value", "hello", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 25,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "const fn = () => { return { name: 'John' }; };\nconsole.log(fn().name);",
+    "options": ["John", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 26,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let x = 10;\nfunction test() {\n  let x = 20;\n  console.log(x);\n}\ntest();",
+    "options": ["10", "20", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 27,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let a = 5;\nfunction modify() {\n  a = 10;\n}\nmodify();\nconsole.log(a);",
+    "options": ["5", "10", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 28,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var color = 'red';\nfunction getColor() {\n  var color = 'blue';\n  return color;\n}\nconsole.log(getColor());\nconsole.log(color);",
+    "options": ["blue, red", "red, blue", "blue, blue", "red, red"],
+    "answerIndex": 0
+  },
+  {
+    "id": 29,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let count = 0;\nfunction increment() {\n  count++;\n}\nincrement();\nincrement();\nconsole.log(count);",
+    "options": ["0", "1", "2", "undefined"],
+    "answerIndex": 2
+  },
+  {
+    "id": 30,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function outer() {\n  let x = 'outer';\n  function inner() {\n    let x = 'inner';\n    console.log(x);\n  }\n  inner();\n}\nouter();",
+    "options": ["outer", "inner", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 31,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var global = 'global';\nfunction show() {\n  global = 'changed';\n  console.log(global);\n}\nshow();",
+    "options": ["global", "changed", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 32,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let z = 1;\nfunction scopeTest() {\n  console.log(z);\n  let z = 2;\n}\nscopeTest();",
+    "options": ["1", "2", "undefined", "ReferenceError"],
+    "answerIndex": 3
+  },
+  {
+    "id": 33,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var x = 5;\nfunction test() {\n  console.log(x);\n  var x = 10;\n}\ntest();",
+    "options": ["5", "10", "undefined", "Error"],
+    "answerIndex": 2
+  },
+  {
+    "id": 34,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const add = (a, b) => a + b;\nconsole.log(add(2, 3));",
+    "options": ["5", "23", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 35,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const greet = name => 'Hello ' + name;\nconsole.log(greet('Alice'));",
+    "options": ["Hello Alice", "Hello, Alice", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 36,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const obj = {\n  name: 'John',\n  greet: () => console.log(this.name)\n};\nobj.greet();",
+    "options": ["John", "undefined", "null", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 37,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const square = x => x * x;\nconsole.log(square(4));",
+    "options": ["16", "8", "4", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 38,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const arrow = () => { return 42; };\nconsole.log(arrow());",
+    "options": ["42", "undefined", "Error", "{}"],
+    "answerIndex": 0
+  },
+  {
+    "id": 39,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const multiply = (a, b) => a * b;\nconsole.log(multiply(3, 4, 5));",
+    "options": ["12", "60", "3", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 40,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const sum = (a, b) => { a + b; };\nconsole.log(sum(1, 2));",
+    "options": ["3", "undefined", "NaN", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 41,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const numbers = [1, 2, 3];\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled[1]);",
+    "options": ["2", "4", "6", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 42,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let counter = 0;\nfunction increment() {\n  counter++;\n  return counter;\n}\nconsole.log(increment());\nconsole.log(increment());",
+    "options": ["1, 2", "0, 1", "1, 1", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 43,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function add(a, b) {\n  return a + b;\n}\nconsole.log(add(2, 3));",
+    "options": ["5", "undefined", "Error", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 44,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const arr = [1, 2];\nfunction pushElement(arr, val) {\n  arr.push(val);\n  return arr;\n}\nconst result = pushElement(arr, 3);\nconsole.log(arr.length);",
+    "options": ["2", "3", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 45,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function pureDouble(x) {\n  return x * 2;\n}\nlet y = 5;\nconsole.log(pureDouble(y));\nconsole.log(y);",
+    "options": ["10, 5", "10, 10", "5, 5", "5, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 46,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let total = 0;\nfunction impureAdd(x) {\n  total += x;\n  return total;\n}\nconsole.log(impureAdd(5));\nconsole.log(impureAdd(3));",
+    "options": ["5, 8", "5, 3", "5, 5", "8, 8"],
+    "answerIndex": 0
+  },
+  {
+    "id": 47,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function createGreeting(name) {\n  return `Hello, ${name}`;\n}\nconsole.log(createGreeting('Anna'));\nconsole.log(createGreeting('Anna'));",
+    "options": ["Hello, Anna (twice)", "Hello, Anna then different", "Error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 48,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function impureLog(msg) {\n  console.log(msg);\n  return msg;\n}\nconst result = impureLog('Test');\nconsole.log(result);",
+    "options": ["Test (once)", "Test (twice)", "undefined", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 49,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const original = [1, 2];\nfunction pureConcat(arr, val) {\n  return [...arr, val];\n}\nconst newArr = pureConcat(original, 3);\nconsole.log(original.length);",
+    "options": ["2", "3", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 50,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let global = 10;\nfunction sideEffect() {\n  global = 20;\n  return global;\n}\nconsole.log(sideEffect());\nconsole.log(global);",
+    "options": ["20, 20", "10, 20", "20, 10", "10, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 51,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var a = 1;\nfunction a() {}\nconsole.log(typeof a);",
+    "options": ["function", "number", "undefined", "string"],
+    "answerIndex": 1
+  },
+  {
+    "id": 52,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const fn = function func() {\n  return func.name;\n};\nconsole.log(fn());",
+    "options": ["func", "fn", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 53,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(typeof sum);\nvar sum = function(a, b) { return a + b; };\nfunction sum(a, b) { return a - b; }",
+    "options": ["function", "undefined", "number", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 54,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var x = 10;\nfunction test() {\n  console.log(x);\n  var x = 20;\n}\ntest();",
+    "options": ["10", "20", "undefined", "Error"],
+    "answerIndex": 2
+  },
+  {
+    "id": 55,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "say();\nvar say = function() { console.log('A'); };\nsay();\nfunction say() { console.log('B'); }",
+    "options": ["B, A", "A, B", "B, B", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 56,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const square = function(n) { return n * n; };\nconsole.log(square(5));",
+    "options": ["25", "5", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 57,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function foo() { return 1; }\nvar foo = 2;\nconsole.log(foo);",
+    "options": ["1", "2", "function", "undefined"],
+    "answerIndex": 1
+  },
+  {
+    "id": 58,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const result = (function(a, b) {\n  return a * b;\n})(4, 5);\nconsole.log(result);",
+    "options": ["20", "9", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 59,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function demo(a, b = 2, c) {\n  return a + b + c;\n}\nconsole.log(demo(1, undefined, 3));",
+    "options": ["6", "NaN", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 60,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function sum(...nums) {\n  return nums.reduce((acc, n) => acc + n, 0);\n}\nconsole.log(sum(1, 2, 3, 4));",
+    "options": ["10", "6", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 61,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function greet(name = 'Guest') {\n  console.log(`Hello, ${name}`);\n}\ngreet(undefined);",
+    "options": ["Hello, Guest", "Hello, undefined", "Hello, null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 62,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function test(x, y = x) {\n  console.log(x, y);\n}\ntest(5);",
+    "options": ["5 5", "5 undefined", "undefined undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 63,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function multiply(a, b = a * 2) {\n  return a * b;\n}\nconsole.log(multiply(3));",
+    "options": ["18", "9", "6", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 64,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function showArgs(a, b) {\n  console.log(arguments[0], arguments[1]);\n}\nshowArgs(10);",
+    "options": ["10 undefined", "10 10", "undefined undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 65,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function config(options = {}) {\n  console.log(options.theme);\n}\nconfig();",
+    "options": ["undefined", "null", "{}", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 66,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function validate(num) {\n  if (num < 0) return 'Negative';\n  if (num === 0) return 'Zero';\n  return 'Positive';\n}\nconsole.log(validate(-5));",
+    "options": ["Negative", "Zero", "Positive", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 67,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function divide(a, b) {\n  if (b === 0) return;\n  return a / b;\n}\nconsole.log(divide(10, 0));",
+    "options": ["undefined", "null", "Infinity", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 68,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function getFirst(arr) {\n  if (!arr.length) return null;\n  return arr[0];\n}\nconsole.log(getFirst([]));",
+    "options": ["null", "undefined", "0", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 69,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function check(value) {\n  if (value > 5) return 'big';\n  else if (value > 2) return 'medium';\n  else return 'small';\n}\nconsole.log(check(4));",
+    "options": ["medium", "big", "small", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 70,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return;\n  return 5;\n}\nconsole.log(test());",
+    "options": ["undefined", "5", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 71,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function factory() {\n  return {\n    value: 42\n  };\n}\nconst obj = factory();\nconsole.log(obj.value);",
+    "options": ["42", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 72,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function isEven(n) {\n  if (n % 2 === 0) return true;\n  return false;\n}\nconsole.log(isEven(3));",
+    "options": ["false", "true", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 73,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let value = 'global';\nfunction outer() {\n  let value = 'outer';\n  function inner() {\n    console.log(value);\n  }\n  inner();\n}\nouter();",
+    "options": ["outer", "global", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 74,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var a = 1;\nfunction foo() {\n  a = 2;\n  function bar() {\n    var a = 3;\n  }\n  bar();\n}\nfoo();\nconsole.log(a);",
+    "options": ["2", "1", "3", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let message = 'Hello';\nfunction changeMessage() {\n  let message = 'Hi';\n  message = 'Hey';\n}\nchangeMessage();\nconsole.log(message);",
+    "options": ["Hello", "Hi", "Hey", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 76,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function outer() {\n  var x = 10;\n  if (true) {\n    var x = 20;\n  }\n  console.log(x);\n}\nouter();",
+    "options": ["20", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 77,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let flag = true;\nfunction toggle() {\n  flag = !flag;\n}\ntoggle();\ntoggle();\nconsole.log(flag);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 78,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "const name = 'Alice';\nfunction greet() {\n  const name = 'Bob';\n  console.log(name);\n}\ngreet();",
+    "options": ["Bob", "Alice", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 79,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function createCounter() {\n  let count = 0;\n  return function() {\n    count++;\n    return count;\n  };\n}\nconst counter = createCounter();\nconsole.log(counter());\nconsole.log(counter());",
+    "options": ["1, 2", "0, 1", "1, 1", "2, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 80,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const double = n => n * 2;\nconsole.log(double(7));",
+    "options": ["14", "7", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 81,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const obj = {\n  value: 10,\n  getValue: () => this.value\n};\nconsole.log(obj.getValue());",
+    "options": ["10", "undefined", "null", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 82,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const fn = (a, b) => a - b;\nconsole.log(fn(10, 3));",
+    "options": ["7", "13", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 83,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const arrow = () => ({ name: 'Arrow' });\nconsole.log(arrow().name);",
+    "options": ["Arrow", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 84,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const numbers = [1, 2, 3];\nconst sum = numbers.reduce((acc, curr) => acc + curr, 0);\nconsole.log(sum);",
+    "options": ["6", "5", "3", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 85,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const foo = () => { a: 1 };\nconsole.log(foo());",
+    "options": ["undefined", "{ a: 1 }", "1", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 86,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const sayHi = () => 'Hi';\nconsole.log(sayHi());",
+    "options": ["Hi", "undefined", "Error", "null"],
+    "answerIndex": 0
+  },
+  {
+    "id": 87,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const multiply = (a, b = 2) => a * b;\nconsole.log(multiply(5));",
+    "options": ["10", "5", "NaN", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 88,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let data = [1, 2, 3];\nfunction addElement(arr, val) {\n  arr.push(val);\n  return arr;\n}\nconst newData = addElement(data, 4);\nconsole.log(data === newData);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 89,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function addPure(a, b) {\n  return a + b;\n}\nlet x = 5;\nlet y = addPure(x, 3);\nconsole.log(x);",
+    "options": ["5", "8", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 90,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const user = { name: 'John' };\nfunction updateName(obj, newName) {\n  obj.name = newName;\n  return obj;\n}\nconst updated = updateName(user, 'Jane');\nconsole.log(user.name);",
+    "options": ["Jane", "John", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 91,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function squarePure(n) {\n  return n * n;\n}\nlet value = 4;\nlet squared = squarePure(value);\nconsole.log(value);",
+    "options": ["4", "16", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 92,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let counter = 0;\nfunction getCounter() {\n  return counter;\n}\nfunction incrementCounter() {\n  counter++;\n}\nincrementCounter();\nincrementCounter();\nconsole.log(getCounter());",
+    "options": ["2", "0", "1", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 93,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const arr1 = [1, 2];\nconst arr2 = arr1;\narr2.push(3);\nconsole.log(arr1.length);",
+    "options": ["3", "2", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 94,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function mergePure(a, b) {\n  return [...a, ...b];\n}\nconst original = [1, 2];\nconst result = mergePure(original, [3]);\nconsole.log(original.length);",
+    "options": ["2", "3", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 95,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let globalCounter = 10;\nfunction modifyGlobal() {\n  globalCounter = 20;\n}\nmodifyGlobal();\nconsole.log(globalCounter);",
+    "options": ["20", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 96,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function doubleArray(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    arr[i] *= 2;\n  }\n  return arr;\n}\nconst nums = [1, 2, 3];\nconst doubled = doubleArray(nums);\nconsole.log(nums[0]);",
+    "options": ["2", "1", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 97,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function getRandom() {\n  return Math.random();\n}\nconsole.log(getRandom() === getRandom());",
+    "options": ["false", "true", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 98,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function sideEffect() {\n  console.log('side effect');\n  return 42;\n}\nconst val = sideEffect();\nconsole.log(val);",
+    "options": ["side effect (twice)", "side effect (once)", "42 (only)", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 99,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function pureCopy(obj) {\n  return { ...obj };\n}\nconst originalObj = { a: 1 };\nconst copy = pureCopy(originalObj);\ncopy.a = 2;\nconsole.log(originalObj.a);",
+    "options": ["1", "2", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 100,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let counter = 0;\nfunction impure() {\n  counter++;\n  return counter;\n}\nconsole.log(impure());\nconsole.log(impure());",
+    "options": ["1, 2", "0, 1", "1, 1", "2, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 101,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function foo() {\n  return 'declaration';\n}\nvar foo = function() {\n  return 'expression';\n};\nconsole.log(foo());",
+    "options": ["declaration", "expression", "undefined", "TypeError"],
+    "answerIndex": 1
+  },
+  {
+    "id": 102,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(typeof bar);\nfunction bar() {}\nvar bar = 5;",
+    "options": ["function", "number", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 103,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var a = function b() {\n  return typeof b;\n};\nconsole.log(a());",
+    "options": ["function", "string", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 104,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return typeof test;\n}\nvar test = 10;\nconsole.log(test());",
+    "options": ["function", "number", "TypeError", "undefined"],
+    "answerIndex": 2
+  },
+  {
+    "id": 105,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "(function() {\n  console.log('A');\n})();\n(function() {\n  console.log('B');\n}());",
+    "options": ["A, B", "B, A", "A only", "B only"],
+    "answerIndex": 0
+  },
+  {
+    "id": 106,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const factorial = function fac(n) {\n  return n < 2 ? 1 : n * fac(n - 1);\n};\nconsole.log(factorial(3));",
+    "options": ["6", "3", "1", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 107,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var x = 1;\nif (function f(){}) {\n  x += typeof f;\n}\nconsole.log(x);",
+    "options": ["1function", "1undefined", "1", "Error"],
+    "answerIndex": 1
+  },
+  {
+    "id": 108,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return this;\n}\nconsole.log(test() === window);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 109,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var greet;\nconsole.log(greet);\ngreet = function() {\n  return 'Hello';\n};",
+    "options": ["undefined", "function", "Hello", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 110,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function outer() {\n  function inner() {\n    return 'inner';\n  }\n  var inner = function() {\n    return 'innerExpr';\n  };\n  return inner();\n}\nconsole.log(outer());",
+    "options": ["innerExpr", "inner", "undefined", "TypeError"],
+    "answerIndex": 0
+  },
+  {
+    "id": 111,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function example(a = 1, b = a) {\n  return a + b;\n}\nconsole.log(example(5));",
+    "options": ["10", "6", "5", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 112,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function sum(a, b = 2, c = 3) {\n  return a + b + c;\n}\nconsole.log(sum(1, undefined, 5));",
+    "options": ["8", "9", "6", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 113,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function args(...rest) {\n  return rest.length;\n}\nconsole.log(args(1, 2, 3, 4));",
+    "options": ["4", "3", "2", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 114,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function foo(a, b = a, c = b) {\n  return a + b + c;\n}\nconsole.log(foo(2));",
+    "options": ["6", "4", "2", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 115,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function test(a, b = a, c = a + b) {\n  return c;\n}\nconsole.log(test(3));",
+    "options": ["6", "3", "9", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 116,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function demo({ name = 'Guest' } = {}) {\n  return name;\n}\nconsole.log(demo());",
+    "options": ["Guest", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 117,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function total(...values) {\n  return values.reduce((acc, val) => acc + val, 10);\n}\nconsole.log(total(1, 2, 3));",
+    "options": ["16", "6", "10", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 118,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function multiply(a, b = 1) {\n  arguments[0] = 10;\n  return a * b;\n}\nconsole.log(multiply(2, 3));",
+    "options": ["20", "6", "30", "10"],
+    "answerIndex": 1
+  },
+  {
+    "id": 119,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "const fn = (a, b = a + 1) => a + b;\nconsole.log(fn(2));",
+    "options": ["5", "4", "3", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 120,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function log(a, b = console.log('default')) {\n  console.log(a);\n}\nlog(1);",
+    "options": ["default, 1", "1, default", "default", "1"],
+    "answerIndex": 0
+  },
+  {
+    "id": 121,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function findFirstEven(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    if (arr[i] % 2 === 0) return arr[i];\n  }\n  return null;\n}\nconsole.log(findFirstEven([1, 3, 5, 8]));",
+    "options": ["8", "1", "null", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 122,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function validateAge(age) {\n  if (age < 0) return 'Invalid';\n  if (age < 18) return 'Minor';\n  return 'Adult';\n}\nconsole.log(validateAge(25));",
+    "options": ["Adult", "Minor", "Invalid", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 123,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function sumUntilZero(...nums) {\n  let total = 0;\n  for (let n of nums) {\n    if (n === 0) return total;\n    total += n;\n  }\n  return total;\n}\nconsole.log(sumUntilZero(1, 2, 0, 3));",
+    "options": ["3", "6", "0", "1"],
+    "answerIndex": 0
+  },
+  {
+    "id": 124,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function check(x) {\n  if (x > 0) {\n    return 'positive';\n  } else if (x < 0) {\n    return 'negative';\n  }\n  return 'zero';\n}\nconsole.log(check(0));",
+    "options": ["zero", "positive", "negative", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 125,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function earlyReturn() {\n  try {\n    throw 'error';\n  } catch (e) {\n    return 'caught';\n  } finally {\n    return 'finally';\n  }\n}\nconsole.log(earlyReturn());",
+    "options": ["finally", "caught", "error", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 126,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function getValue(cond) {\n  if (cond) return 'A';\n  if (!cond) return 'B';\n}\nconsole.log(getValue(true));",
+    "options": ["A", "B", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 127,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return {\n    value: 1\n  };\n  this.value = 2;\n}\nconsole.log(test().value);",
+    "options": ["1", "2", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 128,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function multiplier(factor) {\n  return function(number) {\n    return number * factor;\n  };\n}\nconst double = multiplier(2);\nconsole.log(double(5));",
+    "options": ["10", "5", "2", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 129,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function process(value) {\n  if (typeof value !== 'number') return 'not a number';\n  return value * 2;\n}\nconsole.log(process('5'));",
+    "options": ["not a number", "10", "NaN", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 130,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function foo() {\n  let x = 1;\n  return function() {\n    return x++;\n  };\n}\nconst counter = foo();\nconsole.log(counter());\nconsole.log(counter());",
+    "options": ["1, 2", "1, 1", "2, 3", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 131,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var a = 10;\nfunction test() {\n  var a = 20;\n  console.log(a);\n}\ntest();\nconsole.log(a);",
+    "options": ["20, 10", "10, 20", "20, 20", "10, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 132,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let b = 5;\nfunction func() {\n  let b = 10;\n  if (true) {\n    let b = 15;\n    console.log(b);\n  }\n  console.log(b);\n}\nfunc();",
+    "options": ["15, 10", "10, 15", "15, 5", "5, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 133,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var x = 1;\nfunction first() {\n  var x = 2;\n  function second() {\n    var x = 3;\n    console.log(x);\n  }\n  second();\n}\nfirst();",
+    "options": ["3", "2", "1", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 134,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var name = 'Global';\nfunction showName() {\n  name = 'Local';\n  console.log(name);\n}\nshowName();\nconsole.log(name);",
+    "options": ["Local, Local", "Global, Local", "Local, Global", "Global, Global"],
+    "answerIndex": 0
+  },
+  {
+    "id": 135,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function outer() {\n  var x = 10;\n  function inner() {\n    console.log(x);\n  }\n  x = 20;\n  return inner;\n}\nconst fn = outer();\nfn();",
+    "options": ["20", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 136,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let a = 1;\nlet b = 2;\nfunction test(a) {\n  a = 3;\n  b = 4;\n}\ntest(a);\nconsole.log(a, b);",
+    "options": ["1, 4", "3, 4", "1, 2", "3, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 137,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var color = 'blue';\nfunction changeColor() {\n  var color = 'red';\n  color = 'green';\n}\nchangeColor();\nconsole.log(color);",
+    "options": ["blue", "red", "green", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 138,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function test() {\n  console.log(x);\n  var x = 5;\n  console.log(x);\n}\ntest();",
+    "options": ["undefined, 5", "5, 5", "Error, 5", "5, undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 139,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let globalVar = 'outer';\nfunction outer() {\n  let globalVar = 'inner';\n  function inner() {\n    console.log(globalVar);\n  }\n  inner();\n}\nouter();",
+    "options": ["inner", "outer", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 140,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var a = 1;\nfunction b() {\n  a = 10;\n  return;\n  function a() {}\n}\nb();\nconsole.log(a);",
+    "options": ["1", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 141,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const greet = () => { name: 'John' };\nconsole.log(greet());",
+    "options": ["undefined", "{ name: 'John' }", "John", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 142,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const sum = (a, b) => a + b;\nconsole.log(sum(2, '3'));",
+    "options": ["23", "5", "NaN", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 143,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const obj = {\n  name: 'Arrow',\n  getName: () => this.name\n};\nconsole.log(obj.getName());",
+    "options": ["undefined", "Arrow", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 144,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const arrow = x => x * x;\nconsole.log(arrow(6));",
+    "options": ["36", "12", "6", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 145,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const nums = [1, 2, 3, 4];\nconst even = nums.filter(n => n % 2 === 0);\nconsole.log(even.length);",
+    "options": ["2", "4", "3", "1"],
+    "answerIndex": 0
+  },
+  {
+    "id": 146,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const identity = x => x;\nconsole.log(identity(100));",
+    "options": ["100", "undefined", "function", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 147,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const getObj = () => ({ a: 1 });\nconst obj = getObj();\nconsole.log(obj.a);",
+    "options": ["1", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 148,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const add = (a, b) => a + b;\nconsole.log(add(5));",
+    "options": ["NaN", "5", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 149,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const counter = {\n  count: 0,\n  increment: function() {\n    setInterval(() => {\n      this.count++;\n      console.log(this.count);\n    }, 100);\n  }\n};\ncounter.increment();\nsetTimeout(() => {}, 250);",
+    "options": ["1, 2", "0, 1", "1, 1", "2, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 150,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const arrowFunc = () => arguments;\nconsole.log(arrowFunc(1, 2, 3));",
+    "options": ["ReferenceError", "[1, 2, 3]", "undefined", "{}"],
+    "answerIndex": 0
+  },
+  {
+    "id": 151,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let total = 0;\nfunction addToTotal(val) {\n  total += val;\n  return total;\n}\nconsole.log(addToTotal(5));\nconsole.log(total);",
+    "options": ["5, 5", "5, 0", "0, 5", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 152,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function addPure(a, b) {\n  return a + b;\n}\nlet result1 = addPure(2, 3);\nlet result2 = addPure(2, 3);\nconsole.log(result1 === result2);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 153,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const arr = [1, 2];\nfunction modify(arr) {\n  arr.push(3);\n  return arr;\n}\nconst newArr = modify(arr);\nconsole.log(arr === newArr);",
+    "options": ["true", "false", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 154,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function pureConcat(arr, val) {\n  return [...arr, val];\n}\nconst original = [1, 2];\nconst result = pureConcat(original, 3);\nconsole.log(original.length);",
+    "options": ["2", "3", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 155,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let counter = 0;\nfunction increment() {\n  counter++;\n  return counter;\n}\nconsole.log(increment());\nconsole.log(increment());",
+    "options": ["1, 2", "0, 1", "1, 1", "2, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 156,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function impureLog(msg) {\n  console.log(msg);\n  return msg;\n}\nconst val = impureLog('Test');\nconsole.log(val);",
+    "options": ["Test (twice)", "Test (once)", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 157,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const user = { name: 'Alice' };\nfunction updateUser(obj) {\n  obj.name = 'Bob';\n  return obj;\n}\nconst updated = updateUser(user);\nconsole.log(user.name);",
+    "options": ["Bob", "Alice", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 158,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function pureSquare(n) {\n  return n * n;\n}\nlet x = 4;\nlet y = pureSquare(x);\nconsole.log(x);",
+    "options": ["4", "16", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 159,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function random() {\n  return Math.random();\n}\nconsole.log(random() === random());",
+    "options": ["false", "true", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 160,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let count = 0;\nfunction getCount() {\n  return count;\n}\nfunction setCount(val) {\n  count = val;\n}\nsetCount(5);\nconsole.log(getCount());",
+    "options": ["5", "0", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 161,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "console.log(foo);\nfunction foo() {}\nvar foo = 2;",
+    "options": ["function", "2", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 162,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var bar = 1;\nfunction bar() {}\nconsole.log(typeof bar);",
+    "options": ["number", "function", "undefined", "object"],
+    "answerIndex": 0
+  },
+  {
+    "id": 163,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "(function() {\n  console.log(1);\n})();\n(function() {\n  console.log(2);\n}());",
+    "options": ["1, 2", "2, 1", "1", "2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 164,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const fn = function myFunc() {\n  return myFunc.name;\n};\nconsole.log(fn());",
+    "options": ["myFunc", "fn", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 165,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function a() {\n  return 1;\n}\nvar a = 2;\nconsole.log(a);",
+    "options": ["2", "1", "function", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 166,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function greet({ name = 'Guest' } = {}) {\n  console.log(`Hello, ${name}`);\n}\ngreet({ name: 'John' });",
+    "options": ["Hello, John", "Hello, Guest", "Hello, undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 167,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function test(a, b = a + 1, c = b + 1) {\n  return c;\n}\nconsole.log(test(2));",
+    "options": ["4", "3", "5", "2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 168,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function sum(...nums) {\n  return nums.reduce((acc, n) => acc + n, 0);\n}\nconsole.log(sum());",
+    "options": ["0", "undefined", "NaN", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 169,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function concat(separator = ',', ...strings) {\n  return strings.join(separator);\n}\nconsole.log(concat('-', 'a', 'b', 'c'));",
+    "options": ["a-b-c", "a,b,c", "-a-b-c", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 170,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function foo(a = b, b = 1) {\n  return a + b;\n}\nconsole.log(foo());",
+    "options": ["ReferenceError", "2", "1", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 171,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function factorial(n) {\n  if (n <= 1) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(4));",
+    "options": ["24", "12", "6", "1"],
+    "answerIndex": 0
+  },
+  {
+    "id": 172,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function max(a, b) {\n  if (a > b) return a;\n  return b;\n}\nconsole.log(max(7, 7));",
+    "options": ["7", "undefined", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 173,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function test() {\n  return;\n  return 5;\n}\nconsole.log(test());",
+    "options": ["undefined", "5", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 174,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function createPerson(name, age) {\n  if (!name) return;\n  return { name, age };\n}\nconsole.log(createPerson('', 25));",
+    "options": ["undefined", "null", "{}", "{ name: '', age: 25 }"],
+    "answerIndex": 0
+  },
+  {
+    "id": 175,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function power(base, exp) {\n  if (exp === 0) return 1;\n  return base * power(base, exp - 1);\n}\nconsole.log(power(2, 3));",
+    "options": ["8", "6", "4", "2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 176,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var x = 10;\nfunction outer() {\n  var x = 20;\n  function inner() {\n    console.log(x);\n  }\n  inner();\n}\nouter();",
+    "options": ["20", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 177,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "let a = 10;\nfunction foo() {\n  let a = 20;\n  console.log(a);\n}\nfoo();\nconsole.log(a);",
+    "options": ["20, 10", "10, 20", "20, 20", "10, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 178,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function test() {\n  if (true) {\n    var x = 5;\n  }\n  console.log(x);\n}\ntest();",
+    "options": ["5", "undefined", "ReferenceError", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 179,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "function test() {\n  if (true) {\n    let x = 5;\n  }\n  console.log(x);\n}\ntest();",
+    "options": ["ReferenceError", "5", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 180,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var y = 1;\nfunction test() {\n  y = 2;\n  function y() {}\n}\ntest();\nconsole.log(y);",
+    "options": ["1", "2", "function", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 181,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const numbers = [5, 10, 15];\nconst doubled = numbers.map(n => n * 2);\nconsole.log(doubled[1]);",
+    "options": ["20", "10", "30", "5"],
+    "answerIndex": 0
+  },
+  {
+    "id": 182,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const obj = {\n  value: 100,\n  method: () => this.value\n};\nconsole.log(obj.method());",
+    "options": ["undefined", "100", "null", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 183,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const square = x => x * x;\nconsole.log(square(9));",
+    "options": ["81", "18", "9", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 184,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const noReturn = () => { a: 1 };\nconsole.log(noReturn());",
+    "options": ["undefined", "{ a: 1 }", "1", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 185,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const sum = (a, b) => a + b;\nconsole.log(sum(10, 20, 30));",
+    "options": ["30", "60", "10", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 186,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let value = 10;\nfunction impure() {\n  value = 20;\n  return value;\n}\nconsole.log(impure());\nconsole.log(value);",
+    "options": ["20, 20", "10, 20", "20, 10", "10, 10"],
+    "answerIndex": 0
+  },
+  {
+    "id": 187,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function pureAdd(a, b) {\n  return a + b;\n}\nconsole.log(pureAdd(3, 4));\nconsole.log(pureAdd(3, 4));",
+    "options": ["7, 7", "7, 8", "7, undefined", "3, 4"],
+    "answerIndex": 0
+  },
+  {
+    "id": 188,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "const original = [1, 2];\nfunction mutate(arr) {\n  arr[0] = 99;\n  return arr;\n}\nconst newArr = mutate(original);\nconsole.log(original[0]);",
+    "options": ["99", "1", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 189,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function noSideEffect(x) {\n  return x * 2;\n}\nlet a = 5;\nlet b = noSideEffect(a);\nconsole.log(a);",
+    "options": ["5", "10", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 190,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "let global = 0;\nfunction incrementGlobal() {\n  global++;\n  return global;\n}\nconsole.log(incrementGlobal());\nconsole.log(incrementGlobal());",
+    "options": ["1, 2", "0, 1", "1, 1", "2, 2"],
+    "answerIndex": 0
+  },
+  {
+    "id": 191,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "function test() {\n  console.log('A');\n}\nvar test = function() {\n  console.log('B');\n};\ntest();",
+    "options": ["B", "A", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 192,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "var a = 1;\nfunction a() {}\nconsole.log(typeof a);",
+    "options": ["number", "function", "undefined", "object"],
+    "answerIndex": 0
+  },
+  {
+    "id": 193,
+    "topic": "Function declarations vs function expressions",
+    "question": "What will be logged?",
+    "code": "const add = new Function('a', 'b', 'return a + b');\nconsole.log(add(5, 3));",
+    "options": ["8", "53", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 194,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function foo(a, b = a) {\n  console.log(a, b);\n}\nfoo(5);",
+    "options": ["5 5", "5 undefined", "undefined undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 195,
+    "topic": "Parameters, arguments and default parameters",
+    "question": "What will be logged?",
+    "code": "function test([a, b] = [1, 2]) {\n  return a + b;\n}\nconsole.log(test());",
+    "options": ["3", "1", "2", "undefined"],
+    "answerIndex": 0
+  },
+  {
+    "id": 196,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function getType(val) {\n  if (Array.isArray(val)) return 'array';\n  if (val === null) return 'null';\n  return typeof val;\n}\nconsole.log(getType(null));",
+    "options": ["null", "object", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 197,
+    "topic": "Return values and early returns",
+    "question": "What will be logged?",
+    "code": "function safeDivide(a, b) {\n  if (b === 0) return Infinity;\n  return a / b;\n}\nconsole.log(safeDivide(10, 0));",
+    "options": ["Infinity", "undefined", "NaN", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 198,
+    "topic": "Function scope basics: local vs global variables",
+    "question": "What will be logged?",
+    "code": "var x = 5;\nfunction outer() {\n  var x = 10;\n  function inner() {\n    console.log(x);\n  }\n  inner();\n}\nouter();",
+    "options": ["10", "5", "undefined", "Error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 199,
+    "topic": "Arrow functions and concise syntax",
+    "question": "What will be logged?",
+    "code": "const fn = (a, b) => {\n  return a + b;\n};\nconsole.log(fn(1, 2, 3));",
+    "options": ["3", "6", "1", "NaN"],
+    "answerIndex": 0
+  },
+  {
+    "id": 200,
+    "topic": "Pure functions vs side effects (intro idea)",
+    "question": "What will be logged?",
+    "code": "function updateObject(obj) {\n  obj.newProp = 'added';\n  return obj;\n}\nconst original = { a: 1 };\nconst updated = updateObject(original);\nconsole.log(original.newProp);",
+    "options": ["added", "undefined", "null", "Error"],
+    "answerIndex": 0
+  }
+]
