@@ -157,7 +157,8 @@ export default class Topic2 extends Component {
             <li>All hardware talks through kernel.</li>
           </ul>
         </section>
-
+         {/* Teacher Description */}
+                <Teacher/>
       </div>
     );
   }
