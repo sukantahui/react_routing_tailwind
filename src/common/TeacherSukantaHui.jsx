@@ -35,9 +35,9 @@ export default function TeacherSukantaHui({note=''}) {
                                 hover:shadow-[0_0_18px_rgba(59,130,246,0.4)]"
                 />
                 <h1 className="text-2xl font-bold mt-4">{name}</h1>
-                <h1>Our Teacher is {name}</h1>
+                <h3><a href="https://github.com/sukantahui" target="_blank" rel="noopener noreferrer">GitHub Profile</a></h3>
                 <h2>Experience: {experience}+</h2>
-                <h5>Head of Software Training & Mentorship</h5>
+                <h5>A dedicated Software Engineer with 27+ years of experience in building scalable and efficient applications. Possesses strong knowledge of Data Structures & Algorithms, along with excellent problem-solving and logical reasoning skills. Skilled in Python, C, C++, Java, VB.NET, JavaScript, Angular, React, Laravel, SQL, Advanced Excel, Power BI, and Shell Scripting. Committed to mentoring and guiding students.</h5>
                
             </div>
         </>

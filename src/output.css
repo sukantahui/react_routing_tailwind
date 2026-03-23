@@ -460,6 +460,9 @@
   .visible {
     visibility: visible;
   }
+  .visible\! {
+    visibility: visible !important;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -1026,11 +1029,17 @@
   .flex {
     display: flex;
   }
+  .flow-root {
+    display: flow-root;
+  }
   .grid {
     display: grid;
   }
   .hidden {
     display: none;
+  }
+  .hidden\! {
+    display: none !important;
   }
   .inline {
     display: inline;
@@ -1041,11 +1050,41 @@
   .inline-flex {
     display: inline-flex;
   }
+  .inline-grid {
+    display: inline-grid;
+  }
+  .inline-table {
+    display: inline-table;
+  }
   .list-item {
     display: list-item;
   }
   .table {
     display: table;
+  }
+  .table-caption {
+    display: table-caption;
+  }
+  .table-cell {
+    display: table-cell;
+  }
+  .table-column {
+    display: table-column;
+  }
+  .table-column-group {
+    display: table-column-group;
+  }
+  .table-footer-group {
+    display: table-footer-group;
+  }
+  .table-header-group {
+    display: table-header-group;
+  }
+  .table-row {
+    display: table-row;
+  }
+  .table-row-group {
+    display: table-row-group;
   }
   .size-1 {
     width: calc(var(--spacing) * 1);
@@ -1467,6 +1506,9 @@
   }
   .flex-1 {
     flex: 1;
+  }
+  .flex-shrink {
+    flex-shrink: 1;
   }
   .flex-shrink-0 {
     flex-shrink: 0;
@@ -9219,6 +9261,9 @@
   .line-through {
     text-decoration-line: line-through;
   }
+  .overline {
+    text-decoration-line: overline;
+  }
   .underline {
     text-decoration-line: underline;
   }
@@ -9761,6 +9806,11 @@
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition\! {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events !important;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function)) !important;
+    transition-duration: var(--tw-duration, var(--default-transition-duration)) !important;
   }
   .transition-all {
     transition-property: all;
