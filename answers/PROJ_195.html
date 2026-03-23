@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Project: fetch random quote</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dom Project: fetch random quote</h1>
+        <p><strong>Difficulty:</strong> Advanced</p>
+        <p><strong>Description:</strong> Create an interactive component: fetch random quote.</p>
+        <div id="app">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+    <script>
+        // Project: Dom Project: fetch random quote
+        
+        // HTML will be generated; the following JS manipulates the DOM
+        const app = document.getElementById('app');
+        <button id='fetchQuote'>Get Quote</button><p id='quote'></p>
+        document.getElementById('fetchQuote').addEventListener('click', async () => { const response = await fetch('https://api.quotable.io/random'); const data = await response.json(); document.getElementById('quote').textContent = data.content; });
+        
+    </script>
+</body>
+</html>

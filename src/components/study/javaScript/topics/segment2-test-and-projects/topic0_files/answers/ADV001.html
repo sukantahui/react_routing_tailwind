@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List App</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Todo List App
+        // Write your code here
+        
+// Todo List with localStorage
+let todos = JSON.parse(localStorage.getItem('todos') || '[]');
+const app = document.getElementById('app');
+function render() {
+    app.innerHTML = `
+        <input type="text" id="todoInput" placeholder="Add new todo">
+        <button id="addBtn">Add</button>
+        <ul id="todoList">
+            ${todos.map((todo, i) => `
+                <li>
+                    <input type="checkbox" ${todo.completed ? 'checked' : ''} data-id="${i}">
+                    <span style="${todo.completed ? 'text-decoration: line-through' : ''}">${todo.text}</span>
+                    <button data-id="${i}" class="delete">Delete</button>
+                </li>
+            `).join('')}
+        </ul>
+    `;
+    document.getElementById('addBtn').addEventListener('click', () => {
+        const input = document.getElementById('todoInput');
+        if (input.value.trim()) {
+            todos.push({ text: input.value.trim(), completed: false });
+            localStorage.setItem('todos', JSON.stringify(todos));
+            render();
+            input.value = '';
+        }
+    });
+    document.querySelectorAll('#todoList input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', (e) => {
+            const idx = e.target.getAttribute('data-id');
+            todos[idx].completed = e.target.checked;
+            localStorage.setItem('todos', JSON.stringify(todos));
+            render();
+        });
+    });
+    document.querySelectorAll('#todoList .delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const idx = e.target.getAttribute('data-id');
+            todos.splice(idx, 1);
+            localStorage.setItem('todos', JSON.stringify(todos));
+            render();
+        });
+    });
+}
+render();
+
+    </script>
+</body>
+</html>

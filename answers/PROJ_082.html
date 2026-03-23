@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Color Picker</h1>
+        
+            <input type="color" id="colorPicker">
+            <div id="colorBox" style="width:100px;height:100px;border:1px solid black;"></div>
+            <script>
+                const picker = document.getElementById('colorPicker');
+                const box = document.getElementById('colorBox');
+                picker.addEventListener('input', (e) => {
+                    box.style.backgroundColor = e.target.value;
+                });
+            </script>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Project: extract elements 2-4</title>
+    <style>
+        body { font-family: monospace; margin: 20px; background: #f0f0f0; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 10px; border-radius: 5px; font-size: 14px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Array Project: extract elements 2-4</h1>
+        <p><strong>Difficulty:</strong> Intermediate</p>
+        <p><strong>Description:</strong> Use slice to extract elements 2-4.</p>
+        <p><strong>Output:</strong></p>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        // Override console.log to show output on page
+        (function() {
+            const output = document.getElementById('output');
+            const originalLog = console.log;
+            console.log = function(...args) {
+                originalLog.apply(console, args);
+                output.textContent += args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)).join(' ') + '\n';
+            };
+            // Also capture errors
+            window.onerror = function(msg, url, lineNo, columnNo, error) {
+                console.log(`Error: ${msg} at ${url}:${lineNo}`);
+            };
+        })();
+
+        // Project code
+        
+        const data = [10,20,30,40,50];
+        const result = data.slice(1, 4);
+        console.log(result);
+        
+    </script>
+</body>
+</html>

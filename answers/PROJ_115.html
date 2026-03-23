@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable Table</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Filterable Table</h1>
+        
+            <div>
+                <input id="filterInput" placeholder="Filter by name">
+                <table border="1" id="dataTable">
+                    <thead><tr><th>Name</th><th>Age</th></tr></thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <script>
+                const data = [
+                    { name: 'Alice', age: 25 },
+                    { name: 'Bob', age: 30 },
+                    { name: 'Charlie', age: 35 }
+                ];
+                function render(filter = '') {
+                    const filtered = data.filter(item => item.name.toLowerCase().includes(filter.toLowerCase()));
+                    const tbody = document.getElementById('tableBody');
+                    tbody.innerHTML = filtered.map(item => `<tr><td>${item.name}</td><td>${item.age}</td></tr>`).join('');
+                }
+                render();
+                document.getElementById('filterInput').addEventListener('input', (e) => render(e.target.value));
+            </script>
+        
+    </div>
+</body>
+</html>

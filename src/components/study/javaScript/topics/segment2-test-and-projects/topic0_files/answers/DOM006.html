@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Modal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple Modal</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Simple Modal
+        // Write your code here
+        
+const app = document.getElementById('app');
+app.innerHTML = `
+    <button id="openModal">Open Modal</button>
+    <div id="modal" style="display:none; position:fixed; top:20%; left:20%; background:white; padding:20px; border:1px solid #ccc; z-index:1000;">
+        <p>This is a modal!</p>
+        <button id="closeModal">Close</button>
+    </div>
+    <div id="overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+`;
+const modal = document.getElementById('modal');
+const overlay = document.getElementById('overlay');
+const openBtn = document.getElementById('openModal');
+const closeBtn = document.getElementById('closeModal');
+function openModal() {
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+}
+function closeModal() {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+}
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Analyzer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Grade Analyzer</h1>
+        
+            <div id="grade-app">
+                <input id="name" placeholder="Name">
+                <input id="score" type="number" placeholder="Score">
+                <button id="addStudent">Add</button>
+                <ul id="studentList"></ul>
+                <button id="analyze">Analyze</button>
+                <pre id="analysis"></pre>
+            </div>
+            <script>
+                let students = [];
+                document.getElementById('addStudent').addEventListener('click', () => {
+                    const name = document.getElementById('name').value;
+                    const score = parseInt(document.getElementById('score').value);
+                    if (name && !isNaN(score)) {
+                        students.push({ name, score });
+                        updateList();
+                    }
+                });
+                function updateList() {
+                    const list = document.getElementById('studentList');
+                    list.innerHTML = students.map(s => `<li>${s.name}: ${s.score}</li>`).join('');
+                }
+                document.getElementById('analyze').addEventListener('click', () => {
+                    if (students.length === 0) return;
+                    const avg = students.reduce((sum,s)=>sum+s.score,0)/students.length;
+                    const max = Math.max(...students.map(s=>s.score));
+                    const min = Math.min(...students.map(s=>s.score));
+                    document.getElementById('analysis').textContent = `Avg: ${avg.toFixed(2)}\nMax: ${max}\nMin: ${min}`;
+                });
+            </script>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouseover Effect</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mouseover Effect</h1>
+        
+            <div id="hoverDiv" style="width:200px;height:200px;background:lightblue; text-align:center; line-height:200px;">Hover over me</div>
+            <script>
+                const div = document.getElementById('hoverDiv');
+                div.addEventListener('mouseover', () => div.style.backgroundColor = 'lightgreen');
+                div.addEventListener('mouseout', () => div.style.backgroundColor = 'lightblue');
+            </script>
+        
+    </div>
+</body>
+</html>

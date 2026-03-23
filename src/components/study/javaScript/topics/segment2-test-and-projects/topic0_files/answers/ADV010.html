@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chart (Canvas)</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+        .error { color: red; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Chart (Canvas)</h1>
+        <div id="app">
+            <!-- Dynamic content will appear here -->
+        </div>
+    </div>
+    <script>
+        // Project: Interactive Chart (Canvas)
+        // Write your code here
+        
+// Simple bar chart on canvas
+const data = [50, 80, 30, 90, 40];
+const app = document.getElementById('app');
+app.innerHTML = '<canvas id="myCanvas" width="400" height="200"></canvas>';
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'blue';
+const barWidth = 40;
+const startX = 30;
+const startY = canvas.height - 30;
+const maxVal = Math.max(...data);
+for (let i = 0; i < data.length; i++) {
+    const height = (data[i] / maxVal) * (canvas.height - 50);
+    ctx.fillRect(startX + i * (barWidth + 10), startY - height, barWidth, height);
+    ctx.fillStyle = 'black';
+    ctx.fillText(data[i], startX + i * (barWidth + 10) + 10, startY - height - 5);
+    ctx.fillStyle = 'blue';
+}
+
+    </script>
+</body>
+</html>

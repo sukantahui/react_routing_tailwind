@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Project: toggle visibility</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        button, input, textarea { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dom Project: toggle visibility</h1>
+        <p><strong>Difficulty:</strong> Advanced</p>
+        <p><strong>Description:</strong> Create an interactive component: toggle visibility.</p>
+        <div id="app">
+            <!-- Dynamic content will be inserted here -->
+        </div>
+    </div>
+    <script>
+        // Project: Dom Project: toggle visibility
+        
+        // HTML will be generated; the following JS manipulates the DOM
+        const app = document.getElementById('app');
+        <button id='toggleBtn'>Toggle Paragraph</button><p id='togglePara'>This paragraph can be hidden.</p>
+        const para = document.getElementById('togglePara');
+document.getElementById('toggleBtn').addEventListener('click', () => { para.style.display = para.style.display === 'none' ? 'block' : 'none'; });
+        
+    </script>
+</body>
+</html>
