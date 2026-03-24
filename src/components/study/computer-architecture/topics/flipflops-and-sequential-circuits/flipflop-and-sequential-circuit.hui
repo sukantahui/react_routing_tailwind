@@ -1,0 +1,231 @@
+topic 0, topic: "Introduction to Sequential Circuits: Difference between combinational vs sequential logic, memory concept, feedback mechanism", file: Topic0.jsx,
+topic 1, topic: "SR Latch (Basic Building Block): NOR and NAND implementation, truth table, invalid state, real-world behavior analysis", file: Topic1.jsx,
+topic 2, topic: "Gated SR Latch: Enable/clock control, level-sensitive behavior, timing diagram explanation", file: Topic2.jsx,
+topic 3, topic: "D Latch: Elimination of invalid state, data transparency concept, practical usage in buffering and storage", file: Topic3.jsx,
+topic 4, topic: "Clock Triggering in Flip-Flops: Concept of clock signal, level triggering vs edge triggering (positive and negative edge)", file: Topic4.jsx,
+topic 5, topic: "Pulse triggering, timing diagrams, real-world significance in synchronization", file: Topic5.jsx,
+topic 6, topic: "Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important", file: Topic6.jsx,
+topic 7, topic: "Clocked SR Flip-Flop: Internal structure, working with clock pulse, race condition and invalid state problem", file: Topic7.jsx,
+topic 8, topic: "D Flip-Flop (Most Important): Circuit design from SR FF, characteristic equation, timing diagram, real-life applications (registers, memory)", file: Topic8.jsx,
+topic 9, topic: "JK Flip-Flop (Improved SR FF): Toggle condition, elimination of invalid state, race-around condition and its solution", file: Topic9.jsx,
+topic 10, topic: "Master-Slave JK Flip-Flop: Detailed working using two JK flip-flops (Master & Slave), clock phase operation, elimination of race-around condition, timing diagram analysis", file: Topic10.jsx,
+topic 11, topic: "T Flip-Flop: Derived from JK FF, toggle operation, frequency division concept (divide-by-2, divide-by-n)", file: Topic11.jsx,
+topic 12, topic: "Characteristic Table vs Excitation Table: Conversion methods, exam tricks, how to design circuits using excitation tables", file: Topic12.jsx,
+topic 13, topic: "Master-Slave Flip-Flop: Concept of two-stage operation, solving race-around problem, timing control", file: Topic13.jsx,
+topic 14, topic: "Flip-Flop Timing Parameters (Very Important): Setup time, hold time, propagation delay, clock skew, metastability", file: Topic14.jsx,
+topic 15, topic: "Registers: Concept of data storage, parallel load registers, serial vs parallel data transfer", file: Topic15.jsx,
+topic 16, topic: "Shift Registers (Core Topic): SISO, SIPO, PISO, PIPO with diagrams, applications in data transfer and communication", file: Topic16.jsx,
+topic 17, topic: "Universal Shift Register (IC 74194): Modes of operation (shift left, shift right, parallel load, hold), real IC understanding", file: Topic17.jsx,
+topic 18, topic: "Counters – Introduction: Need for counting circuits, asynchronous vs synchronous concept", file: Topic18.jsx,
+topic 19, topic: "Asynchronous (Ripple) Counters: Working, propagation delay issue, timing diagram, disadvantages", file: Topic19.jsx,
+topic 20, topic: "Synchronous Counters: Simultaneous triggering, design advantages, speed improvement", file: Topic20.jsx,
+topic 21, topic: "Types of Counters: Binary up/down counters, BCD counters (mod-10), ring counter, Johnson counter with applications", file: Topic21.jsx,
+topic 22, topic: "Counter Design (Very Important): Step-by-step design using JK and D flip-flops, state table → excitation → circuit", file: Topic22.jsx,
+topic 23, topic: "Modulus (MOD) Concept: Designing mod-n counters, truncation techniques", file: Topic23.jsx,
+topic 24, topic: "Finite State Machines (FSM): Concept of states, transitions, memory-based systems", file: Topic24.jsx,
+topic 25, topic: "Mealy vs Moore Machines: Output dependency, timing differences, practical comparison", file: Topic25.jsx,
+topic 26, topic: "State Diagram and State Table: Representation techniques, conversion methods", file: Topic26.jsx,
+topic 27, topic: "State Minimization: Reducing number of states using equivalence, optimization techniques", file: Topic27.jsx,
+topic 28, topic: "Sequential Circuit Design Procedure: Problem → state diagram → table → flip-flop selection → logic implementation", file: Topic28.jsx,
+topic 29, topic: "Timing Diagrams (Critical Skill): Reading and drawing waveforms for flip-flops, registers, and counters", file: Topic29.jsx,
+topic 30, topic: "Hazards and Race Conditions: Static and dynamic hazards, race problems in counters, prevention techniques", file: Topic30.jsx,
+topic 31, topic: "Real-Life Applications: Frequency divider, digital clock, traffic light controller, sequence detector", file: Topic31.jsx,
+topic 32, topic: "Simulation & Tools: Using Logisim / Multisim to design and test flip-flops, registers, and counters", file: Topic32.jsx,
+topic 33, topic: "Exam-Oriented Problem Solving: Previous ISC/CBSE style numerical + design questions with shortcuts", file: Topic33.jsx,
+
+            
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    -- Teacher note must have:
+    -- Icon emphasis
+    -- Hover highlight
+    -- SVG steps should visually respond on hover
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - Primary teacher: Sukanta Hui
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+Teacher’s professional description must be fetched from below:
+    - Name: Sukanta Hui
+    - email: sukantahui@codernaccotax.co.in
+    - mobile: 7003756860
+    - skill: Programming Language, RDBMs, Operating System, Web Development
+    - Experience: 27 years
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+if you think to add picture in file you have to make provision for these files in folder in current directory like topic0_files and to provide files separately with proper name
+
+start from Topic0
+
+
+

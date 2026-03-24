@@ -113,9 +113,9 @@
             "Truth tables & Boolean expressions",
             "Karnaugh Maps simplification",
             "Half Adder",
-            "Full Adder", 
+            "Full Adder",
             "Half Substractor",
-            "Full subtractor", 
+            "Full subtractor",
             "Multiplexer",
             "2:1 multiplexer",
             "4:1 multiplexer",
@@ -148,7 +148,6 @@
             "Odd parity generator",
             "Parity checker",
             "9-bit parity generator/checker (IC 74180)"
-
           ],
           "learningOutcomes": [
             "Design simple combinational circuits",
@@ -191,8 +190,111 @@
             "num-systems"
           ],
           "previousModule": "num-systems",
-          "nextModule": null,
+          "nextModule": "flipflops-sequential",
           "badge": "Logic Builder Badge"
+        },
+        {
+          "moduleId": "flipflops-sequential",
+          "slug": "flipflops-and-sequential-circuits",
+          "title": "Flip‑Flops & Sequential Circuits",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "flipflops",
+            "latches",
+            "registers",
+            "counters",
+            "FSM"
+          ],
+          "topics": [
+            "Introduction to Sequential Circuits: Difference between combinational vs sequential logic, memory concept, feedback mechanism",
+            "SR Latch (Basic Building Block): NOR and NAND implementation, truth table, invalid state, real-world behavior analysis",
+            "Gated SR Latch: Enable/clock control, level-sensitive behavior, timing diagram explanation",
+            "D Latch: Elimination of invalid state, data transparency concept, practical usage in buffering and storage",
+            "Clock Triggering in Flip-Flops: Concept of clock signal, level triggering vs edge triggering (positive and negative edge)", 
+            "Pulse triggering, timing diagrams, real-world significance in synchronization",
+            "Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important",
+            "Clocked SR Flip-Flop: Internal structure, working with clock pulse, race condition and invalid state problem",
+            "D Flip-Flop (Most Important): Circuit design from SR FF, characteristic equation, timing diagram, real-life applications (registers, memory)",
+            "JK Flip-Flop (Improved SR FF): Toggle condition, elimination of invalid state, race-around condition and its solution",
+            "Master-Slave JK Flip-Flop: Detailed working using two JK flip-flops (Master & Slave), clock phase operation, elimination of race-around condition, timing diagram analysis",
+            "T Flip-Flop: Derived from JK FF, toggle operation, frequency division concept (divide-by-2, divide-by-n)",
+            "Characteristic Table vs Excitation Table: Conversion methods, exam tricks, how to design circuits using excitation tables",
+            "Master-Slave Flip-Flop: Concept of two-stage operation, solving race-around problem, timing control",
+            "Flip-Flop Timing Parameters (Very Important): Setup time, hold time, propagation delay, clock skew, metastability",
+            "Registers: Concept of data storage, parallel load registers, serial vs parallel data transfer",
+            "Shift Registers (Core Topic): SISO, SIPO, PISO, PIPO with diagrams, applications in data transfer and communication",
+            "Universal Shift Register (IC 74194): Modes of operation (shift left, shift right, parallel load, hold), real IC understanding",
+            "Counters – Introduction: Need for counting circuits, asynchronous vs synchronous concept",
+            "Asynchronous (Ripple) Counters: Working, propagation delay issue, timing diagram, disadvantages",
+            "Synchronous Counters: Simultaneous triggering, design advantages, speed improvement",
+            "Types of Counters: Binary up/down counters, BCD counters (mod-10), ring counter, Johnson counter with applications",
+            "Counter Design (Very Important): Step-by-step design using JK and D flip-flops, state table → excitation → circuit",
+            "Modulus (MOD) Concept: Designing mod-n counters, truncation techniques",
+            "Finite State Machines (FSM): Concept of states, transitions, memory-based systems",
+            "Mealy vs Moore Machines: Output dependency, timing differences, practical comparison",
+            "State Diagram and State Table: Representation techniques, conversion methods",
+            "State Minimization: Reducing number of states using equivalence, optimization techniques",
+            "Sequential Circuit Design Procedure: Problem → state diagram → table → flip-flop selection → logic implementation",
+            "Timing Diagrams (Critical Skill): Reading and drawing waveforms for flip-flops, registers, and counters",
+            "Hazards and Race Conditions: Static and dynamic hazards, race problems in counters, prevention techniques",
+            "Real-Life Applications: Frequency divider, digital clock, traffic light controller, sequence detector",
+            "Simulation & Tools: Using Logisim / Multisim to design and test flip-flops, registers, and counters",
+            "Exam-Oriented Problem Solving: Previous ISC/CBSE style numerical + design questions with shortcuts"
+          ],
+          "learningOutcomes": [
+            "Differentiate between latches and flip‑flops",
+            "Design and analyze all common flip‑flop types",
+            "Build registers and counters from flip‑flops",
+            "Model simple sequential systems with FSMs"
+          ],
+          "prerequisites": [
+            "logic-gates"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Master the building blocks of memory and sequential logic in digital systems.",
+          "miniProjects": [
+            "Build a 4‑bit synchronous counter with display",
+            "Design a 3‑bit shift register using D flip‑flops"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 8,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Quiz + Design Assignment",
+            "passScore": 75
+          },
+          "useCases": [
+            "CPU register files",
+            "Memory address counters",
+            "Control unit state machines"
+          ],
+          "careerSkills": [
+            "Sequential logic design",
+            "FSM implementation"
+          ],
+          "commonMistakes": [
+            "Confusing latches with flip‑flops",
+            "Incorrect excitation table application",
+            "Race conditions in asynchronous counters"
+          ],
+          "references": [
+            "Morris Mano – Digital Logic",
+            "Roth & Kinney – Fundamentals of Logic Design"
+          ],
+          "teachingTips": [
+            "Use timing diagrams to explain edge triggering",
+            "Simulate counters in Logisim or similar tool"
+          ],
+          "preReading": [
+            "logic-gates"
+          ],
+          "previousModule": "logic-gates",
+          "nextModule": "cpu-basics",
+          "badge": "Sequential Master Badge"
         }
       ]
     },
@@ -224,7 +326,7 @@
             "Differentiate instruction formats"
           ],
           "prerequisites": [
-            "logic-gates"
+            "flipflops-sequential"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 6,
@@ -257,9 +359,9 @@
             "Draw datapath diagrams"
           ],
           "preReading": [
-            "logic-gates"
+            "flipflops-sequential"
           ],
-          "previousModule": null,
+          "previousModule": "flipflops-sequential",
           "nextModule": "pipelining",
           "badge": "CPU Explorer Badge"
         }
