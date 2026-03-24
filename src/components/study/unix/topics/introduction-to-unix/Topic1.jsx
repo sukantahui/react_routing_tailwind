@@ -369,6 +369,7 @@ export default class Topic1 extends Component {
                         <li>Use UNIX philosophy: one tool, one job, done well.</li>
                     </ul>
                 </section>
+                
 
                 {/* ========================================================= */}
                 {/* MINI CHECKLIST */}
@@ -387,7 +388,7 @@ export default class Topic1 extends Component {
                         <li>GNU/Linux is what we actually use daily.</li>
                     </ul>
                 </section>
-
+                
             </div>
         );
     }
