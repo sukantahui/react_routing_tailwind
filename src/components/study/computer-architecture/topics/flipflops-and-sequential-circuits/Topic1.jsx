@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import SRLatchNanad from "./topic1_files/SR-latch-nand.png";
+import SRLatchNAND from "./topic1_files/SR-latch-nand.png";
+import SRLatchNOR from "./topic1_files/SR-latch-nor.png";
+import Teacher from "../../../../../common/TeacherSukantaHui"
 /**
  * Topic1: SR Latch (Basic Building Block)
  *
@@ -134,6 +136,28 @@ const Topic1 = ({ className }) => {
               </svg>
             </div>
           </section>
+
+          {/* Circuit Diagram */}
+            <section className="mb-8 p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 animate-[fadeInUp_0.6s_ease-out] motion-reduce:animate-none">
+                <h2 className="text-2xl font-semibold text-yellow-400 mb-4">
+                    🔌 SR Latch
+                </h2>
+
+                <div className="flex flex-col items-center gap-6">
+
+                    {/* Half Adder PNG */}
+                    <img src={SRLatchNOR} alt="SR Latch" className="max-w-full dark:invert"  />
+
+                    {/* Boolean expressions */}
+                    <div className="bg-gray-900 p-4 rounded-lg border border-gray-600 text-center">
+                        <h3 className="text-lg font-semibold text-blue-300 mb-2">
+                            NOR Based SR Latch
+                        </h3>
+                        
+                    </div>
+
+                </div>
+            </section>
            
 
           {/* 2. NOR Implementation */}
@@ -202,7 +226,7 @@ const Topic1 = ({ className }) => {
                 <div className="flex flex-col items-center gap-6">
 
                     {/* Half Adder PNG */}
-                    <img src={SRLatchNanad} alt="Half Adder Circuit" className="max-w-full dark:invert"  />
+                    <img src={SRLatchNAND} alt="Half Adder Circuit" className="max-w-full dark:invert"  />
 
                     {/* Boolean expressions */}
                     <div className="bg-gray-900 p-4 rounded-lg border border-gray-600 text-center">
@@ -290,21 +314,8 @@ const Topic1 = ({ className }) => {
           </div>
 
           {/* 11. Teacher's Note */}
-          <div className={clsx("rounded-xl border p-6 shadow-md transition-all duration-300 hover:shadow-xl", themeClasses.teacherNote)}>
-            <h3 className={clsx("text-2xl font-semibold mb-3", themeClasses.heading)}>👨‍🏫 Teacher's Note: Sukanta Hui</h3>
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <p className="font-medium">📧 sukantahui@codernaccotax.co.in | 📞 7003756860</p>
-                <p className="mt-2"><strong>27+ years</strong> experience | Skills: Programming, RDBMS, OS, Web Development</p>
-                <p className="mt-3">✨ <strong>Pro tip:</strong> "The SR latch is your first 'memory' circuit. Don't memorize truth tables—understand the feedback: when S=1, it forces Q=1; when R=1, it forces Q=0. The hold condition is the magic of memory. Always respect the invalid state; it's like a forbidden operation in digital logic."</p>
-              </div>
-              <div className="flex-1 border-l pl-4 border-gray-500">
-                <p className="font-semibold">🎯 Key takeaway for today:</p>
-                <p>Feedback creates memory. The SR latch is the simplest example. Master it, and you'll easily understand flip-flops.</p>
-                <p className="mt-2 text-sm">🔔 Remember: Never let S and R be 1 together in a NOR latch unless you want chaos!</p>
-              </div>
-            </div>
-          </div>
+          <Teacher note="The SR latch is your first 'memory' circuit. Don't memorize truth tables—understand the feedback: when S=1, it forces Q=1; when R=1, it forces Q=0. The hold condition is the magic of memory. Always respect the invalid state; it's like a forbidden operation in digital logic. 🎯 Key takeaway for today: Feedback creates memory. The SR latch is the simplest example. Master it, and you'll easily understand flip-flops. 🔔 Remember: Never let S and R be 1 together in a NOR latch unless you want chaos!"/>
+          
         </div>
       </div>
 

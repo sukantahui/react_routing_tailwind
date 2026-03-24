@@ -192,12 +192,12 @@ Teacher’s Note (MANDATORY IN EVERY TOPIC)
     - Primary teacher: Sukanta Hui
     - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
 
-Teacher’s professional description must be fetched from below:
-    - Name: Sukanta Hui
-    - email: sukantahui@codernaccotax.co.in
-    - mobile: 7003756860
-    - skill: Programming Language, RDBMs, Operating System, Web Development
-    - Experience: 27 years
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
 
 
 Example Name to be used
