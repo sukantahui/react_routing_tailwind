@@ -134,6 +134,8 @@ const NavBar = () => {
     { to: "/whiteBoard", key: "whiteboard", label: "Whiteboard" },
     { to: "/qrcode", key: "qr-code", label: "QR Code Generator" },
     { to: "/LinkedListVisualizer", key: "LinkedListVisualizer", label: "Linked List Visualizer" },
+    { to: "/DoublyLinkedListVisualizer", key: "DoublyLinkedListVisualizer", label: "Double Linked List Visualizer" },
+    { to: "/BinaryTreeVisualizer", key: "BinaryTreeVisualizer", label: "Binary Tree" },
   ];
 
   const tutorialsItems = [

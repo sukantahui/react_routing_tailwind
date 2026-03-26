@@ -11,6 +11,9 @@ const Certificate = lazy(() => import('./certificates/Certificate'));
 const Login = lazy(() => import('../components/Login'));
 const QRCodeGenerator = lazy(() => import('../common/QRCodeGenerator'));
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
+const DoublyLinkedListVisualizer = lazy(() => import('../common/DoublyLinkedListVisualizer'));
+const BinaryTreeVisualizer = lazy(() => import('../common/BinaryTreeVisualizer'));
+
 const Study = lazy(() => import('../components/study/Study'));
 const ClassEleven = lazy(() => import('../components/study/class_11/ClassEleven'));
 const ClassElevenWbb = lazy(() => import('../components/study/class_11/wbb/ClassElevenWbb'));
@@ -140,6 +143,8 @@ export default function AppRoutes() {
 
         <Route path="/qrcode" element={<QRCodeGenerator />} />
         <Route path="/LinkedListVisualizer" element={<LinkedListVisualizer />} />
+        <Route path="/DoublyLinkedListVisualizer" element={<DoublyLinkedListVisualizer />} />
+        <Route path="/BinaryTreeVisualizer" element={<BinaryTreeVisualizer />} />
 
         <Route
           path="/certificate"

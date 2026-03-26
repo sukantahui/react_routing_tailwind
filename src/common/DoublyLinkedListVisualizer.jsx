@@ -1,18 +1,19 @@
 // ===============================================
-// LinkedListVisualizer.jsx (Enhanced with Wrapping)
-// - Smaller nodes, flexible wrapping layout
-// - Insert at index, search, clear, random
-// - Memoized Node component, useCallback efficiency
+// DoublyLinkedListVisualizer.jsx
+// - Smaller nodes with prev/next pointers
+// - Add head/tail, insert at index, delete by value
+// - Search highlighting, clear, random
+// - Flex-wrap layout for responsive wrapping
 // ===============================================
 
 import React, { useState, useCallback, memo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-// Generate a mock memory address (hex string)
-const generateAddress = (index) => `0x${(1000 + index * 4).toString(16)}`;
+// Generate mock memory addresses (hex)
+const generateAddress = (index) => `0x${(2000 + index * 4).toString(16)}`;
 
-// Memoized Node component (smaller version)
-const Node = memo(({ value, index, nodeAddress, nextAddress, onDelete, isHighlighted }) => {
+// Memoized Node component for doubly linked list
+const Node = memo(({ value, index, nodeAddress, prevAddress, nextAddress, onDelete, isHighlighted }) => {
   return (
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
@@ -20,7 +21,7 @@ const Node = memo(({ value, index, nodeAddress, nextAddress, onDelete, isHighlig
       exit={{ scale: 0.8, opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="relative group flex-shrink-0"
-      style={{ width: "128px" }} // Fixed smaller width for consistent wrapping
+      style={{ width: "140px" }} // slightly wider to accommodate two pointers
     >
       {/* Node Address (top label) */}
       <div className="text-center mb-1">
@@ -35,13 +36,21 @@ const Node = memo(({ value, index, nodeAddress, nextAddress, onDelete, isHighlig
           isHighlighted ? "border-yellow-400 shadow-yellow-400/50" : "border-sky-400"
         }`}
       >
-        {/* Data section */}
+        {/* Prev pointer */}
+        <div className="border-b border-gray-600 px-2 py-1">
+          <div className="text-[10px] text-gray-400 text-center">Prev</div>
+          <div className="font-mono text-[10px] text-sky-300 text-center break-all">
+            {prevAddress}
+          </div>
+        </div>
+
+        {/* Data */}
         <div className="border-b border-gray-600 p-2 text-center">
           <div className="text-[10px] text-gray-400">Data</div>
           <div className="text-base font-bold text-white">{value}</div>
         </div>
 
-        {/* Next pointer section */}
+        {/* Next pointer */}
         <div className="p-2 text-center">
           <div className="text-[10px] text-gray-400">Next</div>
           <div className="font-mono text-[10px] text-sky-300 break-all">
@@ -63,13 +72,21 @@ const Node = memo(({ value, index, nodeAddress, nextAddress, onDelete, isHighlig
 
 Node.displayName = "Node";
 
-const LinkedListVisualizer = () => {
+const DoublyLinkedListVisualizer = () => {
   const [nodes, setNodes] = useState([10, 20, 30]);
   const [inputValue, setInputValue] = useState("");
   const [deleteValue, setDeleteValue] = useState("");
   const [insertIndex, setInsertIndex] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState("");
+
+  // Helper to generate prev/next addresses for a given array and index
+  const getAddresses = (arr, idx) => {
+    const nodeAddress = generateAddress(idx);
+    const prevAddress = idx > 0 ? generateAddress(idx - 1) : "null";
+    const nextAddress = idx < arr.length - 1 ? generateAddress(idx + 1) : "null";
+    return { nodeAddress, prevAddress, nextAddress };
+  };
 
   // Memoized handlers
   const addAtHead = useCallback(() => {
@@ -149,14 +166,18 @@ const LinkedListVisualizer = () => {
       }, [])
     : [];
 
+  // Get head and tail addresses
+  const headAddress = nodes.length > 0 ? generateAddress(0) : "null";
+  const tailAddress = nodes.length > 0 ? generateAddress(nodes.length - 1) : "null";
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 flex flex-col items-center p-4 sm:p-6">
       <div className="w-full max-w-7xl flex-1 flex flex-col">
         <h1 className="text-3xl md:text-4xl font-extrabold text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400">
-          Linked List Visualizer
+          Doubly Linked List Visualizer
         </h1>
         <p className="text-center text-gray-400 mb-6">
-          Each node shows its memory address, data, and pointer to the next node.
+          Each node shows its memory address, prev/next pointers, and data.
         </p>
 
         {/* Error message */}
@@ -266,9 +287,7 @@ const LinkedListVisualizer = () => {
               <p className="text-gray-400 text-center w-full">Empty list. Add some nodes.</p>
             ) : (
               nodes.map((value, index) => {
-                const nodeAddress = generateAddress(index);
-                const nextAddress =
-                  index < nodes.length - 1 ? generateAddress(index + 1) : "null";
+                const { nodeAddress, prevAddress, nextAddress } = getAddresses(nodes, index);
 
                 return (
                   <React.Fragment key={index}>
@@ -276,12 +295,13 @@ const LinkedListVisualizer = () => {
                       value={value}
                       index={index}
                       nodeAddress={nodeAddress}
+                      prevAddress={prevAddress}
                       nextAddress={nextAddress}
                       onDelete={deleteAtIndex}
                       isHighlighted={highlightedIndices.includes(index)}
                     />
 
-                    {/* Arrow (except after last node) */}
+                    {/* Arrow between nodes (next pointer) */}
                     {index < nodes.length - 1 && (
                       <motion.div
                         initial={{ opacity: 0 }}
@@ -300,8 +320,8 @@ const LinkedListVisualizer = () => {
 
         {/* Stats */}
         <div className="mt-4 text-center text-gray-400">
-          <p>Head → {nodes.length > 0 ? generateAddress(0) : "null"}</p>
-          <p>Tail → {nodes.length > 0 ? generateAddress(nodes.length - 1) : "null"}</p>
+          <p>Head → {headAddress}</p>
+          <p>Tail → {tailAddress}</p>
           <p>Size: {nodes.length}</p>
         </div>
       </div>
@@ -309,4 +329,4 @@ const LinkedListVisualizer = () => {
   );
 };
 
-export default LinkedListVisualizer;
+export default DoublyLinkedListVisualizer;

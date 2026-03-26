@@ -1285,6 +1285,9 @@
   .min-h-\[280px\] {
     min-height: 280px;
   }
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
   .min-h-screen {
     min-height: 100vh;
   }
@@ -2545,6 +2548,9 @@
   }
   .overflow-y-auto {
     overflow-y: auto;
+  }
+  .overflow-y-visible {
+    overflow-y: visible;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -14320,6 +14326,13 @@
     &:hover {
       @media (hover: hover) {
         fill: var(--color-red-500);
+      }
+    }
+  }
+  .hover\:fill-red-600 {
+    &:hover {
+      @media (hover: hover) {
+        fill: var(--color-red-600);
       }
     }
   }
