@@ -5,6 +5,7 @@ import NetworkRoadmap from '../components/study/network/NetworkRoadmap';
 import NetworkModuleView from '../components/study/network/NetworkModuleView';
 import NetworkTopicView from '../components/study/network/NetworkTopicView';
 
+
 // Public components (lazy)
 const Home = lazy(() => import('./HomeComponent/Home'));
 const Certificate = lazy(() => import('./certificates/Certificate'));
@@ -13,6 +14,7 @@ const QRCodeGenerator = lazy(() => import('../common/QRCodeGenerator'));
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
 const DoublyLinkedListVisualizer = lazy(() => import('../common/DoublyLinkedListVisualizer'));
 const BinaryTreeVisualizer = lazy(() => import('../common/BinaryTreeVisualizer'));
+const AvlTreeVisualizer = lazy(() => import('../common/AvlTreeVisualizer'));
 
 const Study = lazy(() => import('../components/study/Study'));
 const ClassEleven = lazy(() => import('../components/study/class_11/ClassEleven'));
@@ -145,6 +147,7 @@ export default function AppRoutes() {
         <Route path="/LinkedListVisualizer" element={<LinkedListVisualizer />} />
         <Route path="/DoublyLinkedListVisualizer" element={<DoublyLinkedListVisualizer />} />
         <Route path="/BinaryTreeVisualizer" element={<BinaryTreeVisualizer />} />
+        <Route path="/AvlTreeVisualizer" element={<AvlTreeVisualizer />} />
 
         <Route
           path="/certificate"
