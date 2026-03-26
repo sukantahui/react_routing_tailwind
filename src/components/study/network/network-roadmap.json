@@ -1,0 +1,282 @@
+{
+  "trackId": "computer-networking-bca",
+  "trackTitle": "Computer Networking (BCA Semester VI)",
+  "description": "A complete networking course covering fundamentals, protocols, layers, and modern networking concepts for BCA students.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "Networking Tutorial",
+    "version": "1.0.0"
+  },
+  "folder": "network",
+  "subject": "Computer Networking",
+  "subjectCode": "BCAC603",
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 – Networking Fundamentals",
+      "level": "Beginner",
+      "modules": [
+        {
+          "moduleId": "network-intro",
+          "slug": "introduction-to-computer-networks",
+          "title": "Introduction to Computer Networks",
+          "estimatedHours": 6,
+          "topics": [
+            "What is Computer Networking? Definition, purpose, and real-world examples (internet, banking, mobile networks)",
+            "Importance of networking in modern communication and data sharing",
+            "Basic components of a network: sender, receiver, transmission medium, protocol",
+            "Types of networks: LAN, MAN, WAN with real-life use cases",
+            "Star Topology: structure, working principle, advantages, disadvantages, real-world usage",
+            "Bus Topology: structure, working principle, advantages, disadvantages, limitations",
+            "Ring Topology: token passing mechanism, advantages, disadvantages, use cases",
+            "Mesh Topology: full vs partial mesh, reliability, cost analysis, applications",
+            "Hybrid Topology: combination of multiple topologies, practical implementation in organizations",
+            "Client-server architecture: concept, advantages, real-world examples (web server, database server)",
+            "Peer-to-peer architecture: concept, advantages, limitations, comparison with client-server",
+            "Networking devices: Hub (basic broadcasting device)",
+            "Switch: MAC address-based forwarding and collision reduction",
+            "Router: IP-based routing and network interconnection",
+            "Gateway: protocol conversion and communication between different networks"
+          ],
+          "learningOutcomes": [
+            "Understand networking fundamentals",
+            "Differentiate types of networks and topologies"
+          ],
+          "difficulty": "Easy"
+        },
+        {
+          "moduleId": "osi-tcpip",
+          "slug": "osi-and-tcp-ip-models",
+          "title": "OSI & TCP/IP Models",
+          "estimatedHours": 6,
+          "topics": [
+            "Need for layered architecture",
+            "OSI model (7 layers) with functions",
+            "Encapsulation and decapsulation process",
+            "TCP/IP model (4 layers)",
+            "Comparison of OSI vs TCP/IP",
+            "Real-world analogy of layered models"
+          ],
+          "learningOutcomes": [
+            "Explain OSI and TCP/IP models",
+            "Understand layered communication"
+          ],
+          "difficulty": "Easy-Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "physical-layer",
+      "title": "Segment 2 – Physical Layer",
+      "level": "Beginner-Intermediate",
+      "modules": [
+        {
+          "moduleId": "transmission-media",
+          "slug": "transmission-media-in-networking",
+          "title": "Transmission Media",
+          "estimatedHours": 10,
+          "topics": [
+            "Analog vs digital signals",
+            "Guided media: Twisted pair, Coaxial, Optical fiber",
+            "Unguided media: Radio, Microwave, Satellite, Infrared",
+            "Bandwidth, latency, throughput",
+            "Comparison of media (cost, speed, reliability)"
+          ],
+          "learningOutcomes": [
+            "Identify transmission media",
+            "Choose appropriate communication medium"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "encoding-switching",
+          "slug": "encoding-multiplexing-switching-techniques",
+          "title": "Encoding, Multiplexing & Switching",
+          "estimatedHours": 10,
+          "topics": [
+            "Encoding techniques: NRZ, Manchester, Differential Manchester",
+            "Multiplexing: FDM, TDM, WDM",
+            "Switching: Circuit, Packet, Message switching",
+            "Applications in real networks"
+          ],
+          "learningOutcomes": [
+            "Understand encoding and switching methods",
+            "Compare multiplexing techniques"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "data-link-layer",
+      "title": "Segment 3 – Data Link Layer",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "flow-error-control",
+          "slug": "flow-control-and-error-detection",
+          "title": "Flow Control & Error Handling",
+          "estimatedHours": 11,
+          "topics": [
+            "Role of Data Link Layer",
+            "Flow control: Stop-and-Wait, Sliding Window",
+            "Error detection: Parity, CRC, Checksum",
+            "Error correction: Hamming Code",
+            "Framing techniques"
+          ],
+          "learningOutcomes": [
+            "Understand flow control",
+            "Apply error detection techniques"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "arq-protocols",
+          "slug": "arq-protocols-and-mac-layer",
+          "title": "ARQ Protocols & MAC",
+          "estimatedHours": 11,
+          "topics": [
+            "Stop-and-Wait ARQ",
+            "Go-Back-N ARQ",
+            "Selective Repeat ARQ",
+            "ALOHA protocols",
+            "IEEE standards (802.3, 802.4, 802.5)"
+          ],
+          "learningOutcomes": [
+            "Understand retransmission mechanisms",
+            "Explain MAC protocols"
+          ],
+          "difficulty": "Medium-Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "network-layer",
+      "title": "Segment 4 – Network Layer",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "routing",
+          "slug": "network-routing-algorithms",
+          "title": "Routing Algorithms",
+          "estimatedHours": 10,
+          "topics": [
+            "Concept of routing",
+            "Shortest path algorithm",
+            "Distance vector routing",
+            "Broadcast and multicast routing"
+          ],
+          "learningOutcomes": [
+            "Understand routing techniques",
+            "Compare algorithms"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "ip-addressing",
+          "slug": "ip-addressing-subnetting-and-routing-protocols",
+          "title": "IP Addressing & Protocols",
+          "estimatedHours": 10,
+          "topics": [
+            "IPv4 and IPv6 addressing",
+            "Subnetting and CIDR",
+            "Routing protocols: RIP, OSPF, BGP",
+            "NAT and ICMP"
+          ],
+          "learningOutcomes": [
+            "Perform subnetting",
+            "Understand IP communication"
+          ],
+          "difficulty": "Medium-Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "transport-layer",
+      "title": "Segment 5 – Transport Layer",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "tcp-udp",
+          "slug": "tcp-and-udp-protocols",
+          "title": "TCP & UDP",
+          "estimatedHours": 8,
+          "topics": [
+            "TCP 3-way handshake",
+            "TCP 4-way termination",
+            "UDP characteristics",
+            "Port addressing"
+          ],
+          "learningOutcomes": [
+            "Differentiate TCP and UDP",
+            "Understand connections"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "congestion-control",
+          "slug": "congestion-control-mechanisms",
+          "title": "Congestion Control",
+          "estimatedHours": 8,
+          "topics": [
+            "Leaky bucket algorithm",
+            "Token bucket algorithm",
+            "Concept of network congestion"
+          ],
+          "learningOutcomes": [
+            "Understand congestion handling"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "application-layer",
+      "title": "Segment 6 – Application Layer",
+      "level": "Intermediate",
+      "modules": [
+        {
+          "moduleId": "protocols",
+          "slug": "application-layer-protocols",
+          "title": "Application Layer Protocols",
+          "estimatedHours": 8,
+          "topics": [
+            "DNS, HTTP, HTTPS working",
+            "FTP, SMTP, POP3, IMAP",
+            "Remote login: Telnet, SSH",
+            "SNMP basics"
+          ],
+          "learningOutcomes": [
+            "Understand real-world protocols"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "modern-networking",
+      "title": "Segment 7 – Modern Networking Concepts",
+      "level": "Advanced",
+      "modules": [
+        {
+          "moduleId": "emerging",
+          "slug": "modern-networking-technologies",
+          "title": "Emerging Networking Technologies",
+          "estimatedHours": 4,
+          "topics": [
+            "Cloud networking basics",
+            "IoT protocols: MQTT, CoAP",
+            "Software Defined Networking (SDN)"
+          ],
+          "learningOutcomes": [
+            "Understand modern trends"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    }
+  ]
+}

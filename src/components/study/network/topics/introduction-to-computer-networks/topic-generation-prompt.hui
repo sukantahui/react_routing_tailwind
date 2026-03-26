@@ -1,23 +1,19 @@
-Topic: 0, topic: "JSP Lifecycle", file: Topic0.jsx,
-Topic: 1, topic: "Scriptlet, Expression, Declaration", file: Topic1.jsx,
-Topic: 2, topic: "JSP Implicit Objects", file: Topic2.jsx,
-Topic: 3, topic: "JSP Directives", file: Topic3.jsx,
-Topic: 4, topic: "JavaBeans in JSP", file: Topic4.jsx,
-Topic: 5, topic: "Expression Language (EL)", file: Topic5.jsx,
-Topic: 6, topic: "JSTL Core Tags", file: Topic6.jsx,
-Topic: 7, topic: "Custom Tag Libraries", file: Topic7.jsx,
-Topic: 8, topic: "JSP Include Directive vs Include Action", file: Topic8.jsx,
-Topic: 9, topic: "JSP Error Page Handling", file: Topic9.jsx,
-Topic: 10, topic: "JSP Fragments and Tag Files", file: Topic10.jsx,
-Topic: 11, topic: "JSTL Formatting Tags (fmt) and Functions Tags (fn)", file: Topic11.jsx,
-Topic: 12, topic: "MVC with JSP and Servlets (Front Controller Pattern)", file: Topic12.jsx,
-Topic: 13, topic: "Using JavaBeans as Data Containers", file: Topic13.jsx,
-Topic: 14, topic: "JSP 2.0 Simple Tag Handlers", file: Topic14.jsx,
-Topic: 15, topic: "EL Advanced Features (Collections, Operators)", file: Topic15.jsx,
-Topic: 16, topic: "Introduction to AJAX Integration", file: Topic16.jsx,
-Topic: 17, topic: "Security Considerations (Avoiding Scriptlets)", file: Topic17.jsx,
+Topic 0, "What is Computer Networking? Definition, purpose, and real-world examples (internet, banking, mobile networks)", file: Topic0.jsx
+Topic 1, "Importance of networking in modern communication and data sharing", file: Topic1.jsx
+Topic 2, "Basic components of a network: sender, receiver, transmission medium, protocol", file: Topic2.jsx
+Topic 3, "Types of networks: LAN, MAN, WAN with real-life use cases", file: Topic3.jsx
+Topic 4, "Star Topology: structure, working principle, advantages, disadvantages, real-world usage", file: Topic4.jsx
+Topic 5, "Bus Topology: structure, working principle, advantages, disadvantages, limitations", file: Topic5.jsx
+Topic 6, "Ring Topology: token passing mechanism, advantages, disadvantages, use cases", file: Topic6.jsx
+Topic 7, "Mesh Topology: full vs partial mesh, reliability, cost analysis, applications", file: Topic7.jsx
+Topic 8, "Hybrid Topology: combination of multiple topologies, practical implementation in organizations", file: Topic8.jsx
+Topic 9, "Client-server architecture: concept, advantages, real-world examples (web server, database server)", file: Topic9.jsx
+Topic 10, "Peer-to-peer architecture: concept, advantages, limitations, comparison with client-server", file: Topic10.jsx
+Topic 11, "Networking devices: Hub (basic broadcasting device)", file: Topic11.jsx
+Topic 12, "Switch: MAC address-based forwarding and collision reduction", file: Topic12.jsx
+Topic 13, "Router: IP-based routing and network interconnection", file: Topic13.jsx
+Topic 14, "Gateway: protocol conversion and communication between different networks", file: Topic14.jsx
 
-            
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
 Do NOT require any Tailwind config, plugins, or external animation libraries.
@@ -83,7 +79,6 @@ UI / UX Requirements
         -- Readable
         -- Classroom-friendly
         -- Production-ready
-        -- dont use opacity-0
 
 Fonts & Visual Feel
     -- Typography must be:
@@ -152,10 +147,7 @@ Hover & Interaction Rules
     -- Every major block must have:
     -- Subtle hover elevation or glow
     -- Smooth transition (transition-all duration-300)
-    -- Teacher note must have:
-    -- Icon emphasis
-    -- Hover highlight
-    -- SVG steps should visually respond on hover
+    
 
 Hint Section (NEW – MANDATORY)
     -- Subtle guidance without revealing answers
@@ -183,7 +175,7 @@ Teacher’s Note (MANDATORY IN EVERY TOPIC)
 Example Name to be used
     - While explaining concepts, naturally include examples involving:
         -- Students:
-            --- Swadeep, Tuhina, Abhronila, Debangshu, etc.
+            --- Swadeep, Tuhina, Abhronila, Susmita, Debangshu, etc.
         -- Places:
             --- Barrackpore, Shyamnagar, Ichapur, Naihati
 (Use them as analogies, stories, or scenarios—not forced mentions.)
@@ -203,34 +195,7 @@ import clsx from "clsx";
 
 make dark mode as default, place divs one after another not side by side, maintain it for all topics
 
-i like to show my Java Code as follows:
-<JavaFileLoader 
-        fileModule={MainJavaCode}
-        title="Main.java"
-        highlightLines={[]}
-      /> 
-import JavaFileLoader from "../../../../../common/JavaFileLoader";
-import ifExampleJava from "./topic[topic_no]_files/if_example1.java?raw";
-import ifExampleJava from "./topic[topic_no]_files/if_example2.java?raw";
-import ifExampleSh3 from "./topic[topic_no]_files/if_example3.java?raw";
-import switchExample1 from "./topic[topic_no]_files/switch_example1.java?raw";
-import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.java?raw";
-
-
-and keep all .java file separately in a folder name like topic[topic_no]_files, so show them separately with name
-
-use :
- <JavaFileLoader
-    fileModule={ifElseLadder1}
-    title="ServerComparison.java (Conceptual)"
-    highlightLines={[]}
-/>
-
-
 
 
 
 start from Topic0
-
-
-

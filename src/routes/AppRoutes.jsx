@@ -1,6 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
+import NetworkRoadmap from '../components/study/network/NetworkRoadmap';
+import NetworkModuleView from '../components/study/network/NetworkModuleView';
+import NetworkTopicView from '../components/study/network/NetworkTopicView';
 
 // Public components (lazy)
 const Home = lazy(() => import('./HomeComponent/Home'));
@@ -260,6 +263,10 @@ export default function AppRoutes() {
         <Route path="/java-web/roadmap" element={<JavaWebRoadmap />} />
         <Route path="/java-web/module/:slug" element={<JavaWebModuleView />} />
         <Route path="/java-web/topic/:moduleSlug/:topicIndex" element={<JavaWebTopicView />} />
+
+        <Route path="/network/roadmap" element={<NetworkRoadmap />} />
+        <Route path="/network/module/:slug" element={<NetworkModuleView />} />
+        <Route path="/network/topic/:moduleSlug/:topicIndex" element={<NetworkTopicView />} />
 
         <Route path="/icons" element={<IconResources />} />
         <Route path="/vscode" element={<VSCodeUltraExpertGuide />} />

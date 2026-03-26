@@ -288,6 +288,7 @@ class NavBar extends Component {
                         { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
                         { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
                         { to: "/react/roadmap", key: "react", label: "React", icon: "bi-react" },
+                        { to: "/network/roadmap", key: "network", label: "Network", icon: "bi-network" },
                         isDev && { to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" },
                         { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
                       ].filter(Boolean).map((item) => (
