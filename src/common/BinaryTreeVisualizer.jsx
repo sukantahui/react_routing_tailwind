@@ -4,6 +4,8 @@
 // - Node exit: 0.6s fade+scale
 // - Inserted node highlight duration 1s
 // - Container fade on tree changes
+// - Auto‑scroll to new node after insertion
+// - Full tree always visible (bounding‑box viewBox)
 // ===============================================
 
 import React, { useState, useCallback, useRef, useEffect } from "react";
@@ -72,44 +74,71 @@ const countNodes = (root) => {
   return 1 + countNodes(root.left) + countNodes(root.right);
 };
 
-// ============ Tree Layout ============
+// ============ Tree Layout (with bounding box) ============
 const NODE_RADIUS = 25;
 const LEVEL_HEIGHT = 100;
 const SIBLING_SPACING = 80;
 const TOP_PADDING = 50;
 const BOTTOM_PADDING = 30;
+const EXTRA_PADDING = 60; // extra space around the tree
 
-const computePositions = (root, x = 0, y = TOP_PADDING, depth = 0, positions = new Map()) => {
-  if (!root) return { width: 0, positions };
+const computeLayout = (root) => {
+  if (!root) return { positions: new Map(), width: 0, height: 0, minX: 0, maxX: 0 };
 
-  const leftWidth = root.left ? computePositions(root.left, x, y + LEVEL_HEIGHT, depth + 1, positions).width : 0;
-  const rightWidth = root.right ? computePositions(root.right, x + leftWidth + SIBLING_SPACING, y + LEVEL_HEIGHT, depth + 1, positions).width : 0;
-  const totalWidth = Math.max(leftWidth + (root.left ? SIBLING_SPACING : 0) + rightWidth, NODE_RADIUS * 2);
-  const nodeX = x + totalWidth / 2;
-  positions.set(root, { x: nodeX, y, depth });
-  return { width: totalWidth, positions };
+  const positions = new Map();
+  let minX = Infinity, maxX = -Infinity;
+
+  const recurse = (node, x, y) => {
+    if (!node) return 0;
+
+    const leftWidth = recurse(node.left, x, y + LEVEL_HEIGHT);
+    const rightWidth = recurse(node.right, x + leftWidth + SIBLING_SPACING, y + LEVEL_HEIGHT);
+    const totalWidth = Math.max(leftWidth + (node.left ? SIBLING_SPACING : 0) + rightWidth, NODE_RADIUS * 2);
+    const nodeX = x + totalWidth / 2;
+
+    positions.set(node, { x: nodeX, y });
+    minX = Math.min(minX, nodeX - NODE_RADIUS);
+    maxX = Math.max(maxX, nodeX + NODE_RADIUS);
+
+    return totalWidth;
+  };
+
+  recurse(root, 0, TOP_PADDING);
+
+  // Compute tree depth
+  const getDepth = (node) => node ? 1 + Math.max(getDepth(node.left), getDepth(node.right)) : 0;
+  const depth = getDepth(root);
+  const treeHeight = (depth - 1) * LEVEL_HEIGHT + TOP_PADDING + BOTTOM_PADDING + NODE_RADIUS * 2;
+
+  return { positions, minX, maxX, height: treeHeight };
 };
 
-// ============ SVG Tree Renderer with animations ============
-const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) => {
+// ============ SVG Tree Renderer ============
+const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete, svgContainerRef }) => {
   const [svgSize, setSvgSize] = useState({ width: 800, height: 400 });
   const [positions, setPositions] = useState(new Map());
+  const [bounds, setBounds] = useState({ minX: 0, maxX: 0, height: 0 });
 
   // Recompute layout when tree changes
   useEffect(() => {
     if (!root) return;
-    const { width, positions: posMap } = computePositions(root);
-    const maxDepth = (node) => node ? 1 + Math.max(maxDepth(node.left), maxDepth(node.right)) : 0;
-    const depth = maxDepth(root);
-    const height = (depth - 1) * LEVEL_HEIGHT + TOP_PADDING + BOTTOM_PADDING + NODE_RADIUS * 2;
-    setSvgSize({ width: Math.max(width + 60, 600), height: Math.max(height, 300) });
+    const { positions: posMap, minX, maxX, height } = computeLayout(root);
+    const width = maxX - minX + 2 * EXTRA_PADDING;
     setPositions(posMap);
+    setBounds({ minX, maxX, height, width });
+    setSvgSize({ width, height });
   }, [root]);
 
   if (!root) return <div className="text-center text-gray-400">Empty tree</div>;
 
   const lines = [];
   const nodes = [];
+
+  // ViewBox: includes all nodes plus padding
+  const viewBoxMinX = bounds.minX - EXTRA_PADDING;
+  const viewBoxWidth = bounds.maxX - bounds.minX + 2 * EXTRA_PADDING;
+  const viewBoxMinY = TOP_PADDING - 20; // small top margin
+  const viewBoxHeight = bounds.height + 20; // small bottom margin
 
   positions.forEach((pos, node) => {
     const isHighlighted = searchTerm && node.value.toString().includes(searchTerm);
@@ -121,8 +150,10 @@ const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) =>
       ? { animation: 'scaleIn 0.6s cubic-bezier(0.34, 1.2, 0.64, 1) forwards' }
       : {};
 
+    const nodeId = `node-${node.value}`;
+
     nodes.push(
-      <g key={node.value} style={animationStyle}>
+      <g key={node.value} id={nodeId} style={animationStyle}>
         <circle
           cx={pos.x}
           cy={pos.y}
@@ -143,7 +174,7 @@ const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) =>
         >
           {node.value}
         </text>
-        {/* Delete button (disabled during animation) */}
+        {/* Delete button */}
         {!isDeleting && (
           <>
             <circle
@@ -209,8 +240,13 @@ const TreeSVG = ({ root, searchTerm, onDelete, insertedNode, pendingDelete }) =>
   });
 
   return (
-    <div className="overflow-x-auto overflow-y-visible w-full">
-      <svg width={svgSize.width} height={svgSize.height} viewBox={`0 0 ${svgSize.width} ${svgSize.height}`}>
+    <div className="overflow-x-auto overflow-y-visible w-full" ref={svgContainerRef}>
+      <svg
+        width={svgSize.width}
+        height={svgSize.height}
+        viewBox={`${viewBoxMinX} ${viewBoxMinY} ${viewBoxWidth} ${viewBoxHeight}`}
+        style={{ minWidth: '100%' }}
+      >
         <defs>
           <radialGradient id="grad" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#4F46E5" />
@@ -261,6 +297,22 @@ const BinaryTreeVisualizer = () => {
   const [insertedNode, setInsertedNode] = useState(null);
   const [pendingDelete, setPendingDelete] = useState(null);
   const containerRef = useRef(null);
+  const svgContainerRef = useRef(null);
+
+  // Auto‑scroll to the newly inserted node
+  const scrollToInsertedNode = useCallback(() => {
+    if (!insertedNode) return;
+    setTimeout(() => {
+      const nodeElement = document.getElementById(`node-${insertedNode}`);
+      if (nodeElement && svgContainerRef.current) {
+        nodeElement.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+      }
+    }, 100);
+  }, [insertedNode]);
+
+  useEffect(() => {
+    if (insertedNode) scrollToInsertedNode();
+  }, [insertedNode, scrollToInsertedNode]);
 
   const handleInsert = useCallback(() => {
     if (!inputValue.trim()) {
@@ -279,14 +331,13 @@ const BinaryTreeVisualizer = () => {
     }
     setRoot(newRoot);
     setInsertedNode(num);
-    // Remove highlight after 1 second
     setTimeout(() => setInsertedNode(null), 1000);
     setInputValue("");
     setError("");
   }, [inputValue, root]);
 
   const handleDelete = useCallback((val) => {
-    if (pendingDelete) return; // already deleting
+    if (pendingDelete) return;
     if (!searchNode(root, val)) {
       setError(`Value ${val} not found in the tree.`);
       return;
@@ -339,6 +390,8 @@ const BinaryTreeVisualizer = () => {
         </h1>
         <p className="text-center text-gray-400 mb-6">
           Smooth animations: entries pop with a bounce, deletions fade out gently.
+          <br />
+          <span className="text-xs text-gray-500">(Scroll horizontally if the tree is wide)</span>
         </p>
 
         {error && (
@@ -416,6 +469,7 @@ const BinaryTreeVisualizer = () => {
             onDelete={handleDelete}
             insertedNode={insertedNode}
             pendingDelete={pendingDelete}
+            svgContainerRef={svgContainerRef}
           />
         </div>
 
