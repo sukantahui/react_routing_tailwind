@@ -1,0 +1,115 @@
+{
+  "paperId": "C-BASIC-INTERMEDIATE-SET-03",
+  "title": "C Programming - Basic to Intermediate Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (One Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is the correct syntax to declare an array of 10 integers in C?",
+          "marks": 1,
+          "answer": "int arr[10];"
+        },
+        {
+          "q": "Which function is used to find the length of a string in C?",
+          "marks": 1,
+          "answer": "strlen() function from <string.h> header file."
+        },
+        {
+          "q": "What is the output of: printf(\"%d\", 10 % 3); ?",
+          "marks": 1,
+          "answer": "1 (remainder of 10 divided by 3)"
+        },
+        {
+          "q": "What does the 'break' statement do in a loop?",
+          "marks": 1,
+          "answer": "The 'break' statement terminates the loop immediately and transfers control to the next statement after the loop."
+        },
+        {
+          "q": "What is the use of '&' operator in scanf()?",
+          "marks": 1,
+          "answer": "The '&' operator is the address-of operator, used to pass the memory address of a variable to scanf() so it can store input directly in that variable."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain the difference between while loop and do-while loop with examples.",
+          "marks": 2,
+          "answer": "While loop checks condition before executing the loop body, so it may execute zero times. Do-while loop executes the body once before checking condition, so it always executes at least once.\n\nExample:\n```c\n// while loop\nint i = 5;\nwhile(i < 5) {\n    printf(\"Executed\"); // Won't execute\n}\n\n// do-while loop\nint i = 5;\ndo {\n    printf(\"Executed\"); // Executes once\n} while(i < 5);\n```"
+        },
+        {
+          "q": "What is an array? How do you initialize an array in C? Give examples.",
+          "marks": 2,
+          "answer": "An array is a collection of elements of the same data type stored in contiguous memory locations. Arrays can be initialized at declaration:\n\n```c\nint arr1[5] = {1, 2, 3, 4, 5}; // Full initialization\nint arr2[] = {10, 20, 30}; // Size determined by compiler\nint arr3[5] = {1, 2}; // Partial initialization (rest are 0)\n```"
+        },
+        {
+          "q": "Write a function to calculate the HCF (GCD) of two numbers using Recursive algorithm.",
+          "marks": 2,
+          "answer": "```c\n// Recursive version\nint findHCFRecursive(int a, int b) {\n    if(b == 0) return a;\n    return findHCFRecursive(b, a % b);\n}\n```"
+        },
+        {
+          "q": "Explain the concept of recursion with a simple example.",
+          "marks": 2,
+          "answer": "Recursion is a technique where a function calls itself to solve a smaller instance of the same problem. It requires a base case to stop recursion.\n\nExample: Factorial using recursion\n```c\nint factorial(int n) {\n    if(n == 0 || n == 1) return 1; // Base case\n    return n * factorial(n - 1); // Recursive call\n}\n```"
+        },
+        {
+          "q": "How do you find the sum of all elements in an array? Write code.",
+          "marks": 2,
+          "answer": "```c\n#include <stdio.h>\nint sumArray(int arr[], int size) {\n    int sum = 0;\n    for(int i = 0; i < size; i++) {\n        sum += arr[i];\n    }\n    return sum;\n}\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"Sum = %d\", sumArray(arr, size));\n    return 0;\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Write a program to generate the Fibonacci series up to n terms using recursion.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n\n// Recursive function to find nth Fibonacci number\nint fibonacci(int n) {\n    if(n <= 1) return n;\n    return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\n// Function to print Fibonacci series\nvoid printFibonacciSeries(int n) {\n    printf(\"Fibonacci Series up to %d terms: \", n);\n    for(int i = 0; i < n; i++) {\n        printf(\"%d \", fibonacci(i));\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    int n;\n    printf(\"Enter the number of terms: \");\n    scanf(\"%d\", &n);\n    \n    if(n <= 0) {\n        printf(\"Please enter a positive number\\n\");\n    } else {\n        printFibonacciSeries(n);\n    }\n    \n    return 0;\n}\n\n// Alternative iterative approach\nint fibonacciIterative(int n) {\n    if(n <= 1) return n;\n    int a = 0, b = 1, c;\n    for(int i = 2; i <= n; i++) {\n        c = a + b;\n        a = b;\n        b = c;\n    }\n    return b;\n}\n```"
+        },
+        {
+          "q": "Write a program to find the largest, smallest, and second largest element in an array.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <limits.h>\n\nvoid findElements(int arr[], int size) {\n    int largest = INT_MIN;\n    int secondLargest = INT_MIN;\n    int smallest = INT_MAX;\n    \n    for(int i = 0; i < size; i++) {\n        // Find largest and second largest\n        if(arr[i] > largest) {\n            secondLargest = largest;\n            largest = arr[i];\n        } else if(arr[i] > secondLargest && arr[i] != largest) {\n            secondLargest = arr[i];\n        }\n        \n        // Find smallest\n        if(arr[i] < smallest) {\n            smallest = arr[i];\n        }\n    }\n    \n    printf(\"Largest element: %d\\n\", largest);\n    printf(\"Second largest element: %d\\n\", secondLargest);\n    printf(\"Smallest element: %d\\n\", smallest);\n}\n\nint main() {\n    int arr[] = {64, 25, 12, 22, 11, 35, 89, 42};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    \n    printf(\"Array elements: \");\n    for(int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\\n\");\n    \n    findElements(arr, size);\n    \n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a program to calculate the HCF (GCD) of two numbers using both iterative and recursive methods.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n// Iterative method using Euclidean algorithm\nint findHCFIterative(int a, int b) {\n    while(b != 0) {\n        int temp = b;\n        b = a % b;\n        a = temp;\n    }\n    return a;\n}\n\n// Recursive method\nint findHCFRecursive(int a, int b) {\n    if(b == 0) return a;\n    return findHCFRecursive(b, a % b);\n}\n\n// Function to find LCM using HCF\nint findLCM(int a, int b, int hcf) {\n    return (a * b) / hcf;\n}\n\nint main() {\n    int num1, num2;\n    \n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    \n    // Handle negative numbers\n    num1 = abs(num1);\n    num2 = abs(num2);\n    \n    int hcfIterative = findHCFIterative(num1, num2);\n    int hcfRecursive = findHCFRecursive(num1, num2);\n    int lcm = findLCM(num1, num2, hcfIterative);\n    \n    printf(\"\\nHCF (Iterative) of %d and %d = %d\\n\", num1, num2, hcfIterative);\n    printf(\"HCF (Recursive) of %d and %d = %d\\n\", num1, num2, hcfRecursive);\n    printf(\"LCM of %d and %d = %d\\n\", num1, num2, lcm);\n    \n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a program to reverse an array and check if the array is a palindrome (reads the same forwards and backwards).",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <stdbool.h>\n\n// Function to reverse an array\nvoid reverseArray(int arr[], int size) {\n    int start = 0, end = size - 1;\n    while(start < end) {\n        // Swap elements\n        int temp = arr[start];\n        arr[start] = arr[end];\n        arr[end] = temp;\n        start++;\n        end--;\n    }\n}\n\n// Function to check if array is palindrome\nbool isPalindrome(int arr[], int size) {\n    for(int i = 0; i < size / 2; i++) {\n        if(arr[i] != arr[size - 1 - i]) {\n            return false;\n        }\n    }\n    return true;\n}\n\n// Function to display array\nvoid displayArray(int arr[], int size) {\n    for(int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    int arr[100], size;\n    \n    printf(\"Enter the size of array: \");\n    scanf(\"%d\", &size);\n    \n    printf(\"Enter %d elements: \", size);\n    for(int i = 0; i < size; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    \n    printf(\"\\nOriginal array: \");\n    displayArray(arr, size);\n    \n    // Check palindrome\n    if(isPalindrome(arr, size)) {\n        printf(\"The array is a palindrome!\\n\");\n    } else {\n        printf(\"The array is not a palindrome.\\n\");\n    }\n    \n    // Reverse the array\n    reverseArray(arr, size);\n    printf(\"Reversed array: \");\n    displayArray(arr, size);\n    \n    return 0;\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Create a student record management system that stores student information (roll number, name, marks in 3 subjects). The program should:\n1. Add new student records\n2. Display all student records\n3. Calculate and display average marks for each student\n4. Find and display the topper (highest average)\n5. Sort students by roll number\nUse arrays of structures to store up to 100 students.",
+          "marks": 10,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n\n#define MAX_STUDENTS 100\n\ntypedef struct {\n    int roll;\n    char name[50];\n    float marks[3];\n    float average;\n} Student;\n\nStudent students[MAX_STUDENTS];\nint studentCount = 0;\n\nvoid addStudent() {\n    if(studentCount >= MAX_STUDENTS) {\n        printf(\"Maximum students limit reached!\\n\");\n        return;\n    }\n    \n    Student s;\n    printf(\"Enter Roll Number: \");\n    scanf(\"%d\", &s.roll);\n    \n    // Check for duplicate roll number\n    for(int i = 0; i < studentCount; i++) {\n        if(students[i].roll == s.roll) {\n            printf(\"Student with roll number %d already exists!\\n\", s.roll);\n            return;\n        }\n    }\n    \n    printf(\"Enter Name: \");\n    scanf(\" %[^\\n]\", s.name);\n    \n    printf(\"Enter marks in 3 subjects:\\n\");\n    float sum = 0;\n    for(int i = 0; i < 3; i++) {\n        printf(\"Subject %d: \", i+1);\n        scanf(\"%f\", &s.marks[i]);\n        sum += s.marks[i];\n    }\n    s.average = sum / 3;\n    \n    students[studentCount] = s;\n    studentCount++;\n    printf(\"Student added successfully!\\n\");\n}\n\nvoid displayAllStudents() {\n    if(studentCount == 0) {\n        printf(\"No students found!\\n\");\n        return;\n    }\n    \n    printf(\"\\n%-10s %-20s %-10s %-10s %-10s %-10s\\n\", \n           \"Roll No\", \"Name\", \"Sub1\", \"Sub2\", \"Sub3\", \"Average\");\n    printf(\"----------------------------------------------------------------\\n\");\n    \n    for(int i = 0; i < studentCount; i++) {\n        printf(\"%-10d %-20s %-10.2f %-10.2f %-10.2f %-10.2f\\n\",\n               students[i].roll,\n               students[i].name,\n               students[i].marks[0],\n               students[i].marks[1],\n               students[i].marks[2],\n               students[i].average);\n    }\n}\n\nvoid displayStudentAverages() {\n    if(studentCount == 0) {\n        printf(\"No students found!\\n\");\n        return;\n    }\n    \n    printf(\"\\n%-10s %-20s %-10s\\n\", \"Roll No\", \"Name\", \"Average\");\n    printf(\"----------------------------------------\\n\");\n    \n    for(int i = 0; i < studentCount; i++) {\n        printf(\"%-10d %-20s %-10.2f\\n\",\n               students[i].roll,\n               students[i].name,\n               students[i].average);\n    }\n}\n\nvoid findTopper() {\n    if(studentCount == 0) {\n        printf(\"No students found!\\n\");\n        return;\n    }\n    \n    int topperIndex = 0;\n    for(int i = 1; i < studentCount; i++) {\n        if(students[i].average > students[topperIndex].average) {\n            topperIndex = i;\n        }\n    }\n    \n    printf(\"\\n********** TOPPER **********\\n\");\n    printf(\"Roll Number: %d\\n\", students[topperIndex].roll);\n    printf(\"Name: %s\\n\", students[topperIndex].name);\n    printf(\"Average Marks: %.2f\\n\", students[topperIndex].average);\n    printf(\"****************************\\n\");\n}\n\nvoid sortByRollNumber() {\n    if(studentCount <= 1) return;\n    \n    // Bubble sort\n    for(int i = 0; i < studentCount - 1; i++) {\n        for(int j = 0; j < studentCount - i - 1; j++) {\n            if(students[j].roll > students[j+1].roll) {\n                Student temp = students[j];\n                students[j] = students[j+1];\n                students[j+1] = temp;\n            }\n        }\n    }\n    printf(\"Students sorted by roll number!\\n\");\n}\n\nint main() {\n    int choice;\n    \n    do {\n        printf(\"\\n********** STUDENT MANAGEMENT SYSTEM **********\\n\");\n        printf(\"1. Add Student\\n\");\n        printf(\"2. Display All Students\\n\");\n        printf(\"3. Display Student Averages\\n\");\n        printf(\"4. Find Topper\\n\");\n        printf(\"5. Sort by Roll Number\\n\");\n        printf(\"6. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n        \n        switch(choice) {\n            case 1:\n                addStudent();\n                break;\n            case 2:\n                displayAllStudents();\n                break;\n            case 3:\n                displayStudentAverages();\n                break;\n            case 4:\n                findTopper();\n                break;\n            case 5:\n                sortByRollNumber();\n                break;\n            case 6:\n                printf(\"Exiting...\\n\");\n                break;\n            default:\n                printf(\"Invalid choice! Please try again.\\n\");\n        }\n    } while(choice != 6);\n    \n    return 0;\n}\n```"
+        }
+      ]
+    }
+  ]
+}

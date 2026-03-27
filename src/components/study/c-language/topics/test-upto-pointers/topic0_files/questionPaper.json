@@ -1,0 +1,143 @@
+{
+  "paperId": "C-BASIC-SET-01",
+  "title": "C Programming - Beginner Level Question Paper",
+  "duration": "3 Hours",
+  "totalMarks": 100,
+
+  "sections": [
+
+    {
+      "section": "A",
+      "type": "Theory (Short Answer)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "q": "What is C programming language?",
+          "marks": 2
+        },
+        {
+          "q": "Name two areas where C is widely used.",
+          "marks": 2
+        },
+        {
+          "q": "What is the purpose of #include <stdio.h>?",
+          "marks": 2
+        },
+        {
+          "q": "What is a variable in C?",
+          "marks": 2
+        },
+        {
+          "q": "Write any two data types in C.",
+          "marks": 2
+        },
+        {
+          "q": "What is the difference between = and == ?",
+          "marks": 2
+        },
+        {
+          "q": "What is printf used for?",
+          "marks": 2
+        },
+        {
+          "q": "Define loop in programming.",
+          "marks": 2
+        },
+        {
+          "q": "What is an infinite loop?",
+          "marks": 2
+        },
+        {
+          "q": "What is the use of break statement?",
+          "marks": 2
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Theory (Descriptive)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain the structure of a basic C program with example.",
+          "marks": 5
+        },
+        {
+          "q": "Explain different data types in C with examples.",
+          "marks": 5
+        },
+        {
+          "q": "Explain arithmetic and logical operators with examples.",
+          "marks": 5
+        },
+        {
+          "q": "Differentiate between while, do-while, and for loop.",
+          "marks": 5
+        },
+        {
+          "q": "Explain type conversion in C (implicit and explicit).",
+          "marks": 5
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Theory (Long Answer)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 3,
+      "questions": [
+        {
+          "q": "Explain loop control statements (break and continue) with examples.",
+          "marks": 10
+        },
+        {
+          "q": "Explain operator precedence and expression evaluation in C with examples.",
+          "marks": 10
+        },
+        {
+          "q": "Describe formatted input and output in C using scanf and printf.",
+          "marks": 10
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Practical (Programming)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 3,
+      "questions": [
+        {
+          "q": "Write a C program to print multiplication table of a number.",
+          "marks": 10
+        },
+        {
+          "q": "Write a C program to check whether a number is prime or not.",
+          "marks": 10
+        },
+        {
+          "q": "Write a C program to find factorial of a number using loop.",
+          "marks": 10
+        }
+      ]
+    },
+
+    {
+      "section": "E",
+      "type": "Practical (Mini Project)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Create a menu-driven calculator using loops and switch case to perform addition, subtraction, multiplication, and division.",
+          "marks": 15
+        }
+      ]
+    }
+
+  ]
+}

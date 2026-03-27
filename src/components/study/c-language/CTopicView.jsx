@@ -149,13 +149,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   // -----------------------------------------------------
   // SCROLL LISTENER FOR SCROLL-TO-TOP BUTTON (added)
   // -----------------------------------------------------
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setShowScrollTop(window.scrollY > 300);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   // -----------------------------------------------------
   // WHATSAPP SIDEBAR STATES (unchanged)

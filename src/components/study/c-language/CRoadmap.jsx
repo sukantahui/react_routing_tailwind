@@ -38,6 +38,70 @@ export default class CRoadmap extends Component {
   // ==========================================================
   state = {
     search: "",
+    forceUpdate: 0,
+  };
+
+  // ==========================================================
+  // Lifecycle Methods
+  // ==========================================================
+  componentDidMount() {
+    window.addEventListener("storage", this.handleAuthChange);
+    window.addEventListener("authChange", this.handleAuthChange);
+    document.addEventListener("visibilitychange", this.handleVisibilityChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("storage", this.handleAuthChange);
+    window.removeEventListener("authChange", this.handleAuthChange);
+    document.removeEventListener("visibilitychange", this.handleVisibilityChange);
+  }
+
+  // ==========================================================
+  // Event Handlers
+  // ==========================================================
+  handleAuthChange = () => {
+    this.setState(prev => ({ forceUpdate: prev.forceUpdate + 1 }));
+  };
+
+  handleVisibilityChange = () => {
+    if (!document.hidden) {
+      this.setState(prev => ({ forceUpdate: prev.forceUpdate + 1 }));
+    }
+  };
+
+  // ==========================================================
+  // Helper to check if user is logged in from localStorage
+  // ==========================================================
+  isLoggedIn = () => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    return !!(token && user);
+  };
+
+  // ==========================================================
+  // Module Visibility Check
+  // ==========================================================
+  isModuleVisible = (module) => {
+    // If no visibility key exists, show the module (public by default)
+    if (!module.hasOwnProperty("visibility")) {
+      return true;
+    }
+    
+    // Convert visibility to lowercase for case-insensitive comparison
+    const visibility = module.visibility.toLowerCase();
+    
+    // If visibility is public, show the module
+    if (visibility === "public") {
+      return true;
+    }
+    
+    // If visibility is loggedin, check if user is logged in
+    if (visibility === "loggedin") {
+      return this.isLoggedIn();
+    }
+    
+    // Default to false for any other visibility values
+    return false;
   };
 
   // ==========================================================
@@ -45,16 +109,14 @@ export default class CRoadmap extends Component {
   // ==========================================================
   isCompleted(moduleId) {
     return (
-      localStorage.getItem(`python-module-completed::${moduleId}`) === "true"
+      localStorage.getItem(`c-module-completed::${moduleId}`) === "true"
     );
   }
 
   toggleCompleted(moduleId) {
-    const key = `python-module-completed::${moduleId}`;
+    const key = `c-module-completed::${moduleId}`;
     const current = this.isCompleted(moduleId);
     localStorage.setItem(key, (!current).toString());
-
-    // force re-render
     this.setState({});
   }
 
@@ -77,9 +139,11 @@ export default class CRoadmap extends Component {
   // Render Segment
   // ==========================================================
   renderSegment(segment, index) {
-    const filteredModules = segment.modules.filter((m) =>
-      this.matchesSearch(m)
-    );
+    const filteredModules = segment.modules.filter((m) => {
+      const visible = this.isModuleVisible(m);
+      const matches = this.matchesSearch(m);
+      return visible && matches;
+    });
 
     if (filteredModules.length === 0) return null;
 
@@ -104,6 +168,18 @@ export default class CRoadmap extends Component {
             this.renderModule(module, i)
           )}
         </div>
+
+        {/* Show login prompt if segment has locked modules and user is not logged in */}
+        {!this.isLoggedIn() && segment.modules.some(m => m.visibility === "loggedIn") && (
+          <div className="mt-6 p-4 bg-blue-900/20 border border-blue-700/30 rounded-xl">
+            <p className="text-blue-300 text-sm text-center">
+              🔒 Some modules in this segment are locked. 
+              <Link to="/login" className="text-blue-400 font-semibold ml-2 hover:underline">
+                Sign in to access all modules
+              </Link>
+            </p>
+          </div>
+        )}
       </section>
     );
   }
@@ -114,7 +190,71 @@ export default class CRoadmap extends Component {
   renderModule(module, index) {
     const completed = this.isCompleted(module.moduleId);
     const directURL = `${window.location.origin}/${roadmapData.folder}/module/${module.slug}`;
+    const isVisible = this.isModuleVisible(module);
+    const isLocked = !isVisible && module.visibility === "loggedIn";
+    
+    // Check if this is a loggedIn-only module (visible because user is logged in)
+    const isLoggedInOnlyModule = module.visibility === "loggedIn" && this.isLoggedIn();
 
+    // If module is locked, show a locked card with amber color
+    if (isLocked) {
+      return (
+        <div
+          key={module.moduleId}
+          className="relative rounded-2xl p-4 sm:p-5 border border-amber-500/60 bg-amber-900/10"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-1">
+                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 border border-slate-700 text-[10px]">
+                  {index + 1}
+                </span>
+                <span>{module.moduleId}</span>
+              </div>
+
+              <h3 className="text-lg font-semibold text-amber-400 flex items-center gap-2">
+                <Code2 size={16} className="text-amber-500" />
+                {module.title}
+              </h3>
+
+              <div className="mt-3">
+                <Link
+                  to="/login"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-amber-900/30 text-amber-400 text-xs border border-amber-500/50 hover:bg-amber-500/20 transition"
+                >
+                  <span className="text-base">🔒</span>
+                  Login to access this module
+                </Link>
+              </div>
+
+              {module.summary && (
+                <p className="mt-2 text-sm text-slate-500">
+                  {module.summary.substring(0, 100)}...
+                </p>
+              )}
+            </div>
+          </div>
+
+          {/* Meta with amber colors */}
+          <div className="mt-4 flex flex-wrap gap-2 text-[11px]">
+            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
+              <ShieldCheck size={11} className="text-amber-400" />
+              {module.level}
+            </span>
+            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
+              <Sparkles size={11} className="text-amber-400" />
+              {module.difficulty}
+            </span>
+            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
+              <Clock size={11} className="text-amber-400" />
+              {module.estimatedHours} hrs
+            </span>
+          </div>
+        </div>
+      );
+    }
+
+    // Normal visible module with conditional styling based on module type
     return (
       <div
         key={module.moduleId}
@@ -122,10 +262,11 @@ export default class CRoadmap extends Component {
           relative rounded-2xl p-4 sm:p-5 transition-all
           ${completed
             ? "border border-emerald-500/60 bg-emerald-900/10"
-            : "border border-slate-700/60 bg-slate-800/50"
+            : isLoggedInOnlyModule
+              ? "border border-purple-500/60 bg-purple-900/10 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]"
+              : "border border-slate-700/60 bg-slate-800/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)]"
           }
           hover:scale-[1.01]
-          hover:shadow-[0_0_25px_rgba(56,189,248,0.25)]
         `}
       >
         <div className="flex items-start justify-between gap-4">
@@ -137,8 +278,10 @@ export default class CRoadmap extends Component {
               <span>{module.moduleId}</span>
             </div>
 
-            <h3 className="text-lg font-semibold text-slate-100 flex items-center gap-2">
-              <Code2 size={16} className="text-sky-400" />
+            <h3 className={`text-lg font-semibold flex items-center gap-2 ${
+              isLoggedInOnlyModule ? "text-purple-300" : "text-slate-100"
+            }`}>
+              <Code2 size={16} className={isLoggedInOnlyModule ? "text-purple-400" : "text-sky-400"} />
               {module.title}
             </h3>
 
@@ -148,13 +291,23 @@ export default class CRoadmap extends Component {
               </span>
             )}
 
+            {/* Badge for loggedIn-only modules */}
+            {isLoggedInOnlyModule && (
+              <span className="inline-block mt-2 ml-2 text-[10px] px-2 py-1 rounded-full border border-purple-500 text-purple-300 bg-purple-700/20">
+                🔒 Premium Content
+              </span>
+            )}
+
             <div className="mt-3 flex flex-wrap gap-2">
               <Link
                 to={`/${roadmapData.folder}/module/${module.slug}`}
-                className="
-                  px-3 py-2 rounded-full border border-sky-500
-                  text-sky-300 text-xs hover:bg-sky-500/10
-                "
+                className={`
+                  px-3 py-2 rounded-full border text-xs transition
+                  ${isLoggedInOnlyModule
+                    ? "border-purple-500 text-purple-300 hover:bg-purple-500/10"
+                    : "border-sky-500 text-sky-300 hover:bg-sky-500/10"
+                  }
+                `}
               >
                 Explore Module →
               </Link>
@@ -178,7 +331,7 @@ export default class CRoadmap extends Component {
                 href={directURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-400 hover:underline"
+                className={isLoggedInOnlyModule ? "text-purple-400 hover:underline" : "text-sky-400 hover:underline"}
               >
                 {directURL}
               </a>
@@ -192,22 +345,45 @@ export default class CRoadmap extends Component {
           </div>
         </div>
 
-        {/* Meta */}
-        <div className="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-400">
-          <span className="px-2 py-1 rounded-full bg-slate-900 flex items-center gap-1">
-            <ShieldCheck size={11} className="text-emerald-400" />
+        {/* Meta section with different colors for loggedIn modules */}
+        <div className="mt-4 flex flex-wrap gap-2 text-[11px]">
+          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
+            isLoggedInOnlyModule 
+              ? "bg-purple-900/30 text-purple-400" 
+              : "bg-slate-900 text-slate-400"
+          }`}>
+            <ShieldCheck size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-emerald-400"} />
             {module.level}
           </span>
 
-          <span className="px-2 py-1 rounded-full bg-slate-900 flex items-center gap-1">
-            <Sparkles size={11} className="text-purple-400" />
+          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
+            isLoggedInOnlyModule 
+              ? "bg-purple-900/30 text-purple-400" 
+              : "bg-slate-900 text-slate-400"
+          }`}>
+            <Sparkles size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-purple-400"} />
             {module.difficulty}
           </span>
 
-          <span className="px-2 py-1 rounded-full bg-slate-900 flex items-center gap-1">
-            <Clock size={11} className="text-yellow-400" />
+          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
+            isLoggedInOnlyModule 
+              ? "bg-purple-900/30 text-purple-400" 
+              : "bg-slate-900 text-slate-400"
+          }`}>
+            <Clock size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-yellow-400"} />
             {module.estimatedHours} hrs
           </span>
+
+          {/* Show visibility badge */}
+          {module.visibility && (
+            <span className={`px-2 py-1 rounded-full text-[10px] ${
+              isLoggedInOnlyModule
+                ? "bg-purple-900/30 text-purple-400"
+                : "bg-slate-900 text-slate-500"
+            }`}>
+              {module.visibility === "loggedIn" ? "🔒 Premium" : "🌐 Public"}
+            </span>
+          )}
         </div>
       </div>
     );
@@ -217,8 +393,13 @@ export default class CRoadmap extends Component {
   // Page Render
   // ==========================================================
   render() {
+    // Filter segments that have at least one visible module
     const visibleSegments = roadmapData.segments.filter((seg) =>
-      seg.modules.some((m) => this.matchesSearch(m))
+      seg.modules.some((m) => {
+        const visible = this.isModuleVisible(m);
+        const matches = this.matchesSearch(m);
+        return visible && matches;
+      })
     );
 
     return (
@@ -267,8 +448,6 @@ export default class CRoadmap extends Component {
             </p>
           </div>
 
-
-
           {/* ================= TEACHER PROFILE ================= */}
           {roadmapData.teacher && (
             <div className="max-w-4xl mx-auto mb-14 border border-slate-800 bg-slate-900/70 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-[0_0_30px_rgba(0,0,0,0.35)] backdrop-blur-xl">
@@ -279,13 +458,13 @@ export default class CRoadmap extends Component {
                   src={roadmapData.teacher.photo}
                   alt={roadmapData.teacher.name}
                   className="
-          w-28 h-28 sm:w-32 sm:h-32
-          rounded-full object-cover
-          border-4 border-sky-500/40
-          shadow-lg
-          transition-transform duration-300
-          hover:scale-105
-        "
+                    w-28 h-28 sm:w-32 sm:h-32
+                    rounded-full object-cover
+                    border-4 border-sky-500/40
+                    shadow-lg
+                    transition-transform duration-300
+                    hover:scale-105
+                  "
                 />
               </div>
 
@@ -386,13 +565,12 @@ export default class CRoadmap extends Component {
                       rel="noopener noreferrer"
                       aria-label="WhatsApp"
                       className="
-                      p-2 rounded-full border border-slate-700
-                      text-green-500 hover:text-green-400
-                      hover:border-green-400 hover:bg-green-500/10
-                      transition hover:scale-110
-                    "
+                        p-2 rounded-full border border-slate-700
+                        text-green-500 hover:text-green-400
+                        hover:border-green-400 hover:bg-green-500/10
+                        transition hover:scale-110
+                      "
                     >
-                      {/* WhatsApp SVG */}
                       <svg
                         role="img"
                         viewBox="0 0 24 24"
@@ -409,12 +587,35 @@ export default class CRoadmap extends Component {
             </div>
           )}
 
+          {/* Login Status Banner */}
+          {!this.isLoggedIn() && (
+            <div className="max-w-4xl mx-auto mb-8 p-4 bg-amber-900/20 border border-amber-700/30 rounded-xl">
+              <p className="text-amber-300 text-sm text-center">
+                🔓 You're viewing public modules only. 
+                <Link to="/login" className="text-amber-400 font-semibold ml-2 hover:underline">
+                  Sign in to unlock premium modules
+                </Link>
+              </p>
+            </div>
+          )}
 
-
+          {this.isLoggedIn() && (
+            <div className="max-w-4xl mx-auto mb-8 p-4 bg-emerald-900/20 border border-emerald-700/30 rounded-xl">
+              <p className="text-emerald-300 text-sm text-center">
+                ✅ You're logged in! Premium modules are now available.
+              </p>
+            </div>
+          )}
 
           {/* Segments */}
-          {visibleSegments.map((seg, i) =>
-            this.renderSegment(seg, i)
+          {visibleSegments.length > 0 ? (
+            visibleSegments.map((seg, i) =>
+              this.renderSegment(seg, i)
+            )
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-slate-400">No modules found matching your search.</p>
+            </div>
           )}
 
           <div className="text-center text-slate-600 text-xs mt-12">

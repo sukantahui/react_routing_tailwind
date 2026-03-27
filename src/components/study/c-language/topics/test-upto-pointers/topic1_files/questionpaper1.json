@@ -1,0 +1,143 @@
+{
+  "paperId": "C-INTERMEDIATE-SET-01",
+  "title": "C Programming - Intermediate Level Question Paper",
+  "duration": "1 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Theory (Short Answer)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "q": "What is the difference between call by value and call by reference?",
+          "marks": 2,
+          "answer": "In call by value, a copy of the argument is passed to the function; changes inside the function do not affect the original variable. In call by reference, the address of the variable is passed, allowing the function to modify the original variable directly (achieved using pointers in C)."
+        },
+        {
+          "q": "What is a pointer in C? How is it declared?",
+          "marks": 2,
+          "answer": "A pointer is a variable that stores the memory address of another variable. It is declared using the asterisk (*) symbol, e.g., `int *ptr;` declares a pointer to an integer."
+        },
+        {
+          "q": "Explain the purpose of the static keyword in C.",
+          "marks": 2,
+          "answer": "When used on a local variable, `static` retains its value between function calls. When used on a global variable or function, it restricts its visibility to the file in which it is declared (internal linkage)."
+        },
+        {
+          "q": "What is the difference between an array and a pointer?",
+          "marks": 2,
+          "answer": "An array is a fixed-size block of memory storing elements of the same type; the array name is a constant pointer to the first element. A pointer is a variable that can hold addresses and can be reassigned. An array name cannot be reassigned."
+        },
+        {
+          "q": "What is recursion? Give an example.",
+          "marks": 2,
+          "answer": "Recursion is a technique where a function calls itself directly or indirectly. Example: Factorial function – `int fact(int n) { return n == 0 ? 1 : n * fact(n-1); }`."
+        },
+        {
+          "q": "What is the role of the preprocessor in C?",
+          "marks": 2,
+          "answer": "The preprocessor processes directives (like `#include`, `#define`) before compilation. It handles macro expansion, file inclusion, conditional compilation, and removes comments."
+        },
+        {
+          "q": "Explain the difference between malloc() and calloc().",
+          "marks": 2,
+          "answer": "`malloc()` allocates a single block of memory of given size but does not initialize it; it contains garbage values. `calloc()` allocates memory for an array of elements, initializes all bytes to zero."
+        },
+        {
+          "q": "What is a structure? How is it different from a union?",
+          "marks": 2,
+          "answer": "A structure groups variables of different types; each member has its own memory location. A union also groups variables but all members share the same memory location; only one member can be used at a time. Union size equals the size of its largest member."
+        },
+        {
+          "q": "What is the use of typedef in C?",
+          "marks": 2,
+          "answer": "`typedef` creates an alias for an existing data type, improving code readability and portability. Example: `typedef struct Student Student;`"
+        },
+        {
+          "q": "What is a file pointer? Name the functions to open and close a file.",
+          "marks": 2,
+          "answer": "A file pointer is a pointer to a `FILE` structure that represents a stream. `fopen()` is used to open a file, and `fclose()` to close it."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Theory (Descriptive)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Explain the concept of function pointers with an example.",
+          "marks": 5,
+          "answer": "A function pointer is a variable that stores the address of a function. It can be used to call the function indirectly, pass functions as arguments, or implement callbacks. Example:\n```c\n#include <stdio.h>\nint add(int a, int b) { return a + b; }\nint main() {\n    int (*funcPtr)(int, int) = add;\n    printf(\"%d\", funcPtr(5, 3));\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Describe dynamic memory allocation functions in C (malloc, calloc, realloc, free) with syntax and use cases.",
+          "marks": 5,
+          "answer": "- `malloc(size_t size)`: allocates `size` bytes; returns `void*`. Used when size is known but initialization not needed.\n- `calloc(size_t num, size_t size)`: allocates `num` elements of `size` bytes each, initializes to zero. Used for arrays.\n- `realloc(void *ptr, size_t new_size)`: resizes previously allocated memory; may move the block.\n- `free(void *ptr)`: deallocates memory to prevent leaks. Example: `int *arr = (int*)malloc(10 * sizeof(int));`"
+        },
+        {
+          "q": "Explain the different storage classes in C (auto, register, static, extern) with examples.",
+          "marks": 5,
+          "answer": "- `auto`: default for local variables; stored in stack, scope limited to block.\n- `register`: suggests storing variable in CPU register for faster access; cannot take address.\n- `static`: local static retains value between calls; global static restricts visibility to file.\n- `extern`: declares variable defined elsewhere; used for sharing across files. Example:\n```c\nstatic int count = 0; // file scope\nvoid func() { auto int x = 10; static int y = 0; y++; }\n```"
+        },
+        {
+          "q": "Explain the difference between structure and union with memory representation.",
+          "marks": 5,
+          "answer": "A structure allocates separate memory for each member; its size is the sum of all members (plus padding). A union allocates memory equal to its largest member; all members share that memory. Modifying one member affects others. Example:\n```c\nstruct S { int i; char c; }; // size >= 5\nunion U { int i; char c; }; // size = 4\n```"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Theory (Long Answer)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Explain file handling in C. Describe various file modes, functions like fopen, fclose, fread, fwrite, fprintf, fscanf with examples.",
+          "marks": 10,
+          "answer": "File handling in C uses the `FILE` structure. Common modes: \"r\" (read), \"w\" (write), \"a\" (append), \"rb\" (binary read), etc. Functions:\n- `fopen()`: opens file, returns `FILE*`.\n- `fclose()`: closes file.\n- `fprintf()`: formatted write to file.\n- `fscanf()`: formatted read from file.\n- `fread()`: binary read.\n- `fwrite()`: binary write.\nExample:\n```c\nFILE *fp = fopen(\"data.txt\", \"w\");\nfprintf(fp, \"Hello %d\", 10);\nfclose(fp);\n\nfp = fopen(\"data.txt\", \"r\");\nint n; fscanf(fp, \"Hello %d\", &n);\nfclose(fp);\n```\nBinary example: `fwrite(&var, sizeof(var), 1, fp);`"
+        },
+        {
+          "q": "Explain the concept of recursion with a detailed example (e.g., Tower of Hanoi or Fibonacci). Discuss its advantages and disadvantages.",
+          "marks": 10,
+          "answer": "Recursion is a function that calls itself. Example: Tower of Hanoi.\n```c\nvoid hanoi(int n, char from, char to, char aux) {\n    if (n == 1) printf(\"Move disk 1 from %c to %c\\n\", from, to);\n    else {\n        hanoi(n-1, from, aux, to);\n        printf(\"Move disk %d from %c to %c\\n\", n, from, to);\n        hanoi(n-1, aux, to, from);\n    }\n}\n```\nAdvantages: simplifies code for problems with recursive structure, reduces code length. Disadvantages: may cause stack overflow for deep recursion, often slower due to function call overhead, and can be harder to debug."
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Practical (Programming)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Write a C program to find the largest and smallest element in an array using pointers.",
+          "marks": 10,
+          "answer": "```c\n#include <stdio.h>\nvoid findMinMax(int *arr, int n, int *min, int *max) {\n    *min = *max = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] < *min) *min = arr[i];\n        if (arr[i] > *max) *max = arr[i];\n    }\n}\nint main() {\n    int arr[] = {5, 2, 9, 1, 7, 3};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    int min, max;\n    findMinMax(arr, n, &min, &max);\n    printf(\"Smallest: %d, Largest: %d\\n\", min, max);\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a C program to implement a simple calculator using function pointers for arithmetic operations.",
+          "marks": 10,
+          "answer": "```c\n#include <stdio.h>\nint add(int a, int b) { return a + b; }\nint sub(int a, int b) { return a - b; }\nint mul(int a, int b) { return a * b; }\nint div(int a, int b) { return (b != 0) ? a / b : 0; }\nint main() {\n    int (*ops[])(int, int) = {add, sub, mul, div};\n    int a, b, choice;\n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"Choose operation: 1.Add 2.Sub 3.Mul 4.Div\\n\");\n    scanf(\"%d\", &choice);\n    if (choice >= 1 && choice <= 4) {\n        int result = ops[choice-1](a, b);\n        printf(\"Result: %d\\n\", result);\n    } else printf(\"Invalid choice\\n\");\n    return 0;\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "E",
+      "type": "Practical (Mini Project)",
+      "marksPerQuestion": 20,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Create a student record management system using structures and file handling. The system should allow adding new records, displaying all records, searching for a student by roll number, and deleting a record. Use file I/O to persist data.",
+          "marks": 20,
+          "answer": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\ntypedef struct {\n    int roll;\n    char name[50];\n    float marks;\n} Student;\n\nvoid addRecord() {\n    Student s;\n    FILE *fp = fopen(\"students.dat\", \"ab\");\n    printf(\"Enter roll, name, marks: \");\n    scanf(\"%d %s %f\", &s.roll, s.name, &s.marks);\n    fwrite(&s, sizeof(Student), 1, fp);\n    fclose(fp);\n}\n\nvoid displayAll() {\n    Student s;\n    FILE *fp = fopen(\"students.dat\", \"rb\");\n    if (!fp) { printf(\"No records\\n\"); return; }\n    printf(\"Roll\\tName\\tMarks\\n\");\n    while (fread(&s, sizeof(Student), 1, fp)) {\n        printf(\"%d\\t%s\\t%.2f\\n\", s.roll, s.name, s.marks);\n    }\n    fclose(fp);\n}\n\nvoid searchRecord(int roll) {\n    Student s;\n    FILE *fp = fopen(\"students.dat\", \"rb\");\n    if (!fp) { printf(\"No records\\n\"); return; }\n    int found = 0;\n    while (fread(&s, sizeof(Student), 1, fp)) {\n        if (s.roll == roll) {\n            printf(\"Found: %d %s %.2f\\n\", s.roll, s.name, s.marks);\n            found = 1;\n            break;\n        }\n    }\n    if (!found) printf(\"Not found\\n\");\n    fclose(fp);\n}\n\nvoid deleteRecord(int roll) {\n    Student s;\n    FILE *fp = fopen(\"students.dat\", \"rb\");\n    FILE *temp = fopen(\"temp.dat\", \"wb\");\n    if (!fp) { printf(\"No records\\n\"); return; }\n    int found = 0;\n    while (fread(&s, sizeof(Student), 1, fp)) {\n        if (s.roll != roll) {\n            fwrite(&s, sizeof(Student), 1, temp);\n        } else found = 1;\n    }\n    fclose(fp);\n    fclose(temp);\n    remove(\"students.dat\");\n    rename(\"temp.dat\", \"students.dat\");\n    if (found) printf(\"Deleted\\n\");\n    else printf(\"Not found\\n\");\n}\n\nint main() {\n    int choice, roll;\n    while (1) {\n        printf(\"\\n1.Add 2.Display 3.Search 4.Delete 5.Exit\\nChoice: \");\n        scanf(\"%d\", &choice);\n        switch(choice) {\n            case 1: addRecord(); break;\n            case 2: displayAll(); break;\n            case 3: printf(\"Roll: \"); scanf(\"%d\", &roll); searchRecord(roll); break;\n            case 4: printf(\"Roll: \"); scanf(\"%d\", &roll); deleteRecord(roll); break;\n            case 5: exit(0);\n            default: printf(\"Invalid\\n\");\n        }\n    }\n    return 0;\n}\n```"
+        }
+      ]
+    }
+  ]
+}

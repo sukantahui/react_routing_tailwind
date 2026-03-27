@@ -921,6 +921,73 @@
           "previousModule": "dom-basics",
           "nextModule": null,
           "badge": "Interaction Architect Badge"
+        },
+        {
+          "moduleId": "segment2-printable-test",
+          "slug": "segment2-printable-test",
+          "title": "Printable Test",
+          "level": "Intermediate",
+          "estimatedHours": 15,
+          "visibility": "loggedIn",
+          "tags": [
+            "events",
+            "interaction"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2",
+            "Test 3"
+            
+          ],
+          "learningOutcomes": [
+            "Attach and manage event listeners for user-driven actions",
+            "Create interactive UI components using events and DOM",
+            "Implement basic client-side form validation"
+          ],
+          "prerequisites": [
+            "dom-basics"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 8,
+          "summary": "Listen to user actions, respond to events, and manage interactivity on web pages.",
+          "miniProjects": [
+            "Practice: Events & User Interaction – Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 18,
+            "coding": 9,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Form submissions and validations",
+            "Opening and closing modals / dialogs"
+          ],
+          "careerSkills": [
+            "Interactive UI building",
+            "Event-driven thinking"
+          ],
+          "commonMistakes": [
+            "Attaching multiple listeners unnecessarily",
+            "Not removing listeners leading to memory issues in bigger apps"
+          ],
+          "references": [
+            "MDN Web Docs – Introduction to events",
+            "javascript.info – Browser events"
+          ],
+          "teachingTips": [
+            "Show event.target and console.log on every click for intuition.",
+            "Explain bubbling with nested clickable elements."
+          ],
+          "preReading": [
+            "DOM (Document Object Model) Basics module"
+          ],
+          "previousModule": "dom-basics",
+          "nextModule": null,
+          "badge": "Interaction Architect Badge"
         }
       ]
     },
