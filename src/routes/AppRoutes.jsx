@@ -4,6 +4,9 @@ import ProtectedRoute from './ProtectedRoute';
 import NetworkRoadmap from '../components/study/network/NetworkRoadmap';
 import NetworkModuleView from '../components/study/network/NetworkModuleView';
 import NetworkTopicView from '../components/study/network/NetworkTopicView';
+import IscTweleveTopicView from '../components/study/isc-12/IscTwelveTopicView';
+import IscTweleveModuleView from '../components/study/isc-12/IscTwelveModuleView';
+import IscTweleveRoadmap from '../components/study/isc-12/IscTwelveRoadmap';
 
 
 // Public components (lazy)
@@ -251,6 +254,11 @@ export default function AppRoutes() {
         <Route path="/isc-11/roadmap" element={<IscElevenRoadmap />} />
         <Route path="/isc-11/module/:slug" element={<IscElevenModuleView />} />
         <Route path="/isc-11/topic/:moduleSlug/:topicIndex" element={<IscElevenTopicView />} />
+
+
+        <Route path="/isc-12/roadmap" element={<IscTweleveRoadmap />} />
+        <Route path="/isc-12/module/:slug" element={<IscTweleveModuleView />} />
+        <Route path="/isc-12/topic/:moduleSlug/:topicIndex" element={<IscTweleveTopicView />} />
 
         <Route path="/computer-architecture/roadmap" element={<ComputerArchitectureRoadmap />} />
         <Route path="/computer-architecture/module/:slug" element={<ComputerArchitectureModuleView />} />

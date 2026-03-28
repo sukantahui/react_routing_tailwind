@@ -1,0 +1,45 @@
+What is JavaScript and where it runs (browser, server, tools)
+Role of JavaScript in modern web development
+HTML, CSS, JS – how they work together
+Setting up the environment: browser, code editor (VS Code), Live Server
+Running code in the browser console and in script files
+Understanding console.log and basic debugging messages
+
+Statements, semicolons, indentation and code style
+Comments: single-line and multi-line
+Variables: var, let, const – differences and best practices
+Identifiers and naming conventions (camelCase, PascalCase, snake_case)
+Primitive data types: number, string, boolean, null, undefined, symbol, bigint (overview)
+typeof operator and basic type checking
+Type conversion: implicit vs explicit (Number(), String(), Boolean())
+Working with Numbers
+
+Arithmetic operators (+, -, *, /, %, **)
+Assignment and compound assignment operators
+Comparison operators (== vs ===, != vs !==, >, <, >=, <=)
+Logical operators (&&, ||, !)
+String concatenation and template literals
+Operator precedence and parentheses
+Basic input/output patterns using prompt, alert and console
+
+if, else-if, else structures
+Nested if statements and readability concerns
+Conditional (ternary) operator and inline decisions
+switch statement: cases, default, break and fall-through
+Common real-world examples: grading system, discounts, login checks
+Truthy and Falsy Values in JavaScript
+
+
+while loop and loop conditions
+do...while loop and its use cases
+for loop: counters, ranges and common patterns
+Loop control: break and continue
+Building simple patterns: sums, factorial, multiplication tables
+Intro to for...of and for...in (overview)
+
+Function declarations vs function expressions
+Parameters, arguments and default parameters
+Return values and early returns
+Function scope basics: local vs global variables
+Arrow functions and concise syntax
+Pure functions vs side effects (intro idea)

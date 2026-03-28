@@ -1,0 +1,313 @@
+{
+  "trackId": "isc-class12-computer-science-969",
+  "trackTitle": "ISC Class 12 Computer Science Complete Roadmap",
+  "description": "A complete ISC Class 12 Computer Science learning roadmap covering Boolean Algebra, Arrays, OOP concepts, Data Structures, Recursion, Complexity, and advanced programming topics.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "ISC Class 12 Computer Science Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-28"
+  },
+  "folder": "isc-12",
+  "subject": "Computer Science",
+  "segments": [
+    {
+      "segmentId": "section-a",
+      "title": "Section A – Boolean Algebra & Complexity",
+      "level": "Beginner",
+      "summary": "Understand logic simplification and computational efficiency concepts.",
+      "modules": [
+        {
+          "moduleId": "boolean-algebra",
+          "slug": "boolean-algebra-and-simplification",
+          "title": "Boolean Algebra & Logic Simplification",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 14,
+          "tags": [
+            "boolean",
+            "logic",
+            "truth-table",
+            "k-map",
+            "digital-logic"
+          ],
+          "topics": [
+            "Introduction to Boolean Algebra and its applications in digital electronics",
+            "Boolean constants (0 and 1) and variables",
+            "Basic operations: AND (·), OR (+), NOT (')",
+            "Truth tables for basic operations",
+            "Basic Laws of Boolean Algebra: Identity Law",
+            "Basic Laws of Boolean Algebra: Null Law",
+            "Basic Laws of Boolean Algebra: Idempotent Law",
+            "Basic Laws of Boolean Algebra: Involution Law",
+            "Basic Laws of Boolean Algebra: Complement Law",
+            "Basic Laws of Boolean Algebra: Commutative Law",
+            "Basic Laws of Boolean Algebra: Associative Law",
+            "Basic Laws of Boolean Algebra: Distributive Law",
+            "De Morgan’s Theorems (with proof and examples)",
+            "Duality Principle in Boolean Algebra",
+            "Simplification Techniques: Algebraic simplification",
+            "Simplification Techniques: Using Boolean identities",
+            "Simplification Techniques: Reducing expressions step-by-step",
+            "Canonical Forms: Sum of Products (SOP)",
+            "Canonical Forms: Product of Sums (POS)",
+            "Canonical Forms: Conversion between SOP and POS",
+            "Karnaugh Maps (K-Map): 2-variable K-Map",
+            "Karnaugh Maps (K-Map): 3-variable K-Map",
+            "Karnaugh Maps (K-Map): 4-variable K-Map (conceptual)",
+            "Karnaugh Maps (K-Map): Grouping and simplification rules",
+            "Truth Tables: Construction from expressions",
+            "Truth Tables: Deriving expressions from truth tables",
+            "Logical Equivalence and Verification of identities",
+            "Application-based problems (ISC exam pattern)",
+            "SOP to POS",
+            "POS to SOP",
+            "SOP to PSO Examples",
+            "Simplification Examples",
+            "Canonical (Cardinal) Form of a Minterm",
+            "Canonical (Cardinal) Form of a Maxterm",
+            "Different Examples"
+          ],
+          "learningOutcomes": [
+            "Explain Boolean algebra concepts and terminology",
+            "Construct and interpret truth tables",
+            "Apply Boolean laws to simplify expressions",
+            "Convert expressions into SOP and POS forms",
+            "Solve problems using Karnaugh Maps",
+            "Verify logical equivalence of expressions",
+            "Solve ISC board-level numerical and theory questions"
+          ],
+          "prerequisites": [
+            "Basic understanding of logical statements (Class XI logic)"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "This module builds a strong foundation in Boolean Algebra, focusing on simplification techniques, logical reasoning, and problem-solving required for ISC board exams and programming logic.",
+          "miniProjects": [
+            "Boolean Expression Simplifier (Java Program)",
+            "Truth Table Generator",
+            "K-Map Solver (Manual or Program-based)"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "longAnswer": 10,
+            "numerical": 20,
+            "coding": 5
+          },
+          "assessment": {
+            "type": "Worksheet + Board Pattern Test + Viva",
+            "passScore": 70
+          },
+          "previousModule": null,
+          "nextModule": "arrays",
+          "teachingFlow": [
+            "Start with real-life logic examples (switch, bulb)",
+            "Introduce truth tables visually",
+            "Teach laws with examples",
+            "Practice algebraic simplification",
+            "Introduce De Morgan + duality",
+            "Move to SOP & POS",
+            "Teach K-Map visually",
+            "Solve ISC previous year questions",
+            "Conduct test + viva"
+          ],
+          "commonMistakes": [
+            "Forgetting complement rules (A + A' = 1)",
+            "Incorrect application of De Morgan’s theorem",
+            "Wrong grouping in K-Map",
+            "Mixing AND/OR operations",
+            "Skipping steps in simplification"
+          ],
+          "examTips": [
+            "Always show steps in simplification",
+            "Use Boolean laws clearly (write law name if possible)",
+            "Draw neat truth tables",
+            "Practice K-Map grouping carefully",
+            "Revise common identities daily"
+          ],
+          "realLifeApplications": [
+            "Digital circuit design",
+            "Computer processor logic",
+            "Switching circuits",
+            "Programming conditions (if-else logic)"
+          ],
+          "badge": "Boolean Algebra Mastery Badge"
+        },
+        {
+          "moduleId": "complexity",
+          "slug": "computational-complexity-big-o",
+          "title": "Computational Complexity & Big-O",
+          "level": "Beginner",
+          "estimatedHours": 8,
+          "topics": [
+            "Algorithm efficiency",
+            "Time and space complexity",
+            "Big-O notation",
+            "Best, worst and average cases",
+            "Comparison of algorithms"
+          ],
+          "learningOutcomes": [
+            "Analyze algorithm performance",
+            "Express complexity using Big-O"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-b",
+      "title": "Section B – Java Programming Core",
+      "level": "Intermediate",
+      "summary": "Develop strong programming concepts using Java.",
+      "modules": [
+        {
+          "moduleId": "arrays",
+          "slug": "arrays-and-operations",
+          "title": "Arrays (1D & 2D)",
+          "level": "Intermediate",
+          "estimatedHours": 15,
+          "topics": [
+            "1D and 2D arrays",
+            "Traversing arrays",
+            "Sorting: Bubble, Selection",
+            "Searching: Linear, Binary",
+            "Row major & column major address calculation"
+          ],
+          "learningOutcomes": [
+            "Implement sorting algorithms",
+            "Perform searching efficiently",
+            "Understand memory representation"
+          ],
+          "miniProjects": [
+            "Student Marks Analyzer"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "strings",
+          "slug": "strings-and-stringbuffer",
+          "title": "Strings & StringBuffer",
+          "topics": [
+            "String class methods",
+            "String manipulation programs",
+            "StringBuffer class",
+            "Mutable vs immutable strings"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "functions",
+          "slug": "functions-and-parameters",
+          "title": "Functions",
+          "topics": [
+            "Function definition",
+            "Call by value",
+            "Call by reference",
+            "Programs using functions"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "oop",
+          "slug": "inheritance-and-interface",
+          "title": "Inheritance & Interface",
+          "topics": [
+            "Types of inheritance",
+            "Method overriding",
+            "Interface in Java",
+            "Programs using inheritance"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-c",
+      "title": "Section C – Advanced Programming",
+      "level": "Advanced",
+      "summary": "Learn recursion and advanced data handling.",
+      "modules": [
+        {
+          "moduleId": "recursion",
+          "slug": "recursion-concepts",
+          "title": "Recursion",
+          "topics": [
+            "Recursive functions",
+            "Base condition",
+            "Tracing recursion",
+            "Classic problems (factorial, Fibonacci)"
+          ],
+          "difficulty": "Medium-High"
+        },
+        {
+          "moduleId": "data-structures",
+          "slug": "stack-queue",
+          "title": "Stack & Queue (Array Implementation)",
+          "topics": [
+            "Stack operations",
+            "Queue operations",
+            "Circular Queue",
+            "Deque"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "sorting-expression",
+          "slug": "sorting-and-expression",
+          "title": "Insertion Sort & Expression Conversion",
+          "topics": [
+            "Insertion sort (numeric & string)",
+            "Infix to postfix",
+            "Infix to prefix"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-d",
+      "title": "Section D – Data Structures & Hardware",
+      "level": "Advanced",
+      "summary": "Final advanced topics for ISC board exams.",
+      "modules": [
+        {
+          "moduleId": "linked-list",
+          "slug": "single-linked-list",
+          "title": "Single Linked List",
+          "topics": [
+            "Node structure",
+            "Insertion and deletion",
+            "Traversal",
+            "Programs on linked list"
+          ],
+          "difficulty": "High"
+        },
+        {
+          "moduleId": "binary-tree",
+          "slug": "binary-tree",
+          "title": "Binary Tree",
+          "topics": [
+            "Tree terminology",
+            "Binary tree structure",
+            "Traversal (inorder, preorder, postorder)"
+          ],
+          "difficulty": "High"
+        },
+        {
+          "moduleId": "hardware",
+          "slug": "computer-hardware",
+          "title": "Computer Hardware",
+          "topics": [
+            "Basic hardware components",
+            "CPU, Memory, I/O devices",
+            "Secondary storage"
+          ],
+          "difficulty": "Easy"
+        }
+      ]
+    }
+  ]
+}

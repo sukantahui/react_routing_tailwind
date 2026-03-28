@@ -151,6 +151,7 @@ const NavBar = () => {
     { to: "/general/roadmap", key: "general", label: "General", icon: "bi-files" },
     { to: "/css/roadmap", key: "css", label: "CSS", icon: "bi-filetype-css" },
     { to: "/isc-11/roadmap", key: "isc-11", label: "ISC 11 Com. Sc.", icon: "bi-journal-richtext" },
+    { to: "/isc-12/roadmap", key: "isc-11", label: "ISC 12 Com. Sc.", icon: "bi-journal-richtext" },
     { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
     { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
     { to: "/react/roadmap", key: "react", label: "React", icon: "bi-filetype-js" },   // ✅ updated to valid icon

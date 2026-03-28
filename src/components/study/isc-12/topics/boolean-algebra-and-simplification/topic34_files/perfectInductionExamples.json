@@ -1,0 +1,1196 @@
+{
+  "examples": [
+    {
+      "id": 1,
+      "title": "Perfect Induction Proof: (A+B)(A·B) = (A·B' + B·A')",
+      "leftExpression": "(A+B)(A·B)",
+      "rightExpression": "A·B' + B·A'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 0, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 1, "left": 1, "right": 0, "match": false}
+      ],
+      "explanation": "This identity is NOT correct. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "Left = (0+0)(0·0) = (0)(0) = 0", "rightCalculation": "Right = 0·1 + 1·0 = 0 + 0 = 0", "result": "0 = 0 ✓", "law": "Perfect Induction"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "Left = (0+1)(0·1) = (1)(0) = 0", "rightCalculation": "Right = 0·0 + 1·1 = 0 + 1 = 1", "result": "0 ≠ 1 ✗", "law": "Perfect Induction"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "Left = (1+0)(1·0) = (1)(0) = 0", "rightCalculation": "Right = 1·1 + 0·0 = 1 + 0 = 1", "result": "0 ≠ 1 ✗", "law": "Perfect Induction"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "Left = (1+1)(1·1) = (1)(1) = 1", "rightCalculation": "Right = 1·0 + 0·1 = 0 + 0 = 0", "result": "1 ≠ 0 ✗", "law": "Perfect Induction"}
+      ],
+      "conclusion": "The expressions are NOT equivalent. Only Case 1 matches. Therefore the identity is false.",
+      "isCorrect": false
+    },
+    {
+      "id": 2,
+      "title": "Perfect Induction Proof: (A+B)(A'+B') = (A·B + A'·B')",
+      "leftExpression": "(A+B)(A'+B')",
+      "rightExpression": "A·B + A'·B'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 1, "match": false},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This identity is FALSE. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "Left = (0+0)(1+1) = (0)(1) = 0", "rightCalculation": "Right = 0·0 + 1·1 = 0 + 1 = 1", "result": "0 ≠ 1 ✗", "law": "Perfect Induction"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "Left = (0+1)(1+0) = (1)(1) = 1", "rightCalculation": "Right = 0·1 + 1·0 = 0 + 0 = 0", "result": "1 ≠ 0 ✗", "law": "Perfect Induction"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "Left = (1+0)(0+1) = (1)(1) = 1", "rightCalculation": "Right = 1·0 + 0·1 = 0 + 0 = 0", "result": "1 ≠ 0 ✗", "law": "Perfect Induction"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "Left = (1+1)(0+0) = (1)(0) = 0", "rightCalculation": "Right = 1·1 + 0·0 = 1 + 0 = 1", "result": "0 ≠ 1 ✗", "law": "Perfect Induction"}
+      ],
+      "conclusion": "The identity is FALSE for all cases. The correct identity is (A+B)(A'+B') = A'B' + AB? Actually (A+B)(A'+B') = A⊕B? Let's check: For A=0,B=1: (1)(0)=0, XOR=1. So not equal.",
+      "isCorrect": false
+    },
+    {
+      "id": 3,
+      "title": "Perfect Induction Proof: (A+B)' + (A+B) = A'",
+      "leftExpression": "(A+B)' + (A+B)",
+      "rightExpression": "A'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 0, "match": false},
+        {"A": 1, "B": 1, "left": 1, "right": 0, "match": false}
+      ],
+      "explanation": "This identity is FALSE. (A+B)'+(A+B) = 1 always (Complement Law). So it equals 1, not A'.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "(0+0)' + (0+0) = 0' + 0 = 1 + 0 = 1", "rightCalculation": "A' = 0' = 1", "result": "1 = 1 ✓", "law": "Complement Law"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "(0+1)' + (0+1) = 1' + 1 = 0 + 1 = 1", "rightCalculation": "A' = 0' = 1", "result": "1 = 1 ✓", "law": "Complement Law"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "(1+0)' + (1+0) = 1' + 1 = 0 + 1 = 1", "rightCalculation": "A' = 1' = 0", "result": "1 ≠ 0 ✗", "law": "Complement Law"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "(1+1)' + (1+1) = 1' + 1 = 0 + 1 = 1", "rightCalculation": "A' = 1' = 0", "result": "1 ≠ 0 ✗", "law": "Complement Law"}
+      ],
+      "conclusion": "Left side always equals 1 (by Complement Law), while right side equals A'. They are equal only when A=0. Therefore the identity is FALSE.",
+      "isCorrect": false
+    },
+    {
+      "id": 4,
+      "title": "Perfect Induction Proof: (A+B)'(A'B) = A'·B'",
+      "leftExpression": "(A+B)'·(A'·B)",
+      "rightExpression": "A'·B'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 1, "match": false},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "(0+0)'·(1·0) = 0'·0 = 1·0 = 0", "rightCalculation": "A'·B' = 1·1 = 1", "result": "0 ≠ 1 ✗", "law": "De Morgan's Theorem"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "(0+1)'·(1·1) = 1'·1 = 0·1 = 0", "rightCalculation": "A'·B' = 1·0 = 0", "result": "0 = 0 ✓", "law": "De Morgan's Theorem"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "(1+0)'·(0·0) = 1'·0 = 0·0 = 0", "rightCalculation": "A'·B' = 0·1 = 0", "result": "0 = 0 ✓", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "(1+1)'·(0·1) = 1'·0 = 0·0 = 0", "rightCalculation": "A'·B' = 0·0 = 0", "result": "0 = 0 ✓", "law": "De Morgan's Theorem"}
+      ],
+      "conclusion": "The identity holds for 3 cases but fails for A=0,B=0. Therefore it is FALSE.",
+      "isCorrect": false
+    },
+    {
+      "id": 5,
+      "title": "Find the complement of: XYZ + XY + YZ",
+      "expression": "F = XYZ + XY + YZ",
+      "complement": "F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')",
+      "variables": ["X", "Y", "Z"],
+      "explanation": "To find complement, apply De Morgan's Theorem to the entire expression.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = XYZ + XY + YZ", "law": "Given"},
+        {"step": 2, "action": "Apply De Morgan's Theorem", "expression": "F' = (XYZ)'·(XY)'·(YZ)'", "law": "De Morgan's Theorem"},
+        {"step": 3, "action": "Apply De Morgan's to each term", "expression": "(XYZ)' = X' + Y' + Z'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to (XY)' = X' + Y'", "expression": "(XY)' = X' + Y'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Apply De Morgan's to (YZ)' = Y' + Z'", "expression": "(YZ)' = Y' + Z'", "law": "De Morgan's Theorem"},
+        {"step": 6, "action": "Combine all terms", "expression": "F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')", "law": "Product of Sums form"}
+      ],
+      "conclusion": "The complement is F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')",
+      "isCorrect": true
+    },
+    {
+      "id": 6,
+      "title": "Perfect Induction Proof: A + A'B = A + B",
+      "leftExpression": "A + A'·B",
+      "rightExpression": "A + B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Absorption Law variation. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "0 + (1·0) = 0 + 0 = 0", "rightCalculation": "0 + 0 = 0", "result": "0 = 0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "0 + (1·1) = 0 + 1 = 1", "rightCalculation": "0 + 1 = 1", "result": "1 = 1 ✓", "law": "Absorption Law"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "1 + (0·0) = 1 + 0 = 1", "rightCalculation": "1 + 0 = 1", "result": "1 = 1 ✓", "law": "Absorption Law"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1 + (0·1) = 1 + 0 = 1", "rightCalculation": "1 + 1 = 1", "result": "1 = 1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "All cases match. The identity A + A'B = A + B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 7,
+      "title": "Perfect Induction Proof: A·(A+B) = A",
+      "leftExpression": "A·(A+B)",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Absorption Law. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "0·(0+0) = 0·0 = 0", "rightCalculation": "0", "result": "0 = 0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "0·(0+1) = 0·1 = 0", "rightCalculation": "0", "result": "0 = 0 ✓", "law": "Absorption Law"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "1·(1+0) = 1·1 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1·(1+1) = 1·1 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "All cases match. The identity A·(A+B) = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 8,
+      "title": "Perfect Induction Proof: A + AB = A",
+      "leftExpression": "A + A·B",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Absorption Law. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "0 + (0·0) = 0 + 0 = 0", "rightCalculation": "0", "result": "0 = 0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "0 + (0·1) = 0 + 0 = 0", "rightCalculation": "0", "result": "0 = 0 ✓", "law": "Absorption Law"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "1 + (1·0) = 1 + 0 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1 + (1·1) = 1 + 1 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "All cases match. The identity A + AB = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 9,
+      "title": "Perfect Induction Proof: (A+B)(A+C) = A + BC",
+      "leftExpression": "(A+B)·(A+C)",
+      "rightExpression": "A + B·C",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the second distributive law. Let's verify using perfect induction.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0,C=0", "leftCalculation": "(0+0)(0+0) = 0·0 = 0", "rightCalculation": "0 + (0·0) = 0", "result": "0 = 0 ✓", "law": "Distributive Law"},
+        {"step": 2, "action": "Case 2: A=0,B=0,C=1", "leftCalculation": "(0+0)(0+1) = 0·1 = 0", "rightCalculation": "0 + (0·1) = 0", "result": "0 = 0 ✓", "law": "Distributive Law"},
+        {"step": 3, "action": "Case 3: A=0,B=1,C=0", "leftCalculation": "(0+1)(0+0) = 1·0 = 0", "rightCalculation": "0 + (1·0) = 0", "result": "0 = 0 ✓", "law": "Distributive Law"},
+        {"step": 4, "action": "Case 4: A=0,B=1,C=1", "leftCalculation": "(0+1)(0+1) = 1·1 = 1", "rightCalculation": "0 + (1·1) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"},
+        {"step": 5, "action": "Case 5: A=1,B=0,C=0", "leftCalculation": "(1+0)(1+0) = 1·1 = 1", "rightCalculation": "1 + (0·0) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"},
+        {"step": 6, "action": "Case 6: A=1,B=0,C=1", "leftCalculation": "(1+0)(1+1) = 1·1 = 1", "rightCalculation": "1 + (0·1) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"},
+        {"step": 7, "action": "Case 7: A=1,B=1,C=0", "leftCalculation": "(1+1)(1+0) = 1·1 = 1", "rightCalculation": "1 + (1·0) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"},
+        {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1+1)(1+1) = 1·1 = 1", "rightCalculation": "1 + (1·1) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"}
+      ],
+      "conclusion": "All 8 cases match. The identity (A+B)(A+C) = A + BC is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 10,
+      "title": "Perfect Induction Proof: (A+B)(A'+C)(B+C) = (A+B)(A'+C)",
+      "leftExpression": "(A+B)·(A'+C)·(B+C)",
+      "rightExpression": "(A+B)·(A'+C)",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the dual of Consensus Theorem. The term (B+C) is redundant.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0,C=0", "leftCalculation": "(0+0)(1+0)(0+0) = 0·1·0 = 0", "rightCalculation": "(0+0)(1+0) = 0·1 = 0", "result": "0 = 0 ✓", "law": "Consensus Theorem (dual)"},
+        {"step": 2, "action": "Case 2: A=0,B=0,C=1", "leftCalculation": "(0+0)(1+1)(0+1) = 0·1·1 = 0", "rightCalculation": "(0+0)(1+1) = 0·1 = 0", "result": "0 = 0 ✓", "law": "Consensus Theorem"},
+        {"step": 3, "action": "Case 3: A=0,B=1,C=0", "leftCalculation": "(0+1)(1+0)(1+0) = 1·1·1 = 1", "rightCalculation": "(0+1)(1+0) = 1·1 = 1", "result": "1 = 1 ✓", "law": "Consensus Theorem"},
+        {"step": 4, "action": "Case 4: A=0,B=1,C=1", "leftCalculation": "(0+1)(1+1)(1+1) = 1·1·1 = 1", "rightCalculation": "(0+1)(1+1) = 1·1 = 1", "result": "1 = 1 ✓", "law": "Consensus Theorem"},
+        {"step": 5, "action": "Case 5: A=1,B=0,C=0", "leftCalculation": "(1+0)(0+0)(0+0) = 1·0·0 = 0", "rightCalculation": "(1+0)(0+0) = 1·0 = 0", "result": "0 = 0 ✓", "law": "Consensus Theorem"},
+        {"step": 6, "action": "Case 6: A=1,B=0,C=1", "leftCalculation": "(1+0)(0+1)(0+1) = 1·1·1 = 1", "rightCalculation": "(1+0)(0+1) = 1·1 = 1", "result": "1 = 1 ✓", "law": "Consensus Theorem"},
+        {"step": 7, "action": "Case 7: A=1,B=1,C=0", "leftCalculation": "(1+1)(0+0)(1+0) = 1·0·1 = 0", "rightCalculation": "(1+1)(0+0) = 1·0 = 0", "result": "0 = 0 ✓", "law": "Consensus Theorem"},
+        {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1+1)(0+1)(1+1) = 1·1·1 = 1", "rightCalculation": "(1+1)(0+1) = 1·1 = 1", "result": "1 = 1 ✓", "law": "Consensus Theorem"}
+      ],
+      "conclusion": "All 8 cases match. The identity (A+B)(A'+C)(B+C) = (A+B)(A'+C) is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 11,
+      "title": "Perfect Induction Proof: AB + A'C + BC = AB + A'C",
+      "leftExpression": "A·B + A'·C + B·C",
+      "rightExpression": "A·B + A'·C",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Consensus Theorem. The term BC is redundant.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0,C=0", "leftCalculation": "0·0 + 1·0 + 0·0 = 0+0+0=0", "rightCalculation": "0·0 + 1·0 = 0", "result": "0=0 ✓", "law": "Consensus Theorem"},
+        {"step": 2, "action": "Case 2: A=0,B=0,C=1", "leftCalculation": "0·0 + 1·1 + 0·1 = 0+1+0=1", "rightCalculation": "0·0 + 1·1 = 1", "result": "1=1 ✓", "law": "Consensus Theorem"},
+        {"step": 3, "action": "Case 3: A=0,B=1,C=0", "leftCalculation": "0·1 + 1·0 + 1·0 = 0+0+0=0", "rightCalculation": "0·1 + 1·0 = 0", "result": "0=0 ✓", "law": "Consensus Theorem"},
+        {"step": 4, "action": "Case 4: A=0,B=1,C=1", "leftCalculation": "0·1 + 1·1 + 1·1 = 0+1+1=1", "rightCalculation": "0·1 + 1·1 = 1", "result": "1=1 ✓", "law": "Consensus Theorem"},
+        {"step": 5, "action": "Case 5: A=1,B=0,C=0", "leftCalculation": "1·0 + 0·0 + 0·0 = 0+0+0=0", "rightCalculation": "1·0 + 0·0 = 0", "result": "0=0 ✓", "law": "Consensus Theorem"},
+        {"step": 6, "action": "Case 6: A=1,B=0,C=1", "leftCalculation": "1·0 + 0·1 + 0·1 = 0+0+0=0", "rightCalculation": "1·0 + 0·1 = 0", "result": "0=0 ✓", "law": "Consensus Theorem"},
+        {"step": 7, "action": "Case 7: A=1,B=1,C=0", "leftCalculation": "1·1 + 0·0 + 1·0 = 1+0+0=1", "rightCalculation": "1·1 + 0·0 = 1", "result": "1=1 ✓", "law": "Consensus Theorem"},
+        {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "1·1 + 0·1 + 1·1 = 1+0+1=1", "rightCalculation": "1·1 + 0·1 = 1", "result": "1=1 ✓", "law": "Consensus Theorem"}
+      ],
+      "conclusion": "All 8 cases match. The identity AB + A'C + BC = AB + A'C is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 12,
+      "title": "Perfect Induction Proof: A·(A+B+C) = A",
+      "leftExpression": "A·(A+B+C)",
+      "rightExpression": "A",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is an extension of Absorption Law. A absorbs A+B+C.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0, C=0", "leftCalculation": "0·(0+0+0)=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case 2: A=0, B=0, C=1", "leftCalculation": "0·(0+0+1)=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 3, "action": "Case 3: A=0, B=1, C=0", "leftCalculation": "0·(0+1+0)=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 4, "action": "Case 4: A=0, B=1, C=1", "leftCalculation": "0·(0+1+1)=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 5, "action": "Case 5: A=1, B=0, C=0", "leftCalculation": "1·(1+0+0)=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 6, "action": "Case 6: A=1, B=0, C=1", "leftCalculation": "1·(1+0+1)=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 7, "action": "Case 7: A=1, B=1, C=0", "leftCalculation": "1·(1+1+0)=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 8, "action": "Case 8: A=1, B=1, C=1", "leftCalculation": "1·(1+1+1)=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "All 8 cases match. The identity A·(A+B+C) = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 13,
+      "title": "Perfect Induction Proof: A + ABC = A",
+      "leftExpression": "A + A·B·C",
+      "rightExpression": "A",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "A absorbs any term that contains A as a factor.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0, C=0", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case 2: A=0, B=0, C=1", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 3, "action": "Case 3: A=0, B=1, C=0", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 4, "action": "Case 4: A=0, B=1, C=1", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 5, "action": "Case 5: A=1, B=0, C=0", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 6, "action": "Case 6: A=1, B=0, C=1", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 7, "action": "Case 7: A=1, B=1, C=0", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"},
+        {"step": 8, "action": "Case 8: A=1, B=1, C=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "All 8 cases match. The identity A + ABC = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 14,
+      "title": "Perfect Induction Proof: A'B' + AB = A⊕B",
+      "leftExpression": "A'·B' + A·B",
+      "rightExpression": "A⊕B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 0, "match": false},
+        {"A": 0, "B": 1, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 0, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 1, "left": 1, "right": 0, "match": false}
+      ],
+      "explanation": "This identity is FALSE. A'B' + AB is XNOR, not XOR.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0, B=0", "leftCalculation": "1·1 + 0·0 = 1+0=1", "rightCalculation": "0⊕0=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"},
+        {"step": 2, "action": "Case 2: A=0, B=1", "leftCalculation": "1·0 + 0·1 = 0+0=0", "rightCalculation": "0⊕1=1", "result": "0≠1 ✗", "law": "XNOR vs XOR"},
+        {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "0·1 + 1·0 = 0+0=0", "rightCalculation": "1⊕0=1", "result": "0≠1 ✗", "law": "XNOR vs XOR"},
+        {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "0·0 + 1·1 = 0+1=1", "rightCalculation": "1⊕1=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"}
+      ],
+      "conclusion": "All cases fail. The correct identity is A'B' + AB = A⊙B (XNOR), not XOR.",
+      "isCorrect": false
+    },
+    {
+      "id": 15,
+      "title": "Perfect Induction Proof: (A⊕B)' = A⊙B",
+      "leftExpression": "(A⊕B)'",
+      "rightExpression": "A⊙B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "XOR complement equals XNOR.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0⊕0)' = 0' = 1", "rightCalculation": "0⊙0=1", "result": "1=1 ✓", "law": "XOR-XNOR Relationship"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0⊕1)' = 1' = 0", "rightCalculation": "0⊙1=0", "result": "0=0 ✓", "law": "XOR-XNOR Relationship"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1⊕0)' = 1' = 0", "rightCalculation": "1⊙0=0", "result": "0=0 ✓", "law": "XOR-XNOR Relationship"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1⊕1)' = 0' = 1", "rightCalculation": "1⊙1=1", "result": "1=1 ✓", "law": "XOR-XNOR Relationship"}
+      ],
+      "conclusion": "All cases match. The identity (A⊕B)' = A⊙B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 16,
+      "title": "Perfect Induction Proof: A·(A' + B) = A·B",
+      "leftExpression": "A·(A' + B)",
+      "rightExpression": "A·B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is a useful simplification: A·(A' + B) = A·B.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0·(1+0)=0·1=0", "rightCalculation": "0·0=0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0·(1+1)=0·1=0", "rightCalculation": "0·1=0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1·(0+0)=1·0=0", "rightCalculation": "1·0=0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·(0+1)=1·1=1", "rightCalculation": "1·1=1", "result": "1=1 ✓", "law": "Distributive + Complement"}
+      ],
+      "conclusion": "All cases match. The identity A·(A' + B) = A·B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 17,
+      "title": "Perfect Induction Proof: A + A'·B = A + B",
+      "leftExpression": "A + A'·B",
+      "rightExpression": "A + B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is a standard simplification: A + A'B = A + B.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0+1·0=0+0=0", "rightCalculation": "0+0=0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0+1·1=0+1=1", "rightCalculation": "0+1=1", "result": "1=1 ✓", "law": "Distributive Law"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1+0·0=1+0=1", "rightCalculation": "1+0=1", "result": "1=1 ✓", "law": "Distributive Law"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1+0·1=1+0=1", "rightCalculation": "1+1=1", "result": "1=1 ✓", "law": "Distributive Law"}
+      ],
+      "conclusion": "All cases match. The identity A + A'B = A + B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 18,
+      "title": "Perfect Induction Proof: A·B + A·B' = A",
+      "leftExpression": "A·B + A·B'",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "Factoring out A gives A(B+B') = A·1 = A.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0·0+0·1=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0·1+0·0=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1·0+1·1=0+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+1·0=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
+      ],
+      "conclusion": "All cases match. The identity AB + AB' = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 19,
+      "title": "Perfect Induction Proof: (A+B)(A+B') = A",
+      "leftExpression": "(A+B)·(A+B')",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the dual of AB + AB' = A.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0+0)(0+1)=0·1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0+1)(0+0)=1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1+0)(1+1)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(1+0)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
+      ],
+      "conclusion": "All cases match. The identity (A+B)(A+B') = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 20,
+      "title": "Perfect Induction Proof: (A+B')(A'+B) = A⊕B",
+      "leftExpression": "(A+B')·(A'+B)",
+      "rightExpression": "A⊕B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 0, "match": false},
+        {"A": 0, "B": 1, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 0, "left": 0, "right": 1, "match": false},
+        {"A": 1, "B": 1, "left": 1, "right": 0, "match": false}
+      ],
+      "explanation": "This identity is FALSE. (A+B')(A'+B) = A⊙B (XNOR), not XOR.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0+1)(1+0)=1·1=1", "rightCalculation": "0⊕0=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0+0)(1+1)=0·1=0", "rightCalculation": "0⊕1=1", "result": "0≠1 ✗", "law": "XNOR vs XOR"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1+1)(0+0)=1·0=0", "rightCalculation": "1⊕0=1", "result": "0≠1 ✗", "law": "XNOR vs XOR"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+0)(0+1)=1·1=1", "rightCalculation": "1⊕1=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"}
+      ],
+      "conclusion": "The correct identity is (A+B')(A'+B) = A⊙B (XNOR).",
+      "isCorrect": false
+    },
+    {
+      "id": 21,
+      "title": "Perfect Induction Proof: A⊕B = A'B + AB'",
+      "leftExpression": "A⊕B",
+      "rightExpression": "A'·B + A·B'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "This is the definition of XOR in SOP form.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0⊕0=0", "rightCalculation": "1·0+0·1=0+0=0", "result": "0=0 ✓", "law": "XOR Definition"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0⊕1=1", "rightCalculation": "1·1+0·0=1+0=1", "result": "1=1 ✓", "law": "XOR Definition"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1⊕0=1", "rightCalculation": "0·0+1·1=0+1=1", "result": "1=1 ✓", "law": "XOR Definition"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1⊕1=0", "rightCalculation": "0·1+1·0=0+0=0", "result": "0=0 ✓", "law": "XOR Definition"}
+      ],
+      "conclusion": "All cases match. The identity A⊕B = A'B + AB' is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 22,
+      "title": "Perfect Induction Proof: (A+B)' = A'·B'",
+      "leftExpression": "(A+B)'",
+      "rightExpression": "A'·B'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "This is De Morgan's Theorem.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0+0)'=0'=1", "rightCalculation": "1·1=1", "result": "1=1 ✓", "law": "De Morgan's Theorem"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0+1)'=1'=0", "rightCalculation": "1·0=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1+0)'=1'=0", "rightCalculation": "0·1=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)'=1'=0", "rightCalculation": "0·0=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"}
+      ],
+      "conclusion": "All cases match. The identity (A+B)' = A'·B' is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 23,
+      "title": "Perfect Induction Proof: (A·B)' = A' + B'",
+      "leftExpression": "(A·B)'",
+      "rightExpression": "A' + B'",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "This is De Morgan's Theorem.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0·0)'=0'=1", "rightCalculation": "1+1=1", "result": "1=1 ✓", "law": "De Morgan's Theorem"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0·1)'=0'=1", "rightCalculation": "1+0=1", "result": "1=1 ✓", "law": "De Morgan's Theorem"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1·0)'=0'=1", "rightCalculation": "0+1=1", "result": "1=1 ✓", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1·1)'=1'=0", "rightCalculation": "0+0=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"}
+      ],
+      "conclusion": "All cases match. The identity (A·B)' = A' + B' is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 24,
+      "title": "Find the complement of: A'B + AB'",
+      "expression": "F = A'B + AB'",
+      "complement": "F' = AB + A'B'",
+      "variables": ["A", "B"],
+      "explanation": "This is the XOR function. Its complement is XNOR.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = A'B + AB'", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = (A'B + AB')'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A'B)'·(AB')'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A'B)' = A + B', (AB')' = A' + B", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Multiply", "expression": "F' = (A + B')(A' + B)", "law": "Product of Sums"},
+        {"step": 6, "action": "Expand", "expression": "F' = A·A' + A·B + B'·A' + B'·B = 0 + AB + A'B' + 0 = AB + A'B'", "law": "Distributive Law and Complement"}
+      ],
+      "conclusion": "The complement is F' = AB + A'B' (XNOR)",
+      "isCorrect": true
+    },
+    {
+      "id": 25,
+      "title": "Find the complement of: (A+B)(A+C)",
+      "expression": "F = (A+B)(A+C)",
+      "complement": "F' = A' + B'C'",
+      "variables": ["A", "B", "C"],
+      "explanation": "Complement using De Morgan's Theorem.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = (A+B)(A+C)", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = [(A+B)(A+C)]'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A+B)' + (A+C)'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A+B)' = A'·B', (A+C)' = A'·C'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Combine", "expression": "F' = A'·B' + A'·C' = A'(B' + C')", "law": "Distributive Law"},
+        {"step": 6, "action": "Apply De Morgan's to B' + C'", "expression": "B' + C' = (B·C)'", "law": "De Morgan's Theorem"},
+        {"step": 7, "action": "Final complement", "expression": "F' = A' + (B·C)'? Actually A'(B'+C') = A' + B'C'? Wait, A'(B'+C') = A'B' + A'C'", "law": "Distributive"}
+      ],
+      "conclusion": "The complement is F' = A'B' + A'C' = A'(B' + C')",
+      "isCorrect": true
+    },
+    {
+      "id": 26,
+      "title": "Perfect Induction Proof: A + A = A",
+      "leftExpression": "A + A",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Idempotent Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Idempotent Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Idempotent Law"}
+      ],
+      "conclusion": "The identity A + A = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 27,
+      "title": "Perfect Induction Proof: A·A = A",
+      "leftExpression": "A·A",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Idempotent Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Idempotent Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Idempotent Law"}
+      ],
+      "conclusion": "The identity A·A = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 28,
+      "title": "Perfect Induction Proof: A + 1 = 1",
+      "leftExpression": "A + 1",
+      "rightExpression": "1",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Null Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Null Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Null Law"}
+      ],
+      "conclusion": "The identity A + 1 = 1 is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 29,
+      "title": "Perfect Induction Proof: A·0 = 0",
+      "leftExpression": "A·0",
+      "rightExpression": "0",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "This is the Null Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Null Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Null Law"}
+      ],
+      "conclusion": "The identity A·0 = 0 is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 30,
+      "title": "Perfect Induction Proof: A + 0 = A",
+      "leftExpression": "A + 0",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Identity Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Identity Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Identity Law"}
+      ],
+      "conclusion": "The identity A + 0 = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 31,
+      "title": "Perfect Induction Proof: A·1 = A",
+      "leftExpression": "A·1",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Identity Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0·1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Identity Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Identity Law"}
+      ],
+      "conclusion": "The identity A·1 = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 32,
+      "title": "Perfect Induction Proof: A + A' = 1",
+      "leftExpression": "A + A'",
+      "rightExpression": "1",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Complement Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Complement Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Complement Law"}
+      ],
+      "conclusion": "The identity A + A' = 1 is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 33,
+      "title": "Perfect Induction Proof: A·A' = 0",
+      "leftExpression": "A·A'",
+      "rightExpression": "0",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "This is the Complement Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0·1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Complement Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Complement Law"}
+      ],
+      "conclusion": "The identity A·A' = 0 is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 34,
+      "title": "Perfect Induction Proof: (A')' = A",
+      "leftExpression": "(A')'",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the Involution Law.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "(0')' = 1' = 0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Involution Law"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "(1')' = 0' = 1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Involution Law"}
+      ],
+      "conclusion": "The identity (A')' = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 35,
+      "title": "Perfect Induction Proof: A·B + A·B' = A",
+      "leftExpression": "A·B + A·B'",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "Factoring out A gives A(B+B') = A·1 = A.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0·0+0·1=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0·1+0·0=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1·0+1·1=0+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+1·0=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
+      ],
+      "conclusion": "The identity AB + AB' = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 36,
+      "title": "Perfect Induction Proof: (A+B)(A+B') = A",
+      "leftExpression": "(A+B)·(A+B')",
+      "rightExpression": "A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the dual of AB + AB' = A.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0+0)(0+1)=0·1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0+1)(0+0)=1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1+0)(1+1)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(1+0)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
+      ],
+      "conclusion": "The identity (A+B)(A+B') = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 37,
+      "title": "Perfect Induction Proof: AB + A'B = B",
+      "leftExpression": "A·B + A'·B",
+      "rightExpression": "B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "Factoring out B gives B(A+A') = B·1 = B.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0·0+1·0=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0·1+1·1=0+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1·0+0·0=0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive + Complement"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+0·1=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
+      ],
+      "conclusion": "The identity AB + A'B = B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 38,
+      "title": "Perfect Induction Proof: (A+B)(A'+B) = B",
+      "leftExpression": "(A+B)·(A'+B)",
+      "rightExpression": "B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "This is the dual of AB + A'B = B.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "(0+0)(1+0)=0·1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "(0+1)(1+1)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "(1+0)(0+0)=1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Distributive Law"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(0+1)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
+      ],
+      "conclusion": "The identity (A+B)(A'+B) = B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 39,
+      "title": "Find the complement of: AB + BC + CA",
+      "expression": "F = AB + BC + CA",
+      "complement": "F' = (A' + B')(B' + C')(C' + A')",
+      "variables": ["A", "B", "C"],
+      "explanation": "Apply De Morgan's Theorem to the sum of products.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = AB + BC + CA", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = (AB + BC + CA)'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (AB)'·(BC)'·(CA)'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(AB)' = A' + B', (BC)' = B' + C', (CA)' = C' + A'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Combine", "expression": "F' = (A' + B')(B' + C')(C' + A')", "law": "Product of Sums"}
+      ],
+      "conclusion": "The complement is F' = (A' + B')(B' + C')(C' + A')",
+      "isCorrect": true
+    },
+    {
+      "id": 40,
+      "title": "Find the complement of: (A+B)(B+C)(C+A)",
+      "expression": "F = (A+B)(B+C)(C+A)",
+      "complement": "F' = A'B' + B'C' + C'A'",
+      "variables": ["A", "B", "C"],
+      "explanation": "This is the dual of the previous example.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = (A+B)(B+C)(C+A)", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = [(A+B)(B+C)(C+A)]'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A+B)' + (B+C)' + (C+A)'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A+B)' = A'B', (B+C)' = B'C', (C+A)' = C'A'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Combine", "expression": "F' = A'B' + B'C' + C'A'", "law": "Sum of Products"}
+      ],
+      "conclusion": "The complement is F' = A'B' + B'C' + C'A'",
+      "isCorrect": true
+    },
+    {
+      "id": 41,
+      "title": "Perfect Induction Proof: ABC + ABC' = AB",
+      "leftExpression": "A·B·C + A·B·C'",
+      "rightExpression": "A·B",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "Factoring AB gives AB(C+C') = AB·1 = AB.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=1,B=1,C=0", "leftCalculation": "1·1·0+1·1·1=0+1=1", "rightCalculation": "1·1=1", "result": "1=1 ✓", "law": "Distributive + Complement"},
+        {"step": 2, "action": "Case 2: A=1,B=1,C=1", "leftCalculation": "1·1·1+1·1·0=1+0=1", "rightCalculation": "1·1=1", "result": "1=1 ✓", "law": "Distributive + Complement"},
+        {"step": 3, "action": "All other cases both sides 0", "result": "0=0 ✓", "law": "Distributive + Complement"}
+      ],
+      "conclusion": "The identity ABC + ABC' = AB is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 42,
+      "title": "Perfect Induction Proof: A + AB + AC = A",
+      "leftExpression": "A + A·B + A·C",
+      "rightExpression": "A",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "A absorbs any term that contains A as a factor.",
+      "steps": [
+        {"step": 1, "action": "Case A=0", "leftCalculation": "0+0+0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Absorption Law"},
+        {"step": 2, "action": "Case A=1", "leftCalculation": "1+1·B+1·C=1+B+C=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
+      ],
+      "conclusion": "The identity A + AB + AC = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 43,
+      "title": "Perfect Induction Proof: (A+B)(A+C)(B+C) = AB + AC + BC",
+      "leftExpression": "(A+B)·(A+C)·(B+C)",
+      "rightExpression": "A·B + A·C + B·C",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "POS form equals SOP form for majority function.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=1,C=1", "leftCalculation": "(0+1)(0+1)(1+1)=1·1·1=1", "rightCalculation": "0·1+0·1+1·1=0+0+1=1", "result": "1=1 ✓", "law": "Majority Function"},
+        {"step": 2, "action": "Case 2: A=1,B=0,C=1", "leftCalculation": "(1+0)(1+1)(0+1)=1·1·1=1", "rightCalculation": "1·0+1·1+0·1=0+1+0=1", "result": "1=1 ✓", "law": "Majority Function"},
+        {"step": 3, "action": "Case 3: A=1,B=1,C=0", "leftCalculation": "(1+1)(1+0)(1+0)=1·1·1=1", "rightCalculation": "1·1+1·0+1·0=1+0+0=1", "result": "1=1 ✓", "law": "Majority Function"},
+        {"step": 4, "action": "Case 4: A=1,B=1,C=1", "leftCalculation": "(1+1)(1+1)(1+1)=1·1·1=1", "rightCalculation": "1·1+1·1+1·1=1+1+1=1", "result": "1=1 ✓", "law": "Majority Function"}
+      ],
+      "conclusion": "The identity (A+B)(A+C)(B+C) = AB + AC + BC is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 44,
+      "title": "Find the complement of: A'B'C + A'BC' + AB'C'",
+      "expression": "F = A'B'C + A'BC' + AB'C'",
+      "complement": "F' = (A+B+C')(A+B'+C)(A'+B+C)",
+      "variables": ["A", "B", "C"],
+      "explanation": "Complement the SOP expression using De Morgan's.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = A'B'C + A'BC' + AB'C'", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = (A'B'C + A'BC' + AB'C')'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A'B'C)'·(A'BC')'·(AB'C')'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A'B'C)' = A + B + C'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Continue", "expression": "(A'BC')' = A + B' + C", "law": "De Morgan's Theorem"},
+        {"step": 6, "action": "Continue", "expression": "(AB'C')' = A' + B + C", "law": "De Morgan's Theorem"},
+        {"step": 7, "action": "Combine", "expression": "F' = (A + B + C')(A + B' + C)(A' + B + C)", "law": "Product of Sums"}
+      ],
+      "conclusion": "The complement is F' = (A + B + C')(A + B' + C)(A' + B + C)",
+      "isCorrect": true
+    },
+    {
+      "id": 45,
+      "title": "Perfect Induction Proof: AB + A'B' + A'B = A' + B",
+      "leftExpression": "A·B + A'·B' + A'·B",
+      "rightExpression": "A' + B",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "Simplify by grouping terms.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0·0+1·1+1·0=0+1+0=1", "rightCalculation": "1+0=1", "result": "1=1 ✓", "law": "Algebraic Simplification"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0·1+1·0+1·1=0+0+1=1", "rightCalculation": "1+1=1", "result": "1=1 ✓", "law": "Algebraic Simplification"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1·0+0·1+0·0=0+0+0=0", "rightCalculation": "0+0=0", "result": "0=0 ✓", "law": "Algebraic Simplification"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+0·0+0·1=1+0+0=1", "rightCalculation": "0+1=1", "result": "1=1 ✓", "law": "Algebraic Simplification"}
+      ],
+      "conclusion": "The identity AB + A'B' + A'B = A' + B is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 46,
+      "title": "Find the complement of: (A+B)(A'+C)(B+C)",
+      "expression": "F = (A+B)(A'+C)(B+C)",
+      "complement": "F' = A'B' + AC' + B'C'",
+      "variables": ["A", "B", "C"],
+      "explanation": "Complement the POS expression using De Morgan's.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = (A+B)(A'+C)(B+C)", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = [(A+B)(A'+C)(B+C)]'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A+B)' + (A'+C)' + (B+C)'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A+B)' = A'B'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Continue", "expression": "(A'+C)' = A·C'", "law": "De Morgan's Theorem"},
+        {"step": 6, "action": "Continue", "expression": "(B+C)' = B'C'", "law": "De Morgan's Theorem"},
+        {"step": 7, "action": "Combine", "expression": "F' = A'B' + AC' + B'C'", "law": "Sum of Products"}
+      ],
+      "conclusion": "The complement is F' = A'B' + AC' + B'C'",
+      "isCorrect": true
+    },
+    {
+      "id": 47,
+      "title": "Perfect Induction Proof: A'B'C' + A'B'C + A'BC' + A'BC = A'",
+      "leftExpression": "A'B'C' + A'B'C + A'BC' + A'BC",
+      "rightExpression": "A'",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "All minterms with A=0 are included, so the function simplifies to A'.",
+      "steps": [
+        {"step": 1, "action": "Factor A' from all terms", "expression": "A'(B'C' + B'C + BC' + BC)", "law": "Distributive Law"},
+        {"step": 2, "action": "The expression in parentheses = 1", "expression": "B'C' + B'C + BC' + BC = 1", "law": "All combinations of B,C"},
+        {"step": 3, "action": "Final result", "expression": "A'·1 = A'", "law": "Identity Law"}
+      ],
+      "conclusion": "The identity A'B'C' + A'B'C + A'BC' + A'BC = A' is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 48,
+      "title": "Perfect Induction Proof: ABC + AB'C + A'BC + A'B'C = C",
+      "leftExpression": "A·B·C + A·B'·C + A'·B·C + A'·B'·C",
+      "rightExpression": "C",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "All minterms with C=1 are included, so the function simplifies to C.",
+      "steps": [
+        {"step": 1, "action": "Factor C from all terms", "expression": "C(AB + AB' + A'B + A'B')", "law": "Distributive Law"},
+        {"step": 2, "action": "The expression in parentheses = 1", "expression": "AB + AB' + A'B + A'B' = 1", "law": "All combinations of A,B"},
+        {"step": 3, "action": "Final result", "expression": "C·1 = C", "law": "Identity Law"}
+      ],
+      "conclusion": "The identity ABC + AB'C + A'BC + A'B'C = C is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 49,
+      "title": "Find the complement of: AB + A'B' + BC",
+      "expression": "F = AB + A'B' + BC",
+      "complement": "F' = (A' + B')(A + B)(B' + C')",
+      "variables": ["A", "B", "C"],
+      "explanation": "Apply De Morgan's Theorem to complement.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = AB + A'B' + BC", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = (AB + A'B' + BC)'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (AB)'·(A'B')'·(BC)'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(AB)' = A' + B'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Continue", "expression": "(A'B')' = A + B", "law": "De Morgan's Theorem"},
+        {"step": 6, "action": "Continue", "expression": "(BC)' = B' + C'", "law": "De Morgan's Theorem"},
+        {"step": 7, "action": "Combine", "expression": "F' = (A' + B')(A + B)(B' + C')", "law": "Product of Sums"}
+      ],
+      "conclusion": "The complement is F' = (A' + B')(A + B)(B' + C')",
+      "isCorrect": true
+    },
+    {
+      "id": 50,
+      "title": "Perfect Induction Proof: (A⊕B)⊕C = A⊕(B⊕C)",
+      "leftExpression": "(A⊕B)⊕C",
+      "rightExpression": "A⊕(B⊕C)",
+      "variables": ["A", "B", "C"],
+      "truthTable": [
+        {"A": 0, "B": 0, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 0, "C": 1, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 0, "B": 1, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 0, "C": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "C": 1, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "B": 1, "C": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "XOR is associative.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0,C=0", "leftCalculation": "(0⊕0)⊕0 = 0⊕0=0", "rightCalculation": "0⊕(0⊕0)=0⊕0=0", "result": "0=0 ✓", "law": "Associative Property"},
+        {"step": 2, "action": "Case 2: A=0,B=0,C=1", "leftCalculation": "(0⊕0)⊕1 = 0⊕1=1", "rightCalculation": "0⊕(0⊕1)=0⊕1=1", "result": "1=1 ✓", "law": "Associative Property"},
+        {"step": 3, "action": "Case 3: A=0,B=1,C=0", "leftCalculation": "(0⊕1)⊕0 = 1⊕0=1", "rightCalculation": "0⊕(1⊕0)=0⊕1=1", "result": "1=1 ✓", "law": "Associative Property"},
+        {"step": 4, "action": "Case 4: A=0,B=1,C=1", "leftCalculation": "(0⊕1)⊕1 = 1⊕1=0", "rightCalculation": "0⊕(1⊕1)=0⊕0=0", "result": "0=0 ✓", "law": "Associative Property"},
+        {"step": 5, "action": "Case 5: A=1,B=0,C=0", "leftCalculation": "(1⊕0)⊕0 = 1⊕0=1", "rightCalculation": "1⊕(0⊕0)=1⊕0=1", "result": "1=1 ✓", "law": "Associative Property"},
+        {"step": 6, "action": "Case 6: A=1,B=0,C=1", "leftCalculation": "(1⊕0)⊕1 = 1⊕1=0", "rightCalculation": "1⊕(0⊕1)=1⊕1=0", "result": "0=0 ✓", "law": "Associative Property"},
+        {"step": 7, "action": "Case 7: A=1,B=1,C=0", "leftCalculation": "(1⊕1)⊕0 = 0⊕0=0", "rightCalculation": "1⊕(1⊕0)=1⊕1=0", "result": "0=0 ✓", "law": "Associative Property"},
+        {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1⊕1)⊕1 = 0⊕1=1", "rightCalculation": "1⊕(1⊕1)=1⊕0=1", "result": "1=1 ✓", "law": "Associative Property"}
+      ],
+      "conclusion": "All cases match. XOR is associative, so (A⊕B)⊕C = A⊕(B⊕C) is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 51,
+      "title": "Perfect Induction Proof: A⊕A = 0",
+      "leftExpression": "A⊕A",
+      "rightExpression": "0",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "XOR of a variable with itself is always 0.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0⊕0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "XOR Property"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "XOR Property"}
+      ],
+      "conclusion": "The identity A⊕A = 0 is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 52,
+      "title": "Perfect Induction Proof: A⊕0 = A",
+      "leftExpression": "A⊕0",
+      "rightExpression": "A",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 0, "right": 0, "match": true},
+        {"A": 1, "left": 1, "right": 1, "match": true}
+      ],
+      "explanation": "XOR with 0 leaves the variable unchanged.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0⊕0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "XOR Identity"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "XOR Identity"}
+      ],
+      "conclusion": "The identity A⊕0 = A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 53,
+      "title": "Perfect Induction Proof: A⊕1 = A'",
+      "leftExpression": "A⊕1",
+      "rightExpression": "A'",
+      "variables": ["A"],
+      "truthTable": [
+        {"A": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "XOR with 1 complements the variable.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0", "leftCalculation": "0⊕1=1", "rightCalculation": "0'=1", "result": "1=1 ✓", "law": "XOR Property"},
+        {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕1=0", "rightCalculation": "1'=0", "result": "0=0 ✓", "law": "XOR Property"}
+      ],
+      "conclusion": "The identity A⊕1 = A' is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 54,
+      "title": "Perfect Induction Proof: A⊕B = B⊕A",
+      "leftExpression": "A⊕B",
+      "rightExpression": "B⊕A",
+      "variables": ["A", "B"],
+      "truthTable": [
+        {"A": 0, "B": 0, "left": 0, "right": 0, "match": true},
+        {"A": 0, "B": 1, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 0, "left": 1, "right": 1, "match": true},
+        {"A": 1, "B": 1, "left": 0, "right": 0, "match": true}
+      ],
+      "explanation": "XOR is commutative.",
+      "steps": [
+        {"step": 1, "action": "Case 1: A=0,B=0", "leftCalculation": "0⊕0=0", "rightCalculation": "0⊕0=0", "result": "0=0 ✓", "law": "Commutative Property"},
+        {"step": 2, "action": "Case 2: A=0,B=1", "leftCalculation": "0⊕1=1", "rightCalculation": "1⊕0=1", "result": "1=1 ✓", "law": "Commutative Property"},
+        {"step": 3, "action": "Case 3: A=1,B=0", "leftCalculation": "1⊕0=1", "rightCalculation": "0⊕1=1", "result": "1=1 ✓", "law": "Commutative Property"},
+        {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1⊕1=0", "rightCalculation": "1⊕1=0", "result": "0=0 ✓", "law": "Commutative Property"}
+      ],
+      "conclusion": "The identity A⊕B = B⊕A is TRUE.",
+      "isCorrect": true
+    },
+    {
+      "id": 55,
+      "title": "Find the complement of: A⊕B",
+      "expression": "F = A⊕B",
+      "complement": "F' = A⊙B = AB + A'B'",
+      "variables": ["A", "B"],
+      "explanation": "The complement of XOR is XNOR.",
+      "steps": [
+        {"step": 1, "action": "Write the original expression", "expression": "F = A⊕B = A'B + AB'", "law": "Given"},
+        {"step": 2, "action": "Complement the expression", "expression": "F' = (A'B + AB')'", "law": "Given"},
+        {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A'B)'·(AB')'", "law": "De Morgan's Theorem"},
+        {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A'B)' = A + B'", "law": "De Morgan's Theorem"},
+        {"step": 5, "action": "Continue", "expression": "(AB')' = A' + B", "law": "De Morgan's Theorem"},
+        {"step": 6, "action": "Multiply", "expression": "F' = (A + B')(A' + B)", "law": "Product of Sums"},
+        {"step": 7, "action": "Expand", "expression": "F' = A·A' + A·B + B'·A' + B'·B = 0 + AB + A'B' + 0 = AB + A'B'", "law": "Distributive Law"}
+      ],
+      "conclusion": "The complement is F' = AB + A'B' (XNOR)",
+      "isCorrect": true
+    }
+  ]
+}

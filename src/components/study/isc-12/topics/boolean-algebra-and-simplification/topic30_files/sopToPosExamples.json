@@ -1,0 +1,1740 @@
+{
+  "examples": [
+    {
+      "id": 1,
+      "name": "2-Variable AND",
+      "sop": "A·B",
+      "pos": "(A+B)·(A+B')·(A'+B)",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "A·B is 1 only when A=1, B=1 → minterm m₃",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List all maxterms (where F=0)",
+          "expression": "F=0 for m₀, m₁, m₂",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀ (A=0,B=0)",
+          "expression": "A+B",
+          "law": "Maxterm definition: variable=0 → true, variable=1 → complemented"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₁ (A=0,B=1)",
+          "expression": "A+B'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₂ (A=1,B=0)",
+          "expression": "A'+B",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 6,
+          "action": "AND all maxterms together",
+          "expression": "(A+B)·(A+B')·(A'+B)",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "AND function has only one minterm. POS is the product of all other maxterms."
+    },
+    {
+      "id": 2,
+      "name": "2-Variable OR",
+      "sop": "A+B",
+      "pos": "A+B",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A+B",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law in reverse",
+          "expression": "A+B is already in POS form",
+          "law": "OR is already a sum term"
+        },
+        {
+          "step": 3,
+          "action": "Verify with truth table",
+          "expression": "F=0 only when A=0,B=0 → maxterm M₀ = A+B",
+          "law": "Truth table verification"
+        }
+      ],
+      "explanation": "OR function is already a single sum term, so POS form is the same as SOP."
+    },
+    {
+      "id": 3,
+      "name": "2-Variable XOR",
+      "sop": "A·B' + A'·B",
+      "pos": "(A+B)·(A'+B')",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "A·B' is m₂ (A=1,B=0), A'·B is m₁ (A=0,B=1)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "F=0 for m₀ (A=0,B=0) and m₃ (A=1,B=1)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀ (A=0,B=0)",
+          "expression": "A+B",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₃ (A=1,B=1)",
+          "expression": "A'+B'",
+          "law": "Maxterm definition: variable=1 → complemented"
+        },
+        {
+          "step": 5,
+          "action": "AND both maxterms together",
+          "expression": "(A+B)·(A'+B')",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "XOR has minterms m₁ and m₂. POS uses maxterms m₀ and m₃."
+    },
+    {
+      "id": 4,
+      "name": "2-Variable XNOR",
+      "sop": "A·B + A'·B'",
+      "pos": "(A+B')·(A'+B)",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "A·B is m₃ (A=1,B=1), A'·B' is m₀ (A=0,B=0)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "F=0 for m₁ (A=0,B=1) and m₂ (A=1,B=0)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₁ (A=0,B=1)",
+          "expression": "A+B'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₂ (A=1,B=0)",
+          "expression": "A'+B",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 5,
+          "action": "AND both maxterms together",
+          "expression": "(A+B')·(A'+B)",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "XNOR has minterms m₀ and m₃. POS uses maxterms m₁ and m₂."
+    },
+    {
+      "id": 5,
+      "name": "3-Variable Majority",
+      "sop": "A·B + A·C + B·C",
+      "pos": "(A+B)·(A+C)·(B+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + AC + BC",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law: X + Y·Z = (X+Y)·(X+Z)",
+          "expression": "Let X = AB, but this doesn't factor directly",
+          "law": "Alternative approach needed"
+        },
+        {
+          "step": 3,
+          "action": "Use consensus theorem to find POS form",
+          "expression": "The POS form is the dual: (A+B)·(A+C)·(B+C)",
+          "law": "Duality principle"
+        },
+        {
+          "step": 4,
+          "action": "Verify by expanding",
+          "expression": "(A+B)·(A+C) = A + BC, then multiply by (B+C): (A+BC)·(B+C) = AB + AC + BC",
+          "law": "Distributive law"
+        }
+      ],
+      "explanation": "Majority function: output 1 when at least two inputs are 1. POS is the product of sum terms."
+    },
+    {
+      "id": 6,
+      "name": "3-Variable XOR (Odd Parity)",
+      "sop": "A'B'C + A'BC' + AB'C' + ABC",
+      "pos": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "m₁ (001), m₂ (010), m₄ (100), m₇ (111)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "m₀ (000), m₃ (011), m₅ (101), m₆ (110)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀ (A=0,B=0,C=0)",
+          "expression": "A+B+C",
+          "law": "Maxterm definition: all variables 0 → all true"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₃ (A=0,B=1,C=1)",
+          "expression": "A+B'+C'",
+          "law": "Maxterm definition: B=1→B', C=1→C'"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₅ (A=1,B=0,C=1)",
+          "expression": "A'+B+C'",
+          "law": "Maxterm definition: A=1→A', C=1→C'"
+        },
+        {
+          "step": 6,
+          "action": "Write maxterm for m₆ (A=1,B=1,C=0)",
+          "expression": "A'+B'+C",
+          "law": "Maxterm definition: A=1→A', B=1→B'"
+        },
+        {
+          "step": 7,
+          "action": "AND all maxterms together",
+          "expression": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Odd parity (XOR) has minterms with odd number of 1s. POS uses maxterms with even number of 1s."
+    },
+    {
+      "id": 7,
+      "name": "3-Variable Even Parity",
+      "sop": "A'B'C' + A'BC + AB'C + ABC'",
+      "pos": "(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "m₀ (000), m₃ (011), m₅ (101), m₆ (110)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "m₁ (001), m₂ (010), m₄ (100), m₇ (111)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₁ (A=0,B=0,C=1)",
+          "expression": "A+B+C'",
+          "law": "Maxterm definition: C=1→C'"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₂ (A=0,B=1,C=0)",
+          "expression": "A+B'+C",
+          "law": "Maxterm definition: B=1→B'"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₄ (A=1,B=0,C=0)",
+          "expression": "A'+B+C",
+          "law": "Maxterm definition: A=1→A'"
+        },
+        {
+          "step": 6,
+          "action": "Write maxterm for m₇ (A=1,B=1,C=1)",
+          "expression": "A'+B'+C'",
+          "law": "Maxterm definition: all variables 1 → all complemented"
+        },
+        {
+          "step": 7,
+          "action": "AND all maxterms together",
+          "expression": "(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Even parity has minterms with even number of 1s. POS uses maxterms with odd number of 1s."
+    },
+    {
+      "id": 8,
+      "name": "Distributive Law Example",
+      "sop": "A·(B+C)",
+      "pos": "(A+B)·(A+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A·(B+C)",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law in reverse",
+          "expression": "A·(B+C) is already in SOP form. The POS form is (A+B)·(A+C)",
+          "law": "Second distributive law: (A+B)·(A+C) = A + B·C, but here we have A·(B+C)"
+        },
+        {
+          "step": 3,
+          "action": "Use duality: Swap AND and OR",
+          "expression": "SOP: AND over OR → POS: OR over AND",
+          "law": "Duality principle"
+        },
+        {
+          "step": 4,
+          "action": "Write the dual expression",
+          "expression": "(A+B)·(A+C)",
+          "law": "Duality transformation"
+        }
+      ],
+      "explanation": "This demonstrates the distributive law: AND over OR becomes OR over AND in the dual form."
+    },
+    {
+      "id": 9,
+      "name": "4-Variable Example - AND-OR",
+      "sop": "A·B + C·D",
+      "pos": "(A+C)·(A+D)·(B+C)·(B+D)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + CD",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the distributive law: X·Y + Z = (X+Z)·(Y+Z)",
+          "expression": "Let X = A, Y = B, Z = CD. Then AB + CD = (A+CD)·(B+CD)",
+          "law": "Distributive law"
+        },
+        {
+          "step": 3,
+          "action": "Apply distributive law again to each term",
+          "expression": "A+CD = (A+C)·(A+D), B+CD = (B+C)·(B+D)",
+          "law": "Distributive law"
+        },
+        {
+          "step": 4,
+          "action": "Combine all factors",
+          "expression": "(A+C)·(A+D)·(B+C)·(B+D)",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Using distributive law repeatedly converts SOP to POS."
+    },
+    {
+      "id": 10,
+      "name": "4-Variable XOR Extension",
+      "sop": "A·B' + A'·B",
+      "pos": "(A+B)·(A'+B')",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify the pattern",
+          "expression": "F = A·B' + A'·B is XOR function on A and B",
+          "law": "XOR definition"
+        },
+        {
+          "step": 2,
+          "action": "Find POS using truth table for 2 variables",
+          "expression": "For 2 variables, XOR POS is (A+B)·(A'+B')",
+          "law": "From Example 3"
+        },
+        {
+          "step": 3,
+          "action": "Extend to 4 variables (C and D are don't cares)",
+          "expression": "F = (A+B)·(A'+B')",
+          "law": "Independent of C and D"
+        }
+      ],
+      "explanation": "XOR function on A and B, independent of C and D."
+    },
+    {
+      "id": 11,
+      "name": "3-Variable NAND",
+      "sop": "(A·B·C)'",
+      "pos": "A' + B' + C'",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A·B·C)'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply De Morgan's theorem",
+          "expression": "(A·B·C)' = A' + B' + C'",
+          "law": "De Morgan's theorem: (X·Y)' = X' + Y'"
+        },
+        {
+          "step": 3,
+          "action": "Result is already in POS form",
+          "expression": "A' + B' + C' is a sum term",
+          "law": "POS form definition"
+        }
+      ],
+      "explanation": "NAND function converts directly to POS using De Morgan's theorem."
+    },
+    {
+      "id": 12,
+      "name": "3-Variable NOR",
+      "sop": "(A+B+C)'",
+      "pos": "A'·B'·C'",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A+B+C)'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply De Morgan's theorem",
+          "expression": "(A+B+C)' = A'·B'·C'",
+          "law": "De Morgan's theorem: (X+Y)' = X'·Y'"
+        },
+        {
+          "step": 3,
+          "action": "This is a product term, not a sum term",
+          "expression": "Actually A'·B'·C' is SOP, not POS",
+          "law": "Correction needed"
+        },
+        {
+          "step": 4,
+          "action": "The POS form is the same as SOP for NOR",
+          "expression": "F = A'·B'·C' is both SOP and POS (single term)",
+          "law": "Single term is both product and sum"
+        }
+      ],
+      "explanation": "NOR function is a single product term, which is both SOP and POS."
+    },
+    {
+      "id": 13,
+      "name": "Consensus Theorem Example",
+      "sop": "A·B + A'·C",
+      "pos": "(A+C)·(A'+B)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A'C",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law in reverse",
+          "expression": "AB + A'C = (A+C)·(A'+B)",
+          "law": "Consensus theorem / distributive law"
+        },
+        {
+          "step": 3,
+          "action": "Verify by expanding",
+          "expression": "(A+C)·(A'+B) = A·A' + A·B + C·A' + C·B = 0 + AB + A'C + BC = AB + A'C + BC",
+          "law": "Distributive law"
+        },
+        {
+          "step": 4,
+          "action": "Apply consensus theorem to remove BC",
+          "expression": "AB + A'C + BC = AB + A'C",
+          "law": "Consensus theorem"
+        }
+      ],
+      "explanation": "This demonstrates the Consensus Theorem: AB + A'C = (A+C)·(A'+B)."
+    },
+    {
+      "id": 14,
+      "name": "4-Variable Majority",
+      "sop": "A·B + A·C + A·D + B·C + B·D + C·D",
+      "pos": "(A+B)·(A+C)·(A+D)·(B+C)·(B+D)·(C+D)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + AC + AD + BC + BD + CD",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Factor pairwise using distributive law",
+          "expression": "This is the dual of the majority function",
+          "law": "Duality principle"
+        },
+        {
+          "step": 3,
+          "action": "The POS form is the product of all pairs",
+          "expression": "(A+B)·(A+C)·(A+D)·(B+C)·(B+D)·(C+D)",
+          "law": "Product of Sums form"
+        }
+      ],
+      "explanation": "4-variable pairwise majority: output 1 when at least two of the four inputs are 1."
+    },
+    {
+      "id": 15,
+      "name": "Full Adder Sum",
+      "sop": "A'B'Cin + A'BCin' + AB'Cin' + ABCin",
+      "pos": "(A+B+Cin)·(A+B'+Cin')·(A'+B+Cin')·(A'+B'+Cin)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "m₁ (001), m₂ (010), m₄ (100), m₇ (111)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "m₀ (000), m₃ (011), m₅ (101), m₆ (110)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀ (A=0,B=0,Cin=0)",
+          "expression": "A+B+Cin",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₃ (A=0,B=1,Cin=1)",
+          "expression": "A+B'+Cin'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₅ (A=1,B=0,Cin=1)",
+          "expression": "A'+B+Cin'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 6,
+          "action": "Write maxterm for m₆ (A=1,B=1,Cin=0)",
+          "expression": "A'+B'+Cin",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 7,
+          "action": "AND all maxterms together",
+          "expression": "(A+B+Cin)·(A+B'+Cin')·(A'+B+Cin')·(A'+B'+Cin)",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Full adder sum output is XOR of three inputs. POS uses maxterms where output=0."
+    },
+    {
+      "id": 16,
+      "name": "Full Adder Carry",
+      "sop": "A·B + A·Cin + B·Cin",
+      "pos": "(A+B)·(A+Cin)·(B+Cin)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A·Cin + B·Cin",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law",
+          "expression": "This is the majority function",
+          "law": "Majority function"
+        },
+        {
+          "step": 3,
+          "action": "The POS form is the product of sums of pairs",
+          "expression": "(A+B)·(A+Cin)·(B+Cin)",
+          "law": "From Example 5"
+        }
+      ],
+      "explanation": "Full adder carry output is the majority function of three inputs."
+    },
+    {
+      "id": 17,
+      "name": "2-to-1 Multiplexer",
+      "sop": "A·S' + B·S",
+      "pos": "(A+B)·(A+S)·(B+S')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A·S' + B·S",
+          "law": "Given (2-to-1 MUX)"
+        },
+        {
+          "step": 2,
+          "action": "Apply distributive law: X·Y + Z = (X+Z)·(Y+Z)",
+          "expression": "Let X = A, Y = S', Z = B·S",
+          "law": "Distributive law"
+        },
+        {
+          "step": 3,
+          "action": "A + B·S = (A+B)·(A+S)",
+          "expression": "Apply to first term: A + B·S = (A+B)·(A+S)",
+          "law": "Distributive law"
+        },
+        {
+          "step": 4,
+          "action": "S' + B·S = (S'+B)·(S'+S) = (S'+B)·1 = S'+B",
+          "expression": "Apply to second term: S' + B·S = (S'+B)·(S'+S) = (S'+B)",
+          "law": "Distributive law and complement"
+        },
+        {
+          "step": 5,
+          "action": "Combine all factors",
+          "expression": "(A+B)·(A+S)·(B+S')",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "2-to-1 multiplexer selects A when S=0, B when S=1."
+    },
+    {
+      "id": 18,
+      "name": "4-Variable Even Parity",
+      "sop": "Σ(0,3,5,6,9,10,12,15)",
+      "pos": "Π(1,2,4,7,8,11,13,14)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterms where output=1",
+          "expression": "Even parity: m₀, m₃, m₅, m₆, m₉, m₁₀, m₁₂, m₁₅",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (complement of minterms)",
+          "expression": "M₁, M₂, M₄, M₇, M₈, M₁₁, M₁₃, M₁₄",
+          "law": "Maxterms are minterms where output=0"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = Π(1,2,4,7,8,11,13,14)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "Even parity for 4 bits: output 1 when number of 1s is even."
+    },
+    {
+      "id": 19,
+      "name": "BCD Invalid Code Detector",
+      "sop": "Σ(10,11,12,13,14,15)",
+      "pos": "Π(0,1,2,3,4,5,6,7,8,9)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterms where output=1 (invalid BCD codes)",
+          "expression": "m₁₀, m₁₁, m₁₂, m₁₃, m₁₄, m₁₅",
+          "law": "BCD uses only 0-9"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (valid BCD codes)",
+          "expression": "M₀, M₁, M₂, M₃, M₄, M₅, M₆, M₇, M₈, M₉",
+          "law": "Maxterms are minterms where output=0"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = Π(0,1,2,3,4,5,6,7,8,9)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "BCD uses minterms 0-9. Invalid codes 10-15 are detected."
+    },
+    {
+      "id": 20,
+      "name": "9's Complement Detector",
+      "sop": "A·B'·C'·D' + A'·B·C·D",
+      "pos": "(A+B+C+D)·(A+B+C'+D')·(A+B'+C'+D)·(A'+B+C+D')",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms",
+          "expression": "m₉ (1001) and m₆ (0110) for complement",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (all other 14 minterms)",
+          "expression": "All except m₆ and m₉",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write POS using maxterm notation",
+          "expression": "F = Π(0,1,2,3,4,5,7,8,10,11,12,13,14,15)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "Detects when input is 9 (1001) or its complement 6 (0110) in 4-bit."
+    },
+    {
+      "id": 21,
+      "name": "3-Variable AND-OR Expression",
+      "sop": "A·B + A·C' + B·C",
+      "pos": "(A+B)·(A+C')·(B+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + AC' + BC",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law",
+          "expression": "AB + AC' = A·(B+C')",
+          "law": "Distributive law"
+        },
+        {
+          "step": 3,
+          "action": "Now F = A·(B+C') + BC",
+          "expression": "Factor A from first two terms",
+          "law": "Factoring"
+        },
+        {
+          "step": 4,
+          "action": "Apply distributive law: X·Y + Z = (X+Z)·(Y+Z)",
+          "expression": "Let X = A, Y = B+C', Z = BC",
+          "law": "Distributive law"
+        },
+        {
+          "step": 5,
+          "action": "A + BC = (A+B)·(A+C)",
+          "expression": "Simplify: A + BC = (A+B)·(A+C)",
+          "law": "Distributive law"
+        },
+        {
+          "step": 6,
+          "action": "B+C' + BC = (B+C'+B)·(B+C'+C) = (B+C')·(B+C'+C) = (B+C')·1 = B+C'",
+          "expression": "Simplify second factor",
+          "law": "Distributive and complement"
+        },
+        {
+          "step": 7,
+          "action": "Combine all factors",
+          "expression": "(A+B)·(A+C)·(B+C')",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Using distributive law repeatedly to convert SOP to POS."
+    },
+    {
+      "id": 22,
+      "name": "Canonical Conversion",
+      "sop": "A·B·C + A·B·C' + A·B'·C + A'·B·C",
+      "pos": "(A+B+C)·(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "m₇ (111), m₆ (110), m₅ (101), m₃ (011)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "m₀ (000), m₁ (001), m₂ (010), m₄ (100)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀",
+          "expression": "A+B+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₁",
+          "expression": "A+B+C'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₂",
+          "expression": "A+B'+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 6,
+          "action": "Write maxterm for m₄",
+          "expression": "A'+B+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 7,
+          "action": "Also include m₇? Actually m₇ is 1, so not maxterm. Also check m₃?",
+          "expression": "Actually F=1 for m₃,m₅,m₆,m₇, so maxterms are m₀,m₁,m₂,m₄",
+          "law": "Correction"
+        }
+      ],
+      "explanation": "Canonical conversion from minterms to maxterms."
+    },
+    {
+      "id": 23,
+      "name": "3-Variable Function",
+      "sop": "A'B'C + A'BC + ABC' + ABC",
+      "pos": "(A+B+C)·(A+B+C')·(A+B'+C)·(A'+B+C')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "m₁ (001), m₃ (011), m₆ (110), m₇ (111)",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (where F=0)",
+          "expression": "m₀ (000), m₂ (010), m₄ (100), m₅ (101)",
+          "law": "Complement of minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write maxterm for m₀",
+          "expression": "A+B+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 4,
+          "action": "Write maxterm for m₂",
+          "expression": "A+B'+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 5,
+          "action": "Write maxterm for m₄",
+          "expression": "A'+B+C",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 6,
+          "action": "Write maxterm for m₅",
+          "expression": "A'+B+C'",
+          "law": "Maxterm definition"
+        },
+        {
+          "step": 7,
+          "action": "AND all maxterms together",
+          "expression": "(A+B+C)·(A+B'+C)·(A'+B+C)·(A'+B+C')",
+          "law": "Product of Sums (POS) form"
+        }
+      ],
+      "explanation": "Converting a 3-variable function from SOP to POS."
+    },
+    {
+      "id": 24,
+      "name": "4-Variable AND-OR Expression",
+      "sop": "A·B·C + A·B·D + A·C·D + B·C·D",
+      "pos": "(A+B)·(A+C)·(A+D)·(B+C)·(B+D)·(C+D)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = ABC + ABD + ACD + BCD",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Factor out common terms",
+          "expression": "F = AB(C+D) + CD(A+B)",
+          "law": "Factoring"
+        },
+        {
+          "step": 3,
+          "action": "Apply distributive law",
+          "expression": "This is the majority function for 4 variables",
+          "law": "Majority function"
+        },
+        {
+          "step": 4,
+          "action": "The POS form is product of all pairs",
+          "expression": "(A+B)·(A+C)·(A+D)·(B+C)·(B+D)·(C+D)",
+          "law": "Product of Sums form"
+        }
+      ],
+      "explanation": "4-variable majority function: output 1 when at least three inputs are 1."
+    },
+    {
+      "id": 25,
+      "name": "Exclusive NOR Extension",
+      "sop": "A·B + A'·B'",
+      "pos": "(A+B')·(A'+B)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A'B'",
+          "law": "Given (XNOR)"
+        },
+        {
+          "step": 2,
+          "action": "Find POS using truth table for 2 variables",
+          "expression": "XNOR POS is (A+B')·(A'+B)",
+          "law": "From Example 4"
+        },
+        {
+          "step": 3,
+          "action": "Extend to 4 variables",
+          "expression": "F = (A+B')·(A'+B)",
+          "law": "Independent of C and D"
+        }
+      ],
+      "explanation": "XNOR function on A and B, independent of C and D."
+    },
+    {
+      "id": 26,
+      "name": "3-Variable AND-OR with Complement",
+      "sop": "A·B + A'·C + B·C'",
+      "pos": "(A+C')·(A'+B)·(B+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A'C + BC'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply distributive law to each pair",
+          "expression": "AB + A'C = (A+C)·(A'+B)",
+          "law": "Consensus theorem"
+        },
+        {
+          "step": 3,
+          "action": "Now F = (A+C)·(A'+B) + BC'",
+          "expression": "This is more complex",
+          "law": "Need further steps"
+        },
+        {
+          "step": 4,
+          "action": "Apply distributive law: (A+C)·(A'+B) = (A+C)·(A'+B)",
+          "expression": "Multiply by (B+C) gives the POS form",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Using distributive law to convert complex SOP to POS."
+    },
+    {
+      "id": 27,
+      "name": "2-Variable NAND",
+      "sop": "(A·B)'",
+      "pos": "A' + B'",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A·B)'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply De Morgan's theorem",
+          "expression": "(A·B)' = A' + B'",
+          "law": "De Morgan's theorem"
+        },
+        {
+          "step": 3,
+          "action": "Result is a sum term",
+          "expression": "A' + B' is POS form",
+          "law": "POS definition"
+        }
+      ],
+      "explanation": "NAND function converts directly to POS using De Morgan's theorem."
+    },
+    {
+      "id": 28,
+      "name": "2-Variable NOR",
+      "sop": "(A+B)'",
+      "pos": "A'·B'",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A+B)'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Apply De Morgan's theorem",
+          "expression": "(A+B)' = A'·B'",
+          "law": "De Morgan's theorem"
+        },
+        {
+          "step": 3,
+          "action": "This is a product term, which is also a sum term of one literal",
+          "expression": "A'·B' is both SOP and POS",
+          "law": "Single term is both"
+        }
+      ],
+      "explanation": "NOR function is a single product term, which is both SOP and POS."
+    },
+    {
+      "id": 29,
+      "name": "3-Variable XOR Simplified",
+      "sop": "A⊕B⊕C",
+      "pos": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A⊕B⊕C",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Expand XOR to minterms",
+          "expression": "F = A'B'C + A'BC' + AB'C' + ABC",
+          "law": "XOR expansion"
+        },
+        {
+          "step": 3,
+          "action": "Identify minterms",
+          "expression": "m₁, m₂, m₄, m₇",
+          "law": "Truth table"
+        },
+        {
+          "step": 4,
+          "action": "List maxterms",
+          "expression": "m₀, m₃, m₅, m₆",
+          "law": "Complement"
+        },
+        {
+          "step": 5,
+          "action": "Write POS expression",
+          "expression": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "3-input XOR (odd parity) conversion to POS."
+    },
+    {
+      "id": 30,
+      "name": "3-Variable XNOR",
+      "sop": "A⊙B⊙C",
+      "pos": "(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A⊙B⊙C (even parity)",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Expand to minterms",
+          "expression": "F = A'B'C' + A'BC + AB'C + ABC'",
+          "law": "Even parity minterms"
+        },
+        {
+          "step": 3,
+          "action": "Identify minterms",
+          "expression": "m₀, m₃, m₅, m₆",
+          "law": "Truth table"
+        },
+        {
+          "step": 4,
+          "action": "List maxterms",
+          "expression": "m₁, m₂, m₄, m₇",
+          "law": "Complement"
+        },
+        {
+          "step": 5,
+          "action": "Write POS expression",
+          "expression": "(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "3-input XNOR (even parity) conversion to POS."
+    },
+    {
+      "id": 31,
+      "name": "4-Variable XOR",
+      "sop": "A⊕B⊕C⊕D",
+      "pos": "Π(1,2,4,7,8,11,13,14)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "XOR of 4 variables is odd parity",
+          "expression": "F = A⊕B⊕C⊕D",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Minterms are odd number of 1s",
+          "expression": "m₁, m₂, m₄, m₇, m₈, m₁₁, m₁₃, m₁₄",
+          "law": "Odd parity"
+        },
+        {
+          "step": 3,
+          "action": "Maxterms are even number of 1s",
+          "expression": "All other 8 minterms",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS in short notation",
+          "expression": "F = Π(0,3,5,6,9,10,12,15)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "4-input XOR (odd parity) POS uses maxterms with even number of 1s."
+    },
+    {
+      "id": 32,
+      "name": "4-Variable XNOR",
+      "sop": "A⊙B⊙C⊙D",
+      "pos": "Π(0,3,5,6,9,10,12,15)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "XNOR of 4 variables is even parity",
+          "expression": "F = A⊙B⊙C⊙D",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Minterms are even number of 1s",
+          "expression": "m₀, m₃, m₅, m₆, m₉, m₁₀, m₁₂, m₁₅",
+          "law": "Even parity"
+        },
+        {
+          "step": 3,
+          "action": "Maxterms are odd number of 1s",
+          "expression": "All other 8 minterms",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS in short notation",
+          "expression": "F = Π(1,2,4,7,8,11,13,14)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "4-input XNOR (even parity) POS uses maxterms with odd number of 1s."
+    },
+    {
+      "id": 33,
+      "name": "Half Adder Sum",
+      "sop": "A·B' + A'·B",
+      "pos": "(A+B)·(A'+B')",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A·B' + A'·B",
+          "law": "Half adder sum (XOR)"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterms",
+          "expression": "m₁ (01) and m₂ (10)",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₀ (00) and m₃ (11)",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B)·(A'+B')",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Half adder sum is XOR function."
+    },
+    {
+      "id": 34,
+      "name": "Half Adder Carry",
+      "sop": "A·B",
+      "pos": "(A+B)·(A+B')·(A'+B)",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A·B",
+          "law": "Half adder carry (AND)"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterm",
+          "expression": "m₃ (11)",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₀, m₁, m₂",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B)·(A+B')·(A'+B)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Half adder carry is AND function."
+    },
+    {
+      "id": 35,
+      "name": "Full Adder Sum (Alternate)",
+      "sop": "A⊕B⊕Cin",
+      "pos": "(A+B+Cin)·(A+B'+Cin')·(A'+B+Cin')·(A'+B'+Cin)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A⊕B⊕Cin",
+          "law": "Full adder sum"
+        },
+        {
+          "step": 2,
+          "action": "Expand to minterms",
+          "expression": "m₁, m₂, m₄, m₇",
+          "law": "XOR expansion"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₀, m₃, m₅, m₆",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B+Cin)·(A+B'+Cin')·(A'+B+Cin')·(A'+B'+Cin)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Full adder sum is XOR of three inputs."
+    },
+    {
+      "id": 36,
+      "name": "Full Adder Carry (Alternate)",
+      "sop": "A·B + A·Cin + B·Cin",
+      "pos": "(A+B)·(A+Cin)·(B+Cin)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A·Cin + B·Cin",
+          "law": "Full adder carry"
+        },
+        {
+          "step": 2,
+          "action": "Apply the second distributive law",
+          "expression": "This is the majority function",
+          "law": "Majority function"
+        },
+        {
+          "step": 3,
+          "action": "Write POS form",
+          "expression": "(A+B)·(A+Cin)·(B+Cin)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Full adder carry is majority function of three inputs."
+    },
+    {
+      "id": 37,
+      "name": "Comparator Equality",
+      "sop": "A·B + A'·B'",
+      "pos": "(A+B')·(A'+B)",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB + A'B'",
+          "law": "Equality comparator (XNOR)"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterms",
+          "expression": "m₀ (00) and m₃ (11)",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₁ (01) and m₂ (10)",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B')·(A'+B)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Equality comparator (XNOR) POS form."
+    },
+    {
+      "id": 38,
+      "name": "Comparator Inequality",
+      "sop": "A·B' + A'·B",
+      "pos": "(A+B)·(A'+B')",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = AB' + A'B",
+          "law": "Inequality comparator (XOR)"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterms",
+          "expression": "m₁ (01) and m₂ (10)",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₀ (00) and m₃ (11)",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B)·(A'+B')",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Inequality comparator (XOR) POS form."
+    },
+    {
+      "id": 39,
+      "name": "3-Input AND-OR with 4 Terms",
+      "sop": "A'B'C' + A'BC + AB'C + ABC'",
+      "pos": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A'B'C' + A'BC + AB'C + ABC'",
+          "law": "Given (even parity)"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterms",
+          "expression": "m₀, m₃, m₅, m₆",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₁, m₂, m₄, m₇",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Even parity function POS form."
+    },
+    {
+      "id": 40,
+      "name": "3-Input AND-OR with 3 Terms",
+      "sop": "A'B'C + A'BC' + AB'C'",
+      "pos": "(A+B+C)·(A+B+C')·(A+B'+C)·(A'+B+C)·(A'+B'+C')",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A'B'C + A'BC' + AB'C'",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Identify minterms",
+          "expression": "m₁, m₂, m₄",
+          "law": "Truth table"
+        },
+        {
+          "step": 3,
+          "action": "List maxterms",
+          "expression": "m₀, m₃, m₅, m₆, m₇",
+          "law": "Complement"
+        },
+        {
+          "step": 4,
+          "action": "Write POS expression",
+          "expression": "(A+B+C)·(A+B'+C')·(A'+B+C')·(A'+B'+C)·(A'+B'+C')",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Converting a 3-term SOP to POS."
+    },
+    {
+      "id": 41,
+      "name": "4-Variable Function with Don't Cares",
+      "sop": "Σ(0,1,4,5,12,13)",
+      "pos": "Π(2,3,6,7,8,9,10,11,14,15)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterms where F=1",
+          "expression": "m₀, m₁, m₄, m₅, m₁₂, m₁₃",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms (all other minterms)",
+          "expression": "m₂, m₃, m₆, m₇, m₈, m₉, m₁₀, m₁₁, m₁₄, m₁₅",
+          "law": "Complement"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = Π(2,3,6,7,8,9,10,11,14,15)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "Converting a 4-variable function with specific minterms to POS."
+    },
+    {
+      "id": 42,
+      "name": "4-Variable Function - All But One",
+      "sop": "Σ(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14)",
+      "pos": "Π(15)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterms where F=1",
+          "expression": "All except m₁₅",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "List maxterm",
+          "expression": "M₁₅ only",
+          "law": "Complement"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = A'+B'+C'+D'",
+          "law": "Maxterm M₁₅ = A'+B'+C'+D'"
+        }
+      ],
+      "explanation": "Function is 1 for all inputs except 1111, so POS is a single maxterm."
+    },
+    {
+      "id": 43,
+      "name": "4-Variable Function - Single Minterm",
+      "sop": "Σ(15)",
+      "pos": "Π(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterm where F=1",
+          "expression": "m₁₅ only",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms",
+          "expression": "All except m₁₅",
+          "law": "Complement"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = Π(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "Function is 1 only for input 1111, so POS is product of all other maxterms."
+    },
+    {
+      "id": 44,
+      "name": "3-Variable Function - Complement",
+      "sop": "A'B'C' + A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC'",
+      "pos": "Π(7)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "List minterms where F=1",
+          "expression": "All except m₇",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "List maxterm",
+          "expression": "M₇ only",
+          "law": "Complement"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = A'+B'+C'",
+          "law": "Maxterm M₇ = A'+B'+C'"
+        }
+      ],
+      "explanation": "Function is 1 for all except 111, so POS is a single maxterm."
+    },
+    {
+      "id": 45,
+      "name": "3-Variable Function - Single Term",
+      "sop": "ABC",
+      "pos": "(A+B+C)·(A+B+C')·(A+B'+C)·(A+B'+C')·(A'+B+C)·(A'+B+C')·(A'+B'+C)",
+      "variables": 3,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = ABC",
+          "law": "Given (m₇)"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms",
+          "expression": "m₀, m₁, m₂, m₃, m₄, m₅, m₆",
+          "law": "All other minterms"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "(A+B+C)·(A+B+C')·(A+B'+C)·(A+B'+C')·(A'+B+C)·(A'+B+C')·(A'+B'+C)",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "AND function POS form is product of all maxterms except m₇."
+    },
+    {
+      "id": 46,
+      "name": "2-Variable Implication",
+      "sop": "A' + B",
+      "pos": "A' + B",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A' + B",
+          "law": "Given (A implies B)"
+        },
+        {
+          "step": 2,
+          "action": "This is already a sum term",
+          "expression": "A' + B is POS form",
+          "law": "POS definition"
+        }
+      ],
+      "explanation": "Implication (A→B) is already in POS form."
+    },
+    {
+      "id": 47,
+      "name": "2-Variable Implication Expanded",
+      "sop": "A'B' + A'B + AB",
+      "pos": "A' + B",
+      "variables": 2,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = A'B' + A'B + AB",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Simplify using Boolean laws",
+          "expression": "A'B' + A'B = A'(B'+B) = A'·1 = A'",
+          "law": "Distributive and complement"
+        },
+        {
+          "step": 3,
+          "action": "Now F = A' + AB",
+          "expression": "Simplify: A' + AB = (A'+A)·(A'+B) = 1·(A'+B) = A'+B",
+          "law": "Distributive law"
+        },
+        {
+          "step": 4,
+          "action": "Result is POS form",
+          "expression": "F = A' + B",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Implication function simplified to POS form."
+    },
+    {
+      "id": 48,
+      "name": "4-Variable Function - XOR of Pairs",
+      "sop": "A⊕B + C⊕D",
+      "pos": "(A+B+C+D)·(A+B+C'+D')·(A+B'+C+D)·(A+B'+C'+D')·(A'+B+C+D)·(A'+B+C'+D')·(A'+B'+C+D)·(A'+B'+C'+D')",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A⊕B) + (C⊕D)",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Expand each XOR",
+          "expression": "F = (AB' + A'B) + (CD' + C'D)",
+          "law": "XOR expansion"
+        },
+        {
+          "step": 3,
+          "action": "This is sum of four product terms",
+          "expression": "F = AB' + A'B + CD' + C'D",
+          "law": "SOP form"
+        },
+        {
+          "step": 4,
+          "action": "POS requires finding where F=0",
+          "expression": "F=0 when A⊕B=0 AND C⊕D=0",
+          "law": "Truth table analysis"
+        },
+        {
+          "step": 5,
+          "action": "Write POS as product of maxterms",
+          "expression": "F = Π(0,3,5,6,9,10,12,15) for A,B? Actually 4 variables",
+          "law": "Product of Sums"
+        }
+      ],
+      "explanation": "Sum of two XOR functions converted to POS."
+    },
+    {
+      "id": 49,
+      "name": "4-Variable Function - AND of XOR",
+      "sop": "(A⊕B)·(C⊕D)",
+      "pos": "(A+B+C+D)·(A+B+C+D')·(A+B+C'+D)·(A+B+C'+D')·(A+B'+C+D)·(A+B'+C+D')·(A+B'+C'+D)·(A+B'+C'+D')·(A'+B+C+D)·(A'+B+C+D')·(A'+B+C'+D)·(A'+B+C'+D')·(A'+B'+C+D)·(A'+B'+C+D')·(A'+B'+C'+D)·(A'+B'+C'+D')",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Write the SOP expression",
+          "expression": "F = (A⊕B)·(C⊕D)",
+          "law": "Given"
+        },
+        {
+          "step": 2,
+          "action": "Expand each XOR",
+          "expression": "F = (AB' + A'B)·(CD' + C'D)",
+          "law": "XOR expansion"
+        },
+        {
+          "step": 3,
+          "action": "Multiply to get SOP",
+          "expression": "F = AB'CD' + AB'C'D + A'BCD' + A'BC'D",
+          "law": "Distribution"
+        },
+        {
+          "step": 4,
+          "action": "POS requires all other 12 maxterms",
+          "expression": "F = 1 only for 4 minterms, 0 for 12",
+          "law": "Truth table"
+        }
+      ],
+      "explanation": "AND of two XOR functions gives 4 minterms, POS has 12 maxterms."
+    },
+    {
+      "id": 50,
+      "name": "4-Variable Function - Complex",
+      "sop": "A·B·C·D + A·B·C'·D' + A·B'·C·D' + A·B'·C'·D + A'·B·C·D' + A'·B·C'·D + A'·B'·C·D + A'·B'·C'·D'",
+      "pos": "Π(1,2,4,7,8,11,13,14)",
+      "variables": 4,
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identify minterms where F=1",
+          "expression": "Even parity: m₀, m₃, m₅, m₆, m₉, m₁₀, m₁₂, m₁₅",
+          "law": "Truth table"
+        },
+        {
+          "step": 2,
+          "action": "List maxterms",
+          "expression": "m₁, m₂, m₄, m₇, m₈, m₁₁, m₁₃, m₁₄",
+          "law": "Complement"
+        },
+        {
+          "step": 3,
+          "action": "Write POS expression",
+          "expression": "F = Π(1,2,4,7,8,11,13,14)",
+          "law": "Product of Sums notation"
+        }
+      ],
+      "explanation": "Even parity function POS form."
+    }
+  ]
+}
