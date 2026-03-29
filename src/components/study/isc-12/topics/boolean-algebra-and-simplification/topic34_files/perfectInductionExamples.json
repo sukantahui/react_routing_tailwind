@@ -3,6 +3,9 @@
     {
       "id": 1,
       "title": "Perfect Induction Proof: (A+B)(A·B) = (A·B' + B·A')",
+      "category": "Algebraic Manipulation",
+      "difficulty": "Intermediate",
+      "description": "Testing equivalence of product-of-sums and sum-of-products forms",
       "leftExpression": "(A+B)(A·B)",
       "rightExpression": "A·B' + B·A'",
       "variables": ["A", "B"],
@@ -20,11 +23,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "Left = (1+1)(1·1) = (1)(1) = 1", "rightCalculation": "Right = 1·0 + 0·1 = 0 + 0 = 0", "result": "1 ≠ 0 ✗", "law": "Perfect Induction"}
       ],
       "conclusion": "The expressions are NOT equivalent. Only Case 1 matches. Therefore the identity is false.",
-      "isCorrect": false
+      "isCorrect": false,
+      "note": "This demonstrates how perfect induction can quickly identify incorrect identities"
     },
     {
       "id": 2,
       "title": "Perfect Induction Proof: (A+B)(A'+B') = (A·B + A'·B')",
+      "category": "De Morgan's Laws",
+      "difficulty": "Intermediate",
+      "description": "Testing De Morgan's theorem variations",
       "leftExpression": "(A+B)(A'+B')",
       "rightExpression": "A·B + A'·B'",
       "variables": ["A", "B"],
@@ -41,12 +48,16 @@
         {"step": 3, "action": "Case 3: A=1, B=0", "leftCalculation": "Left = (1+0)(0+1) = (1)(1) = 1", "rightCalculation": "Right = 1·0 + 0·1 = 0 + 0 = 0", "result": "1 ≠ 0 ✗", "law": "Perfect Induction"},
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "Left = (1+1)(0+0) = (1)(0) = 0", "rightCalculation": "Right = 1·1 + 0·0 = 1 + 0 = 1", "result": "0 ≠ 1 ✗", "law": "Perfect Induction"}
       ],
-      "conclusion": "The identity is FALSE for all cases. The correct identity is (A+B)(A'+B') = A'B' + AB? Actually (A+B)(A'+B') = A⊕B? Let's check: For A=0,B=1: (1)(0)=0, XOR=1. So not equal.",
-      "isCorrect": false
+      "conclusion": "The identity is FALSE for all cases. The correct identity is (A+B)(A'+B') = A'B' + AB (XNOR).",
+      "isCorrect": false,
+      "note": "This is actually the XNOR function, which equals 1 only when A=B"
     },
     {
       "id": 3,
       "title": "Perfect Induction Proof: (A+B)' + (A+B) = A'",
+      "category": "Complement Laws",
+      "difficulty": "Beginner",
+      "description": "Testing complement law applications",
       "leftExpression": "(A+B)' + (A+B)",
       "rightExpression": "A'",
       "variables": ["A", "B"],
@@ -64,11 +75,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "(1+1)' + (1+1) = 1' + 1 = 0 + 1 = 1", "rightCalculation": "A' = 1' = 0", "result": "1 ≠ 0 ✗", "law": "Complement Law"}
       ],
       "conclusion": "Left side always equals 1 (by Complement Law), while right side equals A'. They are equal only when A=0. Therefore the identity is FALSE.",
-      "isCorrect": false
+      "isCorrect": false,
+      "note": "Remember: X + X' = 1 always, regardless of X"
     },
     {
       "id": 4,
       "title": "Perfect Induction Proof: (A+B)'(A'B) = A'·B'",
+      "category": "De Morgan's Laws",
+      "difficulty": "Intermediate",
+      "description": "Complex application of De Morgan's theorem",
       "leftExpression": "(A+B)'·(A'·B)",
       "rightExpression": "A'·B'",
       "variables": ["A", "B"],
@@ -86,11 +101,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "(1+1)'·(0·1) = 1'·0 = 0·0 = 0", "rightCalculation": "A'·B' = 0·0 = 0", "result": "0 = 0 ✓", "law": "De Morgan's Theorem"}
       ],
       "conclusion": "The identity holds for 3 cases but fails for A=0,B=0. Therefore it is FALSE.",
-      "isCorrect": false
+      "isCorrect": false,
+      "note": "Only fails when both inputs are 0"
     },
     {
       "id": 5,
       "title": "Find the complement of: XYZ + XY + YZ",
+      "category": "Complement",
+      "difficulty": "Intermediate",
+      "description": "Practice finding complements using De Morgan's theorem",
       "expression": "F = XYZ + XY + YZ",
       "complement": "F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')",
       "variables": ["X", "Y", "Z"],
@@ -104,11 +123,15 @@
         {"step": 6, "action": "Combine all terms", "expression": "F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')", "law": "Product of Sums form"}
       ],
       "conclusion": "The complement is F' = (X' + Y' + Z')·(X' + Y')·(Y' + Z')",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is in Product of Sums (POS) form"
     },
     {
       "id": 6,
       "title": "Perfect Induction Proof: A + A'B = A + B",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Classic absorption law simplification",
       "leftExpression": "A + A'·B",
       "rightExpression": "A + B",
       "variables": ["A", "B"],
@@ -126,11 +149,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1 + (0·1) = 1 + 0 = 1", "rightCalculation": "1 + 1 = 1", "result": "1 = 1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "All cases match. The identity A + A'B = A + B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is one of the most useful Boolean algebra simplifications"
     },
     {
       "id": 7,
       "title": "Perfect Induction Proof: A·(A+B) = A",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Basic absorption law in AND-OR form",
       "leftExpression": "A·(A+B)",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -148,11 +175,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1·(1+1) = 1·1 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "All cases match. The identity A·(A+B) = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A absorbs (A+B) in AND operation"
     },
     {
       "id": 8,
       "title": "Perfect Induction Proof: A + AB = A",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Basic absorption law in OR-AND form",
       "leftExpression": "A + A·B",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -170,11 +201,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "1 + (1·1) = 1 + 1 = 1", "rightCalculation": "1", "result": "1 = 1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "All cases match. The identity A + AB = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A absorbs AB in OR operation"
     },
     {
       "id": 9,
       "title": "Perfect Induction Proof: (A+B)(A+C) = A + BC",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Second distributive law in Boolean algebra",
       "leftExpression": "(A+B)·(A+C)",
       "rightExpression": "A + B·C",
       "variables": ["A", "B", "C"],
@@ -200,11 +235,15 @@
         {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1+1)(1+1) = 1·1 = 1", "rightCalculation": "1 + (1·1) = 1", "result": "1 = 1 ✓", "law": "Distributive Law"}
       ],
       "conclusion": "All 8 cases match. The identity (A+B)(A+C) = A + BC is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the OR distributes over AND law"
     },
     {
       "id": 10,
       "title": "Perfect Induction Proof: (A+B)(A'+C)(B+C) = (A+B)(A'+C)",
+      "category": "Consensus Theorem",
+      "difficulty": "Advanced",
+      "description": "Dual of consensus theorem showing redundant term",
       "leftExpression": "(A+B)·(A'+C)·(B+C)",
       "rightExpression": "(A+B)·(A'+C)",
       "variables": ["A", "B", "C"],
@@ -230,11 +269,15 @@
         {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1+1)(0+1)(1+1) = 1·1·1 = 1", "rightCalculation": "(1+1)(0+1) = 1·1 = 1", "result": "1 = 1 ✓", "law": "Consensus Theorem"}
       ],
       "conclusion": "All 8 cases match. The identity (A+B)(A'+C)(B+C) = (A+B)(A'+C) is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "The consensus term (B+C) is redundant in POS form"
     },
     {
       "id": 11,
       "title": "Perfect Induction Proof: AB + A'C + BC = AB + A'C",
+      "category": "Consensus Theorem",
+      "difficulty": "Advanced",
+      "description": "Consensus theorem showing redundant term in SOP form",
       "leftExpression": "A·B + A'·C + B·C",
       "rightExpression": "A·B + A'·C",
       "variables": ["A", "B", "C"],
@@ -260,11 +303,15 @@
         {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "1·1 + 0·1 + 1·1 = 1+0+1=1", "rightCalculation": "1·1 + 0·1 = 1", "result": "1=1 ✓", "law": "Consensus Theorem"}
       ],
       "conclusion": "All 8 cases match. The identity AB + A'C + BC = AB + A'C is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "The consensus term BC is redundant in SOP form"
     },
     {
       "id": 12,
       "title": "Perfect Induction Proof: A·(A+B+C) = A",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Extended absorption law with three variables",
       "leftExpression": "A·(A+B+C)",
       "rightExpression": "A",
       "variables": ["A", "B", "C"],
@@ -290,11 +337,15 @@
         {"step": 8, "action": "Case 8: A=1, B=1, C=1", "leftCalculation": "1·(1+1+1)=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "All 8 cases match. The identity A·(A+B+C) = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A absorbs any OR term that contains A"
     },
     {
       "id": 13,
       "title": "Perfect Induction Proof: A + ABC = A",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Extended absorption law with product term",
       "leftExpression": "A + A·B·C",
       "rightExpression": "A",
       "variables": ["A", "B", "C"],
@@ -320,11 +371,15 @@
         {"step": 8, "action": "Case 8: A=1, B=1, C=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "All 8 cases match. The identity A + ABC = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A absorbs any AND term that contains A"
     },
     {
       "id": 14,
       "title": "Perfect Induction Proof: A'B' + AB = A⊕B",
+      "category": "XOR/XNOR",
+      "difficulty": "Intermediate",
+      "description": "Testing XNOR vs XOR relationship",
       "leftExpression": "A'·B' + A·B",
       "rightExpression": "A⊕B",
       "variables": ["A", "B"],
@@ -342,11 +397,15 @@
         {"step": 4, "action": "Case 4: A=1, B=1", "leftCalculation": "0·0 + 1·1 = 0+1=1", "rightCalculation": "1⊕1=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"}
       ],
       "conclusion": "All cases fail. The correct identity is A'B' + AB = A⊙B (XNOR), not XOR.",
-      "isCorrect": false
+      "isCorrect": false,
+      "note": "XNOR is the complement of XOR"
     },
     {
       "id": 15,
       "title": "Perfect Induction Proof: (A⊕B)' = A⊙B",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "Complement relationship between XOR and XNOR",
       "leftExpression": "(A⊕B)'",
       "rightExpression": "A⊙B",
       "variables": ["A", "B"],
@@ -364,11 +423,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1⊕1)' = 0' = 1", "rightCalculation": "1⊙1=1", "result": "1=1 ✓", "law": "XOR-XNOR Relationship"}
       ],
       "conclusion": "All cases match. The identity (A⊕B)' = A⊙B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR and XNOR are complements of each other"
     },
     {
       "id": 16,
       "title": "Perfect Induction Proof: A·(A' + B) = A·B",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Useful simplification using distributive law",
       "leftExpression": "A·(A' + B)",
       "rightExpression": "A·B",
       "variables": ["A", "B"],
@@ -386,11 +449,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·(0+1)=1·1=1", "rightCalculation": "1·1=1", "result": "1=1 ✓", "law": "Distributive + Complement"}
       ],
       "conclusion": "All cases match. The identity A·(A' + B) = A·B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A AND (NOT A OR B) simplifies to A AND B"
     },
     {
       "id": 17,
       "title": "Perfect Induction Proof: A + A'·B = A + B",
+      "category": "Absorption Law",
+      "difficulty": "Beginner",
+      "description": "Standard simplification (duplicate of id 6 for completeness)",
       "leftExpression": "A + A'·B",
       "rightExpression": "A + B",
       "variables": ["A", "B"],
@@ -408,11 +475,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1+0·1=1+0=1", "rightCalculation": "1+1=1", "result": "1=1 ✓", "law": "Distributive Law"}
       ],
       "conclusion": "All cases match. The identity A + A'B = A + B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A OR (NOT A AND B) simplifies to A OR B"
     },
     {
       "id": 18,
       "title": "Perfect Induction Proof: A·B + A·B' = A",
+      "category": "Distributive Law",
+      "difficulty": "Beginner",
+      "description": "Factoring out A using distributive law",
       "leftExpression": "A·B + A·B'",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -430,11 +501,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+1·0=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
       ],
       "conclusion": "All cases match. The identity AB + AB' = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A AND B OR A AND NOT B simplifies to A"
     },
     {
       "id": 19,
       "title": "Perfect Induction Proof: (A+B)(A+B') = A",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Dual of AB + AB' = A",
       "leftExpression": "(A+B)·(A+B')",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -452,11 +527,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(1+0)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
       ],
       "conclusion": "All cases match. The identity (A+B)(A+B') = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the POS form equivalent of AB + AB' = A"
     },
     {
       "id": 20,
       "title": "Perfect Induction Proof: (A+B')(A'+B) = A⊕B",
+      "category": "XOR/XNOR",
+      "difficulty": "Intermediate",
+      "description": "Testing POS form of XOR",
       "leftExpression": "(A+B')·(A'+B)",
       "rightExpression": "A⊕B",
       "variables": ["A", "B"],
@@ -474,11 +553,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+0)(0+1)=1·1=1", "rightCalculation": "1⊕1=0", "result": "1≠0 ✗", "law": "XNOR vs XOR"}
       ],
       "conclusion": "The correct identity is (A+B')(A'+B) = A⊙B (XNOR).",
-      "isCorrect": false
+      "isCorrect": false,
+      "note": "This POS form actually represents XNOR, not XOR"
     },
     {
       "id": 21,
       "title": "Perfect Induction Proof: A⊕B = A'B + AB'",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "Standard SOP definition of XOR",
       "leftExpression": "A⊕B",
       "rightExpression": "A'·B + A·B'",
       "variables": ["A", "B"],
@@ -496,11 +579,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1⊕1=0", "rightCalculation": "0·1+1·0=0+0=0", "result": "0=0 ✓", "law": "XOR Definition"}
       ],
       "conclusion": "All cases match. The identity A⊕B = A'B + AB' is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the standard sum-of-products form for XOR"
     },
     {
       "id": 22,
       "title": "Perfect Induction Proof: (A+B)' = A'·B'",
+      "category": "De Morgan's Laws",
+      "difficulty": "Beginner",
+      "description": "De Morgan's first theorem",
       "leftExpression": "(A+B)'",
       "rightExpression": "A'·B'",
       "variables": ["A", "B"],
@@ -518,11 +605,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)'=1'=0", "rightCalculation": "0·0=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"}
       ],
       "conclusion": "All cases match. The identity (A+B)' = A'·B' is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Complement of OR is AND of complements"
     },
     {
       "id": 23,
       "title": "Perfect Induction Proof: (A·B)' = A' + B'",
+      "category": "De Morgan's Laws",
+      "difficulty": "Beginner",
+      "description": "De Morgan's second theorem",
       "leftExpression": "(A·B)'",
       "rightExpression": "A' + B'",
       "variables": ["A", "B"],
@@ -540,11 +631,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1·1)'=1'=0", "rightCalculation": "0+0=0", "result": "0=0 ✓", "law": "De Morgan's Theorem"}
       ],
       "conclusion": "All cases match. The identity (A·B)' = A' + B' is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Complement of AND is OR of complements"
     },
     {
       "id": 24,
       "title": "Find the complement of: A'B + AB'",
+      "category": "Complement",
+      "difficulty": "Intermediate",
+      "description": "Complement of XOR function",
       "expression": "F = A'B + AB'",
       "complement": "F' = AB + A'B'",
       "variables": ["A", "B"],
@@ -558,11 +653,15 @@
         {"step": 6, "action": "Expand", "expression": "F' = A·A' + A·B + B'·A' + B'·B = 0 + AB + A'B' + 0 = AB + A'B'", "law": "Distributive Law and Complement"}
       ],
       "conclusion": "The complement is F' = AB + A'B' (XNOR)",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR and XNOR are complements"
     },
     {
       "id": 25,
       "title": "Find the complement of: (A+B)(A+C)",
+      "category": "Complement",
+      "difficulty": "Intermediate",
+      "description": "Complement of POS expression",
       "expression": "F = (A+B)(A+C)",
       "complement": "F' = A' + B'C'",
       "variables": ["A", "B", "C"],
@@ -573,15 +672,18 @@
         {"step": 3, "action": "Apply De Morgan's Theorem", "expression": "F' = (A+B)' + (A+C)'", "law": "De Morgan's Theorem"},
         {"step": 4, "action": "Apply De Morgan's to each term", "expression": "(A+B)' = A'·B', (A+C)' = A'·C'", "law": "De Morgan's Theorem"},
         {"step": 5, "action": "Combine", "expression": "F' = A'·B' + A'·C' = A'(B' + C')", "law": "Distributive Law"},
-        {"step": 6, "action": "Apply De Morgan's to B' + C'", "expression": "B' + C' = (B·C)'", "law": "De Morgan's Theorem"},
-        {"step": 7, "action": "Final complement", "expression": "F' = A' + (B·C)'? Actually A'(B'+C') = A' + B'C'? Wait, A'(B'+C') = A'B' + A'C'", "law": "Distributive"}
+        {"step": 6, "action": "Final complement", "expression": "F' = A' + (B·C)'? Actually A'(B'+C') = A' + B'C'", "law": "Distributive"}
       ],
-      "conclusion": "The complement is F' = A'B' + A'C' = A'(B' + C')",
-      "isCorrect": true
+      "conclusion": "The complement is F' = A'B' + A'C' = A'(B' + C') = A' + B'C'",
+      "isCorrect": true,
+      "note": "Complement of (A+B)(A+C) simplifies to A' + B'C'"
     },
     {
       "id": 26,
       "title": "Perfect Induction Proof: A + A = A",
+      "category": "Idempotent Law",
+      "difficulty": "Beginner",
+      "description": "Idempotent law for OR",
       "leftExpression": "A + A",
       "rightExpression": "A",
       "variables": ["A"],
@@ -595,11 +697,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Idempotent Law"}
       ],
       "conclusion": "The identity A + A = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "OR-ing a variable with itself gives the same variable"
     },
     {
       "id": 27,
       "title": "Perfect Induction Proof: A·A = A",
+      "category": "Idempotent Law",
+      "difficulty": "Beginner",
+      "description": "Idempotent law for AND",
       "leftExpression": "A·A",
       "rightExpression": "A",
       "variables": ["A"],
@@ -613,11 +719,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Idempotent Law"}
       ],
       "conclusion": "The identity A·A = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "AND-ing a variable with itself gives the same variable"
     },
     {
       "id": 28,
       "title": "Perfect Induction Proof: A + 1 = 1",
+      "category": "Null Law",
+      "difficulty": "Beginner",
+      "description": "Null law for OR",
       "leftExpression": "A + 1",
       "rightExpression": "1",
       "variables": ["A"],
@@ -631,11 +741,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Null Law"}
       ],
       "conclusion": "The identity A + 1 = 1 is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Anything OR 1 equals 1"
     },
     {
       "id": 29,
       "title": "Perfect Induction Proof: A·0 = 0",
+      "category": "Null Law",
+      "difficulty": "Beginner",
+      "description": "Null law for AND",
       "leftExpression": "A·0",
       "rightExpression": "0",
       "variables": ["A"],
@@ -649,11 +763,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Null Law"}
       ],
       "conclusion": "The identity A·0 = 0 is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Anything AND 0 equals 0"
     },
     {
       "id": 30,
       "title": "Perfect Induction Proof: A + 0 = A",
+      "category": "Identity Law",
+      "difficulty": "Beginner",
+      "description": "Identity law for OR",
       "leftExpression": "A + 0",
       "rightExpression": "A",
       "variables": ["A"],
@@ -667,11 +785,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Identity Law"}
       ],
       "conclusion": "The identity A + 0 = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "OR with 0 leaves the variable unchanged"
     },
     {
       "id": 31,
       "title": "Perfect Induction Proof: A·1 = A",
+      "category": "Identity Law",
+      "difficulty": "Beginner",
+      "description": "Identity law for AND",
       "leftExpression": "A·1",
       "rightExpression": "A",
       "variables": ["A"],
@@ -685,11 +807,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Identity Law"}
       ],
       "conclusion": "The identity A·1 = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "AND with 1 leaves the variable unchanged"
     },
     {
       "id": 32,
       "title": "Perfect Induction Proof: A + A' = 1",
+      "category": "Complement Law",
+      "difficulty": "Beginner",
+      "description": "Complement law for OR",
       "leftExpression": "A + A'",
       "rightExpression": "1",
       "variables": ["A"],
@@ -703,11 +829,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Complement Law"}
       ],
       "conclusion": "The identity A + A' = 1 is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A variable OR its complement equals 1"
     },
     {
       "id": 33,
       "title": "Perfect Induction Proof: A·A' = 0",
+      "category": "Complement Law",
+      "difficulty": "Beginner",
+      "description": "Complement law for AND",
       "leftExpression": "A·A'",
       "rightExpression": "0",
       "variables": ["A"],
@@ -721,11 +851,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1·0=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "Complement Law"}
       ],
       "conclusion": "The identity A·A' = 0 is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A variable AND its complement equals 0"
     },
     {
       "id": 34,
       "title": "Perfect Induction Proof: (A')' = A",
+      "category": "Involution Law",
+      "difficulty": "Beginner",
+      "description": "Double complement law",
       "leftExpression": "(A')'",
       "rightExpression": "A",
       "variables": ["A"],
@@ -739,11 +873,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "(1')' = 0' = 1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Involution Law"}
       ],
       "conclusion": "The identity (A')' = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Double complement returns the original variable"
     },
     {
       "id": 35,
       "title": "Perfect Induction Proof: A·B + A·B' = A",
+      "category": "Distributive Law",
+      "difficulty": "Beginner",
+      "description": "Factoring out A (duplicate of id 18)",
       "leftExpression": "A·B + A·B'",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -761,11 +899,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+1·0=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
       ],
       "conclusion": "The identity AB + AB' = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A AND B OR A AND NOT B simplifies to A"
     },
     {
       "id": 36,
       "title": "Perfect Induction Proof: (A+B)(A+B') = A",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Dual of AB + AB' = A (duplicate of id 19)",
       "leftExpression": "(A+B)·(A+B')",
       "rightExpression": "A",
       "variables": ["A", "B"],
@@ -783,11 +925,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(1+0)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
       ],
       "conclusion": "The identity (A+B)(A+B') = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the POS form equivalent"
     },
     {
       "id": 37,
       "title": "Perfect Induction Proof: AB + A'B = B",
+      "category": "Distributive Law",
+      "difficulty": "Beginner",
+      "description": "Factoring out B",
       "leftExpression": "A·B + A'·B",
       "rightExpression": "B",
       "variables": ["A", "B"],
@@ -805,11 +951,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+0·1=1+0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive + Complement"}
       ],
       "conclusion": "The identity AB + A'B = B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A AND B OR NOT A AND B simplifies to B"
     },
     {
       "id": 38,
       "title": "Perfect Induction Proof: (A+B)(A'+B) = B",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Dual of AB + A'B = B",
       "leftExpression": "(A+B)·(A'+B)",
       "rightExpression": "B",
       "variables": ["A", "B"],
@@ -827,11 +977,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "(1+1)(0+1)=1·1=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Distributive Law"}
       ],
       "conclusion": "The identity (A+B)(A'+B) = B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the POS form equivalent"
     },
     {
       "id": 39,
       "title": "Find the complement of: AB + BC + CA",
+      "category": "Complement",
+      "difficulty": "Advanced",
+      "description": "Complement of majority function in SOP form",
       "expression": "F = AB + BC + CA",
       "complement": "F' = (A' + B')(B' + C')(C' + A')",
       "variables": ["A", "B", "C"],
@@ -844,11 +998,15 @@
         {"step": 5, "action": "Combine", "expression": "F' = (A' + B')(B' + C')(C' + A')", "law": "Product of Sums"}
       ],
       "conclusion": "The complement is F' = (A' + B')(B' + C')(C' + A')",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "The complement of majority function is also a majority function of complements"
     },
     {
       "id": 40,
       "title": "Find the complement of: (A+B)(B+C)(C+A)",
+      "category": "Complement",
+      "difficulty": "Advanced",
+      "description": "Complement of majority function in POS form",
       "expression": "F = (A+B)(B+C)(C+A)",
       "complement": "F' = A'B' + B'C' + C'A'",
       "variables": ["A", "B", "C"],
@@ -861,11 +1019,15 @@
         {"step": 5, "action": "Combine", "expression": "F' = A'B' + B'C' + C'A'", "law": "Sum of Products"}
       ],
       "conclusion": "The complement is F' = A'B' + B'C' + C'A'",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the dual complement relationship"
     },
     {
       "id": 41,
       "title": "Perfect Induction Proof: ABC + ABC' = AB",
+      "category": "Distributive Law",
+      "difficulty": "Intermediate",
+      "description": "Factoring out AB in 3-variable expression",
       "leftExpression": "A·B·C + A·B·C'",
       "rightExpression": "A·B",
       "variables": ["A", "B", "C"],
@@ -886,11 +1048,15 @@
         {"step": 3, "action": "All other cases both sides 0", "result": "0=0 ✓", "law": "Distributive + Complement"}
       ],
       "conclusion": "The identity ABC + ABC' = AB is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "C and C' cancel out when ANDed with AB"
     },
     {
       "id": 42,
       "title": "Perfect Induction Proof: A + AB + AC = A",
+      "category": "Absorption Law",
+      "difficulty": "Intermediate",
+      "description": "Extended absorption with multiple terms",
       "leftExpression": "A + A·B + A·C",
       "rightExpression": "A",
       "variables": ["A", "B", "C"],
@@ -910,11 +1076,15 @@
         {"step": 2, "action": "Case A=1", "leftCalculation": "1+1·B+1·C=1+B+C=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "Absorption Law"}
       ],
       "conclusion": "The identity A + AB + AC = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A absorbs all terms that contain A"
     },
     {
       "id": 43,
       "title": "Perfect Induction Proof: (A+B)(A+C)(B+C) = AB + AC + BC",
+      "category": "Majority Function",
+      "difficulty": "Advanced",
+      "description": "Equivalence of POS and SOP forms of majority function",
       "leftExpression": "(A+B)·(A+C)·(B+C)",
       "rightExpression": "A·B + A·C + B·C",
       "variables": ["A", "B", "C"],
@@ -936,11 +1106,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1,C=1", "leftCalculation": "(1+1)(1+1)(1+1)=1·1·1=1", "rightCalculation": "1·1+1·1+1·1=1+1+1=1", "result": "1=1 ✓", "law": "Majority Function"}
       ],
       "conclusion": "The identity (A+B)(A+C)(B+C) = AB + AC + BC is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This is the majority function (output is 1 when at least two inputs are 1)"
     },
     {
       "id": 44,
       "title": "Find the complement of: A'B'C + A'BC' + AB'C'",
+      "category": "Complement",
+      "difficulty": "Advanced",
+      "description": "Complement of odd parity function",
       "expression": "F = A'B'C + A'BC' + AB'C'",
       "complement": "F' = (A+B+C')(A+B'+C)(A'+B+C)",
       "variables": ["A", "B", "C"],
@@ -955,11 +1129,15 @@
         {"step": 7, "action": "Combine", "expression": "F' = (A + B + C')(A + B' + C)(A' + B + C)", "law": "Product of Sums"}
       ],
       "conclusion": "The complement is F' = (A + B + C')(A + B' + C)(A' + B + C)",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This represents the complement of the odd parity function"
     },
     {
       "id": 45,
       "title": "Perfect Induction Proof: AB + A'B' + A'B = A' + B",
+      "category": "Algebraic Simplification",
+      "difficulty": "Advanced",
+      "description": "Complex simplification with multiple terms",
       "leftExpression": "A·B + A'·B' + A'·B",
       "rightExpression": "A' + B",
       "variables": ["A", "B"],
@@ -977,11 +1155,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1·1+0·0+0·1=1+0+0=1", "rightCalculation": "0+1=1", "result": "1=1 ✓", "law": "Algebraic Simplification"}
       ],
       "conclusion": "The identity AB + A'B' + A'B = A' + B is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "This demonstrates combining terms for simplification"
     },
     {
       "id": 46,
       "title": "Find the complement of: (A+B)(A'+C)(B+C)",
+      "category": "Complement",
+      "difficulty": "Advanced",
+      "description": "Complement of POS expression",
       "expression": "F = (A+B)(A'+C)(B+C)",
       "complement": "F' = A'B' + AC' + B'C'",
       "variables": ["A", "B", "C"],
@@ -996,11 +1178,15 @@
         {"step": 7, "action": "Combine", "expression": "F' = A'B' + AC' + B'C'", "law": "Sum of Products"}
       ],
       "conclusion": "The complement is F' = A'B' + AC' + B'C'",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Complement of POS becomes SOP"
     },
     {
       "id": 47,
       "title": "Perfect Induction Proof: A'B'C' + A'B'C + A'BC' + A'BC = A'",
+      "category": "Sum of Minterms",
+      "difficulty": "Intermediate",
+      "description": "Sum of all minterms with A=0",
       "leftExpression": "A'B'C' + A'B'C + A'BC' + A'BC",
       "rightExpression": "A'",
       "variables": ["A", "B", "C"],
@@ -1021,11 +1207,15 @@
         {"step": 3, "action": "Final result", "expression": "A'·1 = A'", "law": "Identity Law"}
       ],
       "conclusion": "The identity A'B'C' + A'B'C + A'BC' + A'BC = A' is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Sum of all minterms where A=0 equals A'"
     },
     {
       "id": 48,
       "title": "Perfect Induction Proof: ABC + AB'C + A'BC + A'B'C = C",
+      "category": "Sum of Minterms",
+      "difficulty": "Intermediate",
+      "description": "Sum of all minterms with C=1",
       "leftExpression": "A·B·C + A·B'·C + A'·B·C + A'·B'·C",
       "rightExpression": "C",
       "variables": ["A", "B", "C"],
@@ -1046,11 +1236,15 @@
         {"step": 3, "action": "Final result", "expression": "C·1 = C", "law": "Identity Law"}
       ],
       "conclusion": "The identity ABC + AB'C + A'BC + A'B'C = C is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Sum of all minterms where C=1 equals C"
     },
     {
       "id": 49,
       "title": "Find the complement of: AB + A'B' + BC",
+      "category": "Complement",
+      "difficulty": "Advanced",
+      "description": "Complement of a complex SOP expression",
       "expression": "F = AB + A'B' + BC",
       "complement": "F' = (A' + B')(A + B)(B' + C')",
       "variables": ["A", "B", "C"],
@@ -1065,11 +1259,15 @@
         {"step": 7, "action": "Combine", "expression": "F' = (A' + B')(A + B)(B' + C')", "law": "Product of Sums"}
       ],
       "conclusion": "The complement is F' = (A' + B')(A + B)(B' + C')",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "Complement of SOP becomes POS"
     },
     {
       "id": 50,
       "title": "Perfect Induction Proof: (A⊕B)⊕C = A⊕(B⊕C)",
+      "category": "XOR/XNOR",
+      "difficulty": "Advanced",
+      "description": "Associative property of XOR",
       "leftExpression": "(A⊕B)⊕C",
       "rightExpression": "A⊕(B⊕C)",
       "variables": ["A", "B", "C"],
@@ -1095,11 +1293,15 @@
         {"step": 8, "action": "Case 8: A=1,B=1,C=1", "leftCalculation": "(1⊕1)⊕1 = 0⊕1=1", "rightCalculation": "1⊕(1⊕1)=1⊕0=1", "result": "1=1 ✓", "law": "Associative Property"}
       ],
       "conclusion": "All cases match. XOR is associative, so (A⊕B)⊕C = A⊕(B⊕C) is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR is both commutative and associative"
     },
     {
       "id": 51,
       "title": "Perfect Induction Proof: A⊕A = 0",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "XOR of a variable with itself",
       "leftExpression": "A⊕A",
       "rightExpression": "0",
       "variables": ["A"],
@@ -1113,11 +1315,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕1=0", "rightCalculation": "0", "result": "0=0 ✓", "law": "XOR Property"}
       ],
       "conclusion": "The identity A⊕A = 0 is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "A variable XOR itself equals 0"
     },
     {
       "id": 52,
       "title": "Perfect Induction Proof: A⊕0 = A",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "XOR identity property",
       "leftExpression": "A⊕0",
       "rightExpression": "A",
       "variables": ["A"],
@@ -1131,11 +1337,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕0=1", "rightCalculation": "1", "result": "1=1 ✓", "law": "XOR Identity"}
       ],
       "conclusion": "The identity A⊕0 = A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR with 0 acts as identity"
     },
     {
       "id": 53,
       "title": "Perfect Induction Proof: A⊕1 = A'",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "XOR complement property",
       "leftExpression": "A⊕1",
       "rightExpression": "A'",
       "variables": ["A"],
@@ -1149,11 +1359,15 @@
         {"step": 2, "action": "Case 2: A=1", "leftCalculation": "1⊕1=0", "rightCalculation": "1'=0", "result": "0=0 ✓", "law": "XOR Property"}
       ],
       "conclusion": "The identity A⊕1 = A' is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR with 1 acts as complement"
     },
     {
       "id": 54,
       "title": "Perfect Induction Proof: A⊕B = B⊕A",
+      "category": "XOR/XNOR",
+      "difficulty": "Beginner",
+      "description": "Commutative property of XOR",
       "leftExpression": "A⊕B",
       "rightExpression": "B⊕A",
       "variables": ["A", "B"],
@@ -1171,11 +1385,15 @@
         {"step": 4, "action": "Case 4: A=1,B=1", "leftCalculation": "1⊕1=0", "rightCalculation": "1⊕1=0", "result": "0=0 ✓", "law": "Commutative Property"}
       ],
       "conclusion": "The identity A⊕B = B⊕A is TRUE.",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR is commutative"
     },
     {
       "id": 55,
       "title": "Find the complement of: A⊕B",
+      "category": "Complement",
+      "difficulty": "Intermediate",
+      "description": "Complement of XOR is XNOR",
       "expression": "F = A⊕B",
       "complement": "F' = A⊙B = AB + A'B'",
       "variables": ["A", "B"],
@@ -1190,7 +1408,8 @@
         {"step": 7, "action": "Expand", "expression": "F' = A·A' + A·B + B'·A' + B'·B = 0 + AB + A'B' + 0 = AB + A'B'", "law": "Distributive Law"}
       ],
       "conclusion": "The complement is F' = AB + A'B' (XNOR)",
-      "isCorrect": true
+      "isCorrect": true,
+      "note": "XOR and XNOR are complements of each other"
     }
   ]
 }

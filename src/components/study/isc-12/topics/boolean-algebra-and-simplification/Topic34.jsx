@@ -8,7 +8,7 @@ import perfectInductionData from './topic34_files/perfectInductionExamples.json'
  *          - Loads examples from JSON file
  *          - Displays truth table verification
  *          - Shows step-by-step proof with laws used
- *          - Interactive example selection
+ *          - Interactive example selection with detailed cards
  * 
  * When & Why: Used as a learning tool for understanding perfect induction
  *             method to prove Boolean identities.
@@ -25,12 +25,29 @@ const PerfectInductionProof = () => {
   const [showTruthTable, setShowTruthTable] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredExamples, setFilteredExamples] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedDifficulty, setSelectedDifficulty] = useState('all');
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
+
+  // Extract unique categories and difficulties from examples
+  const [categories, setCategories] = useState([]);
+  const [difficulties, setDifficulties] = useState([]);
 
   // Load examples from imported JSON file
   useEffect(() => {
     try {
-      setExamples(perfectInductionData.examples);
-      setFilteredExamples(perfectInductionData.examples);
+      const loadedExamples = perfectInductionData.examples;
+      setExamples(loadedExamples);
+      setFilteredExamples(loadedExamples);
+      
+      // Extract unique categories
+      const uniqueCategories = ['all', ...new Set(loadedExamples.map(ex => ex.category).filter(Boolean))];
+      setCategories(uniqueCategories);
+      
+      // Extract unique difficulties
+      const uniqueDifficulties = ['all', ...new Set(loadedExamples.map(ex => ex.difficulty).filter(Boolean))];
+      setDifficulties(uniqueDifficulties);
+      
       setLoading(false);
     } catch (error) {
       console.error('Error loading examples:', error);
@@ -38,22 +55,36 @@ const PerfectInductionProof = () => {
     }
   }, []);
 
-  // Filter examples based on search term
+  // Filter examples based on search term, category, and difficulty
   useEffect(() => {
-    if (searchTerm.trim() === '') {
-      setFilteredExamples(examples);
-    } else {
-      const filtered = examples.filter(ex => 
+    let filtered = examples;
+    
+    // Apply search filter
+    if (searchTerm.trim() !== '') {
+      filtered = filtered.filter(ex => 
         ex.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (ex.leftExpression && ex.leftExpression.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (ex.expression && ex.expression.toLowerCase().includes(searchTerm.toLowerCase()))
+        (ex.rightExpression && ex.rightExpression.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (ex.expression && ex.expression.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (ex.description && ex.description.toLowerCase().includes(searchTerm.toLowerCase()))
       );
-      setFilteredExamples(filtered);
-      if (selectedExample >= filtered.length) {
-        setSelectedExample(0);
-      }
     }
-  }, [searchTerm, examples, selectedExample]);
+    
+    // Apply category filter
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(ex => ex.category === selectedCategory);
+    }
+    
+    // Apply difficulty filter
+    if (selectedDifficulty !== 'all') {
+      filtered = filtered.filter(ex => ex.difficulty === selectedDifficulty);
+    }
+    
+    setFilteredExamples(filtered);
+    if (selectedExample >= filtered.length) {
+      setSelectedExample(0);
+    }
+  }, [searchTerm, examples, selectedExample, selectedCategory, selectedDifficulty]);
 
   const currentExample = filteredExamples[selectedExample];
 
@@ -63,6 +94,16 @@ const PerfectInductionProof = () => {
 
   const prevExample = () => {
     setSelectedExample((prev) => (prev - 1 + filteredExamples.length) % filteredExamples.length);
+  };
+
+  // Get difficulty color
+  const getDifficultyColor = (difficulty) => {
+    switch(difficulty?.toLowerCase()) {
+      case 'beginner': return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300';
+      case 'intermediate': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300';
+      case 'advanced': return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300';
+      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+    }
   };
 
   // Render truth table for proof verification
@@ -82,7 +123,7 @@ const PerfectInductionProof = () => {
               <th className="px-4 py-2 text-center">Left Side</th>
               <th className="px-4 py-2 text-center">Right Side</th>
               <th className="px-4 py-2 text-center">Match?</th>
-             </tr>
+            </tr>
           </thead>
           <tbody>
             {example.truthTable.map((row, idx) => (
@@ -106,6 +147,74 @@ const PerfectInductionProof = () => {
     );
   };
 
+  // Render example card for list view
+  const renderExampleCard = (ex, idx) => (
+    <div
+      key={ex.id}
+      onClick={() => setSelectedExample(idx)}
+      className={clsx(
+        "cursor-pointer transition-all duration-200 rounded-lg border-2 p-4",
+        selectedExample === idx
+          ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 shadow-md"
+          : "border-gray-200 dark:border-gray-700 hover:border-indigo-300 hover:shadow-md bg-white dark:bg-gray-800"
+      )}
+    >
+      <div className="flex justify-between items-start mb-2">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 flex-wrap mb-2">
+            <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+              #{ex.id}
+            </span>
+            {ex.category && (
+              <span className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">
+                {ex.category}
+              </span>
+            )}
+            {ex.difficulty && (
+              <span className={clsx("text-xs px-2 py-1 rounded-full", getDifficultyColor(ex.difficulty))}>
+                {ex.difficulty}
+              </span>
+            )}
+            {ex.isCorrect === false && (
+              <span className="text-xs px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full">
+                ⚠️ Counterexample
+              </span>
+            )}
+          </div>
+          <h3 className="font-bold text-gray-900 dark:text-white text-sm mb-1">
+            {ex.title}
+          </h3>
+          {ex.description && (
+            <p className="text-xs text-gray-600 dark:text-gray-400 mb-2 line-clamp-2">
+              {ex.description}
+            </p>
+          )}
+          <div className="font-mono text-xs text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700/50 p-2 rounded mt-2">
+            {ex.leftExpression ? (
+              <>
+                <div>{ex.leftExpression} = {ex.rightExpression}</div>
+              </>
+            ) : ex.expression && (
+              <div>{ex.expression}</div>
+            )}
+          </div>
+          {ex.variables && (
+            <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+              Variables: {ex.variables.join(', ')} | Cases: {Math.pow(2, ex.variables.length)}²ⁿ
+            </div>
+          )}
+        </div>
+        {selectedExample === idx && (
+          <div className="text-indigo-500 ml-2">
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   if (loading) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-8 text-center">
@@ -120,7 +229,7 @@ const PerfectInductionProof = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
       {/* Header Section */}
       <div className="mb-12 text-center">
         <div className="inline-block p-3 mb-4 bg-indigo-100 dark:bg-indigo-900/40 rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105">
@@ -138,51 +247,107 @@ const PerfectInductionProof = () => {
       </div>
 
       <div className="space-y-8">
-        {/* Search and Navigation */}
+        {/* Search and Filters Section */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              🔍 Search Examples:
-            </label>
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setSelectedExample(0);
-              }}
-              placeholder="Search by title or expression..."
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
-            />
-          </div>
-          
-          <div className="flex justify-between items-center mb-3">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {filteredExamples.length} examples found
-            </p>
-            <div className="flex gap-2">
-              <button onClick={prevExample} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 transition">← Previous</button>
-              <button onClick={nextExample} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 transition">Next →</button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                🔍 Search Examples:
+              </label>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setSelectedExample(0);
+                }}
+                placeholder="Search by title, expression, or description..."
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                📂 Category:
+              </label>
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+              >
+                {categories.map(cat => (
+                  <option key={cat} value={cat}>
+                    {cat === 'all' ? 'All Categories' : cat}
+                  </option>
+                ))}
+              </select>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                ⭐ Difficulty:
+              </label>
+              <select
+                value={selectedDifficulty}
+                onChange={(e) => setSelectedDifficulty(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500"
+              >
+                {difficulties.map(diff => (
+                  <option key={diff} value={diff}>
+                    {diff === 'all' ? 'All Levels' : diff}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-h-48 overflow-y-auto p-2 border border-gray-200 dark:border-gray-700 rounded-lg">
-            {filteredExamples.map((ex, idx) => (
+          <div className="flex justify-between items-center flex-wrap gap-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              📊 Found <span className="font-bold text-indigo-600">{filteredExamples.length}</span> examples
+              {examples.length !== filteredExamples.length && ` (filtered from ${examples.length} total)`}
+            </p>
+            <div className="flex gap-2">
               <button
-                key={ex.id}
-                onClick={() => setSelectedExample(idx)}
+                onClick={() => setViewMode('grid')}
                 className={clsx(
-                  "px-3 py-2 rounded-lg text-sm text-left truncate transition-all",
-                  selectedExample === idx
-                    ? "bg-indigo-500 text-white"
-                    : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600"
+                  "px-3 py-1 rounded-lg transition",
+                  viewMode === 'grid' ? "bg-indigo-500 text-white" : "bg-gray-200 dark:bg-gray-700"
                 )}
-                title={ex.title}
               >
-                {ex.id}. {ex.title.substring(0, 60)}...
+                📱 Grid
               </button>
-            ))}
+              <button
+                onClick={() => setViewMode('list')}
+                className={clsx(
+                  "px-3 py-1 rounded-lg transition",
+                  viewMode === 'list' ? "bg-indigo-500 text-white" : "bg-gray-200 dark:bg-gray-700"
+                )}
+              >
+                📋 List
+              </button>
+            </div>
           </div>
+        </div>
+
+        {/* Example List Section */}
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+            <span>📚</span> Available Examples
+            <span className="text-sm font-normal text-gray-500">(Click any example to view details)</span>
+          </h2>
+          
+          <div className={clsx(
+            "max-h-96 overflow-y-auto",
+            viewMode === 'grid' ? "grid grid-cols-1 md:grid-cols-2 gap-3" : "space-y-3"
+          )}>
+            {filteredExamples.map((ex, idx) => renderExampleCard(ex, idx))}
+          </div>
+          
+          {filteredExamples.length === 0 && (
+            <div className="text-center py-8 text-gray-500">
+              No examples found matching your criteria. Try adjusting the filters.
+            </div>
+          )}
         </div>
 
         {/* Main Example Display */}
@@ -195,7 +360,21 @@ const PerfectInductionProof = () => {
                 : "bg-gradient-to-r from-indigo-500 to-purple-600"
             )}>
               <div className="flex justify-between items-center flex-wrap gap-2">
-                <h3 className="text-xl font-bold text-white">{currentExample.title}</h3>
+                <div>
+                  <h3 className="text-xl font-bold text-white">{currentExample.title}</h3>
+                  <div className="flex gap-2 mt-1">
+                    {currentExample.category && (
+                      <span className="text-xs px-2 py-1 bg-white/20 rounded-full text-white">
+                        {currentExample.category}
+                      </span>
+                    )}
+                    {currentExample.difficulty && (
+                      <span className="text-xs px-2 py-1 bg-white/20 rounded-full text-white">
+                        {currentExample.difficulty}
+                      </span>
+                    )}
+                  </div>
+                </div>
                 <span className={clsx(
                   "px-3 py-1 rounded-full text-sm font-medium",
                   currentExample.isCorrect === false 
@@ -205,10 +384,23 @@ const PerfectInductionProof = () => {
                   {currentExample.isCorrect === false ? "✗ Identity is FALSE" : "✓ Identity is TRUE"}
                 </span>
               </div>
-              <p className="text-indigo-100 text-sm mt-1">{currentExample.explanation}</p>
+              <p className="text-indigo-100 text-sm mt-2">{currentExample.explanation}</p>
+              {currentExample.description && (
+                <p className="text-white/80 text-sm mt-1">{currentExample.description}</p>
+              )}
             </div>
             
             <div className="p-6 space-y-6">
+              {/* Navigation Buttons */}
+              <div className="flex justify-between gap-3">
+                <button onClick={prevExample} className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 transition font-medium">
+                  ← Previous Example
+                </button>
+                <button onClick={nextExample} className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 transition font-medium">
+                  Next Example →
+                </button>
+              </div>
+              
               {/* Expression Display */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentExample.leftExpression && (
