@@ -45,6 +45,8 @@ const CertificateGenerator = () => {
   const courseOptions = [
     "Diploma in Computer Application",
     "Diploma in Financial Application",
+    "Data Structures and Algorithms",
+    "Core Java",
     "React Development",
     "JavaScript Basics",
     "Python Programming",

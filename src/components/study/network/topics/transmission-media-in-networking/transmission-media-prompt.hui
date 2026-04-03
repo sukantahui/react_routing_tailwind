@@ -1,0 +1,212 @@
+sl: topic0, topic: "Introduction to Physical Layer: Role in OSI model and data transmission", file: Topic0.jsx
+sl: topic1, topic: "Analog vs Digital Signals: Continuous vs discrete signals, waveform characteristics (amplitude, frequency, phase), advantages and limitations", file: Topic1.jsx
+sl: topic2, topic: "Signal Impairments: Noise, attenuation, distortion, interference and their impact on data transmission", file: Topic2.jsx
+sl: topic3, topic: "Guided Media (Wired Communication)", file: Topic3.jsx
+sl: topic4, topic: "Twisted Pair Cable: UTP vs STP, categories (Cat5, Cat6), uses in LAN", file: Topic4.jsx
+sl: topic5, topic: "Coaxial Cable: Structure, shielding, applications (cable TV, broadband)", file: Topic5.jsx
+sl: topic6, topic: "Optical Fiber: Core, cladding, types (single-mode, multi-mode), advantages (high speed, low loss)", file: Topic6.jsx
+sl: topic7, topic: "Unguided Media (Wireless Communication)", file: Topic7.jsx
+sl: topic8, topic: "Radio Waves: Characteristics, applications (Wi-Fi, broadcasting)", file: Topic8.jsx
+sl: topic9, topic: "Microwave Transmission: Line-of-sight communication, terrestrial and satellite", file: Topic9.jsx
+sl: topic10, topic: "Satellite Communication: GEO, MEO, LEO satellites, working principle", file: Topic10.jsx
+sl: topic11, topic: "Infrared Communication: Short-range communication, remote controls", file: Topic11.jsx
+sl: topic12, topic: "Performance Metrics", file: Topic12.jsx
+sl: topic13, topic: "Bandwidth: Data carrying capacity", file: Topic13.jsx
+sl: topic14, topic: "Latency: Delay in transmission", file: Topic14.jsx
+sl: topic15, topic: "Throughput: Actual data transfer rate", file: Topic15.jsx
+sl: topic16, topic: "Jitter: Variation in delay", file: Topic16.jsx
+sl: topic17, topic: "Comparison of Transmission Media", file: Topic17.jsx
+sl: topic18, topic: "Cost vs performance", file: Topic18.jsx
+sl: topic19, topic: "Speed and bandwidth", file: Topic19.jsx
+sl: topic20, topic: "Reliability and noise resistance", file: Topic20.jsx
+sl: topic21, topic: "Installation and maintenance complexity", file: Topic21.jsx
+sl: topic22, topic: "Real-World Case Studies", file: Topic22.jsx
+sl: topic23, topic: "Fiber optics in internet backbone", file: Topic23.jsx
+sl: topic24, topic: "Wireless communication in mobile networks", file: Topic24.jsx
+sl: topic25, topic: "LAN cabling in offices and schools", file: Topic25.jsx
+
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Susmita, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+avoid opacity-0 class
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+
+Add at least 15 questions and answers related to this  topic in well manner
+
+start from Topic0
