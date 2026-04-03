@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";       // your public navbar
-import AuthNavBar from "./AuthNavBar";           // your dashboard navbar
+import NavBar from "./NavBar"; // your public navbar
+import AuthNavBar from "./AuthNavBar"; // your dashboard navbar
 
 const MainLayout = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem("token")
+    !!localStorage.getItem("token"),
   );
 
   useEffect(() => {
@@ -23,8 +23,8 @@ const MainLayout = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {isAuthenticated ? <AuthNavBar /> : <NavBar />}
-      <div className="flex-grow">{children}</div>
+      <div>{isAuthenticated ? <AuthNavBar /> : <NavBar />}</div>
+      <div>{children}</div>
     </div>
   );
 };

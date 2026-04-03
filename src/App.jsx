@@ -27,18 +27,15 @@ export default function App() {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
-
   return (
-    <div>
-      {/* Conditional Navbar */}
-      {isLoggedIn ? (
-        <AuthNavBar setIsLoggedIn={setIsLoggedIn} /> // ✅ After login
-      ) : (
-        <NavBar /> // 🚪 Before login
-      )}
+    <div className="h-screen ">
+      <div className="h-10">
+        {isLoggedIn ? <AuthNavBar setIsLoggedIn={setIsLoggedIn} /> : <NavBar />}
+      </div>
 
-      {/* App routes */}
-      <AppRoutes setIsLoggedIn={setIsLoggedIn} />
+      <div className="h-90">
+        <AppRoutes setIsLoggedIn={setIsLoggedIn} />
+      </div>
     </div>
   );
 }
