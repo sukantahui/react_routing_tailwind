@@ -32,6 +32,7 @@ const Topic11 = () => {
       q: "Why can't infrared penetrate walls?",
       a: "Infrared has very short wavelengths (micrometers to sub-millimeter). These waves are absorbed or reflected by most solid materials, including walls, glass, and even thick paper."
     },
+    {
     q: "Give three common applications of infrared communication.",
       a: "1) TV/DVD/AC remote controls. 2) Short-range data transfer (IrDA – obsolete but used in some legacy devices). 3) Wireless headphones and some motion sensors."
     },
@@ -287,7 +288,7 @@ const Topic11 = () => {
             <ul className="list-disc pl-5 mt-2 space-y-1 text-sm">
               <li>Assuming IR works through glass – most glass blocks IR (except special IR-transparent glass).</li>
               <li>Pointing remote at the TV from extreme angles – IR LEDs have limited beam width (±15° to ±30°).</li>
-              <li>Using IR outdoors in sunlight – receiver gets saturated; range drops to <1m.</li>
+              <li>Using IR outdoors in sunlight – receiver gets saturated; range drops to &lt; 1m.</li>
               <li>Forgetting to remove protective plastic from IR receiver window.</li>
               <li>Misunderstanding that IR can be reflected – but only from light-colored, matte surfaces (mirrors reflect poorly).</li>
             </ul>

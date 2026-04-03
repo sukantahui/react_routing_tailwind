@@ -137,6 +137,75 @@
           "badge": "Boolean Algebra Mastery Badge"
         },
         {
+          "moduleId": "test-boolean-algebra",
+          "slug": "test-boolean-algebra",
+          "title": "Test Boolean Algebra",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "visibility": "loggedIn",
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2 Moderate",
+            "Test3 Expert",
+            "Test 4 SOP to Canonical SOP",
+            "Test 5 Complement"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Passing large arrays efficiently to functions",
+            "Working with low level memory operations"
+          ],
+          "careerSkills": [
+            "Thinking in terms of addresses and references",
+            "Understanding how higher level languages implement references"
+          ],
+          "commonMistakes": [
+            "Dereferencing NULL or uninitialized pointers",
+            "Incorrect pointer arithmetic that steps outside valid memory"
+          ],
+          "references": [
+            "Pointers in C tutorials and articles",
+            "The C Programming Language - pointers chapter"
+          ],
+          "teachingTips": [
+            "Use step by step diagrams showing addresses and contents.",
+            "Give small pointer puzzles to build intuition."
+          ],
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
+        },
+        {
           "moduleId": "complexity",
           "slug": "computational-complexity-big-o",
           "title": "Computational Complexity & Big-O",

@@ -1,0 +1,158 @@
+{
+  "paperId": "BOOLEAN-ALGEBRA-ADV-SET-02",
+  "title": "Boolean Algebra - Standard Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+
+  "sections": [
+
+    {
+      "section": "A",
+      "type": "Very Short Answer (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "State De Morgan’s Theorem.",
+          "marks": 1,
+          "answer": "(A + B)' = A'B' and (AB)' = A' + B'"
+        },
+        {
+          "q": "What is the result of A + A'?",
+          "marks": 1,
+          "answer": "1"
+        },
+        {
+          "q": "Define maxterm.",
+          "marks": 1,
+          "answer": "A maxterm is a sum term where each variable appears once in either complemented or uncomplemented form."
+        },
+        {
+          "q": "What is the output of A·0?",
+          "marks": 1,
+          "answer": "0"
+        },
+        {
+          "q": "What is canonical form?",
+          "marks": 1,
+          "answer": "A Boolean expression where all variables appear in each term."
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain Idempotent Law with example.",
+          "marks": 2,
+          "answer": "A + A = A and A·A = A.\nExample: X + X = X"
+        },
+        {
+          "q": "Differentiate between minterm and maxterm.",
+          "marks": 2,
+          "answer": "Minterm: product form, output 1.\nMaxterm: sum form, output 0."
+        },
+        {
+          "q": "State Absorption Law.",
+          "marks": 2,
+          "answer": "A + AB = A and A(A + B) = A"
+        },
+        {
+          "q": "What is duality principle?",
+          "marks": 2,
+          "answer": "Replacing + with · and 0 with 1 (and vice versa) gives dual expression."
+        },
+        {
+          "q": "Write truth table for XOR.",
+          "marks": 2,
+          "answer": "A B | XOR\n0 0 | 0\n0 1 | 1\n1 0 | 1\n1 1 | 0"
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+
+        {
+          "q": "Simplify: A + A'B + AB'",
+          "marks": 5,
+          "original": "A + A'B + AB'",
+          "simplified": "A + B",
+          "steps": [
+            { "step": 1, "action": "Write expression", "expression": "F = A + A'B + AB'", "law": "Given" },
+            { "step": 2, "action": "Group A + A'B", "expression": "A + A'B = (A + A')(A + B)", "law": "Distributive Law" },
+            { "step": 3, "action": "Apply Complement Law", "expression": "1·(A + B)", "law": "Complement Law" },
+            { "step": 4, "action": "Expression becomes", "expression": "A + B + AB'", "law": "Substitution" },
+            { "step": 5, "action": "Apply Absorption", "expression": "A + B", "law": "Absorption Law" }
+          ],
+          "explanation": "Redundant term AB' gets absorbed."
+        },
+
+        {
+          "q": "Simplify: (A + B)(A' + C)",
+          "marks": 5,
+          "original": "(A + B)(A' + C)",
+          "simplified": "AB + A'C + BC",
+          "steps": [
+            { "step": 1, "action": "Write expression", "expression": "F = (A + B)(A' + C)", "law": "Given" },
+            { "step": 2, "action": "Expand", "expression": "AA' + AC + BA' + BC", "law": "Distributive Law" },
+            { "step": 3, "action": "Apply Complement Law", "expression": "0 + AC + A'B + BC", "law": "Complement Law" },
+            { "step": 4, "action": "Rearrange", "expression": "AB + A'C + BC", "law": "Commutative Law" }
+          ],
+          "explanation": "This is a standard consensus form."
+        },
+
+        {
+          "q": "Simplify using Boolean laws: (A+B+C)(A+B+C')",
+          "marks": 5,
+          "original": "(A+B+C)(A+B+C')",
+          "simplified": "A + B",
+          "steps": [
+            { "step": 1, "action": "Let X = A+B", "expression": "(X+C)(X+C')", "law": "Substitution" },
+            { "step": 2, "action": "Apply identity", "expression": "X + CC'", "law": "(X+Y)(X+Y') = X + YY'" },
+            { "step": 3, "action": "Apply Complement Law", "expression": "X + 0 = X", "law": "Complement Law" },
+            { "step": 4, "action": "Substitute back", "expression": "A + B", "law": "Substitution" }
+          ],
+          "explanation": "Variable and its complement cancel out."
+        },
+
+        {
+          "q": "Construct truth table: F = AB + A'C",
+          "marks": 5,
+          "answer": "A B C | F\n0 0 0 | 0\n0 0 1 | 1\n0 1 0 | 0\n0 1 1 | 1\n1 0 0 | 0\n1 0 1 | 0\n1 1 0 | 1\n1 1 1 | 1"
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Simplify using Boolean algebra laws: AB + A'C + BC + ABC",
+          "marks": 10,
+          "original": "AB + A'C + BC + ABC",
+          "simplified": "AB + A'C",
+          "steps": [
+            { "step": 1, "action": "Write expression", "expression": "F = AB + A'C + BC + ABC", "law": "Given" },
+            { "step": 2, "action": "Expand BC", "expression": "BC(A + A') = ABC + A'BC", "law": "Identity Law" },
+            { "step": 3, "action": "Substitute", "expression": "F = AB + A'C + ABC + A'BC", "law": "Substitution" },
+            { "step": 4, "action": "Group terms", "expression": "AB(1 + C) + A'C(1 + B)", "law": "Distributive Law" },
+            { "step": 5, "action": "Apply Null Law", "expression": "AB + A'C", "law": "Null Law" }
+          ],
+          "explanation": "BC and ABC are redundant (Consensus Theorem)."
+        }
+      ]
+    }
+  ]
+}

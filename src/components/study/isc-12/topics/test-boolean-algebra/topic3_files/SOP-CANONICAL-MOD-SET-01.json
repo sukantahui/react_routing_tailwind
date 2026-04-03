@@ -1,0 +1,339 @@
+{
+  "paperId": "SOP-CANONICAL-MOD-SET-01",
+  "title": "SOP to Canonical SOP Conversion - Moderate Level",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+
+  "sections": [
+    {
+      "section": "A",
+      "type": "2-Variable SOP to Canonical (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Convert to canonical SOP form: F(A,B) = A + B",
+          "marks": 2,
+          "original": "A + B",
+          "variables": 2,
+          "canonical": "A'B + AB' + AB",
+          "minterms": "m1, m2, m3",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A + B", "law": "Given" },
+            { "step": 2, "action": "Multiply missing variable terms", "expression": "A = A(B + B') = AB + AB'", "law": "Identity Law (X = X·1)" },
+            { "step": 3, "action": "Similarly for B", "expression": "B = B(A + A') = AB + A'B", "law": "Identity Law" },
+            { "step": 4, "action": "Combine all terms", "expression": "F = AB + AB' + AB + A'B", "law": "Substitution" },
+            { "step": 5, "action": "Remove duplicate AB", "expression": "F = AB + AB' + A'B", "law": "Idempotent Law (AB + AB = AB)" },
+            { "step": 6, "action": "Final canonical SOP", "expression": "F = A'B + AB' + AB", "law": "Canonical form" }
+          ],
+          "explanation": "Missing variables are added by multiplying with (variable + variable') and then expanding."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B) = A' + B'",
+          "marks": 2,
+          "original": "A' + B'",
+          "variables": 2,
+          "canonical": "A'B' + A'B + AB'",
+          "minterms": "m0, m1, m2",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A' + B'", "law": "Given" },
+            { "step": 2, "action": "Expand A'", "expression": "A' = A'(B + B') = A'B + A'B'", "law": "Identity Law" },
+            { "step": 3, "action": "Expand B'", "expression": "B' = B'(A + A') = AB' + A'B'", "law": "Identity Law" },
+            { "step": 4, "action": "Combine terms", "expression": "F = A'B + A'B' + AB' + A'B'", "law": "Substitution" },
+            { "step": 5, "action": "Remove duplicate A'B'", "expression": "F = A'B' + A'B + AB'", "law": "Idempotent Law" },
+            { "step": 6, "action": "Final canonical SOP", "expression": "F = A'B' + A'B + AB'", "law": "Canonical form" }
+          ],
+          "explanation": "Each term is expanded by including the missing variable and its complement."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B) = AB'",
+          "marks": 2,
+          "original": "AB'",
+          "variables": 2,
+          "canonical": "AB'",
+          "minterms": "m2",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB'", "law": "Given" },
+            { "step": 2, "action": "Check if canonical", "expression": "Both A and B appear", "law": "Observation" },
+            { "step": 3, "action": "Already in canonical form", "expression": "F = AB'", "law": "Canonical form" }
+          ],
+          "explanation": "Since both variables appear in the term, it's already a minterm and hence canonical."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B) = (A + B')(A' + B)",
+          "marks": 2,
+          "original": "(A + B')(A' + B)",
+          "variables": 2,
+          "canonical": "AB + A'B'",
+          "minterms": "m0, m3",
+          "steps": [
+            { "step": 1, "action": "Original expression (POS form)", "expression": "F = (A + B')(A' + B)", "law": "Given" },
+            { "step": 2, "action": "Convert to SOP first", "expression": "Expand: A·A' + A·B + B'·A' + B'·B", "law": "Distributive Law" },
+            { "step": 3, "action": "Simplify", "expression": "0 + AB + A'B' + 0 = AB + A'B'", "law": "Complement & Idempotent" },
+            { "step": 4, "action": "Check if canonical", "expression": "Both terms have both variables", "law": "Observation" },
+            { "step": 5, "action": "Already canonical", "expression": "F = AB + A'B'", "law": "Canonical SOP" }
+          ],
+          "explanation": "First convert POS to SOP, then verify each term has all variables."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B) = (A ⊕ B)",
+          "marks": 2,
+          "original": "A ⊕ B",
+          "variables": 2,
+          "canonical": "A'B + AB'",
+          "minterms": "m1, m2",
+          "steps": [
+            { "step": 1, "action": "Original XOR expression", "expression": "F = A ⊕ B", "law": "Given" },
+            { "step": 2, "action": "Convert XOR to SOP", "expression": "A ⊕ B = A'B + AB'", "law": "XOR definition" },
+            { "step": 3, "action": "Check canonical form", "expression": "Both terms have both variables", "law": "Observation" },
+            { "step": 4, "action": "Already canonical", "expression": "F = A'B + AB'", "law": "Canonical SOP" }
+          ],
+          "explanation": "XOR naturally gives canonical SOP form with two minterms."
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "3-Variable SOP to Canonical (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C) = A + BC",
+          "marks": 3,
+          "original": "A + BC",
+          "variables": 3,
+          "canonical": "A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC' + ABC",
+          "minterms": "m1, m2, m3, m4, m5, m6, m7",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A + BC", "law": "Given" },
+            { "step": 2, "action": "Expand A with missing B and C", "expression": "A = A(B + B')(C + C') = A(BC + BC' + B'C + B'C')", "law": "Identity Law (X = X·1·1)" },
+            { "step": 3, "action": "Expand", "expression": "A = ABC + ABC' + AB'C + AB'C'", "law": "Distributive Law" },
+            { "step": 4, "action": "Expand BC with missing A", "expression": "BC = BC(A + A') = ABC + A'BC", "law": "Identity Law" },
+            { "step": 5, "action": "Combine all terms", "expression": "F = ABC + ABC' + AB'C + AB'C' + ABC + A'BC", "law": "Substitution" },
+            { "step": 6, "action": "Remove duplicate ABC", "expression": "F = ABC + ABC' + AB'C + AB'C' + A'BC", "law": "Idempotent Law" },
+            { "step": 7, "action": "Final canonical SOP", "expression": "F = A'BC + AB'C' + AB'C + ABC' + ABC", "law": "Canonical form" }
+          ],
+          "explanation": "Each product term is expanded to include all three variables."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C) = AB + AC + BC",
+          "marks": 3,
+          "original": "AB + AC + BC",
+          "variables": 3,
+          "canonical": "ABC' + AB'C + A'BC + ABC",
+          "minterms": "m3, m5, m6, m7",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB + AC + BC", "law": "Given" },
+            { "step": 2, "action": "Expand AB with missing C", "expression": "AB = AB(C + C') = ABC + ABC'", "law": "Identity Law" },
+            { "step": 3, "action": "Expand AC with missing B", "expression": "AC = AC(B + B') = ABC + AB'C", "law": "Identity Law" },
+            { "step": 4, "action": "Expand BC with missing A", "expression": "BC = BC(A + A') = ABC + A'BC", "law": "Identity Law" },
+            { "step": 5, "action": "Combine all terms", "expression": "F = ABC + ABC' + ABC + AB'C + ABC + A'BC", "law": "Substitution" },
+            { "step": 6, "action": "Remove duplicates", "expression": "F = ABC' + AB'C + A'BC + ABC", "law": "Idempotent Law (ABC appears 3 times → once)" },
+            { "step": 7, "action": "Final canonical SOP", "expression": "F = A'BC + AB'C + ABC' + ABC", "law": "Canonical form" }
+          ],
+          "explanation": "This is the majority function expressed in canonical SOP."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C) = A'B + B'C + C'A",
+          "marks": 3,
+          "original": "A'B + B'C + C'A",
+          "variables": 3,
+          "canonical": "A'BC' + A'BC + AB'C + ABC'",
+          "minterms": "m2, m3, m5, m6",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A'B + B'C + C'A", "law": "Given" },
+            { "step": 2, "action": "Expand A'B with missing C", "expression": "A'B = A'B(C + C') = A'BC + A'BC'", "law": "Identity Law" },
+            { "step": 3, "action": "Expand B'C with missing A", "expression": "B'C = B'C(A + A') = AB'C + A'B'C", "law": "Identity Law" },
+            { "step": 4, "action": "Expand C'A with missing B", "expression": "C'A = C'A(B + B') = ABC' + AB'C'", "law": "Identity Law" },
+            { "step": 5, "action": "Combine all terms", "expression": "F = A'BC + A'BC' + AB'C + A'B'C + ABC' + AB'C'", "law": "Substitution" },
+            { "step": 6, "action": "Remove terms with missing variables", "expression": "F = A'BC' + A'BC + AB'C + ABC'", "law": "Keep only terms with all variables" },
+            { "step": 7, "action": "Final canonical SOP", "expression": "F = A'BC' + A'BC + AB'C + ABC'", "law": "Canonical form" }
+          ],
+          "explanation": "Only terms with all three variables are kept in canonical form."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C) = (A ⊕ B) + C",
+          "marks": 3,
+          "original": "(A ⊕ B) + C",
+          "variables": 3,
+          "canonical": "A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC",
+          "minterms": "m1, m2, m3, m4, m5, m7",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = (A ⊕ B) + C", "law": "Given" },
+            { "step": 2, "action": "Convert XOR to SOP", "expression": "A ⊕ B = A'B + AB'", "law": "XOR definition" },
+            { "step": 3, "action": "Expression becomes", "expression": "F = A'B + AB' + C", "law": "Substitution" },
+            { "step": 4, "action": "Expand A'B with missing C", "expression": "A'B = A'B(C + C') = A'BC + A'BC'", "law": "Identity Law" },
+            { "step": 5, "action": "Expand AB' with missing C", "expression": "AB' = AB'(C + C') = AB'C + AB'C'", "law": "Identity Law" },
+            { "step": 6, "action": "Expand C with missing A and B", "expression": "C = C(A + A')(B + B') = ABC + AB'C + A'BC + A'B'C", "law": "Identity Law (X = X·1·1)" },
+            { "step": 7, "action": "Combine all terms", "expression": "F = A'BC + A'BC' + AB'C + AB'C' + ABC + AB'C + A'BC + A'B'C", "law": "Substitution" },
+            { "step": 8, "action": "Remove duplicates", "expression": "F = A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC", "law": "Idempotent Law" },
+            { "step": 9, "action": "Final canonical SOP", "expression": "F = A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC", "law": "Canonical form" }
+          ],
+          "explanation": "All terms are expanded to include all three variables."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C) = (A + B')(B + C')",
+          "marks": 3,
+          "original": "(A + B')(B + C')",
+          "variables": 3,
+          "canonical": "AB'C' + ABC' + A'B'C' + A'BC'",
+          "minterms": "m0, m2, m4, m6",
+          "steps": [
+            { "step": 1, "action": "Original POS expression", "expression": "F = (A + B')(B + C')", "law": "Given" },
+            { "step": 2, "action": "Convert to SOP by expansion", "expression": "= A·B + A·C' + B'·B + B'·C'", "law": "Distributive Law" },
+            { "step": 3, "action": "Simplify", "expression": "= AB + AC' + 0 + B'C' = AB + AC' + B'C'", "law": "Complement Law (B'B = 0)" },
+            { "step": 4, "action": "Expand AB with missing C", "expression": "AB = AB(C + C') = ABC + ABC'", "law": "Identity Law" },
+            { "step": 5, "action": "Expand AC' with missing B", "expression": "AC' = AC'(B + B') = ABC' + AB'C'", "law": "Identity Law" },
+            { "step": 6, "action": "Expand B'C' with missing A", "expression": "B'C' = B'C'(A + A') = AB'C' + A'B'C'", "law": "Identity Law" },
+            { "step": 7, "action": "Combine terms", "expression": "F = ABC + ABC' + ABC' + AB'C' + AB'C' + A'B'C'", "law": "Substitution" },
+            { "step": 8, "action": "Remove duplicates", "expression": "F = ABC + ABC' + AB'C' + A'B'C'", "law": "Idempotent Law" },
+            { "step": 9, "action": "Final canonical SOP", "expression": "F = A'B'C' + AB'C' + ABC' + ABC", "law": "Canonical form" }
+          ],
+          "explanation": "First convert from POS to SOP, then expand each term to include the missing variable."
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "4-Variable SOP to Canonical (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C,D) = AB + CD",
+          "marks": 5,
+          "original": "AB + CD",
+          "variables": 4,
+          "canonical": "A'B'CD + A'BCD + AB'CD + ABCD + ABC'D' + ABC'D + ABCD' + ABCD",
+          "minterms": "m3, m7, m11, m15, m12, m13, m14, m15",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB + CD", "law": "Given" },
+            { "step": 2, "action": "Expand AB with missing C and D", "expression": "AB = AB(C + C')(D + D')", "law": "Identity Law (X = X·1·1)" },
+            { "step": 3, "action": "Expand", "expression": "AB = AB(CD + CD' + C'D + C'D')", "law": "Distributive Law" },
+            { "step": 4, "action": "Result", "expression": "AB = ABCD + ABCD' + ABC'D + ABC'D'", "law": "Distributive Law" },
+            { "step": 5, "action": "Expand CD with missing A and B", "expression": "CD = CD(A + A')(B + B')", "law": "Identity Law" },
+            { "step": 6, "action": "Expand", "expression": "CD = CD(AB + AB' + A'B + A'B')", "law": "Distributive Law" },
+            { "step": 7, "action": "Result", "expression": "CD = ABCD + AB'CD + A'BCD + A'B'CD", "law": "Distributive Law" },
+            { "step": 8, "action": "Combine both expansions", "expression": "F = ABCD + ABCD' + ABC'D + ABC'D' + ABCD + AB'CD + A'BCD + A'B'CD", "law": "Substitution" },
+            { "step": 9, "action": "Remove duplicate ABCD", "expression": "F = ABCD + ABCD' + ABC'D + ABC'D' + AB'CD + A'BCD + A'B'CD", "law": "Idempotent Law" },
+            { "step": 10, "action": "Final canonical SOP", "expression": "F = A'B'CD + A'BCD + AB'CD + ABCD + ABC'D' + ABC'D + ABCD'", "law": "Canonical form" }
+          ],
+          "explanation": "Each product term is expanded to include all four variables."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C,D) = A'B + BC' + CD'",
+          "marks": 5,
+          "original": "A'B + BC' + CD'",
+          "variables": 4,
+          "canonical": "A'BC'D' + A'BC'D + A'BCD' + A'BCD + A'B'CD' + A'B'C'D' + AB'C'D' + AB'C'D",
+          "minterms": "m4, m5, m6, m7, m2, m0, m8, m9",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A'B + BC' + CD'", "law": "Given" },
+            { "step": 2, "action": "Expand A'B with C and D", "expression": "A'B = A'B(C + C')(D + D')", "law": "Identity Law" },
+            { "step": 3, "action": "Result", "expression": "A'B = A'BCD + A'BCD' + A'BC'D + A'BC'D'", "law": "Expansion" },
+            { "step": 4, "action": "Expand BC' with A and D", "expression": "BC' = BC'(A + A')(D + D')", "law": "Identity Law" },
+            { "step": 5, "action": "Result", "expression": "BC' = ABC'D + ABC'D' + A'BC'D + A'BC'D'", "law": "Expansion" },
+            { "step": 6, "action": "Expand CD' with A and B", "expression": "CD' = CD'(A + A')(B + B')", "law": "Identity Law" },
+            { "step": 7, "action": "Result", "expression": "CD' = ABCD' + AB'CD' + A'BCD' + A'B'CD'", "law": "Expansion" },
+            { "step": 8, "action": "Combine all terms", "expression": "F = A'BCD + A'BCD' + A'BC'D + A'BC'D' + ABC'D + ABC'D' + A'BC'D + A'BC'D' + ABCD' + AB'CD' + A'BCD' + A'B'CD'", "law": "Substitution" },
+            { "step": 9, "action": "Remove duplicates", "expression": "F = A'B'CD' + A'BC'D' + A'BC'D + A'BCD' + A'BCD + ABC'D' + ABC'D + ABCD'", "law": "Idempotent Law" },
+            { "step": 10, "action": "Final canonical SOP", "expression": "F = A'B'CD' + A'BC'D' + A'BC'D + A'BCD' + A'BCD + ABC'D' + ABC'D + ABCD'", "law": "Canonical form" }
+          ],
+          "explanation": "All three product terms are expanded to include all four variables."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C,D) = (A ⊕ B)(C ⊕ D)",
+          "marks": 5,
+          "original": "(A ⊕ B)(C ⊕ D)",
+          "variables": 4,
+          "canonical": "A'B'C'D' + A'B'CD + AB'C'D + AB'CD' + A'BC'D' + A'BCD + ABC'D + ABCD'",
+          "minterms": "m0, m3, m5, m6, m9, m10, m12, m15",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = (A ⊕ B)(C ⊕ D)", "law": "Given" },
+            { "step": 2, "action": "Expand XORs", "expression": "A ⊕ B = A'B + AB'", "law": "XOR definition" },
+            { "step": 3, "action": "Similarly", "expression": "C ⊕ D = C'D + CD'", "law": "XOR definition" },
+            { "step": 4, "action": "Multiply", "expression": "F = (A'B + AB')(C'D + CD')", "law": "Substitution" },
+            { "step": 5, "action": "Expand", "expression": "F = A'B·C'D + A'B·CD' + AB'·C'D + AB'·CD'", "law": "Distributive Law" },
+            { "step": 6, "action": "Result", "expression": "F = A'BC'D + A'BCD' + AB'C'D + AB'CD'", "law": "Multiplication" },
+            { "step": 7, "action": "Check if canonical", "expression": "Each term has all 4 variables", "law": "Observation" },
+            { "step": 8, "action": "Already canonical", "expression": "F = A'BC'D + A'BCD' + AB'C'D + AB'CD'", "law": "Canonical SOP" }
+          ],
+          "explanation": "XOR products naturally give canonical SOP form with four minterms."
+        },
+        {
+          "q": "Convert to canonical SOP form: F(A,B,C,D) = AB' + A'C + BD'",
+          "marks": 5,
+          "original": "AB' + A'C + BD'",
+          "variables": 4,
+          "canonical": "AB'C'D' + AB'C'D + AB'CD' + AB'CD + A'BC'D' + A'BC'D + A'BCD' + A'BCD + ABCD' + ABC'D' + A'B'CD' + A'B'C'D'",
+          "minterms": "m8, m9, m10, m11, m4, m5, m6, m7, m14, m12, m2, m0",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB' + A'C + BD'", "law": "Given" },
+            { "step": 2, "action": "Expand AB' with C and D", "expression": "AB' = AB'(C + C')(D + D')", "law": "Identity Law" },
+            { "step": 3, "action": "Result", "expression": "AB' = AB'CD + AB'CD' + AB'C'D + AB'C'D'", "law": "Expansion" },
+            { "step": 4, "action": "Expand A'C with B and D", "expression": "A'C = A'C(B + B')(D + D')", "law": "Identity Law" },
+            { "step": 5, "action": "Result", "expression": "A'C = A'BCD + A'BCD' + A'B'CD + A'B'CD'", "law": "Expansion" },
+            { "step": 6, "action": "Expand BD' with A and C", "expression": "BD' = BD'(A + A')(C + C')", "law": "Identity Law" },
+            { "step": 7, "action": "Result", "expression": "BD' = ABD'C + ABD'C' + A'BD'C + A'BD'C'", "law": "Expansion" },
+            { "step": 8, "action": "Combine all terms", "expression": "F = AB'CD + AB'CD' + AB'C'D + AB'C'D' + A'BCD + A'BCD' + A'B'CD + A'B'CD' + ABCD' + ABC'D' + A'BCD' + A'BC'D'", "law": "Substitution" },
+            { "step": 9, "action": "Remove duplicates and arrange", "expression": "F = A'B'CD' + A'B'C'D' + A'BCD' + A'BCD + A'BC'D' + A'BC'D + AB'CD' + AB'CD + AB'C'D' + AB'C'D + ABCD' + ABC'D'", "law": "Idempotent & Rearrangement" },
+            { "step": 10, "action": "Final canonical SOP", "expression": "F = A'B'C'D' + A'B'CD' + A'BC'D' + A'BC'D + A'BCD' + A'BCD + AB'C'D' + AB'C'D + AB'CD' + AB'CD + ABC'D' + ABCD'", "law": "Canonical form" }
+          ],
+          "explanation": "Each original term is expanded to include all variables, resulting in 12 minterms."
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Application Based Problems (8 Marks)",
+      "marksPerQuestion": 8,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Convert F(A,B,C) = Σ(1,2,4,5) from non-canonical SOP to canonical SOP. Also write the minterm list.",
+          "marks": 8,
+          "original": "F(A,B,C) = Σ(1,2,4,5)",
+          "variables": 3,
+          "canonical": "A'B'C + A'BC' + AB'C' + AB'C",
+          "minterms": "m1, m2, m4, m5",
+          "steps": [
+            { "step": 1, "action": "Given minterm list", "expression": "Σ(1,2,4,5)", "law": "Given" },
+            { "step": 2, "action": "Write binary equivalents", "expression": "m1 = 001 = A'B'C", "law": "Minterm representation" },
+            { "step": 3, "action": "m2", "expression": "010 = A'BC'", "law": "Minterm representation" },
+            { "step": 4, "action": "m4", "expression": "100 = AB'C'", "law": "Minterm representation" },
+            { "step": 5, "action": "m5", "expression": "101 = AB'C", "law": "Minterm representation" },
+            { "step": 6, "action": "Write canonical SOP", "expression": "F = A'B'C + A'BC' + AB'C' + AB'C", "law": "Sum of minterms" },
+            { "step": 7, "action": "Alternative form", "expression": "F = Σ(1,2,4,5)", "law": "Compact notation" },
+            { "step": 8, "action": "Verify total minterms", "expression": "4 out of 8 possible minterms", "law": "Verification" }
+          ],
+          "explanation": "The minterm list directly gives the canonical SOP form."
+        },
+        {
+          "q": "A Boolean function is given as F(A,B,C,D) = AB' + A'C'D + BC. Convert this to canonical SOP form and list all the minterms.",
+          "marks": 8,
+          "original": "AB' + A'C'D + BC",
+          "variables": 4,
+          "canonical": "AB'C'D' + AB'C'D + AB'CD' + AB'CD + A'BC'D + A'B'C'D + ABCD + ABC'D + A'BCD",
+          "minterms": "m8, m9, m10, m11, m5, m1, m15, m13, m7",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB' + A'C'D + BC", "law": "Given" },
+            { "step": 2, "action": "Expand AB' with C and D", "expression": "AB' = AB'(C + C')(D + D')", "law": "Identity Law" },
+            { "step": 3, "action": "Result", "expression": "AB' = AB'CD + AB'CD' + AB'C'D + AB'C'D'", "law": "Expansion" },
+            { "step": 4, "action": "Expand A'C'D with B", "expression": "A'C'D = A'C'D(B + B')", "law": "Identity Law" },
+            { "step": 5, "action": "Result", "expression": "A'C'D = A'BC'D + A'B'C'D", "law": "Expansion" },
+            { "step": 6, "action": "Expand BC with A and D", "expression": "BC = BC(A + A')(D + D')", "law": "Identity Law" },
+            { "step": 7, "action": "Result", "expression": "BC = ABCD + ABCD' + A'BCD + A'BCD'", "law": "Expansion" },
+            { "step": 8, "action": "Combine all terms", "expression": "F = AB'CD + AB'CD' + AB'C'D + AB'C'D' + A'BC'D + A'B'C'D + ABCD + ABCD' + A'BCD + A'BCD'", "law": "Substitution" },
+            { "step": 9, "action": "List minterms", "expression": "m8=1000, m9=1001, m10=1010, m11=1011, m5=0101, m1=0001, m15=1111, m13=1101, m7=0111", "law": "Binary conversion" },
+            { "step": 10, "action": "Final canonical SOP", "expression": "F = Σ(1,5,7,8,9,10,11,13,15)", "law": "Sum of minterms" }
+          ],
+          "explanation": "Each product term is expanded to include all variables, then minterms are identified."
+        }
+      ]
+    }
+  ]
+}

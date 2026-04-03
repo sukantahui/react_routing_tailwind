@@ -1,0 +1,174 @@
+{
+  "paperId": "BOOLEAN-COMPLEMENT-SET-01",
+  "title": "Boolean Algebra - Complement of Equations",
+  "duration": "1 Hour",
+  "totalMarks": 20,
+
+  "sections": [
+    {
+      "section": "A",
+      "type": "Basic Complements (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Find the complement of: F(A,B) = A + B",
+          "marks": 1,
+          "original": "A + B",
+          "complement": "A'·B'",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's First Theorem", "expression": "(A + B)' = A'·B'", "law": "De Morgan's Theorem" }
+          ],
+          "explanation": "The complement of OR operation is AND of complements."
+        },
+        {
+          "q": "Find the complement of: F(A,B) = A·B",
+          "marks": 1,
+          "original": "A·B",
+          "complement": "A' + B'",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Second Theorem", "expression": "(A·B)' = A' + B'", "law": "De Morgan's Theorem" }
+          ],
+          "explanation": "The complement of AND operation is OR of complements."
+        },
+        {
+          "q": "Find the complement of: F(A,B) = A ⊕ B",
+          "marks": 1,
+          "original": "A ⊕ B",
+          "complement": "A ⊙ B (XNOR) = AB + A'B'",
+          "steps": [
+            { "step": 1, "action": "Write XOR in SOP form", "expression": "A ⊕ B = A'B + AB'", "law": "XOR definition" },
+            { "step": 2, "action": "Apply De Morgan's Theorem", "expression": "(A'B + AB')' = (A'B)'·(AB')'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Apply De Morgan's again", "expression": "(A + B')·(A' + B)", "law": "(X·Y)' = X' + Y'" },
+            { "step": 4, "action": "Expand", "expression": "AA' + AB + A'B' + BB' = 0 + AB + A'B' + 0", "law": "Distributive & Complement" },
+            { "step": 5, "action": "Result", "expression": "AB + A'B' = A ⊙ B", "law": "XNOR definition" }
+          ],
+          "explanation": "Complement of XOR is XNOR (equivalence)."
+        },
+        {
+          "q": "Find the complement of: F(A,B) = A' + B'",
+          "marks": 1,
+          "original": "A' + B'",
+          "complement": "A·B",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's First Theorem", "expression": "(A' + B')' = (A')'·(B')'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 2, "action": "Apply Involution Law", "expression": "A·B", "law": "(X')' = X" }
+          ],
+          "explanation": "Complement of NAND is AND."
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Medium Complements (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 3,
+      "questions": [
+        {
+          "q": "Find the complement of: F(A,B,C) = A + B'C",
+          "marks": 2,
+          "original": "A + B'C",
+          "complement": "A'·(B + C')",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's First Theorem", "expression": "F' = (A + B'C)' = A'·(B'C)'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 2, "action": "Apply De Morgan's Second Theorem to (B'C)'", "expression": "(B'C)' = (B')' + C' = B + C'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 3, "action": "Combine results", "expression": "F' = A'·(B + C')", "law": "Substitution" }
+          ],
+          "explanation": "Complement of OR is AND of complements, then complement the AND term."
+        },
+        {
+          "q": "Find the complement of: F(A,B,C) = (A + B)(A' + C)",
+          "marks": 2,
+          "original": "(A + B)(A' + C)",
+          "complement": "A'B' + AC'",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Second Theorem", "expression": "F' = (A + B)' + (A' + C)'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 2, "action": "Apply De Morgan's First Theorem to each", "expression": "(A + B)' = A'B'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Similarly", "expression": "(A' + C)' = A·C'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 4, "action": "Combine", "expression": "F' = A'B' + AC'", "law": "Substitution" }
+          ],
+          "explanation": "For complement of POS, convert to SOP of complements."
+        },
+        {
+          "q": "Find the complement of: F(A,B,C) = AB + A'C'",
+          "marks": 2,
+          "original": "AB + A'C'",
+          "complement": "(A' + B')(A + C)",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's First Theorem", "expression": "F' = (AB)'·(A'C')'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 2, "action": "Apply De Morgan's Second Theorem to (AB)'", "expression": "(AB)' = A' + B'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 3, "action": "Apply to (A'C')'", "expression": "(A'C')' = A + C", "law": "(X·Y)' = X' + Y'" },
+            { "step": 4, "action": "Combine", "expression": "F' = (A' + B')(A + C)", "law": "Substitution" }
+          ],
+          "explanation": "For complement of SOP, convert to POS of complements."
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Advanced Complements (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Find the complement of: F(A,B,C,D) = AB' + A'C + BD'",
+          "marks": 3,
+          "original": "AB' + A'C + BD'",
+          "complement": "(A' + B)(A + C')(B' + D)",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's First Theorem to SOP", "expression": "F' = (AB')'·(A'C)'·(BD')'", "law": "(X+Y+Z)' = X'·Y'·Z'" },
+            { "step": 2, "action": "Apply De Morgan's Second Theorem to first term", "expression": "(AB')' = A' + B", "law": "(X·Y)' = X' + Y'" },
+            { "step": 3, "action": "Apply to second term", "expression": "(A'C)' = A + C'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 4, "action": "Apply to third term", "expression": "(BD')' = B' + D", "law": "(X·Y)' = X' + Y'" },
+            { "step": 5, "action": "Combine results", "expression": "F' = (A' + B)(A + C')(B' + D)", "law": "Substitution" }
+          ],
+          "explanation": "For SOP with multiple terms, complement becomes POS with complemented terms."
+        },
+        {
+          "q": "Find the complement of: F(A,B,C) = (A + B')(B + C')(C + A')",
+          "marks": 3,
+          "original": "(A + B')(B + C')(C + A')",
+          "complement": "A'B + B'C + C'A",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Second Theorem to POS", "expression": "F' = (A + B')' + (B + C')' + (C + A')'", "law": "(X·Y·Z)' = X' + Y' + Z'" },
+            { "step": 2, "action": "Apply De Morgan's First Theorem to each", "expression": "(A + B')' = A'B", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Similarly", "expression": "(B + C')' = B'C", "law": "(X+Y)' = X'·Y'" },
+            { "step": 4, "action": "Similarly", "expression": "(C + A')' = C'A", "law": "(X+Y)' = X'·Y'" },
+            { "step": 5, "action": "Combine", "expression": "F' = A'B + B'C + C'A", "law": "Substitution" }
+          ],
+          "explanation": "For POS with multiple terms, complement becomes SOP with complemented terms."
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Complex Complement (4 Marks)",
+      "marksPerQuestion": 4,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Find the complement of: F(A,B,C,D) = (AB + CD)(A'C' + B'D') + (A ⊕ B)(C ⊕ D)",
+          "marks": 4,
+          "original": "(AB + CD)(A'C' + B'D') + (A ⊕ B)(C ⊕ D)",
+          "complement": "[(A' + B')(C' + D') + (A + C)(B + D)]·[(A ⊕ B)' + (C ⊕ D)']",
+          "steps": [
+            { "step": 1, "action": "Let X = (AB+CD)(A'C'+B'D') and Y = (A⊕B)(C⊕D)", "expression": "F = X + Y", "law": "Substitution" },
+            { "step": 2, "action": "Apply De Morgan's First Theorem", "expression": "F' = X'·Y'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Find X' where X = P·Q", "expression": "P = AB+CD, Q = A'C'+B'D'", "law": "Decomposition" },
+            { "step": 4, "action": "X' = P' + Q'", "expression": "= (AB+CD)' + (A'C'+B'D')'", "law": "(P·Q)' = P' + Q'" },
+            { "step": 5, "action": "Find P'", "expression": "P' = (AB)'·(CD)' = (A'+B')(C'+D')", "law": "(X+Y)' = X'·Y'" },
+            { "step": 6, "action": "Find Q'", "expression": "Q' = (A'C')'·(B'D')' = (A+C)(B+D)", "law": "(X+Y)' = X'·Y'" },
+            { "step": 7, "action": "Thus X'", "expression": "X' = (A'+B')(C'+D') + (A+C)(B+D)", "law": "Substitution" },
+            { "step": 8, "action": "Find Y'", "expression": "Y' = (A⊕B)' + (C⊕D)'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 9, "action": "Final complement", "expression": "F' = [(A'+B')(C'+D') + (A+C)(B+D)]·[(A⊕B)' + (C⊕D)']", "law": "Complete expression" },
+            { "step": 10, "action": "Optional: Simplify XOR complements", "expression": "(A⊕B)' = A⊙B = AB + A'B'", "law": "XNOR definition" }
+          ],
+          "explanation": "Complex expression requiring multiple De Morgan applications and decomposition."
+        }
+      ]
+    }
+  ]
+}
