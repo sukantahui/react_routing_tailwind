@@ -166,7 +166,7 @@ const NavBar = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="sticky top-0 z-50 bg-gradient-to-b from-gray-950/95 via-gray-900/95 to-gray-950/95 backdrop-blur-md border-b border-gray-800"
+      className="sticky opacity-[0.5] top-0 z-50 bg-gradient-to-b from-gray-950/95 via-gray-900/95 to-gray-950/95 backdrop-blur-md border-b border-gray-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between py-3 sm:py-4">

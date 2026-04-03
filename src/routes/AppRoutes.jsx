@@ -90,6 +90,7 @@ const CertificateGenerator = lazy(() => import('../common/CertificateGenerator')
 const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
 const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
+const Subject = lazy(() => import('../components/Subject'));
 
 // Admin / protected components (lazy)
 const Admin = lazy(() => import('./Admin'));
@@ -188,7 +189,10 @@ export default function AppRoutes() {
           }
         />
 
+        {/* Master */}
         <Route path="/students/add" element={<AddStudent />} />
+
+        <Route path="/subject" element={<Subject />} />
 
         {/* Public Study Routes */}
         <Route path="/study" element={<Study />} />

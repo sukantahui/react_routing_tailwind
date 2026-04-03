@@ -94,6 +94,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-gray-100 p-6 pt-24">
       <div className="max-w-7xl mx-auto space-y-8">
         {/* Header */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
