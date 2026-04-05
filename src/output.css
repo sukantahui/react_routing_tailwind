@@ -265,6 +265,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    --font-weight-black: 900;
     --tracking-tight: -0.025em;
     --tracking-wide: 0.025em;
     --tracking-wider: 0.05em;
@@ -500,6 +501,9 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .inset-2 {
+    inset: calc(var(--spacing) * 2);
+  }
   .inset-y-0 {
     inset-block: calc(var(--spacing) * 0);
   }
@@ -581,8 +585,17 @@
   .top-28 {
     top: calc(var(--spacing) * 28);
   }
+  .top-30 {
+    top: calc(var(--spacing) * 30);
+  }
   .top-32 {
     top: calc(var(--spacing) * 32);
+  }
+  .top-70 {
+    top: calc(var(--spacing) * 70);
+  }
+  .top-\[60\%\] {
+    top: 60%;
   }
   .top-full {
     top: 100%;
@@ -629,11 +642,23 @@
   .right-14 {
     right: calc(var(--spacing) * 14);
   }
+  .right-30 {
+    right: calc(var(--spacing) * 30);
+  }
   .right-\[-130px\] {
     right: -130px;
   }
   .right-\[-160px\] {
     right: -160px;
+  }
+  .right-\[0\%\] {
+    right: 0%;
+  }
+  .right-\[10\%\] {
+    right: 10%;
+  }
+  .right-\[40\%\] {
+    right: 40%;
   }
   .right-\[calc\(50\%-24rem\)\] {
     right: calc(50% - 24rem);
@@ -1677,6 +1702,12 @@
   }
   .rotate-180 {
     rotate: 180deg;
+  }
+  .rotate-\[-15deg\] {
+    rotate: -15deg;
+  }
+  .rotate-\[-25deg\] {
+    rotate: -25deg;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -2737,6 +2768,10 @@
   .border-8 {
     border-style: var(--tw-border-style);
     border-width: 8px;
+  }
+  .border-\[3px\] {
+    border-style: var(--tw-border-style);
+    border-width: 3px;
   }
   .border-\[10px\] {
     border-style: var(--tw-border-style);
@@ -8837,6 +8872,9 @@
   .text-\[1\.1rem\] {
     font-size: 1.1rem;
   }
+  .text-\[6px\] {
+    font-size: 6px;
+  }
   .text-\[7px\] {
     font-size: 7px;
   }
@@ -8884,6 +8922,10 @@
   .leading-tight {
     --tw-leading: var(--leading-tight);
     line-height: var(--leading-tight);
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);

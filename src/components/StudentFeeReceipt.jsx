@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import coursesData from '../assets/jsons/courses.json';
 import CNATLogo from "../../public/assets/cnat.png";
+import paidStamp from "../assets/images/paid-stamp.png";
+import * as htmlToImage from 'html-to-image';
 
 const StudentFeeReceipt = () => {
   // Get current date in YYYY-MM-DD format for default value
@@ -16,9 +18,9 @@ const StudentFeeReceipt = () => {
     studentName: '',
     phone: '',
     course: '',
-    feeType: 'non_monthly', // Added fee type: monthly or non_monthly
-    monthlyFeeAmount: '', // Monthly fee amount (if monthly)
-    feesPaid: '', // Total calculated fees
+    feeType: 'non_monthly',
+    monthlyFeeAmount: '',
+    feesPaid: '',
     paymentDate: getCurrentDate(),
     paymentMode: 'Cash',
     periodFrom: '',
@@ -28,6 +30,8 @@ const StudentFeeReceipt = () => {
   const [receiptData, setReceiptData] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [courses, setCourses] = useState([]);
+  const [isSaving, setIsSaving] = useState(false);
+  const receiptRef = useRef(null);
 
   useEffect(() => {
     setCourses(coursesData.courses);
@@ -64,7 +68,7 @@ const StudentFeeReceipt = () => {
     setFormData((prev) => ({
       ...prev,
       feeType: feeType,
-      feesPaid: '', // Reset fees when changing type
+      feesPaid: '',
       periodFrom: '',
       periodTo: '',
       monthlyFeeAmount: '',
@@ -93,18 +97,18 @@ const StudentFeeReceipt = () => {
     if (!num || isNaN(num)) return '';
     num = Math.floor(num);
     if (num === 0) return 'Zero Only';
-    
+
     const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
     const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
     const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
-    
+
     const convertBelowHundred = (n) => {
       if (n === 0) return '';
       if (n < 10) return ones[n];
       if (n < 20) return teens[n - 10];
       return tens[Math.floor(n / 10)] + (n % 10 ? ' ' + ones[n % 10] : '');
     };
-    
+
     const convertBelowThousand = (n) => {
       if (n === 0) return '';
       if (n < 100) return convertBelowHundred(n);
@@ -112,10 +116,10 @@ const StudentFeeReceipt = () => {
       const remainder = n % 100;
       return ones[hundredPart] + ' Hundred' + (remainder ? ' and ' + convertBelowHundred(remainder) : '');
     };
-    
+
     let result = '';
     let remaining = num;
-    
+
     if (remaining >= 10000000) {
       const crores = Math.floor(remaining / 10000000);
       result += convertBelowHundred(crores) + ' Crore';
@@ -160,7 +164,7 @@ const StudentFeeReceipt = () => {
   };
 
   const getPaymentModeIcon = (mode) => {
-    switch(mode) {
+    switch (mode) {
       case 'Cash':
         return '💵';
       case 'Online (UPI)':
@@ -178,8 +182,7 @@ const StudentFeeReceipt = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Validation
+
     if (!formData.studentName || !formData.phone || !formData.course || !formData.paymentDate || !formData.paymentMode) {
       alert('Please fill in all required fields');
       return;
@@ -200,18 +203,17 @@ const StudentFeeReceipt = () => {
         return;
       }
     }
-    
-    // Format period if provided
+
     let periodText = '';
     let monthlyBreakdown = '';
-    
+
     if (formData.feeType === 'monthly' && formData.periodFrom && formData.periodTo) {
       const months = calculateMonthsDifference(formData.periodFrom, formData.periodTo);
       const monthlyAmount = parseFloat(formData.monthlyFeeAmount);
       periodText = `${formatMonthYear(formData.periodFrom)} to ${formatMonthYear(formData.periodTo)}`;
       monthlyBreakdown = ` (${months} months × ₹${monthlyAmount.toLocaleString('en-IN')} = ₹${(months * monthlyAmount).toLocaleString('en-IN')})`;
     }
-    
+
     setReceiptData({
       studentName: formData.studentName,
       phone: formData.phone,
@@ -225,6 +227,93 @@ const StudentFeeReceipt = () => {
       monthlyBreakdown: monthlyBreakdown,
       receiptNo: generateReceiptNo(),
     });
+  };
+
+  // Function to save receipt as JPG
+  const saveAsJPG = async () => {
+    if (!receiptData) {
+      alert('Please generate a receipt first');
+      return;
+    }
+
+    setIsSaving(true);
+
+    try {
+      const receiptElement = receiptRef.current;
+      if (!receiptElement) {
+        throw new Error('Receipt element not found');
+      }
+
+      // Configure options for better quality and to prevent cropping
+      const options = {
+        quality: 1.0,
+        pixelRatio: 2,
+        backgroundColor: '#ffffff',
+        cacheBust: true,
+        width: receiptElement.scrollWidth,
+        height: receiptElement.scrollHeight,
+        style: {
+          margin: '0',
+          padding: '0',
+          transform: 'none'
+        }
+      };
+
+      const dataUrl = await htmlToImage.toJpeg(receiptElement, options);
+
+      const link = document.createElement('a');
+      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
+      link.download = fileName;
+      link.href = dataUrl;
+      link.click();
+
+      alert(`Receipt saved successfully as ${fileName}`);
+    } catch (error) {
+      console.error('Error saving receipt as JPG:', error);
+      alert('Failed to save receipt as JPG. Please try again.');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  // Function to save as PNG
+  const saveAsPNG = async () => {
+    if (!receiptData) {
+      alert('Please generate a receipt first');
+      return;
+    }
+
+    setIsSaving(true);
+
+    try {
+      const receiptElement = receiptRef.current;
+      if (!receiptElement) {
+        throw new Error('Receipt element not found');
+      }
+
+      const options = {
+        pixelRatio: 2,
+        backgroundColor: '#ffffff',
+        cacheBust: true,
+        width: receiptElement.scrollWidth,
+        height: receiptElement.scrollHeight,
+      };
+
+      const dataUrl = await htmlToImage.toPng(receiptElement, options);
+
+      const link = document.createElement('a');
+      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.png`;
+      link.download = fileName;
+      link.href = dataUrl;
+      link.click();
+
+      alert(`Receipt saved successfully as ${fileName}`);
+    } catch (error) {
+      console.error('Error saving receipt as PNG:', error);
+      alert('Failed to save receipt. Please try again.');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const handlePrint = () => {
@@ -244,349 +333,362 @@ const StudentFeeReceipt = () => {
     const paymentModeIcon = getPaymentModeIcon(receiptData.paymentMode);
 
     printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Fee Receipt - Coder & AccoTax</title>
-          <meta charset="UTF-8">
-          <style>
-            * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-            }
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Fee Receipt - Coder & AccoTax</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            font-family: 'Times New Roman', Times, serif;
+            background: white;
+            margin: 0;
+            padding: 0;
+          }
+          .receipt-container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            overflow: visible;
+          }
+          .receipt {
+            position: relative;
+            background: white;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
+          }
+          .receipt-content {
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+          }
+          
+          .header {
+            text-align: center;
+            border-bottom: 2px solid #1a3e6f;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+          }
+          .organisation-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a3e6f;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+          }
+          .organisation-logo {
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+          }
+          .organisation-tagline {
+            font-size: 9px;
+            color: #4a5568;
+            margin-top: 3px;
+          }
+          .address {
+            font-size: 8px;
+            color: #4a5568;
+            margin-top: 5px;
+            line-height: 1.2;
+          }
+          .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 8px;
+            color: #4a5568;
+            margin-top: 5px;
+            flex-wrap: wrap;
+          }
+          .receipt-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-top: 8px;
+            background: #f0f4f8;
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+          }
+          .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 12px 0;
+            padding: 10px;
+            background: #f7fafc;
+            border-radius: 6px;
+          }
+          .info-item {
+            display: flex;
+            flex-direction: column;
+          }
+          .info-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: #4a5568;
+            text-transform: uppercase;
+          }
+          .info-value {
+            font-size: 11px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-top: 3px;
+            word-break: break-word;
+          }
+          .details-section {
+            margin-bottom: 12px;
+          }
+          .section-title {
+            font-size: 11px;
+            font-weight: bold;
+            color: #1a3e6f;
+            border-left: 3px solid #1a3e6f;
+            padding-left: 8px;
+            margin-bottom: 8px;
+          }
+          .details-table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          .details-table tr {
+            border-bottom: 1px solid #e2e8f0;
+          }
+          .details-table td {
+            padding: 5px;
+            font-size: 10px;
+          }
+          .details-table td:first-child {
+            font-weight: 600;
+            color: #4a5568;
+            width: 35%;
+          }
+          .details-table td:last-child {
+            color: #2d3748;
+          }
+          .fee-section {
+            background: #f0f9ff;
+            padding: 10px;
+            margin: 12px 0;
+            border-radius: 6px;
+            border: 1px solid #cbd5e0;
+          }
+          .fee-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+          }
+          .fee-label {
+            font-weight: bold;
+            font-size: 11px;
+            color: #4a5568;
+          }
+          .fee-amount {
+            font-weight: bold;
+            font-size: 14px;
+            color: #2f855a;
+          }
+          .fee-breakdown {
+            font-size: 8px;
+            color: #718096;
+            margin-top: 5px;
+            font-style: italic;
+          }
+          .amount-words {
+            font-size: 8px;
+            color: #718096;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px dashed #cbd5e0;
+            font-style: italic;
+          }
+          .footer {
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 10px;
+            margin-top: 12px;
+          }
+          .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0 8px;
+          }
+          .signature-line {
+            text-align: center;
+            width: 45%;
+          }
+          .signature-line p:first-child {
+            font-size: 8px;
+            color: #718096;
+            margin-bottom: 6px;
+          }
+          .signature-line p:last-child {
+            font-size: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            border-top: 1px solid #cbd5e0;
+            padding-top: 5px;
+            display: inline-block;
+            min-width: 80px;
+          }
+          .footer-note {
+            font-size: 7px;
+            color: #a0aec0;
+            margin-top: 8px;
+            line-height: 1.3;
+          }
+          .thankyou {
+            font-size: 9px;
+            font-weight: bold;
+            color: #1a3e6f;
+            margin-top: 6px;
+          }
+          
+          /* Watermark styles */
+          .watermark-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.1;
+          }
+          .watermark-image {
+            width: 60%;
+            height: auto;
+            transform: rotate(-25deg);
+          }
+
+          /* PAID Stamp - Fixed positioning */
+          .stamp-container {
+            position: absolute;
+            top: 80%;
+            right: 45%;
+            transform: translateY(-50%) rotate(-15deg);
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0.55;
+          }
+
+          .rounded-stamp {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            position: relative;
+            border: 3px solid #b30021;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          }
+
+          /* Outer ring effect */
+          .rounded-stamp::before {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            border: 1px dashed #b30021;
+            opacity: 0.7;
+          }
+
+          .stamp-text {
+            text-align: center;
+            transform: rotate(-2deg);
+          }
+
+          /* MAIN PAID TEXT */
+          .stamp-paid {
+            font-size: 22px;
+            font-weight: 900;
+            color: #b30021;
+            letter-spacing: 2px;
+          }
+
+          /* Company text */
+          .stamp-company {
+            font-size: 7px;
+            color: #b30021;
+            font-weight: 700;
+            margin-top: 4px;
+            letter-spacing: 1px;
+          }
+          
+          @media print {
             body {
-              font-family: 'Times New Roman', Times, serif;
-              font-size: 13px;
-              background: white;
               margin: 0;
               padding: 0;
             }
-            .receipt {
-              position: relative;
-              width: 100%;
-              background: white;
+            .receipt-container {
               margin: 0;
               padding: 0;
-              page-break-after: avoid;
-              page-break-inside: avoid;
-            }
-            .receipt-content {
-              padding: 2mm 8mm 4mm 8mm;
-              display: flex;
-              flex-direction: column;
-              background: white;
-              position: relative;
-              z-index: 1;
             }
             .stamp-container {
-              position: absolute;
-              top: 65%;
-              left: 60%;
-              transform: translate(-50%, -50%) rotate(-18deg);
-              z-index: 10;
-              pointer-events: none;
+              opacity: 0.7 !important;
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
             }
             .rounded-stamp {
-              width: 130px;
-              height: 130px;
-              border-radius: 50%;
-              border: 2.5px solid #b30021;
-              position: relative;
-              background: radial-gradient(circle, rgba(179,0,33,0.08) 20%, transparent 70%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              box-shadow: 
-                0 0 0 2px rgba(179,0,33,0.3),
-                inset 0 0 6px rgba(179,0,33,0.2);
-            }
-            .rounded-stamp::after {
-              content: "";
-              position: absolute;
-              inset: 0;
-              border-radius: 50%;
-              background: url('https://www.transparenttextures.com/patterns/ink.png');
-              opacity: 0.15;
-              mix-blend-mode: multiply;
-            }    
-            .rounded-stamp::before {
-              content: "";
-              position: absolute;
-              width: 115px;
-              height: 115px;
-              border-radius: 50%;
-              border: 1.5px dashed rgba(179,0,33,0.5);
-            }    
-            .stamp-text {
-              font-family: 'Times New Roman', Times, serif;
-              text-align: center;
+              border: 3px solid #b30021 !important;
+              background: white !important;
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
             }
             .stamp-paid {
-              font-size: 24px;
-              font-weight: 900;
-              color: #b30021;
-              letter-spacing: 3px;
-              text-transform: uppercase;
-              transform: rotate(-2deg);
-              text-shadow: 
-                1px 1px 0 rgba(0,0,0,0.1),
-                0 0 4px rgba(179,0,33,0.4);
+              color: #b30021 !important;
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
             }
             .stamp-company {
-              font-size: 8px;
-              color: #c41e3a;
-              font-weight: 600;
-              margin-top: 4px;
-              text-transform: uppercase;
-              letter-spacing: 1px;
+              color: #b30021 !important;
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
             }
-            .stamp-since {
-              font-size: 7px;
-              color: #c41e3a;
-              margin-top: 2px;
-              font-style: italic;
+            @page {
+              margin: 0.5cm;
             }
-            .header {
-              text-align: center;
-              border-bottom: 2px solid #1a3e6f;
-              padding-bottom: 4px;
-              margin-bottom: 6px;
-              position: relative;
-              z-index: 1;
-              background: white;
-            }
-            .organisation-name {
-              font-size: 24px;
-              font-weight: bold;
-              color: #1a3e6f;
-              letter-spacing: 1px;
-              margin-bottom: 2px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 8px;
-            }
-            .organisation-logo {
-              height: 36px;
-              width: auto;
-              vertical-align: middle;
-            }
-            .organisation-tagline {
-              font-size: 9px;
-              color: #4a5568;
-              margin-top: 2px;
-              font-style: italic;
-            }
-            .address {
-              font-size: 8px;
-              color: #4a5568;
-              margin-top: 3px;
-              line-height: 1.2;
-            }
-            .contact-row {
-              display: flex;
-              justify-content: center;
-              gap: 12px;
-              font-size: 8px;
-              color: #4a5568;
-              margin-top: 3px;
-              flex-wrap: wrap;
-            }
-            .receipt-title {
-              font-size: 16px;
-              font-weight: bold;
-              color: #2d3748;
-              margin-top: 4px;
-              text-transform: uppercase;
-              letter-spacing: 1px;
-              background: #f0f4f8;
-              display: inline-block;
-              padding: 2px 16px;
-              border-radius: 20px;
-            }
-            .info-row {
-              display: flex;
-              justify-content: space-between;
-              margin: 6px 0;
-              padding: 4px 0;
-              border-bottom: 1px dashed #cbd5e0;
-              position: relative;
-              z-index: 1;
-              background: white;
-            }
-            .info-box {
-              background: #f7fafc;
-              padding: 3px 10px;
-              border-radius: 4px;
-              border: 1px solid #e2e8f0;
-            }
-            .info-label {
-              font-size: 10px;
-              font-weight: 600;
-              color: #4a5568;
-              text-transform: uppercase;
-              letter-spacing: 0.5px;
-            }
-            .info-value {
-              font-size: 13px;
-              font-weight: bold;
-              color: #2d3748;
-              margin-top: 1px;
-            }
-            .details-section {
-              margin-bottom: 8px;
-              position: relative;
-              z-index: 1;
-              background: white;
-            }
-            .section-title {
-              font-size: 11px;
-              font-weight: bold;
-              color: #1a3e6f;
-              border-left: 3px solid #1a3e6f;
-              padding-left: 6px;
-              margin-bottom: 6px;
-              text-transform: uppercase;
-            }
-            .details-table {
-              width: 100%;
-              border-collapse: collapse;
-            }
-            .details-table tr {
-              border-bottom: 1px solid #e2e8f0;
-            }
-            .details-table td {
-              padding: 4px 5px;
-              font-size: 10px;
-            }
-            .details-table td:first-child {
-              font-weight: 600;
-              color: #4a5568;
-              width: 35%;
-            }
-            .details-table td:last-child {
-              color: #2d3748;
-              font-weight: 500;
-            }
-            .fee-section {
-              background: #f7fafc;
-              padding: 8px 10px;
-              margin: 6px 0;
-              border-radius: 6px;
-              border: 1px solid #e2e8f0;
-              position: relative;
-              z-index: 1;
-            }
-            .fee-row {
-              display: flex;
-              justify-content: space-between;
-              padding: 4px 0;
-            }
-            .fee-label {
-              font-weight: bold;
-              font-size: 11px;
-              color: #4a5568;
-            }
-            .fee-amount {
-              font-weight: bold;
-              font-size: 15px;
-              color: #2f855a;
-            }
-            .fee-breakdown {
-              font-size: 8px;
-              color: #718096;
-              margin-top: 2px;
-              font-style: italic;
-            }
-            .amount-words {
-              font-size: 8px;
-              color: #718096;
-              margin-top: 4px;
-              padding-top: 4px;
-              border-top: 1px dashed #cbd5e0;
-              font-style: italic;
-            }
-            .footer {
-              margin-top: auto;
-              text-align: center;
-              border-top: 1px solid #e2e8f0;
-              padding-top: 6px;
-              position: relative;
-              z-index: 1;
-              background: white;
-            }
-            .signature-area {
-              display: flex;
-              justify-content: space-between;
-              margin: 8px 0 4px 0;
-            }
-            .signature-line {
-              text-align: center;
-              width: 45%;
-            }
-            .signature-line p:first-child {
-              font-size: 8px;
-              color: #718096;
-              margin-bottom: 10px;
-            }
-            .signature-line p:last-child {
-              font-size: 8px;
-              font-weight: 600;
-              color: #4a5568;
-              border-top: 1px solid #cbd5e0;
-              padding-top: 3px;
-              display: inline-block;
-              min-width: 90px;
-            }
-            .footer-note {
-              font-size: 7px;
-              color: #a0aec0;
-              margin-top: 4px;
-              line-height: 1.3;
-            }
-            .thankyou {
-              font-size: 9px;
-              font-weight: bold;
-              color: #1a3e6f;
-              margin-top: 4px;
-            }
-            @media print {
-              body {
-                margin: 0;
-                padding: 0;
-              }
-              .receipt {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: auto;
-              }
-              .receipt-content {
-                padding: 2mm 8mm 4mm 8mm;
-              }
-              .rounded-stamp {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-              }
-              @page {
-                size: A4;
-                margin: 0mm;
-              }
-            }
-          </style>
-        </head>
-        <body>
+          }
+        </style>
+      </head>
+      <body>
+        <div class="receipt-container">
           <div class="receipt">
+            <!-- Watermark -->
+            <div class="watermark-container">
+              <img src="/assets/cnat.png" alt="Watermark" class="watermark-image" />
+            </div>
+            
+            <!-- PAID Stamp - Now positioned at right side -->
             <div class="stamp-container">
               <div class="rounded-stamp">
                 <div class="stamp-text">
                   <div class="stamp-paid">PAID</div>
                   <div class="stamp-company">Coder & AccoTax</div>
-                  <div class="stamp-since">Since 1997</div>
                 </div>
               </div>
             </div>
+            
             <div class="receipt-content">
               <div class="header">
                 <div class="organisation-name">
@@ -599,48 +701,52 @@ const StudentFeeReceipt = () => {
                 </div>
                 <div class="contact-row">
                   <span>📞 +91 70037 56860</span>
-                  <span>🌐 codernaccotax.co.in</span>
                   <span>✉️ info@codernaccotax.co.in</span>
                 </div>
                 <div>
                   <span class="receipt-title">Fee Payment Receipt</span>
                 </div>
               </div>
-              <div class="info-row">
-                <div class="info-box">
+              
+              <div class="info-grid">
+                <div class="info-item">
                   <div class="info-label">Receipt No.</div>
                   <div class="info-value">${receiptData.receiptNo}</div>
                 </div>
-                <div class="info-box">
+                <div class="info-item">
                   <div class="info-label">Payment Date</div>
                   <div class="info-value">${receiptData.paymentDate}</div>
                 </div>
-                <div class="info-box">
+                <div class="info-item">
                   <div class="info-label">Payment Mode</div>
                   <div class="info-value">${paymentModeIcon} ${receiptData.paymentMode}</div>
                 </div>
+                <div class="info-item">
+                  <div class="info-label">Student Name</div>
+                  <div class="info-value">${receiptData.studentName}</div>
+                </div>
               </div>
+
               <div class="details-section">
-                <div class="section-title">Student Information</div>
+                <div class="section-title">Course Details</div>
                 <table class="details-table">
                   <tr>
-                    <td>Student Name</td>
-                    <td><strong>${receiptData.studentName}</strong></td>
                     <td>Phone Number</td>
                     <td>${receiptData.phone}</td>
+                  </tr>
+                  <tr>
+                    <td>Course Enrolled</td>
+                    <td>${receiptData.course}</td>
                   </tr>
                   ${receiptData.period ? `
                   <tr>
                     <td>Course Period</td>
-                    <td colspan="3"><strong>${receiptData.period}</strong></td>
+                    <td>${receiptData.period}</td>
                   </tr>
                   ` : ''}
-                  <tr>
-                    <td>Course Enrolled</td>
-                    <td><strong>${receiptData.course}</strong></td>
-                  </tr>
                 </table>
               </div>
+
               <div class="fee-section">
                 <div class="fee-row">
                   <span class="fee-label">Course Fees</span>
@@ -659,6 +765,7 @@ const StudentFeeReceipt = () => {
                   Amount in words: Rupees ${amountInWords}
                 </div>
               </div>
+
               <div class="footer">
                 <div class="signature-area">
                   <div class="signature-line">
@@ -671,8 +778,7 @@ const StudentFeeReceipt = () => {
                   </div>
                 </div>
                 <div class="footer-note">
-                  This is a computer generated receipt - Valid without signature<br>
-                  For any queries, please contact our support team | Office Hours: 10 AM - 7 PM (Mon-Sat)
+                  This is a computer generated receipt - Valid without signature
                 </div>
                 <div class="thankyou">
                   ✨ Thank you for choosing Coder & AccoTax! ✨
@@ -680,19 +786,20 @@ const StudentFeeReceipt = () => {
               </div>
             </div>
           </div>
-          <script>
-            window.onload = function() {
-              setTimeout(function() {
-                window.print();
-                window.onafterprint = function() {
-                  window.close();
-                };
-              }, 300);
-            };
-          <\/script>
-        </body>
-      </html>
-    `);
+        </div>
+        <script>
+          window.onload = function() {
+            setTimeout(function() {
+              window.print();
+              window.onafterprint = function() {
+                window.close();
+              };
+            }, 300);
+          };
+        <\/script>
+      </body>
+    </html>
+  `);
 
     printWindow.document.close();
   };
@@ -710,7 +817,7 @@ const StudentFeeReceipt = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-4">
-      <div className="flex justify-end mb-4 max-w-6xl mx-auto">
+      <div className="flex justify-end mb-4 max-w-6xl mx-auto gap-2">
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg transition border border-gray-200 dark:border-gray-600 text-sm"
@@ -797,11 +904,10 @@ const StudentFeeReceipt = () => {
                   type="button"
                   onClick={handleFeeTypeChange}
                   value="non_monthly"
-                  className={`px-4 py-2 rounded-lg font-semibold transition ${
-                    formData.feeType === 'non_monthly'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${formData.feeType === 'non_monthly'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
+                    }`}
                 >
                   One-time / Fixed Fee
                 </button>
@@ -809,11 +915,10 @@ const StudentFeeReceipt = () => {
                   type="button"
                   onClick={handleFeeTypeChange}
                   value="monthly"
-                  className={`px-4 py-2 rounded-lg font-semibold transition ${
-                    formData.feeType === 'monthly'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${formData.feeType === 'monthly'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
+                    }`}
                 >
                   Monthly Fee
                 </button>
@@ -868,7 +973,7 @@ const StudentFeeReceipt = () => {
                   {formData.periodFrom && formData.periodTo && formData.monthlyFeeAmount && (
                     <div className="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                       <p className="text-xs text-gray-600 dark:text-gray-300">
-                        Total Months: <strong>{calculateMonthsDifference(formData.periodFrom, formData.periodTo)}</strong> | 
+                        Total Months: <strong>{calculateMonthsDifference(formData.periodFrom, formData.periodTo)}</strong> |
                         Total Fees: <strong>₹ {(calculateMonthsDifference(formData.periodFrom, formData.periodTo) * (parseFloat(formData.monthlyFeeAmount) || 0)).toLocaleString('en-IN')}</strong>
                       </p>
                     </div>
@@ -936,87 +1041,136 @@ const StudentFeeReceipt = () => {
 
         {/* Receipt Preview Section */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden flex flex-col">
-          <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-3 flex justify-between items-center">
+          <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-3 flex justify-between items-center flex-wrap gap-2">
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <span>🧾</span> Receipt Preview
               </h2>
-              <p className="text-green-100 text-xs mt-1">Review before printing</p>
+              <p className="text-green-100 text-xs mt-1">Review before printing or saving</p>
             </div>
             {receiptData && (
-              <button
-                onClick={handlePrint}
-                className="flex items-center gap-2 bg-white text-green-700 px-4 py-1.5 rounded-lg text-sm font-semibold shadow hover:shadow-lg transition"
-              >
-                🖨️ Print Receipt
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={saveAsJPG}
+                  disabled={isSaving}
+                  className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-3 py-1.5 rounded-lg text-sm font-semibold shadow transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSaving ? '⏳ Saving...' : '📸 Save as JPG'}
+                </button>
+                <button
+                  onClick={saveAsPNG}
+                  disabled={isSaving}
+                  className="flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-3 py-1.5 rounded-lg text-sm font-semibold shadow transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  🖼️ Save as PNG
+                </button>
+                <button
+                  onClick={handlePrint}
+                  className="flex items-center gap-2 bg-white text-green-700 px-3 py-1.5 rounded-lg text-sm font-semibold shadow hover:shadow-lg transition"
+                >
+                  🖨️ Print
+                </button>
+              </div>
             )}
           </div>
 
-          <div className="p-5 flex-1 flex items-center justify-center">
+          <div className="p-5 flex-1 flex items-center justify-center overflow-auto">
             {receiptData ? (
-              <div className="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden relative">
-                {/* Preview Stamp (visual only) */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-                  <div className="w-32 h-32 rounded-full border-2 border-red-600 flex flex-col items-center justify-center transform -rotate-12">
-                    <div className="text-lg font-bold text-red-600">PAID</div>
-                    <div className="text-[8px] text-red-600 text-center px-2">Coder & AccoTax</div>
-                    <div className="text-[7px] text-red-600">Since 1997</div>
-                  </div>
+              <div
+                ref={receiptRef}
+                className="w-full max-w-sm mx-auto bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden relative"
+                style={{ backgroundColor: '#ffffff', width: '380px' }}
+              >
+                {/* Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+                  <img
+                    src={CNATLogo}
+                    alt="Watermark"
+                    className="w-48 h-auto transform rotate-[-25deg]"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 </div>
-                <div className="p-4 space-y-2 relative z-10">
-                  <div className="text-center border-b pb-2">
-                    <h3 className="text-base font-bold text-blue-700 dark:text-blue-400">Coder & AccoTax</h3>
-                    <p className="text-[10px] text-gray-500">Fee Payment Receipt</p>
+
+                {/* PAID Stamp Image */}
+                <div className="absolute top-[60%] right-[40%] transform -translate-y-1/2 rotate-[-15deg] z-20 pointer-events-none">
+                  <img
+                    src={paidStamp}
+                    alt="Paid Stamp"
+                    className="w-28 opacity-60"
+                  />
+                </div>
+
+                <div className="p-4 space-y-3 relative z-10">
+                  <div className="text-center border-b pb-3">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <img
+                        src={CNATLogo}
+                        alt="Coder & AccoTax Logo"
+                        className="h-8 w-auto"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                      <h3 className="text-lg font-bold text-blue-700">Coder & AccoTax</h3>
+                    </div>
+                    <p className="text-[9px] text-gray-500 mt-1">Fee Payment Receipt</p>
                   </div>
-                  <div className="space-y-1.5 text-xs">
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Receipt No:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{receiptData.receiptNo}</span>
+
+                  <div className="space-y-2 text-xs">
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold text-gray-600">Receipt No:</span>
+                      <span className="text-gray-800 font-mono text-[10px]">{receiptData.receiptNo}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-semibold">Payment Date:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{receiptData.paymentDate}</span>
+                      <span className="font-semibold text-gray-600">Date:</span>
+                      <span className="text-gray-700">{receiptData.paymentDate}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-semibold">Payment Mode:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{previewPaymentModeIcon} {receiptData.paymentMode}</span>
+                      <span className="font-semibold text-gray-600">Mode:</span>
+                      <span className="text-gray-700">{previewPaymentModeIcon} {receiptData.paymentMode}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Student:</span>
-                      <span className="text-gray-800 dark:text-white font-medium">{receiptData.studentName}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Phone:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{receiptData.phone}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Course:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{receiptData.course}</span>
-                    </div>
-                    {receiptData.period && (
-                      <div className="flex justify-between">
-                        <span className="font-semibold">Period:</span>
-                        <span className="text-gray-600 dark:text-gray-300">{receiptData.period}</span>
+                    <div className="border-t pt-2 mt-2">
+                      <div className="flex justify-between mb-1">
+                        <span className="font-semibold text-gray-600">Student:</span>
+                        <span className="text-gray-800 font-medium text-right">{receiptData.studentName}</span>
                       </div>
-                    )}
-                    <div className="flex justify-between pt-2 border-t mt-1">
-                      <span className="font-bold">Amount Paid:</span>
-                      <span className="font-bold text-green-600 text-sm">₹ {parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}</span>
-                    </div>
-                    {receiptData.monthlyBreakdown && (
-                      <div className="text-[8px] text-gray-500 italic">
-                        {receiptData.monthlyBreakdown}
+                      <div className="flex justify-between mb-1">
+                        <span className="font-semibold text-gray-600">Phone:</span>
+                        <span className="text-gray-700">{receiptData.phone}</span>
                       </div>
-                    )}
-                    <div className="pt-1 pb-1">
-                      <span className="font-semibold text-[10px] text-gray-500">Amount in words:</span>
-                      <p className="text-[9px] text-gray-600 dark:text-gray-400 italic">{previewAmountInWords}</p>
+                      <div className="flex justify-between mb-1">
+                        <span className="font-semibold text-gray-600">Course:</span>
+                        <span className="text-gray-700 text-right">{receiptData.course}</span>
+                      </div>
+                      {receiptData.period && (
+                        <div className="flex justify-between mb-1">
+                          <span className="font-semibold text-gray-600">Period:</span>
+                          <span className="text-gray-700 text-right text-[9px]">{receiptData.period}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="bg-green-50 p-3 rounded-lg mt-2">
+                      <div className="flex justify-between items-center">
+                        <span className="font-bold text-gray-700">Amount Paid:</span>
+                        <span className="font-bold text-green-600 text-base">₹ {parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}</span>
+                      </div>
+                      {receiptData.monthlyBreakdown && (
+                        <div className="text-[8px] text-gray-500 italic mt-1">
+                          {receiptData.monthlyBreakdown}
+                        </div>
+                      )}
+                      <div className="text-[8px] text-gray-500 italic mt-2 pt-1 border-t">
+                        {previewAmountInWords}
+                      </div>
                     </div>
                   </div>
-                  <div className="text-center pt-2 border-t">
-                    <p className="text-[9px] text-gray-400">✓ Ready to print on half A4 sheet (no top margin)</p>
-                    <p className="text-[8px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
+
+                  <div className="text-center pt-3 border-t">
+                    <p className="text-[8px] text-gray-400">✓ Valid without signature</p>
+                    <p className="text-[7px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
+                    <p className="text-[8px] text-blue-600 mt-2">✨ Thank you! ✨</p>
                   </div>
                 </div>
               </div>
