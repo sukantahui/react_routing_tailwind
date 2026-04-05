@@ -91,6 +91,7 @@ const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
 const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
 const Subject = lazy(() => import('../components/Subject'));
+const StudentFeeReceipt = lazy(() => import('../components/StudentFeeReceipt'));
 
 // Admin / protected components (lazy)
 const Admin = lazy(() => import('./Admin'));
@@ -185,6 +186,15 @@ export default function AppRoutes() {
           element={
             <ProtectedRoute>
               <AddResult />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/studentFeesReceipt"
+          element={
+            <ProtectedRoute>
+              <StudentFeeReceipt />
             </ProtectedRoute>
           }
         />

@@ -251,6 +251,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 >
                   Whiteboard
                 </NavLink>
+                <NavLink
+                  to="/studentFeesReceipt"
+                  onClick={closeMenus}
+                  className="block px-3 py-2 hover:bg-gray-800 rounded"
+                >
+                  Student Fees Receipt
+                </NavLink>
+
               </motion.div>
             )}
           </AnimatePresence>

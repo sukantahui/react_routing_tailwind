@@ -1,4 +1,3 @@
-// QuestionPaperTemplate.jsx
 import React, { useState } from 'react';
 import PrintButton from '../../common/PrintButton';
 
@@ -10,7 +9,137 @@ const BooleanalgebraQuestionPaperTemplate = ({ data, isLoggedIn = false, organiz
     setOpenAnswers(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
+  // Function to render K-Map table
+  const renderKMap = (kmapData) => {
+    if (!kmapData) return null;
+
+    const { type, headers, rowLabels, cells, groups } = kmapData;
+
+    return (
+      <div className="mt-3">
+        <strong className="text-yellow-400">K-Map:</strong>
+        <div className="overflow-x-auto mt-2">
+          <table className="border-collapse border border-gray-600 mx-auto">
+            <thead>
+              <tr>
+                <th className="border border-gray-600 px-3 py-1 bg-gray-700"></th>
+                {headers.map((header, idx) => (
+                  <th key={idx} className="border border-gray-600 px-4 py-2 bg-gray-700 text-gray-200">
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {cells.map((row, rowIdx) => (
+                <tr key={rowIdx}>
+                  <td className="border border-gray-600 px-3 py-2 bg-gray-700 text-gray-200 font-medium">
+                    {rowLabels[rowIdx]}
+                  </td>
+                  {row.map((cell, colIdx) => {
+                    let groupColor = '';
+                    if (groups) {
+                      for (const group of groups) {
+                        if (group.cells.some(([r, c]) => r === rowIdx && c === colIdx)) {
+                          if (group.color === 'blue') groupColor = 'bg-blue-900/50';
+                          else if (group.color === 'green') groupColor = 'bg-green-900/50';
+                          else if (group.color === 'red') groupColor = 'bg-red-900/50';
+                          else if (group.color === 'purple') groupColor = 'bg-purple-900/50';
+                          break;
+                        }
+                      }
+                    }
+                    return (
+                      <td key={colIdx} className={`border border-gray-600 px-4 py-2 text-center text-gray-300 ${groupColor}`}>
+                        {cell}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        
+        {/* Group expressions */}
+        {groups && groups.length > 0 && (
+          <div className="mt-2 text-sm">
+            <strong className="text-blue-400">Groups:</strong>
+            <ul className="list-disc list-inside ml-2">
+              {groups.map((group, idx) => (
+                <li key={idx} className="text-gray-300">
+                  {group.expression}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   const formatAnswer = (question) => {
+    // For K-Map questions
+    if (question.kmapData) {
+      return (
+        <div className="space-y-3">
+          {question.original && (
+            <div>
+              <strong className="text-blue-400">Original Expression:</strong>
+              <p className="mt-1 font-mono">{question.original}</p>
+            </div>
+          )}
+          
+          {question.minterms && (
+            <div>
+              <strong className="text-blue-400">Minterms:</strong>
+              <p className="mt-1 font-mono">Σ({question.minterms})</p>
+            </div>
+          )}
+          
+          {question.canonical && (
+            <div>
+              <strong className="text-blue-400">Canonical SOP:</strong>
+              <p className="mt-1 font-mono text-sm">{question.canonical}</p>
+            </div>
+          )}
+          
+          {renderKMap(question.kmapData)}
+          
+          {question.simplified && (
+            <div>
+              <strong className="text-green-400">Simplified Expression:</strong>
+              <p className="mt-1 font-mono text-green-400 text-lg">{question.simplified}</p>
+            </div>
+          )}
+          
+          {question.steps && (
+            <div>
+              <strong className="text-yellow-400">Step-by-Step Solution:</strong>
+              <ol className="list-decimal list-inside mt-2 space-y-2">
+                {question.steps.map((step, idx) => (
+                  <li key={idx} className="text-gray-300">
+                    <span className="font-medium">{step.action}</span>
+                    <div className="ml-6 mt-1 font-mono text-sm">
+                      {step.expression}
+                      <span className="text-gray-500 ml-2">({step.law})</span>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
+          
+          {question.explanation && (
+            <div className="mt-2 p-2 bg-gray-700 rounded">
+              <strong className="text-purple-400">💡 Explanation:</strong>
+              <p className="mt-1 text-gray-300">{question.explanation}</p>
+            </div>
+          )}
+        </div>
+      );
+    }
+
     // For questions with steps (Boolean algebra simplifications)
     if (question.steps) {
       return (
@@ -142,7 +271,7 @@ const BooleanalgebraQuestionPaperTemplate = ({ data, isLoggedIn = false, organiz
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-900 shadow-lg rounded-xl text-gray-100">
+    <div className="max-w-5xl mx-auto p-6 bg-gray-900 shadow-lg rounded-xl text-gray-100">
       {/* Print Button */}
       <div className="flex justify-end mb-4 no-print">
         <PrintButton 

@@ -1,0 +1,16 @@
+{
+  "courses": [
+    { "id": 1, "name": "Full Stack Development" },
+    { "id": 2, "name": "Tally Prime with GST" },
+    { "id": 3, "name": "Advanced Excel & Data Analysis" },
+    { "id": 4, "name": "Digital Marketing" },
+    { "id": 5, "name": "Python Programming" },
+    { "id": 6, "name": "Web Design (HTML/CSS/JS)" },
+    { "id": 7, "name": "React.js Mastery" },
+    { "id": 8, "name": "Node.js Backend Development" },
+    { "id": 9, "name": "Data Science with Python" },
+    { "id": 10, "name": "GST Practitioner Course" },
+    { "id": 11, "name": "Income Tax Filing Course" },
+    { "id": 12, "name": "Accounting with Tally" }
+  ]
+}

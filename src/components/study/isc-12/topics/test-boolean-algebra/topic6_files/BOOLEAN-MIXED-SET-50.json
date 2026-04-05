@@ -1,0 +1,498 @@
+{
+  "paperId": "BOOLEAN-MIXED-SET-50",
+  "title": "Boolean Algebra - Mixed Question Paper (50 Marks)",
+  "duration": "2 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "State De Morgan's First Theorem.",
+          "marks": 1,
+          "answer": "(A + B)' = A' · B'",
+          "steps": [
+            { "step": 1, "action": "De Morgan's First Theorem", "expression": "Complement of OR is AND of complements", "law": "De Morgan's Theorem" }
+          ],
+          "explanation": "The complement of a sum equals the product of complements."
+        },
+        {
+          "q": "What is a minterm?",
+          "marks": 1,
+          "answer": "A product term where all variables appear exactly once in complemented or uncomplemented form.",
+          "steps": [
+            { "step": 1, "action": "Definition", "expression": "Product term with all variables", "law": "Boolean Algebra" }
+          ],
+          "explanation": "For n variables, there are 2^n minterms."
+        },
+        {
+          "q": "What is the output of X · X'?",
+          "marks": 1,
+          "answer": "0",
+          "steps": [
+            { "step": 1, "action": "Apply Complement Law", "expression": "X · X' = 0", "law": "Complement Law" }
+          ],
+          "explanation": "A variable ANDed with its complement always gives 0."
+        },
+        {
+          "q": "Write the dual of A + (B · C).",
+          "marks": 1,
+          "answer": "A · (B + C)",
+          "steps": [
+            { "step": 1, "action": "Replace + with · and · with +", "expression": "A + (B·C) becomes A·(B+C)", "law": "Duality Principle" }
+          ],
+          "explanation": "Duality is obtained by interchanging AND/OR and 0/1."
+        },
+        {
+          "q": "What is a Karnaugh Map?",
+          "marks": 1,
+          "answer": "A graphical method to simplify Boolean expressions.",
+          "steps": [
+            { "step": 1, "action": "Definition", "expression": "Grid-based simplification tool", "law": "K-map" }
+          ],
+          "explanation": "K-map arranges truth table in a grid to identify adjacent terms."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Prove the Absorption Law: A + AB = A",
+          "marks": 2,
+          "original": "A + AB",
+          "simplified": "A",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "A + AB", "law": "Given" },
+            { "step": 2, "action": "Factor out A", "expression": "A(1 + B)", "law": "Distributive Law" },
+            { "step": 3, "action": "Apply Null Law", "expression": "1 + B = 1", "law": "Null Law" },
+            { "step": 4, "action": "Result", "expression": "A · 1 = A", "law": "Identity Law" }
+          ],
+          "explanation": "The term AB is redundant and gets absorbed by A."
+        },
+        {
+          "q": "Convert to canonical SOP: F(A,B) = A ⊕ B",
+          "marks": 2,
+          "variables": 2,
+          "original": "A ⊕ B",
+          "canonical": "A'B + AB'",
+          "simplified": "A'B + AB'",
+          "steps": [
+            { "step": 1, "action": "XOR definition", "expression": "A ⊕ B = A'B + AB'", "law": "XOR definition" },
+            { "step": 2, "action": "Check canonical form", "expression": "Both terms have all variables", "law": "Canonical form" }
+          ],
+          "explanation": "XOR naturally gives canonical SOP with two minterms."
+        },
+        {
+          "q": "Construct truth table for F = A'B + AB'",
+          "marks": 2,
+          "original": "F = A'B + AB'",
+          "truthTable": [
+            { "A": 0, "B": 0, "A'B": 0, "AB'": 0, "F": 0 },
+            { "A": 0, "B": 1, "A'B": 1, "AB'": 0, "F": 1 },
+            { "A": 1, "B": 0, "A'B": 0, "AB'": 1, "F": 1 },
+            { "A": 1, "B": 1, "A'B": 0, "AB'": 0, "F": 0 }
+          ],
+          "steps": [
+            { "step": 1, "action": "List all input combinations", "expression": "A,B: 00,01,10,11", "law": "Truth table method" },
+            { "step": 2, "action": "Calculate A'B for each row", "expression": "Only true when A=0,B=1", "law": "AND operation" },
+            { "step": 3, "action": "Calculate AB' for each row", "expression": "Only true when A=1,B=0", "law": "AND operation" },
+            { "step": 4, "action": "OR the results", "expression": "F = A'B + AB'", "law": "OR operation" }
+          ],
+          "explanation": "This is the XOR function - output 1 when inputs differ."
+        },
+        {
+          "q": "Find the complement of: F = A + B'C",
+          "marks": 2,
+          "original": "A + B'C",
+          "complement": "A'·(B + C')",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Theorem", "expression": "(A + B'C)' = A'·(B'C)'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 2, "action": "Apply De Morgan's again", "expression": "A'·(B + C')", "law": "(X·Y)' = X' + Y'" }
+          ],
+          "explanation": "Complement of OR is AND of complements."
+        },
+        {
+          "q": "Simplify: (A + B)(A + C)",
+          "marks": 2,
+          "original": "(A + B)(A + C)",
+          "simplified": "A + BC",
+          "steps": [
+            { "step": 1, "action": "Expand", "expression": "A·A + A·C + B·A + B·C", "law": "Distributive Law" },
+            { "step": 2, "action": "Simplify", "expression": "A + AC + AB + BC", "law": "A·A = A" },
+            { "step": 3, "action": "Factor A", "expression": "A(1 + C + B) + BC", "law": "Distributive Law" },
+            { "step": 4, "action": "Apply Null Law", "expression": "A·1 + BC = A + BC", "law": "Null Law" }
+          ],
+          "explanation": "This is the distributive law in reverse."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "K-Map Simplification (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 6,
+      "questions": [
+        {
+          "q": "Simplify using K-map: F(A,B,C) = Σ(1,2,3,5)",
+          "marks": 3,
+          "variables": 3,
+          "minterms": "m1, m2, m3, m5",
+          "canonical": "A'B'C + A'BC' + A'BC + AB'C",
+          "simplified": "A'B + A'C + B'C",
+          "kmapData": {
+            "type": "3var",
+            "headers": ["BC=00", "BC=01", "BC=11", "BC=10"],
+            "rowLabels": ["A=0", "A=1"],
+            "cells": [
+              [0, 1, 1, 1],
+              [0, 1, 0, 0]
+            ],
+            "groups": [
+              { "cells": [[0,1], [0,2]], "expression": "A'C", "color": "blue" },
+              { "cells": [[0,2], [0,3]], "expression": "A'B", "color": "green" },
+              { "cells": [[0,1], [1,1]], "expression": "B'C", "color": "red" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 3-variable K-map", "expression": "Rows: A, Columns: BC", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's at m1,m2,m3,m5", "expression": "Cells: (0,01), (0,10), (0,11), (1,01)", "law": "Minterm placement" },
+            { "step": 3, "action": "Group m1,m3 (A=0, C=1)", "expression": "A'C", "law": "Grouping rule" },
+            { "step": 4, "action": "Group m2,m3 (A=0, B=1)", "expression": "A'B", "law": "Grouping rule" },
+            { "step": 5, "action": "Group m1,m5 (B=0, C=1)", "expression": "B'C", "law": "Grouping rule" },
+            { "step": 6, "action": "Write simplified expression", "expression": "F = A'B + A'C + B'C", "law": "Sum of groups" }
+          ],
+          "explanation": "Three pairs cover all minterms."
+        },
+        {
+          "q": "Simplify using K-map: F(A,B,C) = Σ(0,1,4,5,6)",
+          "marks": 3,
+          "variables": 3,
+          "minterms": "m0, m1, m4, m5, m6",
+          "simplified": "A'B' + AC' + AB'",
+          "kmapData": {
+            "type": "3var",
+            "headers": ["BC=00", "BC=01", "BC=11", "BC=10"],
+            "rowLabels": ["A=0", "A=1"],
+            "cells": [
+              [1, 1, 0, 0],
+              [1, 1, 0, 1]
+            ],
+            "groups": [
+              { "cells": [[0,0], [0,1], [1,0], [1,1]], "expression": "B'", "color": "blue" },
+              { "cells": [[1,0], [1,3]], "expression": "AC'", "color": "green" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 3-variable K-map", "expression": "Rows: A, Columns: BC", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's at m0,m1,m4,m5,m6", "expression": "Cells: (0,00), (0,01), (1,00), (1,01), (1,10)", "law": "Minterm placement" },
+            { "step": 3, "action": "Group m0,m1,m4,m5 (B=0)", "expression": "B'", "law": "Grouping rule" },
+            { "step": 4, "action": "Group m4,m6 (A=1, C=0)", "expression": "AC'", "law": "Grouping rule" },
+            { "step": 5, "action": "Write simplified expression", "expression": "F = B' + AC'", "law": "Sum of groups" }
+          ],
+          "explanation": "One quad and one pair cover all 1's."
+        },
+        {
+          "q": "Simplify using K-map: F(A,B,C,D) = Σ(0,1,2,3,8,9,10,11)",
+          "marks": 3,
+          "variables": 4,
+          "minterms": "m0, m1, m2, m3, m8, m9, m10, m11",
+          "simplified": "A'",
+          "kmapData": {
+            "type": "4var",
+            "headers": ["CD=00", "CD=01", "CD=11", "CD=10"],
+            "rowLabels": ["AB=00", "AB=01", "AB=11", "AB=10"],
+            "cells": [
+              [1, 1, 0, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0],
+              [1, 1, 0, 0]
+            ],
+            "groups": [{ "cells": [[0,0], [0,1], [3,0], [3,1]], "expression": "B'", "color": "blue" }]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 4-variable K-map", "expression": "Rows: AB, Columns: CD", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's at minterms", "expression": "m0-m3 in row 00, m8-m11 in row 10", "law": "Minterm placement" },
+            { "step": 3, "action": "Group all 1's", "expression": "Cells where B=0", "law": "Grouping rule" },
+            { "step": 4, "action": "Write simplified expression", "expression": "F = B'", "law": "Simplified" }
+          ],
+          "explanation": "All 1's are in rows where B=0, so expression simplifies to B'."
+        },
+        {
+          "q": "Simplify using K-map: F(A,B,C,D) = Σ(0,2,5,7,8,10,13,15)",
+          "marks": 3,
+          "variables": 4,
+          "minterms": "m0, m2, m5, m7, m8, m10, m13, m15",
+          "simplified": "B'D' + BD",
+          "kmapData": {
+            "type": "4var",
+            "headers": ["CD=00", "CD=01", "CD=11", "CD=10"],
+            "rowLabels": ["AB=00", "AB=01", "AB=11", "AB=10"],
+            "cells": [
+              [1, 0, 0, 1],
+              [0, 1, 1, 0],
+              [0, 1, 1, 0],
+              [1, 0, 0, 1]
+            ],
+            "groups": [
+              { "cells": [[0,0], [0,3], [3,0], [3,3]], "expression": "B'D'", "color": "blue" },
+              { "cells": [[1,1], [1,2], [2,1], [2,2]], "expression": "BD", "color": "green" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 4-variable K-map", "expression": "Rows: AB, Columns: CD", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's at given minterms", "expression": "Pattern forms two quads", "law": "Minterm placement" },
+            { "step": 3, "action": "Group 1: corners (B=0, D=0)", "expression": "B'D'", "law": "Grouping rule" },
+            { "step": 4, "action": "Group 2: center (B=1, D=1)", "expression": "BD", "law": "Grouping rule" },
+            { "step": 5, "action": "Write simplified expression", "expression": "F = B'D' + BD", "law": "Sum of groups" }
+          ],
+          "explanation": "Two quads: corners give B'D', center gives BD."
+        },
+        {
+          "q": "Simplify using K-map: F(A,B,C,D) = Σ(4,5,6,7,12,13) + d(8,9,10,11)",
+          "marks": 3,
+          "variables": 4,
+          "minterms": "m4, m5, m6, m7, m12, m13",
+          "dontcares": "m8, m9, m10, m11",
+          "simplified": "A'B + AB'",
+          "kmapData": {
+            "type": "4var",
+            "headers": ["CD=00", "CD=01", "CD=11", "CD=10"],
+            "rowLabels": ["AB=00", "AB=01", "AB=11", "AB=10"],
+            "cells": [
+              [0, 0, 0, 0],
+              [1, 1, 1, 1],
+              [1, 1, 0, 0],
+              ["X", "X", "X", "X"]
+            ],
+            "groups": [
+              { "cells": [[1,0], [1,1], [1,2], [1,3]], "expression": "A'B", "color": "blue" },
+              { "cells": [[2,0], [2,1]], "expression": "ABC'", "color": "green" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 4-variable K-map", "expression": "Rows: AB, Columns: CD", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's and don't cares", "expression": "1's at m4-m7,m12,m13; X at m8-m11", "law": "Placement" },
+            { "step": 3, "action": "Group 1: AB=01 row (A'B)", "expression": "A'B", "law": "Grouping rule" },
+            { "step": 4, "action": "Group 2: m12,m13 with don't cares", "expression": "AB'", "law": "Grouping with don't cares" },
+            { "step": 5, "action": "Write simplified expression", "expression": "F = A'B + AB' = A ⊕ B", "law": "XOR definition" }
+          ],
+          "explanation": "Don't cares help form AB' group."
+        },
+        {
+          "q": "Simplify using K-map: F(A,B,C,D) = Σ(0,1,4,5,12,13,14,15)",
+          "marks": 3,
+          "variables": 4,
+          "minterms": "m0, m1, m4, m5, m12, m13, m14, m15",
+          "simplified": "A'C' + AB",
+          "kmapData": {
+            "type": "4var",
+            "headers": ["CD=00", "CD=01", "CD=11", "CD=10"],
+            "rowLabels": ["AB=00", "AB=01", "AB=11", "AB=10"],
+            "cells": [
+              [1, 1, 0, 0],
+              [1, 1, 0, 0],
+              [1, 1, 1, 1],
+              [0, 0, 0, 0]
+            ],
+            "groups": [
+              { "cells": [[0,0], [0,1], [1,0], [1,1]], "expression": "A'C'", "color": "blue" },
+              { "cells": [[2,0], [2,1], [2,2], [2,3]], "expression": "AB", "color": "green" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Draw 4-variable K-map", "expression": "Rows: AB, Columns: CD", "law": "K-map structure" },
+            { "step": 2, "action": "Place 1's at minterms", "expression": "m0,m1,m4,m5,m12,m13,m14,m15", "law": "Minterm placement" },
+            { "step": 3, "action": "Group 1: AB=00 and AB=01 (C=0)", "expression": "A'C'", "law": "Grouping rule" },
+            { "step": 4, "action": "Group 2: AB=11 row", "expression": "AB", "law": "Grouping rule" },
+            { "step": 5, "action": "Write simplified expression", "expression": "F = A'C' + AB", "law": "Sum of groups" }
+          ],
+          "explanation": "Two quads: one covering A'C', another covering AB."
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Expression Simplification (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Simplify using Boolean laws: AB + A'C + BC",
+          "marks": 3,
+          "original": "AB + A'C + BC",
+          "simplified": "AB + A'C",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB + A'C + BC", "law": "Given" },
+            { "step": 2, "action": "Apply Consensus Theorem", "expression": "BC is redundant", "law": "Consensus Theorem" },
+            { "step": 3, "action": "Remove redundant term", "expression": "AB + A'C", "law": "Simplification" }
+          ],
+          "explanation": "BC is the consensus term and is redundant."
+        },
+        {
+          "q": "Simplify using Boolean laws: (A + B)(A' + C)(B + C)",
+          "marks": 3,
+          "original": "(A + B)(A' + C)(B + C)",
+          "simplified": "(A + B)(A' + C)",
+          "steps": [
+            { "step": 1, "action": "Original POS expression", "expression": "F = (A + B)(A' + C)(B + C)", "law": "Given" },
+            { "step": 2, "action": "Apply Consensus Theorem", "expression": "(B + C) is redundant", "law": "Consensus Theorem for POS" },
+            { "step": 3, "action": "Remove redundant term", "expression": "(A + B)(A' + C)", "law": "Simplification" }
+          ],
+          "explanation": "(B + C) is the consensus term and is redundant."
+        },
+        {
+          "q": "Simplify: A'B'C' + A'B'C + A'BC' + A'BC + AB'C'",
+          "marks": 3,
+          "original": "A'B'C' + A'B'C + A'BC' + A'BC + AB'C'",
+          "simplified": "A' + B'C'",
+          "steps": [
+            { "step": 1, "action": "Group first 4 terms (A' row)", "expression": "A'B'C' + A'B'C + A'BC' + A'BC = A'", "law": "Row of 4 in K-map" },
+            { "step": 2, "action": "Remaining term", "expression": "AB'C'", "law": "Leftover minterm" },
+            { "step": 3, "action": "Check if AB'C' can be combined", "expression": "Already covered? No", "law": "K-map grouping" },
+            { "step": 4, "action": "Final expression", "expression": "A' + AB'C'", "law": "Sum" }
+          ],
+          "explanation": "The first four terms cover all A' row, leaving AB'C'."
+        },
+        {
+          "q": "Simplify: (A ⊕ B) ⊕ C",
+          "marks": 3,
+          "original": "(A ⊕ B) ⊕ C",
+          "simplified": "A ⊕ B ⊕ C",
+          "steps": [
+            { "step": 1, "action": "XOR is associative", "expression": "(A ⊕ B) ⊕ C = A ⊕ B ⊕ C", "law": "Associative Law" },
+            { "step": 2, "action": "Canonical form", "expression": "A'B'C + A'BC' + AB'C' + ABC", "law": "3-input XOR" }
+          ],
+          "explanation": "XOR operation is associative, so parentheses don't matter."
+        },
+        {
+          "q": "Simplify: A'B'C'D' + A'B'C'D + A'B'CD' + A'B'CD + AB'C'D' + AB'C'D",
+          "marks": 3,
+          "original": "A'B'C'D' + A'B'C'D + A'B'CD' + A'B'CD + AB'C'D' + AB'C'D",
+          "simplified": "A'B' + AB'C'",
+          "steps": [
+            { "step": 1, "action": "Group first 4 terms", "expression": "A'B'(C'D' + C'D + CD' + CD) = A'B'", "law": "Row of 4" },
+            { "step": 2, "action": "Remaining terms", "expression": "AB'C'D' + AB'C'D = AB'C'", "law": "Pair" },
+            { "step": 3, "action": "Combine", "expression": "A'B' + AB'C'", "law": "Sum" }
+          ],
+          "explanation": "First quad gives A'B', pair gives AB'C'."
+        }
+      ]
+    },
+    {
+      "section": "E",
+      "type": "Complement & Canonical Forms (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Find the complement of: F = AB' + A'B",
+          "marks": 3,
+          "original": "AB' + A'B",
+          "complement": "(A' + B)(A + B')",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Theorem", "expression": "(AB' + A'B)' = (AB')'·(A'B)'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 2, "action": "Apply De Morgan's to each", "expression": "(A' + B)(A + B')", "law": "(X·Y)' = X' + Y'" },
+            { "step": 3, "action": "Result", "expression": "(A' + B)(A + B')", "law": "Complement" }
+          ],
+          "explanation": "Complement of XOR is XNOR."
+        },
+        {
+          "q": "Convert to canonical SOP: F(A,B,C) = AB + BC",
+          "marks": 3,
+          "variables": 3,
+          "original": "AB + BC",
+          "canonical": "ABC' + ABC + A'BC",
+          "minterms": "m6, m7, m3",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = AB + BC", "law": "Given" },
+            { "step": 2, "action": "Expand AB with missing C", "expression": "AB = AB(C + C') = ABC + ABC'", "law": "Identity Law" },
+            { "step": 3, "action": "Expand BC with missing A", "expression": "BC = BC(A + A') = ABC + A'BC", "law": "Identity Law" },
+            { "step": 4, "action": "Combine and remove duplicate", "expression": "ABC + ABC' + A'BC", "law": "Idempotent Law" },
+            { "step": 5, "action": "Final canonical form", "expression": "F = A'BC + ABC' + ABC", "law": "Canonical SOP" }
+          ],
+          "explanation": "Each term expanded to include all three variables."
+        },
+        {
+          "q": "Convert to canonical SOP: F(A,B,C) = (A + B)(B + C)",
+          "marks": 3,
+          "variables": 3,
+          "original": "(A + B)(B + C)",
+          "canonical": "A'BC + ABC' + ABC",
+          "minterms": "m3, m6, m7",
+          "steps": [
+            { "step": 1, "action": "Convert POS to SOP", "expression": "(A+B)(B+C) = AB + AC + B + BC", "law": "Distributive Law" },
+            { "step": 2, "action": "Simplify", "expression": "AB + AC + B(1 + C) = AB + AC + B", "law": "Null & Identity Law" },
+            { "step": 3, "action": "Simplify further", "expression": "B + AC", "law": "Absorption Law" },
+            { "step": 4, "action": "Expand to canonical", "expression": "B = B(A+A')(C+C') = ABC + ABC' + A'BC + A'BC'", "law": "Expansion" },
+            { "step": 5, "action": "AC = AC(B+B') = ABC + AB'C", "expression": "Combine and remove duplicates", "law": "Expansion" },
+            { "step": 6, "action": "Final canonical", "expression": "A'BC + ABC' + ABC", "law": "Canonical SOP" }
+          ],
+          "explanation": "First convert POS to SOP, then expand to canonical."
+        },
+        {
+          "q": "Find the complement of: F = (A + B')(A' + C)",
+          "marks": 3,
+          "original": "(A + B')(A' + C)",
+          "complement": "A'B + AC'",
+          "steps": [
+            { "step": 1, "action": "Apply De Morgan's Theorem", "expression": "[(A + B')(A' + C)]' = (A + B')' + (A' + C)'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 2, "action": "Apply De Morgan's to each", "expression": "A'B + AC'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Result", "expression": "A'B + AC'", "law": "Complement" }
+          ],
+          "explanation": "Complement of POS becomes SOP of complements."
+        }
+      ]
+    },
+    {
+      "section": "F",
+      "type": "Word Problems (5 Marks)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Design a circuit that detects prime numbers from 0 to 15 using K-map. List the prime numbers, show the K-map, and write the simplified expression.",
+          "marks": 5,
+          "variables": 4,
+          "minterms": "m2, m3, m5, m7, m11, m13",
+          "prime_numbers": [2, 3, 5, 7, 11, 13],
+          "binary": ["0010", "0011", "0101", "0111", "1011", "1101"],
+          "simplified": "A'B'C + A'BC'D + AB'CD + A'BCD + ABC'D + AB'C'D",
+          "kmapData": {
+            "type": "4var",
+            "headers": ["CD=00", "CD=01", "CD=11", "CD=10"],
+            "rowLabels": ["AB=00", "AB=01", "AB=11", "AB=10"],
+            "cells": [
+              [0, 0, 1, 1],
+              [0, 1, 1, 0],
+              [0, 1, 0, 0],
+              [0, 1, 0, 0]
+            ],
+            "groups": [
+              { "cells": [[0,2], [0,3]], "expression": "A'B'C", "color": "blue" },
+              { "cells": [[1,1], [1,2]], "expression": "A'BD", "color": "green" },
+              { "cells": [[1,1], [3,1]], "expression": "B'CD", "color": "red" },
+              { "cells": [[0,3], [1,3]], "expression": "A'BC'", "color": "purple" }
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "List prime numbers 0-15", "expression": "Primes: 2,3,5,7,11,13", "law": "Prime number definition" },
+            { "step": 2, "action": "Convert to 4-bit binary", "expression": "2=0010, 3=0011, 5=0101, 7=0111, 11=1011, 13=1101", "law": "Binary conversion" },
+            { "step": 3, "action": "Write minterm list", "expression": "F = Σ(2,3,5,7,11,13)", "law": "Minterm representation" },
+            { "step": 4, "action": "Draw 4-variable K-map", "expression": "Rows: AB, Columns: CD", "law": "K-map structure" },
+            { "step": 5, "action": "Place 1's at prime positions", "expression": "1's at m2,m3,m5,m7,m11,m13", "law": "K-map placement" },
+            { "step": 6, "action": "Group adjacent 1's", "expression": "Form groups of 2 and 4 where possible", "law": "Grouping rule" },
+            { "step": 7, "action": "Write simplified expression", "expression": "F = A'B'C + A'BD + B'CD + A'BC'", "law": "Sum of groups" }
+          ],
+          "explanation": "The prime number detector for 0-15 uses 4-bit inputs. After K-map simplification, we get the minimal SOP expression."
+        }
+      ]
+    }
+  ]
+}

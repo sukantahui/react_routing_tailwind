@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import clsx from "clsx";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import clock1 from "./topic4_files/clock1.png";
 
 /**
  * Topic4: Clock Triggering in Flip-Flops
@@ -69,6 +70,48 @@ const Topic4 = () => {
           Mastering the heartbeat of sequential circuits — when and how flip‑flops respond to the clock.
         </p>
       </header>
+
+      {/* Add later */}
+      <section
+        id="clock"
+        ref={registerSection("clock")}
+        className={clsx(
+          "mb-12 p-6 md:p-8 rounded-2xl bg-white dark:bg-gray-800/50 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700",
+          revealedSections.clock
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
+        )}
+      >
+        <h2 className="text-2xl md:text-3xl font-semibold border-l-4 border-blue-500 pl-4 mb-4">
+          Clock Signal
+        </h2>
+        <p>
+          Clock signal is a periodic signal and its ON time and OFF time need not be the same. We can represent the clock signal as a square wave, when both its ON time and OFF time are same. This clock signal is shown in the following figure.
+        </p>
+
+        <div className="flex flex-col md:flex-col gap-6 items-center mt-4">
+          <div className="flex-1">
+            <p> In this figure, square wave is considered as clock signal. This signal stays at logic High (5V) for some time and stays at logic Low (0V) for equal amount of time. This pattern repeats with some time period. In this case, the time period will be equal to either twice of ON time or twice of OFF time.</p>
+          </div>
+          <div className="flex-1">
+            {/*Picture will be here */}
+            <div className="flex flex-col items-center gap-6">
+
+                    {/* Half Adder PNG */}
+                    <img src={clock1} alt="SR Latch" className="max-w-full dark:invert"  />
+
+                    {/* Boolean expressions */}
+                    <div className="bg-gray-900 p-4 rounded-lg border border-gray-600 text-center">
+                        <h3 className="text-lg font-semibold text-blue-300 mb-2">
+                            Clock Signal
+                        </h3>
+                        
+                    </div>
+
+                </div>
+          </div>
+        </div>
+      </section>
 
       {/* 1. Concept of Clock Signal */}
       <section
