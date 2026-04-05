@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import coursesData from '../assets/jsons/courses.json'; // Import the JSON file
+import coursesData from '../assets/jsons/courses.json';
+import CNATLogo from "../../public/assets/cnat.png";
 
 const StudentFeeReceipt = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ const StudentFeeReceipt = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [courses, setCourses] = useState([]);
 
-  // Load courses from JSON on component mount
   useEffect(() => {
     setCourses(coursesData.courses);
   }, []);
@@ -28,7 +28,7 @@ const StudentFeeReceipt = () => {
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
     const timestamp = `${year}${month}${day}${hours}${minutes}${seconds}`;
-    return `${prefix}/${year}${month}/${timestamp}`;
+    return `${prefix}-${timestamp}`;
   };
 
   const handleChange = (e) => {
@@ -36,12 +36,9 @@ const StudentFeeReceipt = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Improved number to words function for Indian numbering system (thousands, lakhs, crores)
   const numberToWords = (num) => {
     if (!num || isNaN(num)) return '';
-    
-    num = Math.floor(num); // remove decimal
-    
+    num = Math.floor(num);
     if (num === 0) return 'Zero Only';
     
     const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
@@ -66,35 +63,27 @@ const StudentFeeReceipt = () => {
     let result = '';
     let remaining = num;
     
-    // Crores (1 crore = 10000000)
     if (remaining >= 10000000) {
       const crores = Math.floor(remaining / 10000000);
       result += convertBelowHundred(crores) + ' Crore';
       remaining %= 10000000;
       if (remaining > 0) result += ' ';
     }
-    
-    // Lakhs (1 lakh = 100000)
     if (remaining >= 100000) {
       const lakhs = Math.floor(remaining / 100000);
       result += convertBelowHundred(lakhs) + ' Lakh';
       remaining %= 100000;
       if (remaining > 0) result += ' ';
     }
-    
-    // Thousands
     if (remaining >= 1000) {
       const thousands = Math.floor(remaining / 1000);
       result += convertBelowThousand(thousands) + ' Thousand';
       remaining %= 1000;
       if (remaining > 0) result += ' ';
     }
-    
-    // Hundreds and below
     if (remaining > 0) {
       result += convertBelowThousand(remaining);
     }
-    
     return result + ' Only';
   };
 
@@ -145,7 +134,6 @@ const StudentFeeReceipt = () => {
               padding: 0;
               box-sizing: border-box;
             }
-            
             body {
               font-family: 'Times New Roman', Times, serif;
               font-size: 13px;
@@ -153,7 +141,6 @@ const StudentFeeReceipt = () => {
               margin: 0;
               padding: 0;
             }
-            
             .receipt {
               width: 100%;
               height: 100vh;
@@ -164,7 +151,6 @@ const StudentFeeReceipt = () => {
               page-break-after: avoid;
               page-break-inside: avoid;
             }
-            
             .receipt-content {
               padding: 4mm 8mm 4mm 8mm;
               height: 100%;
@@ -174,8 +160,6 @@ const StudentFeeReceipt = () => {
               position: relative;
               z-index: 1;
             }
-            
-            /* Rounded Stamp Styles */
             .stamp-container {
               position: absolute;
               top: 50%;
@@ -184,7 +168,6 @@ const StudentFeeReceipt = () => {
               z-index: 10;
               pointer-events: none;
             }
-            
             .rounded-stamp {
               width: 180px;
               height: 180px;
@@ -199,11 +182,9 @@ const StudentFeeReceipt = () => {
               padding: 20px;
               box-shadow: 0 0 0 2px rgba(196, 30, 58, 0.3);
             }
-            
             .stamp-text {
               font-family: 'Times New Roman', Times, serif;
             }
-            
             .stamp-paid {
               font-size: 32px;
               font-weight: bold;
@@ -215,7 +196,6 @@ const StudentFeeReceipt = () => {
               display: inline-block;
               padding-bottom: 5px;
             }
-            
             .stamp-company {
               font-size: 11px;
               color: #c41e3a;
@@ -224,14 +204,12 @@ const StudentFeeReceipt = () => {
               text-transform: uppercase;
               letter-spacing: 1px;
             }
-            
             .stamp-since {
               font-size: 10px;
               color: #c41e3a;
               margin-top: 4px;
               font-style: italic;
             }
-            
             .header {
               text-align: center;
               border-bottom: 2px solid #1a3e6f;
@@ -241,29 +219,34 @@ const StudentFeeReceipt = () => {
               z-index: 1;
               background: white;
             }
-            
             .organisation-name {
               font-size: 24px;
               font-weight: bold;
               color: #1a3e6f;
               letter-spacing: 1px;
               margin-bottom: 2px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 8px;
             }
-            
+            .organisation-logo {
+              height: 36px;
+              width: auto;
+              vertical-align: middle;
+            }
             .organisation-tagline {
               font-size: 9px;
               color: #4a5568;
               margin-top: 2px;
               font-style: italic;
             }
-            
             .address {
               font-size: 8px;
               color: #4a5568;
               margin-top: 3px;
               line-height: 1.2;
             }
-            
             .contact-row {
               display: flex;
               justify-content: center;
@@ -273,7 +256,6 @@ const StudentFeeReceipt = () => {
               margin-top: 3px;
               flex-wrap: wrap;
             }
-            
             .receipt-title {
               font-size: 16px;
               font-weight: bold;
@@ -286,7 +268,6 @@ const StudentFeeReceipt = () => {
               padding: 2px 16px;
               border-radius: 20px;
             }
-            
             .info-row {
               display: flex;
               justify-content: space-between;
@@ -297,14 +278,12 @@ const StudentFeeReceipt = () => {
               z-index: 1;
               background: white;
             }
-            
             .info-box {
               background: #f7fafc;
               padding: 3px 10px;
               border-radius: 4px;
               border: 1px solid #e2e8f0;
             }
-            
             .info-label {
               font-size: 10px;
               font-weight: 600;
@@ -312,21 +291,18 @@ const StudentFeeReceipt = () => {
               text-transform: uppercase;
               letter-spacing: 0.5px;
             }
-            
             .info-value {
               font-size: 13px;
               font-weight: bold;
               color: #2d3748;
               margin-top: 1px;
             }
-            
             .details-section {
               margin-bottom: 8px;
               position: relative;
               z-index: 1;
               background: white;
             }
-            
             .section-title {
               font-size: 11px;
               font-weight: bold;
@@ -336,32 +312,26 @@ const StudentFeeReceipt = () => {
               margin-bottom: 6px;
               text-transform: uppercase;
             }
-            
             .details-table {
               width: 100%;
               border-collapse: collapse;
             }
-            
             .details-table tr {
               border-bottom: 1px solid #e2e8f0;
             }
-            
             .details-table td {
               padding: 4px 5px;
               font-size: 10px;
             }
-            
             .details-table td:first-child {
               font-weight: 600;
               color: #4a5568;
               width: 35%;
             }
-            
             .details-table td:last-child {
               color: #2d3748;
               font-weight: 500;
             }
-            
             .fee-section {
               background: #f7fafc;
               padding: 8px 10px;
@@ -371,25 +341,21 @@ const StudentFeeReceipt = () => {
               position: relative;
               z-index: 1;
             }
-            
             .fee-row {
               display: flex;
               justify-content: space-between;
               padding: 4px 0;
             }
-            
             .fee-label {
               font-weight: bold;
               font-size: 11px;
               color: #4a5568;
             }
-            
             .fee-amount {
               font-weight: bold;
               font-size: 15px;
               color: #2f855a;
             }
-            
             .amount-words {
               font-size: 8px;
               color: #718096;
@@ -398,7 +364,6 @@ const StudentFeeReceipt = () => {
               border-top: 1px dashed #cbd5e0;
               font-style: italic;
             }
-            
             .footer {
               margin-top: auto;
               text-align: center;
@@ -408,24 +373,20 @@ const StudentFeeReceipt = () => {
               z-index: 1;
               background: white;
             }
-            
             .signature-area {
               display: flex;
               justify-content: space-between;
               margin: 8px 0 4px 0;
             }
-            
             .signature-line {
               text-align: center;
               width: 45%;
             }
-            
             .signature-line p:first-child {
               font-size: 8px;
               color: #718096;
               margin-bottom: 10px;
             }
-            
             .signature-line p:last-child {
               font-size: 8px;
               font-weight: 600;
@@ -435,28 +396,24 @@ const StudentFeeReceipt = () => {
               display: inline-block;
               min-width: 90px;
             }
-            
             .footer-note {
               font-size: 7px;
               color: #a0aec0;
               margin-top: 4px;
               line-height: 1.3;
             }
-            
             .thankyou {
               font-size: 9px;
               font-weight: bold;
               color: #1a3e6f;
               margin-top: 4px;
             }
-            
             @media print {
               body {
                 background: white;
                 margin: 0;
                 padding: 0;
               }
-              
               .receipt {
                 box-shadow: none;
                 margin: 0;
@@ -465,16 +422,13 @@ const StudentFeeReceipt = () => {
                 height: auto;
                 min-height: 148mm;
               }
-              
               @page {
                 size: A4;
                 margin: 0;
               }
-              
               .receipt-content {
                 padding: 4mm 8mm;
               }
-              
               .rounded-stamp {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
@@ -484,7 +438,6 @@ const StudentFeeReceipt = () => {
         </head>
         <body>
           <div class="receipt">
-            <!-- Rounded PAID Stamp -->
             <div class="stamp-container">
               <div class="rounded-stamp">
                 <div class="stamp-text">
@@ -494,10 +447,12 @@ const StudentFeeReceipt = () => {
                 </div>
               </div>
             </div>
-            
             <div class="receipt-content">
               <div class="header">
-                <div class="organisation-name">🏢 CODER & ACCOTAX</div>
+                <div class="organisation-name">
+                  <img src="/assets/cnat.png" alt="Coder & AccoTax Logo" class="organisation-logo" />
+                  <span>CODER & ACCOTAX</span>
+                </div>
                 <div class="organisation-tagline">Quality Education | Professional Training | Tax Solutions</div>
                 <div class="address">
                   25(10/A) Shibtala Road, PO-N C Pukur, Barrackpore, Kolkata-700122
@@ -511,7 +466,6 @@ const StudentFeeReceipt = () => {
                   <span class="receipt-title">Fee Payment Receipt</span>
                 </div>
               </div>
-              
               <div class="info-row">
                 <div class="info-box">
                   <div class="info-label">Receipt No.</div>
@@ -526,7 +480,6 @@ const StudentFeeReceipt = () => {
                   <div class="info-value">Cash / Online</div>
                 </div>
               </div>
-              
               <div class="details-section">
                 <div class="section-title">Student Information</div>
                 <table class="details-table">
@@ -535,14 +488,13 @@ const StudentFeeReceipt = () => {
                     <td><strong>${receiptData.studentName}</strong></td>
                     <td>Phone Number</td>
                     <td>${receiptData.phone}</td>
-                   </tr>
-                   <tr>
+                  </tr>
+                  <tr>
                     <td>Course Enrolled</td>
                     <td><strong>${receiptData.course}</strong></td>
-                   </tr>
-                 </table>
+                  </tr>
+                </table>
               </div>
-              
               <div class="fee-section">
                 <div class="fee-row">
                   <span class="fee-label">Course Fees</span>
@@ -556,7 +508,6 @@ const StudentFeeReceipt = () => {
                   Amount in words: Rupees ${amountInWords}
                 </div>
               </div>
-              
               <div class="footer">
                 <div class="signature-area">
                   <div class="signature-line">
@@ -603,12 +554,10 @@ const StudentFeeReceipt = () => {
     }
   }, [darkMode]);
 
-  // Get amount in words for preview
   const previewAmountInWords = receiptData ? numberToWords(parseFloat(receiptData.feesPaid)) : '';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-4">
-      {/* Dark Mode Toggle */}
       <div className="flex justify-end mb-4 max-w-6xl mx-auto">
         <button
           onClick={() => setDarkMode(!darkMode)}
@@ -741,13 +690,11 @@ const StudentFeeReceipt = () => {
                     <div className="text-[7px] text-red-600">Since 1997</div>
                   </div>
                 </div>
-                {/* Mini Preview of Receipt */}
                 <div className="p-4 space-y-2 relative z-10">
                   <div className="text-center border-b pb-2">
                     <h3 className="text-base font-bold text-blue-700 dark:text-blue-400">Coder & AccoTax</h3>
                     <p className="text-[10px] text-gray-500">Fee Payment Receipt</p>
                   </div>
-
                   <div className="space-y-1.5 text-xs">
                     <div className="flex justify-between">
                       <span className="font-semibold">Receipt No:</span>
@@ -773,13 +720,11 @@ const StudentFeeReceipt = () => {
                       <span className="font-bold">Amount Paid:</span>
                       <span className="font-bold text-green-600 text-sm">₹ {parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}</span>
                     </div>
-                    {/* Amount in Words - Now visible in preview */}
                     <div className="pt-1 pb-1">
                       <span className="font-semibold text-[10px] text-gray-500">Amount in words:</span>
                       <p className="text-[9px] text-gray-600 dark:text-gray-400 italic">{previewAmountInWords}</p>
                     </div>
                   </div>
-
                   <div className="text-center pt-2 border-t">
                     <p className="text-[9px] text-gray-400">✓ Ready to print on half A4 sheet (no top margin)</p>
                     <p className="text-[8px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
