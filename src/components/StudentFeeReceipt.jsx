@@ -3,11 +3,26 @@ import coursesData from '../assets/jsons/courses.json';
 import CNATLogo from "../../public/assets/cnat.png";
 
 const StudentFeeReceipt = () => {
+  // Get current date in YYYY-MM-DD format for default value
+  const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
   const [formData, setFormData] = useState({
     studentName: '',
     phone: '',
     course: '',
-    feesPaid: '',
+    feeType: 'non_monthly', // Added fee type: monthly or non_monthly
+    monthlyFeeAmount: '', // Monthly fee amount (if monthly)
+    feesPaid: '', // Total calculated fees
+    paymentDate: getCurrentDate(),
+    paymentMode: 'Cash',
+    periodFrom: '',
+    periodTo: '',
   });
 
   const [receiptData, setReceiptData] = useState(null);
@@ -19,7 +34,7 @@ const StudentFeeReceipt = () => {
   }, []);
 
   const generateReceiptNo = () => {
-    const prefix = 'RCPT';
+    const prefix = 'CNAT';
     const date = new Date();
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -35,6 +50,44 @@ const StudentFeeReceipt = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const calculateMonthsDifference = (fromDate, toDate) => {
+    if (!fromDate || !toDate) return 0;
+    const from = new Date(fromDate);
+    const to = new Date(toDate);
+    const months = (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth()) + 1;
+    return months > 0 ? months : 0;
+  };
+
+  const handleFeeTypeChange = (e) => {
+    const feeType = e.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      feeType: feeType,
+      feesPaid: '', // Reset fees when changing type
+      periodFrom: '',
+      periodTo: '',
+      monthlyFeeAmount: '',
+    }));
+  };
+
+  const calculateTotalFees = () => {
+    if (formData.feeType === 'monthly') {
+      const months = calculateMonthsDifference(formData.periodFrom, formData.periodTo);
+      const monthlyAmount = parseFloat(formData.monthlyFeeAmount) || 0;
+      const total = months * monthlyAmount;
+      setFormData((prev) => ({
+        ...prev,
+        feesPaid: total.toString(),
+      }));
+    }
+  };
+
+  useEffect(() => {
+    if (formData.feeType === 'monthly' && formData.periodFrom && formData.periodTo && formData.monthlyFeeAmount) {
+      calculateTotalFees();
+    }
+  }, [formData.periodFrom, formData.periodTo, formData.monthlyFeeAmount, formData.feeType]);
 
   const numberToWords = (num) => {
     if (!num || isNaN(num)) return '';
@@ -87,22 +140,89 @@ const StudentFeeReceipt = () => {
     return result + ' Only';
   };
 
+  const formatDate = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-IN', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
+  };
+
+  const formatMonthYear = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-IN', {
+      month: 'long',
+      year: 'numeric',
+    });
+  };
+
+  const getPaymentModeIcon = (mode) => {
+    switch(mode) {
+      case 'Cash':
+        return '💵';
+      case 'Online (UPI)':
+        return '📱';
+      case 'Online (Card)':
+        return '💳';
+      case 'Online (Net Banking)':
+        return '🏦';
+      case 'Cheque':
+        return '📝';
+      default:
+        return '💰';
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.studentName || !formData.phone || !formData.course || !formData.feesPaid) {
-      alert('Please fill in all fields');
+    
+    // Validation
+    if (!formData.studentName || !formData.phone || !formData.course || !formData.paymentDate || !formData.paymentMode) {
+      alert('Please fill in all required fields');
       return;
     }
+
+    if (formData.feeType === 'monthly') {
+      if (!formData.periodFrom || !formData.periodTo || !formData.monthlyFeeAmount) {
+        alert('Please fill in period details and monthly fee amount for monthly fee type');
+        return;
+      }
+      if (!formData.feesPaid || parseFloat(formData.feesPaid) <= 0) {
+        alert('Please calculate total fees by selecting period and monthly amount');
+        return;
+      }
+    } else {
+      if (!formData.feesPaid) {
+        alert('Please enter the total fees amount');
+        return;
+      }
+    }
+    
+    // Format period if provided
+    let periodText = '';
+    let monthlyBreakdown = '';
+    
+    if (formData.feeType === 'monthly' && formData.periodFrom && formData.periodTo) {
+      const months = calculateMonthsDifference(formData.periodFrom, formData.periodTo);
+      const monthlyAmount = parseFloat(formData.monthlyFeeAmount);
+      periodText = `${formatMonthYear(formData.periodFrom)} to ${formatMonthYear(formData.periodTo)}`;
+      monthlyBreakdown = ` (${months} months × ₹${monthlyAmount.toLocaleString('en-IN')} = ₹${(months * monthlyAmount).toLocaleString('en-IN')})`;
+    }
+    
     setReceiptData({
       studentName: formData.studentName,
       phone: formData.phone,
       course: formData.course,
+      feeType: formData.feeType,
       feesPaid: formData.feesPaid,
-      date: new Date().toLocaleDateString('en-IN', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric',
-      }),
+      monthlyFeeAmount: formData.monthlyFeeAmount,
+      paymentDate: formatDate(formData.paymentDate),
+      paymentMode: formData.paymentMode,
+      period: periodText,
+      monthlyBreakdown: monthlyBreakdown,
       receiptNo: generateReceiptNo(),
     });
   };
@@ -121,6 +241,7 @@ const StudentFeeReceipt = () => {
 
     const amountInWords = numberToWords(parseFloat(receiptData.feesPaid));
     const paidAmount = parseFloat(receiptData.feesPaid).toLocaleString('en-IN');
+    const paymentModeIcon = getPaymentModeIcon(receiptData.paymentMode);
 
     printWindow.document.write(`
       <!DOCTYPE html>
@@ -142,18 +263,16 @@ const StudentFeeReceipt = () => {
               padding: 0;
             }
             .receipt {
+              position: relative;
               width: 100%;
-              height: 100vh;
               background: white;
               margin: 0;
               padding: 0;
-              position: relative;
               page-break-after: avoid;
               page-break-inside: avoid;
             }
             .receipt-content {
-              padding: 4mm 8mm 4mm 8mm;
-              height: 100%;
+              padding: 2mm 8mm 4mm 8mm;
               display: flex;
               flex-direction: column;
               background: white;
@@ -162,52 +281,70 @@ const StudentFeeReceipt = () => {
             }
             .stamp-container {
               position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%) rotate(-15deg);
+              top: 65%;
+              left: 60%;
+              transform: translate(-50%, -50%) rotate(-18deg);
               z-index: 10;
               pointer-events: none;
             }
             .rounded-stamp {
-              width: 180px;
-              height: 180px;
+              width: 130px;
+              height: 130px;
               border-radius: 50%;
-              border: 4px solid #c41e3a;
-              background: rgba(196, 30, 58, 0.08);
+              border: 2.5px solid #b30021;
+              position: relative;
+              background: radial-gradient(circle, rgba(179,0,33,0.08) 20%, transparent 70%);
               display: flex;
-              flex-direction: column;
               align-items: center;
               justify-content: center;
-              text-align: center;
-              padding: 20px;
-              box-shadow: 0 0 0 2px rgba(196, 30, 58, 0.3);
+              box-shadow: 
+                0 0 0 2px rgba(179,0,33,0.3),
+                inset 0 0 6px rgba(179,0,33,0.2);
             }
+            .rounded-stamp::after {
+              content: "";
+              position: absolute;
+              inset: 0;
+              border-radius: 50%;
+              background: url('https://www.transparenttextures.com/patterns/ink.png');
+              opacity: 0.15;
+              mix-blend-mode: multiply;
+            }    
+            .rounded-stamp::before {
+              content: "";
+              position: absolute;
+              width: 115px;
+              height: 115px;
+              border-radius: 50%;
+              border: 1.5px dashed rgba(179,0,33,0.5);
+            }    
             .stamp-text {
               font-family: 'Times New Roman', Times, serif;
+              text-align: center;
             }
             .stamp-paid {
-              font-size: 32px;
-              font-weight: bold;
-              color: #c41e3a;
-              letter-spacing: 4px;
-              margin-bottom: 8px;
+              font-size: 24px;
+              font-weight: 900;
+              color: #b30021;
+              letter-spacing: 3px;
               text-transform: uppercase;
-              border-bottom: 2px solid #c41e3a;
-              display: inline-block;
-              padding-bottom: 5px;
+              transform: rotate(-2deg);
+              text-shadow: 
+                1px 1px 0 rgba(0,0,0,0.1),
+                0 0 4px rgba(179,0,33,0.4);
             }
             .stamp-company {
-              font-size: 11px;
+              font-size: 8px;
               color: #c41e3a;
               font-weight: 600;
-              margin-top: 8px;
+              margin-top: 4px;
               text-transform: uppercase;
               letter-spacing: 1px;
             }
             .stamp-since {
-              font-size: 10px;
+              font-size: 7px;
               color: #c41e3a;
-              margin-top: 4px;
+              margin-top: 2px;
               font-style: italic;
             }
             .header {
@@ -356,6 +493,12 @@ const StudentFeeReceipt = () => {
               font-size: 15px;
               color: #2f855a;
             }
+            .fee-breakdown {
+              font-size: 8px;
+              color: #718096;
+              margin-top: 2px;
+              font-style: italic;
+            }
             .amount-words {
               font-size: 8px;
               color: #718096;
@@ -410,28 +553,25 @@ const StudentFeeReceipt = () => {
             }
             @media print {
               body {
-                background: white;
                 margin: 0;
                 padding: 0;
               }
               .receipt {
-                box-shadow: none;
                 margin: 0;
                 padding: 0;
                 width: 100%;
                 height: auto;
-                min-height: 148mm;
-              }
-              @page {
-                size: A4;
-                margin: 0;
               }
               .receipt-content {
-                padding: 4mm 8mm;
+                padding: 2mm 8mm 4mm 8mm;
               }
               .rounded-stamp {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+              }
+              @page {
+                size: A4;
+                margin: 0mm;
               }
             }
           </style>
@@ -473,11 +613,11 @@ const StudentFeeReceipt = () => {
                 </div>
                 <div class="info-box">
                   <div class="info-label">Payment Date</div>
-                  <div class="info-value">${receiptData.date}</div>
+                  <div class="info-value">${receiptData.paymentDate}</div>
                 </div>
                 <div class="info-box">
                   <div class="info-label">Payment Mode</div>
-                  <div class="info-value">Cash / Online</div>
+                  <div class="info-value">${paymentModeIcon} ${receiptData.paymentMode}</div>
                 </div>
               </div>
               <div class="details-section">
@@ -489,6 +629,12 @@ const StudentFeeReceipt = () => {
                     <td>Phone Number</td>
                     <td>${receiptData.phone}</td>
                   </tr>
+                  ${receiptData.period ? `
+                  <tr>
+                    <td>Course Period</td>
+                    <td colspan="3"><strong>${receiptData.period}</strong></td>
+                  </tr>
+                  ` : ''}
                   <tr>
                     <td>Course Enrolled</td>
                     <td><strong>${receiptData.course}</strong></td>
@@ -500,6 +646,11 @@ const StudentFeeReceipt = () => {
                   <span class="fee-label">Course Fees</span>
                   <span class="fee-amount">₹ ${paidAmount}/-</span>
                 </div>
+                ${receiptData.monthlyBreakdown ? `
+                <div class="fee-breakdown">
+                  ${receiptData.monthlyBreakdown}
+                </div>
+                ` : ''}
                 <div class="fee-row">
                   <span class="fee-label">Payment Status</span>
                   <span style="color: #2f855a; font-weight: bold;">✓ PAID IN FULL</span>
@@ -555,6 +706,7 @@ const StudentFeeReceipt = () => {
   }, [darkMode]);
 
   const previewAmountInWords = receiptData ? numberToWords(parseFloat(receiptData.feesPaid)) : '';
+  const previewPaymentModeIcon = receiptData ? getPaymentModeIcon(receiptData.paymentMode) : '';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-4">
@@ -638,17 +790,139 @@ const StudentFeeReceipt = () => {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                Fees Amount (₹) *
+                Fee Type *
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={handleFeeTypeChange}
+                  value="non_monthly"
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${
+                    formData.feeType === 'non_monthly'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
+                  }`}
+                >
+                  One-time / Fixed Fee
+                </button>
+                <button
+                  type="button"
+                  onClick={handleFeeTypeChange}
+                  value="monthly"
+                  className={`px-4 py-2 rounded-lg font-semibold transition ${
+                    formData.feeType === 'monthly'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-500'
+                  }`}
+                >
+                  Monthly Fee
+                </button>
+              </div>
+            </div>
+
+            {formData.feeType === 'monthly' ? (
+              <>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                    Monthly Fee Amount (₹) *
+                  </label>
+                  <input
+                    type="number"
+                    name="monthlyFeeAmount"
+                    value={formData.monthlyFeeAmount}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition"
+                    placeholder="Enter monthly fee amount"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                    Course Period (Monthly) *
+                  </label>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">From</label>
+                      <input
+                        type="month"
+                        name="periodFrom"
+                        value={formData.periodFrom}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 dark:text-gray-400 mb-1">To</label>
+                      <input
+                        type="month"
+                        name="periodTo"
+                        value={formData.periodTo}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                        required
+                      />
+                    </div>
+                  </div>
+                  {formData.periodFrom && formData.periodTo && formData.monthlyFeeAmount && (
+                    <div className="mt-2 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                        Total Months: <strong>{calculateMonthsDifference(formData.periodFrom, formData.periodTo)}</strong> | 
+                        Total Fees: <strong>₹ {(calculateMonthsDifference(formData.periodFrom, formData.periodTo) * (parseFloat(formData.monthlyFeeAmount) || 0)).toLocaleString('en-IN')}</strong>
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                  Total Fees Amount (₹) *
+                </label>
+                <input
+                  type="number"
+                  name="feesPaid"
+                  value={formData.feesPaid}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition"
+                  placeholder="Enter total fees amount"
+                  required
+                />
+              </div>
+            )}
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                Payment Date *
               </label>
               <input
-                type="number"
-                name="feesPaid"
-                value={formData.feesPaid}
+                type="date"
+                name="paymentDate"
+                value={formData.paymentDate}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition"
-                placeholder="Enter amount"
                 required
               />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                Payment Mode *
+              </label>
+              <select
+                name="paymentMode"
+                value={formData.paymentMode}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition cursor-pointer"
+                required
+              >
+                <option value="Cash">💵 Cash</option>
+                <option value="Online (UPI)">📱 Online (UPI)</option>
+                <option value="Online (Card)">💳 Online (Card)</option>
+                <option value="Online (Net Banking)">🏦 Online (Net Banking)</option>
+                <option value="Cheque">📝 Cheque</option>
+              </select>
             </div>
 
             <button
@@ -682,7 +956,7 @@ const StudentFeeReceipt = () => {
           <div className="p-5 flex-1 flex items-center justify-center">
             {receiptData ? (
               <div className="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden relative">
-                {/* Preview Stamp */}
+                {/* Preview Stamp (visual only) */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
                   <div className="w-32 h-32 rounded-full border-2 border-red-600 flex flex-col items-center justify-center transform -rotate-12">
                     <div className="text-lg font-bold text-red-600">PAID</div>
@@ -701,8 +975,12 @@ const StudentFeeReceipt = () => {
                       <span className="text-gray-600 dark:text-gray-300">{receiptData.receiptNo}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="font-semibold">Date:</span>
-                      <span className="text-gray-600 dark:text-gray-300">{receiptData.date}</span>
+                      <span className="font-semibold">Payment Date:</span>
+                      <span className="text-gray-600 dark:text-gray-300">{receiptData.paymentDate}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-semibold">Payment Mode:</span>
+                      <span className="text-gray-600 dark:text-gray-300">{previewPaymentModeIcon} {receiptData.paymentMode}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="font-semibold">Student:</span>
@@ -716,10 +994,21 @@ const StudentFeeReceipt = () => {
                       <span className="font-semibold">Course:</span>
                       <span className="text-gray-600 dark:text-gray-300">{receiptData.course}</span>
                     </div>
+                    {receiptData.period && (
+                      <div className="flex justify-between">
+                        <span className="font-semibold">Period:</span>
+                        <span className="text-gray-600 dark:text-gray-300">{receiptData.period}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between pt-2 border-t mt-1">
                       <span className="font-bold">Amount Paid:</span>
                       <span className="font-bold text-green-600 text-sm">₹ {parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}</span>
                     </div>
+                    {receiptData.monthlyBreakdown && (
+                      <div className="text-[8px] text-gray-500 italic">
+                        {receiptData.monthlyBreakdown}
+                      </div>
+                    )}
                     <div className="pt-1 pb-1">
                       <span className="font-semibold text-[10px] text-gray-500">Amount in words:</span>
                       <p className="text-[9px] text-gray-600 dark:text-gray-400 italic">{previewAmountInWords}</p>
