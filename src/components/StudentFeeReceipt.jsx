@@ -31,6 +31,7 @@ const StudentFeeReceipt = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [courses, setCourses] = useState([]);
   const [isSaving, setIsSaving] = useState(false);
+  const [isSendingWhatsApp, setIsSendingWhatsApp] = useState(false);
   const receiptRef = useRef(null);
 
   useEffect(() => {
@@ -180,6 +181,180 @@ const StudentFeeReceipt = () => {
     }
   };
 
+  // Function to capture receipt as JPG and return as data URL
+  const captureReceiptAsJPG = async () => {
+    const receiptElement = receiptRef.current;
+    if (!receiptElement) {
+      throw new Error('Receipt element not found');
+    }
+
+    const options = {
+      quality: 1.0,
+      pixelRatio: 2,
+      backgroundColor: '#ffffff',
+      cacheBust: true,
+      width: receiptElement.scrollWidth,
+      height: receiptElement.scrollHeight,
+      style: {
+        margin: '0',
+        padding: '0',
+        transform: 'none'
+      }
+    };
+
+    return await htmlToImage.toJpeg(receiptElement, options);
+  };
+
+  // Function to send receipt via WhatsApp
+  const sendToWhatsApp = async () => {
+    if (!receiptData) {
+      alert('Please generate a receipt first');
+      return;
+    }
+
+    // Get the student's phone number from form data
+    const studentPhone = formData.phone;
+    if (!studentPhone) {
+      alert('Student phone number is required to send via WhatsApp');
+      return;
+    }
+
+    // Format phone number (remove any non-digit characters and ensure it has country code)
+    let formattedPhone = studentPhone.replace(/\D/g, '');
+    if (formattedPhone.length === 10) {
+      formattedPhone = '91' + formattedPhone; // Add India country code
+    }
+    if (!formattedPhone.startsWith('91') && formattedPhone.length === 12) {
+      formattedPhone = formattedPhone.substring(0, 2) === '91' ? formattedPhone : '91' + formattedPhone;
+    }
+
+    setIsSendingWhatsApp(true);
+
+    try {
+      // Capture receipt as JPG
+      const imageDataUrl = await captureReceiptAsJPG();
+      
+      // Convert data URL to Blob
+      const response = await fetch(imageDataUrl);
+      const blob = await response.blob();
+      
+      // Create a file from the blob
+      const file = new File([blob], `Receipt_${receiptData.receiptNo}.jpg`, { type: 'image/jpeg' });
+      
+      // Create a text message to accompany the receipt
+      const messageText = `📄 *Fee Payment Receipt - Coder & AccoTax* 📄\n\n` +
+        `👤 *Student:* ${receiptData.studentName}\n` +
+        `📚 *Course:* ${receiptData.course}\n` +
+        `💰 *Amount Paid:* ₹${parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}/-\n` +
+        `📅 *Date:* ${receiptData.paymentDate}\n` +
+        `🧾 *Receipt No:* ${receiptData.receiptNo}\n\n` +
+        `Thank you for choosing Coder & AccoTax! ✨\n` +
+        `For any queries, contact: +91 70037 56860`;
+
+      // Create WhatsApp share URL with text
+      const encodedMessage = encodeURIComponent(messageText);
+      const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+      
+      // Open WhatsApp in a new tab
+      window.open(whatsappUrl, '_blank');
+      
+      // Note: Due to browser security restrictions, we cannot automatically attach the image.
+      // The user will need to manually attach the image in WhatsApp.
+      // Provide instructions to the user
+      
+      // Also offer to download the image so they can attach it manually
+      const downloadConfirmed = window.confirm(
+        'WhatsApp will open now. Please follow these steps:\n\n' +
+        '1. The message text will be pre-filled\n' +
+        '2. Click on the attachment (📎) icon\n' +
+        '3. Select "Gallery" or "Document"\n' +
+        '4. Choose the receipt image you want to send\n\n' +
+        'Would you like to download the receipt image now to easily attach it?'
+      );
+      
+      if (downloadConfirmed) {
+        // Download the image
+        const link = document.createElement('a');
+        const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
+        link.download = fileName;
+        link.href = imageDataUrl;
+        link.click();
+        
+        setTimeout(() => {
+          alert(`✅ Receipt saved as "${fileName}".\n\nPlease attach this image in WhatsApp to complete sending.`);
+        }, 500);
+      }
+      
+    } catch (error) {
+      console.error('Error sending to WhatsApp:', error);
+      alert('Failed to send receipt via WhatsApp. Please try again or use the Save/Print options.');
+    } finally {
+      setIsSendingWhatsApp(false);
+    }
+  };
+
+  // Alternative: Send as document using WhatsApp's document sharing (requires user to manually select)
+  const sendToWhatsAppWithInstruction = async () => {
+    if (!receiptData) {
+      alert('Please generate a receipt first');
+      return;
+    }
+
+    const studentPhone = formData.phone;
+    if (!studentPhone) {
+      alert('Student phone number is required');
+      return;
+    }
+
+    setIsSendingWhatsApp(true);
+
+    try {
+      const imageDataUrl = await captureReceiptAsJPG();
+      
+      // Download the image first
+      const link = document.createElement('a');
+      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
+      link.download = fileName;
+      link.href = imageDataUrl;
+      link.click();
+      
+      // Format phone number
+      let formattedPhone = studentPhone.replace(/\D/g, '');
+      if (formattedPhone.length === 10) {
+        formattedPhone = '91' + formattedPhone;
+      }
+      
+      // Create message
+      const messageText = `📄 *Fee Receipt - ${receiptData.studentName}* 📄\n\n` +
+        `Receipt No: ${receiptData.receiptNo}\n` +
+        `Course: ${receiptData.course}\n` +
+        `Amount: ₹${parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}/-\n` +
+        `Date: ${receiptData.paymentDate}\n\n` +
+        `Receipt image has been downloaded. Please attach it to this message.`;
+      
+      const encodedMessage = encodeURIComponent(messageText);
+      const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+      
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        alert(
+          '✅ Receipt image downloaded!\n\n' +
+          'WhatsApp will now open. Please:\n' +
+          '1. Click the attachment (📎) icon\n' +
+          '2. Select "Gallery" or "Document"\n' +
+          '3. Choose the downloaded receipt image\n' +
+          '4. Send the message'
+        );
+      }, 1000);
+      
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to process receipt. Please try again.');
+    } finally {
+      setIsSendingWhatsApp(false);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -244,7 +419,6 @@ const StudentFeeReceipt = () => {
         throw new Error('Receipt element not found');
       }
 
-      // Configure options for better quality and to prevent cropping
       const options = {
         quality: 1.0,
         pixelRatio: 2,
@@ -1049,7 +1223,7 @@ const StudentFeeReceipt = () => {
               <p className="text-green-100 text-xs mt-1">Review before printing or saving</p>
             </div>
             {receiptData && (
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 <button
                   onClick={saveAsJPG}
                   disabled={isSaving}
@@ -1063,6 +1237,13 @@ const StudentFeeReceipt = () => {
                   className="flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-3 py-1.5 rounded-lg text-sm font-semibold shadow transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   🖼️ Save as PNG
+                </button>
+                <button
+                  onClick={sendToWhatsApp}
+                  disabled={isSendingWhatsApp}
+                  className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-3 py-1.5 rounded-lg text-sm font-semibold shadow transition disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSendingWhatsApp ? '⏳ Sending...' : '💬 Send to WhatsApp'}
                 </button>
                 <button
                   onClick={handlePrint}
