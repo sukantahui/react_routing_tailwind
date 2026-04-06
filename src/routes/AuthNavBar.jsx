@@ -186,6 +186,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     { to: "/icons", label: "Icons" },
     { to: "/whiteBoard", label: "Whiteboard" },
     { to: "/studentFeesReceipt", label: "Student Fees Receipt" },
+    { to: "/studentFeesReceiptPart2", label: "Student Fees Part 2" },
   ];
 
   return (
