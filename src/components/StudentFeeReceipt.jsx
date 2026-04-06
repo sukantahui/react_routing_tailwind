@@ -34,21 +34,72 @@ const StudentFeeReceipt = () => {
   const [isSendingWhatsApp, setIsSendingWhatsApp] = useState(false);
   const receiptRef = useRef(null);
 
+  // Convert imported images to data URLs for print
+  const [logoDataUrl, setLogoDataUrl] = useState('');
+  const [paidStampDataUrl, setPaidStampDataUrl] = useState('');
+
   useEffect(() => {
     setCourses(coursesData.courses);
+
+    // Convert images to data URLs for print compatibility
+    const loadImagesAsDataUrls = async () => {
+      try {
+        // Load logo
+        const logoResponse = await fetch(CNATLogo);
+        const logoBlob = await logoResponse.blob();
+        const logoDataUrlReader = new FileReader();
+        logoDataUrlReader.onloadend = () => {
+          setLogoDataUrl(logoDataUrlReader.result);
+        };
+        logoDataUrlReader.readAsDataURL(logoBlob);
+
+        // Load paid stamp
+        const stampResponse = await fetch(paidStamp);
+        const stampBlob = await stampResponse.blob();
+        const stampDataUrlReader = new FileReader();
+        stampDataUrlReader.onloadend = () => {
+          setPaidStampDataUrl(stampDataUrlReader.result);
+        };
+        stampDataUrlReader.readAsDataURL(stampBlob);
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+
+    loadImagesAsDataUrls();
   }, []);
 
-  const generateReceiptNo = () => {
+  const generateReceiptNo = (studentName, course, paymentDate, feesPaid) => {
     const prefix = 'CNAT';
+
+    // Create a unique key based on student details
+    const studentKey = `${studentName.trim()}_${course}_${paymentDate}_${feesPaid}`;
+
+    // Simple hash function to generate a consistent ID from the student key
+    const hashString = (str) => {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32-bit integer
+      }
+      return Math.abs(hash).toString(36).toUpperCase();
+    };
+
+    // Generate hash from student details
+    const hashValue = hashString(studentKey);
+
+    // Get current date for date portion
     const date = new Date();
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
-    const timestamp = `${year}${month}${day}${hours}${minutes}${seconds}`;
-    return `${prefix}-${timestamp}`;
+    const dateStr = `${year}${month}${day}`;
+
+    // Combine date with hash (take first 8 chars of hash)
+    const uniqueId = hashValue.substring(0, 8);
+
+    return `${prefix}-${dateStr}-${uniqueId}`;
   };
 
   const handleChange = (e) => {
@@ -181,28 +232,59 @@ const StudentFeeReceipt = () => {
     }
   };
 
-  // Function to capture receipt as JPG and return as data URL
-  const captureReceiptAsJPG = async () => {
+  // Improved function to capture receipt as image without cropping
+  const captureReceiptAsImage = async (format = 'jpeg') => {
     const receiptElement = receiptRef.current;
     if (!receiptElement) {
       throw new Error('Receipt element not found');
     }
 
+    // Store original styles
+    const originalStyle = {
+      overflow: receiptElement.style.overflow,
+      width: receiptElement.style.width,
+      position: receiptElement.style.position,
+    };
+
+    // Temporarily modify styles to ensure full capture
+    receiptElement.style.overflow = 'visible';
+    receiptElement.style.width = 'fit-content';
+    receiptElement.style.position = 'relative';
+
+    // Get the actual dimensions
+    const width = receiptElement.scrollWidth;
+    const height = receiptElement.scrollHeight;
+
     const options = {
       quality: 1.0,
-      pixelRatio: 2,
+      pixelRatio: 3,
       backgroundColor: '#ffffff',
       cacheBust: true,
-      width: receiptElement.scrollWidth,
-      height: receiptElement.scrollHeight,
+      width: width,
+      height: height,
       style: {
         margin: '0',
         padding: '0',
-        transform: 'none'
-      }
+        transform: 'none',
+        overflow: 'visible'
+      },
+      skipAutoScale: false,
+      preferDimensions: true,
     };
 
-    return await htmlToImage.toJpeg(receiptElement, options);
+    let dataUrl;
+    if (format === 'jpeg') {
+      dataUrl = await htmlToImage.toJpeg(receiptElement, options);
+    } else {
+      dataUrl = await htmlToImage.toPng(receiptElement, options);
+    }
+
+    // Restore original styles
+    receiptElement.style.overflow = originalStyle.overflow;
+    receiptElement.style.width = originalStyle.width;
+    receiptElement.style.position = originalStyle.position;
+
+    return dataUrl;
   };
 
   // Function to send receipt via WhatsApp
@@ -212,17 +294,15 @@ const StudentFeeReceipt = () => {
       return;
     }
 
-    // Get the student's phone number from form data
     const studentPhone = formData.phone;
     if (!studentPhone) {
       alert('Student phone number is required to send via WhatsApp');
       return;
     }
 
-    // Format phone number (remove any non-digit characters and ensure it has country code)
     let formattedPhone = studentPhone.replace(/\D/g, '');
     if (formattedPhone.length === 10) {
-      formattedPhone = '91' + formattedPhone; // Add India country code
+      formattedPhone = '91' + formattedPhone;
     }
     if (!formattedPhone.startsWith('91') && formattedPhone.length === 12) {
       formattedPhone = formattedPhone.substring(0, 2) === '91' ? formattedPhone : '91' + formattedPhone;
@@ -231,17 +311,12 @@ const StudentFeeReceipt = () => {
     setIsSendingWhatsApp(true);
 
     try {
-      // Capture receipt as JPG
-      const imageDataUrl = await captureReceiptAsJPG();
-      
-      // Convert data URL to Blob
+      const imageDataUrl = await captureReceiptAsImage('jpeg');
+
       const response = await fetch(imageDataUrl);
       const blob = await response.blob();
-      
-      // Create a file from the blob
       const file = new File([blob], `Receipt_${receiptData.receiptNo}.jpg`, { type: 'image/jpeg' });
-      
-      // Create a text message to accompany the receipt
+
       const messageText = `📄 *Fee Payment Receipt - Coder & AccoTax* 📄\n\n` +
         `👤 *Student:* ${receiptData.studentName}\n` +
         `📚 *Course:* ${receiptData.course}\n` +
@@ -251,18 +326,11 @@ const StudentFeeReceipt = () => {
         `Thank you for choosing Coder & AccoTax! ✨\n` +
         `For any queries, contact: +91 70037 56860`;
 
-      // Create WhatsApp share URL with text
       const encodedMessage = encodeURIComponent(messageText);
       const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
-      
-      // Open WhatsApp in a new tab
+
       window.open(whatsappUrl, '_blank');
-      
-      // Note: Due to browser security restrictions, we cannot automatically attach the image.
-      // The user will need to manually attach the image in WhatsApp.
-      // Provide instructions to the user
-      
-      // Also offer to download the image so they can attach it manually
+
       const downloadConfirmed = window.confirm(
         'WhatsApp will open now. Please follow these steps:\n\n' +
         '1. The message text will be pre-filled\n' +
@@ -271,20 +339,19 @@ const StudentFeeReceipt = () => {
         '4. Choose the receipt image you want to send\n\n' +
         'Would you like to download the receipt image now to easily attach it?'
       );
-      
+
       if (downloadConfirmed) {
-        // Download the image
         const link = document.createElement('a');
         const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
         link.download = fileName;
         link.href = imageDataUrl;
         link.click();
-        
+
         setTimeout(() => {
           alert(`✅ Receipt saved as "${fileName}".\n\nPlease attach this image in WhatsApp to complete sending.`);
         }, 500);
       }
-      
+
     } catch (error) {
       console.error('Error sending to WhatsApp:', error);
       alert('Failed to send receipt via WhatsApp. Please try again or use the Save/Print options.');
@@ -293,65 +360,55 @@ const StudentFeeReceipt = () => {
     }
   };
 
-  // Alternative: Send as document using WhatsApp's document sharing (requires user to manually select)
-  const sendToWhatsAppWithInstruction = async () => {
+  const saveAsJPG = async () => {
     if (!receiptData) {
       alert('Please generate a receipt first');
       return;
     }
 
-    const studentPhone = formData.phone;
-    if (!studentPhone) {
-      alert('Student phone number is required');
-      return;
-    }
-
-    setIsSendingWhatsApp(true);
+    setIsSaving(true);
 
     try {
-      const imageDataUrl = await captureReceiptAsJPG();
-      
-      // Download the image first
+      const dataUrl = await captureReceiptAsImage('jpeg');
+
       const link = document.createElement('a');
       const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
       link.download = fileName;
-      link.href = imageDataUrl;
+      link.href = dataUrl;
       link.click();
-      
-      // Format phone number
-      let formattedPhone = studentPhone.replace(/\D/g, '');
-      if (formattedPhone.length === 10) {
-        formattedPhone = '91' + formattedPhone;
-      }
-      
-      // Create message
-      const messageText = `📄 *Fee Receipt - ${receiptData.studentName}* 📄\n\n` +
-        `Receipt No: ${receiptData.receiptNo}\n` +
-        `Course: ${receiptData.course}\n` +
-        `Amount: ₹${parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}/-\n` +
-        `Date: ${receiptData.paymentDate}\n\n` +
-        `Receipt image has been downloaded. Please attach it to this message.`;
-      
-      const encodedMessage = encodeURIComponent(messageText);
-      const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
-      
-      setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
-        alert(
-          '✅ Receipt image downloaded!\n\n' +
-          'WhatsApp will now open. Please:\n' +
-          '1. Click the attachment (📎) icon\n' +
-          '2. Select "Gallery" or "Document"\n' +
-          '3. Choose the downloaded receipt image\n' +
-          '4. Send the message'
-        );
-      }, 1000);
-      
+
+      alert(`Receipt saved successfully as ${fileName}`);
     } catch (error) {
-      console.error('Error:', error);
-      alert('Failed to process receipt. Please try again.');
+      console.error('Error saving receipt as JPG:', error);
+      alert('Failed to save receipt as JPG. Please try again.');
     } finally {
-      setIsSendingWhatsApp(false);
+      setIsSaving(false);
+    }
+  };
+
+  const saveAsPNG = async () => {
+    if (!receiptData) {
+      alert('Please generate a receipt first');
+      return;
+    }
+
+    setIsSaving(true);
+
+    try {
+      const dataUrl = await captureReceiptAsImage('png');
+
+      const link = document.createElement('a');
+      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.png`;
+      link.download = fileName;
+      link.href = dataUrl;
+      link.click();
+
+      alert(`Receipt saved successfully as ${fileName}`);
+    } catch (error) {
+      console.error('Error saving receipt as PNG:', error);
+      alert('Failed to save receipt as PNG. Please try again.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -389,6 +446,14 @@ const StudentFeeReceipt = () => {
       monthlyBreakdown = ` (${months} months × ₹${monthlyAmount.toLocaleString('en-IN')} = ₹${(months * monthlyAmount).toLocaleString('en-IN')})`;
     }
 
+    // Generate receipt number based on student details
+    const receiptNo = generateReceiptNo(
+      formData.studentName,
+      formData.course,
+      formData.paymentDate,
+      formData.feesPaid
+    );
+
     setReceiptData({
       studentName: formData.studentName,
       phone: formData.phone,
@@ -400,94 +465,8 @@ const StudentFeeReceipt = () => {
       paymentMode: formData.paymentMode,
       period: periodText,
       monthlyBreakdown: monthlyBreakdown,
-      receiptNo: generateReceiptNo(),
+      receiptNo: receiptNo,
     });
-  };
-
-  // Function to save receipt as JPG
-  const saveAsJPG = async () => {
-    if (!receiptData) {
-      alert('Please generate a receipt first');
-      return;
-    }
-
-    setIsSaving(true);
-
-    try {
-      const receiptElement = receiptRef.current;
-      if (!receiptElement) {
-        throw new Error('Receipt element not found');
-      }
-
-      const options = {
-        quality: 1.0,
-        pixelRatio: 2,
-        backgroundColor: '#ffffff',
-        cacheBust: true,
-        width: receiptElement.scrollWidth,
-        height: receiptElement.scrollHeight,
-        style: {
-          margin: '0',
-          padding: '0',
-          transform: 'none'
-        }
-      };
-
-      const dataUrl = await htmlToImage.toJpeg(receiptElement, options);
-
-      const link = document.createElement('a');
-      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.jpg`;
-      link.download = fileName;
-      link.href = dataUrl;
-      link.click();
-
-      alert(`Receipt saved successfully as ${fileName}`);
-    } catch (error) {
-      console.error('Error saving receipt as JPG:', error);
-      alert('Failed to save receipt as JPG. Please try again.');
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  // Function to save as PNG
-  const saveAsPNG = async () => {
-    if (!receiptData) {
-      alert('Please generate a receipt first');
-      return;
-    }
-
-    setIsSaving(true);
-
-    try {
-      const receiptElement = receiptRef.current;
-      if (!receiptElement) {
-        throw new Error('Receipt element not found');
-      }
-
-      const options = {
-        pixelRatio: 2,
-        backgroundColor: '#ffffff',
-        cacheBust: true,
-        width: receiptElement.scrollWidth,
-        height: receiptElement.scrollHeight,
-      };
-
-      const dataUrl = await htmlToImage.toPng(receiptElement, options);
-
-      const link = document.createElement('a');
-      const fileName = `Receipt_${receiptData.receiptNo}_${receiptData.studentName.replace(/\s/g, '_')}.png`;
-      link.download = fileName;
-      link.href = dataUrl;
-      link.click();
-
-      alert(`Receipt saved successfully as ${fileName}`);
-    } catch (error) {
-      console.error('Error saving receipt as PNG:', error);
-      alert('Failed to save receipt. Please try again.');
-    } finally {
-      setIsSaving(false);
-    }
   };
 
   const handlePrint = () => {
@@ -505,6 +484,10 @@ const StudentFeeReceipt = () => {
     const amountInWords = numberToWords(parseFloat(receiptData.feesPaid));
     const paidAmount = parseFloat(receiptData.feesPaid).toLocaleString('en-IN');
     const paymentModeIcon = getPaymentModeIcon(receiptData.paymentMode);
+
+    // Use data URLs for images if available, otherwise fallback to paths
+    const logoImgSrc = logoDataUrl || '/assets/cnat.png';
+    const paidStampImgSrc = paidStampDataUrl || paidStamp;
 
     printWindow.document.write(`
     <!DOCTYPE html>
@@ -524,12 +507,15 @@ const StudentFeeReceipt = () => {
             background: white;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: auto;
           }
           .receipt-container {
-            max-width: 100%;
             width: 100%;
-            margin: 0 auto;
-            padding: 0;
+            max-width: 100%;
+            margin: 0;
             position: relative;
             overflow: visible;
           }
@@ -539,13 +525,15 @@ const StudentFeeReceipt = () => {
             border-radius: 0;
             box-shadow: none;
             margin: 0;
-            padding: 0;
+            padding: 10px 20px 20px 20px;
             overflow: visible;
+            width: 100%;
           }
           .receipt-content {
             padding: 10px;
             position: relative;
             z-index: 1;
+            width: 100%;
           }
           
           .header {
@@ -555,36 +543,36 @@ const StudentFeeReceipt = () => {
             margin-bottom: 12px;
           }
           .organisation-name {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
             color: #1a3e6f;
             margin-bottom: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
           }
           .organisation-logo {
-            height: 30px;
+            height: 35px;
             width: auto;
             vertical-align: middle;
           }
           .organisation-tagline {
-            font-size: 9px;
+            font-size: 10px;
             color: #4a5568;
             margin-top: 3px;
           }
           .address {
-            font-size: 8px;
+            font-size: 9px;
             color: #4a5568;
             margin-top: 5px;
-            line-height: 1.2;
+            line-height: 1.3;
           }
           .contact-row {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            font-size: 8px;
+            gap: 15px;
+            font-size: 9px;
             color: #4a5568;
             margin-top: 5px;
             flex-wrap: wrap;
@@ -596,7 +584,7 @@ const StudentFeeReceipt = () => {
             margin-top: 8px;
             background: #f0f4f8;
             display: inline-block;
-            padding: 3px 12px;
+            padding: 4px 15px;
             border-radius: 20px;
           }
           .info-grid {
@@ -617,12 +605,12 @@ const StudentFeeReceipt = () => {
             font-weight: 600;
             color: #4a5568;
             text-transform: uppercase;
+            margin-bottom: 3px;
           }
           .info-value {
             font-size: 11px;
             font-weight: bold;
             color: #2d3748;
-            margin-top: 3px;
             word-break: break-word;
           }
           .details-section {
@@ -644,7 +632,7 @@ const StudentFeeReceipt = () => {
             border-bottom: 1px solid #e2e8f0;
           }
           .details-table td {
-            padding: 5px;
+            padding: 6px;
             font-size: 10px;
           }
           .details-table td:first-child {
@@ -691,16 +679,59 @@ const StudentFeeReceipt = () => {
             border-top: 1px dashed #cbd5e0;
             font-style: italic;
           }
+          
+          /* QR Code Section */
+          .qr-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+            padding: 10px;
+            background: #faf5ff;
+            border-radius: 6px;
+            border: 1px solid #d8b4fe;
+          }
+          .qr-info {
+            flex: 1;
+            padding-right: 10px;
+          }
+          .qr-title {
+            font-size: 10px;
+            font-weight: bold;
+            color: #6b21a5;
+            margin-bottom: 5px;
+          }
+          .qr-text {
+            font-size: 8px;
+            color: #4a5568;
+            margin-bottom: 3px;
+          }
+          .upi-id {
+            font-size: 9px;
+            font-weight: bold;
+            color: #1a3e6f;
+            background: white;
+            padding: 3px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 5px;
+          }
+          .qr-code {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+          }
+          
           .footer {
             text-align: center;
             border-top: 1px solid #e2e8f0;
             padding-top: 10px;
-            margin-top: 12px;
+            margin-top: 10px;
           }
           .signature-area {
             display: flex;
             justify-content: space-between;
-            margin: 12px 0 8px;
+            margin: 10px 0 8px;
           }
           .signature-line {
             text-align: center;
@@ -709,22 +740,32 @@ const StudentFeeReceipt = () => {
           .signature-line p:first-child {
             font-size: 8px;
             color: #718096;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
           }
           .signature-line p:last-child {
-            font-size: 8px;
+            font-size: 9px;
             font-weight: 600;
             color: #4a5568;
             border-top: 1px solid #cbd5e0;
             padding-top: 5px;
             display: inline-block;
-            min-width: 80px;
+            min-width: 100px;
           }
           .footer-note {
             font-size: 7px;
             color: #a0aec0;
-            margin-top: 8px;
+            margin-top: 6px;
             line-height: 1.3;
+          }
+          .contact-info {
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px solid #e2e8f0;
+          }
+          .contact-info p {
+            font-size: 8px;
+            color: #4a5568;
+            margin-top: 3px;
           }
           .thankyou {
             font-size: 9px;
@@ -745,10 +786,10 @@ const StudentFeeReceipt = () => {
             justify-content: center;
             pointer-events: none;
             z-index: 10;
-            opacity: 0.1;
+            opacity: 0.08;
           }
           .watermark-image {
-            width: 60%;
+            width: 50%;
             height: auto;
             transform: rotate(-25deg);
           }
@@ -756,57 +797,17 @@ const StudentFeeReceipt = () => {
           /* PAID Stamp - Fixed positioning */
           .stamp-container {
             position: absolute;
-            top: 80%;
-            right: 45%;
+            top: 55%;
+            right: 12%;
             transform: translateY(-50%) rotate(-15deg);
             z-index: 20;
             pointer-events: none;
-            opacity: 0.55;
           }
 
-          .rounded-stamp {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            position: relative;
-            border: 3px solid #b30021;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-          }
-
-          /* Outer ring effect */
-          .rounded-stamp::before {
-            content: "";
-            position: absolute;
-            inset: 6px;
-            border-radius: 50%;
-            border: 1px dashed #b30021;
-            opacity: 0.7;
-          }
-
-          .stamp-text {
-            text-align: center;
-            transform: rotate(-2deg);
-          }
-
-          /* MAIN PAID TEXT */
-          .stamp-paid {
-            font-size: 22px;
-            font-weight: 900;
-            color: #b30021;
-            letter-spacing: 2px;
-          }
-
-          /* Company text */
-          .stamp-company {
-            font-size: 7px;
-            color: #b30021;
-            font-weight: 700;
-            margin-top: 4px;
-            letter-spacing: 1px;
+          .paid-stamp-image {
+            width: 120px;
+            height: auto;
+            opacity: 0.6;
           }
           
           @media print {
@@ -817,30 +818,30 @@ const StudentFeeReceipt = () => {
             .receipt-container {
               margin: 0;
               padding: 0;
+              width: 100%;
+            }
+            .receipt {
+              padding: 0;
+              margin: 0;
+              width: 100%;
             }
             .stamp-container {
               opacity: 0.7 !important;
               -webkit-print-color-adjust: exact;
               print-color-adjust: exact;
             }
-            .rounded-stamp {
-              border: 3px solid #b30021 !important;
-              background: white !important;
+            .paid-stamp-image {
+              opacity: 0.7 !important;
               -webkit-print-color-adjust: exact;
               print-color-adjust: exact;
             }
-            .stamp-paid {
-              color: #b30021 !important;
-              -webkit-print-color-adjust: exact;
-              print-color-adjust: exact;
-            }
-            .stamp-company {
-              color: #b30021 !important;
+            .qr-section {
               -webkit-print-color-adjust: exact;
               print-color-adjust: exact;
             }
             @page {
-              margin: 0.5cm;
+              size: A4;
+              margin: 0cm;
             }
           }
         </style>
@@ -850,23 +851,18 @@ const StudentFeeReceipt = () => {
           <div class="receipt">
             <!-- Watermark -->
             <div class="watermark-container">
-              <img src="/assets/cnat.png" alt="Watermark" class="watermark-image" />
+              <img src="${logoImgSrc}" alt="Watermark" class="watermark-image" />
             </div>
             
-            <!-- PAID Stamp - Now positioned at right side -->
+            <!-- PAID Stamp Image -->
             <div class="stamp-container">
-              <div class="rounded-stamp">
-                <div class="stamp-text">
-                  <div class="stamp-paid">PAID</div>
-                  <div class="stamp-company">Coder & AccoTax</div>
-                </div>
-              </div>
+              <img src="${paidStampImgSrc}" alt="Paid Stamp" class="paid-stamp-image" />
             </div>
             
             <div class="receipt-content">
               <div class="header">
                 <div class="organisation-name">
-                  <img src="/assets/cnat.png" alt="Coder & AccoTax Logo" class="organisation-logo" />
+                  <img src="${logoImgSrc}" alt="Coder & AccoTax Logo" class="organisation-logo" />
                   <span>CODER & ACCOTAX</span>
                 </div>
                 <div class="organisation-tagline">Quality Education | Professional Training | Tax Solutions</div>
@@ -940,6 +936,19 @@ const StudentFeeReceipt = () => {
                 </div>
               </div>
 
+              <!-- QR Code Section for Online Payment -->
+              <div class="qr-section">
+                <div class="qr-info">
+                  <div class="qr-title">📱 Pay Online via UPI</div>
+                  <div class="qr-text">Scan QR code to make payment</div>
+                  <div class="qr-text">Any UPI App (Google Pay, PhonePe, Paytm)</div>
+                  <div class="upi-id">UPI ID: 9432456083@upi</div>
+                </div>
+                <div class="qr-code">
+                  <img src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR&am=${parseFloat(receiptData.feesPaid)}" alt="UPI QR Code" style="width: 70px; height: 70px;" />
+                </div>
+              </div>
+
               <div class="footer">
                 <div class="signature-area">
                   <div class="signature-line">
@@ -953,6 +962,10 @@ const StudentFeeReceipt = () => {
                 </div>
                 <div class="footer-note">
                   This is a computer generated receipt - Valid without signature
+                </div>
+                <div class="contact-info">
+                  <p>📞 For any query: <strong>7003756860</strong></p>
+                  <p>🌐 Visit us: <strong style="color: #1a3e6f;">www.codernaccotax.co.in</strong></p>
                 </div>
                 <div class="thankyou">
                   ✨ Thank you for choosing Coder & AccoTax! ✨
@@ -968,7 +981,7 @@ const StudentFeeReceipt = () => {
               window.onafterprint = function() {
                 window.close();
               };
-            }, 300);
+            }, 500);
           };
         <\/script>
       </body>
@@ -1259,7 +1272,7 @@ const StudentFeeReceipt = () => {
             {receiptData ? (
               <div
                 ref={receiptRef}
-                className="w-full max-w-sm mx-auto bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden relative"
+                className="w-full max-w-sm mx-auto bg-white rounded-xl border-2 border-gray-200 shadow-lg overflow-visible relative"
                 style={{ backgroundColor: '#ffffff', width: '380px' }}
               >
                 {/* Watermark */}
@@ -1351,6 +1364,20 @@ const StudentFeeReceipt = () => {
                   <div className="text-center pt-3 border-t">
                     <p className="text-[8px] text-gray-400">✓ Valid without signature</p>
                     <p className="text-[7px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
+                    {/* QR Code for Preview */}
+                    <div className="mt-2 pt-2 flex justify-center">
+                      <img 
+                        src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR" 
+                        alt="UPI QR Code" 
+                        className="w-16 h-16 mx-auto"
+                      />
+                    </div>
+                    <div className="text-[6px] text-gray-400 mt-1">UPI ID: 9432456083@upi</div>
+                    {/* Added Contact Information */}
+                    <div className="mt-2 pt-1 border-t border-gray-100">
+                      <p className="text-[7px] text-gray-500">📞 For any query: <span className="font-semibold text-gray-700">7003756860</span></p>
+                      <p className="text-[7px] text-gray-500 mt-0.5">🌐 Visit us: <span className="font-semibold text-blue-600">www.codernaccotax.co.in</span></p>
+                    </div>
                     <p className="text-[8px] text-blue-600 mt-2">✨ Thank you! ✨</p>
                   </div>
                 </div>
