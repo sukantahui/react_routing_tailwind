@@ -5,6 +5,7 @@ import paidStamp from "../assets/images/paid-stamp.png";
 import * as htmlToImage from 'html-to-image';
 import { studentService } from '../services/studentService';
 import { courseService } from '../services/courseService';
+import { loginService } from '../services/loginService'; // Add this import
 
 const StudentFeeReceiptPart2 = () => {
   // Get current date in YYYY-MM-DD format for default value
@@ -15,6 +16,10 @@ const StudentFeeReceiptPart2 = () => {
     const day = String(today.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
+
+  // State for current user (authorized collector)
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loadingUser, setLoadingUser] = useState(true);
 
   // State for students from database
   const [students, setStudents] = useState([]);
@@ -71,8 +76,24 @@ const StudentFeeReceiptPart2 = () => {
   const [logoDataUrl, setLogoDataUrl] = useState('');
   const [paidStampDataUrl, setPaidStampDataUrl] = useState('');
 
+  // Fetch current user (authorized collector)
+  const fetchCurrentUser = async () => {
+    setLoadingUser(true);
+    try {
+      const response = await loginService.currentUser();
+      if (response && response.status === true && response.data) {
+        setCurrentUser(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+    } finally {
+      setLoadingUser(false);
+    }
+  };
+
   // Fetch students from database
   useEffect(() => {
+    fetchCurrentUser(); // Fetch current user first
     fetchStudents();
     fetchCourses();
   }, []);
@@ -136,6 +157,38 @@ const StudentFeeReceiptPart2 = () => {
     } finally {
       setLoadingCourses(false);
     }
+  };
+
+  // Helper function to get collector name
+  const getCollectorName = () => {
+    if (!currentUser) return 'System';
+    
+    // Try to get employee name first
+    if (currentUser.employee && currentUser.employee.employeeName) {
+      return currentUser.employee.employeeName;
+    }
+    
+    // Fallback to username
+    if (currentUser.userName) {
+      return currentUser.userName;
+    }
+    
+    return 'Authorized Collector';
+  };
+
+  // Helper function to get collector designation
+  const getCollectorDesignation = () => {
+    if (!currentUser) return '';
+    
+    if (currentUser.employee && currentUser.employee.designation) {
+      return currentUser.employee.designation.name;
+    }
+    
+    if (currentUser.userType && currentUser.userType.userTypeName) {
+      return currentUser.userType.userTypeName;
+    }
+    
+    return 'Accounts Department';
   };
 
   // Handle new student form input changes
@@ -581,7 +634,8 @@ const StudentFeeReceiptPart2 = () => {
         `📚 *Course:* ${receiptData.course}\n` +
         `💰 *Amount Paid:* ₹${parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}/-\n` +
         `📅 *Date:* ${receiptData.paymentDate}\n` +
-        `🧾 *Receipt No:* ${receiptData.receiptNo}\n\n` +
+        `🧾 *Receipt No:* ${receiptData.receiptNo}\n` +
+        `👨‍💼 *Collected By:* ${getCollectorName()} (${getCollectorDesignation()})\n\n` +
         `Thank you for choosing Coder & AccoTax! ✨\n` +
         `For any queries, contact: +91 70037 56860`;
 
@@ -725,6 +779,8 @@ const StudentFeeReceiptPart2 = () => {
       monthlyBreakdown: monthlyBreakdown,
       receiptNo: receiptNo,
       registrationNumber: formData.registrationNumber,
+      collectedBy: getCollectorName(),
+      collectorDesignation: getCollectorDesignation(),
     });
   };
 
@@ -743,6 +799,14 @@ const StudentFeeReceiptPart2 = () => {
     const amountInWords = numberToWords(parseFloat(receiptData.feesPaid));
     const paidAmount = parseFloat(receiptData.feesPaid).toLocaleString('en-IN');
     const paymentModeIcon = getPaymentModeIcon(receiptData.paymentMode);
+    const currentDateTime = new Date().toLocaleString('en-IN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
 
     const logoImgSrc = logoDataUrl || '/assets/cnat.png';
     const paidStampImgSrc = paidStampDataUrl || paidStamp;
@@ -1031,6 +1095,18 @@ const StudentFeeReceiptPart2 = () => {
             color: #1a3e6f;
             margin-top: 6px;
           }
+          .collector-info {
+            margin-top: 8px;
+            padding: 6px;
+            background: #f0fdf4;
+            border-radius: 4px;
+            font-size: 8px;
+            text-align: center;
+          }
+          .collector-label {
+            font-weight: bold;
+            color: #166534;
+          }
           
           /* Watermark styles */
           .watermark-container {
@@ -1209,6 +1285,15 @@ const StudentFeeReceiptPart2 = () => {
                 <div class="qr-code">
                   <img src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR&am=${parseFloat(receiptData.feesPaid)}" alt="UPI QR Code" style="width: 70px; height: 70px;" />
                 </div>
+              </div>
+
+              <!-- Collector Information -->
+              <div class="collector-info">
+                <span class="collector-label">💰 Collected By:</span> ${receiptData.collectedBy || 'System'} 
+                <span style="color: #6b7280;">|</span> 
+                <span class="collector-label">📋 Designation:</span> ${receiptData.collectorDesignation || 'Accounts Department'}
+                <br/>
+                <span style="font-size: 7px; color: #9ca3af;">📅 Printed on: ${currentDateTime}</span>
               </div>
 
               <div class="footer">
@@ -1816,6 +1901,13 @@ const StudentFeeReceiptPart2 = () => {
                       <div className="text-[8px] text-gray-500 italic mt-2 pt-1 border-t">
                         {previewAmountInWords}
                       </div>
+                    </div>
+                    
+                    {/* Collector Info in Preview */}
+                    <div className="bg-gray-50 p-2 rounded-lg mt-2 text-center">
+                      <p className="text-[8px] font-semibold text-gray-600">💰 Collected By:</p>
+                      <p className="text-[9px] font-bold text-green-700">{receiptData.collectedBy || 'System'}</p>
+                      <p className="text-[7px] text-gray-500">{receiptData.collectorDesignation || 'Accounts Department'}</p>
                     </div>
                   </div>
 
