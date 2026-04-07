@@ -20,9 +20,21 @@ export const courseService = {
       throw error;
     }
   },
+  //course with topic
   create: async (data) => {
     try {
       const response = await api.post("/courses",data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving Courses:", error);
+      throw error;
+    }
+
+  },
+  //course without topic
+  createBasic: async (data) => {
+    try {
+      const response = await api.post("/courses/basic",data);
       return response.data;
     } catch (error) {
       console.error("Error saving Courses:", error);

@@ -1,10 +1,10 @@
 // src/components/StudentFeeReceiptPart2.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import coursesData from '../assets/jsons/courses.json';
 import CNATLogo from "../../public/assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
 import * as htmlToImage from 'html-to-image';
 import { studentService } from '../services/studentService';
+import { courseService } from '../services/courseService';
 
 const StudentFeeReceiptPart2 = () => {
   // Get current date in YYYY-MM-DD format for default value
@@ -21,7 +21,12 @@ const StudentFeeReceiptPart2 = () => {
   const [loadingStudents, setLoadingStudents] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
   const [error, setError] = useState(null);
-  const [selectedStudentRegNo, setSelectedStudentRegNo] = useState(''); // New state for registration number
+  const [selectedStudentRegNo, setSelectedStudentRegNo] = useState('');
+
+  // State for courses from database
+  const [courses, setCourses] = useState([]);
+  const [loadingCourses, setLoadingCourses] = useState(false);
+  const [coursesError, setCoursesError] = useState(null);
 
   // State for new student form
   const [showNewStudentForm, setShowNewStudentForm] = useState(false);
@@ -32,6 +37,15 @@ const StudentFeeReceiptPart2 = () => {
   });
   const [isCreatingStudent, setIsCreatingStudent] = useState(false);
   const [createStudentError, setCreateStudentError] = useState(null);
+
+  // State for new course form
+  const [showNewCourseForm, setShowNewCourseForm] = useState(false);
+  const [newCourseData, setNewCourseData] = useState({
+    courseCode: '',
+    courseName: ''
+  });
+  const [isCreatingCourse, setIsCreatingCourse] = useState(false);
+  const [createCourseError, setCreateCourseError] = useState(null);
 
   const [formData, setFormData] = useState({
     studentName: '',
@@ -44,12 +58,11 @@ const StudentFeeReceiptPart2 = () => {
     paymentMode: 'Cash',
     periodFrom: '',
     periodTo: '',
-    registrationNumber: '', // Add registration number to form data
+    registrationNumber: '',
   });
 
   const [receiptData, setReceiptData] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
-  const [courses, setCourses] = useState([]);
   const [isSaving, setIsSaving] = useState(false);
   const [isSendingWhatsApp, setIsSendingWhatsApp] = useState(false);
   const receiptRef = useRef(null);
@@ -61,6 +74,7 @@ const StudentFeeReceiptPart2 = () => {
   // Fetch students from database
   useEffect(() => {
     fetchStudents();
+    fetchCourses();
   }, []);
 
   const fetchStudents = async () => {
@@ -69,8 +83,6 @@ const StudentFeeReceiptPart2 = () => {
     try {
       const response = await studentService.getAll();
       
-      // Extract the data array from the response
-      // The API returns: { status: true, message: "...", data: [...] }
       let studentsArray = [];
       
       if (response && response.data && Array.isArray(response.data)) {
@@ -78,7 +90,6 @@ const StudentFeeReceiptPart2 = () => {
       } else if (Array.isArray(response)) {
         studentsArray = response;
       } else if (response && response.data && response.data.data && Array.isArray(response.data.data)) {
-        // Handle nested data structure
         studentsArray = response.data.data;
       }
       
@@ -96,6 +107,37 @@ const StudentFeeReceiptPart2 = () => {
     }
   };
 
+  // Fetch courses from database
+  const fetchCourses = async () => {
+    setLoadingCourses(true);
+    setCoursesError(null);
+    try {
+      const response = await courseService.getAll();
+      
+      let coursesArray = [];
+      
+      if (response && response.status === true && Array.isArray(response.data)) {
+        coursesArray = response.data;
+      } else if (Array.isArray(response)) {
+        coursesArray = response;
+      } else if (response && response.data && Array.isArray(response.data)) {
+        coursesArray = response.data;
+      }
+      
+      setCourses(coursesArray);
+      
+      if (coursesArray.length === 0) {
+        console.warn('No courses found in database');
+      }
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+      setCoursesError('Failed to load courses from database. Please try again later.');
+      setCourses([]);
+    } finally {
+      setLoadingCourses(false);
+    }
+  };
+
   // Handle new student form input changes
   const handleNewStudentChange = (e) => {
     const { name, value } = e.target;
@@ -103,7 +145,6 @@ const StudentFeeReceiptPart2 = () => {
       ...prev,
       [name]: value
     }));
-    // Clear any previous errors
     if (createStudentError) setCreateStudentError(null);
   };
 
@@ -111,7 +152,6 @@ const StudentFeeReceiptPart2 = () => {
   const handleCreateStudent = async (e) => {
     e.preventDefault();
     
-    // Validation
     if (!newStudentData.student_name.trim()) {
       setCreateStudentError('Student name is required');
       return;
@@ -121,7 +161,6 @@ const StudentFeeReceiptPart2 = () => {
       return;
     }
 
-    // Validate phone number (10 digits)
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(newStudentData.whatsapp)) {
       setCreateStudentError('Please enter a valid 10-digit WhatsApp number');
@@ -132,7 +171,6 @@ const StudentFeeReceiptPart2 = () => {
     setCreateStudentError(null);
 
     try {
-      // Prepare payload according to API requirements
       const payload = {
         student_name: newStudentData.student_name.trim(),
         nickname: newStudentData.nickname.trim() || newStudentData.student_name.trim(),
@@ -142,13 +180,10 @@ const StudentFeeReceiptPart2 = () => {
       const response = await studentService.createBasic(payload);
       
       if (response && response.status === true) {
-        // Student created successfully
         const createdStudent = response.data;
         
-        // Refresh the student list
         await fetchStudents();
         
-        // Auto-select the newly created student
         if (createdStudent && createdStudent.id) {
           setSelectedStudentId(createdStudent.id.toString());
           setSelectedStudentRegNo(createdStudent.registrationNumber || '');
@@ -160,7 +195,6 @@ const StudentFeeReceiptPart2 = () => {
           }));
         }
         
-        // Reset new student form and hide it
         setNewStudentData({
           student_name: '',
           nickname: '',
@@ -168,7 +202,6 @@ const StudentFeeReceiptPart2 = () => {
         });
         setShowNewStudentForm(false);
         
-        // Show success message
         alert(`Student "${createdStudent.student_name}" created successfully!\nRegistration Number: ${createdStudent.registrationNumber}`);
       } else {
         setCreateStudentError(response?.message || 'Failed to create student');
@@ -181,13 +214,77 @@ const StudentFeeReceiptPart2 = () => {
     }
   };
 
-  useEffect(() => {
-    setCourses(coursesData.courses || []);
+  // Handle new course form input changes
+  const handleNewCourseChange = (e) => {
+    const { name, value } = e.target;
+    setNewCourseData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    if (createCourseError) setCreateCourseError(null);
+  };
 
+  // Create new course
+  const handleCreateCourse = async (e) => {
+    e.preventDefault();
+    
+    if (!newCourseData.courseCode.trim()) {
+      setCreateCourseError('Course code is required');
+      return;
+    }
+    if (!newCourseData.courseName.trim()) {
+      setCreateCourseError('Course name is required');
+      return;
+    }
+
+    setIsCreatingCourse(true);
+    setCreateCourseError(null);
+
+    try {
+      const payload = {
+        courseCode: newCourseData.courseCode.trim().toUpperCase(),
+        courseName: newCourseData.courseName.trim()
+      };
+
+      const response = await courseService.createBasic(payload);
+      
+      if (response && response.status === true) {
+        const createdCourse = response.data;
+        
+        // Refresh the course list
+        await fetchCourses();
+        
+        // Auto-select the newly created course
+        if (createdCourse && createdCourse.id) {
+          setFormData(prev => ({
+            ...prev,
+            course: createdCourse.courseName || ''
+          }));
+        }
+        
+        // Reset new course form and hide it
+        setNewCourseData({
+          courseCode: '',
+          courseName: ''
+        });
+        setShowNewCourseForm(false);
+        
+        alert(`Course "${createdCourse.courseName}" created successfully!\nCourse Code: ${createdCourse.courseCode}`);
+      } else {
+        setCreateCourseError(response?.message || 'Failed to create course');
+      }
+    } catch (error) {
+      console.error('Error creating course:', error);
+      setCreateCourseError(error.response?.data?.message || 'Failed to create course. Please try again.');
+    } finally {
+      setIsCreatingCourse(false);
+    }
+  };
+
+  useEffect(() => {
     // Convert images to data URLs for print compatibility
     const loadImagesAsDataUrls = async () => {
       try {
-        // Load logo
         const logoResponse = await fetch(CNATLogo);
         const logoBlob = await logoResponse.blob();
         const logoDataUrlReader = new FileReader();
@@ -196,7 +293,6 @@ const StudentFeeReceiptPart2 = () => {
         };
         logoDataUrlReader.readAsDataURL(logoBlob);
 
-        // Load paid stamp
         const stampResponse = await fetch(paidStamp);
         const stampBlob = await stampResponse.blob();
         const stampDataUrlReader = new FileReader();
@@ -229,7 +325,6 @@ const StudentFeeReceiptPart2 = () => {
         }));
       }
     } else {
-      // Clear student data if "Select Student" is chosen
       setSelectedStudentRegNo('');
       setFormData(prev => ({
         ...prev,
@@ -242,11 +337,8 @@ const StudentFeeReceiptPart2 = () => {
 
   const generateReceiptNo = (studentName, course, paymentDate, feesPaid) => {
     const prefix = 'CNAT';
-
-    // Create a unique key based on student details
     const studentKey = `${studentName.trim()}_${course}_${paymentDate}_${feesPaid}`;
-
-    // Simple hash function to generate a consistent ID from the student key
+    
     const hashString = (str) => {
       let hash = 0;
       for (let i = 0; i < str.length; i++) {
@@ -256,20 +348,15 @@ const StudentFeeReceiptPart2 = () => {
       }
       return Math.abs(hash).toString(36).toUpperCase();
     };
-
-    // Generate hash from student details
+    
     const hashValue = hashString(studentKey);
-
-    // Get current date for date portion
     const date = new Date();
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     const dateStr = `${year}${month}${day}`;
-
-    // Combine date with hash (take first 8 chars of hash)
     const uniqueId = hashValue.substring(0, 8);
-
+    
     return `${prefix}-${dateStr}-${uniqueId}`;
   };
 
@@ -277,7 +364,6 @@ const StudentFeeReceiptPart2 = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     
-    // If student name or phone is manually changed, clear selected student
     if (name === 'studentName' || name === 'phone') {
       setSelectedStudentId('');
       setSelectedStudentRegNo('');
@@ -410,26 +496,22 @@ const StudentFeeReceiptPart2 = () => {
     }
   };
 
-  // Improved function to capture receipt as image without cropping
   const captureReceiptAsImage = async (format = 'jpeg') => {
     const receiptElement = receiptRef.current;
     if (!receiptElement) {
       throw new Error('Receipt element not found');
     }
 
-    // Store original styles
     const originalStyle = {
       overflow: receiptElement.style.overflow,
       width: receiptElement.style.width,
       position: receiptElement.style.position,
     };
 
-    // Temporarily modify styles to ensure full capture
     receiptElement.style.overflow = 'visible';
     receiptElement.style.width = 'fit-content';
     receiptElement.style.position = 'relative';
 
-    // Get the actual dimensions
     const width = receiptElement.scrollWidth;
     const height = receiptElement.scrollHeight;
 
@@ -457,7 +539,6 @@ const StudentFeeReceiptPart2 = () => {
       dataUrl = await htmlToImage.toPng(receiptElement, options);
     }
 
-    // Restore original styles
     receiptElement.style.overflow = originalStyle.overflow;
     receiptElement.style.width = originalStyle.width;
     receiptElement.style.position = originalStyle.position;
@@ -465,7 +546,6 @@ const StudentFeeReceiptPart2 = () => {
     return dataUrl;
   };
 
-  // Function to send receipt via WhatsApp
   const sendToWhatsApp = async () => {
     if (!receiptData) {
       alert('Please generate a receipt first');
@@ -625,7 +705,6 @@ const StudentFeeReceiptPart2 = () => {
       monthlyBreakdown = ` (${months} months × ₹${monthlyAmount.toLocaleString('en-IN')} = ₹${(months * monthlyAmount).toLocaleString('en-IN')})`;
     }
 
-    // Generate receipt number based on student details
     const receiptNo = generateReceiptNo(
       formData.studentName,
       formData.course,
@@ -645,7 +724,7 @@ const StudentFeeReceiptPart2 = () => {
       period: periodText,
       monthlyBreakdown: monthlyBreakdown,
       receiptNo: receiptNo,
-      registrationNumber: formData.registrationNumber, // Include registration number
+      registrationNumber: formData.registrationNumber,
     });
   };
 
@@ -665,7 +744,6 @@ const StudentFeeReceiptPart2 = () => {
     const paidAmount = parseFloat(receiptData.feesPaid).toLocaleString('en-IN');
     const paymentModeIcon = getPaymentModeIcon(receiptData.paymentMode);
 
-    // Use data URLs for images if available, otherwise fallback to paths
     const logoImgSrc = logoDataUrl || '/assets/cnat.png';
     const paidStampImgSrc = paidStampDataUrl || paidStamp;
 
@@ -1360,25 +1438,105 @@ const StudentFeeReceiptPart2 = () => {
               />
             </div>
 
+            {/* Course Selection Dropdown with Add New Course */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                Course Name *
-              </label>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Course Name *
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowNewCourseForm(!showNewCourseForm)}
+                  className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
+                >
+                  {showNewCourseForm ? '− Cancel' : '+ Add New Course'}
+                </button>
+              </div>
               <select
                 name="course"
                 value={formData.course}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition cursor-pointer"
                 required
+                disabled={loadingCourses}
               >
                 <option value="">Select a course</option>
                 {courses.map((course) => (
-                  <option key={course.id} value={course.name}>
-                    {course.name}
+                  <option key={course.id} value={course.courseName}>
+                    {course.courseCode} - {course.courseName}
                   </option>
                 ))}
               </select>
+              {loadingCourses && (
+                <p className="text-xs text-gray-500 mt-1">Loading courses...</p>
+              )}
+              {coursesError && (
+                <p className="text-xs text-red-600 mt-1">{coursesError}</p>
+              )}
+              {courses.length === 0 && !loadingCourses && !coursesError && (
+                <p className="text-xs text-yellow-600 mt-1">No courses found in database</p>
+              )}
             </div>
+
+            {/* New Course Form */}
+            {showNewCourseForm && (
+              <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-4 bg-purple-50 dark:bg-purple-900/20">
+                <h3 className="text-sm font-bold text-purple-700 dark:text-purple-300 mb-3">Add New Course</h3>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      Course Code *
+                    </label>
+                    <input
+                      type="text"
+                      name="courseCode"
+                      value={newCourseData.courseCode}
+                      onChange={handleNewCourseChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                      placeholder="e.g., REACT01, PYTHON01"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">Unique course identifier (will be converted to uppercase)</p>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      Course Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="courseName"
+                      value={newCourseData.courseName}
+                      onChange={handleNewCourseChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                      placeholder="e.g., React Development, Python Programming"
+                    />
+                  </div>
+                  {createCourseError && (
+                    <p className="text-xs text-red-600 mt-1">{createCourseError}</p>
+                  )}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={handleCreateCourse}
+                      disabled={isCreatingCourse}
+                      className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                    >
+                      {isCreatingCourse ? 'Creating...' : 'Create Course'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowNewCourseForm(false);
+                        setNewCourseData({ courseCode: '', courseName: '' });
+                        setCreateCourseError(null);
+                      }}
+                      className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
