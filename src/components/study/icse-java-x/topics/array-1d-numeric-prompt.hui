@@ -240,10 +240,10 @@ if you have braces, >, < in your text, especially in code block,<code></code> wh
     <code>
         {`script.hava 2>&1 | tee transformation.log`}
     </code>
-
+strictly you cant use any Generic class, use simple array, this class 10 standard
 at the end 20 questions and answers related to this topic, answer will be visible on clicking the question
 
-start from Topic8
+start from Topic16
 
 
 

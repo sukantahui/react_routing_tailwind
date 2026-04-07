@@ -21,6 +21,17 @@ const StudentFeeReceiptPart2 = () => {
   const [loadingStudents, setLoadingStudents] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState('');
   const [error, setError] = useState(null);
+  const [selectedStudentRegNo, setSelectedStudentRegNo] = useState(''); // New state for registration number
+
+  // State for new student form
+  const [showNewStudentForm, setShowNewStudentForm] = useState(false);
+  const [newStudentData, setNewStudentData] = useState({
+    student_name: '',
+    nickname: '',
+    whatsapp: ''
+  });
+  const [isCreatingStudent, setIsCreatingStudent] = useState(false);
+  const [createStudentError, setCreateStudentError] = useState(null);
 
   const [formData, setFormData] = useState({
     studentName: '',
@@ -33,6 +44,7 @@ const StudentFeeReceiptPart2 = () => {
     paymentMode: 'Cash',
     periodFrom: '',
     periodTo: '',
+    registrationNumber: '', // Add registration number to form data
   });
 
   const [receiptData, setReceiptData] = useState(null);
@@ -84,6 +96,91 @@ const StudentFeeReceiptPart2 = () => {
     }
   };
 
+  // Handle new student form input changes
+  const handleNewStudentChange = (e) => {
+    const { name, value } = e.target;
+    setNewStudentData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Clear any previous errors
+    if (createStudentError) setCreateStudentError(null);
+  };
+
+  // Create new student
+  const handleCreateStudent = async (e) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!newStudentData.student_name.trim()) {
+      setCreateStudentError('Student name is required');
+      return;
+    }
+    if (!newStudentData.whatsapp.trim()) {
+      setCreateStudentError('WhatsApp number is required');
+      return;
+    }
+
+    // Validate phone number (10 digits)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(newStudentData.whatsapp)) {
+      setCreateStudentError('Please enter a valid 10-digit WhatsApp number');
+      return;
+    }
+
+    setIsCreatingStudent(true);
+    setCreateStudentError(null);
+
+    try {
+      // Prepare payload according to API requirements
+      const payload = {
+        student_name: newStudentData.student_name.trim(),
+        nickname: newStudentData.nickname.trim() || newStudentData.student_name.trim(),
+        whatsapp: newStudentData.whatsapp.trim()
+      };
+
+      const response = await studentService.createBasic(payload);
+      
+      if (response && response.status === true) {
+        // Student created successfully
+        const createdStudent = response.data;
+        
+        // Refresh the student list
+        await fetchStudents();
+        
+        // Auto-select the newly created student
+        if (createdStudent && createdStudent.id) {
+          setSelectedStudentId(createdStudent.id.toString());
+          setSelectedStudentRegNo(createdStudent.registrationNumber || '');
+          setFormData(prev => ({
+            ...prev,
+            studentName: createdStudent.student_name || '',
+            phone: createdStudent.whatsapp || '',
+            registrationNumber: createdStudent.registrationNumber || '',
+          }));
+        }
+        
+        // Reset new student form and hide it
+        setNewStudentData({
+          student_name: '',
+          nickname: '',
+          whatsapp: ''
+        });
+        setShowNewStudentForm(false);
+        
+        // Show success message
+        alert(`Student "${createdStudent.student_name}" created successfully!\nRegistration Number: ${createdStudent.registrationNumber}`);
+      } else {
+        setCreateStudentError(response?.message || 'Failed to create student');
+      }
+    } catch (error) {
+      console.error('Error creating student:', error);
+      setCreateStudentError(error.response?.data?.message || 'Failed to create student. Please try again.');
+    } finally {
+      setIsCreatingStudent(false);
+    }
+  };
+
   useEffect(() => {
     setCourses(coursesData.courses || []);
 
@@ -123,18 +220,22 @@ const StudentFeeReceiptPart2 = () => {
     if (studentId) {
       const selectedStudent = students.find(s => s.studentId === parseInt(studentId));
       if (selectedStudent) {
+        setSelectedStudentRegNo(selectedStudent.registrationNumber || '');
         setFormData(prev => ({
           ...prev,
           studentName: selectedStudent.studentName || '',
-          phone: selectedStudent.phone1 || selectedStudent.whatsapp || '',
+          phone: selectedStudent.whatsapp || selectedStudent.phone1 || '',
+          registrationNumber: selectedStudent.registrationNumber || '',
         }));
       }
     } else {
       // Clear student data if "Select Student" is chosen
+      setSelectedStudentRegNo('');
       setFormData(prev => ({
         ...prev,
         studentName: '',
         phone: '',
+        registrationNumber: '',
       }));
     }
   };
@@ -179,6 +280,8 @@ const StudentFeeReceiptPart2 = () => {
     // If student name or phone is manually changed, clear selected student
     if (name === 'studentName' || name === 'phone') {
       setSelectedStudentId('');
+      setSelectedStudentRegNo('');
+      setFormData(prev => ({ ...prev, registrationNumber: '' }));
     }
   };
 
@@ -394,6 +497,7 @@ const StudentFeeReceiptPart2 = () => {
 
       const messageText = `📄 *Fee Payment Receipt - Coder & AccoTax* 📄\n\n` +
         `👤 *Student:* ${receiptData.studentName}\n` +
+        `🆔 *Registration No:* ${receiptData.registrationNumber || 'N/A'}\n` +
         `📚 *Course:* ${receiptData.course}\n` +
         `💰 *Amount Paid:* ₹${parseFloat(receiptData.feesPaid).toLocaleString('en-IN')}/-\n` +
         `📅 *Date:* ${receiptData.paymentDate}\n` +
@@ -541,6 +645,7 @@ const StudentFeeReceiptPart2 = () => {
       period: periodText,
       monthlyBreakdown: monthlyBreakdown,
       receiptNo: receiptNo,
+      registrationNumber: formData.registrationNumber, // Include registration number
     });
   };
 
@@ -955,6 +1060,10 @@ const StudentFeeReceiptPart2 = () => {
               
               <div class="info-grid">
                 <div class="info-item">
+                  <div class="info-label">Registration No.</div>
+                  <div class="info-value">${receiptData.registrationNumber || 'N/A'}</div>
+                </div>
+                <div class="info-item">
                   <div class="info-label">Receipt No.</div>
                   <div class="info-value">${receiptData.receiptNo}</div>
                 </div>
@@ -966,15 +1075,15 @@ const StudentFeeReceiptPart2 = () => {
                   <div class="info-label">Payment Mode</div>
                   <div class="info-value">${paymentModeIcon} ${receiptData.paymentMode}</div>
                 </div>
-                <div class="info-item">
-                  <div class="info-label">Student Name</div>
-                  <div class="info-value">${receiptData.studentName}</div>
-                </div>
               </div>
 
               <div class="details-section">
-                <div class="section-title">Course Details</div>
+                <div class="section-title">Student & Course Details</div>
                 <table class="details-table">
+                  <tr>
+                    <td>Student Name</td>
+                    <td>${receiptData.studentName}</td>
+                  </tr>
                   <tr>
                     <td>Phone Number</td>
                     <td>${receiptData.phone}</td>
@@ -1109,9 +1218,18 @@ const StudentFeeReceiptPart2 = () => {
           <form onSubmit={handleSubmit} className="p-5 space-y-4">
             {/* Student Selection Dropdown */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                Select Student (Optional)
-              </label>
+              <div className="flex justify-between items-center mb-1">
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                  Select Student (Optional)
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowNewStudentForm(!showNewStudentForm)}
+                  className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
+                >
+                  {showNewStudentForm ? '− Cancel' : '+ Add New Student'}
+                </button>
+              </div>
               <select
                 value={selectedStudentId}
                 onChange={handleStudentSelect}
@@ -1121,7 +1239,7 @@ const StudentFeeReceiptPart2 = () => {
                 <option value="">-- Select from database --</option>
                 {students.map((student) => (
                   <option key={student.studentId} value={student.studentId}>
-                    {student.studentName} - {student.phone1 || student.whatsapp}
+                    {student.studentName} - {student.registrationNumber || 'No Reg No'} - {student.whatsapp || student.phone1}
                   </option>
                 ))}
               </select>
@@ -1135,6 +1253,78 @@ const StudentFeeReceiptPart2 = () => {
                 <p className="text-xs text-yellow-600 mt-1">No students found in database</p>
               )}
             </div>
+
+            {/* New Student Form */}
+            {showNewStudentForm && (
+              <div className="border-2 border-blue-200 dark:border-blue-800 rounded-lg p-4 bg-blue-50 dark:bg-blue-900/20">
+                <h3 className="text-sm font-bold text-blue-700 dark:text-blue-300 mb-3">Add New Student</h3>
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      Student Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="student_name"
+                      value={newStudentData.student_name}
+                      onChange={handleNewStudentChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                      placeholder="Enter full name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      Nickname (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      name="nickname"
+                      value={newStudentData.nickname}
+                      onChange={handleNewStudentChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                      placeholder="e.g., Kaustav class 5"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                      WhatsApp Number *
+                    </label>
+                    <input
+                      type="tel"
+                      name="whatsapp"
+                      value={newStudentData.whatsapp}
+                      onChange={handleNewStudentChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                      placeholder="10-digit mobile number"
+                    />
+                  </div>
+                  {createStudentError && (
+                    <p className="text-xs text-red-600 mt-1">{createStudentError}</p>
+                  )}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={handleCreateStudent}
+                      disabled={isCreatingStudent}
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                    >
+                      {isCreatingStudent ? 'Creating...' : 'Create Student'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowNewStudentForm(false);
+                        setNewStudentData({ student_name: '', nickname: '', whatsapp: '' });
+                        setCreateStudentError(null);
+                      }}
+                      className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 text-center">OR Enter Manually</p>
@@ -1419,6 +1609,10 @@ const StudentFeeReceiptPart2 = () => {
                   </div>
 
                   <div className="space-y-2 text-xs">
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold text-gray-600">Registration No:</span>
+                      <span className="text-gray-800 font-mono text-[10px]">{receiptData.registrationNumber || 'N/A'}</span>
+                    </div>
                     <div className="flex justify-between items-center">
                       <span className="font-semibold text-gray-600">Receipt No:</span>
                       <span className="text-gray-800 font-mono text-[10px]">{receiptData.receiptNo}</span>

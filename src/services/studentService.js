@@ -20,5 +20,15 @@ export const studentService = {
       throw error;
     }
 
+  },
+  createBasic: async (data) => {
+    try {
+      const response = await api.post("/students/basic",data);
+      return response.data;
+    } catch (error) {
+      console.error("Error saving student:", error);
+      throw error;
+    }
+
   }
 };
