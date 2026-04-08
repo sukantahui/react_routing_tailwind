@@ -9,15 +9,47 @@ import {
   IdentificationIcon 
 } from "@heroicons/react/24/outline";
 import CertificateCanvas from "./CertificateCanvas";
+import coursesData from '../assets/jsons/courses.json';
+
+// Helper function to generate certificate number
+const generateCertificateNo = () => {
+  const prefix = 'CNAT';
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  const timestamp = `${year}${month}${day}${hours}${minutes}${seconds}`;
+  return `${prefix}-${timestamp}`;
+};
 
 const CertificateGenerator = () => {
-  // Static image states (same as before)
+  // Static image states
   const [bgImage, setBgImage] = useState(null);
   const [logoImage, setLogoImage] = useState(null);
   const [instructorSignImage, setInstructorSignImage] = useState(null);
   const [directorSignImage, setDirectorSignImage] = useState(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadError, setLoadError] = useState(false);
+  const [courses, setCourses] = useState([]);
+
+  // Load courses from JSON
+  useEffect(() => {
+    setCourses(coursesData.courses);
+  }, []);
+
+  // Define default values dynamically (certificate number is generated)
+  const getDefaultValues = () => ({
+    name: "Ritaja Ghosh",
+    course: "React Development",
+    date: "March 15, 2026",
+    duration: "4 Weeks",
+    instructor: "Sukanta Hui",
+    director: "Tanusree Hui",
+    certNumber: generateCertificateNo(),
+  });
 
   // Form handling with react-hook-form
   const {
@@ -28,32 +60,11 @@ const CertificateGenerator = () => {
     reset,
   } = useForm({
     mode: "onChange",
-    defaultValues: {
-      name: "Ritaja Ghosh",
-      course: "React Development",
-      date: "March 15, 2026",
-      duration: "4 Weeks",
-      instructor: "Sukanta Hui",
-      director: "Tanusree Hui",
-      certNumber: "CNAT-2026-001",
-    },
+    defaultValues: getDefaultValues(),
   });
 
   // Watch all fields for live preview
   const formData = watch();
-
-  const courseOptions = [
-    "Diploma in Computer Application",
-    "Diploma in Financial Application",
-    "Data Structures and Algorithms",
-    "Core Java",
-    "React Development",
-    "JavaScript Basics",
-    "Python Programming",
-    "Data Science Fundamentals",
-    "Web Development Bootcamp",
-    "Mobile App Development",
-  ];
 
   // Load images (same as before, with error handling)
   useEffect(() => {
@@ -97,8 +108,12 @@ const CertificateGenerator = () => {
   }, []);
 
   const onSubmit = (data) => {
-    // In this live-preview scenario, we don't need to do anything on submit
     console.log("Form data", data);
+  };
+
+  // Custom reset that regenerates the certificate number
+  const handleReset = () => {
+    reset(getDefaultValues());
   };
 
   return (
@@ -133,7 +148,7 @@ const CertificateGenerator = () => {
                 )}
               </div>
 
-              {/* Course Selection */}
+              {/* Course Selection - from JSON */}
               <div>
                 <label htmlFor="course" className="block text-sm font-semibold text-gray-700 mb-1">
                   Course <span className="text-red-500">*</span>
@@ -147,9 +162,9 @@ const CertificateGenerator = () => {
                       errors.course ? "border-red-500" : "border-gray-300"
                     }`}
                   >
-                    {courseOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
+                    {courses.map((course) => (
+                      <option key={course.id} value={course.name}>
+                        {course.name}
                       </option>
                     ))}
                   </select>
@@ -159,7 +174,7 @@ const CertificateGenerator = () => {
                 )}
               </div>
 
-              {/* Date and Duration - two columns */}
+              {/* Date and Duration */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="date" className="block text-sm font-semibold text-gray-700 mb-1">
@@ -240,7 +255,7 @@ const CertificateGenerator = () => {
                 </div>
               </div>
 
-              {/* Certificate Number */}
+              {/* Certificate Number - now generated dynamically */}
               <div>
                 <label htmlFor="certNumber" className="block text-sm font-semibold text-gray-700 mb-1">
                   Certificate Number <span className="text-red-500">*</span>
@@ -251,16 +266,13 @@ const CertificateGenerator = () => {
                     id="certNumber"
                     type="text"
                     {...register("certNumber", { 
-                      required: "Certificate number is required",
-                      pattern: {
-                        value: /^CNAT-\d{4}-\d{3}$/,
-                        message: "Format: CNAT-2026-001"
-                      }
+                      required: "Certificate number is required"
+                      // Pattern validation removed to support generated format (e.g., CNAT/20260315143022)
                     })}
                     className={`w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
                       errors.certNumber ? "border-red-500" : "border-gray-300"
                     }`}
-                    placeholder="CNAT-2026-001"
+                    placeholder="CNAT/20260315143022"
                   />
                 </div>
                 {errors.certNumber && (
@@ -279,7 +291,7 @@ const CertificateGenerator = () => {
                 </button>
                 <button
                   type="button"
-                  onClick={() => reset()}
+                  onClick={handleReset}
                   className="px-6 py-2.5 border border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 focus:ring-4 focus:ring-gray-200 transition"
                 >
                   Reset

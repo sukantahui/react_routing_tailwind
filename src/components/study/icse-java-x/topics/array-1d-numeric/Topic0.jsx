@@ -1,452 +1,414 @@
-import React from "react";
-import clsx from "clsx";
-import JavaFileLoader from "../../../../../common/JavaFileLoader";
-import array1 from "./topic0_files/array1.png"
-// Import raw Java files
-import arrayConceptRaw from "./topic0_files/ArrayConcept.java?raw";
+import React, { useState } from 'react';
+import clsx from 'clsx';
+import Teacher from "../../../../../common/TeacherSukantaHui";
 
-/**
- * Topic0: Concept of Array and Memory Representation
- *
- * This component explains:
- * - What an array is
- * - How arrays are stored in memory (contiguous)
- * - Declaration and basic initialization
- * - Real‑world analogies
- * - Common mistakes, best practices, and pro tips
- *
- * Animations:
- * - Section reveal (fade + slide‑up)
- * - Staggered appearance using arbitrary delays
- * - Hover emphasis on cards, SVG steps, teacher note
- *
- * Dark mode is forced by a wrapping `dark` class.
- */
+// SVG Components for Memory Representation
+const MemoryStackSVG = () => (
+  <svg viewBox="0 0 400 300" className="w-full h-auto max-w-md mx-auto my-4" aria-label="Memory Stack and Heap Diagram">
+    <defs>
+      <linearGradient id="stackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.2 }} />
+        <stop offset="100%" style={{ stopColor: '#1e3a8a', stopOpacity: 0.4 }} />
+      </linearGradient>
+      <linearGradient id="heapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style={{ stopColor: '#10b981', stopOpacity: 0.2 }} />
+        <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 0.4 }} />
+      </linearGradient>
+      <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+        <feDropShadow dx="2" dy="2" stdDeviation="3" floodOpacity="0.3" />
+      </filter>
+    </defs>
+    
+    {/* Stack Frame */}
+    <rect x="50" y="50" width="120" height="200" rx="8" fill="url(#stackGrad)" stroke="#3b82f6" strokeWidth="2" filter="url(#shadow)" />
+    <text x="110" y="30" textAnchor="middle" fill="#3b82f6" fontWeight="bold" fontSize="14">Stack Memory</text>
+    <text x="110" y="75" textAnchor="middle" fill="#1e293b" fontSize="12">main()</text>
+    <line x1="60" y1="85" x2="160" y2="85" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4" />
+    <text x="110" y="105" textAnchor="middle" fill="#1e293b" fontSize="11">arr (reference)</text>
+    <text x="110" y="120" textAnchor="middle" fill="#1e293b" fontSize="11">↓ 0x1A2B</text>
+    
+    {/* Heap Array */}
+    <rect x="230" y="80" width="150" height="160" rx="8" fill="url(#heapGrad)" stroke="#10b981" strokeWidth="2" filter="url(#shadow)" />
+    <text x="305" y="65" textAnchor="middle" fill="#10b981" fontWeight="bold" fontSize="14">Heap Memory</text>
+    
+    {/* Array Cells */}
+    <rect x="245" y="90" width="30" height="30" rx="4" fill="#ffffff" stroke="#047857" strokeWidth="1.5" />
+    <text x="260" y="110" textAnchor="middle" fill="#047857" fontSize="10" fontWeight="bold">10</text>
+    <text x="260" y="135" textAnchor="middle" fill="#047857" fontSize="9">index 0</text>
+    
+    <rect x="285" y="90" width="30" height="30" rx="4" fill="#ffffff" stroke="#047857" strokeWidth="1.5" />
+    <text x="300" y="110" textAnchor="middle" fill="#047857" fontSize="10" fontWeight="bold">20</text>
+    <text x="300" y="135" textAnchor="middle" fill="#047857" fontSize="9">index 1</text>
+    
+    <rect x="325" y="90" width="30" height="30" rx="4" fill="#ffffff" stroke="#047857" strokeWidth="1.5" />
+    <text x="340" y="110" textAnchor="middle" fill="#047857" fontSize="10" fontWeight="bold">30</text>
+    <text x="340" y="135" textAnchor="middle" fill="#047857" fontSize="9">index 2</text>
+    
+    {/* Address Arrow */}
+    <path d="M 170 110 L 240 110" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4" markerEnd="url(#arrowhead)" />
+    <text x="205" y="100" textAnchor="middle" fill="#f59e0b" fontSize="10">reference</text>
+    
+    <text x="305" y="175" textAnchor="middle" fill="#047857" fontSize="11">Contiguous Memory</text>
+    <text x="305" y="195" textAnchor="middle" fill="#047857" fontSize="10">Address: 0x1A2B</text>
+    <text x="305" y="215" textAnchor="middle" fill="#047857" fontSize="10">Size: 3 elements</text>
+    
+    {/* Cell Highlight Animation */}
+    <rect x="245" y="90" width="30" height="30" rx="4" fill="none" stroke="#f59e0b" strokeWidth="2">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+    </rect>
+  </svg>
+);
+
+const ArrayIndexSVG = () => (
+  <svg viewBox="0 0 500 120" className="w-full h-auto max-w-2xl mx-auto my-4" aria-label="Array Index Representation">
+    <g transform="translate(50, 20)">
+      {[0, 1, 2, 3, 4].map((i, idx) => (
+        <g key={idx} transform={`translate(${idx * 80}, 0)`}>
+          <rect x="0" y="20" width="70" height="50" rx="6" fill="#ffffff" stroke="#6366f1" strokeWidth="2" className="transition-all duration-300 hover:stroke-indigo-500 hover:shadow-lg" />
+          <text x="35" y="45" textAnchor="middle" fill="#1e293b" fontSize="14" fontWeight="bold">{(idx + 1) * 10}</text>
+          <text x="35" y="85" textAnchor="middle" fill="#64748b" fontSize="12">index [{idx}]</text>
+          <text x="35" y="100" textAnchor="middle" fill="#94a3b8" fontSize="10">offset {idx * 4}</text>
+          
+          {/* Address line */}
+          <line x1="35" y1="70" x2="35" y2="20" stroke="#cbd5e1" strokeWidth="1" />
+        </g>
+      ))}
+    </g>
+  </svg>
+);
+
 const Topic0 = () => {
+  const [activeSection, setActiveSection] = useState('theory');
+
   return (
-    <>
-      {/* Inline keyframes for reveal animation */}
-      <style>{`
-        @keyframes fadeInSlideUp {
-          0% { opacity: 0; transform: translateY(12px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+            Arrays in Java: Concept & Memory Representation
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            Understanding how arrays store data in contiguous memory locations and their representation in Java
+          </p>
+        </div>
 
-      {/* Force dark mode by adding 'dark' class to the root container */}
-      <div className="dark">
-        {/* Main container: soft background, soothing typography */}
-        <div
-          className={clsx(
-            "max-w-5xl mx-auto px-4 py-8 md:px-6 lg:px-8",
-            "bg-gray-50 dark:bg-gray-900",
-            "text-gray-800 dark:text-gray-200",
-            "leading-relaxed"
+        {/* Navigation Tabs */}
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-gray-700">
+          {['theory', 'visual', 'code', 'practice'].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveSection(tab)}
+              className={clsx(
+                "px-4 py-2 text-sm font-medium rounded-t-lg transition-all duration-300",
+                activeSection === tab
+                  ? "bg-indigo-50 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600"
+                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              )}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
+        </div>
+
+        {/* Main Content Area */}
+        <div className="space-y-6">
+          {/* Theory Section */}
+          {activeSection === 'theory' && (
+            <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
+              {/* Concept Card */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+                  <span className="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                  What is an Array?
+                </h2>
+                <div className="prose dark:prose-invert max-w-none">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                    An array is a <strong className="text-indigo-600 dark:text-indigo-400">container object</strong> that holds a <strong className="text-indigo-600 dark:text-indigo-400">fixed number of values</strong> of a <strong className="text-indigo-600 dark:text-indigo-400">single data type</strong>. Think of it as a row of numbered lockers where each locker can store one item, and all lockers are the same size.
+                  </p>
+                  <div className="bg-indigo-50 dark:bg-indigo-900/30 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-indigo-800 dark:text-indigo-200 font-mono">
+                      <strong>Prototype:</strong> <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">type[] arrayName;</code><br />
+                      <strong>Return Type:</strong> Reference to array object<br />
+                      <strong>Purpose:</strong> Store multiple values under single variable name
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Memory Representation Card */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+                  <span className="bg-green-100 dark:bg-green-900/50 text-green-600 dark:text-green-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                  Memory Representation
+                </h2>
+                <div className="space-y-4">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Arrays in Java are stored in <strong className="text-green-600 dark:text-green-400">Heap Memory</strong>. The array variable (reference) is stored in Stack memory and points to the actual array object in Heap.
+                  </p>
+                  <MemoryStackSVG />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Stack Memory</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>Stores reference variables</li>
+                        <li>Holds memory address of array</li>
+                        <li>Size: 8 bytes (reference)</li>
+                        <li>Automatically managed</li>
+                      </ul>
+                    </div>
+                    <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                      <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Heap Memory</h3>
+                      <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>Stores actual array data</li>
+                        <li>Contiguous memory blocks</li>
+                        <li>Fixed size after creation</li>
+                        <li>Garbage collected</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Indexing Card */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Indexing in Arrays</h2>
+                <ArrayIndexSVG />
+                <div className="mt-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                  <p className="text-yellow-800 dark:text-yellow-200 text-sm">
+                    <strong>💡 Important:</strong> Array indices always start from <code className="bg-yellow-100 dark:bg-yellow-800 px-1 rounded">0</code>. The last index is <code className="bg-yellow-100 dark:bg-yellow-800 px-1 rounded">length - 1</code>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Real World Example Card */}
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌍 Real-World Example</h2>
+                <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                  <p><strong>School Roll Numbers:</strong> A teacher like Sukanta Hui maintains a list of 30 students in a class - each student has a unique roll number (0-29).</p>
+                  <p><strong>Barrackpore Train Schedule:</strong> A train's timetable has 10 stations, each at a specific index position in the schedule array.</p>
+                  <p><strong>Game High Scores:</strong> A mobile game stores top 5 scores in an array, with index 0 being the highest.</p>
+                </div>
+              </div>
+
+              <Teacher note="Arrays are fundamental building blocks in Java. Remember: They're zero-indexed, fixed-size, and store homogeneous data. The memory is contiguous, which makes access O(1) - lightning fast! Always visualize arrays as connected boxes in memory." />
+            </div>
           )}
-        >
-          {/* HEADER with reveal animation */}
-          <div
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-8"
-            style={{ animationFillMode: "both" }}
-          >
-            <h1 className="text-3xl md:text-4xl font-light tracking-tight mb-2 text-gray-900 dark:text-white">
-              📚 Concept of Array & Memory Representation
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Understanding how arrays store data sequentially in memory.
-            </p>
-          </div>
 
-          {/* INTRODUCTION (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.1s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              What is an Array?
-            </h2>
-            <div className="space-y-3 text-gray-700 dark:text-gray-300">
-              <p>
-                An <strong>array</strong> is a container object that holds a fixed number of
-                values of a <em>single type</em>. The elements are stored in contiguous memory
-                locations, which makes accessing any element by its index extremely fast – O(1)
-                time complexity.
-              </p>
-              <p>
-                Think of it like a row of lockers at a school in{" "}
-                <span className="text-indigo-600 dark:text-indigo-400">Barrackpore</span>: each
-                locker has a number (index) and can hold one item. Swadeep’s books are in locker
-                0, Tuhina’s in locker 1, Abhronila’s in locker 2, and so on.
-              </p>
-              <p>
-                In Java, arrays are objects, so they are created on the heap, but the elements
-                themselves are stored in a contiguous block of memory.
-              </p>
-            </div>
-          </section>
+          {/* Visual Section */}
+          {activeSection === 'visual' && (
+            <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Visual Memory Map</h2>
+                <MemoryStackSVG />
+                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                  The reference variable 'arr' in stack points to the actual array object in heap memory
+                </p>
+              </div>
 
-          {/* MEMORY REPRESENTATION SVG (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              🧠 Memory Representation
-            </h2>
-            <div className="max-w-4xl w-full flex justify-center">
-                                      <img
-                                        src={array1}
-                                        alt="Array Structure"
-                                        className="w-full h-auto object-contain"
-                                      />
-                                    </div>
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md">
-              {/* SVG diagram: contiguous memory cells */}
-              <svg
-                width="100%"
-                height="140"
-                viewBox="0 0 600 140"
-                preserveAspectRatio="xMidYMid meet"
-                className="max-w-full h-auto"
-              >
-                {/* Background row of memory cells */}
-                <rect x="50" y="30" width="500" height="60" fill="#2d3748" rx="8" />
-                <rect x="50" y="30" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="150" y="30" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="250" y="30" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="350" y="30" width="100" height="60" fill="#4a5568" rx="8" />
-                <rect x="450" y="30" width="100" height="60" fill="#4a5568" rx="8" />
-
-                {/* Index labels */}
-                <text x="90" y="70" textAnchor="middle" fill="#f7fafc" fontSize="14">
-                  0
-                </text>
-                <text x="190" y="70" textAnchor="middle" fill="#f7fafc" fontSize="14">
-                  1
-                </text>
-                <text x="290" y="70" textAnchor="middle" fill="#f7fafc" fontSize="14">
-                  2
-                </text>
-                <text x="390" y="70" textAnchor="middle" fill="#f7fafc" fontSize="14">
-                  3
-                </text>
-                <text x="490" y="70" textAnchor="middle" fill="#f7fafc" fontSize="14">
-                  4
-                </text>
-
-                {/* Address lines (simulated) */}
-                <text x="50" y="110" fill="#a0aec0" fontSize="12">
-                  0x7ffe
-                </text>
-                <text x="150" y="110" fill="#a0aec0" fontSize="12">
-                  0x7ffe + 4
-                </text>
-                <text x="250" y="110" fill="#a0aec0" fontSize="12">
-                  0x7ffe + 8
-                </text>
-                <text x="350" y="110" fill="#a0aec0" fontSize="12">
-                  0x7ffe + 12
-                </text>
-                <text x="450" y="110" fill="#a0aec0" fontSize="12">
-                  0x7ffe + 16
-                </text>
-
-                {/* Animated highlight on hover (using SVG <animate> for conceptual effect) */}
-                <rect
-                  x="50"
-                  y="30"
-                  width="100"
-                  height="60"
-                  fill="transparent"
-                  stroke="#fbbf24"
-                  strokeWidth="3"
-                  rx="8"
-                >
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;0"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                </rect>
-                <text x="90" y="70" textAnchor="middle" fill="#fbbf24" fontSize="14" opacity="0">
-                  <animate
-                    attributeName="opacity"
-                    values="0;1;0"
-                    dur="3s"
-                    repeatCount="indefinite"
-                  />
-                  ⬅️ base
-                </text>
-              </svg>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                <strong>Contiguous memory:</strong> Each element occupies a fixed number of bytes.
-                The address of <code className="text-xs bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded">arr[i]</code> = base address + (i × element size).
-              </p>
-            </div>
-          </section>
-
-          {/* JAVA CODE EXAMPLE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.3s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              💻 Java Code: Array in Action
-            </h2>
-            <div className="transition-all duration-300 hover:scale-[1.01]">
-              <JavaFileLoader
-                fileModule={arrayConceptRaw}
-                title="ArrayConcept.java"
-                highlightLines={[]}
-              />
-            </div>
-            <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-              The program declares an integer array of size 5, assigns marks to each student
-              (Swadeep, Tuhina, …), and then prints them using a loop.
-            </p>
-          </section>
-
-          {/* PROTOTYPE / SIGNATURE (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.4s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              📐 Prototype & Purpose
-            </h2>
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border-l-4 border-indigo-500 shadow-sm">
-              <dl className="space-y-2">
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Declaration:
-                  </dt>
-                  <dd>
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                      type[] arrayName;   // preferred
-                    </code>{" "}
-                    or{" "}
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                      type arrayName[];
-                    </code>
-                  </dd>
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🔍 Index Calculation</h2>
+                <ArrayIndexSVG />
+                <div className="mt-6 grid grid-cols-1 gap-3">
+                  {[
+                    { formula: "Base Address", value: "0x1A2B", desc: "Starting memory location" },
+                    { formula: "Element Address", value: "Base + (index × element_size)", desc: "Address of any element" },
+                    { formula: "Size Calculation", value: "length × element_size", desc: "Total memory occupied" },
+                    { formula: "Time Complexity", value: "O(1) access", desc: "Constant time for any index" }
+                  ].map((item, idx) => (
+                    <div key={idx} className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg flex justify-between items-center group hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-300">
+                      <span className="font-mono text-sm font-semibold text-gray-700 dark:text-gray-300">{item.formula}</span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</span>
+                    </div>
+                  ))}
                 </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Instantiation:
-                  </dt>
-                  <dd>
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
-                      arrayName = new type[size];
-                    </code>
-                  </dd>
+              </div>
+
+              <Teacher note="When explaining memory representation, use the analogy of a apartment building: The reference is the address, heap is the building, and indices are floor numbers. Each floor has the same 'size' apartment!" />
+            </div>
+          )}
+
+          {/* Code Section */}
+          {activeSection === 'code' && (
+            <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">💻 Code Examples</h2>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Basic Array Declaration</h3>
+                    <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                      <code>{`// Declaration and memory allocation
+int[] marks;           // Declaration (reference created in stack)
+marks = new int[5];    // Allocation (array created in heap)
+
+// Combined form
+int[] scores = new int[10];
+
+// Array literal (compile-time initialization)
+int[] numbers = {10, 20, 30, 40, 50};`}</code>
+                    </pre>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-medium text-gray-700 dark:text-gray-200 mb-2">Memory Access Example</h3>
+                    <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+                      <code>{`public class MemoryDemo {
+    public static void main(String[] args) {
+        int[] arr = new int[3];  // Reference 'arr' in stack, array in heap
+        
+        arr[0] = 100;  // Store 100 at offset 0
+        arr[1] = 200;  // Store 200 at offset 1  
+        arr[2] = 300;  // Store 300 at offset 2
+        
+        // Access: arr[1] -> base address + (1 * 4) bytes
+        System.out.println(arr[1]);  // Output: 200
+    }
+}`}</code>
+                    </pre>
+                  </div>
                 </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    Purpose:
-                  </dt>
-                  <dd>
-                    Store multiple values of the same type under one name and access them by
-                    index. Used everywhere – from student marks (Debangshu’s scores) to sensor
-                    readings.
-                  </dd>
+              </div>
+
+              <Teacher note="Always remember: new keyword is the bridge between declaration (stack) and actual memory allocation (heap). Without new, you only have a reference pointing to null!" />
+            </div>
+          )}
+
+          {/* Practice Section */}
+          {activeSection === 'practice' && (
+            <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🎯 Questions & Answers</h2>
+                <div className="space-y-4">
+                  {qaData.map((qa, idx) => (
+                    <details key={idx} className="group border border-gray-200 dark:border-gray-700 rounded-lg">
+                      <summary className="cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
+                        {qa.question}
+                      </summary>
+                      <div className="p-4 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+                        {qa.answer}
+                      </div>
+                    </details>
+                  ))}
                 </div>
-                <div>
-                  <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
-                    When to use:
-                  </dt>
-                  <dd>
-                    When you know the exact number of elements in advance and need fast,
-                    index‑based access.
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </section>
-
-          {/* COMMON PITFALLS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.5s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              ⚠️ Common Pitfalls (Beginners)
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Index out of bounds
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Accessing index <code className="text-xs">size</code> or negative – Java throws{" "}
-                  <code className="text-xs">ArrayIndexOutOfBoundsException</code>. Remember: valid
-                  indices are 0 to length-1.
-                </p>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Uninitialized array
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Declaring a reference but forgetting <code className="text-xs">new</code> leads
-                  to <code className="text-xs">NullPointerException</code>.
-                </p>
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Confusing size with last index
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  If size is 5, the last index is 4. Beginners often write loops up to{" "}
-                  <code className="text-xs">{`<= size`}</code>.
-                </p>
-              </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <h3 className="font-semibold text-red-600 dark:text-red-400">
-                  Type mismatch
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Putting a <code className="text-xs">double</code> into an{" "}
-                  <code className="text-xs">int[]</code> causes compilation error.
-                </p>
-              </div>
-            </div>
-          </section>
 
-          {/* BEST PRACTICES & TIPS (staggered) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              ✅ Best Practices & Pro Tips
-            </h2>
-            <div className="bg-white dark:bg-gray-800 p-5 rounded-lg space-y-3 shadow-sm transition-all duration-300 hover:shadow-md">
-              <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                <li>
-                  <strong>Use the <code className="text-xs">length</code> property</strong> – never
-                  hard‑code array size in loops.
-                </li>
-                <li>
-                  <strong>Initialize arrays at declaration</strong> when possible:{" "}
-                  <code className="text-xs">int[] marks = {`{85, 90, 78};`}</code>
-                </li>
-                <li>
-                  <strong>Prefer the <code className="text-xs">type[] name</code> syntax</strong>{" "}
-                  (it clearly shows the type is an array).
-                </li>
-                <li>
-                  <strong>For multi‑dimensional arrays</strong>, remember they are arrays of
-                  arrays; memory may not be fully contiguous.
-                </li>
-                <li className="text-sm bg-yellow-50 dark:bg-yellow-900/20 p-2 rounded">
-                  💡 <span className="font-medium">Industry habit:</span> Always validate array
-                  indices when accepting user input to avoid exceptions.
-                </li>
-              </ul>
+              <Teacher note="Practice these questions until you can visualize the memory layout. Draw diagrams for each array operation - it's the best way to truly understand how arrays work in Java!" />
             </div>
-          </section>
-
-          {/* HINT SECTION (subtle guidance) */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.7s", animationFillMode: "both" }}
-          >
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-lg border border-blue-200 dark:border-blue-800">
-              <h3 className="text-lg font-medium text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
-                <span>💭 Think about…</span>
-              </h3>
-              <ul className="space-y-2 text-blue-700 dark:text-blue-200">
-                <li>
-                  • What happens in memory when you write{" "}
-                  <code className="text-xs">int[] arr = new int[3];</code>? Where is the reference
-                  stored? Where are the elements?
-                </li>
-                <li>
-                  • If an array holds 5 integers, how many bytes are allocated on a typical JVM
-                  (assuming 4 bytes per int)?
-                </li>
-                <li>
-                  • Try changing the values in the code above – can you access the element at
-                  index 5?
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* TEACHER'S NOTE */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
-            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
-          >
-            <div className="bg-amber-50 dark:bg-amber-900/20 p-5 rounded-lg border border-amber-200 dark:border-amber-800 transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
-              <h3 className="text-lg font-medium text-amber-800 dark:text-amber-300 mb-3 flex items-center gap-2">
-                <span>👩‍🏫 Teacher’s Note</span>
-              </h3>
-              <div className="space-y-3 text-amber-700 dark:text-amber-200">
-                <p>
-                  <strong>Sukanta Hui</strong> (27 years of experience) reminds you:
-                </p>
-                <p>
-                  “Arrays are the foundation of data structures. The contiguous memory layout is
-                  what makes them fast, but also rigid. In my classes at Barrackpore, I ask
-                  students to draw memory diagrams on paper – it cements the concept. Remember:
-                  every array in Java knows its length; use it!”
-                </p>
-                <p className="text-sm">
-                  📧 sukantahui@codernaccotax.co.in | 📞 7003756860
-                  <br />
-                  Skills: Programming Languages, RDBMS, OS, Web Development
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* MINI CHECKLIST */}
-          <section
-            className="animate-[fadeInSlideUp_0.6s_ease-out] mb-6"
-            style={{ animationDelay: "0.9s", animationFillMode: "both" }}
-          >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
-              ✅ Checklist – What to Remember
-            </h2>
-            <div className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Array elements
-                  are stored contiguously.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Index starts at 0.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Length is fixed
-                  after creation.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Use{" "}
-                  <code className="text-xs">array.length</code> (not a method).
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Default values:
-                  0, null, false etc.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-600 dark:text-green-400">✔</span> Arrays are objects
-                  – stored in heap.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          {/* FOOTER (optional) */}
-          <footer className="text-xs text-center text-gray-500 dark:text-gray-500 mt-12 pt-4 border-t border-gray-200 dark:border-gray-700">
-            Topic 0 – Concept of Array & Memory Representation | Next: Declaration & Initialization
-          </footer>
+          )}
         </div>
       </div>
-    </>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+          .animate-\\[fadeInUp_.*\\] {
+            animation: none !important;
+          }
+        }
+        
+        details summary::-webkit-details-marker {
+          display: none;
+        }
+        
+        details summary {
+          list-style: none;
+        }
+      `}</style>
+    </div>
   );
 };
+
+const qaData = [
+  {
+    question: "What is an array in Java?",
+    answer: "An array is a container object that holds a fixed number of values of a single data type. Arrays are stored in contiguous memory locations and provide O(1) access time."
+  },
+  {
+    question: "Where are arrays stored in memory?",
+    answer: "The actual array data is stored in Heap memory, while the reference variable pointing to the array is stored in Stack memory."
+  },
+  {
+    question: "What is the starting index of an array?",
+    answer: "Arrays in Java always start at index 0. The last valid index is length - 1."
+  },
+  {
+    question: "How does Java calculate the address of arr[3]?",
+    answer: "Address = Base Address + (3 × size_of_element). For integers (4 bytes), if base address is 1000, arr[3] is at 1012."
+  },
+  {
+    question: "What happens if we try to access arr[10] when array length is 5?",
+    answer: "Java throws ArrayIndexOutOfBoundsException at runtime because the index is beyond the array bounds."
+  },
+  {
+    question: "What is the default value of array elements before initialization?",
+    answer: "For numeric arrays (int, double, etc.), default is 0. For boolean arrays, default is false. For reference arrays, default is null."
+  },
+  {
+    question: "How does Java know the length of an array?",
+    answer: "Every array object in Java has a 'length' property that stores the size. This property is accessible via arrayName.length."
+  },
+  {
+    question: "What is the time complexity of accessing array elements?",
+    answer: "Array access is O(1) - constant time. Java calculates the exact memory location using the base address and index offset."
+  },
+  {
+    question: "Can arrays store different data types?",
+    answer: "No, arrays in Java are homogeneous - they can only store elements of the same data type as declared."
+  },
+  {
+    question: "What is the difference between int[] arr and int arr[]?",
+    answer: "Both are valid syntax. int[] arr is preferred as it clearly shows the array type. int arr[] is C-style syntax."
+  },
+  {
+    question: "How much memory does a reference variable occupy?",
+    answer: "In 64-bit JVM, reference variables typically occupy 8 bytes in stack memory, regardless of array size."
+  },
+  {
+    question: "What is contiguous memory allocation?",
+    answer: "Contiguous means elements are stored in adjacent memory locations, one after another, without gaps."
+  },
+  {
+    question: "Can we change array size after creation?",
+    answer: "No, arrays have fixed size once created. To change size, you must create a new array and copy elements."
+  },
+  {
+    question: "What is the maximum array size in Java?",
+    answer: "Maximum array size is Integer.MAX_VALUE - 8 (approximately 2.14 billion elements) due to JVM overhead."
+  },
+  {
+    question: "What happens in memory with: int[] a = new int[5]; int[] b = a;?",
+    answer: "Both a and b reference the SAME array object in heap. No new array is created - just another reference variable."
+  },
+  {
+    question: "How does array access compare to ArrayList access speed?",
+    answer: "Arrays are faster than ArrayLists for direct access because ArrayList has method call overhead and uses an internal array."
+  },
+  {
+    question: "What is an array index expression?",
+    answer: "The expression inside square brackets, like arr[i+1] or arr[getIndex()]. Java evaluates it to an integer index."
+  },
+  {
+    question: "Can negative indices be used with arrays?",
+    answer: "No, negative indices will cause ArrayIndexOutOfBoundsException. Arrays are zero-based positive indices only."
+  },
+  {
+    question: "What is a multidimensional array in memory?",
+    answer: "A multidimensional array is an array of arrays. Each inner array is a separate object in heap with its own reference."
+  },
+  {
+    question: "Why are arrays considered objects in Java?",
+    answer: "Arrays have methods (like clone()), a property (length), extend Object class, and are created with 'new' keyword."
+  }
+];
 
 export default Topic0;

@@ -1,0 +1,255 @@
+{
+  "paperId": "BOOLEAN-ALGEBRA-EXPERT-SET-01",
+  "title": "Boolean Algebra - Expert Level Simplification",
+  "duration": "2 Hours",
+  "totalMarks": 75,
+
+  "sections": [
+    {
+      "section": "A",
+      "type": "Basic Simplification (3 Marks Each)",
+      "marksPerQuestion": 3,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Simplify: ABC + ABC' + AB'C + A'BC",
+          "marks": 3,
+          "original": "ABC + ABC' + AB'C + A'BC",
+          "simplified": "AB + AC + BC",
+          "steps": [
+            { "step": 1, "action": "Group first two terms", "expression": "ABC + ABC' = AB(C + C') = AB(1) = AB", "law": "Distributive & Complement" },
+            { "step": 2, "action": "Remaining terms: AB'C + A'BC", "expression": "C(AB' + A'B)", "law": "Distributive Law" },
+            { "step": 3, "action": "Combine all", "expression": "AB + C(AB' + A'B)", "law": "Sum of terms" },
+            { "step": 4, "action": "Apply XOR identity", "expression": "AB + C(A⊕B)", "law": "XOR definition" },
+            { "step": 5, "action": "Final simplified form", "expression": "AB + AC + BC", "law": "Consensus Theorem" }
+          ],
+          "explanation": "The expression represents majority function. Using Boolean laws, it simplifies to AB + AC + BC."
+        },
+        {
+          "q": "Simplify: (A + B')(A' + B)(A' + B')",
+          "marks": 3,
+          "original": "(A + B')(A' + B)(A' + B')",
+          "simplified": "A'B'",
+          "steps": [
+            { "step": 1, "action": "Multiply first two terms", "expression": "(A + B')(A' + B) = AA' + AB + A'B' + BB'", "law": "Distributive Law" },
+            { "step": 2, "action": "Apply complement laws", "expression": "0 + AB + A'B' + 0 = AB + A'B'", "law": "Complement Law" },
+            { "step": 3, "action": "Multiply with third term", "expression": "(AB + A'B')(A' + B')", "law": "Distributive Law" },
+            { "step": 4, "action": "Expand", "expression": "ABA' + ABB' + A'B'A' + A'B'B'", "law": "Distributive Law" },
+            { "step": 5, "action": "Simplify", "expression": "0 + 0 + A'B' + A'B' = A'B'", "law": "Complement & Idempotent" }
+          ],
+          "explanation": "After multiplication and applying complement laws, only A'B' remains."
+        },
+        {
+          "q": "Simplify: (A ⊕ B) ⊕ (A ⊕ C)",
+          "marks": 3,
+          "original": "(A ⊕ B) ⊕ (A ⊕ C)",
+          "simplified": "B ⊕ C",
+          "steps": [
+            { "step": 1, "action": "Recall XOR is associative", "expression": "(A ⊕ B) ⊕ (A ⊕ C) = A ⊕ B ⊕ A ⊕ C", "law": "Associative Law" },
+            { "step": 2, "action": "Rearrange terms", "expression": "A ⊕ A ⊕ B ⊕ C", "law": "Commutative Law" },
+            { "step": 3, "action": "Apply XOR with itself", "expression": "0 ⊕ B ⊕ C", "law": "XOR Property: A ⊕ A = 0" },
+            { "step": 4, "action": "Simplify", "expression": "B ⊕ C", "law": "0 ⊕ X = X" }
+          ],
+          "explanation": "XOR operation is associative and commutative. A ⊕ A cancels out."
+        },
+        {
+          "q": "Simplify: AB' + A'B + BC' + B'C",
+          "marks": 3,
+          "original": "AB' + A'B + BC' + B'C",
+          "simplified": "A ⊕ B ⊕ C",
+          "steps": [
+            { "step": 1, "action": "Group AB' + A'B", "expression": "A ⊕ B", "law": "XOR definition" },
+            { "step": 2, "action": "Group BC' + B'C", "expression": "B ⊕ C", "law": "XOR definition" },
+            { "step": 3, "action": "Expression becomes", "expression": "(A ⊕ B) + (B ⊕ C)", "law": "Not directly simplifiable" },
+            { "step": 4, "action": "Convert to canonical form", "expression": "A'B'C + A'BC' + AB'C' + ABC", "law": "Sum of minterms" },
+            { "step": 5, "action": "Recognize pattern", "expression": "A ⊕ B ⊕ C", "law": "3-input XOR" }
+          ],
+          "explanation": "This is the standard form of 3-input XOR gate output."
+        },
+        {
+          "q": "Simplify: (A + B' + C)(A' + B + C)(A + B + C')",
+          "marks": 3,
+          "original": "(A + B' + C)(A' + B + C)(A + B + C')",
+          "simplified": "AB + AC + BC",
+          "steps": [
+            { "step": 1, "action": "Let X = A + B", "expression": "(X + C)(X' + C)(A + B + C')", "law": "Substitution (X = A+B, X' = A'+B')" },
+            { "step": 2, "action": "First two terms", "expression": "(X + C)(X' + C) = C + XX'", "law": "(X+Y)(X'+Y) = Y + XX'" },
+            { "step": 3, "action": "Simplify XX'", "expression": "C + 0 = C", "law": "Complement Law" },
+            { "step": 4, "action": "Multiply with third term", "expression": "C(A + B + C')", "law": "Distributive Law" },
+            { "step": 5, "action": "Expand and simplify", "expression": "AC + BC + CC' = AC + BC", "law": "Distributive & Complement" }
+          ],
+          "explanation": "This simplifies to the majority function AC + BC."
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Advanced Simplification (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Simplify: ABC'D + A'BCD + AB'CD + ABCD' + ABCD",
+          "marks": 5,
+          "original": "ABC'D + A'BCD + AB'CD + ABCD' + ABCD",
+          "simplified": "ABD + ACD + BCD + ABC",
+          "steps": [
+            { "step": 1, "action": "Group ABCD' + ABCD", "expression": "ABCD' + ABCD = ABC(D' + D) = ABC", "law": "Distributive & Complement" },
+            { "step": 2, "action": "Remaining terms", "expression": "ABC'D + A'BCD + AB'CD + ABC", "law": "Substitution" },
+            { "step": 3, "action": "Extract common factors", "expression": "ABD(C' + C) + A'BCD + AB'CD", "law": "Distributive Law" },
+            { "step": 4, "action": "Simplify first term", "expression": "ABD + A'BCD + AB'CD", "law": "Complement Law" },
+            { "step": 5, "action": "Extract CD", "expression": "ABD + CD(A'B + AB')", "law": "Distributive Law" },
+            { "step": 6, "action": "Apply consensus", "expression": "ABD + ACD + BCD + ABC", "law": "Consensus Theorem" }
+          ],
+          "explanation": "This 4-variable expression simplifies to a sum of 4 product terms representing the majority of 4 inputs."
+        },
+        {
+          "q": "Simplify: (A ⊕ B')(A' ⊕ C)(B ⊕ C')",
+          "marks": 5,
+          "original": "(A ⊕ B')(A' ⊕ C)(B ⊕ C')",
+          "simplified": "0",
+          "steps": [
+            { "step": 1, "action": "Expand first XOR", "expression": "A ⊕ B' = AB' + A'B", "law": "XOR to AND-OR" },
+            { "step": 2, "action": "Expand second XOR", "expression": "A' ⊕ C = A'C' + AC", "law": "XOR to AND-OR" },
+            { "step": 3, "action": "Expand third XOR", "expression": "B ⊕ C' = BC + B'C'", "law": "XOR to AND-OR" },
+            { "step": 4, "action": "Multiply all terms", "expression": "(AB' + A'B)(A'C' + AC)(BC + B'C')", "law": "Distributive Law" },
+            { "step": 5, "action": "Look for complementary pairs", "expression": "Each term contains complementary literals", "law": "Observation" },
+            { "step": 6, "action": "Final simplification", "expression": "0", "law": "Consensus & Complement" }
+          ],
+          "explanation": "Due to complementary pairs in each product, the entire expression evaluates to 0."
+        },
+        {
+          "q": "Simplify: (A + B + C)(A' + B + C)(A + B' + C)(A + B + C')",
+          "marks": 5,
+          "original": "(A + B + C)(A' + B + C)(A + B' + C)(A + B + C')",
+          "simplified": "A + B + C",
+          "steps": [
+            { "step": 1, "action": "Group first two terms", "expression": "(A + B + C)(A' + B + C) = (B + C) + AA'", "law": "(X+Y)(X'+Y) = Y + XX'" },
+            { "step": 2, "action": "Simplify", "expression": "(B + C) + 0 = B + C", "law": "Complement Law" },
+            { "step": 3, "action": "Group next two terms", "expression": "(A + B' + C)(A + B + C') = A + (B' + C)(B + C')", "law": "Distributive Law" },
+            { "step": 4, "action": "Expand", "expression": "A + (B'B + B'C' + CB + CC') = A + (0 + B'C' + BC + 0)", "law": "Distributive & Complement" },
+            { "step": 5, "action": "Multiply (B + C) with result", "expression": "(B + C)(A + BC + B'C')", "law": "Multiplication" },
+            { "step": 6, "action": "Final simplification", "expression": "A + B + C", "law": "Absorption & Consensus" }
+          ],
+          "explanation": "This product of maxterms represents the OR function of all three variables."
+        },
+        {
+          "q": "Simplify: AB'C + A'BC' + A'B'C + ABC' + A'B'C' + ABC",
+          "marks": 5,
+          "original": "AB'C + A'BC' + A'B'C + ABC' + A'B'C' + ABC",
+          "simplified": "A + B + C",
+          "steps": [
+            { "step": 1, "action": "Missing minterm is A'BC", "expression": "All 7 minterms except A'BC", "law": "Observation" },
+            { "step": 2, "action": "Complement of missing term", "expression": "(A'BC)' = A + B' + C'", "law": "De Morgan's Theorem" },
+            { "step": 3, "action": "Sum of all minterms is 1", "expression": "Sum of all 8 minterms = 1", "law": "Boolean Algebra" },
+            { "step": 4, "action": "Therefore", "expression": "F = 1 - A'BC", "law": "Subtraction" },
+            { "step": 5, "action": "Complement", "expression": "A + B' + C'", "law": "De Morgan's Theorem" }
+          ],
+          "explanation": "This expression is missing only one minterm (A'BC), so it equals A + B' + C'."
+        },
+        {
+          "q": "Simplify: (A ⊕ B ⊕ C)(A ⊕ B ⊕ C')",
+          "marks": 5,
+          "original": "(A ⊕ B ⊕ C)(A ⊕ B ⊕ C')",
+          "simplified": "0",
+          "steps": [
+            { "step": 1, "action": "Let X = A ⊕ B", "expression": "(X ⊕ C)(X ⊕ C')", "law": "Substitution" },
+            { "step": 2, "action": "XOR with complement property", "expression": "X ⊕ C' = (X ⊕ C)'", "law": "XOR complement property" },
+            { "step": 3, "action": "Expression becomes", "expression": "(X ⊕ C)(X ⊕ C)'", "law": "Substitution" },
+            { "step": 4, "action": "A term and its complement", "expression": "0", "law": "Complement Law: Y·Y' = 0" }
+          ],
+          "explanation": "C and C' are complements, making the two XOR outputs complements of each other."
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Expert Level Simplification (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 3,
+      "questions": [
+        {
+          "q": "Simplify: (A ⊕ B'C)(A' ⊕ BC')(A ⊕ B ⊕ C)",
+          "marks": 10,
+          "original": "(A ⊕ B'C)(A' ⊕ BC')(A ⊕ B ⊕ C)",
+          "simplified": "A'B'C' + ABC",
+          "steps": [
+            { "step": 1, "action": "Expand first XOR", "expression": "A ⊕ B'C = A(B'C)' + A'(B'C) = A(B + C') + A'B'C", "law": "XOR expansion & De Morgan" },
+            { "step": 2, "action": "Simplify first term", "expression": "AB + AC' + A'B'C", "law": "Distributive Law" },
+            { "step": 3, "action": "Expand second XOR", "expression": "A' ⊕ BC' = A'(BC')' + A(BC') = A'(B' + C) + ABC'", "law": "XOR expansion & De Morgan" },
+            { "step": 4, "action": "Simplify", "expression": "A'B' + A'C + ABC'", "law": "Distributive Law" },
+            { "step": 5, "action": "Third XOR", "expression": "A ⊕ B ⊕ C = A'B'C + A'BC' + AB'C' + ABC", "law": "3-input XOR expansion" },
+            { "step": 6, "action": "Multiply all three expanded forms", "expression": "Complex multiplication with 3×3×4 = 36 terms", "law": "Distributive Law" },
+            { "step": 7, "action": "Apply consensus and absorption repeatedly", "expression": "Most terms cancel out", "law": "Consensus Theorem" },
+            { "step": 8, "action": "Remaining terms", "expression": "A'B'C' + ABC", "law": "Absorption Law" }
+          ],
+          "explanation": "After extensive expansion and simplification using Boolean laws, only the two minterms representing equality remain."
+        },
+        {
+          "q": "Simplify: (AB + CD)(A'B' + C'D')(AC' + BD')(A'C + B'D)",
+          "marks": 10,
+          "original": "(AB + CD)(A'B' + C'D')(AC' + BD')(A'C + B'D)",
+          "simplified": "0",
+          "steps": [
+            { "step": 1, "action": "Observe first two terms", "expression": "(AB + CD)(A'B' + C'D')", "law": "Pairing complementary terms" },
+            { "step": 2, "action": "Expand", "expression": "ABA'B' + ABC'D' + CDA'B' + CDC'D'", "law": "Distributive Law" },
+            { "step": 3, "action": "Apply complement laws", "expression": "0 + ABC'D' + CDA'B' + 0", "law": "Complement Law" },
+            { "step": 4, "action": "First two terms product", "expression": "ABC'D' + A'B'CD", "law": "Rearrange" },
+            { "step": 5, "action": "Observe last two terms", "expression": "(AC' + BD')(A'C + B'D)", "law": "Pairing" },
+            { "step": 6, "action": "Expand", "expression": "AC'A'C + AC'B'D + BD'A'C + BD'B'D", "law": "Distributive Law" },
+            { "step": 7, "action": "Simplify", "expression": "0 + AC'B'D + A'BCD' + 0", "law": "Complement Law" },
+            { "step": 8, "action": "Second pair product", "expression": "AB'C'D + A'BCD'", "law": "Rearrange" },
+            { "step": 9, "action": "Multiply both pair results", "expression": "(ABC'D' + A'B'CD)(AB'C'D + A'BCD')", "law": "Multiplication" },
+            { "step": 10, "action": "All products contain complementary pairs", "expression": "0", "law": "Consensus Theorem" }
+          ],
+          "explanation": "Each product term contains complementary literals, making the entire expression evaluate to 0."
+        },
+        {
+          "q": "Simplify: (A ⊕ B ⊕ C ⊕ D)(A ⊕ B ⊕ C' ⊕ D')(A ⊕ B' ⊕ C ⊕ D')(A' ⊕ B ⊕ C ⊕ D')",
+          "marks": 10,
+          "original": "(A ⊕ B ⊕ C ⊕ D)(A ⊕ B ⊕ C' ⊕ D')(A ⊕ B' ⊕ C ⊕ D')(A' ⊕ B ⊕ C ⊕ D')",
+          "simplified": "A ⊕ B ⊕ C ⊕ D",
+          "steps": [
+            { "step": 1, "action": "Let P = A ⊕ B", "expression": "First term: P ⊕ C ⊕ D", "law": "Substitution" },
+            { "step": 2, "action": "Second term", "expression": "P ⊕ C' ⊕ D' = (P ⊕ C ⊕ D)'", "law": "XOR complement property" },
+            { "step": 3, "action": "Product of first two terms", "expression": "(P ⊕ C ⊕ D)(P ⊕ C ⊕ D)' = 0", "law": "Y·Y' = 0" },
+            { "step": 4, "action": "Expression becomes", "expression": "0 × (remaining terms) = 0", "law": "Null Law" }
+          ],
+          "explanation": "The first two terms are complements of each other, making their product zero, thus the entire expression is 0."
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Challenge Problem (15 Marks)",
+      "marksPerQuestion": 15,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Simplify: (A ⊕ B)(C ⊕ D) + (A ⊕ B')(C ⊕ D') + (A' ⊕ B)(C' ⊕ D) + (A' ⊕ B')(C' ⊕ D')",
+          "marks": 15,
+          "original": "(A ⊕ B)(C ⊕ D) + (A ⊕ B')(C ⊕ D') + (A' ⊕ B)(C' ⊕ D) + (A' ⊕ B')(C' ⊕ D')",
+          "simplified": "A ⊕ B ⊕ C ⊕ D",
+          "steps": [
+            { "step": 1, "action": "Recognize pattern", "expression": "This is the XOR of two XORs", "law": "Pattern recognition" },
+            { "step": 2, "action": "Let X = A ⊕ B", "expression": "First term: X(C ⊕ D)", "law": "Substitution" },
+            { "step": 3, "action": "Second term", "expression": "A ⊕ B' = (A ⊕ B)' = X'", "law": "XOR with complement" },
+            { "step": 4, "action": "Second term becomes", "expression": "X'(C ⊕ D') = X'(C ⊕ D)'", "law": "XOR complement property" },
+            { "step": 5, "action": "Let Y = C ⊕ D", "expression": "Expression = XY + X'Y'", "law": "Substitution" },
+            { "step": 6, "action": "Similarly for remaining terms", "expression": "Third term: (A' ⊕ B) = (A ⊕ B)' = X'", "law": "XOR complement" },
+            { "step": 7, "action": "Third term becomes", "expression": "X'(C' ⊕ D) = X'(C ⊕ D)' = X'Y'", "law": "XOR complement" },
+            { "step": 8, "action": "Fourth term", "expression": "(A' ⊕ B') = (A ⊕ B) = X", "law": "XOR double complement" },
+            { "step": 9, "action": "Fourth term becomes", "expression": "X(C' ⊕ D') = X(C ⊕ D) = XY", "law": "XOR complement" },
+            { "step": 10, "action": "Final expression", "expression": "XY + X'Y' + X'Y' + XY = 2(XY + X'Y')", "law": "Idempotent Law" },
+            { "step": 11, "action": "Simplify", "expression": "XY + X'Y' = X ⊕ Y", "law": "XNOR definition" },
+            { "step": 12, "action": "Substitute back", "expression": "(A ⊕ B) ⊕ (C ⊕ D) = A ⊕ B ⊕ C ⊕ D", "law": "XOR is associative" }
+          ],
+          "explanation": "This complex expression elegantly simplifies to the XOR of all four variables using pattern recognition and XOR properties."
+        }
+      ]
+    }
+  ]
+}

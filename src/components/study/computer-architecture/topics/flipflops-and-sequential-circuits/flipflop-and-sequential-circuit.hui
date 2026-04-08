@@ -203,9 +203,9 @@ Teacher’s Note (MANDATORY IN EVERY TOPIC)
 Example Name to be used
     - While explaining concepts, naturally include examples involving:
         -- Students:
-            --- Swadeep, Tuhina, Abhronila, Debangshu, etc.
+            --- Swadeep, Tuhina, Abhronila, Debangshuk, Ritaja, etc.
         -- Places:
-            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati, Kolkata
 (Use them as analogies, stories, or scenarios—not forced mentions.)
 
 Output Instructions
@@ -224,6 +224,9 @@ import clsx from "clsx";
 make dark mode as default, place divs one after another not side by side, maintain it for all topics
 
 if you think to add picture in file you have to make provision for these files in folder in current directory like topic0_files and to provide files separately with proper name
+
+add 15 to 20 questions also, answers will be visible on clic
+avoid opacity-0
 
 start from Topic0
 

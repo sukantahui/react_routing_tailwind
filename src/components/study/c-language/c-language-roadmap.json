@@ -863,7 +863,7 @@
           "nextModule": "memory-dynamic",
           "badge": "Pointer Pro Badge"
         },
-         {
+        {
           "moduleId": "test-upto-pointers",
           "slug": "test-upto-pointers",
           "title": "Test Upto Pointers",
@@ -1235,65 +1235,142 @@
           "slug": "advanced-pointer-concepts",
           "title": "Advanced Pointer Concepts",
           "level": "Advanced",
-          "estimatedHours": 6,
+          "estimatedHours": 8,
           "tags": [
             "pointers",
             "memory",
-            "advanced"
+            "advanced",
+            "system-programming",
+            "low-level"
           ],
           "topics": [
-            "Pointers to pointers and common usage patterns",
-            "Function pointers and callback style design",
-            "Using void pointers for generic data",
-            "Dynamic arrays using double pointers",
-            "Basic idea of memory alignment and padding",
-            "Common advanced pointer bugs and how to avoid them"
+            "Revision of basic pointers and memory model (stack vs heap)",
+            "Pointers to pointers (double pointers)",
+            "• Syntax and memory representation",
+            "• Passing pointers to functions (call by reference)",
+            "• Dynamic memory allocation using double pointers",
+            "• Real-world use cases (linked structures, arrays of pointers)",
+            "Function pointers",
+            "• Declaration and syntax",
+            "• Calling functions using pointers",
+            "• Passing function pointers as arguments",
+            "• Callback mechanisms and real-world usage",
+            "• Array of function pointers (menu-driven programs)",
+            "Void pointers (generic pointers)",
+            "• Concept and need for generic data handling",
+            "• Type casting and dereferencing rules",
+            "• Use in standard library functions (malloc, memcpy, qsort)",
+            "• Risks and safe practices",
+            "Dynamic memory management with pointers",
+            "• malloc, calloc, realloc, free",
+            "• Memory leaks and dangling pointers",
+            "• Double pointer usage in dynamic 2D arrays",
+            "Memory alignment and padding",
+            "• Structure padding and alignment rules",
+            "• Impact on performance and memory usage",
+            "• sizeof operator and alignment examples",
+            "Advanced pointer arithmetic",
+            "• Pointer increment/decrement",
+            "• Pointer subtraction and comparison",
+            "• Traversing arrays and structures",
+            "Pointers with structures and arrays",
+            "• Array of pointers vs pointer to array",
+            "• Pointer to structure",
+            "• Nested structures with pointers",
+            "Common pointer bugs and debugging",
+            "• Dangling pointers",
+            "• Wild pointers",
+            "• Memory leaks",
+            "• Buffer overflow issues",
+            "• Debugging techniques (printf, tools like Valgrind basics)",
+            "Best practices for safe pointer usage",
+            "• Initialization and NULL usage",
+            "• Ownership and lifetime management",
+            "• Defensive programming techniques"
           ],
           "learningOutcomes": [
-            "Use function pointers to pass behavior into functions",
-            "Apply multi level pointers where needed",
-            "Understand when and how to use void pointers safely"
+            "Use multi-level pointers effectively in real-world programs",
+            "Implement callback-based designs using function pointers",
+            "Safely use void pointers for generic programming",
+            "Manage dynamic memory efficiently and avoid leaks",
+            "Understand memory layout and optimize structure usage",
+            "Debug complex pointer-related issues in C programs"
           ],
           "prerequisites": [
-            "preprocessor"
+            "preprocessor",
+            "basic-pointers",
+            "functions",
+            "arrays-and-strings"
           ],
           "difficulty": "Advanced",
-          "difficultyIndex": 8,
-          "summary": "Go beyond basic pointers and learn techniques used in complex C programs and libraries.",
+          "difficultyIndex": 9,
+          "summary": "Master advanced pointer techniques used in system-level programming, libraries, and high-performance applications. This module bridges the gap between basic C programming and professional-grade development.",
           "miniProjects": [
-            "Practice: Advanced Pointer Concepts - Mini Project 1"
+            "Menu-driven calculator using function pointers",
+            "Dynamic 2D array allocation using double pointers",
+            "Generic swap function using void pointers",
+            "Simple callback-based event system"
           ],
+          "majorProject": {
+            "title": "Plugin-based System using Function Pointers",
+            "description": "Build a modular system where different functionalities can be plugged in using function pointers (simulating real-world frameworks)."
+          },
           "exercises": {
-            "mcq": 22,
-            "coding": 11,
-            "projects": 1
+            "mcq": 30,
+            "coding": 15,
+            "projects": 2
           },
           "assessment": {
-            "type": "Coding Challenge + Quiz",
-            "passScore": 80
+            "type": "Coding Challenge + Viva + Quiz",
+            "passScore": 80,
+            "evaluationCriteria": [
+              "Correct use of pointers",
+              "Memory safety",
+              "Code readability",
+              "Proper use of function pointers"
+            ]
           },
           "useCases": [
-            "Implementing callback based APIs",
-            "Working with dynamic and multi dimensional structures"
+            "Implementing callback-based APIs",
+            "Building reusable libraries",
+            "Dynamic memory handling in applications",
+            "Developing operating system components",
+            "Working with data structures like linked lists and trees"
           ],
           "careerSkills": [
-            "Reading and writing low level and library style C code",
-            "Understanding how frameworks implement plugin or callback systems"
+            "System-level programming",
+            "Understanding internal working of libraries",
+            "Writing efficient and optimized C code",
+            "Debugging memory-related issues",
+            "Designing modular and reusable code"
           ],
           "commonMistakes": [
-            "Incorrectly calculating offsets with multi level pointers",
-            "Casting void pointers unsafely or to the wrong type"
+            "Incorrect dereferencing of multi-level pointers",
+            "Memory leaks due to missing free()",
+            "Using uninitialized (wild) pointers",
+            "Incorrect casting of void pointers",
+            "Confusing array of pointers with pointer to array"
+          ],
+          "debuggingTools": [
+            "Valgrind (memory leak detection)",
+            "GDB (step-by-step debugging)",
+            "Compiler warnings (-Wall, -Wextra)"
           ],
           "references": [
             "Advanced C pointer tutorials",
-            "System level C programming resources"
+            "System programming with C",
+            "C standard library documentation",
+            "Operating system level programming guides"
           ],
           "teachingTips": [
-            "Visualize double pointer relationships with diagrams.",
-            "Build small examples where function pointers choose different algorithms."
+            "Use diagrams to show pointer relationships clearly",
+            "Demonstrate memory layout using examples",
+            "Encourage students to trace pointer values step-by-step",
+            "Introduce debugging tools early for better understanding"
           ],
           "preReading": [
-            "Preprocessor and Macros module"
+            "Preprocessor and Macros module",
+            "Basic Pointer Concepts module"
           ],
           "previousModule": "preprocessor",
           "nextModule": "data-structures",

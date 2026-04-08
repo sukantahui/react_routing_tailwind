@@ -1,0 +1,239 @@
+{
+  "paperId": "BOOLEAN-ALGEBRA-SET-01",
+  "title": "Boolean Algebra - Fundamental to Intermediate Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (One Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What are the two basic constants in Boolean Algebra?",
+          "marks": 1,
+          "answer": "0 and 1",
+          "steps": [
+            { "step": 1, "action": "Boolean Algebra has two binary values", "expression": "Constants: 0 and 1", "law": "Definition" }
+          ],
+          "explanation": "Boolean Algebra works with only two values: 0 (false) and 1 (true)."
+        },
+        {
+          "q": "What is the result of A + 0?",
+          "marks": 1,
+          "answer": "A",
+          "steps": [
+            { "step": 1, "action": "Apply Identity Law", "expression": "A + 0 = A", "law": "Identity Law" }
+          ],
+          "explanation": "OR operation with 0 gives the original value."
+        },
+        {
+          "q": "What is the result of A · 1?",
+          "marks": 1,
+          "answer": "A",
+          "steps": [
+            { "step": 1, "action": "Apply Identity Law", "expression": "A · 1 = A", "law": "Identity Law" }
+          ],
+          "explanation": "AND operation with 1 gives the original value."
+        },
+        {
+          "q": "What is the complement of 1?",
+          "marks": 1,
+          "answer": "0",
+          "steps": [
+            { "step": 1, "action": "Apply Complement Law", "expression": "1' = 0", "law": "Complement Law" }
+          ],
+          "explanation": "The complement (NOT) of 1 is 0."
+        },
+        {
+          "q": "Write the symbol for AND operation.",
+          "marks": 1,
+          "answer": "· (dot) or ∧",
+          "steps": [
+            { "step": 1, "action": "AND operation symbol", "expression": "A · B or A ∧ B", "law": "Standard notation" }
+          ],
+          "explanation": "AND operation is represented by a dot (·) or sometimes ∧."
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain AND, OR, NOT operations with truth table.",
+          "marks": 2,
+          "original": "AND, OR, NOT operations",
+          "truthTable": [
+            { "A": 0, "B": 0, "AND": 0, "OR": 0, "NOT_A": 1, "NOT_B": 1 },
+            { "A": 0, "B": 1, "AND": 0, "OR": 1, "NOT_A": 1, "NOT_B": 0 },
+            { "A": 1, "B": 0, "AND": 0, "OR": 1, "NOT_A": 0, "NOT_B": 1 },
+            { "A": 1, "B": 1, "AND": 1, "OR": 1, "NOT_A": 0, "NOT_B": 0 }
+          ],
+          "steps": [
+            { "step": 1, "action": "AND operation", "expression": "Output is 1 only when A=1 AND B=1", "law": "AND definition" },
+            { "step": 2, "action": "OR operation", "expression": "Output is 1 when A=1 OR B=1 (or both)", "law": "OR definition" },
+            { "step": 3, "action": "NOT operation", "expression": "Output is opposite of input", "law": "NOT definition" }
+          ],
+          "explanation": "AND gives 1 only if both inputs are 1. OR gives 1 if any input is 1. NOT reverses the value."
+        },
+        {
+          "q": "State Identity Law in Boolean Algebra.",
+          "marks": 2,
+          "answer": "A + 0 = A and A · 1 = A",
+          "steps": [
+            { "step": 1, "action": "OR Identity", "expression": "A + 0 = A", "law": "Identity Law" },
+            { "step": 2, "action": "AND Identity", "expression": "A · 1 = A", "law": "Identity Law" }
+          ],
+          "explanation": "Identity Law states that any variable ORed with 0 or ANDed with 1 gives the variable itself."
+        },
+        {
+          "q": "What is De Morgan's Theorem?",
+          "marks": 2,
+          "answer": "(A + B)' = A' · B' and (A · B)' = A' + B'",
+          "steps": [
+            { "step": 1, "action": "First De Morgan's Theorem", "expression": "(A + B)' = A' · B'", "law": "De Morgan's Theorem" },
+            { "step": 2, "action": "Second De Morgan's Theorem", "expression": "(A · B)' = A' + B'", "law": "De Morgan's Theorem" }
+          ],
+          "explanation": "De Morgan's Theorem describes how to complement OR and AND operations."
+        },
+        {
+          "q": "Define minterm.",
+          "marks": 2,
+          "answer": "A minterm is a product term in which all variables appear exactly once in either complemented or uncomplemented form.",
+          "steps": [
+            { "step": 1, "action": "Definition", "expression": "Product term with all variables", "law": "Definition" },
+            { "step": 2, "action": "Example for 2 variables", "expression": "A'B', A'B, AB', AB are minterms", "law": "Example" }
+          ],
+          "explanation": "For n variables, there are 2^n minterms. Each minterm corresponds to one row in truth table."
+        },
+        {
+          "q": "What is a truth table?",
+          "marks": 2,
+          "answer": "A truth table shows all possible input combinations and their corresponding output values.",
+          "steps": [
+            { "step": 1, "action": "Definition", "expression": "Lists all input combinations", "law": "Definition" },
+            { "step": 2, "action": "For n variables", "expression": "2^n rows in truth table", "law": "Property" }
+          ],
+          "explanation": "Truth table is a systematic way to represent Boolean function behavior."
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Simplify the Boolean expression: A + A·B",
+          "marks": 5,
+          "original": "A + A·B",
+          "simplified": "A",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = A + A·B", "law": "Given" },
+            { "step": 2, "action": "Factor out A", "expression": "A(1 + B)", "law": "Distributive Law" },
+            { "step": 3, "action": "Apply Null Law", "expression": "1 + B = 1", "law": "Null Law" },
+            { "step": 4, "action": "Result", "expression": "A · 1 = A", "law": "Identity Law" }
+          ],
+          "explanation": "Using Absorption Law, A + A·B simplifies directly to A."
+        },
+        {
+          "q": "Simplify using Boolean laws: (A + B)(A + B')",
+          "marks": 5,
+          "original": "(A + B)(A + B')",
+          "simplified": "A",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = (A + B)(A + B')", "law": "Given" },
+            { "step": 2, "action": "Expand using Distributive Law", "expression": "A·A + A·B' + B·A + B·B'", "law": "Distributive Law" },
+            { "step": 3, "action": "Simplify", "expression": "A + A·B' + A·B + 0", "law": "A·A = A, B·B' = 0" },
+            { "step": 4, "action": "Factor A", "expression": "A(1 + B' + B)", "law": "Distributive Law" },
+            { "step": 5, "action": "Apply Null Law", "expression": "1 + B' + B = 1", "law": "Null Law" },
+            { "step": 6, "action": "Result", "expression": "A · 1 = A", "law": "Identity Law" }
+          ],
+          "explanation": "This is the complementary form of the distributive law."
+        },
+        {
+          "q": "Construct truth table for expression: Y = A·B + A'",
+          "marks": 5,
+          "original": "Y = A·B + A'",
+          "truthTable": [
+            { "A": 0, "B": 0, "A·B": 0, "A'": 1, "Y": 1 },
+            { "A": 0, "B": 1, "A·B": 0, "A'": 1, "Y": 1 },
+            { "A": 1, "B": 0, "A·B": 0, "A'": 0, "Y": 0 },
+            { "A": 1, "B": 1, "A·B": 1, "A'": 0, "Y": 1 }
+          ],
+          "steps": [
+            { "step": 1, "action": "List all input combinations", "expression": "A and B can be 00, 01, 10, 11", "law": "Truth table method" },
+            { "step": 2, "action": "Calculate A·B", "expression": "AND operation", "law": "AND truth table" },
+            { "step": 3, "action": "Calculate A'", "expression": "NOT operation on A", "law": "NOT truth table" },
+            { "step": 4, "action": "Calculate Y = A·B + A'", "expression": "OR operation", "law": "OR truth table" }
+          ],
+          "explanation": "The expression Y = A·B + A' evaluates to 1 except when A=1 and B=0."
+        },
+        {
+          "q": "Simplify using De Morgan's Theorem: (A·B + C)'",
+          "marks": 5,
+          "original": "(A·B + C)'",
+          "simplified": "A' + B' + C'",
+          "steps": [
+            { "step": 1, "action": "Original expression", "expression": "F = (A·B + C)'", "law": "Given" },
+            { "step": 2, "action": "Apply De Morgan's First Theorem", "expression": "(A·B)' · C'", "law": "(X+Y)' = X'·Y'" },
+            { "step": 3, "action": "Apply De Morgan's Second Theorem to (A·B)'", "expression": "(A' + B') · C'", "law": "(X·Y)' = X' + Y'" },
+            { "step": 4, "action": "Expand", "expression": "A'·C' + B'·C'", "law": "Distributive Law" }
+          ],
+          "explanation": "Applying De Morgan's Theorem step by step gives the complemented expression."
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Simplify the Boolean expression using K-map:\nF(A,B,C) = Σ(1,2,3,5)",
+          "marks": 10,
+          "original": "F(A,B,C) = Σ(1,2,3,5)",
+          "variables": 3,
+          "minterms": "m1, m2, m3, m5",
+          "canonical": "A'B'C + A'BC' + A'BC + AB'C",
+          "simplified": "A'B + A'C + B'C",
+          "kmap": {
+            "rows": ["00", "01", "11", "10"],
+            "headers": ["BC", "A=0", "A=1"],
+            "cells": [
+              {"position": "0-00", "value": 0, "minterm": "m0", "grouped": false},
+              {"position": "0-01", "value": 1, "minterm": "m1", "grouped": true},
+              {"position": "0-11", "value": 1, "minterm": "m3", "grouped": true},
+              {"position": "0-10", "value": 1, "minterm": "m2", "grouped": true},
+              {"position": "1-00", "value": 0, "minterm": "m4", "grouped": false},
+              {"position": "1-01", "value": 1, "minterm": "m5", "grouped": true},
+              {"position": "1-11", "value": 0, "minterm": "m7", "grouped": false},
+              {"position": "1-10", "value": 0, "minterm": "m6", "grouped": false}
+            ]
+          },
+          "steps": [
+            { "step": 1, "action": "Write the minterm list", "expression": "F = Σ(1,2,3,5)", "law": "Given" },
+            { "step": 2, "action": "Convert to binary", "expression": "m1=001, m2=010, m3=011, m5=101", "law": "Binary conversion" },
+            { "step": 3, "action": "Draw 3-variable K-map", "expression": "Rows: A, Columns: BC (00,01,11,10)", "law": "K-map structure" },
+            { "step": 4, "action": "Place 1's in cells", "expression": "m1 (A=0,BC=01), m2 (A=0,BC=10), m3 (A=0,BC=11), m5 (A=1,BC=01)", "law": "K-map placement" },
+            { "step": 5, "action": "Group adjacent 1's", "expression": "Group 1: m1,m3 (A=0, B varies, C=1) → A'C", "law": "Grouping rule" },
+            { "step": 6, "action": "Group 2: m2,m3 (A=0, B=1, C varies) → A'B", "law": "Grouping rule" },
+            { "step": 7, "action": "Group 3: m1,m5 (C=1, A varies, B=0) → B'C", "law": "Grouping rule" },
+            { "step": 8, "action": "Write simplified expression", "expression": "F = A'C + A'B + B'C", "law": "Sum of groups" },
+            { "step": 9, "action": "Alternative simplified form", "expression": "F = A'B + A'C + B'C", "law": "Rearranged" }
+          ],
+          "explanation": "Using 3-variable K-map, we group adjacent 1's to get the minimal SOP expression: A'B + A'C + B'C. Students should draw the K-map and show grouping."
+        }
+      ]
+    }
+  ]
+}

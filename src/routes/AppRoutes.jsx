@@ -7,9 +7,11 @@ import NetworkTopicView from '../components/study/network/NetworkTopicView';
 import IscTweleveTopicView from '../components/study/isc-12/IscTwelveTopicView';
 import IscTweleveModuleView from '../components/study/isc-12/IscTwelveModuleView';
 import IscTweleveRoadmap from '../components/study/isc-12/IscTwelveRoadmap';
+import StudentFeeReceiptPart2 from '../components/StudentFeeReceiptPart2';
 
 
 // Public components (lazy)
+
 const Home = lazy(() => import('./HomeComponent/Home'));
 const Certificate = lazy(() => import('./certificates/Certificate'));
 const Login = lazy(() => import('../components/Login'));
@@ -91,6 +93,7 @@ const StudentAdmission = lazy(() => import('../components/StudentAdmission'));
 const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
 const Subject = lazy(() => import('../components/Subject'));
+const StudentFeeReceipt = lazy(() => import('../components/StudentFeeReceipt'));
 
 // Admin / protected components (lazy)
 const Admin = lazy(() => import('./Admin'));
@@ -185,6 +188,24 @@ export default function AppRoutes() {
           element={
             <ProtectedRoute>
               <AddResult />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/studentFeesReceipt"
+          element={
+            <ProtectedRoute>
+              <StudentFeeReceipt />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/studentFeesReceiptPart2"
+          element={
+            <ProtectedRoute>
+              <StudentFeeReceiptPart2 />
             </ProtectedRoute>
           }
         />
