@@ -1187,6 +1187,9 @@
   .h-80 {
     height: calc(var(--spacing) * 80);
   }
+  .h-90 {
+    height: calc(var(--spacing) * 90);
+  }
   .h-96 {
     height: calc(var(--spacing) * 96);
   }
@@ -4842,9 +4845,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-green-900) 50%, transparent);
     }
-  }
-  .bg-green-950 {
-    background-color: var(--color-green-950);
   }
   .bg-indigo-50 {
     background-color: var(--color-indigo-50);
@@ -9605,6 +9605,9 @@
   }
   .opacity-\[0\.2\] {
     opacity: 0.2;
+  }
+  .opacity-\[0\.5\] {
+    opacity: 0.5;
   }
   .opacity-\[0\.06\] {
     opacity: 0.06;
