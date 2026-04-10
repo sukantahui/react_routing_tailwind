@@ -57,7 +57,7 @@ const StudentFeeReceiptPart3 = () => {
   // State for saving receipt
   const [isSavingToDatabase, setIsSavingToDatabase] = useState(false);
   const [saveError, setSaveError] = useState(null);
-  
+
   // State for developer tools
   const [showDevTools, setShowDevTools] = useState(false);
   const [copySuccess, setCopySuccess] = useState('');
@@ -116,9 +116,9 @@ const StudentFeeReceiptPart3 = () => {
     setError(null);
     try {
       const response = await studentService.getAll();
-      
+
       let studentsArray = [];
-      
+
       if (response && response.data && Array.isArray(response.data)) {
         studentsArray = response.data;
       } else if (Array.isArray(response)) {
@@ -126,9 +126,15 @@ const StudentFeeReceiptPart3 = () => {
       } else if (response && response.data && response.data.data && Array.isArray(response.data.data)) {
         studentsArray = response.data.data;
       }
-      
+
+      // Debug: Log the first student to see available fields
+      if (studentsArray.length > 0) {
+        console.log('Student data structure:', studentsArray[0]);
+        console.log('Available fields:', Object.keys(studentsArray[0]));
+      }
+
       setStudents(studentsArray);
-      
+
       if (studentsArray.length === 0) {
         console.warn('No students found in database');
       }
@@ -147,9 +153,9 @@ const StudentFeeReceiptPart3 = () => {
     setCoursesError(null);
     try {
       const response = await courseService.getAll();
-      
+
       let coursesArray = [];
-      
+
       if (response && response.status === true && Array.isArray(response.data)) {
         coursesArray = response.data;
       } else if (Array.isArray(response)) {
@@ -157,9 +163,9 @@ const StudentFeeReceiptPart3 = () => {
       } else if (response && response.data && Array.isArray(response.data)) {
         coursesArray = response.data;
       }
-      
+
       setCourses(coursesArray);
-      
+
       if (coursesArray.length === 0) {
         console.warn('No courses found in database');
       }
@@ -175,30 +181,30 @@ const StudentFeeReceiptPart3 = () => {
   // Helper function to get collector name
   const getCollectorName = () => {
     if (!currentUser) return 'System';
-    
+
     if (currentUser.employee && currentUser.employee.employeeName) {
       return currentUser.employee.employeeName;
     }
-    
+
     if (currentUser.userName) {
       return currentUser.userName;
     }
-    
+
     return 'Authorized Collector';
   };
 
   // Helper function to get collector designation
   const getCollectorDesignation = () => {
     if (!currentUser) return '';
-    
+
     if (currentUser.employee && currentUser.employee.designation) {
       return currentUser.employee.designation.name;
     }
-    
+
     if (currentUser.userType && currentUser.userType.userTypeName) {
       return currentUser.userType.userTypeName;
     }
-    
+
     return 'Accounts Department';
   };
 
@@ -215,7 +221,7 @@ const StudentFeeReceiptPart3 = () => {
   // Create new student
   const handleCreateStudent = async (e) => {
     e.preventDefault();
-    
+
     if (!newStudentData.student_name.trim()) {
       setCreateStudentError('Student name is required');
       return;
@@ -242,12 +248,12 @@ const StudentFeeReceiptPart3 = () => {
       };
 
       const response = await studentService.createBasic(payload);
-      
+
       if (response && response.status === true) {
         const createdStudent = response.data;
-        
+
         await fetchStudents();
-        
+
         if (createdStudent && createdStudent.id) {
           setSelectedStudentId(createdStudent.id.toString());
           setSelectedStudentRegNo(createdStudent.registrationNumber || '');
@@ -258,14 +264,14 @@ const StudentFeeReceiptPart3 = () => {
             registrationNumber: createdStudent.registrationNumber || '',
           }));
         }
-        
+
         setNewStudentData({
           student_name: '',
           nickname: '',
           whatsapp: ''
         });
         setShowNewStudentForm(false);
-        
+
         alert(`Student "${createdStudent.student_name}" created successfully!\nRegistration Number: ${createdStudent.registrationNumber}`);
       } else {
         setCreateStudentError(response?.message || 'Failed to create student');
@@ -291,7 +297,7 @@ const StudentFeeReceiptPart3 = () => {
   // Create new course
   const handleCreateCourse = async (e) => {
     e.preventDefault();
-    
+
     if (!newCourseData.courseCode.trim()) {
       setCreateCourseError('Course code is required');
       return;
@@ -311,12 +317,12 @@ const StudentFeeReceiptPart3 = () => {
       };
 
       const response = await courseService.createBasic(payload);
-      
+
       if (response && response.status === true) {
         const createdCourse = response.data;
-        
+
         await fetchCourses();
-        
+
         if (createdCourse && createdCourse.id) {
           setSelectedCourseId(createdCourse.id.toString());
           setFormData(prev => ({
@@ -324,13 +330,13 @@ const StudentFeeReceiptPart3 = () => {
             course: createdCourse.courseName || ''
           }));
         }
-        
+
         setNewCourseData({
           courseCode: '',
           courseName: ''
         });
         setShowNewCourseForm(false);
-        
+
         alert(`Course "${createdCourse.courseName}" created successfully!\nCourse Code: ${createdCourse.courseCode}`);
       } else {
         setCreateCourseError(response?.message || 'Failed to create course');
@@ -369,20 +375,34 @@ const StudentFeeReceiptPart3 = () => {
     loadImagesAsDataUrls();
   }, []);
 
+
   // Handle student selection from dropdown
   const handleStudentSelect = (e) => {
     const studentId = e.target.value;
     setSelectedStudentId(studentId);
-    
+
     if (studentId) {
-      const selectedStudent = students.find(s => s.studentId === parseInt(studentId));
+      // Fix: Check for different possible ID field names
+      const selectedStudent = students.find(s => {
+        return s.studentId === parseInt(studentId) ||
+          s.id === parseInt(studentId) ||
+          s.student_id === parseInt(studentId);
+      });
+
       if (selectedStudent) {
-        setSelectedStudentRegNo(selectedStudent.registrationNumber || '');
+        // Fix: Check for different possible registration number field names
+        const regNumber = selectedStudent.registrationNumber ||
+          selectedStudent.reg_no ||
+          selectedStudent.regNo ||
+          selectedStudent.registration_no ||
+          '';
+
+        setSelectedStudentRegNo(regNumber);
         setFormData(prev => ({
           ...prev,
-          studentName: selectedStudent.studentName || '',
-          phone: selectedStudent.whatsapp || selectedStudent.phone1 || '',
-          registrationNumber: selectedStudent.registrationNumber || '',
+          studentName: selectedStudent.studentName || selectedStudent.student_name || '',
+          phone: selectedStudent.whatsapp || selectedStudent.phone1 || selectedStudent.phone || '',
+          registrationNumber: regNumber,
         }));
       }
     } else {
@@ -400,7 +420,7 @@ const StudentFeeReceiptPart3 = () => {
   const handleCourseSelect = (e) => {
     const courseId = e.target.value;
     setSelectedCourseId(courseId);
-    
+
     if (courseId) {
       const selectedCourse = courses.find(c => c.id === parseInt(courseId));
       if (selectedCourse) {
@@ -421,7 +441,7 @@ const StudentFeeReceiptPart3 = () => {
   const generateReceiptNo = (studentName, course, paymentDate, feesPaid) => {
     const prefix = 'CNAT';
     const studentKey = `${studentName.trim()}_${course}_${paymentDate}_${feesPaid}`;
-    
+
     const hashString = (str) => {
       let hash = 0;
       for (let i = 0; i < str.length; i++) {
@@ -431,7 +451,7 @@ const StudentFeeReceiptPart3 = () => {
       }
       return Math.abs(hash).toString(36).toUpperCase();
     };
-    
+
     const hashValue = hashString(studentKey);
     const date = new Date();
     const year = date.getFullYear();
@@ -439,14 +459,14 @@ const StudentFeeReceiptPart3 = () => {
     const day = String(date.getDate()).padStart(2, '0');
     const dateStr = `${year}${month}${day}`;
     const uniqueId = hashValue.substring(0, 8);
-    
+
     return `${prefix}-${dateStr}-${uniqueId}`;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    
+
     if (name === 'studentName' || name === 'phone') {
       setSelectedStudentId('');
       setSelectedStudentRegNo('');
@@ -541,7 +561,7 @@ const StudentFeeReceiptPart3 = () => {
       setSaveError('Please select a student from the database');
       return false;
     }
-    
+
     if (!selectedCourseId) {
       setSaveError('Please select a course from the database');
       return false;
@@ -565,7 +585,7 @@ const StudentFeeReceiptPart3 = () => {
       };
 
       const response = await simpleFeesReceiptService.create(payload);
-      
+
       if (response && response.status === true) {
         console.log('Receipt saved to database:', response.data);
         return true;
@@ -1553,11 +1573,23 @@ const StudentFeeReceiptPart3 = () => {
                   disabled={loadingStudents}
                 >
                   <option value="">-- Select from database --</option>
-                  {students.map((student) => (
-                    <option key={student.studentId} value={student.studentId}>
-                      {student.studentName} - {student.registrationNumber || 'No Reg No'} - {student.whatsapp || student.phone1}
-                    </option>
-                  ))}
+                  {students.map((student) => {
+                    // Get registration number from various possible field names
+                    const regNumber = student.registrationNumber ||
+                      student.reg_no ||
+                      student.regNo ||
+                      student.registration_no ||
+                      'No Reg No';
+                    const studentIdValue = student.studentId || student.id || student.student_id;
+                    const studentName = student.studentName || student.student_name;
+                    const phoneNumber = student.whatsapp || student.phone1 || student.phone;
+
+                    return (
+                      <option key={studentIdValue} value={studentIdValue}>
+                        {studentName} - {regNumber} - {phoneNumber}
+                      </option>
+                    );
+                  })}
                 </select>
                 {loadingStudents && (
                   <p className="text-xs text-gray-500 mt-1">Loading students...</p>
@@ -2059,7 +2091,7 @@ const StudentFeeReceiptPart3 = () => {
                           {previewAmountInWords}
                         </div>
                       </div>
-                      
+
                       {/* Collector Info in Preview */}
                       <div className="bg-gray-50 p-2 rounded-lg mt-2 text-center">
                         <p className="text-[8px] font-semibold text-gray-600">💰 Collected By:</p>
@@ -2072,9 +2104,9 @@ const StudentFeeReceiptPart3 = () => {
                       <p className="text-[8px] text-gray-400">✓ Valid without signature</p>
                       <p className="text-[7px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
                       <div className="mt-2 pt-2 flex justify-center">
-                        <img 
-                          src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR" 
-                          alt="UPI QR Code" 
+                        <img
+                          src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR"
+                          alt="UPI QR Code"
                           className="w-16 h-16 mx-auto"
                         />
                       </div>
@@ -2119,7 +2151,7 @@ const StudentFeeReceiptPart3 = () => {
               ✕
             </button>
           </div>
-          
+
           <div className="p-4 space-y-3">
             <div>
               <div className="flex justify-between items-center mb-2">
@@ -2135,7 +2167,7 @@ const StudentFeeReceiptPart3 = () => {
                 {JSON.stringify(getApiPayload(), null, 2)}
               </pre>
             </div>
-            
+
             <div className="border-t border-gray-700 pt-3">
               <div className="text-xs text-gray-400 mb-2">Form Data Summary:</div>
               <div className="grid grid-cols-2 gap-2 text-xs">
@@ -2157,7 +2189,7 @@ const StudentFeeReceiptPart3 = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="text-xs text-gray-500 text-center pt-2 border-t border-gray-700">
               ⚡ Use this payload to test the API endpoint directly
             </div>
