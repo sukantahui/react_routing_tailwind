@@ -209,6 +209,117 @@
           "badge": "Pointer Pro Badge"
         },
         {
+          "moduleId": "propositional-logic",
+          "slug": "propositional-logic-and-reasoning",
+          "title": "Propositional Logic & Logical Reasoning",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 10,
+          "tags": [
+            "logic",
+            "proposition",
+            "truth-table",
+            "implication",
+            "reasoning"
+          ],
+          "topics": [
+            "Introduction to Propositional Logic",
+            "Definition of Proposition (True/False statements)",
+            "Types of statements: Proposition vs Non-proposition",
+            "Logical variables and representation (p, q, r)",
+            "Logical operators: NOT (~), AND (∧), OR (∨)",
+            "Logical operator: Implication (⇒)",
+            "Logical operator: Biconditional (⇔)",
+            "Truth tables for basic logical operators",
+            "Construction of truth tables for compound statements",
+            "Logical expressions and evaluation",
+            "Tautology, Contradiction, and Contingency",
+            "Logical equivalence of propositions",
+            "Laws of propositional logic (basic identities)",
+            "De Morgan’s Laws in propositional logic",
+            "Implication laws and transformations",
+            "Converse of a proposition",
+            "Inverse of a proposition",
+            "Contrapositive of a proposition",
+            "Relationship between implication and contrapositive",
+            "Solving assertion–reason questions (ISC pattern)",
+            "Application of logic in programming (if-else conditions)",
+            "Conversion of English statements into logical expressions",
+            "Evaluation of logical statements step-by-step",
+            "Verification using truth tables",
+            "ISC previous year question practice",
+            "Mixed practice problems",
+            "Assertion–Reason Examples",
+            "Different Examples"
+          ],
+          "learningOutcomes": [
+            "Identify and define propositions correctly",
+            "Construct truth tables for logical expressions",
+            "Apply logical operators in expressions",
+            "Understand implication, converse, inverse, and contrapositive",
+            "Verify logical equivalence using truth tables",
+            "Solve assertion–reason questions accurately",
+            "Apply logic concepts in programming conditions"
+          ],
+          "prerequisites": [
+            "Basic understanding of statements (Class XI logic)",
+            "Basic reasoning ability"
+          ],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 2,
+          "summary": "This module introduces propositional logic, focusing on logical reasoning, truth tables, and implication concepts essential for ISC Computer Science and programming logic.",
+          "miniProjects": [
+            "Truth Table Generator (Java Program)",
+            "Logical Expression Evaluator",
+            "Assertion–Reason Quiz App"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "shortAnswer": 15,
+            "longAnswer": 8,
+            "numerical": 10,
+            "coding": 3
+          },
+          "assessment": {
+            "type": "Worksheet + Logical Reasoning Test + Viva",
+            "passScore": 70
+          },
+          "previousModule": "boolean-algebra",
+          "nextModule": "arrays",
+          "teachingFlow": [
+            "Start with real-life statements (true/false examples)",
+            "Define proposition clearly",
+            "Introduce logical operators step-by-step",
+            "Construct truth tables visually",
+            "Explain implication using real-life examples",
+            "Teach converse, inverse, contrapositive",
+            "Solve assertion–reason questions",
+            "Practice conversion of statements",
+            "Solve ISC board questions",
+            "Conduct test + viva"
+          ],
+          "commonMistakes": [
+            "Confusing proposition with general sentences",
+            "Incorrect truth table construction",
+            "Misunderstanding implication (⇒)",
+            "Wrong contrapositive formation",
+            "Mixing converse and inverse"
+          ],
+          "examTips": [
+            "Always write full truth table",
+            "Remember implication is false only when T ⇒ F",
+            "Learn contrapositive rule properly",
+            "Practice assertion–reason questions",
+            "Convert statements carefully"
+          ],
+          "realLifeApplications": [
+            "Programming conditions (if-else)",
+            "Decision-making systems",
+            "Artificial intelligence reasoning",
+            "Mathematical proofs"
+          ],
+          "badge": "Logic Mastery Badge"
+        },
+        {
           "moduleId": "complexity",
           "slug": "computational-complexity-big-o",
           "title": "Computational Complexity & Big-O",
