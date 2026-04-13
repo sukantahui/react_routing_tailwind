@@ -1,5 +1,7 @@
-// questions1.js - 50 Assertion-Reason Questions for ISC Computer Science
-// Enhanced: Every definition now includes an example.
+// questions1.js - 10 Assertion-Reason Questions for ISC Computer Science
+// Only Propositional Logic section (Q1-Q10)
+// Enhanced: Every definition includes an example.
+// Further enhanced: Detailed discussion of the Reason statement from every aspect.
 
 export const assertionReasonQuestions = [
   // ======================================================================
@@ -46,14 +48,14 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "Columns 4 (¬A⇒B) and 5 (B⇒¬A) are not identical, so the assertion is false. Reason is true: contrapositive is indeed the converse of inverse. Hence option D."
     },
-    marks: 1
+    reasonDiscussion: "The reason states: 'Contrapositive is the converse of inverse for any proposition.' This is a true statement in propositional logic. For any implication P ⇒ Q, its inverse is ¬P ⇒ ¬Q. The converse of that inverse is ¬Q ⇒ ¬P, which is exactly the contrapositive. Therefore the reason is logically correct and universally applicable. There is no edge case or exception. However, the assertion is false because the contrapositive of ¬A ⇒ B is ¬B ⇒ A, not B ⇒ ¬A. Hence the reason does not explain the assertion (since the assertion is wrong). The reason is independently true, making option D correct. Students often confuse the order of negation; the reason provides a valid meta‑logical fact but does not salvage the incorrect assertion."
   },
 
   // Q2: (P ∧ Q) ⇒ P is a tautology
   {
     id: 2,
     assertion: "The statement (P ∧ Q) ⇒ P is a tautology.",
-    reason: "In any implication, if the antecedent is true, the consequent must be true for the implication to be false.",
+    reason: "In any implication, if the antecedent is true, the consequent must be true for the implication to be true.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -87,7 +89,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "All outputs are 1, confirming (P∧Q)⇒P is a tautology. Reason correctly identifies the only falsifying condition (antecedent true, consequent false), which never occurs here. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is a true and fundamental property of material implication: an implication P⇒Q is false only when the antecedent (P) is true and the consequent (Q) is false. This is the definitional truth condition. The reason applies this principle to the specific implication (P∧Q)⇒P. Since the antecedent (P∧Q) being true forces P to be true (because conjunction requires both operands true), the falsifying condition (antecedent true, consequent false) can never happen. Therefore the implication is always true – a tautology. The reason directly and correctly explains the assertion. No hidden nuance: it covers all cases, including when the antecedent is false (implication vacuously true). Thus option A is justified."
   },
 
   // Q3: Negation of (P ∨ Q) is ¬P ∨ ¬Q
@@ -127,7 +129,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "Columns 4 (¬(P∨Q)) and 7 (¬P∨¬Q) differ in rows 1 and 2 (0 vs 1), so assertion is false. Reason correctly states De Morgan's law, hence true. Option D is correct."
     },
-    marks: 1
+    reasonDiscussion: "The reason is a correct statement of De Morgan's first law: ¬(P ∨ Q) ≡ ¬P ∧ ¬Q. It is a fundamental theorem in propositional logic and Boolean algebra, true for all truth assignments. However, the assertion mistakenly uses OR (∨) instead of AND (∧) on the right‑hand side. Therefore the reason does not support the assertion; it actually contradicts it because the correct law uses conjunction. The reason is true, but the assertion is false. This is a classic trap for students who misremember De Morgan's laws. Option D (A false, R true) is correct. There is no subtlety: the reason is universally true and independent of the false assertion."
   },
 
   // Q4: Converse of implication
@@ -170,7 +172,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "The converse is correctly formed as Q⇒P. Reason gives the exact definition, so option A is correct."
     },
-    marks: 1
+    reasonDiscussion: "The reason is the precise definition of the converse of an implication. It is universally true. The assertion takes a concrete English sentence, identifies P = 'it rains' and Q = 'ground is wet', and applies the definition to produce 'If ground is wet, then it rains'. Thus the reason directly and correctly explains the assertion. There is no ambiguity or exception. The truth table confirms that the converse is not logically equivalent to the original, but that is irrelevant to the correctness of the definition. Option A is correct."
   },
 
   // Q5: (P ⇒ Q) ∨ (Q ⇒ P) is a tautology
@@ -210,7 +212,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "The last column is all 1s, confirming tautology. Reason correctly notes that at least one implication holds in every case. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: for any two propositions P and Q, it is impossible for both P⇒Q and Q⇒P to be false simultaneously. Because if P⇒Q is false, then P=1 and Q=0. In that case, Q⇒P becomes 0⇒1 = 1 (true). Conversely, if Q⇒P is false, then Q=1 and P=0, making P⇒Q = 0⇒1 = 1. Thus at least one is always true. This reasoning is a complete and correct explanation of why the disjunction is a tautology. The reason is not just a restatement; it provides the underlying logical insight. Hence option A is correct. No edge cases exist – it holds for all binary truth values."
   },
 
   // Q6: Inverse of an implication
@@ -249,7 +251,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "The inverse is correctly formed as ¬P⇒¬Q. Reason gives the exact definition, so option A is correct."
     },
-    marks: 1
+    reasonDiscussion: "The reason is the exact definition of the inverse of an implication. It is a true and universally applicable statement. The assertion applies this definition to a concrete example: with P = 'it rains' and Q = 'ground is wet', the inverse becomes ¬P ⇒ ¬Q, which translates to 'If it does not rain, then the ground is not wet'. Therefore the reason correctly and fully explains the assertion. There is no subtlety or exception. Option A is correct."
   },
 
   // Q7: P ∨ ¬P is a tautology
@@ -286,7 +288,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "The truth table shows P∨¬P is always 1. Reason correctly states that P and ¬P cannot both be false, making their OR always true. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true and directly explains why P ∨ ¬P is a tautology. If P is false, then ¬P is true, so the disjunction is true. If P is true, the disjunction is true. The impossibility of both being false is exactly the logical principle behind the Law of Excluded Middle. The reason is not just a restatement; it provides the fundamental justification. Therefore it correctly explains the assertion. No edge cases exist – it holds for any proposition in classical logic. Option A is correct."
   },
 
   // Q8: P ∧ ¬P is a contradiction
@@ -323,7 +325,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "The truth table shows P∧¬P is always 0. Reason correctly states that P and ¬P cannot both be true, making their AND always false. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: a proposition and its negation cannot both be true. This is the Law of Non‑Contradiction, a foundational principle of classical logic. For P ∧ ¬P to be true, both P and ¬P would have to be true simultaneously, which is impossible. Therefore the conjunction is always false – a contradiction. The reason directly explains the assertion. No subtlety: it covers all cases. Option A is correct."
   },
 
   // Q9: P ⇒ (Q ⇒ P) is a tautology
@@ -362,7 +364,7 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "Truth table confirms tautology. Reason correctly explains: when P is true, Q⇒P is true; when P is false, implication with false antecedent is true. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true and provides a valid explanation for the tautology. It focuses on the case when P is true: then Q⇒P becomes Q⇒True, which is always true regardless of Q. However, the reason does not explicitly address the case when P is false. In that case, the outer implication P⇒(Q⇒P) has a false antecedent (P false), making the whole implication true vacuously. The reason implicitly covers this because it states 'any implication with P as consequent is true' – but the outer implication's consequent is (Q⇒P), not P itself. Actually, the reason says: 'If P is true, then any implication with P as consequent is true regardless of the antecedent.' This is correct: when P is true, Q⇒P is true. For P false, the outer implication is true because antecedent false. So the reason is complete. It correctly explains the tautology. Option A is correct."
   },
 
   // Q10: P ⇒ Q is logically equivalent to ¬P ∨ Q
@@ -401,18 +403,13 @@ export const assertionReasonQuestions = [
       },
       finalRemark: "Truth table shows P⇒Q and ¬P∨Q have identical truth values. Reason correctly identifies the falsification condition. Hence option A."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true and provides the exact truth‑conditional justification for the equivalence. Both P⇒Q and ¬P∨Q are false only in the single case where P is true and Q is false. In all other three cases, both are true. Therefore they have identical truth tables, establishing logical equivalence. The reason correctly identifies this falsification condition, which is the key to understanding why the equivalence holds. No edge cases or exceptions exist. Thus the reason fully and correctly explains the assertion. Option A is correct."
   },
-
-  // ======================================================================
-  // SECTION 2: BOOLEAN ALGEBRA LAWS & THEOREMS (Q11-Q25)
-  // ======================================================================
-
-  // Q11: Absorption Law - First form
+    // Q11: Modus Ponens as a tautology
   {
     id: 11,
-    assertion: "The Boolean expression A + (A·B) simplifies to A.",
-    reason: "Absorption law states that A + (A·B) = A.",
+    assertion: "The statement (P ∧ (P ⇒ Q)) ⇒ Q is a tautology.",
+    reason: "Modus Ponens is a valid inference rule: if P is true and P implies Q, then Q must be true.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -422,37 +419,36 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly states the Absorption law.",
+      summary: "Both true; Reason correctly explains that Modus Ponens is a tautology.",
       definitions: [
-        { term: "Absorption Law", definition: "A + (A·B) = A and A·(A + B) = A", example: "Let A=1, B=0: 1+(1·0)=1+0=1 which equals A=1." },
-        { term: "Redundancy", definition: "The term A·B is redundant as A already covers all cases.", example: "If A is true, the expression is true regardless of B." }
+        { term: "Modus Ponens", definition: "A rule of inference: from P and P⇒Q, infer Q.", example: "If 'it is raining' (P) and 'if it rains then ground is wet' (P⇒Q), then 'ground is wet' (Q)." },
+        { term: "Tautology", definition: "A statement true for all truth assignments.", example: "(P ∧ (P⇒Q)) ⇒ Q is true for all P, Q." }
       ],
       steps: [
-        { step: 1, action: "Original expression", expression: "A + A·B", law: "Given" },
-        { step: 2, action: "Factor A", expression: "A·(1 + B)", law: "Distributive law" },
-        { step: 3, action: "Apply null law", expression: "1 + B = 1", law: "Null law (1 + X = 1)" },
-        { step: 4, action: "Simplify", expression: "A·1 = A", law: "Identity law" },
-        { step: 5, action: "Conclusion", expression: "A + A·B = A", law: "Absorption law verified" }
+        { step: 1, action: "List all truth assignments", expression: "P, Q ∈ {0,1}", law: "Truth table" },
+        { step: 2, action: "Compute P⇒Q", expression: "False only when P=1, Q=0", law: "Implication" },
+        { step: 3, action: "Compute P ∧ (P⇒Q)", expression: "1 only when P=1 and P⇒Q=1", law: "Conjunction" },
+        { step: 4, action: "Check implication (P∧(P⇒Q)) ⇒ Q", expression: "False only when left true and Q false", law: "Implication falsification" }
       ],
       truthTable: {
-        headers: ["A", "B", "A·B", "A + A·B"],
+        headers: ["P", "Q", "P⇒Q", "P∧(P⇒Q)", "(P∧(P⇒Q)) ⇒ Q"],
         rows: [
-          [0, 0, 0, 0],
-          [0, 1, 0, 0],
-          [1, 0, 0, 1],
-          [1, 1, 1, 1]
+          [0, 0, 1, 0, 1],
+          [0, 1, 1, 0, 1],
+          [1, 0, 0, 0, 1],
+          [1, 1, 1, 1, 1]
         ]
       },
-      finalRemark: "Truth table shows A + A·B equals A for all inputs. Reason correctly states the Absorption law, so option A is correct."
+      finalRemark: "Last column is all 1s, confirming tautology. Reason correctly describes Modus Ponens and why it is valid."
     },
-    marks: 1
+    reasonDiscussion: "The reason states that Modus Ponens is a valid inference rule: from P and P⇒Q, Q follows. This is a fundamental rule of logic. The assertion claims that the corresponding conditional (P ∧ (P⇒Q)) ⇒ Q is a tautology. The reason explains exactly why: whenever the antecedent (P and P⇒Q) is true, P is true and P⇒Q is true, which forces Q to be true (otherwise P⇒Q would be false). Hence the implication is always true. The reason is true and provides a complete explanation. Option A is correct."
   },
 
-  // Q12: Absorption Law - Second form
+  // Q12: Modus Tollens as a tautology
   {
     id: 12,
-    assertion: "The Boolean expression A·(A + B) simplifies to A.",
-    reason: "Absorption law states that A·(A + B) = A.",
+    assertion: "The statement (¬Q ∧ (P ⇒ Q)) ⇒ ¬P is a tautology.",
+    reason: "Modus Tollens states that if Q is false and P implies Q, then P must be false.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -462,35 +458,35 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly states the Absorption law.",
+      summary: "Both true; Reason correctly explains Modus Tollens as a tautology.",
       definitions: [
-        { term: "Absorption Law", definition: "A·(A + B) = A", example: "A=0,B=1: 0·(0+1)=0·1=0 = A; A=1,B=0: 1·(1+0)=1·1=1 = A." }
+        { term: "Modus Tollens", definition: "A rule of inference: from ¬Q and P⇒Q, infer ¬P.", example: "If ground is not wet (¬Q) and 'if rain then wet' (P⇒Q), then it did not rain (¬P)." }
       ],
       steps: [
-        { step: 1, action: "Original expression", expression: "A·(A + B)", law: "Given" },
-        { step: 2, action: "Apply distributive law", expression: "A·A + A·B", law: "Distributive law" },
-        { step: 3, action: "Simplify A·A", expression: "A + A·B", law: "Idempotent law (A·A = A)" },
-        { step: 4, action: "Apply absorption", expression: "A", law: "Absorption law (A + A·B = A)" }
+        { step: 1, action: "Truth table enumeration", expression: "P, Q ∈ {0,1}", law: "Truth table" },
+        { step: 2, action: "Compute P⇒Q", expression: "False only when P=1, Q=0", law: "Implication" },
+        { step: 3, action: "Compute ¬Q ∧ (P⇒Q)", expression: "1 only when Q=0 and P⇒Q=1", law: "Conjunction" },
+        { step: 4, action: "Check implication", expression: "False only when left true and ¬P false", law: "Implication" }
       ],
       truthTable: {
-        headers: ["A", "B", "A+B", "A·(A+B)"],
+        headers: ["P", "Q", "P⇒Q", "¬Q", "¬Q∧(P⇒Q)", "¬P", "(¬Q∧(P⇒Q))⇒¬P"],
         rows: [
-          [0, 0, 0, 0],
-          [0, 1, 1, 0],
-          [1, 0, 1, 1],
-          [1, 1, 1, 1]
+          [0,0,1,1,1,1,1],
+          [0,1,1,0,0,1,1],
+          [1,0,0,1,0,0,1],
+          [1,1,1,0,0,0,1]
         ]
       },
-      finalRemark: "Truth table shows A·(A+B) equals A for all inputs. Hence option A."
+      finalRemark: "Last column all 1s, tautology. Reason correctly identifies Modus Tollens."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: Modus Tollens is a standard valid inference. The assertion states that its corresponding conditional is a tautology. The reason explains: if Q is false and P⇒Q is true, then P cannot be true (because true P with false Q would make P⇒Q false). Therefore ¬P follows. This reasoning covers all cases, including when antecedent is false (implication vacuously true). Thus the reason correctly explains the tautology. Option A is correct."
   },
 
-  // Q13: Distributive Law
+  // Q13: Simplification (P ∧ Q) ⇒ Q
   {
     id: 13,
-    assertion: "The Boolean expression A·(B + C) equals A·B + A·C.",
-    reason: "AND distributes over OR in Boolean algebra, similar to multiplication over addition in ordinary algebra.",
+    assertion: "The statement (P ∧ Q) ⇒ Q is a tautology.",
+    reason: "If a conjunction is true, then each of its conjuncts must be true.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -500,38 +496,34 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly explains the Distributive law.",
+      summary: "Both true; Reason explains simplification rule.",
       definitions: [
-        { term: "Distributive Law", definition: "A·(B + C) = A·B + A·C", example: "For A=1,B=0,C=1: LHS=1·(0+1)=1, RHS=1·0+1·1=0+1=1." }
+        { term: "Simplification", definition: "From P∧Q, we can infer P (and also Q).", example: "If it is raining and cold, then it is raining." }
       ],
       steps: [
-        { step: 1, action: "Construct truth table", expression: "Compare LHS and RHS", law: "Truth table method" },
-        { step: 2, action: "Verify all rows", expression: "LHS and RHS identical", law: "Logical equivalence" },
-        { step: 3, action: "Conclusion", expression: "Distributive law holds", law: "Boolean algebra" }
+        { step: 1, action: "Truth table", expression: "P, Q", law: "Truth table" },
+        { step: 2, action: "P∧Q true only when both true", expression: "Then Q true", law: "Conjunction" },
+        { step: 3, action: "Implication always true", expression: "No row with P∧Q true and Q false", law: "Tautology check" }
       ],
       truthTable: {
-        headers: ["A", "B", "C", "B+C", "A·(B+C)", "A·B", "A·C", "A·B + A·C"],
+        headers: ["P", "Q", "P∧Q", "(P∧Q)⇒Q"],
         rows: [
-          [0,0,0,0,0,0,0,0],
-          [0,0,1,1,0,0,0,0],
-          [0,1,0,1,0,0,0,0],
-          [0,1,1,1,0,0,0,0],
-          [1,0,0,0,0,0,0,0],
-          [1,0,1,1,1,0,1,1],
-          [1,1,0,1,1,1,0,1],
-          [1,1,1,1,1,1,1,1]
+          [0,0,0,1],
+          [0,1,0,1],
+          [1,0,0,1],
+          [1,1,1,1]
         ]
       },
-      finalRemark: "Truth table confirms A·(B+C) = A·B + A·C. Reason correctly identifies the analogy with ordinary algebra. Hence option A."
+      finalRemark: "All outputs 1. Reason correctly states that conjunction implies each conjunct."
     },
-    marks: 1
+    reasonDiscussion: "The reason is a true property of logical conjunction: if P∧Q is true, then both P and Q are true individually. The assertion is a direct application: (P∧Q) ⇒ Q is always true because whenever the antecedent (P∧Q) holds, Q holds. The reason explains this completely. Note that this is similar to Q2 but with Q as consequent instead of P. No repetition – it tests different simplification. Option A is correct."
   },
 
-  // Q14: Duality Principle
+  // Q14: Addition P ⇒ (P ∨ Q)
   {
     id: 14,
-    assertion: "The dual of the Boolean expression A + (B·C) is A·(B + C).",
-    reason: "The duality principle states that interchanging AND with OR and 0 with 1 yields the dual expression.",
+    assertion: "The statement P ⇒ (P ∨ Q) is a tautology.",
+    reason: "If a proposition is true, then its disjunction with any other proposition is also true.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -541,26 +533,34 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly explains the Duality principle.",
+      summary: "Both true; Reason explains addition/inference rule.",
       definitions: [
-        { term: "Duality Principle", definition: "Interchanging AND (·) with OR (+) and 0 with 1 in any Boolean expression yields its dual.", example: "Dual of A·(B+C) is A+(B·C)." }
+        { term: "Addition", definition: "From P, infer P ∨ Q for any Q.", example: "If it is raining, then it is raining or snowing." }
       ],
       steps: [
-        { step: 1, action: "Original expression", expression: "A + (B·C)", law: "Given" },
-        { step: 2, action: "Replace + with ·", expression: "A · (B·C)", law: "Duality operation" },
-        { step: 3, action: "Replace · with +", expression: "A·(B + C)", law: "Duality operation" },
-        { step: 4, action: "Compare with assertion", expression: "Matches assertion", law: "Verification" }
+        { step: 1, action: "Truth table", expression: "P, Q", law: "Truth table" },
+        { step: 2, action: "P true makes P∨Q true", expression: "Disjunction true if at least one true", law: "OR" },
+        { step: 3, action: "If P false, antecedent false", expression: "Implication vacuously true", law: "Implication" }
       ],
-      finalRemark: "The dual is correctly obtained as A·(B+C). Reason accurately describes the duality principle. Hence option A."
+      truthTable: {
+        headers: ["P", "Q", "P∨Q", "P⇒(P∨Q)"],
+        rows: [
+          [0,0,0,1],
+          [0,1,1,1],
+          [1,0,1,1],
+          [1,1,1,1]
+        ]
+      },
+      finalRemark: "All 1s. Reason correctly explains that true P makes disjunction true."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: if P is true, then P∨Q is true regardless of Q. When P is false, the implication has a false antecedent, making the whole conditional true. Thus the statement is a tautology. The reason directly explains the only non‑vacuous case (P true). Hence option A is correct."
   },
 
-  // Q15: Idempotent Law
+  // Q15: Commutativity of AND
   {
     id: 15,
-    assertion: "The Boolean expression A + A simplifies to A.",
-    reason: "Idempotent law states that A + A = A and A·A = A.",
+    assertion: "The expression P ∧ Q is logically equivalent to Q ∧ P.",
+    reason: "The conjunction (AND) operation is commutative, meaning the order of operands does not affect the truth value.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -570,32 +570,33 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly states the Idempotent law.",
+      summary: "Both true; Reason correctly states commutativity of AND.",
       definitions: [
-        { term: "Idempotent Law", definition: "A + A = A and A·A = A", example: "For A=1: 1+1=1; A=0: 0+0=0." }
+        { term: "Commutative Law", definition: "P ∧ Q ≡ Q ∧ P; P ∨ Q ≡ Q ∨ P", example: "True ∧ False = False ∧ True = False." }
       ],
       steps: [
-        { step: 1, action: "Case A=0", expression: "0 + 0 = 0", law: "OR operation" },
-        { step: 2, action: "Case A=1", expression: "1 + 1 = 1", law: "OR operation" },
-        { step: 3, action: "Conclusion", expression: "A + A = A for all A", law: "Idempotent law verified" }
+        { step: 1, action: "Truth table", expression: "Compare P∧Q and Q∧P", law: "Truth table" },
+        { step: 2, action: "All rows identical", expression: "Both columns match", law: "Verification" }
       ],
       truthTable: {
-        headers: ["A", "A + A"],
+        headers: ["P", "Q", "P∧Q", "Q∧P"],
         rows: [
-          [0, 0],
-          [1, 1]
+          [0,0,0,0],
+          [0,1,0,0],
+          [1,0,0,0],
+          [1,1,1,1]
         ]
       },
-      finalRemark: "Truth table confirms A+A = A. Reason correctly states the Idempotent law. Hence option A."
+      finalRemark: "Identical columns, logically equivalent. Reason states commutativity."
     },
-    marks: 1
+    reasonDiscussion: "The reason is a true statement about logical conjunction: AND is commutative. The assertion is exactly that equivalence. The reason explains why the order does not matter. No subtlety. Option A is correct."
   },
 
-  // Q16: Commutative Law for AND
+  // Q16: Associativity of OR
   {
     id: 16,
-    assertion: "The Boolean expression A·B equals B·A.",
-    reason: "AND operation is commutative, meaning the order of operands does not affect the result.",
+    assertion: "The expression (P ∨ Q) ∨ R is logically equivalent to P ∨ (Q ∨ R).",
+    reason: "The OR operation is associative, so regrouping does not change the truth value.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -605,89 +606,16 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly explains commutativity.",
+      summary: "Both true; Reason explains associativity of OR.",
       definitions: [
-        { term: "Commutative Law", definition: "A·B = B·A and A + B = B + A", example: "For A=1,B=0: 1·0=0 and 0·1=0." }
+        { term: "Associative Law", definition: "(P ∨ Q) ∨ R ≡ P ∨ (Q ∨ R)", example: "(0∨0)∨1 = 0∨1=1; 0∨(0∨1)=0∨1=1." }
       ],
       steps: [
-        { step: 1, action: "Construct truth table", expression: "Compare A·B and B·A", law: "Truth table method" },
-        { step: 2, action: "All rows identical", expression: "Both columns match", law: "Verification" },
-        { step: 3, action: "Conclusion", expression: "AND is commutative", law: "Boolean algebra" }
+        { step: 1, action: "Truth table with 3 variables", expression: "8 rows", law: "Truth table" },
+        { step: 2, action: "Compare both sides", expression: "Identical outputs", law: "Associativity" }
       ],
       truthTable: {
-        headers: ["A", "B", "A·B", "B·A"],
-        rows: [
-          [0, 0, 0, 0],
-          [0, 1, 0, 0],
-          [1, 0, 0, 0],
-          [1, 1, 1, 1]
-        ]
-      },
-      finalRemark: "Truth table shows A·B = B·A. Reason correctly states commutativity. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q17: Involution Law (Double Negation)
-  {
-    id: 17,
-    assertion: "The expression ¬(¬A) simplifies to A.",
-    reason: "Involution law (Double Negation) states that complementing a variable twice returns the original variable.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states the Involution law.",
-      definitions: [
-        { term: "Involution Law", definition: "¬(¬A) = A (Double Negation)", example: "If A=0, ¬0=1, ¬1=0 = A; if A=1, ¬1=0, ¬0=1 = A." }
-      ],
-      steps: [
-        { step: 1, action: "Case A=0", expression: "¬(¬0) = ¬1 = 0", law: "Negation operation" },
-        { step: 2, action: "Case A=1", expression: "¬(¬1) = ¬0 = 1", law: "Negation operation" },
-        { step: 3, action: "Conclusion", expression: "¬(¬A) = A for all A", law: "Involution law verified" }
-      ],
-      truthTable: {
-        headers: ["A", "¬A", "¬(¬A)"],
-        rows: [
-          [0, 1, 0],
-          [1, 0, 1]
-        ]
-      },
-      finalRemark: "Truth table confirms ¬(¬A) = A. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q18: Associative Law for OR
-  {
-    id: 18,
-    assertion: "The Boolean expression (A + B) + C equals A + (B + C).",
-    reason: "OR operation is associative, allowing regrouping without changing the result.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains associativity.",
-      definitions: [
-        { term: "Associative Law", definition: "(A + B) + C = A + (B + C)", example: "For A=0,B=0,C=1: (0+0)+1=1, 0+(0+1)=1." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "Compare LHS and RHS", law: "Truth table method" },
-        { step: 2, action: "All rows identical", expression: "Both columns match", law: "Verification" },
-        { step: 3, action: "Conclusion", expression: "OR is associative", law: "Boolean algebra" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "C", "A+B", "(A+B)+C", "B+C", "A+(B+C)"],
+        headers: ["P", "Q", "R", "P∨Q", "(P∨Q)∨R", "Q∨R", "P∨(Q∨R)"],
         rows: [
           [0,0,0,0,0,0,0],
           [0,0,1,0,1,1,1],
@@ -699,16 +627,16 @@ export const assertionReasonQuestions = [
           [1,1,1,1,1,1,1]
         ]
       },
-      finalRemark: "Truth table shows (A+B)+C = A+(B+C). Reason correctly explains associativity. Hence option A."
+      finalRemark: "Columns (P∨Q)∨R and P∨(Q∨R) are identical. Reason correctly states associativity."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: OR is associative, which is a basic property. The assertion is a direct statement of that property. The reason correctly explains that regrouping does not change the result. Option A is correct."
   },
 
-  // Q19: Redundancy Law (Consensus Theorem)
+  // Q17: Distributivity of OR over AND
   {
-    id: 19,
-    assertion: "The Boolean expression AB + A'C + BC simplifies to AB + A'C.",
-    reason: "The term BC is redundant and can be eliminated by the Consensus Theorem.",
+    id: 17,
+    assertion: "The expression P ∨ (Q ∧ R) is logically equivalent to (P ∨ Q) ∧ (P ∨ R).",
+    reason: "OR distributes over AND in Boolean algebra, similar to addition distributing over multiplication.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -718,40 +646,112 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly invokes the Consensus Theorem.",
+      summary: "Both true; Reason explains distributive law.",
       definitions: [
-        { term: "Consensus Theorem", definition: "AB + A'C + BC = AB + A'C. The term BC is the consensus and is redundant.", example: "For A=0,B=1,C=1: AB=0, A'C=1, BC=1; sum=1; AB+A'C=1." }
+        { term: "Distributive Law", definition: "P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)", example: "1∨(0∧1)=1∨0=1; (1∨0)∧(1∨1)=1∧1=1." }
       ],
       steps: [
-        { step: 1, action: "Original expression", expression: "F = AB + A'C + BC", law: "Given" },
-        { step: 2, action: "Add redundant term", expression: "AB + A'C + BC·(A + A')", law: "A + A' = 1" },
-        { step: 3, action: "Expand", expression: "AB + A'C + ABC + A'BC", law: "Distributive" },
-        { step: 4, action: "Group terms", expression: "AB(1 + C) + A'C(1 + B)", law: "Absorption" },
-        { step: 5, action: "Simplify", expression: "AB + A'C", law: "Redundant term eliminated" }
+        { step: 1, action: "Truth table (3 variables)", expression: "8 rows", law: "Truth table" },
+        { step: 2, action: "Compare LHS and RHS", expression: "All rows identical", law: "Distribution" }
       ],
       truthTable: {
-        headers: ["A", "B", "C", "AB", "A'C", "BC", "AB+A'C+BC", "AB+A'C"],
+        headers: ["P","Q","R","Q∧R","P∨(Q∧R)","P∨Q","P∨R","(P∨Q)∧(P∨R)"],
         rows: [
           [0,0,0,0,0,0,0,0],
-          [0,0,1,0,1,0,1,1],
-          [0,1,0,0,0,0,0,0],
-          [0,1,1,0,1,1,1,1],
-          [1,0,0,0,0,0,0,0],
-          [1,0,1,0,0,0,0,0],
-          [1,1,0,1,0,0,1,1],
-          [1,1,1,1,0,1,1,1]
+          [0,0,1,0,0,0,1,0],
+          [0,1,0,0,0,1,0,0],
+          [0,1,1,1,1,1,1,1],
+          [1,0,0,0,1,1,1,1],
+          [1,0,1,0,1,1,1,1],
+          [1,1,0,0,1,1,1,1],
+          [1,1,1,1,1,1,1,1]
         ]
       },
-      finalRemark: "Truth table shows AB + A'C + BC = AB + A'C. Reason correctly identifies the Consensus Theorem. Hence option A."
+      finalRemark: "Columns 5 and 8 are identical. Reason correctly identifies distribution."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: OR distributes over AND. This is a fundamental law of Boolean algebra, not true in ordinary arithmetic but valid in logic. The assertion states the equivalence. The reason provides the correct explanation (analogy to algebra helps memory). Option A is correct."
   },
 
-  // Q20: Null Law for OR
+  // Q18: Biconditional as equivalence of implications
+  {
+    id: 18,
+    assertion: "The biconditional P ⇔ Q is logically equivalent to (P ⇒ Q) ∧ (Q ⇒ P).",
+    reason: "P ⇔ Q means P and Q have the same truth value, which is exactly when both implications hold.",
+    correctOption: "A",
+    options: [
+      "Both A and R are true and R is the correct explanation of A.",
+      "Both A and R are true but R is NOT the correct explanation of A.",
+      "A is true but R is false.",
+      "A is false but R is true.",
+      "Both A and R are false."
+    ],
+    explanation: {
+      summary: "Both true; Reason explains definition of biconditional.",
+      definitions: [
+        { term: "Biconditional (⇔)", definition: "True when P and Q have same truth value.", example: "True⇔True = True; True⇔False = False." },
+        { term: "Logical Equivalence", definition: "Identical truth tables.", example: "P⇔Q and (P⇒Q)∧(Q⇒P) have same truth table." }
+      ],
+      steps: [
+        { step: 1, action: "Truth table", expression: "P, Q", law: "Truth table" },
+        { step: 2, action: "Compute P⇔Q", expression: "1 when P=Q", law: "Biconditional" },
+        { step: 3, action: "Compute (P⇒Q)∧(Q⇒P)", expression: "1 only when both implications true", law: "Implication" },
+        { step: 4, action: "Compare", expression: "Identical columns", law: "Equivalence" }
+      ],
+      truthTable: {
+        headers: ["P","Q","P⇒Q","Q⇒P","(P⇒Q)∧(Q⇒P)","P⇔Q"],
+        rows: [
+          [0,0,1,1,1,1],
+          [0,1,1,0,0,0],
+          [1,0,0,1,0,0],
+          [1,1,1,1,1,1]
+        ]
+      },
+      finalRemark: "Columns 5 and 6 identical. Reason correctly defines biconditional."
+    },
+    reasonDiscussion: "The reason is true: the biconditional is true exactly when both P⇒Q and Q⇒P are true (i.e., P and Q imply each other). This is the standard definition. The assertion states that logical equivalence. The reason explains the equivalence fully. Option A is correct."
+  },
+
+  // Q19: Negation of implication
+  {
+    id: 19,
+    assertion: "The negation of (P ⇒ Q) is logically equivalent to P ∧ ¬Q.",
+    reason: "An implication is false only when the antecedent is true and the consequent is false.",
+    correctOption: "A",
+    options: [
+      "Both A and R are true and R is the correct explanation of A.",
+      "Both A and R are true but R is NOT the correct explanation of A.",
+      "A is true but R is false.",
+      "A is false but R is true.",
+      "Both A and R are false."
+    ],
+    explanation: {
+      summary: "Both true; Reason explains negation of implication.",
+      definitions: [
+        { term: "Negation of Implication", definition: "¬(P⇒Q) ≡ P ∧ ¬Q", example: "¬(True⇒False) = ¬False = True; True ∧ ¬False = True ∧ True = True." }
+      ],
+      steps: [
+        { step: 1, action: "Truth table", expression: "Compare ¬(P⇒Q) and P∧¬Q", law: "Truth table" },
+        { step: 2, action: "Both true only when P=1, Q=0", expression: "Other rows false", law: "Equivalence" }
+      ],
+      truthTable: {
+        headers: ["P","Q","P⇒Q","¬(P⇒Q)","¬Q","P∧¬Q"],
+        rows: [
+          [0,0,1,0,1,0],
+          [0,1,1,0,0,0],
+          [1,0,0,1,1,1],
+          [1,1,1,0,0,0]
+        ]
+      },
+      finalRemark: "Columns 4 and 6 identical. Reason correctly identifies the only falsifying condition of implication."
+    },
+    reasonDiscussion: "The reason is true: an implication P⇒Q is false only when P is true and Q is false. Therefore its negation ¬(P⇒Q) is true exactly in that case. That matches P ∧ ¬Q, which is also true only when P true and Q false. Thus they are logically equivalent. The reason directly explains the assertion. Option A is correct."
+  },
+
+  // Q20: Exportation law
   {
     id: 20,
-    assertion: "The Boolean expression A + 1 simplifies to 1.",
-    reason: "Null law (or Annulment law) states that any variable ORed with 1 always yields 1.",
+    assertion: "The expression (P ∧ Q) ⇒ R is logically equivalent to P ⇒ (Q ⇒ R).",
+    reason: "Exportation states that a conjunction in the antecedent can be moved to nested implications.",
     correctOption: "A",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
@@ -761,33 +761,37 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly states the Null law.",
+      summary: "Both true; Reason explains Exportation law.",
       definitions: [
-        { term: "Null Law (Annulment)", definition: "A + 1 = 1 and A·0 = 0", example: "For A=0: 0+1=1; A=1: 1+1=1." }
+        { term: "Exportation", definition: "(P ∧ Q) ⇒ R ≡ P ⇒ (Q ⇒ R)", example: "If (rain and cold) then slippery ≡ If rain then (if cold then slippery)." }
       ],
       steps: [
-        { step: 1, action: "Case A=0", expression: "0 + 1 = 1", law: "OR operation" },
-        { step: 2, action: "Case A=1", expression: "1 + 1 = 1", law: "OR operation" },
-        { step: 3, action: "Conclusion", expression: "A + 1 = 1 for all A", law: "Null law verified" }
+        { step: 1, action: "Truth table (3 vars)", expression: "8 rows", law: "Truth table" },
+        { step: 2, action: "Compute LHS and RHS", expression: "Compare columns", law: "Logical equivalence" }
       ],
       truthTable: {
-        headers: ["A", "A + 1"],
+        headers: ["P","Q","R","P∧Q","(P∧Q)⇒R","Q⇒R","P⇒(Q⇒R)"],
         rows: [
-          [0, 1],
-          [1, 1]
+          [0,0,0,0,1,1,1],
+          [0,0,1,0,1,1,1],
+          [0,1,0,0,1,0,1],
+          [0,1,1,0,1,1,1],
+          [1,0,0,0,1,1,1],
+          [1,0,1,0,1,1,1],
+          [1,1,0,1,0,0,0],
+          [1,1,1,1,1,1,1]
         ]
       },
-      finalRemark: "Truth table confirms A+1 = 1. Hence option A."
+      finalRemark: "Columns 5 and 7 identical. Reason correctly names Exportation law."
     },
-    marks: 1
+    reasonDiscussion: "The reason is true: Exportation is a well-known logical equivalence. It allows moving a conjunct from the antecedent to an outer implication. The assertion states that equivalence. The reason explains the transformation. Option A is correct."
   },
-
-  // Q21: Complement Law
+    // Q21: Converse of an implication with geometric example
   {
     id: 21,
-    assertion: "The Boolean expression A + A' simplifies to 1.",
-    reason: "Complement law states that a variable ORed with its complement always equals 1.",
-    correctOption: "A",
+    assertion: "p = I am a triangle, q = I am a three-sided polygon, s₁ = p → q, s₂ = q → p s₂ is converse of s₁, where s₁ = p → q and s₂ = q → p.",
+    reason: "Three-sided polygon must be a triangle.",
+    correctOption: "B",
     options: [
       "Both A and R are true and R is the correct explanation of A.",
       "Both A and R are true but R is NOT the correct explanation of A.",
@@ -796,960 +800,30 @@ export const assertionReasonQuestions = [
       "Both A and R are false."
     ],
     explanation: {
-      summary: "Both true; Reason correctly states the Complement law.",
+      summary: "Both Assertion and Reason are true, but the Reason does not explain the Assertion.",
       definitions: [
-        { term: "Complement Law", definition: "A + A' = 1 and A·A' = 0", example: "For A=0: 0+1=1; A=1: 1+0=1." }
+        { term: "Converse", definition: "The converse of an implication P ⇒ Q is Q ⇒ P.", example: "For 'If it rains, then ground is wet', converse is 'If ground is wet, then it rains'." },
+        { term: "Implication (⇒)", definition: "A logical connective meaning 'if...then'.", example: "p → q means 'If I am a triangle, then I am a three-sided polygon'." }
       ],
       steps: [
-        { step: 1, action: "Case A=0", expression: "0 + 1 = 1", law: "OR operation" },
-        { step: 2, action: "Case A=1", expression: "1 + 0 = 1", law: "OR operation" },
-        { step: 3, action: "Conclusion", expression: "A + A' = 1 for all A", law: "Complement law verified" }
+        { step: 1, action: "Identify s₁", expression: "s₁ = p → q", law: "Given" },
+        { step: 2, action: "Identify s₂", expression: "s₂ = q → p", law: "Given" },
+        { step: 3, action: "Recall definition of converse", expression: "Converse of (p → q) is (q → p)", law: "Definition of converse" },
+        { step: 4, action: "Compare", expression: "s₂ matches the converse of s₁", law: "Logical identification" },
+        { step: 5, action: "Conclusion on Assertion", expression: "Assertion is true", law: "Verification" }
       ],
       truthTable: {
-        headers: ["A", "A'", "A + A'"],
+        headers: ["p (triangle)", "q (3‑sided polygon)", "p → q", "q → p (converse)"],
         rows: [
-          [0, 1, 1],
-          [1, 0, 1]
-        ]
-      },
-      finalRemark: "Truth table confirms A + A' = 1. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q22: Identity Law for AND
-  {
-    id: 22,
-    assertion: "The Boolean expression A·1 simplifies to A.",
-    reason: "Identity law states that AND with 1 yields the original variable.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states the Identity law.",
-      definitions: [
-        { term: "Identity Law", definition: "A·1 = A and A + 0 = A", example: "For A=0: 0·1=0; A=1: 1·1=1." }
-      ],
-      steps: [
-        { step: 1, action: "Case A=0", expression: "0·1 = 0", law: "AND operation" },
-        { step: 2, action: "Case A=1", expression: "1·1 = 1", law: "AND operation" },
-        { step: 3, action: "Conclusion", expression: "A·1 = A for all A", law: "Identity law verified" }
-      ],
-      truthTable: {
-        headers: ["A", "A·1"],
-        rows: [
-          [0, 0],
-          [1, 1]
-        ]
-      },
-      finalRemark: "Truth table confirms A·1 = A. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q23: De Morgan's First Theorem
-  {
-    id: 23,
-    assertion: "The complement of (A + B) is A'·B'.",
-    reason: "De Morgan's first theorem states that the complement of a sum equals the product of complements.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states De Morgan's first theorem.",
-      definitions: [
-        { term: "De Morgan's First Theorem", definition: "(A + B)' = A'·B'", example: "For A=0,B=1: (0+1)'=1'=0, A'·B'=1·0=0." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "Compare (A+B)' and A'·B'", law: "Truth table method" },
-        { step: 2, action: "All rows identical", expression: "Both columns match", law: "Verification" },
-        { step: 3, action: "Conclusion", expression: "(A+B)' = A'·B'", law: "De Morgan's theorem verified" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A+B", "(A+B)'", "A'", "B'", "A'·B'"],
-        rows: [
-          [0,0,0,1,1,1,1],
-          [0,1,1,0,1,0,0],
-          [1,0,1,0,0,1,0],
-          [1,1,1,0,0,0,0]
-        ]
-      },
-      finalRemark: "Truth table confirms (A+B)' = A'·B'. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q24: De Morgan's Second Theorem
-  {
-    id: 24,
-    assertion: "The complement of (A·B) is A' + B'.",
-    reason: "De Morgan's second theorem states that the complement of a product equals the sum of complements.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states De Morgan's second theorem.",
-      definitions: [
-        { term: "De Morgan's Second Theorem", definition: "(A·B)' = A' + B'", example: "For A=1,B=1: (1·1)'=1'=0, A'+B'=0+0=0." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "Compare (A·B)' and A' + B'", law: "Truth table method" },
-        { step: 2, action: "All rows identical", expression: "Both columns match", law: "Verification" },
-        { step: 3, action: "Conclusion", expression: "(A·B)' = A' + B'", law: "De Morgan's theorem verified" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A·B", "(A·B)'", "A'", "B'", "A' + B'"],
-        rows: [
-          [0,0,0,1,1,1,1],
-          [0,1,0,1,1,0,1],
-          [1,0,0,1,0,1,1],
-          [1,1,1,0,0,0,0]
-        ]
-      },
-      finalRemark: "Truth table confirms (A·B)' = A' + B'. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q25: Boolean expression reduction
-  {
-    id: 25,
-    assertion: "The Boolean expression A + A'B simplifies to A + B.",
-    reason: "This is a direct application of the Absorption law.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly identifies Absorption law.",
-      definitions: [
-        { term: "Absorption Law", definition: "A + A'B = A + B", example: "A=0,B=1: 0+1·1=1, A+B=1; A=1,B=0: 1+0=1, A+B=1." }
-      ],
-      steps: [
-        { step: 1, action: "Original expression", expression: "A + A'B", law: "Given" },
-        { step: 2, action: "Apply distributive law", expression: "(A + A')(A + B)", law: "Distributive law" },
-        { step: 3, action: "Simplify A + A'", expression: "1·(A + B)", law: "Complement law" },
-        { step: 4, action: "Simplify", expression: "A + B", law: "Identity law" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A'", "A'B", "A + A'B", "A + B"],
-        rows: [
-          [0,0,1,0,0,0],
-          [0,1,1,1,1,1],
-          [1,0,0,0,1,1],
-          [1,1,0,0,1,1]
-        ]
-      },
-      finalRemark: "Truth table shows A + A'B = A + B. Hence option A."
-    },
-    marks: 1
-  },
-
-  // ======================================================================
-  // SECTION 3: LOGIC GATES (Q26-Q35)
-  // ======================================================================
-
-  // Q26: NAND as Universal Gate
-  {
-    id: 26,
-    assertion: "A NAND gate can be used to simulate the functions of basic gates NOT, AND, and OR.",
-    reason: "NAND and NOR gates are universal gates.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains why NAND gates can simulate basic gates.",
-      definitions: [
-        { term: "Universal Gate", definition: "A gate that can be used to implement any Boolean function without using any other gate type.", example: "NAND and NOR are universal – you can build NOT, AND, OR, XOR, etc. using only NAND gates." },
-        { term: "NAND Gate", definition: "A gate that outputs 0 only when both inputs are 1.", example: "Truth table: 00→1, 01→1, 10→1, 11→0." }
-      ],
-      steps: [
-        { step: 1, action: "NOT using NAND", expression: "Connect both inputs together: NOT A = A NAND A", law: "NAND as NOT" },
-        { step: 2, action: "AND using NAND", expression: "A AND B = (A NAND B)'", law: "NAND then NOT" },
-        { step: 3, action: "OR using NAND", expression: "A OR B = (A' NAND B')", law: "NAND with complements" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A NAND B", "NOT A (A NAND A)", "A AND B", "A OR B"],
-        rows: [
-          [0,0,1,1,0,0],
-          [0,1,1,1,0,1],
-          [1,0,1,0,0,1],
-          [1,1,0,0,1,1]
-        ]
-      },
-      finalRemark: "NAND gates can indeed simulate NOT, AND, and OR. Reason correctly states that NAND is universal. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q27: NOR as Universal Gate
-  {
-    id: 27,
-    assertion: "A NOR gate can be used to simulate the functions of basic gates NOT, AND, and OR.",
-    reason: "NAND and NOR gates are universal gates.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains why NOR gates can simulate basic gates.",
-      definitions: [
-        { term: "Universal Gate", definition: "A gate that can be used to implement any Boolean function without using any other gate type.", example: "NOR gates alone can build NOT, AND, OR, XOR, etc." },
-        { term: "NOR Gate", definition: "A gate that outputs 1 only when both inputs are 0.", example: "Truth table: 00→1, 01→0, 10→0, 11→0." }
-      ],
-      steps: [
-        { step: 1, action: "NOT using NOR", expression: "Connect both inputs together: NOT A = A NOR A", law: "NOR as NOT" },
-        { step: 2, action: "OR using NOR", expression: "A OR B = (A NOR B)'", law: "NOR then NOT" },
-        { step: 3, action: "AND using NOR", expression: "A AND B = (A' NOR B')", law: "NOR with complements" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A NOR B", "NOT A (A NOR A)", "A OR B", "A AND B"],
-        rows: [
-          [0,0,1,1,0,0],
-          [0,1,0,1,1,0],
-          [1,0,0,0,1,0],
-          [1,1,0,0,1,1]
-        ]
-      },
-      finalRemark: "NOR gates can simulate NOT, OR, and AND. Reason correctly states that NOR is universal. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q28: XOR Gate Output
-  {
-    id: 28,
-    assertion: "The XOR gate outputs 1 when the inputs are different.",
-    reason: "XOR (exclusive OR) gives a true output when an odd number of inputs are true.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains XOR behavior.",
-      definitions: [
-        { term: "XOR Gate", definition: "Outputs 1 when inputs are different (odd number of 1s).", example: "0⊕0=0, 0⊕1=1, 1⊕0=1, 1⊕1=0." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "A XOR B", law: "Truth table method" },
-        { step: 2, action: "Observe output pattern", expression: "1 when A≠B, 0 when A=B", law: "XOR definition" },
-        { step: 3, action: "Conclusion", expression: "XOR = A'B + AB'", law: "Boolean expression" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A XOR B"],
-        rows: [
-          [0, 0, 0],
-          [0, 1, 1],
-          [1, 0, 1],
-          [1, 1, 0]
-        ]
-      },
-      finalRemark: "Truth table confirms XOR outputs 1 when inputs differ. Reason correctly describes XOR behavior. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q29: XNOR Gate Output
-  {
-    id: 29,
-    assertion: "The XNOR gate outputs 1 when the inputs are equal.",
-    reason: "XNOR (exclusive NOR) is the complement of XOR and outputs 1 when the number of true inputs is even.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains XNOR behavior.",
-      definitions: [
-        { term: "XNOR Gate", definition: "Outputs 1 when inputs are equal (even number of 1s).", example: "0⊙0=1, 0⊙1=0, 1⊙0=0, 1⊙1=1." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "A XNOR B", law: "Truth table method" },
-        { step: 2, action: "Observe output pattern", expression: "1 when A=B, 0 when A≠B", law: "XNOR definition" },
-        { step: 3, action: "Conclusion", expression: "XNOR = AB + A'B'", law: "Boolean expression" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "A XNOR B"],
-        rows: [
-          [0, 0, 1],
-          [0, 1, 0],
-          [1, 0, 0],
-          [1, 1, 1]
-        ]
-      },
-      finalRemark: "Truth table confirms XNOR outputs 1 when inputs are equal. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q30: Half Adder Outputs
-  {
-    id: 30,
-    assertion: "The sum output of a half adder is given by A XOR B.",
-    reason: "Half adder sum is the XOR of the two inputs.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states half adder sum.",
-      definitions: [
-        { term: "Half Adder", definition: "A circuit that adds two single bits, producing Sum and Carry outputs.", example: "Adds A=1,B=1 → Sum=0, Carry=1." },
-        { term: "Sum (Half Adder)", definition: "Sum = A ⊕ B (XOR of inputs)", example: "1⊕1=0, 1⊕0=1." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "Inputs A, B", law: "Half adder" },
-        { step: 2, action: "Sum output", expression: "A XOR B", law: "XOR definition" },
-        { step: 3, action: "Carry output", expression: "A·B", law: "AND definition" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "Sum (A⊕B)", "Carry (A·B)"],
-        rows: [
-          [0, 0, 0, 0],
+          [0, 0, 1, 1],
           [0, 1, 1, 0],
-          [1, 0, 1, 0],
-          [1, 1, 0, 1]
+          [1, 0, 0, 1],
+          [1, 1, 1, 1]
         ]
       },
-      finalRemark: "Truth table confirms Sum = A XOR B. Hence option A."
+      finalRemark: "The truth table shows that q → p is indeed the converse of p → q. The Assertion is true. The Reason is also true: a three-sided polygon is by definition a triangle. However, the Reason does not explain what a converse is; it merely states a geometric fact about triangles. Therefore option B is correct."
     },
-    marks: 1
-  },
-
-  // Q31: Full Adder Outputs
-  {
-    id: 31,
-    assertion: "The sum output of a full adder is given by A ⊕ B ⊕ Cin.",
-    reason: "Full adder sum is the XOR of all three inputs.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states full adder sum.",
-      definitions: [
-        { term: "Full Adder", definition: "A circuit that adds three bits (A, B, Carry-in), producing Sum and Carry-out.", example: "A=1,B=1,Cin=1 → Sum=1, Cout=1 (binary 1+1+1=3, binary 11)." },
-        { term: "Sum (Full Adder)", definition: "Sum = A ⊕ B ⊕ Cin", example: "1⊕1⊕1 = 1." }
-      ],
-      steps: [
-        { step: 1, action: "Construct truth table", expression: "Inputs A, B, Cin", law: "Full adder" },
-        { step: 2, action: "Sum output", expression: "A XOR B XOR Cin", law: "XOR definition" }
-      ],
-      truthTable: {
-        headers: ["A", "B", "Cin", "Sum (A⊕B⊕Cin)"],
-        rows: [
-          [0,0,0,0], [0,0,1,1], [0,1,0,1], [0,1,1,0],
-          [1,0,0,1], [1,0,1,0], [1,1,0,0], [1,1,1,1]
-        ]
-      },
-      finalRemark: "Truth table confirms Sum = A ⊕ B ⊕ Cin. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q32: Decoder Function
-  {
-    id: 32,
-    assertion: "A 2-to-4 line decoder has 2 inputs and 4 outputs.",
-    reason: "A decoder with n inputs has 2^n outputs.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains decoder design.",
-      definitions: [
-        { term: "Decoder", definition: "A combinational circuit that converts binary information from n inputs to a maximum of 2^n outputs.", example: "2-to-4 decoder: inputs 00 → output line 0 high, 01 → line 1 high, etc." }
-      ],
-      steps: [
-        { step: 1, action: "Number of inputs", expression: "n = 2", law: "Given" },
-        { step: 2, action: "Number of outputs", expression: "2^n = 2^2 = 4", law: "Decoder design" },
-        { step: 3, action: "Conclusion", expression: "2 inputs produce 4 outputs", law: "Decoder truth table" }
-      ],
-      truthTable: {
-        headers: ["Input A", "Input B", "Output 0", "Output 1", "Output 2", "Output 3"],
-        rows: [
-          [0,0,1,0,0,0],
-          [0,1,0,1,0,0],
-          [1,0,0,0,1,0],
-          [1,1,0,0,0,1]
-        ]
-      },
-      finalRemark: "A 2-to-4 decoder indeed has 2 inputs and 4 outputs. Reason correctly states the formula. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q33: Multiplexer Function
-  {
-    id: 33,
-    assertion: "A 4-to-1 multiplexer selects one of its 4 data inputs based on 2 select lines.",
-    reason: "A multiplexer with 2^n data inputs requires n select lines.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains multiplexer design.",
-      definitions: [
-        { term: "Multiplexer", definition: "A circuit that selects one of several inputs and forwards it to a single output based on select lines.", example: "4-to-1 MUX: select lines 00 → output = I0, 01 → I1, 10 → I2, 11 → I3." }
-      ],
-      steps: [
-        { step: 1, action: "Number of data inputs", expression: "m = 4", law: "Given" },
-        { step: 2, action: "Select lines required", expression: "n = log₂(4) = 2", law: "Multiplexer design" },
-        { step: 3, action: "Conclusion", expression: "4 data inputs need 2 select lines", law: "MUX truth table" }
-      ],
-      finalRemark: "A 4-to-1 MUX indeed has 4 data inputs and 2 select lines. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q34: Half Adder vs Full Adder
-  {
-    id: 34,
-    assertion: "A full adder can be constructed using two half adders.",
-    reason: "Full adder adds three bits; two half adders can handle three inputs by cascading.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains construction.",
-      definitions: [
-        { term: "Half Adder", definition: "Adds two bits, produces Sum and Carry.", example: "1+1 = Sum=0, Carry=1." },
-        { term: "Full Adder", definition: "Adds three bits, produces Sum and Carry-out.", example: "1+1+1 = Sum=1, Carry=1." }
-      ],
-      steps: [
-        { step: 1, action: "First half adder", expression: "Sum1 = A ⊕ B, Carry1 = A·B", law: "Half adder" },
-        { step: 2, action: "Second half adder", expression: "Sum = Sum1 ⊕ Cin, Carry2 = Sum1·Cin", law: "Half adder" },
-        { step: 3, action: "Final Carry-out", expression: "Cout = Carry1 + Carry2", law: "OR of carries" }
-      ],
-      finalRemark: "Full adder can indeed be built using two half adders and an OR gate. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q35: Encoder Function
-  {
-    id: 35,
-    assertion: "A 4-to-2 encoder has 4 inputs and 2 outputs.",
-    reason: "An encoder with 2^n inputs has n outputs.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains encoder design.",
-      definitions: [
-        { term: "Encoder", definition: "A combinational circuit that converts 2^n inputs into n outputs.", example: "4-to-2 encoder: input 0100 (only line 1 high) → output 01." }
-      ],
-      steps: [
-        { step: 1, action: "Number of inputs", expression: "2^n = 4 → n = 2", law: "Encoder design" },
-        { step: 2, action: "Conclusion", expression: "4 inputs produce 2 outputs", law: "Encoder truth table" }
-      ],
-      finalRemark: "A 4-to-2 encoder indeed has 4 inputs and 2 outputs. Hence option A."
-    },
-    marks: 1
-  },
-
-  // ======================================================================
-  // SECTION 4: SOP, POS & KARNAUGH MAPS (Q36-Q42)
-  // ======================================================================
-
-  // Q36: Standard SOP Form
-  {
-    id: 36,
-    assertion: "SOP (Sum of Products) form consists of AND terms ORed together.",
-    reason: "SOP represents Boolean functions as OR of minterms.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly describes SOP form.",
-      definitions: [
-        { term: "SOP (Sum of Products)", definition: "A Boolean expression consisting of AND terms (products) connected by OR operators.", example: "AB + A'B + BC is SOP." },
-        { term: "Minterm", definition: "A product term in which each variable appears exactly once, either complemented or uncomplemented.", example: "For 3 variables, A'BC is a minterm (binary 011)." }
-      ],
-      steps: [
-        { step: 1, action: "Example expression", expression: "F = AB + A'B + BC", law: "SOP form" },
-        { step: 2, action: "Identify AND terms", expression: "AB, A'B, BC", law: "Products" },
-        { step: 3, action: "Identify OR operators", expression: "Terms ORed together", law: "Sum" }
-      ],
-      finalRemark: "SOP is indeed OR of AND terms. Reason correctly mentions minterms. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q37: Canonical SOP
-  {
-    id: 37,
-    assertion: "A canonical SOP expression must contain all variables in each product term.",
-    reason: "Canonical form is a standardized representation where each term is a minterm.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains canonical SOP.",
-      definitions: [
-        { term: "Canonical SOP", definition: "A sum of minterms where each minterm contains all variables exactly once.", example: "For 2 variables, canonical SOP of A+B is A'B + AB' + AB." },
-        { term: "Minterm", definition: "A product term that includes every variable of the function.", example: "For 3 variables, AB'C is a minterm (binary 101)." }
-      ],
-      steps: [
-        { step: 1, action: "Non-canonical SOP", expression: "F = A + BC", law: "Missing variables" },
-        { step: 2, action: "Canonical SOP", expression: "F = A'B'C + A'BC' + A'BC + AB'C' + AB'C + ABC' + ABC", law: "All variables in each term" },
-        { step: 3, action: "Conclusion", expression: "Canonical form uses minterms", law: "Definition" }
-      ],
-      finalRemark: "Canonical SOP requires all variables in each term. Reason correctly states it uses minterms. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q38: Minterm Representation
-  {
-    id: 38,
-    assertion: "A minterm for three variables A, B, C with binary value 101 corresponds to AB'C.",
-    reason: "A minterm is 1 for only one combination of inputs, represented by complementing variables with 0.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains minterm formation.",
-      definitions: [
-        { term: "Minterm", definition: "A product term that evaluates to 1 for exactly one combination of inputs.", example: "For binary 101 (A=1,B=0,C=1), the minterm is AB'C." },
-        { term: "Minterm Notation", definition: "Variables appear complemented if the corresponding input bit is 0.", example: "Binary 010 (A=0,B=1,C=0) gives minterm A'BC'." }
-      ],
-      steps: [
-        { step: 1, action: "Binary value", expression: "101 = A=1, B=0, C=1", law: "Binary to variable mapping" },
-        { step: 2, action: "Complement rule", expression: "1 → uncomplemented, 0 → complemented", law: "Minterm rule" },
-        { step: 3, action: "Write minterm", expression: "AB'C", law: "A=1, B=0, C=1" }
-      ],
-      finalRemark: "Binary 101 correctly maps to AB'C. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q39: Maxterm Representation
-  {
-    id: 39,
-    assertion: "A maxterm for three variables A, B, C with binary value 010 corresponds to A + B' + C.",
-    reason: "A maxterm is 0 for only one combination of inputs, represented by complementing variables with 1.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains maxterm formation.",
-      definitions: [
-        { term: "Maxterm", definition: "A sum term that evaluates to 0 for exactly one combination of inputs.", example: "For binary 010 (A=0,B=1,C=0), the maxterm is A + B' + C." },
-        { term: "Maxterm Notation", definition: "Variables appear complemented if the corresponding input bit is 1.", example: "Binary 101 (A=1,B=0,C=1) gives maxterm A' + B + C'." }
-      ],
-      steps: [
-        { step: 1, action: "Binary value", expression: "010 = A=0, B=1, C=0", law: "Binary to variable mapping" },
-        { step: 2, action: "Complement rule", expression: "0 → uncomplemented, 1 → complemented", law: "Maxterm rule" },
-        { step: 3, action: "Write maxterm", expression: "A + B' + C", law: "A=0, B=1, C=0" }
-      ],
-      finalRemark: "Binary 010 correctly maps to A + B' + C. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q40: K-Map Adjacency
-  {
-    id: 40,
-    assertion: "In a 3-variable K-map, cells 001 and 011 are adjacent.",
-    reason: "K-map cells are adjacent if they differ in exactly one variable.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains adjacency.",
-      definitions: [
-        { term: "K-Map Adjacency", definition: "Two cells are adjacent if their binary representations differ in exactly one bit position.", example: "001 (A=0,B=0,C=1) and 011 (0,1,1) differ only in B – adjacent." }
-      ],
-      steps: [
-        { step: 1, action: "Cell 001", expression: "A=0, B=0, C=1", law: "Binary representation" },
-        { step: 2, action: "Cell 011", expression: "A=0, B=1, C=1", law: "Binary representation" },
-        { step: 3, action: "Compare", expression: "Only B differs (0 vs 1)", law: "Adjacency condition" },
-        { step: 4, action: "Conclusion", expression: "Cells are adjacent", law: "K-map property" }
-      ],
-      finalRemark: "001 and 011 differ only in variable B, so they are adjacent. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q41: K-Map Simplification Principle
-  {
-    id: 41,
-    assertion: "In a K-map, grouping 2^n adjacent 1's eliminates n variables.",
-    reason: "Larger groups represent simpler product terms with fewer literals.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains grouping benefit.",
-      definitions: [
-        { term: "K-Map Grouping", definition: "Adjacent 1's are grouped in powers of 2 (1, 2, 4, 8, etc.).", example: "A group of 4 cells in a 4-variable K-map eliminates 2 variables." }
-      ],
-      steps: [
-        { step: 1, action: "Group size", expression: "2^n cells", law: "K-map rule" },
-        { step: 2, action: "Variables eliminated", expression: "n variables", law: "Simplification" },
-        { step: 3, action: "Example", expression: "Group of 4 eliminates 2 variables", law: "K-map example" }
-      ],
-      finalRemark: "Larger groups indeed eliminate more variables, resulting in simpler expressions. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q42: Don't Care Conditions
-  {
-    id: 42,
-    assertion: "Don't care conditions in a K-map can be treated as either 0 or 1 to maximize grouping.",
-    reason: "Don't cares are used to form larger groups, leading to simpler Boolean expressions.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly explains use of don't cares.",
-      definitions: [
-        { term: "Don't Care Condition", definition: "Input combinations that never occur, can be assigned 0 or 1 for simplification.", example: "In a BCD to 7-segment decoder, inputs 1010-1111 never occur – they are don't cares." }
-      ],
-      steps: [
-        { step: 1, action: "Identify don't cares", expression: "Marked as X in K-map", law: "Given" },
-        { step: 2, action: "Use as 1 if helpful", expression: "Increases group size", law: "Simplification" },
-        { step: 3, action: "Use as 0 if not helpful", expression: "Doesn't affect groups", law: "Simplification" },
-        { step: 4, action: "Result", expression: "Simpler expression", law: "K-map optimization" }
-      ],
-      finalRemark: "Don't cares can be used to form larger groups, leading to simpler expressions. Hence option A."
-    },
-    marks: 1
-  },
-
-  // ======================================================================
-  // SECTION 5: COMPUTER HARDWARE & APPLICATIONS (Q43-Q50)
-  // ======================================================================
-
-  // Q43: Flip-Flop vs Latch
-  {
-    id: 43,
-    assertion: "A flip-flop is edge-triggered while a latch is level-sensitive.",
-    reason: "Flip-flops change state only at clock edges, whereas latches respond to input levels.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly distinguishes flip-flops from latches.",
-      definitions: [
-        { term: "Flip-Flop", definition: "A bistable device that changes state only on a clock edge (rising or falling).", example: "D flip-flop captures input on rising edge and holds it until next rising edge." },
-        { term: "Latch", definition: "A bistable device that changes state based on input levels, not clock edges.", example: "SR latch: when Enable=1, output follows inputs; when Enable=0, output holds." }
-      ],
-      steps: [
-        { step: 1, action: "Flip-flop operation", expression: "State changes at clock edge", law: "Edge-triggered" },
-        { step: 2, action: "Latch operation", expression: "State follows input while enable is active", law: "Level-sensitive" },
-        { step: 3, action: "Conclusion", expression: "Key difference is triggering method", law: "Digital logic design" }
-      ],
-      finalRemark: "Flip-flops are edge-triggered, latches are level-sensitive. Reason correctly explains this. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q44: SR Flip-Flop Race Condition
-  {
-    id: 44,
-    assertion: "The SR flip-flop has an invalid state when both S=1 and R=1.",
-    reason: "When both inputs are active, the output becomes unpredictable.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason explains the invalid state.",
-      definitions: [
-        { term: "SR Flip-Flop", definition: "A flip-flop with Set (S) and Reset (R) inputs.", example: "S=1,R=0 → Q=1; S=0,R=1 → Q=0." },
-        { term: "Invalid State", definition: "Occurs when S=R=1, causing unpredictable output.", example: "S=R=1 forces both Q and Q' to 1, which is not allowed." }
-      ],
-      steps: [
-        { step: 1, action: "S=1, R=0", expression: "Output = 1 (Set)", law: "Flip-flop behavior" },
-        { step: 2, action: "S=0, R=1", expression: "Output = 0 (Reset)", law: "Flip-flop behavior" },
-        { step: 3, action: "S=1, R=1", expression: "Invalid (both outputs forced to 1)", law: "Race condition" },
-        { step: 4, action: "Conclusion", expression: "S=R=1 is forbidden", law: "Digital logic" }
-      ],
-      finalRemark: "SR=11 is indeed invalid. Reason correctly states it leads to unpredictable output. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q45: JK Flip-Flop Advantage
-  {
-    id: 45,
-    assertion: "The JK flip-flop eliminates the invalid state of the SR flip-flop.",
-    reason: "JK flip-flop toggles when both inputs are high, making all input combinations valid.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason explains JK's advantage.",
-      definitions: [
-        { term: "JK Flip-Flop", definition: "A flip-flop that toggles when J=K=1, eliminating invalid states.", example: "J=1,K=1 on clock edge toggles output: Q becomes Q'." }
-      ],
-      steps: [
-        { step: 1, action: "J=1, K=1", expression: "Toggles output on clock edge", law: "JK behavior" },
-        { step: 2, action: "J=1, K=0", expression: "Sets output to 1", law: "JK behavior" },
-        { step: 3, action: "J=0, K=1", expression: "Resets output to 0", law: "JK behavior" },
-        { step: 4, action: "J=0, K=0", expression: "No change", law: "JK behavior" },
-        { step: 5, action: "Conclusion", expression: "All input combinations valid", law: "JK advantage" }
-      ],
-      finalRemark: "JK flip-flop indeed has no invalid state. Reason correctly describes toggling behavior. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q46: Counter Applications
-  {
-    id: 46,
-    assertion: "A counter is a sequential circuit that counts clock pulses.",
-    reason: "Counters are used in digital systems for frequency division and event counting.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason describes counter applications.",
-      definitions: [
-        { term: "Counter", definition: "A sequential circuit that goes through a predetermined sequence of states.", example: "A 3-bit binary counter counts from 000 to 111 (0 to 7)." }
-      ],
-      steps: [
-        { step: 1, action: "Basic operation", expression: "Increments on each clock pulse", law: "Counter function" },
-        { step: 2, action: "Frequency division", expression: "n-bit counter divides frequency by 2^n", law: "Application" },
-        { step: 3, action: "Event counting", expression: "Counts number of input pulses", law: "Application" }
-      ],
-      finalRemark: "Counters indeed count clock pulses and are used for frequency division and event counting. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q47: Register vs Memory
-  {
-    id: 47,
-    assertion: "A register stores data temporarily within the CPU.",
-    reason: "Registers are high-speed storage locations directly accessible by the CPU.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly describes register function.",
-      definitions: [
-        { term: "Register", definition: "A small, high-speed storage location within the CPU.", example: "Accumulator, Program Counter, Instruction Register are examples of CPU registers." }
-      ],
-      steps: [
-        { step: 1, action: "Temporary storage", expression: "Holds data during processing", law: "Register function" },
-        { step: 2, action: "Speed comparison", expression: "Faster than main memory", law: "CPU architecture" },
-        { step: 3, action: "Accessibility", expression: "Directly accessible by CPU", law: "Register property" }
-      ],
-      finalRemark: "Registers are temporary, high-speed storage within the CPU. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q48: ALU Function
-  {
-    id: 48,
-    assertion: "The ALU performs arithmetic and logic operations.",
-    reason: "ALU is the computational core of the CPU.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly identifies ALU's role.",
-      definitions: [
-        { term: "ALU (Arithmetic Logic Unit)", definition: "The part of the CPU that performs arithmetic and logical operations.", example: "Addition, subtraction, AND, OR, XOR, shift operations are done by ALU." }
-      ],
-      steps: [
-        { step: 1, action: "Arithmetic operations", expression: "Addition, subtraction, etc.", law: "ALU function" },
-        { step: 2, action: "Logic operations", expression: "AND, OR, NOT, XOR, etc.", law: "ALU function" },
-        { step: 3, action: "Role", expression: "Computational core of CPU", law: "CPU architecture" }
-      ],
-      finalRemark: "ALU indeed performs arithmetic and logic operations. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q49: Binary Addition in Computers
-  {
-    id: 49,
-    assertion: "Binary addition in computers uses half adders and full adders.",
-    reason: "Binary addition is the foundation of all arithmetic operations.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason correctly states the importance.",
-      definitions: [
-        { term: "Half Adder", definition: "Adds two bits, produces Sum and Carry.", example: "1+1 → Sum=0, Carry=1." },
-        { term: "Full Adder", definition: "Adds three bits, produces Sum and Carry-out.", example: "1+1+1 → Sum=1, Carry=1." }
-      ],
-      steps: [
-        { step: 1, action: "LSB addition", expression: "Half adder for first bits", law: "Binary addition" },
-        { step: 2, action: "Higher bits", expression: "Full adders with carry propagation", law: "Ripple carry adder" },
-        { step: 3, action: "Foundation", expression: "All arithmetic based on binary addition", law: "Computer arithmetic" }
-      ],
-      finalRemark: "Binary addition uses half adders and full adders. Reason correctly states its foundational importance. Hence option A."
-    },
-    marks: 1
-  },
-
-  // Q50: Boolean Algebra in Circuit Design
-  {
-    id: 50,
-    assertion: "Boolean algebra is used to simplify digital logic circuits.",
-    reason: "Simplification reduces the number of gates, saving cost and power.",
-    correctOption: "A",
-    options: [
-      "Both A and R are true and R is the correct explanation of A.",
-      "Both A and R are true but R is NOT the correct explanation of A.",
-      "A is true but R is false.",
-      "A is false but R is true.",
-      "Both A and R are false."
-    ],
-    explanation: {
-      summary: "Both true; Reason explains the benefit of simplification.",
-      definitions: [
-        { term: "Boolean Algebra", definition: "A mathematical system for analyzing and simplifying digital logic circuits.", example: "Using Boolean laws, AB + A'B simplifies to B (fewer gates)." }
-      ],
-      steps: [
-        { step: 1, action: "Original expression", expression: "Complex Boolean expression", law: "Given" },
-        { step: 2, action: "Apply laws", expression: "Use Boolean laws to simplify", law: "Boolean simplification" },
-        { step: 3, action: "Reduced expression", expression: "Simpler, fewer terms", law: "Result" },
-        { step: 4, action: "Benefits", expression: "Fewer gates, lower cost, less power", law: "Circuit design" }
-      ],
-      finalRemark: "Boolean algebra simplifies circuits, reducing gate count and power consumption. Hence option A."
-    },
-    marks: 1
+    reasonDiscussion: "The Reason states: 'Three-sided polygon must be a triangle.' This is a true statement in Euclidean geometry. It confirms that the implication q → p ('If I am a three-sided polygon, then I am a triangle') is true. However, the Assertion is about the logical relationship between s₁ and s₂ – specifically, that s₂ is the converse of s₁. The definition of converse does not depend on the actual truth values of p and q; it is purely syntactic: swapping antecedent and consequent. The Reason does not mention or define 'converse' at all. Therefore, while both statements are true, the Reason is not the correct explanation for the Assertion. The correct option is B."
   }
+
 ];

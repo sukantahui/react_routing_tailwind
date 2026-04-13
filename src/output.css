@@ -281,7 +281,6 @@
     --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
     --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
     --drop-shadow-xl: 0 9px 7px rgb(0 0 0 / 0.1);
-    --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-spin: spin 1s linear infinite;
@@ -15367,13 +15366,6 @@
       }
     }
   }
-  .hover\:no-underline {
-    &:hover {
-      @media (hover: hover) {
-        text-decoration-line: none;
-      }
-    }
-  }
   .hover\:underline {
     &:hover {
       @media (hover: hover) {
@@ -23071,13 +23063,6 @@
       }
     }
   }
-  .dark\:placeholder-gray-500 {
-    @media (prefers-color-scheme: dark) {
-      &::placeholder {
-        color: var(--color-gray-500);
-      }
-    }
-  }
   .dark\:opacity-5 {
     @media (prefers-color-scheme: dark) {
       opacity: 5%;
@@ -24851,13 +24836,6 @@
             --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-yellow-900) 20%, transparent) var(--tw-shadow-alpha), transparent);
           }
         }
-      }
-    }
-  }
-  .dark\:focus\:ring-blue-400 {
-    @media (prefers-color-scheme: dark) {
-      &:focus {
-        --tw-ring-color: var(--color-blue-400);
       }
     }
   }
