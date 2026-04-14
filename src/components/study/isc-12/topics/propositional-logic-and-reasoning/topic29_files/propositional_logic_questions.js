@@ -1026,5 +1026,187 @@ export const propositionalQuestions = [
     hints: ["XOR is associative and commutative.", "A⊕A = 0, A⊕0 = A."],
     finalRemark: "This is the basis for error detection (parity bits).",
     marks: 2
+  },
+    // ======================================================================
+  // ADDITIONAL QUESTIONS (Q51–Q60)
+  // ======================================================================
+  {
+    id: 51,
+    type: "mcq",
+    questionText: "Which of the following is in Conjunctive Normal Form (CNF)?",
+    options: ["(P ∨ Q) ∧ (¬P ∨ R)", "(P ∧ Q) ∨ (¬P ∧ R)", "¬(P ∧ Q)", "P ⊕ Q"],
+    correctAnswer: "A",
+    steps: [
+      { step: 1, action: "CNF definition", expression: "Conjunction of disjunctions (clauses)", law: "Normal forms" },
+      { step: 2, action: "Check each", expression: "A: conjunction of ORs; B: DNF; C: NAND; D: XOR", law: "Comparison" }
+    ],
+    explanation: "CNF is a conjunction of clauses, each clause being a disjunction of literals.",
+    definitions: [
+      { term: "Conjunctive Normal Form (CNF)", pronunciation: "kon-junk-tiv nor-mul form", definition: "AND of ORs", example: "(P ∨ Q) ∧ (¬P ∨ R)" }
+    ],
+    hints: ["Look for ∧ at top level, ∨ inside parentheses."],
+    finalRemark: "CNF is widely used in automated theorem proving and SAT solvers.",
+    marks: 1
+  },
+  {
+    id: 52,
+    type: "direct",
+    questionText: "Convert (P ⇒ Q) ∧ (Q ⇒ R) into CNF.",
+    correctAnswer: "(¬P ∨ Q) ∧ (¬Q ∨ R)",
+    steps: [
+      { step: 1, action: "Rewrite implications", expression: "P⇒Q ≡ ¬P∨Q, Q⇒R ≡ ¬Q∨R", law: "Implication law" },
+      { step: 2, action: "Combine with AND", expression: "(¬P∨Q) ∧ (¬Q∨R)", law: "Conjunction" }
+    ],
+    explanation: "CNF is already achieved; each clause is a disjunction of literals.",
+    definitions: [
+      { term: "Literal", pronunciation: "lit-er-ul", definition: "A variable or its negation." }
+    ],
+    hints: ["Replace each implication with OR form.", "Keep the AND between them."],
+    finalRemark: "This is a standard conversion; no distribution needed.",
+    marks: 1
+  },
+  {
+    id: 53,
+    type: "mcq",
+    questionText: "The set {¬, ∧} is functionally complete. Which of the following is also functionally complete?",
+    options: ["{∨}", "{→}", "{¬, ∨}", "All of the above"],
+    correctAnswer: "D",
+    steps: [
+      { step: 1, action: "Recall functional completeness", expression: "A set is complete if it can express all Boolean functions", law: "Definition" },
+      { step: 2, action: "{∨} alone cannot express NOT", expression: "Not complete", law: "Counterexample" },
+      { step: 3, action: "{→} alone: can express NOT (P→P = ¬P) and OR", expression: "Complete", law: "Known result" },
+      { step: 4, action: "{¬, ∨} is complete", expression: "De Morgan gives AND", law: "Standard" }
+    ],
+    explanation: "{→} is complete because ¬P ≡ P→P and P∨Q ≡ (P→Q)→Q. {¬, ∨} is complete as ¬ and ∨ can simulate ∧. {∨} alone is not.",
+    definitions: [
+      { term: "Functional completeness", pronunciation: "funk-shun-ul kum-pleet-nis", definition: "Ability to express every truth function." }
+    ],
+    hints: ["Check if you can derive NOT and AND/OR from the set."],
+    finalRemark: "NAND and NOR are single-operator complete sets as well.",
+    marks: 1
+  },
+  {
+    id: 54,
+    type: "simplify",
+    questionText: "Simplify (P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q) ∧ (¬P ∨ ¬Q).",
+    correctAnswer: "False (contradiction)",
+    steps: [
+      { step: 1, action: "Pair first two", expression: "(P∨Q)∧(¬P∨Q) = Q", law: "Distributive" },
+      { step: 2, action: "Pair last two", expression: "(P∨¬Q)∧(¬P∨¬Q) = ¬Q", law: "Distributive" },
+      { step: 3, action: "Combine", expression: "Q ∧ ¬Q = 0", law: "Complement" }
+    ],
+    explanation: "The four clauses together require Q and ¬Q simultaneously, impossible.",
+    hints: ["Group clauses that share a variable.", "Use distributive law: (X∨Y)∧(¬X∨Y) = Y."],
+    finalRemark: "This shows that the set of all maxterms over two variables is unsatisfiable.",
+    marks: 2
+  },
+  {
+    id: 55,
+    type: "direct",
+    questionText: "Determine if the following argument is valid: P ⇒ Q, ¬P ⇒ R, ¬Q ⇒ ¬R ∴ Q.",
+    correctAnswer: "Valid",
+    steps: [
+      { step: 1, action: "Assume premises true", expression: "1: P⇒Q, 2: ¬P⇒R, 3: ¬Q⇒¬R", law: "Hypothetical" },
+      { step: 2, action: "Contrapositive of 3", expression: "R ⇒ Q", law: "Contrapositive" },
+      { step: 3, action: "From 2: ¬P⇒R and R⇒Q gives ¬P⇒Q", expression: "Hypothetical syllogism", law: "Transitivity" },
+      { step: 4, action: "Now have P⇒Q and ¬P⇒Q", expression: "Therefore Q follows", law: "Proof by cases" }
+    ],
+    explanation: "Whether P is true or false, Q follows.",
+    hints: ["Use contrapositive to combine implications.", "Apply proof by cases (P ∨ ¬P)."],
+    finalRemark: "The argument is valid; conclusion Q is logically forced.",
+    marks: 2
+  },
+  {
+    id: 56,
+    type: "mcq",
+    questionText: "Which of the following is a logical consequence of (P ∧ Q) ⇒ R?",
+    options: ["P ⇒ (Q ⇒ R)", "(P ⇒ R) ∨ (Q ⇒ R)", "Both A and B", "Neither"],
+    correctAnswer: "C",
+    steps: [
+      { step: 1, action: "Exportation", expression: "(P∧Q)⇒R ≡ P⇒(Q⇒R)", law: "Exportation" },
+      { step: 2, action: "Also (P⇒R)∨(Q⇒R) is weaker", expression: "It is always true? Not always, but it follows", law: "Logical consequence" }
+    ],
+    explanation: "By exportation, (P∧Q)⇒R is equivalent to P⇒(Q⇒R). Also, if (P∧Q)⇒R holds, then (P⇒R)∨(Q⇒R) holds as well (check truth table).",
+    hints: ["Use equivalence transformations.", "Consider truth assignments where P true, Q false, R false."],
+    finalRemark: "Both are valid consequences; the second is not equivalent but is entailed.",
+    marks: 1
+  },
+  {
+    id: 57,
+    type: "simplify",
+    questionText: "Simplify ¬(P ⇔ Q) to an expression using only ∧, ∨, ¬.",
+    correctAnswer: "(P ∧ ¬Q) ∨ (¬P ∧ Q)",
+    steps: [
+      { step: 1, action: "Recall P⇔Q ≡ (P⇒Q)∧(Q⇒P)", expression: "Negate: ¬[(¬P∨Q)∧(¬Q∨P)]", law: "Definition" },
+      { step: 2, action: "Apply De Morgan", expression: "¬(¬P∨Q) ∨ ¬(¬Q∨P) = (P∧¬Q) ∨ (Q∧¬P)", law: "De Morgan" }
+    ],
+    explanation: "Negation of biconditional is XOR (exclusive or).",
+    definitions: [
+      { term: "XOR", pronunciation: "ex-or", definition: "True when inputs differ." }
+    ],
+    hints: ["Use De Morgan on the CNF form of equivalence."],
+    finalRemark: "This is the standard definition of XOR in terms of AND, OR, NOT.",
+    marks: 1
+  },
+  {
+    id: 58,
+    type: "direct",
+    questionText: "Construct the truth table for (P ⊕ Q) ∧ (P ⊕ R).",
+    correctAnswer: "True when P is 0 and Q≠R, or P is 1 and Q=R.",
+    steps: [
+      { step: 1, action: "List all combos", expression: "P, Q, R ∈ {0,1}", law: "Truth table" },
+      { step: 2, action: "Compute P⊕Q, P⊕R", expression: "XOR", law: "XOR" },
+      { step: 3, action: "AND the two", expression: "Result column", law: "AND" }
+    ],
+    truthTable: {
+      headers: ["P", "Q", "R", "P⊕Q", "P⊕R", "(P⊕Q)∧(P⊕R)"],
+      rows: [
+        [0,0,0,0,0,0],
+        [0,0,1,0,1,0],
+        [0,1,0,1,0,0],
+        [0,1,1,1,1,1],
+        [1,0,0,1,1,1],
+        [1,0,1,1,0,0],
+        [1,1,0,0,1,0],
+        [1,1,1,0,0,0]
+      ]
+    },
+    explanation: "The expression is true exactly when (P=0 and Q=R=1) or (P=1 and Q=R=0).",
+    hints: ["Compute XOR column by column.", "AND is true only when both XORs are 1."],
+    finalRemark: "This expression is equivalent to (¬P ∧ Q ∧ R) ∨ (P ∧ ¬Q ∧ ¬R).",
+    marks: 2
+  },
+  {
+    id: 59,
+    type: "mcq",
+    questionText: "The statement (P ∨ Q) ∧ (¬P ∨ R) is logically equivalent to:",
+    options: ["(P ∧ R) ∨ (¬P ∧ Q)", "(P ∧ Q) ∨ (¬P ∧ R)", "(P ∨ R) ∧ (¬P ∨ Q)", "None of these"],
+    correctAnswer: "B",
+    steps: [
+      { step: 1, action: "Distribute", expression: "(P∨Q)∧(¬P∨R) = (P∧¬P) ∨ (P∧R) ∨ (Q∧¬P) ∨ (Q∧R)", law: "Distributive" },
+      { step: 2, action: "Simplify P∧¬P=0", expression: "(P∧R) ∨ (¬P∧Q) ∨ (Q∧R)", law: "Complement" },
+      { step: 3, action: "Consensus theorem", expression: "(P∧R) ∨ (¬P∧Q) ∨ (Q∧R) = (P∧R) ∨ (¬P∧Q)", law: "Consensus" },
+      { step: 4, action: "Reorder", expression: "(¬P∧Q) ∨ (P∧R)", law: "Commutative" }
+    ],
+    explanation: "After distribution and consensus, the expression simplifies to (¬P∧Q) ∨ (P∧R).",
+    hints: ["Use distributive law and the consensus theorem.", "Check truth tables if unsure."],
+    finalRemark: "This is the dual of the more common form (P∨R)∧(¬P∨Q).",
+    marks: 1
+  },
+  {
+    id: 60,
+    type: "fill",
+    questionText: "The statement that is true exactly when an odd number of its variables are true is called the ________ function.",
+    correctAnswer: "parity",
+    steps: [
+      { step: 1, action: "Definition", expression: "Odd parity = XOR of all variables", law: "XOR property" }
+    ],
+    explanation: "XOR of multiple inputs yields 1 if the number of 1s is odd.",
+    definitions: [
+      { term: "Parity", pronunciation: "par-i-tee", definition: "Odd/even count of 1s in a binary string." }
+    ],
+    hints: ["Recall XOR of many variables is also known as the parity function."],
+    finalRemark: "Parity checks are used in error detection codes.",
+    marks: 1
   }
 ];
