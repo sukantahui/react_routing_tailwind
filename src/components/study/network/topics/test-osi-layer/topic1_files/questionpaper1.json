@@ -1,0 +1,98 @@
+{
+  "paperId": "OSI-INTERMEDIATE-SET-02",
+  "title": "OSI Layer Model – Advanced Networking Concepts (Set 2)",
+  "duration": "1 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Theory (Short Answer)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is the difference between a MAC address and an IP address in terms of OSI layers?",
+          "marks": 2,
+          "answer": "A MAC address is a physical address used at the Data Link Layer (Layer 2) for node-to-node communication within the same network. It is 48-bit and hardcoded on the NIC. An IP address is a logical address used at the Network Layer (Layer 3) for end-to-end routing across different networks. It is 32-bit (IPv4) or 128-bit (IPv6) and can be assigned dynamically."
+        },
+        {
+          "q": "Which OSI layer handles segmentation and reassembly of data?",
+          "marks": 2,
+          "answer": "The Transport Layer (Layer 4) handles segmentation of data into smaller units (segments) at the sender and reassembly at the receiver. This allows large messages to be transmitted efficiently over the network."
+        },
+        {
+          "q": "What is a Protocol Data Unit (PDU) at the Data Link Layer called?",
+          "marks": 2,
+          "answer": "At the Data Link Layer, the PDU is called a Frame. A frame includes the network layer packet encapsulated with a header (containing MAC addresses) and a trailer (containing error detection like CRC)."
+        },
+        {
+          "q": "Name two common network devices that operate at the Network Layer.",
+          "marks": 2,
+          "answer": "Routers and Layer 3 switches operate at the Network Layer. They make forwarding decisions based on IP addresses and routing tables."
+        },
+        {
+          "q": "What is the role of the checksum in the Transport Layer?",
+          "marks": 2,
+          "answer": "The checksum in the Transport Layer (e.g., TCP or UDP header) is used for error detection. The sender computes a checksum value based on the segment contents; the receiver recomputes it. If they differ, the segment is considered corrupted and is discarded (TCP may request retransmission)."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Theory (Descriptive)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Explain the concept of 'encapsulation' and 'decapsulation' in the OSI model with a step-by-step example of sending an email.",
+          "marks": 5,
+          "answer": "Encapsulation (sender side):\n1. Application Layer (SMTP): User writes email; data is created.\n2. Presentation Layer: Possibly encrypts or converts character set.\n3. Session Layer: Adds session control information.\n4. Transport Layer: Segments data, adds TCP header (source/destination ports, sequence number).\n5. Network Layer: Adds IP header (source/destination IP addresses).\n6. Data Link Layer: Adds Ethernet header (MAC addresses) and trailer (CRC).\n7. Physical Layer: Converts to bits for transmission.\nDecapsulation (receiver side): The reverse process – each layer removes its corresponding header, checks for errors, and passes the remaining data upward until the email is delivered to the recipient's mail client."
+        },
+        {
+          "q": "Compare and contrast the OSI model with the TCP/IP model. Highlight the number of layers, layer names, and key differences.",
+          "marks": 5,
+          "answer": "OSI Model: 7 layers – Physical, Data Link, Network, Transport, Session, Presentation, Application. It is a theoretical, protocol-independent reference model. TCP/IP Model: 4 or 5 layers – Network Interface (sometimes split into Physical + Data Link), Internet (Network), Transport, Application (combines Session, Presentation, Application). Key differences: OSI separates Session and Presentation layers; TCP/IP merges them into Application. OSI has strict layering; TCP/IP is more practical and flexible. OSI was developed before protocols; TCP/IP evolved from actual protocols (ARPANET)."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Theory (Long Answer)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Explain the functions of the Transport Layer (Layer 4) in detail. Discuss the differences between connection-oriented (TCP) and connectionless (UDP) services, including reliability, flow control, error recovery, and typical use cases for each.",
+          "marks": 10,
+          "answer": "The Transport Layer provides logical communication between application processes running on different hosts. Its key functions: segmentation and reassembly, end-to-end error detection, flow control, and multiplexing/demultiplexing using port numbers.\n\nTCP (Transmission Control Protocol) – connection-oriented:\n- Establishes a virtual connection via three-way handshake before data transfer.\n- Provides reliable delivery: acknowledgments (ACKs), retransmission of lost segments, sequence numbers for ordering.\n- Flow control: uses sliding window to prevent sender from overwhelming receiver.\n- Congestion control: dynamically adjusts sending rate based on network conditions.\n- Higher overhead due to header size (20+ bytes) and connection management.\n- Use cases: web browsing (HTTP), email (SMTP), file transfer (FTP), SSH.\n\nUDP (User Datagram Protocol) – connectionless:\n- No connection setup; sends datagrams independently.\n- No reliability: no ACKs, no retransmissions, no ordering guarantees.\n- No flow or congestion control.\n- Low overhead (8-byte header).\n- Use cases: streaming media (VoIP, video), DNS queries, DHCP, SNMP, online gaming.\n\nOther transport protocols: SCTP (Stream Control Transmission Protocol) for telephony signaling."
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Network Analysis / Scenario",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "A network administrator notices that a user cannot access a website (https://example.com) but can ping the website's IP address. Using the OSI model, explain step-by-step how you would troubleshoot the problem, indicating which layer each check belongs to.",
+          "marks": 10,
+          "answer": "Troubleshooting steps (bottom-up or top-down approach):\n\n1. Physical Layer (Layer 1): Check cable connections, link lights, Wi-Fi signal. (Assume physical connectivity works since ping succeeds – but ping uses ICMP which may also fail if physical issues exist, but here ping works.)\n\n2. Data Link Layer (Layer 2): Check MAC address tables on switches, ensure no VLAN misconfiguration. Since ping works, Layer 2 is likely fine.\n\n3. Network Layer (Layer 3): Ping to IP address works, so IP routing is functional. Check default gateway, routing tables, and subnet mask. No problem here.\n\n4. Transport Layer (Layer 4): Ping uses ICMP (no port). Web access uses TCP port 443 (HTTPS). Check if the firewall is blocking port 443. Use telnet or nc to test TCP connectivity: `telnet example.com 443`. If fails, likely a firewall rule. Also check if the local firewall on the PC blocks outbound HTTPS.\n\n5. Session Layer (Layer 5): Not commonly an issue; but if proxy servers or SSL session resumption fails, could be relevant. Check proxy settings.\n\n6. Presentation Layer (Layer 6): TLS/SSL handshake problems. Certificate errors, mismatched cipher suites, or expired certificates. Use browser developer tools or openssl s_client to diagnose.\n\n7. Application Layer (Layer 7): DNS resolution – the user can ping IP but not domain? The problem states 'can ping website's IP address' – so DNS may be working, but check that the browser isn't using a malformed URL or that the web server isn't responding to HTTPS requests. Could be server-side issue (e.g., web service down).\n\nConclusion: Most likely a Transport Layer (port 443 blocked) or Presentation Layer (TLS issue)."
+        }
+      ]
+    },
+    {
+      "section": "E",
+      "type": "Case Study / Design Problem",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "You are tasked with designing a secure corporate network that spans three geographically separate offices (Mumbai, Delhi, Bangalore). Each office has 100 employees. The network must support internal file sharing, email, video conferencing, and secure access to a central database. Based on the OSI model, answer the following:\n(a) Which layer would you use to provide end-to-end encryption between offices?\n(b) Which layer would handle routing of traffic between the three offices?\n(c) If you need to prioritize video conferencing traffic over file transfers, which layer would implement Quality of Service (QoS)?\n(d) What device would you place at the boundary of each office to connect to the WAN?\n(e) Explain how a VLAN (Virtual LAN) at Layer 2 can help segregate departmental traffic within an office.",
+          "marks": 10,
+          "answer": "(a) Encryption can be implemented at multiple layers: Presentation Layer (Layer 6) – TLS/SSL for application-specific encryption; or Network Layer (Layer 3) – IPsec for site-to-site VPN encryption between offices; or Data Link Layer (Layer 2) – MACsec for point-to-point links. For corporate WAN, IPsec at Network Layer is common.\n(b) The Network Layer (Layer 3) handles routing. Routers or Layer 3 switches will use routing protocols (e.g., OSPF, BGP) to forward packets between the three offices.\n(c) Quality of Service (QoS) is typically implemented at the Network Layer (Layer 3) using Differentiated Services (DiffServ) or at the Data Link Layer (Layer 2) using 802.1p prioritization. For IP networks, Layer 3 QoS with DSCP markings is common.\n(d) A router or a firewall (which operates at Network/Transport layers) would be placed at each office boundary to connect to the WAN (leased line, MPLS, or VPN over internet).\n(e) VLANs (Virtual LANs) operate at Layer 2 (Data Link). They logically segment a physical switch into multiple broadcast domains. Within an office, different departments (e.g., Finance, HR, Engineering) can be placed in separate VLANs. This improves security (traffic stays within VLAN), reduces broadcast traffic, and allows different policies per VLAN. VLANs can then be routed between each other using a Layer 3 device (router or Layer 3 switch)."
+        }
+      ]
+    }
+  ]
+}

@@ -377,10 +377,18 @@
           "slug": "strings-and-stringbuffer",
           "title": "Strings & StringBuffer",
           "topics": [
-            "String class methods",
-            "String manipulation programs",
-            "StringBuffer class",
-            "Mutable vs immutable strings"
+            "Introduction to Strings in Java",
+            "String creation (literals vs new keyword)",
+            "Immutability of String objects",
+            "String class methods (length, charAt, substring, equals, compareTo, toUpperCase, toLowerCase, trim, replace, etc.)",
+            "String comparison (== vs equals())",
+            "String concatenation techniques",
+            "String manipulation programs (reverse string, palindrome, word count, frequency of characters)",
+            "StringBuffer class and its features",
+            "Mutable vs Immutable strings",
+            "Key methods of StringBuffer (append, insert, delete, reverse, capacity)",
+            "String vs StringBuffer vs StringBuilder (comparison & use cases)",
+            "Performance considerations in string handling"
           ],
           "difficulty": "Easy-Medium"
         },

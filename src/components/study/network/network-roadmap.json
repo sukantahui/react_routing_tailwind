@@ -86,6 +86,54 @@
             "Understand layered communication"
           ],
           "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "test-osi-layer",
+          "slug": "test-osi-layer",
+          "title": "Test OSI Layer",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "visibility": "loggedIn",
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2",
+            "Test3"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
         }
       ]
     },

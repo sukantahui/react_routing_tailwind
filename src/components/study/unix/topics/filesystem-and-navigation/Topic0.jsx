@@ -1,5 +1,7 @@
 // Topic0.jsx - Linux Directory Structure
 import React, { Component } from 'react';
+import FAQTemplate from '../../../../../common/FAQTemplate';
+import questions from './topic0_files/questions';
 
 export default class Topic0 extends Component {
   constructor(props) {
@@ -86,8 +88,8 @@ export default class Topic0 extends Component {
     };
 
     // Animation styles
-    const baseAnimation = isMounted 
-      ? 'opacity-100 translate-y-0' 
+    const baseAnimation = isMounted
+      ? 'opacity-100 translate-y-0'
       : 'opacity-0 translate-y-4';
 
     // Inline keyframes for animation
@@ -116,7 +118,7 @@ export default class Topic0 extends Component {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 p-4 md:p-8 transition-colors duration-300">
         <style>{animationStyle}</style>
-        
+
         {/* Header Section */}
         <section className={`max-w-6xl mx-auto transition-all duration-700 ${baseAnimation}`}>
           <div className="mb-8 md:mb-12">
@@ -130,16 +132,16 @@ export default class Topic0 extends Component {
 
           {/* Visual Tree Diagram */}
           <div className={`mb-12 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`}
-               style={{animationDelay: '100ms'}}>
+            style={{ animationDelay: '100ms' }}>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
               <span className="mr-3">🌳</span> Filesystem Hierarchy Visualization
             </h2>
-            
+
             <div className="relative flex flex-col items-center">
               {/* Root Directory */}
               <div className={`relative z-10 p-4 rounded-xl ${hoveredDir === '/' ? 'ring-4 ring-red-400 dark:ring-red-500' : 'ring-2 ring-gray-300 dark:ring-gray-600'} bg-red-100 dark:bg-red-900/30 transition-all duration-300 transform ${hoveredDir === '/' ? 'scale-105' : 'scale-100'} cursor-pointer`}
-                   onMouseEnter={() => this.handleDirectoryHover('/')}
-                   onMouseLeave={this.handleDirectoryLeave}>
+                onMouseEnter={() => this.handleDirectoryHover('/')}
+                onMouseLeave={this.handleDirectoryLeave}>
                 <div className="flex flex-col items-center">
                   <div className="text-2xl mb-2">🏠</div>
                   <div className="font-mono font-bold text-lg text-red-700 dark:text-red-300">/ (root)</div>
@@ -164,10 +166,10 @@ export default class Topic0 extends Component {
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-24 w-full">
                 {directories.slice(1).map((dir, index) => (
                   <div key={dir.name}
-                       className={`p-4 rounded-xl ${hoveredDir === dir.name ? 'ring-4 ring-opacity-50' : 'ring-1 ring-gray-200 dark:ring-gray-700'} ${dir.color} transition-all duration-300 transform ${hoveredDir === dir.name ? 'scale-105 shadow-lg' : 'scale-100'} cursor-pointer ${baseAnimation}`}
-                       style={{animationDelay: `${200 + index * 50}ms`}}
-                       onMouseEnter={() => this.handleDirectoryHover(dir.name)}
-                       onMouseLeave={this.handleDirectoryLeave}>
+                    className={`p-4 rounded-xl ${hoveredDir === dir.name ? 'ring-4 ring-opacity-50' : 'ring-1 ring-gray-200 dark:ring-gray-700'} ${dir.color} transition-all duration-300 transform ${hoveredDir === dir.name ? 'scale-105 shadow-lg' : 'scale-100'} cursor-pointer ${baseAnimation}`}
+                    style={{ animationDelay: `${200 + index * 50}ms` }}
+                    onMouseEnter={() => this.handleDirectoryHover(dir.name)}
+                    onMouseLeave={this.handleDirectoryLeave}>
                     <div className="flex items-start">
                       <div className="text-xl mr-3">{dir.icon}</div>
                       <div>
@@ -183,44 +185,44 @@ export default class Topic0 extends Component {
         </section>
 
         {/* Detailed Explanation Section */}
-        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '300ms'}}>
+        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '300ms' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Conceptual Explanation */}
-            <div className={`p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '400ms'}}>
+            <div className={`p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '400ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
                 <span className="mr-3">🎯</span> Conceptual Foundation
               </h2>
-              
+
               <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                 <p>
-                  The Linux filesystem follows the <span className="font-semibold text-blue-600 dark:text-blue-400">Filesystem Hierarchy Standard (FHS)</span>, 
+                  The Linux filesystem follows the <span className="font-semibold text-blue-600 dark:text-blue-400">Filesystem Hierarchy Standard (FHS)</span>,
                   a specification that defines the directory structure and directory contents in Unix-like operating systems.
                 </p>
-                
+
                 <p>
                   Think of it like a <span className="font-semibold">well-organized library</span> in Barrackpore Institute:
                 </p>
-                
+
                 <ul className="list-disc pl-5 space-y-2">
                   <li><span className="font-mono font-semibold">/</span> is like the main entrance gate</li>
                   <li><span className="font-mono font-semibold">/home</span> contains personal study tables for each student</li>
                   <li><span className="font-mono font-semibold">/etc</span> is the librarian's rule book</li>
                   <li><span className="font-mono font-semibold">/var</span> holds daily visitor logs and records</li>
                 </ul>
-                
+
                 <p className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  This standardization ensures consistency across different Linux distributions, making it easier for 
+                  This standardization ensures consistency across different Linux distributions, making it easier for
                   system administrators (like our teacher at Shyamnagar Tech Center) to manage systems regardless of the distribution.
                 </p>
               </div>
             </div>
 
             {/* Right Column - Real World Examples */}
-            <div className={`p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '500ms'}}>
+            <div className={`p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '500ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
                 <span className="mr-3">🌍</span> Real-World Context
               </h2>
-              
+
               {/* Example Tabs */}
               <div className="flex space-x-2 mb-6">
                 {Object.keys(examples).map((key) => (
@@ -233,7 +235,7 @@ export default class Topic0 extends Component {
                   </button>
                 ))}
               </div>
-              
+
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
                   {examples[activeExample].title}
@@ -257,14 +259,14 @@ export default class Topic0 extends Component {
         </section>
 
         {/* Professional Tips & Common Mistakes */}
-        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '600ms'}}>
+        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '600ms' }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Tips & Tricks */}
-            <div className={`p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl shadow-lg border border-green-200 dark:border-emerald-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '700ms'}}>
+            <div className={`p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl shadow-lg border border-green-200 dark:border-emerald-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '700ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
                 <span className="mr-3">💡</span> Professional Tips & Tricks
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-green-700 dark:text-green-400 mb-2">Quick Navigation</h3>
@@ -272,15 +274,15 @@ export default class Topic0 extends Component {
                     Use <span className="font-mono bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">cd -</span> to toggle between current and previous directory
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-green-700 dark:text-green-400 mb-2">Permission Awareness</h3>
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
-                    Regular users cannot write to <span className="font-mono">/bin</span>, <span className="font-mono">/sbin</span>, or <span className="font-mono">/etc</span> 
+                    Regular users cannot write to <span className="font-mono">/bin</span>, <span className="font-mono">/sbin</span>, or <span className="font-mono">/etc</span>
                     without sudo privileges
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-green-700 dark:text-green-400 mb-2">Temporary Files</h3>
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -291,11 +293,11 @@ export default class Topic0 extends Component {
             </div>
 
             {/* Common Mistakes */}
-            <div className={`p-6 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg border border-red-200 dark:border-orange-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '800ms'}}>
+            <div className={`p-6 bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl shadow-lg border border-red-200 dark:border-orange-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '800ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
                 <span className="mr-3">⚠️</span> Common Beginner Mistakes
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-red-700 dark:text-red-400 mb-2">Confusing /root with /</h3>
@@ -303,14 +305,14 @@ export default class Topic0 extends Component {
                     <span className="font-mono">/root</span> is the home directory for root user, not the root of filesystem (<span className="font-mono">/</span>)
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-red-700 dark:text-red-400 mb-2">Modifying System Directories</h3>
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
                     Beginners often try to manually edit files in <span className="font-mono">/bin</span> or <span className="font-mono">/lib</span> - use package managers instead
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300">
                   <h3 className="font-semibold text-red-700 dark:text-red-400 mb-2">Ignoring /proc and /dev</h3>
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
@@ -323,26 +325,26 @@ export default class Topic0 extends Component {
         </section>
 
         {/* Teacher's Note Section */}
-        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '900ms'}}>
+        <section className={`max-w-6xl mx-auto mb-12 transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '900ms' }}>
           <div className={`p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl shadow-lg border border-blue-200 dark:border-blue-700 transition-all duration-500 hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-500`}>
             <div className="flex items-start">
               <div className="mr-4 text-3xl">👨‍🏫</div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Teacher's Note</h2>
-                
+
                 <div className="bg-white/70 dark:bg-gray-800/70 p-4 rounded-lg mb-4">
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <span className="font-semibold text-blue-600 dark:text-blue-400">Remember:</span> The Linux filesystem is like a well-organized city. 
-                    Each directory has a specific purpose, much like how different areas in Naihati have specific functions 
+                    <span className="font-semibold text-blue-600 dark:text-blue-400">Remember:</span> The Linux filesystem is like a well-organized city.
+                    Each directory has a specific purpose, much like how different areas in Naihati have specific functions
                     (residential, commercial, industrial).
                   </p>
-                  
+
                   <p className="mt-3 text-gray-700 dark:text-gray-300 leading-relaxed">
-                    When Abhronila first started, she kept her personal files in <span className="font-mono">/tmp</span> and lost them after reboot. 
+                    When Abhronila first started, she kept her personal files in <span className="font-mono">/tmp</span> and lost them after reboot.
                     Remember: <span className="font-mono">/home/your_username</span> is your personal, persistent space!
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-3 bg-blue-100/50 dark:bg-blue-900/30 rounded-lg">
                     <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-1">Pro Tip</h4>
@@ -350,7 +352,7 @@ export default class Topic0 extends Component {
                       Use <span className="font-mono">tree -L 2 /</span> to visualize the directory structure
                     </p>
                   </div>
-                  
+
                   <div className="p-3 bg-indigo-100/50 dark:bg-indigo-900/30 rounded-lg">
                     <h4 className="font-semibold text-indigo-800 dark:text-indigo-300 mb-1">Debugging Mindset</h4>
                     <p className="text-sm text-gray-700 dark:text-gray-400">
@@ -364,14 +366,14 @@ export default class Topic0 extends Component {
         </section>
 
         {/* Hint Section & Mini Checklist */}
-        <section className={`max-w-6xl mx-auto transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '1000ms'}}>
+        <section className={`max-w-6xl mx-auto transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '1000ms' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Hint Section */}
-            <div className={`p-6 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg border border-purple-200 dark:border-purple-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '1100ms'}}>
+            <div className={`p-6 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 rounded-2xl shadow-lg border border-purple-200 dark:border-purple-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '1100ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
                 <span className="mr-3">🤔</span> Hint & Thinking Exercise
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
                   <h3 className="font-semibold text-purple-700 dark:text-purple-400 mb-2">Think about...</h3>
@@ -380,19 +382,19 @@ export default class Topic0 extends Component {
                     What's the practical difference in daily use?
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
                   <h3 className="font-semibold text-purple-700 dark:text-purple-400 mb-2">Observe carefully...</h3>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Check the permissions of directories using <span className="font-mono">ls -ld /directory_name</span>. 
+                    Check the permissions of directories using <span className="font-mono">ls -ld /directory_name</span>.
                     Notice who can read, write, or execute in each directory.
                   </p>
                 </div>
-                
+
                 <div className="p-4 bg-white/50 dark:bg-gray-800/50 rounded-lg">
                   <h3 className="font-semibold text-purple-700 dark:text-purple-400 mb-2">Try changing...</h3>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Navigate to <span className="font-mono">/proc</span> and list its contents. 
+                    Navigate to <span className="font-mono">/proc</span> and list its contents.
                     Then check <span className="font-mono">/proc/cpuinfo</span>. What makes this directory special?
                   </p>
                 </div>
@@ -400,11 +402,11 @@ export default class Topic0 extends Component {
             </div>
 
             {/* Mini Checklist */}
-            <div className={`p-6 bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-2xl shadow-lg border border-amber-200 dark:border-yellow-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{animationDelay: '1200ms'}}>
+            <div className={`p-6 bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-2xl shadow-lg border border-amber-200 dark:border-yellow-700 transition-all duration-500 hover:shadow-xl ${baseAnimation}`} style={{ animationDelay: '1200ms' }}>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center">
                 <span className="mr-3">✅</span> What to Remember
               </h2>
-              
+
               <div className="space-y-3">
                 {[
                   "Root (/) is the absolute starting point of all paths",
@@ -417,7 +419,7 @@ export default class Topic0 extends Component {
                   "/lib contains shared libraries for binaries"
                 ].map((item, index) => (
                   <div key={index} className="flex items-center p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 group">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 ${isMounted ? 'bg-green-500' : 'bg-gray-400'} transition-all duration-500`} style={{transitionDelay: `${1300 + index * 100}ms`}}>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 ${isMounted ? 'bg-green-500' : 'bg-gray-400'} transition-all duration-500`} style={{ transitionDelay: `${1300 + index * 100}ms` }}>
                       <span className="text-white text-sm">✓</span>
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
@@ -428,20 +430,27 @@ export default class Topic0 extends Component {
               </div>
             </div>
           </div>
+          {/* FAQ */}
+          <div className="animate-fade-slide-up" style={{ animationDelay: '0.8s' }}>
+            <FAQTemplate
+              title="Mutable vs Immutable Strings – FAQs"
+              questions={questions}
+            />
+          </div>
         </section>
 
         {/* Practice Exercise */}
-        <section className={`max-w-6xl mx-auto mt-12 transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '1400ms'}}>
+        <section className={`max-w-6xl mx-auto mt-12 transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '1400ms' }}>
           <div className={`p-6 bg-gradient-to-br from-gray-50 to-slate-100 dark:from-gray-800 dark:to-slate-900 rounded-2xl shadow-lg border border-gray-300 dark:border-gray-600 transition-all duration-500 hover:shadow-xl`}>
             <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
               <span className="mr-3">🧪</span> Quick Practice Exercise
             </h2>
-            
+
             <div className="p-4 bg-white dark:bg-gray-800 rounded-lg mb-4">
               <p className="text-gray-700 dark:text-gray-300 mb-3">
                 Imagine you're setting up a computer lab at Ichapur High School. Create a mental map:
               </p>
-              
+
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded text-center">
                   <div className="font-mono text-sm mb-1">/home/student1</div>
@@ -460,7 +469,7 @@ export default class Topic0 extends Component {
                   <div className="text-xs text-gray-600 dark:text-gray-400">Temporary files</div>
                 </div>
               </div>
-              
+
               <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 italic">
                 Think: Where would you store lab instructions? Student submissions? System backup scripts?
               </p>
@@ -469,7 +478,7 @@ export default class Topic0 extends Component {
         </section>
 
         {/* Footer Navigation */}
-        <div className={`max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 transition-all duration-700 ${baseAnimation}`} style={{animationDelay: '1500ms'}}>
+        <div className={`max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 transition-all duration-700 ${baseAnimation}`} style={{ animationDelay: '1500ms' }}>
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-500 dark:text-gray-400">
               Topic 1 of Linux Fundamentals Series

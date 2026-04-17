@@ -1,0 +1,249 @@
+topic_sl: 0, topic: "Concept of abstraction", file: Topic0.jsx,
+topic_sl: 1, topic: "Abstract class and abstract methods", file: Topic1.jsx,
+topic_sl: 2, topic: "Rules for abstract classes", file: Topic2.jsx,
+topic_sl: 3, topic: "Use of abstract class in inheritance", file: Topic3.jsx,
+topic_sl: 4, topic: "Difference between abstract class and concrete class", file: Topic4.jsx,
+topic_sl: 5, topic: "Practical programs using abstract classes", file: Topic5.jsx,
+
+            
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+        -- dont use opacity-0
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    -- Teacher note must have:
+    -- Icon emphasis
+    -- Hover highlight
+    -- SVG steps should visually respond on hover
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+i like to show my Java Code as follows:
+<JavaFileLoader 
+        fileModule={MainJavaCode}
+        title="Main.java"
+        highlightLines={[]}
+      /> 
+import JavaFileLoader from "../../../../../common/JavaFileLoader";
+import ifExampleJava from "./topic[topic_no]_files/if_example1.java?raw";
+import ifExampleJava from "./topic[topic_no]_files/if_example2.java?raw";
+import ifExampleSh3 from "./topic[topic_no]_files/if_example3.java?raw";
+import switchExample1 from "./topic[topic_no]_files/switch_example1.java?raw";
+import ifElseLadder1 from "./topic[topic_no]_files/if_else_ladder1.java?raw";
+
+
+and keep all .java file separately in a folder name like topic[topic_no]_files, so show them separately with name
+
+use :
+ <JavaFileLoader
+    fileModule={ifElseLadder1}
+    title="ServerComparison.java (Conceptual)"
+    highlightLines={[]}
+/>
+add 20 questions related to this topic at the end of the page, at first dont show the answer, show on click
+do not use opacity-0
+
+for FAQ i use the following:
+    import FAQTemplate from '../../../../../common/FAQTemplate';
+    import questions from './topic[topic_no]_files/topic[topic_no]_questions';
+    before <Teacher note
+    place
+    <FAQTemplate
+        title="[topic_name] FAQs"
+        questions={questions}
+      />
+    create a js file in following style
+    const questions = [
+        {
+            question: "What is inheritance in object-oriented programming?",
+            shortAnswer: "Inheritance allows a class to acquire properties and methods from another class.",
+            explanation: "Inheritance is a mechanism where a new class (child/subclass) inherits fields and methods from an existing class (parent/superclass). It represents an 'is-a' relationship and promotes code reusability.",
+            hint: "Think of a child inheriting traits from parents.",
+            level: "basic",
+            codeExample: "class Parent { } class Child extends Parent { }"
+        },  
+        .....
+    ]
+    export default questions;
+    create 30 questions moderate to expert show the file also
+    show all the files with folder separately
+
+
+
+start from Topic0
+
+
+

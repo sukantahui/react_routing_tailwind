@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PrintButton from '../../common/PrintButton';
 import JavaCodeBlock from '../../common/JavaCodeBlock';
+import JavaCodeBlockQuestionCode from '../../common/JavaCodeBlockNoColor';
 
 const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetails = {} }) => {
   const [openAnswers, setOpenAnswers] = useState({});
@@ -10,40 +11,43 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
     setOpenAnswers(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
+  // Format question text (with code blocks)
+  const formatQuestion = (text) => {
+    if (!text) return null;
+    if (text.includes("```java") || text.includes("```")) {
+      const parts = text.split(/(```java[\s\S]*?```|```[\s\S]*?```)/g);
+      return parts.map((part, i) => {
+        if (part.startsWith("```java") && part.endsWith("```")) {
+          const code = part.slice(7, -3).trim();
+          return <JavaCodeBlockQuestionCode key={i} code={code} title="Java Code" />;
+        }
+        if (part.startsWith("```") && part.endsWith("```")) {
+          const code = part.slice(3, -3).trim();
+          return <JavaCodeBlockQuestionCode key={i} code={code} title="Code" />;
+        }
+        return <span key={i} className="whitespace-pre-wrap">{part}</span>;
+      });
+    }
+    return <span className="whitespace-pre-wrap">{text}</span>;
+  };
+
+  // Format answer text (unchanged from original)
   const formatAnswer = (answer) => {
     if (!answer) return null;
-    
-    // Check if answer contains Java code blocks
     if (answer.includes("```java") || answer.includes("```")) {
       const parts = answer.split(/(```java[\s\S]*?```|```[\s\S]*?```)/g);
       return parts.map((part, i) => {
-        // Handle Java code blocks
         if (part.startsWith("```java") && part.endsWith("```")) {
           const code = part.slice(7, -3).trim();
-          return (
-            <JavaCodeBlock 
-              key={i} 
-              code={code} 
-              title="Java Code"
-            />
-          );
+          return <JavaCodeBlock key={i} code={code} title="Java Code" />;
         }
-        // Handle generic code blocks
         if (part.startsWith("```") && part.endsWith("```")) {
           const code = part.slice(3, -3).trim();
-          return (
-            <JavaCodeBlock 
-              key={i} 
-              code={code} 
-              title="Code"
-            />
-          );
+          return <JavaCodeBlock key={i} code={code} title="Code" />;
         }
-        // Handle regular text
         return <p key={i} className="whitespace-pre-wrap text-gray-300 print:text-black print:leading-tight">{part}</p>;
       });
     }
-    
     return <p className="whitespace-pre-wrap text-gray-300 print:text-black print:leading-tight">{answer}</p>;
   };
 
@@ -80,7 +84,7 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
           )}
         </div>
 
-        {/* Instructions - Fixed for printing */}
+        {/* Instructions */}
         {data.instructions && (
           <div className="mb-6 p-4 bg-gray-800 rounded-lg border border-gray-700 print:bg-white print:border-black print:shadow-none print:p-3 print:mb-3">
             <h3 className="text-md font-semibold text-yellow-400 print:text-black mb-2 print:text-sm print:mb-1">Instructions:</h3>
@@ -116,7 +120,10 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
                 return (
                   <li key={qIdx} className="space-y-2 print:space-y-1">
                     <div className="flex justify-between items-start gap-4">
-                      <span className="text-gray-200 print:text-black flex-1 font-medium print:text-sm">{q.q}</span>
+                      {/* Question text with code block formatting */}
+                      <div className="text-gray-200 print:text-black flex-1 font-medium print:text-sm">
+                        {formatQuestion(q.q)}
+                      </div>
                       <div className="flex items-center gap-3">
                         <span className="text-sm text-gray-400 print:text-gray-600 font-mono print:text-xs">[{q.marks} marks]</span>
                         {isLoggedIn && (
@@ -130,13 +137,14 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
                       </div>
                     </div>
                     
-                    {/* Question hints if available */}
+                    {/* Question hints */}
                     {q.hint && (
                       <div className="text-xs text-gray-500 print:text-gray-600 italic pl-4 print:text-xs print:leading-tight">
                         💡 Hint: {q.hint}
                       </div>
                     )}
                     
+                    {/* Answer (unchanged) */}
                     {isLoggedIn && isOpen && q.answer && (
                       <div className={`answer-content mt-3 p-4 rounded-lg border ${hasCode ? 'bg-gray-850' : 'bg-gray-800'} print:bg-white border-gray-700 print:border-black print:p-2 print:mt-1`}>
                         <div className="text-sm print:text-xs">
@@ -165,59 +173,41 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
       {/* Print-specific styles */}
       <style jsx>{`
         @media print {
-          /* Force black text on white background for all elements */
           .print\\:bg-white {
             background-color: white !important;
           }
-          
           .print\\:text-black {
             color: black !important;
           }
-          
           .print\\:text-gray-600 {
             color: #4b5563 !important;
           }
-          
           .print\\:border-black {
             border-color: black !important;
           }
-          
           .print\\:border-gray-300 {
             border-color: #d1d5db !important;
           }
-          
           .print\\:shadow-none {
             box-shadow: none !important;
           }
-          
-          /* Reduce line spacing for all text in print */
           body, div, p, li, span, h1, h2, h3, h4 {
             line-height: 1.2 !important;
           }
-          
-          /* Specific tighter spacing for lists */
           li, .list-disc li {
             line-height: 1.15 !important;
             margin-bottom: 2px !important;
           }
-          
-          /* Reduce spacing between sections */
           .mb-8 {
             margin-bottom: 0.75rem !important;
           }
-          
-          /* Reduce spacing between questions */
           .space-y-6 > * + * {
             margin-top: 0.5rem !important;
           }
-          
-          /* Tighter paragraph spacing */
           p {
             margin-bottom: 0.25rem !important;
             line-height: 1.2 !important;
           }
-          
-          /* Ensure code blocks print properly with reduced spacing */
           pre, code {
             background-color: #f3f4f6 !important;
             color: black !important;
@@ -225,18 +215,13 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
             line-height: 1.2 !important;
             margin: 0.25rem 0 !important;
           }
-          
-          /* Reduce header spacing */
           h1, h2, h3 {
             margin-bottom: 0.25rem !important;
             margin-top: 0.25rem !important;
           }
-          
-          /* Reduce padding */
           .p-4 {
             padding: 0.5rem !important;
           }
-          
           .p-6 {
             padding: 1rem !important;
           }
