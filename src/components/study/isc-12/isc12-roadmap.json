@@ -64,7 +64,7 @@
             "Application-based problems (ISC exam pattern)",
             "SOP to POS",
             "POS to SOP",
-            "SOP to PSO Examples",
+            "SOP to POS Examples",
             "Simplification Examples",
             "Canonical (Cardinal) Form of a Minterm",
             "Canonical (Cardinal) Form of a Maxterm",
@@ -252,7 +252,8 @@
             "Different Examples",
             "Assersion and Reasoning",
             "Other Questions",
-            "All Definations"
+            "All Definations",
+            "Syllogism"
           ],
           "learningOutcomes": [
             "Identify and define propositions correctly",
@@ -323,6 +324,73 @@
           "badge": "Logic Mastery Badge"
         },
         {
+          "moduleId": "test-propositional-logic",
+          "slug": "test-propositional-logic",
+          "title": "Test Propositional Logic",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "visibility": "loggedIn",
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2 Moderate",
+            "Test3 Expert"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Passing large arrays efficiently to functions",
+            "Working with low level memory operations"
+          ],
+          "careerSkills": [
+            "Thinking in terms of addresses and references",
+            "Understanding how higher level languages implement references"
+          ],
+          "commonMistakes": [
+            "Dereferencing NULL or uninitialized pointers",
+            "Incorrect pointer arithmetic that steps outside valid memory"
+          ],
+          "references": [
+            "Pointers in C tutorials and articles",
+            "The C Programming Language - pointers chapter"
+          ],
+          "teachingTips": [
+            "Use step by step diagrams showing addresses and contents.",
+            "Give small pointer puzzles to build intuition."
+          ],
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
+        },
+        {
           "moduleId": "complexity",
           "slug": "computational-complexity-big-o",
           "title": "Computational Complexity & Big-O",
@@ -360,7 +428,25 @@
             "Traversing arrays",
             "Sorting: Bubble, Selection",
             "Searching: Linear, Binary",
-            "Row major & column major address calculation"
+            "Introduction to 2D arrays (matrix representation)",
+            "Declaration and initialization of 2D arrays",
+            "Input and output of matrix elements",
+            "Traversing a matrix (row-wise and column-wise)",
+            "Row major & column major address calculation",
+            "Formula for row-major order address calculation",
+            "Formula for column-major order address calculation",
+            "Address calculation with base address and element size",
+            "Finding address of A[i][j] in 2D array",
+            "Comparison between row-major and column-major storage",
+            "Matrix addition",
+            "Matrix subtraction",
+            "Matrix multiplication",
+            "Transpose of a matrix",
+            "Diagonal elements of a matrix (primary & secondary)",
+            "Upper and lower triangular matrices",
+            "Symmetric matrix check",
+            "Identity matrix",
+            "Sparse matrix basics"
           ],
           "learningOutcomes": [
             "Implement sorting algorithms",

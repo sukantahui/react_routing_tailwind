@@ -1,0 +1,156 @@
+{
+  "paperId": "PROP-LOGIC-001",
+  "title": "Propositional Logic - Standard Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+
+  "sections": [
+
+    {
+      "section": "A",
+      "type": "Very Short Answer (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Define a tautology.",
+          "marks": 1,
+          "answer": "A proposition that is true for all possible truth assignments of its variables."
+        },
+        {
+          "q": "State Modus Ponens.",
+          "marks": 1,
+          "answer": "If P → Q and P are true, then Q is true."
+        },
+        {
+          "q": "What is the negation of P → Q?",
+          "marks": 1,
+          "answer": "P ∧ ¬Q"
+        },
+        {
+          "q": "When is a compound proposition called a contradiction?",
+          "marks": 1,
+          "answer": "When it is false for all truth assignments of its variables."
+        },
+        {
+          "q": "Write the commutative law for conjunction.",
+          "marks": 1,
+          "answer": "P ∧ Q ≡ Q ∧ P"
+        }
+      ]
+    },
+
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Differentiate between contingency and contradiction with an example each.",
+          "marks": 2,
+          "answer": "Contingency: true for some assignments, false for others (e.g., P ∧ Q). Contradiction: false for all assignments (e.g., P ∧ ¬P)."
+        },
+        {
+          "q": "Write the truth table for exclusive OR (XOR).",
+          "marks": 2,
+          "answer": "P Q | P⊕Q\n0 0 | 0\n0 1 | 1\n1 0 | 1\n1 1 | 0"
+        },
+        {
+          "q": "State De Morgan’s laws in propositional logic.",
+          "marks": 2,
+          "answer": "¬(P ∧ Q) ≡ ¬P ∨ ¬Q\n¬(P ∨ Q) ≡ ¬P ∧ ¬Q"
+        },
+        {
+          "q": "What is the difference between logical equivalence and implication?",
+          "marks": 2,
+          "answer": "Equivalence (↔) means both sides have same truth value; implication (→) means if antecedent true then consequent true, but not vice versa."
+        },
+        {
+          "q": "Prove that P → Q ≡ ¬P ∨ Q using truth table (show only the final columns).",
+          "marks": 2,
+          "answer": "P Q | P→Q | ¬P∨Q\n0 0 | 1   | 1\n0 1 | 1   | 1\n1 0 | 0   | 0\n1 1 | 1   | 1\nAll columns match, hence equivalent."
+        }
+      ]
+    },
+
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+
+        {
+          "q": "Using logical equivalence laws, simplify: (P → Q) ∧ (P → ¬Q).",
+          "marks": 5,
+          "original": "(P → Q) ∧ (P → ¬Q)",
+          "simplified": "¬P",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∧ (¬P ∨ ¬Q)", "law": "Implication law" },
+            { "step": 2, "action": "Factor out ¬P", "expression": "¬P ∨ (Q ∧ ¬Q)", "law": "Distributive law" },
+            { "step": 3, "action": "Apply complement law", "expression": "¬P ∨ False", "law": "Q ∧ ¬Q ≡ False" },
+            { "step": 4, "action": "Apply identity law", "expression": "¬P", "law": "P ∨ False ≡ P" }
+          ],
+          "explanation": "The expression reduces to ¬P, meaning if P implies both Q and ¬Q, then P must be false."
+        },
+
+        {
+          "q": "Check whether the following argument is valid using truth table: P → Q, ¬Q ⊢ ¬P.",
+          "marks": 5,
+          "original": "Premises: P → Q, ¬Q. Conclusion: ¬P.",
+          "valid": true,
+          "truthTable": [
+            "P Q | P→Q | ¬Q | ¬P | Valid?",
+            "0 0 | 1   | 1  | 1  | (premises true → conclusion true)",
+            "0 1 | 1   | 0  | 1  | premises not both true",
+            "1 0 | 0   | 1  | 0  | premises not both true",
+            "1 1 | 1   | 0  | 0  | premises not both true"
+          ],
+          "explanation": "Only row where both premises are true is row 1, and there ¬P is true. Hence argument is valid (Modus Tollens)."
+        },
+
+        {
+          "q": "Prove the hypothetical syllogism: (P → Q) ∧ (Q → R) ⇒ (P → R) using logical laws.",
+          "marks": 5,
+          "original": "(P → Q) ∧ (Q → R)",
+          "simplified": "P → R",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∧ (¬Q ∨ R)", "law": "Implication law" },
+            { "step": 2, "action": "Apply resolution", "expression": "¬P ∨ R", "law": "Resolution rule: (¬P∨Q) ∧ (¬Q∨R) ⇒ (¬P∨R)" },
+            { "step": 3, "action": "Rewrite back to implication", "expression": "P → R", "law": "Implication law" }
+          ],
+          "explanation": "Hypothetical syllogism is a fundamental inference rule: if P implies Q and Q implies R, then P implies R."
+        },
+
+        {
+          "q": "Construct a truth table for the proposition: (P ∨ Q) → (P ∧ Q). Is it a tautology, contradiction, or contingency?",
+          "marks": 5,
+          "answer": "P Q | P∨Q | P∧Q | (P∨Q)→(P∧Q)\n0 0 | 0   | 0   | 1\n0 1 | 1   | 0   | 0\n1 0 | 1   | 0   | 0\n1 1 | 1   | 1   | 1\nIt is a contingency (neither all true nor all false)."
+        }
+      ]
+    },
+
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Using the rules of inference (Modus Ponens, Modus Tollens, Hypothetical Syllogism, Disjunctive Syllogism, Addition, Simplification, Conjunction, Resolution), prove the following argument is valid:\n\nPremises:\n1. P → (Q ∨ R)\n2. ¬Q\n3. ¬R\nConclusion: ¬P\n\nShow each step with the rule used.",
+          "marks": 10,
+          "proof": [
+            { "step": 1, "statement": "P → (Q ∨ R)", "reason": "Premise 1" },
+            { "step": 2, "statement": "¬Q", "reason": "Premise 2" },
+            { "step": 3, "statement": "¬R", "reason": "Premise 3" },
+            { "step": 4, "statement": "¬Q ∧ ¬R", "reason": "Conjunction (2, 3)" },
+            { "step": 5, "statement": "¬(Q ∨ R)", "reason": "De Morgan's law (4)" },
+            { "step": 6, "statement": "¬P", "reason": "Modus Tollens (1, 5)" }
+          ],
+          "explanation": "By combining ¬Q and ¬R we get ¬(Q∨R). Since P implies (Q∨R), the negation of the consequent forces the negation of the antecedent."
+        }
+      ]
+    }
+  ]
+}

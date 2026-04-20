@@ -2290,6 +2290,12 @@
   .animate-\[slideRight_0\.8s_ease-out\] {
     animation: slideRight 0.8s ease-out;
   }
+  .animate-\[slideUpFade_0\.6s_ease-out\] {
+    animation: slideUpFade 0.6s ease-out;
+  }
+  .animate-\[slideUpFade_0\.6s_ease-out_0\.1s\] {
+    animation: slideUpFade 0.6s ease-out 0.1s;
+  }
   .animate-\[slideUp_0\.5s_ease-out\] {
     animation: slideUp 0.5s ease-out;
   }
