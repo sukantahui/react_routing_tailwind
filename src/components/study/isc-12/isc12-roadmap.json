@@ -338,7 +338,8 @@
           "topics": [
             "Test 1",
             "Test 2 Moderate",
-            "Test3 Expert"
+            "Test3 Expert",
+            "Book Exercise"
           ],
           "learningOutcomes": [
             "Use pointers to work with memory addresses",

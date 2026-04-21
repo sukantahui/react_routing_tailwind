@@ -1,0 +1,392 @@
+{
+  "paperId": "BOOLEAN-ALGEBRA-FULL-001",
+  "title": "BOOLEAN ALGEBRA – FULL QUESTION PAPER",
+  "duration": "2 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "I",
+      "type": "Multiple Choice Questions (1 mark each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "q": "Propositional logic is also termed as: (a) Sequential logic (b) Linear logic (c) Sentential logic (d) Computational logic",
+          "marks": 1,
+          "answer": "c",
+          "explanation": "Propositional logic is also called sentential logic because it deals with sentences (propositions)."
+        },
+        {
+          "q": "A variable assigned with a sentence that results in true or false is termed as: (a) Boolean variable (b) String variable (c) Character variable (d) Propositional variable",
+          "marks": 1,
+          "answer": "d",
+          "explanation": "A propositional variable stands for a proposition that can be true or false."
+        },
+        {
+          "q": "Which of the following is not the correct representation of true and false? (a) 1 and 0 (b) High and Low (c) ON and OFF (d) Up and Down",
+          "marks": 1,
+          "answer": "d",
+          "explanation": "Up and Down are not standard logical representations for true/false."
+        },
+        {
+          "q": "If ‘n’ represents the number of propositions, then the total number of input combinations will be: (a) 2n (b) n² (c) n log₂ (d) eⁿ",
+          "marks": 1,
+          "answer": "a",
+          "explanation": "Total combinations = 2 raised to n, but option (a) says '2n' which is incorrect. However, among given options, 2n is the intended? Actually correct is 2^n, not listed. Possibly a misprint. But based on common MCQ, they expect 2n? Wait, standard answer is 2^n. None match. Let me re-read: options: (a) 2n (b) n2 (c) n log₂ (d) en. None are 2^n. The closest typo: maybe (a) 2n meant 2^n? But as given, correct answer is not there. However, many such papers incorrectly write 2n. I'll assume answer is (a) by convention? Better to state: correct is 2^n, but choose (a) if forced. To be safe, I'll mark answer as 'a' with note."
+        },
+        {
+          "q": "Which of the following is the symbolic representation of implications? (a) ∧ (b) → (c) ∨ (d) ↔",
+          "marks": 1,
+          "answer": "b",
+          "explanation": "Implication is represented by → (arrow)."
+        },
+        {
+          "q": "If a = 1 then ~~a will be: (a) 1 (b) 0 (c) true (d) false",
+          "marks": 1,
+          "answer": "a",
+          "explanation": "Double negation returns the original value: ~~1 = 1."
+        },
+        {
+          "q": "If a = “You go to the market” and b = “Bring a pen for me” then the statement “If you go to the market, then bring a pen for me” can be represented by: (a) a ∧ b (b) a ∨ b (c) a → b (d) a ↔ b",
+          "marks": 1,
+          "answer": "c",
+          "explanation": "The statement is a conditional (if-then), so implication a → b."
+        },
+        {
+          "q": "Refer the proposition: “If you climb the tree then you get a fruit”. What will be the correct contrapositive? (a) If you get the fruit, then climb the tree. (b) If you don’t climb the tree, then you get a fruit. (c) If you climb the tree, then you don’t get the fruit. (d) If you don’t get the fruit, then you don’t climb the tree.",
+          "marks": 1,
+          "answer": "d",
+          "explanation": "Contrapositive of p → q is ¬q → ¬p. Here p: climb tree, q: get fruit. So ¬q → ¬p: If you don’t get fruit, then you don’t climb."
+        },
+        {
+          "q": "Syllogism is the term used for: (a) Joining propositions (b) Truncating proposition (c) Drawing conclusion (d) None of these",
+          "marks": 1,
+          "answer": "c",
+          "explanation": "Syllogism is a form of reasoning where a conclusion is drawn from two premises."
+        },
+        {
+          "q": "Refer the following propositions: a: You study well. b: You will succeed. Then a → b represents: (a) ‘a’ conjunction ‘b’ (b) ‘a’ disjunction ‘b’ (c) ‘a’ negation ‘b’ (d) ‘a’ implies ‘b’",
+          "marks": 1,
+          "answer": "d",
+          "explanation": "→ is the implication symbol, meaning 'a implies b'."
+        }
+      ]
+    },
+    {
+      "section": "II",
+      "type": "Assertion and Reason Based Questions (1 mark each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Assertion (A): Conjunction is performed with the help of ‘and’ connective. It is represented by the symbol ‘^’ or ‘.’ (dot). Reason (R): It is the term used to join two or more propositional statements. Options: (a) Both A and R are true and R is the correct explanation of A (b) Both A and R are true but R is not the correct explanation (c) A is true but R is false (d) A is false but R is true",
+          "marks": 1,
+          "answer": "a",
+          "explanation": "Both are true, and R correctly explains what conjunction does (joining statements)."
+        },
+        {
+          "q": "Assertion (A): In a conditional statement a → b, ‘a’ is called consequent whereas ‘b’ is antecedent. Reason (R): Antecedent and consequent are referred to as cause and effect respectively. Options: (a) Both A and R are true and R explains A (b) Both A and R are true but R does not explain A (c) A is true but R is false (d) A is false but R is true",
+          "marks": 1,
+          "answer": "d",
+          "explanation": "A is false: In a → b, 'a' is antecedent, 'b' is consequent. R is true (antecedent = cause, consequent = effect). So A false, R true."
+        }
+      ]
+    },
+    {
+      "section": "III",
+      "type": "Case Study Based Questions (1 mark each sub-part)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 8,
+      "questions": [
+        {
+          "q": "Case Study 1 (Solved reference) - (a) What is the term used for a combination of two or more propositions? (i) Connected proposition (ii) Joined proposition (iii) Compound proposition (iv) Merged proposition",
+          "marks": 1,
+          "answer": "iii",
+          "explanation": "A compound proposition combines two or more propositions."
+        },
+        {
+          "q": "Case Study 1 - (b) The symbol used for joining two or more propositions is termed as: (i) Connector (ii) Merger (iii) Linker (iv) Binder",
+          "marks": 1,
+          "answer": "i",
+          "explanation": "Logical connectors (like ∧, ∨, →) join propositions."
+        },
+        {
+          "q": "Case Study 1 - (c) What is the term given for a tabular form containing different truth values? (i) Flow table (ii) Data table (iii) Parse table (iv) Truth table",
+          "marks": 1,
+          "answer": "iv",
+          "explanation": "Truth table lists truth values for all combinations."
+        },
+        {
+          "q": "Case Study 1 - (d) The bi-conditional proposition is also called: (i) Conjunction (ii) Disjunction (iii) Equivalence (iv) Implication",
+          "marks": 1,
+          "answer": "iii",
+          "explanation": "Biconditional (↔) is also called logical equivalence."
+        },
+        {
+          "q": "Case Study 2 (Unsolved) - (a) Output is always false irrespective of inputs. (Choose from: Disjunction, Negation, Contradiction, Converse, Inverse)",
+          "marks": 1,
+          "answer": "Contradiction",
+          "explanation": "A contradiction is false for all input values."
+        },
+        {
+          "q": "Case Study 2 - (b) Results in false if given proposition is true and vice versa.",
+          "marks": 1,
+          "answer": "Negation",
+          "explanation": "Negation flips the truth value."
+        },
+        {
+          "q": "Case Study 2 - (c) Formed by negation of antecedent and consequent.",
+          "marks": 1,
+          "answer": "Inverse",
+          "explanation": "Inverse of p → q is ¬p → ¬q."
+        },
+        {
+          "q": "Case Study 2 - (d) Results in false only if all connected propositions are false.",
+          "marks": 1,
+          "answer": "Disjunction",
+          "explanation": "Disjunction (∨) is false only when all components are false."
+        }
+      ]
+    },
+    {
+      "section": "IV",
+      "type": "Short Answer Questions (2 marks each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 7,
+      "questions": [
+        {
+          "q": "What do you understand by the terms ‘Logic’ and ‘Propositional Logic’?",
+          "marks": 2,
+          "answer": "Logic is the study of correct reasoning. Propositional logic is a branch of logic that deals with propositions (statements that are either true or false) and their combinations using logical connectives (and, or, not, implies, etc.).",
+          "explanation": "Basic definition expected."
+        },
+        {
+          "q": "Prove: (P ∧ Q) ∨ (P ∧ ¬Q) = P",
+          "marks": 2,
+          "answer": "Using distributive law: (P ∧ Q) ∨ (P ∧ ¬Q) = P ∧ (Q ∨ ¬Q) = P ∧ True = P.",
+          "steps": [
+            "Apply distribution: P ∧ (Q ∨ ¬Q)",
+            "Complement: Q ∨ ¬Q = True",
+            "Identity: P ∧ True = P"
+          ]
+        },
+        {
+          "q": "What is a proposition?",
+          "marks": 2,
+          "answer": "A proposition is a declarative sentence that is either true or false, but not both. Example: 'The sky is blue'.",
+          "explanation": "Definition with example."
+        },
+        {
+          "q": "State the law and prove using truth table: P ∨ P = P",
+          "marks": 2,
+          "answer": "Law: Idempotent law. Truth table: When P=0, 0∨0=0; when P=1, 1∨1=1. Hence P∨P = P.",
+          "truthTable": [
+            {"P":0, "P∨P":0},
+            {"P":1, "P∨P":1}
+          ]
+        },
+        {
+          "q": "Distinguish between a proposition and a compound proposition.",
+          "marks": 2,
+          "answer": "A proposition is a single declarative sentence with a truth value. A compound proposition is formed by combining two or more propositions using logical connectives (e.g., 'It is raining AND cold').",
+          "explanation": "Simple vs. composite."
+        },
+        {
+          "q": "If (¬P ⇒ Q) then write its: (i) Inverse (ii) Converse",
+          "marks": 2,
+          "answer": "Given: ¬P → Q. (i) Inverse: ¬(¬P) → ¬Q = P → ¬Q. (ii) Converse: Q → ¬P.",
+          "explanation": "Inverse negates both; converse swaps antecedent and consequent."
+        },
+        {
+          "q": "Define with examples: (a) Conjunction (b) Disjunction (c) Converse (d) Inverse",
+          "marks": 2,
+          "answer": "(a) Conjunction (∧): true only if both are true. Ex: 'It rains AND it is cold'. (b) Disjunction (∨): true if at least one is true. Ex: 'It rains OR it snows'. (c) Converse of p→q is q→p. Ex: If it rains then ground wet → converse: If ground wet then it rains. (d) Inverse of p→q is ¬p→¬q. Ex: If not rain then not wet.",
+          "explanation": "Definitions with examples."
+        }
+      ]
+    },
+    {
+      "section": "V",
+      "type": "Long Answer / Analytical Questions (marks as indicated)",
+      "marksPerQuestion": "varies",
+      "totalQuestions": 21,
+      "questions": [
+        {
+          "q": "Given: p: Jitendra Kumar is a computer teacher, q: Rahul is a student. Write in symbolic form: (a) Jitendra Kumar is a computer teacher and Rahul is a student (b) Jitendra Kumar is a computer teacher and Rahul is not a student (c) Jitendra Kumar is not a computer teacher and Rahul is a student (d) Neither Jitendra Kumar is a computer teacher nor Rahul is a student (e) Either Jitendra Kumar is a computer teacher or Rahul is a student",
+          "marks": 5,
+          "answer": "(a) p ∧ q, (b) p ∧ ¬q, (c) ¬p ∧ q, (d) ¬p ∧ ¬q, (e) p ∨ q",
+          "explanation": "Basic translation."
+        },
+        {
+          "q": "Show that X ∨ ¬(Y ∧ X) is a tautology.",
+          "marks": 3,
+          "answer": "X ∨ ¬(Y∧X) = X ∨ (¬Y ∨ ¬X) by De Morgan = (X ∨ ¬X) ∨ ¬Y = True ∨ ¬Y = True. Hence tautology.",
+          "steps": [
+            "De Morgan: ¬(Y∧X) = ¬Y ∨ ¬X",
+            "Associative: X ∨ ¬Y ∨ ¬X = (X ∨ ¬X) ∨ ¬Y",
+            "Complement: X ∨ ¬X = True",
+            "Domination: True ∨ ¬Y = True"
+          ]
+        },
+        {
+          "q": "Construct truth tables: (a) p + (¬q) (b) (¬p) (c) ¬(p·q) (d) (¬p) + (¬q)",
+          "marks": 4,
+          "answer": "Truth tables for each. (a) p + ¬q (OR): rows: (0,0)->1, (0,1)->0, (1,0)->1, (1,1)->1. (b) ¬p: flip p. (c) ¬(p·q): NAND. (d) ¬p + ¬q: NOR? Actually ¬p ∨ ¬q = ¬(p∧q) same as (c).",
+          "truthTables": [
+            {"p":0,"q":0,"p+¬q":1},
+            {"p":0,"q":1,"p+¬q":0},
+            {"p":1,"q":0,"p+¬q":1},
+            {"p":1,"q":1,"p+¬q":1}
+          ]
+        },
+        {
+          "q": "Determine whether the expression is Tautology, Contradiction or Contingency: (X→Z) ∨ ¬(X→Y) ∧ (Y→Z)",
+          "marks": 3,
+          "answer": "The expression is a contingency (neither always true nor always false). Counterexample: X=1,Y=1,Z=0 gives false.",
+          "explanation": "Detailed truth table would show mixed results."
+        },
+        {
+          "q": "Given: p: Today is a holiday, q: I will go to attend a birthday party. Express in words: (a) p ∨ ¬q (b) ¬q (c) (¬p) ∧ q (d) ¬(p ∨ q) (e) ¬((¬p) ∧ q) (f) (¬p) → q",
+          "marks": 3,
+          "answer": "(a) Today is a holiday OR I will not attend the party. (b) I will not attend the party. (c) Today is not a holiday AND I will attend the party. (d) It is not the case that (today is a holiday OR I attend). (e) It is not the case that (today is not a holiday AND I attend). (f) If today is not a holiday then I will attend.",
+          "explanation": "Natural language translations."
+        },
+        {
+          "q": "Given: p: You work hard, q: You will succeed. Translate into English: (a) p ⇒ q (b) q ⇒ p (c) (¬p) ⇒ (¬q) (d) (¬q) ⇒ (¬p)",
+          "marks": 4,
+          "answer": "(a) If you work hard then you will succeed. (b) If you succeed then you work hard. (c) If you do not work hard then you will not succeed. (d) If you do not succeed then you did not work hard.",
+          "explanation": "Conditional forms."
+        },
+        {
+          "q": "Construct truth tables: (a) (p ⇒ q) ∧ (q ⇒ p) (b) q ⇒ [(¬p) ∨ q]",
+          "marks": 4,
+          "answer": "(a) (p→q)∧(q→p) is equivalent to p↔q. Truth table: (0,0):1, (0,1):0, (1,0):0, (1,1):1. (b) q→(¬p∨q) is always true (tautology).",
+          "truthTables": [
+            {"p":0,"q":0,"(p→q)∧(q→p)":1},
+            {"p":0,"q":1,"value":0},
+            {"p":1,"q":0,"value":0},
+            {"p":1,"q":1,"value":1}
+          ]
+        },
+        {
+          "q": "Verify using truth table: P ∨ (¬P ∧ Q) = P ∨ Q",
+          "marks": 3,
+          "answer": "Truth table: rows (P,Q): (0,0): LHS=0∨(1∧0)=0, RHS=0; (0,1):0∨(1∧1)=1, RHS=1; (1,0):1∨(0∧0)=1, RHS=1; (1,1):1∨(0∧1)=1, RHS=1. All match. Hence verified.",
+          "truthTable": [
+            {"P":0,"Q":0,"LHS":0,"RHS":0},
+            {"P":0,"Q":1,"LHS":1,"RHS":1},
+            {"P":1,"Q":0,"LHS":1,"RHS":1},
+            {"P":1,"Q":1,"LHS":1,"RHS":1}
+          ]
+        },
+        {
+          "q": "Write converse, inverse and contrapositive of: (a) If it rains, then you will not play. (b) If you work hard, then you will succeed. (c) If I run fast, then I will win the race.",
+          "marks": 6,
+          "answer": "(a) Converse: If you do not play then it rains. Inverse: If it does not rain then you will play. Contrapositive: If you play then it does not rain. (b) Converse: If you succeed then you work hard. Inverse: If you do not work hard then you will not succeed. Contrapositive: If you do not succeed then you did not work hard. (c) Converse: If I win the race then I run fast. Inverse: If I do not run fast then I will not win. Contrapositive: If I do not win then I did not run fast.",
+          "explanation": "Standard transformations."
+        },
+        {
+          "q": "Write truth table of conjunction and disjunction.",
+          "marks": 2,
+          "answer": "Conjunction (∧): (0,0)=0, (0,1)=0, (1,0)=0, (1,1)=1. Disjunction (∨): (0,0)=0, (0,1)=1, (1,0)=1, (1,1)=1.",
+          "truthTable": [
+            {"p":0,"q":0,"p∧q":0,"p∨q":0},
+            {"p":0,"q":1,"p∧q":0,"p∨q":1},
+            {"p":1,"q":0,"p∧q":0,"p∨q":1},
+            {"p":1,"q":1,"p∧q":1,"p∨q":1}
+          ]
+        },
+        {
+          "q": "Complete the given truth tables. (Table not provided, but instruction says to complete.)",
+          "marks": 2,
+          "answer": "Since specific truth tables are not given, the answer would depend on the missing table. In general, fill based on logical operators.",
+          "explanation": "Placeholder."
+        },
+        {
+          "q": "Differentiate between a proposition and a WFF.",
+          "marks": 3,
+          "answer": "A proposition is a declarative sentence with a truth value. A WFF (Well-Formed Formula) is a syntactically correct expression in propositional logic, which may include variables and connectives; it becomes a proposition when variables are assigned truth values.",
+          "explanation": "Proposition = statement; WFF = formal string following formation rules."
+        },
+        {
+          "q": "Show that: (a) [(p⇒q)∧(q⇒r)]⇒(p⇒r) (b) [(p⇒q)∧p]⇒q",
+          "marks": 4,
+          "answer": "Both are tautologies. (a) Hypothetical syllogism. (b) Modus ponens. Proof using truth tables or algebraic simplification.",
+          "steps": [
+            "For (a): assume antecedent true, then p→q and q→r. If p true then q true, then r true, so p→r true. Hence implication holds.",
+            "For (b): assume (p→q)∧p true, then p true and p→q true, so q true, thus consequent true."
+          ]
+        },
+        {
+          "q": "Answer: (a) From premises A ⇒ B and B ⇒ A, conclude B' + AB (b) Let P: He has fax, Q: He uses e-mail. Write: “He has fax and he may or may not use e-mail.” (c) Mention the law of conditional elimination (d) Let X = 1 (work hard), Y = 1 (succeed). Construct truth table and expression for: “If and only if you work hard you succeed.”",
+          "marks": 4,
+          "answer": "(a) A⇒B and B⇒A gives A↔B. B' + AB = ¬B ∨ (A∧B) = (¬B ∨ A) ∧ (¬B ∨ B) = (¬B ∨ A) ∧ True = ¬B ∨ A, which is B→A, consistent. (b) P ∧ (Q ∨ ¬Q) = P (since Q∨¬Q=True). (c) Conditional elimination: (P→Q) ≡ ¬P ∨ Q. (d) X ↔ Y: truth table: (0,0):1, (0,1):0, (1,0):0, (1,1):1. Expression: (X∧Y) ∨ (¬X∧¬Y).",
+          "explanation": "Step-by-step."
+        },
+        {
+          "q": "(a) Draw truth table to prove: a↔b = (a→b)·(b→a) (b) Determine validity: (p⇒q)⇒[¬q⇒(p∧¬q)] (c) Differentiate between tautology and contradiction",
+          "marks": 6,
+          "answer": "(a) Truth table shows equivalence. (b) The expression is a tautology (valid). (c) Tautology: true for all assignments. Contradiction: false for all assignments.",
+          "truthTable": [
+            {"a":0,"b":0,"a↔b":1,"(a→b)·(b→a)":1},
+            {"a":0,"b":1,"a↔b":0,"value":0},
+            {"a":1,"b":0,"a↔b":0,"value":0},
+            {"a":1,"b":1,"a↔b":1,"value":1}
+          ]
+        },
+        {
+          "q": "Verify using truth table: (P⇒Q)∧P = (P∧¬Q)∨(P∧Q)",
+          "marks": 3,
+          "answer": "LHS = (P→Q)∧P = (¬P∨Q)∧P = (¬P∧P)∨(Q∧P) = False ∨ (P∧Q) = P∧Q. RHS = (P∧¬Q)∨(P∧Q) = P∧(¬Q∨Q) = P∧True = P. Wait, they are not equal? Actually LHS = P∧Q, RHS = P. So not equal. The question might have typo. Correct equivalence: (P→Q)∧P = P∧Q. So answer: Not equal. Provide truth table showing difference.",
+          "truthTable": [
+            {"P":0,"Q":0,"LHS":0,"RHS":0,"equal":true},
+            {"P":0,"Q":1,"LHS":0,"RHS":0,"equal":true},
+            {"P":1,"Q":0,"LHS":0,"RHS":1,"equal":false},
+            {"P":1,"Q":1,"LHS":1,"RHS":1,"equal":true}
+          ],
+          "explanation": "They are not equivalent because when P=1,Q=0, LHS=0, RHS=1."
+        },
+        {
+          "q": "If (X ⇒ Y), write: (i) Converse (ii) Contrapositive",
+          "marks": 2,
+          "answer": "(i) Converse: Y ⇒ X. (ii) Contrapositive: ¬Y ⇒ ¬X.",
+          "explanation": "Standard definitions."
+        },
+        {
+          "q": "Define: Contingency, Contradiction, Tautology",
+          "marks": 3,
+          "answer": "Tautology: a statement that is true for all truth assignments. Contradiction: false for all assignments. Contingency: true for some and false for others.",
+          "explanation": "Basic definitions."
+        },
+        {
+          "q": "Verify: P·(¬P+Q)' = (P⇒Q)'",
+          "marks": 3,
+          "answer": "LHS = P ∧ ¬(¬P ∨ Q) = P ∧ (P ∧ ¬Q) by De Morgan = P ∧ P ∧ ¬Q = P ∧ ¬Q. RHS = ¬(P→Q) = ¬(¬P∨Q) = P ∧ ¬Q. Hence equal.",
+          "steps": [
+            "De Morgan on (¬P+Q)' = ¬(¬P ∨ Q) = P ∧ ¬Q",
+            "Then P ∧ (P ∧ ¬Q) = P ∧ ¬Q",
+            "RHS = ¬(P→Q) = ¬(¬P∨Q) = P ∧ ¬Q"
+          ]
+        },
+        {
+          "q": "What is implication? How is it different from biconditional?",
+          "marks": 3,
+          "answer": "Implication (→) is true except when antecedent true and consequent false. Biconditional (↔) is true when both sides have the same truth value. Implication is one-way; biconditional is two-way (if and only if).",
+          "explanation": "Difference in truth conditions."
+        },
+        {
+          "q": "Using truth table, classify: ¬(P⇒Q) ⇔ (¬P∨Q)",
+          "marks": 3,
+          "answer": "The expression is a contradiction because ¬(P→Q) is P∧¬Q, while (¬P∨Q) is the negation of that. They are opposites, so equivalence is always false. Truth table shows all false.",
+          "truthTable": [
+            {"P":0,"Q":0,"¬(P→Q)":0,"¬P∨Q":1,"⇔":0},
+            {"P":0,"Q":1,"¬(P→Q)":0,"¬P∨Q":1,"⇔":0},
+            {"P":1,"Q":0,"¬(P→Q)":1,"¬P∨Q":0,"⇔":0},
+            {"P":1,"Q":1,"¬(P→Q)":0,"¬P∨Q":1,"⇔":0}
+          ],
+          "explanation": "Always false, hence contradiction."
+        }
+      ]
+    }
+  ]
+}
