@@ -47,28 +47,35 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
 
     // ========== UPDATED PRINT HANDLER (compact, multi‑question per page) ==========
     const handlePrint = () => {
-        if (!sessionQ.length) return;
+  if (!sessionQ.length) return;
 
-        const title = `${data.subject} – ${data.topic} (${data.class}, ${data.board})`;
-        const printWindow = window.open("", "_blank");
-        printWindow.document.write(`
+  const org = {
+    name: "Coder & AccoTax",
+    phone: "+91 7003756860",
+    website: "https://codernaccotax.co.in"
+  };
+
+  // Absolute URL for the stamp image (works in print window)
+  const stampUrl = `${window.location.origin}/assets/cnat-stamp.png`;
+
+  const title = `${data.subject} – ${data.topic} (${data.class}, ${data.board})`;
+  const printWindow = window.open("", "_blank");
+  printWindow.document.write(`
     <!DOCTYPE html>
     <html>
       <head>
         <title>${escapeHtml(title)}</title>
         <meta charset="UTF-8" />
         <style>
-          /* Reset */
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body {
             font-family: 'Georgia', 'Times New Roman', Times, serif;
             background: white;
             color: black;
             margin: 0;
-            padding: 1.8cm 1.2cm 1.2cm 1.2cm;
+            padding: 0;
             font-size: 10pt;
             line-height: 1.4;
-            position: relative;
           }
           /* Fixed header on every printed page */
           .print-header {
@@ -79,23 +86,19 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             background: white;
             text-align: center;
             font-size: 9pt;
+            font-family: Arial, Helvetica, sans-serif;
             padding: 0.4cm 0;
-            border-bottom: 1px solid #aaa;
-            font-family: Arial, sans-serif;
+            border-bottom: 2px solid #aaa;
             z-index: 1000;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
           }
-          /* Page number in footer using @page margin */
-          @page {
-            size: A4;
-            margin: 1.8cm 1.2cm 1.2cm 1.2cm;
-            @bottom-center {
-              content: "Page " counter(page) " of " counter(pages);
-              font-family: Arial, sans-serif;
-              font-size: 8pt;
-            }
+          /* Spacer to prevent content from hiding under fixed header */
+          .spacer {
+            height: 1.4cm;
           }
-          body {
-            padding-top: 1.2cm;
+          .main-content {
+            padding: 0.4cm 1.2cm 1.2cm 1.2cm;
           }
           .header {
             text-align: center;
@@ -105,6 +108,16 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
           }
           .header h1 { font-size: 18pt; margin-bottom: 0.2rem; }
           .header p { font-size: 10pt; color: #333; }
+          /* Page numbering */
+          @page {
+            size: A4;
+            margin: 1.8cm 1.2cm 1.2cm 1.2cm;
+            @bottom-center {
+              content: "Page " counter(page) " of " counter(pages);
+              font-family: Arial, sans-serif;
+              font-size: 8pt;
+            }
+          }
           .question-card {
             margin-bottom: 1.2rem;
             page-break-inside: avoid;
@@ -142,44 +155,21 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             border-left: 3px solid #2c7da0;
             font-size: 9.5pt;
           }
-          /* Watermark styling */
-          .watermark {
+          /* Stamp image – fixed on every page, bottom-right corner, semi‑transparent */
+          .stamp {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            bottom: 1.2cm;
+            right: 1.2cm;
+            width: 300px;      /* adjust to your stamp size */
+            opacity: 0.38;     /* subtle watermark effect */
             pointer-events: none;
             z-index: 9999;
-            opacity: 0.08;
-            font-size: 10rem;   /* increased from 5rem – adjust as needed */
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            color: black;
-            transform: rotate(-45deg);
-            white-space: pre;
-            user-select: none;
-            }
-          /* Ensure content stays above watermark */
-          .print-header, .header, .question-card {
-            position: relative;
-            z-index: 1;
+            transform: rotate(-21deg);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
           }
           @media print {
-            .print-header {
-              background: white !important;
-              -webkit-print-color-adjust: exact;
-              print-color-adjust: exact;
-            }
-            .topic-badge, .answer-section {
-              -webkit-print-color-adjust: exact;
-              print-color-adjust: exact;
-            }
-            .watermark {
-              opacity: 0.08;
+            .print-header, .stamp {
               -webkit-print-color-adjust: exact;
               print-color-adjust: exact;
             }
@@ -187,47 +177,43 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
         </style>
       </head>
       <body>
-        <!-- Watermark -->
-        <div class="watermark">CNAT</div>
-        
+        <!-- Fixed header with organization details -->
         <div class="print-header">
-          <div>
-            📘 Coder & AccoTax | 📞 7003756860 | 🌐 https://codernaccotax.co.in
+          📘 ${org.name} &nbsp;|&nbsp; 📞 ${org.phone} &nbsp;|&nbsp; 🌐 ${org.website}
+        </div>
+
+        <!-- Stamp image on every page -->
+        <img src="${stampUrl}" class="stamp" alt="CNAT Stamp" />
+
+        <div class="spacer"></div>
+        <div class="main-content">
+          <div class="header">
+            <h1>${escapeHtml(data.topic)}</h1>
+            <p>${escapeHtml(data.subject)} • Class ${escapeHtml(data.class)} • ${escapeHtml(data.board)}</p>
+            <p>Total Questions: ${sessionQ.length}</p>
           </div>
-        </div>
-        <div class="header">
-          <h1>${escapeHtml(data.topic)}</h1>
-          <p>${escapeHtml(data.subject)} • Class ${escapeHtml(data.class)} • ${escapeHtml(data.board)}</p>
-          <p>Total Questions: ${sessionQ.length}</p>
-        </div>
-        ${sessionQ
-                .map(
-                    (q, idx) => `
-          <div class="question-card">
-            <div class="topic-badge">${escapeHtml(q.topic)}</div>
-            <div class="question-title">Q${idx + 1}. ${escapeHtml(q.question)}</div>
-            ${q.code ? `<pre><code>${escapeHtml(q.code)}</code></pre>` : ""}
-            <div class="answer-section">
-              ${q.code
-                            ? `
+          ${sessionQ.map((q, idx) => `
+            <div class="question-card">
+              <div class="topic-badge">${escapeHtml(q.topic)}</div>
+              <div class="question-title">Q${idx + 1}. ${escapeHtml(q.question)}</div>
+              ${q.code ? `<pre><code>${escapeHtml(q.code)}</code></pre>` : ""}
+              <div class="answer-section">
+                ${q.code ? `
                   <div><span class="output-label">📤 Output:</span>
                   <pre><code>${escapeHtml(q.output)}</code></pre></div>
                   <div><strong>💡 Explanation:</strong><br/>${escapeHtml(q.explanation)}</div>
-                `
-                            : `<div><strong>📖 Answer:</strong><br/>${escapeHtml(q.answer)}</div>`
-                        }
+                ` : `<div><strong>📖 Answer:</strong><br/>${escapeHtml(q.answer)}</div>`}
+              </div>
             </div>
-          </div>
-        `
-                )
-                .join("")}
+          `).join("")}
+        </div>
       </body>
     </html>
   `);
-        printWindow.document.close();
-        printWindow.focus();
-        printWindow.print();
-    };
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+};
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-black to-zinc-900 text-zinc-200 p-6">
@@ -300,8 +286,8 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
                             onClick={handlePrint}
                             disabled={!started || sessionQ.length === 0}
                             className={`px-6 py-2 rounded-lg shadow transition ${started && sessionQ.length
-                                    ? "bg-emerald-700 hover:bg-emerald-600 text-white"
-                                    : "bg-zinc-700 text-zinc-400 cursor-not-allowed"
+                                ? "bg-emerald-700 hover:bg-emerald-600 text-white"
+                                : "bg-zinc-700 text-zinc-400 cursor-not-allowed"
                                 }`}
                         >
                             🖨️ Print
