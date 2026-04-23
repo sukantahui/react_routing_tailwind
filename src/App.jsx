@@ -29,11 +29,13 @@ export default function App() {
 
   return (
     <div className="h-screen ">
-      <div className="h-10">
+      <div className="fixed top-0 left-0 w-full h-12 z-50 
+                bg-white/70 backdrop-blur-md shadow-sm 
+                border-b border-gray-200">
         {isLoggedIn ? <AuthNavBar setIsLoggedIn={setIsLoggedIn} /> : <NavBar />}
       </div>
 
-      <div className="h-90">
+      <div className="pt-16 h-full">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </div>
     </div>
