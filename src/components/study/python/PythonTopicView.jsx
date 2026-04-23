@@ -293,7 +293,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
       {/* MAIN LAYOUT */}
       <div className="relative z-20 flex-1 flex justify-center">
-        <div className="w-full max-w-6xl mx-auto flex">
+        <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row">
 
           {/* ====================== DESKTOP SIDEBAR ====================== */}
           <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
@@ -674,7 +674,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           )}
 
           {/* ====================== MAIN TOPIC READER ====================== */}
-          <main className="flex-1 flex justify-center px-4 lg:px-8 py-6 lg:py-10">
+          <main className="flex-1 w-full flex justify-center px-1 sm:px-3 lg:px-8 py-6 lg:py-10">
             <div className="w-full max-w-3xl">
 
               {/* Topic Header */}
@@ -740,7 +740,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </div>
 
               {/* ===================== TOPIC CONTENT PANEL ===================== */}
-              <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-5 md:px-8 py-6 md:py-8">
+              <section className="relative rounded-3xl border border-slate-800 bg-slate-900/70 backdrop-blur-lg shadow-[0_22px_45px_rgba(15,23,42,0.75)] px-1 md:px-4 py-6 md:py-8">
 
                 <Suspense fallback={<p className="text-slate-400 text-sm">Loading topic content…</p>}>
                   {TopicPage ? (
