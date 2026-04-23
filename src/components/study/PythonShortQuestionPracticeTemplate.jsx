@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import JavaCodeBlock from "../../common/JavaCodeBlock";
-
+import PythonCodeBlock from "../../common/PythonCodeBlock";  // <-- only change
 
 function shuffleArray(arr) {
     const copy = [...arr];
@@ -11,7 +10,7 @@ function shuffleArray(arr) {
     return copy;
 }
 
-export default function JavaShortQuestionPracticeTemplate({ data }) {
+export default function PythonShortQuestionPracticeTemplate({ data }) {
     const [showAns, setShowAns] = useState([]);
     const [topic, setTopic] = useState("all");
     const [limit, setLimit] = useState(50);
@@ -45,7 +44,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             .replace(/'/g, "&#39;");
     };
 
-    // ========== UPDATED PRINT HANDLER (compact, multi‑question per page) ==========
+    // ========== PRINT HANDLER (same as Java version, with watermark) ==========
     const handlePrint = () => {
         if (!sessionQ.length) return;
 
@@ -58,7 +57,6 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
         <title>${escapeHtml(title)}</title>
         <meta charset="UTF-8" />
         <style>
-          /* Reset */
           * { margin: 0; padding: 0; box-sizing: border-box; }
           body {
             font-family: 'Georgia', 'Times New Roman', Times, serif;
@@ -70,7 +68,6 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             line-height: 1.4;
             position: relative;
           }
-          /* Fixed header on every printed page */
           .print-header {
             position: fixed;
             top: 0;
@@ -84,7 +81,6 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             font-family: Arial, sans-serif;
             z-index: 1000;
           }
-          /* Page number in footer using @page margin */
           @page {
             size: A4;
             margin: 1.8cm 1.2cm 1.2cm 1.2cm;
@@ -94,9 +90,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
               font-size: 8pt;
             }
           }
-          body {
-            padding-top: 1.2cm;
-          }
+          body { padding-top: 1.2cm; }
           .header {
             text-align: center;
             margin-bottom: 1rem;
@@ -142,7 +136,6 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             border-left: 3px solid #2c7da0;
             font-size: 9.5pt;
           }
-          /* Watermark styling */
           .watermark {
             position: fixed;
             top: 0;
@@ -155,15 +148,14 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
             pointer-events: none;
             z-index: 9999;
             opacity: 0.08;
-            font-size: 10rem;   /* increased from 5rem – adjust as needed */
+            font-size: 10rem;
             font-weight: bold;
             font-family: Arial, sans-serif;
             color: black;
             transform: rotate(-45deg);
             white-space: pre;
             user-select: none;
-            }
-          /* Ensure content stays above watermark */
+          }
           .print-header, .header, .question-card {
             position: relative;
             z-index: 1;
@@ -187,9 +179,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
         </style>
       </head>
       <body>
-        <!-- Watermark -->
         <div class="watermark">CNAT</div>
-        
         <div class="print-header">
           <div>
             📘 Coder & AccoTax | 📞 7003756860 | 🌐 https://codernaccotax.co.in
@@ -232,7 +222,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
     return (
         <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-black to-zinc-900 text-zinc-200 p-6">
             <div className="max-w-5xl mx-auto">
-                {/* Header (same as before) */}
+                {/* Header */}
                 <div className="flex items-center gap-4 mb-8">
                     <div className="p-3 rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 shadow-[0_0_30px_rgba(56,189,248,0.35)] ring-1 ring-sky-500/40">
                         <img
@@ -309,7 +299,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
                     </div>
                 </div>
 
-                {/* Questions (screen display unchanged) */}
+                {/* Questions */}
                 {started &&
                     sessionQ.map((q, index) => (
                         <div
@@ -322,7 +312,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
                             </div>
                             {q.code && (
                                 <div className="mb-3">
-                                    <JavaCodeBlock code={q.code} />
+                                    <PythonCodeBlock code={q.code} />
                                 </div>
                             )}
                             <button

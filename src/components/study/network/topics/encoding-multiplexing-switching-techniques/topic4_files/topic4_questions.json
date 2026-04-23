@@ -1,0 +1,1815 @@
+{
+  "subject": "Computer Networks",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "Encoding Techniques, Multiplexing, Switching, and Applications",
+  "subjectLogo": {
+    "name": "Computer Networks",
+    "icon": "network-wired",
+    "type": "svg",
+    "path": "/logos/Network.svg",
+    "alt": "Computer Networks Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What does NRZ stand for?",
+      "output": "Non‑Return to Zero",
+      "answer": "NRZ is a line coding scheme where a high voltage represents a binary 1 and a low voltage represents a binary 0, with no return to zero between bits.",
+      "explanation": "It is simple but has a DC component and lacks clock transitions for long runs of identical bits."
+    },
+    {
+      "id": 2,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is a major disadvantage of NRZ encoding?",
+      "output": "Lack of clock transitions when long runs of 0s or 1s occur, causing clock drift.",
+      "answer": "NRZ does not guarantee a transition at every bit period, so the receiver may lose synchronization if many identical bits are sent.",
+      "explanation": "This is why NRZ is often used with scrambling or for short distances."
+    },
+    {
+      "id": 3,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "How does Manchester encoding solve the clock synchronization problem?",
+      "output": "It ensures a transition at the middle of every bit period, providing a clock signal.",
+      "answer": "In Manchester encoding, each bit is represented by a transition from high to low (for 0) or low to high (for 1) at the centre of the bit interval.",
+      "explanation": "This guarantees a transition every bit, making clock recovery easy, but it doubles the required bandwidth."
+    },
+    {
+      "id": 4,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the bandwidth requirement of Manchester encoding compared to NRZ?",
+      "output": "Manchester requires twice the bandwidth of NRZ.",
+      "answer": "Because Manchester has two transitions per bit (maximum), its fundamental frequency is twice the bit rate, needing double the bandwidth.",
+      "explanation": "That's why 10 Mbps Ethernet (10BASE‑T) uses Manchester but 100 Mbps Ethernet uses different encoding."
+    },
+    {
+      "id": 5,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is Differential Manchester encoding?",
+      "output": "A variation where a transition at the start of the bit indicates a 0, and no transition indicates a 1; there is always a transition at the middle.",
+      "answer": "Differential Manchester also has a transition at the middle of each bit for clocking. The data is represented by the presence or absence of a transition at the beginning of the bit interval.",
+      "explanation": "It is used in Token Ring networks and has better noise immunity than standard Manchester."
+    },
+    {
+      "id": 6,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "How does Differential Manchester differ from Manchester in terms of polarity?",
+      "output": "In Differential Manchester, the signal polarity does not matter because data is encoded as transitions, not absolute levels.",
+      "answer": "Standard Manchester decodes based on the direction of the mid‑bit transition (high→low = 0, low→high = 1). Differential Manchester decodes based on whether there is a transition at the bit start, making it polarity‑insensitive.",
+      "explanation": "This means a cable inversion does not affect decoding."
+    },
+    {
+      "id": 7,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Which encoding technique is used in 10BASE‑T Ethernet?",
+      "output": "Manchester encoding.",
+      "answer": "10 Mbps Ethernet uses Manchester encoding to provide clock synchronization over twisted pair cables.",
+      "explanation": "The transition at the middle of each bit allows the receiver to recover the clock easily."
+    },
+    {
+      "id": 8,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the DC component in line coding and why is it undesirable?",
+      "output": "A DC component is a constant average voltage that cannot pass through transformers and causes baseline wander.",
+      "answer": "NRZ has a DC component that varies with the data pattern. Transformers block DC, and long DC runs cause receiver baseline drift. Manchester has no DC component.",
+      "explanation": "DC‑free codes are preferred for AC‑coupled links like Ethernet."
+    },
+    {
+      "id": 9,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the spectral density of Manchester encoding?",
+      "output": "It has no DC component but has a strong component at the bit rate frequency.",
+      "answer": "The power spectral density of Manchester has a null at DC and a peak at the bit rate (f₀). This makes it suitable for transformer coupling.",
+      "explanation": "Higher frequencies require more bandwidth but avoid low‑frequency noise."
+    },
+    {
+      "id": 10,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Why does NRZ require a separate clock line in many applications?",
+      "output": "Because the receiver cannot recover the clock from the data stream without transitions.",
+      "answer": "Long runs of 0s or 1s produce no transitions, so the receiver would drift. In such cases, a separate clock signal is sent, or scrambling is used.",
+      "explanation": "Examples: SPI bus uses separate clock; USB uses NRZ with bit stuffing."
+    },
+    {
+      "id": 11,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is 'bit stuffing' in the context of NRZ?",
+      "output": "Inserting an extra bit (usually a 0) after a long run of 1s to force a transition.",
+      "answer": "Bit stuffing ensures that the data stream contains transitions periodically. Used in HDLC, USB, and CAN bus.",
+      "explanation": "It helps maintain clock synchronization without increasing bandwidth as much as Manchester."
+    },
+    {
+      "id": 12,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the difference between NRZ‑L and NRZ‑I?",
+      "output": "NRZ‑L (level): 1 = high, 0 = low; NRZ‑I (inverted): transition at start of bit = 0, no transition = 1.",
+      "answer": "NRZ‑I is a differential form of NRZ. The data is represented by changes (inversions) rather than absolute levels. This makes it polarity‑insensitive.",
+      "explanation": "NRZ‑I is used in USB and some serial interfaces."
+    },
+    {
+      "id": 13,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Which encoding technique has a transition at the beginning of a bit for a 0?",
+      "output": "Differential Manchester (a transition at the start indicates 0).",
+      "answer": "In Differential Manchester, a 0 is represented by a transition at the beginning of the bit interval, and a 1 by no transition at the beginning. In both cases, there is a transition at the middle.",
+      "explanation": "Standard Manchester has a transition at the middle but not necessarily at the start."
+    },
+    {
+      "id": 14,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of Differential Manchester over Manchester?",
+      "output": "Polarity independence – the signal can be inverted without affecting decoding.",
+      "answer": "Because Differential Manchester uses transitions (not absolute levels) to represent data, if the two wires are swapped, the decoded data remains correct.",
+      "explanation": "This simplifies wiring and improves noise immunity."
+    },
+    {
+      "id": 15,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "How does Manchester encoding affect the maximum cable length compared to NRZ?",
+      "output": "For the same bit rate, Manchester requires higher frequency components, reducing the possible cable length due to attenuation.",
+      "answer": "Higher frequency signals attenuate more over distance. Therefore, a 10 Mbps Manchester link has a shorter maximum length than a 10 Mbps NRZ link if all else is equal.",
+      "explanation": "That's why 10BASE‑T is limited to 100 m despite using Manchester."
+    },
+    {
+      "id": 16,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What does 'return to zero' mean in line coding?",
+      "output": "The signal returns to zero voltage after each bit.",
+      "answer": "In RZ coding, a 1 is represented by a positive pulse that returns to zero before the end of the bit period. NRZ does not return to zero.",
+      "explanation": "RZ provides clocking but requires three levels and more bandwidth."
+    },
+    {
+      "id": 17,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "Why is NRZ commonly used in high‑speed serial links (e.g., PCIe, SATA)?",
+      "output": "Because it uses less bandwidth and is simpler; clock recovery is done using PLL and data scrambling.",
+      "answer": "At multi‑gigabit speeds, bandwidth is precious. NRZ with scrambling and embedded clock (e.g., 8b/10b encoding) gives a good balance.",
+      "explanation": "Manchester would double the frequency, which is impractical at 10+ Gbps."
+    },
+    {
+      "id": 18,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is '8b/10b' encoding and how is it related to NRZ?",
+      "output": "8b/10b maps 8 bits to 10 bits to ensure enough transitions and DC balance, then uses NRZ transmission.",
+      "answer": "8b/10b is a line coding scheme that guarantees a transition at least every 5 bits and a balanced number of 0s and 1s. The encoded stream is then sent as NRZ.",
+      "explanation": "Used in Gigabit Ethernet, PCIe, Fibre Channel."
+    },
+    {
+      "id": 19,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of Manchester encoding?",
+      "output": "Self‑clocking – the receiver can recover the clock from the data stream.",
+      "answer": "Because there is a transition in every bit period, the receiver can synchronise its clock without a separate clock line.",
+      "explanation": "This simplifies cabling and is ideal for Ethernet."
+    },
+    {
+      "id": 20,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "Which encoding technique is used in IEEE 802.5 Token Ring?",
+      "output": "Differential Manchester encoding.",
+      "answer": "Token Ring networks use Differential Manchester to provide clocking and polarity independence.",
+      "explanation": "It also helps with noise immunity in a ring topology."
+    },
+    {
+      "id": 21,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the 'eye pattern' of a Manchester encoded signal?",
+      "output": "It has two distinct vertical openings due to the mid‑bit transition.",
+      "answer": "In an eye diagram, Manchester shows an open eye at the sampling point (centre of bit). However, the transition in the middle causes a crossover.",
+      "explanation": "Used to assess signal quality."
+    },
+    {
+      "id": 22,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the bit sequence for '1010' in Manchester encoding (assuming high→low = 0, low→high = 1)?",
+      "output": "For 1: low→high; for 0: high→low; so '1010' becomes low→high, high→low, low→high, high→low.",
+      "answer": "Draw the waveform: each bit has a transition at the middle. The direction determines the bit value.",
+      "explanation": "It is easier to remember that Manchester is the XOR of clock and data."
+    },
+    {
+      "id": 23,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the relationship between Manchester encoding and the XOR operation?",
+      "output": "Manchester encoded signal = clock XOR data.",
+      "answer": "If the clock is a square wave at the bit rate, XORing with data produces a transition at the mid‑bit only if data is 1 (assuming appropriate polarity).",
+      "explanation": "This mathematical representation helps in understanding."
+    },
+    {
+      "id": 24,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the maximum run length of identical bits in Manchester encoding?",
+      "output": "1 bit – because there is always a transition at the middle of every bit.",
+      "answer": "Even if the data bits are all 0 or all 1, the mid‑bit transition still occurs, guaranteeing a change every half‑bit.",
+      "explanation": "This is why Manchester is self‑clocking."
+    },
+    {
+      "id": 25,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the primary disadvantage of Manchester encoding?",
+      "output": "High bandwidth requirement (twice the bit rate).",
+      "answer": "Because the signal changes twice per bit period (maximum), the bandwidth needed is roughly double that of NRZ.",
+      "explanation": "This limits Manchester to lower speeds (≤10 Mbps in practice)."
+    },
+    {
+      "id": 26,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is 'biphase code'?",
+      "output": "Another name for Manchester or Differential Manchester encoding.",
+      "answer": "Biphase codes have at least one transition per bit period, making them self‑clocking.",
+      "explanation": "Examples: Manchester (biphase‑level) and Differential Manchester (biphase‑mark)."
+    },
+    {
+      "id": 27,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "How does Differential Manchester handle the 'all zeros' pattern?",
+      "output": "It produces a transition at the start of every bit, resulting in a square wave at half the bit rate.",
+      "answer": "If all bits are 0, each bit starts with a transition. This gives a square wave with period 2 bits, which is good for clock recovery.",
+      "explanation": "If all bits are 1, there are no start transitions, only mid‑bit transitions, giving a square wave at the bit rate."
+    },
+    {
+      "id": 28,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Which encoding is also known as 'Biphase‑L'?",
+      "output": "Manchester encoding.",
+      "answer": "In biphase‑level (L), the level changes at the middle of the bit. Differential Manchester is biphase‑mark (M).",
+      "explanation": "The 'L' stands for level, 'M' for mark."
+    },
+    {
+      "id": 29,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the clock recovery mechanism in Manchester decoding?",
+      "output": "A PLL (Phase‑Locked Loop) locks onto the mid‑bit transitions.",
+      "answer": "The receiver uses a PLL to track the transitions. Because there is always a transition at the middle of each bit, the PLL can maintain lock.",
+      "explanation": "The transition at the start is not needed for clock recovery but helps in differential version."
+    },
+    {
+      "id": 30,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is 'MLT‑3' and how is it different from Manchester?",
+      "output": "Multi‑Level Transmit 3 – uses three voltage levels and transitions only when a 1 occurs, reducing bandwidth.",
+      "answer": "MLT‑3 is used in 100BASE‑TX. It cycles through levels +1, 0, -1, 0 on each 1, while 0s cause no change. Bandwidth is much lower than Manchester.",
+      "explanation": "MLT‑3 is more efficient than Manchester at 100 Mbps."
+    },
+    {
+      "id": 31,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the meaning of 'return to zero' in NRZ?",
+      "output": "NRZ does NOT return to zero; it stays at the same level for the entire bit period.",
+      "answer": "In NRZ, the signal level remains constant for the whole bit period. In contrast, RZ returns to zero after each bit.",
+      "explanation": "NRZ is simpler but has DC issues."
+    },
+    {
+      "id": 32,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "Why is Manchester not used in 100 Mbps Ethernet?",
+      "output": "The required bandwidth would be 200 MHz, which is difficult over twisted pair.",
+      "answer": "Manchester would double the frequency to 200 MHz, causing too much attenuation over 100 m. 100BASE‑TX uses MLT‑3 with scrambling.",
+      "explanation": "100BASE‑TX achieves 100 Mbps with a base frequency of 31.25 MHz."
+    },
+    {
+      "id": 33,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is 'clock recovery' and why is it needed in NRZ?",
+      "output": "Recovering the timing signal from the data stream; needed because NRZ lacks guaranteed transitions.",
+      "answer": "Clock recovery circuits (PLLs) rely on transitions. NRZ with long runs of same bit may cause the PLL to lose lock. Solutions: scrambling or separate clock.",
+      "explanation": "High‑speed NRZ links use encoding like 8b/10b to guarantee transitions."
+    },
+    {
+      "id": 34,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Which encoding technique is used in USB 1.0/1.1?",
+      "output": "NRZ‑I (Non‑Return to Zero Inverted) with bit stuffing.",
+      "answer": "USB uses NRZ‑I where a 1 is represented by no change, and a 0 by a transition. Bit stuffing ensures transitions at least every 6 bits.",
+      "explanation": "This provides clock recovery while keeping bandwidth low."
+    },
+    {
+      "id": 35,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is 'bit stuffing' in USB?",
+      "output": "After six consecutive 1s, a 0 is inserted to force a transition.",
+      "answer": "This ensures that the receiver's PLL has a transition at least every 7 bit times. The stuffed bit is removed at the receiver.",
+      "explanation": "Without stuffing, long runs of 1s would cause clock drift."
+    },
+    {
+      "id": 36,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the difference between 'Manchester' and 'FM0' encoding?",
+      "output": "FM0 has a transition at the beginning of every bit and a mid‑bit transition only for 0.",
+      "answer": "FM0 is used in RFID and some contactless smart cards. It is similar to Manchester but with different mapping.",
+      "explanation": "FM0 is also self‑clocking."
+    },
+    {
+      "id": 37,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the primary advantage of NRZ over Manchester?",
+      "output": "Lower bandwidth requirement (half that of Manchester for the same bit rate).",
+      "answer": "NRZ uses the same bandwidth as the bit rate, while Manchester uses twice the bandwidth.",
+      "explanation": "This makes NRZ suitable for high‑speed links (e.g., 10 Gbps)."
+    },
+    {
+      "id": 38,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is 'differential coding' and how does it relate to Differential Manchester?",
+      "output": "Differential coding encodes data based on changes rather than absolute levels; Differential Manchester is one example.",
+      "answer": "Differential coding is used to make the signal polarity‑insensitive. The receiver compares the current bit to the previous one.",
+      "explanation": "This is also used in optical links where polarity may be ambiguous."
+    },
+    {
+      "id": 39,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the 'polarity inversion' problem in standard Manchester?",
+      "output": "If the two wires are swapped, a 0 becomes a 1 and vice versa.",
+      "answer": "Standard Manchester uses absolute levels (high→low = 0, low→high = 1). If the differential pair is reversed, the levels invert, corrupting data.",
+      "explanation": "Differential Manchester solves this by using transitions."
+    },
+    {
+      "id": 40,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the data rate of Manchester encoding used in 10BASE‑T?",
+      "output": "10 Mbps, but the signal frequency is 20 MHz.",
+      "answer": "The bit rate is 10 million bits per second, but the fundamental frequency of the Manchester signal is 20 MHz (due to the mid‑bit transition).",
+      "explanation": "Thus, the cable must support 20 MHz bandwidth."
+    },
+    {
+      "id": 41,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is '4B/5B' encoding and why is it used?",
+      "output": "A block code that maps 4 data bits to 5 code bits to ensure transitions and DC balance.",
+      "answer": "4B/5B is used in 100BASE‑TX and FDDI. It guarantees at most three consecutive 0s and a maximum run length of 5 bits.",
+      "explanation": "The 5‑bit code is then sent using NRZ‑I or MLT‑3."
+    },
+    {
+      "id": 42,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "How does Manchester encoding compare to 4B/5B + NRZ in terms of efficiency?",
+      "output": "Manchester uses 100% overhead (2 symbols per bit), while 4B/5B uses 25% overhead.",
+      "answer": "Manchester encodes each bit as a symbol, requiring 2 baud per bit. 4B/5B uses 5 baud for 4 bits, i.e., 1.25 baud per bit.",
+      "explanation": "Therefore, 4B/5B is more bandwidth‑efficient."
+    },
+    {
+      "id": 43,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the waveform of a '1' in Differential Manchester?",
+      "output": "A transition at the middle of the bit, but no transition at the beginning.",
+      "answer": "In Differential Manchester, a 1 is represented by no transition at the start of the bit interval, and a transition at the middle (as always).",
+      "explanation": "For a 0, there is a transition at both the start and the middle."
+    },
+    {
+      "id": 44,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the waveform of a '0' in Differential Manchester?",
+      "output": "A transition at the beginning of the bit and a transition at the middle.",
+      "answer": "So for a 0, the signal changes at the start and again at the middle, resulting in a complete cycle (high‑low‑high or low‑high‑low) per bit.",
+      "explanation": "This gives two transitions per bit for a 0, and one transition per bit for a 1."
+    },
+    {
+      "id": 45,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the bandwidth requirement of Differential Manchester compared to Manchester?",
+      "output": "Same as Manchester – both have a transition at the middle of every bit, so bandwidth is similar.",
+      "answer": "Differential Manchester also has a transition in the middle of each bit, so its spectrum is identical to that of Manchester.",
+      "explanation": "The only difference is the decoding rule, not the spectral properties."
+    },
+    {
+      "id": 46,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "Which encoding is also known as 'biphase‑mark' (BPM)?",
+      "output": "Differential Manchester.",
+      "answer": "In biphase‑mark, the signal always changes at the start of a bit period for a 0 (mark), and no change at the start for a 1.",
+      "explanation": "Used in some tape drives and digital audio interfaces (AES/EBU)."
+    },
+    {
+      "id": 47,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of using a differential encoding scheme in a noisy environment?",
+      "output": "Noise that affects the absolute level (common‑mode) is rejected because the receiver looks at transitions.",
+      "answer": "Differential encoding (e.g., Differential Manchester) is more robust to common‑mode noise and polarity reversals because data is encoded as changes.",
+      "explanation": "This is why differential signaling is used in RS‑485 and CAN bus."
+    },
+    {
+      "id": 48,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Advanced",
+      "question": "What is the difference between 'RZ' and 'NRZ'?",
+      "output": "RZ returns to zero halfway through each bit; NRZ stays constant for the entire bit.",
+      "answer": "RZ provides clocking but uses three levels (positive, zero, negative) and more bandwidth. It is rarely used in modern networking.",
+      "explanation": "Manchester is a form of RZ but with the return to zero happening at the middle of the bit."
+    },
+    {
+      "id": 49,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Beginner",
+      "question": "What is the 'transition density' of NRZ?",
+      "output": "Variable – depends on the data pattern. Can be as low as 0 transitions per bit.",
+      "answer": "If the data is all 0s or all 1s, NRZ has no transitions. This is a problem for clock recovery.",
+      "explanation": "Manchester guarantees 1 transition per bit (mid‑bit), so density is 100%."
+    },
+    {
+      "id": 50,
+      "topic": "Encoding techniques: NRZ, Manchester, Differential Manchester",
+      "difficulty": "Intermediate",
+      "question": "What is 'alternate mark inversion' (AMI) and how does it compare to NRZ?",
+      "output": "AMI is a bipolar encoding where 1s alternate between +V and -V, and 0s are zero volts.",
+      "answer": "AMI has no DC component and provides some transition for 1s, but long runs of 0s still cause clock recovery problems.",
+      "explanation": "Used in T1/E1 digital lines."
+    },
+    {
+      "id": 51,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What does FDM stand for?",
+      "output": "Frequency Division Multiplexing.",
+      "answer": "FDM divides the frequency spectrum into multiple channels, each carrying a separate signal simultaneously.",
+      "explanation": "Used in radio/TV broadcasting and cable TV."
+    },
+    {
+      "id": 52,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What does TDM stand for?",
+      "output": "Time Division Multiplexing.",
+      "answer": "TDM allocates time slots to different signals on a single channel, taking turns.",
+      "explanation": "Used in digital telephone networks (T1/E1) and some LAN protocols."
+    },
+    {
+      "id": 53,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What does WDM stand for?",
+      "output": "Wavelength Division Multiplexing.",
+      "answer": "WDM is a form of FDM used in fiber optics, where different wavelengths (colours) of light carry separate signals.",
+      "explanation": "WDM allows a single fiber to carry many channels, multiplying its capacity."
+    },
+    {
+      "id": 54,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "How does FDM prevent interference between channels?",
+      "output": "Channels are separated by guard bands (unused frequency ranges).",
+      "answer": "Guard bands are small frequency intervals between channels to prevent overlap and crosstalk.",
+      "explanation": "This reduces the total usable bandwidth but ensures isolation."
+    },
+    {
+      "id": 55,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between synchronous TDM and statistical TDM?",
+      "output": "Synchronous TDM allocates fixed time slots even if a device has no data; statistical TDM allocates slots dynamically.",
+      "answer": "Statistical TDM (or asynchronous TDM) uses variable‑length slots and requires addressing. It is more efficient but more complex.",
+      "explanation": "Example: Ethernet is a form of statistical multiplexing."
+    },
+    {
+      "id": 56,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Give a real‑world example of FDM.",
+      "output": "Radio broadcasting – each station has its own frequency band.",
+      "answer": "FM radio stations in the 88–108 MHz band each use a 200 kHz slot. Your receiver tunes to one frequency to hear that station.",
+      "explanation": "The same principle applies to analog TV and cable internet (DOCSIS)."
+    },
+    {
+      "id": 57,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Give a real‑world example of TDM.",
+      "output": "T1 telephone line (24 channels).",
+      "answer": "A T1 line divides each 125 µs frame into 24 time slots, each carrying one 64 kbps voice channel.",
+      "explanation": "Pulse Code Modulation (PCM) uses TDM to multiplex 24 voice calls."
+    },
+    {
+      "id": 58,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is DWDM (Dense Wavelength Division Multiplexing)?",
+      "output": "A high‑density version of WDM with channel spacing of 50/100 GHz, allowing dozens or hundreds of wavelengths.",
+      "answer": "DWDM is used in long‑haul fiber networks to achieve multi‑terabit capacities. Channels are tightly packed.",
+      "explanation": "ITU‑T G.694.1 defines the DWDM grid."
+    },
+    {
+      "id": 59,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is the difference between CWDM and DWDM?",
+      "output": "CWDM has wider channel spacing (20 nm) and fewer channels (8–18); DWDM has narrow spacing (0.8 nm) and many channels (up to 160).",
+      "answer": "CWDM is cheaper and used for shorter distances (<80 km); DWDM is used for long haul and requires temperature control.",
+      "explanation": "CWDM wavelengths are not amplified by EDFA, limiting range."
+    },
+    {
+      "id": 60,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of TDM over FDM?",
+      "output": "TDM uses the full bandwidth for each time slot, avoiding guard bands.",
+      "answer": "TDM does not waste bandwidth on guard bands; it uses the entire channel capacity for short bursts per user.",
+      "explanation": "However, TDM requires precise synchronization."
+    },
+    {
+      "id": 61,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the main advantage of FDM over TDM?",
+      "output": "No need for synchronization; channels are continuous and independent.",
+      "answer": "FDM does not require timing coordination between senders. Each transmitter uses its own frequency continuously.",
+      "explanation": "Analog signals (like audio) are naturally suited to FDM."
+    },
+    {
+      "id": 62,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is OFDM (Orthogonal Frequency Division Multiplexing)?",
+      "output": "A special form of FDM where subcarriers overlap orthogonally, saving bandwidth.",
+      "answer": "OFDM uses many closely spaced subcarriers that are mathematically orthogonal, eliminating guard bands. Used in Wi‑Fi, 4G/5G, DSL.",
+      "explanation": "It provides robustness to multipath interference."
+    },
+    {
+      "id": 63,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the basic unit of time in TDM?",
+      "output": "A time slot (or timeslot).",
+      "answer": "Time slots are grouped into frames. Each slot is assigned to a specific input channel.",
+      "explanation": "In T1, each frame is 125 µs with 24 slots."
+    },
+    {
+      "id": 64,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the 'frame rate' of a T1 TDM system?",
+      "output": "8000 frames per second (125 µs per frame).",
+      "answer": "Because voice is sampled at 8 kHz (Nyquist for 4 kHz audio), each channel gets one 8‑bit sample per frame. The frame rate equals the sampling rate.",
+      "explanation": "Thus, T1 data rate = 24 channels × 8 bits × 8000 = 1.544 Mbps."
+    },
+    {
+      "id": 65,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'guard band' in FDM and why is it needed?",
+      "output": "A small unused frequency band between channels to prevent crosstalk.",
+      "answer": "Filters are not perfect; guard bands allow channels to be separated without overlapping. They reduce the usable bandwidth but are necessary.",
+      "explanation": "In DWDM, guard bands are very small due to precise lasers and filters."
+    },
+    {
+      "id": 66,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of multiplexing?",
+      "output": "To combine multiple signals into one transmission medium, increasing efficiency.",
+      "answer": "Multiplexing allows a single cable, fiber, or wireless channel to carry many independent conversations simultaneously.",
+      "explanation": "It reduces cost per user and makes efficient use of infrastructure."
+    },
+    {
+      "id": 67,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'wavelength' in WDM?",
+      "output": "The colour of light in an optical fiber; each wavelength is a separate channel.",
+      "answer": "Different wavelengths (e.g., 1550 nm, 1551 nm) are used to carry different data streams. They do not interfere because they are at different frequencies.",
+      "explanation": "Wavelength is inversely proportional to frequency."
+    },
+    {
+      "id": 68,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is the typical channel spacing in DWDM?",
+      "output": "50 GHz (0.4 nm) or 100 GHz (0.8 nm) in the C‑band (1530‑1565 nm).",
+      "answer": "With 50 GHz spacing, up to 80 channels can fit in the C‑band. Each channel can carry 100 Gbps or more.",
+      "explanation": "Coherent optics allow even closer spacing (e.g., 25 GHz)."
+    },
+    {
+      "id": 69,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Which multiplexing technique is used in fiber optic backbone networks?",
+      "output": "WDM (primarily DWDM).",
+      "answer": "Long‑haul fiber networks use DWDM to achieve huge capacities over a single fiber pair.",
+      "explanation": "Combined with optical amplifiers, DWDM enables transcontinental links."
+    },
+    {
+      "id": 70,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'orthogonal' in OFDM?",
+      "output": "Subcarriers are spaced such that the peak of one coincides with the nulls of others, eliminating interference.",
+      "answer": "Orthogonality is achieved by choosing subcarrier frequencies that are integer multiples of the symbol rate. This allows overlapping without crosstalk.",
+      "explanation": "OFDM is a special case of FDM that maximizes spectral efficiency."
+    },
+    {
+      "id": 71,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'cyclic prefix' in OFDM?",
+      "output": "A copy of the end of an OFDM symbol added to the beginning to combat multipath interference.",
+      "answer": "The cyclic prefix eliminates inter‑symbol interference (ISI) caused by delayed copies of the signal. It reduces throughput slightly.",
+      "explanation": "Used in Wi‑Fi, LTE, and DVB."
+    },
+    {
+      "id": 72,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is a 'time slot' in TDM?",
+      "output": "A fixed‑duration period assigned to a specific channel in each frame.",
+      "answer": "During its time slot, a channel can transmit a fixed amount of data (e.g., 8 bits).",
+      "explanation": "Time slots are repeated periodically (e.g., every 125 µs)."
+    },
+    {
+      "id": 73,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'statistical TDM' (also called asynchronous TDM)?",
+      "output": "A dynamic TDM where time slots are allocated only to active channels, improving efficiency.",
+      "answer": "Statistical TDM uses a buffer and assigns slots based on demand. It requires address information in each slot to identify the destination.",
+      "explanation": "Packet switching is a form of statistical multiplexing."
+    },
+    {
+      "id": 74,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'polarization division multiplexing' (PDM)?",
+      "output": "Using two orthogonal polarisations of light to double capacity on the same wavelength.",
+      "answer": "PDM is used in coherent optical systems: a single wavelength carries two independent signals on horizontal and vertical polarisation.",
+      "explanation": "Combined with QAM, PDM achieves high spectral efficiency (e.g., 400 Gbps per wavelength)."
+    },
+    {
+      "id": 75,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the main limitation of FDM?",
+      "output": "Guard bands waste bandwidth, and non‑linearities cause intermodulation.",
+      "answer": "Because channels must be separated by guard bands, some capacity is lost. Also, amplifiers may cause crosstalk between channels.",
+      "explanation": "FDM is analog in nature and less flexible than TDM for digital data."
+    },
+    {
+      "id": 76,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'time‑division multiple access' (TDMA)?",
+      "output": "A variant of TDM where multiple users share the same frequency by using different time slots.",
+      "answer": "TDMA is used in GSM (2G), satellite communication, and some Wi‑Fi modes. Each user gets a time slot.",
+      "explanation": "It is a medium access control technique, not a pure multiplexing method."
+    },
+    {
+      "id": 77,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'frequency‑division multiple access' (FDMA)?",
+      "output": "Users are assigned different frequency bands permanently.",
+      "answer": "FDMA is used in analog cellular (AMPS) and satellite communication. Each user gets a dedicated frequency channel.",
+      "explanation": "It is inefficient for bursty traffic because channels are idle when the user is not talking."
+    },
+    {
+      "id": 78,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Which multiplexing technique is used in cable TV?",
+      "output": "FDM – each TV channel uses a different frequency band.",
+      "answer": "Cable TV systems transmit many channels simultaneously over coaxial cable using FDM. The tuner selects one frequency.",
+      "explanation": "Digital cable uses QAM modulation on each channel."
+    },
+    {
+      "id": 79,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "Which multiplexing technique is used in DSL (Digital Subscriber Line)?",
+      "output": "FDM – voice and data are on separate frequency bands.",
+      "answer": "ADSL splits the line into voice band (0‑4 kHz) and data bands (25 kHz – 1.1 MHz). The data band is further divided into many small FDM subchannels (DMT).",
+      "explanation": "DMT is a form of OFDM (a type of FDM)."
+    },
+    {
+      "id": 80,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'code division multiplexing' (CDM) and how is it different from FDM/TDM?",
+      "output": "CDM uses spreading codes to allow many users to transmit simultaneously on the same frequency and time.",
+      "answer": "Each user's signal is multiplied by a unique spreading code. The receiver recovers the signal by correlating with the same code. Used in 3G (CDMA).",
+      "explanation": "CDM is not covered in this topic but is another multiplexing method."
+    },
+    {
+      "id": 81,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is a 'multiplexer' (MUX)?",
+      "output": "A device that combines multiple input signals into one output for transmission.",
+      "answer": "At the sending end, a multiplexer combines channels. At the receiving end, a demultiplexer separates them.",
+      "explanation": "MUXes can be FDM, TDM, or WDM types."
+    },
+    {
+      "id": 82,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'add‑drop multiplexer' (ADM) in WDM?",
+      "output": "A device that can add or remove a single wavelength without converting all signals to electrical.",
+      "answer": "ADMs are used in ring networks to drop one wavelength for a local site and add another. ROADMs are reconfigurable versions.",
+      "explanation": "ADMs reduce the need for optical‑electrical‑optical conversion."
+    },
+    {
+      "id": 83,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'subcarrier multiplexing' (SCM) in cable TV?",
+      "output": "Combining multiple QAM‑modulated digital streams onto a single RF carrier using FDM.",
+      "answer": "In DOCSIS 3.1, many 6 MHz (or 8 MHz) channels are bonded, but within each channel, multiple subcarriers (OFDM) are used.",
+      "explanation": "SCM is a form of hierarchical multiplexing."
+    },
+    {
+      "id": 84,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of WDM over TDM in fiber?",
+      "output": "WDM can use the full capacity of the fiber by adding wavelengths; TDM is limited by electronics speed.",
+      "answer": "TDM requires electronics to run at the aggregate rate, which becomes difficult at high speeds. WDM uses parallel wavelengths, each at a manageable rate.",
+      "explanation": "Modern systems use both: each wavelength carries high‑speed TDM (e.g., 100 Gbps)."
+    },
+    {
+      "id": 85,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the SONET/SDH TDM hierarchy?",
+      "output": "A standard TDM hierarchy for optical networks: STS‑1 (51.84 Mbps), OC‑3 (155.52 Mbps), OC‑12 (622.08 Mbps), etc.",
+      "answer": "SONET/SDH uses synchronous TDM to multiplex many low‑rate streams into high‑rate streams.",
+      "explanation": "Replaced by Ethernet and OTN in many networks."
+    },
+    {
+      "id": 86,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'optical time division multiplexing' (OTDM)?",
+      "output": "A TDM technique in the optical domain, interleaving bits from different sources at very high rates.",
+      "answer": "OTDM uses optical delays to combine pulses. It is less common than WDM because it requires ultra‑fast optical switching.",
+      "explanation": "OTDM can achieve Tbps rates but is complex."
+    },
+    {
+      "id": 87,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the role of a 'demultiplexer'?",
+      "output": "To separate the combined signal back into individual channels.",
+      "answer": "At the receiver, a demultiplexer recovers the original signals based on frequency (FDM), time (TDM), or wavelength (WDM).",
+      "explanation": "Demultiplexing is the inverse operation of multiplexing."
+    },
+    {
+      "id": 88,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'channelization'?",
+      "output": "Dividing a transmission medium into multiple logical channels using FDM, TDM, or CDM.",
+      "answer": "Channelization allows multiple users to share the medium. Each channel is treated as a separate logical link.",
+      "explanation": "FDMA, TDMA, and CDMA are channelization protocols."
+    },
+    {
+      "id": 89,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'multichannel multipoint distribution service' (MMDS)?",
+      "output": "A wireless FDM technology for distributing TV and internet, operating in the 2.5‑2.7 GHz band.",
+      "answer": "MMDS uses FDM to provide multiple channels. It is largely replaced by LTE and Wi‑MAX.",
+      "explanation": "An example of wireless FDM."
+    },
+    {
+      "id": 90,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Which multiplexing method is used in traditional analog telephone systems?",
+      "output": "FDM (Frequency Division Multiplexing) for analog trunks.",
+      "answer": "In the past, many voice calls were combined on a single coaxial cable using FDM (L‑carrier). Now, digital TDM (T1/E1) is used.",
+      "explanation": "FDM is still used for radio and TV."
+    },
+    {
+      "id": 91,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the 'frame alignment' in TDM?",
+      "output": "A unique pattern in each frame that allows the demultiplexer to identify the start of the frame.",
+      "answer": "The frame alignment signal (e.g., 101010 in T1) ensures that the receiver can correctly assign time slots to channels.",
+      "explanation": "Loss of frame alignment causes all channels to be misrouted."
+    },
+    {
+      "id": 92,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'virtual concatenation' in SDH/OTN?",
+      "output": "A technique to group multiple TDM channels to create a larger logical channel for data.",
+      "answer": "Virtual concatenation allows flexible bandwidth allocation, e.g., using 7 VC‑3s to form a 7×48 Mbps channel.",
+      "explanation": "Supports Ethernet transport over legacy TDM networks."
+    },
+    {
+      "id": 93,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the typical channel bandwidth for an FM radio station?",
+      "output": "200 kHz (including guard bands).",
+      "answer": "The audio signal is 15 kHz, but FM requires wider bandwidth. Guard bands separate stations.",
+      "explanation": "This is an example of FDM in broadcasting."
+    },
+    {
+      "id": 94,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'frequency hopping'?",
+      "output": "A spread spectrum technique where the carrier frequency changes rapidly; a form of FDM in time.",
+      "answer": "Frequency hopping is used in Bluetooth and military radios to avoid interference and jamming. It is not pure FDM but a hybrid.",
+      "explanation": "Each hop uses a narrowband channel."
+    },
+    {
+      "id": 95,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is 'mode division multiplexing' (MDM) in fiber?",
+      "output": "Using different spatial modes in multi‑mode fiber to carry separate signals.",
+      "answer": "MDM is an emerging technology to increase fiber capacity, using few‑mode or multi‑core fibers.",
+      "explanation": "Requires complex MIMO processing at the receiver."
+    },
+    {
+      "id": 96,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of TDM for digital signals?",
+      "output": "It can handle variable bit rates and is easily implemented with digital logic.",
+      "answer": "TDM is natural for digital systems because time slots correspond to fixed bit counts. Statistical TDM adapts to traffic.",
+      "explanation": "Packet switching is an extension of statistical TDM."
+    },
+    {
+      "id": 97,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between WDM and FDM?",
+      "output": "WDM is a specific type of FDM used in fiber optics, with much higher frequencies (optical).",
+      "answer": "FDM can be applied to any medium (coax, radio). WDM is FDM at optical wavelengths (1500 nm range).",
+      "explanation": "In practice, WDM uses extremely high frequencies (≈200 THz)."
+    },
+    {
+      "id": 98,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Advanced",
+      "question": "What is the 'coarse WDM' (CWDM) channel spacing?",
+      "output": "20 nm (e.g., 1310 nm, 1330 nm, 1350 nm).",
+      "answer": "CWDM uses wider spacing and fewer channels (up to 18). It is cheaper because lasers do not need temperature control.",
+      "explanation": "Used in short‑haul and access networks."
+    },
+    {
+      "id": 99,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Beginner",
+      "question": "Which multiplexing method is used in Wi‑Fi?",
+      "output": "OFDM (a form of FDM) combined with CSMA/CA.",
+      "answer": "Wi‑Fi uses OFDM to divide the channel into many subcarriers. Multiple users can share the channel via time (CSMA/CA) and frequency (OFDMA in Wi‑Fi 6).",
+      "explanation": "OFDMA is a multi‑user version of OFDM."
+    },
+    {
+      "id": 100,
+      "topic": "Multiplexing: FDM, TDM, WDM",
+      "difficulty": "Intermediate",
+      "question": "What is 'OFDMA' (Orthogonal Frequency Division Multiple Access)?",
+      "output": "A multi‑user version of OFDM where different subcarriers are assigned to different users.",
+      "answer": "OFDMA is used in 4G/5G and Wi‑Fi 6. It improves efficiency for small packets by sharing the channel in frequency and time.",
+      "explanation": "It is a combination of FDM and TDM."
+    },
+    {
+      "id": 101,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is circuit switching?",
+      "output": "A dedicated communication path is established between sender and receiver before data transfer.",
+      "answer": "Circuit switching is used in traditional telephone networks. The path remains reserved for the entire conversation, even during silent periods.",
+      "explanation": "Guarantees bandwidth but is inefficient for bursty data."
+    },
+    {
+      "id": 102,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is packet switching?",
+      "output": "Data is divided into packets that are transmitted independently and may take different routes.",
+      "answer": "Packet switching is used in the Internet (IP). Each packet contains destination address and is forwarded hop‑by‑hop.",
+      "explanation": "Efficient for bursty traffic, but packets may experience variable delay."
+    },
+    {
+      "id": 103,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is message switching?",
+      "output": "A store‑and‑forward method where the entire message is received at a node before being forwarded.",
+      "answer": "Message switching (obsolete) was used in telegraph networks. Unlike packet switching, there is no segmentation; the whole message is stored and then sent.",
+      "explanation": "Inefficient for large messages because it requires large buffers."
+    },
+    {
+      "id": 104,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between circuit switching and packet switching in terms of resource allocation?",
+      "output": "Circuit switching allocates resources for the whole call; packet switching allocates resources on demand.",
+      "answer": "In circuit switching, bandwidth is reserved and remains unused if no data is sent. In packet switching, resources are shared dynamically.",
+      "explanation": "Packet switching can handle more users for the same total bandwidth."
+    },
+    {
+      "id": 105,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What are the three phases of circuit switching?",
+      "output": "Setup (connection establishment), data transfer, and teardown (connection release).",
+      "answer": "During setup, a path is reserved. Data transfer uses the dedicated path. Teardown frees the resources.",
+      "explanation": "Example: making a phone call – dialing (setup), conversation (transfer), hang up (teardown)."
+    },
+    {
+      "id": 106,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "Give a real‑world example of circuit switching.",
+      "output": "Traditional telephone network (PSTN).",
+      "answer": "When you dial a number, the telephone exchange reserves a dedicated circuit (time slot or frequency) for the duration of the call.",
+      "explanation": "Even if no one speaks, the circuit remains allocated."
+    },
+    {
+      "id": 107,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "Give a real‑world example of packet switching.",
+      "output": "The Internet (IP networks).",
+      "answer": "When you browse a web page, your data is split into IP packets, each sent independently through routers, possibly taking different paths.",
+      "explanation": "Email, file transfer, and streaming also use packet switching."
+    },
+    {
+      "id": 108,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of packet switching over circuit switching?",
+      "output": "More efficient use of bandwidth, especially for bursty traffic, and better fault tolerance.",
+      "answer": "Packet switching allows many users to share a link (statistical multiplexing). If a link fails, packets can be rerouted.",
+      "explanation": "No dedicated circuit is wasted during silence."
+    },
+    {
+      "id": 109,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of circuit switching over packet switching?",
+      "output": "Guaranteed bandwidth, low latency, and no packet loss due to congestion (once the circuit is established).",
+      "answer": "Circuit switching provides a constant data rate and predictable delay, suitable for real‑time voice and video.",
+      "explanation": "But it is inefficient for data because of idle periods."
+    },
+    {
+      "id": 110,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'virtual circuit' switching?",
+      "output": "A hybrid: a path is set up (like circuit switching) but data is transmitted in packets with a virtual circuit identifier.",
+      "answer": "Virtual circuits (e.g., X.25, Frame Relay, MPLS) combine the reliability of connection establishment with packet switching efficiency.",
+      "explanation": "Packets follow the same path, so they arrive in order."
+    },
+    {
+      "id": 111,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is 'datagram' packet switching?",
+      "output": "Each packet is independent and may take a different route; no connection setup.",
+      "answer": "IP (Internet Protocol) is a datagram service. Packets are forwarded based on destination address, and they may be reordered.",
+      "explanation": "Higher layers (TCP) handle reordering and reliability."
+    },
+    {
+      "id": 112,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'store‑and‑forward' switching?",
+      "output": "A switching method where the entire packet (or message) is received and checked before forwarding.",
+      "answer": "Store‑and‑forward is used in packet switching and message switching. It allows error checking and buffering but adds delay.",
+      "explanation": "Routers typically store and forward IP packets."
+    },
+    {
+      "id": 113,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'cut‑through' switching?",
+      "output": "A switch begins forwarding a packet as soon as the destination address is read, without waiting for the whole packet.",
+      "answer": "Cut‑through reduces latency but may forward corrupted packets. Used in some Ethernet switches and high‑performance networks.",
+      "explanation": "Contrasts with store‑and‑forward."
+    },
+    {
+      "id": 114,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the main disadvantage of message switching?",
+      "output": "Large buffers are needed to store entire messages; not suitable for real‑time traffic.",
+      "answer": "If a message is very large, it can block other messages and consume excessive memory. Packet switching segments messages to avoid this.",
+      "explanation": "Message switching is obsolete; it was used in early telegraphy."
+    },
+    {
+      "id": 115,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between 'connection‑oriented' and 'connectionless' packet switching?",
+      "output": "Connection‑oriented (virtual circuit) requires setup; connectionless (datagram) does not.",
+      "answer": "Connection‑oriented: X.25, Frame Relay, MPLS, TCP (transport layer). Connectionless: IP (network layer).",
+      "explanation": "Connection‑oriented can provide quality of service guarantees."
+    },
+    {
+      "id": 116,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'optical circuit switching'?",
+      "output": "Establishing a dedicated light path (wavelength) in an optical network.",
+      "answer": "Optical circuit switching is used in DWDM networks where a wavelength is set up for a high‑capacity connection.",
+      "explanation": "Used in data center interconnects and research networks (e.g., ESnet)."
+    },
+    {
+      "id": 117,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the role of a 'switch' in circuit switching?",
+      "output": "To establish and maintain a physical or logical path between input and output ports.",
+      "answer": "Telephone switches (crossbar, digital) connect incoming lines to outgoing lines for the duration of the call.",
+      "explanation": "Modern circuit switches are digital (time‑division switches)."
+    },
+    {
+      "id": 118,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is a 'router' in packet switching?",
+      "output": "A device that forwards packets based on IP addresses and routing tables.",
+      "answer": "Routers operate at the network layer and decide the next hop for each packet. They maintain routing tables and exchange routing information.",
+      "explanation": "Routers are the nodes of the Internet."
+    },
+    {
+      "id": 119,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'label switching' (MPLS)?",
+      "output": "A technique that uses short labels instead of IP addresses to forward packets, combining circuit‑like speed with packet flexibility.",
+      "answer": "MPLS routers (LSRs) assign labels to packets; subsequent hops forward based on labels, not IP headers. This is a form of virtual circuit.",
+      "explanation": "Used for traffic engineering and VPNs."
+    },
+    {
+      "id": 120,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "Which switching method is used for voice calls on a mobile network?",
+      "output": "Circuit switching for traditional voice; modern networks use VoIP (packet switching).",
+      "answer": "2G and 3G used circuit switching for voice. 4G (VoLTE) and 5G use packet switching (IMS) for voice.",
+      "explanation": "VoIP is more efficient and enables HD voice."
+    },
+    {
+      "id": 121,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is the concept of 'time slot interchange' (TSI) in circuit switching?",
+      "output": "A digital switching technique that moves data between time slots to connect different channels.",
+      "answer": "In TDM circuit switches, a TSI reads incoming time slots, stores them, and writes them to outgoing slots in a different order.",
+      "explanation": "This allows any input to be connected to any output."
+    },
+    {
+      "id": 122,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'blocking' in circuit switching?",
+      "output": "When a call cannot be completed because no path is available (busy signal).",
+      "answer": "Blocking probability is a key metric. Non‑blocking switches have enough resources to connect any input to any free output.",
+      "explanation": "Clos networks are used to build non‑blocking switches."
+    },
+    {
+      "id": 123,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the difference between 'hop‑by‑hop' and 'end‑to‑end' in packet switching?",
+      "output": "Hop‑by‑hop: each node independently forwards; end‑to‑end: the whole path is determined by the source.",
+      "answer": "IP uses hop‑by‑hop routing. Source routing (rare) specifies the entire path.",
+      "explanation": "Hop‑by‑hop is more robust to failures."
+    },
+    {
+      "id": 124,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'packet loss' and why does it occur in packet switching?",
+      "output": "When a router's buffer is full, it drops packets. This can happen due to congestion.",
+      "answer": "Packet loss is a consequence of statistical multiplexing. TCP detects loss and retransmits.",
+      "explanation": "Circuit switching does not suffer from packet loss (but may have bit errors)."
+    },
+    {
+      "id": 125,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'jitter' in packet switching?",
+      "output": "Variation in packet arrival times due to queuing and different path lengths.",
+      "answer": "Jitter is problematic for real‑time applications. Jitter buffers smooth it out at the cost of added latency.",
+      "explanation": "Circuit switching has nearly constant delay (low jitter)."
+    },
+    {
+      "id": 126,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is a 'crossbar switch'?",
+      "output": "A switching matrix that connects any input to any output using a grid of crosspoints.",
+      "answer": "Crossbar switches are used in circuit switching and some high‑speed packet switches (e.g., in routers).",
+      "explanation": "They are non‑blocking but the number of crosspoints grows as N²."
+    },
+    {
+      "id": 127,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'head‑of‑line blocking' (HOL) in packet switches?",
+      "output": "When a packet at the front of a queue is blocked, it prevents packets behind it from being transmitted even if their destination ports are free.",
+      "answer": "HOL blocking reduces throughput. Solutions include virtual output queues (VOQs).",
+      "explanation": "Common in input‑queued switches."
+    },
+    {
+      "id": 128,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'buffered crossbar'?",
+      "output": "A crossbar switch with small buffers at each crosspoint to reduce HOL blocking.",
+      "answer": "Buffered crossbars are used in high‑performance routers to improve throughput and simplify scheduling.",
+      "explanation": "Each crosspoint has a FIFO buffer."
+    },
+    {
+      "id": 129,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of packet switching for computer networks?",
+      "output": "It can handle bursty traffic efficiently and supports many simultaneous connections.",
+      "answer": "Computer data is bursty (short periods of activity, long idle times). Packet switching shares resources dynamically.",
+      "explanation": "This is why the Internet uses packet switching."
+    },
+    {
+      "id": 130,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'quality of service' (QoS) in packet switching?",
+      "output": "Mechanisms to provide different levels of service (e.g., bandwidth guarantees, low latency) to different traffic classes.",
+      "answer": "QoS includes traffic shaping, policing, and scheduling (e.g., DiffServ, IntServ). Circuit switching naturally provides QoS.",
+      "explanation": "Packet switching can emulate circuit switching with sufficient resources (e.g., MPLS)."
+    },
+    {
+      "id": 131,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'time‑division circuit switching'?",
+      "output": "A digital circuit switching method where each connection is assigned a repeating time slot.",
+      "answer": "Used in telephone exchanges (e.g., TDM switches). The switch moves data from an incoming time slot to an outgoing time slot.",
+      "explanation": "Each call gets a fixed‑rate channel (e.g., 64 kbps)."
+    },
+    {
+      "id": 132,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the relationship between switching and multiplexing?",
+      "output": "Multiplexing combines multiple channels onto one link; switching connects channels between links.",
+      "answer": "Switching and multiplexing work together: multiplexers combine channels, switches route them to different destinations.",
+      "explanation": "In a telephone network, multiplexers aggregate calls, switches route them."
+    },
+    {
+      "id": 133,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is a 'packet switch'?",
+      "output": "A device that forwards packets based on header information (e.g., a router or switch).",
+      "answer": "Routers (IP) and Ethernet switches (MAC) are both packet switches, operating at different layers.",
+      "explanation": "Packet switches have buffers, forwarding tables, and a backplane."
+    },
+    {
+      "id": 134,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'optical packet switching' (OPS)?",
+      "output": "Switching packets directly in the optical domain without conversion to electricity.",
+      "answer": "OPS is still experimental. It promises high throughput but requires optical buffers and fast switching.",
+      "explanation": "Challenges include lack of optical memory."
+    },
+    {
+      "id": 135,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "Which switching method is used by the telegraph system?",
+      "output": "Message switching (store‑and‑forward).",
+      "answer": "In telegraphy, a message was received at a relay station, stored on paper tape, and then forwarded. This is message switching.",
+      "explanation": "Packet switching evolved from message switching by adding segmentation."
+    },
+    {
+      "id": 136,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'fragmentation' in packet switching?",
+      "output": "Dividing a large packet into smaller fragments to fit the maximum transmission unit (MTU) of a link.",
+      "answer": "Fragmentation is used in IPv4; IPv6 avoids it by requiring path MTU discovery.",
+      "explanation": "Fragments are reassembled at the destination."
+    },
+    {
+      "id": 137,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'cell switching' (ATM)?",
+      "output": "A form of packet switching using fixed‑size cells (53 bytes) for fast hardware switching.",
+      "answer": "Asynchronous Transfer Mode (ATM) was designed for integrated voice and data. Cells can be switched quickly in hardware.",
+      "explanation": "ATM is largely replaced by IP over Ethernet."
+    },
+    {
+      "id": 138,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the main difference between a circuit switch and a packet switch?",
+      "output": "Circuit switch establishes a dedicated path; packet switch forwards packets individually.",
+      "answer": "Circuit switches have a connection setup phase and maintain state for each connection. Packet switches are stateless (for datagrams).",
+      "explanation": "Packet switches can handle many more connections because they share resources."
+    },
+    {
+      "id": 139,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'connectionless' service in packet switching?",
+      "output": "Each packet contains the full destination address; no prior setup.",
+      "answer": "IP is connectionless. Each router makes a forwarding decision independently.",
+      "explanation": "No per‑connection state is kept, which scales well."
+    },
+    {
+      "id": 140,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'source routing'?",
+      "output": "The source specifies the entire path that a packet should take.",
+      "answer": "Source routing is used in some networks (e.g., MPLS with explicit path). It can avoid routing loops but requires the source to know the topology.",
+      "explanation": "Not used in the global Internet due to security concerns."
+    },
+    {
+      "id": 141,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the main cause of delay in packet switching?",
+      "output": "Queuing delay at routers, plus propagation, serialisation, and processing.",
+      "answer": "Unlike circuit switching, packet switching introduces variable queuing delay. Congestion increases this delay.",
+      "explanation": "The sum of delays is called latency."
+    },
+    {
+      "id": 142,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'traffic engineering' in packet switching?",
+      "output": "Controlling the flow of packets to optimise network performance and avoid congestion.",
+      "answer": "Traffic engineering uses routing protocols, MPLS, and QoS to balance load and guarantee SLAs.",
+      "explanation": "Important in ISP backbone networks."
+    },
+    {
+      "id": 143,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'self‑routing' in packet switches?",
+      "output": "A switch that uses bits from the packet header to determine the output port without a lookup table.",
+      "answer": "Examples: Banyan networks, Clos networks with self‑routing headers. Used in high‑speed routers.",
+      "explanation": "Reduces latency and complexity."
+    },
+    {
+      "id": 144,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "Which switching method is used in traditional telephony?",
+      "output": "Circuit switching.",
+      "answer": "The PSTN (Public Switched Telephone Network) uses circuit switching, originally analog, now digital (TDM).",
+      "explanation": "VoIP is slowly replacing it with packet switching."
+    },
+    {
+      "id": 145,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'digital cross‑connect' (DCS)?",
+      "output": "A circuit switch that reconfigures TDM channels (e.g., DS‑0, DS‑1) without interpreting the data.",
+      "answer": "DCS is used in telecom networks to groom traffic. It operates at the physical layer (TDM).",
+      "explanation": "Replaced by optical cross‑connects in modern networks."
+    },
+    {
+      "id": 146,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'optical cross‑connect' (OXC)?",
+      "output": "A device that switches optical wavelengths (circuit switching in the optical domain).",
+      "answer": "OXCs are used in DWDM networks to route wavelengths without O/E/O conversion.",
+      "explanation": "They are slow to reconfigure (milliseconds to seconds) but very high capacity."
+    },
+    {
+      "id": 147,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of a 'buffer' in a packet switch?",
+      "output": "To store packets temporarily when output ports are busy, preventing loss.",
+      "answer": "Buffers absorb bursty traffic. However, excessive buffering causes bufferbloat (high latency).",
+      "explanation": "Modern routers use active queue management (AQM) to control buffer size."
+    },
+    {
+      "id": 148,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Intermediate",
+      "question": "What is 'input queuing' vs 'output queuing' in a packet switch?",
+      "output": "Input queuing: buffers at inputs; output queuing: buffers at outputs.",
+      "answer": "Output queuing avoids head‑of‑line blocking but requires faster memory. Most high‑end switches use output queuing or combined input‑output queuing.",
+      "explanation": "Output queuing provides better throughput."
+    },
+    {
+      "id": 149,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Advanced",
+      "question": "What is 'combined input‑output queuing' (CIOQ)?",
+      "output": "A switch with both input and output buffers, using a scheduling algorithm to achieve high throughput.",
+      "answer": "CIOQ is common in high‑speed routers. It can emulate output queuing with a speedup factor.",
+      "explanation": "Speedup >1 allows input queues to be emptied faster."
+    },
+    {
+      "id": 150,
+      "topic": "Switching: Circuit, Packet, Message switching",
+      "difficulty": "Beginner",
+      "question": "What is the main disadvantage of circuit switching?",
+      "output": "Inefficient use of bandwidth when data is bursty (e.g., web browsing).",
+      "answer": "A dedicated circuit remains reserved even during idle periods, wasting capacity that could be used by others.",
+      "explanation": "Packet switching overcomes this by sharing the channel."
+    },
+    {
+      "id": 151,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is the real‑network application of circuit switching?",
+      "output": "Traditional telephone network (PSTN).",
+      "answer": "Voice calls use circuit switching to provide a dedicated 64 kbps channel for the duration of the call.",
+      "explanation": "Also used in private branch exchanges (PBX) and some leased line services."
+    },
+    {
+      "id": 152,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is the real‑network application of packet switching?",
+      "output": "The Internet (TCP/IP).",
+      "answer": "All internet services (web, email, streaming, file transfer) use packet switching.",
+      "explanation": "Ethernet LANs also use packet switching."
+    },
+    {
+      "id": 153,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of FDM?",
+      "output": "Radio and TV broadcasting, cable TV, and DSL.",
+      "answer": "FDM divides the spectrum into channels. In cable TV, each TV channel occupies a 6 MHz band. In ADSL, voice and data use separate frequency bands.",
+      "explanation": "Wi‑Fi channels are also a form of FDM."
+    },
+    {
+      "id": 154,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of TDM?",
+      "output": "Digital telephone trunks (T1/E1), SONET/SDH, and some mobile networks (TDMA).",
+      "answer": "T1 lines multiplex 24 voice channels. SONET frames use TDM to combine many low‑rate streams into high‑rate optical signals.",
+      "explanation": "GSM (2G) used TDMA for multiple users per frequency."
+    },
+    {
+      "id": 155,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of WDM?",
+      "output": "Long‑haul fiber optic backbone networks (e.g., undersea cables, metro core).",
+      "answer": "DWDM is used by ISPs and telecom carriers to transmit hundreds of Gbps or Tbps over a single fiber.",
+      "explanation": "Also used in data center interconnects (DCI)."
+    },
+    {
+      "id": 156,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What encoding is used in 10 Mbps Ethernet (10BASE‑T)?",
+      "output": "Manchester encoding.",
+      "answer": "10BASE‑T uses Manchester to provide clock recovery over twisted pair.",
+      "explanation": "It is a real‑network application of Manchester encoding."
+    },
+    {
+      "id": 157,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What encoding is used in 100 Mbps Ethernet (100BASE‑TX)?",
+      "output": "MLT‑3 (Multi‑Level Transmit 3) after 4B/5B encoding.",
+      "answer": "100BASE‑TX uses 4B/5B to ensure transitions, then MLT‑3 to reduce bandwidth. NRZ is not used directly.",
+      "explanation": "Manchester would require 200 MHz, which is too high for Cat5."
+    },
+    {
+      "id": 158,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What encoding is used in Gigabit Ethernet (1000BASE‑T)?",
+      "output": "PAM‑5 (5‑level Pulse Amplitude Modulation) with 4D trellis coding.",
+      "answer": "1000BASE‑T uses 4 pairs simultaneously, each transmitting at 250 Mbps using PAM‑5 (5 levels).",
+      "explanation": "This is a more advanced line code, not NRZ or Manchester."
+    },
+    {
+      "id": 159,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is the real‑network application of Differential Manchester?",
+      "output": "IEEE 802.5 Token Ring (obsolete) and some magnetic recording.",
+      "answer": "Token Ring used Differential Manchester for its self‑clocking and polarity independence.",
+      "explanation": "Also used in AES/EBU digital audio interfaces."
+    },
+    {
+      "id": 160,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of OFDM?",
+      "output": "Wi‑Fi (802.11a/g/n/ac/ax), 4G/5G, DSL, DVB‑T (digital TV).",
+      "answer": "OFDM is used wherever there is multipath interference and need for high spectral efficiency.",
+      "explanation": "It is a multi‑carrier FDM technique."
+    },
+    {
+      "id": 161,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ?",
+      "output": "High‑speed serial links (PCIe, SATA, USB 3.x, backplane Ethernet) with scrambling and 8b/10b or 128b/130b encoding.",
+      "answer": "NRZ is used because of its bandwidth efficiency; clock recovery is handled by PLLs and scramblers.",
+      "explanation": "PCIe 1.0 used NRZ with 8b/10b; PCIe 3.0 used NRZ with 128b/130b and scrambling."
+    },
+    {
+      "id": 162,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is the real‑network application of circuit switching today?",
+      "output": "Legacy telephone networks (PSTN), some private networks, and some satellite links.",
+      "answer": "Most voice traffic has moved to VoIP (packet switching), but circuit switching is still used in many places.",
+      "explanation": "Leased lines (e.g., T1) are also circuit‑switched."
+    },
+    {
+      "id": 163,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of message switching?",
+      "output": "Email (store‑and‑forward) is a form of message switching, but at the application layer.",
+      "answer": "SMTP email servers store messages and forward them. However, underlying IP uses packet switching.",
+      "explanation": "Pure message switching is not used in modern networks."
+    },
+    {
+      "id": 164,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of virtual circuits (connection‑oriented packet switching)?",
+      "output": "MPLS (Multi‑Protocol Label Switching) in ISP backbones, Frame Relay (legacy), X.25 (legacy).",
+      "answer": "MPLS uses labels to forward packets along pre‑established paths, enabling traffic engineering and VPNs.",
+      "explanation": "ATM (Asynchronous Transfer Mode) also used virtual circuits."
+    },
+    {
+      "id": 165,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of TDM in mobile networks?",
+      "output": "GSM (2G) uses TDMA (a form of TDM) to share a frequency among 8 users.",
+      "answer": "GSM divides each 200 kHz channel into 8 time slots. Each call uses one slot.",
+      "explanation": "Modern 4G/5G use OFDMA instead."
+    },
+    {
+      "id": 166,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is a real‑network application of FDM in cable internet?",
+      "output": "DOCSIS (Data Over Cable Service Interface Specification) uses FDM for downstream and upstream.",
+      "answer": "Downstream uses 50‑1000 MHz, upstream uses 5‑42 MHz. Each channel is 6 MHz (US) or 8 MHz (EU).",
+      "explanation": "OFDM is also used in DOCSIS 3.1."
+    },
+    {
+      "id": 167,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of statistical TDM?",
+      "output": "Ethernet (packet switching) is a form of statistical TDM.",
+      "answer": "Multiple computers share the same medium (or switch backplane) dynamically, with no fixed time slots.",
+      "explanation": "This is the essence of packet switching."
+    },
+    {
+      "id": 168,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of WDM in metro networks?",
+      "output": "CWDM (Coarse WDM) for short‑haul (<80 km) connections between data centers or central offices.",
+      "answer": "CWDM uses 8–18 wavelengths at 20 nm spacing, cheaper than DWDM.",
+      "explanation": "Used in campus and metro area networks."
+    },
+    {
+      "id": 169,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is a real‑network application of optical circuit switching?",
+      "output": "Data center optical circuit switches (e.g., Google's Jupiter, Microsoft's Apollo) for large‑scale data transfer.",
+      "answer": "Optical circuit switches reconfigure paths in seconds or milliseconds, suitable for aggregate traffic patterns.",
+      "explanation": "Not for per‑packet switching but for grooming."
+    },
+    {
+      "id": 170,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ in data centers?",
+      "output": "Copper direct attach cables (DAC) for short‑range 10/25/40/100 GbE use NRZ or PAM‑4.",
+      "answer": "DACs are used for connections within a rack. NRZ is common at 10‑25 Gbps per lane.",
+      "explanation": "At higher speeds (50 Gbps/lane), PAM‑4 is used."
+    },
+    {
+      "id": 171,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of circuit switching in a private network?",
+      "output": "PBX (Private Branch Exchange) for office phones.",
+      "answer": "A PBX uses circuit switching to connect internal extensions and outside lines.",
+      "explanation": "Many PBXs now are IP‑based (VoIP) using packet switching."
+    },
+    {
+      "id": 172,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of Manchester encoding in industrial networks?",
+      "output": "Some fieldbuses (e.g., AS‑i, LIN) use Manchester for simple, robust communication.",
+      "answer": "Manchester provides clocking over two wires without a separate clock, suitable for noisy environments.",
+      "explanation": "Also used in RFID (ISO 15693)."
+    },
+    {
+      "id": 173,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of OFDM in powerline communication?",
+      "output": "HomePlug AV2, G.hn, and IEEE 1901 use OFDM to overcome noise and attenuation on power lines.",
+      "answer": "Powerline is very noisy; OFDM divides the signal into many narrow subcarriers that can be individually turned off if noisy.",
+      "explanation": "This makes OFDM ideal for hostile media."
+    },
+    {
+      "id": 174,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of packet switching in industrial automation?",
+      "output": "Profinet, EtherCAT, and other industrial Ethernet protocols.",
+      "answer": "Industrial networks use packet switching (often with deterministic extensions) for control data.",
+      "explanation": "These are real‑time Ethernet variants."
+    },
+    {
+      "id": 175,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of TDM in satellite communication?",
+      "output": "TDMA (Time Division Multiple Access) is used in satellite return channels (e.g., VSAT).",
+      "answer": "Many remote terminals share a satellite transponder using time slots.",
+      "explanation": "This avoids interference and allows many users."
+    },
+    {
+      "id": 176,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of differential Manchester in avionics?",
+      "output": "ARINC 429 (aircraft data bus) uses a form of bipolar RZ, not differential Manchester.",
+      "answer": "However, some avionics busses use differential Manchester for noise immunity.",
+      "explanation": "The MIL‑STD‑1553 bus uses Manchester encoding."
+    },
+    {
+      "id": 177,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of FDM in wireless microphones?",
+      "output": "Wireless microphones operate in UHF bands, using FDM to assign frequencies.",
+      "answer": "Each microphone transmitter uses a different frequency to avoid interference.",
+      "explanation": "Digital microphones may use frequency hopping."
+    },
+    {
+      "id": 178,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of WDM in PON (Passive Optical Network)?",
+      "output": "GPON and EPON use WDM to separate downstream and upstream on a single fiber.",
+      "answer": "Downstream uses 1490 nm, upstream 1310 nm, and RF video 1550 nm.",
+      "explanation": "This is a simple two‑wavelength WDM."
+    },
+    {
+      "id": 179,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ in optical transceivers?",
+      "output": "Most optical transceivers (SFP, SFP+, QSFP) use NRZ modulation up to 28 Gbps per lane.",
+      "answer": "For 100 Gbps (4×25 Gbps), NRZ is used. For 400 Gbps, PAM‑4 is used.",
+      "explanation": "NRZ is simple and cost‑effective at lower speeds."
+    },
+    {
+      "id": 180,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of circuit switching in the military?",
+      "output": "Tactical communication systems (e.g., MSE, SINGARS) use circuit switching for voice.",
+      "answer": "Mobile subscriber equipment (MSE) provides circuit‑switched voice and data.",
+      "explanation": "Modern military networks are moving to IP."
+    },
+    {
+      "id": 181,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of TDM in the electrical grid?",
+      "output": "SCADA and protection relays often use TDM over SONET/SDH or microwave.",
+      "answer": "Electric utilities use TDM for guaranteed latency and deterministic timing.",
+      "explanation": "Packet switching may introduce unpredictable delay, which is not acceptable for protection."
+    },
+    {
+      "id": 182,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of Manchester in RFID?",
+      "output": "ISO 15693 (vicinity cards) uses Manchester encoding for load modulation.",
+      "answer": "Manchester provides clock recovery for passive tags that have no internal clock.",
+      "explanation": "Also used in ISO 14443 (contactless smart cards)."
+    },
+    {
+      "id": 183,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of FDM in GPS?",
+      "output": "GPS uses CDMA, not FDM. However, GLONASS uses FDMA.",
+      "answer": "GLONASS (Russian GPS) assigns different frequencies to each satellite.",
+      "explanation": "This helps distinguish satellites but requires wider receiver bandwidth."
+    },
+    {
+      "id": 184,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of packet switching in financial trading?",
+      "output": "High‑frequency trading (HFT) uses ultra‑low‑latency packet switching (FPGA switches).",
+      "answer": "Trading firms use specialised packet switches (e.g., Arista, Cisco) to minimise latency.",
+      "explanation": "They also use microwave links to reduce propagation delay."
+    },
+    {
+      "id": 185,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ in automotive Ethernet?",
+      "output": "100BASE‑T1 (Automotive Ethernet) uses PAM‑3, not NRZ.",
+      "answer": "However, 1000BASE‑T1 uses PAM‑4. NRZ is not used because of spectral constraints.",
+      "explanation": "Automotive channels are noisy and require robust coding."
+    },
+    {
+      "id": 186,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of TDM in audio broadcasting?",
+      "output": "DAB (Digital Audio Broadcasting) uses OFDM, not TDM.",
+      "answer": "But some studio links use TDM over E1/T1 lines.",
+      "explanation": "Old analog radio used FDM."
+    },
+    {
+      "id": 187,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of circuit switching in data centers?",
+      "output": "Optical circuit switching (OCS) for inter‑rack communication in large data centers (e.g., Microsoft's Apollo).",
+      "answer": "OCS reconfigures the network topology to match traffic patterns, reducing power and cost.",
+      "explanation": "Not per‑flow; it's coarse‑grained."
+    },
+    {
+      "id": 188,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of Manchester in USB?",
+      "output": "USB 1.0/1.1 uses NRZ‑I with bit stuffing, not Manchester.",
+      "answer": "However, USB uses a differential pair and encodes data as NRZ‑I.",
+      "explanation": "Manchester is too inefficient for USB speeds."
+    },
+    {
+      "id": 189,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of WDM in consumer electronics?",
+      "output": "Bi‑directional optical links (e.g., HDMI over fiber) use two wavelengths.",
+      "answer": "Some HDMI extenders use WDM to send video and audio over a single fiber.",
+      "explanation": "Consumer devices often use 1310/1550 nm WDM."
+    },
+    {
+      "id": 190,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of packet switching in space?",
+      "output": "CCSDS (Consultative Committee for Space Data Systems) uses packet switching for deep‑space communication.",
+      "answer": "The Delay‑Tolerant Networking (DTN) bundle protocol is a form of store‑and‑forward packet switching.",
+      "explanation": "It handles long delays and intermittent connectivity."
+    },
+    {
+      "id": 191,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ in PCIe?",
+      "output": "PCIe 1.0–3.0 used NRZ with 8b/10b or 128b/130b encoding.",
+      "answer": "PCIe 4.0 (16 GT/s) and 5.0 (32 GT/s) still use NRZ. PCIe 6.0 uses PAM‑4.",
+      "explanation": "NRZ is used up to 32 Gbps per lane in backplanes."
+    },
+    {
+      "id": 192,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of FDM in amateur radio?",
+      "output": "Amateur radio operators use FDM for voice (SSB, FM) and digital modes.",
+      "answer": "Different operators use different frequencies to avoid interference.",
+      "explanation": "Some digital modes (FT8) use very narrow FDM."
+    },
+    {
+      "id": 193,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of TDM in broadcasting?",
+      "output": "Digital Video Broadcasting (DVB) uses MPEG‑2 transport stream, which is a form of TDM.",
+      "answer": "Multiple audio, video, and data streams are time‑multiplexed into a single TS.",
+      "explanation": "The TS is then transmitted via OFDM (DVB‑T) or satellite (DVB‑S)."
+    },
+    {
+      "id": 194,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of Differential Manchester in Ethernet?",
+      "output": "No, Ethernet uses Manchester or other encodings. Differential Manchester was used in Token Ring.",
+      "answer": "Token Ring is obsolete, but some legacy systems may still use it.",
+      "explanation": "Not a modern application."
+    },
+    {
+      "id": 195,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of circuit switching in emergency services?",
+      "output": "Emergency telephone networks (e.g., 911) still rely on circuit‑switched infrastructure in many regions.",
+      "answer": "Although Next Generation 911 uses IP, legacy 911 uses circuit switching.",
+      "explanation": "Circuit switching provides reliability and location information."
+    },
+    {
+      "id": 196,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of OFDMA in Wi‑Fi?",
+      "output": "Wi‑Fi 6 (802.11ax) uses OFDMA to improve efficiency for many clients.",
+      "answer": "OFDMA allows multiple users to share a channel by allocating different subcarrier groups.",
+      "explanation": "This reduces overhead for small packets."
+    },
+    {
+      "id": 197,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of PAM‑4 in Ethernet?",
+      "output": "50 GbE, 100 GbE (single lane), 200 GbE, 400 GbE use PAM‑4 to double the data rate per lane.",
+      "answer": "PAM‑4 transmits 2 bits per symbol, allowing 56 Gbps over a single lane.",
+      "explanation": "Used in 50GBASE‑R and 100GBASE‑R."
+    },
+    {
+      "id": 198,
+      "topic": "Applications in real networks",
+      "difficulty": "Beginner",
+      "question": "What is a real‑network application of message switching today?",
+      "output": "Email (store‑and‑forward) is the most common example.",
+      "answer": "Email servers store messages and forward them to the next hop. This is message switching at the application layer.",
+      "explanation": "The underlying transport uses packet switching (TCP/IP)."
+    },
+    {
+      "id": 199,
+      "topic": "Applications in real networks",
+      "difficulty": "Intermediate",
+      "question": "What is the real‑network application of virtual circuits in corporate networks?",
+      "output": "MPLS VPNs (Layer 3 VPN, Layer 2 VPN) use virtual circuits to separate customer traffic.",
+      "answer": "Service providers use MPLS to create private connections over shared infrastructure.",
+      "explanation": "This is a modern form of virtual circuit switching."
+    },
+    {
+      "id": 200,
+      "topic": "Applications in real networks",
+      "difficulty": "Advanced",
+      "question": "What is the real‑network application of NRZ in satellite communication?",
+      "output": "Some satellite modems use NRZ with differential coding and Viterbi decoding.",
+      "answer": "NRZ is used for its simplicity, but with scramblers to ensure transitions.",
+      "explanation": "DVB‑S2 uses QPSK/8PSK/16APSK, not NRZ."
+    }
+  ]
+}

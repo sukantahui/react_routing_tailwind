@@ -1,0 +1,2265 @@
+{
+    "subject": "Computer Networks",
+    "class": "All",
+    "board": "Any",
+    "topic": "Flow Control & Error Handling",
+    "subjectLogo": {
+        "name": "Computer Networks",
+        "icon": "network-wired",
+        "type": "svg",
+        "path": "/logos/Network.svg",
+        "alt": "Computer Networks Logo"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the primary role of the Data Link layer in the OSI model?",
+            "output": "To provide reliable node-to-node data transfer over a physical link.",
+            "answer": "The Data Link layer ensures error-free transmission of frames between two directly connected nodes. It handles framing, error detection, flow control, and medium access control.",
+            "explanation": "It sits between the Physical layer (bits) and the Network layer (packets)."
+        },
+        {
+            "id": 2,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What are the two sublayers of the Data Link layer in IEEE 802 standards?",
+            "output": "LLC (Logical Link Control) and MAC (Media Access Control).",
+            "answer": "LLC provides multiplexing and flow control independent of the medium; MAC handles addressing and access to the shared medium (CSMA/CD, token passing).",
+            "explanation": "This division allows different MAC protocols for different media (Ethernet, Wi-Fi)."
+        },
+        {
+            "id": 3,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between the Data Link layer and the Transport layer in terms of reliability?",
+            "output": "Data Link provides node-to-node reliability; Transport provides end-to-end reliability.",
+            "answer": "The Data Link layer ensures that a frame sent from one node to an adjacent node arrives correctly. The Transport layer ensures that data sent from a source process to a destination process across multiple hops is correct.",
+            "explanation": "Both may use acknowledgements and retransmissions, but at different scopes."
+        },
+        {
+            "id": 4,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is a 'frame' in the context of the Data Link layer?",
+            "output": "The Protocol Data Unit (PDU) of the Data Link layer, consisting of header, payload, and trailer.",
+            "answer": "A frame encapsulates the network layer packet (IP datagram) by adding a header (with MAC addresses) and a trailer (with error detection like CRC).",
+            "explanation": "Framing allows the receiver to detect the start and end of each frame."
+        },
+        {
+            "id": 5,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the function of the MAC address in the Data Link layer?",
+            "output": "To uniquely identify a network interface within a local network segment.",
+            "answer": "MAC addresses (48-bit) are used for addressing at the Data Link layer. Switches forward frames based on destination MAC addresses.",
+            "explanation": "Unlike IP addresses, MAC addresses are permanent and assigned by the manufacturer."
+        },
+        {
+            "id": 6,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'promiscuous mode' at the Data Link layer?",
+            "output": "A mode where a network interface receives all frames on the network segment, not just those addressed to it.",
+            "answer": "Promiscuous mode is used by network analyzers (e.g., Wireshark) to capture traffic. Normally, a NIC filters frames not destined to its MAC address.",
+            "explanation": "Switches prevent promiscuous mode from seeing other ports' traffic."
+        },
+        {
+            "id": 7,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "Which layer is responsible for media access control (CSMA/CD, CSMA/CA)?",
+            "output": "The Data Link layer (specifically the MAC sublayer).",
+            "answer": "Media access control coordinates transmissions in shared media to avoid collisions. Ethernet uses CSMA/CD (half-duplex) and Wi-Fi uses CSMA/CA.",
+            "explanation": "Switched Ethernet eliminates collisions, so CSMA/CD is rarely used now."
+        },
+        {
+            "id": 8,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a 'bridge' and a 'switch' at the Data Link layer?",
+            "output": "A bridge typically has two ports and forwards based on MAC addresses; a switch is a multi-port bridge.",
+            "answer": "Both operate at the Data Link layer. Modern switches are high‑performance bridges with many ports and additional features (VLANs, STP).",
+            "explanation": "The terms are often used interchangeably today."
+        },
+        {
+            "id": 9,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the concept of 'virtual LAN' (VLAN) in the Data Link layer?",
+            "output": "VLAN partitions a single physical switch into multiple logical broadcast domains.",
+            "answer": "VLANs operate at the Data Link layer by adding a tag (802.1Q) to frames. Devices in different VLANs cannot communicate directly without a router.",
+            "explanation": "VLANs improve security and reduce broadcast traffic."
+        },
+        {
+            "id": 10,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the typical size of a MAC address?",
+            "output": "48 bits (6 bytes), usually written as 12 hexadecimal digits.",
+            "answer": "Example: 00:1A:2B:3C:4D:5E. The first 24 bits are the Organizationally Unique Identifier (OUI), the last 24 are device-specific.",
+            "explanation": "MAC addresses are unique; no two NICs have the same MAC address."
+        },
+        {
+            "id": 11,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'error detection' in the Data Link layer?",
+            "output": "The ability to detect errors in a frame using techniques like CRC or checksum.",
+            "answer": "The trailer of a frame contains an error detection code (CRC). The receiver recomputes it; if mismatch, the frame is discarded.",
+            "explanation": "Error correction is usually left to higher layers (TCP) or special Data Link protocols (e.g., HDLC)."
+        },
+        {
+            "id": 12,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'point‑to‑point' and 'broadcast' Data Link protocols?",
+            "output": "Point‑to‑point (PPP) links two devices directly; broadcast (Ethernet) shares medium among multiple devices.",
+            "answer": "Point‑to‑point protocols have no addressing overhead; broadcast protocols require MAC addresses and media access control.",
+            "explanation": "Examples: PPP for serial links; Ethernet for LANs."
+        },
+        {
+            "id": 13,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the role of the LLC sublayer?",
+            "output": "To provide multiplexing and flow control independent of the physical medium.",
+            "answer": "LLC (Logical Link Control) allows network layer protocols (IP, IPX, etc.) to share a single interface. It provides connection‑oriented and connectionless services.",
+            "explanation": "LLC is rarely used directly; most protocols use Ethernet II encapsulation."
+        },
+        {
+            "id": 14,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the typical MTU (Maximum Transmission Unit) for Ethernet at the Data Link layer?",
+            "output": "1500 bytes for the payload (excluding Ethernet header and trailer).",
+            "answer": "The maximum Ethernet frame size is 1518 bytes (14 header + 1500 payload + 4 CRC). Jumbo frames (up to 9000 bytes) are supported on some networks.",
+            "explanation": "MTU affects IP fragmentation."
+        },
+        {
+            "id": 15,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'link aggregation' (LACP) at the Data Link layer?",
+            "output": "Combining multiple physical links into a single logical link for higher bandwidth and redundancy.",
+            "answer": "IEEE 802.3ad Link Aggregation Control Protocol (LACP) allows switches and servers to bundle multiple ports. It operates at the Data Link layer.",
+            "explanation": "Used in data centers to increase throughput without upgrading to higher‑speed interfaces."
+        },
+        {
+            "id": 16,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "Which Data Link protocol is used for point‑to‑point connections over serial lines?",
+            "output": "PPP (Point‑to‑Point Protocol) or HDLC.",
+            "answer": "PPP is used for dial‑up, DSL, and some VPN connections. It provides framing, authentication, and multi‑protocol support.",
+            "explanation": "HDLC is a similar protocol but less common in modern networks."
+        },
+        {
+            "id": 17,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the 'preamble' in an Ethernet frame?",
+            "output": "To synchronize the receiver's clock before the start of the frame.",
+            "answer": "The preamble is 7 bytes of alternating 1s and 0s (101010…), followed by a start frame delimiter (SFD). It allows the PHY to lock onto the bit stream.",
+            "explanation": "It is part of the Physical layer, but often discussed with Data Link framing."
+        },
+        {
+            "id": 18,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'VLAN tagging' (802.1Q) and how does it modify the Ethernet frame?",
+            "output": "Adds a 4‑byte tag between source MAC and EtherType fields to carry VLAN ID and priority.",
+            "answer": "The tag contains a 12‑bit VLAN ID and 3‑bit priority (PCP). The frame size increases to 1522 bytes, and the CRC is recomputed.",
+            "explanation": "VLAN tagging allows multiple VLANs to share the same physical link (trunk)."
+        },
+        {
+            "id": 19,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the difference between 'unicast', 'broadcast', and 'multicast' at the Data Link layer?",
+            "output": "Unicast: to a single MAC; broadcast: to all (FF:FF:FF:FF:FF:FF); multicast: to a group address.",
+            "answer": "Broadcast frames are sent to all devices on the same network segment. Multicast frames are received only by devices that have subscribed to that group.",
+            "explanation": "Switches flood broadcast and unknown unicast frames, but forward multicast based on IGMP snooping."
+        },
+        {
+            "id": 20,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'flow control' in the Data Link layer and why is it needed?",
+            "output": "To prevent a fast sender from overwhelming a slow receiver.",
+            "answer": "Flow control mechanisms (e.g., Stop‑and‑Wait, Sliding Window) manage the rate of transmission. Without it, the receiver's buffer may overflow.",
+            "explanation": "Flow control can be implemented at both Data Link and Transport layers."
+        },
+        {
+            "id": 21,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'bit stuffing' and 'byte stuffing' in framing?",
+            "output": "Bit stuffing inserts a 0 after five 1s; byte stuffing inserts an escape character before a flag byte.",
+            "answer": "Both are used to avoid confusion with frame delimiters. Bit stuffing is used in HDLC; byte stuffing in PPP.",
+            "explanation": "Framing techniques ensure that control sequences inside the data do not disrupt frame boundaries."
+        },
+        {
+            "id": 22,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What does ARP (Address Resolution Protocol) do at the Data Link layer?",
+            "output": "It maps an IP address to a MAC address on the local network.",
+            "answer": "ARP operates at the boundary between Network and Data Link layers. When a host knows an IP address but not the MAC, it sends an ARP broadcast request.",
+            "explanation": "The reply contains the MAC address, which is then cached."
+        },
+        {
+            "id": 23,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'RARP' (Reverse ARP)?",
+            "output": "Maps a MAC address to an IP address (obsolete, replaced by DHCP).",
+            "answer": "RARP was used by diskless workstations to discover their IP address from a server.",
+            "explanation": "Now DHCP provides this function."
+        },
+        {
+            "id": 24,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'Spanning Tree Protocol' (STP) and why is it needed at the Data Link layer?",
+            "output": "STP prevents loops in redundant switched networks by blocking redundant paths.",
+            "answer": "Without STP, broadcast frames would loop forever, causing a broadcast storm. STP creates a loop‑free logical topology.",
+            "explanation": "It operates by exchanging BPDU frames between switches."
+        },
+        {
+            "id": 25,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is a 'collision domain' and how does the Data Link layer handle it?",
+            "output": "A network segment where simultaneous transmissions collide; switches separate collision domains.",
+            "answer": "In a hub‑based network, all ports are in one collision domain. Switches create a separate collision domain per port, allowing full‑duplex.",
+            "explanation": "The MAC sublayer (CSMA/CD) was designed to manage collisions in shared media."
+        },
+        {
+            "id": 26,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is a 'broadcast domain' and how does the Data Link layer control it?",
+            "output": "A network segment where a broadcast frame reaches all nodes; routers separate broadcast domains.",
+            "answer": "Switches do not separate broadcast domains by default; all ports on a switch belong to the same broadcast domain. VLANs create multiple broadcast domains.",
+            "explanation": "The Data Link layer broadcasts are limited by the scope of the VLAN or LAN."
+        },
+        {
+            "id": 27,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'source address learning' in a switch?",
+            "output": "The switch records the source MAC address of incoming frames and associates it with the incoming port.",
+            "answer": "Learning builds the MAC address table (CAM table). After learning, the switch forwards frames destined to that MAC only to that port.",
+            "explanation": "This is the basis of bridging and switching."
+        },
+        {
+            "id": 28,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the typical error detection method used in Ethernet frames?",
+            "output": "CRC‑32 (Cyclic Redundancy Check, 32 bits).",
+            "answer": "The Ethernet trailer contains a 4‑byte CRC. The sender computes it over the frame; the receiver recomputes it. If mismatch, the frame is discarded.",
+            "explanation": "CRC is more robust than simple checksums."
+        },
+        {
+            "id": 29,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'cut‑through' and 'store‑and‑forward' switching at the Data Link layer?",
+            "output": "Cut‑through: forwards after reading destination MAC; store‑and‑forward: receives entire frame, checks CRC, then forwards.",
+            "answer": "Cut‑through has lower latency but may forward corrupt frames; store‑and‑forward ensures integrity.",
+            "explanation": "Many switches support both modes (adaptive switching)."
+        },
+        {
+            "id": 30,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'MACsec' (IEEE 802.1AE)?",
+            "output": "A security protocol that provides encryption and authentication at the Data Link layer.",
+            "answer": "MACsec encrypts Ethernet frames between two devices, protecting against eavesdropping and tampering on the local network.",
+            "explanation": "Used in data centers and enterprise networks for link‑level security."
+        },
+        {
+            "id": 31,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the maximum number of MAC addresses a switch can learn?",
+            "output": "Depends on the switch's CAM table size, typically 8k to 128k entries.",
+            "answer": "When the CAM table overflows, the switch floods frames (acts like a hub), which can be a security vulnerability.",
+            "explanation": "CAM table overflow attacks are used for network sniffing."
+        },
+        {
+            "id": 32,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the 'EtherType/Length' field in an Ethernet frame?",
+            "output": "Indicates the network layer protocol (e.g., IPv4 = 0x0800) or the frame length (if <= 1500).",
+            "answer": "Values >= 1536 indicate EtherType; values ≤ 1500 indicate the length (used in IEEE 802.3 frame).",
+            "explanation": "EtherType allows multiplexing of different network layer protocols (IP, ARP, etc.)."
+        },
+        {
+            "id": 33,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the difference between an 'unmanaged switch' and a 'managed switch'?",
+            "output": "Unmanaged: plug‑and‑play, no configuration; managed: supports VLANs, STP, SNMP, port mirroring, etc.",
+            "answer": "Managed switches allow network administrators to monitor and configure the switch, often via a CLI or web interface.",
+            "explanation": "Managed switches are used in enterprise networks; unmanaged in homes and small offices."
+        },
+        {
+            "id": 34,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What protocol does Ethernet use for flow control on full‑duplex links?",
+            "output": "IEEE 802.3x PAUSE frames.",
+            "answer": "If a receiver's buffer is full, it sends a PAUSE frame to the sender, asking it to stop transmitting for a specified duration.",
+            "explanation": "This is flow control at the Data Link layer."
+        },
+        {
+            "id": 35,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the role of the Data Link layer in error recovery?",
+            "output": "It can detect errors and discard frames; recovery is often left to higher layers (e.g., TCP).",
+            "answer": "Some Data Link protocols (e.g., HDLC) support retransmission (go‑back‑N), but Ethernet does not. In modern networks, TCP handles retransmissions.",
+            "explanation": "Local link errors are rare, so link‑layer retransmission is often unnecessary."
+        },
+        {
+            "id": 36,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'FCoE' (Fibre Channel over Ethernet)?",
+            "output": "A protocol that encapsulates Fibre Channel frames into Ethernet frames, allowing storage traffic over Ethernet.",
+            "answer": "FCoE requires lossless Ethernet (DCB) and specific NICs. It consolidates LAN and SAN traffic.",
+            "explanation": "It operates at the Data Link layer, replacing Fibre Channel switches."
+        },
+        {
+            "id": 37,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the main function of the Data Link layer in a WAN (e.g., PPP)?",
+            "output": "To provide reliable framing and error detection over serial links.",
+            "answer": "WAN Data Link protocols (PPP, HDLC) are used between routers. They handle link establishment, authentication, and multiprotocol support.",
+            "explanation": "Unlike Ethernet, these are point‑to‑point and do not require MAC addresses."
+        },
+        {
+            "id": 38,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'LCP' (Link Control Protocol) in PPP?",
+            "output": "A subprotocol of PPP that establishes, configures, and tests the data link connection.",
+            "answer": "LCP is used for link negotiation, authentication (PAP/CHAP), and error detection (Magic Number).",
+            "explanation": "After LCP is up, network layer protocols (NCP) are configured."
+        },
+        {
+            "id": 39,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'Ethernet over SDH' (EoS)?",
+            "output": "A technique to carry Ethernet frames over SONET/SDH networks, treating them as a point‑to‑point link.",
+            "answer": "EoS uses GFP (Generic Framing Procedure) to map Ethernet frames into SDH virtual containers.",
+            "explanation": "Common in older telecom backbones before Ethernet became dominant."
+        },
+        {
+            "id": 40,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "Which layer provides the interface to the physical medium?",
+            "output": "The Data Link layer (specifically the MAC sublayer).",
+            "answer": "The MAC sublayer controls access to the physical medium (CSMA/CD, CSMA/CA). The Physical layer handles the actual bits.",
+            "explanation": "The Data Link layer builds frames from bits received from the Physical layer."
+        },
+        {
+            "id": 41,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the 'VLAN ID' field in 802.1Q tags?",
+            "output": "To identify which VLAN a frame belongs to (12 bits, 4094 possible VLANs).",
+            "answer": "VLAN 1 is the default; VLANs 0 and 4095 are reserved. The switch uses the VLAN ID to forward frames only to ports in that VLAN.",
+            "explanation": "VLANs are a Data Link layer feature that provides logical segmentation."
+        },
+        {
+            "id": 42,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is 'MAC flooding' attack?",
+            "output": "An attack that floods a switch with many fake MAC addresses to overflow its CAM table.",
+            "answer": "When the CAM table is full, the switch begins flooding all frames (like a hub), allowing the attacker to sniff traffic.",
+            "explanation": "Mitigation includes port security and MAC limiting."
+        },
+        {
+            "id": 43,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is the typical sequence for sending an Ethernet frame?",
+            "output": "Preamble → SFD → Destination MAC → Source MAC → EtherType → Payload → CRC.",
+            "answer": "The preamble (7 bytes) and SFD (1 byte) are Physical layer overhead. Then the Data Link header, payload, and CRC.",
+            "explanation": "The receiver uses the preamble to synchronise."
+        },
+        {
+            "id": 44,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'jumbo frame' and why is it used?",
+            "output": "An Ethernet frame with payload larger than 1500 bytes (up to 9000 bytes).",
+            "answer": "Jumbo frames reduce overhead (fewer frames per byte) and CPU interrupts, improving throughput in data centers.",
+            "explanation": "All devices on the VLAN must support jumbo frames, or they will be dropped."
+        },
+        {
+            "id": 45,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'MAC address' and 'EUI‑64'?",
+            "output": "MAC is 48 bits; EUI‑64 is 64 bits, used in IPv6 address generation from MAC.",
+            "answer": "EUI‑64 is derived by inserting 0xFFFE into the middle of the MAC address and flipping the U/L bit.",
+            "explanation": "The Data Link layer uses MAC addresses, not EUI‑64 directly."
+        },
+        {
+            "id": 46,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "What is a 'switch port' in the context of the Data Link layer?",
+            "output": "The physical interface on a switch where a device connects.",
+            "answer": "Each port is a separate collision domain. The switch learns MAC addresses on each port and forwards frames accordingly.",
+            "explanation": "Ports can be configured for access (single VLAN) or trunk (multiple VLANs)."
+        },
+        {
+            "id": 47,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is 'CDP' (Cisco Discovery Protocol) and what layer does it operate?",
+            "output": "A Cisco proprietary protocol that discovers neighbour devices; operates at Data Link layer.",
+            "answer": "CDP runs directly over Ethernet frames (EtherType 0x2000) and exchanges device information without needing IP addresses.",
+            "explanation": "Similar protocols: LLDP (IEEE 802.1AB) is standards‑based."
+        },
+        {
+            "id": 48,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Advanced",
+            "question": "What is the maximum frame size for standard Ethernet including preamble?",
+            "output": "1518 bytes (without preamble/SFD) + 8 bytes preamble/SFD = 1526 bytes on the wire.",
+            "answer": "The preamble and SFD are only counted for the physical transmission; the MAC layer sees 1518 bytes.",
+            "explanation": "Minimum frame size is 64 bytes to ensure collision detection (now obsolete)."
+        },
+        {
+            "id": 49,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Beginner",
+            "question": "Why does the Data Link layer need to support multiple network layer protocols?",
+            "output": "So that IP, ARP, IPv6, etc. can coexist on the same link.",
+            "answer": "The EtherType field (or LLC) identifies which protocol is inside the frame. This allows a single interface to carry different network layer PDUs.",
+            "explanation": "This is called multiplexing."
+        },
+        {
+            "id": 50,
+            "topic": "Role of Data Link Layer",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'forwarding' and 'filtering' in a switch?",
+            "output": "Forwarding: sending frame out a port; filtering: not sending frame out a port (because destination is on the same port).",
+            "answer": "If the destination MAC is on the same port as the source, the switch filters (drops) the frame. Otherwise, it forwards to the port where the MAC is located (or floods if unknown).",
+            "explanation": "This reduces unnecessary traffic."
+        },
+        {
+            "id": 51,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is flow control in data communication?",
+            "output": "A mechanism to prevent a fast sender from overwhelming a slow receiver.",
+            "answer": "Flow control ensures that the sender transmits data at a rate that the receiver can handle. It can be implemented at Data Link or Transport layers.",
+            "explanation": "Without flow control, the receiver's buffer may overflow and data may be lost."
+        },
+        {
+            "id": 52,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Explain the Stop‑and‑Wait flow control protocol.",
+            "output": "Sender transmits one frame and waits for an acknowledgement (ACK) before sending the next.",
+            "answer": "After sending a frame, the sender starts a timer. If an ACK is received, the next frame is sent; if timeout occurs, the frame is retransmitted.",
+            "explanation": "Simple but inefficient because the channel is idle during the wait time."
+        },
+        {
+            "id": 53,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the main inefficiency of Stop‑and‑Wait?",
+            "output": "Low link utilisation, especially on high‑speed or long‑distance links.",
+            "answer": "The sender must wait for the ACK before sending the next frame. The propagation delay limits throughput. Utilisation = (frame size) / (2 × propagation delay × bit rate).",
+            "explanation": "On a satellite link (500 ms RTT), Stop‑and‑Wait would be extremely slow."
+        },
+        {
+            "id": 54,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the Sliding Window protocol?",
+            "output": "Allows the sender to transmit multiple frames before receiving an ACK, using a window of sequence numbers.",
+            "answer": "The window size limits the number of outstanding (unacknowledged) frames. The receiver sends cumulative ACKs, and the window slides forward.",
+            "explanation": "Sliding window improves throughput by allowing pipelined transmission."
+        },
+        {
+            "id": 55,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the difference between Go‑Back‑N and Selective Repeat?",
+            "output": "Go‑Back‑N retransmits all frames from the lost frame onward; Selective Repeat retransmits only lost frames.",
+            "answer": "Go‑Back‑N is simpler but less efficient in lossy channels; Selective Repeat requires more buffer management and is more efficient.",
+            "explanation": "Both are error control mechanisms used with sliding window flow control."
+        },
+        {
+            "id": 56,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "In Stop‑and‑Wait, what happens if the ACK is lost?",
+            "output": "The sender times out and retransmits the same frame; the receiver detects duplicate and discards it, resending the ACK.",
+            "answer": "The sender uses a timer. If no ACK arrives before the timer expires, it retransmits. The receiver must handle duplicates.",
+            "explanation": "This requires sequence numbers (0 and 1 alternating) to distinguish duplicate frames."
+        },
+        {
+            "id": 57,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "How many sequence numbers are needed in Stop‑and‑Wait?",
+            "output": "2 (0 and 1).",
+            "answer": "Because only one frame is outstanding at a time, two sequence numbers are sufficient to distinguish a new frame from a retransmitted one.",
+            "explanation": "Using modulo‑2 arithmetic, sequence numbers alternate."
+        },
+        {
+            "id": 58,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the maximum throughput of Stop‑and‑Wait in terms of bandwidth‑delay product?",
+            "output": "Throughput ≤ (frame size) / (RTT), or less if frames are small.",
+            "answer": "For a 1500‑byte frame over a 100 Mbps link with 50 ms RTT, maximum throughput = 1500*8 / 0.05 = 240 kbps, which is only 0.24% of link capacity.",
+            "explanation": "This is why Sliding Window is used on high‑speed links."
+        },
+        {
+            "id": 59,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of a timer in Stop‑and‑Wait?",
+            "output": "To detect lost frames or ACKs and trigger retransmission.",
+            "answer": "The timer is set to a value slightly larger than the expected round‑trip time. If it expires, the sender assumes the frame or ACK was lost and retransmits.",
+            "explanation": "Choosing the right timeout is critical to avoid unnecessary retransmissions."
+        },
+        {
+            "id": 60,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between flow control and error control?",
+            "output": "Flow control prevents receiver overload; error control ensures data integrity via ACKs and retransmissions.",
+            "answer": "Flow control is about matching sender and receiver speeds; error control handles lost or corrupted frames. Both are often combined (e.g., in TCP).",
+            "explanation": "Sliding window with ACKs serves both purposes."
+        },
+        {
+            "id": 61,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the optimal window size for a Sliding Window protocol?",
+            "output": "At least the bandwidth‑delay product (BDP) divided by frame size.",
+            "answer": "To fully utilise the link, the window size should be ≥ (bandwidth × RTT) / (frame size). This allows enough frames in flight to keep the pipe full.",
+            "explanation": "If the window is smaller than BDP, the sender will wait for ACKs, leaving idle time."
+        },
+        {
+            "id": 62,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is a 'cumulative ACK' in sliding window?",
+            "output": "An ACK that acknowledges all frames up to a certain sequence number.",
+            "answer": "For example, ACK 5 means frames 0–4 have been received correctly. This reduces the number of ACK packets.",
+            "explanation": "Cumulative ACKs are used in TCP and many Data Link protocols."
+        },
+        {
+            "id": 63,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is 'piggybacking' in the context of sliding window?",
+            "output": "Including the ACK for received data in the header of a data frame going in the opposite direction.",
+            "answer": "Piggybacking saves bandwidth by combining data and ACK in one frame. Used in TCP and some data link protocols.",
+            "explanation": "Ack delay (delayed ACK) is a related concept."
+        },
+        {
+            "id": 64,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the 'maximum window size' for a protocol using n‑bit sequence numbers?",
+            "output": "For Go‑Back‑N, max window = 2ⁿ⁻¹; for Selective Repeat, max window = 2ⁿ⁻¹ (with different constraints).",
+            "answer": "In Go‑Back‑N, the window size must be ≤ 2ⁿ⁻¹ to avoid ambiguity when a frame is lost. In Selective Repeat, the window size must be ≤ 2ⁿ⁻¹ as well.",
+            "explanation": "This ensures that sequence numbers do not wrap around incorrectly."
+        },
+        {
+            "id": 65,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What happens to the sliding window when a frame is acknowledged?",
+            "output": "The window slides forward, and a new frame can be transmitted.",
+            "answer": "The sender removes acknowledged frames from the window and may send new frames up to the window size limit.",
+            "explanation": "The window size can be fixed or dynamic (adaptive)."
+        },
+        {
+            "id": 66,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'sender window' and 'receiver window'?",
+            "output": "Sender window limits outstanding frames; receiver window limits buffer space for out‑of‑order frames.",
+            "answer": "The receiver window is announced to the sender (e.g., TCP receive window). The sender must not exceed the smaller of its own window and the receiver's advertised window.",
+            "explanation": "This combines flow control (receiver window) with congestion control (sender window)."
+        },
+        {
+            "id": 67,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is 'n‑step backward' in Go‑Back‑N?",
+            "output": "After detecting a lost frame, the receiver discards all subsequent frames until the missing frame is retransmitted.",
+            "answer": "The sender retransmits the missing frame and all following frames (hence Go‑Back‑N). This wastes bandwidth but is simple.",
+            "explanation": "Go‑Back‑N requires less receiver buffering than Selective Repeat."
+        },
+        {
+            "id": 68,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the maximum size of a sequence number field in bits for Stop‑and‑Wait?",
+            "output": "1 bit (sequence numbers 0 and 1).",
+            "answer": "Because only two sequence numbers are sufficient to distinguish a new frame from a retransmission.",
+            "explanation": "If more bits are used, they are not needed but may be allocated."
+        },
+        {
+            "id": 69,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "Why does Stop‑and‑Wait require more overhead in terms of acknowledgements?",
+            "output": "It sends an ACK for every frame, whereas sliding window uses cumulative ACKs.",
+            "answer": "Stop‑and‑Wait uses one ACK per data frame, increasing control overhead. Sliding window can reduce ACK frequency.",
+            "explanation": "The overhead is more significant on high‑speed links."
+        },
+        {
+            "id": 70,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "In a network with 10 ms RTT and 1 Mbps link, what is the maximum throughput of Stop‑and‑Wait with 1000‑byte frames?",
+            "output": "Throughput = (1000×8) / 0.01 = 800,000 bps = 0.8 Mbps.",
+            "answer": "Utilisation = 0.8 / 1 = 80%. The idle time is 20%.",
+            "explanation": "If RTT were larger, throughput would drop."
+        },
+        {
+            "id": 71,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Which flow control method is used by the original HDLC protocol?",
+            "output": "Sliding window (with go‑back‑N or selective reject).",
+            "answer": "HDLC (High‑Level Data Link Control) uses a 3‑bit or 7‑bit sequence number and sliding window flow control.",
+            "explanation": "HDLC is the basis for many data link protocols (LAPB, LAPD)."
+        },
+        {
+            "id": 72,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the maximum allowed window size in TCP (Transport layer) compared to data link?",
+            "output": "TCP window size can be up to 1 Gbyte using window scaling; data link windows are typically small (e.g., 7 or 127).",
+            "answer": "TCP uses a 16‑bit window field (up to 65535 bytes), extended by window scaling option. Data link protocols have small windows because of limited sequence number bits.",
+            "explanation": "Data link layer operates over short single-hop links, so a large window is not required."
+        },
+        {
+            "id": 73,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the 'pipeline' effect in sliding window?",
+            "output": "Multiple frames are in transit simultaneously, filling the bandwidth‑delay product.",
+            "answer": "This reduces the idle time compared to Stop‑and‑Wait, allowing efficient use of high‑bandwidth, long‑delay links.",
+            "explanation": "Pipelining is essential for high performance."
+        },
+        {
+            "id": 74,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Does Stop‑and‑Wait provide error control?",
+            "output": "Yes, it uses ACKs and timeouts to retransmit lost or corrupted frames.",
+            "answer": "Stop‑and‑Wait is both a flow control and error control protocol. It ensures reliable delivery over an unreliable link.",
+            "explanation": "It is used in some simple protocols (e.g., XMODEM)."
+        },
+        {
+            "id": 75,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the maximum throughput of a sliding window protocol with window size W, frame size L, and bit rate R?",
+            "output": "Throughput = min(R, (W * L) / RTT) if W*L <= RTT*R else R.",
+            "answer": "If the window is large enough to keep the pipe full, throughput equals the link rate; otherwise, it is limited by the window.",
+            "explanation": "The bandwidth‑delay product is the key."
+        },
+        {
+            "id": 76,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'Ack' and 'Nack' in sliding window?",
+            "output": "Ack indicates correct receipt; Nack indicates a missing or corrupted frame.",
+            "answer": "Nack (negative acknowledgement) can request specific retransmission. Used in Selective Repeat and some wireless protocols.",
+            "explanation": "Nacks reduce retransmission overhead compared to timeout‑based recovery."
+        },
+        {
+            "id": 77,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Which flow control method is used by Ethernet?",
+            "output": "No flow control at the Data Link layer; Ethernet uses PAUSE frames for backpressure in full‑duplex.",
+            "answer": "Standard Ethernet does not have sliding window; it relies on higher layers (TCP) for flow control.",
+            "explanation": "PAUSE frames are a simple XON/XOFF mechanism."
+        },
+        {
+            "id": 78,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is 'piggybacked ACK' in TCP?",
+            "output": "An ACK sent along with data in the same segment.",
+            "answer": "Piggybacking reduces the number of segments, improving efficiency. TCP uses delayed ACKs for this purpose.",
+            "explanation": "The same concept applies to data link protocols like HDLC (LAPB)."
+        },
+        {
+            "id": 79,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "If the RTT is 100 ms and link rate is 10 Mbps, what window size (in frames of 1000 bytes) is needed to achieve 90% utilisation?",
+            "output": "Bandwidth‑delay product = 10e6 × 0.1 = 1,000,000 bits = 125,000 bytes; frames of 1000 bytes → 125 frames; 90% → ≈113 frames.",
+            "answer": "Window size must be at least (utilisation × BDP / frame size).",
+            "explanation": "Stop‑and‑Wait would give only 1 frame window, achieving 0.8% utilisation."
+        },
+        {
+            "id": 80,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the main advantage of sliding window over Stop‑and‑Wait?",
+            "output": "Higher throughput and better utilisation of high‑speed links.",
+            "answer": "Sliding window allows multiple frames in flight, reducing idle time. It also supports cumulative ACKs.",
+            "explanation": "It is the basis for TCP's flow and congestion control."
+        },
+        {
+            "id": 81,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is 'fast retransmit' in TCP (related to sliding window)?",
+            "output": "A mechanism that retransmits a lost segment before the timer expires, when three duplicate ACKs are received.",
+            "answer": "This improves loss recovery. The duplicate ACKs indicate that out‑of‑order packets are arriving, suggesting a gap.",
+            "explanation": "It is an enhancement of sliding window error control."
+        },
+        {
+            "id": 82,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the effect of a large window on memory requirements at the receiver?",
+            "output": "The receiver needs buffer space to hold out‑of‑order frames (for Selective Repeat).",
+            "answer": "In Go‑Back‑N, the receiver only needs to buffer one frame; in Selective Repeat, it must buffer up to the window size.",
+            "explanation": "Memory constraints may limit the window size in practice."
+        },
+        {
+            "id": 83,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the sequence number range for a 3‑bit sliding window?",
+            "output": "0 to 7 (modulo 8).",
+            "answer": "The maximum window size for Go‑Back‑N is 7 (2³⁻¹). For Selective Repeat, also 7? Actually for 3 bits, max window = 4? Wait: For n=3, 2^(n‑1)=4. Correct.",
+            "explanation": "Typically HDLC uses 3 or 7 bits."
+        },
+        {
+            "id": 84,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'window scaling' and 'sliding window'?",
+            "output": "Window scaling increases the maximum window size in TCP; sliding window is the basic mechanism.",
+            "answer": "Window scaling is an option in TCP that allows windows larger than 64 KB by applying a shift factor.",
+            "explanation": "It is needed for high‑speed, long‑delay links."
+        },
+        {
+            "id": 85,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "In Go‑Back‑N, if a frame is lost, how many frames are retransmitted?",
+            "output": "The lost frame and all subsequent frames that had been sent.",
+            "answer": "The receiver discards all frames after the lost one until the retransmission arrives. The sender goes back to the lost frame and sends it again, then continues.",
+            "explanation": "This wastes bandwidth but simplifies receiver buffering."
+        },
+        {
+            "id": 86,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Which layer typically implements Stop‑and‑Wait?",
+            "output": "Data Link layer and Transport layer (e.g., TCP uses sliding window, not Stop‑and‑Wait).",
+            "answer": "Stop‑and‑Wait is used in simple data link protocols (e.g., XMODEM) and some wireless protocols.",
+            "explanation": "It is not used in modern high‑speed networks."
+        },
+        {
+            "id": 87,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the 'idle time' in Stop‑and‑Wait expressed as a fraction?",
+            "output": "Idle fraction = 1 − (frame transmission time / (frame transmission time + 2×propagation delay)).",
+            "answer": "The sender spends idle time waiting for the ACK. The utilisation is low when propagation delay dominates.",
+            "explanation": "This is why Stop‑and‑Wait is inefficient for long‑distance links."
+        },
+        {
+            "id": 88,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the maximum sequence number required for a sliding window with window size W and modulo 2^n?",
+            "output": "n must satisfy 2^n ≥ W+1 for Go‑Back‑N, and 2^n ≥ 2W for Selective Repeat.",
+            "answer": "To avoid ambiguity, the sequence number space must be larger than the window size. For Selective Repeat, the window size ≤ 2^(n-1).",
+            "explanation": "This is to prevent confusion between old and new frames after wrap‑around."
+        },
+        {
+            "id": 89,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the difference between 'positive ACK' and 'negative ACK'?",
+            "output": "Positive ACK: receiver confirms receipt; negative ACK: receiver requests retransmission of a specific frame.",
+            "answer": "Positive ACKs are more common; negative ACKs are used in protocols where errors are expected (e.g., wireless).",
+            "explanation": "NACKs can improve efficiency because they don't require timers for every frame."
+        },
+        {
+            "id": 90,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the 'timeout' value typically set to in Stop‑and‑Wait?",
+            "output": "Slightly greater than the expected round‑trip time (RTT).",
+            "answer": "If set too high, recovery is slow; if too low, unnecessary retransmissions occur. Adaptive timeouts are common.",
+            "explanation": "In TCP, the timeout is based on measured RTT and variance."
+        },
+        {
+            "id": 91,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the effect of duplicate ACKs in sliding window?",
+            "output": "They indicate that a frame might be lost, triggering fast retransmit (without waiting for timeout).",
+            "answer": "Duplicate ACKs occur when the receiver receives out‑of‑order segments. Three duplicate ACKs are interpreted as a loss.",
+            "explanation": "This improves performance in TCP."
+        },
+        {
+            "id": 92,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Which flow control method is used in Bluetooth?",
+            "output": "A sliding window mechanism (with Selective Repeat).",
+            "answer": "Bluetooth uses a sliding window to manage flow control and retransmission between master and slave.",
+            "explanation": "The window size is small (e.g., 4 frames)."
+        },
+        {
+            "id": 93,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the formula for throughput of Stop‑and‑Wait?",
+            "output": "Throughput = L / (L/R + 2τ), where L = frame size, R = bit rate, τ = propagation delay.",
+            "answer": "The total time per frame = transmission time + 2 × propagation delay + ACK transmission time (negligible).",
+            "explanation": "ACK transmission time is often ignored if small."
+        },
+        {
+            "id": 94,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "What is the maximum window size for a 5‑bit sequence number in Go‑Back‑N?",
+            "output": "2⁴ = 16? Wait: For n‑bit, max window = 2^(n-1). For n=5, 2^(4)=16.",
+            "answer": "Yes, the maximum window is 16. For Selective Repeat, also 16? Actually Selective Repeat window ≤ 2^(n-1) as well.",
+            "explanation": "This prevents the receiver from being confused by wrap‑around."
+        },
+        {
+            "id": 95,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "Why does Stop‑and‑Wait use only two sequence numbers?",
+            "output": "Because only one frame can be outstanding; the sender alternates between 0 and 1.",
+            "answer": "The sequence number distinguishes a retransmitted frame from a new one. If only one number were used, duplicates could not be detected.",
+            "explanation": "This is the simplest reliable data transfer protocol."
+        },
+        {
+            "id": 96,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the 'backward pressure' mechanism of flow control?",
+            "output": "The receiver sends a special control frame to the sender to stop transmission.",
+            "answer": "This is used in XON/XOFF and in Ethernet PAUSE frames. It is not a sliding window.",
+            "explanation": "Sliding window is more efficient because it uses positive ACKs."
+        },
+        {
+            "id": 97,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "In Selective Repeat, what happens if an ACK is lost for a frame that is not the oldest?",
+            "output": "The sender may still receive subsequent ACKs (cumulative) and advance the window; the missing ACK is not harmful unless it causes timeout.",
+            "answer": "If the ACK for a non‑oldest frame is lost, the sender will later receive a cumulative ACK from a higher frame, which implies all previous frames are ACKed.",
+            "explanation": "This is why cumulative ACKs are used."
+        },
+        {
+            "id": 98,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Beginner",
+            "question": "What is the main reason Stop‑and‑Wait is not used in high‑speed networks?",
+            "output": "Low throughput due to high bandwidth‑delay product.",
+            "answer": "The idle time waiting for ACKs wastes most of the available bandwidth. Sliding window pipelines frames to keep the link busy.",
+            "explanation": "On a 10 Gbps link with 10 ms RTT, Stop‑and‑Wait would achieve only about 1.2 Mbps for 1500‑byte frames."
+        },
+        {
+            "id": 99,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the 'receiver window' in a sliding window protocol?",
+            "output": "To inform the sender of the receiver's available buffer space.",
+            "answer": "The receiver window (advertised window) is sent in ACK frames. The sender must not exceed this limit.",
+            "explanation": "This is flow control, separate from error control."
+        },
+        {
+            "id": 100,
+            "topic": "Flow control: Stop-and-Wait, Sliding Window",
+            "difficulty": "Advanced",
+            "question": "If the frame size is 1000 bytes, RTT is 20 ms, and link rate is 100 Mbps, what window size is needed to achieve full utilisation?",
+            "output": "BDP = 100e6 × 0.02 = 2,000,000 bits = 250,000 bytes; frames = 250,000 / 1000 = 250 frames.",
+            "answer": "A window of 250 frames is required. Stop‑and‑Wait would only give 1 frame, achieving 0.4% utilisation.",
+            "explanation": "Sliding window must have a large enough window to fill the pipe."
+        },
+        {
+            "id": 101,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is error detection?",
+            "output": "The ability to detect if data has been corrupted during transmission.",
+            "answer": "Error detection adds redundant bits to the data. The receiver computes the same redundancy and compares; if mismatch, an error is declared.",
+            "explanation": "Error detection does not correct errors; it only signals that corruption occurred."
+        },
+        {
+            "id": 102,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is a parity bit?",
+            "output": "An extra bit added to make the number of 1s either even (even parity) or odd (odd parity).",
+            "answer": "Single parity can detect an odd number of bit errors. For example, even parity sets the parity bit so total 1s count is even.",
+            "explanation": "It is simple but not robust; two bit errors cancel out and go undetected."
+        },
+        {
+            "id": 103,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the main limitation of single parity?",
+            "output": "Cannot detect an even number of bit errors.",
+            "answer": "If two bits flip, the parity remains unchanged, so the error is not detected. Also, it cannot locate which bit is wrong.",
+            "explanation": "That's why more advanced codes like CRC are used."
+        },
+        {
+            "id": 104,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is two‑dimensional parity?",
+            "output": "A parity block where rows and columns each have a parity bit; can detect and correct single‑bit errors.",
+            "answer": "The data is arranged in a matrix; row and column parity bits are added. This can locate the exact bit in error (if only one error).",
+            "explanation": "Used in some memory systems (ECC memory)."
+        },
+        {
+            "id": 105,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What does CRC stand for?",
+            "output": "Cyclic Redundancy Check.",
+            "answer": "CRC is a powerful error detection code based on polynomial division. It is widely used in Ethernet, WiFi, and storage.",
+            "explanation": "CRC can detect most burst errors."
+        },
+        {
+            "id": 106,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "How does CRC work at a high level?",
+            "output": "The sender treats the data as a polynomial and divides by a generator polynomial; the remainder is appended as the CRC.",
+            "answer": "The receiver performs the same division. If the remainder is zero, the data is likely correct. Otherwise, an error is detected.",
+            "explanation": "The generator polynomial determines the error detection capabilities."
+        },
+        {
+            "id": 107,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is a common generator polynomial for CRC‑32?",
+            "output": "0x04C11DB7 (or 0xEDB88320 in reversed form).",
+            "answer": "CRC‑32 is used in Ethernet, PNG, and many other standards. It detects all errors of length ≤32 bits and many longer bursts.",
+            "explanation": "The polynomial is chosen to maximise error detection."
+        },
+        {
+            "id": 108,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is a checksum?",
+            "output": "A simple error detection method that sums the data (often in 16‑bit words) and appends the sum (or its complement).",
+            "answer": "The receiver recomputes the sum and compares. Checksums are used in IP, TCP, UDP.",
+            "explanation": "Checksums are weaker than CRC but faster to compute."
+        },
+        {
+            "id": 109,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between checksum and CRC?",
+            "output": "Checksum is based on addition; CRC is based on polynomial division, giving better burst error detection.",
+            "answer": "CRC can detect more types of errors, especially burst errors, and is more robust. Checksum is simpler and used in software for speed.",
+            "explanation": "Ethernet uses CRC‑32; IP uses a 16‑bit one's complement checksum."
+        },
+        {
+            "id": 110,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the probability of undetected error for a 16‑bit checksum?",
+            "output": "About 1 in 2¹⁶ (1/65536) for random errors, but worse for systematic errors.",
+            "answer": "Checksums are not as strong as CRC, which has a probability of undetected error of about 1/2ⁿ for n‑bit CRC under certain assumptions.",
+            "explanation": "That's why CRC is preferred for data links."
+        },
+        {
+            "id": 111,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is a 'burst error'?",
+            "output": "A contiguous sequence of bits where the first and last are in error, and any number of bits in between may be in error.",
+            "answer": "Burst errors are common in wireless and storage media. CRCs are very effective at detecting burst errors.",
+            "explanation": "A CRC with degree n can detect all burst errors of length ≤ n."
+        },
+        {
+            "id": 112,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the 'Internet checksum' used in IP?",
+            "output": "A 16‑bit one's complement sum of the header words.",
+            "answer": "The sender computes the checksum and stores it in the header. The receiver computes the checksum over the header (including the checksum field); if the result is all 1s (0xFFFF), the header is presumed intact.",
+            "explanation": "It protects only the header, not the payload, in IPv4; in IPv6, the header checksum is removed."
+        },
+        {
+            "id": 113,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the difference between longitudinal parity and two‑dimensional parity?",
+            "output": "Longitudinal parity is a second parity over the same bits across multiple blocks, like a column parity.",
+            "answer": "Two‑dimensional parity arranges data in rows and columns, adding row parity and column parity. This can detect and correct single errors.",
+            "explanation": "Used in some RAID levels (RAID 4,5)."
+        },
+        {
+            "id": 114,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "Which error detection method is used in Ethernet frames?",
+            "output": "CRC‑32.",
+            "answer": "The Ethernet trailer contains a 4‑byte CRC (32 bits). It provides strong error detection.",
+            "explanation": "The CRC is computed over the entire frame (header + payload)."
+        },
+        {
+            "id": 115,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of initialising the CRC register to all 1s (or 0xFFFFFFFF) in many CRC implementations?",
+            "output": "To detect leading zeros in the message; otherwise, leading zeros would not affect the CRC.",
+            "answer": "If the CRC register started at 0, messages with leading zeros would have the same CRC, causing missed detections. Initialising to all 1s solves this.",
+            "explanation": "This is known as the 'initial remainder' or 'preset' value."
+        },
+        {
+            "id": 116,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the generator polynomial of CRC‑16 (used in HDLC)?",
+            "output": "x¹⁶ + x¹² + x⁵ + 1 (0x1021).",
+            "answer": "This polynomial is used in many protocols, including PPP and XMODEM. It detects all single and double errors, and burst errors up to 16 bits.",
+            "explanation": "There are many variants: CRC‑16‑IBM, CRC‑16‑CCITT."
+        },
+        {
+            "id": 117,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What does UDP use for error detection?",
+            "output": "A 16‑bit checksum over the entire datagram (pseudo‑header + UDP header + data).",
+            "answer": "UDP's checksum is optional in IPv4 but mandatory in IPv6. It detects errors in the UDP packet.",
+            "explanation": "If the checksum is zero, it means disabled (IPv4 only)."
+        },
+        {
+            "id": 118,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is a 'hamming distance' and how does it relate to error detection?",
+            "output": "The minimum number of bit flips needed to change one valid codeword into another.",
+            "answer": "If the Hamming distance is d, the code can detect up to d‑1 errors. For CRC, the distance depends on the polynomial.",
+            "explanation": "CRCs are designed to have large Hamming distances for reasonable payload sizes."
+        },
+        {
+            "id": 119,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a 'simple checksum' and a 'Fletcher checksum'?",
+            "output": "Fletcher uses two running sums (sum and sum of sums) for better error detection.",
+            "answer": "Fletcher‑32 or Fletcher‑64 are used in some protocols (e.g., UBI). They are stronger than the Internet checksum but still not as strong as CRC.",
+            "explanation": "Fletcher is faster to compute in software than CRC."
+        },
+        {
+            "id": 120,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "Why is error detection important at the Data Link layer?",
+            "output": "Because physical media are prone to noise, causing bit errors.",
+            "answer": "The Data Link layer must ensure that frames passed to the Network layer are error‑free. Error detection allows discarding corrupt frames.",
+            "explanation": "Upper layers (TCP) may recover lost frames, but some applications (e.g., real‑time) prefer dropping corrupted data rather than retransmitting."
+        },
+        {
+            "id": 121,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is an 'error detection code' (EDC) vs 'error correction code' (ECC)?",
+            "output": "EDC only detects errors; ECC detects and corrects errors.",
+            "answer": "CRC and checksum are EDC; Hamming code and Reed‑Solomon are ECC. EDC uses fewer redundant bits.",
+            "explanation": "Data link typically uses EDC; higher layers may use ECC."
+        },
+        {
+            "id": 122,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the mathematical basis of CRC?",
+            "output": "Polynomial arithmetic over GF(2) (binary finite field).",
+            "answer": "The data is treated as a polynomial with coefficients 0 or 1. The CRC is the remainder of division by the generator polynomial.",
+            "explanation": "This allows efficient hardware implementation using shift registers and XOR gates."
+        },
+        {
+            "id": 123,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "How many bits of redundancy does a 32‑bit CRC add?",
+            "output": "32 bits (4 bytes).",
+            "answer": "For an Ethernet frame, the CRC‑32 trailer is 4 bytes. For a 1500‑byte payload, overhead is about 0.27%.",
+            "explanation": "This is acceptable given the strong detection capability."
+        },
+        {
+            "id": 124,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'odd parity' and 'even parity'?",
+            "output": "Odd parity: total number of 1s odd; even parity: total number of 1s even.",
+            "answer": "Both are equally effective. The choice is convention. Some systems use odd parity to ensure at least one 1 in the byte.",
+            "explanation": "In RS‑232, parity was optional, often set to even."
+        },
+        {
+            "id": 125,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is a 'vertical parity'?",
+            "output": "A parity bit computed over a single character or word (i.e., per byte).",
+            "answer": "This is the standard single parity bit added to each byte. It is weak but simple.",
+            "explanation": "Vertical parity is often combined with longitudinal parity (LRC) for better detection."
+        },
+        {
+            "id": 126,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "Which error detection method is used by SATA (hard drive interface)?",
+            "output": "CRC‑32 for data integrity.",
+            "answer": "SATA uses a 32‑bit CRC for each frame to ensure reliable data transfer between host and drive.",
+            "explanation": "Some protocols also use checksums for command descriptors."
+        },
+        {
+            "id": 127,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the CRC of a message that is exactly divisible by the generator polynomial?",
+            "output": "Zero.",
+            "answer": "The sender appends the remainder so that the transmitted polynomial is divisible. If the receiver gets zero remainder, the frame is assumed correct.",
+            "explanation": "If the remainder is nonzero, an error occurred."
+        },
+        {
+            "id": 128,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the 'burst error detection capability' of a degree‑n CRC?",
+            "output": "It can detect any burst error of length ≤ n.",
+            "answer": "A CRC with n bits can detect any burst error that affects n or fewer consecutive bits. Longer bursts have a small chance of being undetected (1/2ⁿ).",
+            "explanation": "This is one reason CRC is preferred over checksum."
+        },
+        {
+            "id": 129,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is the main advantage of CRC over checksum?",
+            "output": "Better detection of burst errors and random errors.",
+            "answer": "CRC is more mathematically robust and can detect all errors of certain types. Checksums are simpler but weaker.",
+            "explanation": "Most link‑layer protocols use CRC."
+        },
+        {
+            "id": 130,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the 'Fletcher‑32' checksum?",
+            "output": "A 32‑bit checksum using two 16‑bit accumulators, providing better detection than simple sum.",
+            "answer": "It is used in some file systems and network protocols. It detects all single‑bit and most burst errors.",
+            "explanation": "The Fletcher checksum is faster in software than CRC."
+        },
+        {
+            "id": 131,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the probability that a random error goes undetected by a 16‑bit CRC?",
+            "output": "Approximately 2⁻¹⁶ ≈ 1.5×10⁻⁵.",
+            "answer": "For random errors, the undetected error probability is 1/2ⁿ for a perfect code. In practice, it may be slightly higher but still very low.",
+            "explanation": "This is acceptable for most applications."
+        },
+        {
+            "id": 132,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "Does the Data Link layer correct errors or just detect them?",
+            "output": "It typically only detects errors; correction is done by higher layers (TCP) or by error‑correcting codes (e.g., in some modems).",
+            "answer": "Some data link protocols (e.g., HDLC) have optional retransmission (error control). But Ethernet discards corrupt frames without retransmission.",
+            "explanation": "Retransmission is done by TCP or application layer."
+        },
+        {
+            "id": 133,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a 'trapezoidal' checksum and 'Internet checksum'?",
+            "output": "Trapezoidal checksum uses a different addition algorithm (not one's complement).",
+            "answer": "The Internet checksum uses one's complement addition, which has the property that the sum is independent of endianness (if complemented).",
+            "explanation": "One's complement is used because it is easy to implement in software and hardware."
+        },
+        {
+            "id": 134,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is a 'CRC polynomial' represented in hexadecimal?",
+            "output": "For CRC‑32, 0x04C11DB7 (standard) or 0xEDB88320 (reversed).",
+            "answer": "The polynomial is often represented in normal or reversed bit order. The choice affects the bit order of the result.",
+            "explanation": "Different standards use different representations."
+        },
+        {
+            "id": 135,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is the length of a typical TCP checksum?",
+            "output": "16 bits.",
+            "answer": "The TCP checksum is a 16‑bit one's complement sum of the TCP segment (including header and data) and a pseudo‑header.",
+            "explanation": "If the checksum fails, TCP discards the segment and does not send an ACK."
+        },
+        {
+            "id": 136,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "Why is the IP header checksum recomputed at every hop?",
+            "output": "Because the TTL field changes at each router.",
+            "answer": "The IP header checksum protects the header. Since TTL decreases by one per hop, the checksum must be recalculated.",
+            "explanation": "This adds a small computational load but ensures header integrity."
+        },
+        {
+            "id": 137,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the 'CRC‑32C' polynomial used in iSCSI?",
+            "output": "0x1EDC6F41 (Castagnoli polynomial).",
+            "answer": "CRC‑32C has better burst error detection than the standard CRC‑32 for certain packet lengths. It is used in SCTP, iSCSI, and Btrfs.",
+            "explanation": "The Castagnoli polynomial is 0x1EDC6F41 (0x82F63B78 in reversed)."
+        },
+        {
+            "id": 138,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is the simplest error detection method?",
+            "output": "Single parity bit.",
+            "answer": "It adds 1 bit per n bits of data (e.g., 1 parity bit per 8 data bits). It can detect odd numbers of errors.",
+            "explanation": "Still used in some serial protocols (e.g., RS‑232)."
+        },
+        {
+            "id": 139,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'horizontal' and 'vertical' parity?",
+            "output": "Horizontal parity is over bits within a character; vertical parity is over a specific bit position across multiple characters.",
+            "answer": "Together they form two‑dimensional parity. Horizontal parity per byte, vertical parity across bytes.",
+            "explanation": "Vertical parity is also called longitudinal parity."
+        },
+        {
+            "id": 140,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the 'error detection capability' of the Internet checksum regarding scrambled bits?",
+            "output": "It detects any single bit error and many double bit errors, but fails for some patterns (e.g., swapping of 16‑bit words).",
+            "answer": "The Internet checksum is not as strong as CRC; it is only used because of legacy and speed.",
+            "explanation": "However, Ethernet provides CRC, so the IP checksum is redundant for many cases."
+        },
+        {
+            "id": 141,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is the main disadvantage of parity bits?",
+            "output": "Cannot detect even number of errors.",
+            "answer": "If two bits flip, the parity remains correct, so errors are missed. Also, cannot locate the error.",
+            "explanation": "More advanced methods are needed for reliable communication."
+        },
+        {
+            "id": 142,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "How does a CRC‑32 implementation in hardware work?",
+            "output": "Using a linear feedback shift register (LFSR) with XOR gates according to the polynomial.",
+            "answer": "The data is shifted into the LFSR. After all bits, the register contains the CRC remainder.",
+            "explanation": "This is very fast and efficient."
+        },
+        {
+            "id": 143,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is 'CRC co‑polynomial'?",
+            "output": "A related polynomial used for checking the CRC of a message.",
+            "answer": "Not a standard term. Possibly referring to reciprocal polynomial for bit‑reversed implementations.",
+            "explanation": "Sometimes CRC implementations use a reversed polynomial for little‑endian order."
+        },
+        {
+            "id": 144,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "Why does Wi‑Fi (802.11) use CRC?",
+            "output": "Because wireless channels have high error rates; CRC ensures integrity before passing to higher layers.",
+            "answer": "Wi‑Fi uses CRC‑32 at the MAC layer. If the CRC fails, the frame is discarded, and no ACK is sent (triggering retransmission).",
+            "explanation": "This improves reliability on noisy channels."
+        },
+        {
+            "id": 145,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is a 'two‑bit parity' (ECC)?",
+            "output": "Two parity bits can detect double errors but not correct them.",
+            "answer": "Two independent parity bits over different subsets can increase detection capability, but not as efficient as Hamming code.",
+            "explanation": "Hamming code uses multiple parity bits to correct single errors."
+        },
+        {
+            "id": 146,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the 'Koopman polynomial'?",
+            "output": "A polynomial claimed to have better performance than standard CRCs for certain lengths.",
+            "answer": "Philip Koopman researched CRC performance; some polynomials (e.g., 0x9B2C) are better for detecting certain error patterns.",
+            "explanation": "Used in some safety‑critical applications."
+        },
+        {
+            "id": 147,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What happens if a frame's CRC fails at the Data Link layer?",
+            "output": "The frame is discarded; no acknowledgment is sent (for protocols that use ACKs).",
+            "answer": "In Ethernet, the MAC discards the frame silently. The upper layer (e.g., TCP) will detect the loss via timeout.",
+            "explanation": "This is why TCP must handle retransmission."
+        },
+        {
+            "id": 148,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Intermediate",
+            "question": "What is the disadvantage of using a 16‑bit checksum compared to 32‑bit CRC?",
+            "output": "Higher probability of undetected errors, especially for burst errors.",
+            "answer": "A 16‑bit checksum has only 65536 possible values, so random errors have a 1/65536 chance of being missed. A 32‑bit CRC has 1/4 billion chance.",
+            "explanation": "For critical data, CRC is preferred."
+        },
+        {
+            "id": 149,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Advanced",
+            "question": "What is the 'CRC value' of a message consisting entirely of zeros?",
+            "output": "Depends on the initial value; if initial value is zero, CRC is zero; if all ones, CRC is non‑zero.",
+            "answer": "To avoid this ambiguity, many CRCs initialise the register to all ones.",
+            "explanation": "Otherwise, a zero message would always have CRC zero, which is problematic."
+        },
+        {
+            "id": 150,
+            "topic": "Error detection: Parity, CRC, Checksum",
+            "difficulty": "Beginner",
+            "question": "What is the 'checksum' used in ICMP packets?",
+            "output": "A 16‑bit one's complement checksum over the ICMP message.",
+            "answer": "The header includes a checksum field. If the checksum fails, the ICMP packet is discarded.",
+            "explanation": "This helps protect against corruption of ping replies."
+        },
+        {
+            "id": 151,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is a Hamming code?",
+            "output": "An error‑correcting code that can detect and correct single‑bit errors.",
+            "answer": "Hamming codes add parity bits at positions that are powers of two (1,2,4,8,...). The syndrome identifies the error position.",
+            "explanation": "Invented by Richard Hamming in 1950 for error correction in computers."
+        },
+        {
+            "id": 152,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "How many parity bits are needed for a Hamming code protecting m data bits?",
+            "output": "The smallest r such that 2ʳ ≥ m + r + 1.",
+            "answer": "For example, m=4 data bits requires r=3 (2³=8 ≥ 4+3+1=8). For m=7 data bits, r=4 (2⁴=16 ≥ 7+4+1=12).",
+            "explanation": "This ensures that each error position has a unique syndrome."
+        },
+        {
+            "id": 153,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the Hamming distance of a (7,4) Hamming code?",
+            "output": "3.",
+            "answer": "It can detect up to 2 errors and correct 1 error. With distance 3, it can correct single errors.",
+            "explanation": "The minimal weight codeword is 3."
+        },
+        {
+            "id": 154,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the construction of the (7,4) Hamming code?",
+            "output": "Data bits d1,d2,d3,d4; parity bits p1,p2,p3 computed as: p1 = d1⊕d2⊕d4, p2 = d1⊕d3⊕d4, p3 = d2⊕d3⊕d4.",
+            "answer": "The codeword is (p1,p2,d1,p3,d2,d3,d4) or any order. The parity equations are based on binary addition.",
+            "explanation": "The generator matrix G = [I₄ | P], and parity check matrix H = [Pᵀ | I₃]."
+        },
+        {
+            "id": 155,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the main purpose of a Hamming code?",
+            "output": "To correct single bit errors in data transmission or storage.",
+            "answer": "It adds redundancy so that the receiver can not only detect but also locate and fix a single flipped bit.",
+            "explanation": "Used in ECC memory (error‑correcting RAM)."
+        },
+        {
+            "id": 156,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What does 'syndrome' mean in Hamming code?",
+            "output": "A binary vector computed from the received codeword and the parity check matrix; non‑zero indicates error.",
+            "answer": "The syndrome bits are computed by checking each parity equation. The binary number formed by the syndrome indicates the position of the error.",
+            "explanation": "If syndrome = 0, no error; otherwise, the syndrome value is the index (1‑based) of the erroneous bit."
+        },
+        {
+            "id": 157,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does a Hamming code detect two errors?",
+            "output": "It detects two errors because the Hamming distance is 3, so two errors produce an invalid syndrome that does not point to a single bit.",
+            "answer": "If two bits flip, the syndrome will be non‑zero but may not correspond to a single error; the decoder will detect an uncorrectable error (or double error).",
+            "explanation": "Extended Hamming codes add a parity bit to detect (but not correct) double errors."
+        },
+        {
+            "id": 158,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the code rate of a (7,4) Hamming code?",
+            "output": "4/7 ≈ 0.571.",
+            "answer": "Code rate = number of data bits / total bits. For every 4 data bits, we send 7 bits, so overhead is 3 bits.",
+            "explanation": "Higher overhead means less efficiency but more error correction."
+        },
+        {
+            "id": 159,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'Hamming code' and 'Reed‑Solomon' code?",
+            "output": "Hamming corrects single bits; Reed‑Solomon corrects bursts of errors (symbol errors).",
+            "answer": "Hamming is simple for random single‑bit errors; Reed‑Solomon is used in CDs, QR codes, and satellite communication for burst errors.",
+            "explanation": "Reed‑Solomon works on symbols (e.g., bytes) and can correct multiple symbol errors."
+        },
+        {
+            "id": 160,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How many parity bits are required for a Hamming code protecting 11 data bits?",
+            "output": "4? Let's compute: 2ʳ ≥ 11+r+1. r=4: 16 ≥ 11+4+1=16 OK. r=3: 8 ≥ 11+3+1=15 false. So r=4.",
+            "answer": "Thus, total bits = 15, code rate = 11/15 ≈ 0.733.",
+            "explanation": "The next Hamming code is (15,11)."
+        },
+        {
+            "id": 161,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the minimum Hamming distance of a single‑error correcting code?",
+            "output": "3.",
+            "answer": "With distance 3, any single error produces a codeword that is at least distance 2 from all others, so it can be corrected.",
+            "explanation": "If the distance were 2, single errors could become another valid codeword (unable to correct)."
+        },
+        {
+            "id": 162,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the parity check matrix H for the (7,4) Hamming code?",
+            "output": "H is a 3x7 matrix with columns as binary representations of 1 through 7.",
+            "answer": "H = [1 1 1 0 1 0 0; 1 1 0 1 0 1 0; 1 0 1 1 0 0 1] (example).",
+            "explanation": "The syndrome is computed as H × received vector (mod 2)."
+        },
+        {
+            "id": 163,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does a decoder correct an error using the syndrome?",
+            "output": "The syndrome (3 bits) is interpreted as the binary position (1 to 7) of the erroneous bit, which is then flipped.",
+            "answer": "For example, syndrome 101 (binary) means bit 5 is wrong, so the decoder flips that bit.",
+            "explanation": "This assumes a single error; if two errors, the syndrome may point to a non‑existent position or a wrong position."
+        },
+        {
+            "id": 164,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "In the (7,4) Hamming code, what is the syndrome for an error at bit position 3?",
+            "output": "The syndrome equals the binary representation of 3, which is 011 (assuming columns ordered 1-7).",
+            "answer": "If the parity check matrix columns are the binary numbers 1 through 7, then the syndrome is the column corresponding to the error position. For position 3, syndrome = 011.",
+            "explanation": "The decoder flips bit 3 to correct the error."
+        },
+        {
+            "id": 165,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the extended Hamming code?",
+            "output": "A Hamming code with an extra global parity bit, giving distance 4, allowing detection of double errors and correction of single errors.",
+            "answer": "The extended (8,4) code adds a parity bit over all 7 bits of the (7,4) code. It can detect double errors (syndrome non‑zero but parity even) and correct single errors (parity odd).",
+            "explanation": "Used in some ECC memory implementations."
+        },
+        {
+            "id": 166,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the main limitation of a Hamming code?",
+            "output": "It can only correct single bit errors; multiple errors can cause miscorrection.",
+            "answer": "If two bits flip, the syndrome may point to a third bit, causing the decoder to flip a correct bit, making the situation worse.",
+            "explanation": "For high error rates, stronger codes (Reed‑Solomon, LDPC) are needed."
+        },
+        {
+            "id": 167,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "How does a Hamming code detect double errors without correction?",
+            "output": "By adding an extra parity bit (extended Hamming), the decoder can detect if an odd or even number of errors occurred.",
+            "answer": "The syndrome alone cannot distinguish between one and two errors, but the extra parity bit gives that information.",
+            "explanation": "If syndrome is non‑zero and overall parity is even, a double error is declared."
+        },
+        {
+            "id": 168,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the generator polynomial for a (7,4) cyclic Hamming code?",
+            "output": "g(x) = x³ + x + 1 (or x³ + x² + 1, depending on the primitive polynomial).",
+            "answer": "Cyclic Hamming codes are a subset; the generator polynomial is a primitive polynomial of degree 3. For example, g(x)=x³+x+1 (octal 13).",
+            "explanation": "Many Hamming codes are implemented as cyclic codes for simpler encoding."
+        },
+        {
+            "id": 169,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "Where are Hamming codes commonly used?",
+            "output": "In ECC memory (RAM) to correct single bit flips caused by cosmic rays.",
+            "answer": "Server and workstation memory often uses Hamming codes (or stronger SECDED codes) to improve reliability.",
+            "explanation": "Also used in some communication systems with low error rates."
+        },
+        {
+            "id": 170,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'BCH code' and 'Hamming code'?",
+            "output": "BCH codes are a generalisation that can correct multiple errors; Hamming is a special case of BCH for single errors.",
+            "answer": "BCH (Bose‑Chaudhuri‑Hocquenghem) codes with t=1 (single error correction) are Hamming codes.",
+            "explanation": "BCH codes can correct multiple random errors."
+        },
+        {
+            "id": 171,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How many parity bits are needed for a (31,26) Hamming code?",
+            "output": "5 parity bits (2⁵ = 32 ≥ 26+5+1 = 32).",
+            "answer": "The (31,26) code is a perfect code. It corrects single errors and has code rate 26/31 ≈ 0.839.",
+            "explanation": "Perfect codes mean the spheres of radius 1 around codewords exactly partition the space."
+        },
+        {
+            "id": 172,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "In Hamming code, why are parity bits placed at positions that are powers of two?",
+            "output": "So that each parity bit checks a unique set of data bits, allowing the syndrome to pinpoint the error location.",
+            "answer": "Positions 1,2,4,8,… are used because their binary representation has a single 1. This simplifies the parity check matrix.",
+            "explanation": "This arrangement is systematic and easy to implement."
+        },
+        {
+            "id": 173,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What does SECDED stand for?",
+            "output": "Single Error Correction, Double Error Detection.",
+            "answer": "Extended Hamming codes (with extra parity) provide SECDED. Used in many memory systems.",
+            "explanation": "SECDED can correct one error and detect (but not correct) two errors."
+        },
+        {
+            "id": 174,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the syndrome for a double error in an extended Hamming code?",
+            "output": "Syndrome non‑zero, but overall parity even (or odd, depending on design).",
+            "answer": "The decoder recognises a double error by the fact that the syndrome points to an error location but the extra parity bit indicates an even number of errors.",
+            "explanation": "The frame is then flagged as uncorrectable."
+        },
+        {
+            "id": 175,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "Can a Hamming code correct burst errors?",
+            "output": "Not efficiently; it is designed for random single‑bit errors.",
+            "answer": "If bits within a burst are interleaved, Hamming can be used, but typically Reed‑Solomon is better for bursts.",
+            "explanation": "For wireless channels, convolutional codes or LDPC are used."
+        },
+        {
+            "id": 176,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "In the (7,4) Hamming code, what is the codeword for data 1011?",
+            "output": "Compute parity bits: p1 = d1⊕d2⊕d4 = 1⊕0⊕1 = 0; p2 = d1⊕d3⊕d4 = 1⊕1⊕1 = 1; p3 = d2⊕d3⊕d4 = 0⊕1⊕1 = 0. Codeword = (p1,p2,d1,p3,d2,d3,d4) = (0,1,1,0,0,1,1) → 0110011.",
+            "answer": "Alternatively other ordering. The standard ordering is often p1 p2 d1 p3 d2 d3 d4.",
+            "explanation": "Different standards use different bit orders."
+        },
+        {
+            "id": 177,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is a 'perfect code'?",
+            "output": "A code where the Hamming spheres of radius t (error correction capability) exactly partition the space with no gaps.",
+            "answer": "Hamming codes are perfect for t=1. Golay codes are perfect for t=3.",
+            "explanation": "Perfect codes are rare; only a few exist."
+        },
+        {
+            "id": 178,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What happens if the Hamming decoder receives a codeword with a single error?",
+            "output": "It computes the syndrome, which indicates the error position, and flips that bit to correct.",
+            "answer": "After correction, the data bits are extracted and passed to the higher layer.",
+            "explanation": "This is the correction process."
+        },
+        {
+            "id": 179,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "How does a Hamming code differ from a parity bit?",
+            "output": "Parity only detects odd errors; Hamming detects and corrects single errors.",
+            "answer": "Parity uses one bit; Hamming uses multiple bits and provides location of the error.",
+            "explanation": "Hamming is a form of forward error correction (FEC)."
+        },
+        {
+            "id": 180,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the decoding complexity of a Hamming code?",
+            "output": "Very low; syndrome computation is linear (XOR gates), and error correction is a table lookup or bit flip.",
+            "answer": "This makes Hamming codes suitable for hardware implementation in memory controllers and simple transceivers.",
+            "explanation": "In contrast, Reed‑Solomon decoding is more complex."
+        },
+        {
+            "id": 181,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the maximum number of data bits that can be protected by a Hamming code with 4 parity bits?",
+            "output": "11 data bits (since 2⁴ ≥ data+4+1 → 16 ≥ data+5 → data ≤ 11).",
+            "answer": "This gives a (15,11) Hamming code. The next would be (31,26) with 5 parity bits.",
+            "explanation": "These are perfect codes."
+        },
+        {
+            "id": 182,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between systematic and non‑systematic Hamming codes?",
+            "output": "Systematic: data bits appear unchanged in the codeword; non‑systematic: data bits are mixed with parity.",
+            "answer": "Most implementations use systematic codes for convenience (data bits can be extracted directly).",
+            "explanation": "The (7,4) code above is systematic if we place data bits in positions 3,5,6,7."
+        },
+        {
+            "id": 183,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does interleaving improve Hamming code performance on burst errors?",
+            "output": "By spreading burst errors across multiple codewords, converting burst errors into single errors per code.",
+            "answer": "If a burst of length 10 occurs, interleaving distributes it across 10 different codewords, each suffering only one error, which Hamming can correct.",
+            "explanation": "Used in conjunction with Hamming codes in some systems (e.g., satellite)."
+        },
+        {
+            "id": 184,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the main disadvantage of using Hamming code for every byte?",
+            "output": "High overhead for small data chunks (e.g., 3 parity bits for 4 data bits is 43% overhead).",
+            "answer": "For large blocks, overhead becomes lower. For example, (31,26) has only 16% overhead.",
+            "explanation": "Memory ECC often uses (72,64) Hamming code (8% overhead)."
+        },
+        {
+            "id": 185,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is a (72,64) Hamming code used for?",
+            "output": "ECC memory (single error correction, double error detection) on 64‑bit data.",
+            "answer": "8 parity bits are added to 64 data bits, forming a 72‑bit word. This is a shortened Hamming code.",
+            "explanation": "Common in ECC DIMMs."
+        },
+        {
+            "id": 186,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does a shortened Hamming code work?",
+            "output": "Take a larger Hamming code and set some data bits to zero; those bits are not transmitted but the parity equations still apply.",
+            "answer": "For example, (72,64) is derived from a (127,120) Hamming code by shortening 56 bits. This reduces overhead.",
+            "explanation": "Shortened codes preserve error correction capability."
+        },
+        {
+            "id": 187,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "Why is Hamming code not used for high‑speed network transmission?",
+            "output": "Because over noisy channels, single errors are not the dominant problem; burst errors occur, and stronger codes are needed.",
+            "answer": "Ethernet uses CRC for detection and relies on retransmission, not FEC. For wireless, convolutional or LDPC codes are used.",
+            "explanation": "Hamming is more suited to storage or memory where errors are rare and random."
+        },
+        {
+            "id": 188,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the relationship between Hamming codes and XOR operations?",
+            "output": "Each parity bit is the XOR of specific data bits (a parity check equation).",
+            "answer": "Encoding and decoding are done using XOR gates, making them fast in hardware.",
+            "explanation": "The syndrome is computed by XOR‑ing the received bits according to the parity check matrix."
+        },
+        {
+            "id": 189,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the second Hamming code (15,11) generator matrix?",
+            "output": "A 11x15 matrix consisting of an 11x11 identity and a 11x4 parity section.",
+            "answer": "The parity bits are placed at positions 1,2,4,8. The equations are derived from binary representation of the column indices.",
+            "explanation": "Implementation similar to (7,4) but larger."
+        },
+        {
+            "id": 190,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "Can Hamming code correct a single error in a data block of any size?",
+            "output": "Yes, as long as enough parity bits are added according to the formula 2ʳ ≥ m+r+1.",
+            "answer": "For any m data bits, choose r such that the inequality holds. The resulting code can correct one error.",
+            "explanation": "This is the standard Hamming code construction."
+        },
+        {
+            "id": 191,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between linear block codes and Hamming codes?",
+            "output": "Hamming codes are a specific family of linear block codes with distance 3.",
+            "answer": "Linear block codes are any codes where the sum of two codewords is a codeword; Hamming codes are a subset with special parity matrix.",
+            "explanation": "Other linear codes include Reed‑Muller, BCH, etc."
+        },
+        {
+            "id": 192,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does a Hamming code decode when there are exactly two errors (without extended parity)?",
+            "output": "It will incorrectly assume a single error at a position given by the syndrome, and flip a correct bit, introducing a third error.",
+            "answer": "Thus, the output data will be more corrupted than before. Extended Hamming prevents this by detecting double errors.",
+            "explanation": "This is why extended Hamming is used when double errors are possible."
+        },
+        {
+            "id": 193,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "Why are Hamming codes called 'perfect'?",
+            "output": "Because the Hamming spheres of radius 1 (all vectors at distance ≤1 from a codeword) exactly cover the entire space without overlap or gaps.",
+            "answer": "This is only true for Hamming codes of the form (2ʳ−1, 2ʳ−1−r).",
+            "explanation": "No other linear code (except trivial ones) has this property for t=1."
+        },
+        {
+            "id": 194,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What does the term 'syndrome decoding' mean?",
+            "output": "A method where the syndrome (error pattern) is computed from the received vector and used to correct errors.",
+            "answer": "Hamming codes are a classic example of syndrome decoding. The syndrome maps directly to the error position.",
+            "explanation": "It is efficient because the syndrome is small (r bits) and the mapping can be hardwired."
+        },
+        {
+            "id": 195,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "What is the maximum distance of a Hamming code?",
+            "output": "3 (d_min = 3).",
+            "answer": "Therefore, it can detect up to 2 errors and correct 1 error. The covering radius is 1.",
+            "explanation": "This is optimal for a perfect code."
+        },
+        {
+            "id": 196,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "What is the main advantage of Hamming code over parity for data transmission?",
+            "output": "It can correct errors, reducing the need for retransmission.",
+            "answer": "In environments with low but non‑zero error rates, forward error correction improves throughput by avoiding retransmission.",
+            "explanation": "Used in some satellite and memory applications."
+        },
+        {
+            "id": 197,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'Hamming' and 'Reed‑Muller' codes?",
+            "output": "Reed‑Muller codes generalise Hamming and can correct multiple errors with larger minimum distance.",
+            "answer": "For example, first‑order Reed‑Muller codes are Hamming codes extended.",
+            "explanation": "Reed‑Muller codes are used in deep‑space communication."
+        },
+        {
+            "id": 198,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Advanced",
+            "question": "How does the (8,4) extended Hamming code improve on the (7,4)?",
+            "output": "It adds an overall parity bit, making the minimum distance 4, allowing detection of double errors.",
+            "answer": "The code can correct single errors and detect double errors (SECDED). The extra bit also makes the code self‑dual in some cases.",
+            "explanation": "This is the basis for many ECC memories."
+        },
+        {
+            "id": 199,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Beginner",
+            "question": "True or False: Hamming code can correct any single‑bit error in a block of data.",
+            "output": "True, if the block length is less than or equal to 2ʳ−1 for some r.",
+            "answer": "As long as the code is constructed properly, any single error will be uniquely identified and corrected.",
+            "explanation": "This is the fundamental property of Hamming codes."
+        },
+        {
+            "id": 200,
+            "topic": "Error correction: Hamming Code",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between Hamming code and SEU (Single Event Upset) protection?",
+            "output": "Hamming code is a method for SEU protection; SEU refers to the phenomenon of a single bit flip due to radiation.",
+            "answer": "Hamming codes are used in radiation‑hardened electronics (spacecraft) to protect against SEUs.",
+            "explanation": "SEUs are common in space, and Hamming codes provide an efficient protection."
+        },
+        {
+            "id": 201,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is 'framing' at the Data Link layer?",
+            "output": "The process of grouping bits into frames and marking the start and end of each frame.",
+            "answer": "Framing allows the receiver to synchronise and extract individual frames from the bit stream. It is essential for correct interpretation.",
+            "explanation": "Common framing methods include character stuffing, bit stuffing, and physical layer delimiters."
+        },
+        {
+            "id": 202,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What are the four main framing techniques?",
+            "output": "Character count, flag bytes with byte stuffing, flag bits with bit stuffing, and physical layer coding violations.",
+            "answer": "Each method has its own advantages and disadvantages in terms of overhead, reliability, and complexity.",
+            "explanation": "Ethernet uses physical layer coding (preamble) and length field, not stuffing."
+        },
+        {
+            "id": 203,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "Explain the 'character count' framing method.",
+            "output": "Each frame begins with a field containing the number of bytes in the frame.",
+            "answer": "The receiver reads the count, then extracts that many bytes as the frame. If the count is corrupted, synchronization is lost.",
+            "explanation": "Seldom used alone because of the resynchronisation problem."
+        },
+        {
+            "id": 204,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the main disadvantage of character count framing?",
+            "output": "If the count field is corrupted, the receiver cannot locate the start of the next frame, causing loss of synchronization.",
+            "answer": "This leads to cascading errors until the next valid count appears by chance. That's why it's rarely used.",
+            "explanation": "Some protocols like DECnet used it but with resynchronisation mechanisms."
+        },
+        {
+            "id": 205,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is 'byte stuffing' (character stuffing)?",
+            "output": "Inserting an escape character before each occurrence of the flag byte in the data.",
+            "answer": "The flag byte (e.g., 0x7E) marks frame boundaries. If the data contains 0x7E, it is replaced by two bytes: ESC 0x7D followed by 0x7E XOR 0x20.",
+            "explanation": "Used in PPP (Point‑to‑Point Protocol)."
+        },
+        {
+            "id": 206,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What are the common escape characters in PPP byte stuffing?",
+            "output": "Flag = 0x7E, ESC = 0x7D. Data bytes 0x7E and 0x7D are escaped.",
+            "answer": "When ESC appears in data, it is replaced by two bytes: ESC 0x7D XOR 0x20 = 0x7D 0x5D.",
+            "explanation": "The control escape is used to ensure the flag appears only at frame boundaries."
+        },
+        {
+            "id": 207,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the overhead of byte stuffing?",
+            "output": "Variable, worst case up to 100% (if all data bytes are flags or escapes).",
+            "answer": "On average, overhead is small (1–2%) because flag bytes are rare in typical data.",
+            "explanation": "For random data, the probability of 0x7E is 1/256, so overhead ~0.4%."
+        },
+        {
+            "id": 208,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is 'bit stuffing'?",
+            "output": "Inserting a 0 after every five consecutive 1s in the data to prevent the flag sequence 01111110 from appearing.",
+            "answer": "The flag is 01111110 (0x7E). If the data contains five 1s, a 0 is stuffed. The receiver removes any 0 that follows five 1s.",
+            "explanation": "Used in HDLC and SDLC."
+        },
+        {
+            "id": 209,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the flag sequence in HDLC?",
+            "output": "01111110 (0x7E).",
+            "answer": "The flag marks both the start and end of a frame. The same flag may serve as the end of one frame and the start of the next.",
+            "explanation": "Idle state is continuous flags."
+        },
+        {
+            "id": 210,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "How does bit stuffing avoid confusion with the flag?",
+            "output": "By inserting a 0 after five 1s, the pattern 01111110 can never appear inside the data.",
+            "answer": "If the receiver sees five 1s followed by a 0, it removes that 0 (stuffing). If it sees five 1s followed by a 1, that means a flag (six 1s) appears, but that's not possible inside data, so it's a flag.",
+            "explanation": "This is a transparent mode."
+        },
+        {
+            "id": 211,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the overhead of bit stuffing?",
+            "output": "About 1/2⁵ = 1/32 ≈ 3.125% on average (for random data).",
+            "answer": "Because after any sequence of five 1s, a 0 is inserted. The average run length of 1s is 2, so overhead is low.",
+            "explanation": "Worst case: all data bits are 1, causing stuffing every 5 bits, overhead 20%."
+        },
+        {
+            "id": 212,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between byte stuffing and bit stuffing?",
+            "output": "Byte stuffs on byte boundaries (8 bits); bit stuffs on bit level.",
+            "answer": "Byte stuffing works with character‑oriented protocols (PPP); bit stuffing works with bit‑oriented protocols (HDLC).",
+            "explanation": "Bit stuffing does not require the data to be byte‑aligned; it is more general."
+        },
+        {
+            "id": 213,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is 'physical layer coding violation' framing?",
+            "output": "Using invalid signal patterns at the physical layer to denote frame boundaries (e.g., Manchester violations).",
+            "answer": "In Ethernet (10BASE‑T), the preamble and SFD are used. Some codes have reserved symbols (e.g., 8b/10b has Kcodes) that serve as delimiters.",
+            "explanation": "This method avoids overhead of stuffing but requires a code with extra symbols."
+        },
+        {
+            "id": 214,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "How does Ethernet frame its data?",
+            "output": "Uses a preamble and start frame delimiter (SFD), followed by a length/EtherType field, but not bit stuffing.",
+            "answer": "Ethernet does not use flag stuffing. It relies on the preamble for synchronisation and the length field (or EtherType) to indicate frame end (plus carrier sense).",
+            "explanation": "The physical layer indicates carrier detect; the MAC knows frame length from the Length field."
+        },
+        {
+            "id": 215,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the disadvantage of using a length field for framing (without stuffing)?",
+            "output": "If the length field is corrupted, the receiver may mis‑identify the frame end, losing sync.",
+            "answer": "However, Ethernet also uses a preamble and CRC, and the physical layer helps. Corruption of length may still cause issues, but it's rare.",
+            "explanation": "Some protocols combine length with stuffing for robustness."
+        },
+        {
+            "id": 216,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is 'synchronous framing'?",
+            "output": "Framing based on a fixed clock and synchronisation bits (e.g., SDH).",
+            "answer": "In synchronous networks, frames are repeated at regular intervals (e.g., 125 µs). The start of a frame is identified by a synchronisation pattern in the overhead.",
+            "explanation": "SONET/SDH uses a fixed frame structure with A1/A2 bytes for alignment."
+        },
+        {
+            "id": 217,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of a 'preamble' in Ethernet framing?",
+            "output": "To allow the physical layer to synchronise the clock before the frame starts.",
+            "answer": "The preamble is 7 bytes of alternating 1 and 0 (101010...). It is not part of the frame but is added by the physical layer.",
+            "explanation": "It helps the receiver lock onto the bit timing."
+        },
+        {
+            "id": 218,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "Why does HDLC use bit stuffing instead of byte stuffing?",
+            "output": "Because HDLC is bit‑oriented, not character‑oriented; it can carry arbitrary binary data, including bytes with any value.",
+            "answer": "Bit stuffing works at the bit level, so the data can be any sequence of bits, not necessarily multiples of 8 bits.",
+            "explanation": "HDLC is used in many synchronous serial links."
+        },
+        {
+            "id": 219,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is 'zero insertion' (another name for bit stuffing)?",
+            "output": "Inserting a zero after five consecutive ones.",
+            "answer": "Also called 'zero stuffing' or 'bit padding'. Used in HDLC and many serial protocols.",
+            "explanation": "The term 'stuffing' is more common."
+        },
+        {
+            "id": 220,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What happens if the receiver sees the flag pattern inside the data after stuffing?",
+            "output": "It cannot happen because stuffing prevents the flag pattern from occurring in the data.",
+            "answer": "The transmitter ensures that six consecutive 1s never appear in the data. Therefore, any occurrence of 01111110 must be a flag.",
+            "explanation": "This is the guarantee of bit stuffing."
+        },
+        {
+            "id": 221,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "How does a receiver detect the end of a frame in HDLC?",
+            "output": "It detects the flag pattern (01111110) that follows the frame.",
+            "answer": "Between frames, the link sends continuous flags. The receiver looks for a flag, then captures bits until the next flag.",
+            "explanation": "The receiver also checks the CRC in the trailer to validate the frame."
+        },
+        {
+            "id": 222,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'asynchronous framing' and 'synchronous framing'?",
+            "output": "Asynchronous uses start/stop bits per character; synchronous uses bit stuffing or physical delimiters.",
+            "answer": "Asynchronous (RS‑232) adds start and stop bits to each byte, not efficient for large frames. Synchronous frames blocks of bits.",
+            "explanation": "Ethernet and HDLC are synchronous; old serial terminals are asynchronous."
+        },
+        {
+            "id": 223,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is a 'flag' in HDLC framing?",
+            "output": "A unique 8‑bit pattern (01111110) that marks frame boundaries.",
+            "answer": "A single flag may serve as both the closing flag of one frame and the opening flag of the next.",
+            "explanation": "When the link is idle, flags are transmitted continuously."
+        },
+        {
+            "id": 224,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "How does the receiver handle the stuffed bits?",
+            "output": "It monitors for five consecutive 1s; if the next bit is 0, it discards that 0; if the next bit is 1, it marks a flag (if after the frame).",
+            "answer": "The receiver performs destuffing: after seeing 11111, if the next bit is 0, it removes that 0; if the next bit is 1, it's a flag.",
+            "explanation": "This process is independent of byte boundaries."
+        },
+        {
+            "id": 225,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the advantage of physical layer coding violation over bit stuffing?",
+            "output": "No overhead increase for the data; uses reserved codewords as delimiters.",
+            "answer": "For example, 8b/10b encoding has 12 special K‑codes (like K28.5) that never appear in data, so they can serve as frame delimiters.",
+            "explanation": "Used in Fibre Channel, InfiniBand, and some Ethernet variants (e.g., 10GBASE‑X)."
+        },
+        {
+            "id": 226,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the start frame delimiter (SFD) in Ethernet?",
+            "output": "An 8‑bit pattern (10101011) following the preamble, indicating the start of the MAC frame.",
+            "answer": "The SFD is the last byte of the preamble sequence. It tells the receiver that the next byte is the destination MAC address.",
+            "explanation": "The preamble and SFD are not counted in the MAC frame length."
+        },
+        {
+            "id": 227,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "Why does PPP use byte stuffing rather than bit stuffing?",
+            "output": "Because PPP is designed for byte‑oriented links (e.g., serial ports, modems) and uses asynchronous framing.",
+            "answer": "PPP can also run over bit‑synchronous links but the most common use is async with byte stuffing.",
+            "explanation": "PPP is the standard for dial‑up and some DSL connections."
+        },
+        {
+            "id": 228,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is 'clock recovery' in framing and why is it needed?",
+            "output": "The receiver must recover the bit clock from the signal to sample bits at the correct times.",
+            "answer": "Framing depends on correct bit timing. Manchester encoding and bit stuffing assist in clock recovery.",
+            "explanation": "Without clock recovery, bit boundaries are unknown."
+        },
+        {
+            "id": 229,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of an 'idle pattern' in a synchronous link?",
+            "output": "To keep the clock synchronised when no data is being sent.",
+            "answer": "HDLC sends continuous flags (01111110) during idle. This maintains clock recovery and indicates the link is operational.",
+            "explanation": "Ethernet uses idle symbols (normal link pulses) or no signal, with auto‑negotiation."
+        },
+        {
+            "id": 230,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'transparent' and 'non‑transparent' framing?",
+            "output": "Transparent: data can contain any bit pattern; non‑transparent: certain patterns are reserved.",
+            "answer": "Bit stuffing and byte stuffing provide transparency. Character count without stuffing is non‑transparent if data contains the count value.",
+            "explanation": "Transparency is desirable for arbitrary data."
+        },
+        {
+            "id": 231,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "How does a corrupted flag affect frame reception in HDLC?",
+            "output": "If a flag is corrupted, the receiver may not detect the start of a frame, causing loss of that frame. Subsequent flags will resynchronise.",
+            "answer": "This is one reason CRC is used to validate frames; if the flag is lost, the receiver will eventually see the next flag and attempt to frame, but the CRC will likely fail.",
+            "explanation": "Robustness of bit‑oriented framing is good."
+        },
+        {
+            "id": 232,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the difference between a 'frame' and a 'packet'?",
+            "output": "A frame is the Data Link layer PDU; a packet is the Network layer PDU.",
+            "answer": "Frames encapsulate packets. The framing technique applies to the frame, while the packet is the payload.",
+            "explanation": "Framing is a Data Link concept."
+        },
+        {
+            "id": 233,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the length field in PPP?",
+            "output": "A 16‑bit field indicating the length of the packet (excluding the flag and CRC).",
+            "answer": "PPP uses byte stuffing with flags, but also includes a length field for extra reliability, though the flag is the primary delimiter.",
+            "explanation": "The length field helps detect premature frame termination."
+        },
+        {
+            "id": 234,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is 'octet stuffing' and how is it calculated?",
+            "output": "Another term for byte stuffing; the escape and flag bytes are defined in octets.",
+            "answer": "In PPP, the flag is 0x7E, the escape character is 0x7D. The stuffed sequence is ESC (character) XOR 0x20.",
+            "explanation": "This ensures the escaped byte is not a flag or escape."
+        },
+        {
+            "id": 235,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "Which framing method is used in CAN bus?",
+            "output": "Bit stuffing (but with a different rule: after five consecutive bits of the same polarity, a complementary bit is inserted).",
+            "answer": "CAN uses a form of bit stuffing to maintain synchronisation and ensure the start of frame delimiter is unique.",
+            "explanation": "The stuffing rule applies to all fields except the CRC delimiter and ACK."
+        },
+        {
+            "id": 236,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 'start‑stop' async framing and synchronous framing?",
+            "output": "Async uses start and stop bits per character (10 bits per byte); synchronous frames many bytes together.",
+            "answer": "Async is simpler but has high overhead (≈20% for 8‑bit data). Synchronous is more efficient for large blocks.",
+            "explanation": "Async is used for RS‑232 keyboards, mice; synchronous for Ethernet, HDLC."
+        },
+        {
+            "id": 237,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the overhead of Ethernet framing (excluding preamble and SFD)?",
+            "output": "14 bytes header + 4 bytes CRC = 18 bytes per frame, plus inter‑frame gap (12 bytes).",
+            "answer": "For a 1500‑byte payload, overhead ≈ 18/1518 ≈ 1.2% plus the gap.",
+            "explanation": "Ethernet does not use stuffing; it is relatively efficient."
+        },
+        {
+            "id": 238,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is a 'frame abort' in HDLC?",
+            "output": "A sequence of seven or more 1s (1111111) that terminates a frame in error.",
+            "answer": "If a receiver detects seven or more 1s, it aborts the current frame and discards it (the frame is invalid).",
+            "explanation": "This is used to force a frame to be rejected."
+        },
+        {
+            "id": 239,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "How does byte stuffing handle the escape character itself?",
+            "output": "The escape character is also escaped: it is replaced by two bytes: ESC + (ESC XOR 0x20).",
+            "answer": "In PPP, 0x7D is replaced by 0x7D 0x5D. This ensures that the receiver can distinguish the escape from data.",
+            "explanation": "The same rule applies to any character that needs escaping."
+        },
+        {
+            "id": 240,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the advantage of using a length field plus bit stuffing?",
+            "output": "More robust resynchronisation; if a flag is corrupted, the length field can help find the next start.",
+            "answer": "Some protocols combine both methods. The receiver can use the length to skip to the next flag even if the current flag is missed.",
+            "explanation": "Used in some reliable data link protocols."
+        },
+        {
+            "id": 241,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the inter‑frame gap (IFG) in Ethernet?",
+            "output": "A minimum 96‑bit time idle period between frames to allow recovery.",
+            "answer": "The IFG is part of the physical layer; it gives receivers a chance to process the frame and prepare for the next.",
+            "explanation": "In 10 Mbps Ethernet, IFG is 9.6 µs."
+        },
+        {
+            "id": 242,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "Why does bit stuffing not work on byte boundaries?",
+            "output": "It works on bit boundaries; it does not require bytes, so it can be used on any serial link.",
+            "answer": "The stuffing and destuffing are done at the bit level, independent of byte alignment. This is why HDLC is bit‑oriented.",
+            "explanation": "Byte stuffing requires alignment to byte boundaries, which may not be available on a raw bit stream."
+        },
+        {
+            "id": 243,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is the difference between 'transparent' and 'non‑transparent' in the context of a data link?",
+            "output": "Transparent: any bit sequence can be transmitted; non‑transparent: some sequences are reserved for control.",
+            "answer": "Bit stuffing makes the link transparent. Non‑transparent links cannot send the flag pattern as data.",
+            "explanation": "All modern data links are transparent."
+        },
+        {
+            "id": 244,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the 'flag sequence' for HDLC?",
+            "output": "01111110 (binary) or 0x7E (hex).",
+            "answer": "This same pattern is used as both opening and closing flag.",
+            "explanation": "It is never allowed in the data field because of bit stuffing."
+        },
+        {
+            "id": 245,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "How does a receiver in HDLC recognise the start of a frame?",
+            "output": "It searches for the flag pattern (01111110) in the bit stream.",
+            "answer": "Once a flag is detected, the receiver starts accumulating bits until another flag is seen or a CRC error is detected.",
+            "explanation": "The receiver is always looking for flags, even during idle."
+        },
+        {
+            "id": 246,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "What is a 'scrambler' and how does it relate to framing?",
+            "output": "A scrambler randomises data to avoid long runs of identical bits, helping clock recovery, but does not replace framing.",
+            "answer": "Some protocols (e.g., 100BASE‑TX) use a scrambler in addition to framing to improve clock recovery. The scrambler is not a framing method.",
+            "explanation": "Framing remains separate, often using delimiters."
+        },
+        {
+            "id": 247,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the main advantage of bit stuffing over byte stuffing?",
+            "output": "No need for byte alignment; works on any bit stream, including non‑8‑bit data.",
+            "answer": "Bit stuffing can be used on arbitrary bit lengths, while byte stuffing requires the data to be composed of whole bytes.",
+            "explanation": "However, byte stuffing is simpler to implement in software on byte‑oriented processors."
+        },
+        {
+            "id": 248,
+            "topic": "Framing techniques",
+            "difficulty": "Intermediate",
+            "question": "What is the role of a 'frame check sequence' (FCS) in framing?",
+            "output": "To verify that the frame has not been corrupted; it is the CRC at the end of the frame.",
+            "answer": "The FCS allows the receiver to detect errors, and then discard the frame. It does not help with framing itself.",
+            "explanation": "Framing and error detection are separate but often used together."
+        },
+        {
+            "id": 249,
+            "topic": "Framing techniques",
+            "difficulty": "Advanced",
+            "question": "Can a physical layer violation framing be combined with bit stuffing?",
+            "output": "Yes, some protocols use both; for example, 8b/10b has special K‑codes for delimiters and also uses scrambling to avoid long runs.",
+            "answer": "However, bit stuffing is typically not needed because the special codes are never generated by the data.",
+            "explanation": "The combination is rare."
+        },
+        {
+            "id": 250,
+            "topic": "Framing techniques",
+            "difficulty": "Beginner",
+            "question": "What is the simplest framing method?",
+            "output": "Character count, but it is rarely used because of its fragility.",
+            "answer": "The simplest to understand, but the least robust. Modern protocols prefer bit stuffing or physical layer delimiters.",
+            "explanation": "For reliable transmission, byte or bit stuffing is recommended."
+        }
+    ]
+}

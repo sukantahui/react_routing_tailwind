@@ -193,7 +193,8 @@
             "Encoding techniques: NRZ, Manchester, Differential Manchester",
             "Multiplexing: FDM, TDM, WDM",
             "Switching: Circuit, Packet, Message switching",
-            "Applications in real networks"
+            "Applications in real networks",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand encoding and switching methods",
@@ -218,7 +219,8 @@
             "Flow control: Stop-and-Wait, Sliding Window",
             "Error detection: Parity, CRC, Checksum",
             "Error correction: Hamming Code",
-            "Framing techniques"
+            "Framing techniques",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand flow control",
