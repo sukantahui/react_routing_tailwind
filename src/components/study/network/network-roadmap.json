@@ -39,7 +39,8 @@
             "Networking devices: Hub (basic broadcasting device)",
             "Switch: MAC address-based forwarding and collision reduction",
             "Router: IP-based routing and network interconnection",
-            "Gateway: protocol conversion and communication between different networks"
+            "Gateway: protocol conversion and communication between different networks",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand networking fundamentals",
@@ -79,7 +80,8 @@
             "Devices Used in Different Layers: Hub, Switch, Router, Gateway",
             "Advantages of Layered Models: Interoperability, scalability, troubleshooting ease",
             "Limitations and Criticism of OSI Model: Theoretical vs practical gap",
-            "Real-Life Data Flow Example: How a web request travels from browser to server and back"
+            "Real-Life Data Flow Example: How a web request travels from browser to server and back",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Explain OSI and TCP/IP models",
@@ -173,7 +175,8 @@
             "Real-World Case Studies:",
             "• Fiber optics in internet backbone",
             "• Wireless communication in mobile networks",
-            "• LAN cabling in offices and schools"
+            "• LAN cabling in offices and schools",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Identify transmission media",

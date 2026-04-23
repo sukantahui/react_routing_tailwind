@@ -470,12 +470,26 @@
             "return"
           ],
           "topics": [
-            "Function definition & calling",
-            "Parameters, arguments & default values",
-            "Variable-length arguments: *args, **kwargs",
-            "Return values",
-            "Lambda functions (intro)",
-            "Scope: local & global"
+            "Introduction to Functions: Definition, syntax, and purpose",
+            "Function Declaration vs Function Calling (Invocation)",
+            "Types of Functions: Built-in vs User-defined functions",
+            "Parameters and Arguments: Meaning and differences",
+            "Types of Arguments: Positional, Keyword, Default, and Required",
+            "Default Parameter Values and their usage",
+            "Variable-Length Arguments: *args (non-keyword arguments)",
+            "Variable-Length Keyword Arguments: **kwargs",
+            "Unpacking arguments in function calls",
+            "Return Statement: Returning single and multiple values",
+            "Functions without return (None type behavior)",
+            "Lambda (Anonymous) Functions: Syntax and basic usage",
+            "Use cases of lambda with functions like map(), filter()",
+            "Scope of Variables: Local Scope and Global Scope",
+            "Global Keyword and modifying global variables",
+            "Lifetime of variables and namespace concept",
+            "Best Practices: Writing clean and reusable functions",
+            "Common Errors and Debugging in Functions",
+            "Practice Questions",
+            "Test your skill"
           ],
           "learningOutcomes": [
             "Define reusable functions",

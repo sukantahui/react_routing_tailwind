@@ -1,0 +1,2625 @@
+{
+  "subject": "Java Programming",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "JDBC Short Questions",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/logos/Java-original.svg",
+    "alt": "Java Programming Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Beginner",
+      "question": "What does JDBC stand for?",
+      "output": "Java Database Connectivity",
+      "answer": "Java Database Connectivity",
+      "explanation": "JDBC is a Java API for connecting and executing SQL queries with databases."
+    },
+    {
+      "id": 2,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of JDBC?",
+      "output": "To provide a standard API for Java applications to interact with relational databases.",
+      "answer": "To provide a standard API for Java applications to interact with relational databases.",
+      "explanation": "JDBC allows developers to write database‑independent code using SQL."
+    },
+    {
+      "id": 3,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Beginner",
+      "question": "Which package contains the core JDBC classes?",
+      "output": "java.sql",
+      "answer": "java.sql",
+      "explanation": "The java.sql package provides the JDBC API (interfaces and classes)."
+    },
+    {
+      "id": 4,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Beginner",
+      "question": "Which JDBC component is responsible for establishing a connection to the database?",
+      "output": "DriverManager or DataSource",
+      "answer": "DriverManager or DataSource",
+      "explanation": "DriverManager manages JDBC drivers; DataSource provides a more modern way to get connections."
+    },
+    {
+      "id": 5,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Beginner",
+      "question": "What is the first step in using JDBC to connect to a database?",
+      "output": "Load the JDBC driver (optional for modern JDBC 4.0+).",
+      "answer": "Load the JDBC driver (optional for modern JDBC 4.0+).",
+      "explanation": "JDBC 4.0+ drivers are automatically loaded if they are in the classpath."
+    },
+    {
+      "id": 6,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "Name the four types of JDBC drivers.",
+      "output": "Type 1 (JDBC-ODBC bridge), Type 2 (Native API), Type 3 (Network protocol), Type 4 (Pure Java).",
+      "answer": "Type 1 (JDBC-ODBC bridge), Type 2 (Native API), Type 3 (Network protocol), Type 4 (Pure Java).",
+      "explanation": "Type 4 is the most common today (e.g., MySQL Connector/J)."
+    },
+    {
+      "id": 7,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between JDBC and ODBC?",
+      "output": "JDBC is Java‑specific, platform‑independent, and uses drivers written in Java; ODBC is C‑based and platform‑dependent.",
+      "answer": "JDBC is Java‑specific, platform‑independent, and uses drivers written in Java; ODBC is C‑based and platform‑dependent.",
+      "explanation": "JDBC was designed for Java, ODBC for native applications."
+    },
+    {
+      "id": 8,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is the role of DriverManager in JDBC?",
+      "output": "It manages a list of JDBC drivers and establishes connections to databases.",
+      "answer": "It manages a list of JDBC drivers and establishes connections to databases.",
+      "explanation": "DriverManager.getConnection(url, user, password) returns a Connection object."
+    },
+    {
+      "id": 9,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is a JDBC URL? Give an example for MySQL.",
+      "output": "jdbc:mysql://localhost:3306/mydb",
+      "answer": "jdbc:mysql://localhost:3306/mydb",
+      "explanation": "The URL format is jdbc:subprotocol://host:port/database."
+    },
+    {
+      "id": 10,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What does the Class.forName() method do in older JDBC versions?",
+      "output": "It loads the JDBC driver class, registering it with DriverManager.",
+      "answer": "It loads the JDBC driver class, registering it with DriverManager.",
+      "explanation": "In JDBC 4.0+, drivers are automatically loaded from classpath."
+    },
+    {
+      "id": 11,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What are the main interfaces of JDBC?",
+      "output": "Driver, Connection, Statement, PreparedStatement, CallableStatement, ResultSet, ResultSetMetaData, DatabaseMetaData.",
+      "answer": "Driver, Connection, Statement, PreparedStatement, CallableStatement, ResultSet, ResultSetMetaData, DatabaseMetaData.",
+      "explanation": "These interfaces define the JDBC API."
+    },
+    {
+      "id": 12,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the java.sql.Driver interface?",
+      "output": "It defines methods that every JDBC driver must implement to connect to a database.",
+      "answer": "It defines methods that every JDBC driver must implement to connect to a database.",
+      "explanation": "Drivers implement this interface; DriverManager uses it."
+    },
+    {
+      "id": 13,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between JDBC 4.0 and earlier versions?",
+      "output": "JDBC 4.0 introduced automatic driver loading, try‑with‑resources support, and improved exception handling.",
+      "answer": "JDBC 4.0 introduced automatic driver loading, try‑with‑resources support, and improved exception handling.",
+      "explanation": "It reduced boilerplate code."
+    },
+    {
+      "id": 14,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLException` hierarchy?",
+      "output": "SQLException is the base class; subclasses include SQLWarning, SQLDataException, SQLIntegrityConstraintViolationException, etc.",
+      "answer": "SQLException is the base class; subclasses include SQLWarning, SQLDataException, SQLIntegrityConstraintViolationException, etc.",
+      "explanation": "JDBC 4.0 introduced more specific exceptions for better error handling."
+    },
+    {
+      "id": 15,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `javax.sql` package?",
+      "output": "It provides extensions for connection pooling, distributed transactions, and RowSet.",
+      "answer": "It provides extensions for connection pooling, distributed transactions, and RowSet.",
+      "explanation": "This package is part of the JDBC optional API."
+    },
+    {
+      "id": 16,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `DataSource` and `DriverManager`?",
+      "output": "DataSource is preferred for enterprise applications; it supports connection pooling and distributed transactions.",
+      "answer": "DataSource is preferred for enterprise applications; it supports connection pooling and distributed transactions.",
+      "explanation": "DriverManager is simple but less flexible."
+    },
+    {
+      "id": 17,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "How does JDBC handle SQL warnings?",
+      "output": "Through SQLWarning objects, which can be retrieved from Connection, Statement, or ResultSet.",
+      "answer": "Through SQLWarning objects, which can be retrieved from Connection, Statement, or ResultSet.",
+      "explanation": "Warnings do not stop execution; you call getWarnings() to retrieve them."
+    },
+    {
+      "id": 18,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLTimeoutException`?",
+      "output": "An exception thrown when a statement exceeds the specified query timeout.",
+      "answer": "An exception thrown when a statement exceeds the specified query timeout.",
+      "explanation": "You can set timeout using Statement.setQueryTimeout()."
+    },
+    {
+      "id": 19,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the role of the `java.sql.SQLXML` interface?",
+      "output": "It represents an XML data type for mapping SQL XML to Java.",
+      "answer": "It represents an XML data type for mapping SQL XML to Java.",
+      "explanation": "Introduced in JDBC 4.0."
+    },
+    {
+      "id": 20,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of using JDBC over JPA?",
+      "output": "JDBC gives fine‑grained control over SQL execution and performance; JPA provides higher‑level abstraction.",
+      "answer": "JDBC gives fine‑grained control over SQL execution and performance; JPA provides higher‑level abstraction.",
+      "explanation": "Choose JDBC when you need native SQL or maximum performance."
+    },
+    {
+      "id": 21,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.DatabaseMetaData` interface used for?",
+      "output": "It provides metadata about the database, such as table names, column names, driver version, etc.",
+      "answer": "It provides metadata about the database, such as table names, column names, driver version, etc.",
+      "explanation": "Obtained from Connection.getMetaData()."
+    },
+    {
+      "id": 22,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSetMetaData`?",
+      "output": "It provides information about the columns of a ResultSet, like column count, name, type, etc.",
+      "answer": "It provides information about the columns of a ResultSet, like column count, name, type, etc.",
+      "explanation": "Useful for dynamic query handling."
+    },
+    {
+      "id": 23,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.ParameterMetaData` interface?",
+      "output": "It provides information about the parameters in a PreparedStatement or CallableStatement.",
+      "answer": "It provides information about the parameters in a PreparedStatement or CallableStatement.",
+      "explanation": "Useful for building generic database tools."
+    },
+    {
+      "id": 24,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `java.sql.Array` interface?",
+      "output": "It maps SQL ARRAY type to a Java array.",
+      "answer": "It maps SQL ARRAY type to a Java array.",
+      "explanation": "Used for databases that support array columns."
+    },
+    {
+      "id": 25,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.Ref` interface?",
+      "output": "It represents an SQL REF (reference) value, used for structured types.",
+      "answer": "It represents an SQL REF (reference) value, used for structured types.",
+      "explanation": "Less commonly used."
+    },
+    {
+      "id": 26,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.Struct` interface?",
+      "output": "It represents an SQL structured type (UDT) in Java.",
+      "answer": "It represents an SQL structured type (UDT) in Java.",
+      "explanation": "Allows mapping of custom database types."
+    },
+    {
+      "id": 27,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.ShardingKey` introduced in JDBC 4.3?",
+      "output": "It represents a sharding key for database sharding configurations.",
+      "answer": "It represents a sharding key for database sharding configurations.",
+      "explanation": "Part of JDBC 4.3 (Java 9+)."
+    },
+    {
+      "id": 28,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `java.sql.ConnectionBuilder`?",
+      "output": "It provides a builder pattern to create Connection objects with specific properties.",
+      "answer": "It provides a builder pattern to create Connection objects with specific properties.",
+      "explanation": "Introduced in JDBC 4.3."
+    },
+    {
+      "id": 29,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the role of `java.sql.ShardingKeyBuilder`?",
+      "output": "It constructs ShardingKey objects.",
+      "answer": "It constructs ShardingKey objects.",
+      "explanation": "Used in advanced distributed database configurations."
+    },
+    {
+      "id": 30,
+      "topic": "Introduction to JDBC",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.Connection` method `beginRequest()` used for?",
+      "output": "It hints that a request is about to start, allowing the driver to optimize resources.",
+      "answer": "It hints that a request is about to start, allowing the driver to optimize resources.",
+      "explanation": "Introduced in JDBC 4.3."
+    },
+    {
+      "id": 31,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Beginner",
+      "question": "How many types of JDBC drivers are there?",
+      "output": "4 types (Type 1, Type 2, Type 3, Type 4).",
+      "answer": "4 types (Type 1, Type 2, Type 3, Type 4).",
+      "explanation": "Each type has different architecture and performance characteristics."
+    },
+    {
+      "id": 32,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Beginner",
+      "question": "What is a Type 1 JDBC driver?",
+      "output": "JDBC-ODBC bridge driver.",
+      "answer": "JDBC-ODBC bridge driver.",
+      "explanation": "It converts JDBC calls into ODBC calls; requires ODBC driver installed."
+    },
+    {
+      "id": 33,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Beginner",
+      "question": "What is a Type 2 JDBC driver?",
+      "output": "Native-API driver (partly Java, partly native code).",
+      "answer": "Native-API driver (partly Java, partly native code).",
+      "explanation": "It uses native database client libraries; platform‑dependent."
+    },
+    {
+      "id": 34,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Beginner",
+      "question": "What is a Type 3 JDBC driver?",
+      "output": "Network protocol driver (pure Java, uses middleware server).",
+      "answer": "Network protocol driver (pure Java, uses middleware server).",
+      "explanation": "It translates JDBC calls into a database‑independent protocol."
+    },
+    {
+      "id": 35,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Beginner",
+      "question": "What is a Type 4 JDBC driver?",
+      "output": "Pure Java driver that converts JDBC calls directly into database protocol.",
+      "answer": "Pure Java driver that converts JDBC calls directly into database protocol.",
+      "explanation": "Most popular (e.g., MySQL Connector/J, PostgreSQL JDBC)."
+    },
+    {
+      "id": 36,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "Which JDBC driver type is the most platform‑independent?",
+      "output": "Type 4 (Pure Java driver).",
+      "answer": "Type 4 (Pure Java driver).",
+      "explanation": "It does not require native libraries or middleware."
+    },
+    {
+      "id": 37,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the main disadvantage of Type 1 driver?",
+      "output": "It requires ODBC driver and is platform‑dependent; performance overhead.",
+      "answer": "It requires ODBC driver and is platform‑dependent; performance overhead.",
+      "explanation": "It is deprecated since Java 8."
+    },
+    {
+      "id": 38,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "Which JDBC driver type is best for applets?",
+      "output": "Type 3 or Type 4 (pure Java).",
+      "answer": "Type 3 or Type 4 (pure Java).",
+      "explanation": "Applets run in a browser and cannot use native code."
+    },
+    {
+      "id": 39,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the architecture of a Type 3 driver?",
+      "output": "Client (pure Java) → Middleware server (proprietary protocol) → Database.",
+      "answer": "Client (pure Java) → Middleware server (proprietary protocol) → Database.",
+      "explanation": "Middleware handles translation to multiple databases."
+    },
+    {
+      "id": 40,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of Type 2 driver?",
+      "output": "Better performance than Type 1 because it uses native database libraries.",
+      "answer": "Better performance than Type 1 because it uses native database libraries.",
+      "explanation": "But it is platform‑dependent."
+    },
+    {
+      "id": 41,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "Which JDBC driver types are pure Java?",
+      "output": "Type 3 and Type 4.",
+      "answer": "Type 3 and Type 4.",
+      "explanation": "Both are written entirely in Java, no native code."
+    },
+    {
+      "id": 42,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the role of `DriverManager.registerDriver()`?",
+      "output": "It registers a Driver instance with DriverManager.",
+      "answer": "It registers a Driver instance with DriverManager.",
+      "explanation": "Drivers automatically register themselves when loaded."
+    },
+    {
+      "id": 43,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Intermediate",
+      "question": "How does DriverManager choose a driver for a given URL?",
+      "output": "It iterates over registered drivers and calls `acceptsURL(url)` until one returns true.",
+      "answer": "It iterates over registered drivers and calls `acceptsURL(url)` until one returns true.",
+      "explanation": "The first driver that accepts the URL is used."
+    },
+    {
+      "id": 44,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.Driver` interface method `getPropertyInfo()`?",
+      "output": "Returns an array of DriverPropertyInfo objects describing possible connection properties.",
+      "answer": "Returns an array of DriverPropertyInfo objects describing possible connection properties.",
+      "explanation": "Used by GUI tools to build connection dialogs."
+    },
+    {
+      "id": 45,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Driver.getMajorVersion()` and `getMinorVersion()`?",
+      "output": "Returns the driver's version numbers.",
+      "answer": "Returns the driver's version numbers.",
+      "explanation": "Useful for compatibility checks."
+    },
+    {
+      "id": 46,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `javax.sql.DataSource` interface and how does it relate to drivers?",
+      "output": "DataSource is a factory for connections, often implemented by drivers to provide connection pooling.",
+      "answer": "DataSource is a factory for connections, often implemented by drivers to provide connection pooling.",
+      "explanation": "It is preferred over DriverManager in enterprise environments."
+    },
+    {
+      "id": 47,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `javax.sql.ConnectionPoolDataSource` interface?",
+      "output": "It is a factory for PooledConnection objects, used by connection pool managers.",
+      "answer": "It is a factory for PooledConnection objects, used by connection pool managers.",
+      "explanation": "Implemented by driver vendors for pooling support."
+    },
+    {
+      "id": 48,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `javax.sql.XADataSource` interface?",
+      "output": "It is a factory for XAConnection objects, used for distributed transactions.",
+      "answer": "It is a factory for XAConnection objects, used for distributed transactions.",
+      "explanation": "Supports two‑phase commit across multiple databases."
+    },
+    {
+      "id": 49,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `DriverManager.getConnection()` and `DataSource.getConnection()`?",
+      "output": "DriverManager returns a direct connection; DataSource may return a pooled connection.",
+      "answer": "DriverManager returns a direct connection; DataSource may return a pooled connection.",
+      "explanation": "DataSource is more configurable and scalable."
+    },
+    {
+      "id": 50,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "How can you unregister a JDBC driver?",
+      "output": "Call `DriverManager.deregisterDriver(Driver driver)`.",
+      "answer": "Call `DriverManager.deregisterDriver(Driver driver)`.",
+      "explanation": "Useful in application servers to avoid driver leaks."
+    },
+    {
+      "id": 51,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.DriverAction` interface?",
+      "output": "It allows a driver to be notified when it is deregistered.",
+      "answer": "It allows a driver to be notified when it is deregistered.",
+      "explanation": "Introduced in JDBC 4.0."
+    },
+    {
+      "id": 52,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.DriverPropertyInfo` class?",
+      "output": "It holds information about a connection property for a driver.",
+      "answer": "It holds information about a connection property for a driver.",
+      "explanation": "Used by tools to build connection dialogs."
+    },
+    {
+      "id": 53,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.Driver` method `jdbcCompliant()`?",
+      "output": "Returns true if the driver passes the JDBC compliance tests.",
+      "answer": "Returns true if the driver passes the JDBC compliance tests.",
+      "explanation": "Most drivers return false due to partial compliance."
+    },
+    {
+      "id": 54,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.ShardingKey` and how is it used?",
+      "output": "It specifies a sharding key to route connections to the correct shard.",
+      "answer": "It specifies a sharding key to route connections to the correct shard.",
+      "explanation": "Introduced in JDBC 4.3 for sharded databases."
+    },
+    {
+      "id": 55,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.ConnectionBuilder` interface?",
+      "output": "It builds Connection objects with specific properties like sharding keys.",
+      "answer": "It builds Connection objects with specific properties like sharding keys.",
+      "explanation": "Part of JDBC 4.3."
+    },
+    {
+      "id": 56,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.ShardingKeyBuilder` interface?",
+      "output": "It constructs ShardingKey objects from subkeys.",
+      "answer": "It constructs ShardingKey objects from subkeys.",
+      "explanation": "Allows hierarchical sharding keys."
+    },
+    {
+      "id": 57,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the role of `java.sql.DriverManager` method `getDrivers()`?",
+      "output": "Returns an enumeration of currently registered drivers.",
+      "answer": "Returns an enumeration of currently registered drivers.",
+      "explanation": "Useful for debugging driver loading issues."
+    },
+    {
+      "id": 58,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "How does JDBC 4.0 automatically load drivers?",
+      "output": "By using the Service Provider mechanism: drivers include a file `META-INF/services/java.sql.Driver`.",
+      "answer": "By using the Service Provider mechanism: drivers include a file `META-INF/services/java.sql.Driver`.",
+      "explanation": "The file contains the driver class name."
+    },
+    {
+      "id": 59,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLClientInfoException`?",
+      "output": "Thrown when setting client info properties fails on a connection.",
+      "answer": "Thrown when setting client info properties fails on a connection.",
+      "explanation": "Client info properties can be set via `Connection.setClientInfo()`."
+    },
+    {
+      "id": 60,
+      "topic": "JDBC Drivers and Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `java.sql.Wrapper` interface?",
+      "output": "It allows access to vendor‑specific extensions via unwrapping.",
+      "answer": "It allows access to vendor‑specific extensions via unwrapping.",
+      "explanation": "Implemented by Connection, Statement, ResultSet, etc."
+    },
+    {
+      "id": 61,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Beginner",
+      "question": "What are the steps to connect a Java application to a database using JDBC?",
+      "output": "1. Load driver (optional), 2. Get connection, 3. Create statement, 4. Execute query, 5. Process results, 6. Close resources.",
+      "answer": "1. Load driver (optional), 2. Get connection, 3. Create statement, 4. Execute query, 5. Process results, 6. Close resources.",
+      "explanation": "This is the standard JDBC workflow."
+    },
+    {
+      "id": 62,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Beginner",
+      "question": "Which method is used to establish a database connection?",
+      "output": "DriverManager.getConnection(String url, String user, String password).",
+      "answer": "DriverManager.getConnection(String url, String user, String password).",
+      "explanation": "It returns a Connection object."
+    },
+    {
+      "id": 63,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Beginner",
+      "question": "What is the JDBC URL for a MySQL database named 'test' on localhost?",
+      "output": "jdbc:mysql://localhost:3306/test",
+      "answer": "jdbc:mysql://localhost:3306/test",
+      "explanation": "Default MySQL port is 3306."
+    },
+    {
+      "id": 64,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Beginner",
+      "question": "What is the JDBC URL for a PostgreSQL database named 'testdb' on localhost?",
+      "output": "jdbc:postgresql://localhost:5432/testdb",
+      "answer": "jdbc:postgresql://localhost:5432/testdb",
+      "explanation": "Default PostgreSQL port is 5432."
+    },
+    {
+      "id": 65,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Beginner",
+      "question": "What is the JDBC URL for an Oracle database?",
+      "output": "jdbc:oracle:thin:@localhost:1521:xe",
+      "answer": "jdbc:oracle:thin:@localhost:1521:xe",
+      "explanation": "Oracle thin driver uses port 1521 by default."
+    },
+    {
+      "id": 66,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "What is the use of `Connection.setAutoCommit(false)`?",
+      "output": "It disables auto‑commit, allowing manual transaction control.",
+      "answer": "It disables auto‑commit, allowing manual transaction control.",
+      "explanation": "You must then call commit() or rollback()."
+    },
+    {
+      "id": 67,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "How do you handle closing resources in JDBC?",
+      "output": "Use try‑with‑resources (Java 7+) or close them in a finally block.",
+      "answer": "Use try‑with‑resources (Java 7+) or close them in a finally block.",
+      "explanation": "Always close ResultSet, Statement, and Connection."
+    },
+    {
+      "id": 68,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "What is the `Connection` method `isValid(int timeout)`?",
+      "output": "It checks whether the connection is still valid and not closed.",
+      "answer": "It checks whether the connection is still valid and not closed.",
+      "explanation": "Used in connection pools to validate connections."
+    },
+    {
+      "id": 69,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `Connection.setClientInfo()`?",
+      "output": "To set application‑specific information on the connection, for logging or monitoring.",
+      "answer": "To set application‑specific information on the connection, for logging or monitoring.",
+      "explanation": "Not all drivers support it."
+    },
+    {
+      "id": 70,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "What is the `Connection` method `getMetaData()` used for?",
+      "output": "Returns a DatabaseMetaData object describing the database.",
+      "answer": "Returns a DatabaseMetaData object describing the database.",
+      "explanation": "Useful to get database product name, version, supported features."
+    },
+    {
+      "id": 71,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "What is the default auto‑commit mode in JDBC?",
+      "output": "True (each SQL statement is committed automatically).",
+      "answer": "True (each SQL statement is committed automatically).",
+      "explanation": "Set to false for transactions."
+    },
+    {
+      "id": 72,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Intermediate",
+      "question": "How can you set a connection timeout?",
+      "output": "Using DriverManager.setLoginTimeout(int seconds) or connection properties.",
+      "answer": "Using DriverManager.setLoginTimeout(int seconds) or connection properties.",
+      "explanation": "Login timeout is the maximum time to wait for a connection."
+    },
+    {
+      "id": 73,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `Connection.close()` and `Connection.abort(Executor)`?",
+      "output": "close() waits for ongoing work to finish; abort() forces immediate termination.",
+      "answer": "close() waits for ongoing work to finish; abort() forces immediate termination.",
+      "explanation": "abort() requires an Executor to execute the abort task."
+    },
+    {
+      "id": 74,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `setNetworkTimeout(Executor, int)`?",
+      "output": "Sets the maximum time to wait for a network operation (read/write).",
+      "answer": "Sets the maximum time to wait for a network operation (read/write).",
+      "explanation": "Introduced in JDBC 4.1."
+    },
+    {
+      "id": 75,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `beginRequest()` used for?",
+      "output": "It hints that a request is about to start; the driver may allocate resources.",
+      "answer": "It hints that a request is about to start; the driver may allocate resources.",
+      "explanation": "Part of JDBC 4.3."
+    },
+    {
+      "id": 76,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `endRequest()`?",
+      "output": "It hints that the current request has ended, allowing resource cleanup.",
+      "answer": "It hints that the current request has ended, allowing resource cleanup.",
+      "explanation": "Used in conjunction with beginRequest()."
+    },
+    {
+      "id": 77,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Connection.setShardingKey(ShardingKey)`?",
+      "output": "It sets a sharding key for the connection to route to a specific shard.",
+      "answer": "It sets a sharding key for the connection to route to a specific shard.",
+      "explanation": "JDBC 4.3 feature."
+    },
+    {
+      "id": 78,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `createShardingKeyBuilder()`?",
+      "output": "Returns a ShardingKeyBuilder to construct a ShardingKey.",
+      "answer": "Returns a ShardingKeyBuilder to construct a ShardingKey.",
+      "explanation": "Used for sharded databases."
+    },
+    {
+      "id": 79,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `createConnectionBuilder()`?",
+      "output": "Returns a ConnectionBuilder to build a connection with specific properties.",
+      "answer": "Returns a ConnectionBuilder to build a connection with specific properties.",
+      "explanation": "Allows building connections with sharding keys etc."
+    },
+    {
+      "id": 80,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Connection.getSchema()`?",
+      "output": "Returns the current schema name for the connection.",
+      "answer": "Returns the current schema name for the connection.",
+      "explanation": "Introduced in JDBC 4.1."
+    },
+    {
+      "id": 81,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the use of `Connection.setSchema(String)`?",
+      "output": "Sets the schema to use for the connection.",
+      "answer": "Sets the schema to use for the connection.",
+      "explanation": "Useful for databases that support schemas."
+    },
+    {
+      "id": 82,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getTypeMap()`?",
+      "output": "Returns the type map for this connection (mapping SQL types to Java classes).",
+      "answer": "Returns the type map for this connection (mapping SQL types to Java classes).",
+      "explanation": "Used for custom type mappings."
+    },
+    {
+      "id": 83,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Connection.setTypeMap(Map)`?",
+      "output": "Sets a custom type map for this connection.",
+      "answer": "Sets a custom type map for this connection.",
+      "explanation": "Overrides the default type mappings."
+    },
+    {
+      "id": 84,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getHoldability()`?",
+      "output": "Returns the holdability of ResultSet objects (whether they remain open after commit).",
+      "answer": "Returns the holdability of ResultSet objects (whether they remain open after commit).",
+      "explanation": "Values: HOLD_CURSORS_OVER_COMMIT, CLOSE_CURSORS_AT_COMMIT."
+    },
+    {
+      "id": 85,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getTransactionIsolation()`?",
+      "output": "Returns the current transaction isolation level.",
+      "answer": "Returns the current transaction isolation level.",
+      "explanation": "Levels: TRANSACTION_READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE."
+    },
+    {
+      "id": 86,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Connection.setReadOnly(boolean)`?",
+      "output": "Puts the connection in read‑only mode, which may enable optimizations.",
+      "answer": "Puts the connection in read‑only mode, which may enable optimizations.",
+      "explanation": "Some databases may reject updates."
+    },
+    {
+      "id": 87,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `isReadOnly()`?",
+      "output": "Returns whether the connection is read‑only.",
+      "answer": "Returns whether the connection is read‑only.",
+      "explanation": "True if setReadOnly(true) was called."
+    },
+    {
+      "id": 88,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getClientInfo()`?",
+      "output": "Returns the client info properties set for the connection.",
+      "answer": "Returns the client info properties set for the connection.",
+      "explanation": "Returns a Properties object."
+    },
+    {
+      "id": 89,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Connection.setClientInfo(Properties)`?",
+      "output": "Sets multiple client info properties at once.",
+      "answer": "Sets multiple client info properties at once.",
+      "explanation": "May be ignored by some drivers."
+    },
+    {
+      "id": 90,
+      "topic": "Connecting Java with Databases",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getCatalog()`?",
+      "output": "Returns the current catalog name for the connection.",
+      "answer": "Returns the current catalog name for the connection.",
+      "explanation": "Not all databases support catalogs."
+    },
+    {
+      "id": 91,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Beginner",
+      "question": "Which JDBC interface is used to execute SQL queries?",
+      "output": "Statement, PreparedStatement, or CallableStatement.",
+      "answer": "Statement, PreparedStatement, or CallableStatement.",
+      "explanation": "Statement is for simple queries; PreparedStatement for parameterized; CallableStatement for stored procedures."
+    },
+    {
+      "id": 92,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Beginner",
+      "question": "What method is used to execute a SELECT query?",
+      "output": "executeQuery()",
+      "answer": "executeQuery()",
+      "explanation": "It returns a ResultSet object."
+    },
+    {
+      "id": 93,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Beginner",
+      "question": "What method is used to execute an INSERT, UPDATE, or DELETE query?",
+      "output": "executeUpdate()",
+      "answer": "executeUpdate()",
+      "explanation": "It returns the number of rows affected."
+    },
+    {
+      "id": 94,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Beginner",
+      "question": "What is the return type of executeUpdate()?",
+      "output": "int (number of rows affected).",
+      "answer": "int (number of rows affected).",
+      "explanation": "For DDL statements, returns 0."
+    },
+    {
+      "id": 95,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Beginner",
+      "question": "What method is used when you don't know if the SQL is a query or update?",
+      "output": "execute()",
+      "answer": "execute()",
+      "explanation": "Returns true if a ResultSet is available, false if an update count."
+    },
+    {
+      "id": 96,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "How can you retrieve generated keys (e.g., auto‑increment) after an INSERT?",
+      "output": "Use Statement.RETURN_GENERATED_KEYS and call getGeneratedKeys().",
+      "answer": "Use Statement.RETURN_GENERATED_KEYS and call getGeneratedKeys().",
+      "explanation": "Available in PreparedStatement and Statement."
+    },
+    {
+      "id": 97,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `Statement.getResultSet()`?",
+      "output": "It retrieves the ResultSet produced by the last execute() call that returned true.",
+      "answer": "It retrieves the ResultSet produced by the last execute() call that returned true.",
+      "explanation": "Used in combination with execute() for multiple results."
+    },
+    {
+      "id": 98,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `Statement.getUpdateCount()`?",
+      "output": "It returns the number of rows affected by the last update statement.",
+      "answer": "It returns the number of rows affected by the last update statement.",
+      "explanation": "Used after execute() when no ResultSet."
+    },
+    {
+      "id": 99,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `executeQuery()` and `executeUpdate()`?",
+      "output": "executeQuery() returns ResultSet (SELECT); executeUpdate() returns row count (INSERT/UPDATE/DELETE).",
+      "answer": "executeQuery() returns ResultSet (SELECT); executeUpdate() returns row count (INSERT/UPDATE/DELETE).",
+      "explanation": "Using the wrong method may throw SQLException."
+    },
+    {
+      "id": 100,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `Statement.executeBatch()`?",
+      "output": "Executes a batch of statements together, returning an array of update counts.",
+      "answer": "Executes a batch of statements together, returning an array of update counts.",
+      "explanation": "Improves performance for multiple updates."
+    },
+    {
+      "id": 101,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "How do you add a statement to a batch?",
+      "output": "Call `addBatch(String sql)` on Statement or `addBatch()` on PreparedStatement.",
+      "answer": "Call `addBatch(String sql)` on Statement or `addBatch()` on PreparedStatement.",
+      "explanation": "Then executeBatch() to run all."
+    },
+    {
+      "id": 102,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Intermediate",
+      "question": "What is the default fetch size of a ResultSet?",
+      "output": "Depends on driver; can be set via `setFetchSize()`.",
+      "answer": "Depends on driver; can be set via `setFetchSize()`.",
+      "explanation": "Fetch size controls how many rows are retrieved at a time."
+    },
+    {
+      "id": 103,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.setMaxRows(int)`?",
+      "output": "Limits the maximum number of rows returned by any ResultSet.",
+      "answer": "Limits the maximum number of rows returned by any ResultSet.",
+      "explanation": "The driver may not support it."
+    },
+    {
+      "id": 104,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.setQueryTimeout(int)`?",
+      "output": "Sets the maximum time (seconds) a statement can run before timeout.",
+      "answer": "Sets the maximum time (seconds) a statement can run before timeout.",
+      "explanation": "Throws SQLTimeoutException on timeout."
+    },
+    {
+      "id": 105,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `cancel()`?",
+      "output": "Cancels the execution of the current statement (if supported).",
+      "answer": "Cancels the execution of the current statement (if supported).",
+      "explanation": "May not be supported by all drivers."
+    },
+    {
+      "id": 106,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `Statement` and `PreparedStatement` for batch updates?",
+      "output": "PreparedStatement batch can reuse the same precompiled SQL, more efficient for multiple rows.",
+      "answer": "PreparedStatement batch can reuse the same precompiled SQL, more efficient for multiple rows.",
+      "explanation": "PreparedStatement.addBatch() does not take a SQL string."
+    },
+    {
+      "id": 107,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.enableStreamingResults()`?",
+      "output": "It enables streaming of large ResultSets to avoid memory exhaustion.",
+      "answer": "It enables streaming of large ResultSets to avoid memory exhaustion.",
+      "explanation": "MySQL specific; other drivers have similar options."
+    },
+    {
+      "id": 108,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "How can you execute a query that returns multiple ResultSets?",
+      "output": "Use `execute()` and then `getMoreResults()` to iterate.",
+      "answer": "Use `execute()` and then `getMoreResults()` to iterate.",
+      "explanation": "Common with stored procedures that return multiple result sets."
+    },
+    {
+      "id": 109,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `getMoreResults()`?",
+      "output": "Moves to the next result in a multiple‑result set statement.",
+      "answer": "Moves to the next result in a multiple‑result set statement.",
+      "explanation": "Returns true if there is another ResultSet."
+    },
+    {
+      "id": 110,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `getGeneratedKeys()`?",
+      "output": "Returns a ResultSet containing auto‑generated keys (e.g., identity columns).",
+      "answer": "Returns a ResultSet containing auto‑generated keys (e.g., identity columns).",
+      "explanation": "Works with insert statements."
+    },
+    {
+      "id": 111,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.setEscapeProcessing(boolean)`?",
+      "output": "Enables or disables escape syntax processing (e.g., {d '...'}).",
+      "answer": "Enables or disables escape syntax processing (e.g., {d '...'}).",
+      "explanation": "Enabled by default."
+    },
+    {
+      "id": 112,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `getFetchSize()`?",
+      "output": "Returns the current fetch size (number of rows fetched per network round‑trip).",
+      "answer": "Returns the current fetch size (number of rows fetched per network round‑trip).",
+      "explanation": "Default is driver‑specific."
+    },
+    {
+      "id": 113,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.setFetchSize(int)`?",
+      "output": "Suggests the number of rows to fetch from the database at a time.",
+      "answer": "Suggests the number of rows to fetch from the database at a time.",
+      "explanation": "May be ignored by the driver."
+    },
+    {
+      "id": 114,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `setMaxFieldSize(int)`?",
+      "output": "Sets the maximum size of a column value (in bytes) returned.",
+      "answer": "Sets the maximum size of a column value (in bytes) returned.",
+      "explanation": "Not widely supported."
+    },
+    {
+      "id": 115,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `execute()` and `executeQuery()` for a SELECT?",
+      "output": "execute() returns true and you must getResultSet(); executeQuery() directly returns ResultSet.",
+      "answer": "execute() returns true and you must getResultSet(); executeQuery() directly returns ResultSet.",
+      "explanation": "execute() is more flexible but more verbose."
+    },
+    {
+      "id": 116,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "How do you handle a statement that produces both update counts and result sets?",
+      "output": "Use execute(), then check getResultSet() and getUpdateCount() alternately.",
+      "answer": "Use execute(), then check getResultSet() and getUpdateCount() alternately.",
+      "explanation": "Stored procedures can return multiple results."
+    },
+    {
+      "id": 117,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `getWarnings()`?",
+      "output": "Returns the first warning reported on this statement.",
+      "answer": "Returns the first warning reported on this statement.",
+      "explanation": "Warnings do not stop execution."
+    },
+    {
+      "id": 118,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.clearWarnings()`?",
+      "output": "Clears all warnings reported on this statement.",
+      "answer": "Clears all warnings reported on this statement.",
+      "explanation": "Prevents accumulation of warnings."
+    },
+    {
+      "id": 119,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `closeOnCompletion()`?",
+      "output": "Causes the statement to be closed when all dependent ResultSets are closed.",
+      "answer": "Causes the statement to be closed when all dependent ResultSets are closed.",
+      "explanation": "Useful for resource management."
+    },
+    {
+      "id": 120,
+      "topic": "Executing SQL Queries (CRUD)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Statement.isCloseOnCompletion()`?",
+      "output": "Returns true if the statement will be closed when all result sets are closed.",
+      "answer": "Returns true if the statement will be closed when all result sets are closed.",
+      "explanation": "Checks the closeOnCompletion setting."
+    },
+    {
+      "id": 121,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Beginner",
+      "question": "What is the main difference between Statement and PreparedStatement?",
+      "output": "PreparedStatement is precompiled, supports parameters, and prevents SQL injection.",
+      "answer": "PreparedStatement is precompiled, supports parameters, and prevents SQL injection.",
+      "explanation": "PreparedStatement is preferred for repeated queries."
+    },
+    {
+      "id": 122,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Beginner",
+      "question": "Which one is more efficient for executing the same SQL multiple times?",
+      "output": "PreparedStatement",
+      "answer": "PreparedStatement",
+      "explanation": "It is precompiled and can be reused with different parameters."
+    },
+    {
+      "id": 123,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Beginner",
+      "question": "How do you set parameters in a PreparedStatement?",
+      "output": "Using setXXX() methods like setInt(), setString(), etc.",
+      "answer": "Using setXXX() methods like setInt(), setString(), etc.",
+      "explanation": "Parameter indexes start from 1."
+    },
+    {
+      "id": 124,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Beginner",
+      "question": "What SQL injection vulnerability does PreparedStatement avoid?",
+      "output": "It escapes parameter values automatically, preventing malicious SQL concatenation.",
+      "answer": "It escapes parameter values automatically, preventing malicious SQL concatenation.",
+      "explanation": "Never use Statement with user input."
+    },
+    {
+      "id": 125,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Intermediate",
+      "question": "Can you use a PreparedStatement without parameters?",
+      "output": "Yes, it still provides precompilation benefits.",
+      "answer": "Yes, it still provides precompilation benefits.",
+      "explanation": "You can create a PreparedStatement with a constant SQL string."
+    },
+    {
+      "id": 126,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Intermediate",
+      "question": "What is the method to execute a PreparedStatement?",
+      "output": "executeQuery(), executeUpdate(), or execute().",
+      "answer": "executeQuery(), executeUpdate(), or execute().",
+      "explanation": "Same as Statement but without passing SQL string."
+    },
+    {
+      "id": 127,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `PreparedStatement.setNull(int, int)`?",
+      "output": "Sets a parameter to SQL NULL with a specified SQL type.",
+      "answer": "Sets a parameter to SQL NULL with a specified SQL type.",
+      "explanation": "Second parameter is java.sql.Types constant."
+    },
+    {
+      "id": 128,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Intermediate",
+      "question": "Can you change the SQL of a PreparedStatement after creation?",
+      "output": "No, it is fixed at creation time.",
+      "answer": "No, it is fixed at creation time.",
+      "explanation": "You must create a new PreparedStatement for different SQL."
+    },
+    {
+      "id": 129,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of using `PreparedStatement.getMetaData()`?",
+      "output": "Returns ParameterMetaData describing the parameters.",
+      "answer": "Returns ParameterMetaData describing the parameters.",
+      "explanation": "Useful for dynamic parameter handling."
+    },
+    {
+      "id": 130,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the difference in batch processing between Statement and PreparedStatement?",
+      "output": "PreparedStatement uses addBatch() without SQL string; Statement uses addBatch(String sql).",
+      "answer": "PreparedStatement uses addBatch() without SQL string; Statement uses addBatch(String sql).",
+      "explanation": "PreparedStatement batch is more efficient because SQL is precompiled."
+    },
+    {
+      "id": 131,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.setObject(int, Object)`?",
+      "output": "Sets the parameter to the given object using default type mapping.",
+      "answer": "Sets the parameter to the given object using default type mapping.",
+      "explanation": "The driver maps the object to the appropriate SQL type."
+    },
+    {
+      "id": 132,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.setObject(int, Object, int)`?",
+      "output": "Sets the parameter with a specified SQL type (java.sql.Types).",
+      "answer": "Sets the parameter with a specified SQL type (java.sql.Types).",
+      "explanation": "Provides more control over type mapping."
+    },
+    {
+      "id": 133,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the `PreparedStatement` method `setCharacterStream()` used for?",
+      "output": "To set a large character stream (e.g., for CLOB data).",
+      "answer": "To set a large character stream (e.g., for CLOB data).",
+      "explanation": "Useful for very large text values."
+    },
+    {
+      "id": 134,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the `PreparedStatement` method `setBinaryStream()` used for?",
+      "output": "To set a binary stream (e.g., for BLOB data).",
+      "answer": "To set a binary stream (e.g., for BLOB data).",
+      "explanation": "Efficient for large binary data."
+    },
+    {
+      "id": 135,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the `PreparedStatement` method `clearParameters()`?",
+      "output": "Clears all current parameter values.",
+      "answer": "Clears all current parameter values.",
+      "explanation": "Useful before reusing the statement with new parameters."
+    },
+    {
+      "id": 136,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.getParameterMetaData()`?",
+      "output": "Returns a ParameterMetaData object describing parameter types and modes.",
+      "answer": "Returns a ParameterMetaData object describing parameter types and modes.",
+      "explanation": "Helps build generic database tools."
+    },
+    {
+      "id": 137,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `Statement.executeUpdate(String sql)` and `PreparedStatement.executeUpdate()`?",
+      "output": "Statement passes SQL each time; PreparedStatement uses precompiled SQL.",
+      "answer": "Statement passes SQL each time; PreparedStatement uses precompiled SQL.",
+      "explanation": "PreparedStatement is safer and faster for repeated calls."
+    },
+    {
+      "id": 138,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "Can you use a PreparedStatement with a stored procedure call?",
+      "output": "No, use CallableStatement for stored procedures.",
+      "answer": "No, use CallableStatement for stored procedures.",
+      "explanation": "CallableStatement extends PreparedStatement."
+    },
+    {
+      "id": 139,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.setArray(int, Array)`?",
+      "output": "Sets an SQL ARRAY parameter.",
+      "answer": "Sets an SQL ARRAY parameter.",
+      "explanation": "Used for array data types."
+    },
+    {
+      "id": 140,
+      "topic": "Statement vs PreparedStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.setRef(int, Ref)`?",
+      "output": "Sets an SQL REF (reference) parameter.",
+      "answer": "Sets an SQL REF (reference) parameter.",
+      "explanation": "Used for structured types."
+    },
+    {
+      "id": 141,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Beginner",
+      "question": "What is a ResultSet?",
+      "output": "A table of data representing a database result set.",
+      "answer": "A table of data representing a database result set.",
+      "explanation": "It is returned by executeQuery() and provides methods to navigate and retrieve data."
+    },
+    {
+      "id": 142,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Beginner",
+      "question": "How do you move the cursor to the first row?",
+      "output": "rs.first()",
+      "answer": "rs.first()",
+      "explanation": "Works only if the ResultSet is scrollable."
+    },
+    {
+      "id": 143,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Beginner",
+      "question": "What is the default type of ResultSet?",
+      "output": "TYPE_FORWARD_ONLY",
+      "answer": "TYPE_FORWARD_ONLY",
+      "explanation": "It can only move forward using next()."
+    },
+    {
+      "id": 144,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Beginner",
+      "question": "How do you get the value of a column by name?",
+      "output": "rs.getString(\"column_name\")",
+      "answer": "rs.getString(\"column_name\")",
+      "explanation": "Also getInt, getDouble, etc."
+    },
+    {
+      "id": 145,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Beginner",
+      "question": "How do you get the value of a column by index?",
+      "output": "rs.getString(1)",
+      "answer": "rs.getString(1)",
+      "explanation": "Column indexes start at 1."
+    },
+    {
+      "id": 146,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of ResultSetMetaData?",
+      "output": "To get information about the columns in a ResultSet, such as count, name, type, etc.",
+      "answer": "To get information about the columns in a ResultSet, such as count, name, type, etc.",
+      "explanation": "Obtained via rs.getMetaData()."
+    },
+    {
+      "id": 147,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "How do you make a ResultSet scrollable and updatable?",
+      "output": "Create Statement with: createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).",
+      "answer": "Create Statement with: createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE).",
+      "explanation": "Not all drivers support updatable ResultSet."
+    },
+    {
+      "id": 148,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `TYPE_SCROLL_INSENSITIVE` and `TYPE_SCROLL_SENSITIVE`?",
+      "output": "INSENSITIVE does not reflect changes made by others; SENSITIVE does (if supported).",
+      "answer": "INSENSITIVE does not reflect changes made by others; SENSITIVE does (if supported).",
+      "explanation": "SENSITIVE may have performance overhead."
+    },
+    {
+      "id": 149,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "What method is used to update a column in an updatable ResultSet?",
+      "output": "updateString(), updateInt(), etc., then call updateRow().",
+      "answer": "updateString(), updateInt(), etc., then call updateRow().",
+      "explanation": "You must also call updateRow() to commit the change to the database."
+    },
+    {
+      "id": 150,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "How do you insert a new row into an updatable ResultSet?",
+      "output": "moveToInsertRow(), set values, then insertRow().",
+      "answer": "moveToInsertRow(), set values, then insertRow().",
+      "explanation": "Not all ResultSets support insert."
+    },
+    {
+      "id": 151,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "What is the `ResultSet` method `getRow()`?",
+      "output": "Returns the current row number (1‑based).",
+      "answer": "Returns the current row number (1‑based).",
+      "explanation": "Returns 0 if no row."
+    },
+    {
+      "id": 152,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `ResultSet.absolute(int)`?",
+      "output": "Moves the cursor to the specified row number.",
+      "answer": "Moves the cursor to the specified row number.",
+      "explanation": "Only for scrollable ResultSet."
+    },
+    {
+      "id": 153,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getMetaData()`?",
+      "output": "Returns a ResultSetMetaData object.",
+      "answer": "Returns a ResultSetMetaData object.",
+      "explanation": "Provides column information."
+    },
+    {
+      "id": 154,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getHoldability()`?",
+      "output": "Returns the holdability of this ResultSet (whether it stays open after commit).",
+      "answer": "Returns the holdability of this ResultSet (whether it stays open after commit).",
+      "explanation": "Values: HOLD_CURSORS_OVER_COMMIT or CLOSE_CURSORS_AT_COMMIT."
+    },
+    {
+      "id": 155,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSet.beforeFirst()`?",
+      "output": "Positions the cursor before the first row.",
+      "answer": "Positions the cursor before the first row.",
+      "explanation": "Useful for re‑iterating."
+    },
+    {
+      "id": 156,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `afterLast()`?",
+      "output": "Positions the cursor after the last row.",
+      "answer": "Positions the cursor after the last row.",
+      "explanation": "Used for reverse traversal."
+    },
+    {
+      "id": 157,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `previous()`?",
+      "output": "Moves the cursor to the previous row.",
+      "answer": "Moves the cursor to the previous row.",
+      "explanation": "Requires scrollable ResultSet."
+    },
+    {
+      "id": 158,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `relative(int)`?",
+      "output": "Moves the cursor relative to its current position.",
+      "answer": "Moves the cursor relative to its current position.",
+      "explanation": "Positive moves forward, negative backward."
+    },
+    {
+      "id": 159,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSet.rowUpdated()`?",
+      "output": "Indicates whether the current row has been updated.",
+      "answer": "Indicates whether the current row has been updated.",
+      "explanation": "Works with updatable ResultSet."
+    },
+    {
+      "id": 160,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `rowInserted()`?",
+      "output": "Indicates whether the current row has been inserted.",
+      "answer": "Indicates whether the current row has been inserted.",
+      "explanation": "For updatable ResultSet."
+    },
+    {
+      "id": 161,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `rowDeleted()`?",
+      "output": "Indicates whether the current row has been deleted.",
+      "answer": "Indicates whether the current row has been deleted.",
+      "explanation": "For updatable ResultSet."
+    },
+    {
+      "id": 162,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getFetchDirection()`?",
+      "output": "Returns the fetch direction (FETCH_FORWARD, FETCH_REVERSE, FETCH_UNKNOWN).",
+      "answer": "Returns the fetch direction (FETCH_FORWARD, FETCH_REVERSE, FETCH_UNKNOWN).",
+      "explanation": "Hints for driver optimisation."
+    },
+    {
+      "id": 163,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSet.setFetchDirection(int)`?",
+      "output": "Sets a hint to the driver about the direction of fetching.",
+      "answer": "Sets a hint to the driver about the direction of fetching.",
+      "explanation": "May improve performance."
+    },
+    {
+      "id": 164,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getFetchSize()`?",
+      "output": "Returns the fetch size (number of rows fetched at a time).",
+      "answer": "Returns the fetch size (number of rows fetched at a time).",
+      "explanation": "Used for performance tuning."
+    },
+    {
+      "id": 165,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSet.setFetchSize(int)`?",
+      "output": "Gives the driver a hint on how many rows to fetch per network round‑trip.",
+      "answer": "Gives the driver a hint on how many rows to fetch per network round‑trip.",
+      "explanation": "The driver may ignore it."
+    },
+    {
+      "id": 166,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getType()`?",
+      "output": "Returns the type of this ResultSet (TYPE_FORWARD_ONLY, etc.).",
+      "answer": "Returns the type of this ResultSet (TYPE_FORWARD_ONLY, etc.).",
+      "explanation": "Useful for introspection."
+    },
+    {
+      "id": 167,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `getConcurrency()`?",
+      "output": "Returns the concurrency mode (CONCUR_READ_ONLY or CONCUR_UPDATABLE).",
+      "answer": "Returns the concurrency mode (CONCUR_READ_ONLY or CONCUR_UPDATABLE).",
+      "explanation": "Checks if updates are allowed."
+    },
+    {
+      "id": 168,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ResultSet.cancelRowUpdates()`?",
+      "output": "Cancels any updates made to the current row before updateRow() is called.",
+      "answer": "Cancels any updates made to the current row before updateRow() is called.",
+      "explanation": "Reverts the row to its original values."
+    },
+    {
+      "id": 169,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `deleteRow()`?",
+      "output": "Deletes the current row from the database.",
+      "answer": "Deletes the current row from the database.",
+      "explanation": "Requires updatable ResultSet."
+    },
+    {
+      "id": 170,
+      "topic": "ResultSet and Metadata",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `refreshRow()`?",
+      "output": "Refreshes the current row with the latest values from the database.",
+      "answer": "Refreshes the current row with the latest values from the database.",
+      "explanation": "Useful after updates by other transactions."
+    },
+    {
+      "id": 171,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "What is a transaction?",
+      "output": "A set of SQL statements that are executed as a single unit; either all succeed or none.",
+      "answer": "A set of SQL statements that are executed as a single unit; either all succeed or none.",
+      "explanation": "Ensures data integrity."
+    },
+    {
+      "id": 172,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "How do you start a transaction in JDBC?",
+      "output": "Set auto‑commit to false: connection.setAutoCommit(false).",
+      "answer": "Set auto‑commit to false: connection.setAutoCommit(false).",
+      "explanation": "All subsequent statements become part of the transaction."
+    },
+    {
+      "id": 173,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "How do you commit a transaction?",
+      "output": "connection.commit()",
+      "answer": "connection.commit()",
+      "explanation": "Makes all changes permanent."
+    },
+    {
+      "id": 174,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "How do you roll back a transaction?",
+      "output": "connection.rollback()",
+      "answer": "connection.rollback()",
+      "explanation": "Undoes all changes since the last commit."
+    },
+    {
+      "id": 175,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "What is the default auto‑commit setting in JDBC?",
+      "output": "True (each statement is committed automatically).",
+      "answer": "True (each statement is committed automatically).",
+      "explanation": "For transactions, you must set it to false."
+    },
+    {
+      "id": 176,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "What are ACID properties?",
+      "output": "Atomicity, Consistency, Isolation, Durability.",
+      "answer": "Atomicity, Consistency, Isolation, Durability.",
+      "explanation": "These guarantee reliable transaction processing."
+    },
+    {
+      "id": 177,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "What is a savepoint?",
+      "output": "A point within a transaction to which you can later roll back without undoing the whole transaction.",
+      "answer": "A point within a transaction to which you can later roll back without undoing the whole transaction.",
+      "explanation": "Created with connection.setSavepoint()."
+    },
+    {
+      "id": 178,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "How do you create a savepoint?",
+      "output": "Savepoint sp = connection.setSavepoint(\"name\");",
+      "answer": "Savepoint sp = connection.setSavepoint(\"name\");",
+      "explanation": "The savepoint name is optional."
+    },
+    {
+      "id": 179,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "How do you roll back to a savepoint?",
+      "output": "connection.rollback(Savepoint savepoint);",
+      "answer": "connection.rollback(Savepoint savepoint);",
+      "explanation": "Changes after the savepoint are undone."
+    },
+    {
+      "id": 180,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `connection.setTransactionIsolation(int)`?",
+      "output": "Sets the transaction isolation level (READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE).",
+      "answer": "Sets the transaction isolation level (READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ, SERIALIZABLE).",
+      "explanation": "Higher isolation increases data consistency but may reduce concurrency."
+    },
+    {
+      "id": 181,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "What is the default transaction isolation level in most databases?",
+      "output": "READ_COMMITTED (Oracle, PostgreSQL, SQL Server).",
+      "answer": "READ_COMMITTED (Oracle, PostgreSQL, SQL Server).",
+      "explanation": "MySQL default is REPEATABLE_READ."
+    },
+    {
+      "id": 182,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `connection.rollback()` and `connection.rollback(Savepoint)`?",
+      "output": "rollback() undoes the entire transaction; rollback(Savepoint) undoes only changes after the savepoint.",
+      "answer": "rollback() undoes the entire transaction; rollback(Savepoint) undoes only changes after the savepoint.",
+      "explanation": "Savepoints allow partial rollbacks."
+    },
+    {
+      "id": 183,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `releaseSavepoint(Savepoint)`?",
+      "output": "Removes the given savepoint from the transaction.",
+      "answer": "Removes the given savepoint from the transaction.",
+      "explanation": "After release, you cannot roll back to it."
+    },
+    {
+      "id": 184,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is distributed transaction?",
+      "output": "A transaction that spans multiple databases or resources.",
+      "answer": "A transaction that spans multiple databases or resources.",
+      "explanation": "Handled by JTA (Java Transaction API)."
+    },
+    {
+      "id": 185,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `getTransactionIsolation()`?",
+      "output": "Returns the current isolation level.",
+      "answer": "Returns the current isolation level.",
+      "explanation": "Useful to check before changing."
+    },
+    {
+      "id": 186,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `isReadOnly()`?",
+      "output": "Returns whether the connection is read‑only.",
+      "answer": "Returns whether the connection is read‑only.",
+      "explanation": "Read‑only connections may allow optimizations."
+    },
+    {
+      "id": 187,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `connection.setReadOnly(boolean)`?",
+      "output": "Puts the connection in read‑only mode; may improve performance.",
+      "answer": "Puts the connection in read‑only mode; may improve performance.",
+      "explanation": "Not all databases support it."
+    },
+    {
+      "id": 188,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is a phantom read?",
+      "output": "When a transaction re‑executes a query and finds new rows inserted by another transaction.",
+      "answer": "When a transaction re‑executes a query and finds new rows inserted by another transaction.",
+      "explanation": "Prevented by SERIALIZABLE isolation."
+    },
+    {
+      "id": 189,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is a non‑repeatable read?",
+      "output": "When a transaction reads the same row twice and gets different values due to another transaction's update.",
+      "answer": "When a transaction reads the same row twice and gets different values due to another transaction's update.",
+      "explanation": "Prevented by REPEATABLE_READ."
+    },
+    {
+      "id": 190,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is a dirty read?",
+      "output": "Reading uncommitted changes from another transaction.",
+      "answer": "Reading uncommitted changes from another transaction.",
+      "explanation": "Prevented by READ_COMMITTED or higher."
+    },
+    {
+      "id": 191,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of commit()?",
+      "output": "To permanently apply all changes made during the transaction.",
+      "answer": "To permanently apply all changes made during the transaction.",
+      "explanation": "After commit, changes are visible to other transactions."
+    },
+    {
+      "id": 192,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of rollback()?",
+      "output": "To undo all changes made during the transaction.",
+      "answer": "To undo all changes made during the transaction.",
+      "explanation": "Typically called when an error occurs."
+    },
+    {
+      "id": 193,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Beginner",
+      "question": "What is a Savepoint?",
+      "output": "A marker within a transaction that allows partial rollback.",
+      "answer": "A marker within a transaction that allows partial rollback.",
+      "explanation": "Useful for complex transactions with multiple steps."
+    },
+    {
+      "id": 194,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Intermediate",
+      "question": "Can you roll back to a savepoint after committing the transaction?",
+      "output": "No, savepoints are invalid after commit.",
+      "answer": "No, savepoints are invalid after commit.",
+      "explanation": "They are only valid within the transaction."
+    },
+    {
+      "id": 195,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Intermediate",
+      "question": "What happens if you call rollback() after commit()?",
+      "output": "Nothing; it has no effect because the transaction is already ended.",
+      "answer": "Nothing; it has no effect because the transaction is already ended.",
+      "explanation": "You need to start a new transaction."
+    },
+    {
+      "id": 196,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Intermediate",
+      "question": "What is the `Connection` method `setSavepoint()`?",
+      "output": "Creates an unnamed savepoint.",
+      "answer": "Creates an unnamed savepoint.",
+      "explanation": "You can use it in rollback(Savepoint)."
+    },
+    {
+      "id": 197,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `rollback()` and `rollback(Savepoint)`?",
+      "output": "rollback() undoes entire transaction; rollback(Savepoint) undoes to a marker.",
+      "answer": "rollback() undoes entire transaction; rollback(Savepoint) undoes to a marker.",
+      "explanation": "Savepoints provide granular control."
+    },
+    {
+      "id": 198,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Advanced",
+      "question": "Is it possible to have multiple active savepoints?",
+      "output": "Yes, you can create multiple savepoints within one transaction.",
+      "answer": "Yes, you can create multiple savepoints within one transaction.",
+      "explanation": "They are ordered; releasing a savepoint does not affect later ones."
+    },
+    {
+      "id": 199,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Advanced",
+      "question": "What is the `Connection` method `releaseSavepoint(Savepoint)`?",
+      "output": "Removes the savepoint, making it unavailable for rollback.",
+      "answer": "Removes the savepoint, making it unavailable for rollback.",
+      "explanation": "After release, you cannot roll back to it."
+    },
+    {
+      "id": 200,
+      "topic": "Commit, Rollback, Savepoint",
+      "difficulty": "Advanced",
+      "question": "Can you create a savepoint after a rollback?",
+      "output": "Yes, after rollback you are still in the same transaction, so you can create new savepoints.",
+      "answer": "Yes, after rollback you are still in the same transaction, so you can create new savepoints.",
+      "explanation": "Rollback does not close the transaction unless auto‑commit is on."
+    },
+    {
+      "id": 201,
+      "topic": "Batch Processing",
+      "difficulty": "Beginner",
+      "question": "What is batch processing in JDBC?",
+      "output": "Grouping multiple SQL statements into a single execution to improve performance.",
+      "answer": "Grouping multiple SQL statements into a single execution to improve performance.",
+      "explanation": "Reduces network round‑trips."
+    },
+    {
+      "id": 202,
+      "topic": "Batch Processing",
+      "difficulty": "Beginner",
+      "question": "Which interface provides batch processing methods?",
+      "output": "Statement and PreparedStatement.",
+      "answer": "Statement and PreparedStatement.",
+      "explanation": "CallableStatement also supports batch."
+    },
+    {
+      "id": 203,
+      "topic": "Batch Processing",
+      "difficulty": "Beginner",
+      "question": "How do you add a statement to a batch using Statement?",
+      "output": "statement.addBatch(String sql)",
+      "answer": "statement.addBatch(String sql)",
+      "explanation": "Then call executeBatch() to run all."
+    },
+    {
+      "id": 204,
+      "topic": "Batch Processing",
+      "difficulty": "Intermediate",
+      "question": "How do you add a batch to a PreparedStatement?",
+      "output": "set parameters, then addBatch(), then repeat.",
+      "answer": "set parameters, then addBatch(), then repeat.",
+      "explanation": "You do not supply the SQL again."
+    },
+    {
+      "id": 205,
+      "topic": "Batch Processing",
+      "difficulty": "Intermediate",
+      "question": "What does executeBatch() return?",
+      "output": "An int array of update counts for each statement.",
+      "answer": "An int array of update counts for each statement.",
+      "explanation": "Each element corresponds to a command in the batch."
+    },
+    {
+      "id": 206,
+      "topic": "Batch Processing",
+      "difficulty": "Intermediate",
+      "question": "What happens if one statement in a batch fails?",
+      "output": "It depends on the driver and batch update behavior; some stop, some continue.",
+      "answer": "It depends on the driver and batch update behavior; some stop, some continue.",
+      "explanation": "You can use `Statement.EXECUTE_FAILED` to check."
+    },
+    {
+      "id": 207,
+      "topic": "Batch Processing",
+      "difficulty": "Advanced",
+      "question": "What is the `Statement` method `clearBatch()`?",
+      "output": "Clears the current batch of statements.",
+      "answer": "Clears the current batch of statements.",
+      "explanation": "Useful if you decide not to execute the batch."
+    },
+    {
+      "id": 208,
+      "topic": "Batch Processing",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PreparedStatement.addBatch()` without parameters?",
+      "output": "Adds the current set of parameters to the batch.",
+      "answer": "Adds the current set of parameters to the batch.",
+      "explanation": "After adding, you can set new parameters and add again."
+    },
+    {
+      "id": 209,
+      "topic": "Batch Processing",
+      "difficulty": "Advanced",
+      "question": "What is the batch size recommendation?",
+      "output": "Typically a few hundred to a few thousand; depends on database and network.",
+      "answer": "Typically a few hundred to a few thousand; depends on database and network.",
+      "explanation": "Too large may cause memory issues."
+    },
+    {
+      "id": 210,
+      "topic": "Batch Processing",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of using PreparedStatement batch over Statement batch?",
+      "output": "PreparedStatement batch uses precompiled SQL, more efficient for multiple similar statements.",
+      "answer": "PreparedStatement batch uses precompiled SQL, more efficient for multiple similar statements.",
+      "explanation": "Especially for repeated inserts with different values."
+    },
+    {
+      "id": 211,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Beginner",
+      "question": "What is connection pooling?",
+      "output": "A technique to reuse database connections, avoiding the overhead of creating a new connection each time.",
+      "answer": "A technique to reuse database connections, avoiding the overhead of creating a new connection each time.",
+      "explanation": "Improves performance and scalability."
+    },
+    {
+      "id": 212,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Beginner",
+      "question": "Which interface is used for connection pooling in JDBC?",
+      "output": "javax.sql.DataSource",
+      "answer": "javax.sql.DataSource",
+      "explanation": "The DataSource interface is the standard for connection factories, including pooling."
+    },
+    {
+      "id": 213,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Beginner",
+      "question": "Name two popular connection pool libraries for Java.",
+      "output": "HikariCP and Apache DBCP (or Tomcat JDBC, C3P0).",
+      "answer": "HikariCP and Apache DBCP (or Tomcat JDBC, C3P0).",
+      "explanation": "HikariCP is known for high performance."
+    },
+    {
+      "id": 214,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a DataSource and a connection pool?",
+      "output": "DataSource is an interface; a connection pool is an implementation that provides pooled connections.",
+      "answer": "DataSource is an interface; a connection pool is an implementation that provides pooled connections.",
+      "explanation": "A DataSource can be a simple connection factory or a pool."
+    },
+    {
+      "id": 215,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Intermediate",
+      "question": "How do you configure a HikariCP DataSource?",
+      "output": "Using HikariConfig or setting properties on HikariDataSource.",
+      "answer": "Using HikariConfig or setting properties on HikariDataSource.",
+      "explanation": "Set URL, username, password, maximum pool size, etc."
+    },
+    {
+      "id": 216,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Intermediate",
+      "question": "What is the default maximum pool size in HikariCP?",
+      "output": "10",
+      "answer": "10",
+      "explanation": "You can adjust with `setMaximumPoolSize()`."
+    },
+    {
+      "id": 217,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of connection validation?",
+      "output": "To ensure a connection from the pool is still valid before handing it out.",
+      "answer": "To ensure a connection from the pool is still valid before handing it out.",
+      "explanation": "Uses a validation query (e.g., SELECT 1)."
+    },
+    {
+      "id": 218,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Advanced",
+      "question": "What is the `javax.sql.ConnectionPoolDataSource` interface?",
+      "output": "It is a factory for PooledConnection objects, used by connection pool managers.",
+      "answer": "It is a factory for PooledConnection objects, used by connection pool managers.",
+      "explanation": "Implemented by driver vendors for pooling support."
+    },
+    {
+      "id": 219,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of HikariCP over DBCP?",
+      "output": "HikariCP is much faster, has lower overhead, and better concurrency.",
+      "answer": "HikariCP is much faster, has lower overhead, and better concurrency.",
+      "explanation": "It is the default pool in Spring Boot 2+."
+    },
+    {
+      "id": 220,
+      "topic": "Connection Pooling and DataSource (Apache DBCP, HikariCP)",
+      "difficulty": "Advanced",
+      "question": "What is a connection leak and how to detect it?",
+      "output": "When a connection is not closed after use, causing pool exhaustion. Detect with monitoring tools or logging.",
+      "answer": "When a connection is not closed after use, causing pool exhaustion. Detect with monitoring tools or logging.",
+      "explanation": "Always close connections in finally blocks or use try‑with‑resources."
+    },
+    {
+      "id": 221,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Beginner",
+      "question": "What does DAO stand for?",
+      "output": "Data Access Object",
+      "answer": "Data Access Object",
+      "explanation": "A design pattern to abstract database operations."
+    },
+    {
+      "id": 222,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of the DAO pattern?",
+      "output": "To separate business logic from database operations.",
+      "answer": "To separate business logic from database operations.",
+      "explanation": "Improves maintainability and testability."
+    },
+    {
+      "id": 223,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Beginner",
+      "question": "What are the main components of a DAO pattern?",
+      "output": "DAO interface, DAO implementation, model (entity), and sometimes a factory.",
+      "answer": "DAO interface, DAO implementation, model (entity), and sometimes a factory.",
+      "explanation": "The interface defines CRUD methods."
+    },
+    {
+      "id": 224,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Intermediate",
+      "question": "Why use an interface for DAO?",
+      "output": "To allow multiple implementations (e.g., different databases) and easier unit testing with mocks.",
+      "answer": "To allow multiple implementations (e.g., different databases) and easier unit testing with mocks.",
+      "explanation": "Promotes loose coupling."
+    },
+    {
+      "id": 225,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Intermediate",
+      "question": "What is a typical method in a DAO?",
+      "output": "save(entity), findById(id), findAll(), update(entity), delete(entity).",
+      "answer": "save(entity), findById(id), findAll(), update(entity), delete(entity).",
+      "explanation": "These correspond to CRUD operations."
+    },
+    {
+      "id": 226,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Advanced",
+      "question": "What is the difference between DAO and Repository pattern?",
+      "output": "DAO is closer to the database (CRUD); Repository is a higher‑level abstraction often used in DDD.",
+      "answer": "DAO is closer to the database (CRUD); Repository is a higher‑level abstraction often used in DDD.",
+      "explanation": "Repository may include business logic."
+    },
+    {
+      "id": 227,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Advanced",
+      "question": "How do you handle exceptions in DAO?",
+      "output": "Catch SQLException and throw a custom unchecked exception (e.g., DataAccessException).",
+      "answer": "Catch SQLException and throw a custom unchecked exception (e.g., DataAccessException).",
+      "explanation": "Avoids coupling business code with JDBC exceptions."
+    },
+    {
+      "id": 228,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Advanced",
+      "question": "What is the benefit of using Spring’s JdbcTemplate with DAO?",
+      "output": "It reduces boilerplate code and handles resource management.",
+      "answer": "It reduces boilerplate code and handles resource management.",
+      "explanation": "You only write SQL and mapping logic."
+    },
+    {
+      "id": 229,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Advanced",
+      "question": "What is a generic DAO?",
+      "output": "A DAO that uses generics to work with any entity type.",
+      "answer": "A DAO that uses generics to work with any entity type.",
+      "explanation": "Reduces code duplication."
+    },
+    {
+      "id": 230,
+      "topic": "DAO (Data Access Object) Design Pattern",
+      "difficulty": "Advanced",
+      "question": "How can you unit test a DAO without a real database?",
+      "output": "Use mocking frameworks (Mockito) or an in‑memory database (H2).",
+      "answer": "Use mocking frameworks (Mockito) or an in‑memory database (H2).",
+      "explanation": "Mock the DataSource or use a test database."
+    },
+    {
+      "id": 231,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Beginner",
+      "question": "What does BLOB stand for?",
+      "output": "Binary Large Object",
+      "answer": "Binary Large Object",
+      "explanation": "Used for storing binary data like images, videos, etc."
+    },
+    {
+      "id": 232,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Beginner",
+      "question": "What does CLOB stand for?",
+      "output": "Character Large Object",
+      "answer": "Character Large Object",
+      "explanation": "Used for storing large text data."
+    },
+    {
+      "id": 233,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Beginner",
+      "question": "Which JDBC method is used to set a BLOB?",
+      "output": "PreparedStatement.setBlob(int, InputStream)",
+      "answer": "PreparedStatement.setBlob(int, InputStream)",
+      "explanation": "Also setBinaryStream() can be used."
+    },
+    {
+      "id": 234,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Intermediate",
+      "question": "How do you retrieve a BLOB from ResultSet?",
+      "output": "Blob blob = rs.getBlob(\"column_name\"); InputStream is = blob.getBinaryStream();",
+      "answer": "Blob blob = rs.getBlob(\"column_name\"); InputStream is = blob.getBinaryStream();",
+      "explanation": "Then read from the stream."
+    },
+    {
+      "id": 235,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Intermediate",
+      "question": "How do you retrieve a CLOB from ResultSet?",
+      "output": "Clob clob = rs.getClob(\"column_name\"); Reader reader = clob.getCharacterStream();",
+      "answer": "Clob clob = rs.getClob(\"column_name\"); Reader reader = clob.getCharacterStream();",
+      "explanation": "Alternatively, getString() may work for small CLOBs."
+    },
+    {
+      "id": 236,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Advanced",
+      "question": "What is the difference between using `setBinaryStream()` and `setBlob()`?",
+      "output": "setBlob() uses a Blob object; setBinaryStream() uses an InputStream directly.",
+      "answer": "setBlob() uses a Blob object; setBinaryStream() uses an InputStream directly.",
+      "explanation": "Both are suitable; setBlob may be more standard."
+    },
+    {
+      "id": 237,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Advanced",
+      "question": "How do you free a Blob or Clob resource?",
+      "output": "Call blob.free() or clob.free() (JDBC 4.0+).",
+      "answer": "Call blob.free() or clob.free() (JDBC 4.0+).",
+      "explanation": "Releases the resources associated with the LOB."
+    },
+    {
+      "id": 238,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Blob.length()`?",
+      "output": "Returns the number of bytes in the BLOB.",
+      "answer": "Returns the number of bytes in the BLOB.",
+      "explanation": "Useful for allocating buffers."
+    },
+    {
+      "id": 239,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `Clob.length()`?",
+      "output": "Returns the number of characters in the CLOB.",
+      "answer": "Returns the number of characters in the CLOB.",
+      "explanation": "Similar to Blob.length()."
+    },
+    {
+      "id": 240,
+      "topic": "Handling BLOB and CLOB Data",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `getCharacterStream()` and `getAsciiStream()` for Clob?",
+      "output": "getCharacterStream() returns a Reader (Unicode); getAsciiStream() returns ASCII stream.",
+      "answer": "getCharacterStream() returns a Reader (Unicode); getAsciiStream() returns ASCII stream.",
+      "explanation": "Use getAsciiStream for text that is guaranteed ASCII."
+    },
+    {
+      "id": 241,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Beginner",
+      "question": "Which interface is used to call stored procedures?",
+      "output": "CallableStatement",
+      "answer": "CallableStatement",
+      "explanation": "It extends PreparedStatement."
+    },
+    {
+      "id": 242,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Beginner",
+      "question": "How do you create a CallableStatement?",
+      "output": "connection.prepareCall(\"{call procedure_name(?,?)}\")",
+      "answer": "connection.prepareCall(\"{call procedure_name(?,?)}\")",
+      "explanation": "The escape syntax is {call ...}."
+    },
+    {
+      "id": 243,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Beginner",
+      "question": "How do you register an OUT parameter?",
+      "output": "callableStatement.registerOutParameter(int index, int sqlType);",
+      "answer": "callableStatement.registerOutParameter(int index, int sqlType);",
+      "explanation": "Must be done before executing."
+    },
+    {
+      "id": 244,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Intermediate",
+      "question": "How do you get the value of an OUT parameter?",
+      "output": "callableStatement.getType(index); (e.g., getString, getInt).",
+      "answer": "callableStatement.getType(index); (e.g., getString, getInt).",
+      "explanation": "After executing the procedure."
+    },
+    {
+      "id": 245,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Intermediate",
+      "question": "What is the syntax for a stored procedure with an OUT parameter?",
+      "output": "{call myproc(?, ?)}",
+      "answer": "{call myproc(?, ?)}",
+      "explanation": "Placeholders for both IN and OUT parameters."
+    },
+    {
+      "id": 246,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Advanced",
+      "question": "What is the difference between IN, OUT, and INOUT parameters?",
+      "output": "IN is input, OUT is output, INOUT is both input and output.",
+      "answer": "IN is input, OUT is output, INOUT is both input and output.",
+      "explanation": "INOUT parameters are registered with Types.INTEGER etc."
+    },
+    {
+      "id": 247,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Advanced",
+      "question": "How do you handle a stored procedure that returns a ResultSet?",
+      "output": "Use executeQuery() or execute() and then getResultSet().",
+      "answer": "Use executeQuery() or execute() and then getResultSet().",
+      "explanation": "The ResultSet is processed normally."
+    },
+    {
+      "id": 248,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `CallableStatement.getParameterMetaData()`?",
+      "output": "Returns metadata about the parameters (mode, type, etc.).",
+      "answer": "Returns metadata about the parameters (mode, type, etc.).",
+      "explanation": "Useful for generic code."
+    },
+    {
+      "id": 249,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Advanced",
+      "question": "Can a CallableStatement return multiple ResultSets?",
+      "output": "Yes, similar to Statement, you can use getMoreResults().",
+      "answer": "Yes, similar to Statement, you can use getMoreResults().",
+      "explanation": "Stored procedures can return multiple result sets."
+    },
+    {
+      "id": 250,
+      "topic": "Calling Stored Procedures with CallableStatement",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `CallableStatement.wasNull()`?",
+      "output": "Checks whether the last OUT parameter read was SQL NULL.",
+      "answer": "Checks whether the last OUT parameter read was SQL NULL.",
+      "explanation": "Use after retrieving a value."
+    },
+    {
+      "id": 251,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Beginner",
+      "question": "What is a RowSet?",
+      "output": "A JDBC wrapper that extends ResultSet with additional features like scrollability, updatability, and serializability.",
+      "answer": "A JDBC wrapper that extends ResultSet with additional features like scrollability, updatability, and serializability.",
+      "explanation": "RowSet is part of the javax.sql package."
+    },
+    {
+      "id": 252,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Beginner",
+      "question": "What is a CachedRowSet?",
+      "output": "A RowSet that caches its data in memory and can operate disconnected from the database.",
+      "answer": "A RowSet that caches its data in memory and can operate disconnected from the database.",
+      "explanation": "It is serializable and can be passed over a network."
+    },
+    {
+      "id": 253,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Beginner",
+      "question": "Name four types of RowSet.",
+      "output": "CachedRowSet, JdbcRowSet, WebRowSet, FilteredRowSet, JoinRowSet.",
+      "answer": "CachedRowSet, JdbcRowSet, WebRowSet, FilteredRowSet, JoinRowSet.",
+      "explanation": "Each has different capabilities."
+    },
+    {
+      "id": 254,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of a CachedRowSet over a ResultSet?",
+      "output": "It can be used after the connection is closed, and it is serializable.",
+      "answer": "It can be used after the connection is closed, and it is serializable.",
+      "explanation": "Ideal for client‑server applications."
+    },
+    {
+      "id": 255,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Intermediate",
+      "question": "How do you populate a CachedRowSet?",
+      "output": "rowSet.setCommand(\"SELECT...\"); rowSet.execute();",
+      "answer": "rowSet.setCommand(\"SELECT...\"); rowSet.execute();",
+      "explanation": "You need to set a connection or a DataSource first."
+    },
+    {
+      "id": 256,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is a WebRowSet?",
+      "output": "A CachedRowSet that can be serialized to/from XML.",
+      "answer": "A CachedRowSet that can be serialized to/from XML.",
+      "explanation": "Useful for web services."
+    },
+    {
+      "id": 257,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is a FilteredRowSet?",
+      "output": "A RowSet that allows filtering rows using a predicate.",
+      "answer": "A RowSet that allows filtering rows using a predicate.",
+      "explanation": "You set a filter (Predicate) to restrict rows."
+    },
+    {
+      "id": 258,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is a JoinRowSet?",
+      "output": "A RowSet that combines data from multiple RowSets using SQL JOIN semantics.",
+      "answer": "A RowSet that combines data from multiple RowSets using SQL JOIN semantics.",
+      "explanation": "Useful for client‑side joining."
+    },
+    {
+      "id": 259,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the `acceptChanges()` method in CachedRowSet?",
+      "output": "It propagates changes (updates, inserts, deletes) back to the database.",
+      "answer": "It propagates changes (updates, inserts, deletes) back to the database.",
+      "explanation": "Requires a connection to be set."
+    },
+    {
+      "id": 260,
+      "topic": "RowSet and Its Types (CachedRowSet, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `RowSet.setUrl()`?",
+      "output": "Sets the database URL for a RowSet that does not use a DataSource.",
+      "answer": "Sets the database URL for a RowSet that does not use a DataSource.",
+      "explanation": "Alternative to setting a DataSource."
+    },
+    {
+      "id": 261,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Beginner",
+      "question": "What is a scrollable ResultSet?",
+      "output": "A ResultSet that allows moving the cursor in any direction (not only forward).",
+      "answer": "A ResultSet that allows moving the cursor in any direction (not only forward).",
+      "explanation": "Requires creating Statement with TYPE_SCROLL_INSENSITIVE or TYPE_SCROLL_SENSITIVE."
+    },
+    {
+      "id": 262,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Beginner",
+      "question": "What is an updatable ResultSet?",
+      "output": "A ResultSet that allows modifying the underlying database rows.",
+      "answer": "A ResultSet that allows modifying the underlying database rows.",
+      "explanation": "Requires CONCUR_UPDATABLE concurrency mode."
+    },
+    {
+      "id": 263,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between TYPE_SCROLL_INSENSITIVE and TYPE_SCROLL_SENSITIVE?",
+      "output": "INSENSITIVE does not reflect changes made by others; SENSITIVE does (if supported).",
+      "answer": "INSENSITIVE does not reflect changes made by others; SENSITIVE does (if supported).",
+      "explanation": "SENSITIVE may have performance cost."
+    },
+    {
+      "id": 264,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Intermediate",
+      "question": "How do you create a scrollable, updatable ResultSet?",
+      "output": "stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);",
+      "answer": "stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);",
+      "explanation": "Then execute a query."
+    },
+    {
+      "id": 265,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `updateRow()`?",
+      "output": "Commits the current row updates to the database.",
+      "answer": "Commits the current row updates to the database.",
+      "explanation": "Must be called after setting update values."
+    },
+    {
+      "id": 266,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `insertRow()`?",
+      "output": "Inserts the current row (built with moveToInsertRow) into the database.",
+      "answer": "Inserts the current row (built with moveToInsertRow) into the database.",
+      "explanation": "Used after setting values in insert row."
+    },
+    {
+      "id": 267,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `deleteRow()`?",
+      "output": "Deletes the current row from the database.",
+      "answer": "Deletes the current row from the database.",
+      "explanation": "Requires updatable ResultSet."
+    },
+    {
+      "id": 268,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `cancelRowUpdates()`?",
+      "output": "Cancels any updates made to the current row before updateRow() is called.",
+      "answer": "Cancels any updates made to the current row before updateRow() is called.",
+      "explanation": "Reverts the row to original values."
+    },
+    {
+      "id": 269,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `moveToInsertRow()`?",
+      "output": "Moves the cursor to a special insert row to construct a new row.",
+      "answer": "Moves the cursor to a special insert row to construct a new row.",
+      "explanation": "After setting values, call insertRow()."
+    },
+    {
+      "id": 270,
+      "topic": "Scrollable and Updatable ResultSet",
+      "difficulty": "Advanced",
+      "question": "What is the `ResultSet` method `moveToCurrentRow()`?",
+      "output": "Moves the cursor back from the insert row to the current row.",
+      "answer": "Moves the cursor back from the insert row to the current row.",
+      "explanation": "Used after inserting or cancelling insert."
+    },
+    {
+      "id": 271,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Beginner",
+      "question": "Why use a properties file for database configuration?",
+      "output": "To externalize connection parameters, making it easy to change without recompiling code.",
+      "answer": "To externalize connection parameters, making it easy to change without recompiling code.",
+      "explanation": "Properties files are commonly used for environment‑specific settings."
+    },
+    {
+      "id": 272,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Beginner",
+      "question": "What Java class is used to load a properties file?",
+      "output": "java.util.Properties",
+      "answer": "java.util.Properties",
+      "explanation": "Use load(InputStream) to load from a file."
+    },
+    {
+      "id": 273,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Beginner",
+      "question": "What are typical keys in a database properties file?",
+      "output": "db.url, db.username, db.password, db.driver",
+      "answer": "db.url, db.username, db.password, db.driver",
+      "explanation": "You can also include pool settings."
+    },
+    {
+      "id": 274,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Intermediate",
+      "question": "How do you load a properties file from the classpath?",
+      "output": "InputStream is = getClass().getResourceAsStream(\"/config.properties\");",
+      "answer": "InputStream is = getClass().getResourceAsStream(\"/config.properties\");",
+      "explanation": "Then props.load(is)."
+    },
+    {
+      "id": 275,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of using a properties file over hardcoding?",
+      "output": "Flexibility to change configuration without code changes; supports different environments.",
+      "answer": "Flexibility to change configuration without code changes; supports different environments.",
+      "explanation": "Ideal for development, test, and production profiles."
+    },
+    {
+      "id": 276,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Advanced",
+      "question": "How can you encrypt passwords in a properties file?",
+      "output": "Store encrypted value and decrypt at runtime using a key.",
+      "answer": "Store encrypted value and decrypt at runtime using a key.",
+      "explanation": "Do not store plaintext passwords in source control."
+    },
+    {
+      "id": 277,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `PropertyResourceBundle`?",
+      "output": "To access properties as a ResourceBundle for internationalization.",
+      "answer": "To access properties as a ResourceBundle for internationalization.",
+      "explanation": "Can be used for database config as well."
+    },
+    {
+      "id": 278,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Advanced",
+      "question": "How do you handle missing properties gracefully?",
+      "output": "Use props.getProperty(key, defaultValue).",
+      "answer": "Use props.getProperty(key, defaultValue).",
+      "explanation": "Avoids NullPointerException."
+    },
+    {
+      "id": 279,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Advanced",
+      "question": "What is the difference between loading properties with `load()` and `loadFromXML()`?",
+      "output": "load() reads traditional key=value format; loadFromXML() reads XML format.",
+      "answer": "load() reads traditional key=value format; loadFromXML() reads XML format.",
+      "explanation": "XML can represent more complex structures."
+    },
+    {
+      "id": 280,
+      "topic": "Database Configuration Using Properties Files",
+      "difficulty": "Advanced",
+      "question": "How can you reload properties at runtime?",
+      "output": "Re‑read the properties file and update the configuration object.",
+      "answer": "Re‑read the properties file and update the configuration object.",
+      "explanation": "Common in applications that support dynamic configuration."
+    },
+    {
+      "id": 281,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Beginner",
+      "question": "What is the base exception class for JDBC errors?",
+      "output": "java.sql.SQLException",
+      "answer": "java.sql.SQLException",
+      "explanation": "All JDBC operations throw SQLException on error."
+    },
+    {
+      "id": 282,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Beginner",
+      "question": "What method is used to get the error code from SQLException?",
+      "output": "getErrorCode()",
+      "answer": "getErrorCode()",
+      "explanation": "Returns database‑specific error code."
+    },
+    {
+      "id": 283,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Beginner",
+      "question": "What method is used to get the SQL state from SQLException?",
+      "output": "getSQLState()",
+      "answer": "getSQLState()",
+      "explanation": "Returns XOPEN SQL state string (e.g., \"42S02\" for table not found)."
+    },
+    {
+      "id": 284,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Intermediate",
+      "question": "How do you chain multiple exceptions in JDBC?",
+      "output": "SQLException can have a next exception via getNextException().",
+      "answer": "SQLException can have a next exception via getNextException().",
+      "explanation": "Loop through to see all chained exceptions."
+    },
+    {
+      "id": 285,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Intermediate",
+      "question": "What is the best practice for closing resources?",
+      "output": "Use try‑with‑resources (Java 7+) or close in finally blocks.",
+      "answer": "Use try‑with‑resources (Java 7+) or close in finally blocks.",
+      "explanation": "Ensures resources are always closed."
+    },
+    {
+      "id": 286,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `SQLException` and `SQLWarning`?",
+      "output": "SQLException indicates an error; SQLWarning is a non‑fatal warning.",
+      "answer": "SQLException indicates an error; SQLWarning is a non‑fatal warning.",
+      "explanation": "Warnings do not stop execution."
+    },
+    {
+      "id": 287,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `SQLException.getNextException()`?",
+      "output": "To iterate through a chain of SQL exceptions (multiple errors).",
+      "answer": "To iterate through a chain of SQL exceptions (multiple errors).",
+      "explanation": "Useful for batch updates where multiple statements fail."
+    },
+    {
+      "id": 288,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLTimeoutException`?",
+      "output": "Thrown when a statement exceeds the query timeout.",
+      "answer": "Thrown when a statement exceeds the query timeout.",
+      "explanation": "Extends SQLTransientException."
+    },
+    {
+      "id": 289,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLIntegrityConstraintViolationException`?",
+      "output": "Thrown when a constraint violation occurs (e.g., duplicate key, foreign key).",
+      "answer": "Thrown when a constraint violation occurs (e.g., duplicate key, foreign key).",
+      "explanation": "Extends SQLNonTransientException."
+    },
+    {
+      "id": 290,
+      "topic": "SQL Exception Handling and Best Practices",
+      "difficulty": "Advanced",
+      "question": "What is the `java.sql.SQLDataException`?",
+      "output": "Thrown when data conversion or type mismatch occurs.",
+      "answer": "Thrown when data conversion or type mismatch occurs.",
+      "explanation": "Example: getting an integer from a string column."
+    }
+  ]
+}

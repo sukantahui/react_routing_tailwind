@@ -89,7 +89,8 @@
             "HTTP Protocol Basics (Methods, Status Codes, Headers)",
             "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
             "WAR File Structure and Deployment",
-            "Introduction to Servlet Containers"
+            "Introduction to Servlet Containers",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand Java EE ecosystem",
@@ -133,7 +134,8 @@
             "RowSet and Its Types (CachedRowSet, etc.)",
             "Scrollable and Updatable ResultSet",
             "Database Configuration Using Properties Files",
-            "SQL Exception Handling and Best Practices"
+            "SQL Exception Handling and Best Practices",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Connect Java applications to databases",

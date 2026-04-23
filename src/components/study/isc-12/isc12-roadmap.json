@@ -156,7 +156,8 @@
             "Test 5 Complement",
             "Test 6 K-map",
             "Test 7 Mixed",
-            "Test 8 Mixed"
+            "Test 8 Mixed",
+            "Test on Principle of Duality"            
           ],
           "learningOutcomes": [
             "Use pointers to work with memory addresses",
