@@ -180,7 +180,8 @@
             "JSP 2.0 Simple Tag Handlers",
             "EL Advanced Features (Collections, Operators)",
             "Introduction to AJAX Integration",
-            "Security Considerations (Avoiding Scriptlets)"
+            "Security Considerations (Avoiding Scriptlets)",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Create dynamic JSP pages",

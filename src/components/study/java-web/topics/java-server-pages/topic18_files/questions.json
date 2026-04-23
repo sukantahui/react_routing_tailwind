@@ -1,0 +1,2724 @@
+{
+  "subject": "Java Programming",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "JSP Advanced Topics",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/logos/Java-original.svg",
+    "alt": "Java Programming Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Beginner",
+      "question": "What are the phases of the JSP lifecycle?",
+      "output": "Translation, Compilation, Loading, Initialization, Request handling, Destruction",
+      "answer": "Translation, Compilation, Loading, Initialization, Request handling, Destruction",
+      "explanation": "JSP is first translated into a servlet, compiled, loaded, initialized (jspInit), then _jspService handles requests, and finally jspDestroy is called."
+    },
+    {
+      "id": 2,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Beginner",
+      "question": "Which method is called when a JSP is initialized?",
+      "output": "jspInit()",
+      "answer": "jspInit()",
+      "explanation": "The container calls jspInit() once after the JSP is loaded, used for resource initialization."
+    },
+    {
+      "id": 3,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Beginner",
+      "question": "Which method processes each request in a JSP?",
+      "output": "_jspService()",
+      "answer": "_jspService()",
+      "explanation": "This method is called for every request and cannot be overridden."
+    },
+    {
+      "id": 4,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Beginner",
+      "question": "Which method is called when a JSP is destroyed?",
+      "output": "jspDestroy()",
+      "answer": "jspDestroy()",
+      "explanation": "Used for cleanup activities like releasing resources."
+    },
+    {
+      "id": 5,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Beginner",
+      "question": "What happens during the translation phase of JSP lifecycle?",
+      "output": "The JSP page is converted into a servlet class (java file).",
+      "answer": "The JSP page is converted into a servlet class (java file).",
+      "explanation": "The container parses the JSP and generates a corresponding .java file."
+    },
+    {
+      "id": 6,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Can we override jspInit() in a JSP? How?",
+      "output": "Yes, by using JSP declaration <%! public void jspInit() { ... } %>",
+      "answer": "Yes, by using JSP declaration <%! public void jspInit() { ... } %>",
+      "explanation": "The declaration block allows adding custom code to the generated servlet."
+    },
+    {
+      "id": 7,
+      "topic": "JSP Lifecycle",
+      "diffvalue": "Intermediate",
+      "question": "What is the difference between _jspService() and jspInit()?",
+      "output": "_jspService() is called for each request, while jspInit() is called once during initialization.",
+      "answer": "_jspService() is called for each request, while jspInit() is called once during initialization.",
+      "explanation": "jspInit() is meant for one‑time setup; _jspService() handles request processing."
+    },
+    {
+      "id": 8,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What method is equivalent to destroy() in servlets?",
+      "output": "jspDestroy()",
+      "answer": "jspDestroy()",
+      "explanation": "Called when the container decides to remove the JSP from memory."
+    },
+    {
+      "id": 9,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What happens if a JSP is modified while the container is running?",
+      "output": "The container detects the change, reloads, and re‑translates the JSP (depending on configuration).",
+      "answer": "The container detects the change, reloads, and re‑translates the JSP (depending on configuration).",
+      "explanation": "Most containers check timestamps and automatically recompile changed JSPs."
+    },
+    {
+      "id": 10,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Which method can be used to set a custom base class for a JSP?",
+      "output": "The extends attribute of the page directive (<%@ page extends=\"com.example.MyBaseClass\" %>)",
+      "answer": "The extends attribute of the page directive (<%@ page extends=\"com.example.MyBaseClass\" %>)",
+      "explanation": "Allows extending a custom class that implements the JSP page interface."
+    },
+    {
+      "id": 11,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the role of the JspFactory class?",
+      "output": "It provides methods to obtain JSP page instances and release them.",
+      "answer": "It provides methods to obtain JSP page instances and release them.",
+      "explanation": "Used internally by the container to manage JSP lifecycle."
+    },
+    {
+      "id": 12,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between JSP and servlet lifecycle?",
+      "output": "JSP has an extra translation phase; servlets are compiled Java classes directly.",
+      "answer": "JSP has an extra translation phase; servlets are compiled Java classes directly.",
+      "explanation": "Both eventually become servlets, but JSP adds a conversion step from markup to code."
+    },
+    {
+      "id": 13,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Can a JSP be precompiled?",
+      "output": "Yes, using container tools (e.g., JSPC – JSP Compiler) to avoid runtime translation.",
+      "answer": "Yes, using container tools (e.g., JSPC – JSP Compiler) to avoid runtime translation.",
+      "explanation": "Precompilation improves performance and catches errors early."
+    },
+    {
+      "id": 14,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What happens if jspInit() throws an exception?",
+      "output": "The JSP will not be available for requests; the container logs the error.",
+      "answer": "The JSP will not be available for requests; the container logs the error.",
+      "explanation": "The container marks the JSP as unavailable."
+    },
+    {
+      "id": 15,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the generated _jspService() method?",
+      "output": "It writes the response using implicit objects and JSP tags.",
+      "answer": "It writes the response using implicit objects and JSP tags.",
+      "explanation": "The method contains all the Java code corresponding to the JSP's content."
+    },
+    {
+      "id": 16,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the difference between JSP 1.2 and JSP 2.0 lifecycle?",
+      "output": "JSP 2.0 introduced SimpleTag and Tag File mechanisms, with changes in how custom tags are handled.",
+      "answer": "JSP 2.0 introduced SimpleTag and Tag File mechanisms, with changes in how custom tags are handled.",
+      "explanation": "The core lifecycle phases remain similar, but tag invocation changed."
+    },
+    {
+      "id": 17,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the JspPage interface?",
+      "output": "An interface that defines jspInit(), jspDestroy(), and an internal method jspService().",
+      "answer": "An interface that defines jspInit(), jspDestroy(), and an internal method jspService().",
+      "explanation": "All generated JSP servlets implement JspPage (or HttpJspPage)."
+    },
+    {
+      "id": 18,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "How does the container handle multiple simultaneous requests to the same JSP?",
+      "output": "A single instance of the JSP servlet handles all concurrent requests (thread‑safe unless synchronized).",
+      "answer": "A single instance of the JSP servlet handles all concurrent requests (thread‑safe unless synchronized).",
+      "explanation": "Developers must ensure thread safety of instance variables."
+    },
+    {
+      "id": 19,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the isThreadSafe attribute in page directive?",
+      "output": "If set to false, the container loads multiple instances of the JSP to handle concurrent requests.",
+      "answer": "If set to false, the container loads multiple instances of the JSP to handle concurrent requests.",
+      "explanation": "Deprecated in newer versions; modern approach uses proper synchronization."
+    },
+    {
+      "id": 20,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the difference between JSP and Facelets lifecycle?",
+      "output": "Facelets is a component‑based view technology (JSF) with a different lifecycle (restore view, apply values, etc.).",
+      "answer": "Facelets is a component‑based view technology (JSF) with a different lifecycle (restore view, apply values, etc.).",
+      "explanation": "Facelets pages also go through translation but are managed by JSF."
+    },
+    {
+      "id": 21,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the role of a JSP compiler (JSPC)?",
+      "output": "To translate JSP pages into servlet classes before deployment.",
+      "answer": "To translate JSP pages into servlet classes before deployment.",
+      "explanation": "JSPC can be run as an Ant task or Maven plugin."
+    },
+    {
+      "id": 22,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What happens when a JSP page uses custom tags regarding lifecycle?",
+      "output": "Tag handlers are instantiated, set properties, and then doStartTag/doEndTag or doTag methods are invoked.",
+      "answer": "Tag handlers are instantiated, set properties, and then doStartTag/doEndTag or doTag methods are invoked.",
+      "explanation": "Tag lifecycle is separate but integrated within _jspService."
+    },
+    {
+      "id": 23,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the `destroy()` method in the JSP base class?",
+      "output": "It calls jspDestroy() and performs container‑level cleanup.",
+      "answer": "It calls jspDestroy() and performs container‑level cleanup.",
+      "explanation": "Usually not overridden directly; users override jspDestroy()."
+    },
+    {
+      "id": 24,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "How does JSP include directive affect lifecycle?",
+      "output": "The included file is translated together with the main JSP at translation time, becoming a single servlet.",
+      "answer": "The included file is translated together with the main JSP at translation time, becoming a single servlet.",
+      "explanation": "Changes to the included file require re‑translation of the main JSP."
+    },
+    {
+      "id": 25,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What are the differences between `jspInit()` and constructor of the generated servlet?",
+      "output": "Constructor is called first during instantiation; jspInit() is called after the instance is set up.",
+      "answer": "Constructor is called first during instantiation; jspInit() is called after the instance is set up.",
+      "explanation": "jspInit() has access to ServletConfig and ServletContext."
+    },
+    {
+      "id": 26,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the method `release()` in JspWriter?",
+      "output": "Frees any resources held by the writer; called by the container after request processing.",
+      "answer": "Frees any resources held by the writer; called by the container after request processing.",
+      "explanation": "Part of the output buffer lifecycle."
+    },
+    {
+      "id": 27,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the relationship between `pageContext` and JSP lifecycle?",
+      "output": "PageContext is created at the beginning of _jspService() and released at the end.",
+      "answer": "PageContext is created at the beginning of _jspService() and released at the end.",
+      "explanation": "It provides access to all implicit objects and page‑scoped attributes."
+    },
+    {
+      "id": 28,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "Can a JSP be destroyed while handling a request?",
+      "output": "No, the container waits until all pending requests finish before calling jspDestroy().",
+      "answer": "No, the container waits until all pending requests finish before calling jspDestroy().",
+      "explanation": "To avoid service interruption, destroy is deferred."
+    },
+    {
+      "id": 29,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the effect of using `<%@ page autoFlush=\"false\" %>` on the JSP lifecycle?",
+      "output": "The buffer will not flush automatically when full; an exception may occur.",
+      "answer": "The buffer will not flush automatically when full; an exception may occur.",
+      "explanation": "Affects how the response output is handled during request processing."
+    },
+    {
+      "id": 30,
+      "topic": "JSP Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `errorOnUndeclaredNamespace` attribute in JSP 2.1?",
+      "output": "Causes the container to throw an error if a tag namespace is not properly declared.",
+      "answer": "Causes the container to throw an error if a tag namespace is not properly declared.",
+      "explanation": "Part of validation during the translation phase."
+    },
+    {
+      "id": 31,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Beginner",
+      "question": "What is a JSP scriptlet?",
+      "output": "A block of Java code enclosed in <% ... %> that executes during request processing.",
+      "answer": "A block of Java code enclosed in <% ... %> that executes during request processing.",
+      "explanation": "Scriptlets are placed directly into _jspService method."
+    },
+    {
+      "id": 32,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Beginner",
+      "question": "What is a JSP expression?",
+      "output": "<%= expression %> which evaluates and inserts the result into the output.",
+      "answer": "<%= expression %> which evaluates and inserts the result into the output.",
+      "explanation": "Equivalent to out.print(expression)."
+    },
+    {
+      "id": 33,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Beginner",
+      "question": "What is a JSP declaration?",
+      "output": "<%! ... %> used to declare instance variables or methods in the generated servlet.",
+      "answer": "<%! ... %> used to declare instance variables or methods in the generated servlet.",
+      "explanation": "Declarations become part of the class outside _jspService."
+    },
+    {
+      "id": 34,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Beginner",
+      "question": "In which phase of JSP lifecycle are scriptlets executed?",
+      "output": "During request handling, inside _jspService().",
+      "answer": "During request handling, inside _jspService().",
+      "explanation": "Each request triggers execution of scriptlets."
+    },
+    {
+      "id": 35,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Beginner",
+      "question": "Can you declare a method inside a JSP scriptlet?",
+      "output": "No, methods must be declared inside a declaration block (<%! ... %>).",
+      "answer": "No, methods must be declared inside a declaration block (<%! ... %>).",
+      "explanation": "Scriptlets are for procedural code, not method definitions."
+    },
+    {
+      "id": 36,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between <%= ... %> and <% out.print(...); %>?",
+      "output": "Expression is shorter and does not require semicolon; both write to output.",
+      "answer": "Expression is shorter and does not require semicolon; both write to output.",
+      "explanation": "Expressions are converted to out.print() automatically."
+    },
+    {
+      "id": 37,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the scope of a variable declared inside a scriptlet?",
+      "output": "Local to the _jspService method (per request).",
+      "answer": "Local to the _jspService method (per request).",
+      "explanation": "It is not shared across requests."
+    },
+    {
+      "id": 38,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the scope of a variable declared in a JSP declaration?",
+      "output": "Instance variable of the generated servlet, shared across all requests.",
+      "answer": "Instance variable of the generated servlet, shared across all requests.",
+      "explanation": "Not thread‑safe unless synchronized."
+    },
+    {
+      "id": 39,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between <%-- comment --%> and <!-- comment -->?",
+      "output": "JSP comment is not sent to client; HTML comment is sent as part of response.",
+      "answer": "JSP comment is not sent to client; HTML comment is sent as part of response.",
+      "explanation": "JSP comments are removed during translation."
+    },
+    {
+      "id": 40,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "Can you use Java control statements (if, for) inside a scriptlet?",
+      "output": "Yes, you can write any Java code inside scriptlets.",
+      "answer": "Yes, you can write any Java code inside scriptlets.",
+      "explanation": "Scriptlets allow full Java syntax."
+    },
+    {
+      "id": 41,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the limitation of JSP expressions?",
+      "output": "They cannot contain statements (e.g., if, for) and must evaluate to a value.",
+      "answer": "They cannot contain statements (e.g., if, for) and must evaluate to a value.",
+      "explanation": "Expressions are used for simple output."
+    },
+    {
+      "id": 42,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "How can you disable scriptlets for a JSP page?",
+      "output": "Use <%@ page scripting-invalid=\"true\" %> directive.",
+      "answer": "Use <%@ page scripting-invalid=\"true\" %> directive.",
+      "explanation": "Prevents use of scriptlets, expressions, and declarations."
+    },
+    {
+      "id": 43,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What happens if you use a declaration and scriptlet with the same variable name?",
+      "output": "The scriptlet variable shadows the declaration variable (different scopes).",
+      "answer": "The scriptlet variable shadows the declaration variable (different scopes).",
+      "explanation": "Declaration creates an instance field; scriptlet creates a local variable."
+    },
+    {
+      "id": 44,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the `out` implicit object inside scriptlets?",
+      "output": "It is a JspWriter used to send output to the response.",
+      "answer": "It is a JspWriter used to send output to the response.",
+      "explanation": "You can use out.print() inside scriptlets to generate content."
+    },
+    {
+      "id": 45,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Intermediate",
+      "question": "Can you import classes inside a declaration?",
+      "output": "No, imports must be done via page directive or inside scriptlet at top.",
+      "answer": "No, imports must be done via page directive or inside scriptlet at top.",
+      "explanation": "Use <%@ page import=\"java.util.*\" %> for imports."
+    },
+    {
+      "id": 46,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is a mixed content block (scriptlet + HTML) and how does it work?",
+      "output": "HTML is written via out.write() calls interleaved with scriptlet code.",
+      "answer": "HTML is written via out.write() calls interleaved with scriptlet code.",
+      "explanation": "The container splits the page into parts: static text and scriptlet code."
+    },
+    {
+      "id": 47,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the underlying type of a JSP expression?",
+      "output": "It can be any Java type; it is converted to a String via toString().",
+      "answer": "It can be any Java type; it is converted to a String via toString().",
+      "explanation": "The expression value is passed to out.print()."
+    },
+    {
+      "id": 48,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "How can you define a static block in JSP?",
+      "output": "Using declaration <%! static { ... } %>",
+      "answer": "Using declaration <%! static { ... } %>",
+      "explanation": "Static initializers run when the servlet class is loaded."
+    },
+    {
+      "id": 49,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `<%@ include %>` and including a scriptlet file?",
+      "output": "Scriptlet files are not a standard feature; include directive includes the content at translation time, not dynamic.",
+      "answer": "Scriptlet files are not a standard feature; include directive includes the content at translation time, not dynamic.",
+      "explanation": "You can factor out scriptlets into separate files and use include directive."
+    },
+    {
+      "id": 50,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "Can you use Java lambda expression inside a scriptlet?",
+      "output": "Yes, if running on Java 8 or higher, scriptlets can contain lambdas.",
+      "answer": "Yes, if running on Java 8 or higher, scriptlets can contain lambdas.",
+      "explanation": "Scriptlets are just Java code, so language features are available."
+    },
+    {
+      "id": 51,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the difference between <%! int count = 0; %> and <% int count = 0; %>?",
+      "output": "First is instance variable, shared across all users; second is local variable, per request.",
+      "answer": "First is instance variable, shared across all users; second is local variable, per request.",
+      "explanation": "Instance variables are not thread‑safe; locals are safe."
+    },
+    {
+      "id": 52,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "How does JSP handle scriptlet errors at translation time?",
+      "output": "The container reports compilation errors if the scriptlet contains invalid Java syntax.",
+      "answer": "The container reports compilation errors if the scriptlet contains invalid Java syntax.",
+      "explanation": "Translation fails and an error page is shown."
+    },
+    {
+      "id": 53,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `pageContext` variable in scriptlets?",
+      "output": "Provides access to page‑level attributes and methods to forward/include.",
+      "answer": "Provides access to page‑level attributes and methods to forward/include.",
+      "explanation": "It is an implicit object available directly in scriptlets."
+    },
+    {
+      "id": 54,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "Can you use try-catch blocks inside scriptlets?",
+      "output": "Yes, full exception handling is allowed.",
+      "answer": "Yes, full exception handling is allowed.",
+      "explanation": "Scriptlets are Java code, so all Java statements are valid."
+    },
+    {
+      "id": 55,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the alternative to scriptlets in modern JSP?",
+      "output": "Expression Language (EL) and JSTL tags, and avoiding Java code in views.",
+      "answer": "Expression Language (EL) and JSTL tags, and avoiding Java code in views.",
+      "explanation": "Best practice is to use MVC with JSP only for presentation."
+    },
+    {
+      "id": 56,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `<%= request.getParameter(\"name\") %>` and `${param.name}`?",
+      "output": "The expression uses Java code; EL is simpler and automatically escapes unless disabled.",
+      "answer": "The expression uses Java code; EL is simpler and automatically escapes unless disabled.",
+      "explanation": "EL is preferred for separation of concerns."
+    },
+    {
+      "id": 57,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "Can a JSP bean be accessed in a scriptlet?",
+      "output": "Yes, using jsp:useBean and then scriptlet, or directly via pageContext.findAttribute().",
+      "answer": "Yes, using jsp:useBean and then scriptlet, or directly via pageContext.findAttribute().",
+      "explanation": "But mixing scriptlets with custom tags is discouraged."
+    },
+    {
+      "id": 58,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the effect of using `out` object inside declaration?",
+      "output": "It's not allowed because out is not available at class initialization; declaration runs outside service method.",
+      "answer": "It's not allowed because out is not available at class initialization; declaration runs outside service method.",
+      "explanation": "Declarations cannot use request/response specific implicit objects."
+    },
+    {
+      "id": 59,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "How can you call a method defined in a declaration from a scriptlet?",
+      "output": "Simply call the method as it is an instance method: myMethod();",
+      "answer": "Simply call the method as it is an instance method: myMethod();",
+      "explanation": "Declarations produce class‑level members accessible anywhere."
+    },
+    {
+      "id": 60,
+      "topic": "Scriptlet, Expression, Declaration",
+      "difficulty": "Advanced",
+      "question": "What is the difference between JSP expression and EL expression?",
+      "output": "JSP expression (<%= ... %>) is Java code; EL (${...}) is a special language evaluated by the container.",
+      "answer": "JSP expression (<%= ... %>) is Java code; EL (${...}) is a special language evaluated by the container.",
+      "explanation": "EL is simpler, safer, and supports property navigation."
+    },
+    {
+      "id": 61,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "How many implicit objects are available in JSP?",
+      "output": "Nine implicit objects.",
+      "answer": "Nine implicit objects.",
+      "explanation": "They are: request, response, out, session, application, config, pageContext, page, exception."
+    },
+    {
+      "id": 62,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object represents the HttpServletRequest?",
+      "output": "request",
+      "answer": "request",
+      "explanation": "Provides client request data (parameters, headers, etc.)."
+    },
+    {
+      "id": 63,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object represents the HttpServletResponse?",
+      "output": "response",
+      "answer": "response",
+      "explanation": "Used to set response headers and send output."
+    },
+    {
+      "id": 64,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object is a JspWriter used for output?",
+      "output": "out",
+      "answer": "out",
+      "explanation": "Sends output to the client."
+    },
+    {
+      "id": 65,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object represents the HttpSession?",
+      "output": "session",
+      "answer": "session",
+      "explanation": "Stores user‑specific data across requests."
+    },
+    {
+      "id": 66,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object represents the ServletContext?",
+      "output": "application",
+      "answer": "application",
+      "explanation": "Provides application‑wide parameters and attributes."
+    },
+    {
+      "id": 67,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "Which implicit object represents the ServletConfig?",
+      "output": "config",
+      "answer": "config",
+      "explanation": "Gives access to servlet initialization parameters."
+    },
+    {
+      "id": 68,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "What is the page implicit object?",
+      "output": "A reference to the generated servlet instance (this).",
+      "answer": "A reference to the generated servlet instance (this).",
+      "explanation": "Not commonly used directly."
+    },
+    {
+      "id": 69,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "What is the pageContext implicit object?",
+      "output": "Provides a single API to access all other implicit objects and page‑scoped attributes.",
+      "answer": "Provides a single API to access all other implicit objects and page‑scoped attributes.",
+      "explanation": "Used for forwarding, including, and managing scopes."
+    },
+    {
+      "id": 70,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Beginner",
+      "question": "When is the exception implicit object available?",
+      "output": "Only on JSP error pages (pages with isErrorPage=\"true\").",
+      "answer": "Only on JSP error pages (pages with isErrorPage=\"true\").",
+      "explanation": "It contains the uncaught exception."
+    },
+    {
+      "id": 71,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between pageContext.getRequest() and the request implicit object?",
+      "output": "They are the same object; pageContext provides a generic way.",
+      "answer": "They are the same object; pageContext provides a generic way.",
+      "explanation": "pageContext is often used in tag handlers."
+    },
+    {
+      "id": 72,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "How can you set an attribute in page scope?",
+      "output": "pageContext.setAttribute(\"name\", value, PageContext.PAGE_SCOPE);",
+      "answer": "pageContext.setAttribute(\"name\", value, PageContext.PAGE_SCOPE);",
+      "explanation": "Or simply use pageContext.setAttribute(\"name\", value) which defaults to page scope."
+    },
+    {
+      "id": 73,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "Which implicit object would you use to get a context parameter?",
+      "output": "application.getInitParameter(\"paramName\")",
+      "answer": "application.getInitParameter(\"paramName\")",
+      "explanation": "Context parameters are defined in web.xml."
+    },
+    {
+      "id": 74,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between request.getParameter() and request.getAttribute()?",
+      "output": "getParameter gets query/form data; getAttribute gets server‑side attributes.",
+      "answer": "getParameter gets query/form data; getAttribute gets server‑side attributes.",
+      "explanation": "Attributes are set programmatically (e.g., by servlets)."
+    },
+    {
+      "id": 75,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What method do you use to forward a request to another resource?",
+      "output": "pageContext.forward(\"target.jsp\") or request.getRequestDispatcher().forward().",
+      "answer": "pageContext.forward(\"target.jsp\") or request.getRequestDispatcher().forward().",
+      "explanation": "Forward is server‑side and does not change URL."
+    },
+    {
+      "id": 76,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What does session.isNew() indicate?",
+      "output": "Returns true if the session was created in this request.",
+      "answer": "Returns true if the session was created in this request.",
+      "explanation": "Often used to detect first visit."
+    },
+    {
+      "id": 77,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between application and pageContext.getServletContext()?",
+      "output": "They are the same object; application is a shorthand.",
+      "answer": "They are the same object; application is a shorthand.",
+      "explanation": "Both refer to ServletContext."
+    },
+    {
+      "id": 78,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What is the default buffer size of the out object?",
+      "output": "At least 8KB, configurable via page directive buffer attribute.",
+      "answer": "At least 8KB, configurable via page directive buffer attribute.",
+      "explanation": "Use <%@ page buffer=\"16kb\" %> to change."
+    },
+    {
+      "id": 79,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "How do you manually flush the out buffer?",
+      "output": "out.flush()",
+      "answer": "out.flush()",
+      "explanation": "Forces any buffered content to be written to the response."
+    },
+    {
+      "id": 80,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Intermediate",
+      "question": "What is the result of calling response.sendRedirect() from a JSP?",
+      "output": "Sends a 302 redirect to the client, aborting further JSP processing.",
+      "answer": "Sends a 302 redirect to the client, aborting further JSP processing.",
+      "explanation": "After redirect, the JSP should not produce additional output."
+    },
+    {
+      "id": 81,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What is the type of the exception implicit object?",
+      "output": "java.lang.Throwable",
+      "answer": "java.lang.Throwable",
+      "explanation": "It holds the uncaught exception that triggered the error page."
+    },
+    {
+      "id": 82,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "Can you use the exception object on a non‑error page?",
+      "output": "No, it will be null and cause an exception if accessed.",
+      "answer": "No, it will be null and cause an exception if accessed.",
+      "explanation": "Only error pages define exception implicit object."
+    },
+    {
+      "id": 83,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "Which implicit object is a wrapper around the current JSP page?",
+      "output": "page (of type Object, typically generated servlet instance).",
+      "answer": "page (of type Object, typically generated servlet instance).",
+      "explanation": "Equivalent to this in the generated servlet."
+    },
+    {
+      "id": 84,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "How can you access the config implicit object in a tag file?",
+      "output": "Implicit objects are not directly available; use jspContext.",
+      "answer": "Implicit objects are not directly available; use jspContext.",
+      "explanation": "Tag files have a different set of implicit objects (jspContext, jspWriter, etc.)."
+    },
+    {
+      "id": 85,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What is the scope of the pageContext implicit object?",
+      "output": "Page scope; it is created for each request and destroyed after request.",
+      "answer": "Page scope; it is created for each request and destroyed after request.",
+      "explanation": "Each JSP request gets a new PageContext instance."
+    },
+    {
+      "id": 86,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What method of pageContext can be used to find an attribute across all scopes?",
+      "output": "findAttribute(\"name\") – searches page, request, session, application in order.",
+      "answer": "findAttribute(\"name\") – searches page, request, session, application in order.",
+      "explanation": "Returns the first attribute found or null."
+    },
+    {
+      "id": 87,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What is the difference between response.getOutputStream() and out?",
+      "output": "getOutputStream() returns ServletOutputStream; out is JspWriter; they cannot be mixed.",
+      "answer": "getOutputStream() returns ServletOutputStream; out is JspWriter; they cannot be mixed.",
+      "explanation": "Once you use one, the other cannot be used for the same response."
+    },
+    {
+      "id": 88,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "How can you invalidate a session from a JSP?",
+      "output": "session.invalidate()",
+      "answer": "session.invalidate()",
+      "explanation": "Destroys the session and removes all associated data."
+    },
+    {
+      "id": 89,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What does application.getRealPath(\"/\") return?",
+      "output": "The absolute file system path of the web application root directory.",
+      "answer": "The absolute file system path of the web application root directory.",
+      "explanation": "Useful for accessing files on the server."
+    },
+    {
+      "id": 90,
+      "topic": "JSP Implicit Objects",
+      "difficulty": "Advanced",
+      "question": "What is the out.println() equivalent in JSP expression?",
+      "output": "There is no direct expression equivalent; you would use <%= \"text\" %>.",
+      "answer": "There is no direct expression equivalent; you would use <%= \"text\" %>.",
+      "explanation": "Expressions automatically write to out."
+    },
+    {
+      "id": 91,
+      "topic": "JSP Directives",
+      "difficulty": "Beginner",
+      "question": "What are the three types of JSP directives?",
+      "output": "page, include, taglib.",
+      "answer": "page, include, taglib.",
+      "explanation": "Directives provide global instructions to the JSP container."
+    },
+    {
+      "id": 92,
+      "topic": "JSP Directives",
+      "difficulty": "Beginner",
+      "question": "What is the syntax of a JSP directive?",
+      "output": "<%@ directive attribute=\"value\" %>",
+      "answer": "<%@ directive attribute=\"value\" %>",
+      "explanation": "The directive name (page, include, taglib) is followed by attributes."
+    },
+    {
+      "id": 93,
+      "topic": "JSP Directives",
+      "difficulty": "Beginner",
+      "question": "What does the page directive import attribute do?",
+      "output": "Imports Java classes/packages for use in the JSP page.",
+      "answer": "Imports Java classes/packages for use in the JSP page.",
+      "explanation": "Example: <%@ page import=\"java.util.*, java.io.*\" %>"
+    },
+    {
+      "id": 94,
+      "topic": "JSP Directives",
+      "difficulty": "Beginner",
+      "question": "What is the include directive used for?",
+      "output": "Includes the content of another file at translation time.",
+      "answer": "Includes the content of another file at translation time.",
+      "explanation": "<%@ include file=\"header.jsp\" %>"
+    },
+    {
+      "id": 95,
+      "topic": "JSP Directives",
+      "difficulty": "Beginner",
+      "question": "What is the taglib directive used for?",
+      "output": "Declares a custom tag library that the JSP will use.",
+      "answer": "Declares a custom tag library that the JSP will use.",
+      "explanation": "<%@ taglib uri=\"WEB-INF/tlds/mytags.tld\" prefix=\"mytag\" %>"
+    },
+    {
+      "id": 96,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What does the page directive contentType attribute do?",
+      "output": "Sets the MIME type and character encoding of the response.",
+      "answer": "Sets the MIME type and character encoding of the response.",
+      "explanation": "Example: contentType=\"text/html; charset=UTF-8\""
+    },
+    {
+      "id": 97,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What does the page directive isErrorPage attribute do?",
+      "output": "Marks the JSP as an error page, making the exception implicit object available.",
+      "answer": "Marks the JSP as an error page, making the exception implicit object available.",
+      "explanation": "Set isErrorPage=\"true\" to handle exceptions."
+    },
+    {
+      "id": 98,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the page directive errorPage attribute?",
+      "output": "Specifies the URL of an error page to redirect to when an uncaught exception occurs.",
+      "answer": "Specifies the URL of an error page to redirect to when an uncaught exception occurs.",
+      "explanation": "Example: errorPage=\"/error.jsp\""
+    },
+    {
+      "id": 99,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What does the page directive session attribute control?",
+      "output": "Whether the page has access to the session implicit object (default true).",
+      "answer": "Whether the page has access to the session implicit object (default true).",
+      "explanation": "Set session=\"false\" to disable sessions for performance."
+    },
+    {
+      "id": 100,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What is the buffer attribute of the page directive?",
+      "output": "Sets the buffer size for the out object (e.g., buffer=\"16kb\").",
+      "answer": "Sets the buffer size for the out object (e.g., buffer=\"16kb\").",
+      "explanation": "Default is 8kb; can be set to \"none\" to disable buffering."
+    },
+    {
+      "id": 101,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What does autoFlush attribute do in page directive?",
+      "output": "If true (default), buffer flushes when full; if false, throws an exception.",
+      "answer": "If true (default), buffer flushes when full; if false, throws an exception.",
+      "explanation": "Used with buffer attribute."
+    },
+    {
+      "id": 102,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What is the isThreadSafe attribute in page directive?",
+      "output": "If false, container loads multiple instances to handle concurrent requests (deprecated).",
+      "answer": "If false, container loads multiple instances to handle concurrent requests (deprecated).",
+      "explanation": "Modern practice is to not use this and write thread‑safe code."
+    },
+    {
+      "id": 103,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What does the extends attribute in page directive do?",
+      "output": "Specifies a custom superclass for the generated servlet.",
+      "answer": "Specifies a custom superclass for the generated servlet.",
+      "explanation": "Use with caution; must extend HttpJspPage."
+    },
+    {
+      "id": 104,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "What is the language attribute in page directive?",
+      "output": "Specifies the scripting language (only \"java\" in standard JSP).",
+      "answer": "Specifies the scripting language (only \"java\" in standard JSP).",
+      "explanation": "Other languages (like Groovy) may be supported via container extensions."
+    },
+    {
+      "id": 105,
+      "topic": "JSP Directives",
+      "difficulty": "Intermediate",
+      "question": "Can you use multiple page directives on a JSP?",
+      "output": "Yes, except certain attributes like import can be repeated.",
+      "answer": "Yes, except certain attributes like import can be repeated.",
+      "explanation": "The same attribute (except import) cannot be defined twice."
+    },
+    {
+      "id": 106,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the difference between include directive and include action?",
+      "output": "Include directive is static (translation time); include action is dynamic (request time).",
+      "answer": "Include directive is static (translation time); include action is dynamic (request time).",
+      "explanation": "Directive includes at source level; action calls another resource."
+    },
+    {
+      "id": 107,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the taglib directive's uri attribute?",
+      "output": "Identifies the location of the Tag Library Descriptor (TLD) or a URI that matches a tag library.",
+      "answer": "Identifies the location of the Tag Library Descriptor (TLD) or a URI that matches a tag library.",
+      "explanation": "Container resolves the URI to a TLD resource."
+    },
+    {
+      "id": 108,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the `pageEncoding` attribute in page directive?",
+      "output": "Specifies the character encoding of the JSP file itself.",
+      "answer": "Specifies the character encoding of the JSP file itself.",
+      "explanation": "Example: <%@ page pageEncoding=\"UTF-8\" %>"
+    },
+    {
+      "id": 109,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the `trimDirectiveWhitespaces` attribute?",
+      "output": "Removes unnecessary whitespace caused by directives from the response output.",
+      "answer": "Removes unnecessary whitespace caused by directives from the response output.",
+      "explanation": "Available in JSP 2.1+ to reduce HTML size."
+    },
+    {
+      "id": 110,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "Can the include directive be used to include a dynamic resource (e.g., a servlet)?",
+      "output": "No, it only includes static resources; use include action for dynamic includes.",
+      "answer": "No, it only includes static resources; use include action for dynamic includes.",
+      "explanation": "The include directive reads the file at translation time."
+    },
+    {
+      "id": 111,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the default value of the `autoFlush` attribute?",
+      "output": "true",
+      "answer": "true",
+      "explanation": "Buffer automatically flushes when full."
+    },
+    {
+      "id": 112,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What does `isELIgnored` attribute do in page directive?",
+      "output": "If true, EL expressions are treated as plain text (default false in JSP 2.0+).",
+      "answer": "If true, EL expressions are treated as plain text (default false in JSP 2.0+).",
+      "explanation": "Used to disable EL evaluation for compatibility."
+    },
+    {
+      "id": 113,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `errorPage` and `isErrorPage` attributes?",
+      "output": "errorPage points to an error page; isErrorPage marks a page as an error handler.",
+      "answer": "errorPage points to an error page; isErrorPage marks a page as an error handler.",
+      "explanation": "Both are used for exception handling."
+    },
+    {
+      "id": 114,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "Can you use a relative path in the include directive's file attribute?",
+      "output": "Yes, it is interpreted relative to the current JSP's location.",
+      "answer": "Yes, it is interpreted relative to the current JSP's location.",
+      "explanation": "Leading slash means relative to web application root."
+    },
+    {
+      "id": 115,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the result of using the include directive on a file that contains JSP code?",
+      "output": "The included code is merged and translated as part of the main JSP.",
+      "answer": "The included code is merged and translated as part of the main JSP.",
+      "explanation": "All variables and methods become part of the same servlet."
+    },
+    {
+      "id": 116,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the `deferredSyntaxAllowedAsLiteral` attribute?",
+      "output": "Allows #{...} expressions to be used as literals, useful for JSF integration.",
+      "answer": "Allows #{...} expressions to be used as literals, useful for JSF integration.",
+      "explanation": "Part of the page directive for compatibility."
+    },
+    {
+      "id": 117,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the `info` attribute in page directive?",
+      "output": "Adds information to the generated servlet's getServletInfo() method.",
+      "answer": "Adds information to the generated servlet's getServletInfo() method.",
+      "explanation": "Example: <%@ page info=\"This JSP displays a form\" %>"
+    },
+    {
+      "id": 118,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "How can you import a class that is in a package with wildcard using directive?",
+      "output": "<%@ page import=\"com.example.*\" %> – but wildcard is allowed.",
+      "answer": "<%@ page import=\"com.example.*\" %> – but wildcard is allowed.",
+      "explanation": "You can separate multiple imports with commas."
+    },
+    {
+      "id": 119,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the order of processing of page directives?",
+      "output": "They are processed sequentially, but attributes are merged in no specific order except import.",
+      "answer": "They are processed sequentially, but attributes are merged in no specific order except import.",
+      "explanation": "All page directives affect the entire page."
+    },
+    {
+      "id": 120,
+      "topic": "JSP Directives",
+      "difficulty": "Advanced",
+      "question": "What is the meaning of `<%@ taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\" %>`?",
+      "output": "Imports the JSTL core library with prefix 'c'.",
+      "answer": "Imports the JSTL core library with prefix 'c'.",
+      "explanation": "Standard JSTL core tag library declaration."
+    },
+    {
+      "id": 121,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Beginner",
+      "question": "What is a JavaBean?",
+      "output": "A reusable Java class that follows conventions: public no‑arg constructor, private properties, getters/setters, and Serializable.",
+      "answer": "A reusable Java class that follows conventions: public no‑arg constructor, private properties, getters/setters, and Serializable.",
+      "explanation": "Used to encapsulate data in JSP applications."
+    },
+    {
+      "id": 122,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Beginner",
+      "question": "What is the jsp:useBean action used for?",
+      "output": "Creates or locates a JavaBean instance and assigns it a scope variable.",
+      "answer": "Creates or locates a JavaBean instance and assigns it a scope variable.",
+      "explanation": "<jsp:useBean id=\"bean\" class=\"com.example.MyBean\" scope=\"request\" />"
+    },
+    {
+      "id": 123,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Beginner",
+      "question": "What does the jsp:setProperty action do?",
+      "output": "Sets a property of a JavaBean, optionally from request parameters.",
+      "answer": "Sets a property of a JavaBean, optionally from request parameters.",
+      "explanation": "Can use param attribute to map request parameter to bean property."
+    },
+    {
+      "id": 124,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Beginner",
+      "question": "What does the jsp:getProperty action do?",
+      "output": "Retrieves and outputs a property value of a JavaBean.",
+      "answer": "Retrieves and outputs a property value of a JavaBean.",
+      "explanation": "<jsp:getProperty name=\"bean\" property=\"name\" />"
+    },
+    {
+      "id": 125,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Beginner",
+      "question": "What are the standard scopes for a JavaBean in JSP?",
+      "output": "page, request, session, application.",
+      "answer": "page, request, session, application.",
+      "explanation": "Defined by the scope attribute of jsp:useBean."
+    },
+    {
+      "id": 126,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between jsp:setProperty with and without param?",
+      "output": "With param, value from request parameter; without, value from body or property attribute.",
+      "answer": "With param, value from request parameter; without, value from body or property attribute.",
+      "explanation": "You can also set value directly using value attribute."
+    },
+    {
+      "id": 127,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "How can you automatically populate all matching request parameters to a bean?",
+      "output": "Use <jsp:setProperty name=\"bean\" property=\"*\" />",
+      "answer": "Use <jsp:setProperty name=\"bean\" property=\"*\" />",
+      "explanation": "Matches request parameter names to bean property names."
+    },
+    {
+      "id": 128,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What is the bean's scope 'page' mean?",
+      "output": "Bean is stored in the PageContext and is available only within the current JSP.",
+      "answer": "Bean is stored in the PageContext and is available only within the current JSP.",
+      "explanation": "Default scope if not specified."
+    },
+    {
+      "id": 129,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What is required for a JavaBean property to be accessible via jsp:getProperty?",
+      "output": "The bean must have a public getter method following getPropertyName() naming.",
+      "answer": "The bean must have a public getter method following getPropertyName() naming.",
+      "explanation": "For boolean properties, isPropertyName() is also accepted."
+    },
+    {
+      "id": 130,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What happens if a bean does not exist in the specified scope when jsp:useBean is used?",
+      "output": "It creates a new instance using the default constructor.",
+      "answer": "It creates a new instance using the default constructor.",
+      "explanation": "If class attribute is given, it instantiates; otherwise, you must provide a bean via another mechanism."
+    },
+    {
+      "id": 131,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "Can you use a JavaBean without a no‑arg constructor in jsp:useBean?",
+      "output": "No, the container requires a public no‑arg constructor for instantiation.",
+      "answer": "No, the container requires a public no‑arg constructor for instantiation.",
+      "explanation": "Alternative is to use a custom tag or scriptlet to instantiate."
+    },
+    {
+      "id": 132,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What is the type attribute in jsp:useBean for?",
+      "output": "Specifies the type (interface or superclass) for the variable, while class specifies implementation.",
+      "answer": "Specifies the type (interface or superclass) for the variable, while class specifies implementation.",
+      "explanation": "Used for polymorphism."
+    },
+    {
+      "id": 133,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between jsp:useBean with and without body?",
+      "output": "Body can contain additional jsp:setProperty actions or code executed only when bean is created.",
+      "answer": "Body can contain additional jsp:setProperty actions or code executed only when bean is created.",
+      "explanation": "If bean already exists, the body is skipped."
+    },
+    {
+      "id": 134,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "How can you access a session‑scoped bean in a JSP?",
+      "output": "Using jsp:useBean with scope=\"session\" and the same id.",
+      "answer": "Using jsp:useBean with scope=\"session\" and the same id.",
+      "explanation": "The container retrieves from session if present."
+    },
+    {
+      "id": 135,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Intermediate",
+      "question": "What happens if you use jsp:setProperty for a property that doesn't exist?",
+      "output": "A runtime error (NoSuchMethodException) occurs.",
+      "answer": "A runtime error (NoSuchMethodException) occurs.",
+      "explanation": "Container looks for setter method matching property name."
+    },
+    {
+      "id": 136,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "Can you use EL to access bean properties directly without jsp:getProperty?",
+      "output": "Yes, ${bean.property} automatically invokes getter.",
+      "answer": "Yes, ${bean.property} automatically invokes getter.",
+      "explanation": "EL is the modern way to access bean properties."
+    },
+    {
+      "id": 137,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the difference between jsp:useBean and using a scriptlet to instantiate a bean?",
+      "output": "jsp:useBean handles scope management automatically; scriptlet requires manual scope handling.",
+      "answer": "jsp:useBean handles scope management automatically; scriptlet requires manual scope handling.",
+      "explanation": "jsp:useBean is declarative and cleaner."
+    },
+    {
+      "id": 138,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the default scope if scope attribute is omitted in jsp:useBean?",
+      "output": "page",
+      "answer": "page",
+      "explanation": "Bean is stored in PageContext."
+    },
+    {
+      "id": 139,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "Can jsp:useBean be used with an abstract class?",
+      "output": "No, because it needs to instantiate an object unless type attribute is used with an existing bean.",
+      "answer": "No, because it needs to instantiate an object unless type attribute is used with an existing bean.",
+      "explanation": "If bean already exists, you can use type with an abstract class."
+    },
+    {
+      "id": 140,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the relationship between jsp:useBean and MVC pattern?",
+      "output": "Beans serve as the Model, holding data passed from servlet (controller) to JSP (view).",
+      "answer": "Beans serve as the Model, holding data passed from servlet (controller) to JSP (view).",
+      "explanation": "JSP then uses EL to display bean properties."
+    },
+    {
+      "id": 141,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "How can you remove a bean from a scope?",
+      "output": "Using pageContext.removeAttribute(\"beanId\", scope) or scriptlet.",
+      "answer": "Using pageContext.removeAttribute(\"beanId\", scope) or scriptlet.",
+      "explanation": "There is no standard action for removal."
+    },
+    {
+      "id": 142,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the beanName attribute in jsp:useBean?",
+      "output": "Used with type instead of class; beanName is a class name or a serialized bean file.",
+      "answer": "Used with type instead of class; beanName is a class name or a serialized bean file.",
+      "explanation": "Instantiation uses java.beans.Beans.instantiate()."
+    },
+    {
+      "id": 143,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of using JavaBeans over scriptlets for data display?",
+      "output": "Clean separation of presentation and logic, reusability, easier maintenance.",
+      "answer": "Clean separation of presentation and logic, reusability, easier maintenance.",
+      "explanation": "Beans can be used across multiple JSPs."
+    },
+    {
+      "id": 144,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "Can you nest jsp:setProperty inside jsp:useBean body?",
+      "output": "Yes, those set properties are executed only when bean is newly created.",
+      "answer": "Yes, those set properties are executed only when bean is newly created.",
+      "explanation": "Useful for initializing default values."
+    },
+    {
+      "id": 145,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the difference between jsp:setProperty's param and value attributes?",
+      "output": "param reads from request parameter; value directly assigns a literal or EL expression.",
+      "answer": "param reads from request parameter; value directly assigns a literal or EL expression.",
+      "explanation": "If both are omitted, body content is used (deprecated)."
+    },
+    {
+      "id": 146,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What happens if the request parameter (specified with param) is missing?",
+      "output": "The property is not set (no error).",
+      "answer": "The property is not set (no error).",
+      "explanation": "It simply skips the assignment."
+    },
+    {
+      "id": 147,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "Can jsp:setProperty convert types automatically?",
+      "output": "Yes, for primitive and common wrapper types, plus String to Date via PropertyEditor.",
+      "answer": "Yes, for primitive and common wrapper types, plus String to Date via PropertyEditor.",
+      "explanation": "It uses BeanInfo and PropertyEditor for conversion."
+    },
+    {
+      "id": 148,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the scope of a bean created with jsp:useBean in a JSP fragment?",
+      "output": "Each fragment can have its own variable, but scopes are relative to the parent page.",
+      "answer": "Each fragment can have its own variable, but scopes are relative to the parent page.",
+      "explanation": "Works similarly to normal JSP."
+    },
+    {
+      "id": 149,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is the recommended way to transfer data from servlet to JSP?",
+      "output": "Use request.setAttribute(\"bean\", bean) and then access via EL in JSP.",
+      "answer": "Use request.setAttribute(\"bean\", bean) and then access via EL in JSP.",
+      "explanation": "No need for jsp:useBean; just using EL is cleaner."
+    },
+    {
+      "id": 150,
+      "topic": "JavaBeans in JSP",
+      "difficulty": "Advanced",
+      "question": "What is a property of a JavaBean that is readable but not writable?",
+      "output": "It has a getter but no setter; can still be displayed but not set by jsp:setProperty.",
+      "answer": "It has a getter but no setter; can still be displayed but not set by jsp:setProperty.",
+      "explanation": "Often used for derived values."
+    },
+    {
+      "id": 151,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Beginner",
+      "question": "What is the syntax of EL in JSP?",
+      "output": "${expression}",
+      "answer": "${expression}",
+      "explanation": "EL expressions are evaluated at runtime and produce output."
+    },
+    {
+      "id": 152,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Beginner",
+      "question": "What does EL expression ${param.name} do?",
+      "output": "Outputs the value of the request parameter \"name\".",
+      "answer": "Outputs the value of the request parameter \"name\".",
+      "explanation": "Equivalent to request.getParameter(\"name\")."
+    },
+    {
+      "id": 153,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Beginner",
+      "question": "What does ${sessionScope.user} do?",
+      "output": "Retrieves the attribute \"user\" from the session scope.",
+      "answer": "Retrieves the attribute \"user\" from the session scope.",
+      "explanation": "You can specify scope explicitly: pageScope, requestScope, sessionScope, applicationScope."
+    },
+    {
+      "id": 154,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Beginner",
+      "question": "What does ${header[\"User-Agent\"]} output?",
+      "output": "The value of the User‑Agent header from the request.",
+      "answer": "The value of the User‑Agent header from the request.",
+      "explanation": "Square brackets are used when header name contains hyphen."
+    },
+    {
+      "id": 155,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Beginner",
+      "question": "What is the EL implicit object 'pageContext'?",
+      "output": "Provides access to the PageContext object, e.g., ${pageContext.request.contextPath}.",
+      "answer": "Provides access to the PageContext object, e.g., ${pageContext.request.contextPath}.",
+      "explanation": "Allows access to request, response, session, etc."
+    },
+    {
+      "id": 156,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What is the empty operator in EL?",
+      "output": "Checks if a value is null or empty (for strings, arrays, collections, maps).",
+      "answer": "Checks if a value is null or empty (for strings, arrays, collections, maps).",
+      "explanation": "Example: ${empty user} returns true if user is null or empty."
+    },
+    {
+      "id": 157,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "How do you evaluate a numeric comparison in EL?",
+      "output": "Use operators like ==, !=, <, >, <=, >=, e.g., ${10 > 5}.",
+      "answer": "Use operators like ==, !=, <, >, <=, >=, e.g., ${10 > 5}.",
+      "explanation": "EL also supports eq, ne, lt, gt, le, ge."
+    },
+    {
+      "id": 158,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What is the `not` operator in EL?",
+      "output": "Logical NOT, e.g., ${not empty list}.",
+      "answer": "Logical NOT, e.g., ${not empty list}.",
+      "explanation": "Also can use ! operator."
+    },
+    {
+      "id": 159,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What does ${cookie.JSESSIONID.value} give?",
+      "output": "The value of the cookie named JSESSIONID.",
+      "answer": "The value of the cookie named JSESSIONID.",
+      "explanation": "cookie implicit object is a map of Cookie objects."
+    },
+    {
+      "id": 160,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What is the EL function `fn:length()` used for?",
+      "output": "Part of JSTL functions; returns the length of a string, array, or collection.",
+      "answer": "Part of JSTL functions; returns the length of a string, array, or collection.",
+      "explanation": "Requires taglib: <%@ taglib prefix=\"fn\" uri=\"http://java.sun.com/jsp/jstl/functions\" %>"
+    },
+    {
+      "id": 161,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What does ${paramValues.favorite} produce?",
+      "output": "An array of multiple values for request parameter \"favorite\".",
+      "answer": "An array of multiple values for request parameter \"favorite\".",
+      "explanation": "Useful for checkboxes or multi‑select lists."
+    },
+    {
+      "id": 162,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What is the dot (` . `) operator in EL used for?",
+      "output": "Accesses a property (bean, map key, list index).",
+      "answer": "Accesses a property (bean, map key, list index).",
+      "explanation": "Example: ${user.name} calls user.getName()."
+    },
+    {
+      "id": 163,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between ${bean.prop} and ${bean[\"prop\"]}?",
+      "output": "Both do the same; square brackets allow dynamic names and special characters.",
+      "answer": "Both do the same; square brackets allow dynamic names and special characters.",
+      "explanation": "Use brackets for keys that contain dots or hyphens."
+    },
+    {
+      "id": 164,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "What does ${pageContext.request.contextPath} output?",
+      "output": "The context path of the web application (e.g., /myapp).",
+      "answer": "The context path of the web application (e.g., /myapp).",
+      "explanation": "Useful for building absolute URLs in JSP."
+    },
+    {
+      "id": 165,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Intermediate",
+      "question": "How can you disable EL evaluation on a page?",
+      "output": "Set <%@ page isELIgnored=\"true\" %>.",
+      "answer": "Set <%@ page isELIgnored=\"true\" %>.",
+      "explanation": "In web.xml, you can set <el-ignored>true</el-ignored> for a group."
+    },
+    {
+      "id": 166,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is a function in EL and how is it declared?",
+      "output": "A static method mapped via TLD; used as ${prefix:method(params)}.",
+      "answer": "A static method mapped via TLD; used as ${prefix:method(params)}.",
+      "explanation": "JSTL functions are built‑in; custom functions need TLD."
+    },
+    {
+      "id": 167,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What are the EL implicit objects `initParam` and `param`?",
+      "output": "initParam: context init params; param: request parameter.",
+      "answer": "initParam: context init params; param: request parameter.",
+      "explanation": "Example: ${initParam.appName}"
+    },
+    {
+      "id": 168,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the EL ternary operator syntax?",
+      "output": "${condition ? trueValue : falseValue}",
+      "answer": "${condition ? trueValue : falseValue}",
+      "explanation": "Works like Java ternary."
+    },
+    {
+      "id": 169,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "Can you concatenate strings in EL?",
+      "output": "Yes, using += operator or just concatenation with + (numbers).",
+      "answer": "Yes, using += operator or just concatenation with + (numbers).",
+      "explanation": "Example: ${'Hello ' += 'World'}"
+    },
+    {
+      "id": 170,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ${requestScope.user} and ${user}?",
+      "output": "${user} searches page, request, session, application; ${requestScope.user} only in request.",
+      "answer": "${user} searches page, request, session, application; ${requestScope.user} only in request.",
+      "explanation": "Explicit scoping is more specific and slightly faster."
+    },
+    {
+      "id": 171,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What does the 'and' operator in EL do?",
+      "output": "Short‑circuit logical AND (also '&&').",
+      "answer": "Short‑circuit logical AND (also '&&').",
+      "explanation": "Example: ${not empty user and user.active}"
+    },
+    {
+      "id": 172,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the EL 'instanceof' operator?",
+      "output": "Checks if an object is an instance of a class: ${user instanceof com.example.User}",
+      "answer": "Checks if an object is an instance of a class: ${user instanceof com.example.User}",
+      "explanation": "Requires full class name."
+    },
+    {
+      "id": 173,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the use of the 'pageContext' EL object to get HTTP method?",
+      "output": "${pageContext.request.method}",
+      "answer": "${pageContext.request.method}",
+      "explanation": "Returns GET, POST, etc."
+    },
+    {
+      "id": 174,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What does the EL expression ${1 + 2 * 3} evaluate to?",
+      "output": "7 (follows operator precedence).",
+      "answer": "7 (follows operator precedence).",
+      "explanation": "Multiplication before addition."
+    },
+    {
+      "id": 175,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ${} and #{} in JSP?",
+      "output": "${} is immediate evaluation; #{} is deferred (used in JSF).",
+      "answer": "${} is immediate evaluation; #{} is deferred (used in JSF).",
+      "explanation": "In standard JSP, only ${} is applicable."
+    },
+    {
+      "id": 176,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the 'div' operator in EL?",
+      "output": "Integer division (e.g., ${10 div 3} returns 3).",
+      "answer": "Integer division (e.g., ${10 div 3} returns 3).",
+      "explanation": "Also '/' for floating division."
+    },
+    {
+      "id": 177,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the 'mod' operator?",
+      "output": "Modulus (remainder) e.g., ${10 mod 3} returns 1.",
+      "answer": "Modulus (remainder) e.g., ${10 mod 3} returns 1.",
+      "explanation": "Equivalent to '%'."
+    },
+    {
+      "id": 178,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "How can you define a custom EL function?",
+      "output": "Implement a public static method, declare it in a TLD, and use taglib directive.",
+      "answer": "Implement a public static method, declare it in a TLD, and use taglib directive.",
+      "explanation": "Then call ${myprefix:myfunction(params)}."
+    },
+    {
+      "id": 179,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is `cookie` implicit object type?",
+      "output": "A Map<String, Cookie> where Cookie is javax.servlet.http.Cookie.",
+      "answer": "A Map<String, Cookie> where Cookie is javax.servlet.http.Cookie.",
+      "explanation": "You need to use .value to get cookie value."
+    },
+    {
+      "id": 180,
+      "topic": "Expression Language (EL)",
+      "difficulty": "Advanced",
+      "question": "What is the scope of EL implicit objects?",
+      "output": "They are available only in the EL context, not as scripting variables.",
+      "answer": "They are available only in the EL context, not as scripting variables.",
+      "explanation": "You cannot use them inside scriptlets."
+    },
+    {
+      "id": 181,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Beginner",
+      "question": "What is JSTL?",
+      "output": "JSP Standard Tag Library – a collection of useful custom tags for common tasks.",
+      "answer": "JSP Standard Tag Library – a collection of useful custom tags for common tasks.",
+      "explanation": "Avoids scriptlets; promotes cleaner JSP pages."
+    },
+    {
+      "id": 182,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Beginner",
+      "question": "What is the prefix for JSTL core tags?",
+      "output": "Usually \"c\".",
+      "answer": "Usually \"c\".",
+      "explanation": "Declared with <%@ taglib uri=\"http://java.sun.com/jsp/jstl/core\" prefix=\"c\" %>"
+    },
+    {
+      "id": 183,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Beginner",
+      "question": "What does the <c:out> tag do?",
+      "output": "Outputs the result of an expression, escaping XML characters by default.",
+      "answer": "Outputs the result of an expression, escaping XML characters by default.",
+      "explanation": "Safer than EL alone because it escapes HTML."
+    },
+    {
+      "id": 184,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Beginner",
+      "question": "What does the <c:set> tag do?",
+      "output": "Sets a variable in a specified scope (page, request, session, application).",
+      "answer": "Sets a variable in a specified scope (page, request, session, application).",
+      "explanation": "<c:set var=\"name\" value=\"John\" scope=\"session\" />"
+    },
+    {
+      "id": 185,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of <c:remove>?",
+      "output": "Removes a variable from a given scope.",
+      "answer": "Removes a variable from a given scope.",
+      "explanation": "<c:remove var=\"name\" scope=\"session\" />"
+    },
+    {
+      "id": 186,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What does <c:if> tag do?",
+      "output": "Conditionally executes its body if the test expression is true.",
+      "answer": "Conditionally executes its body if the test expression is true.",
+      "explanation": "No else; use <c:choose> for if-else."
+    },
+    {
+      "id": 187,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What tags are used for conditional if-else in JSTL?",
+      "output": "<c:choose>, <c:when>, <c:otherwise>.",
+      "answer": "<c:choose>, <c:when>, <c:otherwise>.",
+      "explanation": "Similar to switch statement."
+    },
+    {
+      "id": 188,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What does <c:forEach> tag do?",
+      "output": "Iterates over a collection (List, Set, Map, array) or a range of numbers.",
+      "answer": "Iterates over a collection (List, Set, Map, array) or a range of numbers.",
+      "explanation": "Has attributes: items, var, begin, end, step, varStatus."
+    },
+    {
+      "id": 189,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What is the varStatus attribute in <c:forEach>?",
+      "output": "Provides loop metadata: index, count, first, last, current, etc.",
+      "answer": "Provides loop metadata: index, count, first, last, current, etc.",
+      "explanation": "Example: varStatus=\"status\" then ${status.index}."
+    },
+    {
+      "id": 190,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What does <c:forTokens> do?",
+      "output": "Splits a string into tokens using delimiters and iterates.",
+      "answer": "Splits a string into tokens using delimiters and iterates.",
+      "explanation": "Attributes: items (string), delims, var, varStatus."
+    },
+    {
+      "id": 191,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What is the <c:url> tag used for?",
+      "output": "Creates a URL with proper encoding and optional parameters.",
+      "answer": "Creates a URL with proper encoding and optional parameters.",
+      "explanation": "<c:url value=\"/page.jsp\" var=\"url\"><c:param name=\"id\" value=\"5\"/></c:url>"
+    },
+    {
+      "id": 192,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What does <c:param> tag do?",
+      "output": "Adds a parameter to a parent URL (used with c:url or c:redirect).",
+      "answer": "Adds a parameter to a parent URL (used with c:url or c:redirect).",
+      "explanation": "Automatically URL‑encodes the parameter value."
+    },
+    {
+      "id": 193,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What is the <c:redirect> tag used for?",
+      "output": "Sends an HTTP redirect to the specified URL.",
+      "answer": "Sends an HTTP redirect to the specified URL.",
+      "explanation": "Can include nested c:param tags."
+    },
+    {
+      "id": 194,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What does <c:import> do?",
+      "output": "Imports the content of a URL (local or remote) and optionally stores it in a variable.",
+      "answer": "Imports the content of a URL (local or remote) and optionally stores it in a variable.",
+      "explanation": "Similar to include action but more powerful."
+    },
+    {
+      "id": 195,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Intermediate",
+      "question": "What is the <c:catch> tag used for?",
+      "output": "Catches any Throwable that occurs in its body and stores it in a variable.",
+      "answer": "Catches any Throwable that occurs in its body and stores it in a variable.",
+      "explanation": "<c:catch var=\"exception\"> ... </c:catch>"
+    },
+    {
+      "id": 196,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the difference between <c:out value=\"${expr}\"/> and ${expr}?",
+      "output": "c:out escapes XML by default; EL doesn't (unless using fn:escapeXml).",
+      "answer": "c:out escapes XML by default; EL doesn't (unless using fn:escapeXml).",
+      "explanation": "c:out can also specify default value with default attribute."
+    },
+    {
+      "id": 197,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "Can <c:forEach> iterate over a Map? How?",
+      "output": "Yes, each iteration gives a Map.Entry, accessible via ${entry.key} and ${entry.value}.",
+      "answer": "Yes, each iteration gives a Map.Entry, accessible via ${entry.key} and ${entry.value}.",
+      "explanation": "Set var=\"entry\", then use entry.key and entry.value."
+    },
+    {
+      "id": 198,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the scope of variables set by <c:set> by default?",
+      "output": "page scope.",
+      "answer": "page scope.",
+      "explanation": "You can override with scope attribute."
+    },
+    {
+      "id": 199,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What does the escapeXml attribute in <c:out> control?",
+      "output": "When true (default), converts <, >, &, ', \" to HTML entities.",
+      "answer": "When true (default), converts <, >, &, ', \" to HTML entities.",
+      "explanation": "Set escapeXml=\"false\" to output raw HTML."
+    },
+    {
+      "id": 200,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "How can you check if a collection is empty using JSTL?",
+      "output": "<c:if test=\"${empty list}\"> or <c:if test=\"${list == null}\">.",
+      "answer": "<c:if test=\"${empty list}\"> or <c:if test=\"${list == null}\">.",
+      "explanation": "empty works for null and empty collections."
+    },
+    {
+      "id": 201,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the difference between <c:redirect> and <c:forward>?",
+      "output": "There is no <c:forward> tag; use <jsp:forward> or a servlet.",
+      "answer": "There is no <c:forward> tag; use <jsp:forward> or a servlet.",
+      "explanation": "c:redirect does client‑side redirect; jsp:forward is server‑side."
+    },
+    {
+      "id": 202,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What does the 'items' attribute of <c:forEach> accept?",
+      "output": "Any object that implements java.util.Collection, arrays, java.util.Map, java.util.Iterator, java.util.Enumeration, etc.",
+      "answer": "Any object that implements java.util.Collection, arrays, java.util.Map, java.util.Iterator, java.util.Enumeration, etc.",
+      "explanation": "Also accepts comma‑separated string (treated as array)."
+    },
+    {
+      "id": 203,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the 'step' attribute in <c:forEach>?",
+      "output": "Increment for numeric iteration; for collections, step is not supported.",
+      "answer": "Increment for numeric iteration; for collections, step is not supported.",
+      "explanation": "Example: begin=\"1\" end=\"10\" step=\"2\""
+    },
+    {
+      "id": 204,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "How do you get the current item’s index in <c:forEach>?",
+      "output": "Using varStatus attribute, e.g., status.index (0‑based) or status.count (1‑based).",
+      "answer": "Using varStatus attribute, e.g., status.index (0‑based) or status.count (1‑based).",
+      "explanation": "status.current gives the current item."
+    },
+    {
+      "id": 205,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of <c:url> tag's 'context' attribute?",
+      "output": "Specifies the context path of another web application in the same server.",
+      "answer": "Specifies the context path of another web application in the same server.",
+      "explanation": "Allows cross‑context links."
+    },
+    {
+      "id": 206,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "Can <c:import> access resources from a different domain?",
+      "output": "Yes, it can import any URL, but may be subject to security restrictions.",
+      "answer": "Yes, it can import any URL, but may be subject to security restrictions.",
+      "explanation": "Can be used to consume REST APIs."
+    },
+    {
+      "id": 207,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the difference between <c:import> and <jsp:include>?",
+      "output": "c:import can import external URLs and store content in a variable; jsp:include only local.",
+      "answer": "c:import can import external URLs and store content in a variable; jsp:include only local.",
+      "explanation": "c:import also supports different charsets."
+    },
+    {
+      "id": 208,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "How do you create a variable that is not output?",
+      "output": "Use <c:set var=\"myVar\" value=\"...\" /> and then use ${myVar} later.",
+      "answer": "Use <c:set var=\"myVar\" value=\"...\" /> and then use ${myVar} later.",
+      "explanation": "No output is produced by <c:set>."
+    },
+    {
+      "id": 209,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the 'target' attribute in <c:set>?",
+      "output": "Allows setting a property of a JavaBean or a key in a Map.",
+      "answer": "Allows setting a property of a JavaBean or a key in a Map.",
+      "explanation": "Use target and property instead of var and value."
+    },
+    {
+      "id": 210,
+      "topic": "JSTL Core Tags",
+      "difficulty": "Advanced",
+      "question": "What is the JSTL version required for EL support?",
+      "output": "JSTL 1.1 works with JSP 2.0; EL is integrated.",
+      "answer": "JSTL 1.1 works with JSP 2.0; EL is integrated.",
+      "explanation": "Earlier JSTL 1.0 required explicit EL evaluation."
+    },
+    {
+      "id": 211,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Beginner",
+      "question": "What is a custom tag in JSP?",
+      "output": "A user‑defined JSP tag that encapsulates reusable functionality.",
+      "answer": "A user‑defined JSP tag that encapsulates reusable functionality.",
+      "explanation": "Custom tags allow creating new markup elements."
+    },
+    {
+      "id": 212,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Beginner",
+      "question": "What are the components needed to create a custom tag?",
+      "output": "Tag handler class, Tag Library Descriptor (TLD), and taglib directive.",
+      "answer": "Tag handler class, Tag Library Descriptor (TLD), and taglib directive.",
+      "explanation": "The TLD maps the tag name to the handler class."
+    },
+    {
+      "id": 213,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Beginner",
+      "question": "What interface must a classic tag handler implement?",
+      "output": "javax.servlet.jsp.tagext.Tag (or extend TagSupport).",
+      "answer": "javax.servlet.jsp.tagext.Tag (or extend TagSupport).",
+      "explanation": "Simple tags implement SimpleTag (JSP 2.0)."
+    },
+    {
+      "id": 214,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Beginner",
+      "question": "What is a TLD file?",
+      "output": "Tag Library Descriptor – an XML file that defines custom tags.",
+      "answer": "Tag Library Descriptor – an XML file that defines custom tags.",
+      "explanation": "Typically placed in WEB-INF/ or a JAR's META-INF/."
+    },
+    {
+      "id": 215,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Beginner",
+      "question": "What is the file extension for a TLD?",
+      "output": ".tld",
+      "answer": ".tld",
+      "explanation": "Example: mytags.tld."
+    },
+    {
+      "id": 216,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What are the two types of tag handlers?",
+      "output": "Classic (TagSupport) and Simple (SimpleTagSupport).",
+      "answer": "Classic (TagSupport) and Simple (SimpleTagSupport).",
+      "explanation": "Simple tag handlers are easier and preferred for JSP 2.0+."
+    },
+    {
+      "id": 217,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What method returns EVAL_BODY_INCLUDE in a classic tag?",
+      "output": "doStartTag()",
+      "answer": "doStartTag()",
+      "explanation": "To indicate that the body should be evaluated."
+    },
+    {
+      "id": 218,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What method returns SKIP_BODY in a tag handler?",
+      "output": "doStartTag() or doAfterBody() to skip body evaluation.",
+      "answer": "doStartTag() or doAfterBody() to skip body evaluation.",
+      "explanation": "SKIP_BODY prevents body execution."
+    },
+    {
+      "id": 219,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What is the lifecycle of a SimpleTag handler?",
+      "output": "setJspContext, setParent, setJspBody, doTag().",
+      "answer": "setJspContext, setParent, setJspBody, doTag().",
+      "explanation": "No separate start/end methods; everything in doTag()."
+    },
+    {
+      "id": 220,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the <attribute> element in TLD?",
+      "output": "Declares an attribute for the custom tag.",
+      "answer": "Declares an attribute for the custom tag.",
+      "explanation": "Specifies name, required, rtexprvalue (runtime expression value), etc."
+    },
+    {
+      "id": 221,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What is rtexprvalue in a TLD attribute?",
+      "output": "True if the attribute can accept a runtime expression (EL or scriptlet).",
+      "answer": "True if the attribute can accept a runtime expression (EL or scriptlet).",
+      "explanation": "Defaults to false."
+    },
+    {
+      "id": 222,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between doStartTag and doEndTag?",
+      "output": "doStartTag executes when start tag encountered; doEndTag when end tag encountered.",
+      "answer": "doStartTag executes when start tag encountered; doEndTag when end tag encountered.",
+      "explanation": "Control body evaluation via return values."
+    },
+    {
+      "id": 223,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Intermediate",
+      "question": "How do you access JSP implicit objects in a tag handler?",
+      "output": "Via JspContext (or PageContext for classic tags).",
+      "answer": "Via JspContext (or PageContext for classic tags).",
+      "explanation": "SimpleTagHandler uses getJspContext() to get JspContext."
+    },
+    {
+      "id": 224,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What is a tag file?",
+      "output": "A JSP‑like file with .tag extension that acts as a custom tag.",
+      "answer": "A JSP‑like file with .tag extension that acts as a custom tag.",
+      "explanation": "Simpler than writing Java tag handlers."
+    },
+    {
+      "id": 225,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "Where are tag files typically placed?",
+      "output": "In WEB-INF/tags/ directory or a subdirectory.",
+      "answer": "In WEB-INF/tags/ directory or a subdirectory.",
+      "explanation": "They are automatically discovered by the container."
+    },
+    {
+      "id": 226,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What is the attribute directive in a tag file?",
+      "output": "<%@ attribute name=\"myAttr\" required=\"true\" %> – defines an attribute for the tag.",
+      "answer": "<%@ attribute name=\"myAttr\" required=\"true\" %> – defines an attribute for the tag.",
+      "explanation": "Tag files use JSP directives."
+    },
+    {
+      "id": 227,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What is the variable directive in a tag file?",
+      "output": "Defines a scripting variable exposed by the tag.",
+      "answer": "Defines a scripting variable exposed by the tag.",
+      "explanation": "Example: <%@ variable name-given=\"result\" scope=\"AT_END\" %>"
+    },
+    {
+      "id": 228,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What method in SimpleTagSupport writes output to the page?",
+      "output": "getJspBody().invoke(null) executes body; you can also use JspWriter.",
+      "answer": "getJspBody().invoke(null) executes body; you can also use JspWriter.",
+      "explanation": "You can also get JspWriter via getJspContext().getOut()."
+    },
+    {
+      "id": 229,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the doAfterBody method in classic tags?",
+      "output": "Called after the body is processed; can return EVAL_BODY_AGAIN to iterate.",
+      "answer": "Called after the body is processed; can return EVAL_BODY_AGAIN to iterate.",
+      "explanation": "Used for looping tags (like forEach implementation)."
+    },
+    {
+      "id": 230,
+      "topic": "Custom Tag Libraries",
+      "difficulty": "Advanced",
+      "question": "What is a dynamic attribute in custom tags?",
+      "output": "An attribute not declared in TLD; enabled by setting <dynamic-attributes>true</dynamic-attributes>.",
+      "answer": "An attribute not declared in TLD; enabled by setting <dynamic-attributes>true</dynamic-attributes>.",
+      "explanation": "Tag handler must implement DynamicAttributes interface."
+    },
+    {
+      "id": 231,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Beginner",
+      "question": "What is the syntax for include directive?",
+      "output": "<%@ include file=\"filename\" %>",
+      "answer": "<%@ include file=\"filename\" %>",
+      "explanation": "Static include at translation time."
+    },
+    {
+      "id": 232,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Beginner",
+      "question": "What is the syntax for include action?",
+      "output": "<jsp:include page=\"filename\" />",
+      "answer": "<jsp:include page=\"filename\" />",
+      "explanation": "Dynamic include at request time."
+    },
+    {
+      "id": 233,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Beginner",
+      "question": "When is the included file processed in include directive?",
+      "output": "At translation time (when JSP is compiled into servlet).",
+      "answer": "At translation time (when JSP is compiled into servlet).",
+      "explanation": "Changes to included file require recompilation of the main JSP."
+    },
+    {
+      "id": 234,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Beginner",
+      "question": "When is the included file processed in include action?",
+      "output": "At request time (each time the JSP is requested).",
+      "answer": "At request time (each time the JSP is requested).",
+      "explanation": "The included file can be a JSP, HTML, or servlet."
+    },
+    {
+      "id": 235,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Beginner",
+      "question": "Which include method results in a single servlet class?",
+      "output": "Include directive (static include).",
+      "answer": "Include directive (static include).",
+      "explanation": "The included content is inserted directly into the servlet code."
+    },
+    {
+      "id": 236,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Intermediate",
+      "question": "Can you pass parameters to an include directive?",
+      "output": "No, it is pure textual inclusion.",
+      "answer": "No, it is pure textual inclusion.",
+      "explanation": "For parameters, use include action with jsp:param."
+    },
+    {
+      "id": 237,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Intermediate",
+      "question": "How do you pass parameters to <jsp:include>?",
+      "output": "Use nested <jsp:param> tags.",
+      "answer": "Use nested <jsp:param> tags.",
+      "explanation": "<jsp:include page=\"header.jsp\"><jsp:param name=\"title\" value=\"Home\"/></jsp:include>"
+    },
+    {
+      "id": 238,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Intermediate",
+      "question": "Which include is better for reusable components like headers/footers?",
+      "output": "Include directive (static) for content that rarely changes; include action for dynamic content.",
+      "answer": "Include directive (static) for content that rarely changes; include action for dynamic content.",
+      "explanation": "Static include is faster but less flexible."
+    },
+    {
+      "id": 239,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Intermediate",
+      "question": "Do variables declared in directive include affect the main JSP?",
+      "output": "Yes, because they become part of the same class (shared scope).",
+      "answer": "Yes, because they become part of the same class (shared scope).",
+      "explanation": "Variable name conflicts can occur."
+    },
+    {
+      "id": 240,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Intermediate",
+      "question": "Does include action share the same pageContext scope?",
+      "output": "Yes, the included page sees the same request, response, session, application, but not page scope.",
+      "answer": "Yes, the included page sees the same request, response, session, application, but not page scope.",
+      "explanation": "Page scope variables are not shared across includes."
+    },
+    {
+      "id": 241,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "What is the difference in performance between the two includes?",
+      "output": "Directive is slightly faster because no runtime invocation overhead.",
+      "answer": "Directive is slightly faster because no runtime invocation overhead.",
+      "explanation": "Action requires a separate request dispatch at runtime."
+    },
+    {
+      "id": 242,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "Can you use EL inside a file included via include directive?",
+      "output": "Yes, because it becomes part of the same JSP source.",
+      "answer": "Yes, because it becomes part of the same JSP source.",
+      "explanation": "All JSP features work normally."
+    },
+    {
+      "id": 243,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "What is the effect of using include directive on a JSP that uses page directive with contentType?",
+      "output": "Only the main JSP's contentType applies; included file's page directives are ignored.",
+      "answer": "Only the main JSP's contentType applies; included file's page directives are ignored.",
+      "explanation": "Some attributes (like contentType, buffer) cannot be overridden."
+    },
+    {
+      "id": 244,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "Can include action be used to include a servlet?",
+      "output": "Yes, the page attribute can point to a servlet URL pattern.",
+      "answer": "Yes, the page attribute can point to a servlet URL pattern.",
+      "explanation": "Servlet's output is included in the JSP response."
+    },
+    {
+      "id": 245,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "What is the difference between <jsp:include> and <%@ include %> when including an HTML file?",
+      "output": "Directive inserts raw HTML as is; action also works but may involve extra buffering.",
+      "answer": "Directive inserts raw HTML as is; action also works but may involve extra buffering.",
+      "explanation": "Both are possible, but directive is more efficient for static HTML."
+    },
+    {
+      "id": 246,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "What happens if the included file in include action is not found?",
+      "output": "A runtime exception (RequestDispatcher.include throws ServletException).",
+      "answer": "A runtime exception (RequestDispatcher.include throws ServletException).",
+      "explanation": "May result in error page if configured."
+    },
+    {
+      "id": 247,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "Can the include directive be used with dynamic files (e.g., JSP that changes)?",
+      "output": "Yes, but changes will not be reflected until the including JSP is recompiled.",
+      "answer": "Yes, but changes will not be reflected until the including JSP is recompiled.",
+      "explanation": "Static nature of directive."
+    },
+    {
+      "id": 248,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "Is it possible to include a file from an absolute path using include directive?",
+      "output": "No, only relative paths; use <c:import> for absolute paths.",
+      "answer": "No, only relative paths; use <c:import> for absolute paths.",
+      "explanation": "Include directive resolves relative to current JSP."
+    },
+    {
+      "id": 249,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "What is the impact on session management?",
+      "output": "Both respect the session; but if included JSP has session=\"false\", directive may cause errors.",
+      "answer": "Both respect the session; but if included JSP has session=\"false\", directive may cause errors.",
+      "explanation": "Directive combines code; action isolates session settings."
+    },
+    {
+      "id": 250,
+      "topic": "JSP Include Directive vs Include Action",
+      "difficulty": "Advanced",
+      "question": "Which include is more suitable for dynamic content that changes per request?",
+      "output": "Include action, because it is evaluated at request time.",
+      "answer": "Include action, because it is evaluated at request time.",
+      "explanation": "You can even conditionally include using scriptlet or tags."
+    },
+    {
+      "id": 251,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Beginner",
+      "question": "How do you define a JSP as an error page?",
+      "output": "Use <%@ page isErrorPage=\"true\" %> directive.",
+      "answer": "Use <%@ page isErrorPage=\"true\" %> directive.",
+      "explanation": "Makes the exception implicit object available."
+    },
+    {
+      "id": 252,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Beginner",
+      "question": "How do you specify an error page for a JSP?",
+      "output": "Use <%@ page errorPage=\"error.jsp\" %> directive.",
+      "answer": "Use <%@ page errorPage=\"error.jsp\" %> directive.",
+      "explanation": "Any uncaught exception will forward to that error page."
+    },
+    {
+      "id": 253,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Beginner",
+      "question": "What is the type of the exception implicit object?",
+      "output": "java.lang.Throwable",
+      "answer": "java.lang.Throwable",
+      "explanation": "Holds the exception that triggered the error page."
+    },
+    {
+      "id": 254,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Beginner",
+      "question": "Can you specify error pages for HTTP error codes in web.xml?",
+      "output": "Yes, using <error-page> element with <error-code>.",
+      "answer": "Yes, using <error-page> element with <error-code>.",
+      "explanation": "Example: <error-code>404</error-code><location>/404.jsp</location>"
+    },
+    {
+      "id": 255,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Beginner",
+      "question": "Can you specify exception‑type mapping in web.xml?",
+      "output": "Yes, using <exception-type> element.",
+      "answer": "Yes, using <exception-type> element.",
+      "explanation": "Allows handling specific exceptions globally."
+    },
+    {
+      "id": 256,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between errorPage attribute and web.xml error pages?",
+      "output": "errorPage is page‑specific; web.xml is application‑wide.",
+      "answer": "errorPage is page‑specific; web.xml is application‑wide.",
+      "explanation": "If both exist, page‑specific takes precedence."
+    },
+    {
+      "id": 257,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Intermediate",
+      "question": "What happens if an error page itself throws an exception?",
+      "output": "The container invokes its own internal error page or generates a default error response.",
+      "answer": "The container invokes its own internal error page or generates a default error response.",
+      "explanation": "Avoid infinite loops; container detects repeated forwarding."
+    },
+    {
+      "id": 258,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Intermediate",
+      "question": "How can you access the original request URI in an error page?",
+      "output": "Use request attribute \"javax.servlet.error.request_uri\".",
+      "answer": "Use request attribute \"javax.servlet.error.request_uri\".",
+      "explanation": "Other attributes: status_code, exception_type, servlet_name."
+    },
+    {
+      "id": 259,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Intermediate",
+      "question": "What is the request attribute for exception message?",
+      "output": "javax.servlet.error.message",
+      "answer": "javax.servlet.error.message",
+      "explanation": "Contains the exception message or status message."
+    },
+    {
+      "id": 260,
+      "topic": "JSP Error Page Handling",
+      "difficulty": "Intermediate",
+      "question": "How can you log an error from a JSP error page?",
+      "output": "Use application.log(exception.getMessage(), exception) or via pageContext.getServletContext().log().",
+      "answer": "Use application.log(exception.getMessage(), exception) or via pageContext.getServletContext().log().",
+      "explanation": "Good practice to log for debugging."
+    },
+    {
+      "id": 261,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Beginner",
+      "question": "What is a JSP fragment?",
+      "output": "A portion of JSP code stored in a .jspf file, intended for inclusion.",
+      "answer": "A portion of JSP code stored in a .jspf file, intended for inclusion.",
+      "explanation": "Often used with include directive or tag files."
+    },
+    {
+      "id": 262,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Beginner",
+      "question": "What is a tag file?",
+      "output": "A file with .tag extension that defines a custom tag using JSP syntax.",
+      "answer": "A file with .tag extension that defines a custom tag using JSP syntax.",
+      "explanation": "Simplifies custom tag development without Java coding."
+    },
+    {
+      "id": 263,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Beginner",
+      "question": "Where are tag files stored by default?",
+      "output": "In WEB-INF/tags/ directory.",
+      "answer": "In WEB-INF/tags/ directory.",
+      "explanation": "Subdirectories define tag namespace."
+    },
+    {
+      "id": 264,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Intermediate",
+      "question": "What directive is used in a tag file to accept attributes?",
+      "output": "<%@ attribute name=\"attrName\" required=\"true\" %>",
+      "answer": "<%@ attribute name=\"attrName\" required=\"true\" %>",
+      "explanation": "Multiple attribute directives can be used."
+    },
+    {
+      "id": 265,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Intermediate",
+      "question": "How do you invoke a tag file in a JSP?",
+      "output": "Using a custom tag prefix and name, e.g., <mytags:myTag attr=\"value\"/>.",
+      "answer": "Using a custom tag prefix and name, e.g., <mytags:myTag attr=\"value\"/>.",
+      "explanation": "Tag file name without .tag becomes tag name."
+    },
+    {
+      "id": 266,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Intermediate",
+      "question": "What is the implicit object 'jspContext' in tag files?",
+      "output": "The JspContext object, which gives access to page scope and various methods.",
+      "answer": "The JspContext object, which gives access to page scope and various methods.",
+      "explanation": "Similar to pageContext but with fewer methods."
+    },
+    {
+      "id": 267,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Advanced",
+      "question": "What is a tag fragment in JSP?",
+      "output": "A piece of JSP that is passed as an attribute to a custom tag using JspFragment.",
+      "answer": "A piece of JSP that is passed as an attribute to a custom tag using JspFragment.",
+      "explanation": "Allows custom tags to accept JSP code as parameter."
+    },
+    {
+      "id": 268,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Advanced",
+      "question": "How do you pass a JSP fragment to a tag file?",
+      "output": "Use <jsp:attribute name=\"fragmentName\">...content...</jsp:attribute> or body content.",
+      "answer": "Use <jsp:attribute name=\"fragmentName\">...content...</jsp:attribute> or body content.",
+      "explanation": "Tag file can invoke it using <jsp:invoke fragment=\"fragmentName\"/>."
+    },
+    {
+      "id": 269,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Advanced",
+      "question": "What is the <jsp:doBody> action in tag files?",
+      "output": "Invokes the body content of the tag (the part between start and end tag).",
+      "answer": "Invokes the body content of the tag (the part between start and end tag).",
+      "explanation": "Works similar to <jsp:invoke> for a default fragment."
+    },
+    {
+      "id": 270,
+      "topic": "JSP Fragments and Tag Files",
+      "difficulty": "Advanced",
+      "question": "What is the <%@ tag %> directive in a tag file used for?",
+      "output": "Provides overall tag information, like display name, body-content, etc.",
+      "answer": "Provides overall tag information, like display name, body-content, etc.",
+      "explanation": "Optional, but can specify dynamic-attributes."
+    },
+    {
+      "id": 271,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Beginner",
+      "question": "What is the prefix for JSTL formatting tags?",
+      "output": "fmt",
+      "answer": "fmt",
+      "explanation": "Taglib: <%@ taglib uri=\"http://java.sun.com/jsp/jstl/fmt\" prefix=\"fmt\" %>"
+    },
+    {
+      "id": 272,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Beginner",
+      "question": "What does <fmt:formatDate> do?",
+      "output": "Formats a date/time according to a pattern or style.",
+      "answer": "Formats a date/time according to a pattern or style.",
+      "explanation": "Example: <fmt:formatDate value=\"${date}\" pattern=\"yyyy-MM-dd\"/>"
+    },
+    {
+      "id": 273,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Beginner",
+      "question": "What does <fmt:formatNumber> do?",
+      "output": "Formats a number as a currency, percentage, or custom pattern.",
+      "answer": "Formats a number as a currency, percentage, or custom pattern.",
+      "explanation": "Example: <fmt:formatNumber value=\"0.75\" type=\"percent\"/> → 75%"
+    },
+    {
+      "id": 274,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Beginner",
+      "question": "What is the prefix for JSTL functions tag library?",
+      "output": "fn",
+      "answer": "fn",
+      "explanation": "Taglib: <%@ taglib uri=\"http://java.sun.com/jsp/jstl/functions\" prefix=\"fn\" %>"
+    },
+    {
+      "id": 275,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Beginner",
+      "question": "What does ${fn:toUpperCase(string)} do?",
+      "output": "Converts a string to uppercase.",
+      "answer": "Converts a string to uppercase.",
+      "explanation": "Example: ${fn:toUpperCase(\"hello\")} → HELLO"
+    },
+    {
+      "id": 276,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between <fmt:setLocale> and <fmt:setBundle>?",
+      "output": "setLocale sets the locale for formatting; setBundle sets the resource bundle.",
+      "answer": "setLocale sets the locale for formatting; setBundle sets the resource bundle.",
+      "explanation": "Used together for internationalization."
+    },
+    {
+      "id": 277,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Intermediate",
+      "question": "What does <fmt:message> tag do?",
+      "output": "Displays a localized message from a resource bundle.",
+      "answer": "Displays a localized message from a resource bundle.",
+      "explanation": "<fmt:message key=\"greeting\" bundle=\"${bundle}\"/>"
+    },
+    {
+      "id": 278,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Intermediate",
+      "question": "What does <fmt:setBundle> do?",
+      "output": "Loads a resource bundle and stores it in a variable.",
+      "answer": "Loads a resource bundle and stores it in a variable.",
+      "explanation": "<fmt:setBundle basename=\"messages\" var=\"bundle\"/>"
+    },
+    {
+      "id": 279,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Intermediate",
+      "question": "What does <fmt:parseNumber> do?",
+      "output": "Parses a string into a number using the specified locale or pattern.",
+      "answer": "Parses a string into a number using the specified locale or pattern.",
+      "explanation": "Used to convert localized numbers back to numeric values."
+    },
+    {
+      "id": 280,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Intermediate",
+      "question": "What does ${fn:contains(string, substring)} return?",
+      "output": "Boolean true if substring is found in string.",
+      "answer": "Boolean true if substring is found in string.",
+      "explanation": "Example: ${fn:contains(\"Hello World\", \"World\")} → true"
+    },
+    {
+      "id": 281,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Advanced",
+      "question": "How do you set the time zone for date formatting?",
+      "output": "Use <fmt:setTimeZone value=\"CST\" /> or <fmt:timeZone> for a temporary zone.",
+      "answer": "Use <fmt:setTimeZone value=\"CST\" /> or <fmt:timeZone> for a temporary zone.",
+      "explanation": "Examples: \"GMT+5:30\", \"America/New_York\"."
+    },
+    {
+      "id": 282,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Advanced",
+      "question": "What does ${fn:split(string, delimiter)} do?",
+      "output": "Splits a string into an array of substrings.",
+      "answer": "Splits a string into an array of substrings.",
+      "explanation": "Result can be stored in a var for iteration."
+    },
+    {
+      "id": 283,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Advanced",
+      "question": "What is the function ${fn:replace(string, before, after)}?",
+      "output": "Replaces all occurrences of before with after in the string.",
+      "answer": "Replaces all occurrences of before with after in the string.",
+      "explanation": "Returns new string."
+    },
+    {
+      "id": 284,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Advanced",
+      "question": "What does ${fn:substring(string, begin, end)} do?",
+      "output": "Extracts a substring from index begin to end-1.",
+      "answer": "Extracts a substring from index begin to end-1.",
+      "explanation": "Indices are 0‑based."
+    },
+    {
+      "id": 285,
+      "topic": "JSTL Formatting Tags (fmt) and Functions Tags (fn)",
+      "difficulty": "Advanced",
+      "question": "What is the escapeXml function?",
+      "output": "${fn:escapeXml(string)} – escapes &, <, >, ', \" for safe HTML output.",
+      "answer": "${fn:escapeXml(string)} – escapes &, <, >, ', \" for safe HTML output.",
+      "explanation": "Similar to <c:out escapeXml=\"true\">."
+    },
+    {
+      "id": 286,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Beginner",
+      "question": "What does MVC stand for?",
+      "output": "Model‑View‑Controller.",
+      "answer": "Model‑View‑Controller.",
+      "explanation": "Separates data (Model), presentation (View), and logic (Controller)."
+    },
+    {
+      "id": 287,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Beginner",
+      "question": "In MVC, what is the role of a servlet?",
+      "output": "Controller – receives requests, processes them, and forwards to appropriate view.",
+      "answer": "Controller – receives requests, processes them, and forwards to appropriate view.",
+      "explanation": "Servlet acts as the traffic director."
+    },
+    {
+      "id": 288,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Beginner",
+      "question": "In MVC, what is the role of JSP?",
+      "output": "View – presents data to the user, typically using EL and JSTL.",
+      "answer": "View – presents data to the user, typically using EL and JSTL.",
+      "explanation": "JSP should contain minimal or no Java code."
+    },
+    {
+      "id": 289,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Beginner",
+      "question": "What is the Model in MVC?",
+      "output": "JavaBeans or POJOs that hold data and business logic.",
+      "answer": "JavaBeans or POJOs that hold data and business logic.",
+      "explanation": "Model is fetched/updated by the controller."
+    },
+    {
+      "id": 290,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Beginner",
+      "question": "What is the Front Controller pattern?",
+      "output": "A single servlet that handles all requests, delegates to actions, and dispatches to views.",
+      "answer": "A single servlet that handles all requests, delegates to actions, and dispatches to views.",
+      "explanation": "Centralizes request handling for consistency."
+    },
+    {
+      "id": 291,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Intermediate",
+      "question": "How does the controller pass data to the view?",
+      "output": "Using request.setAttribute() and then EL in JSP.",
+      "answer": "Using request.setAttribute() and then EL in JSP.",
+      "explanation": "Also can use session or application scope, but request is typical."
+    },
+    {
+      "id": 292,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between forward and redirect in MVC?",
+      "output": "Forward is server‑side and hides the action URL; redirect sends a new request to the client.",
+      "answer": "Forward is server‑side and hides the action URL; redirect sends a new request to the client.",
+      "explanation": "Use redirect after POST to prevent duplicate submission (Post‑Redirect‑Get)."
+    },
+    {
+      "id": 293,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of a Command object in Front Controller?",
+      "output": "Encapsulates a request as an object, often using the Command pattern.",
+      "answer": "Encapsulates a request as an object, often using the Command pattern.",
+      "explanation": "Allows parameterizable actions."
+    },
+    {
+      "id": 294,
+      "topic": "MVC with JSP and Servlets (Front Controller Pattern)",
+      "difficulty": "Intermediate",
+      "question": "What are advantages of MVC over scriptlet‑based JSP?",
+      "output": "Separation of concerns, reusability, testability, easier maintenance.",
+      "answer": "Separation of concerns, reusability, testability, easier maintenance.",
+      "explanation": "Controllers can be unit‑tested without a container."
+    },
+    {
+      "id": 295,
+      "topic": "Using JavaBeans as Data Containers",
+      "difficulty": "Beginner",
+      "question": "Why use JavaBeans as data containers in MVC?",
+      "output": "To transport data between controller and view, and to encapsulate logic.",
+      "answer": "To transport data between controller and view, and to encapsulate logic.",
+      "explanation": "Beans are serializable and follow standard conventions."
+    },
+    {
+      "id": 296,
+      "topic": "Using JavaBeans as Data Containers",
+      "difficulty": "Beginner",
+      "question": "What is a typical structure of a JavaBean?",
+      "output": "Private fields, public no‑arg constructor, getters/setters.",
+      "answer": "Private fields, public no‑arg constructor, getters/setters.",
+      "explanation": "May also implement Serializable."
+    },
+    {
+      "id": 297,
+      "topic": "Using JavaBeans as Data Containers",
+      "difficulty": "Intermediate",
+      "question": "Can a JavaBean contain business logic?",
+      "output": "Yes, but in MVC, it's better to keep pure data in beans and business logic in services.",
+      "answer": "Yes, but in MVC, it's better to keep pure data in beans and business logic in services.",
+      "explanation": "Data containers are often called DTOs."
+    },
+    {
+      "id": 298,
+      "topic": "JSP 2.0 Simple Tag Handlers",
+      "difficulty": "Intermediate",
+      "question": "What is the advantage of SimpleTag over classic tag?",
+      "output": "Simpler lifecycle (only doTag()), no need to implement start/end methods.",
+      "answer": "Simpler lifecycle (only doTag()), no need to implement start/end methods.",
+      "explanation": "Recommended for new development."
+    },
+    {
+      "id": 299,
+      "topic": "EL Advanced Features (Collections, Operators)",
+      "difficulty": "Advanced",
+      "question": "How do you access an element of a List in EL?",
+      "output": "${myList[0]} or ${myList.get(0)}",
+      "answer": "${myList[0]} or ${myList.get(0)}",
+      "explanation": "Square brackets with index."
+    },
+    {
+      "id": 300,
+      "topic": "Introduction to AJAX Integration",
+      "difficulty": "Advanced",
+      "question": "How can JSP be integrated with AJAX?",
+      "output": "JSP can return HTML/JSON fragments that are loaded via XMLHttpRequest.",
+      "answer": "JSP can return HTML/JSON fragments that are loaded via XMLHttpRequest.",
+      "explanation": "Often used with jQuery or fetch API."
+    },
+    {
+      "id": 301,
+      "topic": "Security Considerations (Avoiding Scriptlets)",
+      "difficulty": "Advanced",
+      "question": "Why avoid scriptlets for security?",
+      "output": "Scriptlets can expose business logic, cause XSS if output not escaped, and mix concerns.",
+      "answer": "Scriptlets can expose business logic, cause XSS if output not escaped, and mix concerns.",
+      "explanation": "Use EL and JSTL which automatically escape by default with c:out."
+    }
+  ]
+}
