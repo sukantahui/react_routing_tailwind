@@ -89,7 +89,7 @@ const Topic12 = () => {
             <span className="text-3xl">🔗</span> First Theorem: (A · B)' = A' + B'
           </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <div>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 The complement of an AND operation is equivalent to the OR of the complements. In other words, "NOT (A AND B)" is the same as "(NOT A) OR (NOT B)".
@@ -123,6 +123,39 @@ const Topic12 = () => {
                     </tbody>
                   </table>
                 </div>
+              </div>
+
+              {/* NEW: Algebraic Proof for First Theorem */}
+              <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl mb-4">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🧮 Algebraic Proof (Step by Step)</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">We prove that <span className="font-mono font-bold">(A·B)'</span> and <span className="font-mono font-bold">A' + B'</span> are complements. By the <strong>uniqueness of complement</strong>, if we show:</p>
+                <ol className="list-decimal list-inside text-sm text-gray-700 dark:text-gray-300 space-y-2 mb-2">
+                  <li><span className="font-mono">(A·B) + (A' + B') = 1</span> (Sum equals 1)</li>
+                  <li><span className="font-mono">(A·B) · (A' + B') = 0</span> (Product equals 0)</li>
+                </ol>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">then <span className="font-mono">A' + B'</span> must be the complement of <span className="font-mono">A·B</span>, i.e. <span className="font-mono">(A·B)' = A' + B'</span>.</p>
+                
+                <div className="mt-3 space-y-2 text-sm font-mono">
+                  <div><strong>Step 1 – Prove sum = 1:</strong></div>
+                  <div className="ml-4">(A·B) + (A' + B')</div>
+                  <div className="ml-4">= (A·B) + A' + B' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(associativity of OR)</span></div>
+                  <div className="ml-4">= (A + A')·(B + A') + B' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(distributive law: (A·B)+A' = (A+A')·(B+A'))</span></div>
+                  <div className="ml-4">= (1)·(B + A') + B' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(complement law A+A'=1)</span></div>
+                  <div className="ml-4">= (B + A') + B' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(identity law: 1·X = X)</span></div>
+                  <div className="ml-4">= B + (A' + B') &nbsp;&nbsp;<span className="text-gray-500 text-xs">(associativity)</span></div>
+                  <div className="ml-4">= (B + B') + A' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(commutativity & associativity)</span></div>
+                  <div className="ml-4">= 1 + A' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(complement law B+B'=1)</span></div>
+                  <div className="ml-4">= 1 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(annulment law: 1 + X = 1)</span></div>
+                  
+                  <div className="mt-3"><strong>Step 2 – Prove product = 0:</strong></div>
+                  <div className="ml-4">(A·B) · (A' + B')</div>
+                  <div className="ml-4">= (A·B)·A' + (A·B)·B' &nbsp;&nbsp;<span className="text-gray-500 text-xs">(distributive law)</span></div>
+                  <div className="ml-4">= (A·A')·B + A·(B·B') &nbsp;&nbsp;<span className="text-gray-500 text-xs">(associativity & commutativity)</span></div>
+                  <div className="ml-4">= (0)·B + A·(0) &nbsp;&nbsp;<span className="text-gray-500 text-xs">(complement law A·A'=0, B·B'=0)</span></div>
+                  <div className="ml-4">= 0 + 0 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(null law: 0·X = 0)</span></div>
+                  <div className="ml-4">= 0 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(identity for OR)</span></div>
+                </div>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-3">✅ Since both conditions hold, <span className="font-mono font-bold">(A·B)' = A' + B'</span> is proved algebraically.</p>
               </div>
 
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
@@ -161,7 +194,7 @@ const Topic12 = () => {
             <span className="text-3xl">🔀</span> Second Theorem: (A + B)' = A' · B'
           </h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
             <div>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
                 The complement of an OR operation is equivalent to the AND of the complements. In other words, "NOT (A OR B)" is the same as "(NOT A) AND (NOT B)".
@@ -195,6 +228,33 @@ const Topic12 = () => {
                     </tbody>
                   </table>
                 </div>
+              </div>
+
+              {/* NEW: Algebraic Proof for Second Theorem */}
+              <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-xl mb-4">
+                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">🧮 Algebraic Proof (Step by Step)</h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">We prove that <span className="font-mono font-bold">(A+B)'</span> and <span className="font-mono font-bold">A'·B'</span> are complements. Again, we show the two necessary conditions:</p>
+                <ol className="list-decimal list-inside text-sm text-gray-700 dark:text-gray-300 space-y-2 mb-2">
+                  <li><span className="font-mono">(A+B) + (A'·B') = 1</span></li>
+                  <li><span className="font-mono">(A+B) · (A'·B') = 0</span></li>
+                </ol>
+                
+                <div className="mt-3 space-y-2 text-sm font-mono">
+                  <div><strong>Step 1 – Prove sum = 1:</strong></div>
+                  <div className="ml-4">(A+B) + (A'·B')</div>
+                  <div className="ml-4">= (A+B+A')·(A+B+B') &nbsp;&nbsp;<span className="text-gray-500 text-xs">(distributive law: X + (Y·Z) = (X+Y)·(X+Z))</span></div>
+                  <div className="ml-4">= (1 + B)·(A + 1) &nbsp;&nbsp;<span className="text-gray-500 text-xs">(complement: A+A'=1, B+B'=1)</span></div>
+                  <div className="ml-4">= 1·1 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(annulment: 1+X = 1)</span></div>
+                  <div className="ml-4">= 1 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(identity)</span></div>
+                  
+                  <div className="mt-3"><strong>Step 2 – Prove product = 0:</strong></div>
+                  <div className="ml-4">(A+B) · (A'·B')</div>
+                  <div className="ml-4">= (A·A'·B') + (B·A'·B') &nbsp;&nbsp;<span className="text-gray-500 text-xs">(distributive law)</span></div>
+                  <div className="ml-4">= (0·B') + (A'·0) &nbsp;&nbsp;<span className="text-gray-500 text-xs">(complement: A·A'=0, B·B'=0)</span></div>
+                  <div className="ml-4">= 0 + 0 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(null law: 0·X = 0)</span></div>
+                  <div className="ml-4">= 0 &nbsp;&nbsp;<span className="text-gray-500 text-xs">(identity)</span></div>
+                </div>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mt-3">✅ Both conditions are satisfied, therefore <span className="font-mono font-bold">(A+B)' = A'·B'</span> holds algebraically.</p>
               </div>
 
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">

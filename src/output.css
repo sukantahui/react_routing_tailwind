@@ -944,9 +944,6 @@
   .mt-24 {
     margin-top: calc(var(--spacing) * 24);
   }
-  .mt-32 {
-    margin-top: calc(var(--spacing) * 32);
-  }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
   }
@@ -1205,9 +1202,6 @@
   }
   .h-80 {
     height: calc(var(--spacing) * 80);
-  }
-  .h-90 {
-    height: calc(var(--spacing) * 90);
   }
   .h-96 {
     height: calc(var(--spacing) * 96);
@@ -8750,9 +8744,6 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
-  .px-0 {
-    padding-inline: calc(var(--spacing) * 0);
-  }
   .px-1 {
     padding-inline: calc(var(--spacing) * 1);
   }
@@ -8857,9 +8848,6 @@
   }
   .pt-14 {
     padding-top: calc(var(--spacing) * 14);
-  }
-  .pt-16 {
-    padding-top: calc(var(--spacing) * 16);
   }
   .pt-20 {
     padding-top: calc(var(--spacing) * 20);
@@ -13949,13 +13937,6 @@
       }
     }
   }
-  .hover\:bg-teal-50 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-teal-50);
-      }
-    }
-  }
   .hover\:bg-teal-100 {
     &:hover {
       @media (hover: hover) {
@@ -13974,13 +13955,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-teal-600);
-      }
-    }
-  }
-  .hover\:bg-teal-700 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-teal-700);
       }
     }
   }
@@ -18225,11 +18199,6 @@
       height: calc(var(--spacing) * 14);
     }
   }
-  .md\:h-16 {
-    @media (width >= 48rem) {
-      height: calc(var(--spacing) * 16);
-    }
-  }
   .md\:h-20 {
     @media (width >= 48rem) {
       height: calc(var(--spacing) * 20);
@@ -18278,11 +18247,6 @@
   .md\:w-20 {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 20);
-    }
-  }
-  .md\:w-48 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 48);
     }
   }
   .md\:w-64 {
@@ -18503,19 +18467,9 @@
       padding-block: calc(var(--spacing) * 16);
     }
   }
-  .md\:pt-2 {
-    @media (width >= 48rem) {
-      padding-top: calc(var(--spacing) * 2);
-    }
-  }
   .md\:pt-16 {
     @media (width >= 48rem) {
       padding-top: calc(var(--spacing) * 16);
-    }
-  }
-  .md\:pt-20 {
-    @media (width >= 48rem) {
-      padding-top: calc(var(--spacing) * 20);
     }
   }
   .md\:text-left {
@@ -18646,11 +18600,6 @@
   .lg\:w-3\/4 {
     @media (width >= 64rem) {
       width: calc(3 / 4 * 100%);
-    }
-  }
-  .lg\:max-w-6xl {
-    @media (width >= 64rem) {
-      max-width: var(--container-6xl);
     }
   }
   .lg\:max-w-7xl {
