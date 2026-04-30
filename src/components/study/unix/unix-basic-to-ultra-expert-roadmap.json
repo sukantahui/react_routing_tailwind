@@ -434,6 +434,32 @@
                     "badge": "UNIX SysAdmin Expert Badge"
                 }
             ]
+        },
+        {
+            "segmentId": "missing-and-special",
+            "title": "Segment 5 – Special or missing Topics",
+            "level": "Missing & Special",
+            "summary": "All missing topics will be here",
+            "modules": [
+                {
+                    "moduleId": "unix-special",
+                    "slug": "speciall-and-missing-unix-file-system-and-commands",
+                    "title": "Unix File System and Commands",
+                    "description": "Covers essential Unix file commands, file system concepts, and system call interface required for practical and theoretical understanding.",
+                    "topics": [
+                        "System call interface (concept and role in OS)",
+                        "Unix file system structure and basics",
+                        "File permissions and security (chmod command)",
+                        "Creating empty files and modifying timestamps (touch command)",
+                        "Understanding file timestamps (access time, modification time, change time)",
+                        "Using touch with -d and -t options",
+                        "Finding files and directories (find command)",
+                        "File system size and disk usage (du, df commands)",
+                        "Redirection operators (> and >>)",
+                        "Using tee command for output redirection"
+                    ]
+                }
+            ]
         }
     ]
 }

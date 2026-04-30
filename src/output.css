@@ -5111,6 +5111,9 @@
       background-color: color-mix(in oklab, var(--color-lime-100) 50%, transparent);
     }
   }
+  .bg-lime-600 {
+    background-color: var(--color-lime-600);
+  }
   .bg-lime-900\/50 {
     background-color: color-mix(in srgb, oklch(40.5% 0.101 131.063) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -6552,6 +6555,10 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-gradient-from: color-mix(in oklab, var(--color-indigo-900) 30%, transparent);
     }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-lime-400 {
+    --tw-gradient-from: var(--color-lime-400);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .from-lime-900\/20 {
@@ -8036,6 +8043,10 @@
   }
   .to-violet-400 {
     --tw-gradient-to: var(--color-violet-400);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-violet-500 {
+    --tw-gradient-to: var(--color-violet-500);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
   .to-violet-600 {
@@ -9793,6 +9804,10 @@
   }
   .not-italic {
     font-style: normal;
+  }
+  .ordinal {
+    --tw-ordinal: ordinal;
+    font-variant-numeric: var(--tw-ordinal,) var(--tw-slashed-zero,) var(--tw-numeric-figure,) var(--tw-numeric-spacing,) var(--tw-numeric-fraction,);
   }
   .line-through {
     text-decoration-line: line-through;
@@ -13498,6 +13513,13 @@
       }
     }
   }
+  .hover\:bg-lime-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-lime-500);
+      }
+    }
+  }
   .hover\:bg-orange-50 {
     &:hover {
       @media (hover: hover) {
@@ -16256,6 +16278,16 @@
       }
     }
   }
+  .hover\:shadow-lime-500\/20 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow-color: color-mix(in srgb, oklch(76.8% 0.233 130.85) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-lime-500) 20%, transparent) var(--tw-shadow-alpha), transparent);
+        }
+      }
+    }
+  }
   .hover\:shadow-lime-900\/20 {
     &:hover {
       @media (hover: hover) {
@@ -16402,6 +16434,16 @@
         --tw-shadow-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 10%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-red-500) 10%, transparent) var(--tw-shadow-alpha), transparent);
+        }
+      }
+    }
+  }
+  .hover\:shadow-red-500\/20 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-red-500) 20%, transparent) var(--tw-shadow-alpha), transparent);
         }
       }
     }
@@ -16622,6 +16664,16 @@
         --tw-shadow-color: color-mix(in srgb, oklch(79.5% 0.184 86.047) 10%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-yellow-500) 10%, transparent) var(--tw-shadow-alpha), transparent);
+        }
+      }
+    }
+  }
+  .hover\:shadow-yellow-500\/20 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow-color: color-mix(in srgb, oklch(79.5% 0.184 86.047) 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-yellow-500) 20%, transparent) var(--tw-shadow-alpha), transparent);
         }
       }
     }
@@ -18812,6 +18864,14 @@
       border-color: var(--color-amber-800);
     }
   }
+  .dark\:border-amber-800\/50 {
+    @media (prefers-color-scheme: dark) {
+      border-color: color-mix(in srgb, oklch(47.3% 0.137 46.201) 50%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-amber-800) 50%, transparent);
+      }
+    }
+  }
   .dark\:border-amber-900 {
     @media (prefers-color-scheme: dark) {
       border-color: var(--color-amber-900);
@@ -18848,6 +18908,14 @@
   .dark\:border-blue-800 {
     @media (prefers-color-scheme: dark) {
       border-color: var(--color-blue-800);
+    }
+  }
+  .dark\:border-blue-800\/40 {
+    @media (prefers-color-scheme: dark) {
+      border-color: color-mix(in srgb, oklch(42.4% 0.199 265.638) 40%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-blue-800) 40%, transparent);
+      }
     }
   }
   .dark\:border-blue-800\/50 {
@@ -19145,6 +19213,14 @@
       border-color: var(--color-red-800);
     }
   }
+  .dark\:border-red-800\/50 {
+    @media (prefers-color-scheme: dark) {
+      border-color: color-mix(in srgb, oklch(44.4% 0.177 26.899) 50%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-red-800) 50%, transparent);
+      }
+    }
+  }
   .dark\:border-red-900 {
     @media (prefers-color-scheme: dark) {
       border-color: var(--color-red-900);
@@ -19424,6 +19500,14 @@
       background-color: color-mix(in srgb, oklch(37.9% 0.146 265.522) 50%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-blue-900) 50%, transparent);
+      }
+    }
+  }
+  .dark\:bg-blue-950\/20 {
+    @media (prefers-color-scheme: dark) {
+      background-color: color-mix(in srgb, oklch(28.2% 0.091 267.935) 20%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-blue-950) 20%, transparent);
       }
     }
   }
@@ -19859,6 +19943,14 @@
       background-color: color-mix(in srgb, oklch(35.9% 0.144 278.697) 50%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-indigo-900) 50%, transparent);
+      }
+    }
+  }
+  .dark\:bg-indigo-900\/60 {
+    @media (prefers-color-scheme: dark) {
+      background-color: color-mix(in srgb, oklch(35.9% 0.144 278.697) 60%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-indigo-900) 60%, transparent);
       }
     }
   }
@@ -22735,6 +22827,11 @@
       stroke: var(--color-amber-400);
     }
   }
+  .dark\:stroke-amber-500 {
+    @media (prefers-color-scheme: dark) {
+      stroke: var(--color-amber-500);
+    }
+  }
   .dark\:stroke-blue-400 {
     @media (prefers-color-scheme: dark) {
       stroke: var(--color-blue-400);
@@ -22805,6 +22902,11 @@
       stroke: var(--color-indigo-700);
     }
   }
+  .dark\:stroke-pink-500 {
+    @media (prefers-color-scheme: dark) {
+      stroke: var(--color-pink-500);
+    }
+  }
   .dark\:stroke-purple-400 {
     @media (prefers-color-scheme: dark) {
       stroke: var(--color-purple-400);
@@ -22843,6 +22945,11 @@
   .dark\:stroke-slate-400 {
     @media (prefers-color-scheme: dark) {
       stroke: var(--color-slate-400);
+    }
+  }
+  .dark\:text-amber-100 {
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-amber-100);
     }
   }
   .dark\:text-amber-200 {
@@ -25401,6 +25508,26 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-ordinal {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-slashed-zero {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-figure {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-spacing {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-numeric-fraction {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-shadow {
   syntax: "*";
   inherits: false;
@@ -25631,6 +25758,11 @@
       --tw-leading: initial;
       --tw-font-weight: initial;
       --tw-tracking: initial;
+      --tw-ordinal: initial;
+      --tw-slashed-zero: initial;
+      --tw-numeric-figure: initial;
+      --tw-numeric-spacing: initial;
+      --tw-numeric-fraction: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
