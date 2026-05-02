@@ -68,7 +68,13 @@
             "Simplification Examples",
             "Canonical (Cardinal) Form of a Minterm",
             "Canonical (Cardinal) Form of a Maxterm",
-            "Different Examples"
+            "Different Examples",
+            "Principle of Duality Short Questions 1",
+            "Principle of Duality Short Questions 2",
+            "Short Questions All Topics",
+            "SOP to Canonical SOP Questions",
+            "SOP to POS Questions",
+            "POS to SOP Questions"
           ],
           "learningOutcomes": [
             "Explain Boolean algebra concepts and terminology",
