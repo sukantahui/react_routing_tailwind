@@ -74,7 +74,9 @@
             "Short Questions All Topics",
             "SOP to Canonical SOP Questions",
             "SOP to POS Questions",
-            "POS to SOP Questions"
+            "POS to SOP Questions",
+            "K-Map Questions",
+            "K-map Product of Sum"
           ],
           "learningOutcomes": [
             "Explain Boolean algebra concepts and terminology",
