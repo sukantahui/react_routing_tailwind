@@ -15,12 +15,13 @@ import { motion } from "framer-motion";
 import teachers from "../../data/teachers.json";
 
 // 🔹 Local image imports
-import teacher1 from "../../assets/teacher1.jpg";
-import teacher2 from "../../assets/teacher2.jpg";
-import teacher3 from "../../assets/teacher3.jpg";
-import teacher4 from "../../assets/teacher4.jpg";
-import teacher5 from "../../assets/teacher5.jpg";
-import teacher6 from "../../assets/teacher6.jpg";
+import teacher1 from "../../assets/teachers/teacher1.jpg";
+import teacher2 from "../../assets/teachers/teacher2.jpg";
+import teacher3 from "../../assets/teachers/teacher3.jpg";
+import teacher4 from "../../assets/teachers/teacher4.jpg";
+import teacher5 from "../../assets/teachers/teacher5.jpg";
+import teacher6 from "../../assets/teachers/teacher6.jpg";
+import teacher7 from "../../assets/teachers/teacher7.jpg";
 
 // 🔹 Image mapping
 const images = {
@@ -30,6 +31,7 @@ const images = {
   "teacher4.jpg": teacher4,
   "teacher5.jpg": teacher5,
   "teacher6.jpg": teacher6,
+  "teacher7.jpg": teacher7,
 };
 
 const Teachers = () => {

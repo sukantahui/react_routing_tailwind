@@ -904,6 +904,291 @@
           "difficultyIndex": 11
         }
       ]
+    },
+    {
+      "segmentId": "turtle-graphics-pro",
+      "title": "Segment 5 – Python Turtle & Creative Graphics Programming (Enhanced)",
+      "level": "Beginner → Advanced",
+      "summary": "A complete visual programming track using Python Turtle. This segment blends logic, creativity, mathematics, and interaction to build strong computational thinking and graphical programming skills.",
+      "pedagogy": {
+        "approach": [
+          "Visual-first learning (draw before logic)",
+          "Concept → Code → Pattern → Project",
+          "Learning by experimentation",
+          "Math + Art integration"
+        ],
+        "teachingModel": "Explain → Demonstrate → Guided Practice → Independent Project",
+        "tools": [
+          "Python IDLE",
+          "VS Code",
+          "Turtle Graphics"
+        ]
+      },
+      "modules": [
+        {
+          "moduleId": "turtle-foundation",
+          "title": "Module 1 – Turtle Foundations & First Drawings",
+          "slug": "turtle-foundation",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "conceptDepth": "Core",
+          "topics": [
+            "Introduction to Turtle Graphics: history, educational purpose, and real-world relevance",
+            "Understanding the Turtle screen: canvas, coordinate system (Cartesian plane), origin (0,0), and quadrants",
+            "Screen configuration: setup(), title(), bgcolor(), screensize()",
+            "Turtle object creation and lifecycle",
+            "Turtle cursor (pen) behavior: position, heading, visibility (showturtle(), hideturtle())",
+            "Movement fundamentals: forward(), backward(), distance control and precision",
+            "Rotation control: left(), right(), setheading(), degrees vs angles",
+            "Understanding heading direction (0°, 90°, 180°, 270°) with compass analogy",
+            "Absolute positioning: goto(x, y), setx(), sety()",
+            "Relative vs absolute movement (concept clarity with examples)",
+            "Drawing straight lines and connected paths",
+            "Creating basic geometric shapes: square, rectangle, triangle (step-by-step logic)",
+            "Using dot() and stamp() for marking positions",
+            "Pen control basics: penup(), pendown() for movement without drawing",
+            "Resetting and clearing: clear(), reset(), home()",
+            "Understanding drawing flow and sequence of commands",
+            "Introduction to turtle.done() and program lifecycle completion"
+          ],
+          "learningOutcomes": [
+            "Understand graphical coordinate systems",
+            "Control turtle movement precisely",
+            "Draw basic shapes programmatically"
+          ],
+          "labExercises": [
+            "Draw square, triangle, rectangle",
+            "Draw initials of your name",
+            "Create simple border design"
+          ],
+          "miniProject": "Design a digital nameplate using Turtle",
+          "assessment": {
+            "mcq": 12,
+            "coding": 6,
+            "practical": 1
+          },
+          "commonErrors": [
+            "Incorrect angle usage",
+            "Misunderstanding direction",
+            "Not resetting turtle position"
+          ],
+          "teachingTips": [
+            "Use real-world compass analogy",
+            "Show coordinate grid visually"
+          ],
+          "badge": "Turtle Explorer"
+        },
+        {
+          "moduleId": "turtle-design",
+          "slug": "turtle-design",
+          "title": "Module 2 – Colors, Styles & Visual Design",
+          "level": "Beginner",
+          "estimatedHours": 4,
+          "conceptDepth": "Core + Creative",
+          "topics": [
+            "Pen control: penup(), pendown()",
+            "Line thickness and styling",
+            "Color systems (RGB, named colors)",
+            "Fill mechanics",
+            "Background design",
+            "Speed vs rendering performance"
+          ],
+          "learningOutcomes": [
+            "Create visually appealing designs",
+            "Apply color theory basics in coding"
+          ],
+          "labExercises": [
+            "Draw traffic signal",
+            "Create national flag",
+            "Draw geometric colored tiles"
+          ],
+          "miniProject": "Design a digital poster (festival theme)",
+          "assessment": {
+            "mcq": 10,
+            "coding": 5,
+            "design": 1
+          },
+          "badge": "Creative Designer"
+        },
+        {
+          "moduleId": "turtle-patterns",
+          "slug": "turtle-patterns",
+          "title": "Module 3 – Patterns, Loops & Mathematical Art",
+          "level": "Beginner–Intermediate",
+          "estimatedHours": 5,
+          "conceptDepth": "Logic + Math",
+          "topics": [
+            "Using loops for repetition",
+            "Polygon logic (360/n rule)",
+            "Nested loops for pattern creation",
+            "Spirals and radial symmetry",
+            "Angle mathematics in design",
+            "Pattern optimization"
+          ],
+          "learningOutcomes": [
+            "Translate mathematical logic into visual patterns",
+            "Build complex designs using loops"
+          ],
+          "labExercises": [
+            "Draw hexagon, octagon",
+            "Spiral pattern",
+            "Flower pattern"
+          ],
+          "miniProject": "Mandala pattern generator",
+          "assessment": {
+            "mcq": 15,
+            "coding": 8
+          },
+          "badge": "Pattern Architect"
+        },
+        {
+          "moduleId": "turtle-modular",
+          "slug": "turtle-modular",
+          "title": "Module 4 – Modular Graphics with Functions",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "topics": [
+            "Reusable drawing functions",
+            "Parameterized graphics",
+            "Building shape libraries",
+            "Combining multiple patterns",
+            "Clean code practices in graphics"
+          ],
+          "learningOutcomes": [
+            "Write reusable graphical components",
+            "Build scalable design systems"
+          ],
+          "miniProject": "Create a graphics toolkit (shapes library)",
+          "assessment": {
+            "coding": 10,
+            "project": 1
+          },
+          "badge": "Graphics Engineer"
+        },
+        {
+          "moduleId": "turtle-animation",
+          "slug": "turtle-animation",
+          "title": "Module 5 – Animation & Motion Logic",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "topics": [
+            "Frame-based animation concept",
+            "Controlling redraw (tracer, update)",
+            "Smooth motion techniques",
+            "Timing and delays",
+            "Simulating physics (basic motion)"
+          ],
+          "learningOutcomes": [
+            "Create smooth animations",
+            "Understand time-based logic"
+          ],
+          "miniProject": "Bouncing ball simulation",
+          "assessment": {
+            "coding": 8,
+            "project": 1
+          },
+          "badge": "Animator"
+        },
+        {
+          "moduleId": "turtle-interaction",
+          "slug": "turtle-interaction",
+          "title": "Module 6 – Event Handling & User Interaction",
+          "level": "Intermediate–Advanced",
+          "estimatedHours": 6,
+          "topics": [
+            "Keyboard input handling",
+            "Mouse click events",
+            "Real-time interaction design",
+            "User-controlled graphics",
+            "State management"
+          ],
+          "learningOutcomes": [
+            "Build interactive programs",
+            "Handle real-time events"
+          ],
+          "miniProject": "Drawing app using mouse",
+          "assessment": {
+            "coding": 10,
+            "project": 1
+          },
+          "badge": "Interactive Developer"
+        },
+        {
+          "moduleId": "turtle-advanced",
+          "slug": "turtle-advanced",
+          "title": "Module 7 – Advanced Graphics & Recursive Art",
+          "level": "Advanced",
+          "estimatedHours": 6,
+          "topics": [
+            "Recursion in graphics",
+            "Fractal design (tree, snowflake)",
+            "Complex symmetry",
+            "Mathematical visualization"
+          ],
+          "learningOutcomes": [
+            "Apply recursion visually",
+            "Create advanced mathematical art"
+          ],
+          "miniProject": "Fractal tree generator",
+          "assessment": {
+            "coding": 10,
+            "project": 1
+          },
+          "badge": "Visual Mathematician"
+        },
+        {
+          "moduleId": "turtle-game-dev",
+          "slug": "turtle-game-dev",
+          "title": "Module 8 – Game Development with Turtle",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "topics": [
+            "Game loop architecture",
+            "Collision detection",
+            "Score systems",
+            "Object movement logic",
+            "Basic game physics"
+          ],
+          "learningOutcomes": [
+            "Build complete mini games",
+            "Understand core game logic"
+          ],
+          "miniProject": "Snake / Catch game",
+          "assessment": {
+            "project": 1,
+            "viva": 1
+          },
+          "badge": "Game Developer"
+        },
+        {
+          "moduleId": "turtle-capstone",
+          "slug": "turtle-capstone",
+          "title": "Module 9 – Capstone Project & Portfolio",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "topics": [
+            "Project planning",
+            "UI + animation + interaction",
+            "Optimization",
+            "Presentation skills"
+          ],
+          "learningOutcomes": [
+            "Build a professional-level project",
+            "Showcase portfolio work"
+          ],
+          "capstoneOptions": [
+            "Interactive game",
+            "Digital art generator",
+            "Educational simulation"
+          ],
+          "assessment": {
+            "project": 1,
+            "presentation": 1,
+            "passScore": 75
+          },
+          "badge": "Turtle Master"
+        }
+      ]
     }
   ]
 }
