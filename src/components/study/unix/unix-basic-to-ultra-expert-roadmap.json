@@ -458,6 +458,87 @@
                         "Redirection operators (> and >>)",
                         "Using tee command for output redirection"
                     ]
+                },
+                {
+                    "moduleId": "unix-text-processing",
+                    "slug": "search-and-substitute-functions",
+                    "title": "Search and Substitute Functions",
+                    "description": "Covers searching, pattern matching, and substitution techniques used in Unix text processing utilities.",
+                    "topics": [
+                        "Searching text using grep command",
+                        "Advanced pattern matching with regular expressions",
+                        "Case-insensitive and recursive search options",
+                        "Substitution using sed command",
+                        "Global and selective replacement in files",
+                        "Using delimiters and flags in sed",
+                        "Combining grep and sed for text processing",
+                        "Practical examples of search and replace operations"
+                    ]
+                },
+                {
+                    "moduleId": "unix-file-operations",
+                    "slug": "file-processing-and-manipulation",
+                    "title": "File Processing and Manipulation",
+                    "description": "Focuses on file handling commands including selection, merging, splitting, sorting, and comparison of files.",
+                    "topics": [
+                        "Row-wise and column-wise data selection",
+                        "Using cut command with different options",
+                        "Pasting and merging files horizontally using paste",
+                        "Splitting large files using split command",
+                        "Counting lines, words, and characters using wc",
+                        "Sorting file content (alphabetical and numerical sorting)",
+                        "Sorting based on specific columns",
+                        "Comparing files line by line using diff",
+                        "Comparing files character by character using cmp",
+                        "Comparing sorted files using comm",
+                        "Joining two files using join command",
+                        "Removing duplicates using uniq command",
+                        "Transformation of text using tr command"
+                    ]
+                },
+                {
+                    "moduleId": "unix-utility-commands",
+                    "slug": "basic-utility-and-archiving-commands",
+                    "title": "Utility and Archiving Commands",
+                    "description": "Introduces commonly used Unix utility commands and file compression/archiving techniques.",
+                    "topics": [
+                        "Displaying calendar using cal command",
+                        "Working with date and time using date command",
+                        "Formatting file output using pr command",
+                        "Displaying logged-in users using who command",
+                        "Performing calculations using bc command",
+                        "Displaying text using echo command",
+                        "File compression using gzip command",
+                        "File decompression using gunzip command",
+                        "Creating zip archives using zip command",
+                        "Extracting zip files using unzip command",
+                        "Archiving files using tar command",
+                        "Combining compression with archiving"
+                    ]
+                },
+                {
+                    "moduleId": "unix-process-management",
+                    "slug": "process-management-and-system-calls",
+                    "title": "Process Management in Unix",
+                    "description": "Covers Unix process concepts, system calls, scheduling, and process-related commands.",
+                    "topics": [
+                        "Concept of process in Unix",
+                        "Process creation and lifecycle",
+                        "Understanding init process",
+                        "Unix login process overview",
+                        "System calls: fork()",
+                        "System calls: getpid() and getppid()",
+                        "System calls: wait()",
+                        "Zombie process concept",
+                        "Inter-process communication using pipe()",
+                        "Message passing basics",
+                        "Process states and state transition diagram",
+                        "Unix process scheduler overview",
+                        "Concept of swapped memory",
+                        "Monitoring system performance using vmstat",
+                        "Monitoring processes using top command",
+                        "Process priority using nice command"
+                    ]
                 }
             ]
         }

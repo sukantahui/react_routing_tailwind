@@ -187,7 +187,6 @@
         }
       ]
     },
-    
     {
       "segmentId": "constructors-and-methods",
       "title": "Constructors and User Defined Methods",
@@ -259,6 +258,41 @@
       "title": "String Handling",
       "level": "Intermediate",
       "modules": [
+        {
+          "moduleId": "strings",
+          "slug": "strings-basic",
+          "title": "Strings Basic",
+          "topics": [
+            "Introduction to Strings in Java and real-life applications",
+            "String creation using literals and new keyword",
+            "String Constant Pool and memory management",
+            "Immutability of String objects and its advantages",
+            "Working with String class and object behavior",
+            "String length and character access methods",
+            "Substring extraction and string slicing",
+            "String comparison using == and equals()",
+            "Case-sensitive and case-insensitive comparison",
+            "Lexicographical comparison using compareTo()",
+            "Case conversion methods (toUpperCase, toLowerCase)",
+            "Whitespace handling using trim()",
+            "String replacement and modification techniques",
+            "Searching within strings (contains, startsWith, endsWith)",
+            "String concatenation using + and concat()",
+            "Introduction to StringBuilder and StringBuffer",
+            "Mutable vs Immutable string handling",
+            "Performance considerations in string operations",
+            "Reverse string program",
+            "Palindrome checking program",
+            "Word count in a sentence",
+            "Frequency of characters in a string",
+            "Removing duplicate characters from a string",
+            "String to array and array to string conversion",
+            "Common errors (== misuse, index errors, null issues)",
+            "Interview questions and output-based problems",
+            "Practice problems (MCQ and coding)"
+          ],
+          "difficulty": "Easy-Medium"
+        },
         {
           "moduleId": "basic-string-methods",
           "slug": "basic-string-methods",
