@@ -58,7 +58,8 @@
                         "Practice Lab: Running your first 10 Linux commands",
                         "Common beginner mistakes in terminal usage",
                         "Practice your Skill",
-                        "Short Questions"
+                        "Practice Short Questions",
+                        "Other Short Questions"
                     ],
                     "learningOutcomes": [
                         "Explain what UNIX/Linux is",
@@ -106,7 +107,8 @@
                         "File system mounting concept (mount, umount – overview)",
                         "Understanding disk partitions at a conceptual level",
                         "Practice Lab: Build your own directory tree for a project",
-                        "Common mistakes beginners make while navigating file systems"
+                        "Common mistakes beginners make while navigating file systems",
+                        "Short Questions"
                     ],
                     "learningOutcomes": [
                         "Navigate Linux file system",
@@ -456,7 +458,8 @@
                         "Finding files and directories (find command)",
                         "File system size and disk usage (du, df commands)",
                         "Redirection operators (> and >>)",
-                        "Using tee command for output redirection"
+                        "Using tee command for output redirection",
+                        "Short Questions"
                     ]
                 },
                 {
@@ -472,7 +475,8 @@
                         "Global and selective replacement in files",
                         "Using delimiters and flags in sed",
                         "Combining grep and sed for text processing",
-                        "Practical examples of search and replace operations"
+                        "Practical examples of search and replace operations",
+                        "Short Questions"
                     ]
                 },
                 {
@@ -493,7 +497,8 @@
                         "Comparing sorted files using comm",
                         "Joining two files using join command",
                         "Removing duplicates using uniq command",
-                        "Transformation of text using tr command"
+                        "Transformation of text using tr command",
+                        "Short Questions"
                     ]
                 },
                 {
@@ -513,7 +518,8 @@
                         "Creating zip archives using zip command",
                         "Extracting zip files using unzip command",
                         "Archiving files using tar command",
-                        "Combining compression with archiving"
+                        "Combining compression with archiving",
+                        "Short Questions"
                     ]
                 },
                 {
@@ -537,7 +543,8 @@
                         "Concept of swapped memory",
                         "Monitoring system performance using vmstat",
                         "Monitoring processes using top command",
-                        "Process priority using nice command"
+                        "Process priority using nice command",
+                        "Short Questions"
                     ]
                 }
             ]

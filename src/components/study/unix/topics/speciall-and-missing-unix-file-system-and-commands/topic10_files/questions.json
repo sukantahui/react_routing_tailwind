@@ -1,0 +1,1215 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "File System, Permissions, System Calls, and Redirection",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "What is a system call?",
+      "answer": "A programmatic way for a user process to request a service from the operating system kernel.",
+      "explanation": "System calls provide an interface between user space and kernel space, allowing safe access to hardware and privileged operations."
+    },
+    {
+      "id": 2,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "Name three common system calls in Unix.",
+      "answer": "`read()`, `write()`, `open()`, `close()`, `fork()`, `exec()`, `wait()`, `pipe()` (any three).",
+      "explanation": "These system calls handle file I/O, process management, and inter‑process communication."
+    },
+    {
+      "id": 3,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "Why are system calls necessary for user programs?",
+      "answer": "Because user programs cannot directly access hardware or kernel memory; system calls provide a controlled and secure way to perform privileged operations.",
+      "explanation": "They maintain protection and isolation between processes and the kernel."
+    },
+    {
+      "id": 4,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "What is the difference between a system call and a library function?",
+      "answer": "System calls are requests to the kernel (privileged), while library functions are ordinary user‑level routines (e.g., `printf()` uses `write()` system call).",
+      "explanation": "Library functions often wrap system calls for convenience."
+    },
+    {
+      "id": 5,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "What does the `strace` command do?",
+      "answer": "Traces system calls and signals made by a process.",
+      "explanation": "Useful for debugging: `strace ls` shows all system calls invoked by `ls`."
+    },
+    {
+      "id": 6,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "What is the typical return value of a system call on error?",
+      "answer": "-1, and `errno` is set to indicate the error.",
+      "explanation": "Programs check the return value and inspect `errno` for details."
+    },
+    {
+      "id": 7,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Beginner",
+      "question": "What is the `errno` variable?",
+      "answer": "A global variable (or thread‑local) that holds the last error number from a failed system call.",
+      "explanation": "Standard error codes: `EACCES` (permission denied), `ENOENT` (no such file), etc."
+    },
+    {
+      "id": 8,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What does the `open()` system call do?",
+      "answer": "Opens a file and returns a file descriptor.",
+      "explanation": "Syntax: `int open(const char *path, int flags, mode_t mode);`"
+    },
+    {
+      "id": 9,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `read()` and `recv()`?",
+      "answer": "`recv()` is for sockets and includes flags for message processing; `read()` is for any file descriptor.",
+      "explanation": "Both are system calls, but `recv()` is more specific to network communication."
+    },
+    {
+      "id": 10,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What does the `fork()` system call do?",
+      "answer": "Creates a new process by duplicating the calling process.",
+      "explanation": "Returns 0 in child, child's PID in parent, -1 on error."
+    },
+    {
+      "id": 11,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What system call is used to change the current working directory?",
+      "answer": "`chdir()`",
+      "explanation": "`int chdir(const char *path);` changes the process's current directory."
+    },
+    {
+      "id": 12,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What does the `stat()` system call do?",
+      "answer": "Returns information about a file (size, permissions, timestamps).",
+      "explanation": "`int stat(const char *path, struct stat *buf);` fills `buf` with file metadata."
+    },
+    {
+      "id": 13,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `dup2()` system call?",
+      "answer": "Duplicates one file descriptor to a specific number, often used for redirection.",
+      "explanation": "`int dup2(int oldfd, int newfd);` closes `newfd` and makes it a copy of `oldfd`."
+    },
+    {
+      "id": 14,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What does the `exec()` family of system calls do?",
+      "answer": "Replaces the current process image with a new program.",
+      "explanation": "Execlp, execvp, execve – they do not return on success."
+    },
+    {
+      "id": 15,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Intermediate",
+      "question": "What is a file descriptor?",
+      "answer": "A non‑negative integer that the kernel uses to identify an open file.",
+      "explanation": "Standard descriptors: 0 (stdin), 1 (stdout), 2 (stderr)."
+    },
+    {
+      "id": 16,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "How does a system call transition from user mode to kernel mode?",
+      "answer": "Via a software interrupt (e.g., `int 0x80` on x86) or the `syscall` instruction.",
+      "explanation": "The CPU switches to kernel mode, executes the interrupt handler, and returns to user mode."
+    },
+    {
+      "id": 17,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the role of the VDSO (virtual dynamic shared object) in system calls?",
+      "answer": "Provides fast, user‑space implementations of some system calls (e.g., `gettimeofday`).",
+      "explanation": "Avoids kernel mode switches for frequently called, non‑privileged operations."
+    },
+    {
+      "id": 18,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `clone()` and `fork()`?",
+      "answer": "`clone()` allows fine‑grained control over what is shared (used to create threads).",
+      "explanation": "`fork()` is a specific `clone()` with flags that copy everything."
+    },
+    {
+      "id": 19,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What does the `mmap()` system call do?",
+      "answer": "Maps files or devices into memory.",
+      "explanation": "Used for shared memory, memory‑mapped I/O, and large file access."
+    },
+    {
+      "id": 20,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `syscall()` in C?",
+      "answer": "Performs a system call specified by a number, with arguments.",
+      "explanation": "Allows calling system calls not wrapped by libraries."
+    },
+    {
+      "id": 21,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the `errno` macro and how is it implemented?",
+      "answer": "A thread‑local integer variable that stores error codes.",
+      "explanation": "In multi‑threaded programs, `errno` is expanded to a function returning a thread‑specific value."
+    },
+    {
+      "id": 22,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What does the `ioctl()` system call do?",
+      "answer": "Device‑specific control operations (e.g., terminal settings, disk geometry).",
+      "explanation": "General‑purpose interface for devices not covered by other calls."
+    },
+    {
+      "id": 23,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the system call table?",
+      "answer": "An array in the kernel that stores pointers to system call handlers.",
+      "explanation": "Indexed by system call number; used by the syscall dispatcher."
+    },
+    {
+      "id": 24,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What does the `ptrace()` system call do?",
+      "answer": "Allows a process to trace and control another process's execution.",
+      "explanation": "Used by debuggers (gdb) to breakpoint and single‑step."
+    },
+    {
+      "id": 25,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `wait()` and `waitpid()`?",
+      "answer": "`wait()` waits for any child; `waitpid()` can wait for a specific child or use options.",
+      "explanation": "`waitpid()` supports non‑blocking (`WNOHANG`)."
+    },
+    {
+      "id": 26,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What does the `uname()` system call do?",
+      "answer": "Returns system information (OS name, hostname, kernel version, etc.).",
+      "explanation": "Fills a `utsname` structure."
+    },
+    {
+      "id": 27,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `sysinfo()` system call?",
+      "answer": "Returns overall system statistics (total RAM, free memory, load average, uptime).",
+      "explanation": "Used by commands like `free` and `uptime`."
+    },
+    {
+      "id": 28,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What does the `fsync()` system call do?",
+      "answer": "Forces all buffered changes to a file to be written to disk.",
+      "explanation": "Ensures data durability; used in databases and critical file operations."
+    },
+    {
+      "id": 29,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `exit()` and `_exit()`?",
+      "answer": "`exit()` performs stdio cleanup and runs atexit handlers; `_exit()` terminates immediately in the kernel.",
+      "explanation": "In a child after `fork()`, use `_exit()` to avoid flushing parent buffers."
+    },
+    {
+      "id": 30,
+      "topic": "System call interface (concept and role in OS)",
+      "difficulty": "Advanced",
+      "question": "How can you list all system calls on a Linux system?",
+      "answer": "`man syscalls` or `ausyscall` (if installed).",
+      "explanation": "The `syscalls` man page gives an overview of all system calls."
+    },
+    {
+      "id": 31,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is the root directory in Unix?",
+      "answer": "`/` (forward slash) – the top‑most directory in the hierarchy.",
+      "explanation": "All files and directories are under `/`; there are no drive letters."
+    },
+    {
+      "id": 32,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/home` directory?",
+      "answer": "Contains personal directories of regular users.",
+      "explanation": "Example: `/home/swadeep`, `/home/tuhina`."
+    },
+    {
+      "id": 33,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is stored in `/etc` directory?",
+      "answer": "System configuration files (e.g., `passwd`, `shadow`, `fstab`).",
+      "explanation": "Most text configuration files reside here."
+    },
+    {
+      "id": 34,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is the `/tmp` directory used for?",
+      "answer": "Temporary files, cleared on reboot (usually).",
+      "explanation": "World‑writable, but files may be deleted automatically."
+    },
+    {
+      "id": 35,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is an inode?",
+      "answer": "A data structure storing metadata about a file (excluding name).",
+      "explanation": "Contains permissions, owner, timestamps, size, and block pointers."
+    },
+    {
+      "id": 36,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is a hard link?",
+      "answer": "An additional directory entry pointing to the same inode as an existing file.",
+      "explanation": "Hard links cannot span file systems; deleting one link does not delete the data."
+    },
+    {
+      "id": 37,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is a symbolic link (symlink)?",
+      "answer": "A special file that contains a path to another file or directory.",
+      "explanation": "Can cross file systems; broken symlinks point to non‑existent targets."
+    },
+    {
+      "id": 38,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What command shows inode information for a file?",
+      "answer": "`ls -i` (check inode number) or `stat` (detailed).",
+      "explanation": "`stat file` shows inode number, permissions, timestamps."
+    },
+    {
+      "id": 39,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What does `/dev` directory contain?",
+      "answer": "Device files representing hardware (disks, terminals, etc.).",
+      "explanation": "Example: `/dev/sda` (first SCSI/SATA disk)."
+    },
+    {
+      "id": 40,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/proc` filesystem?",
+      "answer": "Virtual file system providing process and kernel information.",
+      "explanation": "`/proc/cpuinfo`, `/proc/meminfo`, `/proc/<pid>/status`."
+    },
+    {
+      "id": 41,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "How to create a symbolic link?",
+      "answer": "`ln -s target linkname`.",
+      "explanation": "The `-s` flag creates a symbolic link, not a hard link."
+    },
+    {
+      "id": 42,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "How to create a hard link?",
+      "answer": "`ln target linkname` (without `-s`).",
+      "explanation": "Both names refer to the same inode; link count increases."
+    },
+    {
+      "id": 43,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between absolute and relative path?",
+      "answer": "Absolute starts from root `/`; relative starts from the current directory.",
+      "explanation": "Example: `/home/user/file` vs `doc/file`."
+    },
+    {
+      "id": 44,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What does `..` represent in a path?",
+      "answer": "The parent directory of the current directory.",
+      "explanation": "`cd ..` moves up one level."
+    },
+    {
+      "id": 45,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What does a directory with inode link count > 2 indicate?",
+      "answer": "It has subdirectories (each subdirectory adds a link via `..`).",
+      "explanation": "A new empty directory has link count 2 (itself and `.`); subdirectories increase it."
+    },
+    {
+      "id": 46,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What is the `superblock` in Unix file systems?",
+      "answer": "Metadata about the file system (size, free blocks, inode count).",
+      "explanation": "It is critical; corrupted superblock can render a file system unmountable."
+    },
+    {
+      "id": 47,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What is the `mount` command used for?",
+      "answer": "Attaches a file system to the directory tree.",
+      "explanation": "`mount /dev/sdb1 /mnt` makes the partition accessible under `/mnt`."
+    },
+    {
+      "id": 48,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Intermediate",
+      "question": "What is the `umount` command?",
+      "answer": "Detaches a mounted file system.",
+      "explanation": "`umount /mnt` unmounts; cannot be done while open files are present."
+    },
+    {
+      "id": 49,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the maximum length of a filename in Linux?",
+      "answer": "Typically 255 bytes (not characters).",
+      "explanation": "Limitation of the ext4 file system; depends on the file system."
+    },
+    {
+      "id": 50,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is a journaling file system?",
+      "answer": "Logs changes before they are written, to prevent corruption on crash.",
+      "explanation": "Examples: ext3, ext4, XFS, NTFS."
+    },
+    {
+      "id": 51,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ext3 and ext4?",
+      "answer": "ext4 supports larger files (up to 16 TB) and extents (improved fragmentation).",
+      "explanation": "Extents replace indirect block mapping, improving performance."
+    },
+    {
+      "id": 52,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is a `dentry` (directory entry)?",
+      "answer": "A cache structure mapping file names to inodes.",
+      "explanation": "Part of the VFS (Virtual File System) layer."
+    },
+    {
+      "id": 53,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is a sparse file?",
+      "answer": "A file where holes (unwritten areas) are not stored on disk.",
+      "explanation": "`dd of=sparse bs=1 seek=1G count=0` creates a 1 GB file with zero blocks allocated."
+    },
+    {
+      "id": 54,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What does the `lsof` command do?",
+      "answer": "Lists open files and the processes that opened them.",
+      "explanation": "Useful to see which process is using a file or directory."
+    },
+    {
+      "id": 55,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the `fdisk` command used for?",
+      "answer": "Manipulates disk partition tables.",
+      "explanation": "`fdisk -l` lists partitions; used to create/delete partitions."
+    },
+    {
+      "id": 56,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the `fsck` command?",
+      "answer": "File system consistency check and repair.",
+      "explanation": "Run on unmounted file systems; `fsck.ext4 /dev/sda1`."
+    },
+    {
+      "id": 57,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `df` command?",
+      "answer": "Reports file system disk space usage.",
+      "explanation": "`df -h` shows human‑readable sizes."
+    },
+    {
+      "id": 58,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What does `du` command do?",
+      "answer": "Estimates file and directory space usage.",
+      "explanation": "`du -sh /home` shows total size of `/home`."
+    },
+    {
+      "id": 59,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the `quota` system in Unix?",
+      "answer": "Limits disk usage per user or group.",
+      "explanation": "Prevents a single user from filling the file system."
+    },
+    {
+      "id": 60,
+      "topic": "Unix file system structure and basics",
+      "difficulty": "Advanced",
+      "question": "What is the `lost+found` directory?",
+      "answer": "Where `fsck` places recovered files with missing directory entries.",
+      "explanation": "Present in ext2/3/4 file systems."
+    },
+    {
+      "id": 61,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What do the three permission triplets (rwx) represent for a file?",
+      "answer": "Owner, group, and others permissions.",
+      "explanation": "`ls -l` shows e.g., `-rw-r--r--`."
+    },
+    {
+      "id": 62,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What does `r` permission mean on a file?",
+      "answer": "Read – allows reading the file content.",
+      "explanation": "Without it, you cannot `cat` or `less` the file."
+    },
+    {
+      "id": 63,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What does `w` permission mean on a file?",
+      "answer": "Write – allows modifying the file content.",
+      "explanation": "Without it, you cannot edit or overwrite the file."
+    },
+    {
+      "id": 64,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What does `x` permission mean on a file?",
+      "answer": "Execute – allows running the file as a program.",
+      "explanation": "Required for scripts and binaries."
+    },
+    {
+      "id": 65,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What does the first character in `ls -l` output represent?",
+      "answer": "File type: `-` regular file, `d` directory, `l` symlink, etc.",
+      "explanation": "Example: `drwxr-xr-x` starts with `d` – a directory."
+    },
+    {
+      "id": 66,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "How to add execute permission for the owner?",
+      "answer": "`chmod u+x file.txt`.",
+      "explanation": "`u` refers to user (owner), `g` group, `o` others."
+    },
+    {
+      "id": 67,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "How to remove write permission for group and others?",
+      "answer": "`chmod go-w file.txt`.",
+      "explanation": "`go-w` means group and others minus write."
+    },
+    {
+      "id": 68,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What is the numeric (octal) mode for `-rw-r--r--`?",
+      "answer": "644 (owner: 6 = rw-, group: 4 = r--, others: 4 = r--).",
+      "explanation": "Octal digits: read=4, write=2, execute=1; sum them."
+    },
+    {
+      "id": 69,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What does `chmod 755 file.sh` do?",
+      "answer": "Sets owner: rwx (7), group: r-x (5), others: r-x (5).",
+      "explanation": "755 is common for executables that others can run but not write."
+    },
+    {
+      "id": 70,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What is the `umask` command?",
+      "answer": "Sets the default permission mask for newly created files.",
+      "explanation": "Default umask 022 gives new files 644 (666 - 022) and directories 755."
+    },
+    {
+      "id": 71,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "What is the SetUID bit (SUID)?",
+      "answer": "When set on an executable, the process runs with the file owner's privileges.",
+      "explanation": "Example: `/usr/bin/passwd` has SUID (rwsr-xr-x)."
+    },
+    {
+      "id": 72,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Beginner",
+      "question": "How to set SUID bit using symbolic mode?",
+      "answer": "`chmod u+s file`.",
+      "explanation": "The `s` replaces `x` in owner's execute position."
+    },
+    {
+      "id": 73,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "How to set the sticky bit on a directory?",
+      "answer": "`chmod +t directory` (or `chmod 1777`).",
+      "explanation": "Sticky bit prevents users from deleting others' files in a shared directory (`/tmp`)."
+    },
+    {
+      "id": 74,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "What is octal 4755?",
+      "answer": "SUID bit set (4) + 755 permissions (rwxr-xr-x).",
+      "explanation": "First digit: 4 = SUID, 2 = SGID, 1 = sticky."
+    },
+    {
+      "id": 75,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "How to change permissions recursively for a directory?",
+      "answer": "`chmod -R 755 directory`.",
+      "explanation": "`-R` applies changes to all files and subdirectories."
+    },
+    {
+      "id": 76,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `chmod` and `chown`?",
+      "answer": "`chmod` changes permissions; `chown` changes file owner and group.",
+      "explanation": "`chown user:group file`."
+    },
+    {
+      "id": 77,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "How to set the group of a file to `developers`?",
+      "answer": "`chgrp developers file.txt` or `chown :developers file.txt`.",
+      "explanation": "`chgrp` only changes the group; `chown` can change both."
+    },
+    {
+      "id": 78,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Intermediate",
+      "question": "What is the effect of execute permission on a directory?",
+      "answer": "Allows entering (cd) and accessing files in the directory.",
+      "explanation": "Without execute, you cannot `ls` or `cd` into the directory even with read permission."
+    },
+    {
+      "id": 79,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is Access Control Lists (ACLs) in Unix?",
+      "answer": "Fine‑grained permissions beyond owner/group/others.",
+      "explanation": "`setfacl` and `getfacl` commands manage ACLs."
+    },
+    {
+      "id": 80,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "How to add an ACL that gives user `tuhina` read access to a file?",
+      "answer": "`setfacl -m u:tuhina:r file.txt`.",
+      "explanation": "`setfacl` modifies the ACL; `getfacl` displays it."
+    },
+    {
+      "id": 81,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is the `chattr` command?",
+      "answer": "Sets file attributes on Linux file systems (e.g., immutable, append‑only).",
+      "explanation": "`chattr +i file` makes the file immutable (even root cannot modify)."
+    },
+    {
+      "id": 82,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is the `lsattr` command?",
+      "answer": "Displays file attributes set by `chattr`.",
+      "explanation": "Shows flags like `i` (immutable), `a` (append‑only)."
+    },
+    {
+      "id": 83,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "How can a user check their own umask?",
+      "answer": "`umask` (without arguments) shows the current mask.",
+      "explanation": "Typically 0022 or 0002 for user private groups."
+    },
+    {
+      "id": 84,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a mask and permissions?",
+      "answer": "Umask subtracts from default; permissions are the final result.",
+      "explanation": "Permission = default (666 for files, 777 for directories) & ~umask."
+    },
+    {
+      "id": 85,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What does `chmod --reference=ref_file target` do?",
+      "answer": "Copies the permissions from `ref_file` to `target`.",
+      "explanation": "Saves typing numeric modes."
+    },
+    {
+      "id": 86,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "How to change permissions only for files (not directories) recursively?",
+      "answer": "`find . -type f -exec chmod 644 {} \\;`.",
+      "explanation": "Use `find` with `-type f` to filter files."
+    },
+    {
+      "id": 87,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is a file capability (Linux)?",
+      "answer": "Fine‑grained privileges that split root privileges into smaller units.",
+      "explanation": "`setcap` and `getcap`; e.g., `setcap cap_net_raw+ep /bin/ping`."
+    },
+    {
+      "id": 88,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `chmod 0000 file`?",
+      "answer": "Removes all permissions; only root can later change it.",
+      "explanation": "Useful for protecting sensitive files."
+    },
+    {
+      "id": 89,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `chmod g+s` on directory vs file?",
+      "answer": "On file, SGID causes the file to run with group owner; on directory, new files inherit the directory's group.",
+      "explanation": "SGID on directory is useful for group collaboration."
+    },
+    {
+      "id": 90,
+      "topic": "File permissions and security (chmod command)",
+      "difficulty": "Advanced",
+      "question": "What does the `s` in `ls -l` for a directory owner mean?",
+      "answer": "SetUID has no effect on directories; `s` may appear but ignored.",
+      "explanation": "Only SGID on directory has effect (inherited group)."
+    },
+    {
+      "id": 91,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "What does `touch` command do by default?",
+      "answer": "Updates the access and modification times of a file to the current time.",
+      "explanation": "If the file does not exist, it creates an empty file."
+    },
+    {
+      "id": 92,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "How to create an empty file `newfile.txt`?",
+      "answer": "`touch newfile.txt`.",
+      "explanation": "If `newfile.txt` already exists, its timestamps are updated; if not, created empty."
+    },
+    {
+      "id": 93,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "How to create multiple empty files at once?",
+      "answer": "`touch file1 file2 file3`.",
+      "explanation": "All listed files will be created/updated."
+    },
+    {
+      "id": 94,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "What does `touch -c` do?",
+      "answer": "Does not create the file if it does not exist (‑‑no‑create).",
+      "explanation": "Only updates timestamps of existing files."
+    },
+    {
+      "id": 95,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "What does `touch -a` do?",
+      "answer": "Changes only the access time of the file.",
+      "explanation": "The modification time remains unchanged."
+    },
+    {
+      "id": 96,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "What does `touch -m` do?",
+      "answer": "Changes only the modification time of the file.",
+      "explanation": "Access time is left untouched."
+    },
+    {
+      "id": 97,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "How to update both access and modification time to a specific date (e.g., 2025-01-01)?",
+      "answer": "`touch -d '2025-01-01' file.txt`.",
+      "explanation": "`-d` accepts many date formats."
+    },
+    {
+      "id": 98,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "How to set only the access time to a specific value?",
+      "answer": "`touch -a -t 202501011200 file.txt`.",
+      "explanation": "`-t` expects format [[CC]YY]MMDDhhmm[.ss]."
+    },
+    {
+      "id": 99,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "What is the default timestamp for a newly created file via `touch`?",
+      "answer": "Current system date and time.",
+      "explanation": "Both atime and mtime are set to the time of the `touch` command."
+    },
+    {
+      "id": 100,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Beginner",
+      "question": "How to create a file without changing its timestamps if it exists?",
+      "answer": "`touch -c file.txt` prevents creation, but if it exists, timestamps are still updated.",
+      "explanation": "You cannot avoid updating timestamps on existing files with `touch`."
+    },
+    {
+      "id": 101,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Intermediate",
+      "question": "How to change timestamps of a file to match another file?",
+      "answer": "`touch -r reference_file target_file`.",
+      "explanation": "Copies timestamps from reference to target."
+    },
+    {
+      "id": 102,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Intermediate",
+      "question": "What does `touch -h` do?",
+      "answer": "Changes timestamps of a symbolic link itself, not the target.",
+      "explanation": "Without `-h`, `touch` follows the symlink and updates the target."
+    },
+    {
+      "id": 103,
+      "topic": "Creating empty files and modifying timestamps (touch command)",
+      "difficulty": "Advanced",
+      "question": "How to set timestamps to a specific epoch time (seconds since 1970)?",
+      "answer": "`touch -d @1735689600 file.txt`.",
+      "explanation": "`@` prefix indicates Unix timestamp."
+    },
+    {
+      "id": 104,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "What are the three timestamps associated with a Unix file?",
+      "answer": "Access time (atime), modification time (mtime), change time (ctime).",
+      "explanation": "`ls -l` shows mtime; `ls -lu` shows atime; `ls -lc` shows ctime."
+    },
+    {
+      "id": 105,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "What does access time (atime) record?",
+      "answer": "The last time a file was read (e.g., `cat`, `less`).",
+      "explanation": "Writing a file does not update atime."
+    },
+    {
+      "id": 106,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "What does modification time (mtime) record?",
+      "answer": "The last time the file content was changed.",
+      "explanation": "`echo > file` or editing updates mtime."
+    },
+    {
+      "id": 107,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "What does change time (ctime) record?",
+      "answer": "The last time file metadata (permissions, owner, inode) changed.",
+      "explanation": "ctime updates when mtime updates, but also when `chmod`/`chown` is used."
+    },
+    {
+      "id": 108,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "Which command shows the change time (ctime)?",
+      "answer": "`ls -lc file` or `stat file`.",
+      "explanation": "`stat` displays all three timestamps explicitly."
+    },
+    {
+      "id": 109,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Beginner",
+      "question": "What is the difference between mtime and ctime?",
+      "answer": "mtime changes only when content changes; ctime changes when content or metadata changes.",
+      "explanation": "`chmod` changes ctime but not mtime."
+    },
+    {
+      "id": 110,
+      "topic": "Understanding file timestamps (access time, modification time, change time)",
+      "difficulty": "Intermediate",
+      "question": "What mount option disables atime updates for performance?",
+      "answer": "`noatime` (and `relatime` which updates atime only if modified or atime older than mtime).",
+      "explanation": "`noatime` reduces disk writes; default is `relatime`."
+    },
+    {
+      "id": 111,
+      "topic": "Using touch with -d and -t options",
+      "difficulty": "Beginner",
+      "question": "What is the format for `touch -t`?",
+      "answer": "[[CC]YY]MMDDhhmm[.ss] (e.g., `touch -t 202512251200.00 file`).",
+      "explanation": "Year can be two or four digits; minutes are required."
+    },
+    {
+      "id": 112,
+      "topic": "Using touch with -d and -t options",
+      "difficulty": "Beginner",
+      "question": "How to set timestamp to '2025-03-15 14:30:00' using `-d`?",
+      "answer": "`touch -d '2025-03-15 14:30:00' file`.",
+      "explanation": "`-d` accepts human‑readable date strings."
+    },
+    {
+      "id": 113,
+      "topic": "Using touch with -d and -t options",
+      "difficulty": "Intermediate",
+      "question": "How to set timestamp to 'next Tuesday 3pm'?",
+      "answer": "`touch -d 'next Tuesday 15:00' file`.",
+      "explanation": "`-d` understands expressions like 'next week', 'yesterday'."
+    },
+    {
+      "id": 114,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "What does the `find` command do?",
+      "answer": "Searches for files and directories in a directory hierarchy.",
+      "explanation": "Powerful with many criteria: name, size, type, permissions, timestamp."
+    },
+    {
+      "id": 115,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to find all files named `config.conf` in `/etc`?",
+      "answer": "`find /etc -name config.conf`.",
+      "explanation": "`-name` matches case‑sensitively; `-iname` ignores case."
+    },
+    {
+      "id": 116,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to find all directories under `/home`?",
+      "answer": "`find /home -type d`.",
+      "explanation": "`-type d` for directories, `-type f` for regular files."
+    },
+    {
+      "id": 117,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to find files larger than 10 MB?",
+      "answer": "`find . -size +10M`.",
+      "explanation": "`+10M` files greater than 10 MiB; `-10M` less than; `10M` exactly 10 MiB."
+    },
+    {
+      "id": 118,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to find files modified in the last 7 days?",
+      "answer": "`find . -mtime -7`.",
+      "explanation": "`-7` last 7 days; `+7` more than 7 days ago; `7` exactly 7 days ago."
+    },
+    {
+      "id": 119,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to find files with a specific permission (e.g., 644)?",
+      "answer": "`find . -perm 644`.",
+      "explanation": "`-perm` matches exact permissions."
+    },
+    {
+      "id": 120,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Beginner",
+      "question": "How to execute a command on each found file?",
+      "answer": "`find . -name '*.txt' -exec ls -l {} \\;`.",
+      "explanation": "`{}` is placeholder for filename; `\\;` ends the `-exec` command."
+    },
+    {
+      "id": 121,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `-exec` and `-execdir`?",
+      "answer": "`-exec` runs from the starting directory; `-execdir` changes to the file's directory before executing.",
+      "explanation": "`-execdir` is safer for commands that modify files."
+    },
+    {
+      "id": 122,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Intermediate",
+      "question": "How to find empty files?",
+      "answer": "`find . -type f -size 0`.",
+      "explanation": "Also `-empty` matches both empty files and empty directories."
+    },
+    {
+      "id": 123,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Intermediate",
+      "question": "How to find and delete files older than 30 days?",
+      "answer": "`find . -type f -mtime +30 -delete`.",
+      "explanation": "`-delete` removes files safely; always test with `-print` first."
+    },
+    {
+      "id": 124,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Intermediate",
+      "question": "How to find files owned by user 'swadeep'?",
+      "answer": "`find / -user swadeep`.",
+      "explanation": "Use `-group` for group ownership."
+    },
+    {
+      "id": 125,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Advanced",
+      "question": "How to use `find` with regex?",
+      "answer": "`find . -regex '.*\\.txt$'` (full path regex).",
+      "explanation": "`-regex` matches the entire path; `-iregex` ignores case."
+    },
+    {
+      "id": 126,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Advanced",
+      "question": "How to exclude a directory from search (e.g., `./.git`)?",
+      "answer": "`find . -path './.git' -prune -o -name '*.c' -print`.",
+      "explanation": "`-prune` prevents descent into that directory."
+    },
+    {
+      "id": 127,
+      "topic": "Finding files and directories (find command)",
+      "difficulty": "Advanced",
+      "question": "How to find files and pipe the names to another command (e.g., `xargs`)?",
+      "answer": "`find . -name '*.log' -print0 | xargs -0 rm`.",
+      "explanation": "`-print0` and `xargs -0` handle spaces and newlines safely."
+    },
+    {
+      "id": 128,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Beginner",
+      "question": "What does `df` command report?",
+      "answer": "Disk space usage of mounted file systems.",
+      "explanation": "`df -h` shows human‑readable sizes (e.g., 1G, 500M)."
+    },
+    {
+      "id": 129,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Beginner",
+      "question": "What does `df -i` show?",
+      "answer": "Inode usage instead of block usage.",
+      "explanation": "Useful when a file system reports 'no space left' but `df` shows available space – likely inode exhaustion."
+    },
+    {
+      "id": 130,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Beginner",
+      "question": "What does `du` command do?",
+      "answer": "Estimates file and directory disk usage.",
+      "explanation": "`du -sh directory` reports total size; `du -sh *` for each item."
+    },
+    {
+      "id": 131,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Beginner",
+      "question": "How to display disk usage in human‑readable format with `df`?",
+      "answer": "`df -h`.",
+      "explanation": "`-h` uses powers of 1024 (KiB, MiB, GiB). GNU `df` also has `-H` for powers of 1000."
+    },
+    {
+      "id": 132,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Beginner",
+      "question": "How to get the total size of a directory including subdirectories?",
+      "answer": "`du -sh /path/to/dir`.",
+      "explanation": "`-s` summary, `-h` human‑readable."
+    },
+    {
+      "id": 133,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Intermediate",
+      "question": "How to list the top 10 largest files/directories?",
+      "answer": "`du -ah / | sort -rh | head -10`.",
+      "explanation": "`du -a` includes files; `sort -rh` sorts by size in reverse human‑numeric order."
+    },
+    {
+      "id": 134,
+      "topic": "File system size and disk usage (du, df commands)",
+      "difficulty": "Intermediate",
+      "question": "What does `df -T` show?",
+      "answer": "File system type (e.g., ext4, xfs, tmpfs).",
+      "explanation": "Also `df -t ext4` to show only ext4 file systems."
+    },
+    {
+      "id": 135,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "What does `>` do in shell?",
+      "answer": "Redirects standard output to a file, overwriting the file if it exists.",
+      "explanation": "Example: `echo hello > file.txt` writes 'hello' to `file.txt`, replacing previous content."
+    },
+    {
+      "id": 136,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "What does `>>` do?",
+      "answer": "Redirects standard output and appends to a file (creates if not exist).",
+      "explanation": "`echo world >> file.txt` adds 'world' at the end."
+    },
+    {
+      "id": 137,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "How to redirect standard error to a file?",
+      "answer": "`command 2> error.log`.",
+      "explanation": "`2>` redirects stderr (file descriptor 2)."
+    },
+    {
+      "id": 138,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "How to redirect both stdout and stderr to the same file?",
+      "answer": "`command > output.log 2>&1` or `command &> output.log` (bash).",
+      "explanation": "`2>&1` says send stderr to where stdout is going."
+    },
+    {
+      "id": 139,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "What does `2>&1` mean?",
+      "answer": "Duplicates file descriptor 2 (stderr) to the same location as file descriptor 1 (stdout).",
+      "explanation": "Must come after the redirection of stdout."
+    },
+    {
+      "id": 140,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "How to redirect stdout and stderr to two different files?",
+      "answer": "`command > stdout.log 2> stderr.log`.",
+      "explanation": "Separate streams allow separate logging."
+    },
+    {
+      "id": 141,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Beginner",
+      "question": "What is the null device in Unix?",
+      "answer": "`/dev/null` – discards data written to it.",
+      "explanation": "`command 2>/dev/null` suppresses error messages."
+    },
+    {
+      "id": 142,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Intermediate",
+      "question": "How to redirect stdin from a file?",
+      "answer": "`command < input.txt`.",
+      "explanation": "The command reads from `input.txt` as if it were typed."
+    },
+    {
+      "id": 143,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Intermediate",
+      "question": "What is a here‑document (heredoc)?",
+      "answer": "`<<` operator that redirects multiline input from the script.",
+      "explanation": "Example: `cat << EOF ... EOF`."
+    },
+    {
+      "id": 144,
+      "topic": "Redirection operators (> and >>)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `>` and `|`?",
+      "answer": "`>` redirects to a file; `|` pipes output to another command.",
+      "explanation": "Pipes pass data between commands without intermediate files."
+    },
+    {
+      "id": 145,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Beginner",
+      "question": "What does `tee` command do?",
+      "answer": "Reads from stdin and writes to both stdout and one or more files.",
+      "explanation": "Useful to view output while saving it to a file."
+    },
+    {
+      "id": 146,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Beginner",
+      "question": "How to write output of a command to a file and also see it on screen?",
+      "answer": "`command | tee output.txt`.",
+      "explanation": "The output is displayed and saved simultaneously."
+    },
+    {
+      "id": 147,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Beginner",
+      "question": "How to append to a file instead of overwriting with `tee`?",
+      "answer": "`command | tee -a output.txt`.",
+      "explanation": "`-a` (append) adds to the file without truncating."
+    },
+    {
+      "id": 148,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Beginner",
+      "question": "How to write the same input to multiple files?",
+      "answer": "`echo 'data' | tee file1 file2 file3`.",
+      "explanation": "`tee` writes to all listed files and stdout."
+    },
+    {
+      "id": 149,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Intermediate",
+      "question": "How can `tee` be used to write both stdout and stderr?",
+      "answer": "`command 2>&1 | tee output.txt` or `command |& tee output.txt` (bash).",
+      "explanation": "`|&` redirects both stdout and stderr to the pipeline."
+    },
+    {
+      "id": 150,
+      "topic": "Using tee command for output redirection",
+      "difficulty": "Advanced",
+      "question": "How to suppress the stdout copy but still write to files?",
+      "answer": "`command | tee file.txt > /dev/null`.",
+      "explanation": "The stdout copy goes to `/dev/null`, only file gets the data."
+    }
+  ]
+}

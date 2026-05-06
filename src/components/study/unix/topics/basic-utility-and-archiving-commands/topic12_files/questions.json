@@ -1,0 +1,2735 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Unix Command Line Utilities – Comprehensive Short Questions",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "What does the `cal` command display?",
+      "answer": "It displays a calendar of the current month in a traditional grid format.",
+      "explanation": "By default, `cal` shows the current month, highlighting the current day if the system supports it."
+    },
+    {
+      "id": 2,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "How to display the calendar for the year 2025 using `cal`?",
+      "answer": "`cal 2025` or `cal -y 2025` (on some systems).",
+      "explanation": "The full year calendar shows all months side by side in three columns (default)."
+    },
+    {
+      "id": 3,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "How to display the calendar for a specific month and year, e.g., December 1999?",
+      "answer": "`cal 12 1999` (month then year).",
+      "explanation": "The first argument is month (1‑12), second is year."
+    },
+    {
+      "id": 4,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "What option shows Monday as the first day of the week?",
+      "answer": "`cal -m` (on some systems) or `cal -M` (depending on version).",
+      "explanation": "Traditionally, `cal` uses Sunday as the first day; `-m` changes it to Monday."
+    },
+    {
+      "id": 5,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "What does `cal -3` display?",
+      "answer": "The previous, current, and next month in one output.",
+      "explanation": "This is useful for seeing a three‑month overview."
+    },
+    {
+      "id": 6,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "How to display the calendar for the year 2000 in a single line per month (some versions)?",
+      "answer": "`cal -1 2000` (show only one month) – not a single line; but `cal -y` shows full year in three columns.",
+      "explanation": "Most `cal` versions do not support a single‑line format; they output a multi‑column grid."
+    },
+    {
+      "id": 7,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Beginner",
+      "question": "What is the output of `cal` without any arguments?",
+      "answer": "The current month's calendar, with today's date highlighted (if terminal supports).",
+      "explanation": "The highlight is often done with reverse video or underlining."
+    },
+    {
+      "id": 8,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "How to display the calendar for October 1582 (Gregorian calendar adoption)?",
+      "answer": "`cal 10 1582` shows the Gregorian reform: days 5‑14 are missing.",
+      "explanation": "The Gregorian calendar was adopted by Catholic countries in 1582, skipping 10 days."
+    },
+    {
+      "id": 9,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "What does the `-j` option do in `cal`?",
+      "answer": "Displays Julian day numbers (the day of the year, starting from 1).",
+      "explanation": "January 1 is day 1; December 31 is day 365 (or 366 in leap years)."
+    },
+    {
+      "id": 10,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "How can you display a calendar starting the week on Monday?",
+      "answer": "Use `cal -m` (or `cal -M` on some Linux distributions).",
+      "explanation": "The `-m` flag moves Monday to the first column."
+    },
+    {
+      "id": 11,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "What does `cal -y` do?",
+      "answer": "Displays the calendar for the current year.",
+      "explanation": "Equivalent to `cal 2025` (if current year is 2025)."
+    },
+    {
+      "id": 12,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "How to display a calendar with only one month but with full year context (some versions)?",
+      "answer": "`cal -1` shows only the current month (default behaviour already).",
+      "explanation": "The `-1` option explicitly requests a single month."
+    },
+    {
+      "id": 13,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "How to show week numbers in the calendar?",
+      "answer": "Use `cal -w` (available in newer `util-linux` versions).",
+      "explanation": "Week numbers (ISO) are displayed on the left side."
+    },
+    {
+      "id": 14,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "Why does `cal 9 1752` show missing days?",
+      "answer": "The British Empire adopted the Gregorian calendar in 1752; days from September 3‑13 were omitted.",
+      "explanation": "Thus, `cal 9 1752` shows September as having only 19 days."
+    },
+    {
+      "id": 15,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `cal 2025` and `cal -y 2025`?",
+      "answer": "In most modern `cal` implementations, they are identical.",
+      "explanation": "`-y` explicitly indicates year display; `cal 2025` is interpreted as a year argument."
+    },
+    {
+      "id": 16,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to generate a calendar that starts on Sunday (the default) but with ISO week numbers?",
+      "answer": "Use `cal -w`; week numbering is based on ISO regardless of first weekday.",
+      "explanation": "ISO week numbers start on Monday, but the `cal` display still begins on Sunday; the week numbers align accordingly."
+    },
+    {
+      "id": 17,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What does the `-s` option in `cal` do?",
+      "answer": "Explicitly sets Sunday as the first day of the week (the default).",
+      "explanation": "This is mostly for clarity, as Sunday is already the default."
+    },
+    {
+      "id": 18,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to output the calendar without highlighting the current day (in scripts)?",
+      "answer": "Use `cal -h` (or `cal -s` and then filter with `sed` if needed).",
+      "explanation": "The `-h` option disables highlighting of today's date."
+    },
+    {
+      "id": 19,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What is the range of years supported by `cal`?",
+      "answer": "Typically from 1 to 9999 (some versions limit to 9999).",
+      "explanation": "`cal` uses the Gregorian calendar for dates after 1752, and the Julian calendar before that (historical quirks)."
+    },
+    {
+      "id": 20,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to display the calendar for a year in a compact, single‑line format?",
+      "answer": "`ncal -y` (on BSD systems) produces a compact year calendar; standard `cal` does not support it.",
+      "explanation": "The `ncal` command (sometimes part of `util-linux`) offers more formatting options."
+    },
+    {
+      "id": 21,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What does the `-B` and `-A` options do in `cal`?",
+      "answer": "`-B N` shows N months before the specified month; `-A N` shows N months after. Available in newer `util-linux`.",
+      "explanation": "Example: `cal -A 3` shows current month and the next three months."
+    },
+    {
+      "id": 22,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to display a calendar for a specific month while including week numbers?",
+      "answer": "`cal -w 12 1999` (if your `cal` supports `-w`).",
+      "explanation": "Week numbers are displayed at the left margin."
+    },
+    {
+      "id": 23,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `cal` and `ncal`?",
+      "answer": "`ncal` displays a more compact, vertical calendar and supports additional options like `-b` (no highlighting) and `-C` (force Sunday first).",
+      "explanation": "Many Linux distributions provide both; `ncal` is part of the `util-linux` package."
+    },
+    {
+      "id": 24,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to output the calendar in a format suitable for printing (no highlighting, fixed width)?",
+      "answer": "`cal -h` disables highlighting; then pipe to `pr` or `lpr` as needed.",
+      "explanation": "For scripts, `cal -h` avoids escape sequences that might confuse log files."
+    },
+    {
+      "id": 25,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What is the default year range of `cal` when only a month is given?",
+      "answer": "It assumes the current year.",
+      "explanation": "If you type `cal 12`, it shows December of the current year."
+    },
+    {
+      "id": 26,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to show five weeks per month (some versions)?",
+      "answer": "The default behaviour is to show exactly 6 lines (including week numbers). No standard option to change.",
+      "explanation": "The calendar always shows the full grid of weeks needed to cover the month; you cannot force fewer lines."
+    },
+    {
+      "id": 27,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What environment variable can change the first day of the week?",
+      "answer": "`cal` does not use environment variables for first day; you must use command‑line options.",
+      "explanation": "Some implementations may honour `LC_TIME`, but generally `cal` is fixed to Sunday or Monday via `-m`."
+    },
+    {
+      "id": 28,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How to display a calendar for the whole year 1582 (both Julian and Gregorian)?",
+      "answer": "`cal 1582` shows the year with the Gregorian transition (October missing 5‑14).",
+      "explanation": "The calendar of 1582 reflects the papal bull by Pope Gregory XIII."
+    },
+    {
+      "id": 29,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "How can you align the calendar month display to the left margin without leading spaces?",
+      "answer": "Pipe the output through `sed 's/^[[:space:]]*//'` or similar.",
+      "explanation": "`cal` outputs spaces for centering; trimming them is not a built‑in option."
+    },
+    {
+      "id": 30,
+      "topic": "Displaying calendar using cal command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `--color` option in `cal`?",
+      "answer": "Enables or disables colour highlighting of the current day; e.g., `cal --color=always`.",
+      "explanation": "Available in newer `util-linux` versions; colour can be set to `always`, `never`, or `auto`."
+    },
+    {
+      "id": 31,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "What does the `date` command do?",
+      "answer": "Displays or sets the system date and time.",
+      "explanation": "Without arguments, it prints the current date and time in the default format."
+    },
+    {
+      "id": 32,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "How to display only the current year using `date`?",
+      "answer": "`date +%Y`",
+      "explanation": "`%Y` is the format specifier for the full four‑digit year."
+    },
+    {
+      "id": 33,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "How to display the current time in HH:MM:SS format?",
+      "answer": "`date +%T` or `date +%H:%M:%S`.",
+      "explanation": "`%T` is a shortcut for `%H:%M:%S`."
+    },
+    {
+      "id": 34,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "What does `date -u` do?",
+      "answer": "Displays the date and time in UTC (Universal Coordinated Time).",
+      "explanation": "It ignores the local time zone and shows the UTC time."
+    },
+    {
+      "id": 35,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "How to set the system date to 1st January 2024 (requires root)?",
+      "answer": "`date -s '2024-01-01 00:00:00'`",
+      "explanation": "Setting the date requires superuser privileges and is often done with `sudo`."
+    },
+    {
+      "id": 36,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "How to display the day of the week (e.g., Monday)?",
+      "answer": "`date +%A` (full name) or `%a` (abbreviated).",
+      "explanation": "`%A` gives full weekday name; `%a` gives three‑letter abbreviation."
+    },
+    {
+      "id": 37,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Beginner",
+      "question": "What is the output format of `date` without any options?",
+      "answer": "`Tue May 13 12:34:56 PDT 2025` (example: weekday month day time timezone year).",
+      "explanation": "The exact format may vary by locale, but it always includes date and time."
+    },
+    {
+      "id": 38,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to display the Unix timestamp (seconds since 1970‑01‑01)?",
+      "answer": "`date +%s`",
+      "explanation": "This is useful for shell scripts and comparison of times."
+    },
+    {
+      "id": 39,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to convert a Unix timestamp to a human‑readable date?",
+      "answer": "`date -d @timestamp` (e.g., `date -d @1735689600`).",
+      "explanation": "The `@` prefix tells `date` to interpret the argument as seconds since the epoch."
+    },
+    {
+      "id": 40,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to display the date 10 days from today?",
+      "answer": "`date -d '10 days'` (GNU `date`).",
+      "explanation": "The `-d` option accepts relative expressions like 'next week', '2 months ago'."
+    },
+    {
+      "id": 41,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to display the date of last Friday?",
+      "answer": "`date -d 'last Friday'` (GNU `date`).",
+      "explanation": "The `-d` string understands expressions like 'last Monday', 'next Sunday'."
+    },
+    {
+      "id": 42,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to format date as `YYYY-MM-DD` (ISO 8601)?",
+      "answer": "`date +%F`",
+      "explanation": "`%F` is equivalent to `%Y-%m-%d`."
+    },
+    {
+      "id": 43,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to format time as `HH:MM` with 24‑hour clock?",
+      "answer": "`date +%H:%M`",
+      "explanation": "`%H` is 00‑23, `%M` is minute."
+    },
+    {
+      "id": 44,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to get the time zone offset from UTC?",
+      "answer": "`date +%z`",
+      "explanation": "Outputs like `+0530` for India or `-0400` for Eastern Daylight Time."
+    },
+    {
+      "id": 45,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "How to display the date in RFC 2822 format (used in email)?",
+      "answer": "`date -R` or `date +%a, %d %b %Y %H:%M:%S %z`.",
+      "explanation": "The `-R` option outputs the date in RFC 2822 style."
+    },
+    {
+      "id": 46,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Intermediate",
+      "question": "What does `date +%j` display?",
+      "answer": "The day number of the year (001‑366).",
+      "explanation": "January 1 is 001; December 31 is 365 or 366."
+    },
+    {
+      "id": 47,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to set the hardware clock from system time?",
+      "answer": "`hwclock --systohc` (or `hwclock -w`).",
+      "explanation": "This updates the CMOS (RTC) clock using the system time set by `date`."
+    },
+    {
+      "id": 48,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to display date in the format easily parsed by spreadsheets (Unix timestamp with milliseconds)?",
+      "answer": "`date +%s%3N` (GNU `date` with nanoseconds).",
+      "explanation": "`%3N` prints milliseconds (first three digits of nanoseconds)."
+    },
+    {
+      "id": 49,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to compute the difference between two dates using `date`?",
+      "answer": "Convert both to Unix timestamps and subtract: `$(( $(date -d '2025-01-01' +%s) - $(date -d '2024-01-01' +%s) ))/86400`",
+      "explanation": "GNU `date` does not have a direct diff feature; you must use arithmetic."
+    },
+    {
+      "id": 50,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "What is the `--date` option (or `-d`) in GNU `date`?",
+      "answer": "It parses a date string (e.g., 'yesterday', '2024-12-31 23:59:59') and displays the result.",
+      "explanation": "This is very flexible for date arithmetic and conversion."
+    },
+    {
+      "id": 51,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to print the current month's name and year, e.g., 'May 2025'?",
+      "answer": "`date +'%B %Y'`",
+      "explanation": "`%B` is full month name, `%Y` is year."
+    },
+    {
+      "id": 52,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to check if the system time is correct using NTP?",
+      "answer": "`timedatectl status` (systemd) or `ntpq -p` (traditional NTP).",
+      "explanation": "The `date` command itself does not synchronise time; it only displays or sets it."
+    },
+    {
+      "id": 53,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "What is the `date --iso-8601` option?",
+      "answer": "Prints the date in ISO 8601 format (e.g., `2025-05-13`).",
+      "explanation": "This is an older, less portable option; modern practice uses `+%F`."
+    },
+    {
+      "id": 54,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to get the current week number (ISO) using `date`?",
+      "answer": "`date +%V`",
+      "explanation": "`%V` gives the ISO week number (01‑53)."
+    },
+    {
+      "id": 55,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to display date in a custom format without any spaces?",
+      "answer": "`date +%Y%m%d_%H%M%S` produces `20250513_123456`.",
+      "explanation": "Escape all spaces by simply not including them in the format string."
+    },
+    {
+      "id": 56,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `%I` and `%H` in `date` formats?",
+      "answer": "`%I` is the hour in 12‑hour format (01‑12), `%H` is 24‑hour format (00‑23).",
+      "explanation": "`%I` is often used with `%p` (AM/PM)."
+    },
+    {
+      "id": 57,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to set the time zone for a single `date` command without changing system timezone?",
+      "answer": "Prefix with `TZ=America/New_York date`.",
+      "explanation": "The `TZ` environment variable overrides the system time zone for that command."
+    },
+    {
+      "id": 58,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to show nanoseconds using `date`?",
+      "answer": "`date +%N` (GNU `date`).",
+      "explanation": "`%N` prints the number of nanoseconds (9 digits); not available in BSD `date`."
+    },
+    {
+      "id": 59,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "How to trick `date` into parsing a date string like '2025-01-01T12:00:00Z'?",
+      "answer": "`date -d '2025-01-01T12:00:00Z'` works with GNU `date` (ISO 8601 with timezone).",
+      "explanation": "GNU `date` is quite lenient; it understands many formats."
+    },
+    {
+      "id": 60,
+      "topic": "Working with date and time using date command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `--reference` option in `date`?",
+      "answer": "`date --reference=file` displays the last modification time of the file.",
+      "explanation": "This is a GNU extension, similar to `stat -c %y` but in `date` format."
+    },
+    {
+      "id": 61,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "What does the `pr` command do?",
+      "answer": "It reformats and paginates text files for printing, adding headers, footers, and column formatting.",
+      "explanation": "`pr` is a classic Unix command to prepare files for line printers."
+    },
+    {
+      "id": 62,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "How to display a file with two columns using `pr`?",
+      "answer": "`pr -2 file.txt`",
+      "explanation": "The number specifies the number of columns; `-2` creates two columns."
+    },
+    {
+      "id": 63,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "How to suppress the default header and footer in `pr`?",
+      "answer": "`pr -T file.txt`",
+      "explanation": "`-T` (or `-t` in some versions) omits the initial header and trailing page footer."
+    },
+    {
+      "id": 64,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "What does `pr -l 60` do?",
+      "answer": "Sets the page length to 60 lines per page.",
+      "explanation": "By default, page length is 66 lines (US letter size)."
+    },
+    {
+      "id": 65,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "How to add a custom header text?",
+      "answer": "`pr -h 'My Header' file.txt`",
+      "explanation": "The `-h` option replaces the default header (the filename) with the given string."
+    },
+    {
+      "id": 66,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "What is the default number of columns in `pr`?",
+      "answer": "1 (single column).",
+      "explanation": "Without options, `pr` just adds headers and pagination to a single column."
+    },
+    {
+      "id": 67,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Beginner",
+      "question": "How to number lines in the output of `pr`?",
+      "answer": "`pr -n file.txt`",
+      "explanation": "The `-n` option adds line numbers to each page."
+    },
+    {
+      "id": 68,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to produce double‑spaced output?",
+      "answer": "`pr -d file.txt`",
+      "explanation": "`-d` inserts two blank lines between output lines (double spacing)."
+    },
+    {
+      "id": 69,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to align text to the left margin without any indentation?",
+      "answer": "`pr -o 0 file.txt`",
+      "explanation": "The `-o` option sets the left margin; default is 0, but some versions add a small indent; use `-o 0` to eliminate it."
+    },
+    {
+      "id": 70,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "What does `--columns=3` do in `pr`?",
+      "answer": "Same as `-3`, it creates three columns.",
+      "explanation": "GNU `pr` supports long options like `--columns`."
+    },
+    {
+      "id": 71,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to force a page break before each new file?",
+      "answer": "`pr +1 file1 file2` (no automatic break), but you can use `cat file1 <(echo) file2 | pr`.",
+      "explanation": "`pr` does not automatically start a new page per file; you would insert form feeds manually."
+    },
+    {
+      "id": 72,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to set the page width to 80 columns?",
+      "answer": "`pr -w 80 file.txt`",
+      "explanation": "`-w` sets the page width; default is often 72 or 80."
+    },
+    {
+      "id": 73,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "What does `pr -f` do?",
+      "answer": "Inserts form feed characters (`\\f`) instead of line feeds for page breaks.",
+      "explanation": "This is used when the printer expects a form feed to advance pages."
+    },
+    {
+      "id": 74,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to separate columns with a tab instead of spaces?",
+      "answer": "`pr -s$'\\t' file.txt`",
+      "explanation": "The `-s` option lets you specify a separator character; the default is space."
+    },
+    {
+      "id": 75,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Intermediate",
+      "question": "How to print multiple files together in two columns (interleaved)?",
+      "answer": "`pr -m -2 file1 file2`",
+      "explanation": "The `-m` option merges files side‑by‑side; `-2` then creates two columns (one per file)."
+    },
+    {
+      "id": 76,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `pr` and `column`?",
+      "answer": "`column` is a simpler utility that formats input into columns without pagination; `pr` is for paginated printing.",
+      "explanation": "`pr` adds headers, footers, page numbers; `column` only rearranges columns."
+    },
+    {
+      "id": 77,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to generate a double‑column output with line numbers?",
+      "answer": "`pr -2 -n file.txt`",
+      "explanation": "Line numbers will appear in each column, but they will be per‑page and not continuous."
+    },
+    {
+      "id": 78,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to change the page number in the header?",
+      "answer": "`pr +3 file.txt` starts numbering from page 3.",
+      "explanation": "The `+N` argument specifies the first page number to print."
+    },
+    {
+      "id": 79,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What does the `-a` option do in `pr`?",
+      "answer": "`-a` prints columns across the page (horizontally) rather than down the page.",
+      "explanation": "The default is down the page (fill columns in order)."
+    },
+    {
+      "id": 80,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to suppress the page header but keep line numbers?",
+      "answer": "`pr -T -n file.txt` (GNU).",
+      "explanation": "`-T` (or `-t`) eliminates the header; line numbers are still printed (by `-n`)."
+    },
+    {
+      "id": 81,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to print a file with a custom footer?",
+      "answer": "`pr` does not support custom footers directly; you could `sed` or `awk` to add text before or after.",
+      "explanation": "The footer is always a static line with the date and filename (when using default formatting)."
+    },
+    {
+      "id": 82,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `-W` option (GNU `pr`)?",
+      "answer": "Sets the page width (but unlike `-w`, does not truncate lines; they wrap).",
+      "explanation": "`-w` truncates long lines; `-W` wraps them."
+    },
+    {
+      "id": 83,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to generate a `pr` output without any page breaks (continuous)?",
+      "answer": "`pr -l 1000000 file.txt` (set page length larger than the file).",
+      "explanation": "This effectively suppresses page breaks by making one huge page."
+    },
+    {
+      "id": 84,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What does the `--indent` option do?",
+      "answer": "`--indent=N` adds N spaces to every output line.",
+      "explanation": "This is a GNU extension; it's equivalent to inserting spaces at the start of each line."
+    },
+    {
+      "id": 85,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to merge three files into three columns with different widths?",
+      "answer": "`pr -m -w 120 file1 file2 file3` (columns will be of equal width; you cannot set per‑column width).",
+      "explanation": "`pr` divides the page width equally among columns."
+    },
+    {
+      "id": 86,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to make `pr` print only the first 10 lines of a file?",
+      "answer": "`head -10 file.txt | pr`",
+      "explanation": "`pr` itself does not have a line limit; combine it with `head`."
+    },
+    {
+      "id": 87,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What is the effect of `pr -e` (expand tabs)?",
+      "answer": "`pr -e` expands tabs to spaces (default 8).",
+      "explanation": "Use `-e4` to set the tab stop to 4 spaces."
+    },
+    {
+      "id": 88,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to print a file with a date header in a different time zone?",
+      "answer": "`TZ=America/New_York pr file.txt`",
+      "explanation": "The `pr` header uses the system or `TZ` environment variable for the date/time."
+    },
+    {
+      "id": 89,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "What is the default page header format in `pr`?",
+      "answer": "`YYYY-MM-DD HH:MM:SS  filename  Page N` (example).",
+      "explanation": "The exact format may vary; it includes the date, time, filename, and page number."
+    },
+    {
+      "id": 90,
+      "topic": "Formatting file output using pr command",
+      "difficulty": "Advanced",
+      "question": "How to remove the trailing page footer (date and filename) but keep page numbers?",
+      "answer": "`pr -T` removes headers and footers; you cannot keep page numbers alone without them.",
+      "explanation": "If you need only page numbers, you might use `nl` or `cat -n` and then format."
+    },
+    {
+      "id": 91,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "What does the `who` command do?",
+      "answer": "Displays information about users currently logged into the system.",
+      "explanation": "Shows username, terminal, login time, and sometimes remote host."
+    },
+    {
+      "id": 92,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "How to see only the usernames of logged‑in users?",
+      "answer": "`who | cut -d' ' -f1` or `who -s` (some versions) but simpler: `who | awk '{print $1}'`.",
+      "explanation": "`who` alone shows full lines; you can use `cut` or `awk` to extract the first field."
+    },
+    {
+      "id": 93,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "How to display the current runlevel and the time of last system boot?",
+      "answer": "`who -r`",
+      "explanation": "`-r` shows the current runlevel and the last boot time."
+    },
+    {
+      "id": 94,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "What does `who -b` display?",
+      "answer": "The time of the last system boot.",
+      "explanation": "`-b` stands for 'boot'."
+    },
+    {
+      "id": 95,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "How to show all available information: user, terminal, login time, idle time, PID?",
+      "answer": "`who -u`",
+      "explanation": "`-u` adds idle time (dots) and process ID (PID)."
+    },
+    {
+      "id": 96,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "What is the difference between `who` and `w`?",
+      "answer": "`who` shows a simple list; `w` also shows what users are doing (command line) and system load.",
+      "explanation": "`w` provides more detail and real‑time information."
+    },
+    {
+      "id": 97,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Beginner",
+      "question": "How to display only the current user?",
+      "answer": "`who am i` or `who -m`",
+      "explanation": "`who am i` is a classic idiom to show the real user of the terminal."
+    },
+    {
+      "id": 98,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "What does the `-H` option do in `who`?",
+      "answer": "Prints column headers (e.g., `USER`, `LINE`, `TIME`).",
+      "explanation": "Helps readability when scripting."
+    },
+    {
+      "id": 99,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "How to show messages from the system (wall) that are waiting?",
+      "answer": "`who -T` (some systems) displays a `+` or `-` next to the terminal indicating if write permissions are enabled.",
+      "explanation": "`+` means messages can be sent; `-` means writing is disabled (`mesg n`)."
+    },
+    {
+      "id": 100,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "What file does `who` read to get information?",
+      "answer": "It reads `/var/run/utmp` (or `/var/log/wtmp` for historical data).",
+      "explanation": "`who` usually queries `utmp` for currently logged‑in users; `last` reads `wtmp` for history."
+    },
+    {
+      "id": 101,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "How to show the login time of each user in a specific format?",
+      "answer": "`who -u` displays login times; to customise the format, you would need to parse the output or use `last`.",
+      "explanation": "`who` does not have format specifiers like `date`; you can use `--full` for full date/time."
+    },
+    {
+      "id": 102,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "What is the output of `who --help`?",
+      "answer": "Displays a brief help message showing available options.",
+      "explanation": "Most Unix commands support `--help` for a quick reference."
+    },
+    {
+      "id": 103,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Intermediate",
+      "question": "How to see which users are logged in and their IP addresses (for remote logins)?",
+      "answer": "`who -u` may show remote hostnames; for IPs, use `who -l` or `w -i` (different commands).",
+      "explanation": "The `who` output includes the remote host if the user is logged in via SSH."
+    },
+    {
+      "id": 104,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How can you see the command `who` uses to obtain its information (strace)?",
+      "answer": "`strace who 2>&1 | grep utmp`",
+      "explanation": "You can trace system calls to see which files are opened (e.g., `/proc/` or `/var/run/utmp`)."
+    },
+    {
+      "id": 105,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `who -a` and `who -b -d -l -r -t -u`?",
+      "answer": "`who -a` is equivalent to `-b -d -l -r -t -u`; it displays all available information.",
+      "explanation": "This includes boot time, dead processes, login processes, runlevel, last shutdown, and logged‑in users."
+    },
+    {
+      "id": 106,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to count the number of logged‑in users?",
+      "answer": "`who | wc -l` or `users | wc -w`.",
+      "explanation": "`users` lists usernames, then `wc -w` counts them."
+    },
+    {
+      "id": 107,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What does the idle time (dots) in `who -u` mean?",
+      "answer": "Each dot represents one minute of idle time; a period (`.`) means less than 1 minute, and a number indicates minutes idle.",
+      "explanation": "If the user has been idle for more than 24 hours, the output may show 'old'."
+    },
+    {
+      "id": 108,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to show the login time of all users including system accounts?",
+      "answer": "`last` command shows historical logins; `who` only shows currently active sessions.",
+      "explanation": "`who` does not include accounts that are logged in via GUI sessions not attached to a terminal."
+    },
+    {
+      "id": 109,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What does the `-p` option in `who` do?",
+      "answer": "`-p` shows previous boot entries (dead processes).",
+      "explanation": "This is rarely used; it displays entries in `utmp` for processes that have terminated."
+    },
+    {
+      "id": 110,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to output only the usernames of users who have been logged in for more than 2 hours?",
+      "answer": "`who -u` produces times; you would need to parse and compare with current time, but `who` alone cannot do filtering.",
+      "explanation": "You can write a script using `who -u` and `date` to compute login duration."
+    },
+    {
+      "id": 111,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What environment variable affects the output of `who`?",
+      "answer": "`POSIXLY_CORRECT` may change output format slightly; generally `who` is not affected by locale settings.",
+      "explanation": "Unlike many utilities, `who` uses a fixed format for compatibility."
+    },
+    {
+      "id": 112,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How can you see when a user last logged in (historical)?",
+      "answer": "`last username` or `lastlog -u username`",
+      "explanation": "`who` only shows current sessions; `last` reads `/var/log/wtmp`."
+    },
+    {
+      "id": 113,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What does `who -l` display?",
+      "answer": "`-l` lists login processes (like `login` or `sshd`).",
+      "explanation": "It shows process ID and terminal of each login process."
+    },
+    {
+      "id": 114,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to display the current runlevel using `who`?",
+      "answer": "`who -r` shows the current runlevel and the time of last runlevel change.",
+      "explanation": "On systemd systems, runlevels are emulated; `who -r` may still work."
+    },
+    {
+      "id": 115,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What is the `mesg` command in relation to `who -T`?",
+      "answer": "`mesg y/n` toggles write permission; `who -T` shows `+` or `-` accordingly.",
+      "explanation": "If write is disabled (`mesg n`), other users cannot write to your terminal with `write`."
+    },
+    {
+      "id": 116,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to display the time since the system was booted using `who`?",
+      "answer": "`who -b` shows the boot time, not the duration; you can compute with `date`.",
+      "explanation": "`uptime` command is simpler for the duration."
+    },
+    {
+      "id": 117,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to show only the terminal lines that are currently active?",
+      "answer": "`who -q` (quick) shows only usernames and the count; not terminal lines.",
+      "explanation": "For terminals, `who -u` shows the tty column."
+    },
+    {
+      "id": 118,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "What is the output format of `who` on Solaris vs Linux?",
+      "answer": "On Solaris, the output may include more whitespace; on Linux, it's consistent: `user tty date time (host)`.",
+      "explanation": "GNU `who` and POSIX `who` have subtle differences; the Linux version is more feature‑rich."
+    },
+    {
+      "id": 119,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to get a count of distinct users (even if same user multiple logins)?",
+      "answer": "`who | awk '{print $1}' | sort -u | wc -l`",
+      "explanation": "The `sort -u` removes duplicate usernames."
+    },
+    {
+      "id": 120,
+      "topic": "Displaying logged-in users using who command",
+      "difficulty": "Advanced",
+      "question": "How to list users with their login shell using `who`?",
+      "answer": "`who` does not give shell; you would need to look up in `/etc/passwd`.",
+      "explanation": "You could write a script: `who | cut -d' ' -f1 | xargs -I {} getent passwd {} | cut -d: -f7`."
+    },
+    {
+      "id": 121,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "What is `bc` used for?",
+      "answer": "`bc` is an arbitrary precision calculator language for performing mathematical calculations.",
+      "explanation": "It supports integers, decimal numbers, and mathematical functions."
+    },
+    {
+      "id": 122,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to compute 2+2 in `bc`?",
+      "answer": "`echo '2+2' | bc` or just `bc` then type `2+2`.",
+      "explanation": "`bc` reads expressions from standard input or a file."
+    },
+    {
+      "id": 123,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to set the number of decimal places in `bc`?",
+      "answer": "Set the `scale` variable, e.g., `echo 'scale=2; 5/2' | bc` prints `2.50`.",
+      "explanation": "Default scale is 0 (integer division)."
+    },
+    {
+      "id": 124,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to compute 3^4 using `bc`?",
+      "answer": "`echo '3^4' | bc`",
+      "explanation": "`bc` uses `^` for exponentiation."
+    },
+    {
+      "id": 125,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to calculate the square root of 2?",
+      "answer": "`echo 'scale=5; sqrt(2)' | bc`",
+      "explanation": "`sqrt()` is a built‑in function; it requires a scale to get decimal digits."
+    },
+    {
+      "id": 126,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to exit `bc` interactive shell?",
+      "answer": "Type `quit` or press Ctrl+D.",
+      "explanation": "`quit` is the command to exit the `bc` interpreter."
+    },
+    {
+      "id": 127,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Beginner",
+      "question": "How to use `bc` to compute 10 factorial?",
+      "answer": "`echo '10 factorial' is not built‑in; you must use a loop or precompute. `bc` does not have factorial function.",
+      "explanation": "You can define a recursive function in `bc`; example: `define f(x) { if (x<=1) return 1; return x*f(x-1); }`."
+    },
+    {
+      "id": 128,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to do calculations with variables in `bc`?",
+      "answer": "`echo 'a=5; b=3; a*b' | bc`",
+      "explanation": "Variables can be assigned and used in expressions."
+    },
+    {
+      "id": 129,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to use `bc` for hexadecimal to decimal conversion?",
+      "answer": "`echo 'ibase=16; FF' | bc` output `255`.",
+      "explanation": "Set `ibase` (input base) and `obase` (output base)."
+    },
+    {
+      "id": 130,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to convert decimal to binary using `bc`?",
+      "answer": "`echo 'obase=2; 42' | bc`",
+      "explanation": "Output base is 2; it prints binary representation."
+    },
+    {
+      "id": 131,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `scale` and `ibase`?",
+      "answer": "`scale` sets decimal precision; `ibase` sets the input number base (default 10).",
+      "explanation": "Both are special variables in `bc`."
+    },
+    {
+      "id": 132,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to compute sine and cosine in `bc`?",
+      "answer": "Use `-l` to load the math library: `bc -l` then `s(0.5)` (sine) and `c(0.5)` (cosine).",
+      "explanation": "The `-l` option defines `s`, `c`, `a` (atan2), `l`, `e`, and `j`."
+    },
+    {
+      "id": 133,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to compute e^2 (exponential)?",
+      "answer": "`bc -l` then `e(2)` (if math library loaded).",
+      "explanation": "`e(x)` returns the natural exponential of `x`."
+    },
+    {
+      "id": 134,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to perform a calculation and store the result in a shell variable?",
+      "answer": "`result=$(echo '2+2' | bc)`",
+      "explanation": "Command substitution captures the output of `bc`."
+    },
+    {
+      "id": 135,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Intermediate",
+      "question": "How to use `bc` to compute remainders (modulo)?",
+      "answer": "`echo '7 % 3' | bc`",
+      "explanation": "`%` is the modulo operator, works for integers."
+    },
+    {
+      "id": 136,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to write a `bc` script to compute pi to 100 digits?",
+      "answer": "`bc -l <<< 'scale=100; 4*a(1)'` (using the math library).",
+      "explanation": "`a(1)` returns arctan(1) = π/4, so 4*a(1) = π."
+    },
+    {
+      "id": 137,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "What is `-q` option in `bc`?",
+      "answer": "`bc -q` suppresses the startup banner (GNU `bc`).",
+      "explanation": "Useful in scripts to avoid printing the version message."
+    },
+    {
+      "id": 138,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to define a custom function in `bc`?",
+      "answer": "`define f(x) { return x^2; }` then call `f(5)`.",
+      "explanation": "Functions can be defined interactively or in a file."
+    },
+    {
+      "id": 139,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to run `bc` from a shell script without interactive prompt?",
+      "answer": "`bc <<< '2+2'` or `echo '2+2' | bc`.",
+      "explanation": "You can also feed a file with `bc < script.bc`."
+    },
+    {
+      "id": 140,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "What is `bc -s` (POSIX mode) used for?",
+      "answer": "`-s` makes `bc` comply with the POSIX standard, disabling GNU extensions.",
+      "explanation": "Useful when portability is important."
+    },
+    {
+      "id": 141,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to handle very large numbers (e.g., 1000 factorial) in `bc`?",
+      "answer": "`echo 'define fact(n) { if (n<=1) return 1; return n*fact(n-1); }; fact(1000)' | bc`",
+      "explanation": "`bc` can handle arbitrarily large integers, limited only by memory."
+    },
+    {
+      "id": 142,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to pipe multiple lines of calculation to `bc`?",
+      "answer": "`{ echo 'scale=5'; echo '22/7'; echo 'sqrt(2)'; } | bc`",
+      "explanation": "Multiple statements are executed sequentially."
+    },
+    {
+      "id": 143,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to store the result of a `bc` calculation into a file?",
+      "answer": "`echo '1500/7' | bc > result.txt`",
+      "explanation": "Standard redirection works as with any command."
+    },
+    {
+      "id": 144,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `last` variable in `bc`?",
+      "answer": "`last` is an internal variable that holds the last printed value (GNU extension).",
+      "explanation": "You can reference `last` in subsequent expressions."
+    },
+    {
+      "id": 145,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to use `bc` to compute a simple loan interest?",
+      "answer": "Example: `echo 'p=1000; r=0.05; n=2; p * (1 + r)^n' | bc -l`",
+      "explanation": "This computes compound interest: principal * (1+rate)^years."
+    },
+    {
+      "id": 146,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `bc` and `dc`?",
+      "answer": "`dc` is a reverse‑Polish notation (RPN) calculator; `bc` is a more conventional algebraic language.",
+      "explanation": "`bc` is often a front‑end to `dc`; they share the same underlying arithmetic."
+    },
+    {
+      "id": 147,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to compute natural logarithm of 10 using `bc`?",
+      "answer": "`bc -l <<< 'l(10)'` (uses `l()` for natural log).",
+      "explanation": "Math library required (`-l`)."
+    },
+    {
+      "id": 148,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to get `bc` to treat numbers as scientific notation?",
+      "answer": "`bc` does not support scientific notation input, but you can set `scale` and use functions.",
+      "explanation": "You can enter numbers like `1e6` but that is not standard; use `1000000`."
+    },
+    {
+      "id": 149,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "How to use `bc` with `read` in a loop to perform many calculations?",
+      "answer": "`while read x y; do echo \"$x+$y\" | bc; done < input.txt`",
+      "explanation": "Each line of the file is processed as two numbers."
+    },
+    {
+      "id": 150,
+      "topic": "Performing calculations using bc command",
+      "difficulty": "Advanced",
+      "question": "What is the `bc` `if` statement syntax?",
+      "answer": "`if (condition) { statement; } else { statement; }`",
+      "explanation": "`bc` supports conditional execution like a programming language."
+    },
+    {
+      "id": 151,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "What does the `echo` command do?",
+      "answer": "It outputs its arguments to the standard output (usually the terminal).",
+      "explanation": "`echo` is used to print messages, variables, and blank lines."
+    },
+    {
+      "id": 152,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "How to print a line of text like 'Hello, World!'?",
+      "answer": "`echo 'Hello, World!'`",
+      "explanation": "Single quotes prevent shell expansion of special characters."
+    },
+    {
+      "id": 153,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "How to print the value of a shell variable?",
+      "answer": "`var=\"Unix\"; echo $var`",
+      "explanation": "The `$` introduces variable expansion."
+    },
+    {
+      "id": 154,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "What does `echo -e` do?",
+      "answer": "Enables interpretation of backslash escapes (e.g., `\\n`, `\\t`).",
+      "explanation": "Example: `echo -e \"Line1\\nLine2\"` prints two lines."
+    },
+    {
+      "id": 155,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "How to prevent `echo` from adding a newline?",
+      "answer": "`echo -n` (no newline) or `echo -e 'text\\c'` (older sh).",
+      "explanation": "`-n` is portable in most modern shells."
+    },
+    {
+      "id": 156,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "How to print a blank line?",
+      "answer": "`echo` (with no arguments) prints an empty line.",
+      "explanation": "Just `echo` outputs a newline character."
+    },
+    {
+      "id": 157,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Beginner",
+      "question": "How to print a string that contains double quotes?",
+      "answer": "`echo 'He said \"Hi\"'` or `echo \"He said \\\"Hi\\\"\"`.",
+      "explanation": "Using single quotes avoids escaping double quotes."
+    },
+    {
+      "id": 158,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "What does `echo` with `\\t` do (if `-e` is used)?",
+      "answer": "It prints a tab character.",
+      "explanation": "`echo -e \"Col1\\tCol2\"` separates columns with a tab."
+    },
+    {
+      "id": 159,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "How to print a backslash character?",
+      "answer": "`echo '\\\\'` or `echo -e '\\\\'` (though many shells require two backslashes).",
+      "explanation": "To print a literal backslash, escape it with another backslash."
+    },
+    {
+      "id": 160,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between single and double quotes with `echo`?",
+      "answer": "Double quotes allow variable expansion and command substitution; single quotes treat everything literally.",
+      "explanation": "`echo \"$HOME\"` expands the variable; `echo '$HOME'` prints `$HOME`."
+    },
+    {
+      "id": 161,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "How to write `echo` output to a file?",
+      "answer": "`echo 'Hello' > file.txt` (overwrite) or `>>` (append).",
+      "explanation": "Redirection is a shell feature, not part of `echo`."
+    },
+    {
+      "id": 162,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "How to print a message with colours using `echo`?",
+      "answer": "Use ANSI escape codes with `-e`: `echo -e \"\\033[31mRed text\\033[0m\"`.",
+      "explanation": "The colour codes are terminal‑dependent."
+    },
+    {
+      "id": 163,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Intermediate",
+      "question": "How to list files in a folder using `echo`?",
+      "answer": "`echo *` expands the wildcard to list filenames (though `ls` is more common).",
+      "explanation": "The shell expands `*` before `echo` runs, so `echo` gets the list of filenames."
+    },
+    {
+      "id": 164,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "Why is `echo` considered non‑portable for certain escape sequences?",
+      "answer": "Different shells and operating systems implement `echo` differently (`-e` may be needed or not). Use `printf` for robust output.",
+      "explanation": "POSIX `echo` does not support `-n` or `-e`; `printf` is more consistent."
+    },
+    {
+      "id": 165,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to make `echo` print the output of a command?",
+      "answer": "Use command substitution: `echo $(date)`. Or backticks: `` echo `date` ``.",
+      "explanation": "The inner command is executed and its output is embedded in the `echo` argument."
+    },
+    {
+      "id": 166,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `echo` and `printf`?",
+      "answer": "`printf` offers format control (like C `printf`) and is more portable for structured output.",
+      "explanation": "`printf` does not automatically append a newline unless you include `\\n`."
+    },
+    {
+      "id": 167,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to print the first 10 characters of a string with `echo`?",
+      "answer": "`echo \"$string\" | cut -c1-10` or `${var:0:10}` in shell.",
+      "explanation": "`echo` alone cannot slice strings; use parameter expansion or external tools."
+    },
+    {
+      "id": 168,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to suppress the trailing newline in all `echo` commands in a script?",
+      "answer": "Use `printf` instead; or set `IFS` and options, but no global way with `echo`.",
+      "explanation": "`printf` gives you explicit control over newlines."
+    },
+    {
+      "id": 169,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to write `echo` output to a file without overwriting?",
+      "answer": "`echo 'text' >> file.log` appends.",
+      "explanation": "The `>>` redirection operator appends to the file."
+    },
+    {
+      "id": 170,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "What happens when you `echo` a variable that is unset?",
+      "answer": "It prints an empty line (if `-n` not used, just a newline).",
+      "explanation": "Unset variables expand to an empty string."
+    },
+    {
+      "id": 171,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to echo a multi‑line message without using multiple `echo` commands?",
+      "answer": "Use a here‑document: `cat <<EOF` or `echo -e \"Line1\\nLine2\"`.",
+      "explanation": "`echo` with `-e` and `\\n` can produce multiple lines."
+    },
+    {
+      "id": 172,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to print the current script's filename using `echo`?",
+      "answer": "`echo \"$0\"` (inside a script) prints the script name.",
+      "explanation": "`$0` is the special parameter holding the script's name."
+    },
+    {
+      "id": 173,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "What is the escape sequence for ASCII bell in `echo -e`?",
+      "answer": "`\\a` produces the bell sound (beep).",
+      "explanation": "Example: `echo -e \"\\a\"` rings the terminal bell."
+    },
+    {
+      "id": 174,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to have `echo` interpret backslashes inside a variable?",
+      "answer": "Use `echo -e \"$var\"`; the variable must contain `\\n`, `\\t` etc.",
+      "explanation": "The `-e` option causes the shell to process escape sequences after variable expansion."
+    },
+    {
+      "id": 175,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "What does `echo -n` do on platforms where it is not supported?",
+      "answer": "It may print `-n` as literal text. Always test portability.",
+      "explanation": "Use `printf '%s' 'text'` for portable no‑newline printing."
+    },
+    {
+      "id": 176,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to use `echo` to print a progress bar?",
+      "answer": "`echo -ne '\\r[#####     ] 50%'` using carriage return.",
+      "explanation": "The `\\r` returns the cursor to the beginning of the line to overwrite."
+    },
+    {
+      "id": 177,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to make `echo` print the PID of the shell?",
+      "answer": "`echo $$`",
+      "explanation": "`$$` expands to the process ID of the current shell."
+    },
+    {
+      "id": 178,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `echo` and `cat`?",
+      "answer": "`echo` prints its arguments; `cat` concatenates file contents.",
+      "explanation": "`echo 'text'` prints 'text'; `cat file` prints the file's content."
+    },
+    {
+      "id": 179,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "How to print a comma‑separated list from an array using `echo`?",
+      "answer": "`echo \"${array[*]}\"` joins array elements with the first character of `IFS` (space by default).",
+      "explanation": "`IFS=,; echo \"${array[*]}\"` uses comma separator."
+    },
+    {
+      "id": 180,
+      "topic": "Displaying text using echo command",
+      "difficulty": "Advanced",
+      "question": "Why does `echo` sometimes behave differently in scripts vs interactive shell?",
+      "answer": "Because of shell options (e.g., `set -o noglob`, `xpg_echo`) and the fact that `echo` is a built‑in.",
+      "explanation": "The behaviour can vary depending on the shell (`bash`, `sh`, `dash`, `zsh`)."
+    },
+    {
+      "id": 181,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "What does `gzip` do?",
+      "answer": "It compresses files using the Lempel‑Ziv algorithm (LZ77) and generates a `.gz` extension.",
+      "explanation": "`gzip` replaces the original file with a compressed version (unless `-c` is used)."
+    },
+    {
+      "id": 182,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "How to compress a file `data.txt`?",
+      "answer": "`gzip data.txt` creates `data.txt.gz` and removes the original file.",
+      "explanation": "The `gzip` command compressed the file in place."
+    },
+    {
+      "id": 183,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "How to keep the original file after compression?",
+      "answer": "`gzip -c data.txt > data.txt.gz` or `gzip -k data.txt` (GNU `gzip` supports `-k`).",
+      "explanation": "`-k` (keep) preserves the original file."
+    },
+    {
+      "id": 184,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "What does `gzip -v` do?",
+      "answer": "Verbose output; displays compression ratio and file names.",
+      "explanation": "It prints the percentage reduction and output filename."
+    },
+    {
+      "id": 185,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "How to compress multiple files at once?",
+      "answer": "`gzip file1 file2 file3` compresses each file individually into `.gz` files.",
+      "explanation": "Each file is compressed separately, not as a single archive."
+    },
+    {
+      "id": 186,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "What is the default compression level in `gzip`?",
+      "answer": "6 (range 1‑9, where 1 is fastest/least compression, 9 is slowest/best compression).",
+      "explanation": "You can change with `-1` (fast) to `-9` (best)."
+    },
+    {
+      "id": 187,
+      "topic": "File compression using gzip command",
+      "difficulty": "Beginner",
+      "question": "How to list the contents of a `.gz` file without decompressing?",
+      "answer": "`zcat file.gz | head` or `zless file.gz`.",
+      "explanation": "`zcat` decompresses to stdout; `zless` pages the decompressed output."
+    },
+    {
+      "id": 188,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "How to compress a file with maximum compression?",
+      "answer": "`gzip -9 file.txt`",
+      "explanation": "`-9` uses the slowest, best compression algorithm."
+    },
+    {
+      "id": 189,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "How to compress a directory recursively with `gzip`?",
+      "answer": "`gzip` does not archive directories; you must first use `tar` to create a tarball, then `gzip` it.",
+      "explanation": "`tar -czf archive.tar.gz directory/` does both in one step."
+    },
+    {
+      "id": 190,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `gzip` and `zip`?",
+      "answer": "`gzip` compresses single files; `zip` can compress multiple files into an archive, with per‑file compression.",
+      "explanation": "`zip` is a cross‑platform archive format that also includes a directory structure."
+    },
+    {
+      "id": 191,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "How to test the integrity of a `.gz` file?",
+      "answer": "`gzip -t file.gz`; it checks the CRC checksum.",
+      "explanation": "Returns 0 if valid, non‑zero if corrupted."
+    },
+    {
+      "id": 192,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "How to view the original filename stored in the gzip header?",
+      "answer": "`gzip -l file.gz` shows the uncompressed size, compression ratio, and original filename.",
+      "explanation": "The `-l` option lists information about the compressed file."
+    },
+    {
+      "id": 193,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "What is `pigz`?",
+      "answer": "`pigz` is a parallel implementation of `gzip` that uses multiple CPU cores for faster compression.",
+      "explanation": "It is not installed by default but available in many repositories."
+    },
+    {
+      "id": 194,
+      "topic": "File compression using gzip command",
+      "difficulty": "Intermediate",
+      "question": "How to redirect output of `gzip` to a custom filename?",
+      "answer": "`gzip -c file > custom.gz`",
+      "explanation": "`-c` writes compressed data to stdout, allowing redirection."
+    },
+    {
+      "id": 195,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What is the file signature (magic number) of gzip files?",
+      "answer": "The first two bytes are `0x1F 0x8B`.",
+      "explanation": "The magic bytes identify the file as gzip‑compressed."
+    },
+    {
+      "id": 196,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a file while preserving permissions and timestamps?",
+      "answer": "`gzip` preserves the original timestamp and permissions by default; use `-n` to suppress embedded timestamp.",
+      "explanation": "By default, the original file's modification time is stored in the gzip header."
+    },
+    {
+      "id": 197,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a `.z` file (compress) using `gzip`?",
+      "answer": "`gzip -d` also handles `.z` files (compress format) if the system supports it, but `uncompress` is preferred.",
+      "explanation": "GNU `gzip` can decompress old `.Z` files."
+    },
+    {
+      "id": 198,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `gzip -r`?",
+      "answer": "Recursively compresses files in a directory (but each file individually, not as an archive).",
+      "explanation": "`gzip -r dir` compresses every regular file in `dir` and its subdirectories."
+    },
+    {
+      "id": 199,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to avoid compressing already compressed files?",
+      "answer": "`gzip` skips files with `.gz`, `.z`, `.tgz`, `.zip`, etc., by default; use `-f` to force.",
+      "explanation": "The `-f` (force) option overrides the check."
+    },
+    {
+      "id": 200,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What is the effect of `gzip -S .zip file`?",
+      "answer": "Creates a compressed file with the suffix `.zip` instead of `.gz` (not a true Zip archive).",
+      "explanation": "The `-S` option changes the output suffix, but the format remains gzip."
+    },
+    {
+      "id": 201,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a file and output to stdout while preserving original?",
+      "answer": "`gzip -c file > file.gz`",
+      "explanation": "The original `file` remains untouched."
+    },
+    {
+      "id": 202,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to view the compression ratio of a gzip file?",
+      "answer": "`gzip -l file.gz` shows compressed/uncompressed sizes and ratio.",
+      "explanation": "The ratio is (uncompressed - compressed) / uncompressed * 100%."
+    },
+    {
+      "id": 203,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What is the `gzip` level 0?",
+      "answer": "`gzip -0` stores the file without compression (only stores as a valid gzip container).",
+      "explanation": "Level 0 is fastest but provides no size reduction."
+    },
+    {
+      "id": 204,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a file while removing the original with a backup?",
+      "answer": "`gzip --keep --backup file` is not standard; most versions do not have backup.",
+      "explanation": "You would normally just compress in place; the original is removed, no backup."
+    },
+    {
+      "id": 205,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a file and see progress?",
+      "answer": "`pv file | gzip > file.gz` (requires `pv`).",
+      "explanation": "`pv` monitors the amount of data passed through the pipeline."
+    },
+    {
+      "id": 206,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What is the typical decompression speed of `gzip`?",
+      "answer": "Much faster than compression; often 10‑20 times faster.",
+      "explanation": "Decompression is symmetric and uses the same LZ77 algorithm but requires less CPU."
+    },
+    {
+      "id": 207,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a block device or raw disk image with `gzip`?",
+      "answer": "`dd if=/dev/sda bs=1M | gzip > sda.img.gz`",
+      "explanation": "You must read the device as a raw stream; `gzip` can compress from stdin."
+    },
+    {
+      "id": 208,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "What does `gzip -nf` do?",
+      "answer": "`-n` prevents storing original filename and timestamp; `-f` forces compression.",
+      "explanation": "Using `-f` with `-n` can be useful to anonymize the metadata."
+    },
+    {
+      "id": 209,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "How to find out which version of `gzip` is installed?",
+      "answer": "`gzip --version`",
+      "explanation": "The output includes version number and compilation info."
+    },
+    {
+      "id": 210,
+      "topic": "File compression using gzip command",
+      "difficulty": "Advanced",
+      "question": "Is `gzip` lossless?",
+      "answer": "Yes, it is a lossless compression algorithm; decompressing yields the exact original data.",
+      "explanation": "No data is lost; the algorithm is reversible."
+    },
+    {
+      "id": 211,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "What does `gunzip` do?",
+      "answer": "It decompresses files compressed with `gzip`, restoring the original file.",
+      "explanation": "`gunzip` is equivalent to `gzip -d`."
+    },
+    {
+      "id": 212,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "How to decompress `data.txt.gz`?",
+      "answer": "`gunzip data.txt.gz` restores `data.txt` and removes the `.gz` file.",
+      "explanation": "The original compressed file is replaced by the decompressed version."
+    },
+    {
+      "id": 213,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "How to keep the compressed file after decompression?",
+      "answer": "`gunzip -c data.txt.gz > data.txt` (keep .gz file) or `zcat data.txt.gz > data.txt`.",
+      "explanation": "Using `-c` writes decompressed data to stdout, allowing you to redirect without removing the source."
+    },
+    {
+      "id": 214,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "What is the `zcat` command?",
+      "answer": "`zcat` is equivalent to `gunzip -c`, it decompresses a `.gz` file to standard output.",
+      "explanation": "Often used to view the content of compressed text files."
+    },
+    {
+      "id": 215,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "How to decompress multiple `.gz` files at once?",
+      "answer": "`gunzip *.gz` decompresses all `.gz` files in the current directory.",
+      "explanation": "Each file is decompressed individually."
+    },
+    {
+      "id": 216,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Beginner",
+      "question": "How to test a `.gz` file for integrity without decompressing?",
+      "answer": "`gunzip -t file.gz` (or `gzip -t`).",
+      "explanation": "It checks the CRC and other integrity checks without producing output."
+    },
+    {
+      "id": 217,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "What does `gunzip -v` do?",
+      "answer": "Verbose mode, prints the name of the file being decompressed and the reduction ratio.",
+      "explanation": "`-v` shows progress information."
+    },
+    {
+      "id": 218,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "How to decompress a file with a different output name?",
+      "answer": "`gunzip -c data.gz > newfile.txt` (save as `newfile.txt`).",
+      "explanation": "The original `.gz` file is not removed when using `-c`."
+    },
+    {
+      "id": 219,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "What happens if you `gunzip` a file that is not gzip compressed?",
+      "answer": "`gunzip` will detect the wrong magic number and output an error; it will not decompress.",
+      "explanation": "The command checks the signature (0x1F 0x8B)."
+    },
+    {
+      "id": 220,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "How to decompress a `.tar.gz` (tarball) using `gunzip`?",
+      "answer": "`gunzip file.tar.gz` produces `file.tar`; then use `tar -xvf file.tar`.",
+      "explanation": "Better: `tar -xzf file.tar.gz` does both in one step."
+    },
+    {
+      "id": 221,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "How to list the contents of a `.gz` file without uncompressing?",
+      "answer": "`zcat file.gz | less` or `gzcat`.",
+      "explanation": "This pipes the decompressed content to a pager."
+    },
+    {
+      "id": 222,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Intermediate",
+      "question": "What is the `gzexe` command (related to gunzip)?",
+      "answer": "`gzexe` compresses executable files and creates a self‑decompressing wrapper (not common).",
+      "explanation": "It is used to compress rarely used executables to save space."
+    },
+    {
+      "id": 223,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to force decompression even if the file is suspicious?",
+      "answer": "`gunzip -f` forces decompression (overwrites output file without prompting).",
+      "explanation": "Use with caution; it will overwrite existing files."
+    },
+    {
+      "id": 224,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a file without removing the `.gz` suffix?",
+      "answer": "`gunzip -c file.gz > file` leaves the `.gz` file intact.",
+      "explanation": "The original compressed file remains unchanged."
+    },
+    {
+      "id": 225,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `gunzip -S .gz` (if default already)?",
+      "answer": "`-S` changes the expected suffix; it is rarely needed because `.gz` is default.",
+      "explanation": "You might use it for files with a non‑standard suffix like `.gzip`."
+    },
+    {
+      "id": 226,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to recursively decompress all `.gz` files in a directory tree?",
+      "answer": "`find . -name '*.gz' -exec gunzip {} \\;`",
+      "explanation": "The `find` command locates each `.gz` file and runs `gunzip` on it."
+    },
+    {
+      "id": 227,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "Can `gunzip` decompress multiple files into a single output?",
+      "answer": "No, `gunzip` decompresses each file separately. Use `cat file1.gz file2.gz | gunzip > combined`.",
+      "explanation": "Concatenating gzipped streams produces a valid concatenated stream, but only if each stream is independent."
+    },
+    {
+      "id": 228,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What alternative to `gunzip` exists on minimal systems?",
+      "answer": "`zcat` may be a separate binary or script; some BusyBox systems have `gzip -d`.",
+      "explanation": "On embedded systems, `gunzip` may be a symlink to `busybox`."
+    },
+    {
+      "id": 229,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "Why does `gunzip` sometimes fail with 'unexpected end of file'?",
+      "answer": "The `.gz` file is truncated or corrupted; the trailing CRC check fails.",
+      "explanation": "Try to recover with `gzip -dc` and pipe to a file, ignoring errors."
+    },
+    {
+      "id": 230,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a file that was gzipped with a password?",
+      "answer": "`gzip` does not support passwords; use `openssl enc` or `zip` for encrypted archives.",
+      "explanation": "No standard password protection in `gzip` format."
+    },
+    {
+      "id": 231,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `gunzip` and `gzip -d`?",
+      "answer": "They are the same; `gunzip` is often a symbolic link to `gzip`.",
+      "explanation": "Both accept the same options and behave identically."
+    },
+    {
+      "id": 232,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a `.gz` file and preserve original file metadata?",
+      "answer": "`gunzip` restores the original timestamp and permissions (stored in gzip header).",
+      "explanation": "If the header does not contain metadata, current time is used."
+    },
+    {
+      "id": 233,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to use `gunzip` to decompress from standard input?",
+      "answer": "`gunzip < file.gz` (or `cat file.gz | gunzip`).",
+      "explanation": "If no filename is given, `gunzip` reads stdin."
+    },
+    {
+      "id": 234,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What does `gunzip --help` show?",
+      "answer": "A brief summary of options and usage.",
+      "explanation": "All standard commands support `--help` for quick reference."
+    },
+    {
+      "id": 235,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What is the `zopfli` algorithm and how does it relate to `gunzip`?",
+      "answer": "`zopfli` produces gzip‑compatible files with better compression, but decompression is the same as standard `gunzip`.",
+      "explanation": "`zopfli` is a compressor, not a decompressor; `gunzip` can decompress its output."
+    },
+    {
+      "id": 236,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a large gzip file while monitoring progress?",
+      "answer": "`pv file.gz | gunzip > file`",
+      "explanation": "`pv` shows throughput and estimated time."
+    },
+    {
+      "id": 237,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What happens if you `gunzip` a file that is not compressed but has `.gz` extension?",
+      "answer": "`gunzip` fails with 'not in gzip format'.",
+      "explanation": "It checks the magic bytes before proceeding."
+    },
+    {
+      "id": 238,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a `.tar.gz` and extract contents without intermediate `.tar` file?",
+      "answer": "`tar -xzf archive.tar.gz` does it directly.",
+      "explanation": "`tar` recognises `.gz` and decompresses automatically."
+    },
+    {
+      "id": 239,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "What is the typical memory usage of `gunzip`?",
+      "answer": "Very low, because decompression uses a small sliding window (~32KB).",
+      "explanation": "It is suitable for embedded systems."
+    },
+    {
+      "id": 240,
+      "topic": "File decompression using gunzip command",
+      "difficulty": "Advanced",
+      "question": "How to decompress a multi‑member gzip file (concatenated gz streams)?",
+      "answer": "`gunzip` will decompress all members by default (since it reads concatenated streams).",
+      "explanation": "Concatenated gzip streams are common when combining backup parts."
+    },
+    {
+      "id": 241,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "What does the `zip` command do?",
+      "answer": "It creates compressed ZIP archives (like `.zip` files) that can contain multiple files and directories.",
+      "explanation": "`zip` is a cross‑platform archive format supported by many operating systems."
+    },
+    {
+      "id": 242,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "How to zip a single file `data.txt` into `data.zip`?",
+      "answer": "`zip data.zip data.txt`",
+      "explanation": "The target archive name is first, then the files to add."
+    },
+    {
+      "id": 243,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "How to zip multiple files into one archive?",
+      "answer": "`zip archive.zip file1 file2 file3`",
+      "explanation": "All listed files are added to `archive.zip`."
+    },
+    {
+      "id": 244,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "How to zip a directory and its contents recursively?",
+      "answer": "`zip -r archive.zip directory/`",
+      "explanation": "The `-r` option recurses into subdirectories."
+    },
+    {
+      "id": 245,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "What option suppresses verbose output in `zip`?",
+      "answer": "`zip -q` (quiet mode).",
+      "explanation": "Less output, useful in scripts."
+    },
+    {
+      "id": 246,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "How to set a compression level for `zip`?",
+      "answer": "`zip -9 archive.zip file` (levels 0‑9, where 9 = maximum compression).",
+      "explanation": "Level 0 is store only (no compression)."
+    },
+    {
+      "id": 247,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Beginner",
+      "question": "How to add a file to an existing ZIP archive?",
+      "answer": "`zip existing.zip newfile.txt`",
+      "explanation": "If the archive already exists, `zip` adds the file (or updates it)."
+    },
+    {
+      "id": 248,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to delete a file from a ZIP archive?",
+      "answer": "`zip -d archive.zip file_to_delete`",
+      "explanation": "The `-d` option deletes the named file from the archive."
+    },
+    {
+      "id": 249,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to list the contents of a ZIP file without extracting?",
+      "answer": "`unzip -l archive.zip` or `zipinfo archive.zip`.",
+      "explanation": "`-l` lists files with sizes and dates."
+    },
+    {
+      "id": 250,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to zip a file while excluding certain patterns?",
+      "answer": "`zip archive.zip * -x \"*.log\" -x \"temp/*\"`",
+      "explanation": "The `-x` option excludes files matching the given pattern."
+    },
+    {
+      "id": 251,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to update only changed files in a ZIP archive?",
+      "answer": "`zip -u archive.zip *`",
+      "explanation": "`-u` (update) adds new files and updates those with newer timestamps."
+    },
+    {
+      "id": 252,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to move files into a ZIP archive (delete originals)?",
+      "answer": "`zip -m archive.zip file` removes the original file after adding it to the archive.",
+      "explanation": "Use with caution; `-m` deletes the source."
+    },
+    {
+      "id": 253,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to encrypt a ZIP archive with a password?",
+      "answer": "`zip -e archive.zip file` (prompts for password).",
+      "explanation": "Encryption is weak (ZipCrypto) by default; use `-e` with stronger options if needed."
+    },
+    {
+      "id": 254,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Intermediate",
+      "question": "How to store paths relative to a directory when zipping?",
+      "answer": "`cd /path; zip -r archive.zip dir/ ; cd -` or use `-j` to junk paths.",
+      "explanation": "By default, `zip` stores the full path (or relative path of the command)."
+    },
+    {
+      "id": 255,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to create a ZIP archive with no compression (store only)?",
+      "answer": "`zip -0 archive.zip file`",
+      "explanation": "Level 0 merely stores the file without compression; useful for quickly grouping files."
+    },
+    {
+      "id": 256,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `zip` and `gzip`?",
+      "answer": "`zip` creates an archive of multiple files with compression each; `gzip` compresses a single file.",
+      "explanation": "`zip` is a file packer; `gzip` is a compressor (often used with `tar`)."
+    },
+    {
+      "id": 257,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to split a large ZIP archive into multiple smaller parts (spanning)?",
+      "answer": "`zip -s 1m archive.zip file` (splits into 1MB segments).",
+      "explanation": "Creates `archive.zip`, `archive.z01`, etc. Not all unzip versions support them."
+    },
+    {
+      "id": 258,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to add a comment to a ZIP archive?",
+      "answer": "`zip -c archive.zip file` (prompts for comment).",
+      "explanation": "The comment is stored in the archive header."
+    },
+    {
+      "id": 259,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What does `zip -X` do?",
+      "answer": "Exclude extra file attributes (like ACLs or extended attributes).",
+      "explanation": "Helps to create more portable archives across different Unix systems."
+    },
+    {
+      "id": 260,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to verify the integrity of a ZIP archive?",
+      "answer": "`unzip -t archive.zip` (test mode).",
+      "explanation": "It checks CRC for each file in the archive."
+    },
+    {
+      "id": 261,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to force `zip` to include hidden files (dotfiles)?",
+      "answer": "`zip archive.zip .* *` (includes all dotfiles).",
+      "explanation": "Be careful with `..`; better to shell‑expand explicitly."
+    },
+    {
+      "id": 262,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What is the `zipcloak` command?",
+      "answer": "Encrypts an existing ZIP archive (using stronger encryption than `-e` in old versions).",
+      "explanation": "`zipcloak` is a separate utility that modifies the archive in place."
+    },
+    {
+      "id": 263,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to set the timestamp of files inside the ZIP archive?",
+      "answer": "`zip -T archive.zip` does not set timestamps; you use `touch` before adding.",
+      "explanation": "ZIP stores the modification time of each file as it was on disk."
+    },
+    {
+      "id": 264,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to create a ZIP archive without storing directory structure (flatten)?",
+      "answer": "`zip -j archive.zip dir/*` (junk paths).",
+      "explanation": "All files are stored at the root of the archive without directory names."
+    },
+    {
+      "id": 265,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `zip -F`?",
+      "answer": "Attempt to repair a corrupted ZIP archive (fix only).",
+      "explanation": "`-F` tries to salvage data from a damaged archive."
+    },
+    {
+      "id": 266,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to compress a symbolic link with `zip`?",
+      "answer": "`zip -y archive.zip symlink` stores the link as a link (not the target).",
+      "explanation": "Without `-y`, `zip` follows the link and compresses the target file."
+    },
+    {
+      "id": 267,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What is the `zipsplit` command?",
+      "answer": "Splits a ZIP archive into multiple smaller ZIP archives.",
+      "explanation": "Different from span (–s); it creates separate independent archives."
+    },
+    {
+      "id": 268,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to read the ZIP archive comment using `zip`?",
+      "answer": "`zip -z archive.zip` displays or changes the comment.",
+      "explanation": "Running `zip -z` on an existing archive prompts for a new comment."
+    },
+    {
+      "id": 269,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "What does the `zip -v` option show?",
+      "answer": "Verbose diagnostic information about the archive creation process.",
+      "explanation": "Includes details about each file and compression method."
+    },
+    {
+      "id": 270,
+      "topic": "Creating zip archives using zip command",
+      "difficulty": "Advanced",
+      "question": "How to archive a FIFO (named pipe) with `zip`?",
+      "answer": "`zip` will skip special files unless forced; use `tar` for such files.",
+      "explanation": "ZIP format does not support device or pipe files portably."
+    },
+    {
+      "id": 271,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "What does the `unzip` command do?",
+      "answer": "Extracts files from a ZIP archive.",
+      "explanation": "`unzip` also lists, tests, and can extract specific files."
+    },
+    {
+      "id": 272,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "How to extract all files from `archive.zip` into current directory?",
+      "answer": "`unzip archive.zip`",
+      "explanation": "By default, it extracts into the current directory, preserving paths."
+    },
+    {
+      "id": 273,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "How to extract a ZIP file into a specific directory?",
+      "answer": "`unzip archive.zip -d /target/dir`",
+      "explanation": "The `-d` option specifies the destination directory."
+    },
+    {
+      "id": 274,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "How to list files in a ZIP archive without extracting?",
+      "answer": "`unzip -l archive.zip`",
+      "explanation": "Shows file names, sizes, and timestamps."
+    },
+    {
+      "id": 275,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "How to test the integrity of a ZIP archive without extracting?",
+      "answer": "`unzip -t archive.zip`",
+      "explanation": "Performs a CRC test on each file in the archive."
+    },
+    {
+      "id": 276,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Beginner",
+      "question": "How to extract a single file from a ZIP archive?",
+      "answer": "`unzip archive.zip specific_file.txt`",
+      "explanation": "Only the named file is extracted (plus required directories)."
+    },
+    {
+      "id": 277,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Intermediate",
+      "question": "How to extract files while preserving original timestamps?",
+      "answer": "`unzip -DD archive.zip` (some versions) or by default it restores timestamps.",
+      "explanation": "Usually `unzip` restores modification times from the ZIP metadata."
+    },
+    {
+      "id": 278,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Intermediate",
+      "question": "How to extract only files newer than a certain date?",
+      "answer": "`unzip -t archive.zip -a` does not have direct date filter; use `unzip -l` and a script.",
+      "explanation": "`unzip` has no built‑in date filter; you can use `find` after extraction."
+    },
+    {
+      "id": 279,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Intermediate",
+      "question": "How to extract without overwriting existing files?",
+      "answer": "`unzip -n archive.zip` (never overwrite).",
+      "explanation": "The `-n` option skips files that already exist."
+    },
+    {
+      "id": 280,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Intermediate",
+      "question": "How to extract a password‑protected ZIP file?",
+      "answer": "`unzip -P password archive.zip` or `unzip -p archive.zip` and enter password.",
+      "explanation": "The `-P` option passes the password (insecure; better to omit and be prompted)."
+    },
+    {
+      "id": 281,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "What does `unzip -q` (quiet) do?",
+      "answer": "Suppresses most messages, including extraction confirmation.",
+      "explanation": "Useful in scripts to avoid clutter."
+    },
+    {
+      "id": 282,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to extract a ZIP archive that was split into multiple parts (`.z01`, `.z02`, ...)?",
+      "answer": "`zip` spanning is rarely used; `unzip` cannot automatically combine span files; use `zip -F` first.",
+      "explanation": "Spanning is not the same as a multi‑part split with `unzip` support."
+    },
+    {
+      "id": 283,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to extract files from a ZIP archive to stdout (e.g., for piping)?",
+      "answer": "`unzip -p archive.zip file.txt` writes the content of `file.txt` to stdout.",
+      "explanation": "Using `-p` without a filename extracts all files to stdout, which is messy."
+    },
+    {
+      "id": 284,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "What does `unzip -Z` do?",
+      "answer": "It runs `zipinfo` to display ZIP archive information in a detailed, configurable format.",
+      "explanation": "`unzip -Z` is an alias for `zipinfo`."
+    },
+    {
+      "id": 285,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to extract only files matching a pattern (e.g., `*.txt`)?",
+      "answer": "`unzip archive.zip '*.txt'` (use quotes to prevent shell expansion).",
+      "explanation": "Wildcards are matched against file names inside the archive."
+    },
+    {
+      "id": 286,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to exclude a file pattern during extraction?",
+      "answer": "`unzip archive.zip -x '*.log'`",
+      "explanation": "The `-x` option excludes files matching the pattern."
+    },
+    {
+      "id": 287,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to extract a ZIP archive with verbose information?",
+      "answer": "`unzip -v archive.zip`",
+      "explanation": "Shows comments and per‑file compression details."
+    },
+    {
+      "id": 288,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to recover a corrupt ZIP file using `unzip`?",
+      "answer": "`unzip -t archive.zip` identifies corruption; `unzip -F archive.zip` tries to fix (not always possible).",
+      "explanation": "Use `zip -F` or `zip -FF` for recovery (provided by Info‑ZIP)."
+    },
+    {
+      "id": 289,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "What does the `-a` option in `unzip` do?",
+      "answer": "Converts text files to the native line ending (CR/LF conversion).",
+      "explanation": "Useful when transferring between DOS/Windows and Unix."
+    },
+    {
+      "id": 290,
+      "topic": "Extracting zip files using unzip command",
+      "difficulty": "Advanced",
+      "question": "How to extract a ZIP file while restoring original user/group ownership?",
+      "answer": "`unzip` does not store Unix UID/GID by default; you need to use `sudo` and `-o` for ownership.",
+      "explanation": "ZIP archives typically do not preserve Unix permissions beyond read/write/execute."
+    },
+    {
+      "id": 291,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "What does `tar` stand for?",
+      "answer": "Tape ARchive – a utility to combine multiple files into a single archive file (tarball).",
+      "explanation": "Originally for tape backups; now used for distribution and backup."
+    },
+    {
+      "id": 292,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "How to create a tarball `archive.tar` from a directory?",
+      "answer": "`tar -cvf archive.tar directory/`",
+      "explanation": "`c` create, `v` verbose, `f` file."
+    },
+    {
+      "id": 293,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "How to extract a tarball `archive.tar`?",
+      "answer": "`tar -xvf archive.tar`",
+      "explanation": "`x` extract, `v` verbose, `f` file."
+    },
+    {
+      "id": 294,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "How to list the contents of a tarball without extracting?",
+      "answer": "`tar -tvf archive.tar`",
+      "explanation": "`t` list, `v` verbose, `f` file."
+    },
+    {
+      "id": 295,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "What does the `v` option in `tar` do?",
+      "answer": "Verbose output; lists files as they are processed.",
+      "explanation": "Useful to see progress; can be omitted in scripts."
+    },
+    {
+      "id": 296,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "How to add a file to an existing tarball?",
+      "answer": "`tar -rvf archive.tar newfile.txt` (append).",
+      "explanation": "`r` appends files to the end of the archive (cannot replace)."
+    },
+    {
+      "id": 297,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Beginner",
+      "question": "How to extract a tarball into a specific directory?",
+      "answer": "`tar -xvf archive.tar -C /target/dir`",
+      "explanation": "The `-C` option changes directory before extraction."
+    },
+    {
+      "id": 298,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `tar -cf` and `tar -cvf`?",
+      "answer": "`-c` create, `-v` verbose, `-f` file. `-cf` is quiet, `-cvf` lists each file.",
+      "explanation": "Verbosity is only for human feedback."
+    },
+    {
+      "id": 299,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Intermediate",
+      "question": "How to exclude certain files when creating a tarball?",
+      "answer": "`tar --exclude='*.log' -cvf archive.tar directory/`",
+      "explanation": "The `--exclude` option accepts patterns."
+    },
+    {
+      "id": 300,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Intermediate",
+      "question": "How to extract only a specific file from a tarball?",
+      "answer": "`tar -xvf archive.tar path/to/file`",
+      "explanation": "Specify the exact path as stored in the archive."
+    },
+    {
+      "id": 301,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `tar -u`?",
+      "answer": "Update the archive by adding files that are newer than the version in the archive.",
+      "explanation": "`tar -u` only works on uncompressed archives (not with `-z` or `-j`)."
+    },
+    {
+      "id": 302,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Intermediate",
+      "question": "How to preserve permissions, ownership and timestamps when using `tar`?",
+      "answer": "`tar` does this by default for regular users and root; use `--same-owner` if needed.",
+      "explanation": "Tar stores POSIX permissions, timestamps, and owner names/IDs."
+    },
+    {
+      "id": 303,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What does `tar -z` do?",
+      "answer": "Compresses the archive with `gzip` (creates `.tar.gz` or `.tgz`).",
+      "explanation": "Example: `tar -czvf archive.tar.gz directory/`."
+    },
+    {
+      "id": 304,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What does `tar -j` do?",
+      "answer": "Compresses the archive with `bzip2` (creates `.tar.bz2` or `.tbz`).",
+      "explanation": "Bzip2 generally compresses better than gzip but is slower."
+    },
+    {
+      "id": 305,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What does `tar -J` do?",
+      "answer": "Compresses the archive with `xz` (creates `.tar.xz`), provides high compression.",
+      "explanation": "`xz` produces smaller archives but uses more memory/time."
+    },
+    {
+      "id": 306,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to create a tarball without storing absolute paths?",
+      "answer": "`tar -C /path -cvf archive.tar .` (use `-C` to change to directory).",
+      "explanation": "Never use absolute paths when creating archives for distribution."
+    },
+    {
+      "id": 307,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to strip leading components when extracting?",
+      "answer": "`tar --strip-components=1 -xvf archive.tar` (remove first directory level).",
+      "explanation": "Useful when the archive contains a top‑level directory you want to avoid."
+    },
+    {
+      "id": 308,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What is a `sparse` file and how to handle with `tar`?",
+      "answer": "`tar -S` detects and handles sparse files efficiently.",
+      "explanation": "Sparse files have holes; `-S` preserves that."
+    },
+    {
+      "id": 309,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to verify the integrity of a tarball?",
+      "answer": "`tar -tvf archive.tar` lists content; for compressed ones, `tar -tzf archive.tar.gz`.",
+      "explanation": "If `tar` cannot read the archive, it will exit with error."
+    },
+    {
+      "id": 310,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `tar -x` and `tar -xzf`?",
+      "answer": "`-x` works on uncompressed tar; `-z` decompresses gzip first.",
+      "explanation": "Guessing compression based on filename is not automatic; you must specify `-z`, `-j`, or `-J`."
+    },
+    {
+      "id": 311,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to create a tar archive directly from the output of another command (stream)?",
+      "answer": "`tar -cf - files | ssh user@host 'tar -xf -'`",
+      "explanation": "`-` as the filename indicates stdin/stdout."
+    },
+    {
+      "id": 312,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What does `tar --delete` do?",
+      "answer": "Deletes a file from an existing uncompressed tar archive (cannot with compressed).",
+      "explanation": "`tar --delete -f archive.tar file.txt`."
+    },
+    {
+      "id": 313,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to extract a tar archive while preserving extended attributes (xattr)?",
+      "answer": "`tar --xattrs -xvf archive.tar` (GNU tar supports extended attributes).",
+      "explanation": "Use `--xattrs` to store/restore extended attributes."
+    },
+    {
+      "id": 314,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to create a multi‑volume tar archive?",
+      "answer": "`tar -cMf archive.tar file` (prompts for new volume).",
+      "explanation": "Creates multiple files: `archive.tar`, `archive.tar.1`, etc."
+    },
+    {
+      "id": 315,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `--checkpoint` in `tar`?",
+      "answer": "Displays a progress dot every N records.",
+      "explanation": "`--checkpoint=1000` shows a dot every 1000 files."
+    },
+    {
+      "id": 316,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to use `tar` with `find` to archive only files older than 7 days?",
+      "answer": "`find . -type f -mtime +7 -print0 | tar -cvf archive.tar --null -T -`",
+      "explanation": "The `-T -` reads null‑separated filenames from stdin."
+    },
+    {
+      "id": 317,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What does `tar --transform` do?",
+      "answer": "Applies a `sed` expression to modify filenames inside the archive.",
+      "explanation": "Example: `--transform 's/^public_html/www/'`."
+    },
+    {
+      "id": 318,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to create a tar archive that excludes system files like `.DS_Store`?",
+      "answer": "`tar --exclude='.DS_Store' --exclude='Thumbs.db' -cvf archive.tar dir/`",
+      "explanation": "Multiple `--exclude` options can be used."
+    },
+    {
+      "id": 319,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "How to handle files with spaces in names in `tar`?",
+      "answer": "Use quotes around the argument or escape spaces; `tar` handles them if shell passes properly.",
+      "explanation": "Better to use `find ... -print0 | tar ... --null`."
+    },
+    {
+      "id": 320,
+      "topic": "Archiving files using tar command",
+      "difficulty": "Advanced",
+      "question": "What is the `--warning=no-timestamp` flag used for?",
+      "answer": "Suppresses warnings about future timestamps (useful for reproducible builds).",
+      "explanation": "`tar` can set `--mtime` to a fixed epoch for reproducibility."
+    },
+    {
+      "id": 321,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "What command creates a `.tar.gz` (tarball compressed with gzip)?",
+      "answer": "`tar -czvf archive.tar.gz directory/`",
+      "explanation": "`-z` passes through `gzip`."
+    },
+    {
+      "id": 322,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "How to extract a `.tar.gz` file?",
+      "answer": "`tar -xzvf archive.tar.gz`",
+      "explanation": "The `-z` tells tar to decompress with gzip."
+    },
+    {
+      "id": 323,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "How to create a `.tar.bz2` (bzip2 compressed) archive?",
+      "answer": "`tar -cjvf archive.tar.bz2 directory/`",
+      "explanation": "`-j` uses `bzip2`."
+    },
+    {
+      "id": 324,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "How to extract a `.tar.bz2` file?",
+      "answer": "`tar -xjvf archive.tar.bz2`",
+      "explanation": "`-j` decompresses with bzip2."
+    },
+    {
+      "id": 325,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "How to create a `.tar.xz` (xz compressed) archive?",
+      "answer": "`tar -cJvf archive.tar.xz directory/`",
+      "explanation": "`-J` uses `xz` compression."
+    },
+    {
+      "id": 326,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Beginner",
+      "question": "How to extract a `.tar.xz` file?",
+      "answer": "`tar -xJvf archive.tar.xz`",
+      "explanation": "`-J` decompresses with xz."
+    },
+    {
+      "id": 327,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Intermediate",
+      "question": "What is the difference in compression ratio between `tar.gz`, `tar.bz2`, and `tar.xz`?",
+      "answer": "`tar.xz` gives the smallest size, `tar.gz` the fastest, `tar.bz2` in between.",
+      "explanation": "xz compresses very well but slower; gzip is fast but larger; bzip2 moderate."
+    },
+    {
+      "id": 328,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Intermediate",
+      "question": "How to create a `tar.gz` archive and keep the original directory?",
+      "answer": "`tar -czvf archive.tar.gz directory/` keeps the directory (unless you strip).",
+      "explanation": "The original directory remains unchanged; a separate archive is created."
+    },
+    {
+      "id": 329,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Intermediate",
+      "question": "How to test the integrity of a `tar.gz` file?",
+      "answer": "`tar -tzf archive.tar.gz` lists files; if reading succeeds, the archive is likely intact.",
+      "explanation": "You can also use `gzip -t` and then `tar -t` separately."
+    },
+    {
+      "id": 330,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to compress a tarball with maximum compression using `xz`?",
+      "answer": "`tar -cJvf archive.tar.xz --xz -9 directory/` (some versions).",
+      "explanation": "Specify compression level with `-9` in `XZ_OPT` environment variable."
+    },
+    {
+      "id": 331,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to create a `tar.gz` archive without storing the directory timestamp?",
+      "answer": "`tar --mtime='1970-01-01' -czvf archive.tar.gz directory/`",
+      "explanation": "Sets a fixed timestamp for reproducibility."
+    },
+    {
+      "id": 332,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of `tar --sort=name`?",
+      "answer": "Sorts entries by name, improving reproducibility of the archive (same content always same checksum).",
+      "explanation": "Use with fixed `--mtime` and `--owner=0` for reproducible builds."
+    },
+    {
+      "id": 333,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to create a `tar.gz` archive from a list of files stored in a text file?",
+      "answer": "`tar -czvf archive.tar.gz -T list.txt` (files are listed in `list.txt`).",
+      "explanation": "Each line in `list.txt` is a filename."
+    },
+    {
+      "id": 334,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to exclude certain files while creating a compressed tarball?",
+      "answer": "`tar --exclude='*.log' -czvf archive.tar.gz directory/`",
+      "explanation": "The exclusion pattern works before archiving."
+    },
+    {
+      "id": 335,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to pipe a `tar.gz` file directly to a remote host?",
+      "answer": "`tar -czvf - directory/ | ssh user@remote 'tar -xzvf -'`",
+      "explanation": "The `-` as the file means stdin/stdout."
+    },
+    {
+      "id": 336,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to create a compressed tarball with progress bar?",
+      "answer": "`tar -cf - directory/ | pv | gzip > archive.tar.gz`",
+      "explanation": "`pv` monitors the pipeline throughput."
+    },
+    {
+      "id": 337,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "What is the `zstd` compression in `tar`?",
+      "answer": "`tar -c --zstd -vf archive.tar.zst directory/` (requires `zstd` support).",
+      "explanation": "Zstd provides fast, high compression ratios."
+    },
+    {
+      "id": 338,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to verify a `tar.gz` file without full extraction?",
+      "answer": "`tar -tvzf archive.tar.gz` (lists all files).",
+      "explanation": "If the archive is corrupt, `tar` will report an error."
+    },
+    {
+      "id": 339,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `tar --checkpoint-action=exec`?",
+      "answer": "Runs a command at checkpoints (e.g., to display progress).",
+      "explanation": "Example: `--checkpoint-action=exec='echo $TAR_FILENAME'`."
+    },
+    {
+      "id": 340,
+      "topic": "Combining compression with archiving",
+      "difficulty": "Advanced",
+      "question": "How to create a `tar.gz` of a huge directory while avoiding permissions errors?",
+      "answer": "`tar --ignore-failed-read -czvf archive.tar.gz directory/`",
+      "explanation": "Continues even if some files can't be read."
+    }
+  ]
+}
