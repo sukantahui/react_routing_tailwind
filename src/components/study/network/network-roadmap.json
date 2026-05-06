@@ -238,7 +238,8 @@
             "Go-Back-N ARQ",
             "Selective Repeat ARQ",
             "ALOHA protocols",
-            "IEEE standards (802.3, 802.4, 802.5)"
+            "IEEE standards (802.3, 802.4, 802.5)",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand retransmission mechanisms",
@@ -342,7 +343,8 @@
             "DNS, HTTP, HTTPS working",
             "FTP, SMTP, POP3, IMAP",
             "Remote login: Telnet, SSH",
-            "SNMP basics"
+            "SNMP basics",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand real-world protocols"

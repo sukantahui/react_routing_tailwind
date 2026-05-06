@@ -86,7 +86,7 @@ const Topic25 = () => {
         <div className="space-y-10">
           
           {/* Card: Why Structured Cabling Matters */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🏢</span> The Backbone of Every Office & School
             </h2>
@@ -106,7 +106,7 @@ const Topic25 = () => {
           </div>
           
           {/* SVG: Structured Cabling Architecture */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📐</span> Structured Cabling Architecture
             </h2>
@@ -183,7 +183,7 @@ const Topic25 = () => {
           </div>
           
           {/* Interactive Cable Length Calculator */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📏</span> Interactive: Cable Length & Category Selector
             </h2>
@@ -256,7 +256,7 @@ const Topic25 = () => {
           </div>
           
           {/* T568A vs T568B Wiring Standards */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🔌</span> Wiring Standards: T568A vs T568B
             </h2>
@@ -298,7 +298,7 @@ const Topic25 = () => {
           </div>
           
           {/* Structured Cabling Components */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🧰</span> Components of a Structured Cabling System
             </h2>
@@ -314,7 +314,7 @@ const Topic25 = () => {
           </div>
           
           {/* Real-World Case: School Computer Lab in Naihati */}
-          <div className="group bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">🏫</span> Real-World Case: Naihati School Computer Lab
             </h2>
@@ -345,7 +345,7 @@ const Topic25 = () => {
           </div>
           
           {/* Common Installation Mistakes */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-600 dark:text-red-400">
               <span className="text-3xl">⚠️</span> Common Installation Mistakes
             </h2>
@@ -361,7 +361,7 @@ const Topic25 = () => {
           </div>
           
           {/* Tips & Tricks */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">💎</span> Professional Tips & Tricks
             </h2>
@@ -389,7 +389,7 @@ const Topic25 = () => {
           </div>
           
           {/* Best Practices */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-green-600 dark:text-green-400">
               <span className="text-3xl">✅</span> Best Practices for LAN Cabling
             </h2>
@@ -418,7 +418,7 @@ const Topic25 = () => {
           </div>
           
           {/* Hint Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">💭</span> Think About...
             </h2>
@@ -431,12 +431,12 @@ const Topic25 = () => {
           </div>
           
           {/* Teacher's Note */}
-          <div className="animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s]  ">
             <Teacher note="LAN cabling is the most hands-on topic in the physical layer. Students should actually terminate a jack and test it — nothing beats practical experience. Emphasize that 90% of network problems are physical layer issues: bad cables, loose connections, or improper termination. The T568A/B table is essential reference material. For schools, recommend Cat6 as the minimum today — Cat5e is obsolete for new installations. And always, always leave service loops!" />
           </div>
           
           {/* Q&A Section */}
-          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.2s]  ">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <span className="text-3xl">❓</span> 15 Questions & Answers
             </h2>

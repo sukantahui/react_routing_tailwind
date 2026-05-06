@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import Topic_HDLC from "./topic5_files/Topic_HDLC";
 
 /**
  * Topic5: Data Link Layer – framing, MAC addressing, error detection, switches
@@ -15,6 +16,8 @@ import Teacher from "../../../../../common/TeacherSukantaHui";
  */
 
 const Topic5 = () => {
+  const [showHDLC, setShowHDLC] = useState(false);
+
   // Keyframes for fade-slide-up animation
   const keyframesStyle = `
     @keyframes fadeSlideUp {
@@ -28,6 +31,24 @@ const Topic5 = () => {
       }
     }
   `;
+
+  // If HDLC should be shown, render that component
+  if (showHDLC) {
+    return (
+      <>
+        <style>{keyframesStyle}</style>
+        <div className="relative">
+          <button
+            onClick={() => setShowHDLC(false)}
+            className="fixed top-4 left-4 z-50 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition-all duration-300 hover:scale-105 focus:outline-none"
+          >
+            ← Back to Data Link Layer
+          </button>
+          <Topic_HDLC />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -234,6 +255,16 @@ const Topic5 = () => {
               <div className="flex items-center gap-2"><span className="text-green-500 text-xl">✓</span> Switches create separate collision domains</div>
             </div>
           </section>
+
+          {/* Button to Learn HDLC */}
+          <div className="flex justify-center mt-8 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[950ms]">
+            <button
+              onClick={() => setShowHDLC(true)}
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
+            >
+              Learn HDLC – Advanced Data Link Control
+            </button>
+          </div>
 
           {/* Teacher's Note */}
           <div className="opacity-0 translate-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[1000ms]">

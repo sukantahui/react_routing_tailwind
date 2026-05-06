@@ -1,0 +1,1365 @@
+{
+    "subject": "Computer Networks",
+    "class": "BCA",
+    "board": "ANY",
+    "topic": "Application Layer Protocol",
+    "subjectLogo": {
+        "name": "Computer Networks",
+        "icon": "network-wired",
+        "type": "svg",
+        "path": "/logos/Network.svg",
+        "alt": "Computer Networks Logo"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "topic": "DNS",
+            "difficulty": "Beginner",
+            "question": "What does DNS stand for?",
+            "output": "Domain Name System.",
+            "answer": "Domain Name System",
+            "explanation": "DNS translates human‑readable domain names (e.g., www.example.com) into IP addresses (e.g., 192.0.2.1)."
+        },
+        {
+            "id": 2,
+            "topic": "DNS",
+            "difficulty": "Beginner",
+            "question": "What is the main purpose of DNS?",
+            "output": "To resolve domain names to IP addresses.",
+            "answer": "To resolve domain names to IP addresses",
+            "explanation": "DNS acts like a phonebook for the internet, allowing users to use memorable names instead of numeric IP addresses."
+        },
+        {
+            "id": 3,
+            "topic": "DNS",
+            "difficulty": "Beginner",
+            "question": "What are the two main types of DNS queries?",
+            "output": "Recursive and iterative queries.",
+            "answer": "Recursive and iterative queries",
+            "explanation": "In a recursive query, the DNS server must provide a complete answer. In an iterative query, the server returns the best answer it can, and the client may need to query again."
+        },
+        {
+            "id": 4,
+            "topic": "DNS",
+            "difficulty": "Beginner",
+            "question": "What is a DNS resolver?",
+            "output": "A client component that sends queries to DNS servers.",
+            "answer": "A client component that sends queries to DNS servers",
+            "explanation": "The resolver is usually part of the operating system or application (e.g., `nslookup`, `dig`) that initiates DNS lookups."
+        },
+        {
+            "id": 5,
+            "topic": "DNS",
+            "difficulty": "Beginner",
+            "question": "What is a DNS zone?",
+            "output": "A administrative space within the DNS namespace.",
+            "answer": "An administrative space within the DNS namespace",
+            "explanation": "A zone contains records for a portion of the domain tree; it is managed by a name server and stored in zone files."
+        },
+        {
+            "id": 6,
+            "topic": "DNS",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between an A record and a CNAME record?",
+            "output": "A record maps a name to an IPv4 address; CNAME maps an alias to another domain name.",
+            "answer": "A record maps a name to an IPv4 address; CNAME maps an alias to another domain name",
+            "explanation": "A records are used for direct host‑to‑IP resolution; CNAMEs are used for aliasing, e.g., `www` to `example.com`."
+        },
+        {
+            "id": 7,
+            "topic": "DNS",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of an MX record?",
+            "output": "Specifies the mail exchange server(s) for a domain.",
+            "answer": "Specifies the mail exchange server(s) for a domain",
+            "explanation": "MX records prioritize email delivery; the lowest preference number is most preferred."
+        },
+        {
+            "id": 8,
+            "topic": "DNS",
+            "difficulty": "Intermediate",
+            "question": "What is a TTL in DNS and why is it important?",
+            "output": "Time To Live – duration a DNS record can be cached before it must be refreshed.",
+            "answer": "Time To Live – duration a DNS record can be cached before it must be refreshed",
+            "explanation": "TTL balances load on authoritative servers and propagation speed; shorter TTLs allow rapid updates but increase queries."
+        },
+        {
+            "id": 9,
+            "topic": "DNS",
+            "difficulty": "Advanced",
+            "question": "What is DNS over HTTPS (DoH)?",
+            "output": "Encrypts DNS queries using HTTPS protocol.",
+            "answer": "Encrypts DNS queries using HTTPS protocol",
+            "explanation": "DoH improves privacy and security by preventing eavesdropping and man‑in‑the‑middle attacks on DNS queries."
+        },
+        {
+            "id": 10,
+            "topic": "DNS",
+            "difficulty": "Advanced",
+            "question": "What is a DNS amplification attack?",
+            "output": "A DDoS attack that exploits open resolvers to flood a target with large responses.",
+            "answer": "A DDoS attack that exploits open resolvers to flood a target with large responses",
+            "explanation": "Attackers send small queries with spoofed source IP (the victim), causing large responses to be sent to the victim."
+        },
+        {
+            "id": 11,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Beginner",
+            "question": "What does HTTP stand for?",
+            "output": "HyperText Transfer Protocol.",
+            "answer": "HyperText Transfer Protocol",
+            "explanation": "HTTP is the foundation of data communication on the World Wide Web."
+        },
+        {
+            "id": 12,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Beginner",
+            "question": "What is the default port for HTTP?",
+            "output": "80.",
+            "answer": "80",
+            "explanation": "HTTP servers listen on port 80 by default; clients connect to this port unless another is specified."
+        },
+        {
+            "id": 13,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Beginner",
+            "question": "What does HTTPS stand for?",
+            "output": "HyperText Transfer Protocol Secure.",
+            "answer": "HyperText Transfer Protocol Secure",
+            "explanation": "HTTPS is HTTP over TLS/SSL, providing encryption, integrity, and authentication."
+        },
+        {
+            "id": 14,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Beginner",
+            "question": "What is the default port for HTTPS?",
+            "output": "443.",
+            "answer": "443",
+            "explanation": "HTTPS uses port 443 by default, where the server expects a TLS handshake before HTTP communication."
+        },
+        {
+            "id": 15,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between HTTP 1.0 and HTTP 1.1?",
+            "output": "HTTP 1.1 supports persistent connections (keep‑alive), chunked transfer encoding, and host headers.",
+            "answer": "HTTP 1.1 supports persistent connections, chunked transfer encoding, and host headers",
+            "explanation": "Persistent connections reduce latency by allowing multiple requests over one TCP connection."
+        },
+        {
+            "id": 16,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Intermediate",
+            "question": "What does the 404 status code indicate?",
+            "output": "Not Found – the server could not find the requested resource.",
+            "answer": "Not Found – the server could not find the requested resource",
+            "explanation": "404 is a client error response indicating the URL does not map to any resource."
+        },
+        {
+            "id": 17,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between HTTP and HTTPS?",
+            "output": "HTTPS uses encryption (TLS/SSL) while HTTP does not.",
+            "answer": "HTTPS uses encryption (TLS/SSL) while HTTP does not",
+            "explanation": "HTTPS protects against eavesdropping, tampering, and impersonation; HTTP is plaintext."
+        },
+        {
+            "id": 18,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Advanced",
+            "question": "What is a TLS handshake?",
+            "output": "The process of establishing a secure connection, including cipher negotiation, certificate exchange, and key agreement.",
+            "answer": "The process of establishing a secure connection, including cipher negotiation, certificate exchange, and key agreement",
+            "explanation": "It involves the client and server agreeing on encryption methods and exchanging keys for symmetric encryption."
+        },
+        {
+            "id": 19,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Advanced",
+            "question": "What is HTTP/2 and how does it improve performance?",
+            "output": "HTTP/2 adds binary framing, multiplexing, server push, and header compression.",
+            "answer": "HTTP/2 adds binary framing, multiplexing, server push, and header compression",
+            "explanation": "Multiplexing allows multiple requests and responses over a single connection without head‑of‑line blocking."
+        },
+        {
+            "id": 20,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Advanced",
+            "question": "What is a man‑in‑the‑middle (MITM) attack in the context of HTTPS?",
+            "output": "An attack where an adversary intercepts and potentially alters communication between client and server.",
+            "answer": "An attack where an adversary intercepts and potentially alters communication between client and server",
+            "explanation": "HTTPS with proper certificate validation protects against MITM; self‑signed or invalid certificates are vulnerable."
+        },
+        {
+            "id": 21,
+            "topic": "FTP",
+            "difficulty": "Beginner",
+            "question": "What does FTP stand for?",
+            "output": "File Transfer Protocol.",
+            "answer": "File Transfer Protocol",
+            "explanation": "FTP is a standard network protocol for transferring files between a client and server."
+        },
+        {
+            "id": 22,
+            "topic": "FTP",
+            "difficulty": "Beginner",
+            "question": "What ports does FTP use?",
+            "output": "Port 21 for control (commands), and port 20 for data (active mode).",
+            "answer": "Port 21 for control and port 20 for data",
+            "explanation": "Control connection stays open; data connection is opened per transfer or directory listing."
+        },
+        {
+            "id": 23,
+            "topic": "FTP",
+            "difficulty": "Beginner",
+            "question": "What is the difference between active and passive FTP?",
+            "output": "Active FTP opens data connection from server to client; passive FTP opens from client to server.",
+            "answer": "Active FTP: server initiates data connection; passive FTP: client initiates data connection",
+            "explanation": "Passive mode is often required when the client is behind a firewall/NAT."
+        },
+        {
+            "id": 24,
+            "topic": "FTP",
+            "difficulty": "Intermediate",
+            "question": "What are the typical FTP command and reply codes?",
+            "output": "e.g., USER, PASS, RETR, STOR; reply 200 (OK), 331 (password needed), 226 (transfer complete).",
+            "answer": "Commands: USER, PASS, RETR, STOR, LIST; reply codes: 2xx success, 3xx intermediate, 4xx temporary error, 5xx permanent error",
+            "explanation": "Reply codes follow a defined structure (XYZ: X = success/failure, Y = category, Z = specific)."
+        },
+        {
+            "id": 25,
+            "topic": "FTP",
+            "difficulty": "Intermediate",
+            "question": "What is anonymous FTP?",
+            "output": "FTP access using 'anonymous' as username and email as password (or no password).",
+            "answer": "FTP access using 'anonymous' as username and email as password (or no password)",
+            "explanation": "Allows public access to files without individual accounts."
+        },
+        {
+            "id": 26,
+            "topic": "FTP",
+            "difficulty": "Advanced",
+            "question": "What is FTPS and how is it different from SFTP?",
+            "output": "FTPS is FTP over TLS/SSL; SFTP is file transfer over SSH.",
+            "answer": "FTPS is FTP over TLS/SSL; SFTP is file transfer over SSH",
+            "explanation": "FTPS uses separate control and data channels; SFTP runs over a single SSH channel and is more firewall‑friendly."
+        },
+        {
+            "id": 27,
+            "topic": "SMTP",
+            "difficulty": "Beginner",
+            "question": "What does SMTP stand for?",
+            "output": "Simple Mail Transfer Protocol.",
+            "answer": "Simple Mail Transfer Protocol",
+            "explanation": "SMTP is used for sending emails from clients to servers and between mail servers."
+        },
+        {
+            "id": 28,
+            "topic": "SMTP",
+            "difficulty": "Beginner",
+            "question": "What is the default port for SMTP?",
+            "output": "25 (plain), 587 (submission), 465 (SMTP over SSL).",
+            "answer": "25, 587, 465",
+            "explanation": "Port 25 is traditional but often blocked; port 587 is for authenticated submission; port 465 is deprecated but still used."
+        },
+        {
+            "id": 29,
+            "topic": "SMTP",
+            "difficulty": "Intermediate",
+            "question": "What is a Mail Transfer Agent (MTA)?",
+            "output": "Software that transfers email between servers using SMTP (e.g., Postfix, Sendmail).",
+            "answer": "Software that transfers email between servers using SMTP",
+            "explanation": "MTAs receive, queue, and relay emails; they also handle retries and delivery status notifications."
+        },
+        {
+            "id": 30,
+            "topic": "SMTP",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between SMTP and SMTP submission?",
+            "output": "SMTP (port 25) is for server‑to‑server relay; SMTP submission (port 587) is for email clients to submit messages.",
+            "answer": "SMTP (port 25) is for server‑to‑server relay; SMTP submission (port 587) is for email clients to submit messages",
+            "explanation": "Port 587 often requires authentication and TLS, while port 25 may be open relay (security risk)."
+        },
+        {
+            "id": 31,
+            "topic": "SMTP",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the EHLO command?",
+            "output": "Extended HELO – announces client's domain and requests extended SMTP capabilities.",
+            "answer": "Extended HELO – announces client's domain and requests extended SMTP capabilities",
+            "explanation": "EHLO introduces ESMTP extensions like STARTTLS, PIPELINING, SIZE, etc."
+        },
+        {
+            "id": 32,
+            "topic": "POP3",
+            "difficulty": "Beginner",
+            "question": "What does POP3 stand for?",
+            "output": "Post Office Protocol version 3.",
+            "answer": "Post Office Protocol version 3",
+            "explanation": "POP3 is used to retrieve emails from a server to a client, usually deleting them from the server afterwards."
+        },
+        {
+            "id": 33,
+            "topic": "POP3",
+            "difficulty": "Beginner",
+            "question": "What is the default port for POP3?",
+            "output": "110 (plain), 995 (POP3 over SSL).",
+            "answer": "110, 995",
+            "explanation": "Port 110 is plaintext; port 995 is POP3S with TLS/SSL encryption."
+        },
+        {
+            "id": 34,
+            "topic": "POP3",
+            "difficulty": "Intermediate",
+            "question": "What are the main states of POP3?",
+            "output": "Authorization, Transaction, and Update (or Ready, Transaction, Update).",
+            "answer": "Authorization, Transaction, and Update",
+            "explanation": "Authorization: user/pass; Transaction: list, retrieve, delete; Update: commit deletions."
+        },
+        {
+            "id": 35,
+            "topic": "POP3",
+            "difficulty": "Intermediate",
+            "question": "How does POP3 differ from IMAP?",
+            "output": "POP3 downloads and often deletes messages; IMAP keeps messages on the server and synchronises across clients.",
+            "answer": "POP3 downloads and often deletes messages; IMAP synchronises server state with multiple clients",
+            "explanation": "IMAP supports folders, server‑side searching, and partial message fetch, while POP3 is simpler."
+        },
+        {
+            "id": 36,
+            "topic": "IMAP",
+            "difficulty": "Beginner",
+            "question": "What does IMAP stand for?",
+            "output": "Internet Message Access Protocol.",
+            "answer": "Internet Message Access Protocol",
+            "explanation": "IMAP allows accessing and managing email messages stored on a remote server."
+        },
+        {
+            "id": 37,
+            "topic": "IMAP",
+            "difficulty": "Beginner",
+            "question": "What are the default ports for IMAP?",
+            "output": "143 (plain), 993 (IMAP over SSL).",
+            "answer": "143, 993",
+            "explanation": "Port 143 is standard; port 993 is IMAPS with TLS immediately."
+        },
+        {
+            "id": 38,
+            "topic": "IMAP",
+            "difficulty": "Intermediate",
+            "question": "What are IMAP's four primary states?",
+            "output": "Non‑authenticated, Authenticated, Selected, Logout.",
+            "answer": "Non‑authenticated, Authenticated, Selected, Logout",
+            "explanation": "Non‑authenticated before LOGIN; Authenticated after login; Selected when a mailbox is opened; Logout after LOGOUT."
+        },
+        {
+            "id": 39,
+            "topic": "IMAP",
+            "difficulty": "Advanced",
+            "question": "What is an IMAP UID and why is it used?",
+            "output": "Unique Identifier – a permanent identifier for a message within a mailbox.",
+            "answer": "Unique Identifier – a permanent identifier for a message within a mailbox",
+            "explanation": "UIDs allow clients to track messages even after their sequence numbers change due to expunges."
+        },
+        {
+            "id": 40,
+            "topic": "Remote Login: Telnet",
+            "difficulty": "Beginner",
+            "question": "What does Telnet stand for?",
+            "output": "Teletype Network (or Telecommunication Network).",
+            "answer": "Teletype Network",
+            "explanation": "Telnet is a protocol for bidirectional interactive text‑based communication, often used for remote login."
+        },
+        {
+            "id": 41,
+            "topic": "Remote Login: Telnet",
+            "difficulty": "Beginner",
+            "question": "What is the default port for Telnet?",
+            "output": "23.",
+            "answer": "23",
+            "explanation": "Telnet servers listen on port 23 and exchange data in plaintext, including credentials."
+        },
+        {
+            "id": 42,
+            "topic": "Remote Login: Telnet",
+            "difficulty": "Intermediate",
+            "question": "What are the main security weaknesses of Telnet?",
+            "output": "Transmits data (including passwords) in plaintext; no encryption, easy to eavesdrop.",
+            "answer": "Transmits data (including passwords) in plaintext; no encryption, easy to eavesdrop",
+            "explanation": "Because of these vulnerabilities, Telnet has been largely replaced by SSH."
+        },
+        {
+            "id": 43,
+            "topic": "Remote Login: SSH",
+            "difficulty": "Beginner",
+            "question": "What does SSH stand for?",
+            "output": "Secure Shell.",
+            "answer": "Secure Shell",
+            "explanation": "SSH provides encrypted remote login and command execution, replacing insecure protocols like Telnet and rlogin."
+        },
+        {
+            "id": 44,
+            "topic": "Remote Login: SSH",
+            "difficulty": "Beginner",
+            "question": "What is the default port for SSH?",
+            "output": "22.",
+            "answer": "22",
+            "explanation": "SSH servers listen on TCP port 22; it can be changed for security, but port 22 is the standard."
+        },
+        {
+            "id": 45,
+            "topic": "Remote Login: SSH",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between SSH‑1 and SSH‑2?",
+            "output": "SSH‑2 is a complete rewrite, more secure, with stronger cryptography and separate transport, authentication, and connection protocols.",
+            "answer": "SSH‑2 is more secure, with stronger cryptography and separate transport, authentication, and connection protocols",
+            "explanation": "SSH‑1 is obsolete and vulnerable to attacks; SSH‑2 is the current standard."
+        },
+        {
+            "id": 46,
+            "topic": "Remote Login: SSH",
+            "difficulty": "Advanced",
+            "question": "What is port forwarding (tunneling) in SSH?",
+            "output": "Forwarding TCP connections through an SSH channel to access remote services securely.",
+            "answer": "Forwarding TCP connections through an SSH channel to access remote services securely",
+            "explanation": "Local, remote, and dynamic forwarding allow secure access to internal services or bypass firewalls."
+        },
+        {
+            "id": 47,
+            "topic": "SNMP",
+            "difficulty": "Beginner",
+            "question": "What does SNMP stand for?",
+            "output": "Simple Network Management Protocol.",
+            "answer": "Simple Network Management Protocol",
+            "explanation": "SNMP is used for monitoring and managing network devices (routers, switches, servers)."
+        },
+        {
+            "id": 48,
+            "topic": "SNMP",
+            "difficulty": "Beginner",
+            "question": "What are the main components of SNMP?",
+            "output": "Managed device, agent, network management system (NMS), and management information base (MIB).",
+            "answer": "Managed device, agent, NMS, and MIB",
+            "explanation": "Agents on devices collect data and send to NMS using SNMP; MIB defines the data structure."
+        },
+        {
+            "id": 49,
+            "topic": "SNMP",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between SNMPv1, v2c, and v3?",
+            "output": "v1 and v2c use community strings (weak security); v3 offers authentication, privacy, and access control.",
+            "answer": "v1 and v2c use community strings (weak security); v3 offers authentication, privacy, and access control",
+            "explanation": "SNMPv3 is the secure version with encryption and user‑based security."
+        },
+        {
+            "id": 50,
+            "topic": "SNMP",
+            "difficulty": "Advanced",
+            "question": "What is a management information base (MIB)?",
+            "output": "A hierarchical database that defines managed objects and their OIDs.",
+            "answer": "A hierarchical database that defines managed objects and their OIDs",
+            "explanation": "MIB modules are written in ASN.1; OIDs uniquely identify variables (e.g., system uptime, interface counters)."
+        },
+        {
+            "id": 51,
+            "topic": "DNS",
+            "difficulty": "Advanced",
+            "question": "What is a DNS root server and how many are there?",
+            "output": "Root servers are the top-level DNS servers that answer queries for the root zone; there are 13 logical root servers (with many physical instances).",
+            "answer": "13 logical root servers",
+            "explanation": "The root servers are operated by different organisations and are critical for DNS resolution; they direct queries to appropriate TLD servers."
+        },
+        {
+            "id": 52,
+            "topic": "DNS",
+            "difficulty": "Advanced",
+            "question": "What is a DNS reverse lookup?",
+            "output": "Mapping an IP address to a domain name using PTR records.",
+            "answer": "Mapping an IP address to a domain name using PTR records",
+            "explanation": "Reverse lookups are used for logging, authentication (e.g., SMTP), and troubleshooting."
+        },
+        {
+            "id": 53,
+            "topic": "DNS",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of a TXT record in DNS?",
+            "output": "Stores arbitrary text information; often used for verification (SPF, DKIM, DMARC).",
+            "answer": "Stores arbitrary text information; often used for verification (SPF, DKIM, DMARC)",
+            "explanation": "TXT records are essential for email security policies and domain ownership validation."
+        },
+        {
+            "id": 54,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Advanced",
+            "question": "What is a cookie (HTTP cookie) and how is it used?",
+            "output": "A small piece of data sent from a server to a client, stored and sent back on subsequent requests to maintain state (session).",
+            "answer": "A small piece of data sent from a server to a client, stored and sent back on subsequent requests to maintain state",
+            "explanation": "Cookies enable session management, personalisation, and tracking."
+        },
+        {
+            "id": 55,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Advanced",
+            "question": "What is the difference between HTTP redirects 301 and 302?",
+            "output": "301 indicates permanent redirect; 302 indicates temporary redirect.",
+            "answer": "301 permanent, 302 temporary",
+            "explanation": "Search engines treat 301 as transferring page rank; browsers may cache 301, while 302 is not cached."
+        },
+        {
+            "id": 56,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is HSTS (HTTP Strict Transport Security)?",
+            "output": "A web security policy that forces browsers to use HTTPS only for a given domain.",
+            "answer": "A web security policy that forces browsers to use HTTPS only for a given domain",
+            "explanation": "HSTS prevents SSL stripping and man‑in‑the‑middle attacks by instructing the browser to never use HTTP."
+        },
+        {
+            "id": 57,
+            "topic": "FTP",
+            "difficulty": "Advanced",
+            "question": "What is an FTP bounce attack?",
+            "output": "An attack where an attacker uses an FTP server to scan other hosts by specifying a target IP and port in PORT command.",
+            "answer": "An attack where an attacker uses an FTP server to scan other hosts by specifying a target IP and port in PORT command",
+            "explanation": "FTP bounce attack exploits the proxy nature of active FTP; modern FTP servers restrict the PORT command to prevent this."
+        },
+        {
+            "id": 58,
+            "topic": "FTP",
+            "difficulty": "Advanced",
+            "question": "What is TFTP and how does it differ from FTP?",
+            "output": "Trivial File Transfer Protocol – uses UDP (port 69), no authentication, simple file transfer.",
+            "answer": "Trivial File Transfer Protocol – uses UDP (port 69), no authentication, simple file transfer",
+            "explanation": "TFTP is used for network boot (PXE), firmware updates, and where minimal overhead is needed."
+        },
+        {
+            "id": 59,
+            "topic": "SMTP",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `DATA` command in SMTP?",
+            "output": "Initiates the transfer of the email message content from client to server.",
+            "answer": "Initiates the transfer of the email message content from client to server",
+            "explanation": "After DATA, the client sends the message headers and body, terminated by a line containing only a period."
+        },
+        {
+            "id": 60,
+            "topic": "SMTP",
+            "difficulty": "Advanced",
+            "question": "What is SMTP relay and why is open relay dangerous?",
+            "output": "SMTP relay is forwarding email from a client to another server; open relay allows anyone to relay, leading to spam.",
+            "answer": "SMTP relay is forwarding email from a client to another server; open relay allows anyone to relay, leading to spam",
+            "explanation": "Spammers exploit open relays to send large volumes of email anonymously."
+        },
+        {
+            "id": 61,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is Bounce Address Tag Validation (BATV) in SMTP?",
+            "output": "A method to validate return paths using a cryptographic signature to prevent backscatter spam.",
+            "answer": "A method to validate return paths using a cryptographic signature to prevent backscatter spam",
+            "explanation": "BATV adds a signature to the envelope sender to verify that the bounce was generated by the original sender’s server."
+        },
+        {
+            "id": 62,
+            "topic": "POP3",
+            "difficulty": "Advanced",
+            "question": "What is the `UIDL` command in POP3?",
+            "output": "Returns a unique identifier list for messages, allowing clients to avoid re‑downloading the same email.",
+            "answer": "Returns a unique identifier list for messages, allowing clients to avoid re‑downloading the same email",
+            "explanation": "UIDL helps POP3 clients keep track of which messages have already been retrieved, even after session ends."
+        },
+        {
+            "id": 63,
+            "topic": "IMAP",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `SEARCH` command in IMAP?",
+            "output": "Searches the currently selected mailbox for messages matching given criteria (e.g., date, subject).",
+            "answer": "Searches the currently selected mailbox for messages matching given criteria",
+            "explanation": "SEARCH is performed server‑side, saving bandwidth compared to downloading all messages for client‑side search."
+        },
+        {
+            "id": 64,
+            "topic": "IMAP",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `FLAG` and `PERMANENTFLAGS` in IMAP?",
+            "output": "FLAGS are the current flags for a message; PERMANENTFLAGS lists which flags the server allows the client to modify permanently.",
+            "answer": "FLAGS are the current flags for a message; PERMANENTFLAGS lists which flags the server allows the client to modify permanently",
+            "explanation": "Common flags: \\Seen, \\Answered, \\Flagged, \\Deleted, \\Draft."
+        },
+        {
+            "id": 65,
+            "topic": "Telnet & SSH",
+            "difficulty": "Intermediate",
+            "question": "What is the Network Virtual Terminal (NVT) in Telnet?",
+            "output": "A standard representation of a terminal with defined control characters, enabling interoperability.",
+            "answer": "A standard representation of a terminal with defined control characters, enabling interoperability",
+            "explanation": "NVT translates different terminal behaviors so that clients and servers can communicate regardless of their native characteristics."
+        },
+        {
+            "id": 66,
+            "topic": "Telnet & SSH",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of SSH key authentication?",
+            "output": "Authenticates a user using a public/private key pair instead of a password.",
+            "answer": "Authenticates a user using a public/private key pair instead of a password",
+            "explanation": "SSH keys are more secure against brute‑force attacks and can be used for automated logins (e.g., in scripts)."
+        },
+        {
+            "id": 67,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the role of the SSH agent and what does it solve?",
+            "output": "SSH agent holds private keys in memory, allowing users to authenticate without re‑entering passphrases repeatedly.",
+            "answer": "SSH agent holds private keys in memory, allowing users to authenticate without re‑entering passphrases repeatedly",
+            "explanation": "The agent forwards authentication requests, useful for hopping between multiple servers without key exposure."
+        },
+        {
+            "id": 68,
+            "topic": "SNMP",
+            "difficulty": "Advanced",
+            "question": "What are SNMP traps and informs?",
+            "output": "Traps are asynchronous notifications from agent to manager; informs require an acknowledgement.",
+            "answer": "Traps are asynchronous notifications from agent to manager; informs require an acknowledgement",
+            "explanation": "Informs are more reliable than traps because the manager sends an ACK; traps are fire‑and‑forget."
+        },
+        {
+            "id": 69,
+            "topic": "SNMP",
+            "difficulty": "Advanced",
+            "question": "What is the difference between SNMP GET, GETNEXT, and GETBULK?",
+            "output": "GET retrieves a single OID; GETNEXT retrieves the next OID in the tree; GETBULK retrieves multiple OIDs efficiently.",
+            "answer": "GET retrieves a single OID; GETNEXT retrieves the next OID in the tree; GETBULK retrieves multiple OIDs efficiently",
+            "explanation": "GETBULK is used in SNMPv2 and v3 to reduce the number of requests when walking a MIB table."
+        },
+        {
+            "id": 70,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is DNSSEC and what problem does it solve?",
+            "output": "DNS Security Extensions – adds digital signatures to DNS records to prevent cache poisoning and spoofing.",
+            "answer": "DNS Security Extensions – adds digital signatures to DNS records to prevent cache poisoning and spoofing",
+            "explanation": "DNSSEC provides data origin authentication and integrity, but does not encrypt DNS queries."
+        },
+        {
+            "id": 71,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is a WebSocket and how does it differ from HTTP?",
+            "output": "WebSocket is a full‑duplex, persistent connection protocol over a single TCP socket; HTTP is request‑response.",
+            "answer": "WebSocket is a full‑duplex, persistent connection protocol; HTTP is request‑response",
+            "explanation": "WebSockets start with an HTTP upgrade handshake, then switch to a separate protocol for low‑latency bi‑directional communication."
+        },
+        {
+            "id": 72,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the role of the `REST` command in FTP?",
+            "output": "Restart – sets the offset at which to start transferring a file, enabling resume of interrupted transfers.",
+            "answer": "Restart – sets the offset at which to start transferring a file, enabling resume of interrupted transfers",
+            "explanation": "REST is used with RETR or STOR to resume download or upload from a specific byte position."
+        },
+        {
+            "id": 73,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the difference between the `MAIL FROM` and `From:` header in SMTP?",
+            "output": "MAIL FROM is the envelope sender used for delivery; From: header is the visible message author.",
+            "answer": "MAIL FROM is the envelope sender used for delivery; From: header is the visible message author",
+            "explanation": "Bounce messages go to the envelope sender, which can differ from the From: header (used for reply)."
+        },
+        {
+            "id": 74,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `EXPUNGE` command in IMAP?",
+            "output": "Permanently removes messages marked with the `\\Deleted` flag from the mailbox.",
+            "answer": "Permanently removes messages marked with the `\\Deleted` flag from the mailbox",
+            "explanation": "Messages are not removed until EXPUNGE is issued; CLOSE also expunges implicitly."
+        },
+        {
+            "id": 75,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is SSH X11 forwarding and security implication?",
+            "output": "Forwarding X11 graphical applications from server to client over an SSH tunnel, allowing remote GUI execution.",
+            "answer": "Forwarding X11 graphical applications from server to client over an SSH tunnel, allowing remote GUI execution",
+            "explanation": "X11 forwarding can be a security risk if not properly restricted, as it bypasses some firewall controls."
+        },
+        {
+            "id": 76,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the SNMP Community String and why is it a security weakness?",
+            "output": "A clear‑text password used in SNMPv1/v2c for authentication; it is transmitted in the clear and easily captured.",
+            "answer": "A clear‑text password used in SNMPv1/v2c for authentication; it is transmitted in the clear and easily captured",
+            "explanation": "SNMPv3 addresses this by using per‑user authentication and encryption."
+        },
+        {
+            "id": 77,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is the EDNS0 extension and why was it needed?",
+            "output": "Extension Mechanisms for DNS (EDNS0) allows larger UDP payloads, DNSSEC, and client subnet options.",
+            "answer": "Extension Mechanisms for DNS (EDNS0) allows larger UDP payloads, DNSSEC, and client subnet options",
+            "explanation": "Classic DNS limited UDP to 512 bytes; EDNS0 enables up to 4096 bytes or more, essential for DNSSEC responses."
+        },
+        {
+            "id": 78,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is HTTP/3 and what transport protocol does it use?",
+            "output": "HTTP/3 uses QUIC (UDP‑based) instead of TCP to reduce connection latency and head‑of‑line blocking.",
+            "answer": "HTTP/3 uses QUIC (UDP‑based) instead of TCP to reduce connection latency and head‑of‑line blocking",
+            "explanation": "QUIC integrates TLS 1.3 and multiplexing, offering faster connection establishment and better performance on lossy networks."
+        },
+        {
+            "id": 79,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the `MLSD` command in FTP and how does it improve directory listing?",
+            "output": "Machine‑readable directory listing (MLSD) returns a standardized, parsable format with file attributes.",
+            "answer": "Machine‑readable directory listing (MLSD) returns a standardized, parsable format with file attributes",
+            "explanation": "MLSD avoids the ambiguity of the legacy LIST command, which returns human‑oriented output that varies between servers."
+        },
+        {
+            "id": 80,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `STARTTLS` command in SMTP?",
+            "output": "Upgrades an existing plain SMTP connection to TLS encryption.",
+            "answer": "Upgrades an existing plain SMTP connection to TLS encryption",
+            "explanation": "STARTTLS allows opportunistic encryption; servers may offer it as an ESMTP extension."
+        },
+        {
+            "id": 81,
+            "topic": "POP3",
+            "difficulty": "Expert",
+            "question": "What is the `TOP` command in POP3?",
+            "output": "Retrieves the header and a specified number of lines of the message body, without marking it as seen.",
+            "answer": "Retrieves the header and a specified number of lines of the message body, without marking it as seen",
+            "explanation": "TOP is useful for previewing messages before deciding to download them fully."
+        },
+        {
+            "id": 82,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `IDLE` command in IMAP?",
+            "output": "Allows the server to push mailbox updates (new messages, changes) to the client without the client polling.",
+            "answer": "Allows the server to push mailbox updates (new messages, changes) to the client without the client polling",
+            "explanation": "IDLE reduces network overhead and latency for real‑time email notifications."
+        },
+        {
+            "id": 83,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the difference between SSH port forwarding `-L` and `-R`?",
+            "output": "`-L` forwards local port to remote host (local forwarding); `-R` forwards remote port to local host (remote forwarding).",
+            "answer": "`-L` forwards local port to remote host; `-R` forwards remote port to local host",
+            "explanation": "Local forwarding tunnels traffic from the SSH client side; remote forwarding tunnels from the SSH server side."
+        },
+        {
+            "id": 84,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `snmptrapd` daemon?",
+            "output": "Receives and logs SNMP traps and informs from network devices.",
+            "answer": "Receives and logs SNMP traps and informs from network devices",
+            "explanation": "snmptrapd can also forward notifications or execute scripts based on received traps."
+        },
+        {
+            "id": 85,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS NS record and how is it used in delegation?",
+            "output": "NS record identifies the authoritative name servers for a domain; used to delegate subdomains.",
+            "answer": "NS record identifies the authoritative name servers for a domain; used to delegate subdomains",
+            "explanation": "When a resolver queries for a domain, the NS record points to the servers that hold the actual zone data."
+        },
+        {
+            "id": 86,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the difference between HTTP persistent connection and HTTP pipelining?",
+            "output": "Persistent connection reuses the same TCP connection for multiple requests; pipelining sends multiple requests without waiting for responses.",
+            "answer": "Persistent connection reuses the same TCP connection; pipelining sends multiple requests without waiting for responses",
+            "explanation": "Pipelining can improve latency but suffers from head‑of‑line blocking; HTTP/2 multiplexing solves this."
+        },
+        {
+            "id": 87,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the `ABOR` command in FTP?",
+            "output": "Abort the current data transfer (e.g., file upload/download).",
+            "answer": "Abort the current data transfer",
+            "explanation": "The server responds with 426 (transfer aborted) and 226 (abort successful)."
+        },
+        {
+            "id": 88,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `VRFY` command in SMTP and why is it often disabled?",
+            "output": "Verifies whether a mailbox exists on the server; disabled because it helps spammers harvest email addresses.",
+            "answer": "Verifies whether a mailbox exists on the server; disabled because it helps spammers harvest email addresses",
+            "explanation": "VRFY is considered a security/privacy risk and is rarely implemented in public mail servers."
+        },
+        {
+            "id": 89,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `LSUB` command in IMAP?",
+            "output": "Lists subscribed mailboxes (usually a subset of all mailboxes).",
+            "answer": "Lists subscribed mailboxes",
+            "explanation": "Subscriptions allow clients to display only folders the user is interested in, without listing all server mailboxes."
+        },
+        {
+            "id": 90,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the `~C` escape sequence in SSH and what does it do?",
+            "output": "In an SSH session, `~C` opens a command line to send SSH‑specific commands like port forwarding or escape control.",
+            "answer": "In an SSH session, `~C` opens a command line to send SSH‑specific commands like port forwarding or escape control",
+            "explanation": "Useful for dynamically adding port forwards without disconnecting."
+        },
+        {
+            "id": 91,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is MIB walking and how is it performed?",
+            "output": "Iteratively retrieving the entire subtree of an OID using GETNEXT or GETBULK requests.",
+            "answer": "Iteratively retrieving the entire subtree of an OID using GETNEXT or GETBULK requests",
+            "explanation": "MIB walking is used for discovery and monitoring; tools like snmpwalk automate this process."
+        },
+        {
+            "id": 92,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS split‑horizon (split‑view) configuration?",
+            "output": "Providing different DNS responses based on the client source IP (e.g., internal vs external views).",
+            "answer": "Providing different DNS responses based on the client source IP",
+            "explanation": "Used to give internal clients private IPs and external clients public IPs for the same domain."
+        },
+        {
+            "id": 93,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is a Bearer Token authentication in HTTP?",
+            "output": "An authentication scheme where a token (usually from OAuth2) is sent in the Authorization header.",
+            "answer": "An authentication scheme where a token (usually from OAuth2) is sent in the Authorization header",
+            "explanation": "Format: `Authorization: Bearer <token>`; stateless and widely used in REST APIs."
+        },
+        {
+            "id": 94,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the `FEAT` command in FTP?",
+            "output": "Lists the extended features supported by the FTP server (e.g., UTF8, MLSD, REST).",
+            "answer": "Lists the extended features supported by the FTP server",
+            "explanation": "Clients send FEAT after establishing a connection to discover server capabilities."
+        },
+        {
+            "id": 95,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is DMARC and how does it relate to SPF and DKIM?",
+            "output": "Domain‑based Message Authentication, Reporting & Conformance – policy that tells receivers what to do if SPF/DKIM fail.",
+            "answer": "Domain‑based Message Authentication, Reporting & Conformance – policy that tells receivers what to do if SPF/DKIM fail",
+            "explanation": "DMARC also provides reporting to help domain owners monitor email authentication."
+        },
+        {
+            "id": 96,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `CONDSTORE` extension in IMAP?",
+            "output": "Conditional STORE – allows clients to set flags only if messages have not been modified since a known state (optimistic concurrency).",
+            "answer": "Conditional STORE – allows clients to set flags only if messages have not been modified since a known state",
+            "explanation": "CONDSTORE improves synchronization efficiency by avoiding conflicts."
+        },
+        {
+            "id": 97,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `ssh-keyscan` command?",
+            "output": "Scans a host to collect its public host keys without prior known_hosts entry.",
+            "answer": "Scans a host to collect its public host keys without prior known_hosts entry",
+            "explanation": "Used to build a known_hosts file for automated scripts, but carries security risks (trust on first use)."
+        },
+        {
+            "id": 98,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the Remote Monitoring (RMON) extension of SNMP?",
+            "output": "RMON extends SNMP to provide off‑device traffic monitoring and analysis (e.g., statistics, history, alarms).",
+            "answer": "RMON extends SNMP to provide off‑device traffic monitoring and analysis",
+            "explanation": "RMON agents are embedded in network devices and reduce polling overhead by sending consolidated data."
+        },
+        {
+            "id": 99,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS CAA record?",
+            "output": "Certification Authority Authorization – allows domain owners to specify which CAs are allowed to issue certificates for that domain.",
+            "answer": "Certification Authority Authorization – allows domain owners to specify which CAs are allowed to issue certificates for that domain",
+            "explanation": "CAA records help prevent misissuance of certificates by unauthorised CAs."
+        },
+        {
+            "id": 100,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the `X‑Forwarded‑For` HTTP header and when is it used?",
+            "output": "Identifies the original client IP address when a request passes through a proxy or load balancer.",
+            "answer": "Identifies the original client IP address when a request passes through a proxy or load balancer",
+            "explanation": "Used in logging and geolocation; can be spoofed, so trusted proxies are required."
+        },
+        {
+            "id": 101,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS glue record and why is it necessary?",
+            "output": "Glue records are A or AAAA records provided by a parent zone to locate the name servers of a child domain when they reside within that same domain (e.g., ns1.example.com is within example.com).",
+            "answer": "Glue records are A/AAAA records provided by the parent zone to resolve the child's nameservers when they are within the child's domain",
+            "explanation": "Without glue records, a circular dependency would occur because the nameserver's IP is needed to query the domain that hosts the nameserver itself."
+        },
+        {
+            "id": 102,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is DNS caching and what is the role of TTL?",
+            "output": "DNS caching stores query results for a period defined by the TTL to reduce latency and authoritative server load.",
+            "answer": "DNS caching stores query results for the TTL duration to improve performance and reduce load",
+            "explanation": "The TTL is set by the domain administrator; too short increases query volume, too long delays propagation of changes."
+        },
+        {
+            "id": 103,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS SRV record used for?",
+            "output": "Specifies a service (e.g., SIP, LDAP, XMPP) location including host, port, priority, and weight.",
+            "answer": "Specifies a service location including host, port, priority, and weight for protocols like SIP, LDAP, XMPP",
+            "explanation": "SRV records allow clients to discover servers for a service without relying on well-known ports or separate protocols."
+        },
+        {
+            "id": 104,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the difference between `Cache-Control: no-cache` and `Cache-Control: no-store`?",
+            "output": "no-cache forces revalidation before every use; no-store prohibits storing any part of the response.",
+            "answer": "no-cache forces revalidation before every use; no-store prohibits storing any part of the response",
+            "explanation": "no-cache does not prevent caching; it requires revalidation; no-store ensures no cached copy exists."
+        },
+        {
+            "id": 105,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `Referrer-Policy` HTTP header?",
+            "output": "Controls how much referrer information is sent with requests (e.g., `strict-origin`, `same-origin`, `no-referrer`).",
+            "answer": "Controls how much referrer information is sent with requests, enhancing privacy and security",
+            "explanation": "It prevents leaking URL paths or query parameters to third-party sites, mitigating information disclosure."
+        },
+        {
+            "id": 106,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is a zero‑day vulnerability in the context of HTTPS/TLS?",
+            "output": "A previously unknown flaw in the protocol or implementation that attackers can exploit before a patch is available.",
+            "answer": "A previously unknown flaw in the protocol or implementation that attackers can exploit before a patch is available",
+            "explanation": "Examples include Heartbleed (OpenSSL) and POODLE (TLS fallback)."
+        },
+        {
+            "id": 107,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `SITE` command in FTP?",
+            "output": "Allows client to send server‑specific commands that are not part of the standard FTP protocol (e.g., `SITE CHMOD`).",
+            "answer": "Allows client to send server‑specific commands not part of the standard FTP protocol",
+            "explanation": "SITE commands are implementation‑dependent and often used to change file permissions or query server status."
+        },
+        {
+            "id": 108,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the difference between image (binary) and ASCII transfer modes in FTP?",
+            "output": "Binary mode transfers raw bytes; ASCII mode converts line endings between different operating systems (e.g., CRLF ↔ LF).",
+            "answer": "Binary transfers bytes unchanged; ASCII converts line endings between systems",
+            "explanation": "Using the wrong mode can corrupt binaries (binary in ASCII) or cause extra line breaks (ASCII in binary)."
+        },
+        {
+            "id": 109,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `EXPN` command in SMTP?",
+            "output": "Expands a mailing list alias to the list of recipients; often disabled for security.",
+            "answer": "Expands a mailing list alias to the list of recipients; often disabled for security",
+            "explanation": "EXPN can reveal user email addresses and is considered a privacy risk; similarly to VRFY."
+        },
+        {
+            "id": 110,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the difference between a MUA, MTA, and MDA?",
+            "output": "MUA (Mail User Agent) – client (e.g., Thunderbird); MTA (Mail Transfer Agent) – server that routes mail (e.g., Postfix); MDA (Mail Delivery Agent) – delivers to local mailbox (e.g., Dovecot).",
+            "answer": "MUA sends/receives mail; MTA relays mail; MDA delivers to local inbox",
+            "explanation": "MTA uses SMTP; MDA may use SMTP (LMTP) or local delivery protocols."
+        },
+        {
+            "id": 111,
+            "topic": "POP3",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `RETR` command in POP3?",
+            "output": "Retrieves the full message identified by the given message number, marking it as downloaded.",
+            "answer": "Retrieves the full message identified by the given message number",
+            "explanation": "After RETR, the message may be marked as seen; some clients then issue DELE to delete from server."
+        },
+        {
+            "id": 112,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `APPEND` command in IMAP?",
+            "output": "Adds a message to the specified mailbox (e.g., for saving sent messages).",
+            "answer": "Adds a message to the specified mailbox",
+            "explanation": "APPEND is used to upload already formatted messages with flags and date/time metadata."
+        },
+        {
+            "id": 113,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `STARTTLS` command in IMAP?",
+            "output": "Upgrades an existing plain IMAP connection (port 143) to TLS encryption.",
+            "answer": "Upgrades an existing plain IMAP connection to TLS encryption",
+            "explanation": "Similar to SMTP STARTTLS; IMAPS uses port 993 with immediate TLS."
+        },
+        {
+            "id": 114,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the `~C` escape sequence in SSH and what does it do?",
+            "output": "In an SSH session, `~C` opens a command line to send SSH‑specific commands like port forwarding or escape control.",
+            "answer": "In an SSH session, `~C` opens a command line to send SSH‑specific commands like port forwarding or escape control",
+            "explanation": "Useful for dynamically adding port forwards without disconnecting."
+        },
+        {
+            "id": 115,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the `Known Hosts` file in SSH and why is it important?",
+            "output": "A file (usually ~/.ssh/known_hosts) that stores public keys of servers the client has connected to, preventing man‑in‑the‑middle attacks.",
+            "answer": "Stores server public keys to protect against MITM attacks by verifying the host key on subsequent connections",
+            "explanation": "If the host key changes, SSH warns the user; this is called Trust on First Use (TOFU)."
+        },
+        {
+            "id": 116,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the difference between SNMP GET and SNMP GETNEXT?",
+            "output": "GET retrieves a specific OID value; GETNEXT retrieves the value of the next OID in the MIB tree, used for walking.",
+            "answer": "GET retrieves a specific OID; GETNEXT retrieves the next OID in the MIB tree",
+            "explanation": "GETNEXT is essential for MIB traversal without knowing the exact OID hierarchy."
+        },
+        {
+            "id": 117,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the role of SNMP in modern network monitoring?",
+            "output": "Collects performance metrics, fault information, and configuration data from network devices like routers, switches, and servers.",
+            "answer": "Collects performance metrics, fault information, and configuration data from network devices",
+            "explanation": "SNMP is still widely used, but streaming telemetry (gRPC, NETCONF) is becoming more common for large‑scale monitoring."
+        },
+        {
+            "id": 118,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `SOA` (Start of Authority) record in DNS?",
+            "output": "Defines the primary authoritative name server, email of the domain administrator, serial number, and refresh/retry/expiry timers.",
+            "answer": "Defines primary nameserver, admin email, serial number, and timing parameters for zone transfer",
+            "explanation": "The SOA record is essential for zone replication between primary and secondary name servers."
+        },
+        {
+            "id": 119,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `Content-Security-Policy` (CSP) header?",
+            "output": "Prevents XSS and data injection by specifying allowed sources for content (scripts, styles, images, etc.).",
+            "answer": "Prevents XSS and data injection by specifying allowed sources for content",
+            "explanation": "CSP can block inline scripts, restrict script loading to trusted domains, and report violations."
+        },
+        {
+            "id": 120,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the difference between a session cookie and a persistent cookie?",
+            "output": "Session cookie is deleted when the browser closes; persistent cookie has an expiration date and is stored on disk.",
+            "answer": "Session cookie lasts only for the browser session; persistent cookie has an expiration date and survives restarts",
+            "explanation": "Persistent cookies are used for 'remember me' functionality; session cookies for temporary state."
+        },
+        {
+            "id": 121,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is an FTP proxy and how does it work?",
+            "output": "An FTP proxy intercepts FTP control and data connections, often modifying PORT/PASV commands to tunnel through firewalls.",
+            "answer": "Intercepts FTP control and data connections, modifying PORT/PASV commands to traverse firewalls",
+            "explanation": "FTP proxies help clients behind restrictive firewalls to connect to external FTP servers."
+        },
+        {
+            "id": 122,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `BURL` (Batch SMTP) extension?",
+            "output": "Allows a client to submit multiple messages in a single session by referencing a remote file URL.",
+            "answer": "Allows a client to submit multiple messages referencing a remote file URL",
+            "explanation": "BURL is rarely used; it was designed for high‑volume submission but not widely implemented."
+        },
+        {
+            "id": 123,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `NAMESPACE` command in IMAP?",
+            "output": "Returns the personal, other users’, and shared namespaces available on the server.",
+            "answer": "Returns personal, other users’, and shared namespaces available on the server",
+            "explanation": "NAMESPACE helps clients discover where to create folders and access other users' mailboxes."
+        },
+        {
+            "id": 124,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `~.` escape sequence in SSH?",
+            "output": "Terminates the SSH connection immediately, even if the shell is hung.",
+            "answer": "Terminates the SSH connection immediately, even if the shell is hung",
+            "explanation": "Useful when the remote shell becomes unresponsive and normal `exit` or `Ctrl-D` does not work."
+        },
+        {
+            "id": 125,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the Object Identifier (OID) tree structure in SNMP?",
+            "output": "A hierarchical namespace assigned by ISO and ITU; each node has a number, e.g., 1.3.6.1.2.1 (MIB‑II).",
+            "answer": "A hierarchical namespace assigned by ISO and ITU; each node has a number (e.g., 1.3.6.1.2.1 is MIB‑II)",
+            "explanation": "The root is ISO (1); under it are organisations, standards, and enterprise branches."
+        },
+        {
+            "id": 126,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS wildcard record and what are its caveats?",
+            "output": "A record that matches requests for any non‑existent subdomain (e.g., *.example.com).",
+            "answer": "A record that matches requests for any non‑existent subdomain",
+            "explanation": "Wildcards do not apply to subdomains that have other records; they may cause unexpected matches."
+        },
+        {
+            "id": 127,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the difference between `X‑Frame‑Options` and CSP's `frame-ancestors`?",
+            "output": "Both prevent clickjacking; `frame-ancestors` is more flexible and supported in modern browsers, replacing `X‑Frame‑Options`.",
+            "answer": "Both prevent clickjacking; `frame-ancestors` is more flexible and supersedes `X‑Frame‑Options`",
+            "explanation": "CSP `frame-ancestors` allows multiple domains and wildcards; `X‑Frame‑Options` only allows DENY, SAMEORIGIN, or ALLOW-FROM (poorly supported)."
+        },
+        {
+            "id": 128,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the `XMKD` command in FTP?",
+            "output": "Creates a directory (old command from obsolete RFC; modern FTP uses MKD).",
+            "answer": "Creates a directory (obsolete command; replaced by MKD)",
+            "explanation": "XMKD was part of OSI FTP; not used in modern implementations."
+        },
+        {
+            "id": 129,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `ETRN` command in SMTP?",
+            "output": "Requests the server to send queued mail for a given domain (used with dial‑up connections).",
+            "answer": "Requests the server to send queued mail for a given domain",
+            "explanation": "ETRN is used by a server that periodically connects to a backup MX to retrieve deferred mail."
+        },
+        {
+            "id": 130,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `CHECK` command in IMAP?",
+            "output": "Requests a checkpoint of the mailbox (used in old IMAP implementations; now obsolete).",
+            "answer": "Requests a checkpoint of the mailbox (obsolete command)",
+            "explanation": "CHECK was used to force disk synchronisation; modern IMAP automatically handles this."
+        },
+        {
+            "id": 131,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the `ssh-argv0` command used for?",
+            "output": "A variant of SSH where the remote host is derived from the command name (e.g., a symlink to ssh).",
+            "answer": "A variant of SSH where the remote host is derived from the command name",
+            "explanation": "Less common; used to create convenience aliases like `ssh‑myserver` without separate scripts."
+        },
+        {
+            "id": 132,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the difference between SNMP v2c and SNMP v3 regarding security?",
+            "output": "v2c uses community strings (plaintext); v3 provides authentication (MD5/SHA) and encryption (DES/AES).",
+            "answer": "v2c uses plaintext community strings; v3 provides authentication and encryption",
+            "explanation": "SNMPv3 also supports user‑based security, access control, and privacy."
+        },
+        {
+            "id": 133,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the DNS `NSEC` and `NSEC3` records?",
+            "output": "Used in DNSSEC to prove that a domain name does not exist (authenticated denial of existence).",
+            "answer": "Used in DNSSEC to prove that a domain name does not exist (authenticated denial of existence)",
+            "explanation": "NSEC3 prevents zone walking by hashing the record names, providing privacy while still allowing denial proof."
+        },
+        {
+            "id": 134,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the `Public-Key-Pins` (HPKP) header and why was it deprecated?",
+            "output": "HTTP Public Key Pinning instructed browsers to require a specific certificate fingerprint; deprecated due to operational risks (bricking sites).",
+            "answer": "Instructed browsers to require a specific certificate fingerprint; deprecated due to operational risks",
+            "explanation": "If the pinning was misconfigured or keys lost, websites would become inaccessible; replaced by Expect‑CT and broader security mechanisms."
+        },
+        {
+            "id": 135,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the `PROT` command in FTP?",
+            "output": "Sets the data channel protection level (clear, safe, confidential, private) for FTP over TLS.",
+            "answer": "Sets the data channel protection level (clear, safe, confidential, private) for FTP over TLS",
+            "explanation": "Used in FTPES (explicit TLS) mode after the PBSZ command to negotiate encryption."
+        },
+        {
+            "id": 136,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `SIZE` extension in SMTP (ESMTP)?",
+            "output": "Allows the client to specify the message size before sending; the server can reject too‑large messages.",
+            "answer": "Allows the client to specify the message size before sending; server can reject too-large messages",
+            "explanation": "The server announces its maximum message size with the SIZE keyword in the EHLO response."
+        },
+        {
+            "id": 137,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `SORT` extension in IMAP?",
+            "output": "Allows the server to sort search results by criteria (e.g., date, subject) without client‑side sorting.",
+            "answer": "Allows the server to sort search results by criteria like date or subject without client-side sorting",
+            "explanation": "SORT reduces bandwidth and client processing, returning message sequence numbers already ordered."
+        },
+        {
+            "id": 138,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the `sftp` protocol and how does it differ from `scp`?",
+            "output": "SFTP is an SSH sub‑protocol for file transfer with full remote file management; SCP is simpler, only copying.",
+            "answer": "SFTP supports directory listing, file attributes, and resuming; SCP only copies files",
+            "explanation": "SFTP is more robust and interactive; SCP is being deprecated in favour of SFTP or rsync."
+        },
+        {
+            "id": 139,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `snmpset` command?",
+            "output": "Modifies the value of a managed object on an SNMP agent (e.g., to change configuration or reset a device).",
+            "answer": "Modifies the value of a managed object on an SNMP agent (e.g., to change configuration or reset a device)",
+            "explanation": "snmpset uses SNMP SET PDU; requires write community string or user privileges."
+        },
+        {
+            "id": 140,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is the `LOC` record in DNS?",
+            "output": "Specifies a geographic location (latitude, longitude, altitude) for a domain name.",
+            "answer": "Specifies a geographic location for a domain name",
+            "explanation": "Used for location‑based services; not widely deployed."
+        },
+        {
+            "id": 141,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is a TLS session resumption and what are two methods?",
+            "output": "Re‑establishing a TLS session without full handshake; methods: session ID (server‑side cache) and session tickets (client‑side).",
+            "answer": "Re‑establishing a TLS session without full handshake, using session ID or session tickets",
+            "explanation": "Session resumption reduces latency and CPU load for repeated connections from the same client."
+        },
+        {
+            "id": 142,
+            "topic": "FTP",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `EPRT` and `EPSV` commands in FTP?",
+            "output": "IPv6‑extended versions of PORT and PASV, allowing FTP to work over IPv6.",
+            "answer": "IPv6‑extended versions of PORT and PASV, allowing FTP to work over IPv6",
+            "explanation": "EPRT and EPSV are required for FTP over IPv6 because the original PORT/PASV did not support IPv6 addresses."
+        },
+        {
+            "id": 143,
+            "topic": "SMTP",
+            "difficulty": "Expert",
+            "question": "What is the `PIPELINING` ESMTP extension?",
+            "output": "Allows multiple commands to be sent without waiting for responses, improving performance over high‑latency connections.",
+            "answer": "Allows multiple commands to be sent without waiting for responses, improving performance over high-latency connections",
+            "explanation": "Pipelining reduces round trips, but clients must handle response ordering correctly."
+        },
+        {
+            "id": 144,
+            "topic": "IMAP",
+            "difficulty": "Expert",
+            "question": "What is the `ANNOTATE` extension in IMAP?",
+            "output": "Stores arbitrary metadata (annotations) on mailboxes or messages, e.g., comments or shared flags.",
+            "answer": "Stores arbitrary metadata (annotations) on mailboxes or messages, e.g., comments or shared flags",
+            "explanation": "ANNOTATE is used by some webmail systems for server‑side notes, not widely supported."
+        },
+        {
+            "id": 145,
+            "topic": "Telnet & SSH",
+            "difficulty": "Expert",
+            "question": "What is the purpose of the `ssh-copy-id` command?",
+            "output": "Installs a public SSH key on a remote server's authorized_keys file, enabling passwordless login.",
+            "answer": "Installs a public SSH key on a remote server's authorized_keys file, enabling passwordless login",
+            "explanation": "It handles permissions and creates the directory/file if necessary."
+        },
+        {
+            "id": 146,
+            "topic": "SNMP",
+            "difficulty": "Expert",
+            "question": "What is the difference between a SNMP `inform` and a `trap`?",
+            "output": "Inform requires an acknowledgement from the manager; trap is fire‑and‑forget.",
+            "answer": "Inform requires an acknowledgement; trap is fire‑and‑forget",
+            "explanation": "Informs are more reliable and used in SNMPv2c/v3; they are retransmitted if no ACK is received."
+        },
+        {
+            "id": 147,
+            "topic": "DNS",
+            "difficulty": "Expert",
+            "question": "What is a DNS `NAPTR` record used for?",
+            "output": "Naming Authority Pointer – maps domain names to URIs or services using regular expressions, often for ENUM (E.164 to SIP).",
+            "answer": "Maps domain names to URIs or services using regular expressions, often for ENUM (E.164 to SIP)",
+            "explanation": "NAPTR records allow complex service discovery with order and preferences, used in VoIP and SIP routing."
+        },
+        {
+            "id": 148,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the `SameSite` attribute in cookies and what values can it take?",
+            "output": "Controls whether cookies are sent with cross‑origin requests; values: `Strict`, `Lax`, or `None`.",
+            "answer": "Controls whether cookies are sent with cross‑origin requests; values: `Strict`, `Lax`, or `None`",
+            "explanation": "SameSite helps mitigate CSRF attacks. `Strict` sends only for same‑site requests; `Lax` allows top‑level navigations."
+        },
+        {
+            "id": 149,
+            "topic": "Remote Login: SSH",
+            "difficulty": "Expert",
+            "question": "What is a `jump host` in SSH and how is it configured?",
+            "output": "A proxy host that forwards the SSH connection to a final target, useful for accessing private networks (using `-J` flag or ProxyJump directive).",
+            "answer": "A proxy host that forwards the SSH connection to a final target, configured with `-J` or ProxyJump",
+            "explanation": "Jump hosts (bastion hosts) centralise access and reduce direct exposure of internal servers."
+        },
+        {
+            "id": 150,
+            "topic": "HTTP & HTTPS",
+            "difficulty": "Expert",
+            "question": "What is the `Alt-Svc` HTTP header used for?",
+            "output": "Advertising alternative services (e.g., HTTP/3 or a different server) that the client can use instead of the current host.",
+            "answer": "Advertising alternative services (e.g., HTTP/3 or a different server) that the client can use instead of the current host",
+            "explanation": "Alt-Svc allows seamless protocol upgrade and load balancing without changing the URL."
+        }
+    ]
+}

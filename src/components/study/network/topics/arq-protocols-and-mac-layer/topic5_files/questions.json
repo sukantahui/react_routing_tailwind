@@ -1,0 +1,555 @@
+{
+  "subject": "Computer Networks",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "ARQ Protocols & MAC and IEEE Standards",
+  "subjectLogo": {
+    "name": "Computer Networks",
+    "icon": "network-wired",
+    "type": "svg",
+    "path": "/logos/Network.svg",
+    "alt": "Computer Networks Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "What does ARQ stand for?",
+      "output": "Automatic Repeat reQuest",
+      "answer": "Automatic Repeat reQuest",
+      "explanation": "ARQ is an error control method that uses acknowledgements and timeouts to retransmit lost or corrupted data."
+    },
+    {
+      "id": 2,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "Explain the basic working of Stop-and-Wait ARQ.",
+      "output": "Sender transmits one frame, waits for acknowledgement (ACK), then sends the next frame.",
+      "answer": "The sender sends a single frame and then stops until it receives an ACK or a timeout occurs. If ACK arrives, the next frame is sent; if timeout, the frame is resent.",
+      "explanation": "This ensures reliable delivery but limits throughput because only one frame can be outstanding at a time."
+    },
+    {
+      "id": 3,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the main disadvantage of Stop-and-Wait ARQ?",
+      "output": "Low throughput, especially over long delay links.",
+      "answer": "The sender must wait for an ACK before sending the next frame, which wastes bandwidth when propagation delay is high.",
+      "explanation": "The link utilization is about 1/(1+2a) where a = propagation delay / transmission delay."
+    },
+    {
+      "id": 4,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the sequence number range used in Stop-and-Wait ARQ?",
+      "output": "0 and 1 (modulo 2).",
+      "answer": "Only two sequence numbers (0 and 1) are needed because only one outstanding frame is allowed.",
+      "explanation": "The receiver expects frame numbers alternately: 0,1,0,1,... to distinguish retransmissions."
+    },
+    {
+      "id": 5,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "What happens if the ACK is lost in Stop-and-Wait ARQ?",
+      "output": "Sender times out and retransmits the frame; receiver discards duplicate.",
+      "answer": "After timeout, the sender resends the same frame. The receiver, seeing a duplicate sequence number, discards it and sends an ACK again.",
+      "explanation": "This mechanism ensures eventual delivery despite lost ACKs."
+    },
+    {
+      "id": 6,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "How does Stop-and-Wait ARQ handle corrupted frames?",
+      "output": "Receiver discards corrupt frame and sends a NAK (or no ACK); sender times out and retransmits.",
+      "answer": "If a frame is corrupted, the receiver detects error via CRC and does not send an ACK. The sender times out and retransmits the frame.",
+      "explanation": "Some versions use a NAK to speed up recovery."
+    },
+    {
+      "id": 7,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Beginner",
+      "question": "What is meant by 'timer management' in Stop-and-Wait ARQ?",
+      "output": "Each frame sent starts a timer; if ACK not received before timeout, frame is resent.",
+      "answer": "The timer duration should be greater than round‑trip time. If too short, unnecessary retransmissions; if too long, low throughput.",
+      "explanation": "Choosing optimal timeout is important."
+    },
+    {
+      "id": 8,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the throughput efficiency of Stop-and-Wait ARQ?",
+      "output": "Efficiency = 1 / (1 + 2a) where a = propagation delay / transmission delay.",
+      "answer": "If a is large (satellite link), efficiency is very low. If a is small (LAN), it can be near 1.",
+      "explanation": "The formula ignores error probability."
+    },
+    {
+      "id": 9,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the 'piggybacking' concept in Stop-and-Wait ARQ (in bidirectional communication)?",
+      "output": "ACK is carried inside a data frame going in the reverse direction.",
+      "answer": "Instead of sending a separate ACK frame, the receiver attaches the ACK to its own data frame, reducing overhead.",
+      "explanation": "Piggybacking improves efficiency in bidirectional traffic."
+    },
+    {
+      "id": 10,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Intermediate",
+      "question": "Why are two sequence numbers enough for Stop-and-Wait?",
+      "output": "To distinguish between a new frame and a retransmission of the previous frame.",
+      "answer": "If a frame is lost or ACK lost, the sender retransmits the same sequence number. The receiver uses the alternating pattern to identify duplicates.",
+      "explanation": "Using modulo 2 sequence numbers avoids ambiguity."
+    },
+    {
+      "id": 11,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the effect of using Stop-and-Wait on a high‑speed LAN?",
+      "output": "Efficiency is high because propagation delay is small compared to frame transmission time.",
+      "answer": "In a LAN, a is very low (<0.1), so efficiency > 80%.",
+      "explanation": "But for high‑speed WANs, Go‑Back‑N or Selective Repeat is preferred."
+    },
+    {
+      "id": 12,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the 'ACK timer' and how is it set?",
+      "output": "Timer value typically set to slightly greater than the round‑trip time (RTT).",
+      "answer": "The timer should be adaptive; some implementations use RTT estimation algorithms (like TCP).",
+      "explanation": "Fixed timer may cause inefficiency."
+    },
+    {
+      "id": 13,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Advanced",
+      "question": "Calculate the link utilization for Stop-and-Wait over a 1 Mbps link with 50 ms RTT and 1000 byte frames.",
+      "output": "Utilization = (frame transmission time) / (RTT + transmission time) = (8 ms) / (50+8) = 13.8%.",
+      "answer": "Frame transmission time = 1000*8 / 1e6 = 8 ms. Utilization = 8/(58) = 0.138.",
+      "explanation": "Throughput = 1 Mbps * 0.138 = 138 kbps."
+    },
+    {
+      "id": 14,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Advanced",
+      "question": "How can Stop-and-Wait be improved for long‑distance links?",
+      "output": "Use larger frames or switch to sliding window protocols.",
+      "answer": "Increasing frame size reduces the relative impact of RTT. But very large frames may cause CRC errors.",
+      "explanation": "Sliding window protocols allow multiple outstanding frames."
+    },
+    {
+      "id": 15,
+      "topic": "Stop-and-Wait ARQ",
+      "difficulty": "Advanced",
+      "question": "What is a 'NAK' and when is it used in Stop-and-Wait?",
+      "output": "Negative Acknowledgment – sent when a corrupt frame is detected, triggering immediate retransmission.",
+      "answer": "Using NAK reduces waiting time for timeout. Not all implementations use NAK; some rely solely on timeout.",
+      "explanation": "NAK speeds up recovery but adds complexity."
+    },
+    {
+      "id": 16,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the main difference between Stop-and-Wait and Go-Back-N?",
+      "output": "Go-Back-N allows multiple outstanding frames (window size > 1).",
+      "answer": "The sender can send up to W frames without waiting for ACKs. When an error occurs, it goes back and retransmits all frames from the lost one onward.",
+      "explanation": "This improves throughput."
+    },
+    {
+      "id": 17,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the window size in Go-Back-N ARQ?",
+      "output": "Window size N typically ≤ 2^m -1 where m is number of sequence number bits.",
+      "answer": "The sender window size determines how many frames can be sent without ACK. Common sizes: 7, 127 for 3‑bit or 7‑bit sequence numbers.",
+      "explanation": "Receiver window is always 1 (it only accepts frames in order)."
+    },
+    {
+      "id": 18,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "What happens when a frame is lost in Go-Back-N?",
+      "output": "Receiver discards all subsequent frames until the missing frame is received correctly.",
+      "answer": "When a frame is lost, the receiver sends repeated ACKs for the last in‑order frame or a NAK. Sender retransmits from the lost frame onward.",
+      "explanation": "It can waste bandwidth if many frames are retransmitted."
+    },
+    {
+      "id": 19,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of the 'cumulative ACK' in Go-Back-N?",
+      "output": "ACK acknowledges all frames up to that sequence number.",
+      "answer": "Instead of individual ACKs, the receiver sends ACK for the highest in‑order frame received. This reduces ACK traffic.",
+      "explanation": "Cumulative ACK is efficient."
+    },
+    {
+      "id": 20,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the maximum sequence number in Go-Back-N with n‑bit sequence numbers?",
+      "output": "2^n (usually, but window size ≤ 2^n -1 to avoid ambiguity).",
+      "answer": "With n bits, sequence numbers range 0 to 2^n-1. For Go-Back-N, window size must be ≤ 2^n-1 to prevent confusion during wrap‑around.",
+      "explanation": "If window size equals 2^n, ACK ambiguity occurs when all numbers wrap."
+    },
+    {
+      "id": 21,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Beginner",
+      "question": "How does the receiver in Go-Back-N handle out‑of‑order frames?",
+      "output": "It discards them (because window size is 1).",
+      "answer": "The receiver only accepts the next expected frame. Any frame with unexpected sequence number is discarded and the ACK for the last correct frame is resent.",
+      "explanation": "This forces the sender to go back and retransmit everything."
+    },
+    {
+      "id": 22,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the throughput efficiency of Go-Back-N with error rate?",
+      "output": "Efficiency ≈ (1-p) / (1 + (N-1)p) where p is frame error probability.",
+      "answer": "As p increases, efficiency drops. For large N, efficiency is about 1/(1+Np).",
+      "explanation": "Better than Stop-and-Wait when p is small."
+    },
+    {
+      "id": 23,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Intermediate",
+      "question": "Why is Go-Back-N rarely used in modern protocols?",
+      "output": "Because it wastes bandwidth by retransmitting many frames after a loss.",
+      "answer": "Selective Repeat is more efficient as it retransmits only lost frames. However, Go-Back-N is simpler.",
+      "explanation": "Used in some older protocols like HDLC (with window size)."
+    },
+    {
+      "id": 24,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Intermediate",
+      "question": "What happens if the ACK for the oldest outstanding frame is lost?",
+      "output": "Sender's timer for that frame expires, causing retransmission of all frames from that point.",
+      "answer": "Since ACKs are cumulative, loss of an ACK may not trigger a timeout if later ACKs cover it. But if the entire block of ACKs is lost, timeout occurs.",
+      "explanation": "Cumulative ACKs reduce impact of ACK loss."
+    },
+    {
+      "id": 25,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the 'piggybacking' of ACKs in Go-Back-N?",
+      "output": "ACKs can be attached to data frames going in the opposite direction.",
+      "answer": "This reduces overhead, especially in bidirectional communication.",
+      "explanation": "Common in full‑duplex protocols."
+    },
+    {
+      "id": 26,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Advanced",
+      "question": "Calculate the efficiency of Go-Back-N with N=4, frame transmission time 10 ms, RTT 30 ms, and no errors.",
+      "output": "Efficiency = N / (N + RTT/Tx) ??? Actually efficiency = (N * Tf) / (Tf + RTT) when no errors = 4*10 / (10+30) = 40/40 = 1 (100%).",
+      "answer": "With no errors and N large enough to saturate the link, efficiency can approach 100%.",
+      "explanation": "If N*Tf > RTT + Tf, the link can be kept busy."
+    },
+    {
+      "id": 27,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Advanced",
+      "question": "What is the minimum sequence number bits required for window size 8 in Go-Back-N?",
+      "output": "4 bits (since 2^4=16, window size 8 ≤ 15).",
+      "answer": "Window size must be ≤ 2^m -1, so m must be at least 4 because 2^4-1=15 ≥ 8.",
+      "explanation": "m=3 gives 2^3 -1=7, which is less than 8, so not enough."
+    },
+    {
+      "id": 28,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Advanced",
+      "question": "How does the sender's timer work in Go-Back-N?",
+      "output": "Typically a single timer for the oldest unacknowledged frame.",
+      "answer": "When the oldest frame's timer expires, the sender retransmits all frames from that point. Some implementations use per‑frame timers.",
+      "explanation": "Per‑frame timers are more complex but can reduce unnecessary retransmissions."
+    },
+    {
+      "id": 29,
+      "topic": "Go-Back-N ARQ",
+      "difficulty": "Advanced",
+      "question": "What is the 'ACK suppression' problem in Go-Back-N?",
+      "output": "Too many ACKs from many frames could flood the reverse channel.",
+      "answer": "Using cumulative ACKs and delaying ACKs reduces this problem.",
+      "explanation": "Usually ACK delay is implemented to avoid sending an ACK for every frame."
+    },
+    {
+      "id": 30,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of Selective Repeat over Go-Back-N?",
+      "output": "It retransmits only lost frames, not the whole window.",
+      "answer": "Selective Repeat improves efficiency on lossy channels because only missing frames are resent.",
+      "explanation": "It requires larger receiver buffer and more complex logic."
+    },
+    {
+      "id": 31,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the receiver window size in Selective Repeat?",
+      "output": "Typically equal to the sender window size (N).",
+      "answer": "The receiver can buffer out‑of‑order frames to accept frames after a missing one.",
+      "explanation": "This allows the receiver to store up to N frames."
+    },
+    {
+      "id": 32,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Beginner",
+      "question": "What happens when a frame is lost but later frames are received correctly?",
+      "output": "Receiver buffers subsequent frames and sends individual ACKs (or NAKs). Sender retransmits only the lost frame.",
+      "answer": "The receiver uses selective ACK (SACK) or sends NAK for missing sequence numbers.",
+      "explanation": "After the lost frame is retransmitted, the receiver delivers all frames in order."
+    },
+    {
+      "id": 33,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Beginner",
+      "question": "What is the condition on sender and receiver window sizes to avoid ambiguity?",
+      "output": "Window size ≤ 2^(n-1) where n is the number of sequence number bits.",
+      "answer": "If window size exceeds half the sequence space, wrap‑around can cause duplicate frame misidentification.",
+      "explanation": "For n bits, maximum window = 2^(n-1)."
+    },
+    {
+      "id": 34,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is a NAK and when is it sent in Selective Repeat?",
+      "output": "Negative ACK sent when receiver detects a missing frame (gap in sequence numbers).",
+      "answer": "This triggers immediate retransmission of the missing frame without waiting for timeout.",
+      "explanation": "NAK reduces delay but adds complexity."
+    },
+    {
+      "id": 35,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Intermediate",
+      "question": "How does Selective Repeat handle duplicate frames?",
+      "output": "Receiver discards duplicate frames and resends the ACK for that frame.",
+      "answer": "Because sequence numbers are used, duplicates are easily identified and discarded.",
+      "explanation": "The ACK reassures the sender that the frame was already received."
+    },
+    {
+      "id": 36,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Intermediate",
+      "question": "What is the throughput efficiency of Selective Repeat with error probability p?",
+      "output": "Efficiency ≈ 1 - p (if window size is large enough to keep pipe full).",
+      "answer": "Only lost frames are retransmitted, so overhead is only for retransmissions.",
+      "explanation": "More efficient than Go-Back-N at high error rates."
+    },
+    {
+      "id": 37,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Advanced",
+      "question": "Why is window size limited to 2^(n-1) in Selective Repeat?",
+      "output": "To avoid ambiguity when sequence numbers wrap and ACKs are lost.",
+      "answer": "If window were larger, a newly sent frame might have the same sequence number as an old, unacknowledged frame, causing confusion.",
+      "explanation": "The limit ensures that there is a gap of at least one sequence number between the base and the highest outstanding."
+    },
+    {
+      "id": 38,
+      "topic": "Selective Repeat ARQ",
+      "difficulty": "Advanced",
+      "question": "What is the role of a 'sack' option in TCP?",
+      "output": "Selective Acknowledgement allows TCP to indicate which blocks of data are received.",
+      "answer": "This is a practical implementation of Selective Repeat in TCP.",
+      "explanation": "TCP SACK improves performance over lossy links."
+    },
+    {
+      "id": 39,
+      "topic": "ALOHA protocols",
+      "difficulty": "Beginner",
+      "question": "What is the Pure ALOHA protocol?",
+      "output": "A random access MAC protocol where stations transmit whenever they have data.",
+      "answer": "If a collision occurs, stations wait a random time and retransmit.",
+      "explanation": "Invented at the University of Hawaii."
+    },
+    {
+      "id": 40,
+      "topic": "ALOHA protocols",
+      "difficulty": "Beginner",
+      "question": "What is the maximum throughput of Pure ALOHA?",
+      "output": "18.4% (1/(2e) ≈ 0.184).",
+      "answer": "The maximum efficiency occurs at offered load G=0.5, throughput S=0.5*e^(-1) ≈ 0.184.",
+      "explanation": "Very low efficiency due to vulnerability period of 2*T."
+    },
+    {
+      "id": 41,
+      "topic": "ALOHA protocols",
+      "difficulty": "Beginner",
+      "question": "What is the Slotted ALOHA protocol?",
+      "output": "Time is divided into slots; transmission can only start at slot boundaries.",
+      "answer": "This reduces collision probability compared to Pure ALOHA.",
+      "explanation": "Vulnerability period reduces from 2T to T."
+    },
+    {
+      "id": 42,
+      "topic": "ALOHA protocols",
+      "difficulty": "Beginner",
+      "question": "What is the maximum throughput of Slotted ALOHA?",
+      "output": "36.8% (1/e ≈ 0.368).",
+      "answer": "At offered load G=1, throughput S=1*e^(-1)=0.368.",
+      "explanation": "Twice the efficiency of Pure ALOHA."
+    },
+    {
+      "id": 43,
+      "topic": "ALOHA protocols",
+      "difficulty": "Beginner",
+      "question": "How does a station know that its transmission collided?",
+      "output": "It listens for an ACK from the receiver; if no ACK, it assumes collision.",
+      "answer": "In ALOHA systems, the receiver broadcasts an ACK. No ACK means retransmission.",
+      "explanation": "Collision detection is not used in ALOHA."
+    },
+    {
+      "id": 44,
+      "topic": "ALOHA protocols",
+      "difficulty": "Intermediate",
+      "question": "What is the backoff algorithm in ALOHA?",
+      "output": "Random delay before retransmission to reduce repeated collisions.",
+      "answer": "After a collision, each station waits a random time (e.g., exponential backoff) and retransmits.",
+      "explanation": "Helps stabilise the channel."
+    },
+    {
+      "id": 45,
+      "topic": "ALOHA protocols",
+      "difficulty": "Intermediate",
+      "question": "What is the vulnerability period of Pure ALOHA?",
+      "output": "2T (twice the frame transmission time).",
+      "answer": "If another station transmits within T seconds before or after the start of a given transmission, a collision occurs.",
+      "explanation": "Thus the probability of collision is higher."
+    },
+    {
+      "id": 46,
+      "topic": "ALOHA protocols",
+      "difficulty": "Intermediate",
+      "question": "What is the vulnerability period of Slotted ALOHA?",
+      "output": "T (one frame transmission time).",
+      "answer": "Collisions only occur if another station transmits in the same slot.",
+      "explanation": "Slotted ALOHA halves the vulnerable period."
+    },
+    {
+      "id": 47,
+      "topic": "ALOHA protocols",
+      "difficulty": "Advanced",
+      "question": "What is the throughput formula for Pure ALOHA?",
+      "output": "S = G * e^{-2G}.",
+      "answer": "G is the total offered load (including retransmissions). Maximum at G=0.5.",
+      "explanation": "Derived from Poisson distribution of arrivals."
+    },
+    {
+      "id": 48,
+      "topic": "ALOHA protocols",
+      "difficulty": "Advanced",
+      "question": "What is the throughput formula for Slotted ALOHA?",
+      "output": "S = G * e^{-G}.",
+      "answer": "Maximum at G=1, S=1/e.",
+      "explanation": "The derivation assumes Poisson arrivals and slot boundaries."
+    },
+    {
+      "id": 49,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Beginner",
+      "question": "What does IEEE 802.3 standard define?",
+      "output": "Ethernet (CSMA/CD) for wired LANs.",
+      "answer": "Specifies physical layer and MAC sublayer for Ethernet.",
+      "explanation": "Originally 10 Mbps, now includes 100 Mbps, 1 Gbps, 10 Gbps, etc."
+    },
+    {
+      "id": 50,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Beginner",
+      "question": "What is IEEE 802.4?",
+      "output": "Token Bus standard (token passing on a bus topology).",
+      "answer": "Used in manufacturing automation (MAP). It is now obsolete.",
+      "explanation": "A logical ring over a physical bus."
+    },
+    {
+      "id": 51,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Beginner",
+      "question": "What is IEEE 802.5?",
+      "output": "Token Ring standard.",
+      "answer": "Uses a token passing mechanism in a physical ring topology. Data rates 4 and 16 Mbps.",
+      "explanation": "Developed by IBM; largely replaced by Ethernet."
+    },
+    {
+      "id": 52,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Beginner",
+      "question": "What access method does 802.3 use?",
+      "output": "CSMA/CD (Carrier Sense Multiple Access with Collision Detection).",
+      "answer": "Stations listen before transmitting; if collision, they jam and back off.",
+      "explanation": "Used in half‑duplex Ethernet; full‑duplex Ethernet uses switches and no CSMA/CD."
+    },
+    {
+      "id": 53,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Beginner",
+      "question": "What access method does 802.5 use?",
+      "output": "Token passing.",
+      "answer": "A special token circulates; only the station holding the token can transmit.",
+      "explanation": "Provides deterministic access."
+    },
+    {
+      "id": 54,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Intermediate",
+      "question": "What is the frame size of standard Ethernet (802.3)?",
+      "output": "Minimum 64 bytes, maximum 1518 bytes (excluding preamble).",
+      "answer": "Later standards (jumbo frames) support up to 9000 bytes for Gigabit Ethernet.",
+      "explanation": "Minimum ensures collision detection works."
+    },
+    {
+      "id": 55,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Intermediate",
+      "question": "What is the role of the 'preamble' in 802.3?",
+      "output": "7 bytes of alternating 1/0 to synchronise receiver clock.",
+      "answer": "Followed by Start Frame Delimiter (SFD), then the frame.",
+      "explanation": "Allows clock recovery."
+    },
+    {
+      "id": 56,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum length of a 10BASE‑5 (thicknet) segment?",
+      "output": "500 meters.",
+      "answer": "10BASE‑5 uses thick coaxial cable and can have up to 100 stations.",
+      "explanation": "Obsolete; replaced by twisted pair."
+    },
+    {
+      "id": 57,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Advanced",
+      "question": "What is the binary exponential backoff algorithm in Ethernet?",
+      "output": "Delay = random(0, 2^k-1) * slotTime, where k = min(retransmission count, 10).",
+      "answer": "After each collision, the range of random delay doubles, reducing future collision probability.",
+      "explanation": "Used in CSMA/CD networks."
+    },
+    {
+      "id": 58,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between 802.3 and 802.11?",
+      "output": "802.3 is wired Ethernet; 802.11 is wireless LAN (Wi‑Fi).",
+      "answer": "They have different MAC protocols (CSMA/CD vs CSMA/CA).",
+      "explanation": "Both are IEEE standards."
+    },
+    {
+      "id": 59,
+      "topic": "IEEE standards (802.3, 802.4, 802.5)",
+      "difficulty": "Advanced",
+      "question": "What is the function of the 'beacon' in 802.5 token ring?",
+      "output": "Used for ring initialisation and fault recovery.",
+      "answer": "When a station detects a failure, it sends a beacon to initiate recovery.",
+      "explanation": "Token Ring had sophisticated fault management."
+    },
+    {
+      "id": 60,
+      "topic": "ALOHA protocols",
+      "difficulty": "Advanced",
+      "question": "How does the stability of ALOHA channels vary with offered load?",
+      "output": "Beyond the maximum point, throughput decreases and the system becomes unstable.",
+      "answer": "With heavy load, collisions increase, causing more retransmissions, leading to a collapse.",
+      "explanation": "Backoff algorithms help stability."
+    }
+  ]
+}
