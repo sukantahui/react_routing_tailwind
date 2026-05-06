@@ -267,7 +267,7 @@ const Topic2 = () => {
         <div className="reveal-section bg-blue-50 dark:bg-blue-950/20 border-l-4 border-blue-500 p-5 rounded-r-xl" style={{ animationDelay: '0.4s' }}>
           <h3 className="text-lg font-bold flex items-center gap-2">💭 Think About…</h3>
           <p className="mt-1">
-            {`You have three files: first_names.txt (Swadeep, Tuhina, ...), last_names.txt (Hui, Chatterjee, ...), and scores.txt (85, 92, ...). How do you combine them into a single CSV with columns: "First,Last,Score"? Now suppose first_names.txt has 10 lines, scores has 12 lines – what will paste do with the extra two in scores? Try `paste -d',' first_names.txt last_names.txt scores.txt | head -15`.`}
+            {`You have three files: first_names.txt (Swadeep, Tuhina, ...), last_names.txt (Hui, Chatterjee, ...), and scores.txt (85, 92, ...). How do you combine them into a single CSV with columns: "First,Last,Score"? Now suppose first_names.txt has 10 lines, scores has 12 lines – what will paste do with the extra two in scores? Try paste -d,' first_names.txt last_names.txt scores.txt | head -15.`}
           </p>
         </div>
 
@@ -285,7 +285,7 @@ const Topic2 = () => {
                   <li>"At Barrackpore, I gave students two files – roll numbers and names – and asked them to create a single list. The lightbulb moment when they discovered `paste` is unforgettable."</li>
                   <li>Emphasise that `paste` is the counterpart to `cut`: one cuts columns, the other pastes columns together.</li>
                   <li>Demonstrate serial mode (`-s`) by showing how to transpose a column into a row – great for building header lines.</li>
-                  <li>Classroom exercise: take the output of `ls -1` and `ls -l | awk '{print $5}'` (sizes) and paste them side‑by‑side to compare filenames and sizes.</li>
+                  <li>{`Classroom exercise: take the output of ls -1 and ls -l | awk '{print $5}' (sizes) and paste them side‑by‑side to compare filenames and sizes.`}</li>
                 </ul>
                 <p className="mt-2 italic text-sm">"`paste` is the unsung hero of report generation. Master it and you'll combine any columnar data with ease." — Sukanta Sir</p>
               </div>
