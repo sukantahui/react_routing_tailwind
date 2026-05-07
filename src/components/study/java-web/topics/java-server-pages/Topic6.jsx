@@ -384,6 +384,217 @@ const Topic6 = () => {
           </div>
         </section>
 
+        {/* ===== NEW: JSTL FUNCTIONS (fn:) SECTION ===== */}
+        <section
+          className={clsx(
+            "max-w-4xl mx-auto px-4 py-8",
+            "animate-[fadeInUp_0.6s_ease-out] motion-safe:animate-[fadeInUp_0.6s_ease-out]",
+            "animation-delay-[650ms]"
+          )}
+        >
+          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-indigo-500 rounded-full"></span>
+            📚 JSTL Functions (fn:)
+          </h2>
+          <p className="mb-4">
+            The JSTL Functions library provides string manipulation and
+            collection utility methods that can be used directly within EL
+            expressions. These are <em>functions</em>, not tags — they are
+            invoked using <code>fn:functionName()</code>.
+          </p>
+
+          {/* Taglib declaration for functions */}
+          <div className="bg-gray-100 dark:bg-gray-800 p-5 rounded-xl mb-6">
+            <p className="font-medium mb-2">Taglib declaration:</p>
+            <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+              {`<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>`}
+            </pre>
+            <p className="text-sm mt-2 text-gray-600 dark:text-gray-400">
+              For legacy projects: <code>uri="http://java.sun.com/jsp/jstl/functions"</code>
+            </p>
+          </div>
+
+          <div className="grid gap-6">
+            {/* fn:length */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:length()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <strong>Prototype:</strong> <code>fn:length(Object)</code> → int
+              </p>
+              <p className="mb-3">
+                Returns the number of items in a collection, map, array, or the
+                length of a string. Handles <code>null</code> gracefully (returns 0).
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`<c:if test="\${fn:length(cart.items) > 0}">
+  You have \${fn:length(cart.items)} items in your cart.
+</c:if>
+String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
+              </pre>
+            </div>
+
+            {/* fn:contains / fn:containsIgnoreCase */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:contains() & fn:containsIgnoreCase()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:contains(string, substring)</code> → boolean<br />
+                <code>fn:containsIgnoreCase(string, substring)</code> → boolean
+              </p>
+              <p className="mb-3">
+                Checks if a string contains a substring (case-sensitive or ignoring case).
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`<c:if test="\${fn:containsIgnoreCase(product.description, 'sale')}">
+  <span class="badge">On Sale!</span>
+</c:if>`}
+              </pre>
+            </div>
+
+            {/* fn:startsWith / fn:endsWith */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:startsWith() & fn:endsWith()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:startsWith(string, prefix)</code> → boolean<br />
+                <code>fn:endsWith(string, suffix)</code> → boolean
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`<c:if test="\${fn:endsWith(filename, '.pdf')}">
+  <img src="pdf-icon.png" />
+</c:if>`}
+              </pre>
+            </div>
+
+            {/* fn:indexOf */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:indexOf()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:indexOf(string, substring)</code> → int
+              </p>
+              <p className="mb-3">
+                Returns the first index of a substring within a string (0-based), or -1 if not found.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:indexOf("Welcome to JSTL", "JSTL")} <!-- outputs 11 -->`}
+              </pre>
+            </div>
+
+            {/* fn:join */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:join()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:join(String[] array, String separator)</code> → String
+              </p>
+              <p className="mb-3">
+                Concatenates all elements of an array or collection into a single string,
+                separated by the given delimiter.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`<c:set var="colors" value="\${['red', 'green', 'blue']}" />
+<c:set var="joined" value="\${fn:join(colors, ', ')}" />
+\${joined} <!-- outputs "red, green, blue" -->`}
+              </pre>
+            </div>
+
+            {/* fn:split */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:split()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:split(String string, String delimiters)</code> → String[]
+              </p>
+              <p className="mb-3">
+                Splits a string into an array of substrings using the given delimiter.
+                Often used with <code>&lt;c:forEach&gt;</code> to iterate over tokens.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`<c:set var="fruits" value="\${fn:split('apple,banana,orange', ',')}" />
+<c:forEach items="\${fruits}" var="fruit">
+  \${fruit}<br/>
+</c:forEach>`}
+              </pre>
+            </div>
+
+            {/* fn:replace */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:replace()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:replace(String input, String before, String after)</code> → String
+              </p>
+              <p className="mb-3">
+                Replaces all occurrences of a substring with another string.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:replace("Hello World", "World", "JSTL")} <!-- outputs "Hello JSTL" -->`}
+              </pre>
+            </div>
+
+            {/* fn:substring, fn:substringAfter, fn:substringBefore */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:substring() / fn:substringAfter() / fn:substringBefore()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:substring(string, start, end)</code> → String<br />
+                <code>fn:substringAfter(string, substring)</code> → String<br />
+                <code>fn:substringBefore(string, substring)</code> → String
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:substring("JSTL Functions", 0, 4)} <!-- "JSTL" -->
+\${fn:substringAfter("name=John", "=")} <!-- "John" -->
+\${fn:substringBefore("john@example.com", "@")} <!-- "john" -->`}
+              </pre>
+            </div>
+
+            {/* fn:toLowerCase / fn:toUpperCase */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:toLowerCase() & fn:toUpperCase()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:toLowerCase(string)</code> → String<br />
+                <code>fn:toUpperCase(string)</code> → String
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:toUpperCase("Hello")} <!-- "HELLO" -->
+\${fn:toLowerCase("WORLD")} <!-- "world" -->`}
+              </pre>
+            </div>
+
+            {/* fn:trim */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:trim()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:trim(string)</code> → String
+              </p>
+              <p className="mb-3">
+                Removes leading and trailing whitespace from a string.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:trim("   Hello   ")} <!-- "Hello" -->`}
+              </pre>
+            </div>
+
+            {/* fn:escapeXml (sometimes overlooked) */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl">
+              <h3 className="text-lg font-semibold">fn:escapeXml()</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <code>fn:escapeXml(string)</code> → String
+              </p>
+              <p className="mb-3">
+                Escapes characters that would be interpreted as XML/HTML markup
+                (<code>&lt; &gt; &amp; &quot; &apos;</code>). Equivalent to
+                <code>&lt;c:out escapeXml="true" /&gt;</code> but usable in EL.
+              </p>
+              <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
+                {`\${fn:escapeXml("<div>Hello</div>")} <!-- outputs &lt;div&gt;Hello&lt;/div&gt; -->`}
+              </pre>
+            </div>
+
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border-l-4 border-yellow-400">
+              <p className="font-medium">📌 Pro Tip:</p>
+              <p className="text-sm">
+                Functions can be chained: <code>{`\${fn:toUpperCase(fn:trim(userInput))}`}</code>.
+                Always remember that <code>fn:length</code> works on both strings and collections.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Tips & Tricks */}
         <section
           className={clsx(
@@ -413,6 +624,10 @@ const Topic6 = () => {
               <li>
                 <strong>Default value in <code>&lt;c:out&gt;</code>:</strong>{" "}
                 Prevents displaying "null" and improves user experience.
+              </li>
+              <li>
+                <strong>Functions are your friends:</strong> Use <code>fn:contains</code>,
+                <code>fn:startsWith</code> etc. to make conditional rendering concise.
               </li>
             </ul>
           </div>
@@ -447,6 +662,11 @@ const Topic6 = () => {
                 <strong>Using scriptlets alongside JSTL:</strong> Mixing styles
                 makes code unmaintainable. Stick to one approach.
               </li>
+              <li>
+                <strong>Functions called with null:</strong> Many functions
+                return <code>null</code> or 0 gracefully, but always test when
+                necessary.
+              </li>
             </ul>
           </div>
         </section>
@@ -478,6 +698,9 @@ const Topic6 = () => {
               <li>
                 Organize JSTL tags with consistent indentation to improve
                 readability.
+              </li>
+              <li>
+                Prefer JSTL functions over custom Java methods in scriptlets.
               </li>
             </ul>
           </div>
@@ -531,7 +754,9 @@ const Topic6 = () => {
 Encourage students to think of them as "HTML-friendly control structures". 
 Show them how replacing a scriptlet loop with <c:forEach> instantly makes the page more readable. 
 A good exercise: take a JSP full of scriptlets and refactor it using only Core tags and EL. 
-Remind them that the varStatus attribute is often overlooked but extremely handy for alternating row colours or numbering.`}
+Remind them that the varStatus attribute is often overlooked but extremely handy for alternating row colours or numbering.
+
+Also introduce the Functions (fn:) library as a natural extension. Students often try to write scriptlet calls for string manipulation – show them fn:contains, fn:substring, etc. It's amazing how many "if" statements can be replaced by fn:contains inside a test attribute.`}
           />
         </section>
 
@@ -548,7 +773,8 @@ Remind them that the varStatus attribute is often overlooked but extremely handy
             <p className="mt-2">
               How would you display a numbered list of students from a
               collection using <code>&lt;c:forEach&gt;</code>? What attribute
-              gives you the current index?
+              gives you the current index? And how would you highlight entries
+              containing the word "urgent" using <code>fn:contains</code>?
             </p>
           </div>
         </div>

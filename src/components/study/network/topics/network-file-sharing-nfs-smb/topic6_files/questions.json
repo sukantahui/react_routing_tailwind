@@ -1,0 +1,690 @@
+{
+  "subject": "Computer Networks",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "Advanced Networking Concepts (250 Questions - 50 per subtopic)",
+  "subjectLogo": {
+    "name": "Computer Networks",
+    "icon": "network-wired",
+    "type": "svg",
+    "path": "/logos/Network.svg",
+    "alt": "Computer Networks Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is transmission media in computer networks?",
+      "output": "The physical or wireless path through which data travels from sender to receiver.",
+      "answer": "Transmission media are the channels that carry data signals between devices. They are classified as guided (wired) like copper cables or fiber optics, and unguided (wireless) like radio waves or infrared.",
+      "explanation": "The choice of media affects speed, distance, cost, and susceptibility to interference."
+    },
+    {
+      "id": 2,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is twisted pair cable? Give an example.",
+      "output": "A cable with pairs of insulated copper wires twisted together; e.g., Ethernet cable (Cat5e, Cat6).",
+      "answer": "Twisted pair consists of two insulated copper wires twisted to reduce electromagnetic interference. It is cheap and flexible, used in telephone lines and LANs.",
+      "explanation": "Twisting cancels out external noise; UTP (unshielded) and STP (shielded) are common types."
+    },
+    {
+      "id": 3,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is coaxial cable used for?",
+      "output": "Used for cable TV, broadband internet, and older Ethernet networks (10BASE2/10BASE5).",
+      "answer": "Coaxial cable has a central copper conductor, insulating layer, metal shield, and outer jacket. It provides better shielding than twisted pair and can carry signals over longer distances.",
+      "explanation": "Coaxial is still used in cable modems and satellite installations."
+    },
+    {
+      "id": 4,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is fiber optic cable? How does it transmit data?",
+      "output": "A cable containing thin glass fibers that transmit data as pulses of light.",
+      "answer": "Fiber optic uses total internal reflection to guide light signals. It offers very high bandwidth, long distances, and immunity to electromagnetic interference, but is more expensive and fragile than copper.",
+      "explanation": "Used in backbone networks, FTTH (Fiber to the Home), and high-speed data centers."
+    },
+    {
+      "id": 5,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between single-mode and multi-mode fiber?",
+      "output": "Single-mode has a small core, carries one light ray (laser) for long distances; multi-mode has larger core, carries multiple rays (LED) for short distances.",
+      "answer": "Single-mode fiber (9/125 µm) supports one propagation mode, achieving distances up to 100 km. Multi-mode fiber (50/125 or 62.5/125 µm) is cheaper but limited to 550m for 10 Gbps due to modal dispersion.",
+      "explanation": "Single-mode is used for long-haul telecom; multi-mode for campus and data center links."
+    },
+    {
+      "id": 6,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is unguided (wireless) media? Give examples.",
+      "output": "Media that transmit signals through air without physical wires; e.g., radio waves, microwaves, infrared.",
+      "answer": "Unguided media use electromagnetic waves. Radio waves (up to 1 GHz) can penetrate walls; microwaves (1-300 GHz) are directional; infrared (300 GHz-400 THz) is line-of-sight but cannot pass through walls.",
+      "explanation": "Wireless is convenient for mobility and remote areas but can suffer from interference and security issues."
+    },
+    {
+      "id": 7,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is radio wave transmission? Give a real-world use.",
+      "output": "Electromagnetic waves from 3 Hz to 300 GHz used for Wi-Fi, Bluetooth, radio broadcasting, and cellular networks.",
+      "answer": "Radio waves are omni-directional and can pass through obstacles (walls), but are subject to interference. Wi-Fi (2.4 GHz and 5 GHz) and cellular (700 MHz to 6 GHz) use radio waves.",
+      "explanation": "Longer wavelengths (lower frequencies) travel farther but carry less data."
+    },
+    {
+      "id": 8,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is microwave transmission? What are its limitations?",
+      "output": "Line-of-sight, high-frequency (1-300 GHz) radio waves used for point-to-point communication like satellite links or tower-to-tower backhaul.",
+      "answer": "Microwaves require direct line-of-sight and are affected by rain, fog, and physical obstructions. They offer high bandwidth and are used in TV broadcasts, radar, and cellular backhaul.",
+      "explanation": "Microwave towers are spaced every 30-50 km due to Earth's curvature."
+    },
+    {
+      "id": 9,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is infrared transmission? Where is it used?",
+      "output": "Wireless transmission using infrared light (300 GHz – 400 THz) for short-range, line-of-sight communication, e.g., remote controls, IRDA.",
+      "answer": "Infrared cannot penetrate walls, making it secure for room-to-room communication. It is low-cost and used in TV remotes, wireless keyboards, and some short-range data transfer (IrDA).",
+      "explanation": "Infrared is not suitable for outdoor use due to sunlight interference."
+    },
+    {
+      "id": 10,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is the maximum distance for Cat6 Ethernet cable at 1 Gbps?",
+      "output": "100 meters (328 feet) for 1 Gbps; 55 meters for 10 Gbps.",
+      "answer": "Category 6 twisted pair cable is rated for 250 MHz. At 1 Gbps, the maximum segment length is 100 m. At 10 Gbps, it drops to 55 m (or 100 m with Cat6a).",
+      "explanation": "Signal attenuation and crosstalk limit length; repeaters or switches can extend networks."
+    },
+    {
+      "id": 11,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the typical data rate of a coaxial cable used for cable internet?",
+      "output": "DOCSIS 3.1 can provide up to 10 Gbps downstream and 1-2 Gbps upstream over coaxial cable.",
+      "answer": "Coaxial cables used by cable ISPs are shared media. With DOCSIS 3.1, theoretical speeds reach 10 Gbps, but real-world is lower due to sharing among neighbourhoods.",
+      "explanation": "Coaxial has higher bandwidth than twisted pair but less than fiber."
+    },
+    {
+      "id": 12,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is the advantage of fiber optic over copper?",
+      "output": "Higher bandwidth, longer distance, immunity to electromagnetic interference, and better security (harder to tap).",
+      "answer": "Fiber can transmit signals over 40 km without repeaters (single-mode). It does not conduct electricity, so no grounding issues. It is also thinner and lighter for the same bandwidth.",
+      "explanation": "The main disadvantages are cost and fragility during installation."
+    },
+    {
+      "id": 13,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between UTP and STP?",
+      "output": "UTP (Unshielded Twisted Pair) has no shielding; STP (Shielded Twisted Pair) has a foil or braid shield to reduce electromagnetic interference.",
+      "answer": "UTP is cheaper and more flexible, used in most Ethernet installations. STP provides better protection against crosstalk and external noise but is more expensive and requires proper grounding.",
+      "explanation": "STP is used in industrial or high-interference environments."
+    },
+    {
+      "id": 14,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is modal dispersion in multimode fiber?",
+      "output": "The broadening of light pulses because different modes (paths) travel different distances, limiting the fiber's bandwidth and effective distance.",
+      "answer": "In multimode fiber, light rays take multiple paths (modes). Rays that zigzag more travel longer distances, arriving later, causing pulse spreading. This limits high-speed transmission to about 500-1000 meters.",
+      "explanation": "Single-mode fiber avoids modal dispersion by allowing only one mode."
+    },
+    {
+      "id": 15,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "Can twisted pair cables be used for telephone lines?",
+      "output": "Yes, traditional analog telephone lines (POTS) use twisted pair cables.",
+      "answer": "Since the 19th century, twisted pair has been used for telephone networks. DSL (Digital Subscriber Line) also runs over the same twisted pair to provide broadband internet.",
+      "explanation": "One phone line uses one pair; Ethernet uses two or four pairs."
+    },
+    {
+      "id": 16,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is WDM (Wavelength Division Multiplexing) in fiber optics?",
+      "output": "A technique that combines multiple light wavelengths (colors) onto a single fiber, multiplying its capacity.",
+      "answer": "WDM uses different laser frequencies to carry separate data streams. Coarse WDM (CWDM) uses up to 18 channels; Dense WDM (DWDM) can use 80+ channels, each up to 100 Gbps, achieving terabit/s over one fiber.",
+      "explanation": "DWDM is the backbone of the Internet, allowing massive data transmission."
+    },
+    {
+      "id": 17,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between baseband and broadband transmission?",
+      "output": "Baseband uses the entire medium for one signal at a time (e.g., Ethernet). Broadband divides the medium into multiple channels for simultaneous signals (e.g., cable TV).",
+      "answer": "Baseband is digital, bidirectional, and uses simple signalling. Broadband is analog, uses frequency division multiplexing, and is typically unidirectional (downstream/upstream).",
+      "explanation": "Ethernet is baseband; cable internet uses broadband over coaxial."
+    },
+    {
+      "id": 18,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the main drawback of using unshielded twisted pair in industrial environments?",
+      "output": "Susceptibility to electromagnetic interference from motors, welders, and heavy machinery.",
+      "answer": "UTP lacks shielding, so in noisy industrial settings, errors increase. Shielded twisted pair (STP) or fiber optic is preferred. UTP is fine for offices and homes.",
+      "explanation": "Proper grounding and cable routing can reduce interference."
+    },
+    {
+      "id": 19,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is the 'skin effect' in copper cables at high frequencies?",
+      "output": "The tendency of high-frequency alternating current to flow near the surface of the conductor, increasing effective resistance.",
+      "answer": "At high frequencies (e.g., 100 MHz+ for Ethernet), current concentrates near the skin, reducing the usable cross-section. This increases attenuation, limiting cable length. Stranded wires help but not eliminate it.",
+      "explanation": "Fiber optics do not suffer from skin effect."
+    },
+    {
+      "id": 20,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is the typical connector for twisted pair Ethernet cables?",
+      "output": "RJ45 (Registered Jack 45) connector with 8 pins.",
+      "answer": "RJ45 is an 8P8C modular connector used for Cat5e, Cat6, and higher. It is similar to telephone RJ11 but wider. Fiber uses connectors like LC, SC, ST.",
+      "explanation": "Crimping RJ45 connectors requires a special tool; colour coding must match T568A or T568B standard."
+    },
+    {
+      "id": 21,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'crosstalk' in twisted pair cables?",
+      "output": "Electromagnetic coupling of a signal from one wire pair to another, causing interference.",
+      "answer": "Crosstalk occurs when signals from adjacent pairs induce unwanted voltages. Twisting reduces crosstalk, but at high frequencies, near-end crosstalk (NEXT) and far-end crosstalk (FEXT) limit performance.",
+      "explanation": "Cat6 and above have tighter twists and separators to reduce crosstalk."
+    },
+    {
+      "id": 22,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the typical maximum transmission distance for 10 Mbps over coaxial (10BASE2)?",
+      "output": "185 meters per segment.",
+      "answer": "10BASE2 (Thinnet) uses RG-58 coaxial cable with a maximum segment length of 185 m. Up to 30 nodes per segment. With repeaters, total network could be larger.",
+      "explanation": "10BASE5 (Thicknet) allowed 500 m segments but used vampire taps."
+    },
+    {
+      "id": 23,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between OM1, OM2, OM3, and OM4 multimode fiber?",
+      "output": "Different grades of multimode fiber: OM1 (62.5 µm), OM2 (50 µm), OM3/OM4 (50 µm with higher bandwidth for laser optimization).",
+      "answer": "OM1 supports 1 Gbps up to 275 m; OM2 up to 550 m; OM3 supports 10 Gbps up to 300 m; OM4 up to 400 m. OM5 is wideband multimode for shortwave WDM.",
+      "explanation": "OM3 and OM4 are designed for VCSEL lasers, not LEDs."
+    },
+    {
+      "id": 24,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'free-space optical communication' (FSO)?",
+      "output": "Line-of-sight wireless transmission using lasers or infrared, similar to fiber but through air.",
+      "answer": "FSO provides high bandwidth (up to 10 Gbps) over short distances (1-2 km) without fiber installation. It is sensitive to fog, rain, and physical obstructions. Used for campus links.",
+      "explanation": "FSO is sometimes called 'optical wireless' or 'fiberless optics'."
+    },
+    {
+      "id": 25,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of a cable's shielding?",
+      "output": "To protect the inner conductor from electromagnetic interference (EMI) and to prevent signal leakage.",
+      "answer": "Shielding (foil or braided metal) blocks external noise. Coaxial cable has a braided shield; STP has a foil shield. Shielding also reduces radiation, improving security.",
+      "explanation": "Shielding must be properly grounded; otherwise, it can act as an antenna and worsen interference."
+    },
+    {
+      "id": 26,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a 'patch cable' and a 'crossover cable'?",
+      "output": "Patch cable connects devices to a switch (straight-through wiring). Crossover cable swaps transmit and receive pairs to connect two similar devices directly.",
+      "answer": "In straight-through cable, pins 1-2 (TX) go to pins 1-2 (RX) of the other end? Actually, straight-through: same pin mapping both ends. Crossover swaps TX and RX pairs. Modern Auto-MDI/X eliminates need for crossover.",
+      "explanation": "Crossover cables are seldom needed today because switches and NICs auto-detect."
+    },
+    {
+      "id": 27,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'attenuation' in the context of transmission media?",
+      "output": "The loss of signal strength as it travels through the medium, measured in decibels (dB) per unit distance.",
+      "answer": "Attenuation increases with distance and frequency. Copper cables have higher attenuation than fiber. To compensate, repeaters or amplifiers are used. Fiber amplifiers (EDFA) boost light without conversion to electricity.",
+      "explanation": "Attenuation limits the maximum segment length without regeneration."
+    },
+    {
+      "id": 28,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the main disadvantage of using microwave transmission for long distances?",
+      "output": "Requires line-of-sight and is affected by weather (rain fade) and atmospheric conditions.",
+      "answer": "Microwaves cannot bend around obstacles, so towers must be high. Heavy rain can absorb or scatter microwaves, reducing signal strength (rain fade). Also, multipath interference can occur.",
+      "explanation": "Satellite communication uses microwave but with high latency (≈250 ms)."
+    },
+    {
+      "id": 29,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'chromatic dispersion' in fiber optics?",
+      "output": "The spreading of light pulses because different wavelengths travel at slightly different speeds in the fiber, limiting bandwidth.",
+      "answer": "Chromatic dispersion is caused by the wavelength dependence of the refractive index. It broadens pulses over long distances, causing intersymbol interference. Dispersion-shifted fibers are designed to minimise it.",
+      "explanation": "Single-mode fiber has very low chromatic dispersion but not zero."
+    },
+    {
+      "id": 30,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is a 'plenum-rated' cable?",
+      "output": "A cable with fire-retardant, low-smoke jacketing for use in air-handling spaces (plenums).",
+      "answer": "Building codes require plenum-rated (CMP) cable in drop ceilings and raised floors used for air circulation. It emits less toxic smoke when burned than PVC (CMR) cable.",
+      "explanation": "Plenum cable costs more but is safer. Standard PVC cable cannot be used in plenums."
+    },
+    {
+      "id": 31,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'return loss' in a twisted pair cable?",
+      "output": "The amount of signal reflected back due to impedance mismatches along the cable; high return loss is desirable.",
+      "answer": "Impedance mismatches (e.g., from bad crimps, kinks, or poor connectors) cause reflections, which reduce signal power and create echoes. Return loss > 20 dB is typical for good cables.",
+      "explanation": "Fluke testers measure return loss during certification."
+    },
+    {
+      "id": 32,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the 'cladding' in a fiber optic cable?",
+      "output": "A glass layer around the core with a lower refractive index to keep light confined to the core via total internal reflection.",
+      "answer": "The cladding ensures that light rays hitting the core-cladding boundary at an angle greater than the critical angle are reflected back into the core. Without cladding, light would escape.",
+      "explanation": "The core and cladding are both glass but with different doping (germanium or fluorine)."
+    },
+    {
+      "id": 33,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'polarization mode dispersion' (PMD) in fiber?",
+      "output": "Spread of light pulses due to different propagation speeds of two orthogonal polarization states, limiting high-speed long-haul transmission.",
+      "answer": "PMD occurs because the fiber core is not perfectly circular, causing one polarization to travel slightly slower. For 10 Gbps and beyond, PMD becomes significant over long distances. Compensation techniques exist.",
+      "explanation": "PMD is a statistical effect; new fibers have very low PMD."
+    },
+    {
+      "id": 34,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "Can a twisted pair cable carry power as well as data?",
+      "output": "Yes, Power over Ethernet (PoE) delivers DC power (up to 90W) over unused pairs or signal pairs.",
+      "answer": "PoE (IEEE 802.3af/at/bt) allows switches or injectors to power devices like IP cameras, VoIP phones, and Wi-Fi access points over Cat5e or better cable, eliminating separate power supplies.",
+      "explanation": "PoE uses negotiation to supply the correct voltage and avoid damage."
+    },
+    {
+      "id": 35,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between RG-6 and RG-59 coaxial cable?",
+      "output": "RG-6 has thicker conductor and better shielding, suitable for satellite and cable TV over long runs; RG-59 is thinner, used for short CCTV runs.",
+      "answer": "RG-6 has lower signal loss at high frequencies (up to 3 GHz) and is standard for cable modems and satellite. RG-59 is cheaper but limited to about 300 m for video.",
+      "explanation": "The 'RG' number comes from old military specs; modern cables differ."
+    },
+    {
+      "id": 36,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'insertion loss' in a cable?",
+      "output": "The total signal loss (attenuation) caused by the cable and connectors, measured in dB.",
+      "answer": "Insertion loss includes intrinsic cable attenuation plus losses from connectors, splices, and bends. For certification, cabling must not exceed a maximum loss (e.g., 20 dB for certain standards).",
+      "explanation": "Low insertion loss is critical for long-distance links."
+    },
+    {
+      "id": 37,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the typical frequency range for Wi-Fi (2.4 GHz band)?",
+      "output": "2.400–2.4835 GHz, divided into 14 channels (mostly 20 MHz wide).",
+      "answer": "The 2.4 GHz band offers good wall penetration but is congested with Bluetooth, microwave ovens, and other Wi-Fi networks. The 5 GHz band has more channels and less interference but shorter range.",
+      "explanation": "6 GHz band (Wi-Fi 6E) is now available in some countries for even less congestion."
+    },
+    {
+      "id": 38,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'beamforming' in wireless transmission?",
+      "output": "A technique that focuses radio signals toward a specific receiver rather than broadcasting omnidirectionally, improving range and reducing interference.",
+      "answer": "Beamforming uses multiple antennas (phased array) to phase-shift signals, creating constructive interference in desired direction and destructive elsewhere. Used in 802.11ac, 802.11ax, and 5G.",
+      "explanation": "Beamforming increases signal-to-noise ratio and data rates."
+    },
+    {
+      "id": 39,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "Is it possible to transmit data over power lines (PLC)?",
+      "output": "Yes, Power Line Communication uses existing electrical wiring to carry data, used in smart meters and some home networking (HomePlug).",
+      "answer": "PLC modulates high-frequency signals onto AC power lines. It is convenient but suffers from noise and interference. Speeds up to 1 Gbps are possible with modern standards (G.hn).",
+      "explanation": "Not as reliable as Ethernet or Wi-Fi and can interfere with amateur radio."
+    },
+    {
+      "id": 40,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'MIMO' (Multiple Input Multiple Output) in wireless?",
+      "output": "Using multiple antennas at both transmitter and receiver to send multiple data streams simultaneously, increasing throughput.",
+      "answer": "MIMO exploits multipath propagation to increase capacity without additional bandwidth. 2x2 MIMO doubles theoretical throughput; 4x4 MIMO quadruples. Used in Wi-Fi (802.11n/ac/ax) and 4G/5G.",
+      "explanation": "Spatial multiplexing is a key enabler of high-speed wireless."
+    },
+    {
+      "id": 41,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between 'line-of-sight' and 'non-line-of-sight' transmission?",
+      "output": "LOS requires a clear, unobstructed path between antennas; NLOS uses reflections, diffraction, and scattering to reach receivers behind obstacles.",
+      "answer": "Most microwave and free-space optics require LOS. Cellular and Wi-Fi can work NLOS due to multipath, but signal is weaker. Lower frequencies (e.g., 900 MHz) penetrate better than higher ones (e.g., 5 GHz).",
+      "explanation": "NLOS extends coverage but reduces reliability and bandwidth."
+    },
+    {
+      "id": 42,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'spread spectrum' in wireless communication?",
+      "output": "A technique that spreads a signal over a wide frequency band to reduce interference and improve security (e.g., FHSS, DSSS).",
+      "answer": "Spread spectrum was originally military. Frequency hopping (FHSS) jumps between frequencies; direct sequence (DSSS) mixes data with a pseudo-random code. Used in Bluetooth (FHSS) and early Wi-Fi (DSSS).",
+      "explanation": "Modern Wi-Fi uses OFDM, which is not spread spectrum but has similar benefits."
+    },
+    {
+      "id": 43,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum throughput of a single 1000BASE-T (Gigabit Ethernet) twisted pair link?",
+      "output": "1 Gbps (125 MB/s) in each direction (full-duplex), so total 2 Gbps per link.",
+      "answer": "1000BASE-T uses all four pairs of Cat5e or better simultaneously, each pair carrying 250 Mbps using PAM-5 encoding. Full-duplex allows simultaneous send and receive.",
+      "explanation": "Real throughput is slightly less due to framing overhead."
+    },
+    {
+      "id": 44,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'alien crosstalk' (AXT) in twisted pair cabling?",
+      "output": "Interference from nearby cables in a bundle, affecting high-speed transmission (e.g., 10GBASE-T).",
+      "answer": "Alien crosstalk is coupling between different cables. At 10 Gbps over copper, it becomes a limiting factor. Cat6a and Cat8 are designed with shielding or enhanced separation to reduce AXT.",
+      "explanation": "Testing for AXT requires special procedures and is often overlooked in field certification."
+    },
+    {
+      "id": 45,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is the 'critical angle' in fiber optics?",
+      "output": "The minimum angle of incidence at which light is totally internally reflected within the core.",
+      "answer": "If light hits the core-cladding boundary at an angle greater than the critical angle (relative to the normal), it reflects. If less, it refracts out of the core (lost). Critical angle = arcsin(n2/n1), where n1>n2.",
+      "explanation": "Only light entering within the acceptance cone propagates."
+    },
+    {
+      "id": 46,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the typical attenuation of single-mode fiber at 1550 nm?",
+      "output": "About 0.2 dB per kilometre, allowing unrepeatered distances up to 200+ km.",
+      "answer": "The lowest attenuation in silica fiber occurs at 1550 nm (C-band). Older fiber (1300 nm) has ∼0.35 dB/km. With optical amplifiers, transoceanic cables can span thousands of kilometres.",
+      "explanation": "Attenuation is caused by absorption (water peaks) and Rayleigh scattering."
+    },
+    {
+      "id": 47,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is a 'fiber fusion splicer'?",
+      "output": "A device that permanently joins two optical fibers by melting (fusing) their ends together with an electric arc.",
+      "answer": "Fusion splicing provides very low loss (∼0.02 dB) and high strength compared to mechanical splices. The splicer aligns the cores, then arcs to melt and fuse the glass.",
+      "explanation": "Used in long-haul fiber installation and repair."
+    },
+    {
+      "id": 48,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Beginner",
+      "question": "What is a 'directional antenna'? Give an example.",
+      "output": "An antenna that concentrates radio waves in a specific direction, increasing range and reducing interference; e.g., Yagi or parabolic dish.",
+      "answer": "Directional antennas are used for point-to-point links (e.g., Wi-Fi bridge between buildings). They have high gain (e.g., 24 dBi) but must be aimed accurately.",
+      "explanation": "Omnidirectional antennas radiate in all directions (e.g., Wi-Fi router antennas)."
+    },
+    {
+      "id": 49,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Advanced",
+      "question": "What is 'Miller effect' in coaxial cable?",
+      "output": "Not directly applicable; I think you mean 'skin effect' or 'dielectric loss'? The Miller effect is an electronics concept, not cable media. For coaxial, key is 'dielectric loss'.",
+      "answer": "In coaxial cable, the dielectric material (insulator) absorbs some energy, causing loss that increases with frequency. Low-loss foamed dielectrics (e.g., cellular polyethylene) reduce this.",
+      "explanation": "Solid PTFE dielectrics have lower loss but are more expensive."
+    },
+    {
+      "id": 50,
+      "topic": "Network Transmission Media: Guided (Twisted pair, Coaxial, Fiber optic) and Unguided (Radio, Microwave, Infrared)",
+      "difficulty": "Intermediate",
+      "question": "What is the main advantage of using a 'satellite link' for communication?",
+      "output": "Global coverage, reaching remote areas without terrestrial infrastructure, and broadcast capability to many receivers.",
+      "answer": "Satellites (GEO) provide fixed beams covering large areas (e.g., DTH TV). Low Earth Orbit (LEO) constellations (Starlink) offer low latency (≈25 ms) and high bandwidth. However, satellite links suffer from high cost and weather effects.",
+      "explanation": "Geostationary satellites have high latency (≈500 ms round trip) due to altitude (35,786 km)."
+    },
+    {
+      "id": 51,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What does TCP/IP stand for?",
+      "output": "Transmission Control Protocol/Internet Protocol – the fundamental protocol suite of the Internet.",
+      "answer": "TCP/IP is a set of communication protocols that define how data is packetised, addressed, transmitted, routed, and received across networks. It includes TCP, UDP, IP, ICMP, and many others.",
+      "explanation": "TCP/IP is a layered model (Application, Transport, Internet, Network Access)."
+    },
+    {
+      "id": 52,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of HTTP?",
+      "output": "Hypertext Transfer Protocol – used for transferring web pages from servers to browsers.",
+      "answer": "HTTP operates on top of TCP (port 80). A browser sends a GET request, the server responds with HTML, CSS, images, etc. It is stateless, meaning each request-response is independent.",
+      "explanation": "HTTPS is HTTP encrypted with TLS/SSL (port 443) for security."
+    },
+    {
+      "id": 53,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What is FTP used for?",
+      "output": "File Transfer Protocol – for uploading and downloading files between a client and server.",
+      "answer": "FTP uses two ports: 21 for control (commands) and 20 for data. It supports authentication (username/password) and anonymous access. It is not secure unless using FTPS or SFTP.",
+      "explanation": "FTP is often replaced by SCP, SFTP, or cloud storage for security."
+    },
+    {
+      "id": 54,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What is SMTP?",
+      "output": "Simple Mail Transfer Protocol – used for sending emails from a client to a mail server or between servers.",
+      "answer": "SMTP operates on port 25 (or 587 for submission). It pushes outgoing emails. SMTP cannot retrieve emails; that is done by POP3 or IMAP.",
+      "explanation": "SMTP is a push protocol, while POP3/IMAP are pull protocols."
+    },
+    {
+      "id": 55,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "Difference between POP3 and IMAP?",
+      "output": "POP3 downloads emails to the client and often deletes from server; IMAP keeps emails on the server and synchronises across multiple devices.",
+      "answer": "POP3 (Post Office Protocol version 3) port 110 (or 995 for SSL) typically stores emails locally. IMAP (Internet Message Access Protocol) port 143 (993 SSL) keeps messages on the server, allowing folder management and partial download.",
+      "explanation": "IMAP is preferred for users who check email from multiple devices (phone, laptop)."
+    },
+    {
+      "id": 56,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is TCP? What does it guarantee?",
+      "output": "Transmission Control Protocol – a connection-oriented protocol that guarantees reliable, in-order delivery of data with error checking and flow control.",
+      "answer": "TCP establishes a virtual circuit (three-way handshake). It sequences packets, acknowledges receipt, retransmits lost packets, and adjusts flow (sliding window). Used by HTTP, FTP, SMTP, etc.",
+      "explanation": "TCP provides reliability at the cost of higher overhead and latency compared to UDP."
+    },
+    {
+      "id": 57,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is UDP? How is it different from TCP?",
+      "output": "User Datagram Protocol – a connectionless, unreliable protocol with no error recovery, but low overhead and low latency.",
+      "answer": "UDP (port numbers) sends datagrams without establishing a connection. It does not guarantee delivery or order. Used for DNS, VoIP, streaming, gaming, and SNMP.",
+      "explanation": "UDP is suitable when speed is more important than reliability, or when application can handle lost data."
+    },
+    {
+      "id": 58,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is the TCP three-way handshake?",
+      "output": "SYN, SYN-ACK, ACK – the process to establish a TCP connection.",
+      "answer": "Client sends SYN (seq=x); server replies with SYN-ACK (seq=y, ack=x+1); client sends ACK (ack=y+1). After this, data transfer can begin. The handshake synchronises sequence numbers.",
+      "explanation": "This ensures both sides are ready and agree on initial sequence numbers."
+    },
+    {
+      "id": 59,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is the difference between HTTP/1.1 and HTTP/2?",
+      "output": "HTTP/2 supports multiplexing, server push, header compression, and binary framing, improving performance over HTTP/1.1.",
+      "answer": "HTTP/1.1 uses text-based headers and can suffer from head-of-line blocking (one request per connection). HTTP/2 multiplexes multiple streams over a single TCP connection, reduces latency, and allows server to push resources proactively.",
+      "explanation": "HTTP/3 uses QUIC (UDP-based) for even better performance."
+    },
+    {
+      "id": 60,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is a TCP 'port'? Give examples of well-known ports.",
+      "output": "A 16-bit number identifying specific network services on a host. Examples: 80 (HTTP), 443 (HTTPS), 25 (SMTP), 22 (SSH), 53 (DNS).",
+      "answer": "Ports allow multiple services to run on the same IP address. Well-known ports (0-1023) are assigned by IANA. Ephemeral ports (1024-65535) are used by clients for temporary connections.",
+      "explanation": "TCP and UDP each have their own port space."
+    },
+    {
+      "id": 61,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is the role of the 'IP' protocol?",
+      "output": "Internet Protocol – responsible for addressing and routing packets from source to destination across networks.",
+      "answer": "IP is a connectionless, best-effort protocol (no guarantee of delivery). It defines IP addresses (IPv4 32-bit, IPv6 128-bit) and packet format (header includes TTL, protocol, checksum).",
+      "explanation": "IP provides the delivery mechanism; TCP/UDP provide transport services on top."
+    },
+    {
+      "id": 62,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is a 'TCP window size'?",
+      "output": "The amount of data (in bytes) that a sender can transmit before receiving an acknowledgment, used for flow control.",
+      "answer": "The window size is part of the TCP header (16 bits, but can be scaled). A larger window allows more data in flight, improving throughput on high-latency paths (bandwidth-delay product).",
+      "explanation": "TCP uses sliding window to prevent overwhelming the receiver."
+    },
+    {
+      "id": 63,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'TLS' and how does it relate to HTTPS?",
+      "output": "Transport Layer Security – cryptographic protocol that encrypts HTTP traffic, resulting in HTTPS (HTTP over TLS).",
+      "answer": "TLS (successor to SSL) provides encryption, authentication (via certificates), and integrity. It runs between TCP and HTTP. Port 443 is reserved for HTTPS. Browsers show a padlock icon.",
+      "explanation": "Without TLS, HTTP traffic is plaintext and can be eavesdropped or modified."
+    },
+    {
+      "id": 64,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between active and passive FTP?",
+      "output": "Active: server initiates data connection to client; Passive: client initiates data connection to server (used when client is behind NAT/firewall).",
+      "answer": "In active FTP, the client sends PORT command, and server connects back to client's port 20. This fails with NAT. In passive FTP, server sends a port number, and client connects to that port. Passive is more common today.",
+      "explanation": "Modern FTP clients default to passive mode."
+    },
+    {
+      "id": 65,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What does 'stateless' mean in HTTP?",
+      "output": "The server does not remember previous requests from the same client; each request is independent.",
+      "answer": "Statelessness simplifies server design but requires extra mechanisms (cookies, sessions) to maintain state. RESTful APIs exploit statelessness for scalability.",
+      "explanation": "A shopping cart cannot rely on HTTP alone; it needs session IDs stored in cookies."
+    },
+    {
+      "id": 66,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'MIME' in email?",
+      "output": "Multipurpose Internet Mail Extensions – extends email to support attachments, non-ASCII text, and multimedia.",
+      "answer": "SMTP originally only supported 7-bit ASCII. MIME encodes binary files (images, documents) into text using base64, and adds headers (Content-Type, Content-Transfer-Encoding).",
+      "explanation": "MIME is also used in HTTP (Content-Type header)."
+    },
+    {
+      "id": 67,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of ICMP?",
+      "output": "Internet Control Message Protocol – used for error reporting and diagnostic functions (e.g., ping, traceroute).",
+      "answer": "ICMP messages include 'Destination Unreachable', 'Time Exceeded', and 'Echo Request/Reply' (ping). It operates above IP but is considered part of the IP layer. It does not carry user data.",
+      "explanation": "ICMP is often blocked by firewalls to prevent network reconnaissance."
+    },
+    {
+      "id": 68,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'TCP Fast Open' (TFO)?",
+      "output": "An extension that allows data to be sent during the TCP handshake, reducing latency for repeated connections.",
+      "answer": "TFO uses a cookie to allow the client to send data in the SYN packet. This saves one round trip time (RTT) for subsequent connections. Supported in Linux and some web servers.",
+      "explanation": "Useful for web browsing and APIs where many short connections are made."
+    },
+    {
+      "id": 69,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is the 'MSS' (Maximum Segment Size) in TCP?",
+      "output": "The largest amount of data (payload) that TCP can send in a single segment, negotiated during handshake.",
+      "answer": "MSS is derived from the MTU (Maximum Transmission Unit) of the link minus the IP and TCP headers (usually 40 bytes). Typical MSS for Ethernet is 1460 bytes (1500 MTU - 40).",
+      "explanation": "Prevents fragmentation at the IP layer."
+    },
+    {
+      "id": 70,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a 'protocol' and a 'standard'?",
+      "output": "A protocol defines rules for communication; a standard is a protocol that has been officially approved by a standards organization (e.g., IEEE, IETF).",
+      "answer": "All standards are protocols, but not all protocols are formal standards (e.g., many proprietary protocols). Standards ensure interoperability.",
+      "explanation": "TCP/IP is a de facto standard; IEEE 802.3 is a formal standard for Ethernet."
+    },
+    {
+      "id": 71,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'head-of-line blocking' in HTTP/1.1?",
+      "output": "A problem where a slow request at the front of the queue delays subsequent requests on the same TCP connection.",
+      "answer": "HTTP/1.1 allows multiple requests per connection but they must be processed in order. If a large response (e.g., an image) is being sent, later requests (e.g., a small CSS file) must wait. HTTP/2 solves this with multiplexing.",
+      "explanation": "Browsers open multiple parallel TCP connections to mitigate, but that can lead to congestion."
+    },
+    {
+      "id": 72,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'TCP BBR' (Bottleneck Bandwidth and Round-trip propagation time)?",
+      "output": "A modern TCP congestion control algorithm that estimates the available bandwidth and RTT to achieve higher throughput and lower latency.",
+      "answer": "BBR is used by Google and many CDNs. Unlike loss-based algorithms (Cubic), it models the network path. It is particularly effective on high-latency, high-loss links (e.g., satellite).",
+      "explanation": "BBR is now part of Linux kernel and YouTube's stack."
+    },
+    {
+      "id": 73,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Beginner",
+      "question": "What is a 'request method' in HTTP? Name two common ones.",
+      "output": "Verbs indicating desired action; e.g., GET (retrieve), POST (submit data), PUT (update), DELETE.",
+      "answer": "GET requests data from a server (should be idempotent). POST submits data to be processed (e.g., form submission). Other methods: PUT, PATCH, DELETE, HEAD.",
+      "explanation": "RESTful APIs use these methods to manipulate resources."
+    },
+    {
+      "id": 74,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is a 'HTTP status code'? Give examples of 2xx, 4xx, and 5xx.",
+      "output": "Three-digit code indicating result of request: 200 OK, 404 Not Found, 500 Internal Server Error.",
+      "answer": "1xx: informational; 2xx: success (200, 201); 3xx: redirection (301, 302); 4xx: client error (400, 403, 404); 5xx: server error (500, 502, 503).",
+      "explanation": "Status codes help clients handle responses programmatically."
+    },
+    {
+      "id": 75,
+      "topic": "Network Protocols and Standards: TCP/IP, HTTP, HTTPS, FTP, SMTP, POP3, IMAP",
+      "difficulty": "Advanced",
+      "question": "What is 'HTTP/3' and which transport protocol does it use?",
+      "output": "HTTP/3 uses QUIC (Quick UDP Internet Connections) instead of TCP to reduce latency and handle packet loss better.",
+      "answer": "QUIC is a UDP-based protocol with built-in encryption and multiplexing, addressing head-of-line blocking at the transport layer. Many web servers already support HTTP/3.",
+      "explanation": "HTTP/3 is still being standardised but is widely deployed (by Google, Cloudflare)."
+    }
+  ]
+}

@@ -129,7 +129,6 @@
             "type": "Quiz + Mini Project",
             "passScore": 75
           },
-          
           "preReading": [
             "Strings and Character Arrays module"
           ],
@@ -348,6 +347,28 @@
           ],
           "learningOutcomes": [
             "Understand real-world protocols"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "file-sharing",
+          "slug": "network-file-sharing-nfs-smb",
+          "title": "Network File Sharing: NFS & SMB/CIFS",
+          "estimatedHours": 4,
+          "topics": [
+            "Introduction to Network File Sharing: Need for centralized file access, historical context, and common use cases (office networks, cloud storage backends)",
+            "NFS (Network File System):",
+            "SMB (Server Message Block) / CIFS (Common Internet File System):",
+            "Comparison Between NFS and SMB:",
+            "Real-World Scenarios:",
+            "Basic Troubleshooting:",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose and working of NFS and SMB protocols",
+            "Differentiate between NFS and SMB based on platforms, features, and security",
+            "Configure a basic NFS export and mount on Linux",
+            "Use Samba to share files between Linux and Windows systems"
           ],
           "difficulty": "Medium"
         }

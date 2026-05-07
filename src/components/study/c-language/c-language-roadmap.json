@@ -1173,12 +1173,23 @@
             "header-files"
           ],
           "topics": [
-            "What the C preprocessor does before compilation",
-            "Using #define for symbolic constants and simple macros",
-            "Function like macros and their pros and cons",
-            "Using #include to organize code across header and source files",
-            "Conditional compilation with #if, #ifdef and #ifndef",
-            "Macro pitfalls and when to prefer functions instead"
+            "What the C preprocessor does and when it runs (before compilation)",
+            "Symbolic constants with #define – when to use const vs #define",
+            "Function‑like macros: syntax, use cases, and hidden dangers",
+            "Stringizing operator (#) – turning macro arguments into string literals",
+            "Token pasting (##) – generating identifiers dynamically",
+            "Variadic macros (__VA_ARGS__) for flexible logging and debugging",
+            "Predefined macros: __FILE__, __LINE__, __func__, __DATE__, __TIME__, __STDC_VERSION__",
+            "Include guards: #ifndef/#define/#endif vs #pragma once",
+            "Conditional compilation: #if, #ifdef, #ifndef, #elif, #else, defined()",
+            "Error directives: #error for compile‑time assertions, #line for code generators",
+            "Undefining macros (#undef) to avoid name conflicts",
+            "Safe macro idioms: wrapping multi‑statement macros in do { ... } while(0)",
+            "Double evaluation pitfalls – when macros evaluate arguments more than once",
+            "Real‑world projects: platform detection (Windows vs Linux), debug vs release logging",
+            "Examining preprocessor output using gcc -E or clang -E",
+            "Advanced patterns: X‑macros for maintainable tables and enums",
+            "Common mistakes and best practices (naming conventions, parentheses, side effects)"
           ],
           "learningOutcomes": [
             "Use preprocessor directives to control compilation",
