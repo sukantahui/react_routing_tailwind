@@ -10701,6 +10701,9 @@
   .\[animation-delay\:0ms\] {
     animation-delay: 0ms;
   }
+  .\[animation-delay\:0s\] {
+    animation-delay: 0s;
+  }
   .\[animation-delay\:1\.0s\] {
     animation-delay: 1.0s;
   }
@@ -23337,6 +23340,11 @@
       fill: var(--color-amber-600);
     }
   }
+  .dark\:fill-amber-700 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-amber-700);
+    }
+  }
   .dark\:fill-amber-900 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-amber-900);
@@ -23389,6 +23397,11 @@
   .dark\:fill-blue-600 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-blue-600);
+    }
+  }
+  .dark\:fill-blue-700 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-blue-700);
     }
   }
   .dark\:fill-blue-800 {
@@ -23561,6 +23574,11 @@
   .dark\:fill-green-600 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-green-600);
+    }
+  }
+  .dark\:fill-green-700 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-green-700);
     }
   }
   .dark\:fill-green-800 {
@@ -23752,6 +23770,11 @@
   .dark\:fill-red-400 {
     @media (prefers-color-scheme: dark) {
       fill: var(--color-red-400);
+    }
+  }
+  .dark\:fill-red-700 {
+    @media (prefers-color-scheme: dark) {
+      fill: var(--color-red-700);
     }
   }
   .dark\:fill-red-800 {
