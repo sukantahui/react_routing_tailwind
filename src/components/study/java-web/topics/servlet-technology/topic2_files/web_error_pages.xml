@@ -1,0 +1,14 @@
+<web-app ...>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/notfound.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/server_error.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/error/servlet_error.html</location>
+    </error-page>
+</web-app>
