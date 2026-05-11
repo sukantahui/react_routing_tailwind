@@ -1,0 +1,604 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Introduction to Strings in Java",
+      "question": "What is a String in Java?",
+      "answer": "A String in Java is an object that represents a sequence of characters. It is part of the java.lang package and is immutable."
+    },
+    {
+      "id": 2,
+      "topic": "Introduction to Strings in Java",
+      "question": "Which package contains the String class?",
+      "answer": "java.lang package – it is imported implicitly."
+    },
+    {
+      "id": 3,
+      "topic": "String creation (literals vs new keyword)",
+      "question": "What is the difference between String literal and String created with 'new'?",
+      "answer": "String literal (e.g., \"Hello\") is stored in the String Constant Pool (interning). String created with `new String(\"Hello\")` creates a new object on the heap, even if the same value exists in the pool."
+    },
+    {
+      "id": 4,
+      "topic": "String creation (literals vs new keyword)",
+      "question": "How many String objects are created in: `String s = new String(\"Java\");`?",
+      "answer": "Two objects: one in the heap (via new) and one in the string pool (the literal \"Java\") if not already present."
+    },
+    {
+      "id": 5,
+      "topic": "String creation (literals vs new keyword)",
+      "question": "What is string interning?",
+      "answer": "String interning is the process of storing only one copy of each distinct string literal in the String Constant Pool to save memory and speed up comparisons."
+    },
+    {
+      "id": 6,
+      "topic": "String creation (literals vs new keyword)",
+      "question": "Write code to force a string to be interned.",
+      "answer": "`String s1 = new String(\"Hello\").intern();`"
+    },
+    {
+      "id": 7,
+      "topic": "Immutability of String objects",
+      "question": "Why are String objects immutable in Java?",
+      "answer": "For security (e.g., class loading), thread safety, String pool caching, and hashcode caching for efficient HashMap keys."
+    },
+    {
+      "id": 8,
+      "topic": "Immutability of String objects",
+      "question": "What happens when you concatenate two strings with '+'?",
+      "answer": "A new String object is created containing the concatenated result; the original strings remain unchanged."
+    },
+    {
+      "id": 9,
+      "topic": "Immutability of String objects",
+      "question": "Is the following code creating a new object? `String s = \"abc\"; s = s.toUpperCase();`",
+      "answer": "Yes, `toUpperCase()` returns a new String object; the original \"abc\" is unchanged."
+    },
+    {
+      "id": 10,
+      "topic": "String class methods",
+      "question": "What does `length()` method do?",
+      "answer": "Returns the number of characters in the string. Example: `\"Hello\".length()` returns 5."
+    },
+    {
+      "id": 11,
+      "topic": "String class methods",
+      "question": "What is the difference between `length()` and `length` variable of array?",
+      "answer": "`length()` is a method of String class; `length` is a property of arrays."
+    },
+    {
+      "id": 12,
+      "topic": "String class methods",
+      "question": "What does `charAt(int index)` do?",
+      "answer": "Returns the character at the specified index (0‑based). Throws `StringIndexOutOfBoundsException` if index invalid."
+    },
+    {
+      "id": 13,
+      "topic": "String class methods",
+      "question": "Write code to get the first and last character of a string.",
+      "answer": "```java\nString s = \"Java\";\nchar first = s.charAt(0);\nchar last = s.charAt(s.length()-1);\n```"
+    },
+    {
+      "id": 14,
+      "topic": "String class methods",
+      "question": "What does `substring(int beginIndex, int endIndex)` return?",
+      "answer": "Returns a new string from `beginIndex` (inclusive) to `endIndex` (exclusive)."
+    },
+    {
+      "id": 15,
+      "topic": "String class methods",
+      "question": "What happens if you call `substring(5, 2)`?",
+      "answer": "Throws `StringIndexOutOfBoundsException` because beginIndex > endIndex."
+    },
+    {
+      "id": 16,
+      "topic": "String class methods",
+      "question": "What is the difference between `equals()` and `equalsIgnoreCase()`?",
+      "answer": "`equals()` compares content case-sensitively; `equalsIgnoreCase()` compares content ignoring case differences."
+    },
+    {
+      "id": 17,
+      "topic": "String class methods",
+      "question": "What does `compareTo(String another)` return?",
+      "answer": "Returns 0 if equal, negative if the string comes before another lexicographically, positive otherwise."
+    },
+    {
+      "id": 18,
+      "topic": "String class methods",
+      "question": "Write a one-liner to convert a string to uppercase.",
+      "answer": "`String upper = str.toUpperCase();`"
+    },
+    {
+      "id": 19,
+      "topic": "String class methods",
+      "question": "What does `trim()` do?",
+      "answer": "Removes leading and trailing whitespace (space, tab, newline). Does not remove spaces in the middle."
+    },
+    {
+      "id": 20,
+      "topic": "String class methods",
+      "question": "What is the difference between `replace(char oldChar, char newChar)` and `replaceAll(String regex, String replacement)`?",
+      "answer": "`replace()` replaces all occurrences of a literal character/CharSequence. `replaceAll()` uses a regular expression for replacement."
+    },
+    {
+      "id": 21,
+      "topic": "String class methods",
+      "question": "Write code to remove all whitespace from a string.",
+      "answer": "`String result = str.replaceAll(\"\\\\s+\", \"\");`"
+    },
+    {
+      "id": 22,
+      "topic": "String class methods",
+      "question": "What does `startsWith(String prefix)` return?",
+      "answer": "Returns `true` if the string begins with the specified prefix, otherwise `false`."
+    },
+    {
+      "id": 23,
+      "topic": "String class methods",
+      "question": "What does `endsWith(String suffix)` return?",
+      "answer": "Returns `true` if the string ends with the specified suffix."
+    },
+    {
+      "id": 24,
+      "topic": "String class methods",
+      "question": "What does `indexOf(String str)` return?",
+      "answer": "Returns the index of the first occurrence of the substring, or -1 if not found."
+    },
+    {
+      "id": 25,
+      "topic": "String class methods",
+      "question": "Write code to check if a string contains another string.",
+      "answer": "`boolean contains = str.contains(\"sub\");`"
+    },
+    {
+      "id": 26,
+      "topic": "String class methods",
+      "question": "What does `isEmpty()` do?",
+      "answer": "Returns `true` if the string length is 0, otherwise `false`."
+    },
+    {
+      "id": 27,
+      "topic": "String class methods",
+      "question": "What is the difference between `isBlank()` and `isEmpty()` (Java 11+)?",
+      "answer": "`isEmpty()` returns true only for length 0. `isBlank()` returns true for empty or whitespace-only strings."
+    },
+    {
+      "id": 28,
+      "topic": "String comparison (== vs equals())",
+      "question": "What is the difference between `==` and `equals()` for Strings?",
+      "answer": "`==` compares reference (memory address). `equals()` compares the content (sequence of characters)."
+    },
+    {
+      "id": 29,
+      "topic": "String comparison (== vs equals())",
+      "question": "`String s1 = \"Hello\"; String s2 = \"Hello\";` What does `s1 == s2` return?",
+      "answer": "`true` – both refer to the same literal from the string pool."
+    },
+    {
+      "id": 30,
+      "topic": "String comparison (== vs equals())",
+      "question": "`String a = new String(\"Hi\"); String b = new String(\"Hi\");` What are the outputs of `a == b` and `a.equals(b)`?",
+      "answer": "`a == b` is `false` (different heap objects). `a.equals(b)` is `true` (same content)."
+    },
+    {
+      "id": 31,
+      "topic": "String concatenation techniques",
+      "question": "List three ways to concatenate strings in Java.",
+      "answer": "1. `+` operator 2. `concat()` method 3. `StringBuilder` / `StringBuffer` `append()` method."
+    },
+    {
+      "id": 32,
+      "topic": "String concatenation techniques",
+      "question": "What does the `concat()` method do?",
+      "answer": "Concatenates the specified string to the end of the current string and returns a new string."
+    },
+    {
+      "id": 33,
+      "topic": "String concatenation techniques",
+      "question": "Why is using `+` in a loop inefficient?",
+      "answer": "Because each concatenation creates a new String object, leading to O(n²) memory overhead."
+    },
+    {
+      "id": 34,
+      "topic": "String manipulation programs",
+      "question": "Write a program to reverse a string in Java.",
+      "answer": "```java\npublic static String reverse(String str) {\n    return new StringBuilder(str).reverse().toString();\n}\n```"
+    },
+    {
+      "id": 35,
+      "topic": "String manipulation programs",
+      "question": "Write a program to check if a string is a palindrome.",
+      "answer": "```java\npublic static boolean isPalindrome(String s) {\n    String rev = new StringBuilder(s).reverse().toString();\n    return s.equals(rev);\n}\n```"
+    },
+    {
+      "id": 36,
+      "topic": "String manipulation programs",
+      "question": "Write a program to count the number of words in a sentence.",
+      "answer": "```java\npublic static int wordCount(String sentence) {\n    if(sentence == null || sentence.trim().isEmpty()) return 0;\n    return sentence.trim().split(\"\\\\s+\").length;\n}\n```"
+    },
+    {
+      "id": 37,
+      "topic": "String manipulation programs",
+      "question": "Write a program to count the frequency of each character in a string.",
+      "answer": "```java\nMap<Character, Integer> freq = new HashMap<>();\nfor(char c : str.toCharArray()) {\n    freq.put(c, freq.getOrDefault(c, 0) + 1);\n}\n```"
+    },
+    {
+      "id": 38,
+      "topic": "String manipulation programs",
+      "question": "Write a program to remove duplicate characters from a string.",
+      "answer": "```java\nStringBuilder sb = new StringBuilder();\nstr.chars().distinct().forEach(c -> sb.append((char)c));\nreturn sb.toString();\n```"
+    },
+    {
+      "id": 39,
+      "topic": "String manipulation programs",
+      "question": "Write a program to check if two strings are anagrams.",
+      "answer": "```java\nchar[] a1 = s1.toCharArray();\nchar[] a2 = s2.toCharArray();\nArrays.sort(a1);\nArrays.sort(a2);\nreturn Arrays.equals(a1, a2);\n```"
+    },
+    {
+      "id": 40,
+      "topic": "String manipulation programs",
+      "question": "Write a program to find the first non-repeated character in a string.",
+      "answer": "```java\nMap<Character, Integer> count = new LinkedHashMap<>();\nfor(char c : str.toCharArray()) count.put(c, count.getOrDefault(c,0)+1);\nfor(char c : count.keySet()) if(count.get(c)==1) return c;\nreturn null;\n```"
+    },
+    {
+      "id": 41,
+      "topic": "StringBuffer class and its features",
+      "question": "What is StringBuffer?",
+      "answer": "StringBuffer is a mutable sequence of characters, thread-safe (methods are synchronized), part of java.lang."
+    },
+    {
+      "id": 42,
+      "topic": "StringBuffer class and its features",
+      "question": "What is the default capacity of a StringBuffer?",
+      "answer": "16 characters."
+    },
+    {
+      "id": 43,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `append()` do in StringBuffer?",
+      "answer": "Appends the string representation of any primitive or object to the existing sequence."
+    },
+    {
+      "id": 44,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `insert(int offset, String str)` do?",
+      "answer": "Inserts the given string at the specified offset position, shifting subsequent characters."
+    },
+    {
+      "id": 45,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `delete(int start, int end)` do?",
+      "answer": "Removes characters from start index (inclusive) to end index (exclusive)."
+    },
+    {
+      "id": 46,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `reverse()` do in StringBuffer?",
+      "answer": "Reverses the sequence of characters in place."
+    },
+    {
+      "id": 47,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `capacity()` return?",
+      "answer": "Returns the current capacity of the buffer (the amount of storage available, not the length)."
+    },
+    {
+      "id": 48,
+      "topic": "StringBuffer class and its features",
+      "question": "How to ensure a StringBuffer has enough capacity to avoid frequent resizing?",
+      "answer": "Use `ensureCapacity(int minimumCapacity)` method."
+    },
+    {
+      "id": 49,
+      "topic": "Mutable vs Immutable strings",
+      "question": "What is mutable and immutable in the context of strings?",
+      "answer": "Immutable means the object's state cannot be changed after creation (String). Mutable means the object can be changed (StringBuffer, StringBuilder)."
+    },
+    {
+      "id": 50,
+      "topic": "Mutable vs Immutable strings",
+      "question": "Why is StringBuffer called mutable?",
+      "answer": "Because its content can be changed without creating a new object – methods like append(), insert(), delete() modify the same instance."
+    },
+    {
+      "id": 51,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to append an integer to a StringBuffer.",
+      "answer": "```java\nStringBuffer sb = new StringBuffer(\"Number: \");\nsb.append(42);\n```"
+    },
+    {
+      "id": 52,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to insert \"Java\" at index 5 in a StringBuffer.",
+      "answer": "```java\nStringBuffer sb = new StringBuffer(\"Hello World\");\nsb.insert(5, \"Java \");\n```"
+    },
+    {
+      "id": 53,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to delete characters from index 2 to 5 (excluding 5) in a StringBuffer.",
+      "answer": "```java\nStringBuffer sb = new StringBuffer(\"abcdef\");\nsb.delete(2, 5); // result: \"abf\"\n```"
+    },
+    {
+      "id": 54,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to reverse a StringBuffer.",
+      "answer": "```java\nStringBuffer sb = new StringBuffer(\"Hello\");\nsb.reverse(); // \"olleH\"\n```"
+    },
+    {
+      "id": 55,
+      "topic": "Key methods of StringBuffer",
+      "question": "What is the difference between `length()` and `capacity()` of StringBuffer?",
+      "answer": "`length()` is the number of characters currently used. `capacity()` is the allocated storage size (can be larger)."
+    },
+    {
+      "id": 56,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "When would you use `String` over `StringBuilder`?",
+      "answer": "When the string is constant or rarely changes (e.g., literals, configuration keys). For immutability and thread-safe sharing."
+    },
+    {
+      "id": 57,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Which one is faster for single-threaded string concatenation?",
+      "answer": "StringBuilder, because it is not synchronized, so it has less overhead than StringBuffer."
+    },
+    {
+      "id": 58,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Which class is thread-safe among String, StringBuffer, StringBuilder?",
+      "answer": "String is immutable (hence thread-safe), StringBuffer is thread-safe (synchronized methods). StringBuilder is not thread-safe."
+    },
+    {
+      "id": 59,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Write code to convert a StringBuilder to a String.",
+      "answer": "`String result = sb.toString();`"
+    },
+    {
+      "id": 60,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Can a StringBuffer be used as a key in a HashMap? Why?",
+      "answer": "It is not recommended because StringBuffer is mutable. If the key changes, the hashcode would change, breaking the map. String (immutable) is preferred."
+    },
+    {
+      "id": 61,
+      "topic": "Performance considerations",
+      "question": "Why is `StringBuilder` more efficient than `String` for repeated concatenation?",
+      "answer": "StringBuilder modifies a single mutable buffer; String creates a new object for each concatenation, causing memory churn and GC overhead."
+    },
+    {
+      "id": 62,
+      "topic": "Performance considerations",
+      "question": "Write a code snippet that shows poor performance using String in a loop.",
+      "answer": "```java\nString result = \"\";\nfor (int i = 0; i < 10000; i++) {\n    result += i; // bad\n}\n```"
+    },
+    {
+      "id": 63,
+      "topic": "Performance considerations",
+      "question": "Write a code snippet that uses StringBuilder for efficient concatenation.",
+      "answer": "```java\nStringBuilder sb = new StringBuilder();\nfor (int i = 0; i < 10000; i++) {\n    sb.append(i);\n}\nString result = sb.toString();\n```"
+    },
+    {
+      "id": 64,
+      "topic": "Performance considerations",
+      "question": "What is the initial capacity of StringBuilder? Should you always specify a capacity?",
+      "answer": "Default capacity is 16. If you know the approximate final size, specify capacity to avoid expensive re‑allocations."
+    },
+    {
+      "id": 65,
+      "topic": "Performance considerations",
+      "question": "Is `String.format()` efficient for simple concatenation?",
+      "answer": "No, it's heavier because it parses format string. Use `+` or `StringBuilder` for simple cases."
+    },
+    {
+      "id": 66,
+      "topic": "String class methods",
+      "question": "What does `toCharArray()` return?",
+      "answer": "Returns a new character array containing the string's characters."
+    },
+    {
+      "id": 67,
+      "topic": "String class methods",
+      "question": "What does `getBytes()` do?",
+      "answer": "Encodes the string into a byte array using the platform's default character set."
+    },
+    {
+      "id": 68,
+      "topic": "String class methods",
+      "question": "What does `valueOf(int i)` do?",
+      "answer": "Returns the string representation of the int argument (static method)."
+    },
+    {
+      "id": 69,
+      "topic": "String class methods",
+      "question": "Write code to convert a char array to a String.",
+      "answer": "`String s = new String(charArray);` or `String s = String.valueOf(charArray);`"
+    },
+    {
+      "id": 70,
+      "topic": "String class methods",
+      "question": "What is the difference between `split(String regex)` and `split(String regex, int limit)`?",
+      "answer": "The limit parameter controls how many times the pattern is applied and affects the length of the resulting array."
+    },
+    {
+      "id": 71,
+      "topic": "StringBuffer class and its features",
+      "question": "What is the difference between `StringBuffer` and `StringBuilder`?",
+      "answer": "StringBuffer methods are synchronized (thread-safe); StringBuilder methods are not. StringBuilder is faster."
+    },
+    {
+      "id": 72,
+      "topic": "StringBuffer class and its features",
+      "question": "Write code to set the length of a StringBuffer to 5.",
+      "answer": "`sb.setLength(5);` – if new length is smaller, characters are truncated; if larger, null characters appended."
+    },
+    {
+      "id": 73,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `charAt(int index)` do in StringBuffer?",
+      "answer": "Returns the character at the specified index, similar to String.charAt()."
+    },
+    {
+      "id": 74,
+      "topic": "StringBuffer class and its features",
+      "question": "What is the return type of `append()` method in StringBuffer?",
+      "answer": "It returns the same StringBuffer object (fluent interface), allowing method chaining."
+    },
+    {
+      "id": 75,
+      "topic": "StringBuffer class and its features",
+      "question": "Write chained calls using StringBuffer.",
+      "answer": "`StringBuffer sb = new StringBuffer().append(\"Hello\").append(\" \").append(\"World\");`"
+    },
+    {
+      "id": 76,
+      "topic": "Immutability of String objects",
+      "question": "How does immutability help in security?",
+      "answer": "Immutable strings passed to sensitive methods (e.g., file paths, class names) cannot be modified by the caller, preventing injection attacks."
+    },
+    {
+      "id": 77,
+      "topic": "Immutability of String objects",
+      "question": "What is a common interview question related to String immutability?",
+      "answer": "Explain why `String` is immutable and the benefits: pooling, security, caching hashcode, thread safety."
+    },
+    {
+      "id": 78,
+      "topic": "String comparison (== vs equals())",
+      "question": "What will `\"Java\" == \"Java\"` return?",
+      "answer": "`true` – both are string literals, same reference in pool."
+    },
+    {
+      "id": 79,
+      "topic": "String comparison (== vs equals())",
+      "question": "What will `new String(\"test\") == new String(\"test\")` return?",
+      "answer": "`false` – two different heap objects, even though content is same."
+    },
+    {
+      "id": 80,
+      "topic": "String manipulation programs",
+      "question": "Write a program to remove all vowels from a string.",
+      "answer": "```java\nreturn str.replaceAll(\"[aeiouAEIOU]\", \"\");\n```"
+    },
+    {
+      "id": 81,
+      "topic": "String manipulation programs",
+      "question": "Write a program to capitalize the first letter of each word in a sentence.",
+      "answer": "```java\nString[] words = sentence.split(\" \");\nStringBuilder sb = new StringBuilder();\nfor(String w : words) {\n    if(w.length()>0)\n        sb.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1)).append(\" \");\n}\nreturn sb.toString().trim();\n```"
+    },
+    {
+      "id": 82,
+      "topic": "String manipulation programs",
+      "question": "Write a program to find the longest word in a sentence.",
+      "answer": "```java\nString longest = \"\";\nfor(String word : sentence.split(\"\\\\s+\"))\n    if(word.length() > longest.length()) longest = word;\nreturn longest;\n```"
+    },
+    {
+      "id": 83,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to delete a specific character at index 3 from a StringBuffer.",
+      "answer": "`sb.deleteCharAt(3);`"
+    },
+    {
+      "id": 84,
+      "topic": "Key methods of StringBuffer",
+      "question": "What does `replace(int start, int end, String str)` do in StringBuffer?",
+      "answer": "Replaces characters from start to end-1 with the given string."
+    },
+    {
+      "id": 85,
+      "topic": "Key methods of StringBuffer",
+      "question": "Write code to replace \"World\" with \"Java\" in a StringBuffer.",
+      "answer": "```java\nint start = sb.indexOf(\"World\");\nint end = start + \"World\".length();\nsb.replace(start, end, \"Java\");\n```"
+    },
+    {
+      "id": 86,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Which class would you use for a large, frequently modified string in a multi‑threaded environment?",
+      "answer": "StringBuffer – because of its thread‑safe (synchronized) methods."
+    },
+    {
+      "id": 87,
+      "topic": "Performance considerations",
+      "question": "What does the Java compiler do when it sees `String s = \"a\" + \"b\" + \"c\";`?",
+      "answer": "At compile time, it concatenates the literals into `\"abc\"` (constant folding), no runtime overhead."
+    },
+    {
+      "id": 88,
+      "topic": "Performance considerations",
+      "question": "Write a benchmark‑like comparison between String and StringBuilder for a large loop.",
+      "answer": "See answer 10‑mark question or typical: StringBuilder is orders of magnitude faster."
+    },
+    {
+      "id": 89,
+      "topic": "Introduction to Strings in Java",
+      "question": "Is String a primitive or reference type?",
+      "answer": "Reference type (class)."
+    },
+    {
+      "id": 90,
+      "topic": "String creation (literals vs new keyword)",
+      "question": "How many objects: `String s = \"Hello\" + \" World\";`",
+      "answer": "One object in the pool if the concatenated literal is not already present – because the compiler folds `\"Hello World\"` at compile time."
+    },
+    {
+      "id": 91,
+      "topic": "String class methods",
+      "question": "What does `matches(String regex)` do?",
+      "answer": "Tells whether the string matches the given regular expression."
+    },
+    {
+      "id": 92,
+      "topic": "String class methods",
+      "question": "Write code to check if a string contains only digits.",
+      "answer": "`boolean isNumeric = str.matches(\"\\\\d+\");`"
+    },
+    {
+      "id": 93,
+      "topic": "String manipulation programs",
+      "question": "Write a program to swap two strings without using a temporary variable.",
+      "answer": "```java\nString a = \"Hello\", b = \"World\";\na = a + b;\nb = a.substring(0, a.length() - b.length());\na = a.substring(b.length());\n```"
+    },
+    {
+      "id": 94,
+      "topic": "String manipulation programs",
+      "question": "Write a program to check if a string is a palindrome ignoring non‑alphanumeric and case.",
+      "answer": "```java\nString clean = str.replaceAll(\"[^a-zA-Z0-9]\", \"\").toLowerCase();\nreturn clean.equals(new StringBuilder(clean).reverse().toString());\n```"
+    },
+    {
+      "id": 95,
+      "topic": "StringBuffer class and its features",
+      "question": "What does `indexOf(String str, int fromIndex)` do in StringBuffer?",
+      "answer": "Returns the index of the first occurrence of the substring starting from the specified index."
+    },
+    {
+      "id": 96,
+      "topic": "StringBuffer class and its features",
+      "question": "Write code to clear a StringBuffer completely.",
+      "answer": "`sb.setLength(0);` or `sb.delete(0, sb.length());`"
+    },
+    {
+      "id": 97,
+      "topic": "Performance considerations",
+      "question": "Is `String.join()` efficient?",
+      "answer": "Yes, it internally uses StringBuilder for joining multiple strings, so it's efficient for a known collection."
+    },
+    {
+      "id": 98,
+      "topic": "Performance considerations",
+      "question": "What is the time complexity of `String.substring()` before Java 7 and after?",
+      "answer": "Before Java 7, substring shared the underlying char array (O(1)). Since Java 7, it creates a new char array (O(n))."
+    },
+    {
+      "id": 99,
+      "topic": "String vs StringBuffer vs StringBuilder",
+      "question": "Can you convert a StringBuffer to a StringBuilder?",
+      "answer": "Not directly, but you can use `new StringBuilder(sb.toString())`."
+    },
+    {
+      "id": 100,
+      "topic": "Immutability of String objects",
+      "question": "What is the `String` class hierarchy?",
+      "answer": "`java.lang.Object` → `java.lang.String`. It implements `Serializable`, `Comparable<String>`, `CharSequence`."
+    }
+  ]
+}

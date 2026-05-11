@@ -99,6 +99,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
   const [limit, setLimit] = useState(15);
   const [started, setStarted] = useState(false);
   const [sessionQ, setSessionQ] = useState([]);
+  const [searchId, setSearchId] = useState(""); // NEW: search by ID
 
   if (!data || !data.sections) {
     return <p className="p-4 text-red-400">No questions found.</p>;
@@ -130,6 +131,21 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
     );
   }
 
+  // Handle search: filter sessionQ if started, else do nothing (search not applicable)
+  const getDisplayedQuestions = () => {
+    if (!started) return [];
+    if (!searchId.trim()) return sessionQ;
+    const filtered = sessionQ.filter(q => q.id.toString() === searchId.trim());
+    return filtered;
+  };
+
+  const displayedQuestions = getDisplayedQuestions();
+
+  // Clear search
+  const clearSearch = () => {
+    setSearchId("");
+  };
+
   // ---------- Print Handler (supports both Boolean & K-map) ----------
   const handlePrint = () => {
     if (!sessionQ.length) return;
@@ -160,7 +176,6 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
           if (q.minterms && q.minterms.includes(idx)) content = "1";
           else if (q.dc && q.dc.includes(idx)) content = "X";
           else content = "0";
-          // Highlight if cell belongs to any group (optional)
           let groupClass = "";
           if (q.steps) {
             for (let step of q.steps) {
@@ -209,12 +224,8 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
               border-bottom: 2px solid #aaa;
               z-index: 1000;
             }
-            .spacer {
-              height: 1.4cm;
-            }
-            .main-content {
-              padding: 0.4cm 1.2cm 1.2cm 1.2cm;
-            }
+            .spacer { height: 1.4cm; }
+            .main-content { padding: 0.4cm 1.2cm 1.2cm 1.2cm; }
             .header {
               text-align: center;
               margin-bottom: 1rem;
@@ -297,12 +308,8 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
               text-align: center;
               font-family: monospace;
             }
-            table.kmap-print th {
-              background: #f0f0f0;
-            }
-            .kmap-group {
-              background-color: #e6f7e6 !important;
-            }
+            table.kmap-print th { background: #f0f0f0; }
+            .kmap-group { background-color: #e6f7e6 !important; }
           </style>
         </head>
         <body>
@@ -432,6 +439,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
               onChange={(e) => {
                 setSection(e.target.value);
                 setStarted(false);
+                setSearchId(""); // reset search when section changes
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
             >
@@ -451,6 +459,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
                 const val = e.target.value;
                 setLimit(val === "all" ? "all" : Number(val));
                 setStarted(false);
+                setSearchId("");
               }}
               className="bg-zinc-900 border border-zinc-700 p-2 rounded-md"
             >
@@ -463,10 +472,31 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
             </select>
           </div>
 
+          {/* NEW: Search by ID */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-zinc-400">Search ID</span>
+            <input
+              type="text"
+              value={searchId}
+              onChange={(e) => setSearchId(e.target.value)}
+              placeholder="e.g., 34"
+              className="bg-zinc-900 border border-zinc-700 p-2 rounded-md w-24 text-center"
+              disabled={!started}
+            />
+            <button
+              onClick={clearSearch}
+              disabled={!started || !searchId}
+              className="px-3 py-2 bg-zinc-700 hover:bg-zinc-600 rounded-md text-sm disabled:opacity-50"
+            >
+              Clear
+            </button>
+          </div>
+
           <div className="flex gap-3">
             <button
               onClick={() => {
                 setShowAns([]);
+                setSearchId("");
                 const pool = shuffleArray(filteredBySection);
                 setSessionQ(limit === "all" ? pool : pool.slice(0, limit));
                 setStarted(true);
@@ -490,102 +520,117 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
         </div>
 
         {/* Questions display */}
-        {started &&
-          sessionQ.map((q, index) => (
-            <div
-              key={q.id}
-              className="bg-zinc-900/80 border border-zinc-800 p-5 mb-6 rounded-2xl shadow-lg hover:shadow-sky-900/30 transition"
-            >
-              <div className="flex justify-between items-start mb-3 flex-wrap gap-2">
-                <p className="font-semibold text-zinc-100">
-                  Q{index + 1}. {q.q}
-                </p>
-                <div className="flex gap-2">
-                  <span className="text-xs px-2 py-1 rounded bg-sky-900 text-sky-300">
-                    {q.sectionName}
-                  </span>
-                  <span className="text-xs px-2 py-1 rounded bg-amber-800 text-amber-200">
-                    {q.marks} marks
-                  </span>
-                </div>
+        {started && (
+          <>
+            {displayedQuestions.length === 0 && searchId && (
+              <div className="bg-yellow-900/30 border border-yellow-700 p-4 rounded-xl mb-6 text-yellow-200 text-center">
+                ⚠️ No question found with ID "{searchId}". Try a different ID or clear the search.
               </div>
-
-              <button
-                onClick={() => toggle(q.id)}
-                className="mt-2 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
+            )}
+            {displayedQuestions.map((q, index) => (
+              <div
+                key={q.id}
+                className="bg-zinc-900/80 border border-zinc-800 p-5 mb-6 rounded-2xl shadow-lg hover:shadow-sky-900/30 transition"
               >
-                {showAns.includes(q.id) ? (
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.05 11.05 0 014.95-5.9M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.12 5.88L3 3" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm7.5 0S18.27 4.5 12 4.5 1.5 12 1.5 12 5.73 19.5 12 19.5 22.5 12 22.5 12z" />
-                  </svg>
-                )}
-              </button>
+                <div className="flex justify-between items-start mb-3 flex-wrap gap-2">
+                  <p className="font-semibold text-zinc-100">
+                    Q{index + 1}. {q.q}
+                  </p>
+                  <div className="flex gap-2">
+                    <span className="text-xs px-2 py-1 rounded bg-sky-900 text-sky-300">
+                      {q.sectionName}
+                    </span>
+                    <span className="text-xs px-2 py-1 rounded bg-amber-800 text-amber-200">
+                      {q.marks} marks
+                    </span>
+                    <span className="text-xs px-2 py-1 rounded bg-gray-700 text-gray-300">
+                      ID: {q.id}
+                    </span>
+                  </div>
+                </div>
 
-              {showAns.includes(q.id) && (
-                <div className="mt-3 bg-slate-900/70 border border-slate-700 p-4 rounded-xl shadow-inner space-y-3">
-                  {q.type === "kmap" ? (
-                    <>
-                      <div>
-                        <p className="text-emerald-300 text-sm font-semibold mb-2">🗺️ Karnaugh Map</p>
-                        <KmapGrid
-                          minterms={q.minterms || []}
-                          dc={q.dc || []}
-                          groups={q.steps?.map(step => ({ cells: step.cells || [] })) || []}
-                          variables={q.variables || 4}
-                        />
-                      </div>
-                      {q.steps && q.steps.length > 0 && (
+                <button
+                  onClick={() => toggle(q.id)}
+                  className="mt-2 p-2 rounded-full border border-sky-500/40 bg-slate-900 hover:bg-sky-700/40 transition"
+                >
+                  {showAns.includes(q.id) ? (
+                    <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.05 11.05 0 014.95-5.9M15 12a3 3 0 11-6 0 3 3 0 016 0zm6.12 5.88L3 3" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm7.5 0S18.27 4.5 12 4.5 1.5 12 1.5 12 5.73 19.5 12 19.5 22.5 12 22.5 12z" />
+                    </svg>
+                  )}
+                </button>
+
+                {showAns.includes(q.id) && (
+                  <div className="mt-3 bg-slate-900/70 border border-slate-700 p-4 rounded-xl shadow-inner space-y-3">
+                    {q.type === "kmap" ? (
+                      <>
                         <div>
-                          <p className="text-emerald-300 text-sm font-semibold mb-2">📝 Step-by-step grouping:</p>
-                          <div className="space-y-3">
+                          <p className="text-emerald-300 text-sm font-semibold mb-2">🗺️ Karnaugh Map</p>
+                          <KmapGrid
+                            minterms={q.minterms || []}
+                            dc={q.dc || []}
+                            groups={q.steps?.map(step => ({ cells: step.cells || [] })) || []}
+                            variables={q.variables || 4}
+                          />
+                        </div>
+                        {q.steps && q.steps.length > 0 && (
+                          <div>
+                            <p className="text-emerald-300 text-sm font-semibold mb-2">📝 Step-by-step grouping:</p>
+                            <div className="space-y-3">
+                              {q.steps.map((step, i) => (
+                                <div key={i} className="border-l-2 border-sky-500 pl-3">
+                                  <p className="text-sky-300 text-sm">Step {step.step}: {step.action}</p>
+                                  {step.term && <p className="text-zinc-200 text-sm">→ Result: {step.term}</p>}
+                                  {step.law && <p className="text-zinc-400 text-xs italic">Law: {step.law}</p>}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        <p className="text-emerald-300 text-sm">✨ Simplified expression: <span className="font-mono">{q.answer}</span></p>
+                        {q.explanation && <p className="text-slate-300 text-sm">💡 Explanation: {q.explanation}</p>}
+                      </>
+                    ) : (
+                      <>
+                        {q.steps && q.steps.length ? (
+                          <>
+                            <p className="text-emerald-300 text-sm font-semibold mb-2">📝 Step-by-step solution:</p>
                             {q.steps.map((step, i) => (
                               <div key={i} className="border-l-2 border-sky-500 pl-3">
                                 <p className="text-sky-300 text-sm">Step {step.step}: {step.action}</p>
-                                {step.term && <p className="text-zinc-200 text-sm">→ Result: {step.term}</p>}
-                                {step.law && <p className="text-zinc-400 text-xs italic">Law: {step.law}</p>}
+                                <pre className="bg-slate-950 p-2 rounded-md text-slate-200 text-sm font-mono mt-1">
+                                  {step.expression}
+                                </pre>
+                                <p className="text-zinc-400 text-xs italic mt-1">Law: {step.law}</p>
                               </div>
                             ))}
-                          </div>
-                        </div>
-                      )}
-                      <p className="text-emerald-300 text-sm">✨ Simplified expression: <span className="font-mono">{q.answer}</span></p>
-                      {q.explanation && <p className="text-slate-300 text-sm">💡 Explanation: {q.explanation}</p>}
-                    </>
-                  ) : (
-                    // Boolean algebra rendering (original)
-                    <>
-                      {q.steps && q.steps.length ? (
-                        <>
-                          <p className="text-emerald-300 text-sm font-semibold mb-2">📝 Step-by-step solution:</p>
-                          {q.steps.map((step, i) => (
-                            <div key={i} className="border-l-2 border-sky-500 pl-3">
-                              <p className="text-sky-300 text-sm">Step {step.step}: {step.action}</p>
-                              <pre className="bg-slate-950 p-2 rounded-md text-slate-200 text-sm font-mono mt-1">
-                                {step.expression}
-                              </pre>
-                              <p className="text-zinc-400 text-xs italic mt-1">Law: {step.law}</p>
-                            </div>
-                          ))}
-                          {q.simplified && (
-                            <p className="text-emerald-300 text-sm">✨ Simplified result: <span className="font-mono">{q.simplified}</span></p>
-                          )}
-                        </>
-                      ) : (
-                        <p className="text-slate-200 text-sm leading-relaxed">{q.answer}</p>
-                      )}
-                      {q.explanation && (
-                        <p className="text-slate-300 text-sm leading-relaxed">💡 Explanation: {q.explanation}</p>
-                      )}
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
+                            {q.simplified && (
+                              <p className="text-emerald-300 text-sm">✨ Simplified result: <span className="font-mono">{q.simplified}</span></p>
+                            )}
+                          </>
+                        ) : (
+                          <p className="text-slate-200 text-sm leading-relaxed">{q.answer}</p>
+                        )}
+                        {q.explanation && (
+                          <p className="text-slate-300 text-sm leading-relaxed">💡 Explanation: {q.explanation}</p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            {displayedQuestions.length === 0 && !searchId && (
+              <p className="text-center text-zinc-500 mt-10">
+                No questions match the selected criteria.
+              </p>
+            )}
+          </>
+        )}
 
         {!started && (
           <p className="text-center text-zinc-500 mt-10">

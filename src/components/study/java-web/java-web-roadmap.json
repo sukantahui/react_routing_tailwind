@@ -226,7 +226,8 @@
             "URL Mapping Patterns",
             "MVC Architecture with Servlets and JSP",
             "Introduction to RESTful Web Services with JAX-RS (Jersey)",
-            "Introduction to Web Frameworks (Struts, Spring MVC)"
+            "Introduction to Web Frameworks (Struts, Spring MVC)",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Handle client-server requests",

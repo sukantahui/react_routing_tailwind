@@ -878,7 +878,9 @@
           "topics": [
             "Test 1",
             "Test 2",
-            "Test3"
+            "Test3",
+            "Test4",
+            "Test5"
           ],
           "learningOutcomes": [
             "Use pointers to work with memory addresses",

@@ -165,7 +165,8 @@
             "Test 6 K-map",
             "Test 7 Mixed",
             "Test 8 Mixed",
-            "Test on Principle of Duality"            
+            "Test on Principle of Duality",
+            "Final Test"            
           ],
           "learningOutcomes": [
             "Use pointers to work with memory addresses",
@@ -484,7 +485,8 @@
             "Mutable vs Immutable strings",
             "Key methods of StringBuffer (append, insert, delete, reverse, capacity)",
             "String vs StringBuffer vs StringBuilder (comparison & use cases)",
-            "Performance considerations in string handling"
+            "Performance considerations in string handling",
+            "Short Questions"
           ],
           "difficulty": "Easy-Medium"
         },

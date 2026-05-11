@@ -1,0 +1,115 @@
+{
+  "paperId": "C-MODERATE-SET-04",
+  "title": "C Programming - Moderate Level Question Paper",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (One Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is the purpose of the 'static' keyword when used inside a function?",
+          "marks": 1,
+          "answer": "The 'static' keyword inside a function allows the variable to retain its value between function calls, and it is initialized only once."
+        },
+        {
+          "q": "Which header file is required to use dynamic memory allocation functions like malloc() and calloc()?",
+          "marks": 1,
+          "answer": "<stdlib.h>"
+        },
+        {
+          "q": "What will be the output of: printf(\"%d\", sizeof('A')); in C?",
+          "marks": 1,
+          "answer": "In C, character constants are of type int, so sizeof('A') returns the size of int (typically 4 bytes on most systems)."
+        },
+        {
+          "q": "What is a dangling pointer?",
+          "marks": 1,
+          "answer": "A dangling pointer is a pointer that points to a memory location that has been freed or deallocated. Dereferencing it leads to undefined behavior."
+        },
+        {
+          "q": "What does the 'continue' statement do inside a loop?",
+          "marks": 1,
+          "answer": "The 'continue' statement skips the remaining statements in the current iteration of the loop and proceeds to the next iteration."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain the difference between call by value and call by reference in C with a simple example.",
+          "marks": 2,
+          "answer": "Call by value passes a copy of the variable's value, so changes inside the function do not affect the original. Call by reference passes the address (using pointers), so changes affect the original.\n\n```c\n// Call by value\nvoid changeVal(int x) { x = 10; }\n\n// Call by reference\nvoid changeRef(int *x) { *x = 10; }\n```"
+        },
+        {
+          "q": "What is the difference between malloc() and calloc()?",
+          "marks": 2,
+          "answer": "malloc() allocates a single block of uninitialized memory. calloc() allocates multiple blocks and initializes all bytes to zero.\nSyntax:\nmalloc(size_in_bytes);\ncalloc(num_elements, element_size);"
+        },
+        {
+          "q": "Write a function to check if a number is prime using C.",
+          "marks": 2,
+          "answer": "```c\n#include <stdbool.h>\nbool isPrime(int n) {\n    if(n <= 1) return false;\n    for(int i = 2; i * i <= n; i++) {\n        if(n % i == 0) return false;\n    }\n    return true;\n}\n```"
+        },
+        {
+          "q": "What is the output of the following code snippet? Explain.\n```c\nint x = 5;\nprintf(\"%d %d %d\", x++, ++x, x);\n```",
+          "marks": 2,
+          "answer": "The output depends on the compiler due to undefined behavior. In C, modifying a variable multiple times between sequence points (like in printf arguments) is undefined. Avoid such code. One common interpretation (not guaranteed): arguments evaluated right-to-left → x=5, then ++x → 6, then x++ → 6 (post-increment but x becomes 7). Output: 5 7 7? Actually unpredictable. Correct answer: Undefined behavior."
+        },
+        {
+          "q": "How do you swap two numbers without using a temporary variable? Write the code.",
+          "marks": 2,
+          "answer": "Using arithmetic operations:\n```c\na = a + b;\nb = a - b;\na = a - b;\n```\nOr using XOR (for integers):\n```c\na = a ^ b;\nb = a ^ b;\na = a ^ b;\n```"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "questions": [
+        {
+          "q": "Write a C program to count the frequency of each character in a string (case-sensitive). The program should read a string from the user and display the frequency of each character that appears at least once.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[200];\n    int freq[256] = {0};  // for all ASCII characters\n    \n    printf(\"Enter a string: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';\n    \n    for(int i = 0; str[i] != '\\0'; i++) {\n        freq[(unsigned char)str[i]]++;\n    }\n    \n    printf(\"\\nCharacter frequencies:\\n\");\n    for(int i = 0; i < 256; i++) {\n        if(freq[i] > 0) {\n            printf(\"'%c' : %d\\n\", i, freq[i]);\n        }\n    }\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a C program to multiply two matrices (size up to 10x10). The program should read the dimensions and elements of both matrices, check if multiplication is possible, compute the product, and display the result.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n\nint main() {\n    int a[10][10], b[10][10], product[10][10] = {0};\n    int r1, c1, r2, c2;\n    \n    printf(\"Enter rows and columns of first matrix: \");\n    scanf(\"%d %d\", &r1, &c1);\n    printf(\"Enter rows and columns of second matrix: \");\n    scanf(\"%d %d\", &r2, &c2);\n    \n    if(c1 != r2) {\n        printf(\"Matrix multiplication not possible!\\n\");\n        return 1;\n    }\n    \n    printf(\"Enter elements of first matrix:\\n\");\n    for(int i = 0; i < r1; i++)\n        for(int j = 0; j < c1; j++)\n            scanf(\"%d\", &a[i][j]);\n    \n    printf(\"Enter elements of second matrix:\\n\");\n    for(int i = 0; i < r2; i++)\n        for(int j = 0; j < c2; j++)\n            scanf(\"%d\", &b[i][j]);\n    \n    // Multiplication\n    for(int i = 0; i < r1; i++)\n        for(int j = 0; j < c2; j++)\n            for(int k = 0; k < c1; k++)\n                product[i][j] += a[i][k] * b[k][j];\n    \n    printf(\"Product matrix:\\n\");\n    for(int i = 0; i < r1; i++) {\n        for(int j = 0; j < c2; j++)\n            printf(\"%d \", product[i][j]);\n        printf(\"\\n\");\n    }\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a recursive function to compute the sum of digits of a positive integer. Also write the main function to test it. Example: sumOfDigits(1234) should return 10.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n\nint sumOfDigits(int n) {\n    if(n == 0) return 0;\n    return (n % 10) + sumOfDigits(n / 10);\n}\n\nint main() {\n    int num;\n    printf(\"Enter a positive integer: \");\n    scanf(\"%d\", &num);\n    printf(\"Sum of digits = %d\\n\", sumOfDigits(num));\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a program that reads a line of text and removes all duplicate characters (keeping only the first occurrence). For example, input 'hello world' should output 'helo wrd'.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[200], result[200];\n    int seen[256] = {0};\n    int j = 0;\n    \n    printf(\"Enter a string: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';\n    \n    for(int i = 0; str[i] != '\\0'; i++) {\n        unsigned char ch = str[i];\n        if(!seen[ch]) {\n            seen[ch] = 1;\n            result[j++] = str[i];\n        }\n    }\n    result[j] = '\\0';\n    \n    printf(\"String after removing duplicates: %s\\n\", result);\n    return 0;\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Design a C program for a simple library management system. The system should:\n1. Add new books (book ID, title, author, quantity).\n2. Display all books.\n3. Search for a book by ID.\n4. Issue a book (decrease quantity by 1 if available).\n5. Return a book (increase quantity by 1).\n6. Exit.\nUse an array of structures to store up to 100 books. Implement appropriate validation (e.g., cannot issue if quantity is zero).",
+          "marks": 10,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\n#define MAX_BOOKS 100\n\ntypedef struct {\n    int id;\n    char title[100];\n    char author[100];\n    int quantity;\n} Book;\n\nBook library[MAX_BOOKS];\nint bookCount = 0;\n\nvoid addBook() {\n    if(bookCount >= MAX_BOOKS) {\n        printf(\"Library is full!\\n\");\n        return;\n    }\n    Book b;\n    printf(\"Enter Book ID: \");\n    scanf(\"%d\", &b.id);\n    // Check for duplicate ID\n    for(int i = 0; i < bookCount; i++) {\n        if(library[i].id == b.id) {\n            printf(\"Book with this ID already exists!\\n\");\n            return;\n        }\n    }\n    printf(\"Enter Title: \");\n    scanf(\" %[^\\n]\", b.title);\n    printf(\"Enter Author: \");\n    scanf(\" %[^\\n]\", b.author);\n    printf(\"Enter Quantity: \");\n    scanf(\"%d\", &b.quantity);\n    library[bookCount++] = b;\n    printf(\"Book added successfully!\\n\");\n}\n\nvoid displayBooks() {\n    if(bookCount == 0) {\n        printf(\"No books in library.\\n\");\n        return;\n    }\n    printf(\"\\n%-10s %-30s %-20s %-10s\\n\", \"ID\", \"Title\", \"Author\", \"Quantity\");\n    printf(\"---------------------------------------------------------------\\n\");\n    for(int i = 0; i < bookCount; i++) {\n        printf(\"%-10d %-30s %-20s %-10d\\n\", \n               library[i].id, library[i].title, library[i].author, library[i].quantity);\n    }\n}\n\nint findBookIndex(int id) {\n    for(int i = 0; i < bookCount; i++) {\n        if(library[i].id == id) return i;\n    }\n    return -1;\n}\n\nvoid searchBook() {\n    int id;\n    printf(\"Enter Book ID to search: \");\n    scanf(\"%d\", &id);\n    int idx = findBookIndex(id);\n    if(idx == -1) {\n        printf(\"Book not found!\\n\");\n        return;\n    }\n    printf(\"\\nBook Found:\\n\");\n    printf(\"ID: %d\\nTitle: %s\\nAuthor: %s\\nQuantity: %d\\n\",\n           library[idx].id, library[idx].title, library[idx].author, library[idx].quantity);\n}\n\nvoid issueBook() {\n    int id;\n    printf(\"Enter Book ID to issue: \");\n    scanf(\"%d\", &id);\n    int idx = findBookIndex(id);\n    if(idx == -1) {\n        printf(\"Book not found!\\n\");\n        return;\n    }\n    if(library[idx].quantity <= 0) {\n        printf(\"Sorry, this book is out of stock!\\n\");\n        return;\n    }\n    library[idx].quantity--;\n    printf(\"Book issued successfully! Remaining quantity: %d\\n\", library[idx].quantity);\n}\n\nvoid returnBook() {\n    int id;\n    printf(\"Enter Book ID to return: \");\n    scanf(\"%d\", &id);\n    int idx = findBookIndex(id);\n    if(idx == -1) {\n        printf(\"Book not found!\\n\");\n        return;\n    }\n    library[idx].quantity++;\n    printf(\"Book returned successfully! New quantity: %d\\n\", library[idx].quantity);\n}\n\nint main() {\n    int choice;\n    do {\n        printf(\"\\n======= LIBRARY MANAGEMENT SYSTEM =======\\n\");\n        printf(\"1. Add Book\\n\");\n        printf(\"2. Display All Books\\n\");\n        printf(\"3. Search Book by ID\\n\");\n        printf(\"4. Issue Book\\n\");\n        printf(\"5. Return Book\\n\");\n        printf(\"6. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n        \n        switch(choice) {\n            case 1: addBook(); break;\n            case 2: displayBooks(); break;\n            case 3: searchBook(); break;\n            case 4: issueBook(); break;\n            case 5: returnBook(); break;\n            case 6: printf(\"Exiting...\\n\"); break;\n            default: printf(\"Invalid choice!\\n\");\n        }\n    } while(choice != 6);\n    return 0;\n}\n```"
+        }
+      ]
+    }
+  ]
+}
