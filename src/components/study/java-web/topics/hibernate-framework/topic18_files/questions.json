@@ -1,0 +1,915 @@
+{
+  "subject": "Hibernate Framework",
+  "class": "Any",
+  "board": "ICSE",
+  "topic": "Hibernate Framework Short Questions",
+  "subjectLogo": {
+    "name": "Hibernate",
+    "icon": "hibernate",
+    "type": "svg",
+    "path": "/logos/Hibernate-original.svg",
+    "alt": "Hibernate ORM Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Beginner",
+      "question": "What is the full form of ORM?",
+      "output": "Object-Relational Mapping",
+      "answer": "Object-Relational Mapping",
+      "explanation": "ORM is a technique to map Java objects to database tables."
+    },
+    {
+      "id": 2,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of ORM over JDBC?",
+      "output": "Reduces boilerplate code and handles object-relational impedance mismatch.",
+      "answer": "Reduces boilerplate code and handles object-relational impedance mismatch.",
+      "explanation": "ORM frameworks like Hibernate automate SQL generation and result set mapping."
+    },
+    {
+      "id": 3,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Beginner",
+      "question": "In JDBC, what interface represents a database connection?",
+      "output": "java.sql.Connection",
+      "answer": "java.sql.Connection",
+      "explanation": "JDBC uses DriverManager or DataSource to obtain Connection objects."
+    },
+    {
+      "id": 4,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Beginner",
+      "question": "Which ORM framework is the most popular in Java?",
+      "output": "Hibernate",
+      "answer": "Hibernate",
+      "explanation": "Hibernate is the most widely used ORM framework for Java."
+    },
+    {
+      "id": 5,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Beginner",
+      "question": "What is an entity in ORM?",
+      "output": "A lightweight persistent Java object that maps to a database table.",
+      "answer": "A lightweight persistent Java object that maps to a database table.",
+      "explanation": "Each entity instance corresponds to a row in the table."
+    },
+    {
+      "id": 6,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is 'object-relational impedance mismatch'?",
+      "output": "The differences between object-oriented and relational data models (inheritance, polymorphism, associations).",
+      "answer": "The differences between object-oriented and relational data models (inheritance, polymorphism, associations).",
+      "explanation": "ORM bridges this gap by mapping objects to tables."
+    },
+    {
+      "id": 7,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Intermediate",
+      "question": "How does Hibernate handle lazy loading compared to plain JDBC?",
+      "output": "Hibernate proxies associations; JDBC loads everything eagerly unless manually coded.",
+      "answer": "Hibernate proxies associations; JDBC loads everything eagerly unless manually coded.",
+      "explanation": "Lazy loading improves performance by loading data only when accessed."
+    },
+    {
+      "id": 8,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Intermediate",
+      "question": "What is the equivalent of Hibernate Session in JDBC?",
+      "output": "Connection and Statement/PreparedStatement",
+      "answer": "Connection and Statement/PreparedStatement",
+      "explanation": "Session provides higher-level operations like save, update, query."
+    },
+    {
+      "id": 9,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Advanced",
+      "question": "Which pattern does Hibernate use to manage entity states?",
+      "output": "Unit of Work pattern",
+      "answer": "Unit of Work pattern",
+      "explanation": "Session tracks changes and flushes them to DB in a single transaction."
+    },
+    {
+      "id": 10,
+      "topic": "ORM vs JDBC",
+      "difficulty": "Advanced",
+      "question": "What is N+1 query problem and how does ORM (Hibernate) solve it?",
+      "output": "N+1 occurs when one query fetches entities and N more queries fetch associations. Solved by join fetching or batch fetching.",
+      "answer": "N+1 occurs when one query fetches entities and N more queries fetch associations. Solved by join fetching or batch fetching.",
+      "explanation": "Hibernate provides @Fetch(FetchMode.JOIN) or FetchType.EAGER with join."
+    },
+    {
+      "id": 11,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Beginner",
+      "question": "What are the core components of Hibernate architecture?",
+      "output": "SessionFactory, Session, Transaction, Query, Criteria, Configuration.",
+      "answer": "SessionFactory, Session, Transaction, Query, Criteria, Configuration.",
+      "explanation": "These interfaces form the backbone of Hibernate."
+    },
+    {
+      "id": 12,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Beginner",
+      "question": "What is the role of SessionFactory?",
+      "output": "A thread-safe factory for Session objects, created once per database.",
+      "answer": "A thread-safe factory for Session objects, created once per database.",
+      "explanation": "It caches configuration and mapping metadata."
+    },
+    {
+      "id": 13,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Beginner",
+      "question": "Is Session thread-safe?",
+      "output": "No, Session is not thread-safe. It should be used by a single thread at a time.",
+      "answer": "No, Session is not thread-safe. It should be used by a single thread at a time.",
+      "explanation": "Each request or operation should get its own Session."
+    },
+    {
+      "id": 14,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Beginner",
+      "question": "What is the role of Transaction interface?",
+      "output": "Manages database transactions (begin, commit, rollback).",
+      "answer": "Manages database transactions (begin, commit, rollback).",
+      "explanation": "Obtained from Session.beginTransaction()."
+    },
+    {
+      "id": 15,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between Session and SessionFactory?",
+      "output": "SessionFactory is heavyweight, thread-safe, created once; Session is lightweight, non-thread-safe, created per operation.",
+      "answer": "SessionFactory is heavyweight, thread-safe, created once; Session is lightweight, non-thread-safe, created per operation.",
+      "explanation": "SessionFactory provides metadata and second-level cache; Session provides first-level cache."
+    },
+    {
+      "id": 16,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of Configuration object?",
+      "output": "Loads Hibernate properties and mapping documents to build SessionFactory.",
+      "answer": "Loads Hibernate properties and mapping documents to build SessionFactory.",
+      "explanation": "Configuration cfg = new Configuration().configure();"
+    },
+    {
+      "id": 17,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Advanced",
+      "question": "What is a Hibernate Interceptor and where is it used?",
+      "output": "An interface that allows you to intercept and customize operations like save, update, delete, load.",
+      "answer": "An interface that allows you to intercept and customize operations like save, update, delete, load.",
+      "explanation": "Useful for auditing, logging, or soft deletes."
+    },
+    {
+      "id": 18,
+      "topic": "Hibernate Architecture",
+      "difficulty": "Advanced",
+      "question": "What is the difference between StatelessSession and regular Session?",
+      "output": "StatelessSession does not have a persistence context, no caching, no lazy loading, more like JDBC.",
+      "answer": "StatelessSession does not have a persistence context, no caching, no lazy loading, more like JDBC.",
+      "explanation": "Used for bulk operations where performance is critical and no caching needed."
+    },
+    {
+      "id": 19,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Beginner",
+      "question": "What is the default name of Hibernate XML configuration file?",
+      "output": "hibernate.cfg.xml",
+      "answer": "hibernate.cfg.xml",
+      "explanation": "It is typically placed in the classpath root (src/main/resources)."
+    },
+    {
+      "id": 20,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of hibernate.hbm2ddl.auto property?",
+      "output": "Automatically validates, updates, creates, or drops database schema.",
+      "answer": "Automatically validates, updates, creates, or drops database schema.",
+      "explanation": "Common values: validate, update, create, create-drop."
+    },
+    {
+      "id": 21,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Beginner",
+      "question": "Which annotation is used to mark a class as an entity?",
+      "output": "@Entity",
+      "answer": "@Entity",
+      "explanation": "Placed on the class that maps to a database table."
+    },
+    {
+      "id": 22,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Beginner",
+      "question": "How do you specify the primary key column in an entity?",
+      "output": "Using @Id annotation.",
+      "answer": "Using @Id annotation.",
+      "explanation": "Usually combined with @GeneratedValue for auto-increment."
+    },
+    {
+      "id": 23,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Intermediate",
+      "question": "What is the use of @Table annotation?",
+      "output": "Specifies the database table name if different from the class name.",
+      "answer": "Specifies the database table name if different from the class name.",
+      "explanation": "Example: @Table(name = \"EMPLOYEE_DETAILS\")"
+    },
+    {
+      "id": 24,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Intermediate",
+      "question": "How do you map a field to a column with a different name?",
+      "output": "@Column(name = \"column_name\")",
+      "answer": "@Column(name = \"column_name\")",
+      "explanation": "If omitted, the property name is used as the column name."
+    },
+    {
+      "id": 25,
+      "topic": "Configuration (XML & Annotations)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between XML mapping and annotation mapping?",
+      "output": "Annotations are compile-time, type-safe, and simpler; XML allows changing mappings without recompilation.",
+      "answer": "Annotations are compile-time, type-safe, and simpler; XML allows changing mappings without recompilation.",
+      "explanation": "Modern Hibernate applications primarily use annotations."
+    },
+    {
+      "id": 26,
+      "topic": "Entity Mapping",
+      "difficulty": "Beginner",
+      "question": "What are the mandatory annotations for an entity?",
+      "output": "@Entity and @Id",
+      "answer": "@Entity and @Id",
+      "explanation": "@Entity marks the class, @Id marks the primary key field."
+    },
+    {
+      "id": 27,
+      "topic": "Entity Mapping",
+      "difficulty": "Beginner",
+      "question": "What is the default fetch type for @OneToMany?",
+      "output": "LAZY",
+      "answer": "LAZY",
+      "explanation": "Collection mappings default to lazy loading."
+    },
+    {
+      "id": 28,
+      "topic": "Entity Mapping",
+      "difficulty": "Beginner",
+      "question": "What is the default fetch type for @ManyToOne?",
+      "output": "EAGER",
+      "answer": "EAGER",
+      "explanation": "Single-valued associations default to eager."
+    },
+    {
+      "id": 29,
+      "topic": "Entity Mapping",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of @Transient annotation?",
+      "output": "Marks a field as non-persistent (not stored in database).",
+      "answer": "Marks a field as non-persistent (not stored in database).",
+      "explanation": "Example: computed fields, flags, etc."
+    },
+    {
+      "id": 30,
+      "topic": "Entity Mapping",
+      "difficulty": "Intermediate",
+      "question": "How do you define a composite primary key using annotations?",
+      "output": "Using @EmbeddedId or @IdClass.",
+      "answer": "Using @EmbeddedId or @IdClass.",
+      "explanation": "@EmbeddedId is more object-oriented; @IdClass is simpler for legacy."
+    },
+    {
+      "id": 31,
+      "topic": "CRUD Operations",
+      "difficulty": "Beginner",
+      "question": "How do you save an entity in Hibernate?",
+      "output": "session.save(entity) or session.persist(entity)",
+      "answer": "session.save(entity) or session.persist(entity)",
+      "explanation": "save() returns generated ID; persist() returns void."
+    },
+    {
+      "id": 32,
+      "topic": "CRUD Operations",
+      "difficulty": "Beginner",
+      "question": "How do you retrieve an entity by its primary key?",
+      "output": "session.get(EntityClass.class, id) or session.load()",
+      "answer": "session.get(EntityClass.class, id) or session.load()",
+      "explanation": "get() returns null if not found; load() throws ObjectNotFoundException."
+    },
+    {
+      "id": 33,
+      "topic": "CRUD Operations",
+      "difficulty": "Beginner",
+      "question": "Which method updates a detached entity?",
+      "output": "session.update(entity) or session.merge(entity)",
+      "answer": "session.update(entity) or session.merge(entity)",
+      "explanation": "merge() returns a managed copy; update() throws if entity is transient."
+    },
+    {
+      "id": 34,
+      "topic": "CRUD Operations",
+      "difficulty": "Beginner",
+      "question": "How do you delete an entity?",
+      "output": "session.delete(entity)",
+      "answer": "session.delete(entity)",
+      "explanation": "Entity must be in persistent state or a detached instance with known ID."
+    },
+    {
+      "id": 35,
+      "topic": "CRUD Operations",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between save() and persist()?",
+      "output": "save() returns generated identifier and can be called outside transaction; persist() returns void, must be inside transaction, and is JPA compliant.",
+      "answer": "save() returns generated identifier and can be called outside transaction; persist() returns void, must be inside transaction, and is JPA compliant.",
+      "explanation": "Persist is preferred for JPA portability."
+    },
+    {
+      "id": 36,
+      "topic": "CRUD Operations",
+      "difficulty": "Advanced",
+      "question": "What is the difference between update() and merge()?",
+      "output": "update() assumes the entity is detached and reattaches it; merge() copies state from detached to managed entity, returning a managed instance.",
+      "answer": "update() assumes the entity is detached and reattaches it; merge() copies state from detached to managed entity, returning a managed instance.",
+      "explanation": "merge() never throws exception on transient entities; it creates a new managed copy."
+    },
+    {
+      "id": 37,
+      "topic": "Hibernate Query Language (HQL)",
+      "difficulty": "Beginner",
+      "question": "What does HQL stand for?",
+      "output": "Hibernate Query Language",
+      "answer": "Hibernate Query Language",
+      "explanation": "Object-oriented query language similar to SQL but works on entity objects."
+    },
+    {
+      "id": 38,
+      "topic": "Hibernate Query Language (HQL)",
+      "difficulty": "Beginner",
+      "question": "How do you write a simple HQL query to fetch all Employee entities?",
+      "output": "FROM Employee",
+      "answer": "FROM Employee",
+      "explanation": "HQL is case-sensitive for entity names and properties."
+    },
+    {
+      "id": 39,
+      "topic": "Hibernate Query Language (HQL)",
+      "difficulty": "Beginner",
+      "question": "How do you execute an HQL query?",
+      "output": "session.createQuery(hql).list() or .uniqueResult()",
+      "answer": "session.createQuery(hql).list() or .uniqueResult()",
+      "explanation": "Use Query object; for Hibernate 5+ use createQuery with typed query."
+    },
+    {
+      "id": 40,
+      "topic": "Hibernate Query Language (HQL)",
+      "diffculty": "Intermediate",
+      "question": "Write an HQL query to fetch Employee with id = 10.",
+      "output": "FROM Employee e WHERE e.id = 10",
+      "answer": "FROM Employee e WHERE e.id = 10",
+      "explanation": "Uses entity property names, not column names."
+    },
+    {
+      "id": 41,
+      "topic": "Hibernate Query Language (HQL)",
+      "difficulty": "Intermediate",
+      "question": "What is named query in Hibernate?",
+      "output": "A pre-defined HQL query with a name, stored using @NamedQuery annotation or XML.",
+      "answer": "A pre-defined HQL query with a name, stored using @NamedQuery annotation or XML.",
+      "explanation": "Improves performance by pre-parsing at startup."
+    },
+    {
+      "id": 42,
+      "topic": "Relationship Mappings",
+      "difficulty": "Beginner",
+      "question": "Which annotation defines a One-to-One relationship?",
+      "output": "@OneToOne",
+      "answer": "@OneToOne",
+      "explanation": "E.g., Person has one Passport."
+    },
+    {
+      "id": 43,
+      "topic": "Relationship Mappings",
+      "difficulty": "Beginner",
+      "question": "Which side is the 'owning side' in a bidirectional One-to-Many relationship?",
+      "output": "The Many side (with @ManyToOne) is the owning side.",
+      "answer": "The Many side (with @ManyToOne) is the owning side.",
+      "explanation": "The mappedBy attribute is placed on the One side's @OneToMany."
+    },
+    {
+      "id": 44,
+      "topic": "Relationship Mappings",
+      "difficulty": "Beginner",
+      "question": "How do you define a Many-to-Many relationship?",
+      "output": "@ManyToMany with @JoinTable",
+      "answer": "@ManyToMany with @JoinTable",
+      "explanation": "The default join table name combines both entity table names."
+    },
+    {
+      "id": 45,
+      "topic": "Relationship Mappings",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the mappedBy attribute?",
+      "output": "Indicates that the other side (the owning side) is responsible for relationship persistence.",
+      "answer": "Indicates that the other side (the owning side) is responsible for relationship persistence.",
+      "explanation": "Prevents duplicate foreign key columns."
+    },
+    {
+      "id": 46,
+      "topic": "Relationship Mappings",
+      "difficulty": "Intermediate",
+      "question": "What is cascade in Hibernate relationships?",
+      "output": "Propagation of operations (persist, merge, remove, refresh, detach) from parent to child entities.",
+      "answer": "Propagation of operations (persist, merge, remove, refresh, detach) from parent to child entities.",
+      "explanation": "CascadeType.ALL includes all operations."
+    },
+    {
+      "id": 47,
+      "topic": "Relationship Mappings",
+      "difficulty": "Advanced",
+      "question": "What is the difference between CascadeType.REMOVE and orphanRemoval = true?",
+      "output": "REMOVE deletes children when parent is deleted; orphanRemoval also deletes children removed from the collection.",
+      "answer": "REMOVE deletes children when parent is deleted; orphanRemoval also deletes children removed from the collection.",
+      "explanation": "orphanRemoval is more aggressive; useful for value-typed children."
+    },
+    {
+      "id": 48,
+      "topic": "Inheritance Mapping Strategies",
+      "difficulty": "Beginner",
+      "question": "What are the three inheritance mapping strategies in Hibernate?",
+      "output": "Single Table, Joined Table, Table Per Class.",
+      "answer": "Single Table, Joined Table, Table Per Class.",
+      "explanation": "Specified using @Inheritance(strategy = ...)"
+    },
+    {
+      "id": 49,
+      "topic": "Inheritance Mapping Strategies",
+      "difficulty": "Beginner",
+      "question": "Which strategy uses a single table for the entire hierarchy?",
+      "output": "SINGLE_TABLE",
+      "answer": "SINGLE_TABLE",
+      "explanation": "Requires a discriminator column to differentiate subclasses."
+    },
+    {
+      "id": 50,
+      "topic": "Inheritance Mapping Strategies",
+      "difficulty": "Intermediate",
+      "question": "Which strategy is most normalized but may cause performance issues?",
+      "output": "JOINED (table per subclass)",
+      "answer": "JOINED (table per subclass)",
+      "explanation": "Each subclass has its own table with foreign key to parent table."
+    },
+    {
+      "id": 51,
+      "topic": "Inheritance Mapping Strategies",
+      "difficulty": "Advanced",
+      "question": "What is the disadvantage of TABLE_PER_CLASS strategy?",
+      "output": "Inefficient polymorphic queries (UNION queries) and cannot use identity generators.",
+      "answer": "Inefficient polymorphic queries (UNION queries) and cannot use identity generators.",
+      "explanation": "Not recommended; use SINGLE_TABLE or JOINED instead."
+    },
+    {
+      "id": 52,
+      "topic": "Caching",
+      "difficulty": "Beginner",
+      "question": "What is first-level cache in Hibernate?",
+      "output": "Session-scoped cache; enabled by default; caches entities within a session.",
+      "answer": "Session-scoped cache; enabled by default; caches entities within a session.",
+      "explanation": "It guarantees that within a session, the same database row returns the same Java object."
+    },
+    {
+      "id": 53,
+      "topic": "Caching",
+      "difficulty": "Beginner",
+      "question": "How do you clear the first-level cache?",
+      "output": "session.clear() or session.evict(entity)",
+      "answer": "session.clear() or session.evict(entity)",
+      "explanation": "clear() removes all cached entities; evict() removes a specific entity."
+    },
+    {
+      "id": 54,
+      "topic": "Caching",
+      "difficulty": "Beginner",
+      "question": "What is second-level cache?",
+      "output": "SessionFactory-scoped cache; shared across sessions; needs explicit configuration.",
+      "answer": "SessionFactory-scoped cache; shared across sessions; needs explicit configuration.",
+      "explanation": "Requires a cache provider like EHCache, Caffeine."
+    },
+    {
+      "id": 55,
+      "topic": "Caching",
+      "difficulty": "Intermediate",
+      "question": "How do you enable second-level cache?",
+      "output": "Set hibernate.cache.use_second_level_cache=true and provide cache provider class.",
+      "answer": "Set hibernate.cache.use_second_level_cache=true and provide cache provider class.",
+      "explanation": "Also annotate entities with @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)."
+    },
+    {
+      "id": 56,
+      "topic": "Caching",
+      "diffulty": "Advanced",
+      "question": "What is query cache and when to use it?",
+      "output": "Caches the result set of HQL/JPQL queries; requires second-level cache enabled.",
+      "answer": "Caches the result set of HQL/JPQL queries; requires second-level cache enabled.",
+      "explanation": "Useful for queries that run frequently with same parameters."
+    },
+    {
+      "id": 57,
+      "topic": "Lazy Loading vs Eager Loading",
+      "difficulty": "Beginner",
+      "question": "What is lazy loading?",
+      "output": "Associations are loaded only when accessed for the first time.",
+      "answer": "Associations are loaded only when accessed for the first time.",
+      "explanation": "Default for collections (@OneToMany, @ManyToMany)."
+    },
+    {
+      "id": 58,
+      "topic": "Lazy Loading vs Eager Loading",
+      "difficulty": "Beginner",
+      "question": "What annotation attribute controls lazy/eager loading?",
+      "output": "fetch = FetchType.LAZY or FetchType.EAGER",
+      "answer": "fetch = FetchType.LAZY or FetchType.EAGER",
+      "explanation": "E.g., @OneToMany(fetch = FetchType.EAGER)"
+    },
+    {
+      "id": 59,
+      "topic": "Lazy Loading vs Eager Loading",
+      "difficulty": "Intermediate",
+      "question": "What is LazyInitializationException?",
+      "output": "Exception thrown when accessing a lazy association outside an open Hibernate Session.",
+      "answer": "Exception thrown when accessing a lazy association outside an open Hibernate Session.",
+      "explanation": "Common in web applications if session is closed before view rendering."
+    },
+    {
+      "id": 60,
+      "topic": "Lazy Loading vs Eager Loading",
+      "difficulty": "Advanced",
+      "question": "How to solve LazyInitializationException?",
+      "output": "Initialize proxies before session closes (Hibernate.initialize), use DTOs, or open session in view pattern.",
+      "answer": "Initialize proxies before session closes (Hibernate.initialize), use DTOs, or open session in view pattern.",
+      "explanation": "OSIV is controversial; often better to fetch needed data eagerly or use JOIN FETCH."
+    },
+    {
+      "id": 61,
+      "topic": "Criteria API and HQL Advanced Queries",
+      "difficulty": "Beginner",
+      "question": "What is Criteria API?",
+      "output": "Programmatic way to build dynamic queries using JPA/Hibernate's CriteriaBuilder.",
+      "answer": "Programmatic way to build dynamic queries using JPA/Hibernate's CriteriaBuilder.",
+      "explanation": "Type-safe and avoids string concatenation."
+    },
+    {
+      "id": 62,
+      "topic": "Criteria API and HQL Advanced Queries",
+      "difficulty": "Beginner",
+      "question": "How do you create a CriteriaBuilder?",
+      "output": "session.getCriteriaBuilder()",
+      "answer": "session.getCriteriaBuilder()",
+      "explanation": "Requires a Hibernate Session or JPA EntityManager."
+    },
+    {
+      "id": 63,
+      "topic": "Criteria API and HQL Advanced Queries",
+      "difficulty": "Intermediate",
+      "question": "Write a criteria query to select all Employee with salary > 50000.",
+      "output": "CriteriaBuilder cb = session.getCriteriaBuilder(); CriteriaQuery<Employee> cq = cb.createQuery(Employee.class); Root<Employee> root = cq.from(Employee.class); cq.select(root).where(cb.gt(root.get(\"salary\"), 50000)); Query<Employee> query = session.createQuery(cq); List<Employee> list = query.list();",
+      "answer": "CriteriaBuilder cb = session.getCriteriaBuilder(); CriteriaQuery<Employee> cq = cb.createQuery(Employee.class); Root<Employee> root = cq.from(Employee.class); cq.select(root).where(cb.gt(root.get(\"salary\"), 50000)); Query<Employee> query = session.createQuery(cq); List<Employee> list = query.list();",
+      "explanation": "The API is verbose but typesafe and dynamic."
+    },
+    {
+      "id": 64,
+      "topic": "Hibernate Configuration Using Properties File",
+      "difficulty": "Beginner",
+      "question": "What is the alternative to hibernate.cfg.xml?",
+      "output": "hibernate.properties file",
+      "answer": "hibernate.properties file",
+      "explanation": "The properties file is simpler but less flexible for mapping configuration."
+    },
+    {
+      "id": 65,
+      "topic": "Hibernate Configuration Using Properties File",
+      "difficulty": "Beginner",
+      "question": "How do you load configuration from hibernate.properties?",
+      "output": "new Configuration().configure() also reads properties; or new Configuration().addProperties(properties).",
+      "answer": "new Configuration().configure() also reads properties; or new Configuration().addProperties(properties).",
+      "explanation": "configure() without argument looks for hibernate.cfg.xml; if not found, falls back to hibernate.properties."
+    },
+    {
+      "id": 66,
+      "topic": "Hibernate Configuration Using Properties File",
+      "difficulty": "Advanced",
+      "question": "What property is used to specify the SQL dialect?",
+      "output": "hibernate.dialect",
+      "answer": "hibernate.dialect",
+      "explanation": "E.g., org.hibernate.dialect.MySQL8Dialect"
+    },
+    {
+      "id": 67,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "What is Local Transaction?",
+      "output": "Transaction managed by Hibernate itself using JDBC connection; limited to a single database.",
+      "answer": "Transaction managed by Hibernate itself using JDBC connection; limited to a single database.",
+      "explanation": "Use session.beginTransaction() and transaction.commit()."
+    },
+    {
+      "id": 68,
+      "topic": "Transaction Management",
+      "difficulty": "Beginner",
+      "question": "What is JTA (Java Transaction API)?",
+      "output": "Distributed transaction management spanning multiple resources (databases, JMS).",
+      "answer": "Distributed transaction management spanning multiple resources (databases, JMS).",
+      "explanation": "Requires a JTA implementation (e.g., Narayana, Atomikos)."
+    },
+    {
+      "id": 69,
+      "topic": "Transaction Management",
+      "difficulty": "Intermediate",
+      "question": "How to enable JTA in Hibernate?",
+      "output": "Set hibernate.transaction.coordinator_class = jta and provide JTA properties.",
+      "answer": "Set hibernate.transaction.coordinator_class = jta and provide JTA properties.",
+      "explanation": "Also need to configure JTA platform: hibernate.transaction.jta.platform."
+    },
+    {
+      "id": 70,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the difference between transaction.commit() and session.flush()?",
+      "output": "flush() synchronizes session state with database without committing; commit() flushes and commits transaction.",
+      "answer": "flush() synchronizes session state with database without committing; commit() flushes and commits transaction.",
+      "explanation": "Flush is automatic before commit; manual flush may be used for JDBC batching."
+    },
+    {
+      "id": 71,
+      "topic": "Bean Validation (Hibernate Validator)",
+      "difficulty": "Beginner",
+      "question": "What is Bean Validation?",
+      "output": "Java specification (JSR 380) for declaring constraints on fields/methods via annotations.",
+      "answer": "Java specification (JSR 380) for declaring constraints on fields/methods via annotations.",
+      "explanation": "Constraints like @NotNull, @Size, @Min, @Max are checked automatically."
+    },
+    {
+      "id": 72,
+      "topic": "Bean Validation (Hibernate Validator)",
+      "difficulty": "Beginner",
+      "question": "Which annotation ensures a field is not null?",
+      "output": "@NotNull",
+      "answer": "@NotNull",
+      "explanation": "Also @NotEmpty for non-null and non-empty collections/strings."
+    },
+    {
+      "id": 73,
+      "topic": "Bean Validation (Hibernate Validator)",
+      "difficulty": "Intermediate",
+      "question": "How do you trigger validation of an entity before persistence?",
+      "output": "Hibernate automatically validates if hibernate.validator.apply_to_ddl=true (default) and using @Valid.",
+      "answer": "Hibernate automatically validates if hibernate.validator.apply_to_ddl=true (default) and using @Valid.",
+      "explanation": "Or manually call Validator.validate(entity)."
+    },
+    {
+      "id": 74,
+      "topic": "Introduction to JPA",
+      "difficulty": "Beginner",
+      "question": "What is JPA?",
+      "output": "Java Persistence API – standard specification for ORM in Java EE/Jakarta EE.",
+      "answer": "Java Persistence API – standard specification for ORM in Java EE/Jakarta EE.",
+      "explanation": "Hibernate is a popular implementation of JPA."
+    },
+    {
+      "id": 75,
+      "topic": "Introduction to JPA",
+      "difficulty": "Beginner",
+      "question": "What is the EntityManager?",
+      "output": "JPA equivalent of Hibernate Session; manages persistence operations.",
+      "answer": "JPA equivalent of Hibernate Session; manages persistence operations.",
+      "explanation": "Obtained from EntityManagerFactory."
+    },
+    {
+      "id": 76,
+      "topic": "Introduction to JPA",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between JPA and Hibernate?",
+      "output": "JPA is a specification; Hibernate is an implementation that extends JPA.",
+      "answer": "JPA is a specification; Hibernate is an implementation that extends JPA.",
+      "explanation": "Using JPA APIs ensures portability across ORM frameworks."
+    },
+    {
+      "id": 77,
+      "topic": "Hibernate Tools",
+      "difficulty": "Beginner",
+      "question": "What is reverse engineering in Hibernate Tools?",
+      "output": "Generating entity classes and mapping files from an existing database schema.",
+      "answer": "Generating entity classes and mapping files from an existing database schema.",
+      "explanation": "Use hibernate3-maven-plugin or IDE tools."
+    },
+    {
+      "id": 78,
+      "topic": "Hibernate Tools",
+      "difficulty": "Beginner",
+      "question": "What does hbm2ddl do?",
+      "output": "Generates database schema DDL from entity mappings.",
+      "answer": "Generates database schema DDL from entity mappings.",
+      "explanation": "Controlled by hibernate.hbm2ddl.auto property."
+    },
+    {
+      "id": 79,
+      "topic": "Hibernate Tools",
+      "difficulty": "Advanced",
+      "question": "How can you export the DDL script to a file?",
+      "output": "Set hibernate.hbm2ddl.auto=none and use SchemaExport class programmatically.",
+      "answer": "Set hibernate.hbm2ddl.auto=none and use SchemaExport class programmatically.",
+      "explanation": "SchemaExport export = new SchemaExport(config); export.create(true, false);"
+    },
+    {
+      "id": 80,
+      "topic": "Connection Pooling with Hibernate",
+      "difficulty": "Beginner",
+      "question": "Why is connection pooling important?",
+      "output": "Reuses database connections to improve performance and resource management.",
+      "answer": "Reuses database connections to improve performance and resource management.",
+      "explanation": "Creating a new connection for each request is expensive."
+    },
+    {
+      "id": 81,
+      "topic": "Connection Pooling with Hibernate",
+      "difficulty": "Intermediate",
+      "question": "How to configure c3p0 with Hibernate?",
+      "output": "Set properties: hibernate.c3p0.min_size, hibernate.c3p0.max_size, hibernate.c3p0.timeout, etc.",
+      "answer": "Set properties: hibernate.c3p0.min_size, hibernate.c3p0.max_size, hibernate.c3p0.timeout, etc.",
+      "explanation": "Also include c3p0 JAR in classpath."
+    },
+    {
+      "id": 82,
+      "topic": "Connection Pooling with Hibernate",
+      "difficulty": "Advanced",
+      "question": "What is the recommended connection pool for modern Hibernate?",
+      "output": "HikariCP (fast, lightweight).",
+      "answer": "HikariCP (fast, lightweight).",
+      "explanation": "Set hibernate.hikari.* properties and include HikariCP dependency."
+    },
+    {
+      "id": 83,
+      "topic": "Performance Tuning Tips",
+      "difficulty": "Intermediate",
+      "question": "What is batch fetching?",
+      "output": "Fetches multiple lazy associations in a single query using IN clause.",
+      "answer": "Fetches multiple lazy associations in a single query using IN clause.",
+      "explanation": "Configured via @BatchSize or hibernate.default_batch_fetch_size."
+    },
+    {
+      "id": 84,
+      "topic": "Performance Tuning Tips",
+      "difficulty": "Advanced",
+      "question": "What is the benefit of using JOIN FETCH in HQL?",
+      "output": "Eagerly fetches associations in single query, avoiding N+1 problem.",
+      "answer": "Eagerly fetches associations in single query, avoiding N+1 problem.",
+      "explanation": "Example: \"FROM Employee e JOIN FETCH e.department\"."
+    },
+    {
+      "id": 85,
+      "topic": "Performance Tuning Tips",
+      "difficulty": "Advanced",
+      "question": "How to enable batch processing for DML operations?",
+      "output": "Set hibernate.jdbc.batch_size and hibernate.order_inserts=true / order_updates=true.",
+      "answer": "Set hibernate.jdbc.batch_size and hibernate.order_inserts=true / order_updates=true.",
+      "explanation": "Use StatelessSession for bulk inserts/updates for better performance."
+    },
+    {
+      "id": 86,
+      "topic": "Entity Mapping",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of @Version annotation?",
+      "output": "Implements optimistic locking; Hibernate increments the version when entity is updated.",
+      "answer": "Implements optimistic locking; Hibernate increments the version when entity is updated.",
+      "explanation": "Prevents lost updates in concurrent transactions."
+    },
+    {
+      "id": 87,
+      "topic": "Relationship Mappings",
+      "difficulty": "Advanced",
+      "question": "What is the difference between @JoinColumn and @PrimaryKeyJoinColumn?",
+      "output": "@JoinColumn defines a foreign key column; @PrimaryKeyJoinColumn uses the primary key as foreign key (for one-to-one).",
+      "answer": "@JoinColumn defines a foreign key column; @PrimaryKeyJoinColumn uses the primary key as foreign key (for one-to-one).",
+      "explanation": "For @OneToOne shared primary key, you use @PrimaryKeyJoinColumn."
+    },
+    {
+      "id": 88,
+      "topic": "Caching",
+      "difficulty": "Advanced",
+      "question": "What cache concurrency strategies are available?",
+      "output": "READ_ONLY, READ_WRITE, NONSTRICT_READ_WRITE, TRANSACTIONAL.",
+      "answer": "READ_ONLY, READ_WRITE, NONSTRICT_READ_WRITE, TRANSACTIONAL.",
+      "explanation": "Choose based on application requirements; TRANSACTIONAL requires JTA."
+    },
+    {
+      "id": 89,
+      "topic": "Hibernate Query Language (HQL)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between list() and iterate()?",
+      "output": "list() fetches all results immediately; iterate() fetches identifiers first then lazy loads each row (N+1 risk).",
+      "answer": "list() fetches all results immediately; iterate() fetches identifiers first then lazy loads each row (N+1 risk).",
+      "explanation": "iterate() can be useful with second-level cache."
+    },
+    {
+      "id": 90,
+      "topic": "Transaction Management",
+      "difficulty": "Advanced",
+      "question": "What is the difference between javax.transaction.Transactional and org.springframework.transaction.annotation.Transactional?",
+      "output": "JTA @Transactional is for Java EE; Spring @Transactional is more powerful and integrates with Hibernate.",
+      "answer": "JTA @Transactional is for Java EE; Spring @Transactional is more powerful and integrates with Hibernate.",
+      "explanation": "Spring's platform supports propagation, isolation, rollback rules."
+    },
+    {
+      "id": 91,
+      "topic": "CRUD Operations",
+      "difficulty": "Advanced",
+      "question": "What is the difference between session.saveOrUpdate() and session.merge()?",
+      "output": "saveOrUpdate() inserts if identifier is null/transient, updates otherwise; merge() always copies state into managed instance.",
+      "answer": "saveOrUpdate() inserts if identifier is null/transient, updates otherwise; merge() always copies state into managed instance.",
+      "explanation": "saveOrUpdate is Hibernate-specific; merge is JPA standard."
+    },
+    {
+      "id": 92,
+      "topic": "Inheritance Mapping Strategies",
+      "difficulty": "Advanced",
+      "question": "What is the @DiscriminatorColumn annotation used for?",
+      "output": "Defines the discriminator column in SINGLE_TABLE inheritance strategy.",
+      "answer": "Defines the discriminator column in SINGLE_TABLE inheritance strategy.",
+      "explanation": "Hibernate uses the discriminator value to instantiate the correct subclass."
+    },
+    {
+      "id": 93,
+      "topic": "Lazy Loading vs Eager Loading",
+      "difficulty": "Advanced",
+      "question": "What is the 'Open Session in View' pattern?",
+      "output": "A filter that opens a session at request start and closes it after view rendering, keeping lazy loading available.",
+      "answer": "A filter that opens a session at request start and closes it after view rendering, keeping lazy loading available.",
+      "explanation": "It can lead to performance issues and is not recommended for high-traffic apps."
+    },
+    {
+      "id": 94,
+      "topic": "Performance Tuning Tips",
+      "difficulty": "Advanced",
+      "question": "How do you monitor Hibernate statistics?",
+      "output": "Set hibernate.generate_statistics=true and access via SessionFactory.getStatistics()",
+      "answer": "Set hibernate.generate_statistics=true and access via SessionFactory.getStatistics()",
+      "explanation": "Shows query execution count, cache hits/misses, entity load times."
+    },
+    {
+      "id": 95,
+      "topic": "Introduction to JPA",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of persistence.xml?",
+      "output": "JPA configuration file that defines persistence units, datasource, and provider properties.",
+      "answer": "JPA configuration file that defines persistence units, datasource, and provider properties.",
+      "explanation": "Typically located in META-INF/persistence.xml."
+    },
+    {
+      "id": 96,
+      "topic": "Hibernate Tools",
+      "difficulty": "Advanced",
+      "question": "What is the Hibernate console?",
+      "output": "Eclipse IDE tool that allows running HQL queries and exploring database schema.",
+      "answer": "Eclipse IDE tool that allows running HQL queries and exploring database schema.",
+      "explanation": "Part of JBoss Tools / Hibernate Tools plugin."
+    },
+    {
+      "id": 97,
+      "topic": "Bean Validation",
+      "difficulty": "Advanced",
+      "question": "How do you create a custom validator annotation?",
+      "output": "Define annotation with @Constraint(validatedBy = MyValidator.class) and implement ConstraintValidator interface.",
+      "answer": "Define annotation with @Constraint(validatedBy = MyValidator.class) and implement ConstraintValidator interface.",
+      "explanation": "Example: @UniqueUsername annotation that checks database."
+    },
+    {
+      "id": 98,
+      "topic": "Criteria API and HQL Advanced Queries",
+      "difficulty": "Advanced",
+      "question": "What is the difference between Criteria and HQL?",
+      "output": "Criteria is dynamic, type-safe, uses JPA metamodel; HQL is string-based, easier for static queries.",
+      "answer": "Criteria is dynamic, type-safe, uses JPA metamodel; HQL is string-based, easier for static queries.",
+      "explanation": "Criteria is better for building queries with optional conditions."
+    },
+    {
+      "id": 99,
+      "topic": "Connection Pooling",
+      "difficulty": "Advanced",
+      "question": "How to close connection leaks in Hibernate?",
+      "output": "Use a connection pool that logs abandoned connections (e.g., c3p0.unreturnedConnectionTimeout), or use Spring's transaction management.",
+      "answer": "Use a connection pool that logs abandoned connections (e.g., c3p0.unreturnedConnectionTimeout), or use Spring's transaction management.",
+      "explanation": "Always close Session in finally block or use try-with-resources."
+    },
+    {
+      "id": 100,
+      "topic": "General Hibernate",
+      "difficulty": "Advanced",
+      "question": "What is the difference between Hibernate 5 and Hibernate 6?",
+      "output": "Hibernate 6 requires Jakarta Persistence (jakarta.* packages) and improved SQL generation; removed deprecated features.",
+      "answer": "Hibernate 6 requires Jakarta Persistence (jakarta.* packages) and improved SQL generation; removed deprecated features.",
+      "explanation": "Upgrade from javax.persistence to jakarta.persistence."
+    }
+  ]
+}

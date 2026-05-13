@@ -297,7 +297,8 @@
             "Introduction to JPA (Java Persistence API)",
             "Hibernate Tools (Reverse Engineering, hbm2ddl)",
             "Connection Pooling with Hibernate (c3p0, HikariCP)",
-            "Performance Tuning Tips"
+            "Performance Tuning Tips",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Implement ORM-based persistence",
