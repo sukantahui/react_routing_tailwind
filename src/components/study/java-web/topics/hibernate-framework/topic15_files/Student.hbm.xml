@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.school.entity.Student" table="STUDENTS">
+        <id name="id" type="java.lang.Long" column="STUDENT_ID">
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string" column="FULL_NAME" not-null="true" length="100"/>
+        <property name="email" type="string" column="EMAIL_ADDRESS" unique="true"/>
+        <property name="age" type="java.lang.Integer" column="AGE"/>
+        <property name="city" type="string" column="CITY_NAME"/>
+        <property name="birthDate" type="java.time.LocalDate" column="BIRTH_DATE"/>
+        
+        <!-- Example many-to-one -->
+        <many-to-one name="school" class="com.school.entity.School" column="SCHOOL_ID"/>
+    </class>
+</hibernate-mapping>

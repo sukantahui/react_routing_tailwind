@@ -259,6 +259,33 @@
             "summary": "Automate tasks with shell scripts and text processing tools.",
             "modules": [
                 {
+                    "moduleId": "process-management",
+                    "slug": "unix-process-commands",
+                    "title": "Process Commands in UNIX",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "Introduction to Process Management: Definition of process, foreground and background processes",
+                        "ps Command: Displaying active processes with options (-e, -f, -u)",
+                        "top Command: Real-time process monitoring and system performance",
+                        "kill Command: Terminating processes using PID with options (-9, -15)",
+                        "bg Command: Running suspended jobs in the background",
+                        "fg Command: Bringing background jobs to foreground",
+                        "jobs Command: Listing all active background jobs",
+                        "nice Command: Setting process priority and scheduling",
+                        "nohup Command: Running processes immune to hangups (logout safe execution)",
+                        "Difference Between Foreground and Background Processes",
+                        "Common Process Management Scenarios and Practical Examples",
+                        "Short Questions"
+                    ],
+                    "learningOutcomes": [
+                        "Understand process concept in UNIX",
+                        "Use process-related commands effectively",
+                        "Manage foreground and background execution",
+                        "Control and terminate processes safely"
+                    ],
+                    "difficulty": "Easy-Medium"
+                },
+                {
                     "moduleId": "shell-script",
                     "slug": "shell-scripting",
                     "title": "Shell Scripting Essentials",
@@ -500,6 +527,53 @@
                         "Transformation of text using tr command",
                         "Short Questions"
                     ]
+                },
+                {
+                    "moduleId": "vi-editor",
+                    "slug": "vi-editor-mastery",
+                    "title": "Vi Editor Mastery",
+                    "level": "Intermediate",
+                    "estimatedHours": 6,
+                    "tags": [
+                        "vi",
+                        "vim",
+                        "editor",
+                        "terminal"
+                    ],
+                    "topics": [
+                        "Why vi/vim? – ubiquity on all Unix/Linux systems",
+                        "Starting vi: `vi filename`, `vim filename`",
+                        "Understanding vi modes: Normal, Insert, Command (Last‑line)",
+                        "Normal mode navigation: `h`, `j`, `k`, `l`, `w`, `b`, `0`, `$`, `gg`, `G`",
+                        "Insert mode: entering with `i`, `a`, `o`, `O`, `I`, `A`",
+                        "Exiting vi: `:q`, `:q!`, `:wq`, `:x`, `ZZ`",
+                        "Basic editing: `x` (delete char), `dd` (delete line), `yy` (yank line), `p` (paste)",
+                        "Undo and redo: `u`, `Ctrl+R`",
+                        "Visual mode: `v`, `V`, `Ctrl+v` for block selection",
+                        "Search and replace: `/pattern`, `n`, `N`, `:s/old/new/g`",
+                        "Global substitution with range: `:%s/old/new/g`",
+                        "Saving and working with multiple files: `:e`, `:n`, `:b`",
+                        "Splitting windows: `:split`, `:vsplit`, `Ctrl+w` navigation",
+                        "Configuring vi with `~/.vimrc` – essential settings (`set number`, `set tabstop=4`, etc.)",
+                        "Using vi as a `less`‑like pager: `view` command",
+                        "Basic syntax highlighting and file type detection",
+                        "Recording macros: `q` + register, execute with `@`",
+                        "Using `vimtutor` – built‑in interactive tutorial",
+                        "Common beginner mistakes: forgetting mode, accidental deletions, recovery from swap files",
+                        "Advanced tips: dot command (`.`), registers (`ay`), marks (`m`), jumps (`Ctrl+o`, `Ctrl+i`)",
+                        "Practice lab: Edit configuration files, write a small script using vi",
+                        "Short Questions on vi modes and commands"
+                    ],
+                    "learningOutcomes": [
+                        "Create, edit and save files efficiently using vi/vim",
+                        "Navigate and modify text without touching the mouse",
+                        "Use search, replace and basic macros",
+                        "Customize vi behavior for personal workflow"
+                    ],
+                    "difficulty": "Medium",
+                    "difficultyIndex": 4,
+                    "summary": "Master the universal Unix editor – vi – for lightning‑fast terminal editing.",
+                    "badge": "Vi Virtuoso Badge"
                 },
                 {
                     "moduleId": "unix-utility-commands",

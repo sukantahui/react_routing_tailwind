@@ -1,0 +1,1455 @@
+{
+  "subject": "DNS Fundamentals",
+  "class": "IX",
+  "board": "ICSE",
+  "topic": "DNS: Domain Name System",
+  "subjectLogo": {
+    "name": "DNS",
+    "icon": "dns",
+    "type": "svg",
+    "path": "/logos/DNS.svg",
+    "alt": "DNS Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Beginner",
+      "question": "What is the primary purpose of DNS?",
+      "output": "To translate domain names (like example.com) into IP addresses (like 192.0.2.1).",
+      "answer": "DNS (Domain Name System) is a distributed database that maps human-friendly domain names to machine-readable IP addresses. It enables users to access websites using memorable names instead of numeric addresses.",
+      "explanation": "Without DNS, you would have to remember IP addresses like 93.184.216.34 to visit a website."
+    },
+    {
+      "id": 2,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Beginner",
+      "question": "Why is DNS often called the 'phonebook of the internet'?",
+      "output": "Because it translates names to numbers, just like a phonebook translates names to phone numbers.",
+      "answer": "DNS resolves domain names (e.g., www.google.com) to IP addresses (e.g., 142.250.190.46), similar to how a phonebook maps a person's name to their phone number.",
+      "explanation": "It makes the internet user-friendly by allowing us to use names instead of numeric addresses."
+    },
+    {
+      "id": 3,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Beginner",
+      "question": "What would happen if DNS stopped working globally?",
+      "output": "Most internet services (websites, email, etc.) would become inaccessible or very hard to use.",
+      "answer": "Without DNS, users would need to remember and type IP addresses directly. Also, many services rely on domain names for configuration, so they would fail. The internet would be unusable for most people.",
+      "explanation": "DNS is a critical infrastructure of the internet; its failure would cause a near-complete blackout of web services."
+    },
+    {
+      "id": 4,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Beginner",
+      "question": "Does DNS only work for web browsing?",
+      "output": "No, DNS is used by many internet services including email, FTP, VoIP, and more.",
+      "answer": "Any application that uses a domain name (like sending an email to user@example.com or connecting to ftp.example.com) relies on DNS to resolve that name to an IP address.",
+      "explanation": "DNS is a general naming service, not limited to HTTP/HTTPS."
+    },
+    {
+      "id": 5,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Beginner",
+      "question": "Is DNS a single server or a distributed system?",
+      "output": "DNS is a distributed, hierarchical system consisting of many servers worldwide.",
+      "answer": "DNS uses a distributed database with root servers, TLD servers, authoritative servers, and recursive resolvers. No single server contains all mappings; the system is designed to be scalable and fault-tolerant.",
+      "explanation": "Distribution prevents a single point of failure and allows global scale."
+    },
+    {
+      "id": 6,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Intermediate",
+      "question": "How does DNS help with load balancing?",
+      "output": "By returning multiple IP addresses for a domain, allowing traffic to be distributed across servers.",
+      "answer": "A domain can have several A records (multiple IPs). The DNS resolver may rotate them (round‑robin) or clients can choose one. This distributes requests among redundant servers.",
+      "explanation": "This is a simple form of DNS-based load balancing."
+    },
+    {
+      "id": 7,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a domain name and a URL?",
+      "output": "A domain name is part of a URL; a URL includes the protocol, path, etc.",
+      "answer": "Domain name: example.com. URL: https://example.com/page.html – includes protocol (https), domain, and path. DNS only resolves the domain part.",
+      "explanation": "DNS does not see the path or protocol; it only maps the hostname."
+    },
+    {
+      "id": 8,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Intermediate",
+      "question": "Who manages the root DNS servers?",
+      "output": "ICANN (through its subsidiary IANA) coordinates the root servers, but they are operated by various independent organisations.",
+      "answer": "The root zone is managed by IANA/ICANN. The 13 logical root name servers are operated by different entities (e.g., Verisign, USC‑ISI, Cogent, etc.) under agreement.",
+      "explanation": "The root is the top of the hierarchy and critical for DNS resolution."
+    },
+    {
+      "id": 9,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Advanced",
+      "question": "What is a DNS stub resolver?",
+      "output": "A small DNS client that forwards queries to a recursive resolver, typically part of the OS.",
+      "answer": "The stub resolver runs on end‑user devices. It sends a query to a configured recursive nameserver (like 8.8.8.8) and waits for the complete answer. It does not perform recursion itself.",
+      "explanation": "Most home routers and OSes include a stub resolver."
+    },
+    {
+      "id": 10,
+      "topic": "Introduction to DNS: What is Domain Name System and why it is needed",
+      "difficulty": "Advanced",
+      "question": "What is a 'reverse DNS' lookup and why is it needed?",
+      "output": "Reverse DNS maps an IP address to a domain name, used for logging, anti-spam, and troubleshooting.",
+      "answer": "While forward DNS maps name→IP, reverse DNS does IP→name using PTR records. It is used by mail servers to verify sending domains, and by tools like traceroute.",
+      "explanation": "Reverse DNS is less common but essential for email authentication and network diagnostics."
+    },
+    {
+      "id": 11,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Beginner",
+      "question": "What is the main difference between a domain name and an IP address?",
+      "output": "A domain name is human‑readable text; an IP address is a numeric label used by computers.",
+      "answer": "Domain names (e.g., google.com) are easy to remember and meaningful. IP addresses (e.g., 172.217.168.46) are designed for efficient routing by network devices.",
+      "explanation": "DNS translates the former to the latter."
+    },
+    {
+      "id": 12,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Beginner",
+      "question": "Why can't we just use IP addresses for all internet communication?",
+      "output": "Because humans find it difficult to remember long numeric strings; domain names are more intuitive.",
+      "answer": "IP addresses are hard to memorise and prone to typos. Domain names provide a user‑friendly namespace that can also be branded (e.g., amazon.com).",
+      "explanation": "Also, domain names can remain the same even if the underlying IP changes."
+    },
+    {
+      "id": 13,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Beginner",
+      "question": "What is the maximum length of a domain name?",
+      "output": "Up to 255 characters total, with each label (part between dots) up to 63 characters.",
+      "answer": "According to DNS specifications, a fully qualified domain name (FQDN) cannot exceed 255 bytes (including dots), and each label (e.g., 'example' in example.com) is limited to 63 bytes.",
+      "explanation": "Very long domain names are rare and may cause issues with some software."
+    },
+    {
+      "id": 14,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Beginner",
+      "question": "What does an IPv4 address look like? Give an example.",
+      "output": "Four decimal numbers separated by dots, each 0‑255, e.g., 192.168.1.1.",
+      "answer": "IPv4 uses 32 bits, typically written in dotted‑decimal: 192.0.2.1. Ranges from 0.0.0.0 to 255.255.255.255.",
+      "explanation": "IPv4 addresses are almost exhausted, leading to IPv6 adoption."
+    },
+    {
+      "id": 15,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of the domain name hierarchy (e.g., www.example.com)?",
+      "output": "To organise names in a tree structure, allowing delegation and scalability.",
+      "answer": "The hierarchy starts at the root (.), then top‑level domains (.com, .org), then second‑level (example), then subdomains (www). Each level can be managed independently.",
+      "explanation": "This delegation is key to DNS's distributed design."
+    },
+    {
+      "id": 16,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Intermediate",
+      "question": "Can two different domain names point to the same IP address?",
+      "output": "Yes, multiple domain names can resolve to the same IP address (virtual hosting).",
+      "answer": "For example, example.com and example.net can both have A records pointing to 192.0.2.1. The web server uses the Host header to distinguish them.",
+      "explanation": "This is common in shared hosting environments."
+    },
+    {
+      "id": 17,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Intermediate",
+      "question": "What is a 'top‑level domain' (TLD)? Give examples.",
+      "output": "The last part of a domain name, like .com, .org, .net, .in, .uk.",
+      "answer": "TLDs are administered by IANA. They include generic TLDs (gTLD) like .com, country code TLDs (ccTLD) like .us, and sponsored TLDs like .gov.",
+      "explanation": "The TLD is the highest level after the root."
+    },
+    {
+      "id": 18,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Intermediate",
+      "question": "What is a 'subdomain'? Give an example.",
+      "output": "A domain that is part of a larger domain, e.g., mail.example.com is a subdomain of example.com.",
+      "answer": "Subdomains are added to the left of the main domain, separated by dots. They allow organisation of services (e.g., blog.example.com, shop.example.com).",
+      "explanation": "Subdomains can have their own DNS records and be delegated."
+    },
+    {
+      "id": 19,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Advanced",
+      "question": "What is an 'IDN' (Internationalized Domain Name)?",
+      "output": "A domain name that includes non‑ASCII characters (e.g., é, ü, 中国).",
+      "answer": "IDNs are represented using Punycode (e.g., xn--s9brj9c for 中国). The DNS protocol works with ASCII, so IDNs are encoded before resolution.",
+      "explanation": "IDNs allow native language domain names."
+    },
+    {
+      "id": 20,
+      "topic": "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a 'static' and 'dynamic' IP address?",
+      "output": "Static IP does not change; dynamic IP is assigned temporarily by DHCP and may change over time.",
+      "answer": "Static IPs are used for servers. Dynamic IPs are common for home users. DNS can work with both, but dynamic DNS (DDNS) is needed to keep a domain name pointed to a changing IP.",
+      "explanation": "DDNS is often used for home servers or surveillance cameras."
+    },
+    {
+      "id": 21,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Beginner",
+      "question": "What is the first step when you type a domain name into a browser?",
+      "output": "The browser checks its local DNS cache.",
+      "answer": "Before making any network request, the browser looks up the domain in its own DNS cache (stored from previous visits). If found, it uses that IP.",
+      "explanation": "Caching speeds up subsequent requests."
+    },
+    {
+      "id": 22,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Beginner",
+      "question": "What is a 'recursive DNS resolver'?",
+      "output": "A server that handles the full resolution process on behalf of the client.",
+      "answer": "The recursive resolver (often provided by ISP or public like 8.8.8.8) receives a query from a stub resolver and performs all necessary lookups (root, TLD, authoritative) to get the answer.",
+      "explanation": "It caches the result to speed up future queries."
+    },
+    {
+      "id": 23,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Beginner",
+      "question": "After the browser cache, where does the browser check next?",
+      "output": "The operating system's DNS cache.",
+      "answer": "If the browser cache has no entry, the browser queries the OS stub resolver. The OS maintains its own cache (e.g., via the Windows DNS Client service or systemd-resolved on Linux).",
+      "explanation": "The OS cache may contain entries from other applications."
+    },
+    {
+      "id": 24,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Beginner",
+      "question": "What happens if the OS cache also misses the domain?",
+      "output": "The OS forwards the query to a configured recursive DNS resolver (usually the router or ISP DNS).",
+      "answer": "The system's stub resolver sends a DNS request over the network to the recursive resolver, typically obtained via DHCP or manually configured.",
+      "explanation": "This is the first network‑based step in resolution."
+    },
+    {
+      "id": 25,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Beginner",
+      "question": "What does the recursive resolver do if it doesn't have the answer cached?",
+      "output": "It starts an iterative resolution process, querying root servers, then TLD servers, then authoritative servers.",
+      "answer": "The resolver asks the root for the TLD nameservers, then asks the TLD for the domain's authoritative nameservers, and finally asks the authoritative server for the actual record (e.g., A record).",
+      "explanation": "This process is called 'recursive resolution'."
+    },
+    {
+      "id": 26,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Intermediate",
+      "question": "What is an 'authoritative name server'?",
+      "output": "A DNS server that holds the actual DNS records for a domain (e.g., A, MX, TXT) and answers queries about that domain.",
+      "answer": "Authoritative servers are the source of truth for a zone. They respond to recursive resolvers with the definitive answers or referrals.",
+      "explanation": "They are managed by domain owners or their DNS hosting providers."
+    },
+    {
+      "id": 27,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Intermediate",
+      "question": "What is the 'root hint' file?",
+      "output": "A list of IP addresses of the root DNS servers, used by resolvers to bootstrap resolution.",
+      "answer": "Recursive resolvers are pre‑configured with the IPs of the 13 logical root servers. When the resolver starts, it uses these addresses to query the root if no cached referral exists.",
+      "explanation": "Root hints allow the resolver to find the root despite not knowing any domain initially."
+    },
+    {
+      "id": 28,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Intermediate",
+      "question": "What does the root server return for a query about 'example.com'?",
+      "output": "It returns a referral (list of nameservers for the .com TLD), not the final answer.",
+      "answer": "The root does not know about 'example.com' directly. It knows the .com TLD servers and responds with NS records pointing to them, plus glue A records if necessary.",
+      "explanation": "Root servers only handle TLD delegations."
+    },
+    {
+      "id": 29,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a 'recursive query' and an 'iterative query'?",
+      "output": "Recursive: the server must return the final answer. Iterative: the server returns the best answer it knows (maybe a referral).",
+      "answer": "In a recursive query, the resolver does all the work on behalf of the client. In an iterative query, the server responds with a referral to another server, and the client continues the process.",
+      "explanation": "Stub resolvers typically send recursive queries to their configured recursive resolver."
+    },
+    {
+      "id": 30,
+      "topic": "Working of DNS: Step-by-step name resolution process",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the 'query ID' in a DNS message?",
+      "output": "To match a response to a pending query, preventing cache poisoning and allowing multiple outstanding queries.",
+      "answer": "Each DNS query has a unique 16‑bit ID. The response must carry the same ID, allowing the resolver to associate it. Randomised IDs help prevent spoofing.",
+      "explanation": "Source port randomisation further enhances security."
+    },
+    {
+      "id": 31,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Beginner",
+      "question": "How many root name servers are there (logically)?",
+      "output": "13 logical root servers, identified by letters A through M, each operated by different organisations.",
+      "answer": "There are 13 logical root servers, but due to anycast, there are many physical instances (over 1000) worldwide. Each logical server has the same IP address.",
+      "explanation": "Anycast routes queries to the nearest physical instance."
+    },
+    {
+      "id": 32,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Beginner",
+      "question": "What is the primary function of a TLD server?",
+      "output": "To provide the nameservers for domains under that top‑level domain (e.g., .com, .org).",
+      "answer": "TLD servers answer queries for second‑level domains by returning NS records pointing to the authoritative nameservers. They also store DS records for DNSSEC.",
+      "explanation": "There are separate TLD servers for each TLD (.com, .net, .uk, etc.)."
+    },
+    {
+      "id": 33,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Beginner",
+      "question": "Who operates the authoritative DNS servers for a domain?",
+      "output": "The domain owner or a DNS hosting provider (e.g., Cloudflare, AWS Route 53).",
+      "answer": "After registering a domain, the owner sets NS records at the registrar to point to their authoritative servers, which they can run themselves or outsource.",
+      "explanation": "Authoritative servers must be highly reliable."
+    },
+    {
+      "id": 34,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Beginner",
+      "question": "What is the role of a recursive resolver in a home network?",
+      "output": "To handle DNS queries from devices on the local network, often provided by the router or ISP.",
+      "answer": "The recursive resolver (sometimes called a caching resolver) receives queries from clients, performs iterative resolution if needed, caches results, and returns answers. It reduces traffic to upstream servers.",
+      "explanation": "Routers often have a small built‑in recursive resolver."
+    },
+    {
+      "id": 35,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Beginner",
+      "question": "Can a single DNS server act as both recursive and authoritative?",
+      "output": "Yes, but it is not recommended because of security and performance issues.",
+      "answer": "Running both functions on the same server can expose it to cache poisoning and increase load. Best practice is to separate them.",
+      "explanation": "BIND can be configured for both, but usually they are separated."
+    },
+    {
+      "id": 36,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Intermediate",
+      "question": "What are 'glue records' and when are they needed?",
+      "output": "A records for nameservers that are inside the domain they serve (e.g., ns1.example.com for example.com).",
+      "answer": "Glue records are provided by the parent zone to break the circular dependency. Without glue, a resolver would need to query the domain's own nameserver to find that nameserver's IP – impossible.",
+      "explanation": "Glue records are common for private nameservers."
+    },
+    {
+      "id": 37,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Intermediate",
+      "question": "What is a 'slave' (secondary) authoritative server?",
+      "output": "A nameserver that obtains zone data from the master via zone transfer (AXFR/IXFR).",
+      "answer": "Secondary servers provide redundancy and load sharing. They are listed in NS records but pull updates from the primary.",
+      "explanation": "Zone transfers can be incremental (IXFR) to reduce traffic."
+    },
+    {
+      "id": 38,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Intermediate",
+      "question": "What is a 'forwarder' in DNS?",
+      "output": "A recursive resolver that passes queries to another resolver instead of doing iterative resolution itself.",
+      "answer": "Forwarders are used in hierarchical networks to centralise resolution or bypass local ISP resolvers. The forwarder queries the upstream resolver recursively and returns the answer.",
+      "explanation": "Forwarding can improve performance or enforce filtering."
+    },
+    {
+      "id": 39,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Advanced",
+      "question": "What is a 'stealth' or 'hidden master' authoritative server?",
+      "output": "A primary nameserver that is not listed in NS records; it transfers zones to public secondaries.",
+      "answer": "The hidden master is only accessible to secondaries, not to the public. This reduces attack surface. Updates are made to the hidden master, which then notifies the public slaves.",
+      "explanation": "Common in large DNS deployments for security."
+    },
+    {
+      "id": 40,
+      "topic": "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+      "difficulty": "Advanced",
+      "question": "What is the role of the 'RSOCC' (Root Server Operational Community)?",
+      "output": "To coordinate the operation and management of the root server system.",
+      "answer": "RSOCC includes representatives from each root server operator; they meet regularly to discuss technical and policy issues affecting root stability.",
+      "explanation": "Not a single entity, but a collaborative group."
+    },
+    {
+      "id": 41,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Beginner",
+      "question": "In one sentence, what is a recursive DNS query?",
+      "output": "A request where the DNS server must return the final answer (or an error) without referrals.",
+      "answer": "The client asks the resolver to do the whole lookup and come back with the IP address. The resolver may need to contact other servers, but the client only sees the final result.",
+      "explanation": "Most applications use recursive queries to their configured resolver."
+    },
+    {
+      "id": 42,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Beginner",
+      "question": "What is an iterative DNS query?",
+      "output": "A request where the server returns the best answer it has, which may be a referral to another server.",
+      "answer": "If the server does not know the answer, it responds with a referral (e.g., 'ask the root at IP a.b.c.d'), and the client must follow that referral. The client does the work.",
+      "explanation": "Iterative queries are used between recursive resolvers and authoritative servers."
+    },
+    {
+      "id": 43,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Beginner",
+      "question": "Who typically sends a recursive query?",
+      "output": "A stub resolver (e.g., browser, OS) to a recursive resolver.",
+      "answer": "End‑user devices are configured with a recursive resolver (like 8.8.8.8). They send recursive queries because they cannot perform iterative resolution themselves.",
+      "explanation": "Stub resolvers rely entirely on the recursive resolver."
+    },
+    {
+      "id": 44,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Beginner",
+      "question": "Who typically sends iterative queries?",
+      "output": "A recursive resolver to authoritative servers (root, TLD, domain).",
+      "answer": "When the recursive resolver does not have the answer cached, it queries the root iteratively, then the TLD iteratively, then the authoritative server iteratively.",
+      "explanation": "Each iterative query asks for the next delegation."
+    },
+    {
+      "id": 45,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Beginner",
+      "question": "Does a recursive resolver always start from the root?",
+      "output": "Not necessarily; it may have cached root NS records or TLD delegations to skip steps.",
+      "answer": "If the resolver already knows the .com TLD servers (from a previous query), it can go directly to them, bypassing the root.",
+      "explanation": "Caching at every level makes resolution efficient."
+    },
+    {
+      "id": 46,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Intermediate",
+      "question": "What is the 'RD' (Recursion Desired) flag in a DNS message?",
+      "output": "A bit set by the client when it wants the server to perform recursive resolution.",
+      "answer": "The RD flag in the DNS header indicates that the client requests recursion. The server may or may not support it; if it does, it sets the RA (Recursion Available) flag in the response.",
+      "explanation": "If RD=1 but the server does not support recursion, it will respond with a referral."
+    },
+    {
+      "id": 47,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Intermediate",
+      "question": "What is the 'RA' (Recursion Available) flag?",
+      "output": "A flag set by the server to indicate that it is willing to perform recursive queries.",
+      "answer": "When a server receives a query with RD=1 and RA=1, it will attempt recursion. If RA=0, it will return a referral even if RD=1.",
+      "explanation": "Many public DNS servers (like 1.1.1.1) set RA=1."
+    },
+    {
+      "id": 48,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Intermediate",
+      "question": "What happens if a recursive resolver receives a query for a domain that does not exist?",
+      "output": "It returns an NXDOMAIN (non‑existent domain) error, and may cache the negative response.",
+      "answer": "The resolver follows the iterative process; when it reaches the authoritative server, that server returns NXDOMAIN. The resolver caches this negative answer for the TTL of the SOA record.",
+      "explanation": "Negative caching prevents repeated failed queries."
+    },
+    {
+      "id": 49,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Advanced",
+      "question": "What is 'qname minimisation' and how does it affect recursion?",
+      "output": "A technique to send only the minimal necessary domain name information to each server, improving privacy.",
+      "answer": "Instead of sending the full FQDN to the root, the resolver sends only the TLD; to the TLD, it sends only second‑level, etc. This reduces information leakage.",
+      "explanation": "QNAME minimisation is now standard in many recursive resolvers (e.g., Unbound)."
+    },
+    {
+      "id": 50,
+      "topic": "DNS Resolution Process: Recursive and Iterative queries",
+      "difficulty": "Advanced",
+      "question": "What is the difference between 'recursion' and 'iteration' in terms of DNS message flow?",
+      "output": "Recursion: client sends one request, server does all work. Iteration: client sends multiple requests, following referrals.",
+      "answer": "In recursion, the server takes on the burden. In iteration, the client is responsible for following the chain. Iteration reduces load on the server but increases client complexity.",
+      "explanation": "Stub resolvers cannot handle iteration, so they rely on recursive resolvers."
+    },
+    {
+      "id": 51,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Beginner",
+      "question": "What does an A record do?",
+      "output": "It maps a domain name to an IPv4 address (e.g., example.com → 93.184.216.34).",
+      "answer": "The A (Address) record is the most basic DNS record. It holds the 32‑bit IPv4 address of a host.",
+      "explanation": "Without an A record, a domain cannot be reached over IPv4."
+    },
+    {
+      "id": 52,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Beginner",
+      "question": "What is the format of an A record in a zone file?",
+      "output": "example.com. 3600 IN A 192.0.2.1",
+      "answer": "Format: owner TTL class type IPv4. TTL (3600 seconds) is optional; default class is IN (Internet).",
+      "explanation": "The trailing dot after the domain is important for FQDNs."
+    },
+    {
+      "id": 53,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Beginner",
+      "question": "Can a domain have multiple A records?",
+      "output": "Yes, a domain can have many A records, each pointing to a different IP address.",
+      "answer": "Multiple A records are used for load balancing and redundancy. Clients typically pick one (often round‑robin).",
+      "explanation": "This is a simple form of DNS‑based load distribution."
+    },
+    {
+      "id": 54,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Beginner",
+      "question": "What is the typical TTL for an A record?",
+      "output": "It varies; common values: 300 seconds (5 min) for dynamic sites, 86400 (1 day) for stable ones.",
+      "answer": "TTL (Time To Live) controls how long a resolver caches the A record. Shorter TTL allows faster migration; longer TTL reduces DNS load.",
+      "explanation": "Set TTL based on how often the IP changes."
+    },
+    {
+      "id": 55,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Beginner",
+      "question": "How can you look up the A record of a domain from the command line?",
+      "output": "Use `dig A example.com` or `nslookup example.com`.",
+      "answer": "On Linux/macOS: `dig example.com A +short` returns the IP. On Windows: `nslookup example.com`.",
+      "explanation": "`host -t A example.com` also works."
+    },
+    {
+      "id": 56,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between an A record and a PTR record?",
+      "output": "A maps name→IPv4; PTR maps IPv4→name (reverse lookup).",
+      "answer": "A records are forward‑lookup; PTR records (in .in‑addr.arpa) are used for reverse DNS. They are not functionally equivalent.",
+      "explanation": "PTR records are optional, while A records are required for IPv4 reachability."
+    },
+    {
+      "id": 57,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Intermediate",
+      "question": "Can an A record point to a private IP address (e.g., 192.168.x.x)?",
+      "output": "Yes, but such records are only meaningful within the private network.",
+      "answer": "Public DNS servers may include private IPs, but they will not be reachable from the public internet. For internal use, they work fine.",
+      "explanation": "Split‑horizon DNS often serves private A records internally and public ones externally."
+    },
+    {
+      "id": 58,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Intermediate",
+      "question": "What is a 'wildcard' A record?",
+      "output": "A record that matches any subdomain not explicitly defined, e.g., *.example.com → 192.0.2.1.",
+      "answer": "The asterisk (*) matches all labels at its level. Useful for default addresses, but can cause unintended matches.",
+      "explanation": "Wildcard records only apply if no exact match exists."
+    },
+    {
+      "id": 59,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Advanced",
+      "question": "What is the maximum number of A records allowed for a domain?",
+      "output": "No hard limit, but practical limits due to UDP packet size (512 bytes typical). Around 10‑20 A records fit.",
+      "answer": "If the DNS response exceeds 512 bytes, it may be truncated, forcing a TCP fallback. Most DNS servers support EDNS0 for larger packets.",
+      "explanation": "Load balancers often use many A records for geographic distribution."
+    },
+    {
+      "id": 60,
+      "topic": "A Record (IPv4 mapping)",
+      "difficulty": "Advanced",
+      "question": "What is 'Round‑Robin DNS' using A records?",
+      "output": "The DNS server rotates the order of multiple A records in responses, distributing traffic.",
+      "answer": "Each query for a name with multiple A records may receive a different ordering of IPs, so clients naturally pick different servers. This is a basic load‑balancing technique.",
+      "explanation": "Round‑robin does not consider server load or health; it's simple but limited."
+    },
+    {
+      "id": 61,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Beginner",
+      "question": "What does an AAAA record do?",
+      "output": "It maps a domain name to an IPv6 address (e.g., example.com → 2001:db8::1).",
+      "answer": "The AAAA (Quad‑A) record holds a 128‑bit IPv6 address, analogous to the A record for IPv4.",
+      "explanation": "AAAA records are essential for IPv6 connectivity."
+    },
+    {
+      "id": 62,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Beginner",
+      "question": "What is the format of an AAAA record in a zone file?",
+      "output": "example.com. 3600 IN AAAA 2001:db8:85a3::8a2e:370:7334",
+      "answer": "Format: owner TTL class type IPv6. IPv6 addresses are written in hexadecimal with colons.",
+      "explanation": "IPv6 addresses can be shortened by omitting leading zeros and using '::' once."
+    },
+    {
+      "id": 63,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Beginner",
+      "question": "Why do we need AAAA records in addition to A records?",
+      "output": "Because IPv6 is a different address family (128‑bit vs 32‑bit); separate record type is required.",
+      "answer": "The DNS protocol uses different resource record types for different address families. AAAA is defined for IPv6 in RFC 3596.",
+      "explanation": "Dual‑stack hosts query both A and AAAA and use whichever works (Happy Eyeballs)."
+    },
+    {
+      "id": 64,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Beginner",
+      "question": "Can a domain have both A and AAAA records?",
+      "output": "Yes, this is called 'dual‑stack' and allows IPv4 and IPv6 connectivity.",
+      "answer": "Many websites have both record types so that both IPv4‑only and IPv6‑only clients can access them.",
+      "explanation": "Modern browsers implement Happy Eyeballs to handle both efficiently."
+    },
+    {
+      "id": 65,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Beginner",
+      "question": "How can you query AAAA records using `dig`?",
+      "output": "`dig AAAA example.com`",
+      "answer": "Specify the record type as AAAA. For short output: `dig +short AAAA example.com`.",
+      "explanation": "`nslookup` works too: `nslookup -type=AAAA example.com`."
+    },
+    {
+      "id": 66,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum number of AAAA records for a domain?",
+      "output": "Similar to A records; no hard limit, but UDP packet size may limit to about 10‑20 records.",
+      "answer": "IPv6 addresses are longer, so each AAAA record takes more space. EDNS0 is recommended.",
+      "explanation": "Round‑robin works for AAAA as well."
+    },
+    {
+      "id": 67,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a AAAA record and a A6 record (obsolete)?",
+      "output": "A6 was a flexible IPv6 record that allowed prefix delegation; it was deprecated due to complexity.",
+      "answer": "A6 records (RFC 2874) were experimental and allowed chaining of address parts. They were replaced by simpler AAAA.",
+      "explanation": "A6 never saw widespread deployment."
+    },
+    {
+      "id": 68,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Intermediate",
+      "question": "What is the reverse zone for IPv6?",
+      "output": ".ip6.arpa (e.g., 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa).",
+      "answer": "IPv6 reverse uses nibble format: each hex digit becomes a separate label, reversed, under ip6.arpa.",
+      "explanation": "A PTR record in that zone maps the IP to a domain name."
+    },
+    {
+      "id": 69,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Advanced",
+      "question": "What is 'Happy Eyeballs' and how does it relate to A/AAAA records?",
+      "output": "An algorithm that tries both IPv4 and IPv6 connections simultaneously, using whichever succeeds first.",
+      "answer": "Because some IPv6 paths may be broken, Happy Eyeballs (RFC 8305) avoids long timeouts. The browser queries both A and AAAA, and initiates connections in parallel.",
+      "explanation": "Improves user experience in dual‑stack networks."
+    },
+    {
+      "id": 70,
+      "topic": "AAAA Record (IPv6 mapping)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a AAAA record and a DNAME record for IPv6?",
+      "output": "AAAA maps a specific name; DNAME redirects an entire subtree, which can affect AAAA as well.",
+      "answer": "DNAME is a delegation record that aliases a whole domain tree. It is not address‑specific. AAAA is a direct address record.",
+      "explanation": "DNAME is rarely used; CNAME or AAAA are more common."
+    },
+    {
+      "id": 71,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Beginner",
+      "question": "What is a CNAME record used for?",
+      "output": "To alias one domain name to another (e.g., www.example.com → example.com).",
+      "answer": "CNAME (Canonical Name) allows multiple names to point to the same host without duplicating A/AAAA records.",
+      "explanation": "When a resolver encounters a CNAME, it replaces the query name with the canonical name and restarts resolution."
+    },
+    {
+      "id": 72,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Beginner",
+      "question": "What is the format of a CNAME record in a zone file?",
+      "output": "www.example.com. 3600 IN CNAME example.com.",
+      "answer": "Owner points to the canonical name. The canonical name must be an FQDN with a trailing dot.",
+      "explanation": "The CNAME cannot coexist with other records (except RRSIG, NSEC) at the same owner name."
+    },
+    {
+      "id": 73,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Beginner",
+      "question": "Can the root (apex) of a domain have a CNAME?",
+      "output": "Technically allowed, but problematic because it violates RFC requirements and may break other records (MX, NS).",
+      "answer": "RFC 1912 recommends against it because the apex must have NS and SOA records; a CNAME would conflict. Many DNS providers disallow it.",
+      "explanation": "Use ALIAS or ANAME records instead (vendor‑specific)."
+    },
+    {
+      "id": 74,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Beginner",
+      "question": "Can you chain CNAME records (CNAME to CNAME)?",
+      "output": "Yes, but it is inefficient and adds potential for loops.",
+      "answer": "A resolver follows the chain, but the chain should end at an A/AAAA record. Long chains increase latency.",
+      "explanation": "Maximum recommended chain length is 5 or less."
+    },
+    {
+      "id": 75,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Beginner",
+      "question": "How do you look up a CNAME record using `dig`?",
+      "output": "`dig CNAME www.example.com`",
+      "answer": "Specify the record type as CNAME. If the name is an alias, you'll see the canonical name.",
+      "explanation": "`nslookup -type=CNAME www.example.com` also works."
+    },
+    {
+      "id": 76,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a CNAME and a DNAME?",
+      "output": "CNAME aliases a single name; DNAME aliases an entire subtree (e.g., blog.example.com → blog.other.com).",
+      "answer": "DNAME redirects all subdomains as well. For example, a DNAME for example.com to other.com would make foo.example.com resolve as foo.other.com.",
+      "explanation": "DNAME is less commonly used; CNAME is more familiar."
+    },
+    {
+      "id": 77,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Intermediate",
+      "question": "Why is it problematic to have CNAME at a name that also has MX or NS records?",
+      "output": "Because CNAME cannot coexist with other resource records; it would break email and delegation.",
+      "answer": "If a CNAME exists, the resolver will not look for any other record type at that name. So MX, NS, etc., would be ignored.",
+      "explanation": "Best practice: never use CNAME at the domain apex."
+    },
+    {
+      "id": 78,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Intermediate",
+      "question": "What is the 'canonical name'?",
+      "output": "The 'true' or 'official' domain name after following CNAME aliases.",
+      "answer": "When a CNAME is present, the canonical name is the target of the CNAME. The original name is an alias.",
+      "explanation": "In responses, the answer section contains the CNAME and then the A/AAAA for the canonical name."
+    },
+    {
+      "id": 79,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Advanced",
+      "question": "What is the 'CNAME loop' and how does a resolver detect it?",
+      "output": "When CNAME chains form a cycle (a → b → a), causing infinite resolution.",
+      "answer": "Resolvers implement a counter (max 16 hops) to detect loops and return an error (SERVFAIL).",
+      "explanation": "CNAME loops are configuration errors."
+    },
+    {
+      "id": 80,
+      "topic": "CNAME Record (Alias)",
+      "difficulty": "Advanced",
+      "question": "Can a CNAME point to a wildcard?",
+      "output": "Yes, CNAME can point to a name that is covered by a wildcard, resolving accordingly.",
+      "answer": "If the canonical name matches a wildcard, the final answer is determined by that wildcard. This is allowed but can be confusing.",
+      "explanation": "Wildcard CNAME targets are subject to the same expansion rules."
+    },
+    {
+      "id": 81,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Beginner",
+      "question": "What is an MX record used for?",
+      "output": "To specify which mail servers are responsible for receiving email for a domain.",
+      "answer": "MX (Mail Exchange) records direct incoming email to the correct server, with priority values for failover.",
+      "explanation": "Without MX records, email delivery to the domain would fail."
+    },
+    {
+      "id": 82,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Beginner",
+      "question": "What do the priority values in MX records mean?",
+      "output": "Lower number = higher priority; the sender tries lowest first.",
+      "answer": "If multiple MX records exist, the sending mail server attempts the one with the smallest priority number. If that fails, it moves to the next highest (larger number).",
+      "explanation": "Priority 0 is the highest possible."
+    },
+    {
+      "id": 83,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Beginner",
+      "question": "What is the format of an MX record in a zone file?",
+      "output": "example.com. 3600 IN MX 10 mail.example.com.",
+      "answer": "Format: owner TTL class MX priority mailserver. The mailserver must be a hostname, not an IP.",
+      "explanation": "The mailserver name must have an A/AAAA record."
+    },
+    {
+      "id": 84,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Beginner",
+      "question": "Can a domain have multiple MX records with the same priority?",
+      "output": "Yes, then the sender may choose any of them, often for load distribution.",
+      "answer": "Equal priorities mean no preference; the sending server can randomly pick among them.",
+      "explanation": "This is less common than distinct priorities for failover."
+    },
+    {
+      "id": 85,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Beginner",
+      "question": "How do you query MX records using `dig`?",
+      "output": "`dig MX example.com`",
+      "answer": "Specify the record type as MX. The response lists priorities and mail server names.",
+      "explanation": "`nslookup -type=MX example.com` works too."
+    },
+    {
+      "id": 86,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Intermediate",
+      "question": "What DNS record must exist for the MX target hostname?",
+      "output": "An A (or AAAA) record so that the sending server can find its IP.",
+      "answer": "The mail server hostname must be resolvable to an IP address, otherwise email delivery fails.",
+      "explanation": "It should not be a CNAME per RFC 2181, though some accept it."
+    },
+    {
+      "id": 87,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Intermediate",
+      "question": "What is a 'mail backup' server in MX terms?",
+      "output": "An MX record with a higher priority number that accepts mail when the primary is down.",
+      "answer": "The backup server usually queues email until the primary becomes available. It may be a different provider.",
+      "explanation": "Backup MX servers reduce message loss during outages."
+    },
+    {
+      "id": 88,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Intermediate",
+      "question": "What is the default TTL for MX records?",
+      "output": "Often 3600 seconds (1 hour) or 86400 (1 day).",
+      "answer": "MX records change rarely; a moderately long TTL is fine. Lower TTL before switching email providers.",
+      "explanation": "Set TTL according to how often you change mail servers."
+    },
+    {
+      "id": 89,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Advanced",
+      "question": "What is a 'null MX' record (RFC 7505)?",
+      "output": "An MX record with priority 0 pointing to '.' to indicate the domain does not accept email.",
+      "answer": "Null MX prevents fallback to the A record and stops unwanted email. It is used for domains that should never receive mail.",
+      "explanation": "Used for domains that are only for web or API access."
+    },
+    {
+      "id": 90,
+      "topic": "MX Record (Mail Exchange)",
+      "difficulty": "Advanced",
+      "question": "How does an MX record interact with SPF/DKIM/DMARC?",
+      "output": "MX defines where email is sent; SPF defines who can send; DKIM signs; DMARC tells receivers what to do.",
+      "answer": "MX is for incoming mail routing, while SPF/DKIM/DMARC are for authentication of outgoing mail. They are independent but both use DNS.",
+      "explanation": "Misconfiguration of MX does not affect SPF, but both need to be correct for email to work."
+    },
+    {
+      "id": 91,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Beginner",
+      "question": "What is an NS record used for?",
+      "output": "To delegate a DNS zone to authoritative name servers.",
+      "answer": "NS (Name Server) records identify which servers are authoritative for a domain. They are placed in both parent and child zones.",
+      "explanation": "Without NS records, no other DNS server knows where to find your domain's records."
+    },
+    {
+      "id": 92,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Beginner",
+      "question": "What is the format of an NS record?",
+      "output": "example.com. 86400 IN NS ns1.example.net.",
+      "answer": "The owner (domain) and the target nameserver hostname. The target must have an A record (glue if in‑domain).",
+      "explanation": "The parent zone and child zone should have matching NS records."
+    },
+    {
+      "id": 93,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Beginner",
+      "question": "Why is it recommended to have at least two NS records?",
+      "output": "For redundancy and fault tolerance.",
+      "answer": "If one nameserver fails, the other can still answer queries, preventing domain unavailability.",
+      "explanation": "The NS servers should be in different networks to avoid common failure points."
+    },
+    {
+      "id": 94,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Beginner",
+      "question": "How are NS records involved in the DNS resolution process?",
+      "output": "They tell the recursive resolver which servers to query for the next step.",
+      "answer": "After querying root, the resolver gets NS records for the TLD; after querying the TLD, it gets NS records for the domain, then queries those authoritative servers.",
+      "explanation": "NS records are the signposts of the DNS hierarchy."
+    },
+    {
+      "id": 95,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Beginner",
+      "question": "How can you find the NS records for a domain?",
+      "output": "`dig NS example.com` or `nslookup -type=NS example.com`.",
+      "answer": "This queries the authoritative servers for the domain (or the TLD if you ask the parent).",
+      "explanation": "To see delegation from parent, query the TLD directly: `dig @a.gtld-servers.net example.com NS`."
+    },
+    {
+      "id": 96,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Intermediate",
+      "question": "What is a 'glue record' in the context of NS?",
+      "output": "An A record for a nameserver that is inside the domain it serves, stored in the parent zone.",
+      "answer": "When ns1.example.com is an authoritative server for example.com, the parent .com TLD must include glue (A record) to break the circular dependency.",
+      "explanation": "Without glue, the resolver could not find ns1.example.com's IP without already having example.com's records."
+    },
+    {
+      "id": 97,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Intermediate",
+      "question": "What is a 'lame delegation'?",
+      "output": "When an NS record points to a server that is not actually authoritative for the zone.",
+      "answer": "Lame delegation causes resolution delays or failures because the server does not have the zone data. It is a configuration error.",
+      "explanation": "Check with `dig @server domain SOA`; if it returns a referral, it's lame."
+    },
+    {
+      "id": 98,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between an NS record and an SOA record?",
+      "output": "NS lists all authoritative servers; SOA identifies the primary master and zone parameters.",
+      "answer": "SOA (Start of Authority) includes the MNAME (primary master), serial, refresh, retry, expire, and minimum TTL. NS records list all servers, including the master and secondaries.",
+      "explanation": "Both are required in every zone."
+    },
+    {
+      "id": 99,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Advanced",
+      "question": "Can an NS record point to an IP address?",
+      "output": "No, NS records must contain a hostname, not an IP.",
+      "answer": "The DNS protocol requires a domain name. The resolver will then look up the A record for that hostname.",
+      "explanation": "RFC 1035 specifies that NS RDATA is a domain name."
+    },
+    {
+      "id": 100,
+      "topic": "NS Record (Name Server)",
+      "difficulty": "Advanced",
+      "question": "What is the maximum number of NS records for a zone?",
+      "output": "No hard limit, but usually 4‑7. More increase response size and may cause TC (truncation).",
+      "answer": "Each NS record adds to the response size. Many resolvers use EDNS0 to allow larger UDP responses, but still it's best to keep the number modest.",
+      "explanation": "Too many NS records can also slow down resolution due to extra lookups."
+    },
+    {
+      "id": 101,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Beginner",
+      "question": "What is a TXT record used for?",
+      "output": "To store arbitrary text, often for domain verification, SPF, DKIM, and DMARC.",
+      "answer": "TXT records were originally for human notes but now carry machine‑readable data for email security and service verification.",
+      "explanation": "Common uses: SPF (v=spf1), DKIM (p=...), DMARC, and Google/Microsoft domain verification."
+    },
+    {
+      "id": 102,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Beginner",
+      "question": "What is the syntax of a TXT record?",
+      "output": "example.com. 3600 IN TXT \"text string\"",
+      "answer": "The text must be enclosed in double quotes. Multiple quoted strings are concatenated.",
+      "explanation": "Example: `\"v=spf1 include:_spf.google.com ~all\"`"
+    },
+    {
+      "id": 103,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Beginner",
+      "question": "What is SPF and which record type does it use?",
+      "output": "Sender Policy Framework; uses a TXT record starting with v=spf1.",
+      "answer": "SPF lists authorised sending IP addresses for a domain, helping to prevent email spoofing.",
+      "explanation": "Example: `v=spf1 ip4:203.0.113.0/24 -all`"
+    },
+    {
+      "id": 104,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Beginner",
+      "question": "How can you retrieve a domain's SPF record?",
+      "output": "`dig TXT example.com | grep spf` or `dig TXT example.com +short`.",
+      "answer": "Look for a TXT record containing 'v=spf1'. Note that there should be only one SPF record per domain.",
+      "explanation": "Multiple SPF records cause a PermError."
+    },
+    {
+      "id": 105,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Beginner",
+      "question": "What is DKIM and how does it use TXT records?",
+      "output": "DKIM signs outgoing email; the public key is stored in a TXT record at selector._domainkey.example.com.",
+      "answer": "DKIM (DomainKeys Identified Mail) allows receiving servers to verify that the email was authorized by the domain owner. The TXT record contains the public key.",
+      "explanation": "Example: `google20150630._domainkey.google.com` holds the public key."
+    },
+    {
+      "id": 106,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Intermediate",
+      "question": "What is DMARC and which TXT record is used?",
+      "output": "Domain‑based Message Authentication, Reporting & Conformance; record at _dmarc.example.com.",
+      "answer": "DMARC tells receivers what to do (none, quarantine, reject) when SPF or DKIM fail, and provides reporting addresses.",
+      "explanation": "Example: `v=DMARC1; p=reject; rua=mailto:dmarc@example.com`"
+    },
+    {
+      "id": 107,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the 'google-site-verification' TXT record?",
+      "output": "To prove domain ownership to Google Search Console.",
+      "answer": "Google asks you to add a unique TXT record; then Google's server verifies it by performing a DNS lookup, confirming you control the domain.",
+      "explanation": "Similar verification exists for Microsoft (MS=...), Apple (apple-domain-verification=...), etc."
+    },
+    {
+      "id": 108,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum string length in a TXT record?",
+      "output": "Each character‑string is up to 255 bytes. Multiple strings can be concatenated to exceed that.",
+      "answer": "For long data (e.g., large DKIM keys), the record is split into several quoted strings. DNS software concatenates them automatically.",
+      "explanation": "Example: `\"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC...\" \"...DZxwIDAQAB\"`"
+    },
+    {
+      "id": 109,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a TXT record and an SPF record type (obsolete)?",
+      "output": "SPF record type (RR type 99) was defined but never widely deployed; TXT is used instead.",
+      "answer": "RFC 7208 says SPF records can be stored as TXT or the SPF type, but TXT is universally supported for backward compatibility.",
+      "explanation": "Always use TXT records for SPF to ensure compatibility."
+    },
+    {
+      "id": 110,
+      "topic": "TXT Record (Verification and security)",
+      "difficulty": "Advanced",
+      "question": "Can TXT records be used for arbitrary configuration (e.g., JSON)?",
+      "output": "Yes, but they are limited to alphanumeric and some punctuation; best to keep data simple.",
+      "answer": "Some services store JSON or URI strings in TXT records, but there is no standardisation. DNS has no built‑in data structure beyond text.",
+      "explanation": "Example: `\"key=value; foo=bar\"` is common."
+    },
+    {
+      "id": 111,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Beginner",
+      "question": "What is DNS caching?",
+      "output": "Temporary storage of DNS query results to speed up future requests.",
+      "answer": "When a resolver gets an answer, it keeps it in memory for the duration of the TTL. Subsequent queries for the same name receive the cached answer without network lookups.",
+      "explanation": "Caching reduces latency and DNS traffic."
+    },
+    {
+      "id": 112,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Beginner",
+      "question": "How does TTL affect caching?",
+      "output": "TTL (Time To Live) determines how long a record remains in cache before expiring.",
+      "answer": "After the TTL expires, the resolver must re‑query the authoritative server for fresh data.",
+      "explanation": "Shorter TTL = faster updates, longer TTL = better caching performance."
+    },
+    {
+      "id": 113,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Beginner",
+      "question": "Where can DNS caching occur?",
+      "output": "Browser, operating system, router, and recursive resolver.",
+      "answer": "Each level reduces latency. Browser cache is fastest, resolver cache serves many users.",
+      "explanation": "Multiple cache layers improve efficiency."
+    },
+    {
+      "id": 114,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Beginner",
+      "question": "What is a 'cache hit'?",
+      "output": "When the requested record is found in the cache.",
+      "answer": "A cache hit returns the answer immediately without contacting upstream DNS servers, resulting in very low latency.",
+      "explanation": "High hit ratio indicates efficient caching."
+    },
+    {
+      "id": 115,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Beginner",
+      "question": "What is a 'cache miss'?",
+      "output": "When the requested record is not in the cache, triggering a full resolution.",
+      "answer": "Cache miss leads to network queries, which are slower. The result is then cached for future hits.",
+      "explanation": "Cold starts (first visit) always cause cache misses."
+    },
+    {
+      "id": 116,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Intermediate",
+      "question": "What is 'negative caching'?",
+      "output": "Caching the fact that a domain (or record type) does not exist.",
+      "answer": "Negative responses (NXDOMAIN or NOERROR with no data) are also cached to avoid repeated failed lookups. The TTL is taken from the SOA record's minimum field.",
+      "explanation": "Negative caching reduces load on authoritative servers."
+    },
+    {
+      "id": 117,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Intermediate",
+      "question": "How do you flush the DNS cache on Windows?",
+      "output": "Run `ipconfig /flushdns` in Command Prompt as administrator.",
+      "answer": "This clears the OS DNS cache. Useful when troubleshooting after DNS changes.",
+      "explanation": "Browsers may have their own cache; you may need to clear them separately."
+    },
+    {
+      "id": 118,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Intermediate",
+      "question": "How do you clear the DNS cache on macOS?",
+      "output": "`sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`",
+      "answer": "This flushes the system DNS cache and restarts the mDNSResponder service.",
+      "explanation": "Different macOS versions may have slightly different commands."
+    },
+    {
+      "id": 119,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Advanced",
+      "question": "What is 'prefetching' in DNS caching?",
+      "output": "Proactively refreshing popular cached records before they expire.",
+      "answer": "Smart resolvers can pre‑fetch records when they are close to expiration, reducing cache misses for frequently queried names.",
+      "explanation": "Prefetching improves hit rates and user experience."
+    },
+    {
+      "id": 120,
+      "topic": "DNS Caching: How caching improves performance",
+      "difficulty": "Advanced",
+      "question": "What is 'cache poisoning' and how does caching make it dangerous?",
+      "output": "Injecting false records into a resolver's cache, affecting all users.",
+      "answer": "Cache poisoning spreads the false data to anyone using that resolver. DNSSEC prevents poisoning by authenticating responses.",
+      "explanation": "Caching amplifies the impact of a successful attack."
+    },
+    {
+      "id": 121,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Beginner",
+      "question": "What is a forward DNS lookup?",
+      "output": "Resolving a domain name to an IP address (A/AAAA record).",
+      "answer": "Forward lookup is the normal process: name → IP.",
+      "explanation": "It is what most people mean by 'DNS lookup'."
+    },
+    {
+      "id": 122,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Beginner",
+      "question": "What is a reverse DNS lookup?",
+      "output": "Resolving an IP address to a domain name (PTR record).",
+      "answer": "Reverse lookup uses the .in‑addr.arpa zone for IPv4 and .ip6.arpa for IPv6 to find the associated domain name.",
+      "explanation": "Used for logging, anti‑spam, and troubleshooting."
+    },
+    {
+      "id": 123,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Beginner",
+      "question": "What record type is used for reverse lookups?",
+      "output": "PTR (Pointer) record.",
+      "answer": "PTR records are stored in reverse zones and map an IP address to a canonical domain name.",
+      "explanation": "Unlike forward zones, reverse zones have only PTR records (and SOA/NS)."
+    },
+    {
+      "id": 124,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Beginner",
+      "question": "What is the reverse zone for IPv4 address 192.0.2.45?",
+      "output": "45.2.0.192.in-addr.arpa.",
+      "answer": "The octets are reversed and appended with .in-addr.arpa. The PTR record would be stored under that name.",
+      "explanation": "The root of reverse DNS is arpa, not .com or .org."
+    },
+    {
+      "id": 125,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Beginner",
+      "question": "How do you perform a reverse lookup using `dig`?",
+      "output": "`dig -x 8.8.8.8`",
+      "answer": "The `-x` flag automatically constructs the reverse zone name and queries the PTR record.",
+      "explanation": "`nslookup 8.8.8.8` also works."
+    },
+    {
+      "id": 126,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Intermediate",
+      "question": "Why is reverse DNS important for email servers?",
+      "output": "Receiving mail servers check that the sending IP has a matching PTR record to reduce spam.",
+      "answer": "Many email systems reject or spam‑filter messages from IPs without reverse DNS or with mismatched forward/reverse. It helps verify the sending server's identity.",
+      "explanation": "Proper PTR records are part of email best practices."
+    },
+    {
+      "id": 127,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Intermediate",
+      "question": "What is 'forward‑confirmed reverse DNS' (FCrDNS)?",
+      "output": "When the forward lookup (name→IP) and reverse lookup (IP→name) match each other.",
+      "answer": "It provides a higher level of trust because it confirms the IP's domain name is consistent.",
+      "explanation": "Often used for email authentication and access control."
+    },
+    {
+      "id": 128,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Intermediate",
+      "question": "Can an IP have multiple PTR records?",
+      "output": "Technically yes, but it can cause confusion. Most resolvers return only one.",
+      "answer": "Multiple PTR records may be listed, but it's not recommended because it breaks FCrDNS.",
+      "explanation": "One PTR per IP is the best practice."
+    },
+    {
+      "id": 129,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Advanced",
+      "question": "Who is responsible for setting up reverse DNS for an IP?",
+      "output": "The owner of the IP address block (usually the ISP or hosting provider).",
+      "answer": "The end user cannot set PTR records unless they own the IP range. You must request it from your provider.",
+      "explanation": "Cloud providers often allow you to set reverse DNS via their console."
+    },
+    {
+      "id": 130,
+      "topic": "Forward Lookup vs Reverse Lookup",
+      "difficulty": "Advanced",
+      "question": "How does IPv6 reverse DNS differ from IPv4?",
+      "output": "IPv6 uses .ip6.arpa and nibble format (each hex digit as a label).",
+      "answer": "For address 2001:db8::1, the reverse name is 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa.",
+      "explanation": "Each character becomes a separate DNS label, making long names."
+    },
+    {
+      "id": 131,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Beginner",
+      "question": "What is DNS spoofing (cache poisoning)?",
+      "output": "An attack where false DNS responses are injected into a resolver's cache.",
+      "answer": "The attacker forges a reply before the legitimate one arrives, tricking the resolver into storing a fake IP address, redirecting users to malicious sites.",
+      "explanation": "DNSSEC was designed to prevent spoofing by authenticating responses."
+    },
+    {
+      "id": 132,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Beginner",
+      "question": "What is DNSSEC?",
+      "output": "DNS Security Extensions – adds cryptographic signatures to DNS data.",
+      "answer": "DNSSEC allows resolvers to verify that the response came from the authoritative owner and has not been tampered with.",
+      "explanation": "It does not encrypt; it provides authentication and integrity."
+    },
+    {
+      "id": 133,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Beginner",
+      "question": "Does DNSSEC encrypt DNS queries?",
+      "output": "No, DNSSEC only signs data; it does not provide confidentiality.",
+      "answer": "Encryption of DNS queries requires DNS over TLS (DoT) or DNS over HTTPS (DoH).",
+      "explanation": "DNSSEC and DoH/DoT are complementary security technologies."
+    },
+    {
+      "id": 134,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Beginner",
+      "question": "What new record types does DNSSEC introduce?",
+      "output": "RRSIG, DNSKEY, DS, NSEC/NSEC3.",
+      "answer": "RRSIG contains signature; DNSKEY holds public keys; DS links child to parent; NSEC provides authenticated denial of existence.",
+      "explanation": "These records are used to build the chain of trust."
+    },
+    {
+      "id": 135,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Beginner",
+      "question": "What is the 'chain of trust' in DNSSEC?",
+      "output": "A hierarchical validation from the root zone down to the target domain.",
+      "answer": "The root zone is a trust anchor; it signs the TLDs, which sign the domains, which sign individual records. Resolvers verify each link.",
+      "explanation": "The root's public key is pre‑configured in validating resolvers."
+    },
+    {
+      "id": 136,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Intermediate",
+      "question": "What is the 'ad' flag in `dig` output?",
+      "output": "Authentic Data – indicates the resolver validated DNSSEC signatures.",
+      "answer": "If the response has the 'ad' flag, it means DNSSEC validation succeeded. Lack of 'ad' may mean the domain is unsigned or the resolver doesn't validate.",
+      "explanation": "`dig +dnssec example.com` will show the flags."
+    },
+    {
+      "id": 137,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Intermediate",
+      "question": "What is the Kaminsky attack (2008)?",
+      "output": "A DNS cache poisoning attack that exploited predictable transaction IDs.",
+      "answer": "Dan Kaminsky showed that an attacker could poison a resolver by guessing the transaction ID. The fix was randomising source ports in addition to transaction IDs.",
+      "explanation": "This attack accelerated DNSSEC deployment."
+    },
+    {
+      "id": 138,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Intermediate",
+      "question": "What is a 'validating resolver'?",
+      "output": "A DNS resolver that actively checks DNSSEC signatures.",
+      "answer": "Validating resolvers (e.g., Unbound, BIND with validation) reject responses that fail signature verification, returning SERVFAIL instead.",
+      "explanation": "Public resolvers like 1.1.1.1 and 9.9.9.9 perform validation."
+    },
+    {
+      "id": 139,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ZSK and KSK in DNSSEC?",
+      "output": "Zone Signing Key (signs records) and Key Signing Key (signs the ZSK).",
+      "answer": "KSK is longer and rolled less often, used to sign the DNSKEY set; ZSK is shorter and rolled frequently, used to sign other RRsets. This separation allows efficient key rotation.",
+      "explanation": "The DS record in the parent contains a hash of the KSK."
+    },
+    {
+      "id": 140,
+      "topic": "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+      "difficulty": "Advanced",
+      "question": "What is a 'denial of existence' in DNSSEC?",
+      "output": "Proof that a domain or record type does not exist, using NSEC or NSEC3.",
+      "answer": "When a resolver asks for a non‑existent name, the authoritative server returns an NSEC record (next secure), proving the gap. NSEC3 hashes names to prevent zone walking.",
+      "explanation": "Required for authenticated negative responses."
+    },
+    {
+      "id": 141,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Beginner",
+      "question": "When you type a URL and press Enter, what is the first DNS‑related action the browser takes?",
+      "output": "Checks its internal DNS cache.",
+      "answer": "The browser looks up the domain in its own cache (from previous visits). If found, it skips network requests.",
+      "explanation": "This is the fastest level of caching."
+    },
+    {
+      "id": 142,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Beginner",
+      "question": "If the browser cache misses, where does it look next?",
+      "output": "The operating system's DNS cache.",
+      "answer": "The browser calls the OS stub resolver, which checks its own cache (e.g., Windows DNS Client).",
+      "explanation": "The OS cache may contain entries from other applications."
+    },
+    {
+      "id": 143,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Beginner",
+      "question": "What does the recursive resolver do after all caches miss?",
+      "output": "It queries the root nameservers and follows the chain to the authoritative server.",
+      "answer": "The resolver iteratively queries root, TLD, and authoritative servers to obtain the IP address.",
+      "explanation": "This process typically takes 20‑100 ms."
+    },
+    {
+      "id": 144,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Beginner",
+      "question": "What happens after the browser obtains the IP address?",
+      "output": "It initiates a TCP connection (and TLS handshake) to that IP, then sends an HTTP request.",
+      "answer": "DNS is only the first step; the browser must still connect to the web server, exchange certificates (HTTPS), and fetch the page content.",
+      "explanation": "The total page load time includes DNS, TCP, TLS, and content download."
+    },
+    {
+      "id": 145,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Beginner",
+      "question": "Does a webpage load all resources (images, CSS) from the same DNS lookup?",
+      "output": "Not if they are from different domains. Each unique domain requires a separate lookup.",
+      "answer": "For example, images.example.com requires its own DNS resolution (unless cached). Domain sharding can improve parallelism.",
+      "explanation": "Modern browsers also perform DNS prefetching for linked resources."
+    },
+    {
+      "id": 146,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Intermediate",
+      "question": "What is 'DNS prefetching' in browsers?",
+      "output": "The browser resolves domain names of links on the page before the user clicks them.",
+      "answer": "Prefetching reduces perceived latency. It can be controlled with `<link rel='dns-prefetch' href='//example.com'>`",
+      "explanation": "Prefetching uses idle time to resolve domains."
+    },
+    {
+      "id": 147,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Intermediate",
+      "question": "How can you see the DNS lookup time in Chrome Developer Tools?",
+      "output": "Open DevTools (F12), go to Network tab, and look for the 'DNS Lookup' column.",
+      "answer": "If the column is not visible, right‑click the table header and enable 'DNS Lookup'. You'll see the time in milliseconds.",
+      "explanation": "This helps diagnose slow DNS performance."
+    },
+    {
+      "id": 148,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Intermediate",
+      "question": "What is the typical DNS resolution time for a cached record?",
+      "output": "Less than 1 millisecond (local cache) to a few milliseconds (resolver cache).",
+      "answer": "Uncached resolution may take 30‑100 ms depending on network conditions and the number of queries (root, TLD, authoritative).",
+      "explanation": "Caching is critical for fast web browsing."
+    },
+    {
+      "id": 149,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Advanced",
+      "question": "What is 'Happy Eyeballs' and how does it affect DNS?",
+      "output": "A mechanism that tries both IPv4 and IPv6 connections simultaneously to avoid delays.",
+      "answer": "The browser queries both A and AAAA records and initiates connections in parallel, using whichever succeeds first. This solves the problem of broken IPv6 paths.",
+      "explanation": "Implemented in most modern browsers (RFC 8305)."
+    },
+    {
+      "id": 150,
+      "topic": "Real-World Example: How a browser loads a website using DNS",
+      "difficulty": "Advanced",
+      "question": "What is the role of the HTTP/2 'Alt-Svc' header in relation to DNS?",
+      "output": "It allows a server to advertise alternative endpoints (e.g., different host or port), potentially bypassing DNS for subsequent requests.",
+      "answer": "If a website says 'Alt-Svc: h2=\"other.example.com:443\"', the browser may connect directly to that host without doing DNS for the original name.",
+      "explanation": "This can reduce DNS lookups and improve performance."
+    },
+    {
+      "id": 151,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Beginner",
+      "question": "What does the `ping` command do?",
+      "output": "Sends ICMP Echo requests to test reachability and latency; also performs a forward DNS lookup.",
+      "answer": "Ping shows the resolved IP and measures round‑trip time. It is a basic connectivity test.",
+      "explanation": "Ping failing does not always mean DNS is broken (ICMP may be blocked)."
+    },
+    {
+      "id": 152,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Beginner",
+      "question": "What is the primary use of `nslookup`?",
+      "output": "To query DNS records interactively or in one‑line mode.",
+      "answer": "`nslookup` is available on most operating systems and can query any record type. It is simpler than `dig` but less powerful.",
+      "explanation": "Example: `nslookup example.com` (A record) or `nslookup -type=MX example.com`."
+    },
+    {
+      "id": 153,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Beginner",
+      "question": "What is the most powerful DNS debugging tool?",
+      "output": "`dig` (Domain Information Groper).",
+      "answer": "`dig` shows detailed information including TTL, query time, and DNSSEC flags. It is the industry standard.",
+      "explanation": "Example: `dig +trace example.com` shows the full resolution path."
+    },
+    {
+      "id": 154,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Beginner",
+      "question": "How do you query a specific DNS server using `dig`?",
+      "output": "`dig @8.8.8.8 example.com`",
+      "answer": "The `@` symbol followed by the server IP or hostname tells `dig` to send the query to that resolver.",
+      "explanation": "Useful for bypassing your local cache."
+    },
+    {
+      "id": 155,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Beginner",
+      "question": "What does `ping -a 8.8.8.8` do on Windows?",
+      "output": "Performs a reverse DNS lookup (PTR) for the IP before pinging.",
+      "answer": "The `-a` flag resolves the IP to a hostname and displays it. On Linux, `-a` means audible ping; reverse lookup is not standard.",
+      "explanation": "Check your OS manual for differences."
+    },
+    {
+      "id": 156,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Intermediate",
+      "question": "How can you see only the IP address from `dig` without extra output?",
+      "output": "`dig +short example.com`",
+      "answer": "The `+short` option prints only the answer data (e.g., just the IP), ideal for scripts.",
+      "explanation": "For multiple IPs, each is on a separate line."
+    },
+    {
+      "id": 157,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Intermediate",
+      "question": "What does `dig +trace` do?",
+      "output": "Shows the iterative resolution path from root servers to the authoritative answer.",
+      "answer": "It sends sequential queries to the root, TLD, and authoritative servers, printing each delegation. Useful for debugging resolution problems.",
+      "explanation": "`+trace` does not use the local resolver's cache; it performs its own resolution."
+    },
+    {
+      "id": 158,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Intermediate",
+      "question": "How do you change the record type in `nslookup`?",
+      "output": "`set type=MX` (or `set q=MX`) before the query, or use interactive mode.",
+      "answer": "Example: `nslookup` then `> set type=MX` then `> example.com`. Or one‑line: `nslookup -type=MX example.com`.",
+      "explanation": "Default type is A."
+    },
+    {
+      "id": 159,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `dig` and `host`?",
+      "output": "`host` is a simpler, less feature‑rich command; `dig` is more detailed.",
+      "answer": "`host` is ok for basic lookups (e.g., `host example.com`), but `dig` is preferred for advanced debugging.",
+      "explanation": "`host` is installed by default on many systems where `dig` may not be."
+    },
+    {
+      "id": 160,
+      "topic": "Common Tools: nslookup, ping, dig (basic usage)",
+      "difficulty": "Advanced",
+      "question": "How can you perform a DNSSEC validation check using `dig`?",
+      "output": "`dig +dnssec example.com` and look for the 'ad' flag in the header.",
+      "answer": "You can also test with test domains: `dig sigok.verteiltesysteme.net` (should have ad flag) and `dig sigfail.verteiltesysteme.net` (should return SERVFAIL).",
+      "explanation": "This verifies that your resolver validates DNSSEC."
+    }
+  ]
+}

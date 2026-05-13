@@ -262,7 +262,7 @@
             "Concept of routing",
             "Shortest path algorithm",
             "Distance vector routing",
-            "Broadcast and multicast routing" 
+            "Broadcast and multicast routing"
           ],
           "learningOutcomes": [
             "Understand routing techniques",
@@ -393,6 +393,38 @@
             "Understand modern trends"
           ],
           "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "dns-system",
+          "slug": "domain-name-system-dns",
+          "title": "Domain Name System (DNS)",
+          "estimatedHours": 6,
+          "topics": [
+            "Introduction to DNS: What is Domain Name System and why it is needed",
+            "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+            "Working of DNS: Step-by-step name resolution process",
+            "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+            "DNS Resolution Process: Recursive and Iterative queries",
+            "A Record (IPv4 mapping)",
+            "AAAA Record (IPv6 mapping)",
+            "CNAME Record (Alias)",
+            "MX Record (Mail Exchange)",
+            "NS Record (Name Server)",
+            "TXT Record (Verification and security)",
+            "DNS Caching: How caching improves performance",
+            "Forward Lookup vs Reverse Lookup",
+            "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+            "Real-World Example: How a browser loads a website using DNS",
+            "Common Tools: nslookup, ping, dig (basic usage)",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the role of DNS in networking",
+            "Explain how domain names are resolved into IP addresses",
+            "Identify different DNS servers and records",
+            "Analyze basic DNS queries and responses"
+          ],
+          "difficulty": "Medium"
         }
       ]
     }

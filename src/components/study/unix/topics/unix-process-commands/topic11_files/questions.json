@@ -1,0 +1,1794 @@
+{
+  "subject": "Unix / Linux", 
+  "class": "BCA",
+  "board": "ICSE / CBSE / Any",
+  "topic": "Process Command",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+  {
+    "id": 1,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What is a process in an operating system?",
+    "answer": "A process is a program in execution, including the program counter, stack, data section, and system resources.",
+    "explanation": "A program is passive (stored on disk); a process is active (loaded into memory and being executed by the CPU)."
+  },
+  {
+    "id": 2,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What is the difference between a program and a process?",
+    "answer": "A program is a static set of instructions stored on disk; a process is a running instance of that program with its own memory and state.",
+    "explanation": "You can run the same program multiple times, creating multiple independent processes."
+  },
+  {
+    "id": 3,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What does it mean for a process to run in the foreground?",
+    "answer": "The process occupies the terminal, blocks the shell, and receives keyboard input (stdin) directly.",
+    "explanation": "While a foreground process runs, you cannot execute other commands in the same shell until it finishes or is suspended."
+  },
+  {
+    "id": 4,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What does it mean for a process to run in the background?",
+    "answer": "The process runs independently without locking the terminal, and the shell prompt returns immediately.",
+    "explanation": "Background processes are typically started by appending `&` to the command."
+  },
+  {
+    "id": 5,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "How do you start a command in the background in Unix/Linux?",
+    "answer": "Append an ampersand (`&`) to the command, e.g., `sleep 100 &`.",
+    "explanation": "The shell prints a job number and PID, then returns the prompt."
+  },
+  {
+    "id": 6,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What happens to a background process that tries to read from the terminal?",
+    "answer": "It receives a SIGTTIN signal and is usually stopped (suspended) by the kernel.",
+    "explanation": "Background processes should not read from stdin; use redirection or avoid interactive input."
+  },
+  {
+    "id": 7,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What is a PID?",
+    "answer": "Process ID – a unique integer identifier assigned to each process by the operating system.",
+    "explanation": "PIDs are used to manage processes with commands like `kill`, `renice`, and `ps`."
+  },
+  {
+    "id": 8,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "Can a background process write output to the terminal?",
+    "answer": "Yes, by default it writes to stdout/stderr, which may appear on the terminal interleaved with your prompt.",
+    "explanation": "To avoid clutter, redirect output to a file: `command > logfile 2>&1 &`."
+  },
+  {
+    "id": 9,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What keyboard shortcut suspends a foreground process?",
+    "answer": "Ctrl+Z (sends SIGTSTP).",
+    "explanation": "The process stops and returns control to the shell; it can later be resumed in background (bg) or foreground (fg)."
+  },
+  {
+    "id": 10,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Beginner",
+    "question": "What keyboard shortcut interrupts (terminates) a foreground process?",
+    "answer": "Ctrl+C (sends SIGINT).",
+    "explanation": "Many programs handle SIGINT to exit cleanly, but a stuck program may need SIGKILL."
+  },
+  {
+    "id": 11,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "What is the parent‑child relationship between processes?",
+    "answer": "When a process starts another, the starter is the parent, and the new one is the child. The child inherits many attributes.",
+    "explanation": "The shell is the parent of most commands you run; `pstree` visualises the tree."
+  },
+  {
+    "id": 12,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "What is an orphan process?",
+    "answer": "A process whose parent has terminated; it is adopted by `init` (PID 1) or `systemd`.",
+    "explanation": "Orphan processes continue running normally; they are not harmful."
+  },
+  {
+    "id": 13,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "How can you see all processes belonging to your current terminal session?",
+    "answer": "Use `ps` without options (shows processes attached to the current terminal).",
+    "explanation": "Background jobs also belong to the same terminal session until disowned."
+  },
+  {
+    "id": 14,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "What is a zombie process?",
+    "answer": "A process that has terminated but its entry remains in the process table because the parent hasn't read its exit status.",
+    "explanation": "Zombies consume no CPU/memory but occupy a PID slot. The parent must call `wait()`."
+  },
+  {
+    "id": 15,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "What command shows a tree of processes?",
+    "answer": "`pstree` or `ps -e --forest`.",
+    "explanation": "These display parent‑child relationships visually."
+  },
+  {
+    "id": 16,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Intermediate",
+    "question": "How does the shell manage background jobs?",
+    "answer": "It assigns a job number (e.g., [1]) and tracks the process group; the `jobs` command lists them.",
+    "explanation": "Job control allows you to bring (`fg`), background (`bg`), or kill jobs by job number."
+  },
+  {
+    "id": 17,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Advanced",
+    "question": "What is the purpose of the `disown` command?",
+    "answer": "Removes a job from the shell's job table so it no longer receives SIGHUP when the shell exits.",
+    "explanation": "`disown` does not change signal handling; the process remains but is no longer a 'job' of the shell."
+  },
+  {
+    "id": 18,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Advanced",
+    "question": "What is a session and process group in Unix?",
+    "answer": "A session is a collection of process groups; terminals are associated with sessions. Process groups allow signal delivery to multiple processes at once.",
+    "explanation": "Background/foreground is achieved by assigning a process group to the terminal's foreground group."
+  },
+  {
+    "id": 19,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Advanced",
+    "question": "How can you change the process group of a running process?",
+    "answer": "Use `setpgid()` system call, or shell builtins like `disown` (which effectively removes from shell job control).",
+    "explanation": "Moving a process to a new group can isolate it from terminal signals."
+  },
+  {
+    "id": 20,
+    "topic": "Introduction to Process Management: Definition of process, foreground and background processes",
+    "difficulty": "Advanced",
+    "question": "What is the difference between a job and a process?",
+    "answer": "A job is a shell concept representing a pipeline (one or more processes). A process is an OS execution unit.",
+    "explanation": "`sleep 30 | grep foo` is one job containing two processes."
+  },
+
+
+  {
+    "id": 21,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does the `ps` command do?",
+    "answer": "Reports a snapshot of current processes.",
+    "explanation": "Unlike `top`, `ps` gives a static view at the moment it is run."
+  },
+  {
+    "id": 22,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does `ps -e` display?",
+    "answer": "All processes on the system (every process).",
+    "explanation": "`-e` is standard Unix option; `-A` is equivalent. `ps aux` (BSD style) also shows all processes."
+  },
+  {
+    "id": 23,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does `ps -f` add to the output?",
+    "answer": "Full‑format listing, including UID, PID, PPID, C, STIME, TTY, TIME, CMD.",
+    "explanation": "`-f` stands for 'full'. It shows parent PID (PPID) and start time, useful for understanding process hierarchy."
+  },
+  {
+    "id": 24,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "How can you display all processes owned by a specific user, e.g., 'tuhina'?",
+    "answer": "`ps -u tuhina`.",
+    "explanation": "`-u` selects processes by effective user ID."
+  },
+  {
+    "id": 25,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does the PPID column represent in `ps -f` output?",
+    "answer": "Parent Process ID – the PID of the process that created this process.",
+    "explanation": "The init process (PID 1) is the ultimate ancestor of most processes."
+  },
+  {
+    "id": 26,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does the `ps aux` command do?",
+    "answer": "BSD style: shows all processes (a), includes user‑oriented format (u), and also processes not attached to a terminal (x).",
+    "explanation": "`ps aux` is very common, but note there is no dash before `aux`."
+  },
+  {
+    "id": 27,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does the STAT column in `ps` output indicate?",
+    "answer": "Process state code: R (running), S (sleeping), Z (zombie), T (stopped), etc.",
+    "explanation": "Additional letters like `<` (high priority), `N` (low priority) provide more detail."
+  },
+  {
+    "id": 28,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "How can you list only the PID and command name of all processes?",
+    "answer": "`ps -eo pid,comm` (custom output format).",
+    "explanation": "`-o` allows you to specify exactly which columns to display."
+  },
+  {
+    "id": 29,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What is the `TIME` column in `ps` output?",
+    "answer": "Total CPU time consumed by the process (not wall‑clock time).",
+    "explanation": "A process that sleeps a lot (e.g., a daemon) will have a low TIME even if it has been running for days."
+  },
+  {
+    "id": 30,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Beginner",
+    "question": "What does `ps -ef` display?",
+    "answer": "All processes in full format (combination of `-e` and `-f`).",
+    "explanation": "This is one of the most frequently used `ps` invocations."
+  },
+  {
+    "id": 31,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "How can you sort `ps` output by memory usage?",
+    "answer": "`ps aux --sort=-%mem` or `ps -eo pid,%mem,cmd --sort=-%mem`.",
+    "explanation": "The `--sort` flag works on any column; prefix `-` for descending order."
+  },
+  {
+    "id": 32,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "What does `ps -u $USER` do?",
+    "answer": "Shows processes belonging to the currently logged‑in user.",
+    "explanation": "`$USER` is an environment variable with your username."
+  },
+  {
+    "id": 33,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "How can you see a process tree with `ps`?",
+    "answer": "`ps -e --forest` (on Linux) or `ps -e -o pid,args --forest`.",
+    "explanation": "`--forest` draws ASCII lines to show parent‑child relationships."
+  },
+  {
+    "id": 34,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `ps -e` and `ps -ef`?",
+    "answer": "`-e` lists only PIDs and basic info; `-ef` adds full format (PPID, start time, etc.).",
+    "explanation": "Use `-ef` when you need more details."
+  },
+  {
+    "id": 35,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "How do you display threads with `ps`?",
+    "answer": "Use `-L` option: `ps -eLf` shows threads (LWP, NLWP columns).",
+    "explanation": "Each thread appears on its own line with the same PID but different LWP."
+  },
+  {
+    "id": 36,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Intermediate",
+    "question": "What is the purpose of the `-C` option in `ps`?",
+    "answer": "Select processes by command name. Example: `ps -C bash` lists all bash processes.",
+    "explanation": "Useful for quick filtering without `grep`."
+  },
+  {
+    "id": 37,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Advanced",
+    "question": "How can you see the environment variables of a running process?",
+    "answer": "`ps e -p PID` (show environment) or `ps eww -p PID` for unlimited width.",
+    "explanation": "The `e` option adds the environment after the command line."
+  },
+  {
+    "id": 38,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Advanced",
+    "question": "What does the `C` (or `pcpu`) column represent in some `ps` outputs?",
+    "answer": "CPU usage as a percentage (can exceed 100% for multi‑threaded processes).",
+    "explanation": "`%CPU` is calculated over the process's lifetime; `top` shows a dynamic percentage."
+  },
+  {
+    "id": 39,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Advanced",
+    "question": "How can you list zombies with `ps`?",
+    "answer": "`ps aux | grep 'Z'` or `ps -e -o pid,stat,cmd | grep '^.* Z'`.",
+    "explanation": "A zombie process has STAT code 'Z' and does not consume resources except a PID."
+  },
+  {
+    "id": 40,
+    "topic": "ps Command: Displaying active processes with options (-e, -f, -u)",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `ps -U` and `ps -u`?",
+    "answer": "`-u` selects by effective user ID; `-U` selects by real user ID (login user).",
+    "explanation": "For setuid programs, effective and real user may differ."
+  },
+
+
+  {
+    "id": 41,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "What is the primary purpose of the `top` command?",
+    "answer": "To display a real‑time, dynamic view of system processes and resource usage.",
+    "explanation": "`top` updates every few seconds (default 3) and shows CPU, memory, load average, and a sorted process list."
+  },
+  {
+    "id": 42,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "How do you exit `top`?",
+    "answer": "Press the `q` key.",
+    "explanation": "`q` stands for quit. You can also use Ctrl+C."
+  },
+  {
+    "id": 43,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "What does the load average in `top` represent?",
+    "answer": "The number of processes in runnable or uninterruptible sleep state, averaged over 1, 5, and 15 minutes.",
+    "explanation": "Load average > number of CPU cores indicates overloading."
+  },
+  {
+    "id": 44,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "How do you sort processes by CPU usage in `top`?",
+    "answer": "Press the `P` key (uppercase P).",
+    "explanation": "Sorts the process list by `%CPU` column descending."
+  },
+  {
+    "id": 45,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "How do you sort by memory usage in `top`?",
+    "answer": "Press the `M` key (uppercase M).",
+    "explanation": "Sorts by `%MEM` column descending."
+  },
+  {
+    "id": 46,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "What does the `%wa` value mean in the CPU line?",
+    "answer": "Percentage of CPU time waiting for I/O (disk, network).",
+    "explanation": "High `%wa` suggests a storage bottleneck."
+  },
+  {
+    "id": 47,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "What is the `RES` column in `top`?",
+    "answer": "Resident memory size – the physical RAM currently used by the process (not swapped).",
+    "explanation": "`VIRT` is total virtual memory; `RES` is actual physical memory."
+  },
+  {
+    "id": 48,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "How can you change the update interval in `top`?",
+    "answer": "Press `s` and then type the number of seconds (e.g., `2` for two seconds).",
+    "explanation": "Default is 3.0 seconds. Very small intervals increase system overhead."
+  },
+  {
+    "id": 49,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "How can you kill a process from within `top`?",
+    "answer": "Press `k`, then enter the PID, then the signal number (default 15 = SIGTERM).",
+    "explanation": "You can send SIGKILL by typing `9`."
+  },
+  {
+    "id": 50,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Beginner",
+    "question": "What does the `TIME+` column in `top` show?",
+    "answer": "Total CPU time consumed by the process, shown with hundredths of a second.",
+    "explanation": "A process that sleeps a lot will have low `TIME+` even if it has been running for days."
+  },
+  {
+    "id": 51,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "How can you monitor only processes of a specific user in `top`?",
+    "answer": "Start `top -u username` or, inside `top`, press `u` and enter the username.",
+    "explanation": "This filters the process list to only processes owned by that user."
+  },
+  {
+    "id": 52,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "How can you display individual CPU cores in `top`?",
+    "answer": "Press the `1` (number one) key.",
+    "explanation": "Toggles between a single combined CPU line and separate lines for each core."
+  },
+  {
+    "id": 53,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "How do you run `top` in batch mode for scripting?",
+    "answer": "`top -b -n 1` (batch mode, one iteration).",
+    "explanation": "Batch mode outputs plain text suitable for redirection or piping without interactive control codes."
+  },
+  {
+    "id": 54,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "What does the `SHR` column represent?",
+    "answer": "Shared memory size – memory that can be shared with other processes (e.g., libraries).",
+    "explanation": "Multiple processes may share the same shared memory pages."
+  },
+  {
+    "id": 55,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "How can you change the priority (nice value) of a process from `top`?",
+    "answer": "Press `r`, then enter the PID, then the new nice value.",
+    "explanation": "Only root can lower the nice value (increase priority)."
+  },
+  {
+    "id": 56,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Intermediate",
+    "question": "What does the `zombie` count in `top` indicate?",
+    "answer": "Number of processes that have terminated but have not been cleaned up by their parent.",
+    "explanation": "A few zombies are normal, but many indicate a buggy parent process."
+  },
+  {
+    "id": 57,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Advanced",
+    "question": "How can you save your custom `top` configuration?",
+    "answer": "Inside `top`, press `W` (uppercase W). It writes to `~/.toprc`.",
+    "explanation": "Saves sort order, delay, display fields, and color scheme."
+  },
+  {
+    "id": 58,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `%CPU` in `ps` and `%CPU` in `top`?",
+    "answer": "`ps` shows total CPU % over the process's lifetime; `top` shows recent CPU usage (since last refresh).",
+    "explanation": "`top`'s `%CPU` reflects more immediate activity."
+  },
+  {
+    "id": 59,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Advanced",
+    "question": "How can you monitor only specific PIDs with `top`?",
+    "answer": "`top -p pid1,pid2,pid3`.",
+    "explanation": "This is useful for watching critical applications without distraction."
+  },
+  {
+    "id": 60,
+    "topic": "top Command: Real-time process monitoring and system performance",
+    "difficulty": "Advanced",
+    "question": "What does the `us` and `sy` values in CPU line stand for?",
+    "answer": "`us` = user space CPU time, `sy` = system (kernel) CPU time.",
+    "explanation": "High `sy` may indicate excessive system calls or driver issues."
+  },
+
+ 
+  {
+    "id": 61,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What is the default signal sent by the `kill` command?",
+    "answer": "SIGTERM (signal number 15).",
+    "explanation": "SIGTERM asks the process to terminate gracefully, allowing cleanup."
+  },
+  {
+    "id": 62,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What does `kill -9 PID` do?",
+    "answer": "Sends SIGKILL, which forcibly terminates the process without any cleanup.",
+    "explanation": "SIGKILL cannot be caught or ignored; it should be used as a last resort."
+  },
+  {
+    "id": 63,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "How can you list all available signals for `kill`?",
+    "answer": "`kill -l` (lowercase L).",
+    "explanation": "Displays signal names or numbers depending on the OS."
+  },
+  {
+    "id": 64,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What is the purpose of `kill -0 PID`?",
+    "answer": "Checks whether a process exists and you have permission to signal it, without sending any signal.",
+    "explanation": "Exit code 0 means the process exists; non‑zero means it does not."
+  },
+  {
+    "id": 65,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "Can a process ignore SIGTERM?",
+    "answer": "Yes, a program can install a signal handler to ignore or delay SIGTERM.",
+    "explanation": "SIGKILL cannot be ignored, which is why it's the 'nuclear' option."
+  },
+  {
+    "id": 66,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What signal is sent by Ctrl+C?",
+    "answer": "SIGINT (signal number 2).",
+    "explanation": "SIGINT is the interactive interrupt signal, which can be caught by programs."
+  },
+  {
+    "id": 67,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "How do you send a signal to a process using its job number?",
+    "answer": "`kill %1` (where 1 is the job number).",
+    "explanation": "Job numbers are shown by the `jobs` command."
+  },
+  {
+    "id": 68,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What does `kill -HUP PID` typically do for daemons?",
+    "answer": "Triggers a reload of configuration files (many daemons treat SIGHUP as a reread request).",
+    "explanation": "Example: `kill -HUP $(cat /var/run/nginx.pid)` reloads nginx."
+  },
+  {
+    "id": 69,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What is the difference between `kill` and `pkill`?",
+    "answer": "`kill` uses PIDs; `pkill` selects processes by name or other attributes.",
+    "explanation": "`pkill -f pattern` kills processes whose command line matches the pattern."
+  },
+  {
+    "id": 70,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Beginner",
+    "question": "What signal does `kill -STOP` send?",
+    "answer": "SIGSTOP – pauses (suspends) the process.",
+    "explanation": "SIGSTOP cannot be caught; use SIGCONT to resume."
+  },
+  {
+    "id": 71,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Intermediate",
+    "question": "How can you kill all processes of a specific user?",
+    "answer": "`pkill -u username` or `killall -u username`.",
+    "explanation": "Be careful – this can log the user out if their shell is killed."
+  },
+  {
+    "id": 72,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `kill -15` and `kill -9`?",
+    "answer": "`-15` (SIGTERM) allows cleanup; `-9` (SIGKILL) terminates immediately without cleanup.",
+    "explanation": "Always try SIGTERM first, wait a few seconds, then use SIGKILL if necessary."
+  },
+  {
+    "id": 73,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Intermediate",
+    "question": "Why might `kill -9` fail to terminate a process?",
+    "answer": "The process may be in an uninterruptible sleep state (D state), waiting for I/O that never completes.",
+    "explanation": "Such processes may require a reboot. Zombies also cannot be killed (but they are already dead)."
+  },
+  {
+    "id": 74,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Intermediate",
+    "question": "What does `kill -CONT PID` do?",
+    "answer": "Sends SIGCONT, which resumes a stopped process.",
+    "explanation": "Equivalent to `bg` or `fg` for a specific PID."
+  },
+  {
+    "id": 75,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Intermediate",
+    "question": "How can you send a signal to a process group?",
+    "answer": "Use a negative Pid `kill -15 -1234` sends signal to all processes in process group 1234.",
+    "explanation": "Job control often uses process groups."
+  },
+  {
+    "id": 76,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Advanced",
+    "question": "What is the `errno` value when `kill` fails with 'No such process'?",
+    "answer": "ESRCH (3).",
+    "explanation": "The `errno` macro can be inspected in C programs to differentiate errors."
+  },
+  {
+    "id": 77,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `kill -9 -1` and `kill -9 1`?",
+    "answer": "`kill -9 -1` kills all processes you own (except perhaps the shell); `kill -9 1` kills init/systemd (crashes the system).",
+    "explanation": "PID -1 is a special value meaning 'all processes except init and kernel threads'."
+  },
+  {
+    "id": 78,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Advanced",
+    "question": "How can you send a signal to all processes except your own shell?",
+    "answer": "`kill -9 -1` will kill everything, including your shell. There's no direct exclusion; use a loop with `ps`.",
+    "explanation": "Be extremely careful with negative PIDs."
+  },
+  {
+    "id": 79,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Advanced",
+    "question": "What is the system call used by `kill`?",
+    "answer": "The `kill()` system call (or `tkill()` for threads).",
+    "explanation": "The command line utility wraps the same system call."
+  },
+  {
+    "id": 80,
+    "topic": "kill Command: Terminating processes using PID with options (-9, -15)",
+    "difficulty": "Advanced",
+    "question": "How can you send a signal to a process without knowing its PID, using a file descriptor?",
+    "answer": "If the process has a pidfd (Linux), use `pidfd_send_signal()`; otherwise you need the PID.",
+    "explanation": "Pidfd is a modern Linux feature for race‑free process signalling."
+  },
+
+
+  {
+    "id": 81,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "What does the `bg` command do?",
+    "answer": "Resumes a suspended (stopped) job and runs it in the background.",
+    "explanation": "The process continues execution but does not occupy the terminal input."
+  },
+  {
+    "id": 82,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "How do you suspend a foreground job?",
+    "answer": "Press Ctrl+Z (sends SIGTSTP).",
+    "explanation": "The shell returns control and the job is marked as 'Stopped'."
+  },
+  {
+    "id": 83,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "What happens if you run `bg` without any arguments?",
+    "answer": "It backgrounds the most recent stopped job (the one marked with `+` in `jobs`).",
+    "explanation": "If no job is stopped, `bg` does nothing or prints an error."
+  },
+  {
+    "id": 84,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "How can you background a specific job by its job number?",
+    "answer": "`bg %1` (where 1 is the job number).",
+    "explanation": "Job numbers are displayed by the `jobs` command."
+  },
+  {
+    "id": 85,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "What signal does `bg` send to a suspended process?",
+    "answer": "SIGCONT (continue).",
+    "explanation": "SIGCONT resumes the process after it was stopped by SIGTSTP or SIGSTOP."
+  },
+  {
+    "id": 86,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "Can you `bg` a job that is already running in the background?",
+    "answer": "No, `bg` only applies to stopped jobs. A background job is already running.",
+    "explanation": "If a job is already `Running`, `bg` does nothing."
+  },
+  {
+    "id": 87,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "What happens to the output of a job after you `bg` it?",
+    "answer": "It continues to write to stdout/stderr, which may appear on the terminal interleaved with your prompt.",
+    "explanation": "To avoid clutter, redirect output before backgrounding."
+  },
+  {
+    "id": 88,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "How can you see the list of jobs that can be backgrounded?",
+    "answer": "Use the `jobs` command.",
+    "explanation": "`jobs` shows each job's state (Running, Stopped, Terminated)."
+  },
+  {
+    "id": 89,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "Is it possible to background a process that was started in the foreground without `&`?",
+    "answer": "Yes: suspend it with Ctrl+Z, then type `bg`.",
+    "explanation": "This is useful when you forgot to add `&` at the start."
+  },
+  {
+    "id": 90,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Beginner",
+    "question": "What is the difference between `bg` and `fg`?",
+    "answer": "`bg` resumes a job in the background (shell prompt returns); `fg` brings it to the foreground (shell blocks).",
+    "explanation": "Both send SIGCONT, but `fg` attaches the terminal input."
+  },
+  {
+    "id": 91,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Intermediate",
+    "question": "How does `bg` differ from simply appending `&` to a command?",
+    "answer": "`bg` works on an already‑started suspended job; `&` starts a new job directly in the background.",
+    "explanation": "`bg` is useful when you change your mind after starting a command."
+  },
+  {
+    "id": 92,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Intermediate",
+    "question": "What is the job control syntax `bg %?string` used for?",
+    "answer": "Backgrounds the job whose command line contains `string`.",
+    "explanation": "Example: `bg %?sleep` backgrounds a suspended sleep job."
+  },
+  {
+    "id": 93,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Intermediate",
+    "question": "Can you `bg` a job that was suspended by `kill -STOP`?",
+    "answer": "Yes, `bg` sends SIGCONT, which works for any stopped process, regardless of how it was stopped.",
+    "explanation": "The shell's job control tracks the stopped state."
+  },
+  {
+    "id": 94,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `bg %1` and `kill -CONT %1`?",
+    "answer": "`bg` updates the shell's job state to 'Running' and marks the job as background; `kill -CONT` only sends the signal without updating job status.",
+    "explanation": "Use `bg` to ensure the shell's job table correctly reflects the state."
+  },
+  {
+    "id": 95,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Intermediate",
+    "question": "What happens to a backgrounded job when you log out?",
+    "answer": "It receives SIGHUP and usually terminates, unless you `disown` it.",
+    "explanation": "`disown` removes the job from the shell's table so it doesn't receive SIGHUP."
+  },
+  {
+    "id": 96,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Advanced",
+    "question": "How does the shell implement job control internally?",
+    "answer": "Using process groups and terminal foreground group (tcsetpgrp).",
+    "explanation": "The shell assigns a process group to each job and tells the terminal which group is in the foreground."
+  },
+  {
+    "id": 97,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Advanced",
+    "question": "Can you use `bg` in a non‑interactive shell (script)?",
+    "answer": "Yes, but it's rarely useful because scripts usually don't have suspended jobs.",
+    "explanation": "You can `kill -STOP` a process, then `bg` it in a script if job control is enabled."
+  },
+  {
+    "id": 98,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `bg` and `disown`?",
+    "answer": "`bg` resumes a stopped job in the background; `disown` removes a job from the shell's job table (may be running or stopped).",
+    "explanation": "Often used together: suspend, `bg`, then `disown` to make a process survive logout."
+  },
+  {
+    "id": 99,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Advanced",
+    "question": "How can you prevent a backgrounded job from writing to the terminal?",
+    "answer": "Redirect its output before backgrounding or use `stty -tostop` (but that's not recommended).",
+    "explanation": "Best practice: always redirect output: `command > log 2>&1 &`."
+  },
+  {
+    "id": 100,
+    "topic": "bg Command: Running suspended jobs in the background",
+    "difficulty": "Advanced",
+    "question": "What does the `set -m` option do in bash?",
+    "answer": "Enables job control (monitor mode) in scripts, allowing `bg`, `fg`, and `jobs` to work.",
+    "explanation": "By default, scripts do not have job control enabled."
+  },
+
+  
+  {
+    "id": 101,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "What does the `fg` command do?",
+    "answer": "Brings a background or suspended job to the foreground, attaching terminal input/output.",
+    "explanation": "The shell waits until the foreground job finishes, is suspended, or is terminated."
+  },
+  {
+    "id": 102,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "How do you bring the most recent background job to the foreground?",
+    "answer": "Simply type `fg` with no arguments.",
+    "explanation": "The job marked with `+` in `jobs` output becomes the current job and is foregrounded."
+  },
+  {
+    "id": 103,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "How do you bring job number 2 to the foreground?",
+    "answer": "`fg %2`.",
+    "explanation": "Job numbers are assigned by the shell when jobs are started."
+  },
+  {
+    "id": 104,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "What happens to the shell when a job is foregrounded?",
+    "answer": "The shell blocks (waits) until the job finishes or is suspended.",
+    "explanation": "You cannot run other commands in that shell while the foreground job runs."
+  },
+  {
+    "id": 105,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "What signal does `fg` send to the process?",
+    "answer": "SIGCONT (continue).",
+    "explanation": "It also attaches the process group to the terminal's foreground."
+  },
+  {
+    "id": 106,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "Can you `fg` a job that is already in the foreground?",
+    "answer": "No, `fg` only applies to jobs that are background or stopped.",
+    "explanation": "If a job is already foreground, you already have control."
+  },
+  {
+    "id": 107,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "How can you reference a job using part of its command line?",
+    "answer": "`fg %?pattern` (e.g., `fg %?sleep`).",
+    "explanation": "The pattern matches anywhere in the command line."
+  },
+  {
+    "id": 108,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "What does `fg %+` mean?",
+    "answer": "Same as `fg` – brings the current job (marked with `+`) to foreground.",
+    "explanation": "`%+` and `%%` both refer to the current job."
+  },
+  {
+    "id": 109,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "What does `fg %-` do?",
+    "answer": "Brings the previous job (marked with `-` in `jobs`) to foreground.",
+    "explanation": "Useful when you have multiple background jobs."
+  },
+  {
+    "id": 110,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Beginner",
+    "question": "After bringing a job to foreground, how can you suspend it again?",
+    "answer": "Press Ctrl+Z.",
+    "explanation": "The foreground job stops and the shell returns; you can then `bg` it again."
+  },
+  {
+    "id": 111,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Intermediate",
+    "question": "Can you use `fg` in a shell script?",
+    "answer": "Yes, but it's usually not needed; scripts rarely have interactive jobs.",
+    "explanation": "If job control is enabled (`set -m`), `fg` will work in a script."
+  },
+  {
+    "id": 112,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Intermediate",
+    "question": "What happens if you `fg` a job that was started with `nohup`?",
+    "answer": "It works normally; `nohup` only ignores SIGHUP, not job control.",
+    "explanation": "The job will be attached to the terminal, but still ignores hangup signals."
+  },
+  {
+    "id": 113,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Intermediate",
+    "question": "How does `fg` affect a pipeline (e.g., `cmd1 | cmd2`)?",
+    "answer": "The entire pipeline (a single job) is brought to foreground; both processes are attached.",
+    "explanation": "The shell treats the pipeline as one job."
+  },
+  {
+    "id": 114,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `fg` and `wait`?",
+    "answer": "`fg` brings the job to foreground and attaches the terminal; `wait` simply waits for completion without terminal control.",
+    "explanation": "`wait` can be used in scripts to pause until a background job finishes."
+  },
+  {
+    "id": 115,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Intermediate",
+    "question": "How can you bring a job to foreground after disowning it?",
+    "answer": "You cannot; `disown` removes it from the shell's job table, so `fg` no longer recognises it.",
+    "explanation": "Use `kill -CONT` to resume it, but it won't be attached to the terminal."
+  },
+  {
+    "id": 116,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Advanced",
+    "question": "What system call does `fg` invoke?",
+    "answer": "`tcsetpgrp()` to set the terminal foreground process group, then `killpg()` with SIGCONT.",
+    "explanation": "The shell's job control library handles these details."
+  },
+  {
+    "id": 117,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Advanced",
+    "question": "Can `fg` be used to bring a job from a different shell session?",
+    "answer": "No, job control is per shell session. However, you can use `reptyr` to attach a process to a new terminal.",
+    "explanation": "`reptyr` is a tool that moves a process into another terminal's session."
+  },
+  {
+    "id": 118,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Advanced",
+    "question": "What happens to stopped jobs when the shell exits?",
+    "answer": "They are terminated with SIGHUP (unless they were disowned).",
+    "explanation": "The shell sends SIGHUP to its job processes before exiting."
+  },
+  {
+    "id": 119,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Advanced",
+    "question": "How can you foreground a process that is not a shell job (e.g., started from another terminal)?",
+    "answer": "You cannot directly; use `tmux` or `screen` to reattach, or `reptyr` to steal it.",
+    "explanation": "Job control only works within the same session."
+  },
+  {
+    "id": 120,
+    "topic": "fg Command: Bringing background jobs to foreground",
+    "difficulty": "Advanced",
+    "question": "What is the purpose of the `set -m` option for `fg` in scripts?",
+    "answer": "It enables job control in non‑interactive shells, allowing `fg`, `bg`, and `jobs` to be used.",
+    "explanation": "By default, scripts run with job control disabled."
+  },
+
+  
+  {
+    "id": 121,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "What does the `jobs` command do?",
+    "answer": "Lists all background and suspended jobs of the current shell.",
+    "explanation": "Each job has a job number and state (Running, Stopped, Terminated)."
+  },
+  {
+    "id": 122,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "How can you see the PID of each job with `jobs`?",
+    "answer": "`jobs -l` (lists PIDs as well).",
+    "explanation": "Useful for correlating with `ps` output."
+  },
+  {
+    "id": 123,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "What do the `+` and `-` signs mean in `jobs` output?",
+    "answer": "`+` indicates the current job (the one that would be acted upon by `fg` or `bg` without arguments); `-` is the previous job.",
+    "explanation": "The job numbers also show this: `[1]+`, `[2]-`."
+  },
+  {
+    "id": 124,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "How can you display only the PIDs of jobs?",
+    "answer": "`jobs -p` (prints process IDs only).",
+    "explanation": "Each line contains the PID of the job's process group leader."
+  },
+  {
+    "id": 125,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "Does `jobs` show processes that have been disowned?",
+    "answer": "No, `disown` removes the job from the shell's job table, so it no longer appears.",
+    "explanation": "Disowned processes still run but are no longer tracked by the shell."
+  },
+  {
+    "id": 126,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "What does it mean if a job shows 'Stopped' in `jobs`?",
+    "answer": "The process has been suspended (e.g., by Ctrl+Z or SIGSTOP) and is not currently executing.",
+    "explanation": "It can be resumed with `bg` or `fg`."
+  },
+  {
+    "id": 127,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "How do you remove a terminated job from the `jobs` list?",
+    "answer": "Run `jobs` again; the shell cleans up terminated entries automatically when you list them.",
+    "explanation": "Terminated jobs are marked 'Done' or 'Exit' and removed after `jobs` is run."
+  },
+  {
+    "id": 128,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "Can `jobs` show the exit status of finished jobs?",
+    "answer": "Yes, if you run `jobs -n` (only jobs that have changed status) or `jobs -l` shows exit code for terminated jobs.",
+    "explanation": "Example: `[1]+  Exit 1                  command`."
+  },
+  {
+    "id": 129,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "What does `jobs -r` do?",
+    "answer": "Lists only running background jobs.",
+    "explanation": "Excludes stopped and terminated jobs."
+  },
+  {
+    "id": 130,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Beginner",
+    "question": "What does `jobs -s` do?",
+    "answer": "Lists only stopped (suspended) jobs.",
+    "explanation": "Stopped jobs are those that have been suspended but not terminated."
+  },
+  {
+    "id": 131,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Intermediate",
+    "question": "How can you kill a job using its job number?",
+    "answer": "`kill %1` (sends SIGTERM to job number 1).",
+    "explanation": "You can also `kill -9 %1` for forceful termination."
+  },
+  {
+    "id": 132,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Intermediate",
+    "question": "What happens to background jobs when you close the terminal?",
+    "answer": "They receive SIGHUP and typically terminate unless they were disowned or started with `nohup`.",
+    "explanation": "The `jobs` list is lost when the shell exits."
+  },
+  {
+    "id": 133,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Intermediate",
+    "question": "How can you suppress the job completion messages (e.g., '[1]+ Done')?",
+    "answer": "Run `set +m` to disable job control (or redirect output).",
+    "explanation": "Job control messages go to stderr; you can also use `(command &) 2>/dev/null`."
+  },
+  {
+    "id": 134,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `jobs -l` and `ps`?",
+    "answer": "`jobs -l` shows only processes that are shell jobs (background/suspended); `ps` shows all processes.",
+    "explanation": "`jobs` is limited to the current shell session."
+  },
+  {
+    "id": 135,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Intermediate",
+    "question": "Can you use `jobs` to resume a job from a different terminal?",
+    "answer": "No, each terminal session has its own job table. Use `tmux` or `screen` to share sessions.",
+    "explanation": "Jobs are tied to the shell process."
+  },
+  {
+    "id": 136,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Advanced",
+    "question": "How does `jobs` obtain its information?",
+    "answer": "From the shell's internal job table, which is updated via `waitpid()` and signal handlers.",
+    "explanation": "The shell keeps track of process group states."
+  },
+  {
+    "id": 137,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Advanced",
+    "question": "Why does `jobs` sometimes show a job as 'Running' when the process is actually stuck?",
+    "answer": "The kernel only knows about process state; 'Running' means it is not stopped or zombie, but it might be blocked on I/O.",
+    "explanation": "Processes in 'D' (uninterruptible sleep) are still considered 'Running' by job control."
+  },
+  {
+    "id": 138,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Advanced",
+    "question": "How can you save the output of `jobs` to a file?",
+    "answer": "`jobs > jobs.txt` (redirects stdout). However, job control messages go to stderr.",
+    "explanation": "Use `jobs 2>&1` to capture both."
+  },
+  {
+    "id": 139,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Advanced",
+    "question": "What does `jobs -x command` do?",
+    "answer": "Replaces the job IDs in the command line with the corresponding process IDs and executes it.",
+    "explanation": "Rarely used; example: `jobs -x kill %1` expands %1 to the PID."
+  },
+  {
+    "id": 140,
+    "topic": "jobs Command: Listing all active background jobs",
+    "difficulty": "Advanced",
+    "question": "If a pipeline is running in background, how does `jobs` represent it?",
+    "answer": "As a single job containing multiple processes. `jobs -l` shows the process group leader.",
+    "explanation": "Example: `sleep 30 | grep foo &` is one job."
+  },
+
+  
+  {
+    "id": 141,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What is the default nice value of a process?",
+    "answer": "0 (normal priority).",
+    "explanation": "The nice value ranges from -20 (highest) to 19 (lowest)."
+  },
+  {
+    "id": 142,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What does a higher nice value mean?",
+    "answer": "Lower priority (more 'nice' to other processes).",
+    "explanation": "A process with nice 19 yields CPU more readily than a process with nice 0."
+  },
+  {
+    "id": 143,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "Who can set a negative nice value?",
+    "answer": "Only the root user (superuser).",
+    "explanation": "Negative nice values increase priority, which could starve other processes."
+  },
+  {
+    "id": 144,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "How do you start a command with a nice value of 10?",
+    "answer": "`nice -n 10 command` or `nice -10 command` (older style).",
+    "explanation": "The command runs with reduced CPU priority."
+  },
+  {
+    "id": 145,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "How can you check the nice value of a running process?",
+    "answer": "Use `ps -l` (NI column), `top` (NI column), or `ps -o pid,ni,cmd`.",
+    "explanation": "The NI column shows the nice value."
+  },
+  {
+    "id": 146,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What does `renice` do?",
+    "answer": "Changes the nice value of an already running process.",
+    "explanation": "Example: `renice -n 10 -p PID` lowers priority."
+  },
+  {
+    "id": 147,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What is the effect of `nice` on CPU scheduling?",
+    "answer": "It influences the scheduler's decision: higher nice → less CPU time when system is busy.",
+    "explanation": "On an idle system, even a very nice process can use 100% CPU."
+  },
+  {
+    "id": 148,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "Can a process change its own nice value?",
+    "answer": "Yes, it can call `nice()` system call to increase its nice (lower priority) but only root can decrease nice.",
+    "explanation": "A normal user can only make itself 'nicer'."
+  },
+  {
+    "id": 149,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What is the difference between `nice` and `renice`?",
+    "answer": "`nice` sets priority when starting a new process; `renice` changes priority of existing processes.",
+    "explanation": "Both use the same nice value range."
+  },
+  {
+    "id": 150,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Beginner",
+    "question": "What is the `NI` column in `top`?",
+    "answer": "The nice value of the process.",
+    "explanation": "You can sort by NI by pressing `n` in `top`."
+  },
+  {
+    "id": 151,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Intermediate",
+    "question": "How does `nice` interact with `ionice`?",
+    "answer": "`nice` controls CPU priority; `ionice` controls I/O priority. They are independent.",
+    "explanation": "For fully low‑impact background jobs, use `nice -n 19 ionice -c 3`."
+  },
+  {
+    "id": 152,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Intermediate",
+    "question": "Why does `nice -n 19` not always limit CPU usage?",
+    "answer": "Because if no higher priority process wants CPU, the kernel still gives CPU to the low‑priority task.",
+    "explanation": "Nice only matters under contention; on an idle system, any process can run."
+  },
+  {
+    "id": 153,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Intermediate",
+    "question": "What is the default nice value of a child process?",
+    "answer": "It inherits the parent's nice value, unless changed by the parent or by explicit `nice`.",
+    "explanation": "A shell with nice 10 starts children with nice 10."
+  },
+  {
+    "id": 154,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Intermediate",
+    "question": "How can you lower the priority of all processes of a user?",
+    "answer": "`renice +10 -u username` (requires root to increase priority, any user can lower their own).",
+    "explanation": "Use `renice -n 10 -u username` to increase nice (lower priority)."
+  },
+  {
+    "id": 155,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Intermediate",
+    "question": "What is the relationship between nice value and priority (PRI) in `ps -l`?",
+    "answer": "PRI = dynamic priority = 20 + nice + other adjustments (e.g., sleep penalty).",
+    "explanation": "Lower PRI means higher actual priority."
+  },
+  {
+    "id": 156,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Advanced",
+    "question": "What is the `sched_setaffinity` in relation to nice?",
+    "answer": "It sets CPU affinity; nice is independent. You can nice a process and also pin it to specific CPU cores.",
+    "explanation": "Both affect performance but in different ways."
+  },
+  {
+    "id": 157,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `nice` and `chrt`?",
+    "answer": "`nice` only adjusts the static priority within the normal SCHED_OTHER policy; `chrt` can set real‑time policies (SCHED_FIFO, SCHED_RR).",
+    "explanation": "Real‑time policies have priorities from 1 to 99 and ignore nice values."
+  },
+  {
+    "id": 158,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Advanced",
+    "question": "How can you set a default nice value for all processes of a user via limits?",
+    "answer": "Edit `/etc/security/limits.conf` with `user hard nice 10` to cap niceness.",
+    "explanation": "The user cannot set a nice value lower than the limit (higher priority)."
+  },
+  {
+    "id": 159,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Advanced",
+    "question": "What is the system call used by `nice`?",
+    "answer": "`nice()` or `setpriority()` (the latter is more general).",
+    "explanation": "`nice()` is a legacy call; `setpriority()` allows per‑process, per‑group, or per‑user."
+  },
+  {
+    "id": 160,
+    "topic": "nice Command: Setting process priority and scheduling",
+    "difficulty": "Advanced",
+    "question": "Does `nice` affect interrupt handling or kernel threads?",
+    "answer": "No, nice only affects user‑space CPU scheduling of the normal scheduling policy.",
+    "explanation": "Kernel threads and real‑time processes are not impacted."
+  },
+
+ 
+  {
+    "id": 161,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "What does `nohup` stand for?",
+    "answer": "No hangup.",
+    "explanation": "It makes a process ignore the SIGHUP (hangup) signal, so it survives terminal logout."
+  },
+  {
+    "id": 162,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "What signal does a process receive when the terminal closes?",
+    "answer": "SIGHUP (hangup).",
+    "explanation": "By default, SIGHUP terminates the process unless caught or ignored."
+  },
+  {
+    "id": 163,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "Where does `nohup` write output by default?",
+    "answer": "To `nohup.out` in the current directory (or `$HOME/nohup.out` if not writable).",
+    "explanation": "Both stdout and stderr are appended to that file."
+  },
+  {
+    "id": 164,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "How do you start a command with `nohup` and run it in the background?",
+    "answer": "`nohup command &`.",
+    "explanation": "The & backgrounds it, and you can close the terminal safely."
+  },
+  {
+    "id": 165,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "How can you redirect `nohup` output to a custom file?",
+    "answer": "`nohup command > custom.log 2>&1 &`.",
+    "explanation": "This prevents `nohup.out` from being created."
+  },
+  {
+    "id": 166,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "Does `nohup` work with shell builtins (e.g., `cd`)?",
+    "answer": "No, because builtins are not external programs. Use `nohup bash -c '...'`.",
+    "explanation": "`nohup` only works on executable files."
+  },
+  {
+    "id": 167,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "What is the difference between `nohup command &` and `command &`?",
+    "answer": "`nohup` ignores SIGHUP; `command &` alone dies when the terminal closes.",
+    "explanation": "Use `nohup` for long‑running tasks you want to survive logout."
+  },
+  {
+    "id": 168,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "Can `nohup` prevent SIGTERM or SIGKILL?",
+    "answer": "No, it only ignores SIGHUP. SIGTERM and SIGKILL still work.",
+    "explanation": "You can still `kill` a `nohup` process."
+  },
+  {
+    "id": 169,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "How can you view the output of a `nohup` process while it's running?",
+    "answer": "Use `tail -f nohup.out` (or your custom log file).",
+    "explanation": "This follows the log as it grows."
+  },
+  {
+    "id": 170,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Beginner",
+    "question": "What happens to a `nohup` process when its parent shell exits?",
+    "answer": "It continues running, reparented to init (PID 1).",
+    "explanation": "`nohup` ensures the process does not receive SIGHUP from the shell."
+  },
+  {
+    "id": 171,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between `nohup` and `disown`?",
+    "answer": "`nohup` starts a process that ignores SIGHUP; `disown` removes an already‑running job from the shell's table, also preventing SIGHUP.",
+    "explanation": "`disown` does not change signal handling, but the shell no longer sends SIGHUP on exit."
+  },
+  {
+    "id": 172,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Intermediate",
+    "question": "Can you use `nohup` with a pipeline?",
+    "answer": "Yes, but you need to wrap the whole pipeline in a subshell: `nohup sh -c 'cmd1 | cmd2' &`.",
+    "explanation": "Without a subshell, only the first command gets `nohup`."
+  },
+  {
+    "id": 173,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Intermediate",
+    "question": "How can you completely discard output from a `nohup` process?",
+    "answer": "`nohup command > /dev/null 2>&1 &`.",
+    "explanation": "This prevents any log file from being created."
+  },
+  {
+    "id": 174,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Intermediate",
+    "question": "Does `nohup` affect file descriptors 0, 1, 2 beyond SIGHUP?",
+    "answer": "Yes, `nohup` closes stdin (fd 0) and redirects stdout/stderr to `nohup.out` or your custom file.",
+    "explanation": "This prevents the process from waiting for input or writing to a dead terminal."
+  },
+  {
+    "id": 175,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Intermediate",
+    "question": "Why might `nohup` still not survive logout on some systems?",
+    "answer": "If the shell is configured to send SIGHUP to all processes regardless, or if the system uses `systemd --user` logout killing.",
+    "explanation": "Modern desktop environments may clean up user processes differently."
+  },
+  {
+    "id": 176,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Advanced",
+    "question": "What is the underlying mechanism of `nohup`?",
+    "answer": "It calls `signal(SIGHUP, SIG_IGN)` to ignore the signal, then executes the command, and closes stdin, redirects output.",
+    "explanation": "The actual `nohup` program is a wrapper that performs these steps."
+  },
+  {
+    "id": 177,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Advanced",
+    "question": "How can you run a command that survives logout but still allows you to reattach later?",
+    "answer": "Use `screen` or `tmux` rather than `nohup`.",
+    "explanation": "These tools provide detachable sessions that can be reattached later."
+  },
+  {
+    "id": 178,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Advanced",
+    "question": "What is the exit code of `nohup` if the command cannot be executed?",
+    "answer": "It returns 127 or 126 (like `exec` failures).",
+    "explanation": "Check `man nohup` for exact error codes."
+  },
+  {
+    "id": 179,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Advanced",
+    "question": "Does `nohup` work inside a `cron` job?",
+    "answer": "It is redundant; cron jobs are already detached from any terminal and don't receive SIGHUP.",
+    "explanation": "Using `nohup` in cron does no harm but is unnecessary."
+  },
+  {
+    "id": 180,
+    "topic": "nohup Command: Running processes immune to hangups (logout safe execution)",
+    "difficulty": "Advanced",
+    "question": "How can you test if a process is immune to SIGHUP?",
+    "answer": "Check its signal mask: `cat /proc/PID/status | grep SigIgn` to see if SIGHUP (1) is listed as ignored.",
+    "explanation": "`nohup` sets the process to ignore SIGHUP."
+  },
+
+  {
+    "id": 181,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "What is the main difference between foreground and background processes?",
+    "answer": "Foreground processes block the shell and receive terminal input; background processes run independently and allow the shell to accept new commands.",
+    "explanation": "Foreground is for interactive tasks; background for long‑running, non‑interactive tasks."
+  },
+  {
+    "id": 182,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "Can a background process read from stdin?",
+    "answer": "Not by default; if it tries, it receives SIGTTIN and is usually stopped.",
+    "explanation": "Use redirection to provide input from a file."
+  },
+  {
+    "id": 183,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "Which keyboard shortcuts affect only foreground processes?",
+    "answer": "Ctrl+C (SIGINT), Ctrl+Z (SIGTSTP), Ctrl+\\ (SIGQUIT).",
+    "explanation": "These signals are sent to the foreground process group only."
+  },
+  {
+    "id": 184,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "How do you start a process in the foreground?",
+    "answer": "Just type the command without `&`.",
+    "explanation": "The shell will wait for it to finish before showing the prompt."
+  },
+  {
+    "id": 185,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "What happens to a background process if you try to terminate the terminal?",
+    "answer": "It receives SIGHUP and usually terminates, unless it was started with `nohup` or disowned.",
+    "explanation": "Background processes are still children of the shell."
+  },
+  {
+    "id": 186,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "Can you have multiple foreground processes in the same shell?",
+    "answer": "No, only one foreground job at a time per terminal.",
+    "explanation": "The shell attaches terminal control to one job at a time."
+  },
+  {
+    "id": 187,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "How can you move a running foreground process to the background?",
+    "answer": "Suspend it with Ctrl+Z, then type `bg`.",
+    "explanation": "This does not restart the process; it continues from where it was suspended."
+  },
+  {
+    "id": 188,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "What is a daemon?",
+    "answer": "A background process that runs continuously, often started at boot, with no controlling terminal.",
+    "explanation": "Examples: sshd, httpd, cron. Daemons typically use `nohup` or systemd."
+  },
+  {
+    "id": 189,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "Do background processes have lower priority than foreground processes?",
+    "answer": "Not automatically; priority (nice value) is independent of foreground/background status.",
+    "explanation": "You can set nice manually to lower background CPU priority."
+  },
+  {
+    "id": 190,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Beginner",
+    "question": "What does `fg` do to a background process?",
+    "answer": "It brings it to the foreground, attaching terminal input and blocking the shell.",
+    "explanation": "The process will then receive keyboard signals."
+  },
+  {
+    "id": 191,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Intermediate",
+    "question": "How does the shell know which process group is in the foreground?",
+    "answer": "It uses the `tcsetpgrp()` system call to set the foreground process group for the terminal.",
+    "explanation": "The kernel delivers signals only to that foreground group."
+  },
+  {
+    "id": 192,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Intermediate",
+    "question": "What is a job control shell?",
+    "answer": "A shell that supports `bg`, `fg`, `jobs`, and the ability to suspend and resume jobs.",
+    "explanation": "Most modern shells (bash, zsh, ksh) have job control."
+  },
+  {
+    "id": 193,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Intermediate",
+    "question": "Why might a process behave differently when backgrounded?",
+    "answer": "Because it can no longer read from stdin, and its output may interleave with the shell prompt.",
+    "explanation": "Some programs (like `top` or `vim`) may stop updating or behave oddly in background."
+  },
+  {
+    "id": 194,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Intermediate",
+    "question": "How can you check which processes are in the foreground?",
+    "answer": "Use `ps -o pid,stat,tty,cmd`; the foreground process group has `+` in the STAT column (for the terminal).",
+    "explanation": "Also `jobs -l` shows background jobs; the foreground job is not listed unless suspended."
+  },
+  {
+    "id": 195,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Intermediate",
+    "question": "Can a background process become a daemon?",
+    "answer": "Not by just `bg`; daemons require additional steps: `fork()`, setsid(), close file descriptors, change directory, etc.",
+    "explanation": "The `daemon()` function or systemd can create proper daemons."
+  },
+  {
+    "id": 196,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Advanced",
+    "question": "What is the role of the `setsid()` system call in process management?",
+    "answer": "It creates a new session, detaching the process from any terminal. Used to create daemons.",
+    "explanation": "A process that calls `setsid()` becomes a session leader and loses its controlling terminal."
+  },
+  {
+    "id": 197,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Advanced",
+    "question": "What is the difference between a background process and a detached process?",
+    "answer": "A background process still belongs to the shell's session and may receive SIGHUP on logout; a detached process (daemon) is in its own session, immune to terminal signals.",
+    "explanation": "`nohup` only ignores SIGHUP but does not detach the session."
+  },
+  {
+    "id": 198,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Advanced",
+    "question": "How does `screen` manage background processes?",
+    "answer": "It creates a virtual terminal that persists independently of your login session; you can detach and reattach.",
+    "explanation": "Processes inside `screen` think they are attached to a terminal but survive logout."
+  },
+  {
+    "id": 199,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Advanced",
+    "question": "What is the `TIOCNOTTY` ioctl used for?",
+    "answer": "It removes a process's controlling terminal, often used in daemon creation.",
+    "explanation": "After `fork()`, the child calls `setsid()` and then `ioctl(fd, TIOCNOTTY)`."
+  },
+  {
+    "id": 200,
+    "topic": "Difference Between Foreground and Background Processes",
+    "difficulty": "Advanced",
+    "question": "In a shell script, can you background a function?",
+    "answer": "Yes, you can run a function in the background by appending `&`: `myfunction &`. However, job control may be disabled in scripts.",
+    "explanation": "Enable with `set -m` if you need `fg`/`bg` inside the script."
+  },
+
+
+  {
+    "id": 201,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How would you run a long backup script that continues after you log out?",
+    "answer": "`nohup ./backup.sh &` or use `screen`/`tmux`.",
+    "explanation": "`nohup` ignores SIGHUP, and `&` runs it in the background."
+  },
+  {
+    "id": 202,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "You started `vim` but need to check a file in the terminal without closing `vim`. What do you do?",
+    "answer": "Press Ctrl+Z to suspend `vim`, then check the file, then type `fg` to resume `vim`.",
+    "explanation": "Suspending gives you the shell back; `fg` restores `vim` exactly where you left off."
+  },
+  {
+    "id": 203,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How can you find the PID of a process named `chrome`?",
+    "answer": "`pgrep chrome` or `pidof chrome` or `ps -C chrome -o pid=`.",
+    "explanation": "`pgrep` returns PIDs matching the name."
+  },
+  {
+    "id": 204,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How do you gracefully stop a web server (e.g., nginx) using signals?",
+    "answer": "`kill -TERM $(cat /var/run/nginx.pid)` (or `-QUIT` for nginx).",
+    "explanation": "The PID file contains the master process ID; SIGHUP would reload config instead."
+  },
+  {
+    "id": 205,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "What command would you run to see the most CPU‑intensive processes?",
+    "answer": "`top -o %CPU` (or `ps aux --sort=-%cpu | head`).",
+    "explanation": "`top` sorts by CPU interactively; `ps` can be used non‑interactively."
+  },
+  {
+    "id": 206,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How can you reduce the priority of a running compile job?",
+    "answer": "`renice +10 -p PID` (increase nice value, lower priority).",
+    "explanation": "This allows other interactive tasks to get more CPU."
+  },
+  {
+    "id": 207,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "You have a background job that is writing too much output to the terminal. How to stop it?",
+    "answer": "Bring it to foreground with `fg` and then kill it with Ctrl+C, or kill it by PID/job number.",
+    "explanation": "You can also `fg`, then Ctrl+Z, then `bg` after redirecting output, but that's messy."
+  },
+  {
+    "id": 208,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How do you see all processes of the user 'debangshu' including those without a terminal?",
+    "answer": "`ps -u debangshu` (shows all processes for that user, not just terminal).",
+    "explanation": "Add `-e` for all processes, but `-u` already filters by user."
+  },
+  {
+    "id": 209,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How can you safely kill a process that might be writing to a database?",
+    "answer": "Send SIGTERM (kill -15) first, wait for it to exit; only if stuck, then SIGKILL.",
+    "explanation": "SIGTERM allows the database to flush buffers and close connections cleanly."
+  },
+  {
+    "id": 210,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Beginner",
+    "question": "How do you start a process that runs even if you close the terminal, but you want to see its output later?",
+    "answer": "Use `screen` or `tmux` to start a session, run the command, detach, later reattach.",
+    "explanation": "This is better than `nohup` because you can reattach to the session and see interactive output."
+  },
+  {
+    "id": 211,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Intermediate",
+    "question": "What is a typical use case for `kill -HUP`?",
+    "answer": "To reload configuration files of a daemon without restarting it (e.g., `kill -HUP $(pidof sshd)`).",
+    "explanation": "Many services treat SIGHUP as a reload signal."
+  },
+  {
+    "id": 212,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Intermediate",
+    "question": "How would you monitor a log file in real time while a background process writes to it?",
+    "answer": "Use `tail -f logfile` in a separate terminal or foreground window.",
+    "explanation": "`tail -f` follows the file as it grows."
+  },
+  {
+    "id": 213,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Intermediate",
+    "question": "You see a process with 100% CPU that shouldn't be there. What steps would you take?",
+    "answer": "Identify its command with `ps aux`, then decide: kill it (SIGTERM) if not needed, or renice it down if it's legitimate.",
+    "explanation": "Check if it's a known system process or malware."
+  },
+  {
+    "id": 214,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Intermediate",
+    "question": "How do you ensure a process restarts automatically if it crashes?",
+    "answer": "Use a process supervisor like `systemd`, `supervisord`, or a simple while loop: `while true; do ./myapp; done`.",
+    "explanation": "Systemd has `Restart=always` directive."
+  },
+  {
+    "id": 215,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Intermediate",
+    "question": "How can you limit a process to use only a certain percentage of CPU?",
+    "answer": "Use `cpulimit` (e.g., `cpulimit -l 20 -p PID`) or `systemd` with `CPUQuota`.",
+    "explanation": "`cpulimit` works by sending SIGSTOP/SIGCONT cyclically."
+  },
+  {
+    "id": 216,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Advanced",
+    "question": "You need to kill all processes belonging to a specific user except your own. How?",
+    "answer": "`pkill -u username` kills all processes of that user, which may include yourself if you are that user. Use `pgrep -u username -v -P 1` to exclude init.",
+    "explanation": "Be careful – you might kill your shell."
+  },
+  {
+    "id": 217,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Advanced",
+    "question": "What is a common pattern to daemonize a program in C?",
+    "answer": "`fork()`, `setsid()`, `fork()` again, `chdir(\"\")`, `umask(0)`, close file descriptors, redirect stdin/out/err to `/dev/null`.",
+    "explanation": "The double fork prevents the process from acquiring a controlling terminal."
+  },
+  {
+    "id": 218,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Advanced",
+    "question": "How can you find the parent PID of a process quickly?",
+    "answer": "`ps -o ppid= -p PID` or `cat /proc/PID/stat | cut -d' ' -f4`.",
+    "explanation": "The fourth field in `/proc/PID/stat` is the PPID."
+  },
+  {
+    "id": 219,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Advanced",
+    "question": "What is the difference between `kill` and `killall`?",
+    "answer": "`kill` targets by PID; `killall` targets by process name (kills all matching).",
+    "explanation": "`killall` can be dangerous if you have multiple processes with the same name."
+  },
+  {
+    "id": 220,
+    "topic": "Common Process Management Scenarios and Practical Examples",
+    "difficulty": "Advanced",
+    "question": "How can you suspend a process and later resume it from a different terminal?",
+    "answer": "Use `kill -STOP PID`, then from another terminal, `kill -CONT PID`. However, it will not be attached to the new terminal; use `reptyr` to steal it.",
+    "explanation": "`reptyr` can attach a stopped process to a new terminal."
+  }
+]
+}
