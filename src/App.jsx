@@ -29,11 +29,11 @@ export default function App() {
 
   return (
     <div className="h-screen ">
-      <div className="h-10">
+      <div className="h-[10vh] ">
         {isLoggedIn ? <AuthNavBar setIsLoggedIn={setIsLoggedIn} /> : <NavBar />}
       </div>
 
-      <div className="h-90">
+      <div className="h-[90vh]">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </div>
     </div>

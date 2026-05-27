@@ -213,7 +213,7 @@ export default function AppRoutes() {
         {/* Master */}
         <Route path="/students/add" element={<AddStudent />} />
 
-        <Route path="/subject" element={<Subject />} />
+        <Route path="/subjects" element={<Subject />} />
 
         {/* Public Study Routes */}
         <Route path="/study" element={<Study />} />
