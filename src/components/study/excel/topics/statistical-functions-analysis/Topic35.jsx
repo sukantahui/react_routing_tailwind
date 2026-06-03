@@ -178,7 +178,7 @@ export default function Topic35() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            “If you want to sum only the values greater than the average, you could write =SUMIF(range, "&gt"&AVERAGE(range)). That works without array formulas. But if you want to sum only values greater than the average AND also greater than 100, you cannot use SUMIFS with two conditions on the same column? Actually you can: =SUMIFS(range, range, ">"&AVERAGE(range), range, ">100"). <br />
+            “If you want to sum only the values greater than the average, you could write =SUMIF(range, "&gt"&AVERAGE(range)). That works without array formulas. But if you want to sum only values greater than the average AND also greater than 100, you cannot use SUMIFS with two conditions on the same column? Actually you can: =SUMIFS(range, range, "{`>`}"&AVERAGE(range), range, "{`>`}100"). <br />
             Observe carefully: The newer IFS functions (SUMIFS, AVERAGEIFS, COUNTIFS) often eliminate the need for array formulas. Reserve IF+array for non‑standard criteria (e.g., even/odd positions, pattern matching).”
           </p>
         </section>

@@ -476,7 +476,7 @@ const AvlTreeVisualizer = () => {
         <p className="text-center text-gray-400 mb-6">
           Insert/delete without auto‑balance. Use <strong className="text-yellow-300">Balance Tree</strong> to rebuild a perfectly balanced AVL tree.
           <br />
-          <span className="text-red-400">Red bounding boxes</span> highlight subtrees that are unbalanced (|bf| > 1).
+          <span className="text-red-400">Red bounding boxes</span> highlight subtrees that are unbalanced (|bf| &gt 1).
           <br />
           <span className="text-cyan-300">Smooth animations:</span> 1.2s entry/exit, 1.5s highlight.
         </p>

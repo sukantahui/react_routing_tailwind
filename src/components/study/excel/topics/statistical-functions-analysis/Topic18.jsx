@@ -67,7 +67,7 @@ export default function Topic18() {
             <li><strong className="text-indigo-300">When to use:</strong> When your data represents the entire population (e.g., all 50 employees in a small company, all students in a class, all sales days in a closed month).</li>
           </ul>
           <div className="mt-3 text-sm text-gray-400 bg-gray-900/50 p-2 rounded">
-            💡 Population variance is smaller than sample variance for the same data, because denominator n > n-1.
+            💡 Population variance is smaller than sample variance for the same data, because denominator n {`>`} n-1.
           </div>
         </section>
 

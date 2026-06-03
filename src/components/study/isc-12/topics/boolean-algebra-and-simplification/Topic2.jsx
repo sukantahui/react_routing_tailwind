@@ -411,7 +411,7 @@ const Topic2 = () => {
             <li>Recognize and draw the standard logic gate symbols.</li>
             <li>Translate English statements into Boolean expressions using AND, OR, NOT.</li>
             <li>Explain the difference between AND and OR using real-world analogies.</li>
-            <li>Understand the operator precedence: NOT > AND > OR.</li>
+            <li>Understand the operator precedence: NOT {`>`} AND {`>`} OR.</li>
           </ul>
         </div>
 

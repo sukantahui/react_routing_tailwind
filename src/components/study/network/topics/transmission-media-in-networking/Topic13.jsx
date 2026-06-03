@@ -193,7 +193,7 @@ const Topic13 = () => {
               <strong>Examples:</strong><br />
               - Ethernet: 10 Mbps, 100 Mbps, 1 Gbps, 10 Gbps<br />
               - Wi-Fi 6: up to 9.6 Gbps<br />
-              - Fiber (DWDM): > 100 Tbps
+              - Fiber (DWDM): {`>`} 100 Tbps
             </div>
           </div>
         </div>

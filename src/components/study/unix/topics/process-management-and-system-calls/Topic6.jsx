@@ -290,7 +290,7 @@ ps -o pid,stat,comm -p $!   # now 'Z' (zombie) if parent hasn't waited`}
               <p className="mt-3 leading-relaxed">
                 “At <strong>Ichapur</strong>, students often ask: ‘Why do we need wait()? The child terminates anyway.’ 
                 I answer with the zombie demonstration. <strong>Abhronila</strong> once ran a program that forked 10,000 children without waiting – within seconds, the system ran out of PIDs. 
-                After adding a simple <code>while(wait(NULL) > 0);</code> loop, the problem vanished. 
+                After adding a simple <code>while(wait(NULL) {`>`} 0);</code> loop, the problem vanished. 
                 I also emphasize the SIGCHLD handler technique – it's the professional way to reap children without blocking the main logic. 
                 <strong>Debangshu</strong> liked the analogy of a teacher collecting assignments; it stuck with the class.”
               </p>

@@ -174,7 +174,7 @@ export default function Topic25() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            “If the 90th percentile of exam scores is 92, that means 90% of scores are ≤ 92, and 10% are > 92. Does that mean exactly 10% of students scored above 92? Not necessarily – if interpolation is used, it's an estimate.<br />
+            “If the 90th percentile of exam scores is 92, that means 90% of scores are ≤ 92, and 10% are {`>`} 92. Does that mean exactly 10% of students scored above 92? Not necessarily – if interpolation is used, it's an estimate.<br />
             Observe carefully: PERCENTILE.INC gives a value, not a percentage count. Use it as a threshold.”
           </p>
         </section>
@@ -183,7 +183,7 @@ export default function Topic25() {
         <section className="reveal-section bg-purple-900/20 border border-purple-800 rounded-2xl p-5">
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
-            <li>To highlight values above the 90th percentile in conditional formatting: =A1 > PERCENTILE.INC($A$1:$A$100, 0.9).</li>
+            <li>To highlight values above the 90th percentile in conditional formatting: =A1 {`>`} PERCENTILE.INC($A$1:$A$100, 0.9).</li>
             <li>Use PERCENTILE.INC with dynamic arrays in Excel 365 to get multiple percentiles at once: =PERCENTILE.INC(data, {0.1,0.2,0.3,0.4,0.5})</li>
             <li>For exclusive percentiles (k between 0 and 1 exclusive, no min/max), use PERCENTILE.EXC.</li>
             <li>When reporting percentiles, always state whether inclusive or exclusive method was used.</li>

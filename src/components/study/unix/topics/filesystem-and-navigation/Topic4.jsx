@@ -920,7 +920,7 @@ export default class Topic4 extends Component {
                   <div className="p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <code className="block text-xs font-mono mb-2">
                       $ touch file.txt<br/>
-                      $ echo "data" > file.txt<br/>
+                      $ echo "data" {`>`} file.txt<br/>
                       $ chmod 644 file.txt
                     </code>
                     <p className="text-xs text-gray-600 dark:text-gray-400">

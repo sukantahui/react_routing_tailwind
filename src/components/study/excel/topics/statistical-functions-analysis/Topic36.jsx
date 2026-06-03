@@ -83,17 +83,17 @@ export default function Topic36() {
             <div>
               <p className="font-semibold text-purple-300">Exercise 1: SUMIFS</p>
               <p class="text-gray-300">“Calculate total sales of product ‘Laptop’ in the region ‘East’ with quantity &gt; 5.”</p>
-              <p className="font-mono text-sm mt-1">=SUMIFS(sales_range, product_range, "Laptop", region_range, "East", qty_range, ">5")</p>
+              <p className="font-mono text-sm mt-1">{`=SUMIFS(sales_range, product_range, "Laptop", region_range, "East", qty_range, ">5")`}</p>
             </div>
             <div>
               <p className="font-semibold text-purple-300">Exercise 2: COUNTIFS</p>
               <p class="text-gray-300">“How many students scored above 80 and are from Shyamnagar?”</p>
-              <p className="font-mono text-sm mt-1">=COUNTIFS(score_range, ">80", city_range, "Shyamnagar")</p>
+              <p className="font-mono text-sm mt-1">{`=COUNTIFS(score_range, ">80", city_range, "Shyamnagar")`}</p>
             </div>
             <div>
               <p className="font-semibold text-purple-300">Exercise 3: AVERAGEIFS</p>
               <p class="text-gray-300">“Average exam score of Barrackpore students who passed (score &gt; 40) and attended at least 5 days.”</p>
-              <p className="font-mono text-sm mt-1">=AVERAGEIFS(score_range, city_range, "Barrackpore", score_range, ">40", attendance_range, ">=5")</p>
+              <p className="font-mono text-sm mt-1">{`=AVERAGEIFS(score_range, city_range, "Barrackpore", score_range, ">40", attendance_range, ">=5")`}</p>
             </div>
           </div>
         </section>
@@ -144,7 +144,7 @@ export default function Topic36() {
             <li>Swapping arguments: SUMIFS puts the sum range first; SUMIF puts it last.</li>
             <li>Using different ranges for SUMIFS – all must be the same size.</li>
             <li>Omitting quotes around text criteria: =SUMIFS(…, region, North) → error; should be "North".</li>
-            <li>Forgetting &amp; when using cell references: “>&amp;E1” not “>E1”.</li>
+            <li>{`Forgetting &; when using cell references: “>&;E1” not “>E1”.`}</li>
           </ul>
         </section>
 
@@ -175,7 +175,7 @@ export default function Topic36() {
             <li>Use SUMIFS even for single‑condition – it is easier to add more later.</li>
             <li>Combine with IFERROR if your criteria may produce no results (SUMIFS returns 0, but AVERAGEIFS returns #DIV/0!).</li>
             <li>Master the wildcards: “*” for any characters, “?” for one character. Use them in text criteria.</li>
-            <li>For dates, use DATE functions inside criteria: “>=”&amp;DATE(2025,1,1).</li>
+            <li>{`For dates, use DATE functions inside criteria: “>=”&;DATE(2025,1,1).`}</li>
           </ul>
         </section>
 
@@ -187,7 +187,7 @@ export default function Topic36() {
             <li>✅ COUNTIFS(criteria_range1, criteria1, …)</li>
             <li>✅ AVERAGEIFS(average_range, criteria_range1, criteria1, …)</li>
             <li>✅ All ranges must be same size</li>
-            <li>✅ Use quotes for text and operators; &amp; for cell references</li>
+            <li>✅ {`Use quotes for text and operators; &; for cell references`}</li>
             <li>✅ SUMIFS returns 0 if no match; AVERAGEIFS returns #DIV/0!</li>
           </ul>
         </div>

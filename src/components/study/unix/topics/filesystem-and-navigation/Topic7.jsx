@@ -1029,7 +1029,7 @@ export default class Topic7 extends Component {
                     </p>
                     <div className="mt-2 flex items-center space-x-2">
                       <code className="text-xs font-mono bg-black/50 p-2 rounded flex-1">
-                        $ tree <input type="text" className="bg-transparent border-b border-gray-600 w-20" placeholder="options" /> > docs/structure.html
+                        $ tree <input type="text" className="bg-transparent border-b border-gray-600 w-20" placeholder="options" /> {`>`} docs/structure.html
                       </code>
                     </div>
                   </div>

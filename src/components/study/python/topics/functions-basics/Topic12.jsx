@@ -78,7 +78,7 @@ export default function Topic12() {
           <ul className="mt-4 space-y-2 text-gray-300 list-disc list-inside">
             <li><strong>Return type:</strong> Iterator (lazy).</li>
             <li><strong>Purpose:</strong> Keep only items satisfying a predicate.</li>
-            <li><strong>Lambda use:</strong> `filter(lambda x: x>0, data)`.</li>
+            <li><strong>Lambda use:</strong> {`filter(lambda x: x>0, data)`}.</li>
           </ul>
         </div>
       </section>

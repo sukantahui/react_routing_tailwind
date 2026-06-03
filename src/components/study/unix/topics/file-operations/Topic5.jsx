@@ -232,8 +232,8 @@ class Topic5 extends React.Component {
                     <ul className="list-disc pl-5 text-gray-600 dark:text-gray-400 space-y-2">
                       <li><code>cp source destination</code> - If destination exists</li>
                       <li><code>mv source destination</code> - If destination exists</li>
-                      <li><code>echo "text" > file</code> - Redirect overwrites</li>
-                      <li><code>cat file1 > file2</code> - Output redirection</li>
+                      <li><code>echo "text" {`>`} file</code> - Redirect overwrites</li>
+                      <li><code>cat file1 {`>`} file2</code> - Output redirection</li>
                       <li><code>dd if=source of=dest</code> - Block copying</li>
                     </ul>
                   </div>
@@ -789,7 +789,7 @@ alias backup='cp -n'`}</code>
                       <div>
                         <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Shell Option: noclobber</h4>
                         <p className="text-gray-600 dark:text-gray-400">
-                          Set the noclobber shell option to prevent accidental overwrites with <code>></code>:
+                          Set the noclobber shell option to prevent accidental overwrites with <code>{`>`}</code>:
                         </p>
                         <pre className="mt-2 p-3 bg-gray-800 text-green-300 rounded-lg overflow-x-auto">
                           <code>{'set -o noclobber    # Prevent > overwrites'}</code>
@@ -798,7 +798,7 @@ alias backup='cp -n'`}</code>
                           <code>{'set +o noclobber    # Allow > overwrites (default)'}</code>
                         </pre>
                         <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
-                          With noclobber set, use <code>>|</code> to force overwrite when needed.
+                          With noclobber set, use <code>{`>`}|</code> to force overwrite when needed.
                         </p>
                       </div>
                     </div>
@@ -861,10 +861,10 @@ alias backup='cp -n'`}</code>
                       Output Redirection Overwrites
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      <code>echo "data" > file.txt</code> always overwrites. Beginners often use this for appending but forget the second <code>></code>.
+                      <code>echo "data" {`>`} file.txt</code> always overwrites. Beginners often use this for appending but forget the second <code>{`>`}</code>.
                     </p>
                     <div className="mt-2 text-sm text-gray-500 dark:text-gray-500">
-                      <strong>Solution:</strong> Use <code>set -o noclobber</code> or remember: <code>></code> overwrites, <code>>></code> appends.
+                      <strong>Solution:</strong> Use <code>set -o noclobber</code> or remember: <code>{`>`}</code> overwrites, <code>{`>>`}</code> appends.
                     </div>
                   </div>
                 </div>
@@ -913,7 +913,7 @@ alias backup='cp -n'`}</code>
                           {'"Set the noclobber option: set -o noclobber. Now try: echo \"test\" > existing.txt. What happens?"'}
                         </p>
                         <div className="text-sm text-gray500 dark:text-gray-500 mt-2">
-                          <strong>Hint:</strong> Create existing.txt first. Notice the error. Then try: <code>echo "test" >| existing.txt</code>
+                          <strong>Hint:</strong> Create existing.txt first. Notice the error. Then try: <code>echo "test" {`>`}| existing.txt</code>
                         </div>
                       </div>
                     </div>
@@ -977,7 +977,7 @@ alias backup='cp -n'`}</code>
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">
                       <span className="text-blue-600 font-bold">6</span>
                     </div>
-                    <span><code>set -o noclobber</code> protects <code>></code></span>
+                    <span><code>set -o noclobber</code> protects <code>{`>`}</code></span>
                   </div>
                   <div className="flex items-center p-3 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
                     <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4">

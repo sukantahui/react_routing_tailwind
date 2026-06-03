@@ -78,7 +78,7 @@ export default function Topic11() {
           <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300">
             <div className="text-yellow-300 text-xl mb-2">1️⃣ Single expression only</div>
             <p className="text-gray-300">No statements like `return`, `if`‑`else` (but conditional expressions work).</p>
-            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">lambda x: x*2  # ok<br/># lambda x: if x>0: return x  # SyntaxError</pre>
+            <pre className="text-xs mt-2 bg-gray-900 p-2 rounded">{`lambda x: x*2  # ok<br/># lambda x: if x>0: return x  # SyntaxError`}</pre>
           </div>
           <div className="bg-gray-800/70 rounded-xl p-4 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
             <div className="text-purple-300 text-xl mb-2">2️⃣ Anonymous (no name)</div>

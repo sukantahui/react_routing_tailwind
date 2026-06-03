@@ -109,7 +109,7 @@ export default function Topic32() {
                   <tr><td className="border px-3 py-1">Tuhina</td><td className="border px-3 py-1">38</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-red-300">=IFERROR(AVERAGEIF(B2:B3, ">=40", B2:B3), "No eligible scores") → "No eligible scores"</p>
+              <p className="mt-3 text-red-300">{`=IFERROR(AVERAGEIF(B2:B3, ">=40", B2:B3), "No eligible scores") → "No eligible scores"`}</p>
             </div>
           </div>
         </section>

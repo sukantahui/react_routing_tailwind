@@ -332,7 +332,7 @@ ${verbose ? 'file1.txt\nfile2.txt\nsubdir/file3.txt\n' : ''}archive created succ
             <li><strong>Always test archives after creation:</strong> `tar -tf archive.tar`.</li>
             <li><strong>Use `-C` to change directory before archiving to avoid absolute paths.</strong></li>
             <li><strong>For backups, use `--exclude` patterns to skip unnecessary directories (e.g., /proc, /dev, /tmp).</strong></li>
-            <li><strong>Combine tar with `ssh` for remote backups: `tar -czf - dir | ssh user@host "cat > backup.tar.gz"`</strong></li>
+            <li><strong>Combine tar with `ssh` for remote backups: `tar -czf - dir | ssh user@host "cat {`>`} backup.tar.gz"`</strong></li>
           </ul>
         </div>
       </section>

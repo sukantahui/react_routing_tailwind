@@ -443,7 +443,7 @@ export default class Topic0 extends React.Component {
                       Overwriting Important Files
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Using <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-red-500">{'echo "new" > existing.txt'}</code> instead of <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-green-500">echo "new" >> existing.txt</code> can completely overwrite critical configuration files.
+                      Using <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-red-500">{'echo "new" > existing.txt'}</code> instead of <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-green-500">echo "new" {`>>`} existing.txt</code> can completely overwrite critical configuration files.
                     </p>
                     <div className="mt-2 text-sm text-gray-500 dark:text-gray-500">
                       <strong>Solution:</strong> Always check if a file exists before using <code>{'>'}</code>, or use <code>{'>>'}</code> to append.
@@ -535,7 +535,7 @@ export default class Topic0 extends React.Component {
                       <div>
                         <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-1">Script Shebang Creation</h4>
                         <p className="text-gray-600 dark:text-gray-400">
-                          For scripts, create the shebang and make it executable in one go: <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">echo "#!/bin/bash" > script.sh && chmod +x script.sh</code>
+                          For scripts, create the shebang and make it executable in one go: <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">echo "#!/bin/bash" {`>`} script.sh && chmod +x script.sh</code>
                         </p>
                       </div>
                     </div>

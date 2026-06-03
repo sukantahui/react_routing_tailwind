@@ -181,9 +181,9 @@ if (!isWeekend || !isHoliday) { ... }`,
                 <label className="flex items-center gap-2"><input type="checkbox" checked={hasLicense} onChange={() => setHasLicense(!hasLicense)} /> Has License</label>
               </div>
               <div className="mt-3 p-2 bg-gray-100 dark:bg-gray-700 rounded">
-                <code className="text-sm">if (age >= 18 && hasLicense)</code>
+                <code className="text-sm">if (age {`>`}= 18 && hasLicense)</code>
                 <p className="mt-1 font-bold">Result: {canDrive ? <span className="text-green-600">✅ Can Drive</span> : <span className="text-red-600">❌ Cannot Drive</span>}</p>
-                <code className="text-sm mt-2 block">if (age >= 18) // voting condition</code>
+                <code className="text-sm mt-2 block">if (age {`>`}= 18) // voting condition</code>
                 <p className="font-bold">Voting Eligible: {canVote ? <span className="text-green-600">✅ Yes</span> : <span className="text-red-600">❌ No</span>}</p>
               </div>
             </div>

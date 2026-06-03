@@ -157,7 +157,7 @@ const Topic9 = () => {
                             <li><strong>Non-zero base address:</strong> Base can be any memory address (e.g., from malloc).</li>
                             <li><strong>Padding:</strong> Compilers may add padding between rows for alignment. Then formula becomes Base + (i * stride + j) * Size, where stride ≥ N.</li>
                             <li><strong>Large arrays:</strong> Offset may exceed 32-bit int range; use long in calculations.</li>
-                            <li><strong>Multidimensional >2D:</strong> For 3D row-major: Base + ((i*N*K) + (j*K) + k) * Size.</li>
+                            <li><strong>Multidimensional {`>`}2D:</strong> For 3D row-major: Base + ((i*N*K) + (j*K) + k) * Size.</li>
                         </ul>
                         <JavaFileLoader 
                             fileModule={rowMajorEdgeCases}

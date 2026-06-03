@@ -649,76 +649,120 @@
           "badge": "Statistical Analyst Badge"
         },
         {
-          "moduleId": "excel-lookup-basics",
-          "slug": "lookup-functions-basics",
-          "title": "Lookup Functions: VLOOKUP, HLOOKUP and INDEX-MATCH (Intro)",
+          "moduleId": "excel-lookup-functions-advanced",
+          "slug": "lookup-functions-vlookup-hlookup-index-match-xlookup",
+          "title": "Lookup Functions: VLOOKUP, HLOOKUP, INDEX-MATCH and XLOOKUP",
           "level": "Intermediate",
-          "estimatedHours": 6,
+          "estimatedHours": 8,
           "tags": [
             "lookup",
             "vlookup",
-            "index-match"
+            "hlookup",
+            "index-match",
+            "xlookup",
+            "data-retrieval",
+            "reference-functions"
           ],
           "topics": [
-            "Concept of lookup: searching in one table to get data from another",
-            "VLOOKUP basics: exact vs approximate match",
-            "Common VLOOKUP issues: not locked ranges, wrong column indexes, sorted vs unsorted",
-            "HLOOKUP overview for horizontal lookups",
-            "Introduction to INDEX and MATCH combination for flexible lookups",
-            "Best practices for lookup tables: unique keys and clean data",
-            "Simple cross-sheet lookups (e.g., marks from separate sheet)",
+            "Understanding Lookup Functions and Reference Tables",
+            "Importance of Unique IDs and Keys",
+            "VLOOKUP Syntax and Arguments",
+            "Exact Match vs Approximate Match",
+            "Using Absolute References ($) in Lookups",
+            "Common VLOOKUP Errors and Troubleshooting",
+            "HLOOKUP for Horizontal Data",
+            "MATCH Function Basics",
+            "INDEX Function Basics",
+            "Combining INDEX and MATCH",
+            "Advantages of INDEX-MATCH over VLOOKUP",
+            "Two-Way Lookup using INDEX-MATCH",
+            "Introduction to XLOOKUP (Excel 365)",
+            "XLOOKUP vs VLOOKUP Comparison",
+            "Handling Missing Values with IFERROR",
+            "Cross-Sheet and Cross-Workbook Lookups",
+            "Lookup with Multiple Criteria (Introduction)",
+            "Data Validation with Lookup Tables",
+            "Lookup Performance Best Practices",
             "Practice These Topics",
             "Test Your Skill"
           ],
           "learningOutcomes": [
-            "Use VLOOKUP for simple lookups in structured tables",
-            "Understand basic INDEX-MATCH as a more flexible alternative",
-            "Avoid typical lookup errors by preparing data correctly"
+            "Retrieve data from reference tables using VLOOKUP",
+            "Perform horizontal lookups using HLOOKUP",
+            "Use INDEX-MATCH for flexible and powerful lookups",
+            "Understand modern XLOOKUP functionality",
+            "Handle lookup errors professionally using IFERROR",
+            "Create cross-sheet and multi-table lookup solutions",
+            "Build dynamic lookup-based reports and dashboards"
           ],
           "prerequisites": [
             "excel-statistical-functions"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 8,
-          "summary": "Connect different tables using lookup functions for more powerful reports.",
+          "summary": "Learn how to connect and retrieve data from multiple tables using Excel's lookup and reference functions. Master VLOOKUP, INDEX-MATCH and modern XLOOKUP techniques used in business reporting and data analysis.",
           "miniProjects": [
-            "Mini Project: Build a fee or salary sheet pulling rates from a separate master table"
+            "Student Information System using VLOOKUP",
+            "Employee Salary Sheet linked to Master Data Table",
+            "Product Price List with Automatic Rate Fetching",
+            "Sales Dashboard using INDEX-MATCH",
+            "Customer Lookup System with XLOOKUP"
           ],
           "exercises": {
-            "mcq": 16,
-            "coding": 10,
-            "projects": 1
+            "mcq": 25,
+            "coding": 15,
+            "projects": 5
           },
           "assessment": {
-            "type": "Quiz + Lookup Practice Sheet",
+            "type": "Quiz + Practical Lookup Workbook",
             "passScore": 75
           },
           "useCases": [
-            "Fetching student details from ID lists",
-            "Linking price lists to billing or quotation sheets"
+            "Fetching student details from admission numbers",
+            "Retrieving employee information from HR master sheets",
+            "Linking product prices to invoices",
+            "Generating salary sheets from employee databases",
+            "Creating dynamic business reports",
+            "Building dashboard source tables"
           ],
           "careerSkills": [
-            "Working effectively with master data and reference tables",
-            "Reducing manual searching and copy-pasting"
+            "Data Analysis",
+            "MIS Reporting",
+            "Business Data Management",
+            "Excel Automation",
+            "Reference Table Management",
+            "Data Validation and Accuracy"
           ],
           "commonMistakes": [
-            "Using approximate match unknowingly and getting wrong results",
-            "Not locking table ranges with absolute references in lookups"
+            "Using approximate match instead of exact match",
+            "Not locking table arrays with absolute references",
+            "Using wrong column index numbers",
+            "Duplicate IDs causing incorrect results",
+            "Lookup value data type mismatch",
+            "Not handling #N/A errors properly",
+            "Using VLOOKUP when INDEX-MATCH is more suitable"
           ],
           "references": [
-            "Excel documentation for VLOOKUP and INDEX-MATCH",
-            "Articles comparing VLOOKUP and INDEX-MATCH approaches"
+            "Microsoft Excel Documentation for VLOOKUP",
+            "Microsoft Excel Documentation for XLOOKUP",
+            "Microsoft Excel Documentation for INDEX and MATCH",
+            "ExcelJet Lookup Function Guides",
+            "Practical Business Reporting Tutorials"
           ],
           "teachingTips": [
-            "Give examples where wrong match type gives wrong result.",
-            "Show how to gradually move from VLOOKUP to INDEX-MATCH."
+            "Demonstrate real-world master data examples.",
+            "Show common VLOOKUP mistakes and how to fix them.",
+            "Compare VLOOKUP, INDEX-MATCH and XLOOKUP side by side.",
+            "Use employee, student and inventory datasets.",
+            "Emphasize data cleaning before performing lookups."
           ],
           "preReading": [
-            "Statistical Functions for Data Analysis module"
+            "Statistical Functions for Data Analysis",
+            "Working with Large Datasets"
           ],
           "previousModule": "excel-statistical-functions",
           "nextModule": "excel-pivot-intro",
-          "badge": "Lookup Explorer Badge"
+          "badge": "Lookup Master Badge"
         },
         {
           "moduleId": "excel-pivot-intro",

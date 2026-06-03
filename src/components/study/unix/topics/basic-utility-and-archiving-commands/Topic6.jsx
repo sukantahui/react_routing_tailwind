@@ -270,7 +270,7 @@ const Topic6 = () => {
           <ul className="list-disc pl-5 space-y-2">
             <li><strong>Losing original files:</strong> By default, `gzip` removes the original. Use `-k` or redirect output.</li>
             <li><strong>Compressing already compressed files:</strong> `gzip` on a `.jpg` or `.mp4` yields little to no gain.</li>
-            <li><strong>Not using `-c` when scripting:</strong> Without `-c`, you lose the original. Use `gzip -c file > file.gz`.</li>
+            <li><strong>Not using `-c` when scripting:</strong> Without `-c`, you lose the original. Use `gzip -c file {`>`} file.gz`.</li>
             <li><strong>Forgetting that `gzip` only works on single files:</strong> Directories require `tar` first.</li>
             <li><strong>Assuming `.gz` is always smaller:</strong> Very small files or already compressed data may increase in size due to overhead.</li>
           </ul>
