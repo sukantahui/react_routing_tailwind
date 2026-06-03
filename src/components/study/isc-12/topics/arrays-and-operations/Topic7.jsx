@@ -194,7 +194,7 @@ const Topic7 = () => {
                             <li>✓ Always prefer row-wise traversal in Java for best performance.</li>
                             <li>✓ Use enhanced for loop when you don't need indices – it's cleaner and less error-prone.</li>
                             <li>✓ For jagged arrays, always use <code>matrix[i].length</code> inside inner loop.</li>
-                            <li>✓ To traverse in reverse order, reverse the loop counters (e.g., <code>for (int i=rows-1; i>=0; i--)</code>).</li>
+                            <li>✓ To traverse in reverse order, reverse the loop counters (e.g., <code>for (int i=rows-1; i{`>`}=0; i--)</code>).</li>
                             <li>✓ If you need both row and column indices for computation, use traditional indexed loops.</li>
                         </ul>
                     </div>

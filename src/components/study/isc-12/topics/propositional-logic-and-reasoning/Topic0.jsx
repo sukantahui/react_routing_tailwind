@@ -183,7 +183,7 @@ const Topic0 = () => {
             <div className="border border-gray-700 rounded-xl p-4 transition-all duration-300 hover:border-green-500/50 hover:bg-gray-800/30">
               <h3 className="text-lg font-semibold text-green-400 mb-2">Example 5: Programming Conditions as Propositions</h3>
               <div className="space-y-2 text-gray-300">
-                <p className="font-mono text-sm">✓ <span className="text-blue-400">age >= 18</span> → true if age is 18 or more</p>
+                <p className="font-mono text-sm">✓ <span className="text-blue-400">age {`>`}= 18</span> → true if age is 18 or more</p>
                 <p className="font-mono text-sm">✓ <span className="text-blue-400">user.hasPermission && user.isActive</span> → true only if both are true</p>
                 <p className="font-mono text-sm">✓ <span className="text-blue-400">!isEmpty(cart) || isGuest</span> → true if cart not empty OR user is guest</p>
                 <p className="text-gray-400 text-sm mt-2">💡 Every condition in an if-statement is a proposition evaluated at runtime.</p>

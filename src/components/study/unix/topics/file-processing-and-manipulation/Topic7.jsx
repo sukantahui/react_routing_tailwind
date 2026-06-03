@@ -175,7 +175,7 @@ const Topic7 = () => {
             <code className="text-indigo-600 dark:text-indigo-400"># Ignore whitespace, case, etc.</code>
             <code className="text-indigo-600 dark:text-indigo-400">diff -iw file1.txt file2.txt</code>
           </div>
-          <p className="mt-4"><span className="font-semibold">Return type:</span> Exit 0 if files identical, 1 if different, >1 on error.</p>
+          <p className="mt-4"><span className="font-semibold">Return type:</span> Exit 0 if files identical, 1 if different, {`>`}1 on error.</p>
           <p className="mt-2"><span className="font-semibold">Purpose:</span> To compare text files, identify added/removed/changed lines, create patches, review code changes, and verify file integrity.</p>
         </div>
 

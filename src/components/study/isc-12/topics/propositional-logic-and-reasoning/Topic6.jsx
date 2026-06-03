@@ -167,7 +167,7 @@ const Topic6 = () => {
           <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm">
             <p className="text-blue-400">// In most languages, there is no built‑in ⇔ operator.</p>
             <p className="text-blue-400">// Implement as equality comparison for booleans:</p>
-            <p className="text-gray-300">let p = (age >= 18);</p>
+            <p className="text-gray-300">let p = (age {`>`}= 18);</p>
             <p className="text-gray-300">let q = hasLicense;</p>
             <p className="text-gray-300">let biconditional = (p === q);   // true if both true or both false</p>
             <p className="text-blue-400 mt-2">// Or using logical operators:</p>

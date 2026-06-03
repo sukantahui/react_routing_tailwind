@@ -80,9 +80,9 @@ export default function Topic6() {
             <div><span className="text-orange-300 font-mono">sum_range</span> – (Optional) The actual cells to sum. If omitted, Excel sums the range itself.</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-orange-500 mt-4">
-            <p className="font-mono text-sm">✅ =SUMIF(A1:A10, ">50") → sums numbers greater than 50 in A1:A10</p>
+            <p className="font-mono text-sm">✅ =SUMIF(A1:A10, "{`>`}50") → sums numbers greater than 50 in A1:A10</p>
             <p className="font-mono text-sm mt-1">✅ =SUMIF(B2:B100, "Apples", C2:C100) → sums C2:C100 where B2:B100 = "Apples"</p>
-            <p className="font-mono text-sm mt-1">✅ =SUMIF(D:D, ">"&amp;E1, F:F) → dynamic criteria using cell reference</p>
+            <p className="font-mono text-sm mt-1">✅ =SUMIF(D:D, "{`>`}"&amp;E1, F:F) → dynamic criteria using cell reference</p>
           </div>
         </section>
 
@@ -110,7 +110,7 @@ export default function Topic6() {
                 </tbody>
               </table>
               <p className="mt-3 text-orange-300">=SUMIF(A2:A6, "Rice", B2:B6) → 600+750+500 = 1850</p>
-              <p className="mt-1 text-orange-300">=SUMIF(B2:B6, ">500") → 600+750 = 1350</p>
+              <p className="mt-1 text-orange-300">=SUMIF(B2:B6, "{`>`}500") → 600+750 = 1350</p>
             </div>
           </div>
         </section>

@@ -233,7 +233,7 @@ const Topic11 = () => {
                 <li><strong>System backups:</strong> `tar -czf /backup/home_$(date +%Y%m%d).tar.gz /home`</li>
                 <li><strong>Package distribution:</strong> Compiling with `make dist` creates `.tar.gz`.</li>
                 <li><strong>Log rotation:</strong> Archive old logs with high compression (xz).</li>
-                <li><strong>Data transfer:</strong> Pipe compressed tar over SSH: `tar czf - dir | ssh host 'cat > dir.tar.gz'`</li>
+                <li><strong>Data transfer:</strong> Pipe compressed tar over SSH: `tar czf - dir | ssh host 'cat {`>`} dir.tar.gz'`</li>
               </ul>
             </div>
 
@@ -243,7 +243,7 @@ const Topic11 = () => {
                 <li><strong>Choose compression based on need:</strong> gzip is fastest, bzip2 smaller, xz slowest but best.</li>
                 <li><strong>Use `-9` for maximum size reduction (e.g., for archives).</strong></li>
                 <li><strong>Automatically detect compression on extraction:</strong> `tar -xf archive.tar.xz` works without flags.</li>
-                <li><strong>Parallel compression with `pigz`:</strong> `tar -cf - data | pigz -9 > archive.tar.gz`</li>
+                <li><strong>Parallel compression with `pigz`:</strong> `tar -cf - data | pigz -9 {`>`} archive.tar.gz`</li>
                 <li><strong>Exclude patterns while compressing:</strong> `tar -czf backup.tar.gz --exclude='*.log' /home`</li>
               </ul>
             </div>

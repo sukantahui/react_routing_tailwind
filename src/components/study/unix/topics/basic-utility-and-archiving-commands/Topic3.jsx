@@ -273,7 +273,7 @@ const Topic3 = () => {
             <li><strong>Assuming `who` shows remote IPs on all systems:</strong> Some configurations hide IPs, or show `:0` for local displays.</li>
             <li><strong>Reading `/var/run/utmp` directly without `who`:</strong> It's a binary file; use `who` or `utmpdump`.</li>
             <li><strong>Forgetting that `who am i` shows the user associated with stdin, not necessarily all users.</strong></li>
-            <li><strong>Misinterpreting idle time:</strong> A dot (.) means less than 1 minute idle; a colon (:) means idle time > 24h.</li>
+            <li><strong>Misinterpreting idle time:</strong> A dot (.) means less than 1 minute idle; a colon (:) means idle time {`>`} 24h.</li>
           </ul>
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover">

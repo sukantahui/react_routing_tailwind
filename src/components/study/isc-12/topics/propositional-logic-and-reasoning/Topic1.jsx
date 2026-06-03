@@ -241,7 +241,7 @@ const Topic1 = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-400 text-xl">🎯</span>
-              <span className="text-gray-300"><span className="font-semibold">Watch for Variables:</span> "x > 5" is NOT a proposition until x is assigned a specific value.</span>
+              <span className="text-gray-300"><span className="font-semibold">Watch for Variables:</span> "x {`>`} 5" is NOT a proposition until x is assigned a specific value.</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-yellow-400 text-xl">🎯</span>

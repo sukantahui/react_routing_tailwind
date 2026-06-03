@@ -186,7 +186,7 @@ export default function Topic16() {
           <h3 className="text-xl font-semibold text-purple-300">💡 Professional Tips & Tricks</h3>
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Use STDEV.P in Six Sigma for known finite populations (e.g., all units from a production run).</li>
-            <li>For large n (n > 30), the difference between STDEV.P and STDEV.S is small; still, choose correctly.</li>
+            <li>For large n (n {`>`} 30), the difference between STDEV.P and STDEV.S is small; still, choose correctly.</li>
             <li>Combine with AVERAGE to compute the coefficient of variation: =STDEV.P(range)/AVERAGE(range).</li>
             <li>In dashboards, highlight the type of stdev used (population vs sample).</li>
           </ul>

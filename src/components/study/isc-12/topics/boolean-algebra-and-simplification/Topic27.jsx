@@ -435,7 +435,7 @@ const Topic27 = () => {
             <span>⚠️</span> Common Mistakes in ISC Exams
           </h2>
           <ul className="space-y-3 text-gray-700 dark:text-gray-300">
-            <li><strong>Misreading Operator Precedence:</strong> Remember: NOT > AND > OR. Use parentheses to avoid ambiguity.</li>
+            <li><strong>Misreading Operator Precedence:</strong> Remember: NOT {`>`} AND {`>`} OR. Use parentheses to avoid ambiguity.</li>
             <li><strong>Incorrect K-Map Ordering:</strong> Use Gray code order (00,01,11,10) not binary order (00,01,10,11).</li>
             <li><strong>Missing Wrap-Around Groups:</strong> In 3-variable maps, left and right columns are adjacent. In 4-variable, corners are adjacent.</li>
             <li><strong>Forgetting to Simplify:</strong> Always check if the expression can be further simplified using Consensus or Absorption.</li>

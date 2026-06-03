@@ -252,7 +252,7 @@ const Topic7 = () => {
             <li><strong>Fresnel Zone:</strong> Keep 60% of the first Fresnel zone clear for microwave links — even partial obstruction causes signal loss.</li>
             <li><strong>Frequency Planning:</strong> In crowded Wi-Fi areas (schools, offices), use 5 GHz instead of 2.4 GHz to avoid interference from Bluetooth and microwaves.</li>
             <li><strong>Antenna Gain:</strong> Directional antennas (Yagi, parabolic) increase range and reduce noise — perfect for point-to-point.</li>
-            <li><strong>Weather impact:</strong> Rain fade affects >10 GHz signals; plan link budget accordingly.</li>
+            <li><strong>Weather impact:</strong> Rain fade affects {`>`}10 GHz signals; plan link budget accordingly.</li>
             <li><strong>Security:</strong> Wireless signals can be intercepted outside buildings — always use encryption (WPA3, VPN).</li>
           </ul>
           <p className="text-xs mt-2 text-gray-500">In Barrackpore’s campus, Debangshu avoided 2.4 GHz congestion by switching to 5 GHz for the computer lab — throughput increased by 200%.</p>

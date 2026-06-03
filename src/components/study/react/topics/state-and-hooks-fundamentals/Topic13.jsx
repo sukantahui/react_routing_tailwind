@@ -1034,7 +1034,7 @@ const Topic13 = () => {
                   className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-3 rounded-lg font-medium
                            transition-all duration-300 hover:scale-[1.02]"
                 >
-                  Remove High Quantity Items (Qty > 3)
+                  {`Remove High Quantity Items (Qty > 3)`}
                 </button>
                 
                 <div className="p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">

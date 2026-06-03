@@ -83,7 +83,7 @@ export default function Topic9() {
             <div><span className="text-amber-300 font-mono">criteria_range2, criteria2</span> – Additional pairs (up to 127).</div>
           </div>
           <div className="bg-gray-900 rounded-lg p-4 border-l-4 border-amber-500 mt-4">
-            <p className="font-mono text-sm">✅ =COUNTIFS(A2:A100, "Rice", B2:B100, ">5") → count rows where Product=Rice and Quantity&gt;5</p>
+            <p className="font-mono text-sm">✅ =COUNTIFS(A2:A100, "Rice", B2:B100, "{`>5`}") → count rows where Product=Rice and Quantity&gt;5</p>
             <p className="font-mono text-sm mt-1">✅ =COUNTIFS(CityRange, "Barrackpore", ScoreRange, "&gt;=80") → count top students from Barrackpore</p>
             <p className="font-mono text-sm mt-1">✅ =COUNTIFS(DateRange, "&gt;="&amp;E1, DateRange, "&lt;="&amp;E2) → count dates within a range</p>
           </div>
@@ -110,7 +110,7 @@ export default function Topic9() {
                   <tr><td className="border px-3 py-1">Debangshu</td><td className="border px-3 py-1">Barrackpore</td><td className="border px-3 py-1">68</td></tr>
                 </tbody>
               </table>
-              <p className="mt-3 text-amber-300">=COUNTIFS(B2:B6, "Barrackpore", C2:C6, ">80") → 1 (only Swadeep)</p>
+              <p className="mt-3 text-amber-300">=COUNTIFS(B2:B6, "Barrackpore", C2:C6, "{`>80`}") → 1 (only Swadeep)</p>
             </div>
           </div>
         </section>
@@ -148,7 +148,7 @@ export default function Topic9() {
           <ul className="list-disc list-inside mt-3 space-y-2 text-gray-200">
             <li>Mixing argument order – remember COUNTIFS starts with criteria_range1, not sum_range (unlike SUMIFS).</li>
             <li>Using different‑sized ranges – all criteria ranges must be the same size; otherwise #VALUE! error.</li>
-            <li>Forgetting quotes around text or operators: =COUNTIFS(A:A, Apples,B:B,">5") → error; correct "Apples".</li>
+            <li>Forgetting quotes around text or operators: =COUNTIFS(A:A, Apples,B:B,"{`>5`}") → error; correct "Apples".</li>
             <li>COUNTIFS is case‑insensitive – “APPLE” = “apple”.</li>
             <li>If you intend OR logic, you must add multiple COUNTIFS.</li>
           </ul>

@@ -193,7 +193,7 @@ export default function Topic20() {
         <section className="reveal-section bg-yellow-900/20 border-l-8 border-yellow-500 rounded-r-2xl p-5">
           <h3 className="text-xl font-semibold text-yellow-300">💭 Think about...</h3>
           <p className="mt-2 text-gray-200">
-            “If you want to exclude zeros from the smallest values (e.g., students who didn’t take the test scored 0), how would you find the lowest non‑zero score? (Hint: use SMALL with IF(range>0, range)).<br />
+            “If you want to exclude zeros from the smallest values (e.g., students who didn’t take the test scored 0), how would you find the lowest non‑zero score? (Hint: use SMALL with IF(range{`>`}0, range)).<br />
             Observe carefully: SMALL treats 0 as a valid number, so to ignore it you need to filter first.”
           </p>
         </section>

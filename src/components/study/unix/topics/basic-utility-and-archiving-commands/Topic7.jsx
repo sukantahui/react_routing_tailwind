@@ -194,7 +194,7 @@ const Topic7 = () => {
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong>Keep compressed file after decompression:</strong> `gunzip -k file.gz` (GNU).</li>
                 <li><strong>Test before decompressing:</strong> `gunzip -t file.gz` ensures the archive isn't corrupt.</li>
-                <li><strong>Decompress to stdout:</strong> `gunzip -c file.gz > output` preserves original archive.</li>
+                <li><strong>Decompress to stdout:</strong> `gunzip -c file.gz {`>`} output` preserves original archive.</li>
                 <li><strong>Decompress multiple files:</strong> `gunzip *.gz` decompresses all at once.</li>
                 <li><strong>Force overwrite:</strong> `gunzip -f file.gz` if output file already exists.</li>
               </ul>

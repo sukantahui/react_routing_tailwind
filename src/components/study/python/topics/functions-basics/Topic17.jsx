@@ -93,7 +93,7 @@ increment()`}
           <li><strong>Read the full traceback</strong> – The last line tells the error type, but earlier lines show the call stack.</li>
           <li><strong>Use `pdb` – Python Debugger</strong> – `import pdb; pdb.set_trace()` drops you into an interactive debugger.</li>
           <li><strong>Isolate the problem</strong> – Comment out code or create a minimal reproducible example.</li>
-          <li><strong>Use `assert` statements</strong> – Check assumptions: `assert x > 0, "x must be positive"`.</li>
+          <li><strong>Use `assert` statements</strong> – Check assumptions: assert x {`>`} 0, "x must be positive".</li>
         </ul>
       </section>
 

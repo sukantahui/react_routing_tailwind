@@ -3,6 +3,8 @@
 // This component explains the complete resolution flow from user request to IP address.
 
 import React, { useState } from "react";
+
+import clsx from "clsx";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
@@ -59,37 +61,37 @@ const Topic2 = () => {
                   </marker>
                 </defs>
                 
-                <!-- Step 1: User -->
+                {/* <!-- Step 1: User --> */}
                 <rect x="30" y="140" width="100" height="50" rx="8" fill="#3B82F6" className="drop-shadow-md transition-all hover:scale-105" />
                 <text x="80" y="170" textAnchor="middle" fill="white" fontSize="14">Browser</text>
                 
-                <!-- Step 2: Stub resolver -->
+                {/* <!-- Step 2: Stub resolver --> */}
                 <rect x="170" y="140" width="100" height="50" rx="8" fill="#8B5CF6" />
                 <text x="220" y="170" textAnchor="middle" fill="white" fontSize="12">Stub Resolver</text>
                 
-                <!-- Step 3: Recursive resolver -->
+                {/* <!-- Step 3: Recursive resolver --> */}
                 <rect x="310" y="140" width="110" height="50" rx="8" fill="#EC4899" />
                 <text x="365" y="170" textAnchor="middle" fill="white" fontSize="11">Recursive</text>
                 <text x="365" y="182" textAnchor="middle" fill="white" fontSize="10">Resolver (ISP)</text>
                 
-                <!-- Step 4: Root -->
+                {/* <!-- Step 4: Root --> */}
                 <rect x="460" y="60" width="80" height="40" rx="6" fill="#F59E0B" />
                 <text x="500" y="84" textAnchor="middle" fill="#1F2937" fontSize="12">Root</text>
                 
-                <!-- Step 5: TLD -->
+                {/* <!-- Step 5: TLD --> */}
                 <rect x="460" y="140" width="80" height="40" rx="6" fill="#F59E0B" />
                 <text x="500" y="164" textAnchor="middle" fill="#1F2937" fontSize="12">.com TLD</text>
                 
-                <!-- Step 6: Authoritative -->
+                {/* <!-- Step 6: Authoritative --> */}
                 <rect x="460" y="220" width="100" height="40" rx="6" fill="#10B981" />
                 <text x="510" y="244" textAnchor="middle" fill="white" fontSize="10">Authoritative</text>
                 <text x="510" y="254" textAnchor="middle" fill="white" fontSize="9">(example.com)</text>
                 
-                <!-- Arrows -->
+                {/* <!-- Arrows --> */}
                 <line x1="130" y1="165" x2="168" y2="165" stroke="#2563EB" strokeWidth="2" markerEnd="url(#arrowBlue)" />
                 <line x1="270" y1="165" x2="308" y2="165" stroke="#2563EB" strokeWidth="2" markerEnd="url(#arrowBlue)" />
                 
-                <!-- Resolver to root -->
+                {/* <!-- Resolver to root --> */}
                 <line x1="420" y1="145" x2="458" y2="80" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="4 2">
                   <animate attributeName="stroke-dashoffset" from="6" to="0" dur="0.6s" repeatCount="indefinite" />
                 </line>
@@ -97,7 +99,7 @@ const Topic2 = () => {
                   <animate attributeName="stroke-dashoffset" from="6" to="0" dur="0.6s" repeatCount="indefinite" begin="0.3s" />
                 </line>
                 
-                <!-- Resolver to TLD -->
+                {/* <!-- Resolver to TLD --> */}
                 <line x1="420" y1="160" x2="458" y2="160" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="4 2">
                   <animate attributeName="stroke-dashoffset" from="6" to="0" dur="0.6s" repeatCount="indefinite" begin="0.6s" />
                 </line>
@@ -105,7 +107,7 @@ const Topic2 = () => {
                   <animate attributeName="stroke-dashoffset" from="6" to="0" dur="0.6s" repeatCount="indefinite" begin="0.9s" />
                 </line>
                 
-                <!-- Resolver to Authoritative -->
+                {/* <!-- Resolver to Authoritative --> */}
                 <line x1="420" y1="185" x2="458" y2="240" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="4 2">
                   <animate attributeName="stroke-dashoffset" from="6" to="0" dur="0.6s" repeatCount="indefinite" begin="1.2s" />
                 </line>
@@ -212,7 +214,7 @@ const Topic2 = () => {
                 <li><strong>Forgetting DNS propagation:</strong> Changes can take up to 48 hours due to TTL caches.</li>
                 <li><strong>Misunderstanding recursion vs iteration:</strong> The stub resolver only does recursion; the recursive resolver does iteration.</li>
                 <li><strong>Not testing with +trace:</strong> Many think their local DNS is broken when it's actually a remote issue.</li>
-                <li><strong>Single point of failure:</strong> Only one nameserver in resolv.conf -> outage brings down resolution.</li>
+                <li><strong>Single point of failure:</strong> Only one nameserver in resolv.conf -{`>`} outage brings down resolution.</li>
               </ul>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-2xl">

@@ -178,7 +178,7 @@ show_square(5)       # prints 25, but returns None`}
           <li><strong className="text-purple-300">Return meaningful values</strong> – For validation functions, return `True`/`False`; for lookups, return the found item or `None`.</li>
           <li><strong className="text-purple-300">Unpack multiple returns</strong> – `min_val, max_val, avg = calculate_stats(data)` is clean and readable.</li>
           <li><strong className="text-purple-300">Returning `None` explicitly</strong> – `return None` is clearer than just `return` when the absence of a value is intentional.</li>
-          <li><strong className="text-purple-300">Type hints</strong> – Use `->` to indicate return type: `def add(a: int, b: int) -> int:`.</li>
+          <li><strong className="text-purple-300">Type hints</strong> {"– Use `->` to indicate return type: `def add(a: int, b: int) -> int:"}.</li>
         </ul>
       </section>
 

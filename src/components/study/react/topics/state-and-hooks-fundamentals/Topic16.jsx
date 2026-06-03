@@ -581,7 +581,7 @@ const handleClick = (userId, event) => {
                     <p>
                       In my experience, beginners often struggle with the <span className="text-yellow-300">timing of function calls</span>. 
                       Remember: <code className="text-cyan-400">handleClick(data)</code> calls immediately, while 
-                      <code className="text-cyan-400">() => handleClick(data)</code> creates a function that calls later.
+                      <code className="text-cyan-400">{`() => handleClick(data)`}</code> creates a function that calls later.
                     </p>
                     <p className="mt-2">
                       When working with lists in Barrackpure school's student management system, we use the 

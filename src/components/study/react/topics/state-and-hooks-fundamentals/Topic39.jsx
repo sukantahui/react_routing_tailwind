@@ -1208,7 +1208,7 @@ const UserList = ({ users, loading, error }) => {
               <div className="text-3xl mb-3">⏳</div>
               <h4 className="font-bold mb-2">Loading States</h4>
               <ul className="text-sm text-gray-300 space-y-1">
-                <li>Show for operations > 300ms</li>
+                <li>{`Show for operations > 300ms`}</li>
                 <li>Use skeleton loaders</li>
                 <li>Maintain layout stability</li>
                 <li>Reset in finally block</li>
