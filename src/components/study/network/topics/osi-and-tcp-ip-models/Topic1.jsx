@@ -1,6 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from '../../../../../common/FAQTemplate';
+import questions from './topic0_files/questions';
 
 /**
  * Topic1: Concept of Protocols, Services, and Interfaces
@@ -268,6 +270,14 @@ const Topic1 = () => {
           <div className="opacity-0 translate-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[900ms]">
             <Teacher 
               note={"Use the restaurant analogy repeatedly — students immediately understand roles. Emphasize that SAPs are like order windows: they ensure the right order goes to the right chef. Also, highlight the concept of multiplexing: one transport layer (chef) can serve multiple applications (waiters) via different ports (order windows)."}
+            />
+          </div>
+
+          {/* FAQ */}
+          <div className="animate-fade-slide-up" style={{ animationDelay: '0.8s' }}>
+            <FAQTemplate
+              title="Mutable vs Immutable Strings – FAQs"
+              questions={questions}
             />
           </div>
 

@@ -1,0 +1,831 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Linux File System, Navigation, and Advanced File Operations",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the root directory in Linux?",
+      "answer": "`/` – the topmost directory in the file system hierarchy.",
+      "explanation": "Everything in Linux starts from the root directory; it contains all other directories and files."
+    },
+    {
+      "id": 2,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/bin` directory?",
+      "answer": "Contains essential user command binaries (e.g., `ls`, `cp`, `mv`, `cat`) needed for basic system operation.",
+      "explanation": "Even in single‑user mode, `/bin` is available. It is often a symbolic link to `/usr/bin` on modern systems."
+    },
+    {
+      "id": 3,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is stored in `/sbin`?",
+      "answer": "System binaries (administration commands) – used mainly by the root user, e.g., `fdisk`, `mount`, `shutdown`.",
+      "explanation": "These are essential for system booting and recovery."
+    },
+    {
+      "id": 4,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the use of `/etc` directory?",
+      "answer": "Contains system configuration files (e.g., `passwd`, `shadow`, `fstab`, `ssh/sshd_config`).",
+      "explanation": "Almost all configuration files are stored here, often in subdirectories."
+    },
+    {
+      "id": 5,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/home` directory?",
+      "answer": "Holds personal directories of regular users (e.g., `/home/swadeep`, `/home/tuhina`).",
+      "explanation": "Users store their files and settings here; each user has write access only to their own subdirectory."
+    },
+    {
+      "id": 6,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the `/root` directory?",
+      "answer": "The home directory of the root user (superuser).",
+      "explanation": "It is not under `/home`; it is separate for security and availability during recovery."
+    },
+    {
+      "id": 7,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is stored in `/usr`?",
+      "answer": "Secondary program files, libraries, documentation, and source code (user system resources).",
+      "explanation": "Most executable files that are not essential for boot are under `/usr/bin`, `/usr/lib`, `/usr/share`."
+    },
+    {
+      "id": 8,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/var` directory?",
+      "answer": "Stores variable data files that change in size and content, such as logs (`/var/log`), spool files (`/var/spool`), and temporary system files.",
+      "explanation": "`/var` often contains mail spools, print queues, and application caches."
+    },
+    {
+      "id": 9,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is `/tmp` used for?",
+      "answer": "Temporary files (usually cleared on reboot).",
+      "explanation": "Any user can write to `/tmp`; it is world‑writable but with sticky bit to prevent deleting others' files."
+    },
+    {
+      "id": 10,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What does `/lib` contain?",
+      "answer": "Shared libraries and kernel modules needed for system boot and running binaries in `/bin` and `/sbin`.",
+      "explanation": "Libraries have names like `libc.so`, `ld-linux.so`."
+    },
+    {
+      "id": 11,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the `/proc` filesystem?",
+      "answer": "A virtual filesystem that presents process and kernel information as files (e.g., `/proc/cpuinfo`, `/proc/meminfo`, `/proc/<pid>/status`).",
+      "explanation": "It does not occupy disk space; reading it returns data from kernel structures."
+    },
+    {
+      "id": 12,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/dev` directory?",
+      "answer": "Contains device files representing hardware (e.g., `/dev/sda` – first SATA disk, `/dev/tty` – terminal).",
+      "explanation": "Device files allow user programs to interact with hardware via standard read/write operations."
+    },
+    {
+      "id": 13,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Beginner",
+      "question": "Why is `/usr` separate from `/`?",
+      "answer": "Historically, `/usr` could be mounted as a separate file system, often read‑only, to save space on the root partition.",
+      "explanation": "Modern systems sometimes merge `/` and `/usr` but conceptually they remain distinct."
+    },
+    {
+      "id": 14,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Beginner",
+      "question": "What is the significance of `/bin` being a symlink to `/usr/bin` in many distros?",
+      "answer": "It simplifies the directory hierarchy; `/bin` and `/usr/bin` contain the same executables.",
+      "explanation": "This reduces duplication and makes the system easier to manage."
+    },
+    {
+      "id": 15,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Intermediate",
+      "question": "What kind of files are usually stored in `/var/log`?",
+      "answer": "System and application log files (e.g., `syslog`, `auth.log`, `dmesg`).",
+      "explanation": "These files can grow large; log rotation is used to manage their size."
+    },
+    {
+      "id": 16,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Intermediate",
+      "question": "What does `/opt` directory contain?",
+      "answer": "Add‑on software packages (optional) installed manually, not through the package manager.",
+      "explanation": "Each software often installs into its own subdirectory like `/opt/google/chrome`."
+    },
+    {
+      "id": 17,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `/mnt` and `/media`?",
+      "answer": "Temporary mount points for file systems (`/mnt` for manual, `/media` for auto‑mounted removable media).",
+      "explanation": "When you plug in a USB drive, it often appears under `/media/username/`."
+    },
+    {
+      "id": 18,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Intermediate",
+      "question": "What does `/srv` directory hold?",
+      "answer": "Data for services provided by the system (e.g., web server files in `/srv/www`, FTP data).",
+      "explanation": "It is meant for site‑specific data."
+    },
+    {
+      "id": 19,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Intermediate",
+      "question": "Why is `/tmp` cleared on reboot?",
+      "answer": "To free temporary files that are no longer needed, preventing clutter.",
+      "explanation": "Some systems use tmpfs for `/tmp` (RAM‑backed) for faster access; it clears automatically."
+    },
+    {
+      "id": 20,
+      "topic": "Understanding the role of each system directory",
+      "difficulty": "Advanced",
+      "question": "What is a bind mount in the context of Linux directories?",
+      "answer": "Mounting an existing directory at another location, making the same files accessible via two paths.",
+      "explanation": "For example, `mount --bind /home/user/Documents /mnt/docs`."
+    },
+    {
+      "id": 21,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Beginner",
+      "question": "What does `pwd` output when you are in `/home/swadeep/Desktop`?",
+      "answer": "`/home/swadeep/Desktop`",
+      "explanation": "`pwd` always prints the absolute path of the current working directory."
+    },
+    {
+      "id": 22,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Beginner",
+      "question": "How to change to the previous directory?",
+      "answer": "`cd -`",
+      "explanation": "`cd -` toggles between the current and previous directory, useful for going back and forth."
+    },
+    {
+      "id": 23,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Beginner",
+      "question": "What is the difference between `cd /` and `cd //`?",
+      "answer": "`/` is root; `//` is also root (ignored extra slash).",
+      "explanation": "Multiple slashes are collapsed, except `//` is special on some systems, but generally same as root."
+    },
+    {
+      "id": 24,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Beginner",
+      "question": "How to return to your home directory from anywhere?",
+      "answer": "`cd` (without arguments) or `cd ~`.",
+      "explanation": "`~` expands to the value of `$HOME`."
+    },
+    {
+      "id": 25,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Intermediate",
+      "question": "What does `cd .` do?",
+      "answer": "Stays in the current directory (no effect).",
+      "explanation": "`.` represents the current directory; useful in scripts that expect a directory."
+    },
+    {
+      "id": 26,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Intermediate",
+      "question": "How can you list the contents of a directory without changing into it?",
+      "answer": "`ls /some/path`",
+      "explanation": "`ls` accepts any path; it does not change your current working directory."
+    },
+    {
+      "id": 27,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -l` show?",
+      "answer": "Long listing format: permissions, link count, owner, group, size, modification time, and name.",
+      "explanation": "Example output: `-rw-r--r-- 1 swadeep users 1234 May 13 10:00 file.txt`."
+    },
+    {
+      "id": 28,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -a` show?",
+      "answer": "Lists all files, including hidden files (those starting with a dot, e.g., `.bashrc`).",
+      "explanation": "Hidden files are not shown by default to reduce clutter."
+    },
+    {
+      "id": 29,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -h` do?",
+      "answer": "Prints file sizes in human‑readable format (e.g., `1K`, `2M`, `5G`).",
+      "explanation": "`-h` is usually used together with `-l` alias `-lh`."
+    },
+    {
+      "id": 30,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -R` do?",
+      "answer": "Recursively lists subdirectories and their contents.",
+      "explanation": "`ls -R` shows a complete directory tree. For a better tree view, use `tree` command."
+    },
+    {
+      "id": 31,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -t` do?",
+      "answer": "Sorts output by modification time (newest first).",
+      "explanation": "Use `ls -lt` for a detailed newest‑first listing."
+    },
+    {
+      "id": 32,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Beginner",
+      "question": "What does `ls -S` do?",
+      "answer": "Sorts files by size (largest first).",
+      "explanation": "Combine with `-l` to see sizes: `ls -lS`."
+    },
+    {
+      "id": 33,
+      "topic": "Understanding inode numbers and file metadata",
+      "difficulty": "Beginner",
+      "question": "What is an inode?",
+      "answer": "A data structure that stores metadata about a file (permissions, owner, size, timestamps, pointers to data blocks).",
+      "explanation": "Each file (and directory) has an inode, identified by an inode number unique within the file system."
+    },
+    {
+      "id": 34,
+      "topic": "Understanding inode numbers and file metadata",
+      "difficulty": "Beginner",
+      "question": "How to view the inode number of a file?",
+      "answer": "`ls -i file` or `stat file`.",
+      "explanation": "The first column of `ls -i` is the inode number."
+    },
+    {
+      "id": 35,
+      "topic": "Understanding inode numbers and file metadata",
+      "difficulty": "Intermediate",
+      "question": "Why can two files have the same inode number?",
+      "answer": "They are hard links to the same file (same inode).",
+      "explanation": "Inode numbers are unique only within a single file system, not across mounted file systems."
+    },
+    {
+      "id": 36,
+      "topic": "Absolute vs relative paths with real-world folder trees",
+      "difficulty": "Beginner",
+      "question": "What is an absolute path?",
+      "answer": "A path that begins from the root directory (`/`), e.g., `/home/swadeep/file.txt`.",
+      "explanation": "It uniquely identifies a file irrespective of the current directory."
+    },
+    {
+      "id": 37,
+      "topic": "Absolute vs relative paths with real-world folder trees",
+      "difficulty": "Beginner",
+      "question": "What is a relative path?",
+      "answer": "A path that is interpreted relative to the current working directory, e.g., `docs/file.txt`.",
+      "explanation": "It does not start with `/`."
+    },
+    {
+      "id": 38,
+      "topic": "Hidden files and folders – why they exist and how they are used",
+      "difficulty": "Beginner",
+      "question": "How are hidden files created in Linux?",
+      "answer": "By starting the filename with a dot (`.`), e.g., `.bashrc`.",
+      "explanation": "Hidden files are not shown by `ls` unless `-a` is used."
+    },
+    {
+      "id": 39,
+      "topic": "Hidden files and folders – why they exist and how they are used",
+      "difficulty": "Beginner",
+      "question": "Why do hidden files exist?",
+      "answer": "To keep user or system configuration files (`dotfiles`) out of the way during normal file listing, reducing clutter.",
+      "explanation": "Examples: `.bashrc`, `.profile`, `.gitconfig`."
+    },
+    {
+      "id": 40,
+      "topic": "Tree command – visualizing directory hierarchy",
+      "difficulty": "Beginner",
+      "question": "What does the `tree` command do?",
+      "answer": "Displays a directory structure in a tree‑like format showing subdirectories and files.",
+      "explanation": "`tree` is not always installed by default; use `sudo apt install tree` or equivalent."
+    },
+    {
+      "id": 41,
+      "topic": "Tree command – visualizing directory hierarchy",
+      "difficulty": "Intermediate",
+      "question": "How to limit the `tree` depth to 2 levels?",
+      "answer": "`tree -L 2`",
+      "explanation": "`-L` specifies the maximum depth of the tree."
+    },
+    {
+      "id": 42,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Beginner",
+      "question": "How to identify a symbolic link using `ls -l`?",
+      "answer": "The first character is `l` and the output shows `->` pointing to the target.",
+      "explanation": "Example: `lrwxrwxrwx 1 user group 4 May 13 10:00 link -> target`."
+    },
+    {
+      "id": 43,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Beginner",
+      "question": "What character in `ls -l` indicates a directory?",
+      "answer": "`d` (e.g., `drwxr-xr-x`).",
+      "explanation": "Directories are also files, but with a different type flag."
+    },
+    {
+      "id": 44,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Intermediate",
+      "question": "What is a character device file?",
+      "answer": "A device file that transfers data character by character (e.g., `/dev/tty`, `/dev/null`).",
+      "explanation": "Character devices appear with `c` as the first character in `ls -l`."
+    },
+    {
+      "id": 45,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Intermediate",
+      "question": "What is a block device file?",
+      "answer": "A device file that reads/writes data in blocks (e.g., `/dev/sda`, `/dev/loop0`).",
+      "explanation": "Block devices show `b` as the first character in `ls -l`."
+    },
+    {
+      "id": 46,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Beginner",
+      "question": "What is a hard link?",
+      "answer": "An additional directory entry that points to the same inode as an existing file.",
+      "explanation": "Hard links share the same file data; deleting one link does not affect others until the last link is removed."
+    },
+    {
+      "id": 47,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Beginner",
+      "question": "What is a symbolic link (soft link)?",
+      "answer": "A special file that contains a path to another file or directory.",
+      "explanation": "If the target is deleted, the symlink becomes broken (dangling)."
+    },
+    {
+      "id": 48,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Beginner",
+      "question": "Can you create a hard link to a directory?",
+      "answer": "Generally no (except for `.` and `..`).",
+      "explanation": "Symbolic links are used for directories; hard links to directories could create cycles."
+    },
+    {
+      "id": 49,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Intermediate",
+      "question": "Can hard links cross different file systems?",
+      "answer": "No, because inode numbers are unique only within a single file system.",
+      "explanation": "Symbolic links can span file systems."
+    },
+    {
+      "id": 50,
+      "topic": "stat command – reading file metadata",
+      "difficulty": "Beginner",
+      "question": "What does `stat` command show?",
+      "answer": "Displays detailed file metadata: inode number, permissions, link count, owner, group, size, atime, mtime, ctime, and block allocation.",
+      "explanation": "`stat file.txt` provides more information than `ls -l`."
+    },
+    {
+      "id": 51,
+      "topic": "stat command – reading file metadata",
+      "difficulty": "Intermediate",
+      "question": "How to display only the file size using `stat`?",
+      "answer": "`stat -c %s file.txt`",
+      "explanation": "`-c` allows custom format; `%s` is total size in bytes."
+    },
+    {
+      "id": 52,
+      "topic": "locate, updatedb and find – searching files in large systems",
+      "difficulty": "Beginner",
+      "question": "What does `locate` command do?",
+      "answer": "Searches for files by name using a pre‑built database (updated daily by `updatedb`).",
+      "explanation": "It is much faster than `find` but may miss recently created files."
+    },
+    {
+      "id": 53,
+      "topic": "locate, updatedb and find – searching files in large systems",
+      "difficulty": "Beginner",
+      "question": "What is `updatedb` used for?",
+      "answer": "Updates the database used by `locate`.",
+      "explanation": "`sudo updatedb` refreshes the database; often run by a cron job."
+    },
+    {
+      "id": 54,
+      "topic": "locate, updatedb and find – searching files in large systems",
+      "difficulty": "Intermediate",
+      "question": "How to search for files that match a pattern case‑insensitively with `find`?",
+      "answer": "`find . -iname '*.txt'`",
+      "explanation": "`-iname` ignores case; `-name` is case‑sensitive."
+    },
+    {
+      "id": 55,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Beginner",
+      "question": "How to find all `.conf` files in `/etc`?",
+      "answer": "`find /etc -name '*.conf'`",
+      "explanation": "The `-name` option matches filenames with a pattern."
+    },
+    {
+      "id": 56,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Beginner",
+      "question": "How to find files larger than 100 MB?",
+      "answer": "`find . -size +100M`",
+      "explanation": "`+` means greater than; `-` means less than; no prefix means exactly."
+    },
+    {
+      "id": 57,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Beginner",
+      "question": "How to find files with SUID permission set?",
+      "answer": "`find / -perm -4000`",
+      "explanation": "`-4000` checks that the SUID bit is set (the `4` in octal)."
+    },
+    {
+      "id": 58,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Intermediate",
+      "question": "How to find files modified exactly 5 days ago?",
+      "answer": "`find . -mtime 5`",
+      "explanation": "`-mtime n` matches files modified `n` days ago (24‑hour periods)."
+    },
+    {
+      "id": 59,
+      "topic": "Tab completion and command history navigation",
+      "difficulty": "Beginner",
+      "question": "What does pressing `Tab` in a terminal do?",
+      "answer": "Auto‑completes commands, filenames, or variables.",
+      "explanation": "Pressing Tab twice shows possible completions."
+    },
+    {
+      "id": 60,
+      "topic": "Tab completion and command history navigation",
+      "difficulty": "Beginner",
+      "question": "How to access previously executed commands?",
+      "answer": "Use the `Up` and `Down` arrow keys, or `history` command.",
+      "explanation": "`history` shows a numbered list; `!number` re‑executes that command."
+    },
+    {
+      "id": 61,
+      "topic": "Tab completion and command history navigation",
+      "difficulty": "Intermediate",
+      "question": "What does `!!` do in bash?",
+      "answer": "Expands to the last executed command.",
+      "explanation": "`sudo !!` runs the previous command with `sudo`."
+    },
+    {
+      "id": 62,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Beginner",
+      "question": "What is globbing?",
+      "answer": "Wildcard expansion of patterns like `*`, `?`, `[]` into matching filenames.",
+      "explanation": "Globbing is done by the shell before executing commands."
+    },
+    {
+      "id": 63,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Beginner",
+      "question": "What does `*` wildcard mean?",
+      "answer": "Matches any string (including empty).",
+      "explanation": "`ls *.txt` lists all files ending with `.txt`."
+    },
+    {
+      "id": 64,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Intermediate",
+      "question": "What does `?` wildcard match?",
+      "answer": "Exactly one character.",
+      "explanation": "`file?.txt` matches `file1.txt`, `fileA.txt`, but not `file10.txt`."
+    },
+    {
+      "id": 65,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Intermediate",
+      "question": "What does `[a-z]` in a glob pattern match?",
+      "answer": "A single character from the set `a` to `z` (lowercase letters).",
+      "explanation": "Character classes work similarly to regular expressions but are simpler."
+    },
+    {
+      "id": 66,
+      "topic": "File system mounting concept (mount, umount – overview)",
+      "difficulty": "Beginner",
+      "question": "What does `mount` command do?",
+      "answer": "Attaches a file system (e.g., a disk partition) to a directory (mount point) in the existing directory tree.",
+      "explanation": "`mount /dev/sdb1 /mnt` makes the partition accessible under `/mnt`."
+    },
+    {
+      "id": 67,
+      "topic": "File system mounting concept (mount, umount – overview)",
+      "difficulty": "Beginner",
+      "question": "What does `umount` do?",
+      "answer": "Detaches a mounted file system.",
+      "explanation": "`umount /mnt`; you cannot unmount if there are open files on it."
+    },
+    {
+      "id": 68,
+      "topic": "File system mounting concept (mount, umount – overview)",
+      "difficulty": "Intermediate",
+      "question": "What is a filesystem label and how to mount by label?",
+      "answer": "A label is a human‑readable name assigned to a filesystem; mount with `mount LABEL=mydata /mnt`.",
+      "explanation": "Labels are more persistent than device names (`/dev/sda1`) which can change."
+    },
+    {
+      "id": 69,
+      "topic": "Understanding disk partitions at a conceptual level",
+      "difficulty": "Beginner",
+      "question": "What is a disk partition?",
+      "answer": "A logical division of a physical disk, treated as a separate device (e.g., `/dev/sda1`, `/dev/sda2`).",
+      "explanation": "Partitions allow multiple operating systems or separate file systems on one disk."
+    },
+    {
+      "id": 70,
+      "topic": "Understanding disk partitions at a conceptual level",
+      "difficulty": "Beginner",
+      "question": "What is the difference between primary, extended, and logical partitions?",
+      "answer": "Primary partitions are bootable; extended is a container for logical partitions (needed to overcome the 4‑primary limit).",
+      "explanation": "MBR partitioning only allows 4 primary partitions; one can be extended to hold many logical partitions."
+    },
+    {
+      "id": 71,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Intermediate",
+      "question": "Why is `/usr` often mounted from a separate partition?",
+      "answer": "To allow sharing the `/usr` partition across multiple machines (e.g., via NFS) or to keep it read‑only for security.",
+      "explanation": "Some distributions now merge `/` and `/usr` but still support separation."
+    },
+    {
+      "id": 72,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Intermediate",
+      "question": "What is the `cd` command's behavior when `CDPATH` environment variable is set?",
+      "answer": "`cd` also searches directories listed in `CDPATH` if the argument is not found in the current directory.",
+      "explanation": "This can speed up navigation to frequently used directories."
+    },
+    {
+      "id": 73,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Intermediate",
+      "question": "How to list files sorted by size, showing sizes in human‑readable, and including hidden files?",
+      "answer": "`ls -alhS`",
+      "explanation": "Options can be combined; order does not matter."
+    },
+    {
+      "id": 74,
+      "topic": "Understanding inode numbers and file metadata",
+      "difficulty": "Advanced",
+      "question": "What is inode exhaustion?",
+      "answer": "When the file system runs out of inodes, even if disk space is available, preventing creation of new files.",
+      "explanation": "Occurs when many small files consume all inodes; use `df -i` to check."
+    },
+    {
+      "id": 75,
+      "topic": "Absolute vs relative paths with real-world folder trees",
+      "difficulty": "Intermediate",
+      "question": "What does the path `~` expand to?",
+      "answer": "The home directory of the current user (as set in `$HOME`).",
+      "explanation": "Tilde expansion is a shell feature, not a filesystem feature."
+    },
+    {
+      "id": 76,
+      "topic": "Hidden files and folders – why they exist and how they are used",
+      "difficulty": "Intermediate",
+      "question": "How to hide a file without renaming it?",
+      "answer": "You cannot; hiding is purely based on filename starting with a dot.",
+      "explanation": "You can rename: `mv visible .visible`."
+    },
+    {
+      "id": 77,
+      "topic": "Tree command – visualizing directory hierarchy",
+      "difficulty": "Beginner",
+      "question": "How to output the tree to a file?",
+      "answer": "`tree > tree.txt`",
+      "explanation": "Redirect the output to a text file."
+    },
+    {
+      "id": 78,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Advanced",
+      "question": "What is a FIFO (named pipe) and how is it represented in `ls -l`?",
+      "answer": "A named pipe (`p` as first character) – a special file used for inter‑process communication.",
+      "explanation": "Created with `mkfifo`; data written to one end can be read from the other."
+    },
+    {
+      "id": 79,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Intermediate",
+      "question": "What happens to a hard link when the original file is moved?",
+      "answer": "Nothing; both links still point to the same inode, so the file remains accessible.",
+      "explanation": "Hard links are indistinguishable; there is no 'original'."
+    },
+    {
+      "id": 80,
+      "topic": "stat command – reading file metadata",
+      "difficulty": "Advanced",
+      "question": "How to display the file system type using `stat`?",
+      "answer": "`stat -f -c %T file`",
+      "explanation": "`-f` shows file system statistics; `%T` is the file system type (e.g., `ext4`)."
+    },
+    {
+      "id": 81,
+      "topic": "locate, updatedb and find – searching files in large systems",
+      "difficulty": "Intermediate",
+      "question": "Why might `locate` not find a recently created file?",
+      "answer": "Because the `locate` database is not updated immediately; run `sudo updatedb` to refresh.",
+      "explanation": "The database is typically updated once a day via cron."
+    },
+    {
+      "id": 82,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Intermediate",
+      "question": "How to find files owned by user `www-data`?",
+      "answer": "`find / -user www-data`",
+      "explanation": "`-user` matches files owned by the given username or UID."
+    },
+    {
+      "id": 83,
+      "topic": "Tab completion and command history navigation",
+      "difficulty": "Beginner",
+      "question": "What is the shortcut to search backwards in command history?",
+      "answer": "`Ctrl+R` (reverse‑i‑search).",
+      "explanation": "Start typing, and the most recent matching command appears."
+    },
+    {
+      "id": 84,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Advanced",
+      "question": "What is extglob and how to enable it?",
+      "answer": "Extended globbing patterns (`+(pattern)`, `*(pattern)` etc.); enable with `shopt -s extglob` in bash.",
+      "explanation": "Allows complex pattern matching like `ls *.@(jpg|png)`."
+    },
+    {
+      "id": 85,
+      "topic": "File system mounting concept (mount, umount – overview)",
+      "difficulty": "Advanced",
+      "question": "What is a loop device and how is it used?",
+      "answer": "A pseudo‑device that makes a file accessible as a block device (`/dev/loopX`), used for mounting disk images.",
+      "explanation": "`mount -o loop image.iso /mnt`."
+    },
+    {
+      "id": 86,
+      "topic": "Understanding disk partitions at a conceptual level",
+      "difficulty": "Intermediate",
+      "question": "What is the GUID Partition Table (GPT)?",
+      "answer": "A modern partition table standard that replaces MBR, supporting larger disks and more partitions.",
+      "explanation": "GPT is used on systems with UEFI firmware and most modern Linux installations."
+    },
+    {
+      "id": 87,
+      "topic": "Linux directory structure: /, /bin, /sbin, /etc, /home, /root, /usr, /var, /tmp, /lib, /proc, /dev",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `/lib` and `/usr/lib`?",
+      "answer": "`/lib` contains libraries needed for booting (e.g., `ld-linux.so`); `/usr/lib` holds most other libraries.",
+      "explanation": "On merged systems, `/lib` is a symlink to `/usr/lib`."
+    },
+    {
+      "id": 88,
+      "topic": "pwd, ls, cd – absolute mastery",
+      "difficulty": "Advanced",
+      "question": "What does `cd` do when the argument begins with a single dash?",
+      "answer": "`cd -` goes to the previous directory (stored in `$OLDPWD`).",
+      "explanation": "`cd -- -` allows changing to a directory named `-` (literal dash)."
+    },
+    {
+      "id": 89,
+      "topic": "ls advanced options: -l, -a, -h, -R, -t, -S",
+      "difficulty": "Advanced",
+      "question": "What does `ls -l --block-size=M` do?",
+      "answer": "Displays file sizes in mebibytes (MiB) with long listing.",
+      "explanation": "`--block-size` overrides the default block size display; you can also use `--si` for powers of 1000."
+    },
+    {
+      "id": 90,
+      "topic": "Understanding inode numbers and file metadata",
+      "difficulty": "Intermediate",
+      "question": "How to find all files with a specific inode number?",
+      "answer": "`find / -inum 12345 -ls`",
+      "explanation": "Can be used to find all hard links to a file."
+    },
+    {
+      "id": 91,
+      "topic": "Absolute vs relative paths with real-world folder trees",
+      "difficulty": "Beginner",
+      "question": "What does the path `file.txt` refer to if you are in `/home/swadeep`?",
+      "answer": "`/home/swadeep/file.txt`",
+      "explanation": "Relative paths are resolved starting from the current working directory."
+    },
+    {
+      "id": 92,
+      "topic": "Hidden files and folders – why they exist and how they are used",
+      "difficulty": "Advanced",
+      "question": "Can `rm *` remove hidden files?",
+      "answer": "No, because `*` does not match files starting with a dot.",
+      "explanation": "To remove hidden files as well, use `rm .*` (but be careful with `..`)."
+    },
+    {
+      "id": 93,
+      "topic": "Tree command – visualizing directory hierarchy",
+      "difficulty": "Intermediate",
+      "question": "How to make `tree` show only directories (no files)?",
+      "answer": "`tree -d`",
+      "explanation": "`-d` restricts output to directories only."
+    },
+    {
+      "id": 94,
+      "topic": "Understanding file types: regular, directory, symbolic link, device file",
+      "difficulty": "Advanced",
+      "question": "What is a socket file and how is it shown in `ls -l`?",
+      "answer": "A special file used for inter‑process communication (Unix sockets); shown with `s` as the first character.",
+      "explanation": "Example: `/run/dbus/system_bus_socket`."
+    },
+    {
+      "id": 95,
+      "topic": "Symbolic links vs hard links – concept and use cases",
+      "difficulty": "Advanced",
+      "question": "Can you create a hard link to a symbolic link?",
+      "answer": "Yes, to the link file itself (not the target). The hard link points to the symlink inode.",
+      "explanation": "That is rarely useful; a hard link to a symlink behaves like any other hard link."
+    },
+    {
+      "id": 96,
+      "topic": "stat command – reading file metadata",
+      "difficulty": "Advanced",
+      "question": "How to display the raw creation time (birth time) if supported?",
+      "answer": "`stat -c %w file` or `%W` (in seconds since epoch).",
+      "explanation": "Not all file systems store birth time; ext4 does, `crtime` is a statx field."
+    },
+    {
+      "id": 97,
+      "topic": "locate, updatedb and find – searching files in large systems",
+      "difficulty": "Advanced",
+      "question": "What configuration file controls `locate` database location?",
+      "answer": "Typically `/etc/updatedb.conf` (controls paths excluded and database location).",
+      "explanation": "You can also set `PRUNEPATHS` to skip certain directories."
+    },
+    {
+      "id": 98,
+      "topic": "find with conditions: name, size, type, permissions, time",
+      "difficulty": "Advanced",
+      "question": "How to find files that are newer than a reference file?",
+      "answer": "`find . -newer ref_file`",
+      "explanation": "`-newer` compares modification times; there are also `-anewer` (access) and `-cnewer` (change)."
+    },
+    {
+      "id": 99,
+      "topic": "Tab completion and command history navigation",
+      "difficulty": "Intermediate",
+      "question": "How to clear the command history?",
+      "answer": "`history -c` (clears current session history) and also delete `~/.bash_history` for persistent.",
+      "explanation": "Be careful: other sessions might keep their own history."
+    },
+    {
+      "id": 100,
+      "topic": "Globbing patterns and pathname expansion",
+      "difficulty": "Advanced",
+      "question": "What is `nullglob` in bash and when is it useful?",
+      "answer": "`shopt -s nullglob` makes non‑matching globs expand to nothing (instead of the literal pattern).",
+      "explanation": "Useful in scripts to avoid processing the pattern as a filename."
+    },
+    {
+      "id": 101,
+      "topic": "File system mounting concept (mount, umount – overview)",
+      "difficulty": "Advanced",
+      "question": "What is a bind mount and how is it different from a symlink?",
+      "answer": "A bind mount makes an existing directory accessible at another mount point (the kernel sees it as a separate mount). A symlink is just a file pointing to a path.",
+      "explanation": "Bind mounts can be used to avoid symlinks for certain applications that cannot follow them."
+    },
+    {
+      "id": 102,
+      "topic": "Understanding disk partitions at a conceptual level",
+      "diff": "Advanced",
+      "question": "What is LVM (Logical Volume Manager)?",
+      "answer": "A layer that provides flexible disk management (volumes, snapshots, resizing) on top of physical disks.",
+      "explanation": "Instead of partitions, you have physical volumes, volume groups, and logical volumes."
+    }
+  ]
+}

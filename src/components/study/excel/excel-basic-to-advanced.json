@@ -536,8 +536,117 @@
             "Text, Date and Time Functions module"
           ],
           "previousModule": "excel-text-date-functions",
-          "nextModule": "excel-lookup-basics",
+          "nextModule": "excel-statistical-functions",
           "badge": "Logic Builder Badge"
+        },
+        {
+          "moduleId": "excel-statistical-functions",
+          "slug": "statistical-functions-analysis",
+          "title": "Statistical Functions for Data Analysis",
+          "level": "Intermediate",
+          "estimatedHours": 5,
+          "tags": [
+            "statistics",
+            "analysis",
+            "variance",
+            "correlation"
+          ],
+          "topics": [
+            "Revision: SUM Function",
+            "Revision: AVERAGE Function",
+            "Revision: MIN Function",
+            "Revision: MAX Function",
+            "Revision: COUNT Function",
+            "Revision: COUNTA Function",
+            "SUMIF Function (Single Condition Summation)",
+            "SUMIFS Function (Multiple Condition Summation)",
+            "COUNTIF Function (Single Condition Counting)",
+            "COUNTIFS Function (Multiple Condition Counting)",
+            "AVERAGEIF Function (Conditional Average)",
+            "AVERAGEIFS Function (Multiple Condition Average)",
+            "MEDIAN Function (Central Value Analysis)",
+            "MODE.SNGL Function (Single Mode Detection)",
+            "MODE.MULT Function (Multiple Modes Handling)",
+            "STDEV.S Function (Sample Standard Deviation)",
+            "STDEV.P Function (Population Standard Deviation)",
+            "VAR.S Function (Sample Variance)",
+            "VAR.P Function (Population Variance)",
+            "LARGE Function (Top N Value Extraction)",
+            "SMALL Function (Bottom N Value Extraction)",
+            "RANK.EQ Function (Standard Ranking)",
+            "RANK.AVG Function (Average Ranking for Ties)",
+            "QUARTILE.INC Function (Inclusive Quartiles)",
+            "QUARTILE.EXC Function (Exclusive Quartiles)",
+            "PERCENTILE.INC Function (Inclusive Percentiles)",
+            "PERCENTILE.EXC Function (Exclusive Percentiles)",
+            "PERCENTRANK.INC Function (Relative Ranking Percentage)",
+            "PERCENTRANK.EXC Function (Exclusive Percentage Ranking)",
+            "CORREL Function (Correlation Coefficient Analysis)",
+            "FORECAST.LINEAR Function (Linear Forecasting)",
+            "TREND Function (Trend Analysis with Multiple Values)",
+            "Handling Errors with IFERROR in Statistical Formulas",
+            "Handling Missing Data and Blanks in Analysis",
+            "Outlier Detection using Statistical Functions",
+            "Combining Statistical Functions with IF Logic",
+            "Practice: Multi-Condition Statistical Analysis",
+            "Practice: Real Dataset Interpretation",
+            "Test Your Skill"
+          ],
+          "learningOutcomes": [
+            "Calculate and interpret standard descriptive statistics in Excel",
+            "Use conditional statistical functions to answer targeted questions",
+            "Apply correlation and basic linear forecasting to real data",
+            "Identify outliers and understand data spread using variance and percentiles"
+          ],
+          "prerequisites": [
+            "excel-conditional-logic"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 7.5,
+          "summary": "Go beyond basic averages and learn to analyse data like a statistician – using variance, correlation, conditional aggregations and simple forecasting.",
+          "miniProjects": [
+            "Mini Project: Analyse a sales or student dataset – find median, standard deviation, correlation between study hours and marks, and forecast next period value"
+          ],
+          "exercises": {
+            "mcq": 15,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Practical Statistical Analysis Task",
+            "passScore": 75
+          },
+          "useCases": [
+            "Analysing exam score consistency (standard deviation) across subjects",
+            "Finding correlation between advertising spend and sales",
+            "Forecasting next month's revenue using historical data",
+            "Identifying top/bottom performing products with LARGE/SMALL"
+          ],
+          "careerSkills": [
+            "Data-driven decision making using statistical summaries",
+            "Preparing data for business intelligence reports",
+            "Understanding variability and relationships in datasets"
+          ],
+          "commonMistakes": [
+            "Confusing population (STDEV.P) vs sample (STDEV.S) standard deviation",
+            "Using correlation to imply causation without context",
+            "Not cleaning data (removing blanks/text) before statistical functions"
+          ],
+          "references": [
+            "Excel statistical functions documentation",
+            "Khan Academy statistics basics (complementary)"
+          ],
+          "teachingTips": [
+            "Compare AVERAGE vs MEDIAN with skewed data (e.g. income).",
+            "Show how correlation works with scatter plots before using CORREL.",
+            "Use real-world data: sports scores, weather, sales."
+          ],
+          "preReading": [
+            "Conditional Logic with IF and Related Functions module"
+          ],
+          "previousModule": "excel-conditional-logic",
+          "nextModule": "excel-lookup-basics",
+          "badge": "Statistical Analyst Badge"
         },
         {
           "moduleId": "excel-lookup-basics",
@@ -567,7 +676,7 @@
             "Avoid typical lookup errors by preparing data correctly"
           ],
           "prerequisites": [
-            "excel-conditional-logic"
+            "excel-statistical-functions"
           ],
           "difficulty": "Medium",
           "difficultyIndex": 8,
@@ -605,9 +714,9 @@
             "Show how to gradually move from VLOOKUP to INDEX-MATCH."
           ],
           "preReading": [
-            "Conditional Logic with IF and Related Functions module"
+            "Statistical Functions for Data Analysis module"
           ],
-          "previousModule": "excel-conditional-logic",
+          "previousModule": "excel-statistical-functions",
           "nextModule": "excel-pivot-intro",
           "badge": "Lookup Explorer Badge"
         },
@@ -691,6 +800,60 @@
       "level": "Advanced",
       "summary": "Build advanced analysis and reporting skills with data validation, data cleaning, what-if analysis and basic dashboards.",
       "modules": [
+        {
+          "moduleId": "excel-financial-functions",
+          "slug": "financial-functions-basic-to-advanced",
+          "title": "Financial Functions in Excel (Basic to Professional)",
+          "level": "Beginner to Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "finance",
+            "emi",
+            "loan",
+            "investment",
+            "npv",
+            "irr"
+          ],
+          "topics": [
+            "Introduction to Financial Functions in Excel",
+            "Understanding Time Value of Money (TVM)",
+            "Future Value (FV) – Investment growth calculation",
+            "Present Value (PV) – Current worth of future money",
+            "PMT – EMI calculation for loans",
+            "RATE – Interest rate calculation",
+            "NPER – Number of periods calculation",
+            "IPMT & PPMT – Interest and Principal breakdown",
+            "NPV – Net Present Value for projects",
+            "IRR – Internal Rate of Return",
+            "XNPV & XIRR – Advanced irregular cash flow analysis",
+            "Creating Loan EMI Calculator (Practical)",
+            "Investment Planning Sheet",
+            "Break-even & Profitability Analysis",
+            "Financial Dashboard (Mini Project)"
+          ],
+          "learningOutcomes": [
+            "Understand time value of money concepts",
+            "Calculate EMI, interest, and investment growth",
+            "Evaluate business projects using NPV and IRR",
+            "Build real-life financial models in Excel"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 8.5,
+          "miniProjects": [
+            "Loan EMI Calculator",
+            "Personal Investment Planner",
+            "Business Project Evaluation using NPV & IRR"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Practical Financial Model + Quiz",
+            "passScore": 75
+          }
+        },
         {
           "moduleId": "excel-data-validation-cleaning",
           "slug": "data-validation-and-cleaning",

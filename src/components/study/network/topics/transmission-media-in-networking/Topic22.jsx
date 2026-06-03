@@ -135,7 +135,7 @@ const Topic22 = () => {
         <div className="space-y-10">
           
           {/* Card: Why Case Studies Matter */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📚</span> Learning from Experience
             </h2>
@@ -155,7 +155,7 @@ const Topic22 = () => {
           </div>
           
           {/* Interactive Case Study Selector */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🔍</span> Explore Case Studies
             </h2>
@@ -230,7 +230,7 @@ const Topic22 = () => {
           </div>
           
           {/* Comparison Matrix: Case Study Media Choices */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📊</span> Media Selection Summary
             </h2>
@@ -259,7 +259,7 @@ const Topic22 = () => {
           </div>
           
           {/* Key Takeaways Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🔑</span> Key Takeaways for Professionals
             </h2>
@@ -286,7 +286,7 @@ const Topic22 = () => {
           </div>
           
           {/* Tips & Tricks from Real Engineers */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">💎</span> Professional Tips from Case Study Engineers
             </h2>
@@ -307,7 +307,7 @@ const Topic22 = () => {
           </div>
           
           {/* Common Mistakes Observed in Real Cases */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-600 dark:text-red-400">
               <span className="text-3xl">⚠️</span> Common Real-World Pitfalls
             </h2>
@@ -328,7 +328,7 @@ const Topic22 = () => {
           </div>
           
           {/* Best Practices Derived from Case Studies */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-green-600 dark:text-green-400">
               <span className="text-3xl">✅</span> Best Practices from Success Stories
             </h2>
@@ -355,7 +355,7 @@ const Topic22 = () => {
           </div>
           
           {/* Hint Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">💭</span> Think About...
             </h2>
@@ -368,12 +368,12 @@ const Topic22 = () => {
           </div>
           
           {/* Teacher's Note */}
-          <div className="animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s]  ">
             <Teacher note="Case studies are where theory becomes memorable. I've found that students remember the 'factory that failed with UTP' long after they forget BER formulas. Encourage debate: 'Would you have chosen differently?' The rural school case is particularly effective — it shows that 'best' doesn't mean 'fiber everywhere' — budget and local skills matter. Use local examples (Barrackpore, Shyamnagar) to make it relatable. For advanced students, ask them to design a hybrid solution combining elements from multiple cases." />
           </div>
           
           {/* Q&A Section */}
-          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s]  ">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <span className="text-3xl">❓</span> 15 Questions & Answers
             </h2>

@@ -56,7 +56,7 @@ const Topic23 = () => {
         <div className="space-y-10">
           
           {/* Card: What is the Internet Backbone? */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🌐</span> The Backbone of the Internet
             </h2>
@@ -76,7 +76,7 @@ const Topic23 = () => {
           </div>
           
           {/* SVG: Backbone Architecture Illustration */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📡</span> Backbone Architecture
             </h2>
@@ -161,7 +161,7 @@ const Topic23 = () => {
           </div>
           
           {/* DWDM Technology Card */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🌈</span> DWDM: Multiplying Capacity
             </h2>
@@ -206,7 +206,7 @@ const Topic23 = () => {
           </div>
           
           {/* Backbone Layers Table */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📊</span> Backbone Hierarchy
             </h2>
@@ -235,7 +235,7 @@ const Topic23 = () => {
           </div>
           
           {/* Undersea Cables Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🌊</span> Undersea Fiber Cables
             </h2>
@@ -262,7 +262,7 @@ const Topic23 = () => {
           </div>
           
           {/* Real-World Case: Debangshu's Video Call */}
-          <div className="group bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-purple-200 dark:border-purple-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-purple-200 dark:border-purple-800 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">📹</span> Real-World: Debangshu's International Video Call
             </h2>
@@ -298,7 +298,7 @@ const Topic23 = () => {
           </div>
           
           {/* Tips & Tricks */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">💎</span> Professional Tips & Tricks
             </h2>
@@ -324,7 +324,7 @@ const Topic23 = () => {
           </div>
           
           {/* Common Mistakes */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-600 dark:text-red-400">
               <span className="text-3xl">⚠️</span> Common Pitfalls
             </h2>
@@ -345,7 +345,7 @@ const Topic23 = () => {
           </div>
           
           {/* Best Practices */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-green-600 dark:text-green-400">
               <span className="text-3xl">✅</span> Best Practices for Backbone Networks
             </h2>
@@ -372,7 +372,7 @@ const Topic23 = () => {
           </div>
           
           {/* Hint Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">💭</span> Think About...
             </h2>
@@ -384,12 +384,12 @@ const Topic23 = () => {
           </div>
           
           {/* Teacher's Note */}
-          <div className="animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s]  ">
             <Teacher note="The backbone is where fiber's advantages become undeniable. Students often don't realize that when they video call someone across the world, their data traverses thousands of kilometers of glass fibers under the ocean. The DWDM interactive demo helps them grasp how capacity scales — from a single laser to 160 colors of light. Emphasize that backbone networks use single-mode fiber (not multi-mode) because distances are huge. Show them undersea cable maps online — it's mind-blowing to see the physical infrastructure enabling global connectivity." />
           </div>
           
           {/* Q&A Section */}
-          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.2s]  ">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <span className="text-3xl">❓</span> 15 Questions & Answers
             </h2>

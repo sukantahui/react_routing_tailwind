@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.school</groupId>
+    <artifactId>hibernate-reveng</artifactId>
+    <version>1.0</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <components>
+                        <component>
+                            <name>hbm2java</name>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                        </component>
+                        <component>
+                            <name>hbm2ddl</name>
+                            <outputDirectory>${project.build.directory}/ddl</outputDirectory>
+                        </component>
+                    </components>
+                    <componentProperties>
+                        <persistenceunit>schoolPU</persistenceunit>
+                        <configurationfile>src/main/resources/hibernate.cfg.xml</configurationfile>
+                        <revengfile>src/main/resources/hibernate.reveng.xml</revengfile>
+                        <drop>true</drop>
+                        <create>true</create>
+                        <export>false</export>
+                        <outputfilename>schema.sql</outputfilename>
+                    </componentProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

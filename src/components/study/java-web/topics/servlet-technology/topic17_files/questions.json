@@ -1,0 +1,2715 @@
+{
+  "subject": "Servlet Lifecycle",
+  "class": "Any",
+  "board": "ICSE",
+  "topic": "Servlet Lifecycle Short Questions",
+  "subjectLogo": {
+    "name": "Java",
+    "icon": "java",
+    "type": "svg",
+    "path": "/logos/Java-original.svg",
+    "alt": "Java Programming Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "What are the three main lifecycle methods of a servlet?",
+      "output": "init(), service(), destroy()",
+      "answer": "init(), service(), destroy()",
+      "explanation": "The container calls init() once when the servlet is loaded, service() for each request, and destroy() when unloading."
+    },
+    {
+      "id": 2,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "Which method is called first when a servlet is instantiated?",
+      "output": "init()",
+      "answer": "init()",
+      "explanation": "init() initialises the servlet and receives a ServletConfig object."
+    },
+    {
+      "id": 3,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "Which method handles client requests?",
+      "output": "service()",
+      "answer": "service()",
+      "explanation": "service() dispatches requests to doGet, doPost, etc., based on HTTP method."
+    },
+    {
+      "id": 4,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "When is the destroy() method called?",
+      "output": "Before the servlet is removed from service (e.g., application shutdown).",
+      "answer": "Before the servlet is removed from service (e.g., application shutdown).",
+      "explanation": "destroy() allows cleanup of resources."
+    },
+    {
+      "id": 5,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "How many times is init() called for a servlet in its lifetime?",
+      "output": "Once",
+      "answer": "Once",
+      "explanation": "The servlet instance is reused for multiple requests; init() runs only once."
+    },
+    {
+      "id": 6,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "What interface must a servlet implement?",
+      "output": "javax.servlet.Servlet",
+      "answer": "javax.servlet.Servlet",
+      "explanation": "GenericServlet and HttpServlet implement this interface."
+    },
+    {
+      "id": 7,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Beginner",
+      "question": "What is the superclass of most servlets?",
+      "output": "HttpServlet",
+      "answer": "HttpServlet",
+      "explanation": "HttpServlet provides HTTP‑specific methods like doGet and doPost."
+    },
+    {
+      "id": 8,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What happens if init() throws a ServletException?",
+      "output": "The servlet is not placed into service, and the container may try again later or log an error.",
+      "answer": "The servlet is not placed into service, and the container may try again later or log an error.",
+      "explanation": "The servlet instance is discarded, and a new instance may be created on subsequent requests."
+    },
+    {
+      "id": 9,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the service() method in HttpServlet?",
+      "output": "It dispatches the request to the appropriate doXXX method based on HTTP method.",
+      "answer": "It dispatches the request to the appropriate doXXX method based on HTTP method.",
+      "explanation": "You rarely override service() directly; override doGet/doPost instead."
+    },
+    {
+      "id": 10,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Can a servlet have multiple init() methods?",
+      "output": "No, only one init(ServletConfig) is allowed, but you can overload custom init methods.",
+      "answer": "No, only one init(ServletConfig) is allowed, but you can overload custom init methods.",
+      "explanation": "The container calls init(ServletConfig); you can call other init methods from it."
+    },
+    {
+      "id": 11,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the default load‑on‑startup value for a servlet?",
+      "output": "Negative (lazy loading)",
+      "answer": "Negative (lazy loading)",
+      "explanation": "A negative value means the servlet is loaded on the first request; a non‑negative integer loads at startup, with smaller numbers loaded first."
+    },
+    {
+      "id": 12,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "How can you force a servlet to load at application startup?",
+      "output": "Set <load-on-startup> in web.xml or loadOnStartup attribute in @WebServlet.",
+      "answer": "Set <load-on-startup> in web.xml or loadOnStartup attribute in @WebServlet.",
+      "explanation": "Example: @WebServlet(loadOnStartup=1)"
+    },
+    {
+      "id": 13,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Which method is called after the servlet is destroyed?",
+      "output": "No method – the instance becomes eligible for garbage collection.",
+      "answer": "No method – the instance becomes eligible for garbage collection.",
+      "explanation": "destroy() is the last lifecycle method; after that, the servlet is removed."
+    },
+    {
+      "id": 14,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "Can a servlet be used again after destroy()?",
+      "output": "No, a new servlet instance will be created if needed.",
+      "answer": "No, a new servlet instance will be created if needed.",
+      "explanation": "Once destroyed, the instance cannot handle more requests."
+    },
+    {
+      "id": 15,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between GenericServlet and HttpServlet?",
+      "output": "GenericServlet is protocol‑independent; HttpServlet adds HTTP support.",
+      "answer": "GenericServlet is protocol‑independent; HttpServlet adds HTTP support.",
+      "explanation": "Most web applications use HttpServlet."
+    },
+    {
+      "id": 16,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the order of method calls when a request arrives?",
+      "output": "service() → doGet()/doPost() etc.",
+      "answer": "service() → doGet()/doPost() etc.",
+      "explanation": "The container calls service(), which then calls the appropriate doXXX method."
+    },
+    {
+      "id": 17,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the ServletConfig object passed to init()?",
+      "output": "It contains servlet‑specific initialisation parameters and a reference to ServletContext.",
+      "answer": "It contains servlet‑specific initialisation parameters and a reference to ServletContext.",
+      "explanation": "You can retrieve init parameters via getInitParameter()."
+    },
+    {
+      "id": 18,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What happens if you call super.init(config) in your init() method?",
+      "output": "It stores the config object so that getServletConfig() works later.",
+      "answer": "It stores the config object so that getServletConfig() works later.",
+      "explanation": "If you override init(), you should call super.init(config) to preserve configuration."
+    },
+    {
+      "id": 19,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "Can a servlet be instantiated multiple times?",
+      "output": "Typically no – one instance per servlet declaration, unless declared as SingleThreadModel (deprecated).",
+      "answer": "Typically no – one instance per servlet declaration, unless declared as SingleThreadModel (deprecated).",
+      "explanation": "Modern servlets are thread‑safe and reuse a single instance."
+    },
+    {
+      "id": 20,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the SingleThreadModel interface?",
+      "output": "An interface (now deprecated) that forced the container to serialise requests to the servlet, or use multiple instances.",
+      "answer": "An interface (now deprecated) that forced the container to serialise requests to the servlet, or use multiple instances.",
+      "explanation": "It is inefficient; better to make servlets thread‑safe manually."
+    },
+    {
+      "id": 21,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the Java EE / Jakarta Servlet specification version that removed SingleThreadModel?",
+      "output": "Servlet 2.4 (deprecated) and removed in later versions.",
+      "answer": "Servlet 2.4 (deprecated) and removed in later versions.",
+      "explanation": "SingleThreadModel is not available in Servlet 3.0+."
+    },
+    {
+      "id": 22,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What method in HttpServlet allows you to handle all HTTP methods in one place?",
+      "output": "service()",
+      "answer": "service()",
+      "explanation": "You can override service() to handle all methods, but usually you override specific doXXX."
+    },
+    {
+      "id": 23,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What exception can be thrown from service() to indicate a permanent problem?",
+      "output": "ServletException or UnavailableException",
+      "answer": "ServletException or UnavailableException",
+      "explanation": "UnavailableException can indicate whether the servlet is temporarily or permanently unavailable."
+    },
+    {
+      "id": 24,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the difference between init() and a constructor?",
+      "output": "init() is called after the constructor and after the servlet has been deployed; it has access to ServletConfig.",
+      "answer": "init() is called after the constructor and after the servlet has been deployed; it has access to ServletConfig.",
+      "explanation": "Avoid using the constructor for servlet logic; use init()."
+    },
+    {
+      "id": 25,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "Can you call destroy() manually?",
+      "output": "You can call it, but the container will not be aware; it should not be called by application code.",
+      "answer": "You can call it, but the container will not be aware; it should not be called by application code.",
+      "explanation": "Container manages lifecycle; manual destroy may cause undefined behaviour."
+    },
+    {
+      "id": 26,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the getServletInfo() method?",
+      "output": "Returns a string with servlet information, such as author, version, and copyright.",
+      "answer": "Returns a string with servlet information, such as author, version, and copyright.",
+      "explanation": "Used by administration tools."
+    },
+    {
+      "id": 27,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What happens if a servlet throws an exception from doGet()?",
+      "output": "The container sends an error response (usually 500) or forwards to an error page if configured.",
+      "answer": "The container sends an error response (usually 500) or forwards to an error page if configured.",
+      "explanation": "The servlet instance is not destroyed; it can handle future requests."
+    },
+    {
+      "id": 28,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "Which method is called when the servlet is about to be removed due to container shutdown?",
+      "output": "destroy()",
+      "answer": "destroy()",
+      "explanation": "Implement cleanup code in destroy()."
+    },
+    {
+      "id": 29,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the relationship between ServletContext and servlet lifecycle?",
+      "output": "ServletContext lives for the entire application; each servlet shares the same context.",
+      "answer": "ServletContext lives for the entire application; each servlet shares the same context.",
+      "explanation": "Context is created before any servlet init() and destroyed after all destroy()."
+    },
+    {
+      "id": 30,
+      "topic": "Servlet Lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the log() method in GenericServlet?",
+      "output": "Writes a message to the servlet container's log file.",
+      "answer": "Writes a message to the servlet container's log file.",
+      "explanation": "Useful for debugging and monitoring."
+    },
+    {
+      "id": 31,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "What are the two main HTTP methods used in web applications?",
+      "output": "GET and POST",
+      "answer": "GET and POST",
+      "explanation": "GET retrieves data; POST submits data."
+    },
+    {
+      "id": 32,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "Which HTTP method should be idempotent?",
+      "output": "GET, PUT, DELETE",
+      "answer": "GET, PUT, DELETE",
+      "explanation": "Idempotent means repeated requests have the same effect."
+    },
+    {
+      "id": 33,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of the HttpServletRequest object?",
+      "output": "To provide client request information to the servlet.",
+      "answer": "To provide client request information to the servlet.",
+      "explanation": "It contains headers, parameters, and the request body."
+    },
+    {
+      "id": 34,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "How do you get a request parameter named 'user'?",
+      "output": "request.getParameter(\"user\")",
+      "answer": "request.getParameter(\"user\")",
+      "explanation": "Returns the parameter value as a String."
+    },
+    {
+      "id": 35,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "What is the difference between doGet() and doPost()?",
+      "output": "doGet() is used for GET requests; doPost() for POST requests.",
+      "answer": "doGet() is used for GET requests; doPost() for POST requests.",
+      "explanation": "GET parameters are in URL; POST parameters are in the body."
+    },
+    {
+      "id": 36,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "What method sets the content type of the response?",
+      "output": "response.setContentType()",
+      "answer": "response.setContentType()",
+      "explanation": "E.g., response.setContentType(\"text/html\");"
+    },
+    {
+      "id": 37,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "How do you get the HTTP method of the request?",
+      "output": "request.getMethod()",
+      "answer": "request.getMethod()",
+      "explanation": "Returns the HTTP method (GET, POST, etc.)."
+    },
+    {
+      "id": 38,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Beginner",
+      "question": "Which class represents the response object?",
+      "output": "HttpServletResponse",
+      "answer": "HttpServletResponse",
+      "explanation": "Used to send data back to the client."
+    },
+    {
+      "id": 39,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum size of a GET request URL?",
+      "output": "Not defined by spec, but browsers limit to ~2000 characters.",
+      "answer": "Not defined by spec, but browsers limit to ~2000 characters.",
+      "explanation": "POST has no such limit."
+    },
+    {
+      "id": 40,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What is a query string?",
+      "output": "The part of the URL after '?' containing key=value pairs.",
+      "answer": "The part of the URL after '?' containing key=value pairs.",
+      "explanation": "Query parameters are parsed with getQueryString() or getParameter()."
+    },
+    {
+      "id": 41,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "How do you get the request URI?",
+      "output": "request.getRequestURI()",
+      "answer": "request.getRequestURI()",
+      "explanation": "Returns the part of the URL after the context path."
+    },
+    {
+      "id": 42,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What does response.sendError(404) do?",
+      "output": "Sends a 404 error page to the client.",
+      "answer": "Sends a 404 error page to the client.",
+      "explanation": "Also calls the container's default error page or a custom one."
+    },
+    {
+      "id": 43,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "How do you set a response header?",
+      "output": "response.setHeader(\"HeaderName\", \"value\")",
+      "answer": "response.setHeader(\"HeaderName\", \"value\")",
+      "explanation": "Example: response.setHeader(\"Cache-Control\", \"no-cache\");"
+    },
+    {
+      "id": 44,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between request.getParameter() and request.getAttribute()?",
+      "output": "getParameter() retrieves client‑sent parameters; getAttribute() retrieves server‑side objects set by the application.",
+      "answer": "getParameter() retrieves client‑sent parameters; getAttribute() retrieves server‑side objects set by the application.",
+      "explanation": "Attributes are set with setAttribute() and used for internal communication."
+    },
+    {
+      "id": 45,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What method is used to send a redirect response?",
+      "output": "response.sendRedirect(String location)",
+      "answer": "response.sendRedirect(String location)",
+      "explanation": "Sends a 302 status with the Location header."
+    },
+    {
+      "id": 46,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "What is the default HTTP method for an HTML form if not specified?",
+      "output": "GET",
+      "answer": "GET",
+      "explanation": "You should specify method=\"POST\" for forms that modify data."
+    },
+    {
+      "id": 47,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Intermediate",
+      "question": "How can you read the request body for a POST request?",
+      "output": "Use request.getReader() or request.getInputStream()",
+      "answer": "Use request.getReader() or request.getInputStream()",
+      "explanation": "For text, getReader() returns a BufferedReader."
+    },
+    {
+      "id": 48,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the difference between request.getInputStream() and request.getReader()?",
+      "output": "getInputStream() returns ServletInputStream for binary; getReader() returns BufferedReader for text.",
+      "answer": "getInputStream() returns ServletInputStream for binary; getReader() returns BufferedReader for text.",
+      "explanation": "You cannot use both on the same request."
+    },
+    {
+      "id": 49,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of request.getParts()?",
+      "output": "To get all uploaded file parts in a multipart request.",
+      "answer": "To get all uploaded file parts in a multipart request.",
+      "explanation": "Requires @MultipartConfig annotation."
+    },
+    {
+      "id": 50,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What does response.setStatus(200) do?",
+      "output": "Sets the HTTP status code to 200 (OK).",
+      "answer": "Sets the HTTP status code to 200 (OK).",
+      "explanation": "Normally you don't need to set success status; it's default."
+    },
+    {
+      "id": 51,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "How do you get all request header names?",
+      "output": "request.getHeaderNames()",
+      "answer": "request.getHeaderNames()",
+      "explanation": "Returns an Enumeration of Strings."
+    },
+    {
+      "id": 52,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of request.getLocale()?",
+      "output": "Returns the client's preferred locale based on Accept-Language header.",
+      "answer": "Returns the client's preferred locale based on Accept-Language header.",
+      "explanation": "Used for internationalisation."
+    },
+    {
+      "id": 53,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the difference between response.getWriter() and response.getOutputStream()?",
+      "output": "getWriter() returns PrintWriter for text; getOutputStream() returns ServletOutputStream for binary.",
+      "answer": "getWriter() returns PrintWriter for text; getOutputStream() returns ServletOutputStream for binary.",
+      "explanation": "You cannot use both; choose one."
+    },
+    {
+      "id": 54,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is a conditional GET request?",
+      "output": "A GET request with If-Modified-Since header to check if resource has changed.",
+      "answer": "A GET request with If-Modified-Since header to check if resource has changed.",
+      "explanation": "Response may be 304 Not Modified."
+    },
+    {
+      "id": 55,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What method is used to set the character encoding of the request?",
+      "output": "request.setCharacterEncoding(String env)",
+      "answer": "request.setCharacterEncoding(String env)",
+      "explanation": "Must be called before reading request parameters."
+    },
+    {
+      "id": 56,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a forward and a redirect in terms of HTTP response?",
+      "output": "Forward is internal (no new request), redirect sends a 302/Location header to client.",
+      "answer": "Forward is internal (no new request), redirect sends a 302/Location header to client.",
+      "explanation": "Redirect changes the URL in the browser."
+    },
+    {
+      "id": 57,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "How can you prevent the browser from caching a response?",
+      "output": "Set headers: Cache-Control: no-cache, no-store, must-revalidate.",
+      "answer": "Set headers: Cache-Control: no-cache, no-store, must-revalidate.",
+      "explanation": "Use response.setHeader() for these values."
+    },
+    {
+      "id": 58,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of request.getSession()?",
+      "output": "Creates or returns an existing HttpSession object.",
+      "answer": "Creates or returns an existing HttpSession object.",
+      "explanation": "Session is used to maintain state across requests."
+    },
+    {
+      "id": 59,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the maximum size of a request header?",
+      "output": "Container‑dependent (e.g., Tomcat default ~8KB).",
+      "answer": "Container‑dependent (e.g., Tomcat default ~8KB).",
+      "explanation": "Large headers may cause errors."
+    },
+    {
+      "id": 60,
+      "topic": "HTTP Request and Response",
+      "difficulty": "Advanced",
+      "question": "What is the difference between response.encodeURL() and response.encodeRedirectURL()?",
+      "output": "encodeURL() is for general URLs; encodeRedirectURL() is specifically for sendRedirect().",
+      "answer": "encodeURL() is for general URLs; encodeRedirectURL() is specifically for sendRedirect().",
+      "explanation": "Both add session ID if cookies are disabled."
+    },
+    {
+      "id": 61,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "What is the name of the deployment descriptor file?",
+      "output": "web.xml",
+      "answer": "web.xml",
+      "explanation": "It resides in WEB-INF directory of the web application."
+    },
+    {
+      "id": 62,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "What is the root element of web.xml?",
+      "output": "<web-app>",
+      "answer": "<web-app>",
+      "explanation": "All configuration is enclosed within this element."
+    },
+    {
+      "id": 63,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "Which element is used to define a servlet?",
+      "output": "<servlet>",
+      "answer": "<servlet>",
+      "explanation": "Inside <servlet>, you specify <servlet-name> and <servlet-class>."
+    },
+    {
+      "id": 64,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "How do you map a URL pattern to a servlet?",
+      "output": "Using <servlet-mapping> with <url-pattern>.",
+      "answer": "Using <servlet-mapping> with <url-pattern>.",
+      "explanation": "The <servlet-name> inside mapping must match the servlet definition."
+    },
+    {
+      "id": 65,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "Where is web.xml located in a standard web application?",
+      "output": "/WEB-INF/web.xml",
+      "answer": "/WEB-INF/web.xml",
+      "explanation": "The WEB-INF folder is not accessible directly by clients."
+    },
+    {
+      "id": 66,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of <init-param> in web.xml?",
+      "output": "To provide servlet‑specific initialisation parameters.",
+      "answer": "To provide servlet‑specific initialisation parameters.",
+      "explanation": "These can be accessed via ServletConfig.getInitParameter()."
+    },
+    {
+      "id": 67,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Beginner",
+      "question": "What is the <load-on-startup> element used for?",
+      "output": "To specify when a servlet should be loaded (positive numbers load at startup, negative loads on first request).",
+      "answer": "To specify when a servlet should be loaded (positive numbers load at startup, negative loads on first request).",
+      "explanation": "The smaller the integer, the earlier it is loaded."
+    },
+    {
+      "id": 68,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "What is the <context-param> element used for?",
+      "output": "To define application‑wide parameters accessible via ServletContext.",
+      "answer": "To define application‑wide parameters accessible via ServletContext.",
+      "explanation": "All servlets and JSPs can read context parameters."
+    },
+    {
+      "id": 69,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "How do you define a filter in web.xml?",
+      "output": "Using <filter> and <filter-mapping> elements.",
+      "answer": "Using <filter> and <filter-mapping> elements.",
+      "explanation": "<filter> defines the filter class; <filter-mapping> specifies URL patterns."
+    },
+    {
+      "id": 70,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of <welcome-file-list>?",
+      "output": "To specify the default pages to be returned when the context root is accessed.",
+      "answer": "To specify the default pages to be returned when the context root is accessed.",
+      "explanation": "The container tries each welcome file in order."
+    },
+    {
+      "id": 71,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "How do you define an error page for HTTP 404 in web.xml?",
+      "output": "<error-page><error-code>404</error-code><location>/error/404.html</location></error-page>",
+      "answer": "<error-page><error-code>404</error-code><location>/error/404.html</location></error-page>",
+      "explanation": "You can also map by exception type."
+    },
+    {
+      "id": 72,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "What does the <session-config> element do?",
+      "output": "Sets the session timeout (in minutes) for the application.",
+      "answer": "Sets the session timeout (in minutes) for the application.",
+      "explanation": "Example: <session-timeout>30</session-timeout>."
+    },
+    {
+      "id": 73,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Intermediate",
+      "question": "Can you have multiple <servlet-mapping> for the same servlet?",
+      "output": "Yes, each <servlet-mapping> defines a different URL pattern for the same servlet.",
+      "answer": "Yes, each <servlet-mapping> defines a different URL pattern for the same servlet.",
+      "explanation": "The servlet will be invoked for any matching pattern."
+    },
+    {
+      "id": 74,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <metadata-complete> attribute in web.xml?",
+      "output": "If true, the container ignores annotations (e.g., @WebServlet).",
+      "answer": "If true, the container ignores annotations (e.g., @WebServlet).",
+      "explanation": "Defaults to false; used to avoid scanning for annotations."
+    },
+    {
+      "id": 75,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of <absolute-ordering>?",
+      "output": "Specifies the absolute order of processing web fragments.",
+      "answer": "Specifies the absolute order of processing web fragments.",
+      "explanation": "Used to avoid conflicts when multiple JARs define web.xml fragments."
+    },
+    {
+      "id": 76,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is a web fragment?",
+      "output": "A partial web.xml in a JAR file (META-INF/web-fragment.xml).",
+      "answer": "A partial web.xml in a JAR file (META-INF/web-fragment.xml).",
+      "explanation": "Allows modular configuration of servlets, filters, etc."
+    },
+    {
+      "id": 77,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "How do you reference an environment entry in web.xml?",
+      "output": "Using <env-entry> with <env-entry-name> and <env-entry-value>.",
+      "answer": "Using <env-entry> with <env-entry-name> and <env-entry-value>.",
+      "explanation": "Accessible via InitialContext.lookup() in JNDI."
+    },
+    {
+      "id": 78,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <security-constraint> element used for?",
+      "output": "To define URL patterns that require authentication and specific roles.",
+      "answer": "To define URL patterns that require authentication and specific roles.",
+      "explanation": "Used with <login-config> for declarative security."
+    },
+    {
+      "id": 79,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What does <auth-constraint> declare?",
+      "output": "Which roles are allowed to access the web resource collection.",
+      "answer": "Which roles are allowed to access the web resource collection.",
+      "explanation": "If empty or missing, no authenticated access is allowed."
+    },
+    {
+      "id": 80,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of <form-login-config>?",
+      "output": "Defines the login and error pages for FORM‑based authentication.",
+      "answer": "Defines the login and error pages for FORM‑based authentication.",
+      "explanation": "Used inside <login-config> with auth-method FORM."
+    },
+    {
+      "id": 81,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <dispatcher> element in <filter-mapping>?",
+      "output": "Specifies which request dispatcher types (REQUEST, FORWARD, INCLUDE, ERROR, ASYNC) the filter applies to.",
+      "answer": "Specifies which request dispatcher types (REQUEST, FORWARD, INCLUDE, ERROR, ASYNC) the filter applies to.",
+      "explanation": "By default, only REQUEST."
+    },
+    {
+      "id": 82,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "How can you make a servlet handle multiple URL patterns in web.xml?",
+      "output": "Use multiple <url-pattern> entries under the same <servlet-mapping>.",
+      "answer": "Use multiple <url-pattern> entries under the same <servlet-mapping>.",
+      "explanation": "Example: <url-pattern>/api/*</url-pattern> <url-pattern>*.json</url-pattern>"
+    },
+    {
+      "id": 83,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <resource-ref> element used for?",
+      "output": "To declare a reference to a JNDI resource (e.g., DataSource).",
+      "answer": "To declare a reference to a JNDI resource (e.g., DataSource).",
+      "explanation": "The resource is then looked up via InitialContext."
+    },
+    {
+      "id": 84,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <mime-mapping> element?",
+      "output": "Maps a file extension to a MIME type for static resources.",
+      "answer": "Maps a file extension to a MIME type for static resources.",
+      "explanation": "Example: <extension>pdf</extension> <mime-type>application/pdf</mime-type>"
+    },
+    {
+      "id": 85,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What does <jsp-config> contain?",
+      "output": "Configuration for JSPs, including taglibs and property groups.",
+      "answer": "Configuration for JSPs, including taglibs and property groups.",
+      "explanation": "Can define preludes and codas for JSPs."
+    },
+    {
+      "id": 86,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <async-supported> flag in <servlet>?",
+      "output": "Indicates whether asynchronous processing is supported (default false).",
+      "answer": "Indicates whether asynchronous processing is supported (default false).",
+      "explanation": "Must be true to call request.startAsync()."
+    },
+    {
+      "id": 87,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <multipart-config> element?",
+      "output": "Sets file upload limits and location for multipart requests.",
+      "answer": "Sets file upload limits and location for multipart requests.",
+      "explanation": "Alternative to @MultipartConfig annotation."
+    },
+    {
+      "id": 88,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "How do you set the default context path in web.xml?",
+      "output": "Not possible; context path is set by the container during deployment.",
+      "answer": "Not possible; context path is set by the container during deployment.",
+      "explanation": "You can set it in server.xml (Tomcat) or via application server configuration."
+    },
+    {
+      "id": 89,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "What is the <distributable> element?",
+      "output": "Indicates that the web application is designed to be distributed across multiple containers.",
+      "answer": "Indicates that the web application is designed to be distributed across multiple containers.",
+      "explanation": "Session replication must be supported if used."
+    },
+    {
+      "id": 90,
+      "topic": "Deployment Descriptor (web.xml)",
+      "difficulty": "Advanced",
+      "question": "Can you have a web.xml file with version 4.0?",
+      "output": "Yes, from Servlet 4.0 (Java EE 8 / Jakarta EE 8).",
+      "answer": "Yes, from Servlet 4.0 (Java EE 8 / Jakarta EE 8).",
+      "explanation": "The namespace is xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\" for 4.0."
+    },
+    {
+      "id": 91,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "What is ServletConfig?",
+      "output": "An object that provides servlet‑specific initialisation parameters.",
+      "answer": "An object that provides servlet‑specific initialisation parameters.",
+      "explanation": "Each servlet has its own ServletConfig."
+    },
+    {
+      "id": 92,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "What is ServletContext?",
+      "output": "An object shared by all servlets in a web application, providing application‑wide parameters.",
+      "answer": "An object shared by all servlets in a web application, providing application‑wide parameters.",
+      "explanation": "There is one ServletContext per web application."
+    },
+    {
+      "id": 93,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "How do you get ServletConfig inside a servlet?",
+      "output": "Using getServletConfig() method.",
+      "answer": "Using getServletConfig() method.",
+      "explanation": "Available in any servlet (inherited from GenericServlet)."
+    },
+    {
+      "id": 94,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "How do you get ServletContext inside a servlet?",
+      "output": "Using getServletContext() method.",
+      "answer": "Using getServletContext() method.",
+      "explanation": "Also available via ServletConfig.getServletContext()."
+    },
+    {
+      "id": 95,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "Which object is used to set application‑wide attributes?",
+      "output": "ServletContext",
+      "answer": "ServletContext",
+      "explanation": "Use context.setAttribute(name, object)."
+    },
+    {
+      "id": 96,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Beginner",
+      "question": "What is the scope of attributes stored in ServletContext?",
+      "output": "Application scope (shared across all sessions and requests).",
+      "answer": "Application scope (shared across all sessions and requests).",
+      "explanation": "Attributes live as long as the web application is running."
+    },
+    {
+      "id": 97,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "How do you read an init parameter from web.xml using ServletConfig?",
+      "output": "config.getInitParameter(\"paramName\")",
+      "answer": "config.getInitParameter(\"paramName\")",
+      "explanation": "Defined within <init-param> under <servlet>."
+    },
+    {
+      "id": 98,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "How do you read a context parameter using ServletContext?",
+      "output": "context.getInitParameter(\"paramName\")",
+      "answer": "context.getInitParameter(\"paramName\")",
+      "explanation": "Defined within <context-param> in web.xml."
+    },
+    {
+      "id": 99,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between ServletConfig and ServletContext?",
+      "output": "ServletConfig is per servlet; ServletContext is per application.",
+      "answer": "ServletConfig is per servlet; ServletContext is per application.",
+      "explanation": "Both can hold parameters, but their scope differs."
+    },
+    {
+      "id": 100,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "Can you store a mutable object in ServletContext?",
+      "output": "Yes, but you must synchronise access because it's shared across threads.",
+      "answer": "Yes, but you must synchronise access because it's shared across threads.",
+      "explanation": "Modifications from multiple servlets can cause race conditions."
+    },
+    {
+      "id": 101,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of ServletContext.getRealPath()?",
+      "output": "Converts a virtual path to a real file system path.",
+      "answer": "Converts a virtual path to a real file system path.",
+      "explanation": "Useful for reading files from the web application directory."
+    },
+    {
+      "id": 102,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Intermediate",
+      "question": "How do you log a message to the container log?",
+      "output": "log(String message) from GenericServlet or context.log(message).",
+      "answer": "log(String message) from GenericServlet or context.log(message).",
+      "explanation": "The message appears in the server's log file."
+    },
+    {
+      "id": 103,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ServletContext.getRequestDispatcher() and ServletRequest.getRequestDispatcher()?",
+      "output": "Context version requires absolute path; request version accepts relative paths.",
+      "answer": "Context version requires absolute path; request version accepts relative paths.",
+      "explanation": "Both return a RequestDispatcher."
+    },
+    {
+      "id": 104,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What does ServletContext.getResourceAsStream() do?",
+      "output": "Returns an InputStream for a resource located in the web application.",
+      "answer": "Returns an InputStream for a resource located in the web application.",
+      "explanation": "Example: context.getResourceAsStream(\"/WEB-INF/config.properties\")"
+    },
+    {
+      "id": 105,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of ServletContext.setAttribute()?",
+      "output": "Stores an object in application scope to be shared by all servlets.",
+      "answer": "Stores an object in application scope to be shared by all servlets.",
+      "explanation": "Attributes are removed when the application is undeployed."
+    },
+    {
+      "id": 106,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "Can ServletContext be used to store connection pools?",
+      "output": "Yes, commonly used to store database connection pool objects.",
+      "answer": "Yes, commonly used to store database connection pool objects.",
+      "explanation": "Initialised in a ServletContextListener."
+    },
+    {
+      "id": 107,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the ServletContext method getContext(String uripath)?",
+      "output": "Returns a ServletContext object for another web application on the same server.",
+      "answer": "Returns a ServletContext object for another web application on the same server.",
+      "explanation": "Allows cross‑context communication (requires security settings)."
+    },
+    {
+      "id": 108,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ServletContext.getMajorVersion() and getEffectiveMajorVersion()?",
+      "output": "getMajorVersion() returns the version supported by the container; getEffectiveMajorVersion() returns the version of the application (based on web.xml).",
+      "answer": "getMajorVersion() returns the version supported by the container; getEffectiveMajorVersion() returns the version of the application (based on web.xml).",
+      "explanation": "Introduced in Servlet 3.0."
+    },
+    {
+      "id": 109,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the use of ServletContext.getVirtualServerName()?",
+      "output": "Returns the name of the virtual server (host) the application is deployed on.",
+      "answer": "Returns the name of the virtual server (host) the application is deployed on.",
+      "explanation": "Useful for multi‑host containers."
+    },
+    {
+      "id": 110,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What type of events can you listen for on ServletContext?",
+      "output": "Lifecycle events (initialised/destroyed) and attribute events (added/removed/replaced).",
+      "answer": "Lifecycle events (initialised/destroyed) and attribute events (added/removed/replaced).",
+      "explanation": "Use ServletContextListener and ServletContextAttributeListener."
+    },
+    {
+      "id": 111,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the ServletContext method getSessionCookieConfig()?",
+      "output": "Returns the session cookie configuration (name, path, domain, etc.) defined in web.xml.",
+      "answer": "Returns the session cookie configuration (name, path, domain, etc.) defined in web.xml.",
+      "explanation": "Introduced in Servlet 3.0."
+    },
+    {
+      "id": 112,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the default session cookie name?",
+      "output": "JSESSIONID",
+      "answer": "JSESSIONID",
+      "explanation": "Can be changed via <session-config> or ServletContext."
+    },
+    {
+      "id": 113,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "Can ServletConfig be accessed from a JSP?",
+      "output": "Yes, using the implicit config object.",
+      "answer": "Yes, using the implicit config object.",
+      "explanation": "Example: ${config.initParameter['name']} (JSP EL)."
+    },
+    {
+      "id": 114,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "Can ServletContext be accessed from a JSP?",
+      "output": "Yes, using the implicit application object.",
+      "answer": "Yes, using the implicit application object.",
+      "explanation": "Example: ${application.getAttribute('key')} or ${applicationScope.key}"
+    },
+    {
+      "id": 115,
+      "topic": "ServletConfig and ServletContext",
+      "difficulty": "Advanced",
+      "question": "What is the difference between ServletContext.getMimeType() and ServletContext.getResource()?",
+      "output": "getMimeType() returns the MIME type of a file; getResource() returns a URL to a resource.",
+      "answer": "getMimeType() returns the MIME type of a file; getResource() returns a URL to a resource.",
+      "explanation": "Both work with paths within the web application."
+    },
+    {
+      "id": 116,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "Why is session management needed in web applications?",
+      "output": "Because HTTP is stateless; sessions allow the server to remember user data across requests.",
+      "answer": "Because HTTP is stateless; sessions allow the server to remember user data across requests.",
+      "explanation": "Without sessions, each request would be isolated."
+    },
+    {
+      "id": 117,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "What are the three main session tracking techniques?",
+      "output": "Cookies, URL rewriting, and HttpSession.",
+      "answer": "Cookies, URL rewriting, and HttpSession.",
+      "explanation": "HttpSession internally uses cookies or URL rewriting."
+    },
+    {
+      "id": 118,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "What is the default name of the session cookie?",
+      "output": "JSESSIONID",
+      "answer": "JSESSIONID",
+      "explanation": "Used by the container to identify the user's session."
+    },
+    {
+      "id": 119,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "How do you obtain an HttpSession object?",
+      "output": "request.getSession() or request.getSession(true)",
+      "answer": "request.getSession() or request.getSession(true)",
+      "explanation": "Creates a new session if none exists."
+    },
+    {
+      "id": 120,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "How do you get an existing session without creating a new one?",
+      "output": "request.getSession(false)",
+      "answer": "request.getSession(false)",
+      "explanation": "Returns null if there is no session."
+    },
+    {
+      "id": 121,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "How do you add data to an HttpSession?",
+      "output": "session.setAttribute(String name, Object value)",
+      "answer": "session.setAttribute(String name, Object value)",
+      "explanation": "The object becomes available across multiple requests."
+    },
+    {
+      "id": 122,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Beginner",
+      "question": "How do you invalidate a session?",
+      "output": "session.invalidate()",
+      "answer": "session.invalidate()",
+      "explanation": "Removes the session from the server."
+    },
+    {
+      "id": 123,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "What is the default session timeout in most containers?",
+      "output": "30 minutes",
+      "answer": "30 minutes",
+      "explanation": "Can be changed in web.xml or programmatically."
+    },
+    {
+      "id": 124,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "How do you set the session timeout programmatically?",
+      "output": "session.setMaxInactiveInterval(int seconds)",
+      "answer": "session.setMaxInactiveInterval(int seconds)",
+      "explanation": "Sets the time after which the session will expire if no activity."
+    },
+    {
+      "id": 125,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "What is URL rewriting and when is it used?",
+      "output": "Appending the session ID to the URL when the client disables cookies.",
+      "answer": "Appending the session ID to the URL when the client disables cookies.",
+      "explanation": "Use response.encodeURL() or encodeRedirectURL()."
+    },
+    {
+      "id": 126,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "How do you create a cookie?",
+      "output": "Cookie c = new Cookie(name, value); response.addCookie(c)",
+      "answer": "Cookie c = new Cookie(name, value); response.addCookie(c)",
+      "explanation": "The cookie is sent to the browser."
+    },
+    {
+      "id": 127,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "How do you retrieve cookies from a request?",
+      "output": "request.getCookies() returns an array of Cookie objects.",
+      "answer": "request.getCookies() returns an array of Cookie objects.",
+      "explanation": "May return null if no cookies are present."
+    },
+    {
+      "id": 128,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of setMaxAge() on a cookie?",
+      "output": "Sets the cookie's lifetime in seconds (negative means browser session, 0 deletes).",
+      "answer": "Sets the cookie's lifetime in seconds (negative means browser session, 0 deletes).",
+      "explanation": "Persistent cookies have a positive max age."
+    },
+    {
+      "id": 129,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is session fixation and how can you prevent it?",
+      "output": "An attack where an attacker sets a known session ID before the user logs in. Prevent it by regenerating session ID after login.",
+      "answer": "An attack where an attacker sets a known session ID before the user logs in. Prevent it by regenerating session ID after login.",
+      "explanation": "Use request.changeSessionId() or invalidate old session and create new."
+    },
+    {
+      "id": 130,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "How do you make a session cookie HttpOnly and Secure?",
+      "output": "Use <cookie-config> in web.xml or set via ServletContext.getSessionCookieConfig()",
+      "answer": "Use <cookie-config> in web.xml or set via ServletContext.getSessionCookieConfig()",
+      "explanation": "HttpOnly prevents JavaScript access; Secure requires HTTPS."
+    },
+    {
+      "id": 131,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between session and request scope?",
+      "output": "Request scope lasts only for the current HTTP request; session scope lasts for the duration of the session.",
+      "answer": "Request scope lasts only for the current HTTP request; session scope lasts for the duration of the session.",
+      "explanation": "Store only user‑specific data in session."
+    },
+    {
+      "id": 132,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of HttpSessionBindingListener?",
+      "output": "To be notified when an object is bound or unbound from a session (valueBound, valueUnbound).",
+      "answer": "To be notified when an object is bound or unbound from a session (valueBound, valueUnbound).",
+      "explanation": "Can be used for cleanup when attribute is removed."
+    },
+    {
+      "id": 133,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "How does the container treat a session when the server restarts?",
+      "output": "By default, in‑memory sessions are lost. Use session persistence (JDBC, file store) or clustering for failover.",
+      "answer": "By default, in‑memory sessions are lost. Use session persistence (JDBC, file store) or clustering for failover.",
+      "explanation": "Session attributes must be serializable for persistence."
+    },
+    {
+      "id": 134,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of response.encodeRedirectURL()?",
+      "output": "Encodes the URL for a redirect, adding session ID if cookies are disabled.",
+      "answer": "Encodes the URL for a redirect, adding session ID if cookies are disabled.",
+      "explanation": "Always use encodeRedirectURL for URLs passed to sendRedirect."
+    },
+    {
+      "id": 135,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the maximum number of sessions that can be active simultaneously?",
+      "output": "Depends on available memory and container configuration; no fixed limit.",
+      "answer": "Depends on available memory and container configuration; no fixed limit.",
+      "explanation": "Each session consumes memory; tune max session size appropriately."
+    },
+    {
+      "id": 136,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "How can you listen to session creation and destruction?",
+      "output": "Implement HttpSessionListener and register it via @WebListener or web.xml.",
+      "answer": "Implement HttpSessionListener and register it via @WebListener or web.xml.",
+      "explanation": "sessionCreated() and sessionDestroyed() methods."
+    },
+    {
+      "id": 137,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the `session.getLastAccessedTime()` method used for?",
+      "output": "Returns the timestamp of the last request associated with the session.",
+      "answer": "Returns the timestamp of the last request associated with the session.",
+      "explanation": "Used to compute inactivity timeout."
+    },
+    {
+      "id": 138,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the default scope of attributes added to a session?",
+      "output": "Session scope (available across requests from the same client).",
+      "answer": "Session scope (available across requests from the same client).",
+      "explanation": "Do not store large or non‑serializable objects."
+    },
+    {
+      "id": 139,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "How can you change the session cookie name?",
+      "output": "In web.xml: <session-config><cookie-config><name>CUSTOM_NAME</name></cookie-config></session-config>",
+      "answer": "In web.xml: <session-config><cookie-config><name>CUSTOM_NAME</name></cookie-config></session-config>",
+      "explanation": "Also programmatically via ServletContext.getSessionCookieConfig().setName()"
+    },
+    {
+      "id": 140,
+      "topic": "Session Management (Cookies, HttpSession, URL Rewriting)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between session.invalidate() and session.removeAttribute()?",
+      "output": "invalidate() ends the whole session; removeAttribute() only removes one attribute.",
+      "answer": "invalidate() ends the whole session; removeAttribute() only removes one attribute.",
+      "explanation": "After invalidate, the session cannot be used further."
+    },
+    {
+      "id": 141,
+      "topic": "Filters",
+      "difficulty": "Beginner",
+      "question": "What is a servlet filter?",
+      "output": "A component that intercepts requests and responses to perform pre‑processing and post‑processing.",
+      "answer": "A component that intercepts requests and responses to perform pre‑processing and post‑processing.",
+      "explanation": "Useful for logging, authentication, compression, etc."
+    },
+    {
+      "id": 142,
+      "topic": "Filters",
+      "difficulty": "Beginner",
+      "question": "Which interface must a filter implement?",
+      "output": "javax.servlet.Filter",
+      "answer": "javax.servlet.Filter",
+      "explanation": "It has init(), doFilter(), and destroy() methods."
+    },
+    {
+      "id": 143,
+      "topic": "Filters",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of the doFilter() method?",
+      "output": "Contains the filter logic and calls chain.doFilter() to pass control to the next filter or servlet.",
+      "answer": "Contains the filter logic and calls chain.doFilter() to pass control to the next filter or servlet.",
+      "explanation": "Without chain.doFilter(), the request stops."
+    },
+    {
+      "id": 144,
+      "topic": "Filters",
+      "difficulty": "Beginner",
+      "question": "How do you map a filter to a URL pattern?",
+      "output": "Using @WebFilter(urlPatterns) or <filter-mapping> in web.xml.",
+      "answer": "Using @WebFilter(urlPatterns) or <filter-mapping> in web.xml.",
+      "explanation": "The pattern determines which requests the filter intercepts."
+    },
+    {
+      "id": 145,
+      "topic": "Filters",
+      "difficulty": "Beginner",
+      "question": "What is the FilterChain interface used for?",
+      "output": "To pass the request/response to the next entity in the chain.",
+      "answer": "To pass the request/response to the next entity in the chain.",
+      "explanation": "The last entity in the chain is the target servlet."
+    },
+    {
+      "id": 146,
+      "topic": "Filters",
+      "difficulty": "Intermediate",
+      "question": "How can you access init parameters in a filter?",
+      "output": "Using FilterConfig.getInitParameter() inside init() method.",
+      "answer": "Using FilterConfig.getInitParameter() inside init() method.",
+      "explanation": "Parameters are defined in <init-param> within <filter> or @WebFilter.initParams."
+    },
+    {
+      "id": 147,
+      "topic": "Filters",
+      "difficulty": "Intermediate",
+      "question": "What is the order of filter execution?",
+      "output": "Defined by the order of <filter-mapping> in web.xml; for annotations, order is not guaranteed.",
+      "answer": "Defined by the order of <filter-mapping> in web.xml; for annotations, order is not guaranteed.",
+      "explanation": "You can use absolute ordering in web.xml for strict control."
+    },
+    {
+      "id": 148,
+      "topic": "Filters",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a filter and a servlet?",
+      "output": "Filter does not generate a response; it can modify the request/response and pass to the next filter/servlet.",
+      "answer": "Filter does not generate a response; it can modify the request/response and pass to the next filter/servlet.",
+      "explanation": "Servlets generate the response."
+    },
+    {
+      "id": 149,
+      "topic": "Filters",
+      "difficulty": "Intermediate",
+      "question": "Can a filter modify the request body?",
+      "output": "Yes, by wrapping the request with a custom HttpServletRequestWrapper.",
+      "answer": "Yes, by wrapping the request with a custom HttpServletRequestWrapper.",
+      "explanation": "Example: to change request parameters or read the body multiple times."
+    },
+    {
+      "id": 150,
+      "topic": "Filters",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the <dispatcher> element in filter mapping?",
+      "output": "Specifies the request dispatcher types (REQUEST, FORWARD, INCLUDE, ERROR, ASYNC) that the filter applies to.",
+      "answer": "Specifies the request dispatcher types (REQUEST, FORWARD, INCLUDE, ERROR, ASYNC) that the filter applies to.",
+      "explanation": "By default, only REQUEST."
+    },
+    {
+      "id": 151,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "How can you prevent a request from being processed further?",
+      "output": "Do not call chain.doFilter(); instead send a response via response.getWriter() or sendError.",
+      "answer": "Do not call chain.doFilter(); instead send a response via response.getWriter() or sendError.",
+      "explanation": "Commonly used in authentication filters when user is not logged in."
+    },
+    {
+      "id": 152,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of FilterConfig.getServletContext()?",
+      "output": "Gives the ServletContext object for the web application.",
+      "answer": "Gives the ServletContext object for the web application.",
+      "explanation": "Filters can access application‑wide attributes."
+    },
+    {
+      "id": 153,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "How do you make a filter work with asynchronous servlets?",
+      "output": "Set <async-supported>true</async-supported> in filter mapping or @WebFilter(asyncSupported=true).",
+      "answer": "Set <async-supported>true</async-supported> in filter mapping or @WebFilter(asyncSupported=true).",
+      "explanation": "Otherwise the filter will not be invoked for async dispatch."
+    },
+    {
+      "id": 154,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of wrapping the response with HttpServletResponseWrapper?",
+      "output": "To capture or modify the output before it is sent to the client.",
+      "answer": "To capture or modify the output before it is sent to the client.",
+      "explanation": "Useful for compression, encryption, or logging."
+    },
+    {
+      "id": 155,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "What is the initialisation order of filters and servlets?",
+      "output": "Filters are initialised in the order of filter mapping; servlets are initialised later when first requested or at startup.",
+      "answer": "Filters are initialised in the order of filter mapping; servlets are initialised later when first requested or at startup.",
+      "explanation": "load‑on‑startup servlets are initialised after filters."
+    },
+    {
+      "id": 156,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "Can a filter be used to compress the response output?",
+      "output": "Yes, wrap the response with a custom ServletOutputStream that compresses data on the fly.",
+      "answer": "Yes, wrap the response with a custom ServletOutputStream that compresses data on the fly.",
+      "explanation": "The filter sets Content-Encoding: gzip header."
+    },
+    {
+      "id": 157,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "How do you log the processing time of a request using a filter?",
+      "output": "Record start time before chain.doFilter(), compute time after return, then log.",
+      "answer": "Record start time before chain.doFilter(), compute time after return, then log.",
+      "explanation": "This measures total time including servlet and JSP rendering."
+    },
+    {
+      "id": 158,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the @WebFilter annotation attribute `servletNames`?",
+      "output": "Maps the filter to specific servlets by their name, rather than URL pattern.",
+      "answer": "Maps the filter to specific servlets by their name, rather than URL pattern.",
+      "explanation": "Useful when you want the filter to apply to a servlet regardless of its URL pattern."
+    },
+    {
+      "id": 159,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "Can a filter be used to handle authentication and then forward to the original request?",
+      "output": "Yes, after authentication, call chain.doFilter() with the original request (or wrapped).",
+      "answer": "Yes, after authentication, call chain.doFilter() with the original request (or wrapped).",
+      "explanation": "The servlet will execute as normal."
+    },
+    {
+      "id": 160,
+      "topic": "Filters",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a filter and an interceptor in Spring MVC?",
+      "output": "Filters are part of Servlet API, work for all requests; interceptors are Spring‑specific, work only for handler methods.",
+      "answer": "Filters are part of Servlet API, work for all requests; interceptors are Spring‑specific, work only for handler methods.",
+      "explanation": "Interceptors have access to the handler (controller) object."
+    },
+    {
+      "id": 161,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Beginner",
+      "question": "Which annotation is required to enable file upload processing in a servlet?",
+      "output": "@MultipartConfig",
+      "answer": "@MultipartConfig",
+      "explanation": "Must be placed on the servlet class to enable multipart parsing."
+    },
+    {
+      "id": 162,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Beginner",
+      "question": "What is the `Part` interface used for?",
+      "output": "Represents an uploaded file or form field in a multipart/form-data request.",
+      "answer": "Represents an uploaded file or form field in a multipart/form-data request.",
+      "explanation": "Introduced in Servlet 3.0."
+    },
+    {
+      "id": 163,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Beginner",
+      "question": "How do you retrieve the file name from a Part?",
+      "output": "part.getSubmittedFileName()",
+      "answer": "part.getSubmittedFileName()",
+      "explanation": "Returns the original file name as sent by the browser."
+    },
+    {
+      "id": 164,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Beginner",
+      "question": "How do you save an uploaded file to disk using Part?",
+      "output": "part.write(String fileName)",
+      "answer": "part.write(String fileName)",
+      "explanation": "The file is written to the location specified in @MultipartConfig or a default location."
+    },
+    {
+      "id": 165,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Beginner",
+      "question": "What is the HTML enctype required for file upload?",
+      "output": "multipart/form-data",
+      "answer": "multipart/form-data",
+      "explanation": "Form must have enctype='multipart/form-data' and method='POST'."
+    },
+    {
+      "id": 166,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Intermediate",
+      "question": "How do you set maximum file size in @MultipartConfig?",
+      "output": "maxFileSize attribute (e.g., maxFileSize = 1024 * 1024 * 5 for 5MB).",
+      "answer": "maxFileSize attribute (e.g., maxFileSize = 1024 * 1024 * 5 for 5MB).",
+      "explanation": "Use maxRequestSize for total size of the multipart request."
+    },
+    {
+      "id": 167,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Intermediate",
+      "question": "How do you retrieve all uploaded parts from a request?",
+      "output": "request.getParts()",
+      "answer": "request.getParts()",
+      "explanation": "Returns a Collection<Part>."
+    },
+    {
+      "id": 168,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Intermediate",
+      "question": "How do you set the content disposition header for file download?",
+      "output": "response.setHeader(\"Content-Disposition\", \"attachment; filename=\\\"file.txt\\\"\");",
+      "answer": "response.setHeader(\"Content-Disposition\", \"attachment; filename=\\\"file.txt\\\"\");",
+      "explanation": "attachment forces download; inline displays in browser."
+    },
+    {
+      "id": 169,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Intermediate",
+      "question": "How do you stream a file for download?",
+      "output": "Read the file into a ServletOutputStream using a buffer.",
+      "answer": "Read the file into a ServletOutputStream using a buffer.",
+      "explanation": "Set Content-Type and Content-Disposition before writing."
+    },
+    {
+      "id": 170,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of Part.getSize()?",
+      "output": "Returns the size (in bytes) of the uploaded file.",
+      "answer": "Returns the size (in bytes) of the uploaded file.",
+      "explanation": "Can be used to validate file size before processing."
+    },
+    {
+      "id": 171,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "How can you read the content of a Part as an InputStream?",
+      "output": "part.getInputStream()",
+      "answer": "part.getInputStream()",
+      "explanation": "Useful if you want to process the file without saving to disk."
+    },
+    {
+      "id": 172,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between part.write() and manually copying the InputStream?",
+      "output": "write() saves directly to the location specified in @MultipartConfig; manual copy gives you more control.",
+      "answer": "write() saves directly to the location specified in @MultipartConfig; manual copy gives you more control.",
+      "explanation": "Manual copy is needed if you want to store in a database or rename the file differently."
+    },
+    {
+      "id": 173,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "How do you handle large file uploads without consuming memory?",
+      "output": "The Part API automatically writes to disk when the file size exceeds a threshold (set in @MultipartConfig).",
+      "answer": "The Part API automatically writes to disk when the file size exceeds a threshold (set in @MultipartConfig).",
+      "explanation": "Use fileSizeThreshold attribute in @MultipartConfig."
+    },
+    {
+      "id": 174,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "What is the default location for part.write()?",
+      "output": "The location specified in @MultipartConfig, or container‑specific temporary directory.",
+      "answer": "The location specified in @MultipartConfig, or container‑specific temporary directory.",
+      "explanation": "You can override by providing an absolute path in part.write()?"
+    },
+    {
+      "id": 175,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "How do you delete a Part's temporary file after processing?",
+      "output": "part.delete() method (introduced in Servlet 3.1).",
+      "answer": "part.delete() method (introduced in Servlet 3.1).",
+      "explanation": "Call after finishing with the part to free resources promptly."
+    },
+    {
+      "id": 176,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of Part.getContentType()?",
+      "output": "Returns the MIME type of the uploaded file (e.g., image/png).",
+      "answer": "Returns the MIME type of the uploaded file (e.g., image/png).",
+      "explanation": "Useful for validating file type."
+    },
+    {
+      "id": 177,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "How can you ensure the uploaded file name is safe to use (security)?",
+      "output": "Sanitize the filename: remove path characters (../), replace spaces, use UUID.",
+      "answer": "Sanitize the filename: remove path characters (../), replace spaces, use UUID.",
+      "explanation": "Avoid directory traversal attacks."
+    },
+    {
+      "id": 178,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "What is the maximum file size you can set in @MultipartConfig?",
+      "output": "No theoretical limit, but practical limits depend on available disk space and container configuration.",
+      "answer": "No theoretical limit, but practical limits depend on available disk space and container configuration.",
+      "explanation": "Values are in bytes; use large numbers (e.g., 10485760 for 10MB)."
+    },
+    {
+      "id": 179,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "How can you upload multiple files with the same input name?",
+      "output": "Use multiple <input type='file' name='files'> in HTML; then request.getParts() returns all parts with same name.",
+      "answer": "Use multiple <input type='file' name='files'> in HTML; then request.getParts() returns all parts with same name.",
+      "explanation": "You can also use the 'multiple' attribute on the file input."
+    },
+    {
+      "id": 180,
+      "topic": "File Upload and Download (Part API)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between Part.getInputStream() and Part.getSubmittedFileName()?",
+      "output": "getInputStream() gives the file content; getSubmittedFileName() gives the original filename.",
+      "answer": "getInputStream() gives the file content; getSubmittedFileName() gives the original filename.",
+      "explanation": "Both are needed to process and save the file."
+    },
+    {
+      "id": 181,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Beginner",
+      "question": "Which annotation replaces web.xml servlet declaration?",
+      "output": "@WebServlet",
+      "answer": "@WebServlet",
+      "explanation": "Used on a servlet class to define its URL mapping and init parameters."
+    },
+    {
+      "id": 182,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Beginner",
+      "question": "How do you specify multiple URL patterns in @WebServlet?",
+      "output": "urlPatterns = {\"/one\", \"/two\"}",
+      "answer": "urlPatterns = {\"/one\", \"/two\"}",
+      "explanation": "You can also use the 'value' attribute as a shortcut for a single pattern."
+    },
+    {
+      "id": 183,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Beginner",
+      "question": "What annotation is used to register a filter?",
+      "output": "@WebFilter",
+      "answer": "@WebFilter",
+      "explanation": "Allows you to set urlPatterns, servletNames, initParams, etc."
+    },
+    {
+      "id": 184,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Beginner",
+      "question": "What annotation is used to register a listener?",
+      "output": "@WebListener",
+      "answer": "@WebListener",
+      "explanation": "Place on a class that implements one or more listener interfaces."
+    },
+    {
+      "id": 185,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Beginner",
+      "question": "What is the default servlet name when using @WebServlet?",
+      "output": "The fully qualified class name (if name attribute not specified).",
+      "answer": "The fully qualified class name (if name attribute not specified).",
+      "explanation": "You can provide a custom name using the 'name' attribute."
+    },
+    {
+      "id": 186,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Intermediate",
+      "question": "How do you set init parameters in @WebServlet?",
+      "output": "initParams = {@WebInitParam(name=\"param\", value=\"val\")}",
+      "answer": "initParams = {@WebInitParam(name=\"param\", value=\"val\")}",
+      "explanation": "Multiple @WebInitParam can be used."
+    },
+    {
+      "id": 187,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Intermediate",
+      "question": "How do you set load‑on‑startup using @WebServlet?",
+      "output": "loadOnStartup = 1",
+      "answer": "loadOnStartup = 1",
+      "explanation": "Positive integer loads at startup; negative (or default) loads on first request."
+    },
+    {
+      "id": 188,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Intermediate",
+      "question": "What happens if both annotation and web.xml define the same servlet?",
+      "output": "The web.xml definition overrides the annotation? Actually, both are merged; if same servlet name, web.xml takes precedence.",
+      "answer": "The web.xml definition overrides the annotation? Actually, both are merged; if same servlet name, web.xml takes precedence.",
+      "explanation": "To avoid confusion, use one method consistently."
+    },
+    {
+      "id": 189,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Intermediate",
+      "question": "Can you use @WebFilter without any urlPatterns?",
+      "output": "Yes, you can use servletNames or no pattern (applies to all servlets?). No, must have at least one pattern or servlet name.",
+      "answer": "Yes, you can use servletNames or no pattern (applies to all servlets?). No, must have at least one pattern or servlet name.",
+      "explanation": "You must specify either urlPatterns or servletNames."
+    },
+    {
+      "id": 190,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of @WebServlet's `asyncSupported` attribute?",
+      "output": "Enables asynchronous processing (default false). Must be true to call request.startAsync().",
+      "answer": "Enables asynchronous processing (default false). Must be true to call request.startAsync().",
+      "explanation": "If false, calling startAsync() throws IllegalStateException."
+    },
+    {
+      "id": 191,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "How can you disable annotation scanning completely?",
+      "output": "Set metadata-complete=\"true\" in web.xml.",
+      "answer": "Set metadata-complete=\"true\" in web.xml.",
+      "explanation": "Then only web.xml definitions are used, annotations are ignored."
+    },
+    {
+      "id": 192,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the order of multiple @WebFilter annotations?",
+      "output": "Not guaranteed; you must use web.xml with <filter-mapping> to enforce order.",
+      "answer": "Not guaranteed; you must use web.xml with <filter-mapping> to enforce order.",
+      "explanation": "Use <absolute-ordering> or <ordering> in web.xml to control."
+    },
+    {
+      "id": 193,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "Can you use @WebListener on a class that implements multiple listener interfaces?",
+      "output": "Yes, the container will register it for all interfaces implemented.",
+      "answer": "Yes, the container will register it for all interfaces implemented.",
+      "explanation": "Example: implements ServletContextListener, HttpSessionListener."
+    },
+    {
+      "id": 194,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the default value of asyncSupported in @WebFilter?",
+      "output": "false",
+      "answer": "false",
+      "explanation": "Must be set to true if the filter will be used in an async request."
+    },
+    {
+      "id": 195,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of @WebServlet's `smallIcon`, `largeIcon`, `description` attributes?",
+      "output": "For tooling (IDE or administration consoles); no runtime effect.",
+      "answer": "For tooling (IDE or administration consoles); no runtime effect.",
+      "explanation": "These are metadata for documentation or GUI."
+    },
+    {
+      "id": 196,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "How do you specify the dispatcher types in @WebFilter?",
+      "output": "dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}",
+      "answer": "dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD}",
+      "explanation": "Default is only REQUEST."
+    },
+    {
+      "id": 197,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between @WebServlet's `value` and `urlPatterns`?",
+      "output": "value is a shortcut for a single URL pattern; urlPatterns can take multiple patterns.",
+      "answer": "value is a shortcut for a single URL pattern; urlPatterns can take multiple patterns.",
+      "explanation": "If you use value, you cannot also use urlPatterns."
+    },
+    {
+      "id": 198,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "Can you combine annotations with web.xml for the same component?",
+      "output": "Yes, but it is error‑prone; web.xml may override annotations.",
+      "answer": "Yes, but it is error‑prone; web.xml may override annotations.",
+      "explanation": "Best practice: use one method consistently."
+    },
+    {
+      "id": 199,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `name` attribute in @WebServlet?",
+      "output": "Gives a logical name to the servlet, used in web.xml references.",
+      "answer": "Gives a logical name to the servlet, used in web.xml references.",
+      "explanation": "If not specified, the fully qualified class name is used."
+    },
+    {
+      "id": 200,
+      "topic": "Servlet Annotations (@WebServlet, @WebFilter, @WebListener)",
+      "difficulty": "Advanced",
+      "question": "How do you reference a servlet by name from a filter annotation?",
+      "output": "Set servletNames attribute in @WebFilter, e.g., servletNames = {\"MyServlet\"}",
+      "answer": "Set servletNames attribute in @WebFilter, e.g., servletNames = {\"MyServlet\"}",
+      "explanation": "The servlet name is the class name or the name attribute of @WebServlet."
+    },
+    {
+      "id": 201,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Beginner",
+      "question": "What is a listener in servlet context?",
+      "output": "A Java class that listens for and handles events (context, session, request).",
+      "answer": "A Java class that listens for and handles events (context, session, request).",
+      "explanation": "Allows you to run code at specific points in the lifecycle."
+    },
+    {
+      "id": 202,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Beginner",
+      "question": "Which listener is called when the web application starts and stops?",
+      "output": "ServletContextListener",
+      "answer": "ServletContextListener",
+      "explanation": "Implement contextInitialized() and contextDestroyed()."
+    },
+    {
+      "id": 203,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Beginner",
+      "question": "Which listener is called when a session is created or destroyed?",
+      "output": "HttpSessionListener",
+      "answer": "HttpSessionListener",
+      "explanation": "Useful to count active sessions."
+    },
+    {
+      "id": 204,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Beginner",
+      "question": "Which listener monitors request creation and destruction?",
+      "output": "ServletRequestListener",
+      "answer": "ServletRequestListener",
+      "explanation": "requestInitialized() and requestDestroyed()."
+    },
+    {
+      "id": 205,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Beginner",
+      "question": "What annotation registers a listener?",
+      "output": "@WebListener",
+      "answer": "@WebListener",
+      "explanation": "Placed on the listener class."
+    },
+    {
+      "id": 206,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Intermediate",
+      "question": "How can you access ServletContext in contextInitialized()?",
+      "output": "ServletContextEvent.getServletContext()",
+      "answer": "ServletContextEvent.getServletContext()",
+      "explanation": "You can set attributes that will be available to all servlets."
+    },
+    {
+      "id": 207,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of HttpSessionAttributeListener?",
+      "output": "To listen for attribute added, removed, or replaced in any session.",
+      "answer": "To listen for attribute added, removed, or replaced in any session.",
+      "explanation": "Methods: attributeAdded, attributeRemoved, attributeReplaced."
+    },
+    {
+      "id": 208,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between HttpSessionListener and HttpSessionAttributeListener?",
+      "output": "HttpSessionListener listens for creation/destruction of sessions; attribute listener listens for changes to session attributes.",
+      "answer": "HttpSessionListener listens for creation/destruction of sessions; attribute listener listens for changes to session attributes.",
+      "explanation": "They serve different purposes."
+    },
+    {
+      "id": 209,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the order of listener invocation?",
+      "output": "Context listener first (initialised), then session listeners, then request listeners. Destroy order is reverse.",
+      "answer": "Context listener first (initialised), then session listeners, then request listeners. Destroy order is reverse.",
+      "explanation": "The order is defined by the order of declaration in web.xml or @WebListener? Not guaranteed for same type."
+    },
+    {
+      "id": 210,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `ServletContextAttributeListener`?",
+      "output": "React to attribute changes at the application level (e.g., add, remove, replace).",
+      "answer": "React to attribute changes at the application level (e.g., add, remove, replace).",
+      "explanation": "Useful for monitoring or logging changes to shared data."
+    },
+    {
+      "id": 211,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `HttpSessionBindingListener`?",
+      "output": "Allows an object to be notified when it is bound or unbound from a session.",
+      "answer": "Allows an object to be notified when it is bound or unbound from a session.",
+      "explanation": "Implemented on the attribute object itself, not on a separate listener."
+    },
+    {
+      "id": 212,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "How do you make a listener active for asynchronous dispatches?",
+      "output": "No special setting; but the listener must support async if it accesses request/response? Actually, AsyncListener is separate.",
+      "answer": "No special setting; but the listener must support async if it accesses request/response? Actually, AsyncListener is separate.",
+      "explanation": "Use AsyncListener for async events, not ServletRequestListener."
+    },
+    {
+      "id": 213,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the `ServletRequestAttributeListener` used for?",
+      "output": "To be notified when attributes are added, removed, or replaced in a request scope.",
+      "answer": "To be notified when attributes are added, removed, or replaced in a request scope.",
+      "explanation": "Methods: attributeAdded, attributeRemoved, attributeReplaced."
+    },
+    {
+      "id": 214,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What happens if an exception is thrown in contextInitialized()?",
+      "output": "The web application may fail to start (depending on container).",
+      "answer": "The web application may fail to start (depending on container).",
+      "explanation": "Always handle exceptions in listeners to avoid deployment failure."
+    },
+    {
+      "id": 215,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "Can a listener be registered in both web.xml and annotation?",
+      "output": "Yes, but it will be registered twice (multiples).",
+      "answer": "Yes, but it will be registered twice (multiples).",
+      "explanation": "Avoid duplication."
+    },
+    {
+      "id": 216,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `AsyncListener`?",
+      "output": "To receive callbacks for asynchronous request events (onComplete, onTimeout, onError, onStartAsync).",
+      "answer": "To receive callbacks for asynchronous request events (onComplete, onTimeout, onError, onStartAsync).",
+      "explanation": "Added via AsyncContext.addListener()."
+    },
+    {
+      "id": 217,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the `javax.servlet.ServletRequestEvent`?",
+      "output": "An event object containing the request and the ServletContext.",
+      "answer": "An event object containing the request and the ServletContext.",
+      "explanation": "Passed to ServletRequestListener methods."
+    },
+    {
+      "id": 218,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "How can you log session creation and destruction?",
+      "output": "Implement HttpSessionListener and log in sessionCreated()/sessionDestroyed().",
+      "answer": "Implement HttpSessionListener and log in sessionCreated()/sessionDestroyed().",
+      "explanation": "Register using @WebListener or web.xml."
+    },
+    {
+      "id": 219,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "What is the `ServletContextEvent` class?",
+      "output": "Provides the ServletContext that changed.",
+      "answer": "Provides the ServletContext that changed.",
+      "explanation": "Used in ServletContextListener methods."
+    },
+    {
+      "id": 220,
+      "topic": "Listeners (ServletContextListener, HttpSessionListener, etc.)",
+      "difficulty": "Advanced",
+      "question": "Is it safe to call request.getSession() inside a ServletRequestListener?",
+      "output": "Yes, but careful: if you create a session, it may affect your logic.",
+      "answer": "Yes, but careful: if you create a session, it may affect your logic.",
+      "explanation": "You can call getSession(false) to avoid creating a session."
+    },
+    {
+      "id": 221,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Beginner",
+      "question": "What is asynchronous processing in servlets?",
+      "output": "Allows the servlet thread to exit while the request is still processed in another thread.",
+      "answer": "Allows the servlet thread to exit while the request is still processed in another thread.",
+      "explanation": "Improves scalability for long‑running operations."
+    },
+    {
+      "id": 222,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Beginner",
+      "question": "Which method is used to start asynchronous processing?",
+      "output": "request.startAsync()",
+      "answer": "request.startAsync()",
+      "explanation": "Returns an AsyncContext object."
+    },
+    {
+      "id": 223,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Beginner",
+      "question": "What annotation attribute must be set to enable async in a servlet?",
+      "output": "asyncSupported = true in @WebServlet",
+      "answer": "asyncSupported = true in @WebServlet",
+      "explanation": "Otherwise, startAsync() throws IllegalStateException."
+    },
+    {
+      "id": 224,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Beginner",
+      "question": "What method must be called to complete an asynchronous request?",
+      "output": "asyncContext.complete()",
+      "answer": "asyncContext.complete()",
+      "explanation": "If not called, the request will timeout."
+    },
+    {
+      "id": 225,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of AsyncContext.start(Runnable)?",
+      "output": "Runs the given Runnable in a container thread without blocking the original request thread.",
+      "answer": "Runs the given Runnable in a container thread without blocking the original request thread.",
+      "explanation": "Alternative to using your own ExecutorService."
+    },
+    {
+      "id": 226,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Intermediate",
+      "question": "How do you set a timeout for an AsyncContext?",
+      "output": "asyncContext.setTimeout(milliseconds)",
+      "answer": "asyncContext.setTimeout(milliseconds)",
+      "explanation": "If timeout expires, the container calls onTimeout of registered AsyncListener."
+    },
+    {
+      "id": 227,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Intermediate",
+      "question": "What is the default async timeout?",
+      "output": "Container‑specific (usually 30 seconds).",
+      "answer": "Container‑specific (usually 30 seconds).",
+      "explanation": "Tomcat defaults to 30 seconds."
+    },
+    {
+      "id": 228,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "What is the AsyncListener interface used for?",
+      "output": "To listen for events (timeout, completion, error, start) on an asynchronous request.",
+      "answer": "To listen for events (timeout, completion, error, start) on an asynchronous request.",
+      "explanation": "You can add it via asyncContext.addListener()."
+    },
+    {
+      "id": 229,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "Can you forward or include after starting async?",
+      "output": "Yes, use asyncContext.dispatch(path) instead of RequestDispatcher.",
+      "answer": "Yes, use asyncContext.dispatch(path) instead of RequestDispatcher.",
+      "explanation": "Dispatch can be called even after the original thread has ended."
+    },
+    {
+      "id": 230,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "What happens if you call complete() twice?",
+      "output": "The second call has no effect or may throw IllegalStateException depending on container.",
+      "answer": "The second call has no effect or may throw IllegalStateException depending on container.",
+      "explanation": "It is safe to call only once."
+    },
+    {
+      "id": 231,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "How do you handle errors in async tasks?",
+      "output": "Catch exceptions and call asyncContext.complete() with an error response, or dispatch to an error page.",
+      "answer": "Catch exceptions and call asyncContext.complete() with an error response, or dispatch to an error page.",
+      "explanation": "Uncaught exceptions will be ignored by the container."
+    },
+    {
+      "id": 232,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "What is the relationship between AsyncContext and HttpServletRequest?",
+      "output": "AsyncContext is created from the request; it holds references to the request and response.",
+      "answer": "AsyncContext is created from the request; it holds references to the request and response.",
+      "explanation": "You can get them via AsyncContext.getRequest() / getResponse()."
+    },
+    {
+      "id": 233,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "Can you create multiple AsyncContext from the same request?",
+      "output": "No; startAsync() can be called only once per request.",
+      "answer": "No; startAsync() can be called only once per request.",
+      "explanation": "Calling again throws IllegalStateException."
+    },
+    {
+      "id": 234,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `isAsyncStarted()`?",
+      "output": "Checks whether startAsync() has been called and not yet completed.",
+      "answer": "Checks whether startAsync() has been called and not yet completed.",
+      "explanation": "Useful for filters to know if the request is in async mode."
+    },
+    {
+      "id": 235,
+      "topic": "Asynchronous Servlets",
+      "difficulty": "Advanced",
+      "question": "What is the difference between asyncSupported in servlet and filter?",
+      "output": "Both must be true for async to work; servlet must support it; filters that want to participate in async chain must also set asyncSupported true.",
+      "answer": "Both must be true for async to work; servlet must support it; filters that want to participate in async chain must also set asyncSupported true.",
+      "explanation": "Otherwise the filter is not invoked during async dispatch."
+    },
+    {
+      "id": 236,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Beginner",
+      "question": "What is RequestDispatcher used for?",
+      "output": "To forward or include another resource (servlet, JSP, HTML) in the response.",
+      "answer": "To forward or include another resource (servlet, JSP, HTML) in the response.",
+      "explanation": "It operates on the server side without the client being aware."
+    },
+    {
+      "id": 237,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Beginner",
+      "question": "What is the difference between forward() and sendRedirect()?",
+      "output": "forward() is server‑side, same request; sendRedirect() sends a 302 to the client to request a new URL.",
+      "answer": "forward() is server‑side, same request; sendRedirect() sends a 302 to the client to request a new URL.",
+      "explanation": "forward preserves request attributes; redirect does not."
+    },
+    {
+      "id": 238,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Beginner",
+      "question": "How do you get a RequestDispatcher?",
+      "output": "request.getRequestDispatcher(path) or getServletContext().getRequestDispatcher(path).",
+      "answer": "request.getRequestDispatcher(path) or getServletContext().getRequestDispatcher(path).",
+      "explanation": "The path must be relative to the context root if using context version."
+    },
+    {
+      "id": 239,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Beginner",
+      "question": "What does sendRedirect() do to the browser URL?",
+      "output": "The URL changes to the redirect target.",
+      "answer": "The URL changes to the redirect target.",
+      "explanation": "The client sees the new URL in the address bar."
+    },
+    {
+      "id": 240,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Intermediate",
+      "question": "What happens if you forward after writing to the response?",
+      "output": "IllegalStateException because response is already committed.",
+      "answer": "IllegalStateException because response is already committed.",
+      "explanation": "Do any forward before any output is sent to the client."
+    },
+    {
+      "id": 241,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Intermediate",
+      "question": "How do you pass data from a servlet to a forwarded JSP?",
+      "output": "Set request attributes with request.setAttribute() before forwarding.",
+      "answer": "Set request attributes with request.setAttribute() before forwarding.",
+      "explanation": "The JSP can access them via EL."
+    },
+    {
+      "id": 242,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Intermediate",
+      "question": "What is the POST‑Redirect‑GET pattern?",
+      "output": "After a POST request, redirect to a GET page to prevent duplicate form submissions on refresh.",
+      "answer": "After a POST request, redirect to a GET page to prevent duplicate form submissions on refresh.",
+      "explanation": "Uses sendRedirect() after processing the POST."
+    },
+    {
+      "id": 243,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Advanced",
+      "question": "What is the difference between include() and forward()?",
+      "output": "include() adds the output of the target resource to the current response; forward() replaces the response completely.",
+      "answer": "include() adds the output of the target resource to the current response; forward() replaces the response completely.",
+      "explanation": "include() allows multiple resources to contribute to one response."
+    },
+    {
+      "id": 244,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Advanced",
+      "question": "Can you forward to a resource outside the web application?",
+      "output": "No, forward only works within the same web application.",
+      "answer": "No, forward only works within the same web application.",
+      "explanation": "Use sendRedirect() for external URLs."
+    },
+    {
+      "id": 245,
+      "topic": "RequestDispatcher and sendRedirect",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of RequestDispatcher.include()?",
+      "output": "To include the content of another resource (e.g., a footer) into the current response.",
+      "answer": "To include the content of another resource (e.g., a footer) into the current response.",
+      "explanation": "The included resource can be a servlet or JSP."
+    },
+    {
+      "id": 246,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Beginner",
+      "question": "How do you define a custom error page for HTTP 404 in web.xml?",
+      "output": "<error-page><error-code>404</error-code><location>/error/404.html</location></error-page>",
+      "answer": "<error-page><error-code>404</error-code><location>/error/404.html</location></error-page>",
+      "explanation": "You can also map by exception type."
+    },
+    {
+      "id": 247,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Beginner",
+      "question": "How can you make a JSP an error page?",
+      "output": "Place <%@ page isErrorPage=\"true\" %> directive at the top.",
+      "answer": "Place <%@ page isErrorPage=\"true\" %> directive at the top.",
+      "explanation": "This exposes the 'exception' implicit object."
+    },
+    {
+      "id": 248,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Beginner",
+      "question": "Which method in HttpServletResponse sends an error?",
+      "output": "sendError(int sc)",
+      "answer": "sendError(int sc)",
+      "explanation": "Also sendError(int sc, String msg)."
+    },
+    {
+      "id": 249,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Intermediate",
+      "question": "What request attributes are set by the container before dispatching to an error page?",
+      "output": "javax.servlet.error.status_code, javax.servlet.error.exception, javax.servlet.error.message, javax.servlet.error.request_uri, etc.",
+      "answer": "javax.servlet.error.status_code, javax.servlet.error.exception, javax.servlet.error.message, javax.servlet.error.request_uri, etc.",
+      "explanation": "You can access them in the error page."
+    },
+    {
+      "id": 250,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of <exception-type> in web.xml error-page?",
+      "output": "Maps a specific Java exception to an error page.",
+      "answer": "Maps a specific Java exception to an error page.",
+      "explanation": "The container will use the most specific matching exception."
+    },
+    {
+      "id": 251,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Advanced",
+      "question": "What happens if the error page itself throws an exception?",
+      "output": "The container returns its default error page (or infinite loop if not careful).",
+      "answer": "The container returns its default error page (or infinite loop if not careful).",
+      "explanation": "Ensure error pages are simple and stable."
+    },
+    {
+      "id": 252,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Advanced",
+      "question": "How can you catch all errors, including those from filters?",
+      "output": "Define error-page with <exception-type>java.lang.Throwable</exception-type>.",
+      "answer": "Define error-page with <exception-type>java.lang.Throwable</exception-type>.",
+      "explanation": "This will handle any uncaught exception."
+    },
+    {
+      "id": 253,
+      "topic": "Error Handling and Custom Error Pages",
+      "difficulty": "Advanced",
+      "question": "What is the difference between response.sendError() and response.setStatus()?",
+      "output": "sendError() triggers the container's error page mechanism, setStatus() only sets the status code without error handling.",
+      "answer": "sendError() triggers the container's error page mechanism, setStatus() only sets the status code without error handling.",
+      "explanation": "Use sendError() to invoke custom error pages."
+    },
+    {
+      "id": 254,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of an authentication filter?",
+      "output": "To intercept requests and verify if the user is logged in, redirecting to login page if not.",
+      "answer": "To intercept requests and verify if the user is logged in, redirecting to login page if not.",
+      "explanation": "It's a programmatic security approach."
+    },
+    {
+      "id": 255,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Beginner",
+      "question": "What annotation is used for declarative security on a servlet?",
+      "output": "@ServletSecurity",
+      "answer": "@ServletSecurity",
+      "explanation": "Allows you to specify roles allowed for HTTP methods."
+    },
+    {
+      "id": 256,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Beginner",
+      "question": "How do you implement authentication using a filter?",
+      "output": "Check for session attribute indicating login; if absent, redirect to login page.",
+      "answer": "Check for session attribute indicating login; if absent, redirect to login page.",
+      "explanation": "After successful login, store user object in session."
+    },
+    {
+      "id": 257,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Intermediate",
+      "question": "What does @HttpConstraint represent in @ServletSecurity?",
+      "output": "The security constraint applied to all HTTP methods unless overridden by @HttpMethodConstraint.",
+      "answer": "The security constraint applied to all HTTP methods unless overridden by @HttpMethodConstraint.",
+      "explanation": "It can specify rolesAllowed or deny all."
+    },
+    {
+      "id": 258,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Intermediate",
+      "question": "How do you specify that a servlet is allowed only for users with the 'admin' role?",
+      "output": "@ServletSecurity(@HttpConstraint(rolesAllowed = {\"admin\"}))",
+      "answer": "@ServletSecurity(@HttpConstraint(rolesAllowed = {\"admin\"}))",
+      "explanation": "rolesAllowed takes an array of role names."
+    },
+    {
+      "id": 259,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between @HttpConstraint and @HttpMethodConstraint?",
+      "output": "@HttpConstraint applies to all methods; @HttpMethodConstraint overrides for a specific HTTP method.",
+      "answer": "@HttpConstraint applies to all methods; @HttpMethodConstraint overrides for a specific HTTP method.",
+      "explanation": "Example: allow GET for all but POST only for admin."
+    },
+    {
+      "id": 260,
+      "topic": "Authentication Filters and Security Annotations (@ServletSecurity)",
+      "difficulty": "Advanced",
+      "question": "What is the default security when no @ServletSecurity is present?",
+      "output": "No security constraint; the servlet is publicly accessible.",
+      "answer": "No security constraint; the servlet is publicly accessible.",
+      "explanation": "Unless defined in web.xml."
+    },
+    {
+      "id": 261,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Beginner",
+      "question": "What are the four types of URL patterns in servlets?",
+      "output": "Exact match, prefix (path) match, extension match, default servlet (/)",
+      "answer": "Exact match, prefix (path) match, extension match, default servlet (/)",
+      "explanation": "The container selects the most specific pattern."
+    },
+    {
+      "id": 262,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Beginner",
+      "question": "What is an exact match pattern? Example?",
+      "output": "/login (no wildcards)",
+      "answer": "/login (no wildcards)",
+      "explanation": "The request URI must equal the pattern exactly."
+    },
+    {
+      "id": 263,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Beginner",
+      "question": "What is a prefix pattern? Example?",
+      "output": "/admin/*",
+      "answer": "/admin/*",
+      "explanation": "Matches any request whose path starts with /admin/."
+    },
+    {
+      "id": 264,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Beginner",
+      "question": "What is an extension pattern? Example?",
+      "output": "*.jsp",
+      "answer": "*.jsp",
+      "explanation": "Matches any request ending with .jsp."
+    },
+    {
+      "id": 265,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Intermediate",
+      "question": "What is the default servlet pattern?",
+      "output": "/",
+      "answer": "/",
+      "explanation": "It catches any request not matched by other patterns."
+    },
+    {
+      "id": 266,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Intermediate",
+      "question": "What pattern has the highest priority?",
+      "output": "Exact match",
+      "answer": "Exact match",
+      "explanation": "The container chooses exact match before prefix or extension."
+    },
+    {
+      "id": 267,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Advanced",
+      "question": "Can you map a servlet to both /admin/* and *.admin?",
+      "output": "Yes, using multiple urlPatterns.",
+      "answer": "Yes, using multiple urlPatterns.",
+      "explanation": "A servlet can have any number of patterns, but they must be either prefix or extension individually."
+    },
+    {
+      "id": 268,
+      "topic": "URL Mapping Patterns",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of request.getPathInfo()?",
+      "output": "Returns the part of the request URI after the servlet path for prefix mappings.",
+      "answer": "Returns the part of the request URI after the servlet path for prefix mappings.",
+      "explanation": "Example: servlet mapped to /api/*, request /api/user/123 returns /user/123."
+    },
+    {
+      "id": 269,
+      "topic": "MVC Architecture with Servlets and JSP",
+      "difficulty": "Beginner",
+      "question": "What does MVC stand for?",
+      "output": "Model‑View‑Controller",
+      "answer": "Model‑View‑Controller",
+      "explanation": "Separates data, presentation, and control logic."
+    },
+    {
+      "id": 270,
+      "topic": "MVC Architecture with Servlets and JSP",
+      "difficulty": "Beginner",
+      "question": "Which component in MVC is typically a servlet?",
+      "output": "Controller",
+      "answer": "Controller",
+      "explanation": "The servlet handles requests, interacts with model, and forwards to view."
+    },
+    {
+      "id": 271,
+      "topic": "MVC Architecture with Servlets and JSP",
+      "difficulty": "Beginner",
+      "question": "Which component in MVC is typically a JSP?",
+      "output": "View",
+      "answer": "View",
+      "explanation": "JSP is used for presentation, usually without business logic."
+    },
+    {
+      "id": 272,
+      "topic": "MVC Architecture with Servlets and JSP",
+      "difficulty": "Intermediate",
+      "question": "What is the Model in MVC?",
+      "output": "Represents data and business logic (e.g., JavaBeans, DAO).",
+      "answer": "Represents data and business logic (e.g., JavaBeans, DAO).",
+      "explanation": "It should not depend on servlet API."
+    },
+    {
+      "id": 273,
+      "topic": "MVC Architecture with Servlets and JSP",
+      "difficulty": "Intermediate",
+      "question": "How does the Controller pass data to the View?",
+      "output": "By setting request attributes and forwarding to JSP.",
+      "answer": "By setting request attributes and forwarding to JSP.",
+      "explanation": "The JSP accesses attributes using EL."
+    },
+    {
+      "id": 274,
+      "topic": "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+      "difficulty": "Beginner",
+      "question": "What does JAX‑RS stand for?",
+      "output": "Java API for RESTful Web Services",
+      "answer": "Java API for RESTful Web Services",
+      "explanation": "A specification for building REST APIs in Java."
+    },
+    {
+      "id": 275,
+      "topic": "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+      "difficulty": "Beginner",
+      "question": "What is Jersey?",
+      "output": "The reference implementation of JAX‑RS.",
+      "answer": "The reference implementation of JAX‑RS.",
+      "explanation": "Also the most popular."
+    },
+    {
+      "id": 276,
+      "topic": "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+      "difficulty": "Beginner",
+      "question": "Which annotation marks a class as a REST resource?",
+      "output": "@Path",
+      "answer": "@Path",
+      "explanation": "Defines the base URI for the resource."
+    },
+    {
+      "id": 277,
+      "topic": "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+      "difficulty": "Intermediate",
+      "question": "How do you specify that a method handles GET requests?",
+      "output": "@GET",
+      "answer": "@GET",
+      "explanation": "Also @POST, @PUT, @DELETE."
+    },
+    {
+      "id": 278,
+      "topic": "Introduction to RESTful Web Services with JAX-RS (Jersey)",
+      "difficulty": "Intermediate",
+      "question": "How do you extract a variable from the URI path?",
+      "output": "@PathParam",
+      "answer": "@PathParam",
+      "explanation": "Example: @Path(\"/users/{id}\") void get(@PathParam(\"id\") int id)."
+    },
+    {
+      "id": 279,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Beginner",
+      "question": "What is the main advantage of using a web framework over plain servlets?",
+      "output": "Reduces boilerplate, provides MVC structure, data binding, validation, and dependency injection.",
+      "answer": "Reduces boilerplate, provides MVC structure, data binding, validation, and dependency injection.",
+      "explanation": "Improves development speed and maintainability."
+    },
+    {
+      "id": 280,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Beginner",
+      "question": "What is the front controller in Spring MVC?",
+      "output": "DispatcherServlet",
+      "answer": "DispatcherServlet",
+      "explanation": "It receives all requests and delegates to controllers."
+    },
+    {
+      "id": 281,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Beginner",
+      "question": "What is the front controller in Struts 2?",
+      "output": "StrutsPrepareAndExecuteFilter (formerly FilterDispatcher).",
+      "answer": "StrutsPrepareAndExecuteFilter (formerly FilterDispatcher).",
+      "explanation": "It processes requests and invokes appropriate actions."
+    },
+    {
+      "id": 282,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Intermediate",
+      "question": "What annotation in Spring MVC maps a method to a URL?",
+      "output": "@RequestMapping (or @GetMapping, @PostMapping, etc.)",
+      "answer": "@RequestMapping (or @GetMapping, @PostMapping, etc.)",
+      "explanation": "Can be used at class level for base URL."
+    },
+    {
+      "id": 283,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Intermediate",
+      "question": "What is the Struts 2 equivalent of a Spring MVC controller?",
+      "output": "Action class (implements Action or extends ActionSupport).",
+      "answer": "Action class (implements Action or extends ActionSupport).",
+      "explanation": "It has an execute() method returning a result string."
+    },
+    {
+      "id": 284,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the main difference between Struts 2 and Spring MVC in terms of action/controller scope?",
+      "output": "Struts 2 creates a new action instance per request; Spring MVC uses singleton controllers (are inherently thread‑safe).",
+      "answer": "Struts 2 creates a new action instance per request; Spring MVC uses singleton controllers (are inherently thread‑safe).",
+      "explanation": "Struts actions can store request‑specific data as fields."
+    },
+    {
+      "id": 285,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is a ViewResolver in Spring MVC?",
+      "output": "An interface that resolves logical view names to actual view implementations (e.g., JSP, Thymeleaf).",
+      "answer": "An interface that resolves logical view names to actual view implementations (e.g., JSP, Thymeleaf).",
+      "explanation": "Common implementation: InternalResourceViewResolver for JSPs."
+    },
+    {
+      "id": 286,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the typical configuration file for Struts 2?",
+      "output": "struts.xml (located in src/main/resources).",
+      "answer": "struts.xml (located in src/main/resources).",
+      "explanation": "Defines packages, actions, results, and interceptors."
+    },
+    {
+      "id": 287,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "How do you enable annotations in Struts 2?",
+      "output": "Use struts.convention.plugin to allow @Action, @Result annotations.",
+      "answer": "Use struts.convention.plugin to allow @Action, @Result annotations.",
+      "explanation": "Reduces XML configuration."
+    },
+    {
+      "id": 288,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the role of Spring Boot in Spring MVC development?",
+      "output": "Provides auto‑configuration, embedded servlet container, and starter dependencies, simplifying setup.",
+      "answer": "Provides auto‑configuration, embedded servlet container, and starter dependencies, simplifying setup.",
+      "explanation": "Most new Spring MVC projects use Spring Boot."
+    },
+    {
+      "id": 289,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the main security vulnerability that Struts 2 was known for?",
+      "output": "Remote Code Execution (RCE) vulnerabilities (e.g., S2‑045, S2‑057).",
+      "answer": "Remote Code Execution (RCE) vulnerabilities (e.g., S2‑045, S2‑057).",
+      "explanation": "Many legacy applications were affected."
+    },
+    {
+      "id": 290,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between Spring MVC and Spring Boot?",
+      "output": "Spring Boot is an opinionated framework that simplifies Spring application configuration, including Spring MVC.",
+      "answer": "Spring Boot is an opinionated framework that simplifies Spring application configuration, including Spring MVC.",
+      "explanation": "You still use Spring MVC controllers with Spring Boot."
+    },
+    {
+      "id": 291,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of Interceptors in Struts 2?",
+      "output": "To perform cross‑cutting concerns (validation, logging, file upload) before/after action execution.",
+      "answer": "To perform cross‑cutting concerns (validation, logging, file upload) before/after action execution.",
+      "explanation": "They are similar to servlet filters but specific to Struts."
+    },
+    {
+      "id": 292,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "How do you perform validation in Spring MVC?",
+      "output": "Use JSR‑303 Bean Validation (@Valid, @NotNull, etc.) with BindingResult.",
+      "answer": "Use JSR‑303 Bean Validation (@Valid, @NotNull, etc.) with BindingResult.",
+      "explanation": "Errors are captured in BindingResult and can be shown in the view."
+    },
+    {
+      "id": 293,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the role of `struts-default` package in Struts 2?",
+      "output": "It provides the default interceptors and result types that most actions extend.",
+      "answer": "It provides the default interceptors and result types that most actions extend.",
+      "explanation": "Custom packages typically extend `struts-default`."
+    },
+    {
+      "id": 294,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `@Controller` and `@RestController` in Spring MVC?",
+      "output": "@Controller is for traditional web pages (returns view name); @RestController combines @Controller and @ResponseBody for REST APIs.",
+      "answer": "@Controller is for traditional web pages (returns view name); @RestController combines @Controller and @ResponseBody for REST APIs.",
+      "explanation": "Methods in @RestController return data directly (JSON/XML)."
+    },
+    {
+      "id": 295,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is a result type in Struts 2?",
+      "output": "Defines how the result from an action is processed (e.g., dispatcher to JSP, redirect, stream).",
+      "answer": "Defines how the result from an action is processed (e.g., dispatcher to JSP, redirect, stream).",
+      "explanation": "Default result type is 'dispatcher' for JSP."
+    },
+    {
+      "id": 296,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the Spring equivalent of Struts 2's action chaining?",
+      "output": "RedirectAttributes or forward: prefix in view name.",
+      "answer": "RedirectAttributes or forward: prefix in view name.",
+      "explanation": "Chaining can also be done by returning redirect: or forward: in controller."
+    },
+    {
+      "id": 297,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "How do you upload a file in Struts 2?",
+      "output": "Use FileUpload interceptor and File type property in action.",
+      "answer": "Use FileUpload interceptor and File type property in action.",
+      "explanation": "Struts automatically sets the File object and content type."
+    },
+    {
+      "id": 298,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the `ModelAndView` object in Spring MVC?",
+      "output": "Holds both model data and view name to be returned from a controller.",
+      "answer": "Holds both model data and view name to be returned from a controller.",
+      "explanation": "Alternative to using Model parameter and returning a String."
+    },
+    {
+      "id": 299,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `preparable` interface in Struts 2?",
+      "output": "Allows an action to perform custom preparation before the main execute method.",
+      "answer": "Allows an action to perform custom preparation before the main execute method.",
+      "explanation": "Implement prepare() method."
+    },
+    {
+      "id": 300,
+      "topic": "Introduction to Web Frameworks (Struts, Spring MVC)",
+      "difficulty": "Advanced",
+      "question": "What is the main advantage of Spring MVC's `@ModelAttribute`?",
+      "output": "Binds request parameters to a model object and makes it available to the view and for validation.",
+      "answer": "Binds request parameters to a model object and makes it available to the view and for validation.",
+      "explanation": "Reduces manual parameter extraction."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<web-app ...>
+    <context-param>
+        <param-name>schoolName</param-name>
+        <param-value>Shyamnagar Public School</param-value>
+    </context-param>
+    <context-param>
+        <param-name>adminEmail</param-name>
+        <param-value>admin@shyamnagarschool.edu</param-value>
+    </context-param>
+    <!-- servlet definitions ... -->
+</web-app>

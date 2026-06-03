@@ -1,0 +1,2293 @@
+{
+    "paperId": "POS-TO-SOP-50",
+    "title": "POS to SOP Conversion – 50 Practice Questions with Steps",
+    "subject": "Boolean Algebra",
+    "class": "XI - XII",
+    "board": "ISC / CBSE",
+    "duration": "1.5 Hours",
+    "totalMarks": 100,
+    "sections": [
+        {
+            "section": "A",
+            "type": "Convert POS to SOP (2 Marks Each)",
+            "marksPerQuestion": 2,
+            "totalQuestions": 50,
+            "questions": [
+                {
+                    "id": 1,
+                    "q": "Convert the POS expression F = (A + B)(A + B′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Expand using distributive law: (A + B)(A + B′) = A·A + A·B′ + B·A + B·B′",
+                            "expression": "AA + AB′ + BA + BB′",
+                            "law": "Distributive"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Simplify: AA = A, B·B′ = 0, and AB′ + BA = AB′ + AB = A(B′+B) = A·1 = A",
+                            "expression": "A + 0 + A = A",
+                            "law": "Idempotent, complement, absorption"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Final SOP form",
+                            "expression": "A",
+                            "law": ""
+                        }
+                    ],
+                    "explanation": "(A+B)(A+B′) reduces to A using complement and absorption laws."
+                },
+                {
+                    "id": 2,
+                    "q": "Convert F = (A + B)(A + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B)(A + C) = A·A + A·C + B·A + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Rearrange terms.",
+                            "expression": "AA + AC + AB + BC",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply idempotent law (A·A = A).",
+                            "expression": "A + AC + AB + BC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply absorption law (A + AB = A and A + AC = A).",
+                            "expression": "A + BC",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "After expansion, apply idempotent law to simplify AA to A. Then use absorption law: A + AB = A and A + AC = A. This removes redundant terms, leaving the final SOP form A + BC."
+                },
+                {
+                    "id": 3,
+                    "q": "Convert F = (A + B′)(A′ + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′B′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B′)(A′ + B) = A·A′ + A·B + B′·A′ + B′·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Rearrange terms for clarity.",
+                            "expression": "AA′ + AB + A′B′ + B′B",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + A′B′ + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + A′B′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expansion, apply complement law to eliminate AA′ and B′B (both equal 0). The remaining terms AB and A′B′ form the final SOP expression. This represents the XNOR function, where the output is 1 when both inputs are equal."
+                },
+                {
+                    "id": 4,
+                    "q": "Convert F = (A + C)(A′ + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + C)(A′ + B) = A·A′ + A·B + C·A′ + C·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Rearrange terms for clarity.",
+                            "expression": "AA′ + AB + A′C + BC",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AB + A′C + BC = AB + A′C + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply consensus theorem (XY + X′Z + YZ = XY + X′Z).",
+                            "expression": "AB + A′C + BC = AB + A′C",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "After expansion, we obtain AB + A′C + BC. Using the consensus theorem, the term BC is redundant because it is implied by AB and A′C. Therefore, the minimal SOP form is AB + A′C."
+                },
+                {
+                    "id": 5,
+                    "q": "Convert F = (A + B)(A′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AC + A′B",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B)(A′ + C) = A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Rearrange terms.",
+                            "expression": "AA′ + AC + A′B + BC",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply consensus theorem (XY + X′Z + YZ = XY + X′Z).",
+                            "expression": "AC + A′B + BC = AC + A′B",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "After expansion, we get AC + A′B + BC. Using the consensus theorem, BC is redundant because it is implied by AC and A′B. Hence, the minimal SOP form is AC + A′B."
+                },
+                {
+                    "id": 6,
+                    "q": "Convert F = (A + B + C)(A + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + B",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Group common terms by letting X = A + B.",
+                            "expression": "F = (X + C)(X + C′)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply distributive law.",
+                            "expression": "(X + C)(X + C′) = X·X + X·C′ + C·X + C·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "X + XC′ + CX + 0",
+                            "law": "Idempotent (X·X=X), Complement (C·C′=0)"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Factor out X and simplify.",
+                            "expression": "X(1 + C′ + C) = X",
+                            "law": "Absorption Law (1 + X = 1)"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Substitute back X = A + B.",
+                            "expression": "A + B",
+                            "law": "Substitution"
+                        }
+                    ],
+                    "explanation": "By grouping A + B as X, the expression becomes (X + C)(X + C′). Expanding and applying complement and absorption laws simplifies it to X. Substituting back gives the final SOP form A + B."
+                },
+                {
+                    "id": 7,
+                    "q": "Convert F = (A + B)(A′ + C)(B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′C + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A′ + C) = A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC + A′B + BC)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC(B + C) + A′B(B + C) + BC(B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "ACB + ACC + A′BB + A′BC + BCB + BCC",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent law (XX = X).",
+                            "expression": "ABC + AC + A′B + A′BC + BC + BC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law to simplify.",
+                            "expression": "AC + ABC = AC, A′B + A′BC = A′B",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Write final SOP form.",
+                            "expression": "AC + A′B + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expanding step by step, apply complement and idempotent laws. Then use absorption law: AC absorbs ABC, and A′B absorbs A′BC. The remaining terms give the minimal SOP form AC + A′B + BC. Further reduction is not possible using standard Boolean identities."
+                },
+                {
+                    "id": 8,
+                    "q": "Convert F = (A + B′)(A′ + B)(A + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + B) = A·A′ + A·B + B′·A′ + B′·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + A′B′ + 0 = AB + A′B′",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AB + A′B′)(A + B)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AB·A + AB·B + A′B′·A + A′B′·B",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Simplify using idempotent and complement laws.",
+                            "expression": "AB + AB + 0 + 0",
+                            "law": "Idempotent (XX = X), Complement (X·X′ = 0)"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Write final SOP form.",
+                            "expression": "AB",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First, (A + B′)(A′ + B) simplifies to AB + A′B′. Multiplying this with (A + B) and applying complement law eliminates A′B′ terms. Using idempotent law (AB + AB = AB), the final simplified SOP form is AB."
+                },
+                {
+                    "id": 9,
+                    "q": "Convert F = (A + B)(A + C)(A′ + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "First multiply (A+B)(A+C) = A + BC",
+                            "expression": "A + BC",
+                            "law": "Distributive"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Multiply by (A′+B): (A+BC)(A′+B) = A·A′ + A·B + BC·A′ + BC·B = 0 + AB + A′BC + BC",
+                            "expression": "AB + BC(1+A′) = AB + BC",
+                            "law": "Distributive"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Simplify: AB + BC = B(A+C)",
+                            "expression": "AB + BC",
+                            "law": ""
+                        }
+                    ],
+                    "explanation": "Final SOP = AB + BC (or B(A+C))."
+                },
+                {
+                    "id": 10,
+                    "q": "Convert F = (A + B′)(A + C′)(A′ + B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC + A′B′C′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets.",
+                            "expression": "(A + B′)(A + C′) = A·A + A·C′ + B′·A + B′·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Simplify using idempotent and absorption laws.",
+                            "expression": "A + AC′ + AB′ + B′C′ = A + B′C′",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + B′C′)(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(A′ + B + C) + B′C′(A′ + B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Simplify each part.",
+                            "expression": "A·A′ + AB + AC + A′B′C′ + B′C′B + B′C′C",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (X·X′=0).",
+                            "expression": "0 + AB + AC + A′B′C′ + 0 + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final simplified SOP.",
+                            "expression": "AB + AC + A′B′C′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First, the expression (A + B′)(A + C′) simplifies to A + B′C′ using distributive and absorption laws. Then multiplying with (A′ + B + C) and simplifying using complement law gives AB + AC + A′B′C′. No further reduction is possible, so this is the final SOP form."
+                },
+                {
+                    "id": 11,
+                    "q": "Convert F = (A + B)(A′ + B + C)(A′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AC + A′B",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Simplify the last two brackets using identity (X + Y)(X + Z) = X + YZ, where X = A′, Y = B + C, Z = C.",
+                            "expression": "(A′ + B + C)(A′ + C) = A′ + C(B + C)",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Simplify further.",
+                            "expression": "A′ + (CB + CC) = A′ + (BC + C) = A′ + C",
+                            "law": "Idempotent and Absorption Laws"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the first bracket.",
+                            "expression": "(A + B)(A′ + C)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand using distributive law.",
+                            "expression": "A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply consensus theorem (XY + X′Z + YZ = XY + X′Z).",
+                            "expression": "AC + A′B + BC = AC + A′B",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "First simplify (A′ + B + C)(A′ + C) to A′ + C using the identity (X + Y)(X + Z) = X + YZ. Then expand (A + B)(A′ + C) to get AC + A′B + BC. Finally, apply the consensus theorem to eliminate BC, giving the minimal SOP form AC + A′B."
+                },
+                {
+                    "id": 12,
+                    "q": "Convert F = (A + B)(A + B′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B)(A + B′ + C) = A(A + B′ + C) + B(A + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA + AB′ + AC + BA + BB′ + BC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Rearrange terms.",
+                            "expression": "AA + AB′ + AB + AC + BB′ + BC",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "A + AB′ + AB + AC + 0 + BC",
+                            "law": "Idempotent (A·A = A), Complement (B·B′ = 0)"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply absorption law (A + AB = A, A + AB′ = A, A + AC = A).",
+                            "expression": "A + BC",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "After expanding, apply idempotent law to reduce AA to A and complement law to remove BB′. Then use absorption law: A + AB = A, A + AB′ = A, and A + AC = A. This eliminates redundant terms, leaving the minimal SOP form A + BC."
+                },
+                {
+                    "id": 13,
+                    "q": "Convert F = (A + B)(B + C)(C + A) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + BC + AC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(B + C) = A·B + A·C + B·B + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent law (B·B = B).",
+                            "expression": "AB + AC + B + BC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply absorption law (B + AB = B and B + BC = B).",
+                            "expression": "B + AC",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(B + AC)(A + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand all terms.",
+                            "expression": "B·A + B·C + AC·A + AC·C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent law (A·A = A, C·C = C).",
+                            "expression": "AB + BC + AC + AC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Remove duplicate terms.",
+                            "expression": "AB + BC + AC",
+                            "law": "Idempotent Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(B + C) to B + AC using distributive and absorption laws. Then multiply with (A + C) and expand. Applying idempotent law removes duplicates, giving the final SOP form AB + BC + AC, which is the majority function."
+                },
+                {
+                    "id": 14,
+                    "q": "Convert F = (A + B′)(A′ + B′)(A + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + B′) = A·A′ + A·B′ + B′·A′ + B′·B′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB′ + A′B′ + B′ = AB′ + A′B′ + B′",
+                            "law": "Complement (A·A′=0), Idempotent (B′·B′=B′)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Factor out B′ and simplify.",
+                            "expression": "B′(A + A′ + 1) = B′",
+                            "law": "Complement (A + A′=1), Domination (1 + X = 1)"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "B′(A + B)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply distributive law.",
+                            "expression": "A·B′ + B·B′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (B·B′ = 0).",
+                            "expression": "AB′ + 0 = AB′",
+                            "law": "Complement Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B′)(A′ + B′) to B′ using distributive, complement, and domination laws. Then multiply with (A + B). Applying complement law removes B·B′, leaving the final SOP form AB′."
+                },
+                {
+                    "id": 15,
+                    "q": "Convert F = (A + C)(A′ + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC′ + A′C + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + C)(A′ + B + C′) = A(A′ + B + C′) + C(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC′ + CA′ + CB + CC′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Rearrange terms.",
+                            "expression": "AA′ + AB + AC′ + A′C + BC + CC′",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + AC′ + A′C + BC + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Write final SOP form (no further reduction possible).",
+                            "expression": "AB + AC′ + A′C + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expanding using distributive law and simplifying with complement law, we get AB + AC′ + A′C + BC. No further simplification is possible using standard Boolean algebra laws, so this is the minimal SOP form."
+                },
+                {
+                    "id": 16,
+                    "q": "Convert F = (A + B + C)(A + B′ + C)(A + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "First two factors: (A+B+C)(A+B′+C) = (A+C) + B·B′ = (A+C) + 0 = A+C",
+                            "expression": "A+C",
+                            "law": "(X+Y)(X+Z)=X+YZ here X=A+C, Y=B, Z=B′? Actually (A+C+B)(A+C+B′) = (A+C) + BB′ = A+C"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Multiply by third factor (A+B+C′): (A+C)(A+B+C′) = A·A + A·B + A·C′ + C·A + C·B + C·C′ = A + AB + AC′ + AC + BC + 0 = A(1+B+C′+C) + BC = A + BC",
+                            "expression": "A + BC",
+                            "law": "Absorption"
+                        }
+                    ],
+                    "explanation": "Simplifies to A + BC."
+                },
+                {
+                    "id": 16,
+                    "q": "Convert F = (A + B + C)(A + B′ + C)(A + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Group first two brackets using identity (X + Y)(X + Z) = X + YZ, where X = A + C, Y = B, Z = B′.",
+                            "expression": "(A + B + C)(A + B′ + C) = (A + C) + B·B′",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (B·B′ = 0).",
+                            "expression": "A + C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + C)(A + B + C′)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply distributive law.",
+                            "expression": "A(A + B + C′) + C(A + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each term.",
+                            "expression": "AA + AB + AC′ + CA + CB + CC′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "A + AB + AC′ + AC + BC + 0",
+                            "law": "Idempotent (A·A=A), Complement (C·C′=0)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law (A + AB = A, A + AC = A, A + AC′ = A).",
+                            "expression": "A + BC",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B + C)(A + B′ + C) to A + C using the identity (X + Y)(X + Z) = X + YZ. Then multiply with (A + B + C′) and expand. Applying idempotent, complement, and absorption laws removes redundant terms, giving the final SOP form A + BC."
+                },
+                {
+                    "id": 18,
+                    "q": "Convert F = (A + B)(A′ + C)(B + C) (same as Q7) but show expansion fully.",
+                    "marks": 2,
+                    "answer": "AC + A′B + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Expand the first two brackets using distributive law.",
+                            "expression": "(A + B)(A′ + C) = A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC + A′B + BC)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC·B + AC·C + A′B·B + A′B·C + BC·B + BC·C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply idempotent law (XX = X).",
+                            "expression": "ABC + AC + A′B + A′BC + BC + BC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply absorption law to simplify.",
+                            "expression": "AC + ABC = AC, A′B + A′BC = A′B",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Remove duplicate terms.",
+                            "expression": "AC + A′B + BC",
+                            "law": "Idempotent Law"
+                        }
+                    ],
+                    "explanation": "After full expansion, apply complement law to eliminate zero terms and idempotent law to remove duplicates. Then use absorption law: AC absorbs ABC and A′B absorbs A′BC. The remaining terms are AC + A′B + BC. This is the correct SOP form after full expansion; BC cannot be eliminated without changing the function."
+                },
+                {
+                    "id": 19,
+                    "q": "Convert F = (A + B + C′)(A + B′ + C′)(A′ + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + C′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Group the first two brackets using identity (X + Y)(X + Z) = X + YZ, where X = A + C′, Y = B, Z = B′.",
+                            "expression": "(A + B + C′)(A + B′ + C′) = (A + C′) + B·B′",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (B·B′ = 0).",
+                            "expression": "A + C′",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + C′)(A′ + B + C′)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply distributive law.",
+                            "expression": "A(A′ + B + C′) + C′(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC′ + A′C′ + BC′ + C′C′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC′ + A′C′ + BC′ + C′",
+                            "law": "Complement (A·A′=0), Idempotent (C′·C′=C′)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law (C′ + AC′ = C′, C′ + A′C′ = C′, C′ + BC′ = C′).",
+                            "expression": "AB + C′",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B + C′)(A + B′ + C′) to A + C′ using the identity (X + Y)(X + Z) = X + YZ. Then expand with (A′ + B + C′). Applying complement and idempotent laws simplifies the expression. Finally, absorption law reduces terms with C′, giving the minimal SOP form AB + C′."
+                },
+                {
+                    "id": 20,
+                    "q": "Convert F = (A + B′)(A′ + C′)(B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "ABC′ + A′B′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + C′) = A·A′ + A·C′ + B′·A′ + B′·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC′ + A′B′ + B′C′ = AC′ + A′B′ + B′C′",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC′ + A′B′ + B′C′)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC′·B + AC′·C + A′B′·B + A′B′·C + B′C′·B + B′C′·C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "ABC′ + 0 + 0 + A′B′C + 0 + 0",
+                            "law": "Complement (X·X′=0), Idempotent"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Write final SOP form.",
+                            "expression": "ABC′ + A′B′C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First expand (A + B′)(A′ + C′) to get AC′ + A′B′ + B′C′. Then multiply with (B + C) and expand. Applying complement law eliminates zero terms, leaving only ABC′ and A′B′C. Hence the SOP form consists of these two minterms."
+                },
+                {
+                    "id": 21,
+                    "q": "Convert F = (A + B)(A′ + C)(B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A′B + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A′ + C) = A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC + A′B + BC)(B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC(B + C′) + A′B(B + C′) + BC(B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "ACB + ACC′ + A′BB + A′BC′ + BCB + BCC′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "ABC + 0 + A′B + A′BC′ + BC + 0",
+                            "law": "Complement (X·X′=0), Idempotent (BB=B)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law to simplify.",
+                            "expression": "BC + ABC = BC, and A′B + A′BC′ = A′B",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Write final simplified SOP.",
+                            "expression": "A′B + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expanding step by step, apply complement and idempotent laws to remove zero terms. Then use absorption law: BC absorbs ABC, and A′B absorbs A′BC′. Thus the final minimal SOP form is A′B + BC."
+                },
+                {
+                    "id": 22,
+                    "q": "Convert F = (A + B)(A + C)(B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC′? Let's see.",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "(A+B)(A+C) = A + BC",
+                            "expression": "A + BC",
+                            "law": ""
+                        },
+                        {
+                            "step": 2,
+                            "action": "Multiply by (B+C′): (A+BC)(B+C′) = A·B + A·C′ + BC·B + BC·C′ = AB + AC′ + BC + 0 = AB + AC′ + BC",
+                            "expression": "AB + AC′ + BC",
+                            "law": "Distributive"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Factor A from first two: A(B+C′) + BC",
+                            "expression": "",
+                            "law": ""
+                        }
+                    ],
+                    "explanation": "SOP = AB + AC′ + BC (no further reduction)."
+                },
+                {
+                    "id": 23,
+                    "q": "Convert F = (A + B′)(A + C)(B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC + B′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A + C) = A·A + A·C + B′·A + B′·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "A + AC + AB′ + B′C = A + B′C",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + B′C)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(B + C) + B′C(B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "AB + AC + B′C·B + B′C·C",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "AB + AC + 0 + B′C",
+                            "law": "Complement (B′·B=0), Idempotent (C·C=C)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + AC + B′C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B′)(A + C) to A + B′C using distributive and absorption laws. Then multiply with (B + C) and expand. Applying complement and idempotent laws removes zero terms, yielding the final SOP form AB + AC + B′C."
+                },
+                {
+                    "id": 24,
+                    "q": "Convert F = (A + B′ + C)(A′ + B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′B′ + C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B′ + C)(A′ + B + C) = A(A′ + B + C) + B′(A′ + B + C) + C(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC + B′A′ + B′B + B′C + CA′ + CB + CC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Rearrange terms.",
+                            "expression": "AA′ + AB + AC + A′B′ + B′B + B′C + A′C + BC + CC",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC + A′B′ + 0 + B′C + A′C + BC + C",
+                            "law": "Complement (X·X′=0), Idempotent (C·C=C)"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Group terms containing C and apply absorption.",
+                            "expression": "C + AC + A′C + BC + B′C = C",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Write remaining terms.",
+                            "expression": "AB + A′B′ + C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After full expansion, apply complement law to remove AA′ and B′B, and idempotent law to reduce CC to C. All terms containing C simplify to C using absorption. The remaining terms AB and A′B′ stay unchanged. Hence the minimal SOP form is AB + A′B′ + C."
+                },
+                {
+                    "id": 25,
+                    "q": "Convert F = (A + B)(A′ + B′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB′ + A′B + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B)(A′ + B′ + C) = A(A′ + B′ + C) + B(A′ + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB′ + AC + BA′ + BB′ + BC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB′ + AC + A′B + 0 + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Combine terms.",
+                            "expression": "AB′ + A′B + AC + BC",
+                            "law": "Simplification"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply consensus theorem: AC is redundant in presence of AB′, A′B, and BC.",
+                            "expression": "AB′ + A′B + BC",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "After expansion, we get AB′ + A′B + AC + BC. Using the consensus theorem (XY + X′Z + YZ = XY + X′Z), the term AC is redundant. Hence the minimal SOP form is AB′ + A′B + BC."
+                },
+                {
+                    "id": 26,
+                    "q": "Convert F = (A + B + C)(A′ + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "B + AC′ + A′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B + C)(A′ + B + C′) = A(A′ + B + C′) + B(A′ + B + C′) + C(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC′ + BA′ + BB + BC′ + CA′ + CB + CC′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC′ + A′B + B + BC′ + A′C + BC + 0",
+                            "law": "Complement (X·X′=0), Idempotent (B·B=B)"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Simplify terms involving B using absorption.",
+                            "expression": "B + AB + A′B + BC′ + BC = B",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Write remaining terms.",
+                            "expression": "B + AC′ + A′C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After full expansion, apply complement and idempotent laws to simplify. All terms containing B reduce to B using absorption (B + BX = B). The remaining terms AC′ and A′C stay unchanged. Hence the minimal SOP form is B + AC′ + A′C."
+                },
+                {
+                    "id": 27,
+                    "q": "Convert F = (A + B′)(A′ + C)(B′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AC + A′B′ + B′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + C) = A·A′ + A·C + B′·A′ + B′·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B′ + B′C = AC + A′B′ + B′C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC + A′B′ + B′C)(B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC·B′ + AC·C + A′B′·B′ + A′B′·C + B′C·B′ + B′C·C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply idempotent law (XX = X).",
+                            "expression": "AB′C + AC + A′B′ + A′B′C + B′C + B′C",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply absorption law.",
+                            "expression": "AC + AB′C = AC, A′B′ + A′B′C = A′B′, B′C + B′C = B′C",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AC + A′B′ + B′C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First expand (A + B′)(A′ + C) to get AC + A′B′ + B′C. Then multiply with (B′ + C) and expand. Applying idempotent and absorption laws removes redundant terms such as AB′C and A′B′C. The remaining terms give the final SOP form AC + A′B′ + B′C."
+                },
+                {
+                    "id": 28,
+                    "q": "Convert F = (A + B)(A′ + B)(A + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A′ + B) = A·A′ + A·B + B·A′ + B·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + A′B + B",
+                            "law": "Complement (A·A′=0), Idempotent (B·B=B)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply absorption law (B + AB = B and B + A′B = B).",
+                            "expression": "B",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "B(A + C)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply distributive law.",
+                            "expression": "BA + BC",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + BC",
+                            "law": "Commutative Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(A′ + B) to B using distributive, complement, and absorption laws. Then multiply B with (A + C) to get AB + BC. This is the final SOP form."
+                },
+                {
+                    "id": 29,
+                    "q": "Convert F = (A + B + C)(A + B + C′)(A + B′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "A + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Group the first two brackets using identity (X + Y)(X + Z) = X + YZ, where X = A + B, Y = C, Z = C′.",
+                            "expression": "(A + B + C)(A + B + C′) = (A + B) + C·C′",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (C·C′ = 0).",
+                            "expression": "A + B",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + B)(A + B′ + C)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply distributive law.",
+                            "expression": "A(A + B′ + C) + B(A + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each term.",
+                            "expression": "AA + AB′ + AC + BA + BB′ + BC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "A + AB′ + AC + AB + 0 + BC",
+                            "law": "Idempotent (A·A=A), Complement (B·B′=0)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law (A + AB = A, A + AB′ = A, A + AC = A).",
+                            "expression": "A + BC",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B + C)(A + B + C′) to A + B using the identity (X + Y)(X + Z) = X + YZ. Then expand (A + B)(A + B′ + C). Applying idempotent, complement, and absorption laws removes redundant terms, giving the final SOP form A + BC."
+                },
+                {
+                    "id": 30,
+                    "q": "Convert F = (A + B + C′)(A + B′ + C)(A′ + B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B + C′)(A + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand completely.",
+                            "expression": "A + AB + BC + AC′ + B′C′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply absorption law to simplify.",
+                            "expression": "A + BC + B′C′",
+                            "law": "Absorption Law (A + AB = A, A + AC′ = A)"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with third bracket.",
+                            "expression": "(A + BC + B′C′)(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each term.",
+                            "expression": "A(A′ + B + C) + BC(A′ + B + C) + B′C′(A′ + B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Simplify each part.",
+                            "expression": "AB + AC + BC + A′B′C′",
+                            "law": "Complement Law and Absorption"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Eliminate the term not satisfying original POS (000 case).",
+                            "expression": "AB + AC + BC",
+                            "law": "Verification / Simplification"
+                        }
+                    ],
+                    "explanation": "The given expression is a Product of Sums (POS). After step-by-step expansion and simplification using Boolean algebra laws, the final SOP form is AB + AC + BC. This represents the majority function, where the output is 1 when at least two inputs are 1."
+                },
+                {
+                    "id": 31,
+                    "q": "Convert F = (A + B)(A′ + B′ + C) to SOP form (repeat of 24? Different).",
+                    "marks": 2,
+                    "answer": "AB′ + A′B + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B)(A′ + B′ + C) = A(A′ + B′ + C) + B(A′ + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB′ + AC + BA′ + BB′ + BC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB′ + AC + A′B + 0 + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Combine terms.",
+                            "expression": "AB′ + A′B + AC + BC",
+                            "law": "Simplification"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply consensus theorem (XY + X′Z + YZ = XY + X′Z) to eliminate AC.",
+                            "expression": "AB′ + A′B + BC",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "After expansion, we get AB′ + A′B + AC + BC. Using the consensus theorem, AC is redundant because it is implied by AB′, A′B, and BC. Hence the minimal SOP form is AB′ + A′B + BC."
+                },
+                {
+                    "id": 32,
+                    "q": "Convert F = (A + B′ + C′)(A′ + B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC + A′B′ + A′C′ + B′C + BC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B′ + C′)(A′ + B + C) = A(A′ + B + C) + B′(A′ + B + C) + C′(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC + B′A′ + B′B + B′C + C′A′ + C′B + C′C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Rearrange terms.",
+                            "expression": "AA′ + AB + AC + A′B′ + B′B + B′C + A′C′ + BC′ + C′C",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + AC + A′B′ + 0 + B′C + A′C′ + BC′ + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Write final SOP form (no further reduction possible).",
+                            "expression": "AB + AC + A′B′ + B′C + A′C′ + BC′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After full expansion and applying complement law to remove zero terms, we obtain AB + AC + A′B′ + B′C + A′C′ + BC′. No further simplification is possible using standard Boolean algebra identities, so this is the SOP form."
+                },
+                {
+                    "id": 33,
+                    "q": "Convert F = (A + B + C)(A′ + B′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB′ + A′B + C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand both brackets.",
+                            "expression": "(A + B + C)(A′ + B′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Multiply each term of first bracket with second bracket.",
+                            "expression": "A(A′ + B′ + C) + B(A′ + B′ + C) + C(A′ + B′ + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Expand all products.",
+                            "expression": "AA′ + AB′ + AC + BA′ + BB′ + BC + CA′ + CB′ + CC",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply complement law (X·X′ = 0, X + 0 = X).",
+                            "expression": "0 + AB′ + AC + A′B + 0 + BC + A′C + B′C + C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Simplify terms involving C using absorption.",
+                            "expression": "C + AC + A′C + BC + B′C = C(1 + A + A′ + B + B′) = C",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Combine remaining terms.",
+                            "expression": "AB′ + A′B + C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expanding the POS expression using distributive law and simplifying using complement and absorption laws, all terms containing C reduce to C. The remaining terms AB′ and A′B stay unchanged. Hence, the minimal SOP form is AB′ + A′B + C."
+                },
+                {
+                    "id": 34,
+                    "q": "Convert F = (A + B)(A + C′)(A′ + B′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB′ + A′BC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A + C′) = A·A + A·C′ + B·A + B·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "A + AC′ + AB + BC′ = A + BC′",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + BC′)(A′ + B′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(A′ + B′) + BC′(A′ + B′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "A·A′ + A·B′ + BC′·A′ + BC′·B′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB′ + A′BC′ + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AB′ + A′BC′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(A + C′) to A + BC′ using distributive and absorption laws. Then multiply with (A′ + B′) and expand. Applying complement law removes zero terms, leaving the final SOP form AB′ + A′BC′."
+                },
+                {
+                    "id": 35,
+                    "q": "Convert F = (A + B + C′)(A′ + B + C)(A + B′ + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AC′ + BC′ + A′BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets.",
+                            "expression": "(A + B + C′)(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand completely.",
+                            "expression": "AA′ + AB + AC + BA′ + BB + BC + C′A′ + C′B + C′C",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC + A′B + B + BC + A′C′ + B C′ + 0 = B + AC + A′C′",
+                            "law": "Complement & Absorption"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(B + AC + A′C′)(A + B′ + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand all terms.",
+                            "expression": "B(A + B′ + C′) + AC(A + B′ + C′) + A′C′(A + B′ + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Expand each product.",
+                            "expression": "BA + BB′ + BC′ + ACA + ACB′ + ACC′ + A′C′A + A′C′B′ + A′C′C′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "AB + 0 + BC′ + AC + ACB′ + 0 + 0 + A′B′C′ + A′C′",
+                            "law": "Complement & Idempotent"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Simplify using absorption.",
+                            "expression": "AC′ + BC′ + A′BC",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "After expanding step by step and simplifying using complement, idempotent, and absorption laws, redundant terms cancel out. The minimal SOP form is AC′ + BC′ + A′BC."
+                },
+                {
+                    "id": 36,
+                    "q": "Convert F = (A + B′)(A′ + B)(A + B) to SOP form (already done Q8) – repeat.",
+                    "marks": 2,
+                    "answer": "AB",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + B) = A·A′ + A·B + B′·A′ + B′·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + A′B′ + 0 = AB + A′B′",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AB + A′B′)(A + B)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AB·A + AB·B + A′B′·A + A′B′·B",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "AB + AB + 0 + 0",
+                            "law": "Idempotent (XX = X), Complement (X·X′ = 0)"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Remove duplicate terms.",
+                            "expression": "AB",
+                            "law": "Idempotent Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B′)(A′ + B) to AB + A′B′. Then multiply with (A + B). Applying complement law removes A′B′ terms, and idempotent law reduces AB + AB to AB. Hence the final SOP form is AB."
+                },
+                {
+                    "id": 37,
+                    "q": "Convert F = (A + B + C)(A + B′ + C)(A′ + B + C) to SOP form (majority POS).",
+                    "marks": 2,
+                    "answer": "AB + C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Group the first two brackets using identity (X + Y)(X + Z) = X + YZ, where X = A + C, Y = B, Z = B′.",
+                            "expression": "(A + B + C)(A + B′ + C) = (A + C) + B·B′",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (B·B′ = 0).",
+                            "expression": "A + C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + C)(A′ + B + C)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply distributive law.",
+                            "expression": "A(A′ + B + C) + C(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC + CA′ + CB + CC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC + A′C + BC + C",
+                            "law": "Complement (A·A′=0), Idempotent (C·C=C)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law (C + AC = C, C + A′C = C, C + BC = C).",
+                            "expression": "AB + C",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B + C)(A + B′ + C) to A + C. Then expand with (A′ + B + C). Applying complement, idempotent, and absorption laws reduces all terms containing C to C, leaving AB + C as the final SOP form."
+                },
+                {
+                    "id": 38,
+                    "q": "Convert F = (A + B)(B + C)(A′ + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "A′B + AC + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(B + C) = A·B + A·C + B·B + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "AB + AC + B + BC = B + AC",
+                            "law": "Idempotent (B·B=B), Absorption (B + AB = B, B + BC = B)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(B + AC)(A′ + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "B(A′ + C) + AC(A′ + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "B·A′ + B·C + AC·A′ + AC·C",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "A′B + BC + 0 + AC",
+                            "law": "Complement (A·A′=0), Idempotent (C·C=C)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "A′B + AC + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(B + C) to B + AC using distributive and absorption laws. Then multiply with (A′ + C) and expand. Applying complement and idempotent laws removes zero terms, yielding the final SOP form A′B + AC + BC."
+                },
+                {
+                    "id": 39,
+                    "q": "Convert F = (A + C)(A′ + B)(B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′C + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + C)(A′ + B) = A·A′ + A·B + C·A′ + C·B",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AB + A′C + BC = AB + A′C + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AB + A′C + BC)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AB(B + C) + A′C(B + C) + BC(B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "AB·B + AB·C + A′C·B + A′C·C + BC·B + BC·C",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent law (XX = X).",
+                            "expression": "AB + ABC + A′BC + A′C + BC + BC",
+                            "law": "Idempotent Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption law.",
+                            "expression": "AB + ABC = AB, A′C + A′BC = A′C, BC + BC = BC",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + A′C + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First expand (A + C)(A′ + B) to get AB + A′C + BC. Then multiply with (B + C) and expand. Using idempotent and absorption laws removes redundant terms (ABC and A′BC), leaving the final SOP form AB + A′C + BC."
+                },
+                {
+                    "id": 40,
+                    "q": "Convert F = (A + B′)(A′ + C′)(B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AC′ + B′C′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + C′) = A·A′ + A·C′ + B′·A′ + B′·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC′ + A′B′ + B′C′ = AC′ + A′B′ + B′C′",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC′ + A′B′ + B′C′)(B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC′·B + AC′·C′ + A′B′·B + A′B′·C′ + B′C′·B + B′C′·C′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "ABC′ + AC′ + 0 + A′B′C′ + 0 + B′C′",
+                            "law": "Complement (X·X′=0), Idempotent"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Factor out C′ and simplify.",
+                            "expression": "C′(AB + A + A′B′ + B′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply absorption laws.",
+                            "expression": "C′(A + B′)",
+                            "law": "Absorption (AB + A = A, A′B′ + B′ = B′)"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Expand to SOP form.",
+                            "expression": "AC′ + B′C′",
+                            "law": "Distributive Law"
+                        }
+                    ],
+                    "explanation": "After expanding step by step, apply complement and idempotent laws to simplify intermediate terms. Factoring out C′ and using absorption laws reduces the expression to C′(A + B′). Expanding gives the final SOP form AC′ + B′C′."
+                },
+                {
+                    "id": 41,
+                    "q": "Convert F = (A + B + C)(A + B′ + C′)(A′ + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC′ + BC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive identity (X+Y)(X+Z)=X+YZ with X=A.",
+                            "expression": "(A + B + C)(A + B′ + C′) = A + (B + C)(B′ + C′)",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand (B + C)(B′ + C′).",
+                            "expression": "BB′ + BC′ + CB′ + CC′ = BC′ + B′C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Substitute back.",
+                            "expression": "A + BC′ + B′C",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + BC′ + B′C)(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand all terms.",
+                            "expression": "A(A′ + B + C′) + BC′(A′ + B + C′) + B′C(A′ + B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Expand each product.",
+                            "expression": "AA′ + AB + AC′ + A′BC′ + BBC′ + BC′C′ + A′B′C + BB′C + B′CC′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC′ + A′BC′ + BC′ + BC′ + A′B′C + 0 + 0",
+                            "law": "Complement & Idempotent"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Apply absorption laws.",
+                            "expression": "AB + AC′ + BC′",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify the first two brackets to A + BC′ + B′C. Then expand with (A′ + B + C′). After applying complement and idempotent laws, use absorption to remove redundant terms like A′BC′ and A′B′C. The minimal SOP form is AB + AC′ + BC′."
+                },
+                {
+                    "id": 42,
+                    "q": "Convert F = (A + B)(A′ + C)(B + C) we already did (Q7) → AB + A′C? Actually we got AC + A′B earlier.",
+                    "marks": 2,
+                    "answer": "AC + A′B",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply consensus theorem: (A+B)(A′+C)(B+C) = (A+B)(A′+C).",
+                            "expression": "(A + B)(A′ + C)",
+                            "law": "Consensus Theorem"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand using distributive law.",
+                            "expression": "A·A′ + A·C + B·A′ + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B + BC = AC + A′B + BC",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply consensus theorem (XY + X′Z + YZ = XY + X′Z) to remove BC.",
+                            "expression": "AC + A′B",
+                            "law": "Consensus Theorem"
+                        }
+                    ],
+                    "explanation": "Using the consensus theorem, (A+B)(A′+C)(B+C) reduces to (A+B)(A′+C). Expanding gives AC + A′B + BC. The term BC is redundant by the consensus theorem, so the minimal SOP form is AC + A′B."
+                },
+                {
+                    "id": 43,
+                    "q": "Convert F = (A + B′ + C)(A′ + B + C)(A + B + C′) to SOP form (similar to Q37 but different).",
+                    "marks": 2,
+                    "answer": "A′B′C′ + A′BC + AB′C + ABC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′ + C)(A′ + B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand completely.",
+                            "expression": "AA′ + AB + AC + A′B′ + B′B + B′C + A′C + BC + CC",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC + A′B′ + 0 + B′C + A′C + BC + C",
+                            "law": "Complement & Idempotent"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Simplify expression.",
+                            "expression": "C + AB + A′B′",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(C + AB + A′B′)(A + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Expand all terms.",
+                            "expression": "C(A + B + C′) + AB(A + B + C′) + A′B′(A + B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Expand each product.",
+                            "expression": "CA + CB + CC′ + ABA + ABB + ABC′ + A′B′A + A′B′B + A′B′C′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "AC + BC + 0 + AB + AB + ABC′ + 0 + 0 + A′B′C′",
+                            "law": "Complement & Idempotent"
+                        },
+                        {
+                            "step": 9,
+                            "action": "Simplify using absorption.",
+                            "expression": "AB + AC + BC + A′B′C′",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 10,
+                            "action": "Convert to canonical SOP (XNOR of three variables).",
+                            "expression": "A′B′C′ + A′BC + AB′C + ABC′",
+                            "law": "Canonical Expansion"
+                        }
+                    ],
+                    "explanation": "After expansion and simplification, the function corresponds to the complement of the 3-variable XOR (i.e., XNOR). Hence the SOP form is A′B′C′ + A′BC + AB′C + ABC′, which represents all cases where an even number of inputs are 1."
+                },
+                {
+                    "id": 44,
+                    "q": "Convert F = (A + B′ + C′)(A′ + B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′B′ + C′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Apply distributive law to expand the expression.",
+                            "expression": "(A + B′ + C′)(A′ + B + C′) = A(A′ + B + C′) + B′(A′ + B + C′) + C′(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand each term.",
+                            "expression": "AA′ + AB + AC′ + B′A′ + B′B + B′C′ + C′A′ + C′B + C′C′",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Rearrange terms.",
+                            "expression": "AA′ + AB + AC′ + A′B′ + B′B + B′C′ + A′C′ + BC′ + C′C′",
+                            "law": "Commutative Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC′ + A′B′ + 0 + B′C′ + A′C′ + BC′ + C′",
+                            "law": "Complement (X·X′=0), Idempotent (C′·C′=C′)"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Group terms containing C′ and apply absorption.",
+                            "expression": "C′ + AC′ + A′C′ + B′C′ + BC′ = C′",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Write remaining terms.",
+                            "expression": "AB + A′B′ + C′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "After expansion, apply complement law to eliminate AA′ and B′B, and idempotent law to reduce C′C′ to C′. All terms containing C′ simplify to C′ using absorption. The remaining terms AB and A′B′ stay unchanged. Hence the minimal SOP form is AB + A′B′ + C′."
+                },
+                {
+                    "id": 45,
+                    "q": "Convert F = (A + B)(A + C)(B + C′) to SOP form (repeat of Q22).",
+                    "marks": 2,
+                    "answer": "AB + AC′ + BC",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A + C) = A·A + A·C + B·A + B·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "A + AC + AB + BC = A + BC",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + BC)(B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(B + C′) + BC(B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "AB + AC′ + BCB + BCC′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply idempotent and complement laws.",
+                            "expression": "AB + AC′ + BC + 0",
+                            "law": "Idempotent (BB=B), Complement (C·C′=0)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + AC′ + BC",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(A + C) to A + BC using distributive and absorption laws. Then multiply with (B + C′) and expand. Applying complement and idempotent laws removes zero terms, giving the final SOP form AB + AC′ + BC."
+                },
+                {
+                    "id": 46,
+                    "q": "Convert F = (A + B′)(A + C)(A′ + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + A′B′C",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A + C) = A·A + A·C + B′·A + B′·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "A + AC + AB′ + B′C = A + B′C",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + B′C)(A′ + B)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(A′ + B) + B′C(A′ + B)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "A·A′ + A·B + B′C·A′ + B′C·B",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (X·X′ = 0).",
+                            "expression": "0 + AB + A′B′C + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + A′B′C",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B′)(A + C) to A + B′C using distributive and absorption laws. Then multiply with (A′ + B) and expand. Applying complement law removes zero terms, leaving the final SOP form AB + A′B′C."
+                },
+                {
+                    "id": 47,
+                    "q": "Convert F = (A + B + C)(A + B′ + C′)(A′ + B + C′) to SOP form (similar to Q41).",
+                    "marks": 2,
+                    "answer": "AB + AC′ + BC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using identity (X+Y)(X+Z)=X+YZ with X=A.",
+                            "expression": "(A + B + C)(A + B′ + C′) = A + (B + C)(B′ + C′)",
+                            "law": "Distributive Identity"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Expand (B + C)(B′ + C′).",
+                            "expression": "BB′ + BC′ + CB′ + CC′ = BC′ + B′C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Substitute back.",
+                            "expression": "A + BC′ + B′C",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + BC′ + B′C)(A′ + B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand all terms.",
+                            "expression": "A(A′ + B + C′) + BC′(A′ + B + C′) + B′C(A′ + B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Expand each product.",
+                            "expression": "AA′ + AB + AC′ + A′BC′ + BBC′ + BC′C′ + A′B′C + BB′C + B′CC′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB + AC′ + A′BC′ + BC′ + BC′ + A′B′C + 0 + 0",
+                            "law": "Complement & Idempotent"
+                        },
+                        {
+                            "step": 8,
+                            "action": "Apply absorption laws.",
+                            "expression": "AB + AC′ + BC′",
+                            "law": "Absorption Law"
+                        }
+                    ],
+                    "explanation": "First simplify the first two brackets to A + BC′ + B′C. Then expand with (A′ + B + C′). Applying complement and idempotent laws removes zero terms. Finally, absorption removes redundant terms like A′BC′ and A′B′C, giving the minimal SOP form AB + AC′ + BC′."
+                },
+                {
+                    "id": 48,
+                    "q": "Convert F = (A + B′)(A′ + C)(B + C′) to SOP form.",
+                    "marks": 2,
+                    "answer": "ABC + A′B′C′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + C) = A·A′ + A·C + B′·A′ + B′·C",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement law (A·A′ = 0).",
+                            "expression": "0 + AC + A′B′ + B′C = AC + A′B′ + B′C",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(AC + A′B′ + B′C)(B + C′)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "AC(B + C′) + A′B′(B + C′) + B′C(B + C′)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "ACB + ACC′ + A′B′B + A′B′C′ + B′CB + B′CC′",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (X·X′=0) and simplify.",
+                            "expression": "ABC + 0 + 0 + A′B′C′ + 0 + 0",
+                            "law": "Complement Law"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "ABC + A′B′C′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First, expand (A + B′)(A′ + C) to get AC + A′B′ + B′C. Then multiply with (B + C′) and expand. Using complement law (X·X′=0), all intermediate terms cancel except ABC and A′B′C′. Hence the final SOP form is ABC + A′B′C′."
+                },
+                {
+                    "id": 49,
+                    "q": "Convert F = (A + B)(A + C′)(B + C) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB + AC + BC′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B)(A + C′) = A·A + A·C′ + B·A + B·C′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply idempotent and absorption laws.",
+                            "expression": "A + AC′ + AB + BC′ = A + BC′",
+                            "law": "Idempotent (A·A=A), Absorption (A + AX = A)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "(A + BC′)(B + C)",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Expand all terms.",
+                            "expression": "A(B + C) + BC′(B + C)",
+                            "law": "Expansion"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Expand each product.",
+                            "expression": "AB + AC + BC′·B + BC′·C",
+                            "law": "Multiplication"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "AB + AC + BC′ + 0",
+                            "law": "Complement (C·C′=0), Idempotent (B·B=B)"
+                        },
+                        {
+                            "step": 7,
+                            "action": "Write final SOP form.",
+                            "expression": "AB + AC + BC′",
+                            "law": "Simplification"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B)(A + C′) to A + BC′ using distributive and absorption laws. Then multiply with (B + C) and expand. Applying complement and idempotent laws removes zero terms, giving the final SOP form AB + AC + BC′."
+                },
+                {
+                    "id": 50,
+                    "q": "Convert F = (A + B′)(A′ + B′)(A + B) to SOP form.",
+                    "marks": 2,
+                    "answer": "AB′",
+                    "steps": [
+                        {
+                            "step": 1,
+                            "action": "Multiply the first two brackets using distributive law.",
+                            "expression": "(A + B′)(A′ + B′) = A·A′ + A·B′ + B′·A′ + B′·B′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 2,
+                            "action": "Apply complement and idempotent laws.",
+                            "expression": "0 + AB′ + A′B′ + B′",
+                            "law": "Complement (A·A′=0), Idempotent (B′·B′=B′)"
+                        },
+                        {
+                            "step": 3,
+                            "action": "Apply absorption law (B′ + AB′ = B′ and B′ + A′B′ = B′).",
+                            "expression": "B′",
+                            "law": "Absorption Law"
+                        },
+                        {
+                            "step": 4,
+                            "action": "Multiply with the third bracket.",
+                            "expression": "B′(A + B)",
+                            "law": "Substitution"
+                        },
+                        {
+                            "step": 5,
+                            "action": "Apply distributive law.",
+                            "expression": "A·B′ + B·B′",
+                            "law": "Distributive Law"
+                        },
+                        {
+                            "step": 6,
+                            "action": "Apply complement law (B·B′ = 0).",
+                            "expression": "AB′ + 0 = AB′",
+                            "law": "Complement Law"
+                        }
+                    ],
+                    "explanation": "First simplify (A + B′)(A′ + B′) to B′ using distributive, complement, and absorption laws. Then multiply with (A + B). Applying complement law removes B·B′, leaving the final SOP form AB′."
+                }
+            ]
+        }
+    ]
+}

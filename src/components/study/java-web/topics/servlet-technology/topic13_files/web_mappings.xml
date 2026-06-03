@@ -1,0 +1,21 @@
+<web-app ...>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.example.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/super/*</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>StaticServlet</servlet-name>
+        <servlet-class>com.example.StaticServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StaticServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/school_db</property>
+        <property name="hibernate.connection.username">swadeep</property>
+        <property name="hibernate.connection.password">secure123</property>
+
+        <!-- JTA transaction coordination -->
+        <property name="hibernate.transaction.coordinator_class">jta</property>
+        <property name="hibernate.transaction.jta.platform">BitronixJtaPlatform</property>
+        <property name="hibernate.current_session_context_class">jta</property>
+
+        <!-- Other settings -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Mapping classes -->
+        <mapping class="com.school.entity.Student"/>
+    </session-factory>
+</hibernate-configuration>

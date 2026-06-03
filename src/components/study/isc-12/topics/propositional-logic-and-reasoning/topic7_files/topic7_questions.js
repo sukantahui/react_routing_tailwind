@@ -1,0 +1,42 @@
+// topic7_files/topic7_questions.js
+const questions = [
+    { question: "What is a truth table?", shortAnswer: "A table showing truth values of a logical expression for all input combinations.", explanation: "Rows represent all possible assignments to variables; columns show intermediate and final truth values.", hint: "Systematic evaluation tool.", level: "basic", codeExample: "// Truth table for AND: p q | p&&q" },
+    { question: "How many rows in a truth table for 3 variables?", shortAnswer: "8 rows (2³).", explanation: "Each variable doubles the number of combinations.", hint: "2^n rows.", level: "basic", codeExample: "// For p,q,r: 8 rows from TTT to FFF" },
+    { question: "What is the truth table for NOT (~)?", shortAnswer: "p=T→~p=F; p=F→~p=T.", explanation: "Negation flips truth value.", hint: "Two rows only.", level: "basic", codeExample: "// ~p: opposite of p" },
+    { question: "What is the truth table for AND (∧)?", shortAnswer: "Only true when both inputs true (T,T→T; others F).", explanation: "Conjunction requires all operands true.", hint: "All must be true.", level: "basic", codeExample: "// T&&T=T, else F" },
+    { question: "What is the truth table for OR (∨)?", shortAnswer: "False only when both false (F,F→F; else T).", explanation: "Disjunction is true if at least one true.", hint: "At least one true.", level: "basic", codeExample: "// F||F=F, else T" },
+    { question: "What is the truth table for Implication (⇒)?", shortAnswer: "False only when p true and q false.", explanation: "T→T=T, T→F=F, F→T=T, F→F=T.", hint: "Only false if true implies false.", level: "moderate", codeExample: "// p→q ≡ !p || q" },
+    { question: "What is the truth table for Biconditional (⇔)?", shortAnswer: "True when p and q agree (both T or both F).", explanation: "T↔T=T, T↔F=F, F↔T=F, F↔F=T.", hint: "Same truth value = true.", level: "moderate", codeExample: "// p↔q ≡ (p&&q)||(!p&&!q)" },
+    { question: "How do you generate all combinations for n variables?", shortAnswer: "Binary counting from 0 to 2ⁿ-1.", explanation: "Assign T for 1, F for 0, or use pattern: first variable 2ⁿ/2 T then 2ⁿ/2 F, etc.", hint: "Systematic patterns.", level: "moderate", codeExample: "// For 2 vars: TT,TF,FT,FF" },
+    { question: "Why do we need truth tables?", shortAnswer: "To define operators, test equivalences, find tautologies/contradictions, and verify arguments.", explanation: "Truth tables provide exhaustive analysis.", hint: "Complete verification.", level: "basic", codeExample: "// Prove De Morgan: !(p&&q) == !p||!q" },
+    { question: "How many rows for 4 variables?", shortAnswer: "16 rows (2⁴).", explanation: "Exponential growth: each variable doubles rows.", hint: "2^4 = 16.", level: "moderate", codeExample: "// 4 vars → 16 combinations" },
+    { question: "What is the truth table for ~(p ∧ q)?", shortAnswer: "F,T,T,T (same as ~p ∨ ~q).", explanation: "Negation of AND gives T except when both true.", hint: "De Morgan.", level: "moderate", codeExample: "// !(p&&q): F,T,T,T" },
+    { question: "What is the truth table for (~p) ∨ q?", shortAnswer: "Same as p⇒q: T,F,T,T.", explanation: "Implication rewritten as OR.", hint: "!p||q = p→q.", level: "moderate", codeExample: "// !p||q truth table matches →" },
+    { question: "What is the order of rows in a standard truth table?", shortAnswer: "Binary ascending: T,T; T,F; F,T; F,F.", explanation: "Treat T=1, F=0, count from 0 to 2ⁿ-1.", hint: "Consistent ordering.", level: "basic", codeExample: "// For 2 vars: TT, TF, FT, FF" },
+    { question: "Can truth tables handle 5 variables?", shortAnswer: "Yes, but 32 rows becomes tedious; used in computer tools.", explanation: "Manual construction is time-consuming but possible.", hint: "2^5 = 32 rows.", level: "expert", codeExample: "// Use software for 5+ vars" },
+    { question: "What is a tautology in truth table terms?", shortAnswer: "A column with all T (true in every row).", explanation: "The expression is always true regardless of inputs.", hint: "All rows true.", level: "moderate", codeExample: "// p ∨ ~p: all T" },
+    { question: "What is a contradiction in truth table terms?", shortAnswer: "A column with all F (false in every row).", explanation: "The expression is always false.", hint: "All rows false.", level: "moderate", codeExample: "// p ∧ ~p: all F" },
+    { question: "How to test logical equivalence with truth tables?", shortAnswer: "Compare final columns of two expressions; if identical for all rows, they are equivalent.", explanation: "Same truth values in every row means equivalence.", hint: "Match column by column.", level: "moderate", codeExample: "// Compare p→q and !p||q columns" },
+    { question: "What is the truth table for (p ∧ q) ∨ r with three variables?", shortAnswer: "8 rows; compute p∧q first, then OR with r.", explanation: "Use intermediate columns.", hint: "Stepwise evaluation.", level: "moderate", codeExample: "// (p&&q)||r table" },
+    { question: "Why is (F→F) true in truth table?", shortAnswer: "Because implication is false only when antecedent true and consequent false.", explanation: "No counterexample exists.", hint: "Vacuous truth.", level: "moderate", codeExample: "// false→false = true" },
+    { question: "What is the truth table for exclusive OR (XOR)?", shortAnswer: "True when exactly one true: T,T→F; T,F→T; F,T→T; F,F→F.", explanation: "XOR differs from OR only in the first row.", hint: "One true, one false.", level: "moderate", codeExample: "// p xor q = (p&&!q)||(!p&&q)" },
+    { question: "How many rows for a truth table with 6 variables?", shortAnswer: "64 rows.", explanation: "2^6 = 64.", hint: "Exponential growth.", level: "moderate", codeExample: "// 2^6 = 64" },
+    { question: "What is the truth table for p ∧ (q ∨ ~p)?", shortAnswer: "Simplify first: p∧(q∨~p) ≡ p∧q (since p∧~p=F).", explanation: "Use laws to reduce before building table.", hint: "Simplify if possible.", level: "expert", codeExample: "// Table has T only when both p and q true" },
+    {
+        question: "Can truth tables prove logical laws?",
+        shortAnswer: "Yes, by showing two expressions have identical columns.",
+        explanation: "Common method to prove De Morgan, distributivity, etc.",
+        hint: "Equivalence proof.",
+        level: "moderate",
+        codeExample: "// Show !(p&&q) ≡ !p||!q via table"
+    },
+    { question: "What is the difference between a truth table and a logic gate table?", shortAnswer: "They are the same; logic gates use 1/0 instead of T/F.", explanation: "Digital circuits use truth tables to define gate behavior.", hint: "Same concept.", level: "basic", codeExample: "// AND gate: 0,0→0; 0,1→0; 1,0→0; 1,1→1" },
+    { question: "How to fill rows for 3 variables quickly?", shortAnswer: "Pattern: p: 4T,4F; q: 2T,2F,2T,2F; r: T,F,T,F,T,F,T,F.", explanation: "Each variable halves the block size.", hint: "Alternating pattern.", level: "moderate", codeExample: "// p: TTTTFFFF; q: TTFFTTFF; r: TFTFTFTF" },
+    { question: "What is the truth table for (p⇒q)∧(q⇒p)?", shortAnswer: "Same as p⇔q: T,F,F,T.", explanation: "Biconditional as conjunction of two implications.", hint: "Both directions.", level: "moderate", codeExample: "// (p→q)&&(q→p) ↔ p↔q" },
+    { question: "What is the truth table for p ∨ (q ∧ ~p)?", shortAnswer: "Simplify: p ∨ (q∧~p) ≡ p ∨ q.", explanation: "Absorption law.", hint: "Simplify first.", level: "expert", codeExample: "// Table: T,T,T; T,F,T; F,T,T; F,F,F → same as p∨q" },
+    { question: "Why use 1/0 instead of T/F in some truth tables?", shortAnswer: "1/0 aligns with digital circuits and binary arithmetic.", explanation: "Both represent true/false.", hint: "Interchangeable.", level: "basic", codeExample: "// 1∧1=1, 1∧0=0, etc." },
+    { question: "How do you verify a logical argument using truth tables?", shortAnswer: "Check if whenever premises are all true, conclusion is also true.", explanation: "If any row has premises true and conclusion false, argument invalid.", hint: "Validity test.", level: "expert", codeExample: "// Premises: p→q, p; Conclusion: q → valid" },
+    { question: "What is the truth table for ~(p ∨ q) ∨ (p ∧ q)?", shortAnswer: "Simplify: ~(p∨q)∨(p∧q) ≡ (p↔q).", explanation: "Exclusive NOR.", hint: "Check equivalence.", level: "expert", codeExample: "// Table: T,F,F,T matches biconditional" }
+];
+
+export default questions;

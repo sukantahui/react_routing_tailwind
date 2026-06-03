@@ -1,0 +1,1559 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Text Processing and File Utilities",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "What is the difference between row‑wise and column‑wise data selection in Unix?",
+      "answer": "Row‑wise selection chooses whole lines (e.g., head, tail, sed); column‑wise selection chooses fields from each line (e.g., cut, awk).",
+      "explanation": "Row‑wise operates on line boundaries; column‑wise splits each line into delimited fields."
+    },
+    {
+      "id": 2,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "Which command is used to select the first 10 rows of a file?",
+      "answer": "`head -10 file.txt` or simply `head file.txt` (default 10 lines).",
+      "explanation": "`head` displays the first N lines; `tail` shows the last N lines."
+    },
+    {
+      "id": 3,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "How to select rows 5 to 15 from a file?",
+      "answer": "`sed -n '5,15p' file.txt` or `head -15 file.txt | tail -11`.",
+      "explanation": "`sed` with the `p` command prints the address range; `head`+`tail` uses line count."
+    },
+    {
+      "id": 4,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "What command selects the second column (field) from a space‑separated file?",
+      "answer": "`cut -d' ' -f2 file.txt` or `awk '{print $2}' file.txt`.",
+      "explanation": "`cut` uses delimiter `-d` and field numbers; `awk` uses `$1`, `$2`, etc."
+    },
+    {
+      "id": 5,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "How to select all lines containing the word 'error' (row‑wise selection)?",
+      "answer": "`grep 'error' file.txt`.",
+      "explanation": "`grep` filters rows based on a pattern."
+    },
+    {
+      "id": 6,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "How to select column 3 and 5 from a CSV file (comma‑separated)?",
+      "answer": "`cut -d, -f3,5 file.csv`.",
+      "explanation": "Field numbers can be given as a comma‑separated list or range (e.g., `-f3-5`)."
+    },
+    {
+      "id": 7,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Beginner",
+      "question": "How to select rows where the second column is greater than 100 using `awk`?",
+      "answer": "`awk '$2 > 100' file.txt`.",
+      "explanation": "`awk` can perform conditional selection on fields."
+    },
+    {
+      "id": 8,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select columns 2 to 4 from a tab‑separated file?",
+      "answer": "`cut -f2-4 file.tsv` (default delimiter for `cut` is tab).",
+      "explanation": "The `-f2-4` syntax selects fields 2,3,4."
+    },
+    {
+      "id": 9,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select every row except the header line?",
+      "answer": "`tail -n +2 file.csv` or `sed '1d' file.csv`.",
+      "explanation": "`tail -n +2` prints from line 2 onward; `sed '1d'` deletes line 1."
+    },
+    {
+      "id": 10,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select lines that match a pattern and also a specific column?",
+      "answer": "`awk '/pattern/ {print $3}' file.txt`.",
+      "explanation": "`awk` combines row selection (pattern) and column printing."
+    },
+    {
+      "id": 11,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "What does `head -5 file.txt | cut -c1-10` do?",
+      "answer": "Selects first 10 characters of each of the first 5 lines.",
+      "explanation": "`-c` selects characters by position; pipes chain row and column operations."
+    },
+    {
+      "id": 12,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select rows 50 to 100 using `sed`?",
+      "answer": "`sed -n '50,100p' file.txt`.",
+      "explanation": "`-n` suppresses default output; `p` prints only the range."
+    },
+    {
+      "id": 13,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select rows ending with a digit?",
+      "answer": "`grep '[0-9]$' file.txt`.",
+      "explanation": "The regex `[0-9]$` matches lines ending with a digit."
+    },
+    {
+      "id": 14,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select all columns except the first one using `cut`?",
+      "answer": "`cut -d' ' -f2- file.txt` (fields 2 to end).",
+      "explanation": "`f2-` means from field 2 to the last field."
+    },
+    {
+      "id": 15,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Intermediate",
+      "question": "How to select every other row (odd rows)?",
+      "answer": "`awk 'NR%2==1' file.txt`.",
+      "explanation": "`NR` is line number; modulo 2 selects odd lines."
+    },
+    {
+      "id": 16,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows whose first column equals a given value using `awk`?",
+      "answer": "`awk -F, '$1 == \"value\"' file.csv`.",
+      "explanation": "`-F,` sets delimiter; string comparison in `awk`."
+    },
+    {
+      "id": 17,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select columns by name (if header exists) using `awk`?",
+      "answer": "Read the header line into an array, then use the column index: `awk 'NR==1{for(i=1;i<=NF;i++)h[$i]=i} NR>1{print $h[\"price\"]}' file.csv`.",
+      "explanation": "This associative array technique maps column names to field numbers."
+    },
+    {
+      "id": 18,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows between two patterns (inclusive) with `sed`?",
+      "answer": "`sed -n '/start/,/end/p' file.txt`.",
+      "explanation": "The range syntax `/start/,/end/` selects lines between the first match of `start` and first match of `end`."
+    },
+    {
+      "id": 19,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select columns where the column name matches a pattern?",
+      "answer": "Use `awk` with header line: `awk 'NR==1{for(i=1;i<=NF;i++)if($i~/pattern/)c[i]=1} NR>1{for(i in c)printf \"%s%s\", $i, (++j==length(c)?ORS:OFS)}'`.",
+      "explanation": "This prints only columns whose header matches the regex pattern."
+    },
+    {
+      "id": 20,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows where any column contains a certain string?",
+      "answer": "`awk '{for(i=1;i<=NF;i++) if($i ~ /pattern/) {print; break}}' file.txt`.",
+      "explanation": "Loop through fields, print line and exit loop on first match."
+    },
+    {
+      "id": 21,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows 10‑20 and also extract only columns 3 and 5 in one pipeline?",
+      "answer": "`sed -n '10,20p' file.txt | cut -d' ' -f3,5`.",
+      "explanation": "Pipe row selection into column selection."
+    },
+    {
+      "id": 22,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select random rows from a file?",
+      "answer": "`shuf -n 5 file.txt` (shuffle and pick first 5 lines).",
+      "explanation": "`shuf` randomly permutes lines; `-n` limits output."
+    },
+    {
+      "id": 23,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows where the second field is numeric?",
+      "answer": "`awk '$2+0 == $2' file.txt` (checks if field2 is a number).",
+      "explanation": "Adding zero converts to number; if it remains same, it's numeric."
+    },
+    {
+      "id": 24,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select columns based on a delimiter other than space/tab using `cut`?",
+      "answer": "`cut -d: -f1,3 /etc/passwd` (colon delimiter).",
+      "explanation": "`-d:` sets delimiter to colon."
+    },
+    {
+      "id": 25,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows that contain a pattern but print only a specific column?",
+      "answer": "`grep 'pattern' file.txt | cut -d' ' -f2`.",
+      "explanation": "Grep filters rows, then cut extracts the column."
+    },
+    {
+      "id": 26,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows with line numbers using `cat -n` and then cut?",
+      "answer": "`cat -n file.txt | cut -c1-6` (first 6 chars contain line numbers).",
+      "explanation": "`cat -n` prefixes line numbers; you can then cut those columns."
+    },
+    {
+      "id": 27,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows that are not empty?",
+      "answer": "`grep -v '^$' file.txt` or `sed '/^$/d' file.txt`.",
+      "explanation": "`^$` matches empty lines; `-v` inverts the match."
+    },
+    {
+      "id": 28,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select columns whose values are numbers > 100?",
+      "answer": "`awk '{for(i=1;i<=NF;i++) if($i>100) printf \"%s \", $i; print \"\"}' file.txt`.",
+      "explanation": "Loop through fields and print only those meeting condition."
+    },
+    {
+      "id": 29,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows where the length of the line is greater than 80 characters?",
+      "answer": "`awk 'length($0) > 80' file.txt`.",
+      "explanation": "`length($0)` returns number of characters in the whole line."
+    },
+    {
+      "id": 30,
+      "topic": "Row-wise and column-wise data selection",
+      "difficulty": "Advanced",
+      "question": "How to select rows that are duplicated in a file (non‑unique rows)?",
+      "answer": "`uniq -d file.txt` (requires sorted input).",
+      "explanation": "First sort: `sort file.txt | uniq -d` prints lines that appear more than once."
+    },
+    {
+      "id": 31,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "What is the default delimiter for the `cut` command?",
+      "answer": "Tab character (`\\t`).",
+      "explanation": "If `-d` is not specified, `cut` treats tabs as field separators."
+    },
+    {
+      "id": 32,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "How to cut the first 5 characters from each line?",
+      "answer": "`cut -c1-5 file.txt`.",
+      "explanation": "`-c` selects character positions; `1-5` means columns 1 through 5."
+    },
+    {
+      "id": 33,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "How to cut the third field from a colon‑separated file?",
+      "answer": "`cut -d: -f3 file.txt`.",
+      "explanation": "`-d:` sets colon as delimiter; `-f3` selects the third field."
+    },
+    {
+      "id": 34,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "How to cut fields 2, 4, and 6 from a CSV file?",
+      "answer": "`cut -d, -f2,4,6 file.csv`.",
+      "explanation": "Comma‑separated field list without spaces."
+    },
+    {
+      "id": 35,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "What does `cut -f1-3,5` mean?",
+      "answer": "Select fields 1,2,3, and 5.",
+      "explanation": "Hyphen denotes ranges; comma separates distinct ranges."
+    },
+    {
+      "id": 36,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "How to cut characters from column 10 to the end of each line?",
+      "answer": "`cut -c10- file.txt`.",
+      "explanation": "`10-` means from position 10 to the end of the line."
+    },
+    {
+      "id": 37,
+      "topic": "Using cut command with different options",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `cut --complement`?",
+      "answer": "It selects the complement (opposite) of the specified fields or characters.",
+      "explanation": "Example: `cut -f1 --complement file.txt` prints all except field 1."
+    },
+    {
+      "id": 38,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "How to change the output delimiter for `cut`?",
+      "answer": "`cut -d: -f1,2 --output-delimiter=',' file.txt`.",
+      "explanation": "`--output-delimiter` changes the character between output fields."
+    },
+    {
+      "id": 39,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "How to cut fields where lines may not have all fields?",
+      "answer": "`cut` outputs nothing for missing fields; it cannot pad. Use `awk` for robustness.",
+      "explanation": "`cut` expects each line to have at least the requested fields; missing fields produce empty output."
+    },
+    {
+      "id": 40,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "How to cut multiple character ranges, e.g., characters 1‑5 and 10‑15?",
+      "answer": "`cut -c1-5,10-15 file.txt`.",
+      "explanation": "Ranges can be combined with commas; output concatenates the portions."
+    },
+    {
+      "id": 41,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "How to cut fields but suppress lines with no delimiter?",
+      "answer": "`cut -s -d: -f2 file.txt`.",
+      "explanation": "`-s` (suppress) omits lines that do not contain the delimiter."
+    },
+    {
+      "id": 42,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "What happens when you use `cut -f2` on a tab‑separated file without `-d`?",
+      "answer": "It correctly selects the second tab‑delimited field (default delimiter is tab).",
+      "explanation": "The default `-d` is tab, so `-f2` works as expected."
+    },
+    {
+      "id": 43,
+      "topic": "Using cut command with different options",
+      "difficulty": "Intermediate",
+      "question": "How to cut fields from standard input?",
+      "answer": "`cat file.txt | cut -d' ' -f1` works, or directly `cut -d' ' -f1 < file.txt`.",
+      "explanation": "`cut` reads from stdin if no file argument given."
+    },
+    {
+      "id": 44,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to use `cut` with a delimiter that is a space but multiple spaces?",
+      "answer": "`cut` treats each space as a separate delimiter; it cannot handle multiple spaces as one. Use `tr -s ' ' | cut`.",
+      "explanation": "`tr -s` squeezes repeated spaces into single space."
+    },
+    {
+      "id": 45,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to cut bytes instead of characters?",
+      "answer": "`cut -b 1-5 file.txt` (byte positions; differs from `-c` only for multi‑byte encodings).",
+      "explanation": "`-b` works on bytes; useful for binary files or single‑byte locales."
+    },
+    {
+      "id": 46,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to cut characters until the first occurrence of a pattern (not supported by cut)?",
+      "answer": "`cut` cannot; use `sed 's/pattern.*//'` or `awk` substring.",
+      "explanation": "`cut` works only on fixed positions or delimiters, not regex patterns."
+    },
+    {
+      "id": 47,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to cut fields from a file where delimiter is a colon but fields may be empty?",
+      "answer": "`cut -d: -f1,3 /etc/passwd` works even if some fields are empty; `cut` outputs empty strings.",
+      "explanation": "Empty fields are represented as consecutive delimiters."
+    },
+    {
+      "id": 48,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to cut fields only if the line begins with a specific character?",
+      "answer": "`grep '^#' file.txt | cut -d' ' -f2` (use grep to filter first).",
+      "explanation": "Pipe row selection (`grep`) into column selection."
+    },
+    {
+      "id": 49,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "How to cut fields while preserving the original delimiter in output?",
+      "answer": "`cut` by default outputs fields separated by the same delimiter (`-d`); use `--output-delimiter` to change.",
+      "explanation": "Default output delimiter matches input delimiter unless overridden."
+    },
+    {
+      "id": 50,
+      "topic": "Using cut command with different options",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `cut -c1-5` and `cut -b1-5` in UTF‑8 locale?",
+      "answer": "`-c` counts characters (multi‑byte), `-b` counts bytes (may split multi‑byte characters).",
+      "explanation": "For UTF‑8, `-c` is safer; `-b` can produce invalid bytes if cutting inside a multi‑byte codepoint."
+    },
+    {
+      "id": 51,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "What does the `paste` command do?",
+      "answer": "It merges lines from multiple files horizontally, joining them side‑by‑side with a delimiter.",
+      "explanation": "`paste` writes corresponding lines from each file as separate columns."
+    },
+    {
+      "id": 52,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "How to paste two files `a.txt` and `b.txt` into one output?",
+      "answer": "`paste a.txt b.txt`.",
+      "explanation": "Output: line1 of a.txt, then a tab, then line1 of b.txt, etc."
+    },
+    {
+      "id": 53,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "How to change the delimiter from tab to a comma?",
+      "answer": "`paste -d, a.txt b.txt`.",
+      "explanation": "`-d` specifies the delimiter character(s)."
+    },
+    {
+      "id": 54,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "How to paste the same file multiple times to repeat its content?",
+      "answer": "`paste a.txt a.txt a.txt`.",
+      "explanation": "Each occurrence of the file creates an additional column."
+    },
+    {
+      "id": 55,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "What does `paste -s` do?",
+      "answer": "Serial (column‑wise) pasting: combines all lines of each file into a single line.",
+      "explanation": "`-s` merges lines of a file horizontally, not across files."
+    },
+    {
+      "id": 56,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "How to paste files with a newline as delimiter?",
+      "answer": "`paste -d'\\n' file1 file2` (each line from each file appears on its own line).",
+      "explanation": "Using `\\n` as delimiter interleaves lines vertically (like `cat` but interleaved)."
+    },
+    {
+      "id": 57,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Beginner",
+      "question": "How to paste three files into three columns?",
+      "answer": "`paste file1 file2 file3`.",
+      "explanation": "Number of columns equals number of input files."
+    },
+    {
+      "id": 58,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Intermediate",
+      "question": "How to use a different delimiter for each field (e.g., first field separated by colon, then space)?",
+      "answer": "`paste -d': \\n' file1 file2 file3` cycles through the delimiters.",
+      "explanation": "Delimiters are used cyclically; here `:` between col1 & col2, space between col2 & col3, newline after col3."
+    },
+    {
+      "id": 59,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Intermediate",
+      "question": "What does `paste -d'\\0'` do?",
+      "answer": "Uses null character as delimiter, effectively concatenating lines with no separation.",
+      "explanation": "`\\0` is the null byte; not recommended for text files."
+    },
+    {
+      "id": 60,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Intermediate",
+      "question": "How to paste files when one file has fewer lines than the other?",
+      "answer": "`paste` uses empty strings for missing lines (no side‑by‑side lines become blank).",
+      "explanation": "The output line count equals the maximum number of lines among input files."
+    },
+    {
+      "id": 61,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Intermediate",
+      "question": "How to paste the output of commands instead of files?",
+      "answer": "`paste <(seq 5) <(ls)` (process substitution in bash).",
+      "explanation": "`<(command)` creates a temporary file descriptor that `paste` can read."
+    },
+    {
+      "id": 62,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste horizontally with a tab delimiter but suppress the final tab?",
+      "answer": "`paste` naturally does not add trailing delimiter. It's not configurable.",
+      "explanation": "Last field has no trailing delimiter; you cannot change that."
+    },
+    {
+      "id": 63,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste files while also adding a header row?",
+      "answer": "`echo -e \"Col1\\tCol2\" | paste - <(cat file1 file2)` (use `-` for stdin).",
+      "explanation": "`-` reads standard input, allowing you to insert a header."
+    },
+    {
+      "id": 64,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to transpose rows to columns using `paste`?",
+      "answer": "`paste -s -d'\\t' file.txt` (serial mode with tab) turns rows into columns.",
+      "explanation": "`-s` reads all lines of a file and pastes them horizontally."
+    },
+    {
+      "id": 65,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste two files with one field delimited by comma and the other by space?",
+      "answer": "`paste -d', ' file1 file2` (delimiter list cycles).",
+      "explanation": "First delimiter `,` after file1, second delimiter ` ` after file2."
+    },
+    {
+      "id": 66,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste files and add a newline after every field?",
+      "answer": "`paste -d'\\n' file1 file2 file3` (vertical output).",
+      "explanation": "This effectively interleaves lines from the files."
+    },
+    {
+      "id": 67,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste files where each file is generated from a pipeline?",
+      "answer": "`paste <(grep pattern file1) <(grep pattern file2)`.",
+      "explanation": "Process substitution allows using command outputs as virtual files."
+    },
+    {
+      "id": 68,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to paste files with a delimiter that is tab but output with spaces?",
+      "answer": "Use `paste | tr '\\t' ' '` after the fact.",
+      "explanation": "`paste` outputs tabs; `tr` replaces tabs with spaces."
+    },
+    {
+      "id": 69,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `paste` and `join`?",
+      "answer": "`paste` simply concatenates lines side‑by‑side; `join` aligns lines based on a common key field.",
+      "explanation": "`join` requires sorted input and matches keys; `paste` just lines up by line number."
+    },
+    {
+      "id": 70,
+      "topic": "Pasting and merging files horizontally using paste",
+      "difficulty": "Advanced",
+      "question": "How to use `paste` to create a CSV from two lists?",
+      "answer": "`paste -d, list1.txt list2.txt > combined.csv`.",
+      "explanation": "`-d,` sets comma as delimiter; each column corresponds to a file."
+    },
+    {
+      "id": 71,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "What does the `split` command do?",
+      "answer": "Splits a file into smaller pieces, each of a specified size or number of lines.",
+      "explanation": "Creates files named `xaa`, `xab`, … by default."
+    },
+    {
+      "id": 72,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "How to split a file `big.txt` into pieces of 1000 lines each?",
+      "answer": "`split -l 1000 big.txt`.",
+      "explanation": "`-l` specifies lines per output file."
+    },
+    {
+      "id": 73,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "How to split a file into pieces of 10 MB each?",
+      "answer": "`split -b 10m big.bin`.",
+      "explanation": "`-b` sets byte size; m = megabyte, k = kilobyte, g = gigabyte."
+    },
+    {
+      "id": 74,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "How to change the prefix of output files (instead of `x`)?",
+      "answer": "`split -l 500 big.txt part_` creates `part_aa`, `part_ab`, …",
+      "explanation": "The last argument becomes the prefix."
+    },
+    {
+      "id": 75,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "How to split a file into pieces of a specific number of lines but also add a numeric suffix?",
+      "answer": "`split -l 1000 -d big.txt part_` (numerical suffix).",
+      "explanation": "`-d` uses numbers instead of letters: `part_00`, `part_01`."
+    },
+    {
+      "id": 76,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "How to split a file based on byte count while keeping lines intact?",
+      "answer": "`split -C 10k file.txt` (line‑boundary splitting).",
+      "explanation": "`-C` tries to split at line boundaries, not exceeding the size."
+    },
+    {
+      "id": 77,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Beginner",
+      "question": "What does `split -n 5 file.txt` do?",
+      "answer": "Splits the file into 5 roughly equal‑sized pieces (not necessarily exact line counts).",
+      "explanation": "`-n` number of output files (GNU extension)."
+    },
+    {
+      "id": 78,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Intermediate",
+      "question": "How to split a file but also keep the original file?",
+      "answer": "`split` always creates new files; the original is not removed.",
+      "explanation": "Unlike `gzip`, `split` leaves the input file unchanged."
+    },
+    {
+      "id": 79,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Intermediate",
+      "question": "How to split a file but number the output files from 1 instead of 00?",
+      "answer": "`split -l 100 -d -a 3 --numeric-suffixes=1 file part_` (use `--numeric-suffixes=1`).",
+      "explanation": "`--numeric-suffixes=1` starts numbering at 1 (GNU `split`)."
+    },
+    {
+      "id": 80,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Intermediate",
+      "question": "How to split a file using a pattern as a record separator?",
+      "answer": "`csplit` (context split) is used for splitting based on patterns.",
+      "explanation": "`csplit file '/pattern/' {*}` splits at every occurrence of pattern."
+    },
+    {
+      "id": 81,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Intermediate",
+      "question": "How to split a file into exactly two pieces at a given line?",
+      "answer": "`head -n 500 file > part1; tail -n +501 file > part2` (manual).",
+      "explanation": "`split` cannot split at a specific line number; use `head` and `tail`."
+    },
+    {
+      "id": 82,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to rebuild the original file from split pieces?",
+      "answer": "`cat x?? > original` (if split with default prefix).",
+      "explanation": "`cat` concatenates the pieces in order (except `split -n` which may not be concatenable)."
+    },
+    {
+      "id": 83,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a large file and compress each piece on the fly?",
+      "answer": "`split -l 10000 big.txt -d part_ --filter='gzip > $FILE.gz'` (GNU `split`).",
+      "explanation": "`--filter` runs a command for each piece; `$FILE` is the output filename."
+    },
+    {
+      "id": 84,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a binary file with a certain chunk size and run checksums?",
+      "answer": "`split -b 1M -d -a 2 file.bin part_` then `md5sum part_*`.",
+      "explanation": "Split into 1 MB pieces; compute checksums for integrity."
+    },
+    {
+      "id": 85,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `split -n l/1` and normal split?",
+      "answer": "It's a specific chunk method (e.g., `split -n l/10` splits into 10 chunks by lines).",
+      "explanation": "GNU `split -n` supports chunking methods: `l` (line), `r` (round‑robin), `b` (byte)."
+    },
+    {
+      "id": 86,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a file into pieces of exactly 1000 bytes, discarding remainder?",
+      "answer": "`split -b 1000 -d file.bin part_`; the last piece may be smaller.",
+      "explanation": "`split` cannot truncate extra bytes; remainder goes into a smaller piece."
+    },
+    {
+      "id": 87,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a file into pieces with custom suffix length?",
+      "answer": "`split -l 1000 -a 4 file part_` (suffix length 4 → `part_aaaa`).",
+      "explanation": "`-a` sets the number of characters in the suffix."
+    },
+    {
+      "id": 88,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a file but name pieces by their MD5 sum?",
+      "answer": "Cannot directly; use a script: `split -l 1000 -d file part_` then rename each piece after its checksum.",
+      "explanation": "`split` does not have built‑in renaming based on content."
+    },
+    {
+      "id": 89,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "How to split a file and count the number of pieces?",
+      "answer": "`split -l 10 file part_ && ls part_* | wc -l`.",
+      "explanation": "Count the resulting files after splitting."
+    },
+    {
+      "id": 90,
+      "topic": "Splitting large files using split command",
+      "difficulty": "Advanced",
+      "question": "What is the maximum number of pieces `split` can create with default letters?",
+      "answer": "676 (aa to zz) if using two letters; with 3 letters, 17576, etc.",
+      "explanation": "Suffix length determines max pieces; `-a` increases capacity."
+    },
+    {
+      "id": 91,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "What does `wc` stand for and what does it do?",
+      "answer": "Word Count – counts lines, words, characters (or bytes) in a file.",
+      "explanation": "Default output: lines, words, bytes (in that order)."
+    },
+    {
+      "id": 92,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "How to count only the number of lines in a file?",
+      "answer": "`wc -l file.txt`.",
+      "explanation": "`-l` displays only line count."
+    },
+    {
+      "id": 93,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "How to count only the number of words in a file?",
+      "answer": "`wc -w file.txt`.",
+      "explanation": "`-w` counts words (sequences of non‑whitespace characters)."
+    },
+    {
+      "id": 94,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "How to count only the number of characters (not bytes) in a file?",
+      "answer": "`wc -m file.txt`.",
+      "explanation": "`-m` counts characters (respects multi‑byte encodings)."
+    },
+    {
+      "id": 95,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "What is the difference between `wc -c` and `wc -m` in UTF‑8?",
+      "answer": "`-c` counts bytes; `-m` counts characters (which can be multiple bytes).",
+      "explanation": "For ASCII they are identical; for non‑ASCII, `-m` is smaller."
+    },
+    {
+      "id": 96,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Beginner",
+      "question": "How to count lines, words, and characters from standard input?",
+      "answer": "`cat file.txt | wc` or `wc < file.txt`.",
+      "explanation": "`wc` reads stdin if no filename given."
+    },
+    {
+      "id": 97,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Intermediate",
+      "question": "How to count the number of lines in all `.txt` files recursively?",
+      "answer": "`find . -name '*.txt' -exec wc -l {} + | awk '{sum+=$1} END{print sum}'`.",
+      "explanation": "`find` runs `wc -l` on each file; `awk` sums the counts."
+    },
+    {
+      "id": 98,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Intermediate",
+      "question": "What does `wc -l file.txt` output if the file does not end with newline?",
+      "answer": "It still counts lines correctly; a non‑newline‑terminated last line is not counted as a separate line.",
+      "explanation": "`wc` defines a line as ending with a newline character; non‑terminated text does not count as a line."
+    },
+    {
+      "id": 99,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Intermediate",
+      "question": "How to count words in a file ignoring punctuation?",
+      "answer": "`tr -sc '[:alnum:]' '\\n' < file.txt | wc -l` (approximate).",
+      "explanation": "`tr` replaces non‑alphanumeric with newlines, then `wc -l` counts tokens."
+    },
+    {
+      "id": 100,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Intermediate",
+      "question": "How to count the number of lines of output from a command?",
+      "answer": "`command | wc -l`.",
+      "explanation": "Pipes the output to `wc`."
+    },
+    {
+      "id": 101,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Intermediate",
+      "question": "How to count the total number of characters across multiple files?",
+      "answer": "`wc -m file1 file2 file3 | tail -1` shows total.",
+      "explanation": "The last line of `wc` output with multiple files is the total sum."
+    },
+    {
+      "id": 102,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count unique words in a file using `wc` and other commands?",
+      "answer": "`tr -s '[:space:]' '\\n' < file.txt | sort | uniq | wc -l`.",
+      "explanation": "Split into words, sort, uniq, then count lines."
+    },
+    {
+      "id": 103,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "What does `wc -L` do?",
+      "answer": "Prints the length of the longest line (in bytes).",
+      "explanation": "`-L` (GNU extension) displays the maximum line length."
+    },
+    {
+      "id": 104,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count the number of non‑empty lines?",
+      "answer": "`grep -c '.' file.txt` (lines with at least one character).",
+      "explanation": "`grep -c` counts matching lines; `'.'` matches non‑empty lines."
+    },
+    {
+      "id": 105,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to get only the number of bytes (without filename)?",
+      "answer": "`wc -c < file.txt` (no filename printed).",
+      "explanation": "Redirection causes `wc` to read from stdin, suppressing filename output."
+    },
+    {
+      "id": 106,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count words in a file but treat hyphenated words as one word?",
+      "answer": "`wc -w` already treats hyphenated strings as a single word (since hyphens are not whitespace).",
+      "explanation": "Definition of a word is sequence of non‑whitespace characters."
+    },
+    {
+      "id": 107,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count the number of characters excluding newlines?",
+      "answer": "`wc -c file.txt | awk '{print $1 - 1}'` (if exactly one newline).",
+      "explanation": "Better: `tr -d '\\n' < file.txt | wc -c`."
+    },
+    {
+      "id": 108,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count the number of occurrences of a pattern using `wc`?",
+      "answer": "`grep -o 'pattern' file.txt | wc -l`.",
+      "explanation": "`grep -o` outputs each match on a separate line; `wc -l` counts them."
+    },
+    {
+      "id": 109,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to count the total number of lines in all files in a directory?",
+      "answer": "`wc -l * | tail -1` (shows total).",
+      "explanation": "The last line of `wc -l *` is the total sum."
+    },
+    {
+      "id": 110,
+      "topic": "Counting lines, words, and characters using wc",
+      "difficulty": "Advanced",
+      "question": "How to get word count of a string variable in a script?",
+      "answer": "`echo \"$var\" | wc -w`.",
+      "explanation": "Pass the variable through `echo` to `wc`."
+    },
+    {
+      "id": 111,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "What does the `sort` command do?",
+      "answer": "Sorts lines of a text file (alphabetically by default).",
+      "explanation": "Sort order is based on the current locale; typically dictionary order."
+    },
+    {
+      "id": 112,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "How to sort a file `data.txt` alphabetically?",
+      "answer": "`sort data.txt`.",
+      "explanation": "Default sorting is ascending alphabetic."
+    },
+    {
+      "id": 113,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "How to sort numerically (by numeric value) instead of alphabetical?",
+      "answer": "`sort -n numbers.txt`.",
+      "explanation": "`-n` sorts by arithmetic value (e.g., 2 before 10)."
+    },
+    {
+      "id": 114,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "How to sort in reverse order?",
+      "answer": "`sort -r data.txt`.",
+      "explanation": "`-r` reverses the sorting order."
+    },
+    {
+      "id": 115,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "How to sort a file and output the result to a new file?",
+      "answer": "`sort data.txt > sorted.txt`.",
+      "explanation": "Redirection writes the sorted output."
+    },
+    {
+      "id": 116,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "How to sort case‑insensitively?",
+      "answer": "`sort -f data.txt`.",
+      "explanation": "`-f` folds lower case to upper for comparison."
+    },
+    {
+      "id": 117,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Beginner",
+      "question": "What does `sort -u` do?",
+      "answer": "Sorts and removes duplicate lines (equivalent to `sort | uniq`).",
+      "explanation": "`-u` outputs only one copy of identical lines."
+    },
+    {
+      "id": 118,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Intermediate",
+      "question": "How to sort by human‑readable numbers (e.g., 1K, 2M)?",
+      "answer": "`sort -h file.txt` (GNU specific).",
+      "explanation": "`-h` understands K, M, G, etc."
+    },
+    {
+      "id": 119,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Intermediate",
+      "question": "How to sort file by month names (e.g., Jan, Feb)?",
+      "answer": "`sort -M file.txt` (month sort).",
+      "explanation": "Recognises three‑letter month abbreviations: JAN, FEB, …"
+    },
+    {
+      "id": 120,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Intermediate",
+      "question": "How to sort a file ignoring leading whitespace?",
+      "answer": "`sort -b data.txt`.",
+      "explanation": "`-b` ignores leading blanks when comparing."
+    },
+    {
+      "id": 121,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `sort -n` and `sort -g`?",
+      "answer": "`-n` sorts by numerical value; `-g` uses general numerical sort (handles scientific notation).",
+      "explanation": "`-g` is slower and supports floating‑point and exponential notation."
+    },
+    {
+      "id": 122,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Intermediate",
+      "question": "How to sort and check if the file is already sorted?",
+      "answer": "`sort -c file.txt` (check) returns 0 if sorted, 1 otherwise.",
+      "explanation": "`-c` does not output anything, just exit code."
+    },
+    {
+      "id": 123,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort using a different character as field separator?",
+      "answer": "`sort -t: -k2 /etc/passwd` (colon as delimiter).",
+      "explanation": "`-t` sets the field delimiter; `-k` selects a field."
+    },
+    {
+      "id": 124,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort by the second character of each line?",
+      "answer": "`sort -k1.2,1.2 file.txt`.",
+      "explanation": "`k1.2` means start at character 2 of field 1, end at character 2."
+    },
+    {
+      "id": 125,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort by last field (variable number of fields)?",
+      "answer": "`rev file | sort | rev` (reverse, sort, reverse back).",
+      "explanation": "`rev` reverses each line, making last field first; then sort, then reverse again."
+    },
+    {
+      "id": 126,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort using a dictionary order that ignores punctuation?",
+      "answer": "`sort -d file.txt` (dictionary order – ignores non‑alphanumeric).",
+      "explanation": "`-d` considers only letters, digits, and blanks."
+    },
+    {
+      "id": 127,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort a file in place (modify original)?",
+      "answer": "`sort -o file.txt file.txt` (output to same file).",
+      "explanation": "`-o` allows overwriting the input file; safer than redirect."
+    },
+    {
+      "id": 128,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort large files that don't fit in memory?",
+      "answer": "`sort -S 50% --parallel=2 bigfile.txt` (tune memory and parallel).",
+      "explanation": "`-S` specifies memory buffer; `--parallel` uses multiple threads."
+    },
+    {
+      "id": 129,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "How to sort numbers that include decimal points (e.g., 1.2, 10.1)?",
+      "answer": "`sort -n` works correctly for decimal numbers (as long as they are aligned).",
+      "explanation": "Sort treats '.' as a character; numerical sort works with decimal numbers as floating point."
+    },
+    {
+      "id": 130,
+      "topic": "Sorting file content (alphabetical and numerical sorting)",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `sort -k2,2` and `sort -k2`?",
+      "answer": "`-k2,2` sorts only by the second field; `-k2` sorts by second field to the end of the line.",
+      "explanation": "Specifying a stop position (end) limits the sort key."
+    },
+    {
+      "id": 131,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Beginner",
+      "question": "How to sort a CSV file by the third column?",
+      "answer": "`sort -t, -k3 file.csv`.",
+      "explanation": "`-t,` sets comma delimiter; `-k3` uses third field as key."
+    },
+    {
+      "id": 132,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Beginner",
+      "question": "How to sort by second column numerically?",
+      "answer": "`sort -k2n file.txt`.",
+      "explanation": "`k2n` means field 2, numeric sort."
+    },
+    {
+      "id": 133,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Beginner",
+      "question": "How to sort by first column in reverse order?",
+      "answer": "`sort -k1r file.txt`.",
+      "explanation": "`r` after the key specifies reverse order for that key."
+    },
+    {
+      "id": 134,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Beginner",
+      "question": "How to sort by multiple columns: first by column 2, then by column 1?",
+      "answer": "`sort -k2,2 -k1,1 file.txt`.",
+      "explanation": "Multiple `-k` options define primary, secondary, etc. sort order."
+    },
+    {
+      "id": 135,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Beginner",
+      "question": "What is the default field separator for `sort -k`?",
+      "answer": "Whitespace (spaces and tabs).",
+      "explanation": "By default, fields are separated by any amount of whitespace."
+    },
+    {
+      "id": 136,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Intermediate",
+      "question": "How to sort by column 3, but treat column 3 as number with decimal?",
+      "answer": "`sort -k3n file.txt` (works for floating point).",
+      "explanation": "`-n` works for decimal numbers; for scientific notation use `-g`."
+    },
+    {
+      "id": 137,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Intermediate",
+      "question": "How to sort by column 2 (numeric) and then column 3 (alphabetical)?",
+      "answer": "`sort -k2n -k3 file.txt`.",
+      "explanation": "Primary numeric on col2; secondary alphabetic on col3."
+    },
+    {
+      "id": 138,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Intermediate",
+      "question": "How to sort by a column that uses pipe (`|`) as delimiter?",
+      "answer": "`sort -t'|' -k2 file.txt`.",
+      "explanation": "The delimiter character must be quoted to avoid shell interpretation."
+    },
+    {
+      "id": 139,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Advanced",
+      "question": "How to sort by column 2, but only consider characters 2‑5 of that column?",
+      "answer": "`sort -k2.2,2.5 file.txt`.",
+      "explanation": "`k2.2,2.5` means start at character 2 of field 2, stop at character 5."
+    },
+    {
+      "id": 140,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Advanced",
+      "question": "How to sort by the second column, case‑insensitively?",
+      "answer": "`sort -k2f file.txt` (the `f` flag).",
+      "explanation": "Flags like `f`, `n`, `r` can be attached to a key."
+    },
+    {
+      "id": 141,
+      "topic": "Sorting based on specific columns",
+      "difficulty": "Advanced",
+      "question": "How to sort by a column that may have missing values?",
+      "answer": "`sort -s -k2 file.txt` (stable sort) keeps original order for equal keys.",
+      "explanation": "Missing fields sort before non‑missing (empty fields are smaller)."
+    },
+    {
+      "id": 142,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "What does the `diff` command do?",
+      "answer": "Compares two files line by line and shows differences.",
+      "explanation": "Output indicates which lines need to be added, removed, or changed to make files identical."
+    },
+    {
+      "id": 143,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "How to compare two files `a.txt` and `b.txt`?",
+      "answer": "`diff a.txt b.txt`.",
+      "explanation": "The output uses `a` and `b` to denote the files."
+    },
+    {
+      "id": 144,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "How to produce a unified diff (context lines)?",
+      "answer": "`diff -u a.txt b.txt`.",
+      "explanation": "Unified format shows a few lines before and after changes."
+    },
+    {
+      "id": 145,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "How to ignore case differences while comparing?",
+      "answer": "`diff -i a.txt b.txt`.",
+      "explanation": "`-i` treats uppercase and lowercase as equal."
+    },
+    {
+      "id": 146,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "What does `diff -q` do?",
+      "answer": "Reports only whether files differ (no details).",
+      "explanation": "`-q` quiet mode; exits with 0 if identical, 1 if different."
+    },
+    {
+      "id": 147,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "How to ignore whitespace differences?",
+      "answer": "`diff -w a.txt b.txt` (ignore all whitespace).",
+      "explanation": "Also `-b` ignores changes in amount of whitespace; `-B` ignores blank lines."
+    },
+    {
+      "id": 148,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Beginner",
+      "question": "How to compare two directories recursively?",
+      "answer": "`diff -r dir1 dir2`.",
+      "explanation": "`-r` compares all files in subdirectories."
+    },
+    {
+      "id": 149,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Intermediate",
+      "question": "What does `diff -y` do?",
+      "answer": "Side‑by‑side format (two columns).",
+      "explanation": "`-y` shows the two files next to each other with markers for differences."
+    },
+    {
+      "id": 150,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Intermediate",
+      "question": "How to create a patch file using `diff`?",
+      "answer": "`diff -u original.txt new.txt > patchfile.patch`.",
+      "explanation": "Unified diff is most common for patches."
+    },
+    {
+      "id": 151,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Intermediate",
+      "question": "How to compare only the first 50 lines of two files?",
+      "answer": "`diff <(head -50 a.txt) <(head -50 b.txt)` (process substitution).",
+      "explanation": "`<(command)` creates a temporary file descriptor."
+    },
+    {
+      "id": 152,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Advanced",
+      "question": "What does `diff -Z` do?",
+      "answer": "Ignore trailing spaces (GNU extension).",
+      "explanation": "Similar to `-b` but more specific."
+    },
+    {
+      "id": 153,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Advanced",
+      "question": "How to use `diff` with a third file as a context?",
+      "answer": "`diff` only compares two files. For three‑way merge, use `diff3`.",
+      "explanation": "`diff3` compares three files (typically original, modified1, modified2)."
+    },
+    {
+      "id": 154,
+      "topic": "Comparing files line by line using diff",
+      "difficulty": "Advanced",
+      "question": "How to ignore lines matching a regular expression?",
+      "answer": "`diff -I '^#' file1 file2` (ignore lines starting with #).",
+      "explanation": "The `-I` option ignores lines that match the regex when comparing."
+    },
+    {
+      "id": 155,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Beginner",
+      "question": "What does the `cmp` command do?",
+      "answer": "Compares two files byte by byte (character by character).",
+      "explanation": "`cmp` outputs the first position where the files differ."
+    },
+    {
+      "id": 156,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Beginner",
+      "question": "How to compare two files with `cmp`?",
+      "answer": "`cmp file1 file2`.",
+      "explanation": "If identical, no output; otherwise prints byte and line number of first difference."
+    },
+    {
+      "id": 157,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Beginner",
+      "question": "How to get a verbose output with byte and line numbers?",
+      "answer": "`cmp -l file1 file2` prints byte numbers and differing bytes.",
+      "explanation": "`-l` outputs each difference with offset and byte values (octal)."
+    },
+    {
+      "id": 158,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Beginner",
+      "question": "What does `cmp -s` do?",
+      "answer": "Silent mode; only returns exit code (0 if same, 1 if different, 2 if error).",
+      "explanation": "Useful in scripts to check equality without output."
+    },
+    {
+      "id": 159,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Beginner",
+      "question": "How to limit the comparison to the first N bytes?",
+      "answer": "`cmp -n 100 file1 file2`.",
+      "explanation": "`-n` sets the number of bytes to compare."
+    },
+    {
+      "id": 160,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `cmp` and `diff`?",
+      "answer": "`cmp` works at byte level (binary); `diff` works line‑oriented (text).",
+      "explanation": "`cmp` is faster for binary files; `diff` is for human‑readable text changes."
+    },
+    {
+      "id": 161,
+      "topic": "Comparing files character by character using cmp",
+      "difficulty": "Advanced",
+      "question": "How to compare two files and ignore the first 1KB?",
+      "answer": "`cmp -i 1024:1024 file1 file2` (skip 1024 bytes from each).",
+      "explanation": "`-i OFFSET1:OFFSET2` skips early bytes."
+    },
+    {
+      "id": 162,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Beginner",
+      "question": "What does `comm` do?",
+      "answer": "Compares two sorted files line by line and outputs three columns: lines only in file1, lines only in file2, lines common to both.",
+      "explanation": "Input files must be sorted (use `sort` beforehand)."
+    },
+    {
+      "id": 163,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Beginner",
+      "question": "How to show only lines common to both files?",
+      "answer": "`comm -12 file1 file2` (suppress columns 1 and 2).",
+      "explanation": "`-1` supress first column, `-2` suppress second column, `-3` suppress third column."
+    },
+    {
+      "id": 164,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Beginner",
+      "question": "How to show lines that are in file1 but not in file2?",
+      "answer": "`comm -23 file1 file2`.",
+      "explanation": "Suppresses column 2 and 3."
+    },
+    {
+      "id": 165,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Beginner",
+      "question": "How to suppress the tab separators in `comm` output?",
+      "answer": "`comm` always uses tabs; to remove them, pipe through `tr -d '\\t'`.",
+      "explanation": "Alternatively, use `join` or `awk` for custom formatting."
+    },
+    {
+      "id": 166,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Intermediate",
+      "question": "How to compare files that are not sorted?",
+      "answer": "`comm` will produce incorrect output; you must sort them first: `comm <(sort file1) <(sort file2)`.",
+      "explanation": "Process substitution sorts on the fly."
+    },
+    {
+      "id": 167,
+      "topic": "Comparing sorted files using comm",
+      "difficulty": "Advanced",
+      "question": "How to use `comm` to find lines that occur only in one file ignoring case?",
+      "answer": "Use `tr` to convert case then sort: `comm <(tr '[:upper:]' '[:lower:]' < file1 | sort) <(tr '[:upper:]' '[:lower:]' < file2 | sort)`.",
+      "explanation": "The output will show case‑insensitive uniqueness."
+    },
+    {
+      "id": 168,
+      "topic": "Joining two files using join command",
+      "difficulty": "Beginner",
+      "question": "What does the `join` command do?",
+      "answer": "Joins lines of two sorted files based on a common key field (like SQL join).",
+      "explanation": "By default, join uses the first field as key and whitespace as separator."
+    },
+    {
+      "id": 169,
+      "topic": "Joining two files using join command",
+      "difficulty": "Beginner",
+      "question": "How to join two files on the first field?",
+      "answer": "`join file1 file2` (both must be sorted on the key).",
+      "explanation": "Output contains the common key followed by remaining fields from both files."
+    },
+    {
+      "id": 170,
+      "topic": "Joining two files using join command",
+      "difficulty": "Beginner",
+      "question": "How to join on a different field (e.g., second field of first file and third of second)?",
+      "answer": "`join -1 2 -2 3 file1 file2`.",
+      "explanation": "`-1` specifies field number in first file; `-2` in second file."
+    },
+    {
+      "id": 171,
+      "topic": "Joining two files using join command",
+      "difficulty": "Beginner",
+      "question": "How to change the field separator to colon?",
+      "answer": "`join -t: file1 file2`.",
+      "explanation": "Delimiter must be the same for both files."
+    },
+    {
+      "id": 172,
+      "topic": "Joining two files using join command",
+      "difficulty": "Beginner",
+      "question": "What does `join -v 1` do?",
+      "answer": "Outputs lines from the first file that have no match in the second (unmatched lines).",
+      "explanation": "`-v 1` prints only unpaired lines from file1; `-v 2` from file2."
+    },
+    {
+      "id": 173,
+      "topic": "Joining two files using join command",
+      "difficulty": "Intermediate",
+      "question": "How to join on a field but suppress the key from output?",
+      "answer": "`join -o '1.2,1.3,2.2' file1 file2` (explicit output format).",
+      "explanation": "`-o` specifies which fields to output; key field can be omitted."
+    },
+    {
+      "id": 174,
+      "topic": "Joining two files using join command",
+      "difficulty": "Advanced",
+      "question": "How to perform an outer join (include all lines from both files)?",
+      "answer": "`join -a1 -a2 file1 file2` (also `-e` for empty replacements).",
+      "explanation": "`-a1` includes unpairable lines from file1; `-a2` from file2."
+    },
+    {
+      "id": 175,
+      "topic": "Joining two files using join command",
+      "difficulty": "Advanced",
+      "question": "How to join files where some lines have empty join field?",
+      "answer": "`join` treats empty field as empty key; lines with empty key will match if both empty. Use `-a` to include them.",
+      "explanation": "Empty field may cause unintended matches; consider preprocessing."
+    },
+    {
+      "id": 176,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Beginner",
+      "question": "What does `uniq` do?",
+      "answer": "Removes duplicate consecutive lines from a sorted file.",
+      "explanation": "It works only on adjacent duplicates; input must be sorted for full effect."
+    },
+    {
+      "id": 177,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Beginner",
+      "question": "How to remove all duplicate lines from a file?",
+      "answer": "`sort file.txt | uniq`.",
+      "explanation": "Use `sort` first to bring identical lines together."
+    },
+    {
+      "id": 178,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Beginner",
+      "question": "How to count occurrences of each line?",
+      "answer": "`sort file.txt | uniq -c`.",
+      "explanation": "`-c` prefixes each line with its count."
+    },
+    {
+      "id": 179,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Beginner",
+      "question": "How to print only duplicate lines?",
+      "answer": "`sort file.txt | uniq -d`.",
+      "explanation": "`-d` prints lines that appear more than once (one copy)."
+    },
+    {
+      "id": 180,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Beginner",
+      "question": "How to print only unique lines (non‑duplicate)?",
+      "answer": "`sort file.txt | uniq -u`.",
+      "explanation": "`-u` prints lines that appear exactly once."
+    },
+    {
+      "id": 181,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Intermediate",
+      "question": "How to ignore the first N characters when comparing lines?",
+      "answer": "`uniq -s 5 file.txt` (skip first 5 characters).",
+      "explanation": "`-s` specifies number of characters to skip."
+    },
+    {
+      "id": 182,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Advanced",
+      "question": "How to use `uniq` on a field instead of the whole line?",
+      "answer": "`awk '{print $2}' file | sort | uniq` (isolate field first).",
+      "explanation": "`uniq` works on entire line; you must preprocess to extract fields."
+    },
+    {
+      "id": 183,
+      "topic": "Removing duplicates using uniq command",
+      "difficulty": "Advanced",
+      "question": "How to compare only a certain number of characters from the end?",
+      "answer": "`rev file | uniq -s 5 | rev` (reverse, skip from end).",
+      "explanation": "`rev` reverses each line; `-s` skips from the beginning of the reversed line."
+    },
+    {
+      "id": 184,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "What does `tr` do?",
+      "answer": "Translates, squeezes, or deletes characters from standard input.",
+      "explanation": "`tr` is a character‑based filter, not line‑based."
+    },
+    {
+      "id": 185,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "How to convert lowercase to uppercase?",
+      "answer": "`tr 'a-z' 'A-Z' < file.txt`.",
+      "explanation": "`tr` maps each character from the first set to the corresponding character in the second set."
+    },
+    {
+      "id": 186,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "How to delete all digits from a text?",
+      "answer": "`tr -d '0-9' < file.txt`.",
+      "explanation": "`-d` deletes any character in the given set."
+    },
+    {
+      "id": 187,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "How to squeeze multiple spaces into a single space?",
+      "answer": "`tr -s ' ' < file.txt`.",
+      "explanation": "`-s` squeezes repeated characters into one."
+    },
+    {
+      "id": 188,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "How to replace all newlines with spaces?",
+      "answer": "`tr '\\n' ' ' < file.txt`.",
+      "explanation": "This joins all lines into one line, separated by spaces."
+    },
+    {
+      "id": 189,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Beginner",
+      "question": "How to complement a character set (e.g., keep only digits)?",
+      "answer": "`tr -cd '0-9' < file.txt`.",
+      "explanation": "`-c` complement; `-d` delete; together keep only the specified set."
+    },
+    {
+      "id": 190,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Intermediate",
+      "question": "How to translate characters with ranges, like 'a-f' to 'A-F'?",
+      "answer": "`tr 'a-f' 'A-F'` works; ranges are supported.",
+      "explanation": "Ranges are defined by the first and last character with hyphen."
+    },
+    {
+      "id": 191,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Intermediate",
+      "question": "How to replace a set of characters with another set where sets are different lengths?",
+      "answer": "The second set is padded with its last character to match the length of the first set.",
+      "explanation": "Example: `tr 'abc' 'xy'` maps a→x, b→y, c→y."
+    },
+    {
+      "id": 192,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Advanced",
+      "question": "How to remove non‑printable characters from a file?",
+      "answer": "`tr -cd '\\11\\12\\15\\40-\\176' < file.txt` (keeps tab, newline, carriage return, space, and printable ASCII).",
+      "explanation": "Octal ranges can be used; `-cd` deletes complement."
+    },
+    {
+      "id": 193,
+      "topic": "Transformation of text using tr command",
+      "difficulty": "Advanced",
+      "question": "How to convert a file to uppercase and also squeeze blank lines?",
+      "answer": "`tr 'a-z' 'A-Z' < file.txt | cat -s` (or use `sed`).",
+      "explanation": "`tr` only handles characters, not lines; combine with other commands."
+    }
+  ]
+}

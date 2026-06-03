@@ -1,0 +1,735 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Search and Replace – grep, sed, and Regular Expressions",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "What does the `grep` command do?",
+      "answer": "`grep` searches for patterns in files and prints matching lines.",
+      "explanation": "It stands for Global Regular Expression Print. It's one of the most powerful text‑searching tools in Unix."
+    },
+    {
+      "id": 2,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to search for the word 'error' in a file `log.txt`?",
+      "answer": "`grep 'error' log.txt`.",
+      "explanation": "The pattern is enclosed in quotes to avoid shell interpretation."
+    },
+    {
+      "id": 3,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to search for a pattern in multiple files?",
+      "answer": "`grep 'pattern' file1 file2 file3` or `grep 'pattern' *.log`.",
+      "explanation": "`grep` accepts multiple filenames and glob patterns."
+    },
+    {
+      "id": 4,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to search case‑insensitively with `grep`?",
+      "answer": "`grep -i 'error' log.txt`.",
+      "explanation": "`-i` makes the search ignore uppercase/lowercase differences."
+    },
+    {
+      "id": 5,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to display line numbers along with matching lines?",
+      "answer": "`grep -n 'error' log.txt`.",
+      "explanation": "`-n` prefixes each matched line with its line number."
+    },
+    {
+      "id": 6,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to count the number of matching lines?",
+      "answer": "`grep -c 'error' log.txt`.",
+      "explanation": "`-c` outputs only the count, not the matching lines."
+    },
+    {
+      "id": 7,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to print only the matching part of a line (not the whole line)?",
+      "answer": "`grep -o 'error' log.txt`.",
+      "explanation": "`-o` outputs only the matched text, one per line."
+    },
+    {
+      "id": 8,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to show lines that do NOT match a pattern?",
+      "answer": "`grep -v 'error' log.txt`.",
+      "explanation": "`-v` inverts the match, showing non‑matching lines."
+    },
+    {
+      "id": 9,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "How to search recursively in all subdirectories?",
+      "answer": "`grep -r 'pattern' .`",
+      "explanation": "`-r` (or `-R`) searches through all files in the current directory and subdirectories."
+    },
+    {
+      "id": 10,
+      "topic": "Searching text using grep command",
+      "difficulty": "Beginner",
+      "question": "What does `grep -l` do?",
+      "answer": "Lists only the names of files that contain a match, not the matching lines.",
+      "explanation": "`-l` (lowercase L) is useful to find which files contain a pattern."
+    },
+    {
+      "id": 11,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to search for lines that start with a digit?",
+      "answer": "`grep '^[0-9]' file.txt`.",
+      "explanation": "`^` anchors the pattern to the beginning of the line."
+    },
+    {
+      "id": 12,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to search for lines that end with a period?",
+      "answer": "`grep '\\.$' file.txt`.",
+      "explanation": "`$` anchors to the end of the line; the dot must be escaped because dot is a regex meta‑character."
+    },
+    {
+      "id": 13,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to search for a pattern in only files with a specific extension (e.g., `.conf`)?",
+      "answer": "`grep 'pattern' *.conf` or `grep --include='*.conf' -r 'pattern' .`.",
+      "explanation": "`--include` restricts recursive search to files matching a glob."
+    },
+    {
+      "id": 14,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to exclude certain directories from recursive search?",
+      "answer": "`grep -r --exclude-dir='logs' 'pattern' .`.",
+      "explanation": "`--exclude-dir` skips specified directories."
+    },
+    {
+      "id": 15,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "What does `grep -A 2` do?",
+      "answer": "Prints the matching line and the next 2 lines after it (after context).",
+      "explanation": "`-A NUM` shows NUM lines after the match; `-B NUM` shows before; `-C NUM` shows both."
+    },
+    {
+      "id": 16,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to search for whole words only (not substrings)?",
+      "answer": "`grep -w 'word' file.txt`.",
+      "explanation": "`-w` forces the pattern to match only as a whole word (alphanumeric boundaries)."
+    },
+    {
+      "id": 17,
+      "topic": "Searching text using grep command",
+      "difficulty": "Intermediate",
+      "question": "How to search for a pattern that contains spaces?",
+      "answer": "`grep 'hello world' file.txt` (use quotes).",
+      "explanation": "Always quote the pattern when it contains spaces or shell special characters."
+    },
+    {
+      "id": 18,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to use `grep` to search binary files safely?",
+      "answer": "`grep -a 'pattern' binary.bin` (treats binary as text).",
+      "explanation": "`-a` forces `grep` to process binary files as if they were text."
+    },
+    {
+      "id": 19,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `grep -E` and `grep -F`?",
+      "answer": "`-E` uses extended regular expressions (less escaping), `-F` treats pattern as a fixed string (fast).",
+      "explanation": "`-F` is for literal strings, `-E` for regex with `|`, `+`, `?`, etc."
+    },
+    {
+      "id": 20,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for lines matching either 'cat' or 'dog'?",
+      "answer": "`grep -E 'cat|dog' file.txt`.",
+      "explanation": "The pipe `|` is an alternation operator; `-E` enables it."
+    },
+    {
+      "id": 21,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for a pattern while ignoring binary files?",
+      "answer": "`grep -I 'pattern' file.txt` (ignore binary).",
+      "explanation": "`-I` treats binary files as if they do not match."
+    },
+    {
+      "id": 22,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to show only the first match in each file?",
+      "answer": "`grep -m 1 'pattern' file1 file2`.",
+      "explanation": "`-m NUM` stops reading each file after NUM matches."
+    },
+    {
+      "id": 23,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for a pattern across `gzip`‑compressed files?",
+      "answer": "`zgrep 'pattern' file.gz`.",
+      "explanation": "`zgrep` works like `grep` on compressed files (`.gz`)."
+    },
+    {
+      "id": 24,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "What does `grep -P` do?",
+      "answer": "Uses Perl‑compatible regular expressions (PCRE), providing advanced features like lookaheads.",
+      "explanation": "`-P` is available in GNU `grep`; adds `\\d`, `\\s`, `(?=...)`, etc."
+    },
+    {
+      "id": 25,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to highlight the matched text in color?",
+      "answer": "`grep --color=always 'pattern' file.txt`.",
+      "explanation": "Use `--color=auto` to enable colored output (often aliased)."
+    },
+    {
+      "id": 26,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for a pattern that contains a newline?",
+      "answer": "`grep` is line‑based; for multi‑line patterns, use `pcregrep` or `awk`.",
+      "explanation": "Standard `grep` cannot match newlines; you need `grep -z` with null‑separated records."
+    },
+    {
+      "id": 27,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for lines that are exactly a given string (no extra characters)?",
+      "answer": "`grep -x 'exact line' file.txt`.",
+      "explanation": "`-x` forces the entire line to match the pattern."
+    },
+    {
+      "id": 28,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to use `grep` to count matches by file?",
+      "answer": "`grep -c 'pattern' *` shows count per file.",
+      "explanation": "To list also filenames with no matches, use `-c` alone; use `-H` to always print filename."
+    },
+    {
+      "id": 29,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "What is the exit code of `grep`?",
+      "answer": "0 if at least one match found, 1 if no matches, 2 if error (e.g., file not found).",
+      "explanation": "Useful in scripts: `if grep -q pattern file; then ... ; fi`."
+    },
+    {
+      "id": 30,
+      "topic": "Searching text using grep command",
+      "difficulty": "Advanced",
+      "question": "How to search for lines where the first character is not a letter?",
+      "answer": "`grep '^[^a-zA-Z]' file.txt`.",
+      "explanation": "`^` start of line; `[^...]` negated character class."
+    },
+    {
+      "id": 31,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What is a regular expression (regex)?",
+      "answer": "A pattern that describes a set of strings, used for matching, searching, and replacing text.",
+      "explanation": "Regex uses metacharacters like `.`, `*`, `+`, `?`, `[]`, `^`, `$` to define patterns."
+    },
+    {
+      "id": 32,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `.` (dot) match in a regex?",
+      "answer": "Any single character except newline.",
+      "explanation": "Example: `c.t` matches 'cat', 'cbt', 'c3t', etc."
+    },
+    {
+      "id": 33,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `*` mean in a regex?",
+      "answer": "Matches zero or more occurrences of the preceding element.",
+      "explanation": "Example: `ca*t` matches 'ct', 'cat', 'caat', 'caaaat'."
+    },
+    {
+      "id": 34,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `^` mean when used at the beginning of a regex?",
+      "answer": "Anchors the match to the start of the line.",
+      "explanation": "^error matches lines that start with 'error'."
+    },
+    {
+      "id": 35,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `$` mean in a regex?",
+      "answer": "Anchors the match to the end of the line.",
+      "explanation": "done$ matches lines ending with 'done'."
+    },
+    {
+      "id": 36,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `[0-9]` represent?",
+      "answer": "Any single digit from 0 to 9.",
+      "explanation": "Character classes can be custom, e.g., `[aeiou]` for vowels."
+    },
+    {
+      "id": 37,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `[^a-z]` mean?",
+      "answer": "Any single character that is NOT a lowercase letter.",
+      "explanation": "The caret `^` inside brackets negates the class."
+    },
+    {
+      "id": 38,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Beginner",
+      "question": "What does `\\d` represent in PCRE or GNU `grep -P`?",
+      "answer": "Any digit (same as `[0-9]`).",
+      "explanation": "Shorthand character classes are available in extended regex and PCRE."
+    },
+    {
+      "id": 39,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "How to match a literal dot (period) in a regex?",
+      "answer": "Escape it: `\\.`",
+      "explanation": "Since `.` is a metacharacter, a backslash removes its special meaning."
+    },
+    {
+      "id": 40,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "What does `+` mean?",
+      "answer": "Matches one or more occurrences of the preceding element.",
+      "explanation": "`ca+t` matches 'cat', 'caat', but not 'ct'."
+    },
+    {
+      "id": 41,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "What does `?` mean in regex?",
+      "answer": "Matches zero or one occurrence of the preceding element.",
+      "explanation": "`colou?r` matches 'color' and 'colour'."
+    },
+    {
+      "id": 42,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "What are capturing groups?",
+      "answer": "Parentheses `( )` group part of a regex and can be referenced later (backreferences).",
+      "explanation": "Example: `(abc)+` matches 'abcabc'. In `sed`, `\\1` refers to the first group."
+    },
+    {
+      "id": 43,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "What does `{n,m}` mean?",
+      "answer": "Matches between n and m occurrences of the preceding element.",
+      "explanation": "`a{2,4}` matches 'aa', 'aaa', 'aaaa' but not 'a'."
+    },
+    {
+      "id": 44,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "What is a word boundary `\\b`?",
+      "answer": "Matches the position between a word character and a non‑word character.",
+      "explanation": "`\\bword\\b` matches 'word' as a whole word, not 'sword' or 'wordy'."
+    },
+    {
+      "id": 45,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Intermediate",
+      "question": "How to match a pattern that can be in either upper or lower case?",
+      "answer": "Use character class: `[Ee]rror` or the `-i` flag in grep.",
+      "explanation": "Character class is explicit; `-i` is easier for case‑insensitive search."
+    },
+    {
+      "id": 46,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Advanced",
+      "question": "What is lookahead and lookbehind?",
+      "answer": "Zero‑width assertions that check what is before/after without consuming characters.",
+      "explanation": "Available in PCRE (`-P`): `(?=...)` positive lookahead, `(?<=...)` positive lookbehind."
+    },
+    {
+      "id": 47,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Advanced",
+      "question": "What is greedy vs lazy quantifier?",
+      "answer": "Greedy quantifiers (`*`, `+`) match as much as possible; lazy (`*?`, `+?`) match as little as possible.",
+      "explanation": "Example: `a.*b` on 'aabab' matches whole string; `a.*?b` matches 'aab'."
+    },
+    {
+      "id": 48,
+      "topic": "Advanced pattern matching with regular expressions",
+      "difficulty": "Advanced",
+      "question": "How to match a pattern across multiple lines?",
+      "answer": "Use `grep -z` or `pcregrep -M` to treat file as a single string.",
+      "explanation": "Normal `grep` works line‑by‑line; `-z` uses null terminators."
+    },
+    {
+      "id": 49,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Beginner",
+      "question": "What option makes `grep` case‑insensitive?",
+      "answer": "`-i` or `--ignore-case`.",
+      "explanation": "`grep -i 'error' file` matches 'Error', 'ERROR', 'error'."
+    },
+    {
+      "id": 50,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Beginner",
+      "question": "How to search recursively in all subdirectories?",
+      "answer": "`grep -r 'pattern' .` or `grep -R 'pattern' .` (GNU).",
+      "explanation": "`-r` reads all files under each directory, following symlinks with `-R`."
+    },
+    {
+      "id": 51,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Beginner",
+      "question": "How to combine case‑insensitive and recursive search?",
+      "answer": "`grep -ri 'error' /var/log`.",
+      "explanation": "Options can be combined: `-ri` is same as `-r -i`."
+    },
+    {
+      "id": 52,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Intermediate",
+      "question": "How to search only in files with certain extension recursively?",
+      "answer": "`grep -r --include='*.log' 'pattern' .`.",
+      "explanation": "`--include` can be used multiple times; `--exclude` excludes files."
+    },
+    {
+      "id": 53,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Intermediate",
+      "question": "How to skip hidden files and directories in recursive search?",
+      "answer": "`grep -r --exclude='.*' --exclude-dir='.*' 'pattern' .` (GNU).",
+      "explanation": "Hidden files are not automatically skipped; you must use `--exclude`."
+    },
+    {
+      "id": 54,
+      "topic": "Case-insensitive and recursive search options",
+      "difficulty": "Advanced",
+      "question": "How to search recursively but only show filenames containing matches?",
+      "answer": "`grep -ril 'pattern' .` (lowercase L).",
+      "explanation": "`-l` suppresses line output, shows only filenames."
+    },
+    {
+      "id": 55,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "What does `sed` stand for?",
+      "answer": "Stream EDitor – a non‑interactive text transformer.",
+      "explanation": "`sed` reads input line by line, performs editing commands, and outputs the result."
+    },
+    {
+      "id": 56,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "How to replace the first occurrence of 'old' with 'new' in each line?",
+      "answer": "`sed 's/old/new/' file.txt`.",
+      "explanation": "The `s` command substitutes; default is first occurrence per line."
+    },
+    {
+      "id": 57,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "How to replace all occurrences of 'old' with 'new' in a line?",
+      "answer": "`sed 's/old/new/g' file.txt`.",
+      "explanation": "The `g` flag stands for global (all occurrences on the line)."
+    },
+    {
+      "id": 58,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "How to save the changes back to the same file?",
+      "answer": "`sed -i 's/old/new/g' file.txt` (in‑place).",
+      "explanation": "`-i` modifies the file directly; on macOS use `-i ''`."
+    },
+    {
+      "id": 59,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "How to make a backup before in‑place editing?",
+      "answer": "`sed -i.bak 's/old/new/g' file.txt` creates `file.txt.bak`.",
+      "explanation": "The suffix after `-i` is appended to the original filename for backup."
+    },
+    {
+      "id": 60,
+      "topic": "Substitution using sed command",
+      "difficulty": "Beginner",
+      "question": "How to print only substituted lines?",
+      "answer": "`sed -n 's/old/new/p' file.txt`.",
+      "explanation": "`-n` suppresses automatic printing; `p` prints the line after substitution."
+    },
+    {
+      "id": 61,
+      "topic": "Substitution using sed command",
+      "difficulty": "Intermediate",
+      "question": "How to replace words only if they are whole words?",
+      "answer": "`sed 's/\\<old\\>/new/g' file.txt` (word boundaries).",
+      "explanation": "`\\<` and `\\>` are word boundaries in GNU `sed`."
+    },
+    {
+      "id": 62,
+      "topic": "Substitution using sed command",
+      "difficulty": "Intermediate",
+      "question": "How to use a different delimiter in `sed` substitution (e.g., when path contains `/`)?",
+      "answer": "`sed 's|/home/user|/home/guest|g' file.txt` (using `|`).",
+      "explanation": "Any character can be used as delimiter instead of `/`."
+    },
+    {
+      "id": 63,
+      "topic": "Substitution using sed command",
+      "difficulty": "Intermediate",
+      "question": "How to substitute only on lines that match a pattern?",
+      "answer": "`sed '/pattern/s/old/new/g' file.txt`.",
+      "explanation": "A pattern address restricts the substitution to matching lines."
+    },
+    {
+      "id": 64,
+      "topic": "Substitution using sed command",
+      "difficulty": "Advanced",
+      "question": "How to handle multiple commands in one `sed` invocation?",
+      "answer": "`sed -e 's/old/new/' -e 's/foo/bar/' file.txt` or separate with semicolons: `sed 's/old/new/; s/foo/bar/'`.",
+      "explanation": "Multiple `-e` options or semicolons allow chaining commands."
+    },
+    {
+      "id": 65,
+      "topic": "Substitution using sed command",
+      "difficulty": "Advanced",
+      "question": "How to substitute a character with a newline?",
+      "answer": "`sed 's/,/\\n/g' file.csv` (GNU `sed`).",
+      "explanation": "`\\n` in the replacement adds a newline; may need `-e` for portability."
+    },
+    {
+      "id": 66,
+      "topic": "Global and selective replacement in files",
+      "difficulty": "Beginner",
+      "question": "What does the `g` flag in `sed` do?",
+      "answer": "Replaces all occurrences on each line, not just the first.",
+      "explanation": "Without `g`, `s/old/new/` replaces only the first 'old' per line."
+    },
+    {
+      "id": 67,
+      "topic": "Global and selective replacement in files",
+      "difficulty": "Beginner",
+      "question": "How to replace Nth occurrence of a pattern on a line?",
+      "answer": "`sed 's/old/new/2' file.txt` (replace second occurrence).",
+      "explanation": "A number flag replaces only that occurrence (1,2,3,...)."
+    },
+    {
+      "id": 68,
+      "topic": "Global and selective replacement in files",
+      "difficulty": "Intermediate",
+      "question": "How to replace a pattern only on lines 10 to 20?",
+      "answer": "`sed '10,20 s/old/new/g' file.txt`.",
+      "explanation": "Line numbers can be used as address range."
+    },
+    {
+      "id": 69,
+      "topic": "Global and selective replacement in files",
+      "difficulty": "Intermediate",
+      "question": "How to replace in all files in a directory (in‑place) iteratively?",
+      "answer": "`for file in *.txt; do sed -i 's/old/new/g' \"$file\"; done`.",
+      "explanation": "Use shell loop or `find -exec` for recursive replacement."
+    },
+    {
+      "id": 70,
+      "topic": "Global and selective replacement in files",
+      "difficulty": "Advanced",
+      "question": "How to replace text only on lines that do NOT contain another pattern?",
+      "answer": "`sed '/skip_pattern/! s/old/new/g' file.txt`.",
+      "explanation": "The `!` reverses the address meaning."
+    },
+    {
+      "id": 71,
+      "topic": "Using delimiters and flags in sed",
+      "difficulty": "Beginner",
+      "question": "What delimiters can be used in `sed` substitution?",
+      "answer": "Any character except backslash and newline; common are `/`, `|`, `#`, `@`.",
+      "explanation": "Use a different delimiter to avoid escaping slashes in paths."
+    },
+    {
+      "id": 72,
+      "topic": "Using delimiters and flags in sed",
+      "difficulty": "Beginner",
+      "question": "How to use `#` as a delimiter?",
+      "answer": "`sed 's#/home/user#/home/guest#' file.txt`.",
+      "explanation": "The delimiter is the character after `s`."
+    },
+    {
+      "id": 73,
+      "topic": "Using delimiters and flags in sed",
+      "difficulty": "Intermediate",
+      "question": "What does the `i` flag in `sed` do?",
+      "answer": "Makes the regex match case‑insensitively (GNU `sed`).",
+      "explanation": "`sed 's/old/new/gi' file.txt` replaces all occurrences case‑insensitively."
+    },
+    {
+      "id": 74,
+      "topic": "Using delimiters and flags in sed",
+      "difficulty": "Intermediate",
+      "question": "What does the `w` flag do?",
+      "answer": "Writes the resulting line to a file if substitution was made.",
+      "explanation": "`sed 's/old/new/w output.txt' file.txt` appends changed lines to `output.txt`."
+    },
+    {
+      "id": 75,
+      "topic": "Using delimiters and flags in sed",
+      "difficulty": "Advanced",
+      "question": "How to use multiple flags together, e.g., global, case‑insensitive, and write?",
+      "answer": "`sed 's/old/new/giw output.txt' file.txt` (order doesn't matter).",
+      "explanation": "Flags can be concatenated; `w` must be last with a filename (no space)."
+    },
+    {
+      "id": 76,
+      "topic": "Combining grep and sed for text processing",
+      "difficulty": "Beginner",
+      "question": "How to use `grep` to filter lines and then `sed` to modify them?",
+      "answer": "`grep 'pattern' file.txt | sed 's/old/new/g'`.",
+      "explanation": "Pipe the output of `grep` into `sed` for further processing."
+    },
+    {
+      "id": 77,
+      "topic": "Combining grep and sed for text processing",
+      "difficulty": "Beginner",
+      "question": "How to edit only lines that match a pattern using `sed` alone (without `grep`)?",
+      "answer": "`sed '/pattern/s/old/new/g' file.txt` does the same in one process.",
+      "explanation": "`sed` has built‑in pattern addressing; avoids extra pipe."
+    },
+    {
+      "id": 78,
+      "topic": "Combining grep and sed for text processing",
+      "difficulty": "Intermediate",
+      "question": "How to delete lines containing a pattern using `sed`?",
+      "answer": "`sed '/pattern/d' file.txt`.",
+      "explanation": "The `d` command deletes the line; similar to `grep -v`."
+    },
+    {
+      "id": 79,
+      "topic": "Combining grep and sed for text processing",
+      "difficulty": "Intermediate",
+      "question": "How to extract lines matching a pattern, then replace on those lines and output only changed lines?",
+      "answer": "`grep 'pattern' file.txt | sed -n 's/old/new/p'`.",
+      "explanation": "`sed -n` with `p` flag prints only substituted lines."
+    },
+    {
+      "id": 80,
+      "topic": "Combining grep and sed for text processing",
+      "difficulty": "Advanced",
+      "question": "How to use the output of `grep` as a pattern for `sed`?",
+      "answer": "`sed \"s/$(grep -o 'pattern' file1)/new/\" file2` (with care).",
+      "explanation": "Command substitution inside `sed` is fragile; consider using `awk` or `xargs`."
+    },
+    {
+      "id": 81,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Beginner",
+      "question": "How to replace all tabs with spaces in a file?",
+      "answer": "`sed 's/\\t/ /g' file.txt` (GNU `sed`).",
+      "explanation": "Use `-i` for in‑place; `\\t` represents a tab character."
+    },
+    {
+      "id": 82,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Beginner",
+      "question": "How to delete all empty lines from a file?",
+      "answer": "`sed '/^$/d' file.txt`.",
+      "explanation": "`^$` matches empty lines (start and end of line with nothing)."
+    },
+    {
+      "id": 83,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Beginner",
+      "question": "How to remove trailing whitespace at the end of lines?",
+      "answer": "`sed 's/[[:space:]]*$//' file.txt`.",
+      "explanation": "Removes spaces or tabs before end‑of‑line."
+    },
+    {
+      "id": 84,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Intermediate",
+      "question": "How to add a line after every line that contains a pattern?",
+      "answer": "`sed '/pattern/a\\new line' file.txt`.",
+      "explanation": "`a` appends text after the line; `i` inserts before."
+    },
+    {
+      "id": 85,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Intermediate",
+      "question": "How to rename all files by replacing spaces with underscores?",
+      "answer": "`for f in *.txt; do mv \"$f\" $(echo \"$f\" | sed 's/ /_/g'); done`.",
+      "explanation": "This loops through files and renames using `sed` to modify the name."
+    },
+    {
+      "id": 86,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Advanced",
+      "question": "How to convert a file from DOS line endings (CRLF) to Unix (LF)?",
+      "answer": "`sed -i 's/\\r$//' file.txt`.",
+      "explanation": "Removes carriage return characters at line end."
+    },
+    {
+      "id": 87,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Advanced",
+      "question": "How to extract IP addresses from a file using `grep`?",
+      "answer": "`grep -E -o '([0-9]{1,3}\\.){3}[0-9]{1,3}' file.txt`.",
+      "explanation": "The regex matches IPv4 addresses; `-o` outputs only the match."
+    },
+    {
+      "id": 88,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Advanced",
+      "question": "How to uppercase the first character of each word in a file?",
+      "answer": "`sed -E 's/\\b(\\w)/\\U\\1/g' file.txt` (GNU `sed` with `\\U`).",
+      "explanation": "`\\U` converts next characters to uppercase; `\\L` to lowercase."
+    },
+    {
+      "id": 89,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Advanced",
+      "question": "How to comment out all lines containing a specific pattern?",
+      "answer": "`sed '/pattern/s/^/#/' file.txt`.",
+      "explanation": "Inserts `#` at the beginning of matching lines."
+    },
+    {
+      "id": 90,
+      "topic": "Practical examples of search and replace operations",
+      "difficulty": "Advanced",
+      "question": "How to replace a pattern across multiple lines (e.g., between `<tag>` and `</tag>`)?",
+      "answer": "Use `sed` with hold space: `sed '/<tag>/,/<\\/tag>/ s/foo/bar/g' file.html`.",
+      "explanation": "Range address works across line boundaries; `/<tag>/,/<\\/tag>/`"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "paperId": "C-MODERATE-SET-05",
+  "title": "Final Examination",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer (One Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "What is the difference between '=' and '==' in C?",
+          "marks": 1,
+          "answer": "'=' is an assignment operator used to assign a value to a variable. '==' is a relational operator used to compare two values for equality."
+        },
+        {
+          "q": "What does the 'extern' keyword mean in C?",
+          "marks": 1,
+          "answer": "The 'extern' keyword declares a variable or function that is defined in another file or later in the same file. It extends the visibility of the variable/function across multiple source files."
+        },
+        {
+          "q": "Write the output of: printf(\"%d\", 5 > 3 ? 10 : 20);",
+          "marks": 1,
+          "answer": "10 (since 5 > 3 is true, the ternary operator returns 10)"
+        },
+        {
+          "q": "Which operator is used to access a structure member using a pointer?",
+          "marks": 1,
+          "answer": "The arrow operator '->' (e.g., ptr->member)"
+        },
+        {
+          "q": "What is a NULL pointer?",
+          "marks": 1,
+          "answer": "A NULL pointer is a pointer that does not point to any valid memory location. It is typically defined as (void*)0 and is used to indicate that the pointer is intentionally empty."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Short Answer (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Explain the difference between 'break' and 'continue' statements with examples.",
+          "marks": 2,
+          "answer": "'break' terminates the loop entirely and exits it. 'continue' skips the rest of the current iteration and jumps to the next iteration.\n\nExample:\n```c\nfor(int i=1; i<=5; i++) {\n    if(i==3) break;    // Loop stops at i=3\n    printf(\"%d \", i);  // Output: 1 2\n}\n\nfor(int i=1; i<=5; i++) {\n    if(i==3) continue; // Skips i=3\n    printf(\"%d \", i);  // Output: 1 2 4 5\n}\n```"
+        },
+        {
+          "q": "What is the difference between structure and union in C?",
+          "marks": 2,
+          "answer": "In a structure, each member has its own memory space, so total size is sum of member sizes (plus padding). In a union, all members share the same memory location, so total size is the size of the largest member. Modifying one member in a union affects others."
+        },
+        {
+          "q": "What will be the output of the following code? Explain.\n```c\nint a[3] = {5, 10, 15};\nint *p = a;\nprintf(\"%d \", *p + 2);\nprintf(\"%d\", *(p + 2));\n```",
+          "marks": 2,
+          "answer": "Output: 7 15\nExplanation: p points to a[0] = 5. *p + 2 means value at p (5) plus 2 = 7. *(p+2) means value at index 2 (a[2]) = 15."
+        },
+        {
+          "q": "What is the output of the following code? Explain.\n```c\nint a[5] = {1,2,3,4,5};\nint *p = a;\nprintf(\"%d \", *(p+2));\np++;\nprintf(\"%d\", *p);\n```",
+          "marks": 2,
+          "answer": "Output: 3 2\nExplanation: p points to a[0]. *(p+2) is a[2]=3. Then p++ increments p to point to a[1]. *p gives a[1]=2."
+        },
+        {
+          "q": "Write a recursive function to calculate x raised to the power n (x^n). Assume n is a non-negative integer.",
+          "marks": 2,
+          "answer": "```c\nint power(int x, int n) {\n    if(n == 0) return 1;\n    return x * power(x, n-1);\n}\n```\nOr more efficient (divide and conquer):\n```c\nint power(int x, int n) {\n    if(n == 0) return 1;\n    if(n % 2 == 0) return power(x*x, n/2);\n    return x * power(x*x, n/2);\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "Write a C program to implement a function that takes a string and removes all spaces from it. Then, test this function by reading a line of text from the user and displaying the space-removed version. Example: Input 'Hello World 123' should output 'HelloWorld123'.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n\nvoid removeSpaces(char *str) {\n    int j = 0;\n    for(int i = 0; str[i] != '\\0'; i++) {\n        if(str[i] != ' ') {\n            str[j++] = str[i];\n        }\n    }\n    str[j] = '\\0';\n}\n\nint main() {\n    char str[200];\n    printf(\"Enter a string: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';\n    \n    removeSpaces(str);\n    printf(\"String without spaces: %s\\n\", str);\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a C program to find the second smallest element in an array without sorting the array. The program should handle duplicates correctly. Example: For array {5, 2, 8, 2, 1, 9}, the second smallest is 2.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <limits.h>\n\nint main() {\n    int arr[100], n;\n    printf(\"Enter number of elements: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++)\n        scanf(\"%d\", &arr[i]);\n    \n    int smallest = INT_MAX;\n    int secondSmallest = INT_MAX;\n    \n    for(int i = 0; i < n; i++) {\n        if(arr[i] < smallest) {\n            secondSmallest = smallest;\n            smallest = arr[i];\n        } else if(arr[i] < secondSmallest && arr[i] != smallest) {\n            secondSmallest = arr[i];\n        }\n    }\n    \n    if(secondSmallest == INT_MAX)\n        printf(\"No second smallest element found\\n\");\n    else\n        printf(\"Second smallest element: %d\\n\", secondSmallest);\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a C program to sort an array of integers in ascending order using the bubble sort algorithm. Also, count the number of swaps performed during sorting and display it.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n\nint bubbleSort(int arr[], int n) {\n    int swaps = 0;\n    for(int i = 0; i < n-1; i++) {\n        int swapped = 0;\n        for(int j = 0; j < n-i-1; j++) {\n            if(arr[j] > arr[j+1]) {\n                int temp = arr[j];\n                arr[j] = arr[j+1];\n                arr[j+1] = temp;\n                swaps++;\n                swapped = 1;\n            }\n        }\n        if(!swapped) break;\n    }\n    return swaps;\n}\n\nint main() {\n    int arr[100], n;\n    printf(\"Enter number of elements: \");\n    scanf(\"%d\", &n);\n    printf(\"Enter elements: \");\n    for(int i = 0; i < n; i++)\n        scanf(\"%d\", &arr[i]);\n    \n    int swaps = bubbleSort(arr, n);\n    \n    printf(\"Sorted array: \");\n    for(int i = 0; i < n; i++)\n        printf(\"%d \", arr[i]);\n    printf(\"\\nTotal swaps: %d\\n\", swaps);\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a program that reads a string and checks whether it is a valid password based on the following rules:\n- At least 8 characters long\n- Contains at least one uppercase letter\n- Contains at least one lowercase letter\n- Contains at least one digit\n- Contains at least one special character (e.g., !@#$%^&*)\nThe program should output whether the password is valid or not, and if invalid, list all missing criteria.",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n#include <ctype.h>\n\nint main() {\n    char pwd[100];\n    int hasUpper = 0, hasLower = 0, hasDigit = 0, hasSpecial = 0;\n    \n    printf(\"Enter password: \");\n    fgets(pwd, sizeof(pwd), stdin);\n    pwd[strcspn(pwd, \"\\n\")] = '\\0';\n    \n    int len = strlen(pwd);\n    for(int i = 0; i < len; i++) {\n        if(isupper(pwd[i])) hasUpper = 1;\n        else if(islower(pwd[i])) hasLower = 1;\n        else if(isdigit(pwd[i])) hasDigit = 1;\n        else hasSpecial = 1;\n    }\n    \n    int valid = 1;\n    if(len < 8) {\n        printf(\"Password too short (minimum 8 characters)\\n\");\n        valid = 0;\n    }\n    if(!hasUpper) { printf(\"Missing uppercase letter\\n\"); valid = 0; }\n    if(!hasLower) { printf(\"Missing lowercase letter\\n\"); valid = 0; }\n    if(!hasDigit) { printf(\"Missing digit\\n\"); valid = 0; }\n    if(!hasSpecial) { printf(\"Missing special character\\n\"); valid = 0; }\n    \n    if(valid) printf(\"Password is valid.\\n\");\n    else printf(\"Password is invalid.\\n\");\n    return 0;\n}\n```"
+        },
+        {
+          "q": "Write a function that takes an integer array and its size, and returns the maximum difference between any two elements such that the larger element appears after the smaller element. If no such pair exists, return -1. Example: {2, 3, 10, 6, 4, 8, 1} → maximum difference is 8 (10-2).",
+          "marks": 5,
+          "answer": "```c\n#include <stdio.h>\n#include <limits.h>\n\nint maxDifference(int arr[], int n) {\n    if(n < 2) return -1;\n    int minSoFar = arr[0];\n    int maxDiff = arr[1] - arr[0];\n    \n    for(int i = 1; i < n; i++) {\n        if(arr[i] - minSoFar > maxDiff)\n            maxDiff = arr[i] - minSoFar;\n        if(arr[i] < minSoFar)\n            minSoFar = arr[i];\n    }\n    return (maxDiff <= 0) ? -1 : maxDiff;\n}\n\nint main() {\n    int arr[] = {2, 3, 10, 6, 4, 8, 1};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    int diff = maxDifference(arr, n);\n    printf(\"Maximum difference: %d\\n\", diff);\n    return 0;\n}\n```"
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Long Answer (10 Marks Each)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Write a C program to implement a stack using an array. The program should provide the following operations:\n1. Push an element onto the stack\n2. Pop an element from the stack\n3. Peek (return the top element without removing it)\n4. Display all elements of the stack\n5. Check if the stack is full or empty\n\nUsing this stack implementation, write a function to check whether a given string of parentheses (round '()', curly '{}', and square '[]') is balanced or not. The program should read a string from the user and output whether the parentheses are balanced. Example: \"{[()]}\" → Balanced, \"{[(])}\" → Not Balanced.",
+          "marks": 10,
+          "answer": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\n#define MAX 100\n\nchar stack[MAX];\nint top = -1;\n\nbool isFull() {\n    return top == MAX - 1;\n}\n\nbool isEmpty() {\n    return top == -1;\n}\n\nvoid push(char ch) {\n    if(isFull()) {\n        printf(\"Stack Overflow!\\n\");\n        return;\n    }\n    stack[++top] = ch;\n}\n\nchar pop() {\n    if(isEmpty()) {\n        printf(\"Stack Underflow!\\n\");\n        return '\\0';\n    }\n    return stack[top--];\n}\n\nchar peek() {\n    if(isEmpty()) return '\\0';\n    return stack[top];\n}\n\nvoid display() {\n    if(isEmpty()) {\n        printf(\"Stack is empty\\n\");\n        return;\n    }\n    printf(\"Stack elements: \");\n    for(int i = 0; i <= top; i++)\n        printf(\"%c \", stack[i]);\n    printf(\"\\n\");\n}\n\nbool isMatchingPair(char open, char close) {\n    return (open == '(' && close == ')') ||\n           (open == '{' && close == '}') ||\n           (open == '[' && close == ']');\n}\n\nbool isBalanced(char *expr) {\n    top = -1; // reset stack\n    for(int i = 0; expr[i] != '\\0'; i++) {\n        char ch = expr[i];\n        if(ch == '(' || ch == '{' || ch == '[') {\n            push(ch);\n        } else if(ch == ')' || ch == '}' || ch == ']') {\n            if(isEmpty()) return false;\n            char topChar = pop();\n            if(!isMatchingPair(topChar, ch)) return false;\n        }\n    }\n    return isEmpty();\n}\n\nint main() {\n    int choice;\n    char elem, expr[100];\n    \n    do {\n        printf(\"\\n===== STACK MENU =====\\n\");\n        printf(\"1. Push\\n\");\n        printf(\"2. Pop\\n\");\n        printf(\"3. Peek\\n\");\n        printf(\"4. Display\\n\");\n        printf(\"5. Check Parentheses Balance\\n\");\n        printf(\"6. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n        getchar(); // consume newline\n        \n        switch(choice) {\n            case 1:\n                printf(\"Enter character to push: \");\n                scanf(\"%c\", &elem);\n                push(elem);\n                break;\n            case 2:\n                elem = pop();\n                if(elem != '\\0')\n                    printf(\"Popped element: %c\\n\", elem);\n                break;\n            case 3:\n                elem = peek();\n                if(elem != '\\0')\n                    printf(\"Top element: %c\\n\", elem);\n                break;\n            case 4:\n                display();\n                break;\n            case 5:\n                printf(\"Enter expression (only parentheses): \");\n                fgets(expr, sizeof(expr), stdin);\n                expr[strcspn(expr, \"\\n\")] = '\\0';\n                if(isBalanced(expr))\n                    printf(\"Parentheses are BALANCED.\\n\");\n                else\n                    printf(\"Parentheses are NOT BALANCED.\\n\");\n                break;\n            case 6:\n                printf(\"Exiting...\\n\");\n                break;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    } while(choice != 6);\n    \n    return 0;\n}\n```"
+        }
+      ]
+    }
+  ]
+}

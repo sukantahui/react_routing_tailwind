@@ -39,7 +39,8 @@
             "Networking devices: Hub (basic broadcasting device)",
             "Switch: MAC address-based forwarding and collision reduction",
             "Router: IP-based routing and network interconnection",
-            "Gateway: protocol conversion and communication between different networks"
+            "Gateway: protocol conversion and communication between different networks",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand networking fundamentals",
@@ -79,13 +80,61 @@
             "Devices Used in Different Layers: Hub, Switch, Router, Gateway",
             "Advantages of Layered Models: Interoperability, scalability, troubleshooting ease",
             "Limitations and Criticism of OSI Model: Theoretical vs practical gap",
-            "Real-Life Data Flow Example: How a web request travels from browser to server and back"
+            "Real-Life Data Flow Example: How a web request travels from browser to server and back",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Explain OSI and TCP/IP models",
             "Understand layered communication"
           ],
           "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "test-osi-layer",
+          "slug": "test-osi-layer",
+          "title": "Test OSI Layer",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "visibility": "loggedIn",
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2",
+            "Test3"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
         }
       ]
     },
@@ -125,7 +174,8 @@
             "Real-World Case Studies:",
             "• Fiber optics in internet backbone",
             "• Wireless communication in mobile networks",
-            "• LAN cabling in offices and schools"
+            "• LAN cabling in offices and schools",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Identify transmission media",
@@ -142,7 +192,8 @@
             "Encoding techniques: NRZ, Manchester, Differential Manchester",
             "Multiplexing: FDM, TDM, WDM",
             "Switching: Circuit, Packet, Message switching",
-            "Applications in real networks"
+            "Applications in real networks",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand encoding and switching methods",
@@ -167,7 +218,8 @@
             "Flow control: Stop-and-Wait, Sliding Window",
             "Error detection: Parity, CRC, Checksum",
             "Error correction: Hamming Code",
-            "Framing techniques"
+            "Framing techniques",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand flow control",
@@ -185,7 +237,8 @@
             "Go-Back-N ARQ",
             "Selective Repeat ARQ",
             "ALOHA protocols",
-            "IEEE standards (802.3, 802.4, 802.5)"
+            "IEEE standards (802.3, 802.4, 802.5)",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand retransmission mechanisms",
@@ -289,10 +342,33 @@
             "DNS, HTTP, HTTPS working",
             "FTP, SMTP, POP3, IMAP",
             "Remote login: Telnet, SSH",
-            "SNMP basics"
+            "SNMP basics",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand real-world protocols"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "file-sharing",
+          "slug": "network-file-sharing-nfs-smb",
+          "title": "Network File Sharing: NFS & SMB/CIFS",
+          "estimatedHours": 4,
+          "topics": [
+            "Introduction to Network File Sharing: Need for centralized file access, historical context, and common use cases (office networks, cloud storage backends)",
+            "NFS (Network File System):",
+            "SMB (Server Message Block) / CIFS (Common Internet File System):",
+            "Comparison Between NFS and SMB:",
+            "Real-World Scenarios:",
+            "Basic Troubleshooting:",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose and working of NFS and SMB protocols",
+            "Differentiate between NFS and SMB based on platforms, features, and security",
+            "Configure a basic NFS export and mount on Linux",
+            "Use Samba to share files between Linux and Windows systems"
           ],
           "difficulty": "Medium"
         }
@@ -317,6 +393,38 @@
             "Understand modern trends"
           ],
           "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "dns-system",
+          "slug": "domain-name-system-dns",
+          "title": "Domain Name System (DNS)",
+          "estimatedHours": 6,
+          "topics": [
+            "Introduction to DNS: What is Domain Name System and why it is needed",
+            "Domain Names vs IP Addresses: Human-readable vs machine-readable addressing",
+            "Working of DNS: Step-by-step name resolution process",
+            "Types of DNS Servers: Root Server, TLD Server, Authoritative Server, Recursive Resolver",
+            "DNS Resolution Process: Recursive and Iterative queries",
+            "A Record (IPv4 mapping)",
+            "AAAA Record (IPv6 mapping)",
+            "CNAME Record (Alias)",
+            "MX Record (Mail Exchange)",
+            "NS Record (Name Server)",
+            "TXT Record (Verification and security)",
+            "DNS Caching: How caching improves performance",
+            "Forward Lookup vs Reverse Lookup",
+            "DNS Security Basics: DNS Spoofing, DNSSEC introduction",
+            "Real-World Example: How a browser loads a website using DNS",
+            "Common Tools: nslookup, ping, dig (basic usage)",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the role of DNS in networking",
+            "Explain how domain names are resolved into IP addresses",
+            "Identify different DNS servers and records",
+            "Analyze basic DNS queries and responses"
+          ],
+          "difficulty": "Medium"
         }
       ]
     }

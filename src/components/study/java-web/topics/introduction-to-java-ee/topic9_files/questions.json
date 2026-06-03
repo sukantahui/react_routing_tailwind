@@ -1,0 +1,2445 @@
+{
+    "subject": "Java Programming",
+    "class": "IX",
+    "board": "ICSE",
+    "topic": "Short Questions – Mixed Topics (Detailed Answers)",
+    "subjectLogo": {
+        "name": "Java",
+        "icon": "java",
+        "type": "svg",
+        "path": "/logos/Java-original.svg",
+        "alt": "Java Programming Logo"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Beginner",
+            "question": "What does Java EE stand for?",
+            "output": "Java Platform, Enterprise Edition",
+            "answer": "Java Platform, Enterprise Edition",
+            "explanation": "Java EE is a set of specifications for building enterprise applications."
+        },
+        {
+            "id": 2,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Beginner",
+            "question": "Name the main layers of Java EE architecture.",
+            "output": "Client tier, Web tier, Business tier, EIS tier",
+            "answer": "Client tier, Web tier, Business tier, EIS tier",
+            "explanation": "Java EE applications are typically divided into these four logical tiers."
+        },
+        {
+            "id": 3,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Beginner",
+            "question": "What is a container in Java EE?",
+            "output": "A runtime environment that manages components and provides services like security, transaction, and lifecycle.",
+            "answer": "A runtime environment that manages components and provides services like security, transaction, and lifecycle.",
+            "explanation": "Containers (e.g., Web container, EJB container) host Java EE components."
+        },
+        {
+            "id": 4,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Beginner",
+            "question": "Which component runs in the Web container?",
+            "output": "Servlets and JSPs",
+            "answer": "Servlets and JSPs",
+            "explanation": "The web container manages servlets, JSPs, and JSF components."
+        },
+        {
+            "id": 5,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Beginner",
+            "question": "Which component runs in the EJB container?",
+            "output": "Enterprise JavaBeans (session beans, message-driven beans)",
+            "answer": "Enterprise JavaBeans (session beans, message-driven beans)",
+            "explanation": "EJB container hosts business logic components."
+        },
+        {
+            "id": 6,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What is the role of the EIS tier?",
+            "output": "It represents enterprise information systems like databases, legacy systems, or ERP.",
+            "answer": "It represents enterprise information systems like databases, legacy systems, or ERP.",
+            "explanation": "EIS tier is the data source layer, accessed via JDBC, JPA, or JCA."
+        },
+        {
+            "id": 7,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What is a Java EE module?",
+            "output": "A deployable unit such as a WAR (web module), EJB‑JAR (EJB module), or EAR (enterprise application).",
+            "answer": "A deployable unit such as a WAR (web module), EJB‑JAR (EJB module), or EAR (enterprise application).",
+            "explanation": "Modules are packaged in JAR, WAR, or EAR files."
+        },
+        {
+            "id": 8,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What does an EAR file contain?",
+            "output": "One or more WAR, EJB-JAR, and other modules, plus deployment descriptors.",
+            "answer": "One or more WAR, EJB-JAR, and other modules, plus deployment descriptors.",
+            "explanation": "EAR (Enterprise ARchive) is the top‑level packaging for a Java EE application."
+        },
+        {
+            "id": 9,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "Name three services provided by Java EE containers.",
+            "output": "Transaction management, security, connection pooling, naming/directory (JNDI), concurrency.",
+            "answer": "Transaction management, security, connection pooling, naming/directory (JNDI), concurrency.",
+            "explanation": "Containers offer declarative management of cross‑cutting concerns."
+        },
+        {
+            "id": 10,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What is JNDI and its use in Java EE?",
+            "output": "Java Naming and Directory Interface – used to look up resources like data sources, EJBs, and JMS destinations.",
+            "answer": "Java Naming and Directory Interface – used to look up resources like data sources, EJBs, and JMS destinations.",
+            "explanation": "JNDI provides a directory service to decouple resource names from their physical locations."
+        },
+        {
+            "id": 11,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What is a deployment descriptor?",
+            "output": "An XML file (web.xml, ejb-jar.xml) that configures components and resources.",
+            "answer": "An XML file (web.xml, ejb-jar.xml) that configures components and resources.",
+            "explanation": "Deployment descriptors provide declarative configuration for Java EE applications."
+        },
+        {
+            "id": 12,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What are annotations in Java EE?",
+            "output": "Metadata that replaces XML configuration, e.g., @WebServlet, @EJB, @PersistenceContext.",
+            "answer": "Metadata that replaces XML configuration, e.g., @WebServlet, @EJB, @PersistenceContext.",
+            "explanation": "Annotations reduce boilerplate and improve developer productivity."
+        },
+        {
+            "id": 13,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Intermediate",
+            "question": "What is the Java EE API?",
+            "output": "A set of standard APIs (Servlets, JSP, EJB, JPA, JMS, etc.) that define enterprise services.",
+            "answer": "A set of standard APIs (Servlets, JSP, EJB, JPA, JMS, etc.) that define enterprise services.",
+            "explanation": "The API specifications are implemented by Java EE compatible application servers."
+        },
+        {
+            "id": 14,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the difference between Java EE and Jakarta EE?",
+            "output": "Jakarta EE is the new name after Oracle transferred Java EE to the Eclipse Foundation; package names changed from javax to jakarta.",
+            "answer": "Jakarta EE is the new name after Oracle transferred Java EE to the Eclipse Foundation; package names changed from javax to jakarta.",
+            "explanation": "Jakarta EE continues the evolution with open governance."
+        },
+        {
+            "id": 15,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is CDI (Contexts and Dependency Injection)?",
+            "output": "A Java EE specification that provides dependency injection and contextual lifecycle management.",
+            "answer": "A Java EE specification that provides dependency injection and contextual lifecycle management.",
+            "explanation": "CDI allows loose coupling and type‑safe injection."
+        },
+        {
+            "id": 16,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is a managed bean in Java EE?",
+            "output": "A Java object created and managed by a container (e.g., CDI managed bean, JSF managed bean).",
+            "answer": "A Java object created and managed by a container (e.g., CDI managed bean, JSF managed bean).",
+            "explanation": "The container handles its lifecycle and dependencies."
+        },
+        {
+            "id": 17,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the role of JTA (Java Transaction API)?",
+            "output": "It provides distributed transaction management across multiple resources (database, JMS, etc.).",
+            "answer": "It provides distributed transaction management across multiple resources (database, JMS, etc.).",
+            "explanation": "JTA enables global transactions with two‑phase commit."
+        },
+        {
+            "id": 18,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the difference between stateful and stateless session beans?",
+            "output": "Stateful session beans maintain conversational state across calls; stateless do not.",
+            "answer": "Stateful session beans maintain conversational state across calls; stateless do not.",
+            "explanation": "Stateless beans can be pooled for better scalability."
+        },
+        {
+            "id": 19,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is a message‑driven bean (MDB)?",
+            "output": "An EJB that asynchronously consumes messages from a JMS destination.",
+            "answer": "An EJB that asynchronously consumes messages from a JMS destination.",
+            "explanation": "MDBs are used for event‑driven architectures."
+        },
+        {
+            "id": 20,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the Java EE Connector Architecture (JCA)?",
+            "output": "A specification for integrating Java EE application servers with enterprise information systems (EIS).",
+            "answer": "A specification for integrating Java EE application servers with enterprise information systems (EIS).",
+            "explanation": "JCA provides resource adapters for legacy systems."
+        },
+        {
+            "id": 21,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is a resource adapter in Java EE?",
+            "output": "A pluggable component that allows a Java EE container to communicate with an external system.",
+            "answer": "A pluggable component that allows a Java EE container to communicate with an external system.",
+            "explanation": "Resource adapters implement the JCA specification."
+        },
+        {
+            "id": 22,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `@Resource` and `@Inject`?",
+            "output": "`@Resource` is JNDI‑based for traditional resources; `@Inject` is CDI‑based for type‑safe injection.",
+            "answer": "`@Resource` is JNDI‑based for traditional resources; `@Inject` is CDI‑based for type‑safe injection.",
+            "explanation": "Both are used for dependency injection but come from different specifications."
+        },
+        {
+            "id": 23,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is a singleton session bean?",
+            "output": "An EJB that is instantiated once per application and shared across all clients.",
+            "answer": "An EJB that is instantiated once per application and shared across all clients.",
+            "explanation": "Singleton beans are useful for application‑wide state or caching."
+        },
+        {
+            "id": 24,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `@PostConstruct` and `@PreDestroy` annotations?",
+            "output": "`@PostConstruct` runs after dependency injection; `@PreDestroy` runs before the bean is destroyed.",
+            "answer": "`@PostConstruct` runs after dependency injection; `@PreDestroy` runs before the bean is destroyed.",
+            "explanation": "They are lifecycle callback methods."
+        },
+        {
+            "id": 25,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is a `web-fragment.xml`?",
+            "output": "A modular deployment descriptor that can be added to JAR files to contribute to a web application.",
+            "answer": "A modular deployment descriptor that can be added to JAR files to contribute to a web application.",
+            "explanation": "It enables pluggable web components (e.g., libraries with their own servlets)."
+        },
+        {
+            "id": 26,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a global transaction and a local transaction?",
+            "output": "Global transactions span multiple resources (e.g., two databases); local transactions are resource‑specific.",
+            "answer": "Global transactions span multiple resources (e.g., two databases); local transactions are resource‑specific.",
+            "explanation": "JTA handles global transactions; local transactions use JDBC auto‑commit."
+        },
+        {
+            "id": 27,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the Java EE security model based on?",
+            "output": "Roles, users, groups, and declarative security via `@RolesAllowed` or `web.xml`.",
+            "answer": "Roles, users, groups, and declarative security via `@RolesAllowed` or `web.xml`.",
+            "explanation": "Security constraints are defined in deployment descriptors or annotations."
+        },
+        {
+            "id": 28,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `@Asynchronous` in EJB?",
+            "output": "It allows a method to be invoked asynchronously without blocking the client.",
+            "answer": "It allows a method to be invoked asynchronously without blocking the client.",
+            "explanation": "Asynchronous methods return a `Future` object."
+        },
+        {
+            "id": 29,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a thin client and a thick client in Java EE?",
+            "output": "Thin client (browser) runs minimal code; thick client is a standalone Java application that interacts with the server.",
+            "answer": "Thin client (browser) runs minimal code; thick client is a standalone Java application that interacts with the server.",
+            "explanation": "Thick clients can use JNDI and EJB directly."
+        },
+        {
+            "id": 30,
+            "topic": "Overview of Java EE Architecture",
+            "difficulty": "Advanced",
+            "question": "What is the Java EE 8 platform's support for HTTP/2?",
+            "output": "Servlets 4.0 adds native support for HTTP/2 push and improved performance.",
+            "answer": "Servlets 4.0 adds native support for HTTP/2 push and improved performance.",
+            "explanation": "HTTP/2 reduces latency with multiplexing and server push."
+        },
+        {
+            "id": 31,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Beginner",
+            "question": "What is the primary difference between Java SE and Java EE?",
+            "output": "Java SE is the standard edition for desktop and standalone applications; Java EE is for enterprise applications with distributed, multi‑tier architecture.",
+            "answer": "Java SE is the standard edition for desktop and standalone applications; Java EE is for enterprise applications with distributed, multi‑tier architecture.",
+            "explanation": "Java EE builds on top of Java SE and adds APIs for web services, servlets, EJB, etc."
+        },
+        {
+            "id": 32,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Beginner",
+            "question": "Which edition provides `javax.servlet` package?",
+            "output": "Java EE (Enterprise Edition)",
+            "answer": "Java EE (Enterprise Edition)",
+            "explanation": "Servlets are part of the Java EE web profile."
+        },
+        {
+            "id": 33,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Beginner",
+            "question": "Can Java SE be used to build web applications?",
+            "output": "Yes, using plain sockets or frameworks, but Java EE provides standardised APIs and containers.",
+            "answer": "Yes, using plain sockets or frameworks, but Java EE provides standardised APIs and containers.",
+            "explanation": "Java SE lacks built‑in support for servlets, JSP, or EJB."
+        },
+        {
+            "id": 34,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Beginner",
+            "question": "Which edition includes the Java Virtual Machine (JVM)?",
+            "output": "Both Java SE and Java EE include the JVM.",
+            "answer": "Both Java SE and Java EE include the JVM.",
+            "explanation": "Java EE is a set of APIs and specifications that run on a JVM."
+        },
+        {
+            "id": 35,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Beginner",
+            "question": "What is the relationship between Java SE and Java EE?",
+            "output": "Java EE is built on top of Java SE; any Java EE application requires a Java SE runtime.",
+            "answer": "Java EE is built on top of Java SE; any Java EE application requires a Java SE runtime.",
+            "explanation": "Java EE adds enterprise libraries and container services."
+        },
+        {
+            "id": 36,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "Name three APIs that are part of Java EE but not Java SE.",
+            "output": "Servlet API, EJB API, JPA (Java Persistence API), JMS, JSF, CDI, JAX‑RS, etc.",
+            "answer": "Servlet API, EJB API, JPA (Java Persistence API), JMS, JSF, CDI, JAX‑RS, etc.",
+            "explanation": "These enterprise APIs are not included in standard JDK."
+        },
+        {
+            "id": 37,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "Can you run a Java EE application without an application server?",
+            "output": "No, you need at least a servlet container (like Tomcat) or a full Java EE application server.",
+            "answer": "No, you need at least a servlet container (like Tomcat) or a full Java EE application server.",
+            "explanation": "Java EE components rely on container services (lifecycle, dependency injection, transactions)."
+        },
+        {
+            "id": 38,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "What is a Java SE program that uses Java EE libraries called?",
+            "output": "A client that communicates with a Java EE server (e.g., using JNDI or web services).",
+            "answer": "A client that communicates with a Java EE server (e.g., using JNDI or web services).",
+            "explanation": "You can have a Java SE application that acts as a client to a Java EE backend."
+        },
+        {
+            "id": 39,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "What is the Java EE Web Profile?",
+            "output": "A subset of Java EE specifications tailored for web applications (servlets, JSP, JSF, CDI, JPA, etc.).",
+            "answer": "A subset of Java EE specifications tailored for web applications (servlets, JSP, JSF, CDI, JPA, etc.).",
+            "explanation": "Web Profile excludes EJB and other heavy components, suitable for smaller servers."
+        },
+        {
+            "id": 40,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "Which edition provides the `java.sql` package?",
+            "output": "Both Java SE and Java EE include `java.sql`.",
+            "answer": "Both Java SE and Java EE include `java.sql`.",
+            "explanation": "JDBC is part of Java SE, but Java EE adds connection pooling and JTA."
+        },
+        {
+            "id": 41,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "What is the main advantage of using Java EE over Java SE for enterprise applications?",
+            "output": "Declarative transaction management, built‑in security, dependency injection, and scalability.",
+            "answer": "Declarative transaction management, built‑in security, dependency injection, and scalability.",
+            "explanation": "Java EE containers handle cross‑cutting concerns automatically."
+        },
+        {
+            "id": 42,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "What is the equivalent of Java SE's `java.util.logging` in Java EE?",
+            "output": "Java EE uses the same logging, but also supports SLF4J and Log4j via libraries.",
+            "answer": "Java EE uses the same logging, but also supports SLF4J and Log4j via libraries.",
+            "explanation": "Logging is not part of the Java EE specification; it's left to implementations."
+        },
+        {
+            "id": 43,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "What is a Java EE container?",
+            "output": "A runtime that provides services (security, transactions, etc.) to Java EE components.",
+            "answer": "A runtime that provides services (security, transactions, etc.) to Java EE components.",
+            "explanation": "Examples: Web container (Tomcat), EJB container (GlassFish)."
+        },
+        {
+            "id": 44,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Intermediate",
+            "question": "Which edition defines the JavaMail API?",
+            "output": "Java EE (part of the platform, but the API can also be used in Java SE with additional libraries).",
+            "answer": "Java EE (part of the platform, but the API can also be used in Java SE with additional libraries).",
+            "explanation": "JavaMail is included in Java EE, but not in Java SE by default."
+        },
+        {
+            "id": 45,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "Can you use a Java EE API (e.g., `@Stateless`) in a Java SE program?",
+            "output": "Yes, but you need a Java EE container or an embedded EJB container (like OpenEJB).",
+            "answer": "Yes, but you need a Java EE container or an embedded EJB container (like OpenEJB).",
+            "explanation": "Annotations alone do nothing without a container to process them."
+        },
+        {
+            "id": 46,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the difference in versioning between Java SE and Java EE?",
+            "output": "Java SE versions are numbered 8, 11, 17, 21, etc.; Java EE versions are 5, 6, 7, 8, and now Jakarta EE 9+.",
+            "answer": "Java SE versions are numbered 8, 11, 17, 21, etc.; Java EE versions are 5, 6, 7, 8, and now Jakarta EE 9+.",
+            "explanation": "They follow independent release cycles."
+        },
+        {
+            "id": 47,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the Java EE Compatibility Test Suite (CTS)?",
+            "output": "A set of tests that a Java EE implementation must pass to claim compatibility.",
+            "answer": "A set of tests that a Java EE implementation must pass to claim compatibility.",
+            "explanation": "It ensures portability across different application servers."
+        },
+        {
+            "id": 48,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a Java SE application and a Java EE application in terms of deployment?",
+            "output": "Java SE applications are run with `java -jar`; Java EE applications are deployed as WAR/EAR files to an application server.",
+            "answer": "Java SE applications are run with `java -jar`; Java EE applications are deployed as WAR/EAR files to an application server.",
+            "explanation": "Java EE applications are designed to be hosted in a container."
+        },
+        {
+            "id": 49,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the role of the `MANIFEST.MF` file in Java SE vs Java EE?",
+            "output": "In Java SE, it specifies main class and classpath; in Java EE, it may define module version and dependencies.",
+            "answer": "In Java SE, it specifies main class and classpath; in Java EE, it may define module version and dependencies.",
+            "explanation": "Both use JAR manifests, but Java EE adds deployment‑specific entries."
+        },
+        {
+            "id": 50,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the Java SE `module system` (JPMS) and its relation to Java EE?",
+            "output": "JPMS introduced modularity in Java 9; Java EE modules (e.g., `java.sql`, `java.xml`) are standard, but Java EE APIs are not modularised.",
+            "answer": "JPMS introduced modularity in Java 9; Java EE modules (e.g., `java.sql`, `java.xml`) are standard, but Java EE APIs are not modularised.",
+            "explanation": "Java EE libraries are often placed on the classpath, not as modules."
+        },
+        {
+            "id": 51,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "Can a Java SE application be deployed to a Java EE application server?",
+            "output": "Yes, as a plain JAR, but it will not benefit from container services.",
+            "answer": "Yes, as a plain JAR, but it will not benefit from container services.",
+            "explanation": "You can place any Java SE JAR in the server's classpath."
+        },
+        {
+            "id": 52,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the difference in memory management between Java SE and Java EE?",
+            "output": "Both use the same JVM heap; but Java EE applications often have higher load and require tuning.",
+            "answer": "Both use the same JVM heap; but Java EE applications often have higher load and require tuning.",
+            "explanation": "Container overhead and multi‑tenancy increase memory usage."
+        },
+        {
+            "id": 53,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `@WebServlet` annotation in Java EE?",
+            "output": "It declares a servlet class, replacing the need for `web.xml` entry.",
+            "answer": "It declares a servlet class, replacing the need for `web.xml` entry.",
+            "explanation": "This is a Java EE annotation, not available in Java SE."
+        },
+        {
+            "id": 54,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "Which edition includes the `java.desktop` module?",
+            "output": "Java SE (AWT, Swing). Java EE does not include desktop APIs.",
+            "answer": "Java SE (AWT, Swing). Java EE does not include desktop APIs.",
+            "explanation": "Java EE focuses on server‑side applications."
+        },
+        {
+            "id": 55,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the Java EE Security API (JSR 375)?",
+            "output": "A specification that provides a simplified and standardised security mechanism for Java EE applications.",
+            "answer": "A specification that provides a simplified and standardised security mechanism for Java EE applications.",
+            "explanation": "It introduces `@RememberMe`, `@AutoApplySession`, etc."
+        },
+        {
+            "id": 56,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the equivalent of Java SE's `ExecutorService` in Java EE?",
+            "output": "ManagedExecutorService from Concurrency Utilities for Java EE (JSR 236).",
+            "answer": "ManagedExecutorService from Concurrency Utilities for Java EE (JSR 236).",
+            "explanation": "It allows tasks to run in the container's managed environment."
+        },
+        {
+            "id": 57,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "Can you use Java 8 streams and lambdas in a Java EE application?",
+            "output": "Yes, because Java EE 7+ runs on Java SE 7+; Java EE 8 requires Java 8.",
+            "answer": "Yes, because Java EE 7+ runs on Java SE 7+; Java EE 8 requires Java 8.",
+            "explanation": "Language features are independent of the EE platform version."
+        },
+        {
+            "id": 58,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a Java SE runtime and a Java EE runtime?",
+            "output": "Java SE runtime is the JVM + core libraries; Java EE runtime is a Java SE runtime plus an application server (e.g., GlassFish, WildFly).",
+            "answer": "Java SE runtime is the JVM + core libraries; Java EE runtime is a Java SE runtime plus an application server (e.g., GlassFish, WildFly).",
+            "explanation": "The application server provides EE APIs and containers."
+        },
+        {
+            "id": 59,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `@DataSourceDefinition` annotation?",
+            "output": "It defines a data source in a Java EE application, eliminating the need for server‑specific configuration.",
+            "answer": "It defines a data source in a Java EE application, eliminating the need for server‑specific configuration.",
+            "explanation": "It is part of Java EE, not Java SE."
+        },
+        {
+            "id": 60,
+            "topic": "Java SE vs Java EE",
+            "difficulty": "Advanced",
+            "question": "What is the difference in licensing between Java SE and Java EE (now Jakarta EE)?",
+            "output": "Java SE is under Oracle’s license; Jakarta EE is open source under Eclipse Foundation (EPL).",
+            "answer": "Java SE is under Oracle’s license; Jakarta EE is open source under Eclipse Foundation (EPL).",
+            "explanation": "Oracle transferred Java EE to Eclipse, which rebranded it as Jakarta EE."
+        },
+        {
+            "id": 61,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Beginner",
+            "question": "What is the role of JDBC in Java EE?",
+            "output": "JDBC provides a standard API for connecting to relational databases and executing SQL statements.",
+            "answer": "JDBC provides a standard API for connecting to relational databases and executing SQL statements.",
+            "explanation": "It allows Java applications to interact with any database using a common interface."
+        },
+        {
+            "id": 62,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Beginner",
+            "question": "What is the role of a Servlet?",
+            "output": "A Servlet handles HTTP requests, processes them, and generates dynamic responses (usually HTML).",
+            "answer": "A Servlet handles HTTP requests, processes them, and generates dynamic responses (usually HTML).",
+            "explanation": "Servlets are the backbone of Java web applications, acting as controllers."
+        },
+        {
+            "id": 63,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Beginner",
+            "question": "What is the role of JSP?",
+            "output": "JSP (JavaServer Pages) is a technology to create dynamic web content by embedding Java code in HTML.",
+            "answer": "JSP (JavaServer Pages) is a technology to create dynamic web content by embedding Java code in HTML.",
+            "explanation": "JSP simplifies writing presentation layers by separating logic from markup."
+        },
+        {
+            "id": 64,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Beginner",
+            "question": "Which component is typically used to perform database operations in a Java EE web app?",
+            "output": "Servlets (or backing beans) use JDBC to interact with the database.",
+            "answer": "Servlets (or backing beans) use JDBC to interact with the database.",
+            "explanation": "JDBC is the low‑level API; often used with connection pooling and JPA."
+        },
+        {
+            "id": 65,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Beginner",
+            "question": "Can JSP pages contain Java code directly?",
+            "output": "Yes, using scriptlets (`<% ... %>`), though modern practice discourages it.",
+            "answer": "Yes, using scriptlets (`<% ... %>`), though modern practice discourages it.",
+            "explanation": "Expression Language (EL) and JSTL are preferred."
+        },
+        {
+            "id": 66,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a Servlet and a JSP?",
+            "output": "A Servlet is a Java class that produces HTML; a JSP is a text‑based document that is translated into a Servlet at runtime.",
+            "answer": "A Servlet is a Java class that produces HTML; a JSP is a text‑based document that is translated into a Servlet at runtime.",
+            "explanation": "JSP is easier for designers, while Servlets are better for complex logic."
+        },
+        {
+            "id": 67,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the MVC pattern and how do Servlets and JSPs fit?",
+            "output": "Model‑View‑Controller: Servlet acts as Controller, JSP as View, and JavaBeans/DAO as Model.",
+            "answer": "Model‑View‑Controller: Servlet acts as Controller, JSP as View, and JavaBeans/DAO as Model.",
+            "explanation": "This separation improves maintainability."
+        },
+        {
+            "id": 68,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is a `PreparedStatement` in JDBC and its advantage?",
+            "output": "It precompiles SQL, prevents SQL injection, and improves performance for repeated execution.",
+            "answer": "It precompiles SQL, prevents SQL injection, and improves performance for repeated execution.",
+            "explanation": "It is part of `java.sql` and is used in both Java SE and EE."
+        },
+        {
+            "id": 69,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is a JDBC `DataSource`?",
+            "output": "An interface for connection pooling and distributed transactions, typically configured via JNDI.",
+            "answer": "An interface for connection pooling and distributed transactions, typically configured via JNDI.",
+            "explanation": "DataSources are the preferred way to obtain connections in Java EE."
+        },
+        {
+            "id": 70,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the `web.xml` file used for in relation to Servlets?",
+            "output": "It maps URL patterns to servlet classes and defines initialization parameters, security constraints, etc.",
+            "answer": "It maps URL patterns to servlet classes and defines initialization parameters, security constraints, etc.",
+            "explanation": "Modern Servlets can use `@WebServlet` annotation instead."
+        },
+        {
+            "id": 71,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the JSP lifecycle?",
+            "output": "Translation → Compilation → Loading → Initialization (`jspInit`) → Request handling (`_jspService`) → Destruction (`jspDestroy`).",
+            "answer": "Translation → Compilation → Loading → Initialization (`jspInit`) → Request handling (`_jspService`) → Destruction (`jspDestroy`).",
+            "explanation": "Similar to Servlet lifecycle but with an extra translation step."
+        },
+        {
+            "id": 72,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is a Servlet context?",
+            "output": "An object (`ServletContext`) that provides access to application‑wide parameters and resources.",
+            "answer": "An object (`ServletContext`) that provides access to application‑wide parameters and resources.",
+            "explanation": "It is shared by all servlets in a web application."
+        },
+        {
+            "id": 73,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between `GET` and `POST` in Servlet `doGet` and `doPost`?",
+            "output": "`doGet` handles URL parameters (idempotent); `doPost` handles form submissions (data in body).",
+            "answer": "`doGet` handles URL parameters (idempotent); `doPost` handles form submissions (data in body).",
+            "explanation": "`doPost` is used for sensitive data because parameters are not visible in URL."
+        },
+        {
+            "id": 74,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Intermediate",
+            "question": "What is the `HttpSession` object?",
+            "output": "It maintains user‑specific state across multiple requests in a web application.",
+            "answer": "It maintains user‑specific state across multiple requests in a web application.",
+            "explanation": "Sessions are created with `request.getSession()`."
+        },
+        {
+            "id": 75,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `sendRedirect` and `forward` in Servlets?",
+            "output": "`sendRedirect` sends a 302 response to the client; `forward` is a server‑side transfer (client unaware).",
+            "answer": "`sendRedirect` sends a 302 response to the client; `forward` is a server‑side transfer (client unaware).",
+            "explanation": "Forward preserves the original request and response objects."
+        },
+        {
+            "id": 76,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `ServletContextListener`?",
+            "output": "A listener that receives notifications when the servlet context is initialized or destroyed.",
+            "answer": "A listener that receives notifications when the servlet context is initialized or destroyed.",
+            "explanation": "Used to set up database connection pools or load configuration on startup."
+        },
+        {
+            "id": 77,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the Expression Language (EL) in JSP?",
+            "output": "A language that simplifies accessing JavaBeans properties, collections, and implicit objects.",
+            "answer": "A language that simplifies accessing JavaBeans properties, collections, and implicit objects.",
+            "explanation": "EL syntax `${...}` replaces scriptlets."
+        },
+        {
+            "id": 78,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `ResultSet` in JDBC and its types?",
+            "output": "`ResultSet` represents a table of database results; types: forward‑only, scroll‑insensitive, scroll‑sensitive.",
+            "answer": "`ResultSet` represents a table of database results; types: forward‑only, scroll‑insensitive, scroll‑sensitive.",
+            "explanation": "Type is specified during `Statement` creation."
+        },
+        {
+            "id": 79,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `Statement` and `PreparedStatement`?",
+            "output": "`PreparedStatement` precompiles SQL, prevents SQL injection, and is faster for repeated executions.",
+            "answer": "`PreparedStatement` precompiles SQL, prevents SQL injection, and is faster for repeated executions.",
+            "explanation": "`PreparedStatement` is safer and more efficient."
+        },
+        {
+            "id": 80,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `RowSet` in JDBC?",
+            "output": "A wrapper around `ResultSet` that can be disconnected, serializable, and supports event handling.",
+            "answer": "A wrapper around `ResultSet` that can be disconnected, serializable, and supports event handling.",
+            "explanation": "`RowSet` is part of `javax.sql.rowset` package."
+        },
+        {
+            "id": 81,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `HttpServletRequest` wrapper and why use it?",
+            "output": "A custom wrapper class that overrides request methods (e.g., to modify parameters or headers).",
+            "answer": "A custom wrapper class that overrides request methods (e.g., to modify parameters or headers).",
+            "explanation": "Used in filters to change request behaviour."
+        },
+        {
+            "id": 82,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the difference between JSP `include` directive and `include` action?",
+            "output": "Directive (`<%@ include %>`) includes at translation time; action (`<jsp:include>`) includes at request time.",
+            "answer": "Directive (`<%@ include %>`) includes at translation time; action (`<jsp:include>`) includes at request time.",
+            "explanation": "Directive results in a single compiled class; action allows dynamic inclusion."
+        },
+        {
+            "id": 83,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the JDBC `Connection` pooling and how is it configured in Java EE?",
+            "output": "A pool of pre‑created connections reused by clients, configured via a data source in the application server.",
+            "answer": "A pool of pre‑created connections reused by clients, configured via a data source in the application server.",
+            "explanation": "Improves performance by avoiding connection creation overhead."
+        },
+        {
+            "id": 84,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `ServletFilter` and give an example?",
+            "output": "A filter intercepts requests before they reach a servlet (e.g., logging, authentication, compression).",
+            "answer": "A filter intercepts requests before they reach a servlet (e.g., logging, authentication, compression).",
+            "explanation": "Filters are configured in `web.xml` or with `@WebFilter` annotation."
+        },
+        {
+            "id": 85,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the `@WebServlet` annotation and its attributes?",
+            "output": "It defines a servlet with properties like `urlPatterns`, `loadOnStartup`, `initParams`.",
+            "answer": "It defines a servlet with properties like `urlPatterns`, `loadOnStartup`, `initParams`.",
+            "explanation": "Replaces `web.xml` configuration for servlets."
+        },
+        {
+            "id": 86,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `jsp:useBean`, `jsp:setProperty`, and `jsp:getProperty`?",
+            "output": "`useBean` creates or locates a JavaBean; `setProperty` sets its property; `getProperty` retrieves it.",
+            "answer": "`useBean` creates or locates a JavaBean; `setProperty` sets its property; `getProperty` retrieves it.",
+            "explanation": "These are classic JSP actions, now often replaced by EL and JSTL."
+        },
+        {
+            "id": 87,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `SessionBean` in the context of JSP/Servlets?",
+            "output": "A session bean is an EJB component; but in web tier, `HttpSession` is used for state management.",
+            "answer": "A session bean is an EJB component; but in web tier, `HttpSession` is used for state management.",
+            "explanation": "EJB session beans are business tier components."
+        },
+        {
+            "id": 88,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the `RequestDispatcher` interface?",
+            "output": "It forwards a request to another resource (servlet, JSP, HTML) on the server.",
+            "answer": "It forwards a request to another resource (servlet, JSP, HTML) on the server.",
+            "explanation": "Used for internal forwarding without client involvement."
+        },
+        {
+            "id": 89,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is a `ServletConfig` object?",
+            "output": "It provides servlet‑specific initialization parameters and the `ServletContext`.",
+            "answer": "It provides servlet‑specific initialization parameters and the `ServletContext`.",
+            "explanation": "Obtained via `getServletConfig()` in a servlet."
+        },
+        {
+            "id": 90,
+            "topic": "Role of JDBC, JSP, and Servlets",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `HttpServlet` `service()` method and `doGet()/doPost()`?",
+            "output": "`service()` dispatches the request to the appropriate HTTP method handler; you override `doGet`, `doPost`, etc.",
+            "answer": "`service()` dispatches the request to the appropriate HTTP method handler; you override `doGet`, `doPost`, etc.",
+            "explanation": "You rarely override `service` directly."
+        },
+        {
+            "id": 91,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Beginner",
+            "question": "What is the typical 3‑tier architecture in web applications?",
+            "output": "Presentation tier (client), Business tier (server logic), Data tier (database).",
+            "answer": "Presentation tier (client), Business tier (server logic), Data tier (database).",
+            "explanation": "Each tier can be physically separated for scalability."
+        },
+        {
+            "id": 92,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Beginner",
+            "question": "What is a client‑server model?",
+            "output": "A model where clients request services and servers respond to those requests.",
+            "answer": "A model where clients request services and servers respond to those requests.",
+            "explanation": "The web is a classic example with browsers as clients and web servers as servers."
+        },
+        {
+            "id": 93,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Beginner",
+            "question": "What is a web application?",
+            "output": "An application accessed via a web browser over a network, using HTTP/HTTPS.",
+            "answer": "An application accessed via a web browser over a network, using HTTP/HTTPS.",
+            "explanation": "It runs on a web server and serves dynamic content."
+        },
+        {
+            "id": 94,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Beginner",
+            "question": "What is the role of a web server in web architecture?",
+            "output": "It handles HTTP requests, serves static content, and forwards dynamic requests to application servers.",
+            "answer": "It handles HTTP requests, serves static content, and forwards dynamic requests to application servers.",
+            "explanation": "Examples: Apache HTTP Server, Nginx."
+        },
+        {
+            "id": 95,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Beginner",
+            "question": "What is an application server?",
+            "output": "A server that provides business logic execution, transaction management, and integration with databases.",
+            "answer": "A server that provides business logic execution, transaction management, and integration with databases.",
+            "explanation": "Examples: Tomcat (servlet container), GlassFish (full Java EE)."
+        },
+        {
+            "id": 96,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between stateful and stateless architecture?",
+            "output": "Stateful retains client state across requests; stateless treats each request independently.",
+            "answer": "Stateful retains client state across requests; stateless treats each request independently.",
+            "explanation": "REST APIs are stateless; traditional web apps often use sessions."
+        },
+        {
+            "id": 97,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the MVC pattern in web applications?",
+            "output": "Model (data), View (presentation), Controller (request handling).",
+            "answer": "Model (data), View (presentation), Controller (request handling).",
+            "explanation": "Separates concerns for maintainability."
+        },
+        {
+            "id": 98,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is a reverse proxy?",
+            "output": "A proxy that sits in front of web servers, forwarding client requests to the appropriate server.",
+            "answer": "A proxy that sits in front of web servers, forwarding client requests to the appropriate server.",
+            "explanation": "Used for load balancing, caching, and security."
+        },
+        {
+            "id": 99,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between vertical and horizontal scaling?",
+            "output": "Vertical: add more power (CPU/RAM) to a single server; Horizontal: add more servers.",
+            "answer": "Vertical: add more power (CPU/RAM) to a single server; Horizontal: add more servers.",
+            "explanation": "Horizontal scaling is preferred for high availability."
+        },
+        {
+            "id": 100,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is a load balancer?",
+            "output": "A device or software that distributes incoming traffic across multiple backend servers.",
+            "answer": "A device or software that distributes incoming traffic across multiple backend servers.",
+            "explanation": "Improves performance and fault tolerance."
+        },
+        {
+            "id": 101,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of a session in web applications?",
+            "output": "To store user‑specific data across multiple HTTP requests.",
+            "answer": "To store user‑specific data across multiple HTTP requests.",
+            "explanation": "Implemented using cookies, URL rewriting, or hidden form fields."
+        },
+        {
+            "id": 102,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a cookie and a session?",
+            "output": "Cookie is client‑side storage; session is server‑side storage identified by a session ID.",
+            "answer": "Cookie is client‑side storage; session is server‑side storage identified by a session ID.",
+            "explanation": "Sessions are more secure for sensitive data."
+        },
+        {
+            "id": 103,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is a web service?",
+            "output": "A service accessible over the web using SOAP or REST, often used for machine‑to‑machine communication.",
+            "answer": "A service accessible over the web using SOAP or REST, often used for machine‑to‑machine communication.",
+            "explanation": "Java EE supports JAX‑WS (SOAP) and JAX‑RS (REST)."
+        },
+        {
+            "id": 104,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a monolithic architecture and microservices?",
+            "output": "Monolithic: single deployable unit; microservices: independently deployable services.",
+            "answer": "Monolithic: single deployable unit; microservices: independently deployable services.",
+            "explanation": "Microservices improve scalability but add complexity."
+        },
+        {
+            "id": 105,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Intermediate",
+            "question": "What is the role of a database connection pool in web architecture?",
+            "output": "To reuse database connections, reducing overhead and improving performance.",
+            "answer": "To reuse database connections, reducing overhead and improving performance.",
+            "explanation": "Managed by the application server or a library like HikariCP."
+        },
+        {
+            "id": 106,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the CAP theorem in distributed web architectures?",
+            "output": "Consistency, Availability, Partition tolerance – you can only have two of three.",
+            "answer": "Consistency, Availability, Partition tolerance – you can only have two of three.",
+            "explanation": "Important for designing distributed systems."
+        },
+        {
+            "id": 107,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a message queue and its use in web apps?",
+            "output": "A message queue (e.g., RabbitMQ, ActiveMQ) decouples components for asynchronous processing.",
+            "answer": "A message queue (e.g., RabbitMQ, ActiveMQ) decouples components for asynchronous processing.",
+            "explanation": "Java EE provides JMS (Java Message Service) for this."
+        },
+        {
+            "id": 108,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a CDN (Content Delivery Network)?",
+            "output": "A geographically distributed network of servers that delivers static content quickly.",
+            "answer": "A geographically distributed network of servers that delivers static content quickly.",
+            "explanation": "Reduces latency for users worldwide."
+        },
+        {
+            "id": 109,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a SOAP web service and a RESTful web service?",
+            "output": "SOAP uses XML over HTTP with strict standards; REST uses HTTP methods and usually JSON.",
+            "answer": "SOAP uses XML over HTTP with strict standards; REST uses HTTP methods and usually JSON.",
+            "explanation": "REST is simpler and more popular for web APIs."
+        },
+        {
+            "id": 110,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a webhook?",
+            "output": "An HTTP callback that allows one system to notify another in real time.",
+            "answer": "An HTTP callback that allows one system to notify another in real time.",
+            "explanation": "Used for event‑driven architectures."
+        },
+        {
+            "id": 111,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a forward proxy and a reverse proxy?",
+            "output": "Forward proxy proxies on behalf of clients; reverse proxy proxies on behalf of servers.",
+            "answer": "Forward proxy proxies on behalf of clients; reverse proxy proxies on behalf of servers.",
+            "explanation": "Reverse proxy is commonly used for load balancing."
+        },
+        {
+            "id": 112,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the 12‑factor app methodology?",
+            "output": "A set of principles for building scalable, maintainable SaaS applications.",
+            "answer": "A set of principles for building scalable, maintainable SaaS applications.",
+            "explanation": "Includes codebase, dependencies, config, backing services, etc."
+        },
+        {
+            "id": 113,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a circuit breaker pattern?",
+            "output": "A design pattern that prevents repeated failure of a service by temporarily blocking calls.",
+            "answer": "A design pattern that prevents repeated failure of a service by temporarily blocking calls.",
+            "explanation": "Used in microservices to handle failures gracefully."
+        },
+        {
+            "id": 114,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the difference between API gateway and load balancer?",
+            "output": "API gateway provides request routing, composition, authentication; load balancer distributes traffic.",
+            "answer": "API gateway provides request routing, composition, authentication; load balancer distributes traffic.",
+            "explanation": "API gateway often includes load balancing features."
+        },
+        {
+            "id": 115,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a sidecar pattern?",
+            "output": "A pattern where auxiliary services (e.g., logging, monitoring) are deployed alongside the main container.",
+            "answer": "A pattern where auxiliary services (e.g., logging, monitoring) are deployed alongside the main container.",
+            "explanation": "Common in Kubernetes environments."
+        },
+        {
+            "id": 116,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is CORS (Cross‑Origin Resource Sharing) and why is it needed?",
+            "output": "A mechanism to allow web pages from one origin to access resources from another origin.",
+            "answer": "A mechanism to allow web pages from one origin to access resources from another origin.",
+            "explanation": "Browsers enforce the same‑origin policy; CORS relaxes it securely."
+        },
+        {
+            "id": 117,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a session cookie and a persistent cookie?",
+            "output": "Session cookie is deleted when browser closes; persistent cookie has an expiration date.",
+            "answer": "Session cookie is deleted when browser closes; persistent cookie has an expiration date.",
+            "explanation": "Persistent cookies are stored on disk."
+        },
+        {
+            "id": 118,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a cross‑site request forgery (CSRF) attack and how to prevent it?",
+            "output": "Attack that tricks a user into performing unwanted actions; prevent with CSRF tokens.",
+            "answer": "Attack that tricks a user into performing unwanted actions; prevent with CSRF tokens.",
+            "explanation": "Java EE can use `HttpSession` tokens or frameworks like Spring Security."
+        },
+        {
+            "id": 119,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is the difference between HTTP/1.1 and HTTP/2?",
+            "output": "HTTP/2 adds multiplexing, server push, header compression, and is binary instead of textual.",
+            "answer": "HTTP/2 adds multiplexing, server push, header compression, and is binary instead of textual.",
+            "explanation": "Improves performance and reduces latency."
+        },
+        {
+            "id": 120,
+            "topic": "Web Application Architecture Fundamentals",
+            "difficulty": "Advanced",
+            "question": "What is a WebSocket and when would you use it?",
+            "output": "A protocol for full‑duplex, persistent communication between client and server.",
+            "answer": "A protocol for full‑duplex, persistent communication between client and server.",
+            "explanation": "Used for real‑time applications like chat, live feeds, gaming."
+        },
+        {
+            "id": 121,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Beginner",
+            "question": "What is the main function of a web server?",
+            "output": "To serve static content (HTML, CSS, JS) and handle HTTP requests.",
+            "answer": "To serve static content (HTML, CSS, JS) and handle HTTP requests.",
+            "explanation": "Examples: Apache HTTP Server, Nginx, IIS."
+        },
+        {
+            "id": 122,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Beginner",
+            "question": "What is the main function of an application server?",
+            "output": "To execute server‑side code (Servlets, JSP, EJBs) and provide enterprise services.",
+            "answer": "To execute server‑side code (Servlets, JSP, EJBs) and provide enterprise services.",
+            "explanation": "Application servers often include a web server component."
+        },
+        {
+            "id": 123,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Beginner",
+            "question": "Is Tomcat a web server or an application server?",
+            "output": "Tomcat is primarily a servlet container (web server plus servlet/JSP engine), but not a full Java EE application server.",
+            "answer": "Tomcat is primarily a servlet container (web server plus servlet/JSP engine), but not a full Java EE application server.",
+            "explanation": "Tomcat does not support EJB, JTA, or JMS out of the box."
+        },
+        {
+            "id": 124,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Beginner",
+            "question": "Which server is a full Java EE application server?",
+            "output": "GlassFish, WildFly (JBoss), WebLogic, WebSphere.",
+            "answer": "GlassFish, WildFly (JBoss), WebLogic, WebSphere.",
+            "explanation": "These implement the entire Java EE specification."
+        },
+        {
+            "id": 125,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Beginner",
+            "question": "What is Jetty?",
+            "output": "An open‑source servlet container and HTTP server, often embedded in applications.",
+            "answer": "An open‑source servlet container and HTTP server, often embedded in applications.",
+            "explanation": "Jetty is lightweight and popular for embedded use cases."
+        },
+        {
+            "id": 126,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between Tomcat and GlassFish?",
+            "output": "Tomcat is a servlet container (supports web profile partially); GlassFish is a full Java EE server with EJB, JMS, etc.",
+            "answer": "Tomcat is a servlet container (supports web profile partially); GlassFish is a full Java EE server with EJB, JMS, etc.",
+            "explanation": "GlassFish is heavier but provides more features."
+        },
+        {
+            "id": 127,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "Can Tomcat be used for production web applications?",
+            "output": "Yes, Tomcat is widely used in production for Java web apps that do not require full Java EE.",
+            "answer": "Yes, Tomcat is widely used in production for Java web apps that do not require full Java EE.",
+            "explanation": "Many frameworks (Spring Boot) embed Tomcat."
+        },
+        {
+            "id": 128,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the default port for Tomcat?",
+            "output": "8080",
+            "answer": "8080",
+            "explanation": "Tomcat runs on port 8080 by default; you can change it in `server.xml`."
+        },
+        {
+            "id": 129,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the default port for GlassFish?",
+            "output": "8080 (HTTP) and 4848 (administration console).",
+            "answer": "8080 (HTTP) and 4848 (administration console).",
+            "explanation": "GlassFish uses 8080 for the web interface and 4848 for the admin console."
+        },
+        {
+            "id": 130,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of `webapps` folder in Tomcat?",
+            "output": "It is the default deployment directory for WAR files.",
+            "answer": "It is the default deployment directory for WAR files.",
+            "explanation": "Place a WAR file there, and Tomcat automatically deploys it."
+        },
+        {
+            "id": 131,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the `server.xml` file in Tomcat?",
+            "output": "The main configuration file for Tomcat, defining ports, connectors, engines, and hosts.",
+            "answer": "The main configuration file for Tomcat, defining ports, connectors, engines, and hosts.",
+            "explanation": "Modifying it allows customising Tomcat behaviour."
+        },
+        {
+            "id": 132,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the `domain.xml` file in GlassFish?",
+            "output": "The main configuration file for a GlassFish domain, similar to Tomcat's `server.xml`.",
+            "answer": "The main configuration file for a GlassFish domain, similar to Tomcat's `server.xml`.",
+            "explanation": "It defines the entire domain's configuration."
+        },
+        {
+            "id": 133,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a servlet container and a full Java EE container?",
+            "output": "Servlet container supports Servlets and JSP; full container adds EJB, JMS, JTA, etc.",
+            "answer": "Servlet container supports Servlets and JSP; full container adds EJB, JMS, JTA, etc.",
+            "explanation": "Tomcat is a servlet container; GlassFish is a full container."
+        },
+        {
+            "id": 134,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the Tomcat Manager application?",
+            "output": "A web application bundled with Tomcat for deploying, undeploying, and managing web apps.",
+            "answer": "A web application bundled with Tomcat for deploying, undeploying, and managing web apps.",
+            "explanation": "Accessible at `/manager` with proper credentials."
+        },
+        {
+            "id": 135,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the `asadmin` command in GlassFish?",
+            "output": "The command‑line administration tool for GlassFish.",
+            "answer": "The command‑line administration tool for GlassFish.",
+            "explanation": "Used to start/stop domains, deploy applications, create resources."
+        },
+        {
+            "id": 136,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between Tomcat and Jetty in terms of embedding?",
+            "output": "Both can be embedded, but Jetty was designed for embedding and has a smaller footprint.",
+            "answer": "Both can be embedded, but Jetty was designed for embedding and has a smaller footprint.",
+            "explanation": "Jetty is often used in embedded scenarios like Eclipse IDE or Maven plugins."
+        },
+        {
+            "id": 137,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the Apache HTTP Server and how does it differ from Tomcat?",
+            "output": "Apache HTTP Server is a pure web server (C); Tomcat is a Java servlet container.",
+            "answer": "Apache HTTP Server is a pure web server (C); Tomcat is a Java servlet container.",
+            "explanation": "They are often used together: Apache serves static content, Tomcat serves dynamic content."
+        },
+        {
+            "id": 138,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the role of `catalina` in Tomcat?",
+            "output": "Catalina is the servlet container component of Tomcat.",
+            "answer": "Catalina is the servlet container component of Tomcat.",
+            "explanation": "It implements the Servlet and JSP specifications."
+        },
+        {
+            "id": 139,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `tomcat-users.xml` and `web.xml`?",
+            "output": "`tomcat-users.xml` manages Tomcat users and roles; `web.xml` configures web application settings.",
+            "answer": "`tomcat-users.xml` manages Tomcat users and roles; `web.xml` configures web application settings.",
+            "explanation": "Both are configuration files but serve different purposes."
+        },
+        {
+            "id": 140,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is a `context.xml` file in Tomcat?",
+            "output": "It defines a web application context, including resources, parameters, and environment entries.",
+            "answer": "It defines a web application context, including resources, parameters, and environment entries.",
+            "explanation": "Can be placed in `META-INF/context.xml` inside a WAR."
+        },
+        {
+            "id": 141,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is a `deploy` directory in GlassFish?",
+            "output": "The directory where you place application archives (WAR, EAR) for automatic deployment.",
+            "answer": "The directory where you place application archives (WAR, EAR) for automatic deployment.",
+            "explanation": "Similar to Tomcat's `webapps` folder."
+        },
+        {
+            "id": 142,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the Tomcat `Valve` component?",
+            "output": "A component that intercepts requests before they reach the servlet (e.g., access logging, single sign‑on).",
+            "answer": "A component that intercepts requests before they reach the servlet (e.g., access logging, single sign‑on).",
+            "explanation": "Valves are configured in `server.xml`."
+        },
+        {
+            "id": 143,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a `Host` and an `Engine` in Tomcat?",
+            "output": "Engine is the top‑level container that processes all requests; Host represents a virtual host (domain).",
+            "answer": "Engine is the top‑level container that processes all requests; Host represents a virtual host (domain).",
+            "explanation": "An Engine can contain multiple Hosts."
+        },
+        {
+            "id": 144,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the `jaspic` provider in GlassFish?",
+            "output": "JASPIC (Java Authentication SPI for Containers) allows custom authentication modules.",
+            "answer": "JASPIC (Java Authentication SPI for Containers) allows custom authentication modules.",
+            "explanation": "GlassFish implements JASPIC for pluggable security."
+        },
+        {
+            "id": 145,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between Tomcat 8, 9, and 10?",
+            "output": "Tomcat 8 supports Servlet 3.1; Tomcat 9 supports Servlet 4.0; Tomcat 10 supports Jakarta EE 9 (jakarta namespace).",
+            "answer": "Tomcat 8 supports Servlet 3.1; Tomcat 9 supports Servlet 4.0; Tomcat 10 supports Jakarta EE 9 (jakarta namespace).",
+            "explanation": "Version upgrades bring new Java EE/Jakarta EE specifications."
+        },
+        {
+            "id": 146,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `catalina.out` file?",
+            "output": "The main log file for Tomcat, containing console output and error messages.",
+            "answer": "The main log file for Tomcat, containing console output and error messages.",
+            "explanation": "Located in `logs/` directory."
+        },
+        {
+            "id": 147,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the `server.xml` element `<Connector>` used for?",
+            "output": "Defines a network port and protocol for accepting requests (HTTP, AJP, HTTPS).",
+            "answer": "Defines a network port and protocol for accepting requests (HTTP, AJP, HTTPS).",
+            "explanation": "Multiple connectors can be defined."
+        },
+        {
+            "id": 148,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `deploy` and `redeploy` in Tomcat?",
+            "output": "Deploy installs an application; redeploy stops, removes, and deploys again (useful for updates).",
+            "answer": "Deploy installs an application; redeploy stops, removes, and deploys again (useful for updates).",
+            "explanation": "Redeploy can cause memory leaks if not implemented carefully."
+        },
+        {
+            "id": 149,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the `session‑timeout` setting in `web.xml`?",
+            "output": "Defines the maximum idle time (in minutes) before a session is invalidated.",
+            "answer": "Defines the maximum idle time (in minutes) before a session is invalidated.",
+            "explanation": "Default is 30 minutes."
+        },
+        {
+            "id": 150,
+            "topic": "Web Servers vs Application Servers (Tomcat, GlassFish, Jetty)",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `jaspic` module in GlassFish?",
+            "output": "Provides an implementation of Java Authentication SPI for Containers, enabling custom auth modules.",
+            "answer": "Provides an implementation of Java Authentication SPI for Containers, enabling custom auth modules.",
+            "explanation": "Used for integrating with external authentication systems."
+        },
+        {
+            "id": 151,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What are the most common HTTP methods?",
+            "output": "GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH.",
+            "answer": "GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH.",
+            "explanation": "RESTful APIs use these methods to perform CRUD operations."
+        },
+        {
+            "id": 152,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What does the HTTP GET method do?",
+            "output": "Requests data from a specified resource; should be idempotent and safe.",
+            "answer": "Requests data from a specified resource; should be idempotent and safe.",
+            "explanation": "GET parameters are sent in the URL."
+        },
+        {
+            "id": 153,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What does the HTTP POST method do?",
+            "output": "Submits data to be processed to a specified resource; often changes server state.",
+            "answer": "Submits data to be processed to a specified resource; often changes server state.",
+            "explanation": "Data is sent in the request body."
+        },
+        {
+            "id": 154,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What is the HTTP status code for 'OK'?",
+            "output": "200",
+            "answer": "200",
+            "explanation": "Indicates the request succeeded."
+        },
+        {
+            "id": 155,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What is the HTTP status code for 'Not Found'?",
+            "output": "404",
+            "answer": "404",
+            "explanation": "The server cannot find the requested resource."
+        },
+        {
+            "id": 156,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Beginner",
+            "question": "What is the HTTP status code for 'Internal Server Error'?",
+            "output": "500",
+            "answer": "500",
+            "explanation": "A generic error message when the server encounters an unexpected condition."
+        },
+        {
+            "id": 157,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between 301 and 302 status codes?",
+            "output": "301 is permanent redirect; 302 is temporary redirect.",
+            "answer": "301 is permanent redirect; 302 is temporary redirect.",
+            "explanation": "Browsers cache 301 redirects; 302 are not cached."
+        },
+        {
+            "id": 158,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the `Content-Type` header?",
+            "output": "Indicates the media type of the resource (e.g., `text/html`, `application/json`).",
+            "answer": "Indicates the media type of the resource (e.g., `text/html`, `application/json`).",
+            "explanation": "Helps the client interpret the response body correctly."
+        },
+        {
+            "id": 159,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the `User-Agent` header used for?",
+            "output": "Identifies the client software (browser, crawler) making the request.",
+            "answer": "Identifies the client software (browser, crawler) making the request.",
+            "explanation": "Servers can adapt content based on the user agent."
+        },
+        {
+            "id": 160,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What does the `Accept` header do?",
+            "output": "Informs the server about the content types the client can understand.",
+            "answer": "Informs the server about the content types the client can understand.",
+            "explanation": "Example: `Accept: application/json`."
+        },
+        {
+            "id": 161,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the `Location` header used for?",
+            "output": "Used in redirect responses (3xx) to specify the new URL.",
+            "answer": "Used in redirect responses (3xx) to specify the new URL.",
+            "explanation": "The client automatically requests the new URL."
+        },
+        {
+            "id": 162,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between `PUT` and `POST`?",
+            "output": "PUT is idempotent and typically replaces the entire resource; POST is not idempotent and is used for creation.",
+            "answer": "PUT is idempotent and typically replaces the entire resource; POST is not idempotent and is used for creation.",
+            "explanation": "PUT to an existing URL replaces it; POST to a collection creates a new resource."
+        },
+        {
+            "id": 163,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the `DELETE` method used for?",
+            "output": "Removes the specified resource.",
+            "answer": "Removes the specified resource.",
+            "explanation": "It is idempotent (multiple identical requests have the same effect)."
+        },
+        {
+            "id": 164,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Intermediate",
+            "question": "What is the `OPTIONS` method used for?",
+            "output": "Describes the communication options for the target resource (e.g., allowed methods).",
+            "answer": "Describes the communication options for the target resource (e.g., allowed methods).",
+            "explanation": "Used in CORS preflight requests."
+        },
+        {
+            "id": 165,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `401 Unauthorized` and `403 Forbidden`?",
+            "output": "401 means authentication is required; 403 means authenticated but not authorised.",
+            "answer": "401 means authentication is required; 403 means authenticated but not authorised.",
+            "explanation": "401 triggers login; 403 indicates insufficient permissions."
+        },
+        {
+            "id": 166,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Cache-Control` header?",
+            "output": "Directives for caching mechanisms (e.g., `no-cache`, `max-age=3600`).",
+            "answer": "Directives for caching mechanisms (e.g., `no-cache`, `max-age=3600`).",
+            "explanation": "Controls how and for how long a response is cached."
+        },
+        {
+            "id": 167,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `ETag` header?",
+            "output": "An identifier for a specific version of a resource; used for caching and conditional requests.",
+            "answer": "An identifier for a specific version of a resource; used for caching and conditional requests.",
+            "explanation": "Clients can send `If-None-Match` to check if the resource changed."
+        },
+        {
+            "id": 168,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `If-Modified-Since` header?",
+            "output": "Makes the request conditional; the server returns 304 Not Modified if the resource hasn't changed since that date.",
+            "answer": "Makes the request conditional; the server returns 304 Not Modified if the resource hasn't changed since that date.",
+            "explanation": "Reduces bandwidth by avoiding sending unchanged content."
+        },
+        {
+            "id": 169,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is a `Cookie` header?",
+            "output": "Sends stored cookies from the client to the server.",
+            "answer": "Sends stored cookies from the client to the server.",
+            "explanation": "Cookies are set by the `Set-Cookie` header."
+        },
+        {
+            "id": 170,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Referer` header?",
+            "output": "Indicates the URL of the page that made the request.",
+            "answer": "Indicates the URL of the page that made the request.",
+            "explanation": "Used for analytics and security (but can be spoofed)."
+        },
+        {
+            "id": 171,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Host` header?",
+            "output": "Specifies the domain name of the server (required for virtual hosting).",
+            "answer": "Specifies the domain name of the server (required for virtual hosting).",
+            "explanation": "HTTP/1.1 requires this header."
+        },
+        {
+            "id": 172,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `HTTP/1.1` persistent connections and `HTTP/2` multiplexing?",
+            "output": "Persistent connections reuse a connection for multiple requests but still in order; HTTP/2 multiplexing allows interleaved requests.",
+            "answer": "Persistent connections reuse a connection for multiple requests but still in order; HTTP/2 multiplexing allows interleaved requests.",
+            "explanation": "HTTP/2 solves head‑of‑line blocking at the application layer."
+        },
+        {
+            "id": 173,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Content-Length` header?",
+            "output": "The size of the message body in bytes.",
+            "answer": "The size of the message body in bytes.",
+            "explanation": "Used for fixed‑length responses; for chunked transfer, this header is omitted."
+        },
+        {
+            "id": 174,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Transfer-Encoding: chunked` header?",
+            "output": "Indicates that the response body is sent in chunks of unknown total size.",
+            "answer": "Indicates that the response body is sent in chunks of unknown total size.",
+            "explanation": "Used for dynamic content where `Content-Length` cannot be predetermined."
+        },
+        {
+            "id": 175,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Accept-Encoding` header?",
+            "output": "Lists the compression algorithms (gzip, deflate, br) that the client supports.",
+            "answer": "Lists the compression algorithms (gzip, deflate, br) that the client supports.",
+            "explanation": "The server can compress the response accordingly."
+        },
+        {
+            "id": 176,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Origin` header?",
+            "output": "Indicates the origin (scheme, host, port) of the request; used for CORS.",
+            "answer": "Indicates the origin (scheme, host, port) of the request; used for CORS.",
+            "explanation": "Servers check this header to decide whether to allow cross‑origin requests."
+        },
+        {
+            "id": 177,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the `Strict-Transport-Security` header?",
+            "output": "Forces the browser to use HTTPS for the domain, preventing protocol downgrade attacks.",
+            "answer": "Forces the browser to use HTTPS for the domain, preventing protocol downgrade attacks.",
+            "explanation": "HSTS (HTTP Strict Transport Security) improves security."
+        },
+        {
+            "id": 178,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `HTTP` and `HTTPS`?",
+            "output": "HTTPS is HTTP over TLS/SSL, providing encryption and authentication.",
+            "answer": "HTTPS is HTTP over TLS/SSL, providing encryption and authentication.",
+            "explanation": "HTTPS prevents eavesdropping and man‑in‑the‑middle attacks."
+        },
+        {
+            "id": 179,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is a `HTTP 304 Not Modified` response?",
+            "output": "Indicates that the requested resource has not been modified since the last request (caching).",
+            "answer": "Indicates that the requested resource has not been modified since the last request (caching).",
+            "explanation": "The client can use its cached version."
+        },
+        {
+            "id": 180,
+            "topic": "HTTP Protocol Basics (Methods, Status Codes, Headers)",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `If-None-Match` header?",
+            "output": "Makes a request conditional; the server returns 304 if the `ETag` matches.",
+            "answer": "Makes a request conditional; the server returns 304 if the `ETag` matches.",
+            "explanation": "Used for cache validation."
+        },
+        {
+            "id": 181,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Beginner",
+            "question": "What is an IDE?",
+            "output": "Integrated Development Environment – software that provides coding tools (editor, debugger, build tools).",
+            "answer": "Integrated Development Environment – software that provides coding tools (editor, debugger, build tools).",
+            "explanation": "Examples: Eclipse, IntelliJ IDEA, NetBeans."
+        },
+        {
+            "id": 182,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Beginner",
+            "question": "What is Maven?",
+            "output": "A build automation and dependency management tool for Java projects.",
+            "answer": "A build automation and dependency management tool for Java projects.",
+            "explanation": "Uses a `pom.xml` file to describe project configuration."
+        },
+        {
+            "id": 183,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Beginner",
+            "question": "What is Gradle?",
+            "output": "A build tool that uses a Groovy or Kotlin DSL for project configuration, offering flexibility.",
+            "answer": "A build tool that uses a Groovy or Kotlin DSL for project configuration, offering flexibility.",
+            "explanation": "Gradle is the default build tool for Android and many modern Java projects."
+        },
+        {
+            "id": 184,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of a build tool?",
+            "output": "To automate compilation, testing, packaging, and dependency management.",
+            "answer": "To automate compilation, testing, packaging, and dependency management.",
+            "explanation": "Reduces manual errors and streamlines the development process."
+        },
+        {
+            "id": 185,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Beginner",
+            "question": "What is the default directory structure for a Maven Java project?",
+            "output": "`src/main/java` (source), `src/test/java` (tests), `pom.xml`.",
+            "answer": "`src/main/java` (source), `src/test/java` (tests), `pom.xml`.",
+            "explanation": "Maven follows convention over configuration."
+        },
+        {
+            "id": 186,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the `pom.xml` file?",
+            "output": "Project Object Model – Maven's configuration file containing project metadata, dependencies, and build settings.",
+            "answer": "Project Object Model – Maven's configuration file containing project metadata, dependencies, and build settings.",
+            "explanation": "It is the heart of a Maven project."
+        },
+        {
+            "id": 187,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the `build.gradle` file?",
+            "output": "The main configuration file for Gradle, defining tasks, dependencies, and plugins.",
+            "answer": "The main configuration file for Gradle, defining tasks, dependencies, and plugins.",
+            "explanation": "It uses a Groovy or Kotlin DSL."
+        },
+        {
+            "id": 188,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "How do you add a dependency in Maven?",
+            "output": "By adding a `<dependency>` element inside `<dependencies>` in `pom.xml`.",
+            "answer": "By adding a `<dependency>` element inside `<dependencies>` in `pom.xml`.",
+            "explanation": "You specify `groupId`, `artifactId`, and `version`."
+        },
+        {
+            "id": 189,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "How do you add a dependency in Gradle?",
+            "output": "In the `dependencies` block of `build.gradle`, e.g., `implementation 'group:artifact:version'`.",
+            "answer": "In the `dependencies` block of `build.gradle`, e.g., `implementation 'group:artifact:version'`.",
+            "explanation": "Gradle uses a concise syntax."
+        },
+        {
+            "id": 190,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the Maven lifecycle?",
+            "output": "A sequence of phases: validate, compile, test, package, verify, install, deploy.",
+            "answer": "A sequence of phases: validate, compile, test, package, verify, install, deploy.",
+            "explanation": "Each phase executes all previous phases."
+        },
+        {
+            "id": 191,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is a Maven `repository`?",
+            "output": "A directory where Maven stores downloaded dependencies (local) or remote repositories (central, custom).",
+            "answer": "A directory where Maven stores downloaded dependencies (local) or remote repositories (central, custom).",
+            "explanation": "Maven central is the default remote repository."
+        },
+        {
+            "id": 192,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the `settings.xml` file in Maven?",
+            "output": "A configuration file for Maven settings, including proxy, mirror, and local repository location.",
+            "answer": "A configuration file for Maven settings, including proxy, mirror, and local repository location.",
+            "explanation": "It can be user‑specific or global."
+        },
+        {
+            "id": 193,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the `Gradle Wrapper`?",
+            "output": "A script that downloads and uses a specific Gradle version, ensuring consistent builds.",
+            "answer": "A script that downloads and uses a specific Gradle version, ensuring consistent builds.",
+            "explanation": "It uses `gradle-wrapper.properties` and `gradlew` scripts."
+        },
+        {
+            "id": 194,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between `compile` and `test` scope in Maven?",
+            "output": "`compile` scope is for main code; `test` scope is only for test code and not included in production.",
+            "answer": "`compile` scope is for main code; `test` scope is only for test code and not included in production.",
+            "explanation": "Test dependencies (like JUnit) are scoped as `test`."
+        },
+        {
+            "id": 195,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is a `Maven archetype`?",
+            "output": "A template for creating new Maven projects with predefined structure and dependencies.",
+            "answer": "A template for creating new Maven projects with predefined structure and dependencies.",
+            "explanation": "Example: `maven-archetype-webapp` for web applications."
+        },
+        {
+            "id": 196,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `implementation` and `compile` in Gradle?",
+            "output": "`implementation` is a newer configuration that hides internal dependencies from consumers; `compile` is deprecated.",
+            "answer": "`implementation` is a newer configuration that hides internal dependencies from consumers; `compile` is deprecated.",
+            "explanation": "`implementation` improves build speed and encapsulation."
+        },
+        {
+            "id": 197,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `maven-compiler-plugin` used for?",
+            "output": "To set the source and target Java version for compilation.",
+            "answer": "To set the source and target Java version for compilation.",
+            "explanation": "Configured in `pom.xml` under `<build><plugins>`."
+        },
+        {
+            "id": 198,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `maven-surefire-plugin`?",
+            "output": "Used to run unit tests during the test phase of the build.",
+            "answer": "Used to run unit tests during the test phase of the build.",
+            "explanation": "It reports test failures and successes."
+        },
+        {
+            "id": 199,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `maven-war-plugin`?",
+            "output": "Builds a WAR file for web applications.",
+            "answer": "Builds a WAR file for web applications.",
+            "explanation": "It assembles the web application structure into a deployable archive."
+        },
+        {
+            "id": 200,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `provided` scope and `compile` scope in Maven?",
+            "output": "`provided` means the dependency is expected to be supplied by the runtime environment (e.g., servlet API).",
+            "answer": "`provided` means the dependency is expected to be supplied by the runtime environment (e.g., servlet API).",
+            "explanation": "It is not included in the WAR/EAR file."
+        },
+        {
+            "id": 201,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is a `Maven profile`?",
+            "output": "A set of configuration overrides that can be activated conditionally (e.g., for different environments).",
+            "answer": "A set of configuration overrides that can be activated conditionally (e.g., for different environments).",
+            "explanation": "Profiles are defined in `pom.xml` and activated via `-P` flag."
+        },
+        {
+            "id": 202,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is a `Gradle task`?",
+            "output": "An atomic unit of work in Gradle (e.g., `compileJava`, `test`, `jar`).",
+            "answer": "An atomic unit of work in Gradle (e.g., `compileJava`, `test`, `jar`).",
+            "explanation": "Tasks can depend on each other."
+        },
+        {
+            "id": 203,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `maven-assembly-plugin`?",
+            "output": "Creates a distributable archive (e.g., ZIP, TAR) that can include dependencies and project files.",
+            "answer": "Creates a distributable archive (e.g., ZIP, TAR) that can include dependencies and project files.",
+            "explanation": "Used to build fat JARs or application distributions."
+        },
+        {
+            "id": 204,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `gradle clean` and `gradle build`?",
+            "output": "`clean` deletes the build directory; `build` compiles, tests, and packages the project.",
+            "answer": "`clean` deletes the build directory; `build` compiles, tests, and packages the project.",
+            "explanation": "`clean build` is a common idiom to perform a fresh build."
+        },
+        {
+            "id": 205,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `Maven dependency:tree` goal?",
+            "output": "Displays the dependency tree for the project, showing transitive dependencies.",
+            "answer": "Displays the dependency tree for the project, showing transitive dependencies.",
+            "explanation": "Useful for debugging dependency conflicts."
+        },
+        {
+            "id": 206,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `gradle dependencies` task?",
+            "output": "Displays the dependency tree for the project, similar to Maven's `dependency:tree`.",
+            "answer": "Displays the dependency tree for the project, similar to Maven's `dependency:tree`.",
+            "explanation": "Helps visualise dependencies and their versions."
+        },
+        {
+            "id": 207,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `maven-resources-plugin`?",
+            "output": "Copies resource files (e.g., properties, XML) to the output directory.",
+            "answer": "Copies resource files (e.g., properties, XML) to the output directory.",
+            "explanation": "It filters resources if configured."
+        },
+        {
+            "id": 208,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is a `multi-module Maven project`?",
+            "output": "A project with a parent POM and several child modules, allowing shared configuration.",
+            "answer": "A project with a parent POM and several child modules, allowing shared configuration.",
+            "explanation": "The parent POM lists modules in `<modules>` section."
+        },
+        {
+            "id": 209,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the `settings.gradle` file?",
+            "output": "Defines the project name and included subprojects in a Gradle build.",
+            "answer": "Defines the project name and included subprojects in a Gradle build.",
+            "explanation": "It is required for multi‑module builds."
+        },
+        {
+            "id": 210,
+            "topic": "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `Gradle init`?",
+            "output": "Creates a new Gradle project with default directory structure and `build.gradle`.",
+            "answer": "Creates a new Gradle project with default directory structure and `build.gradle`.",
+            "explanation": "It can generate Java, library, or application projects."
+        },
+        {
+            "id": 211,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What does WAR stand for?",
+            "output": "Web Application Archive.",
+            "answer": "Web Application Archive.",
+            "explanation": "A WAR file is a JAR file used to distribute a Java web application."
+        },
+        {
+            "id": 212,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What is the required directory inside a WAR file?",
+            "output": "`WEB-INF/` directory.",
+            "answer": "`WEB-INF/` directory.",
+            "explanation": "It contains configuration and resources not accessible to the client."
+        },
+        {
+            "id": 213,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "Where are servlet classes placed in a WAR file?",
+            "output": "Under `WEB-INF/classes/`.",
+            "answer": "Under `WEB-INF/classes/`.",
+            "explanation": "Compiled `.class` files go there."
+        },
+        {
+            "id": 214,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "Where are JAR dependencies placed in a WAR file?",
+            "output": "Under `WEB-INF/lib/`.",
+            "answer": "Under `WEB-INF/lib/`.",
+            "explanation": "All third‑party JARs are placed here."
+        },
+        {
+            "id": 215,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What is the `web.xml` file?",
+            "output": "The deployment descriptor for a web application, located in `WEB-INF/`.",
+            "answer": "The deployment descriptor for a web application, located in `WEB-INF/`.",
+            "explanation": "It configures servlets, filters, listeners, and security constraints."
+        },
+        {
+            "id": 216,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "How do you create a WAR file using Maven?",
+            "output": "Set `<packaging>war</packaging>` in `pom.xml` and run `mvn package`.",
+            "answer": "Set `<packaging>war</packaging>` in `pom.xml` and run `mvn package`.",
+            "explanation": "Maven will generate the WAR in the `target/` directory."
+        },
+        {
+            "id": 217,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "How do you deploy a WAR file to Tomcat?",
+            "output": "Copy the WAR file to the `webapps/` directory (or use the Tomcat Manager).",
+            "answer": "Copy the WAR file to the `webapps/` directory (or use the Tomcat Manager).",
+            "explanation": "Tomcat will explode and deploy the WAR automatically."
+        },
+        {
+            "id": 218,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the `MANIFEST.MF` file in a WAR?",
+            "output": "A metadata file that can contain versioning and classpath information.",
+            "answer": "A metadata file that can contain versioning and classpath information.",
+            "explanation": "Located in `META-INF/` of the WAR."
+        },
+        {
+            "id": 219,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the difference between a WAR and an EAR file?",
+            "output": "WAR is for web modules; EAR can contain multiple WARs, EJBs, and JARs (enterprise archive).",
+            "answer": "WAR is for web modules; EAR can contain multiple WARs, EJBs, and JARs (enterprise archive).",
+            "explanation": "EAR is the top‑level packaging for Java EE applications."
+        },
+        {
+            "id": 220,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of `context.xml` in Tomcat?",
+            "output": "To configure a web application's context parameters, resources, and environment entries.",
+            "answer": "To configure a web application's context parameters, resources, and environment entries.",
+            "explanation": "Can be placed in `META-INF/context.xml` inside the WAR."
+        },
+        {
+            "id": 221,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is a `web-fragment.xml`?",
+            "output": "A fragment of a web application deployment descriptor that can be bundled in a JAR.",
+            "answer": "A fragment of a web application deployment descriptor that can be bundled in a JAR.",
+            "explanation": "Allows modular configuration of web components."
+        },
+        {
+            "id": 222,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the default welcome file list?",
+            "output": "Files listed in `web.xml` under `<welcome-file-list>` (e.g., `index.html`, `index.jsp`).",
+            "answer": "Files listed in `web.xml` under `<welcome-file-list>` (e.g., `index.html`, `index.jsp`).",
+            "explanation": "Tomcat looks for these files when the root URL is requested."
+        },
+        {
+            "id": 223,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is a `ServletContainerInitializer`?",
+            "output": "A mechanism to configure a web application programmatically without `web.xml`.",
+            "answer": "A mechanism to configure a web application programmatically without `web.xml`.",
+            "explanation": "Used by frameworks like Spring to register servlets and filters."
+        },
+        {
+            "id": 224,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `WEB-INF/weblogic.xml`?",
+            "output": "WebLogic‑specific deployment descriptor for web applications.",
+            "answer": "WebLogic‑specific deployment descriptor for web applications.",
+            "explanation": "Similar files exist for other servers (`web.xml`, `jboss-web.xml`)."
+        },
+        {
+            "id": 225,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "How can you hot‑deploy a WAR in Tomcat?",
+            "output": "By copying the WAR file into `webapps/` while Tomcat is running; Tomcat automatically deploys it.",
+            "answer": "By copying the WAR file into `webapps/` while Tomcat is running; Tomcat automatically deploys it.",
+            "explanation": "Hot‑deploy can cause memory leaks; use with caution."
+        },
+        {
+            "id": 226,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is the `catalina.sh deploy` command?",
+            "output": "A script to deploy a WAR using Tomcat's command line tools (via the Manager).",
+            "answer": "A script to deploy a WAR using Tomcat's command line tools (via the Manager).",
+            "explanation": "You need the Manager application and proper credentials."
+        },
+        {
+            "id": 227,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is the difference between exploded and non‑exploded WAR deployment?",
+            "output": "Exploded: directory structure; non‑exploded: single WAR file. Tomcat can work with both.",
+            "answer": "Exploded: directory structure; non‑exploded: single WAR file. Tomcat can work with both.",
+            "explanation": "Exploded is easier for development; non‑exploded for production."
+        },
+        {
+            "id": 228,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is the `maven-war-plugin` configuration for excluding files?",
+            "output": "Using `<warSourceExcludes>` or `<packagingExcludes>` in `pom.xml`.",
+            "answer": "Using `<warSourceExcludes>` or `<packagingExcludes>` in `pom.xml`.",
+            "explanation": "Allows fine‑grained control over WAR content."
+        },
+        {
+            "id": 229,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is a `JAR` file inside `WEB-INF/lib` that is a web fragment?",
+            "output": "A JAR containing `META-INF/web-fragment.xml` and optionally servlet classes, contributing to the web app.",
+            "answer": "A JAR containing `META-INF/web-fragment.xml` and optionally servlet classes, contributing to the web app.",
+            "explanation": "It is automatically processed by the servlet container."
+        },
+        {
+            "id": 230,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Advanced",
+            "question": "What is the `ServletContext` method `getRealPath()`?",
+            "output": "Returns the real file system path of a virtual path inside the WAR (e.g., for file I/O).",
+            "answer": "Returns the real file system path of a virtual path inside the WAR (e.g., for file I/O).",
+            "explanation": "In some containers, it may return `null` for packaged WARs."
+        },
+        {
+            "id": 231,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Beginner",
+            "question": "What is a servlet container?",
+            "output": "A runtime environment that manages the lifecycle of servlets, handles requests, and provides services.",
+            "answer": "A runtime environment that manages the lifecycle of servlets, handles requests, and provides services.",
+            "explanation": "Examples: Tomcat, Jetty, Undertow."
+        },
+        {
+            "id": 232,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Beginner",
+            "question": "What is the role of a servlet container in request processing?",
+            "output": "It receives HTTP requests, maps them to the appropriate servlet, invokes the servlet, and returns the response.",
+            "answer": "It receives HTTP requests, maps them to the appropriate servlet, invokes the servlet, and returns the response.",
+            "explanation": "It also manages sessions, filters, and security."
+        },
+        {
+            "id": 233,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Beginner",
+            "question": "What is the difference between a servlet container and a web server?",
+            "output": "A servlet container executes servlets and JSPs; a web server serves static content only.",
+            "answer": "A servlet container executes servlets and JSPs; a web server serves static content only.",
+            "explanation": "Tomcat is both a web server and a servlet container."
+        },
+        {
+            "id": 234,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Beginner",
+            "question": "Name three servlet containers.",
+            "output": "Apache Tomcat, Eclipse Jetty, Red Hat Undertow.",
+            "answer": "Apache Tomcat, Eclipse Jetty, Red Hat Undertow.",
+            "explanation": "These are popular open‑source servlet containers."
+        },
+        {
+            "id": 235,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Beginner",
+            "question": "What is the default port for Tomcat?",
+            "output": "8080",
+            "answer": "8080",
+            "explanation": "Tomcat listens on port 8080 for HTTP requests by default."
+        },
+        {
+            "id": 236,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is the servlet lifecycle?",
+            "output": "Instantiation → Initialization (`init()`) → Request handling (`service()` / `doGet`/`doPost`) → Destruction (`destroy()`).",
+            "answer": "Instantiation → Initialization (`init()`) → Request handling (`service()` / `doGet`/`doPost`) → Destruction (`destroy()`).",
+            "explanation": "The container manages these stages."
+        },
+        {
+            "id": 237,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is the `load-on-startup` parameter in `web.xml`?",
+            "output": "It tells the container to load and initialize the servlet at startup (positive value indicates priority).",
+            "answer": "It tells the container to load and initialize the servlet at startup (positive value indicates priority).",
+            "explanation": "Without it, the servlet is loaded on first request."
+        },
+        {
+            "id": 238,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is a servlet context?",
+            "output": "An object (`ServletContext`) that provides application‑wide information and allows communication between servlets.",
+            "answer": "An object (`ServletContext`) that provides application‑wide information and allows communication between servlets.",
+            "explanation": "There is one context per web application."
+        },
+        {
+            "id": 239,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of `web.xml`?",
+            "output": "Deployment descriptor that configures servlets, filters, listeners, URL mappings, and security.",
+            "answer": "Deployment descriptor that configures servlets, filters, listeners, URL mappings, and security.",
+            "explanation": "Modern servlets can use annotations instead."
+        },
+        {
+            "id": 240,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is a `Filter` in a servlet container?",
+            "output": "A component that intercepts requests and responses to perform pre‑processing or post‑processing.",
+            "answer": "A component that intercepts requests and responses to perform pre‑processing or post‑processing.",
+            "explanation": "Examples: logging, authentication, compression."
+        },
+        {
+            "id": 241,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Intermediate",
+            "question": "What is a `Listener` in a servlet container?",
+            "output": "A component that listens to events (e.g., session creation, context initialization).",
+            "answer": "A component that listens to events (e.g., session creation, context initialization).",
+            "explanation": "Implement interfaces like `ServletContextListener`, `HttpSessionListener`."
+        },
+        {
+            "id": 242,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a servlet container and a JSP container?",
+            "output": "A servlet container can also compile and execute JSPs; they are often combined.",
+            "answer": "A servlet container can also compile and execute JSPs; they are often combined.",
+            "explanation": "Tomcat includes Jasper, the JSP engine."
+        },
+        {
+            "id": 243,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `ServletConfig` object?",
+            "output": "Provides servlet‑specific initialization parameters and a reference to the `ServletContext`.",
+            "answer": "Provides servlet‑specific initialization parameters and a reference to the `ServletContext`.",
+            "explanation": "Each servlet has its own `ServletConfig`."
+        },
+        {
+            "id": 244,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `SingleThreadModel` interface?",
+            "output": "A deprecated interface that used to ensure a servlet handles only one request at a time.",
+            "answer": "A deprecated interface that used to ensure a servlet handles only one request at a time.",
+            "explanation": "Nowadays, servlets should be thread‑safe by design."
+        },
+        {
+            "id": 245,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the difference between a session cookie and a URL rewriting session?",
+            "output": "Session cookie is standard; URL rewriting appends session ID to URLs when cookies are disabled.",
+            "answer": "Session cookie is standard; URL rewriting appends session ID to URLs when cookies are disabled.",
+            "explanation": "`HttpServletResponse.encodeURL()` handles URL rewriting."
+        },
+        {
+            "id": 246,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `HttpSessionBindingListener`?",
+            "output": "Allows an object to be notified when it is bound or unbound from a session.",
+            "answer": "Allows an object to be notified when it is bound or unbound from a session.",
+            "explanation": "Used for cleanup or resource management."
+        },
+        {
+            "id": 247,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is a `RequestDispatcher` and how is it obtained?",
+            "output": "Forwards or includes a request to another resource; obtained via `ServletContext.getRequestDispatcher()` or `HttpServletRequest.getRequestDispatcher()`.",
+            "answer": "Forwards or includes a request to another resource; obtained via `ServletContext.getRequestDispatcher()` or `HttpServletRequest.getRequestDispatcher()`.",
+            "explanation": "Used for server‑side redirects (forward)."
+        },
+        {
+            "id": 248,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `sendRedirect` and `forward`?",
+            "output": "`sendRedirect` sends a 302 to the client, causing a new request; `forward` is internal (same request/response).",
+            "answer": "`sendRedirect` sends a 302 to the client, causing a new request; `forward` is internal (same request/response).",
+            "explanation": "Forward is faster and preserves request attributes."
+        },
+        {
+            "id": 249,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `web.xml` element `<error-page>` used for?",
+            "output": "Maps error codes or exception types to custom error pages.",
+            "answer": "Maps error codes or exception types to custom error pages.",
+            "explanation": "Improves user experience by showing friendly error messages."
+        },
+        {
+            "id": 250,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is a `Session` and how is it created?",
+            "output": "A server‑side object that stores user data across requests; created via `request.getSession()`.",
+            "answer": "A server‑side object that stores user data across requests; created via `request.getSession()`.",
+            "explanation": "The session ID is typically stored in a cookie."
+        },
+        {
+            "id": 251,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `asyncSupported` attribute in `@WebServlet`?",
+            "output": "Enables asynchronous request processing, allowing a servlet to release the container thread while waiting.",
+            "answer": "Enables asynchronous request processing, allowing a servlet to release the container thread while waiting.",
+            "explanation": "Used for long‑polling or streaming."
+        },
+        {
+            "id": 252,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of the `HttpServletRequest` method `getPart()`?",
+            "output": "Used to retrieve uploaded file parts in multipart/form‑data requests.",
+            "answer": "Used to retrieve uploaded file parts in multipart/form‑data requests.",
+            "explanation": "Requires the `@MultipartConfig` annotation."
+        },
+        {
+            "id": 253,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `ServletContext` method `getResourceAsStream()`?",
+            "output": "Returns an `InputStream` for a resource inside the web application (e.g., properties file).",
+            "answer": "Returns an `InputStream` for a resource inside the web application (e.g., properties file).",
+            "explanation": "Works for files under `WEB-INF/classes` or `WEB-INF/lib`."
+        },
+        {
+            "id": 254,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the difference between `getRealPath()` and `getResourceAsStream()`?",
+            "output": "`getRealPath()` returns a filesystem path; `getResourceAsStream()` returns an input stream directly.",
+            "answer": "`getRealPath()` returns a filesystem path; `getResourceAsStream()` returns an input stream directly.",
+            "explanation": "`getResourceAsStream()` works even in packaged WARs."
+        },
+        {
+            "id": 255,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `@WebFilter` annotation?",
+            "output": "Declares a filter and its URL pattern, replacing `web.xml` configuration.",
+            "answer": "Declares a filter and its URL pattern, replacing `web.xml` configuration.",
+            "explanation": "You can specify `urlPatterns` or `servletNames`."
+        },
+        {
+            "id": 256,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the purpose of `HttpServletResponse` method `setHeader()`?",
+            "output": "Sets an HTTP response header (e.g., `Cache-Control`, `Content-Disposition`).",
+            "answer": "Sets an HTTP response header (e.g., `Cache-Control`, `Content-Disposition`).",
+            "explanation": "Used for controlling caching, file downloads, etc."
+        },
+        {
+            "id": 257,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `<session-config>` element in `web.xml`?",
+            "output": "Configures session timeout and cookie settings for the web application.",
+            "answer": "Configures session timeout and cookie settings for the web application.",
+            "explanation": "Example: `<session-timeout>30</session-timeout>`."
+        },
+        {
+            "id": 258,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `HttpSession` method `invalidate()`?",
+            "output": "Immediately destroys the session, removing all attributes.",
+            "answer": "Immediately destroys the session, removing all attributes.",
+            "explanation": "Used for logout functionality."
+        },
+        {
+            "id": 259,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is a `WebSocket` endpoint in a servlet container?",
+            "output": "An endpoint for real‑time communication, supported by newer servlet containers (e.g., Tomcat 7+).",
+            "answer": "An endpoint for real‑time communication, supported by newer servlet containers (e.g., Tomcat 7+).",
+            "explanation": "Implemented with `@ServerEndpoint` annotation."
+        },
+        {
+            "id": 260,
+            "topic": "Introduction to Servlet Containers",
+            "difficulty": "Advanced",
+            "question": "What is the `HttpServletRequest` method `getRequestURL()` vs `getRequestURI()`?",
+            "output": "`getRequestURL()` returns the full URL (including scheme, server, port); `getRequestURI()` returns the path part.",
+            "answer": "`getRequestURL()` returns the full URL (including scheme, server, port); `getRequestURI()` returns the path part.",
+            "explanation": "Used for constructing redirects or logging."
+        },
+        {
+            "id": 261,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What is the file extension of a web application archive?",
+            "output": ".war",
+            "answer": ".war",
+            "explanation": "WAR stands for Web Application Archive."
+        },
+        {
+            "id": 262,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "Where are static resources (HTML, CSS, JS) placed in a WAR?",
+            "output": "At the root of the WAR file (not inside WEB-INF).",
+            "answer": "At the root of the WAR file (not inside WEB-INF).",
+            "explanation": "These resources are directly accessible by clients."
+        },
+        {
+            "id": 263,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of the `WEB-INF/classes` directory?",
+            "output": "Contains compiled Java classes of the web application.",
+            "answer": "Contains compiled Java classes of the web application.",
+            "explanation": "This directory is not accessible from the client."
+        },
+        {
+            "id": 264,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "What is the purpose of the `WEB-INF/lib` directory?",
+            "output": "Contains JAR files that the web application depends on.",
+            "answer": "Contains JAR files that the web application depends on.",
+            "explanation": "These JARs are added to the classpath of the web app."
+        },
+        {
+            "id": 265,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Beginner",
+            "question": "Can a WAR file contain other WAR files?",
+            "output": "No, but an EAR file can contain multiple WARs.",
+            "answer": "No, but an EAR file can contain multiple WARs.",
+            "explanation": "WAR is for a single web module."
+        },
+        {
+            "id": 266,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the command to create a WAR file using `jar`?",
+            "output": "`jar -cvf myapp.war *`",
+            "answer": "`jar -cvf myapp.war *`",
+            "explanation": "Run this from the root of the web application directory."
+        },
+        {
+            "id": 267,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "How do you deploy a WAR file in GlassFish?",
+            "output": "Copy the WAR to the `domains/domain1/autodeploy/` directory or use the admin console.",
+            "answer": "Copy the WAR to the `domains/domain1/autodeploy/` directory or use the admin console.",
+            "explanation": "GlassFish monitors the `autodeploy` folder for new archives."
+        },
+        {
+            "id": 268,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the `web.xml` element `<servlet-mapping>` used for?",
+            "output": "Maps a servlet to a URL pattern (e.g., `/myservlet`).",
+            "answer": "Maps a servlet to a URL pattern (e.g., `/myservlet`).",
+            "explanation": "Multiple patterns can be mapped to the same servlet."
+        },
+        {
+            "id": 269,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the `web.xml` element `<welcome-file-list>` used for?",
+            "output": "Defines the default files to serve when a directory is requested.",
+            "answer": "Defines the default files to serve when a directory is requested.",
+            "explanation": "For example, `index.html`, `index.jsp`."
+        },
+        {
+            "id": 270,
+            "topic": "WAR File Structure and Deployment",
+            "difficulty": "Intermediate",
+            "question": "What is the purpose of the `META-INF/MANIFEST.MF` file in a WAR?",
+            "output": "It can specify metadata like the version of the web application.",
+            "answer": "It can specify metadata like the version of the web application.",
+            "explanation": "It is optional but can be used by application servers."
+        }
+    ]
+}

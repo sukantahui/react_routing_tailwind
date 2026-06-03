@@ -108,7 +108,7 @@ const Topic21 = () => {
         <div className="space-y-10">
           
           {/* Card: Why Complexity Matters */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.1s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">🔧</span> Beyond the Price Tag
             </h2>
@@ -128,7 +128,7 @@ const Topic21 = () => {
           </div>
           
           {/* Interactive Complexity Explorer */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.2s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.2s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📊</span> Interactive: Compare Installation Complexity
             </h2>
@@ -198,7 +198,7 @@ const Topic21 = () => {
           </div>
           
           {/* Comparison Table: All Media */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.3s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">📋</span> Full Comparison: Installation & Maintenance
             </h2>
@@ -236,7 +236,7 @@ const Topic21 = () => {
           </div>
           
           {/* Maintenance Checklist Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.4s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.4s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">✅</span> Maintenance Checklist by Media Type
             </h2>
@@ -262,7 +262,7 @@ const Topic21 = () => {
           </div>
           
           {/* Real-World Case: Abhronila's School Network */}
-          <div className="group bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-gradient-to-r from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.5s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.5s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">🏫</span> Real-World Case: Abhronila's School in Ichapur
             </h2>
@@ -289,7 +289,7 @@ const Topic21 = () => {
           </div>
           
           {/* Tips & Tricks */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_0.6s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.6s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <span className="text-3xl">💎</span> Professional Tips & Tricks
             </h2>
@@ -315,7 +315,7 @@ const Topic21 = () => {
           </div>
           
           {/* Common Mistakes */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-red-200 dark:border-red-800 animate-[fadeSlideUp_0.6s_ease-out_0.7s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.7s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-600 dark:text-red-400">
               <span className="text-3xl">⚠️</span> Common Pitfalls & Misconceptions
             </h2>
@@ -336,7 +336,7 @@ const Topic21 = () => {
           </div>
           
           {/* Best Practices */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-green-200 dark:border-green-800 animate-[fadeSlideUp_0.6s_ease-out_0.8s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.8s]  ">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-green-600 dark:text-green-400">
               <span className="text-3xl">✅</span> Best Practices for Installation & Maintenance
             </h2>
@@ -363,7 +363,7 @@ const Topic21 = () => {
           </div>
           
           {/* Hint Section */}
-          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-blue-200 dark:border-blue-800 animate-[fadeSlideUp_0.6s_ease-out_0.9s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_0.9s]  ">
             <h2 className="text-2xl font-semibold mb-3 flex items-center gap-2">
               <span className="text-3xl">💭</span> Think About...
             </h2>
@@ -376,12 +376,12 @@ const Topic21 = () => {
           </div>
           
           {/* Teacher's Note */}
-          <div className="animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="animate-[fadeSlideUp_0.6s_ease-out_1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1s]  ">
             <Teacher note="Students often underestimate maintenance costs. In my 20 years teaching at Barrackpore's technical institute, I've seen many projects fail because they only budgeted for initial installation. Remind them: A fiber link might cost 3x to install, but over 20 years, its lower maintenance often makes it cheaper than replacing UTP twice. Use the interactive tool to let students 'feel' the complexity difference. Also emphasize documentation — the best-installed network becomes unmaintainable without proper labels and drawings." />
           </div>
           
           {/* Q&A Section */}
-          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s] opacity-0 [animation-fill-mode:forwards]">
+          <div className="mt-12 pt-6 border-t-2 border-gray-200 dark:border-gray-700 animate-[fadeSlideUp_0.6s_ease-out_1.1s] motion-safe:animate-[fadeSlideUp_0.6s_ease-out_1.1s]  ">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <span className="text-3xl">❓</span> 15 Questions & Answers
             </h2>

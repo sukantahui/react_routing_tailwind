@@ -1,6 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from '../../../../../common/FAQTemplate';
+import questions from './topic0_files/questions';
 
 /**
  * Topic0: Introduction to Layered Architecture
@@ -233,6 +235,14 @@ const Topic0 = () => {
           <div className="opacity-0 translate-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[900ms]">
             <Teacher 
               note={"Start with the postal analogy — students immediately grasp why we don't mix concerns. Emphasize that each layer only talks to adjacent layers using well-defined rules (protocols). For the curious: later we'll map OSI layers to real protocols. Keep the tone collaborative."}
+            />
+          </div>
+
+          {/* FAQ */}
+          <div className="animate-fade-slide-up" style={{ animationDelay: '0.8s' }}>
+            <FAQTemplate
+              title="Mutable vs Immutable Strings – FAQs"
+              questions={questions}
             />
           </div>
 

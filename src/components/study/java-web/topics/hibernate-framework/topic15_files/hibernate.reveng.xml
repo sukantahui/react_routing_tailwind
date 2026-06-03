@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC 
+    "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" 
+    "http://www.hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+    <!-- Database schema selection -->
+    <schema-selection match-schema="public" match-table="STUDENT|COURSE|ENROLLMENT"/>
+
+    <!-- Type mapping example: tinyint to boolean -->
+    <type-mapping>
+        <sql-type jdbc-type="TINYINT" length="1" hibernate-type="boolean"/>
+    </type-mapping>
+
+    <!-- Table specific customizations -->
+    <table name="STUDENT">
+        <primary-key>
+            <generator class="identity"/>
+        </primary-key>
+        <column name="FULL_NAME" property="name"/>
+        <column name="EMAIL_ADDRESS" property="email"/>
+    </table>
+
+    <!-- Exclude log tables -->
+    <table name="AUDIT_LOG" exclude="true"/>
+</hibernate-reverse-engineering>

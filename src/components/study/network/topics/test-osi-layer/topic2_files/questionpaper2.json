@@ -1,0 +1,184 @@
+{
+  "paperId": "OSI-ONLY-2-5-MARKS-100",
+  "title": "OSI Layer Model – 2 & 5 Marks Only (Total 100 Marks)",
+  "duration": "2 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Very Short Answer Questions",
+      "marksPerQuestion": 2,
+      "totalQuestions": 20,
+      "questions": [
+        {
+          "q": "How many layers are in the OSI model?",
+          "marks": 2,
+          "answer": "Seven layers."
+        },
+        {
+          "q": "What is the full form of OSI?",
+          "marks": 2,
+          "answer": "Open Systems Interconnection."
+        },
+        {
+          "q": "Which layer is responsible for routing packets?",
+          "marks": 2,
+          "answer": "Network Layer (Layer 3)."
+        },
+        {
+          "q": "What is the PDU at the Data Link Layer?",
+          "marks": 2,
+          "answer": "Frame."
+        },
+        {
+          "q": "Which device operates at the Physical Layer?",
+          "marks": 2,
+          "answer": "Hub or repeater."
+        },
+        {
+          "q": "What is the PDU at the Transport Layer when using TCP?",
+          "marks": 2,
+          "answer": "Segment."
+        },
+        {
+          "q": "Name any two protocols that work at the Application Layer.",
+          "marks": 2,
+          "answer": "HTTP and FTP (or SMTP, DNS, Telnet)."
+        },
+        {
+          "q": "What does MAC address stand for and at which layer is it used?",
+          "marks": 2,
+          "answer": "Media Access Control address; used at Data Link Layer (Layer 2)."
+        },
+        {
+          "q": "Which layer handles data compression and encryption?",
+          "marks": 2,
+          "answer": "Presentation Layer (Layer 6)."
+        },
+        {
+          "q": "What is the purpose of a checksum in the Transport Layer?",
+          "marks": 2,
+          "answer": "Error detection – to check if the segment is corrupted during transmission."
+        },
+        {
+          "q": "Which layer is responsible for establishing, maintaining, and terminating sessions?",
+          "marks": 2,
+          "answer": "Session Layer (Layer 5)."
+        },
+        {
+          "q": "What is a Service Access Point (SAP)? Give one example.",
+          "marks": 2,
+          "answer": "A point where a layer provides services to the layer above. Example: port numbers (e.g., TCP port 80)."
+        },
+        {
+          "q": "Which OSI layer does a router operate at?",
+          "marks": 2,
+          "answer": "Network Layer (Layer 3)."
+        },
+        {
+          "q": "What does the acronym PDU stand for?",
+          "marks": 2,
+          "answer": "Protocol Data Unit."
+        },
+        {
+          "q": "What is the difference between a segment and a datagram?",
+          "marks": 2,
+          "answer": "Segment is the Transport Layer PDU for TCP (connection-oriented); datagram is the PDU for UDP (connectionless)."
+        },
+        {
+          "q": "Which layer ensures node-to-node delivery?",
+          "marks": 2,
+          "answer": "Data Link Layer (Layer 2)."
+        },
+        {
+          "q": "What is the role of the trailer in a Data Link frame?",
+          "marks": 2,
+          "answer": "It contains the Frame Check Sequence (e.g., CRC) for error detection."
+        },
+        {
+          "q": "Name one protocol that works at the Network Layer.",
+          "marks": 2,
+          "answer": "IP (Internet Protocol)."
+        },
+        {
+          "q": "What is 'encapsulation' in the OSI model?",
+          "marks": 2,
+          "answer": "The process where each layer adds its own header (and sometimes trailer) to the data received from the layer above."
+        },
+        {
+          "q": "Which layer provides logical addressing (IP addresses)?",
+          "marks": 2,
+          "answer": "Network Layer (Layer 3)."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Descriptive / Short Answer (5 marks each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 12,
+      "questions": [
+        {
+          "q": "Explain the responsibilities of the Physical Layer and the Data Link Layer in the OSI model. Include examples of devices and protocols for each.",
+          "marks": 5,
+          "answer": "Physical Layer (Layer 1): Transmits raw bits over a physical medium. Defines voltage levels, data rates, connectors (RJ45), and synchronization. Devices: hubs, repeaters. Protocols: Ethernet (physical part), DSL. Data Link Layer (Layer 2): Provides node-to-node reliable delivery. Packages bits into frames, adds MAC addresses, performs error detection (CRC) and flow control. Devices: switches, bridges. Protocols: Ethernet (MAC sublayer), PPP, Wi-Fi (802.11 MAC)."
+        },
+        {
+          "q": "Describe the difference between connection-oriented and connectionless services at the Transport Layer. Give one example protocol for each and a typical use case.",
+          "marks": 5,
+          "answer": "Connection-oriented (TCP): Requires connection setup (three-way handshake). Provides reliability, sequencing, flow control. Example: Web browsing (HTTP). Connectionless (UDP): No connection setup, no guarantees. Low overhead. Example: VoIP, video streaming, DNS queries."
+        },
+        {
+          "q": "Explain the role of the Presentation Layer. Give three specific functions with examples.",
+          "marks": 5,
+          "answer": "Functions: (1) Data translation – ASCII to EBCDIC conversion. (2) Data compression – JPEG, MPEG. (3) Data encryption/decryption – SSL/TLS (conceptually)."
+        },
+        {
+          "q": "What is the difference between a switch and a hub? Relate to OSI layers and performance.",
+          "marks": 5,
+          "answer": "Hub: Physical Layer – repeats signals to all ports, causes collisions, shared bandwidth. Switch: Data Link Layer – forwards frames based on MAC address, creates separate collision domains, improves performance."
+        },
+        {
+          "q": "Explain the concept of encapsulation and decapsulation with a step-by-step example of sending a web request.",
+          "marks": 5,
+          "answer": "Encapsulation (sender): Application (HTTP data) -> Transport (TCP segment) -> Network (IP packet) -> Data Link (Ethernet frame) -> Physical (bits). Decapsulation (receiver): reverse process – each layer removes its header and passes data up."
+        },
+        {
+          "q": "What are the functions of the Session Layer? Explain checkpointing with an example.",
+          "marks": 5,
+          "answer": "Session Layer establishes, manages, and terminates sessions. Checkpointing: inserts checkpoints in data stream. If failure occurs, transfer resumes from last checkpoint instead of restarting. Example: large file download – after 600MB of 1GB, resume from 600MB."
+        },
+        {
+          "q": "Compare the OSI model with the TCP/IP model. Mention number of layers and key differences.",
+          "marks": 5,
+          "answer": "OSI: 7 layers (Physical, Data Link, Network, Transport, Session, Presentation, Application). TCP/IP: 4 layers (Network Interface, Internet, Transport, Application). OSI separates Session/Presentation; TCP/IP merges them into Application. OSI is theoretical; TCP/IP is practical based on ARPANET."
+        },
+        {
+          "q": "What is a Protocol Data Unit (PDU)? Name the PDU for each of the seven OSI layers.",
+          "marks": 5,
+          "answer": "PDU is data exchanged between peer layers. Layer 7: Data; Layer 6: Data; Layer 5: Data; Layer 4: Segment (TCP) / Datagram (UDP); Layer 3: Packet; Layer 2: Frame; Layer 1: Bits."
+        },
+        {
+          "q": "Explain how multiplexing and demultiplexing work at the Transport Layer using port numbers.",
+          "marks": 5,
+          "answer": "Multiplexing: multiple applications send data via the same IP address; each gets a unique source port. Transport layer collects and passes to network. Demultiplexing at receiver: transport layer reads destination port and delivers data to correct application."
+        },
+        {
+          "q": "Describe the two sublayers of the Data Link Layer (LLC and MAC) and their functions.",
+          "marks": 5,
+          "answer": "LLC (Logical Link Control): provides multiplexing/demultiplexing using SAPs (EtherType), flow control, error notification. MAC (Media Access Control): controls access to physical medium (CSMA/CD, CSMA/CA), adds MAC addresses, generates CRC for error detection."
+        },
+        {
+          "q": "A user can ping a remote server by IP address but cannot browse the website hosted on it. Which OSI layers could be the problem and why?",
+          "marks": 5,
+          "answer": "Possible layers: Transport Layer – web uses TCP port 80/443, maybe blocked by firewall; Presentation Layer – TLS certificate issue for HTTPS; Application Layer – web server not running or DNS issue (if domain not resolved). Ping works, so Physical, Data Link, Network are fine."
+        },
+        {
+          "q": "What is the purpose of the checksum and sequence numbers in the TCP header?",
+          "marks": 5,
+          "answer": "Checksum: error detection – verifies segment integrity. Sequence numbers: (1) ensure ordered delivery (reassembly), (2) detect duplicate segments, (3) enable acknowledgments and retransmission of lost data."
+        }
+      ]
+    }
+  ]
+}

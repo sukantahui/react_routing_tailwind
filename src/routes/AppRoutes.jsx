@@ -8,6 +8,7 @@ import IscTweleveTopicView from '../components/study/isc-12/IscTwelveTopicView';
 import IscTweleveModuleView from '../components/study/isc-12/IscTwelveModuleView';
 import IscTweleveRoadmap from '../components/study/isc-12/IscTwelveRoadmap';
 import StudentFeeReceiptPart2 from '../components/StudentFeeReceiptPart2';
+import StudentFeeReceiptPart3 from '../components/StudentFeeReceiptPart3';
 
 
 // Public components (lazy)
@@ -206,6 +207,15 @@ export default function AppRoutes() {
           element={
             <ProtectedRoute>
               <StudentFeeReceiptPart2 />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/studentFeesReceiptPart3"
+          element={
+            <ProtectedRoute>
+              <StudentFeeReceiptPart3 />
             </ProtectedRoute>
           }
         />

@@ -42,10 +42,18 @@
           "slug": "values-and-datatypes",
           "title": "Values and Data Types",
           "topics": [
-            "Constants and variables",
-            "Primitive data types",
-            "Type compatibility",
-            "Type conversion"
+            "Constants and variables (definition, declaration, initialization, scope)",
+            "Identifiers and naming rules",
+            "Primitive data types (int, float, char, boolean, string basics)",
+            "Non-primitive / derived data types (arrays, structures, classes - basic idea)",
+            "Type compatibility (assignment and expression compatibility)",
+            "Type conversion (implicit and explicit casting)",
+            "Widening and narrowing conversion",
+            "Type checking (compile-time and run-time)",
+            "Common type-related errors",
+            "Memory usage and size of data types",
+            "Choosing appropriate data types in programs",
+            "Real-life applications of data types"
           ]
         }
       ]

@@ -1,0 +1,1902 @@
+[
+  {
+    "id": 1,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What keyword is used to define a function in Python?",
+    "options": [
+      "func",
+      "define",
+      "def",
+      "function"
+    ],
+    "answerIndex": 2,
+    "answer": "def",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The 'def' keyword is used to define a function in Python."
+  },
+  {
+    "id": 2,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the purpose of a function?",
+    "options": [
+      "To store data",
+      "To repeat code without reusing",
+      "To group reusable code and perform a specific task",
+      "To replace variables"
+    ],
+    "answerIndex": 2,
+    "answer": "To group reusable code and perform a specific task",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Functions group reusable code to perform a specific task, improving modularity and reusability."
+  },
+  {
+    "id": 3,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which symbol indicates the start of a function body?",
+    "options": [
+      "{",
+      "(",
+      "[",
+      ":"
+    ],
+    "answerIndex": 3,
+    "answer": ":",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "A colon (:) marks the end of the function header and the start of the indented body."
+  },
+  {
+    "id": 4,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which of the following is a valid function name?",
+    "options": [
+      "2function",
+      "def",
+      "my_func",
+      "my-func"
+    ],
+    "answerIndex": 2,
+    "answer": "my_func",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Function names must start with a letter or underscore and cannot contain hyphens."
+  },
+  {
+    "id": 5,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of the following code?\n```\ndef hello():\n    print('Hi')\nhello()\n```",
+    "options": [
+      "Hi",
+      "None",
+      "Error",
+      "Hi\nNone"
+    ],
+    "answerIndex": 0,
+    "answer": "Hi",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The function prints 'Hi' when called."
+  },
+  {
+    "id": 6,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the difference between function declaration and function call?",
+    "options": [
+      "Declaration creates the function; call executes it",
+      "Declaration executes the function; call creates it",
+      "Both are the same",
+      "Declaration is used only for built-in functions"
+    ],
+    "answerIndex": 0,
+    "answer": "Declaration creates the function; call executes it",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Declaration defines the function; calling it runs the code inside."
+  },
+  {
+    "id": 7,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What happens if you call a function before it is defined?",
+    "options": [
+      "The program runs normally",
+      "NameError is raised",
+      "SyntaxError is raised",
+      "The function is automatically defined"
+    ],
+    "answerIndex": 1,
+    "answer": "NameError is raised",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Python reads code top‑down; calling an undefined function raises NameError."
+  },
+  {
+    "id": 8,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "How many times is a function called if its name appears three times without parentheses?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answerIndex": 0,
+    "answer": "0",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Parentheses are required to call a function; without them it's just a reference."
+  },
+  {
+    "id": 9,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of the following code?\n```\ndef f():\n    print(1)\nf\nprint(2)\n```",
+    "options": [
+      "1\n2",
+      "2",
+      "1",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "2",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The function is not called (missing parentheses), so only 2 is printed."
+  },
+  {
+    "id": 10,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of the following code?\n```\ndef f():\n    return 5\nprint(f())\n```",
+    "options": [
+      "5",
+      "<function f>",
+      "None",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The function is called, returns 5, and prints it."
+  },
+  {
+    "id": 11,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which of the following is a built-in function?",
+    "options": [
+      "my_func()",
+      "print()",
+      "user_defined()",
+      "calculate()"
+    ],
+    "answerIndex": 1,
+    "answer": "print()",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "print() is a built-in function available without any definition."
+  },
+  {
+    "id": 12,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "User-defined functions are created using which keyword?",
+    "options": [
+      "lambda",
+      "def",
+      "func",
+      "define"
+    ],
+    "answerIndex": 1,
+    "answer": "def",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The 'def' keyword defines user-defined functions."
+  },
+  {
+    "id": 13,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which function is user-defined?",
+    "options": [
+      "len()",
+      "print()",
+      "range()",
+      "my_custom_function()"
+    ],
+    "answerIndex": 3,
+    "answer": "my_custom_function()",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Only `my_custom_function()` would be defined by the user."
+  },
+  {
+    "id": 14,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which built-in function returns the length of an object?",
+    "options": [
+      "count()",
+      "size()",
+      "len()",
+      "length()"
+    ],
+    "answerIndex": 2,
+    "answer": "len()",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "len() returns the length of a sequence or collection."
+  },
+  {
+    "id": 15,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which of the following is a built-in function for user input?",
+    "options": [
+      "input()",
+      "read()",
+      "get()",
+      "scan()"
+    ],
+    "answerIndex": 0,
+    "answer": "input()",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "input() is the built-in function to read user input."
+  },
+  {
+    "id": 16,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is a parameter?",
+    "options": [
+      "Value passed to a function when called",
+      "Variable listed in the function definition",
+      "The return value of a function",
+      "The function name"
+    ],
+    "answerIndex": 1,
+    "answer": "Variable listed in the function definition",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Parameters are variables in the function definition that receive arguments."
+  },
+  {
+    "id": 17,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is an argument?",
+    "options": [
+      "Variable inside the function",
+      "Value passed to the function when called",
+      "Function name",
+      "Return type"
+    ],
+    "answerIndex": 1,
+    "answer": "Value passed to the function when called",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Arguments are actual values supplied during a function call."
+  },
+  {
+    "id": 18,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "In `def add(a, b):`, `a` and `b` are:",
+    "options": [
+      "Arguments",
+      "Parameters",
+      "Return values",
+      "Globals"
+    ],
+    "answerIndex": 1,
+    "answer": "Parameters",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "a and b are parameters (placeholders) in the function definition."
+  },
+  {
+    "id": 19,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "In `def add(a,b): return a+b`, how many parameters are there?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "answerIndex": 2,
+    "answer": "2",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Two parameters: a and b."
+  },
+  {
+    "id": 20,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "In `def f(a, b=5): pass`, which parameters are required?",
+    "options": [
+      "a only",
+      "b only",
+      "Both",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "a only",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "a has no default, so it is required; b is optional with default 5."
+  },
+  {
+    "id": 21,
+    "topic": "Types of Arguments: Positional, Keyword, Default, and Required",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which type of argument must always be provided and matched by position?",
+    "options": [
+      "Default",
+      "Keyword",
+      "Required positional",
+      "Variable-length"
+    ],
+    "answerIndex": 2,
+    "answer": "Required positional",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Required positional arguments must be passed in the correct order and cannot be omitted."
+  },
+  {
+    "id": 22,
+    "topic": "Types of Arguments: Positional, Keyword, Default, and Required",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What syntax is used to pass a keyword argument?",
+    "options": [
+      "key = value",
+      "key -> value",
+      "key: value",
+      "key value"
+    ],
+    "answerIndex": 0,
+    "answer": "key = value",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Keyword arguments are written as `parameter_name = value`."
+  },
+  {
+    "id": 23,
+    "topic": "Types of Arguments: Positional, Keyword, Default, and Required",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b=2): return a+b; print(f(3, b=4))`",
+    "options": [
+      "5",
+      "7",
+      "6",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "7",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "b=4 overrides the default value, so 3+4=7."
+  },
+  {
+    "id": 24,
+    "topic": "Types of Arguments: Positional, Keyword, Default, and Required",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b, c=10): return a+b+c; print(f(1,2))`",
+    "options": [
+      "13",
+      "3",
+      "12",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "13",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "1+2+10 = 13."
+  },
+  {
+    "id": 25,
+    "topic": "Types of Arguments: Positional, Keyword, Default, and Required",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b=2, c=3): return a+b+c; print(f(1, c=5))`",
+    "options": [
+      "8",
+      "6",
+      "9",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "8",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "a=1, b=2 (default), c=5 (overridden) → 1+2+5=8."
+  },
+  {
+    "id": 26,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is a default parameter value?",
+    "options": [
+      "A value that cannot be changed",
+      "A value assigned to a parameter in the function definition",
+      "A value returned by the function",
+      "A value passed by the user"
+    ],
+    "answerIndex": 1,
+    "answer": "A value assigned to a parameter in the function definition",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Default values are assigned in the function header and used if the argument is missing."
+  },
+  {
+    "id": 27,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which of the following correctly defines a default parameter?",
+    "options": [
+      "def f(a=5, b):",
+      "def f(a, b=5):",
+      "def f(=5, b):",
+      "def f(a, b=5, c):"
+    ],
+    "answerIndex": 1,
+    "answer": "def f(a, b=5):",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Default parameters must come after non‑default parameters."
+  },
+  {
+    "id": 28,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b=[]): b.append(a); return b; print(f(1)); print(f(2))`",
+    "options": [
+      "[1] and [2]",
+      "[1] and [1,2]",
+      "[1] and [1]",
+      "[1] and []"
+    ],
+    "answerIndex": 1,
+    "answer": "[1] and [1,2]",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The default list is shared; second call sees the previous value."
+  },
+  {
+    "id": 29,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Advanced",
+    "difficultyColor": "red",
+    "type": "mcq",
+    "question": "Why is `def f(lst=[])` considered dangerous?",
+    "options": [
+      "Syntax error",
+      "The list is created once and shared across calls",
+      "It is slower",
+      "It cannot be modified"
+    ],
+    "answerIndex": 1,
+    "answer": "The list is created once and shared across calls",
+    "marks": 3,
+    "negativeMarks": 0,
+    "explanation": "Mutable defaults are shared across calls, leading to unexpected accumulation."
+  },
+  {
+    "id": 30,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b=[]): b.append(a); return b; print(f(1)); print(f(2, []))`",
+    "options": [
+      "[1] and [2]",
+      "[1] and [1,2]",
+      "[1] and [2]",
+      "[1] and []"
+    ],
+    "answerIndex": 2,
+    "answer": "[1] and [2]",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "First call uses default list, second call passes a new list, so no sharing."
+  },
+  {
+    "id": 31,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does `*args` do in a function definition?",
+    "options": [
+      "Accepts variable number of keyword arguments",
+      "Accepts variable number of positional arguments",
+      "Accepts only one argument",
+      "Creates a list of arguments"
+    ],
+    "answerIndex": 1,
+    "answer": "Accepts variable number of positional arguments",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "*args collects extra positional arguments into a tuple."
+  },
+  {
+    "id": 32,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What type of object is `args` inside the function?",
+    "options": [
+      "List",
+      "Tuple",
+      "Dictionary",
+      "Set"
+    ],
+    "answerIndex": 1,
+    "answer": "Tuple",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "*args packs arguments into a tuple."
+  },
+  {
+    "id": 33,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(*args): return args[0]; print(f(10,20,30))`",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "10",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "args is a tuple; index 0 gives the first extra argument."
+  },
+  {
+    "id": 34,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, *args): return a + sum(args); print(f(1,2,3))`",
+    "options": [
+      "6",
+      "1",
+      "5",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "6",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "1 + (2+3) = 6."
+  },
+  {
+    "id": 35,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(*args): return args[1]; print(f(10,20,30))`",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "20",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "args = (10,20,30); index 1 gives 20."
+  },
+  {
+    "id": 36,
+    "topic": "Variable-Length Keyword Arguments: **kwargs",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does `**kwargs` do in a function definition?",
+    "options": [
+      "Accepts variable number of positional arguments",
+      "Accepts variable number of keyword arguments",
+      "Accepts only one keyword argument",
+      "Creates a list of keyword arguments"
+    ],
+    "answerIndex": 1,
+    "answer": "Accepts variable number of keyword arguments",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "**kwargs collects extra keyword arguments into a dictionary."
+  },
+  {
+    "id": 37,
+    "topic": "Variable-Length Keyword Arguments: **kwargs",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What type of object is `kwargs` inside the function?",
+    "options": [
+      "List",
+      "Tuple",
+      "Dictionary",
+      "Set"
+    ],
+    "answerIndex": 2,
+    "answer": "Dictionary",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "**kwargs packs keyword arguments into a dictionary."
+  },
+  {
+    "id": 38,
+    "topic": "Variable-Length Keyword Arguments: **kwargs",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(**kwargs): return kwargs.get('x'); print(f(x=5,y=6))`",
+    "options": [
+      "5",
+      "6",
+      "None",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "kwargs['x'] = 5."
+  },
+  {
+    "id": 39,
+    "topic": "Variable-Length Keyword Arguments: **kwargs",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(**kwargs): print(len(kwargs)); f(a=1,b=2,c=3)`",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "Error"
+    ],
+    "answerIndex": 2,
+    "answer": "3",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Three keyword arguments are passed, so len(kwargs)=3."
+  },
+  {
+    "id": 40,
+    "topic": "Variable-Length Keyword Arguments: **kwargs",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(**kwargs): return sum(kwargs.values()); print(f(a=1,b=2,c=3))`",
+    "options": [
+      "6",
+      "3",
+      "1",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "6",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Sum of values 1+2+3 = 6."
+  },
+  {
+    "id": 41,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which operator is used to unpack a list into positional arguments?",
+    "options": [
+      "*",
+      "**",
+      "&",
+      "#"
+    ],
+    "answerIndex": 0,
+    "answer": "*",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The * operator unpacks an iterable into separate positional arguments."
+  },
+  {
+    "id": 42,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which operator unpacks a dictionary into keyword arguments?",
+    "options": [
+      "*",
+      "**",
+      "&",
+      "#"
+    ],
+    "answerIndex": 1,
+    "answer": "**",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The ** operator unpacks a dictionary into keyword arguments."
+  },
+  {
+    "id": 43,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a,b,c): return a+b+c; lst=[1,2,3]; print(f(*lst))`",
+    "options": [
+      "6",
+      "123",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "6",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "*lst unpacks the list into three positional arguments: 1+2+3=6."
+  },
+  {
+    "id": 44,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a,b): return a-b; d={'a':10,'b':3}; print(f(**d))`",
+    "options": [
+      "7",
+      "13",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "7",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "**d unpacks the dict into keyword arguments: a=10,b=3, 10-3=7."
+  },
+  {
+    "id": 45,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a,b,c): return a-b-c; print(f(10, *[3,2]))`",
+    "options": [
+      "5",
+      "11",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "a=10, b=3, c=2 → 10-3-2=5."
+  },
+  {
+    "id": 46,
+    "topic": "Unpacking arguments in function calls",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a,b): return a*b; print(f(*(2,3)))`",
+    "options": [
+      "5",
+      "6",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 1,
+    "answer": "6",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The tuple (2,3) is unpacked into a=2, b=3 → 2*3=6."
+  },
+  {
+    "id": 47,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does the `return` statement do?",
+    "options": [
+      "Prints a value",
+      "Exits the function and optionally sends a value back",
+      "Stops the program",
+      "Restarts the function"
+    ],
+    "answerIndex": 1,
+    "answer": "Exits the function and optionally sends a value back",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "return exits the function and optionally returns a value to the caller."
+  },
+  {
+    "id": 48,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "How are multiple values returned from a function?",
+    "options": [
+      "As a list",
+      "As a tuple",
+      "As separate variables",
+      "As a string"
+    ],
+    "answerIndex": 1,
+    "answer": "As a tuple",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Multiple values are returned as a tuple, e.g., `return a, b`."
+  },
+  {
+    "id": 49,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): return 1,2; x,y = f(); print(x+y)`",
+    "options": [
+      "3",
+      "12",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "3",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Tuple unpacking: x=1, y=2, sum=3."
+  },
+  {
+    "id": 50,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the type of the returned value in `def f(): return 1,2`?",
+    "options": [
+      "List",
+      "Tuple",
+      "Dictionary",
+      "Set"
+    ],
+    "answerIndex": 1,
+    "answer": "Tuple",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Multiple values are returned as a tuple."
+  },
+  {
+    "id": 51,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): return; print(f())`",
+    "options": [
+      "None",
+      "0",
+      "Error",
+      " "
+    ],
+    "answerIndex": 0,
+    "answer": "None",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "An empty return is equivalent to `return None`."
+  },
+  {
+    "id": 52,
+    "topic": "Functions without return (None type behavior)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does a function return if it has no `return` statement?",
+    "options": [
+      "0",
+      "None",
+      "Error",
+      "Empty string"
+    ],
+    "answerIndex": 1,
+    "answer": "None",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Functions without an explicit return return the special value None."
+  },
+  {
+    "id": 53,
+    "topic": "Functions without return (None type behavior)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the type of `None`?",
+    "options": [
+      "NoneType",
+      "NullType",
+      "Nothing",
+      "Undefined"
+    ],
+    "answerIndex": 0,
+    "answer": "NoneType",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The type of None is `NoneType`."
+  },
+  {
+    "id": 54,
+    "topic": "Functions without return (None type behavior)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which of these functions returns None?",
+    "options": [
+      "def f(): return 5",
+      "def f(): pass",
+      "def f(): return None",
+      "Both B and C"
+    ],
+    "answerIndex": 3,
+    "answer": "Both B and C",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Both a function without a return and one with `return None` return None."
+  },
+  {
+    "id": 55,
+    "topic": "Functions without return (None type behavior)",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): pass; print(f())`",
+    "options": [
+      "None",
+      "0",
+      "Error",
+      "pass"
+    ],
+    "answerIndex": 0,
+    "answer": "None",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Function with no return returns None."
+  },
+  {
+    "id": 56,
+    "topic": "Functions without return (None type behavior)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which statement about `None` is true?",
+    "options": [
+      "None is the same as False",
+      "None is the same as 0",
+      "None is a singleton object",
+      "None can be used in arithmetic"
+    ],
+    "answerIndex": 2,
+    "answer": "None is a singleton object",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "None is a singleton (only one instance) representing no value."
+  },
+  {
+    "id": 57,
+    "topic": "Lambda (Anonymous) Functions: Syntax and basic usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What keyword creates a lambda function?",
+    "options": [
+      "def",
+      "lambda",
+      "anon",
+      "func"
+    ],
+    "answerIndex": 1,
+    "answer": "lambda",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The `lambda` keyword is used to create anonymous functions."
+  },
+  {
+    "id": 58,
+    "topic": "Lambda (Anonymous) Functions: Syntax and basic usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "How many statements can a lambda contain?",
+    "options": [
+      "Any number",
+      "Zero",
+      "One",
+      "Two"
+    ],
+    "answerIndex": 2,
+    "answer": "One",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "A lambda can contain only a single expression, not statements."
+  },
+  {
+    "id": 59,
+    "topic": "Lambda (Anonymous) Functions: Syntax and basic usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of `(lambda x: x*2)(5)`?",
+    "options": [
+      "5",
+      "10",
+      "25",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "10",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "The lambda multiplies 5 by 2, returning 10."
+  },
+  {
+    "id": 60,
+    "topic": "Lambda (Anonymous) Functions: Syntax and basic usage",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "Which of the following is a valid lambda that returns the larger of two numbers?",
+    "options": [
+      "lambda a,b: a if a>b else b",
+      "lambda a,b: max(a,b)",
+      "lambda a,b: return a if a>b else b",
+      "Both A and B"
+    ],
+    "answerIndex": 3,
+    "answer": "Both A and B",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Both are valid; A uses conditional expression, B uses built‑in max."
+  },
+  {
+    "id": 61,
+    "topic": "Lambda (Anonymous) Functions: Syntax and basic usage",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `(lambda a,b: a if a>b else b)(5,3)`",
+    "options": [
+      "5",
+      "3",
+      "8",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The lambda returns the larger value (5)."
+  },
+  {
+    "id": 62,
+    "topic": "Use cases of lambda with functions like map(), filter()",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "Which function applies a lambda to every element of an iterable?",
+    "options": [
+      "filter()",
+      "map()",
+      "reduce()",
+      "apply()"
+    ],
+    "answerIndex": 1,
+    "answer": "map()",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "map() applies a function to each element and returns an iterator."
+  },
+  {
+    "id": 63,
+    "topic": "Use cases of lambda with functions like map(), filter()",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "Which function returns elements for which the lambda returns True?",
+    "options": [
+      "map()",
+      "filter()",
+      "reduce()",
+      "zip()"
+    ],
+    "answerIndex": 1,
+    "answer": "filter()",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "filter() keeps only elements that satisfy the predicate."
+  },
+  {
+    "id": 64,
+    "topic": "Use cases of lambda with functions like map(), filter()",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What does `list(map(lambda x: x%2, [1,2,3]))` return?",
+    "options": [
+      "[1,0,1]",
+      "[1,2,3]",
+      "[0,1,0]",
+      "[False,True,False]"
+    ],
+    "answerIndex": 0,
+    "answer": "[1,0,1]",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "x%2 gives 1 for odd, 0 for even numbers."
+  },
+  {
+    "id": 65,
+    "topic": "Use cases of lambda with functions like map(), filter()",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What does `list(filter(lambda x: x>2, [1,2,3,4]))` return?",
+    "options": [
+      "[1,2]",
+      "[3,4]",
+      "[2,3,4]",
+      "[4]"
+    ],
+    "answerIndex": 1,
+    "answer": "[3,4]",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "filter keeps elements greater than 2: 3 and 4."
+  },
+  {
+    "id": 66,
+    "topic": "Use cases of lambda with functions like map(), filter()",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What does `list(map(lambda x: x**2, [1,2,3]))` return?",
+    "options": [
+      "[1,4,9]",
+      "[1,2,3]",
+      "[2,4,6]",
+      "[1,8,27]"
+    ],
+    "answerIndex": 0,
+    "answer": "[1,4,9]",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Squares of 1,2,3 are 1,4,9."
+  },
+  {
+    "id": 67,
+    "topic": "Scope of Variables: Local Scope and Global Scope",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Where can a local variable be accessed?",
+    "options": [
+      "Anywhere in the program",
+      "Only inside the function where it is defined",
+      "Only in the global scope",
+      "In all functions of the module"
+    ],
+    "answerIndex": 1,
+    "answer": "Only inside the function where it is defined",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Local variables are accessible only within the function they are defined in."
+  },
+  {
+    "id": 68,
+    "topic": "Scope of Variables: Local Scope and Global Scope",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "A variable defined outside all functions is called:",
+    "options": [
+      "Local",
+      "Global",
+      "Static",
+      "Constant"
+    ],
+    "answerIndex": 1,
+    "answer": "Global",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Variables defined at the top level of a module are global."
+  },
+  {
+    "id": 69,
+    "topic": "Scope of Variables: Local Scope and Global Scope",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `x=5; def f(): x=10; f(); print(x)`",
+    "options": [
+      "5",
+      "10",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The assignment inside f creates a local x; the global x remains 5."
+  },
+  {
+    "id": 70,
+    "topic": "Scope of Variables: Local Scope and Global Scope",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `x=10; def f(): print(x); x=20; f()`",
+    "options": [
+      "10",
+      "20",
+      "UnboundLocalError",
+      "NameError"
+    ],
+    "answerIndex": 2,
+    "answer": "UnboundLocalError",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Because x is assigned inside the function, it becomes local, but print(x) occurs before assignment → UnboundLocalError."
+  },
+  {
+    "id": 71,
+    "topic": "Global Keyword and modifying global variables",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is needed to modify a global variable inside a function?",
+    "options": [
+      "The `global` keyword",
+      "The `nonlocal` keyword",
+      "Nothing, it's automatic",
+      "The `extern` keyword"
+    ],
+    "answerIndex": 0,
+    "answer": "The `global` keyword",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "The `global` keyword is required to reassign a global variable inside a function."
+  },
+  {
+    "id": 72,
+    "topic": "Global Keyword and modifying global variables",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What happens if you assign to a global variable without `global` inside a function?",
+    "options": [
+      "The global variable is modified",
+      "A new local variable is created",
+      "SyntaxError",
+      "TypeError"
+    ],
+    "answerIndex": 1,
+    "answer": "A new local variable is created",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Assignment creates a local variable, leaving the global unchanged."
+  },
+  {
+    "id": 73,
+    "topic": "Global Keyword and modifying global variables",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `x=5; def f(): global x; x=10; f(); print(x)`",
+    "options": [
+      "5",
+      "10",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 1,
+    "answer": "10",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "global x allows modification of the global variable to 10."
+  },
+  {
+    "id": 74,
+    "topic": "Global Keyword and modifying global variables",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `x=5; def f(): x=10; print(x); f(); print(x)`",
+    "options": [
+      "10 and 10",
+      "10 and 5",
+      "5 and 10",
+      "5 and 5"
+    ],
+    "answerIndex": 1,
+    "answer": "10 and 5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Inside f, local x=10 prints 10; global x remains 5."
+  },
+  {
+    "id": 75,
+    "topic": "Global Keyword and modifying global variables",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What happens if you use `global` on a variable that does not exist?",
+    "options": [
+      "NameError",
+      "The variable is created in the global scope when assigned",
+      "SyntaxError",
+      "Nothing"
+    ],
+    "answerIndex": 1,
+    "answer": "The variable is created in the global scope when assigned",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Using `global x` followed by assignment creates a new global variable."
+  },
+  {
+    "id": 76,
+    "topic": "Lifetime of variables and namespace concept",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "When does a local variable cease to exist?",
+    "options": [
+      "When the program ends",
+      "When the function returns",
+      "When the variable is deleted manually",
+      "At the end of the module"
+    ],
+    "answerIndex": 1,
+    "answer": "When the function returns",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Local variables are destroyed when the function returns."
+  },
+  {
+    "id": 77,
+    "topic": "Lifetime of variables and namespace concept",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is a namespace?",
+    "options": [
+      "A data type",
+      "A mapping from names to objects",
+      "A function call",
+      "A module"
+    ],
+    "answerIndex": 1,
+    "answer": "A mapping from names to objects",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "A namespace is a container that maps names to objects (e.g., global namespace, local namespace)."
+  },
+  {
+    "id": 78,
+    "topic": "Lifetime of variables and namespace concept",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What does `globals()` return?",
+    "options": [
+      "Local namespace dictionary",
+      "Global namespace dictionary",
+      "Built‑in namespace dictionary",
+      "List of global variables"
+    ],
+    "answerIndex": 1,
+    "answer": "Global namespace dictionary",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "globals() returns the current global symbol table as a dictionary."
+  },
+  {
+    "id": 79,
+    "topic": "Lifetime of variables and namespace concept",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What does `locals()` return inside a function?",
+    "options": [
+      "Global namespace",
+      "Local namespace dictionary",
+      "Built‑in namespace",
+      "Function object"
+    ],
+    "answerIndex": 1,
+    "answer": "Local namespace dictionary",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "locals() returns the current local symbol table as a dictionary."
+  },
+  {
+    "id": 80,
+    "topic": "Lifetime of variables and namespace concept",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "Which function returns the list of names in the current local scope?",
+    "options": [
+      "globals()",
+      "locals()",
+      "vars()",
+      "dir()"
+    ],
+    "answerIndex": 1,
+    "answer": "locals()",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "locals() returns a dictionary of the current local symbol table."
+  },
+  {
+    "id": 81,
+    "topic": "Best Practices: Writing clean and reusable functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the recommended maximum length for a function?",
+    "options": [
+      "50 lines",
+      "One screen (about 20-30 lines)",
+      "100 lines",
+      "No limit"
+    ],
+    "answerIndex": 1,
+    "answer": "One screen (about 20-30 lines)",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Functions should be short enough to fit on one screen (typically ≤20–30 lines)."
+  },
+  {
+    "id": 82,
+    "topic": "Best Practices: Writing clean and reusable functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which naming convention is recommended for functions in Python?",
+    "options": [
+      "camelCase",
+      "PascalCase",
+      "snake_case",
+      "ALL_CAPS"
+    ],
+    "answerIndex": 2,
+    "answer": "snake_case",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "PEP 8 recommends snake_case for function names (e.g., `calculate_average`)."
+  },
+  {
+    "id": 83,
+    "topic": "Best Practices: Writing clean and reusable functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is a docstring?",
+    "options": [
+      "A comment that explains the function",
+      "A string literal that documents the function",
+      "A type hint",
+      "A variable name"
+    ],
+    "answerIndex": 1,
+    "answer": "A string literal that documents the function",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "A docstring is a string literal used to document a function, class, or module."
+  },
+  {
+    "id": 84,
+    "topic": "Best Practices: Writing clean and reusable functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "Which principle says a function should do one thing?",
+    "options": [
+      "DRY",
+      "KISS",
+      "Single Responsibility",
+      "YAGNI"
+    ],
+    "answerIndex": 2,
+    "answer": "Single Responsibility",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Single Responsibility Principle: a function should have one reason to change."
+  },
+  {
+    "id": 85,
+    "topic": "Best Practices: Writing clean and reusable functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does DRY stand for?",
+    "options": [
+      "Don't Repeat Yourself",
+      "Do Repeat Yourself",
+      "Don't Run Yourself",
+      "Do Run Yourself"
+    ],
+    "answerIndex": 0,
+    "answer": "Don't Repeat Yourself",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "DRY is a principle to avoid code duplication."
+  },
+  {
+    "id": 86,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What error occurs when you reference a local variable before it is assigned?",
+    "options": [
+      "NameError",
+      "UnboundLocalError",
+      "TypeError",
+      "ValueError"
+    ],
+    "answerIndex": 1,
+    "answer": "UnboundLocalError",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "UnboundLocalError is raised when a local variable is referenced before assignment."
+  },
+  {
+    "id": 87,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does the `pdb` module provide?",
+    "options": [
+      "Profiling tools",
+      "Python Debugger",
+      "Testing framework",
+      "Code formatter"
+    ],
+    "answerIndex": 1,
+    "answer": "Python Debugger",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "pdb is the built‑in Python debugger."
+  },
+  {
+    "id": 88,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the most common mistake when using mutable default arguments?",
+    "options": [
+      "SyntaxError",
+      "Unintended data sharing across calls",
+      "TypeError",
+      "Memory leak"
+    ],
+    "answerIndex": 1,
+    "answer": "Unintended data sharing across calls",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Mutable defaults are shared across calls, causing surprising state accumulation."
+  },
+  {
+    "id": 89,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What error is raised by `def f(): return 1/0; f()`?",
+    "options": [
+      "ZeroDivisionError",
+      "TypeError",
+      "ValueError",
+      "NameError"
+    ],
+    "answerIndex": 0,
+    "answer": "ZeroDivisionError",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Division by zero raises ZeroDivisionError."
+  },
+  {
+    "id": 90,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): print(x); x=5; f()`",
+    "options": [
+      "5",
+      "Error",
+      "None",
+      "UnboundLocalError"
+    ],
+    "answerIndex": 3,
+    "answer": "UnboundLocalError",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Because x is assigned later, it becomes local; referencing it before assignment raises UnboundLocalError."
+  },
+  {
+    "id": 91,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): global x; x=5; f(); print(x)`",
+    "options": [
+      "5",
+      "Error",
+      "None",
+      "NameError"
+    ],
+    "answerIndex": 0,
+    "answer": "5",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "global x creates a global variable and sets it to 5."
+  },
+  {
+    "id": 92,
+    "topic": "Common Errors and Debugging in Functions",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): x=10; def g(): nonlocal x; x=20; g(); print(x); f()`",
+    "options": [
+      "10",
+      "20",
+      "Error",
+      "None"
+    ],
+    "answerIndex": 1,
+    "answer": "20",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "nonlocal modifies x in the enclosing function f, changing it to 20."
+  },
+  {
+    "id": 93,
+    "topic": "Introduction to Functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the primary benefit of using functions?",
+    "options": [
+      "Faster execution",
+      "Code reusability and modularity",
+      "Less memory usage",
+      "Automatic error handling"
+    ],
+    "answerIndex": 1,
+    "answer": "Code reusability and modularity",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Functions promote code reuse and break programs into manageable parts."
+  },
+  {
+    "id": 94,
+    "topic": "Function Declaration vs Function Calling (Invocation)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): return 5; print(f)`",
+    "options": [
+      "5",
+      "<function f at 0x...>",
+      "None",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "<function f at 0x...>",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Without parentheses, it prints the function object, not the result."
+  },
+  {
+    "id": 95,
+    "topic": "Types of Functions: Built-in vs User-defined functions",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "Which function is built-in?",
+    "options": [
+      "input()",
+      "read()",
+      "write()",
+      "open_file()"
+    ],
+    "answerIndex": 0,
+    "answer": "input()",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "input() is a built-in function for reading user input."
+  },
+  {
+    "id": 96,
+    "topic": "Parameters and Arguments: Meaning and differences",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "In `def multiply(x, y): return x*y`, `x` and `y` are:",
+    "options": [
+      "Arguments",
+      "Parameters",
+      "Globals",
+      "Return values"
+    ],
+    "answerIndex": 1,
+    "answer": "Parameters",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "They are parameters (variables in the function definition)."
+  },
+  {
+    "id": 97,
+    "topic": "Default Parameter Values and their usage",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of: `def f(a, b=5): return a+b; print(f(3))`",
+    "options": [
+      "8",
+      "3",
+      "5",
+      "Error"
+    ],
+    "answerIndex": 0,
+    "answer": "8",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "3+5=8."
+  },
+  {
+    "id": 98,
+    "topic": "Variable-Length Arguments: *args (non-keyword arguments)",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What does `def f(*args): return args` return for `f(1,2,3)`?",
+    "options": [
+      "[1,2,3]",
+      "(1,2,3)",
+      "1",
+      "Error"
+    ],
+    "answerIndex": 1,
+    "answer": "(1,2,3)",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "*args collects arguments into a tuple."
+  },
+  {
+    "id": 99,
+    "topic": "Return Statement: Returning single and multiple values",
+    "level": "Beginner",
+    "difficultyColor": "green",
+    "type": "mcq",
+    "question": "What is the output of: `def f(): return 1,2; print(type(f()))`",
+    "options": [
+      "<class 'tuple'>",
+      "<class 'list'>",
+      "<class 'int'>",
+      "<class 'NoneType'>"
+    ],
+    "answerIndex": 0,
+    "answer": "<class 'tuple'>",
+    "marks": 1,
+    "negativeMarks": 0,
+    "explanation": "Multiple return values are packed into a tuple."
+  },
+  {
+    "id": 100,
+    "topic": "Scope of Variables: Local Scope and Global Scope",
+    "level": "Intermediate",
+    "difficultyColor": "orange",
+    "type": "mcq",
+    "question": "What is the output of: `x=10; def f(): global x; x=20; def g(): global x; x=30; g(); f(); print(x)`",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "Error"
+    ],
+    "answerIndex": 2,
+    "answer": "30",
+    "marks": 2,
+    "negativeMarks": 0,
+    "explanation": "Both f and g modify the same global x; last assignment sets x=30."
+  }
+]

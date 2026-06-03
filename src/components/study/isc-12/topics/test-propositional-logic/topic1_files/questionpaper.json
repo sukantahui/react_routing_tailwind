@@ -1,0 +1,1068 @@
+{
+  "paperId": "PROP-LOGIC-SECT-C-001",
+  "title": "Propositional Logic - Section C Question Bank",
+  "duration": "1.5 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 20,
+      "questions": [
+        {
+          "q": "Verify: P ∧ (¬P ∨ Q') ≡ (P ⇒ Q)'",
+          "marks": 5,
+          "original": "P ∧ (¬P ∨ Q')",
+          "answer": "(P ⇒ Q)'",
+          "simplified": "(P ⇒ Q)'",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Replace the prime notation (Q') with standard logical negation (¬Q).",
+              "expression": "P ∧ (¬P ∨ ¬Q)",
+              "law": "Notation: Q' = ¬Q",
+              "note": "This makes all operators uniform for simplification."
+            },
+            {
+              "step": 2,
+              "action": "Apply the Distributive Law: P ∧ (X ∨ Y) = (P ∧ X) ∨ (P ∧ Y). Here X = ¬P, Y = ¬Q.",
+              "expression": "(P ∧ ¬P) ∨ (P ∧ ¬Q)",
+              "law": "Distributivity of ∧ over ∨",
+              "note": "This distributes P into the disjunction."
+            },
+            {
+              "step": 3,
+              "action": "Apply the Complement Law: P ∧ ¬P = False (a proposition cannot be both true and false).",
+              "expression": "False ∨ (P ∧ ¬Q)",
+              "law": "Complement law (also called Law of contradiction)",
+              "note": "The first term becomes logically false."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Identity Law for disjunction: False ∨ X = X. Remove the false term.",
+              "expression": "P ∧ ¬Q",
+              "law": "Identity law (False is identity for ∨)",
+              "note": "The expression now contains only P and ¬Q."
+            },
+            {
+              "step": 5,
+              "action": "Recall the definition of implication: P ⇒ Q ≡ ¬P ∨ Q. We want to relate P ∧ ¬Q to this.",
+              "expression": "¬(¬P ∨ Q)",
+              "law": "Definition of ⇒",
+              "note": "Because ¬(¬P ∨ Q) simplifies to P ∧ ¬Q by De Morgan."
+            },
+            {
+              "step": 6,
+              "action": "Apply De Morgan’s Law: ¬(¬P ∨ Q) = ¬¬P ∧ ¬Q.",
+              "expression": "P ∧ ¬Q",
+              "law": "De Morgan: ¬(A ∨ B) = ¬A ∧ ¬B, then double negation ¬¬P = P",
+              "note": "This confirms that P ∧ ¬Q is exactly the negation of P ⇒ Q."
+            },
+            {
+              "step": 7,
+              "action": "Conclude that P ∧ ¬Q is the negation of (P ⇒ Q).",
+              "expression": "¬(P ⇒ Q)",
+              "law": "Negation of implication",
+              "note": "The left side has been transformed to ¬(P ⇒ Q)."
+            },
+            {
+              "step": 8,
+              "action": "Rewrite the negation using the prime notation as required by the right-hand side.",
+              "expression": "(P ⇒ Q)'",
+              "law": "Notation: ¬X = X'",
+              "note": "This matches the target expression exactly."
+            }
+          ],
+          "explanation": "Starting from P ∧ (¬P ∨ Q'), we replace Q' with ¬Q, distribute, simplify the contradiction to False, then use identity to get P ∧ ¬Q. Recognizing that P ∧ ¬Q is ¬(P ⇒ Q) and converting back to prime notation proves the equivalence."
+        },
+        {
+          "q": "Show that [(p ⇒ q) ∧ (q ⇒ r)] ⇒ (p ⇒ r) is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology (Hypothetical Syllogism).",
+          "simplified": "True",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite each implication using the law p ⇒ q ≡ ¬p ∨ q.",
+              "expression": "[(¬p ∨ q) ∧ (¬q ∨ r)] ⇒ (¬p ∨ r)",
+              "law": "Implication law (material implication)",
+              "note": "This eliminates all → symbols, leaving only ∨, ∧, and ¬."
+            },
+            {
+              "step": 2,
+              "action": "Apply the implication law to the outer ⇒: A ⇒ B ≡ ¬A ∨ B. Here A = (¬p ∨ q) ∧ (¬q ∨ r), B = (¬p ∨ r).",
+              "expression": "¬[(¬p ∨ q) ∧ (¬q ∨ r)] ∨ (¬p ∨ r)",
+              "law": "Implication law (again)",
+              "note": "The whole statement becomes a disjunction: negation of the antecedent OR the consequent."
+            },
+            {
+              "step": 3,
+              "action": "Apply De Morgan's law to the negation of the conjunction: ¬(X ∧ Y) ≡ ¬X ∨ ¬Y.",
+              "expression": "[¬(¬p ∨ q) ∨ ¬(¬q ∨ r)] ∨ (¬p ∨ r)",
+              "law": "De Morgan's law",
+              "note": "The negation distributes over the ∧, turning it into ∨ of negations."
+            },
+            {
+              "step": 4,
+              "action": "Apply De Morgan's law again to each inner negation: ¬(¬p ∨ q) ≡ ¬¬p ∧ ¬q, and ¬(¬q ∨ r) ≡ ¬¬q ∧ ¬r.",
+              "expression": "[(¬¬p ∧ ¬q) ∨ (¬¬q ∧ ¬r)] ∨ (¬p ∨ r)",
+              "law": "De Morgan's law (second application)",
+              "note": "Now we have negations of disjunctions becoming conjunctions of negations."
+            },
+            {
+              "step": 5,
+              "action": "Apply double negation elimination: ¬¬p ≡ p, ¬¬q ≡ q.",
+              "expression": "[(p ∧ ¬q) ∨ (q ∧ ¬r)] ∨ (¬p ∨ r)",
+              "law": "Double negation elimination",
+              "note": "The double negations cancel out, leaving simple literals."
+            },
+            {
+              "step": 6,
+              "action": "Use associativity and commutativity of ∨ to rearrange terms: group (p ∧ ¬q) with ¬p, and (q ∧ ¬r) with r.",
+              "expression": "[(p ∧ ¬q) ∨ ¬p] ∨ [(q ∧ ¬r) ∨ r]",
+              "law": "Associative and commutative laws",
+              "note": "This regrouping helps to apply distributive laws separately."
+            },
+            {
+              "step": 7,
+              "action": "Simplify (p ∧ ¬q) ∨ ¬p. Apply the distributive law in reverse: (p ∧ ¬q) ∨ ¬p ≡ (¬p ∨ p) ∧ (¬p ∨ ¬q).",
+              "expression": "(True) ∧ (¬p ∨ ¬q) ≡ ¬p ∨ ¬q",
+              "law": "Distributivity, complement law (¬p ∨ p = True), identity law",
+              "note": "Alternatively, notice that if ¬p is true, the whole is true; if ¬p is false (p true), then (p∧¬q) forces ¬q. This simplifies to ¬p ∨ ¬q."
+            },
+            {
+              "step": 8,
+              "action": "Simplify (q ∧ ¬r) ∨ r similarly: (q ∧ ¬r) ∨ r ≡ (r ∨ q) ∧ (r ∨ ¬r) ≡ (r ∨ q) ∧ True ≡ r ∨ q.",
+              "expression": "r ∨ q",
+              "law": "Distributivity, complement law (r ∨ ¬r = True), identity law",
+              "note": "This is symmetric to step 7; the result is r ∨ q."
+            },
+            {
+              "step": 9,
+              "action": "Now the whole expression becomes (¬p ∨ ¬q) ∨ (r ∨ q). Remove parentheses (associative law).",
+              "expression": "¬p ∨ ¬q ∨ r ∨ q",
+              "law": "Associative law",
+              "note": "We have a disjunction of four literals."
+            },
+            {
+              "step": 10,
+              "action": "Group ¬q and q together: ¬p ∨ (¬q ∨ q) ∨ r.",
+              "expression": "¬p ∨ (True) ∨ r",
+              "law": "Complement law (¬q ∨ q = True)",
+              "note": "¬q and q cancel each other, leaving True."
+            },
+            {
+              "step": 11,
+              "action": "Apply the domination law: True ∨ X = True.",
+              "expression": "True",
+              "law": "Domination law (True ∨ anything = True)",
+              "note": "The entire expression simplifies to the constant True."
+            },
+            {
+              "step": 12,
+              "action": "Conclude that the original statement is a tautology.",
+              "expression": "True",
+              "law": "Definition of tautology",
+              "note": "Since the expression simplifies to True for all truth assignments, it is a tautology."
+            }
+          ],
+          "explanation": "This is the hypothetical syllogism: if p implies q and q implies r, then p implies r. Using logical equivalences (implication laws, De Morgan, distribution, complement, and identity), the whole expression reduces to True, proving it is a tautology."
+        },
+        {
+          "q": "Show that [(p ⇒ q) ∧ p] ⇒ q is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology (Modus Ponens).",
+          "simplified": "True",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite the implication p ⇒ q as ¬p ∨ q.",
+              "expression": "[(¬p ∨ q) ∧ p] ⇒ q",
+              "law": "Implication law",
+              "note": "This eliminates the implication symbol inside the antecedent."
+            },
+            {
+              "step": 2,
+              "action": "Apply the Distributive Law to the antecedent: (¬p ∨ q) ∧ p = (¬p ∧ p) ∨ (q ∧ p).",
+              "expression": "(¬p ∧ p) ∨ (p ∧ q)",
+              "law": "Distributivity of ∧ over ∨, and commutativity",
+              "note": "p is distributed over the disjunction."
+            },
+            {
+              "step": 3,
+              "action": "Apply the Complement Law: ¬p ∧ p = False.",
+              "expression": "False ∨ (p ∧ q)",
+              "law": "Complement law (contradiction)",
+              "note": "A statement and its negation cannot both be true."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Identity Law for disjunction: False ∨ X = X.",
+              "expression": "p ∧ q",
+              "law": "Identity law",
+              "note": "The antecedent simplifies to p ∧ q."
+            },
+            {
+              "step": 5,
+              "action": "Now the whole statement becomes (p ∧ q) ⇒ q. Rewrite this implication as ¬(p ∧ q) ∨ q.",
+              "expression": "¬(p ∧ q) ∨ q",
+              "law": "Implication law",
+              "note": "Convert back to disjunction form."
+            },
+            {
+              "step": 6,
+              "action": "Apply De Morgan’s Law: ¬(p ∧ q) = ¬p ∨ ¬q.",
+              "expression": "(¬p ∨ ¬q) ∨ q",
+              "law": "De Morgan's law",
+              "note": "Negation of a conjunction becomes a disjunction of negations."
+            },
+            {
+              "step": 7,
+              "action": "Use associativity to regroup: ¬p ∨ (¬q ∨ q).",
+              "expression": "¬p ∨ (¬q ∨ q)",
+              "law": "Associative law",
+              "note": "Group the terms involving q."
+            },
+            {
+              "step": 8,
+              "action": "Apply the Complement Law: ¬q ∨ q = True.",
+              "expression": "¬p ∨ True",
+              "law": "Complement law (excluded middle)",
+              "note": "q is either true or false."
+            },
+            {
+              "step": 9,
+              "action": "Apply the Domination Law: ¬p ∨ True = True.",
+              "expression": "True",
+              "law": "Domination law (X ∨ True = True)",
+              "note": "The whole expression is always true."
+            }
+          ],
+          "explanation": "This is Modus Ponens: if p implies q and p is true, then q must be true. The algebraic simplification shows the whole implication reduces to True."
+        },
+        {
+          "q": "Verify: P ∨ (¬P ∧ Q) ≡ P ∨ Q",
+          "marks": 5,
+          "original": "P ∨ (¬P ∧ Q)",
+          "answer": "P ∨ Q",
+          "simplified": "P ∨ Q",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Apply the Distributive Law in reverse: P ∨ (X ∧ Y) = (P ∨ X) ∧ (P ∨ Y). Here X = ¬P, Y = Q.",
+              "expression": "(P ∨ ¬P) ∧ (P ∨ Q)",
+              "law": "Distributivity of ∨ over ∧",
+              "note": "This is the reverse of the usual distribution."
+            },
+            {
+              "step": 2,
+              "action": "Apply the Complement Law: P ∨ ¬P = True (law of excluded middle).",
+              "expression": "True ∧ (P ∨ Q)",
+              "law": "Complement law",
+              "note": "A proposition or its negation is always true."
+            },
+            {
+              "step": 3,
+              "action": "Apply the Identity Law for conjunction: True ∧ X = X.",
+              "expression": "P ∨ Q",
+              "law": "Identity law",
+              "note": "The True term disappears, leaving P ∨ Q."
+            }
+          ],
+          "explanation": "This is a form of the absorption law. Intuitively, if P is true, both sides are true; if P is false, the left side becomes Q and the right side becomes Q. Hence they are equivalent."
+        },
+        {
+          "q": "Simplify: (P ∧ Q) ∨ (P ∧ ¬Q) ∨ (¬P ∧ Q)",
+          "marks": 5,
+          "original": "(P ∧ Q) ∨ (P ∧ ¬Q) ∨ (¬P ∧ Q)",
+          "answer": "P ∨ Q",
+          "simplified": "P ∨ Q",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Group the first two terms: (P ∧ Q) ∨ (P ∧ ¬Q). Factor out P using the distributive law.",
+              "expression": "P ∧ (Q ∨ ¬Q) ∨ (¬P ∧ Q)",
+              "law": "Distributive law (reverse): (P∧X) ∨ (P∧Y) = P ∧ (X∨Y)",
+              "note": "P is common in the first two conjuncts."
+            },
+            {
+              "step": 2,
+              "action": "Apply the Complement Law: Q ∨ ¬Q = True.",
+              "expression": "P ∧ True ∨ (¬P ∧ Q)",
+              "law": "Complement law",
+              "note": "Q is either true or false, so Q∨¬Q is always true."
+            },
+            {
+              "step": 3,
+              "action": "Apply the Identity Law: P ∧ True = P.",
+              "expression": "P ∨ (¬P ∧ Q)",
+              "law": "Identity law",
+              "note": "The expression reduces to P ∨ (¬P ∧ Q)."
+            },
+            {
+              "step": 4,
+              "action": "Now apply the distributive law again: P ∨ (¬P ∧ Q) = (P ∨ ¬P) ∧ (P ∨ Q).",
+              "expression": "(P ∨ ¬P) ∧ (P ∨ Q)",
+              "law": "Distributivity of ∨ over ∧",
+              "note": "This is the same pattern as in the previous question."
+            },
+            {
+              "step": 5,
+              "action": "Apply the Complement Law: P ∨ ¬P = True.",
+              "expression": "True ∧ (P ∨ Q)",
+              "law": "Complement law",
+              "note": "The first disjunction is always true."
+            },
+            {
+              "step": 6,
+              "action": "Apply the Identity Law: True ∧ (P ∨ Q) = P ∨ Q.",
+              "expression": "P ∨ Q",
+              "law": "Identity law",
+              "note": "The final simplified form is P ∨ Q."
+            }
+          ],
+          "explanation": "The expression covers all cases where at least one of P or Q is true, except the case where both are false. Thus it simplifies to P ∨ Q."
+        },
+        {
+          "q": "Prove that (P → Q) ∨ (Q → P) is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology.",
+          "simplified": "True",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite each implication using p → q ≡ ¬p ∨ q.",
+              "expression": "(¬P ∨ Q) ∨ (¬Q ∨ P)",
+              "law": "Implication law",
+              "note": "This eliminates the → symbols."
+            },
+            {
+              "step": 2,
+              "action": "Remove parentheses using the associative law (since ∨ is associative).",
+              "expression": "¬P ∨ Q ∨ ¬Q ∨ P",
+              "law": "Associative law",
+              "note": "The order of evaluation does not matter."
+            },
+            {
+              "step": 3,
+              "action": "Rearrange the terms using the commutative law to group complementary pairs together.",
+              "expression": "(¬P ∨ P) ∨ (Q ∨ ¬Q)",
+              "law": "Commutative law",
+              "note": "Group ¬P with P and Q with ¬Q."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Complement Law: ¬P ∨ P = True and Q ∨ ¬Q = True.",
+              "expression": "True ∨ True",
+              "law": "Complement law (excluded middle)",
+              "note": "Each complementary pair is always true."
+            },
+            {
+              "step": 5,
+              "action": "Apply the Idempotent law (or Domination): True ∨ True = True.",
+              "expression": "True",
+              "law": "Idempotent law / Domination",
+              "note": "Disjunction of True with anything is True."
+            }
+          ],
+          "explanation": "For any P and Q, either P→Q or Q→P must be true. This is a classic tautology that follows from the law of excluded middle."
+        },
+        {
+          "q": "Using truth table, check if (P ⊕ Q) and (P ↔ ¬Q) are logically equivalent.",
+          "marks": 5,
+          "original": "P ⊕ Q  (XOR)",
+          "compare": "P ↔ ¬Q",
+          "answer": "Yes, they are equivalent.",
+          "equivalent": true,
+          "truthTable": [
+            {
+              "P": 0,
+              "Q": 0,
+              "P⊕Q": 0,
+              "¬Q": 1,
+              "P↔¬Q": 0
+            },
+            {
+              "P": 0,
+              "Q": 1,
+              "P⊕Q": 1,
+              "¬Q": 0,
+              "P↔¬Q": 1
+            },
+            {
+              "P": 1,
+              "Q": 0,
+              "P⊕Q": 1,
+              "¬Q": 1,
+              "P↔¬Q": 1
+            },
+            {
+              "P": 1,
+              "Q": 1,
+              "P⊕Q": 0,
+              "¬Q": 0,
+              "P↔¬Q": 0
+            }
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "action": "List all possible combinations of truth values for P and Q (4 rows).",
+              "expression": "P, Q ∈ {0,1}",
+              "law": "Truth table method",
+              "note": "Each row represents a possible scenario."
+            },
+            {
+              "step": 2,
+              "action": "Compute P ⊕ Q (exclusive OR): true when P and Q differ.",
+              "expression": "0⊕0=0, 0⊕1=1, 1⊕0=1, 1⊕1=0",
+              "law": "Definition of XOR",
+              "note": "XOR is true iff exactly one operand is true."
+            },
+            {
+              "step": 3,
+              "action": "Compute ¬Q (negation of Q).",
+              "expression": "¬0=1, ¬1=0",
+              "law": "Negation",
+              "note": "Flip the truth value of Q."
+            },
+            {
+              "step": 4,
+              "action": "Compute P ↔ ¬Q (biconditional): true when P and ¬Q have the same value.",
+              "expression": "0↔1=0, 0↔0=1, 1↔1=1, 1↔0=0",
+              "law": "Definition of ↔",
+              "note": "Biconditional is true iff both sides are equal."
+            },
+            {
+              "step": 5,
+              "action": "Compare the column for P⊕Q with the column for P↔¬Q.",
+              "expression": "They are identical: [0,1,1,0]",
+              "law": "Equivalence of truth tables",
+              "note": "All corresponding entries match."
+            }
+          ],
+          "explanation": "The truth tables for (P⊕Q) and (P↔¬Q) are identical; therefore the two expressions are logically equivalent. XOR is true exactly when P and Q differ, which is the same as P being equivalent to ¬Q."
+        },
+        {
+          "q": "Simplify: (P → Q) ∧ (¬P → Q)",
+          "marks": 5,
+          "original": "(P → Q) ∧ (¬P → Q)",
+          "answer": "Q",
+          "simplified": "Q",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite both implications using p → q ≡ ¬p ∨ q.",
+              "expression": "(¬P ∨ Q) ∧ (¬¬P ∨ Q)",
+              "law": "Implication law",
+              "note": "First implication: P→Q = ¬P∨Q. Second: ¬P→Q = ¬(¬P)∨Q."
+            },
+            {
+              "step": 2,
+              "action": "Apply double negation: ¬¬P = P.",
+              "expression": "(¬P ∨ Q) ∧ (P ∨ Q)",
+              "law": "Double negation elimination",
+              "note": "This simplifies the second clause."
+            },
+            {
+              "step": 3,
+              "action": "Use the distributive law in reverse: (X ∨ Q) ∧ (Y ∨ Q) = Q ∨ (X ∧ Y). Here X = ¬P, Y = P.",
+              "expression": "Q ∨ (¬P ∧ P)",
+              "law": "Distribution: (A∨C)∧(B∨C) ≡ C∨(A∧B)",
+              "note": "Factor out Q from both clauses."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Complement Law: ¬P ∧ P = False.",
+              "expression": "Q ∨ False",
+              "law": "Complement law (contradiction)",
+              "note": "A statement and its negation cannot both be true."
+            },
+            {
+              "step": 5,
+              "action": "Apply the Identity Law for disjunction: Q ∨ False = Q.",
+              "expression": "Q",
+              "law": "Identity law",
+              "note": "The false term disappears."
+            }
+          ],
+          "explanation": "Whether P is true or false, both implications force Q to be true. Therefore the conjunction simplifies to just Q."
+        },
+        {
+          "q": "Prove the resolution rule: ((P ∨ Q) ∧ (¬P ∨ R)) → (Q ∨ R) is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology.",
+          "simplified": "True",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Assume the antecedent is true: (P ∨ Q) = True and (¬P ∨ R) = True. We aim to show (Q ∨ R) must be True.",
+              "expression": "Antecedent true",
+              "law": "Implication is false only if antecedent true and consequent false",
+              "note": "We search for a counterexample; if none exists, it's a tautology."
+            },
+            {
+              "step": 2,
+              "action": "Consider the two possible truth values of P (law of excluded middle).",
+              "expression": "Case 1: P = True. Case 2: P = False.",
+              "law": "Proof by cases",
+              "note": "Every scenario falls into one of these two cases."
+            },
+            {
+              "step": 3,
+              "action": "Case 1: P = True. Then from (¬P ∨ R) we have (False ∨ R) = R, so R must be True. Hence Q ∨ R is True (since R is True).",
+              "expression": "P=True ⇒ R=True ⇒ Q∨R=True",
+              "law": "Disjunctive syllogism",
+              "note": "If P is true, the second clause forces R true."
+            },
+            {
+              "step": 4,
+              "action": "Case 2: P = False. Then from (P ∨ Q) we have (False ∨ Q) = Q, so Q must be True. Hence Q ∨ R is True (since Q is True).",
+              "expression": "P=False ⇒ Q=True ⇒ Q∨R=True",
+              "law": "Disjunctive syllogism",
+              "note": "If P is false, the first clause forces Q true."
+            },
+            {
+              "step": 5,
+              "action": "In both cases, whenever the antecedent holds, the consequent (Q ∨ R) holds. No assignment makes antecedent true and consequent false.",
+              "expression": "No counterexample exists",
+              "law": "Proof by cases",
+              "note": "The implication cannot be false."
+            },
+            {
+              "step": 6,
+              "action": "Therefore ((P ∨ Q) ∧ (¬P ∨ R)) → (Q ∨ R) is a tautology.",
+              "expression": "True",
+              "law": "Definition of tautology",
+              "note": "The formula is true for all truth assignments."
+            }
+          ],
+          "explanation": "The resolution rule is fundamental in logic programming and automated theorem proving. This proof shows that if both clauses (P∨Q) and (¬P∨R) are satisfied, then (Q∨R) must be satisfied."
+        },
+        {
+          "q": "Show that (P ∧ (P → Q)) → Q is a tautology using a truth table.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology.",
+          "truthTable": [
+            {
+              "P": 0,
+              "Q": 0,
+              "P→Q": 1,
+              "P∧(P→Q)": 0,
+              "(P∧(P→Q))→Q": 1
+            },
+            {
+              "P": 0,
+              "Q": 1,
+              "P→Q": 1,
+              "P∧(P→Q)": 0,
+              "(P∧(P→Q))→Q": 1
+            },
+            {
+              "P": 1,
+              "Q": 0,
+              "P→Q": 0,
+              "P∧(P→Q)": 0,
+              "(P∧(P→Q))→Q": 1
+            },
+            {
+              "P": 1,
+              "Q": 1,
+              "P→Q": 1,
+              "P∧(P→Q)": 1,
+              "(P∧(P→Q))→Q": 1
+            }
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "action": "List all combinations of P and Q (4 rows).",
+              "expression": "P, Q ∈ {0,1}",
+              "law": "Truth table method",
+              "note": "We evaluate the formula for each row."
+            },
+            {
+              "step": 2,
+              "action": "Compute P → Q for each row: false only when P=1 and Q=0.",
+              "expression": "Row1:0→0=1, Row2:0→1=1, Row3:1→0=0, Row4:1→1=1",
+              "law": "Definition of implication",
+              "note": "Implication is true except when antecedent true and consequent false."
+            },
+            {
+              "step": 3,
+              "action": "Compute P ∧ (P → Q): true only when both P and (P→Q) are true.",
+              "expression": "Row1:0∧1=0, Row2:0∧1=0, Row3:1∧0=0, Row4:1∧1=1",
+              "law": "Definition of conjunction",
+              "note": "Conjunction requires both operands true."
+            },
+            {
+              "step": 4,
+              "action": "Compute the final implication [P ∧ (P→Q)] → Q: false only when antecedent true and consequent false.",
+              "expression": "Row1:0→0=1, Row2:0→1=1, Row3:0→0=1, Row4:1→1=1",
+              "law": "Definition of implication",
+              "note": "In row4, antecedent=1 and consequent=1, so true; all others have antecedent=0, so true."
+            },
+            {
+              "step": 5,
+              "action": "Observe that the final column is all 1s (True).",
+              "expression": "All entries are True",
+              "law": "Tautology definition",
+              "note": "The formula holds in every possible situation."
+            }
+          ],
+          "explanation": "The truth table shows that (P ∧ (P→Q)) → Q is true for all four assignments, hence a tautology (Modus Ponens)."
+        },
+        {
+          "q": "Simplify: (P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q) ∧ (¬P ∨ ¬Q)",
+          "marks": 5,
+          "original": "(P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q) ∧ (¬P ∨ ¬Q)",
+          "answer": "False",
+          "simplified": "False",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Combine the first two clauses: (P ∨ Q) ∧ (¬P ∨ Q). As shown in Q8, this simplifies to Q.",
+              "expression": "Q",
+              "law": "Simplification: (X∨Z)∧(¬X∨Z) ≡ Z",
+              "note": "Because if Q is true, both clauses are true; if Q is false, one of them becomes false."
+            },
+            {
+              "step": 2,
+              "action": "Combine the last two clauses: (P ∨ ¬Q) ∧ (¬P ∨ ¬Q). Using the same pattern with ¬Q in place of Q, this simplifies to ¬Q.",
+              "expression": "¬Q",
+              "law": "Same as step 1: (X∨Y)∧(¬X∨Y) ≡ Y, here Y = ¬Q",
+              "note": "Replace Q by ¬Q in the pattern."
+            },
+            {
+              "step": 3,
+              "action": "Now the entire conjunction reduces to Q ∧ ¬Q.",
+              "expression": "Q ∧ ¬Q",
+              "law": "Conjunction of the two simplified parts",
+              "note": "We have combined all four original clauses into two."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Complement Law: Q ∧ ¬Q = False.",
+              "expression": "False",
+              "law": "Complement law (contradiction)",
+              "note": "A proposition cannot be both true and false."
+            }
+          ],
+          "explanation": "The four clauses together force both Q and ¬Q to be true, which is impossible. Therefore the entire expression is a contradiction (False)."
+        },
+        {
+          "q": "Verify the equivalence: (P → (Q → R)) ≡ ((P ∧ Q) → R)",
+          "marks": 5,
+          "type": "equivalence",
+          "answer": "They are equivalent (exportation law).",
+          "equivalent": "(P ∧ Q) → R",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Start with the left side: P → (Q → R). Rewrite the inner implication Q → R as ¬Q ∨ R.",
+              "expression": "P → (¬Q ∨ R)",
+              "law": "Implication law",
+              "note": "Remove the inner → first."
+            },
+            {
+              "step": 2,
+              "action": "Rewrite the outer implication P → (¬Q ∨ R) as ¬P ∨ (¬Q ∨ R).",
+              "expression": "¬P ∨ ¬Q ∨ R",
+              "law": "Implication law again",
+              "note": "Now both → have been eliminated."
+            },
+            {
+              "step": 3,
+              "action": "Use the associative law to group ¬P and ¬Q together: (¬P ∨ ¬Q) ∨ R.",
+              "expression": "(¬P ∨ ¬Q) ∨ R",
+              "law": "Associative law",
+              "note": "Parentheses do not matter for ∨."
+            },
+            {
+              "step": 4,
+              "action": "Apply De Morgan's law to ¬P ∨ ¬Q, which is equivalent to ¬(P ∧ Q).",
+              "expression": "¬(P ∧ Q) ∨ R",
+              "law": "De Morgan's law",
+              "note": "The disjunction of negations is the negation of the conjunction."
+            },
+            {
+              "step": 5,
+              "action": "Rewrite the disjunction ¬(P ∧ Q) ∨ R as an implication: (P ∧ Q) → R.",
+              "expression": "(P ∧ Q) → R",
+              "law": "Implication law (reverse)",
+              "note": "This matches the right side exactly."
+            }
+          ],
+          "explanation": "This is the law of exportation, which shows that a nested implication is equivalent to an implication with a conjunctive antecedent."
+        },
+        {
+          "q": "Construct a truth table for (P ∨ ¬Q) → (Q ∧ ¬P). Is it a tautology, contradiction, or contingency?",
+          "marks": 5,
+          "answer": "Contingency (only row 2 is true).",
+          "truthTable": [
+            {
+              "P": 0,
+              "Q": 0,
+              "¬Q": 1,
+              "P∨¬Q": 1,
+              "¬P": 1,
+              "Q∧¬P": 0,
+              "(P∨¬Q)→(Q∧¬P)": 0
+            },
+            {
+              "P": 0,
+              "Q": 1,
+              "¬Q": 0,
+              "P∨¬Q": 0,
+              "¬P": 1,
+              "Q∧¬P": 1,
+              "(P∨¬Q)→(Q∧¬P)": 1
+            },
+            {
+              "P": 1,
+              "Q": 0,
+              "¬Q": 1,
+              "P∨¬Q": 1,
+              "¬P": 0,
+              "Q∧¬P": 0,
+              "(P∨¬Q)→(Q∧¬P)": 0
+            },
+            {
+              "P": 1,
+              "Q": 1,
+              "¬Q": 0,
+              "P∨¬Q": 1,
+              "¬P": 0,
+              "Q∧¬P": 0,
+              "(P∨¬Q)→(Q∧¬P)": 0
+            }
+          ],
+          "steps": [
+            {
+              "step": 1,
+              "action": "List all 4 combinations of P and Q.",
+              "expression": "Rows: (0,0), (0,1), (1,0), (1,1)",
+              "law": "Truth table enumeration",
+              "note": "Each row represents a possible scenario."
+            },
+            {
+              "step": 2,
+              "action": "Compute ¬Q and P ∨ ¬Q for each row.",
+              "expression": "Row1: ¬0=1, 0∨1=1; Row2: ¬1=0, 0∨0=0; Row3: ¬0=1, 1∨1=1; Row4: ¬1=0, 1∨0=1",
+              "law": "Negation and disjunction",
+              "note": "P∨¬Q is false only when P=0 and ¬Q=0 (i.e., P=0, Q=1)."
+            },
+            {
+              "step": 3,
+              "action": "Compute ¬P and Q ∧ ¬P for each row.",
+              "expression": "Row1: ¬0=1, 0∧1=0; Row2: ¬0=1, 1∧1=1; Row3: ¬1=0, 0∧0=0; Row4: ¬1=0, 1∧0=0",
+              "law": "Negation and conjunction",
+              "note": "Q∧¬P is true only when Q=1 and P=0."
+            },
+            {
+              "step": 4,
+              "action": "Compute the implication (P∨¬Q) → (Q∧¬P). Recall: A→B is false only when A=true and B=false.",
+              "expression": "Row1: 1→0 = 0; Row2: 0→1 = 1; Row3: 1→0 = 0; Row4: 1→0 = 0",
+              "law": "Definition of implication",
+              "note": "Only row2 gives true; others false."
+            },
+            {
+              "step": 5,
+              "action": "Determine the type: not all true (so not tautology), not all false (so not contradiction).",
+              "expression": "Mixed truth values",
+              "law": "Definition of contingency",
+              "note": "A contingency has at least one true and one false."
+            }
+          ],
+          "conclusion": "Contingency (not all true, not all false)",
+          "explanation": "Only the assignment P=0, Q=1 makes the implication true; all other assignments make it false. Hence it is a contingency."
+        },
+        {
+          "q": "Prove that (P ↔ Q) ≡ (P → Q) ∧ (Q → P) using logical laws.",
+          "marks": 5,
+          "original": "P ↔ Q",
+          "answer": "(P → Q) ∧ (Q → P)",
+          "equivalent": "(P → Q) ∧ (Q → P)",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Recall the definition of the biconditional (if and only if).",
+              "expression": "P ↔ Q is defined as (P → Q) ∧ (Q → P)",
+              "law": "Definition of ↔",
+              "note": "This is the standard logical equivalence used in logic."
+            }
+          ],
+          "explanation": "By definition, the biconditional is true exactly when both implications hold. Therefore the equivalence is immediate and requires no further steps."
+        },
+        {
+          "q": "Simplify: (P → Q) ∨ (P → ¬Q)",
+          "marks": 5,
+          "original": "(P → Q) ∨ (P → ¬Q)",
+          "answer": "True",
+          "simplified": "True",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite each implication using p → q ≡ ¬p ∨ q.",
+              "expression": "(¬P ∨ Q) ∨ (¬P ∨ ¬Q)",
+              "law": "Implication law",
+              "note": "This eliminates the → symbols."
+            },
+            {
+              "step": 2,
+              "action": "Use the associative law to remove parentheses (since ∨ is associative).",
+              "expression": "¬P ∨ Q ∨ ¬P ∨ ¬Q",
+              "law": "Associative law",
+              "note": "The order of evaluation does not matter."
+            },
+            {
+              "step": 3,
+              "action": "Apply the idempotent law: ¬P ∨ ¬P = ¬P.",
+              "expression": "¬P ∨ Q ∨ ¬Q",
+              "law": "Idempotent law (X ∨ X = X)",
+              "note": "Duplicate ¬P is reduced to a single occurrence."
+            },
+            {
+              "step": 4,
+              "action": "Group Q and ¬Q together: ¬P ∨ (Q ∨ ¬Q).",
+              "expression": "¬P ∨ (Q ∨ ¬Q)",
+              "law": "Associative law",
+              "note": "Parentheses are for clarity."
+            },
+            {
+              "step": 5,
+              "action": "Apply the Complement Law: Q ∨ ¬Q = True.",
+              "expression": "¬P ∨ True",
+              "law": "Complement law (excluded middle)",
+              "note": "Q is either true or false."
+            },
+            {
+              "step": 6,
+              "action": "Apply the Domination Law: ¬P ∨ True = True.",
+              "expression": "True",
+              "law": "Domination law (X ∨ True = True)",
+              "note": "The whole expression is always true."
+            }
+          ],
+          "explanation": "For any P, either P→Q or P→¬Q must be true (if P is false both are true; if P is true, then either Q or ¬Q is true). Hence the disjunction is a tautology."
+        },
+        {
+          "q": "Check validity: If it rains then the ground is wet. The ground is not wet. Therefore, it did not rain. Write in propositional form and verify using Modus Tollens.",
+          "marks": 5,
+          "propositions": "R: It rains, W: Ground is wet",
+          "premises": "R → W, ¬W",
+          "conclusion": "¬R",
+          "answer": "Valid (Modus Tollens).",
+          "valid": true,
+          "rule": "Modus Tollens",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Translate the English statements into propositional logic: 'If it rains then the ground is wet' becomes R → W. 'The ground is not wet' becomes ¬W. The conclusion 'it did not rain' is ¬R.",
+              "expression": "Premises: R → W, ¬W; Conclusion: ¬R",
+              "law": "Propositional translation",
+              "note": "We now have a logical argument."
+            },
+            {
+              "step": 2,
+              "action": "Recall Modus Tollens: From P → Q and ¬Q, we can infer ¬P.",
+              "expression": "Modus Tollens: (P → Q) ∧ ¬Q ⇒ ¬P",
+              "law": "Modus Tollens",
+              "note": "This is a valid inference rule."
+            },
+            {
+              "step": 3,
+              "action": "Substitute P = R, Q = W. Then the premises become R → W and ¬W.",
+              "expression": "Applying Modus Tollens with P=R, Q=W gives ¬R",
+              "law": "Substitution instance",
+              "note": "The pattern matches exactly."
+            },
+            {
+              "step": 4,
+              "action": "Therefore the conclusion ¬R follows logically from the premises.",
+              "expression": "Valid argument",
+              "law": "Modus Tollens",
+              "note": "No counterexample exists."
+            }
+          ],
+          "explanation": "The argument is a classic example of Modus Tollens: if the implication and the negation of the consequent hold, the negation of the antecedent must hold. Hence it is valid."
+        },
+        {
+          "q": "Prove that (P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q) is equivalent to P ∧ Q.",
+          "marks": 5,
+          "original": "(P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q)",
+          "answer": "P ∧ Q",
+          "finalSimplified": "P ∧ Q",
+          "steps": [
+            {
+              "step": 1,
+              "action": "First, combine the first two clauses: (P ∨ Q) ∧ (¬P ∨ Q). As previously shown, this simplifies to Q.",
+              "expression": "Q",
+              "law": "Simplification: (X∨Z)∧(¬X∨Z) ≡ Z",
+              "note": "This uses the fact that Q must be true for both clauses to hold."
+            },
+            {
+              "step": 2,
+              "action": "Now the whole expression becomes Q ∧ (P ∨ ¬Q).",
+              "expression": "Q ∧ (P ∨ ¬Q)",
+              "law": "Substitution",
+              "note": "We replaced the first two clauses with Q."
+            },
+            {
+              "step": 3,
+              "action": "Apply the Distributive Law: Q ∧ (P ∨ ¬Q) = (Q ∧ P) ∨ (Q ∧ ¬Q).",
+              "expression": "(Q ∧ P) ∨ (Q ∧ ¬Q)",
+              "law": "Distributivity of ∧ over ∨",
+              "note": "Distribute Q over the disjunction inside."
+            },
+            {
+              "step": 4,
+              "action": "Apply the Complement Law: Q ∧ ¬Q = False.",
+              "expression": "(Q ∧ P) ∨ False",
+              "law": "Complement law (contradiction)",
+              "note": "A proposition cannot be both true and false."
+            },
+            {
+              "step": 5,
+              "action": "Apply the Identity Law for disjunction: (Q ∧ P) ∨ False = Q ∧ P.",
+              "expression": "P ∧ Q",
+              "law": "Identity law (X ∨ False = X), and commutativity",
+              "note": "The false term disappears."
+            }
+          ],
+          "explanation": "The three clauses force both P and Q to be true. The expression simplifies to P ∧ Q."
+        },
+        {
+          "q": "Use logical equivalences to show that ¬(P → Q) ≡ P ∧ ¬Q.",
+          "marks": 5,
+          "original": "¬(P → Q)",
+          "answer": "P ∧ ¬Q",
+          "equivalent": "P ∧ ¬Q",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite the implication inside the negation: P → Q ≡ ¬P ∨ Q.",
+              "expression": "¬(¬P ∨ Q)",
+              "law": "Implication law",
+              "note": "Replace → with its definition."
+            },
+            {
+              "step": 2,
+              "action": "Apply De Morgan's Law to the negation of a disjunction: ¬(¬P ∨ Q) = ¬¬P ∧ ¬Q.",
+              "expression": "¬¬P ∧ ¬Q",
+              "law": "De Morgan: ¬(A ∨ B) = ¬A ∧ ¬B",
+              "note": "The negation distributes and flips the ∨ to ∧."
+            },
+            {
+              "step": 3,
+              "action": "Apply Double Negation: ¬¬P = P.",
+              "expression": "P ∧ ¬Q",
+              "law": "Double negation elimination",
+              "note": "Two negations cancel out."
+            }
+          ],
+          "explanation": "This is a standard equivalence: the negation of an implication is a conjunction of the antecedent and the negation of the consequent."
+        },
+        {
+          "q": "Prove that the following argument is invalid by finding a counterexample: If I study then I will pass. I did not study. Therefore, I will not pass.",
+          "marks": 5,
+          "propositions": "S: I study, P: I pass",
+          "premises": "S → P, ¬S",
+          "conclusion": "¬P",
+          "answer": "Invalid. Counterexample: S=false, P=true.",
+          "valid": false,
+          "counterexample": "S = false, P = true. Then S→P is true (false→true), ¬S is true, but ¬P is false. So premises true, conclusion false.",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Translate into propositional form: Premises = S → P, ¬S; Conclusion = ¬P.",
+              "expression": "S → P, ¬S ⊢ ¬P",
+              "law": "Propositional translation",
+              "note": "We check if the conclusion logically follows."
+            },
+            {
+              "step": 2,
+              "action": "To prove invalidity, find an assignment where all premises are true but the conclusion is false.",
+              "expression": "Look for counterexample",
+              "law": "Definition of logical validity",
+              "note": "An argument is valid iff no such assignment exists."
+            },
+            {
+              "step": 3,
+              "action": "Try S = false. Then ¬S is true. The premise S→P becomes false→P, which is true regardless of P. So both premises are true.",
+              "expression": "S=False ⇒ ¬S=True, S→P=True",
+              "law": "Truth table of implication",
+              "note": "False → anything is true."
+            },
+            {
+              "step": 4,
+              "action": "Now choose P = true. Then the conclusion ¬P becomes false. So we have premises true and conclusion false.",
+              "expression": "P=True ⇒ ¬P=False",
+              "law": "Negation",
+              "note": "This yields a counterexample."
+            },
+            {
+              "step": 5,
+              "action": "Since a counterexample exists (S=false, P=true), the argument is invalid.",
+              "expression": "Invalid",
+              "law": "Definition of invalidity",
+              "note": "The fallacy is called 'denying the antecedent'."
+            }
+          ],
+          "explanation": "The argument commits the fallacy of denying the antecedent. Even if you don't study, you could still pass by other means, so the conclusion does not follow."
+        },
+        {
+          "q": "Simplify using Boolean algebra: (P → Q) ∧ (¬P → R) ∧ (Q → S) ∧ (R → S)",
+          "marks": 5,
+          "original": "(P → Q) ∧ (¬P → R) ∧ (Q → S) ∧ (R → S)",
+          "answer": "S",
+          "finalSimplified": "S",
+          "steps": [
+            {
+              "step": 1,
+              "action": "Rewrite all implications: X → Y = ¬X ∨ Y.",
+              "expression": "(¬P ∨ Q) ∧ (P ∨ R) ∧ (¬Q ∨ S) ∧ (¬R ∨ S)",
+              "law": "Implication law",
+              "note": "This puts everything into conjunctive normal form."
+            },
+            {
+              "step": 2,
+              "action": "Apply the resolution rule to (¬P ∨ Q) and (¬Q ∨ S). Resolution says (A ∨ B) ∧ (¬B ∨ C) ⇒ (A ∨ C). Here A = ¬P, B = Q, C = S. This yields (¬P ∨ S).",
+              "expression": "(¬P ∨ S)",
+              "law": "Resolution rule",
+              "note": "We are deriving a new clause that is logically implied by the conjunction."
+            },
+            {
+              "step": 3,
+              "action": "Apply resolution to (P ∨ R) and (¬R ∨ S). Here A = P, B = R, C = S. This yields (P ∨ S).",
+              "expression": "(P ∨ S)",
+              "law": "Resolution rule",
+              "note": "Again, a derived clause."
+            },
+            {
+              "step": 4,
+              "action": "Now we have (¬P ∨ S) ∧ (P ∨ S) as part of the simplified expression (the other clauses are implied by these).",
+              "expression": "(¬P ∨ S) ∧ (P ∨ S)",
+              "law": "Simplification",
+              "note": "The original conjunction implies these two clauses."
+            },
+            {
+              "step": 5,
+              "action": "Simplify (¬P ∨ S) ∧ (P ∨ S) using the distributive law: (¬P ∧ P) ∨ S = False ∨ S = S.",
+              "expression": "S",
+              "law": "Distribution: (X∨Z)∧(Y∨Z) ≡ Z∨(X∧Y), then complement and identity",
+              "note": "This shows that S must be true."
+            }
+          ],
+          "explanation": "The four implications together force S to be true regardless of P. If P is true, then Q must be true (from P→Q) and then S from Q→S. If P is false, then R must be true (from ¬P→R) and then S from R→S. Hence the whole expression simplifies to S."
+        }
+      ]
+    }
+  ]
+}

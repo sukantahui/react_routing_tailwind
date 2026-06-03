@@ -1,0 +1,306 @@
+{
+  "paperId": "PROP-LOGIC-SECT-C-002",
+  "title": "Propositional Logic - Section C Practice Set 2",
+  "duration": "1.5 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "C",
+      "type": "Medium Answer (5 Marks Each)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 20,
+      "questions": [
+        {
+          "q": "Prove that (P → Q) ∧ (P → R) ≡ P → (Q ∧ R) using logical equivalences.",
+          "marks": 5,
+          "original": "(P → Q) ∧ (P → R)",
+          "answer": "P → (Q ∧ R)",
+          "simplified": "P → (Q ∧ R)",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∧ (¬P ∨ R)", "law": "Implication law" },
+            { "step": 2, "action": "Factor out ¬P", "expression": "¬P ∨ (Q ∧ R)", "law": "Distributive law: (X ∨ Y) ∧ (X ∨ Z) ≡ X ∨ (Y ∧ Z)" },
+            { "step": 3, "action": "Rewrite as implication", "expression": "P → (Q ∧ R)", "law": "Implication law" }
+          ],
+          "explanation": "The distribution of implication over conjunction is a standard equivalence."
+        },
+        {
+          "q": "Show that (P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q) is equivalent to P ∧ Q.",
+          "marks": 5,
+          "original": "(P ∨ Q) ∧ (¬P ∨ Q) ∧ (P ∨ ¬Q)",
+          "answer": "P ∧ Q",
+          "simplified": "P ∧ Q",
+          "steps": [
+            { "step": 1, "action": "Combine first two clauses", "expression": "(P ∨ Q) ∧ (¬P ∨ Q) ≡ Q", "law": "Resolution / Consensus" },
+            { "step": 2, "action": "Now we have Q ∧ (P ∨ ¬Q)", "expression": "", "law": "" },
+            { "step": 3, "action": "Distribute", "expression": "(Q ∧ P) ∨ (Q ∧ ¬Q)", "law": "Distributive law" },
+            { "step": 4, "action": "Complement law", "expression": "(Q ∧ P) ∨ False", "law": "Q ∧ ¬Q ≡ False" },
+            { "step": 5, "action": "Identity law", "expression": "P ∧ Q", "law": "X ∨ False ≡ X" }
+          ],
+          "explanation": "The expression simplifies to the conjunction of P and Q."
+        },
+        {
+          "q": "Verify the tautology: [(P → Q) ∧ (R → S) ∧ (P ∨ R)] → (Q ∨ S).",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology (Constructive Dilemma).",
+          "simplified": "True",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∧ (¬R ∨ S) ∧ (P ∨ R) → (Q ∨ S)", "law": "Implication law" },
+            { "step": 2, "action": "Assume antecedent true", "expression": "¬P ∨ Q, ¬R ∨ S, and P ∨ R all true", "law": "" },
+            { "step": 3, "action": "Case analysis on P", "expression": "If P true, then from ¬P ∨ Q, Q true → Q ∨ S true", "law": "" },
+            { "step": 4, "action": "If P false, then from P ∨ R, R true", "expression": "Then from ¬R ∨ S, S true → Q ∨ S true", "law": "" },
+            { "step": 5, "action": "Both cases lead to consequent true", "expression": "No counterexample → tautology", "law": "Proof by cases" }
+          ],
+          "explanation": "This is the constructive dilemma, a valid inference rule."
+        },
+        {
+          "q": "Simplify: (P → Q) ∨ (¬P → Q).",
+          "marks": 5,
+          "original": "(P → Q) ∨ (¬P → Q)",
+          "answer": "True",
+          "simplified": "True",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∨ (¬¬P ∨ Q)", "law": "Implication law" },
+            { "step": 2, "action": "Double negation", "expression": "(¬P ∨ Q) ∨ (P ∨ Q)", "law": "¬¬P ≡ P" },
+            { "step": 3, "action": "Associativity and commutativity", "expression": "(¬P ∨ P) ∨ (Q ∨ Q)", "law": "Reorder" },
+            { "step": 4, "action": "Complement and idempotent", "expression": "True ∨ Q", "law": "¬P ∨ P ≡ True, Q ∨ Q ≡ Q" },
+            { "step": 5, "action": "Identity", "expression": "True", "law": "True ∨ X ≡ True" }
+          ],
+          "explanation": "Regardless of P, at least one of the implications is true, making the whole expression a tautology."
+        },
+        {
+          "q": "Using truth table, check if (P ∧ Q) → R is equivalent to P → (Q → R).",
+          "marks": 5,
+          "type": "equivalence",
+          "answer": "Yes, they are equivalent (exportation law).",
+          "equivalent": true,
+          "truthTable": [
+            { "P": 0, "Q": 0, "R": 0, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 0, "Q": 0, "R": 1, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 0, "Q": 1, "R": 0, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 0, "Q": 1, "R": 1, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 1, "Q": 0, "R": 0, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 1, "Q": 0, "R": 1, "(P∧Q)→R": 1, "P→(Q→R)": 1 },
+            { "P": 1, "Q": 1, "R": 0, "(P∧Q)→R": 0, "P→(Q→R)": 0 },
+            { "P": 1, "Q": 1, "R": 1, "(P∧Q)→R": 1, "P→(Q→R)": 1 }
+          ],
+          "explanation": "The columns are identical, proving the equivalence."
+        },
+        {
+          "q": "Prove that (P ↔ Q) ↔ (¬P ↔ ¬Q) is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology.",
+          "simplified": "True",
+          "steps": [
+            { "step": 1, "action": "Rewrite biconditionals", "expression": "(P → Q) ∧ (Q → P) ↔ (¬P → ¬Q) ∧ (¬Q → ¬P)", "law": "Definition of ↔" },
+            { "step": 2, "action": "Contrapositive", "expression": "(P → Q) ∧ (Q → P) ↔ (Q → P) ∧ (P → Q)", "law": "Contrapositive: ¬P→¬Q ≡ Q→P, ¬Q→¬P ≡ P→Q" },
+            { "step": 3, "action": "Commutativity", "expression": "Both sides are identical", "law": "X ∧ Y ≡ Y ∧ X" },
+            { "step": 4, "action": "Thus the biconditional is True", "expression": "A ↔ A ≡ True", "law": "Identity" }
+          ],
+          "explanation": "The equivalence holds because contrapositive preserves logical equivalence."
+        },
+        {
+          "q": "Simplify: (P ∨ Q ∨ R) ∧ (P ∨ Q ∨ ¬R) ∧ (P ∨ ¬Q ∨ R) ∧ (P ∨ ¬Q ∨ ¬R).",
+          "marks": 5,
+          "original": "(P ∨ Q ∨ R) ∧ (P ∨ Q ∨ ¬R) ∧ (P ∨ ¬Q ∨ R) ∧ (P ∨ ¬Q ∨ ¬R)",
+          "answer": "P",
+          "simplified": "P",
+          "steps": [
+            { "step": 1, "action": "Group first two clauses", "expression": "(P ∨ Q ∨ R) ∧ (P ∨ Q ∨ ¬R) ≡ P ∨ Q", "law": "(X ∨ Y ∨ Z) ∧ (X ∨ Y ∨ ¬Z) ≡ X ∨ Y" },
+            { "step": 2, "action": "Group last two clauses", "expression": "(P ∨ ¬Q ∨ R) ∧ (P ∨ ¬Q ∨ ¬R) ≡ P ∨ ¬Q", "law": "Same pattern" },
+            { "step": 3, "action": "Now we have (P ∨ Q) ∧ (P ∨ ¬Q)", "expression": "", "law": "" },
+            { "step": 4, "action": "Distribute", "expression": "P ∨ (Q ∧ ¬Q)", "law": "(P ∨ X) ∧ (P ∨ Y) ≡ P ∨ (X ∧ Y)" },
+            { "step": 5, "action": "Complement and identity", "expression": "P ∨ False ≡ P", "law": "Q ∧ ¬Q ≡ False" }
+          ],
+          "explanation": "The expression reduces to P alone."
+        },
+        {
+          "q": "Check if the following argument is valid using rules of inference: If Swadeep studies, he will pass. If he passes, he will celebrate. Swadeep did not celebrate. Therefore, he did not study.",
+          "marks": 5,
+          "propositions": "S: Swadeep studies, P: He passes, C: He celebrates",
+          "premises": "S → P, P → C, ¬C",
+          "conclusion": "¬S",
+          "answer": "Valid. By Hypothetical Syllogism: S → C, then Modus Tollens gives ¬S.",
+          "valid": true,
+          "steps": [
+            { "step": 1, "action": "Apply Hypothetical Syllogism to S→P and P→C", "expression": "S → C", "law": "Hypothetical syllogism" },
+            { "step": 2, "action": "Apply Modus Tollens to S→C and ¬C", "expression": "¬S", "law": "Modus Tollens" }
+          ],
+          "explanation": "The argument is valid: if S implies C, and C is false, then S must be false."
+        },
+        {
+          "q": "Prove that (P → (Q → R)) → ((P → Q) → (P → R)) is a tautology.",
+          "marks": 5,
+          "type": "tautology",
+          "answer": "The statement is a tautology (a form of the Frege axiom).",
+          "simplified": "True",
+          "steps": [
+            { "step": 1, "action": "Rewrite all implications", "expression": "(¬P ∨ (¬Q ∨ R)) → (¬(¬P ∨ Q) ∨ (¬P ∨ R))", "law": "Implication law" },
+            { "step": 2, "action": "Simplify", "expression": "(¬P ∨ ¬Q ∨ R) → ((P ∧ ¬Q) ∨ ¬P ∨ R)", "law": "De Morgan on ¬(¬P ∨ Q)" },
+            { "step": 3, "action": "Absorption", "expression": "(¬P ∨ ¬Q ∨ R) → (¬P ∨ R ∨ ¬Q)", "law": "(P ∧ ¬Q) ∨ ¬P ≡ ¬P ∨ ¬Q" },
+            { "step": 4, "action": "Both sides are identical", "expression": "X → X ≡ True", "law": "Implication reflexivity" }
+          ],
+          "explanation": "The consequent simplifies to the same disjunction as the antecedent, making the implication a tautology."
+        },
+        {
+          "q": "Simplify using algebraic laws: (P ∨ Q) ∧ (¬P ∨ R) ∧ (¬Q ∨ R).",
+          "marks": 5,
+          "original": "(P ∨ Q) ∧ (¬P ∨ R) ∧ (¬Q ∨ R)",
+          "answer": "(P ∨ Q) ∧ R",
+          "simplified": "(P ∨ Q) ∧ R",
+          "steps": [
+            { "step": 1, "action": "Resolution on first two clauses", "expression": "(P ∨ Q) ∧ (¬P ∨ R) ⇒ (Q ∨ R)", "law": "Resolution" },
+            { "step": 2, "action": "Now we have (Q ∨ R) ∧ (¬Q ∨ R)", "expression": "", "law": "" },
+            { "step": 3, "action": "Simplify (Q ∨ R) ∧ (¬Q ∨ R) = R", "expression": "R", "law": "(X ∨ Y) ∧ (¬X ∨ Y) ≡ Y" },
+            { "step": 4, "action": "Include the unused (P ∨ Q)", "expression": "(P ∨ Q) ∧ R", "law": "" }
+          ],
+          "explanation": "The expression simplifies to (P ∨ Q) ∧ R."
+        },
+        {
+          "q": "Construct a truth table for (P ⊕ Q) ⊕ R and show that it equals P ⊕ (Q ⊕ R).",
+          "marks": 5,
+          "type": "equivalence",
+          "answer": "XOR is associative.",
+          "truthTable": [
+            { "P": 0, "Q": 0, "R": 0, "P⊕Q": 0, "(P⊕Q)⊕R": 0, "Q⊕R": 0, "P⊕(Q⊕R)": 0 },
+            { "P": 0, "Q": 0, "R": 1, "P⊕Q": 0, "(P⊕Q)⊕R": 1, "Q⊕R": 1, "P⊕(Q⊕R)": 1 },
+            { "P": 0, "Q": 1, "R": 0, "P⊕Q": 1, "(P⊕Q)⊕R": 1, "Q⊕R": 1, "P⊕(Q⊕R)": 1 },
+            { "P": 0, "Q": 1, "R": 1, "P⊕Q": 1, "(P⊕Q)⊕R": 0, "Q⊕R": 0, "P⊕(Q⊕R)": 0 },
+            { "P": 1, "Q": 0, "R": 0, "P⊕Q": 1, "(P⊕Q)⊕R": 1, "Q⊕R": 0, "P⊕(Q⊕R)": 1 },
+            { "P": 1, "Q": 0, "R": 1, "P⊕Q": 1, "(P⊕Q)⊕R": 0, "Q⊕R": 1, "P⊕(Q⊕R)": 0 },
+            { "P": 1, "Q": 1, "R": 0, "P⊕Q": 0, "(P⊕Q)⊕R": 0, "Q⊕R": 1, "P⊕(Q⊕R)": 0 },
+            { "P": 1, "Q": 1, "R": 1, "P⊕Q": 0, "(P⊕Q)⊕R": 1, "Q⊕R": 0, "P⊕(Q⊕R)": 1 }
+          ],
+          "explanation": "The columns for (P⊕Q)⊕R and P⊕(Q⊕R) are identical, proving associativity."
+        },
+        {
+          "q": "Simplify: (P → (Q ∨ R)) ∧ (¬Q ∧ ¬R).",
+          "marks": 5,
+          "original": "(P → (Q ∨ R)) ∧ (¬Q ∧ ¬R)",
+          "answer": "¬P",
+          "simplified": "¬P",
+          "steps": [
+            { "step": 1, "action": "Rewrite implication", "expression": "(¬P ∨ Q ∨ R) ∧ (¬Q ∧ ¬R)", "law": "Implication law" },
+            { "step": 2, "action": "Since (¬Q ∧ ¬R) is true, Q = false and R = false", "expression": "Substitute Q = False, R = False into (¬P ∨ Q ∨ R)", "law": "Truth assignment" },
+            { "step": 3, "action": "¬P ∨ False ∨ False = ¬P", "expression": "", "law": "Identity (X ∨ False ≡ X)" },
+            { "step": 4, "action": "Now the whole expression becomes ¬P ∧ (¬Q ∧ ¬R)", "expression": "", "law": "Conjunction" },
+            { "step": 5, "action": "Because (¬Q ∧ ¬R) is already given as a premise (true), the expression simplifies to ¬P", "expression": "¬P", "law": "Simplification" }
+          ],
+          "explanation": "Given that ¬Q and ¬R are both true (i.e., Q and R are false), the implication P → (Q∨R) reduces to P → False, which is equivalent to ¬P. The whole conjunction therefore simplifies to ¬P."
+        },
+        {
+          "q": "Prove that (P → Q) ∨ (P → R) ≡ P → (Q ∨ R).",
+          "marks": 5,
+          "type": "equivalence",
+          "original": "(P → Q) ∨ (P → R)",
+          "answer": "P → (Q ∨ R)",
+          "equivalent": "P → (Q ∨ R)",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∨ (¬P ∨ R)", "law": "Implication law" },
+            { "step": 2, "action": "Associativity", "expression": "¬P ∨ (Q ∨ R)", "law": "¬P ∨ ¬P ≡ ¬P" },
+            { "step": 3, "action": "Rewrite as implication", "expression": "P → (Q ∨ R)", "law": "Implication law" }
+          ],
+          "explanation": "The distribution of implication over disjunction holds."
+        },
+        {
+          "q": "Using truth table, determine if (P → Q) ∧ (Q → P) is logically equivalent to (P ∧ Q) ∨ (¬P ∧ ¬Q).",
+          "marks": 5,
+          "type": "equivalence",
+          "answer": "Yes, both express logical equivalence (P ↔ Q).",
+          "truthTable": [
+            { "P": 0, "Q": 0, "P→Q": 1, "Q→P": 1, "LHS": 1, "P∧Q": 0, "¬P∧¬Q": 1, "RHS": 1 },
+            { "P": 0, "Q": 1, "P→Q": 1, "Q→P": 0, "LHS": 0, "P∧Q": 0, "¬P∧¬Q": 0, "RHS": 0 },
+            { "P": 1, "Q": 0, "P→Q": 0, "Q→P": 1, "LHS": 0, "P∧Q": 0, "¬P∧¬Q": 0, "RHS": 0 },
+            { "P": 1, "Q": 1, "P→Q": 1, "Q→P": 1, "LHS": 1, "P∧Q": 1, "¬P∧¬Q": 0, "RHS": 1 }
+          ],
+          "explanation": "Both columns are identical, confirming the equivalence."
+        },
+        {
+          "q": "Simplify: (P ∨ ¬Q) ∧ (¬P ∨ Q).",
+          "marks": 5,
+          "original": "(P ∨ ¬Q) ∧ (¬P ∨ Q)",
+          "answer": "P ↔ Q",
+          "simplified": "P ↔ Q",
+          "steps": [
+            { "step": 1, "action": "Rewrite as implications", "expression": "(Q → P) ∧ (P → Q)", "law": "P ∨ ¬Q ≡ Q → P, ¬P ∨ Q ≡ P → Q" },
+            { "step": 2, "action": "Definition of biconditional", "expression": "P ↔ Q", "law": "P ↔ Q ≡ (P→Q) ∧ (Q→P)" }
+          ],
+          "explanation": "The expression is exactly the definition of biconditional."
+        },
+        {
+          "q": "Prove that the following argument is valid: If Tuhina goes to Barrackpore, she will buy sweets. If she buys sweets, she will share with Abhronila. Tuhina did not share with Abhronila. Therefore, she did not go to Barrackpore.",
+          "marks": 5,
+          "propositions": "B: Goes to Barrackpore, S: Buys sweets, A: Shares with Abhronila",
+          "premises": "B → S, S → A, ¬A",
+          "conclusion": "¬B",
+          "answer": "Valid. By Hypothetical Syllogism: B → A, then Modus Tollens gives ¬B.",
+          "valid": true,
+          "steps": [
+            { "step": 1, "action": "Apply Hypothetical Syllogism to B→S and S→A", "expression": "B → A", "law": "Hypothetical syllogism" },
+            { "step": 2, "action": "Apply Modus Tollens to B→A and ¬A", "expression": "¬B", "law": "Modus Tollens" }
+          ],
+          "explanation": "The reasoning is sound."
+        },
+        {
+          "q": "Show that (P ∨ Q) → R is equivalent to (P → R) ∧ (Q → R).",
+          "marks": 5,
+          "type": "equivalence",
+          "original": "(P ∨ Q) → R",
+          "answer": "(P → R) ∧ (Q → R)",
+          "equivalent": "(P → R) ∧ (Q → R)",
+          "steps": [
+            { "step": 1, "action": "Rewrite implication", "expression": "¬(P ∨ Q) ∨ R", "law": "Implication law" },
+            { "step": 2, "action": "De Morgan", "expression": "(¬P ∧ ¬Q) ∨ R", "law": "¬(P ∨ Q) ≡ ¬P ∧ ¬Q" },
+            { "step": 3, "action": "Distribute ∨ over ∧", "expression": "(¬P ∨ R) ∧ (¬Q ∨ R)", "law": "(X ∧ Y) ∨ Z ≡ (X ∨ Z) ∧ (Y ∨ Z)" },
+            { "step": 4, "action": "Rewrite as implications", "expression": "(P → R) ∧ (Q → R)", "law": "Implication law" }
+          ],
+          "explanation": "This shows that an implication with a disjunctive antecedent splits into a conjunction of implications."
+        },
+        {
+          "q": "Construct a truth table for (P ∧ ¬Q) ∨ (¬P ∧ Q) and identify the logical operation.",
+          "marks": 5,
+          "answer": "This is the XOR (exclusive or) operation.",
+          "truthTable": [
+            { "P": 0, "Q": 0, "P∧¬Q": 0, "¬P∧Q": 0, "Result": 0 },
+            { "P": 0, "Q": 1, "P∧¬Q": 0, "¬P∧Q": 1, "Result": 1 },
+            { "P": 1, "Q": 0, "P∧¬Q": 1, "¬P∧Q": 0, "Result": 1 },
+            { "P": 1, "Q": 1, "P∧¬Q": 0, "¬P∧Q": 0, "Result": 0 }
+          ],
+          "explanation": "The expression yields true exactly when one variable is true and the other false, i.e., XOR."
+        },
+        {
+          "q": "Simplify using Boolean algebra: (P → Q) ∧ (¬P → Q).",
+          "marks": 5,
+          "original": "(P → Q) ∧ (¬P → Q)",
+          "answer": "Q",
+          "simplified": "Q",
+          "steps": [
+            { "step": 1, "action": "Rewrite implications", "expression": "(¬P ∨ Q) ∧ (¬¬P ∨ Q)", "law": "Implication law" },
+            { "step": 2, "action": "Double negation", "expression": "(¬P ∨ Q) ∧ (P ∨ Q)", "law": "¬¬P ≡ P" },
+            { "step": 3, "action": "Factor out Q", "expression": "Q ∨ (¬P ∧ P)", "law": "(X ∨ Q) ∧ (Y ∨ Q) ≡ Q ∨ (X ∧ Y)" },
+            { "step": 4, "action": "Complement", "expression": "Q ∨ False", "law": "¬P ∧ P ≡ False" },
+            { "step": 5, "action": "Identity", "expression": "Q", "law": "Q ∨ False ≡ Q" }
+          ],
+          "explanation": "Whether P is true or false, the implication forces Q to be true."
+        },
+        {
+          "q": "Prove that (P ∧ Q) → R ≡ (P → (Q → R)) using algebraic laws.",
+          "marks": 5,
+          "type": "equivalence",
+          "original": "(P ∧ Q) → R",
+          "answer": "P → (Q → R)",
+          "equivalent": "P → (Q → R)",
+          "steps": [
+            { "step": 1, "action": "Rewrite left side", "expression": "¬(P ∧ Q) ∨ R", "law": "Implication law" },
+            { "step": 2, "action": "De Morgan", "expression": "¬P ∨ ¬Q ∨ R", "law": "¬(P ∧ Q) ≡ ¬P ∨ ¬Q" },
+            { "step": 3, "action": "Group as ¬P ∨ (¬Q ∨ R)", "expression": "", "law": "Associativity" },
+            { "step": 4, "action": "Rewrite as implication", "expression": "P → (¬Q ∨ R)", "law": "Implication law" },
+            { "step": 5, "action": "Rewrite inner implication", "expression": "P → (Q → R)", "law": "Implication law again" }
+          ],
+          "explanation": "This is the exportation law, often used in natural deduction."
+        }
+      ]
+    }
+  ]
+}

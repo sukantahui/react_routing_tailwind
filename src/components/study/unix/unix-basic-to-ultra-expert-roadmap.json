@@ -58,7 +58,8 @@
                         "Practice Lab: Running your first 10 Linux commands",
                         "Common beginner mistakes in terminal usage",
                         "Practice your Skill",
-                        "Short Questions"
+                        "Practice Short Questions",
+                        "Other Short Questions"
                     ],
                     "learningOutcomes": [
                         "Explain what UNIX/Linux is",
@@ -106,7 +107,8 @@
                         "File system mounting concept (mount, umount – overview)",
                         "Understanding disk partitions at a conceptual level",
                         "Practice Lab: Build your own directory tree for a project",
-                        "Common mistakes beginners make while navigating file systems"
+                        "Common mistakes beginners make while navigating file systems",
+                        "Short Questions"
                     ],
                     "learningOutcomes": [
                         "Navigate Linux file system",
@@ -256,6 +258,33 @@
             "level": "Advanced",
             "summary": "Automate tasks with shell scripts and text processing tools.",
             "modules": [
+                {
+                    "moduleId": "process-management",
+                    "slug": "unix-process-commands",
+                    "title": "Process Commands in UNIX",
+                    "estimatedHours": 4,
+                    "topics": [
+                        "Introduction to Process Management: Definition of process, foreground and background processes",
+                        "ps Command: Displaying active processes with options (-e, -f, -u)",
+                        "top Command: Real-time process monitoring and system performance",
+                        "kill Command: Terminating processes using PID with options (-9, -15)",
+                        "bg Command: Running suspended jobs in the background",
+                        "fg Command: Bringing background jobs to foreground",
+                        "jobs Command: Listing all active background jobs",
+                        "nice Command: Setting process priority and scheduling",
+                        "nohup Command: Running processes immune to hangups (logout safe execution)",
+                        "Difference Between Foreground and Background Processes",
+                        "Common Process Management Scenarios and Practical Examples",
+                        "Short Questions"
+                    ],
+                    "learningOutcomes": [
+                        "Understand process concept in UNIX",
+                        "Use process-related commands effectively",
+                        "Manage foreground and background execution",
+                        "Control and terminate processes safely"
+                    ],
+                    "difficulty": "Easy-Medium"
+                },
                 {
                     "moduleId": "shell-script",
                     "slug": "shell-scripting",
@@ -432,6 +461,165 @@
                     "difficultyIndex": 12,
                     "summary": "Become a confident Linux system administrator.",
                     "badge": "UNIX SysAdmin Expert Badge"
+                }
+            ]
+        },
+        {
+            "segmentId": "missing-and-special",
+            "title": "Segment 5 – Special or missing Topics",
+            "level": "Missing & Special",
+            "summary": "All missing topics will be here",
+            "modules": [
+                {
+                    "moduleId": "unix-special",
+                    "slug": "speciall-and-missing-unix-file-system-and-commands",
+                    "title": "Unix File System and Commands",
+                    "description": "Covers essential Unix file commands, file system concepts, and system call interface required for practical and theoretical understanding.",
+                    "topics": [
+                        "System call interface (concept and role in OS)",
+                        "Unix file system structure and basics",
+                        "File permissions and security (chmod command)",
+                        "Creating empty files and modifying timestamps (touch command)",
+                        "Understanding file timestamps (access time, modification time, change time)",
+                        "Using touch with -d and -t options",
+                        "Finding files and directories (find command)",
+                        "File system size and disk usage (du, df commands)",
+                        "Redirection operators (> and >>)",
+                        "Using tee command for output redirection",
+                        "Short Questions"
+                    ]
+                },
+                {
+                    "moduleId": "unix-text-processing",
+                    "slug": "search-and-substitute-functions",
+                    "title": "Search and Substitute Functions",
+                    "description": "Covers searching, pattern matching, and substitution techniques used in Unix text processing utilities.",
+                    "topics": [
+                        "Searching text using grep command",
+                        "Advanced pattern matching with regular expressions",
+                        "Case-insensitive and recursive search options",
+                        "Substitution using sed command",
+                        "Global and selective replacement in files",
+                        "Using delimiters and flags in sed",
+                        "Combining grep and sed for text processing",
+                        "Practical examples of search and replace operations",
+                        "Short Questions"
+                    ]
+                },
+                {
+                    "moduleId": "unix-file-operations",
+                    "slug": "file-processing-and-manipulation",
+                    "title": "File Processing and Manipulation",
+                    "description": "Focuses on file handling commands including selection, merging, splitting, sorting, and comparison of files.",
+                    "topics": [
+                        "Row-wise and column-wise data selection",
+                        "Using cut command with different options",
+                        "Pasting and merging files horizontally using paste",
+                        "Splitting large files using split command",
+                        "Counting lines, words, and characters using wc",
+                        "Sorting file content (alphabetical and numerical sorting)",
+                        "Sorting based on specific columns",
+                        "Comparing files line by line using diff",
+                        "Comparing files character by character using cmp",
+                        "Comparing sorted files using comm",
+                        "Joining two files using join command",
+                        "Removing duplicates using uniq command",
+                        "Transformation of text using tr command",
+                        "Short Questions"
+                    ]
+                },
+                {
+                    "moduleId": "vi-editor",
+                    "slug": "vi-editor-mastery",
+                    "title": "Vi Editor Mastery",
+                    "level": "Intermediate",
+                    "estimatedHours": 6,
+                    "tags": [
+                        "vi",
+                        "vim",
+                        "editor",
+                        "terminal"
+                    ],
+                    "topics": [
+                        "Why vi/vim? – ubiquity on all Unix/Linux systems",
+                        "Starting vi: `vi filename`, `vim filename`",
+                        "Understanding vi modes: Normal, Insert, Command (Last‑line)",
+                        "Normal mode navigation: `h`, `j`, `k`, `l`, `w`, `b`, `0`, `$`, `gg`, `G`",
+                        "Insert mode: entering with `i`, `a`, `o`, `O`, `I`, `A`",
+                        "Exiting vi: `:q`, `:q!`, `:wq`, `:x`, `ZZ`",
+                        "Basic editing: `x` (delete char), `dd` (delete line), `yy` (yank line), `p` (paste)",
+                        "Undo and redo: `u`, `Ctrl+R`",
+                        "Visual mode: `v`, `V`, `Ctrl+v` for block selection",
+                        "Search and replace: `/pattern`, `n`, `N`, `:s/old/new/g`",
+                        "Global substitution with range: `:%s/old/new/g`",
+                        "Saving and working with multiple files: `:e`, `:n`, `:b`",
+                        "Splitting windows: `:split`, `:vsplit`, `Ctrl+w` navigation",
+                        "Configuring vi with `~/.vimrc` – essential settings (`set number`, `set tabstop=4`, etc.)",
+                        "Using vi as a `less`‑like pager: `view` command",
+                        "Basic syntax highlighting and file type detection",
+                        "Recording macros: `q` + register, execute with `@`",
+                        "Using `vimtutor` – built‑in interactive tutorial",
+                        "Common beginner mistakes: forgetting mode, accidental deletions, recovery from swap files",
+                        "Advanced tips: dot command (`.`), registers (`ay`), marks (`m`), jumps (`Ctrl+o`, `Ctrl+i`)",
+                        "Practice lab: Edit configuration files, write a small script using vi",
+                        "Short Questions on vi modes and commands"
+                    ],
+                    "learningOutcomes": [
+                        "Create, edit and save files efficiently using vi/vim",
+                        "Navigate and modify text without touching the mouse",
+                        "Use search, replace and basic macros",
+                        "Customize vi behavior for personal workflow"
+                    ],
+                    "difficulty": "Medium",
+                    "difficultyIndex": 4,
+                    "summary": "Master the universal Unix editor – vi – for lightning‑fast terminal editing.",
+                    "badge": "Vi Virtuoso Badge"
+                },
+                {
+                    "moduleId": "unix-utility-commands",
+                    "slug": "basic-utility-and-archiving-commands",
+                    "title": "Utility and Archiving Commands",
+                    "description": "Introduces commonly used Unix utility commands and file compression/archiving techniques.",
+                    "topics": [
+                        "Displaying calendar using cal command",
+                        "Working with date and time using date command",
+                        "Formatting file output using pr command",
+                        "Displaying logged-in users using who command",
+                        "Performing calculations using bc command",
+                        "Displaying text using echo command",
+                        "File compression using gzip command",
+                        "File decompression using gunzip command",
+                        "Creating zip archives using zip command",
+                        "Extracting zip files using unzip command",
+                        "Archiving files using tar command",
+                        "Combining compression with archiving",
+                        "Short Questions"
+                    ]
+                },
+                {
+                    "moduleId": "unix-process-management",
+                    "slug": "process-management-and-system-calls",
+                    "title": "Process Management in Unix",
+                    "description": "Covers Unix process concepts, system calls, scheduling, and process-related commands.",
+                    "topics": [
+                        "Concept of process in Unix",
+                        "Process creation and lifecycle",
+                        "Understanding init process",
+                        "Unix login process overview",
+                        "System calls: fork()",
+                        "System calls: getpid() and getppid()",
+                        "System calls: wait()",
+                        "Zombie process concept",
+                        "Inter-process communication using pipe()",
+                        "Message passing basics",
+                        "Process states and state transition diagram",
+                        "Unix process scheduler overview",
+                        "Concept of swapped memory",
+                        "Monitoring system performance using vmstat",
+                        "Monitoring processes using top command",
+                        "Process priority using nice command",
+                        "Short Questions"
+                    ]
                 }
             ]
         }

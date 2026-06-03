@@ -1,6 +1,8 @@
-import React from "react";
+
 import clsx from "clsx";
+import React, { useState } from 'react';
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import Topic_FlowBasedRouting from './topic6_files/Topic_FlowBasedRouting';
 
 /**
  * Topic6: Network Layer – logical addressing (IP), routing, routers
@@ -15,6 +17,23 @@ import Teacher from "../../../../../common/TeacherSukantaHui";
  */
 
 const Topic6 = () => {
+  const [showFlow, setShowFlow] = useState(false);
+
+  if (showFlow) {
+    return (
+      <div className="relative">
+        <button
+          onClick={() => setShowFlow(false)}
+          className="fixed top-4 left-4 z-50 px-4 py-2 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-700 transition"
+        >
+          ← Back to Network Layer
+        </button>
+        <Topic_FlowBasedRouting />
+      </div>
+    );
+  }
+
+
   // Keyframes for fade-slide-up animation
   const keyframesStyle = `
     @keyframes fadeSlideUp {
@@ -173,6 +192,15 @@ const Topic6 = () => {
             </p>
           </section>
 
+          <div className="flex justify-center mt-8">
+            <button
+              onClick={() => setShowFlow(true)}
+              className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              Learn Flow‑Based Routing – Congestion‑Aware Path Selection
+            </button>
+          </div>
+
           {/* Tips & Tricks */}
           <section className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-xl opacity-0 translate-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[600ms]">
             <h2 className="text-2xl font-semibold flex items-center gap-2 border-l-4 border-teal-500 pl-4 mb-4">
@@ -237,7 +265,7 @@ const Topic6 = () => {
 
           {/* Teacher's Note */}
           <div className="opacity-0 translate-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards] animation-delay-[1000ms]">
-            <Teacher 
+            <Teacher
               note={"Stress the difference between routing and switching: switches forward within a network, routers between networks. Use the analogy of a campus: switches connect buildings (within campus), routers connect campuses (cities). Show `tracert` live to a popular website — students see real routers. Introduce subnetting gradually; it's essential for IP planning."}
             />
           </div>

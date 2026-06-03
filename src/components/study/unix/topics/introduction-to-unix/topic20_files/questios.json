@@ -1,0 +1,735 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Unix/Linux Fundamentals and Shell Basics",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "Who created UNIX and at which laboratory?",
+      "answer": "Ken Thompson, Dennis Ritchie, and others at Bell Labs (AT&T) in 1969.",
+      "explanation": "UNIX was developed at Bell Labs as a multi‑user, multi‑tasking operating system."
+    },
+    {
+      "id": 2,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What was the main reason for rewriting UNIX in C?",
+      "answer": "To make the system portable across different hardware architectures.",
+      "explanation": "Originally written in assembly, rewriting in C allowed UNIX to be moved to new machines with minimal changes."
+    },
+    {
+      "id": 3,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What is the significance of BSD (Berkeley Software Distribution)?",
+      "answer": "A major fork of UNIX developed at UC Berkeley that added TCP/IP, vi editor, and other tools.",
+      "explanation": "Many features of modern Unix systems (including sockets) came from BSD."
+    },
+    {
+      "id": 4,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "Who created Linux and when?",
+      "answer": "Linus Torvalds in 1991.",
+      "explanation": "Linux started as a personal project to create a free, open‑source UNIX‑like kernel."
+    },
+    {
+      "id": 5,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What is the GNU project and its goal?",
+      "answer": "Started by Richard Stallman in 1983 to create a complete free UNIX‑like operating system.",
+      "explanation": "GNU developed many essential tools (gcc, bash, coreutils) that are used with the Linux kernel."
+    },
+    {
+      "id": 6,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What is the POSIX standard?",
+      "answer": "A family of standards for maintaining compatibility between operating systems.",
+      "explanation": "Most Unix‑like systems (Linux, macOS, BSD) comply with POSIX."
+    },
+    {
+      "id": 7,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What was the first version of Linux kernel released?",
+      "answer": "0.01, released in September 1991.",
+      "explanation": "It was not fully functional; version 1.0 came in 1994."
+    },
+    {
+      "id": 8,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Intermediate",
+      "question": "Why is Linux often called a 'Unix‑like' system?",
+      "answer": "It follows Unix design principles, uses POSIX standards, and behaves similarly, but does not contain original Unix source code.",
+      "explanation": "Linux was written from scratch but intentionally mimics Unix semantics."
+    },
+    {
+      "id": 9,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Intermediate",
+      "question": "What was the role of AT&T in Unix commercialization?",
+      "answer": "AT&T licensed Unix to universities and commercial vendors, leading to many variants (AIX, HP-UX, Solaris).",
+      "explanation": "The licensing was later the subject of legal disputes between AT&T and BSD."
+    },
+    {
+      "id": 10,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between System V and BSD Unix?",
+      "answer": "System V (AT&T) and BSD (Berkeley) were two major Unix branches with different init systems, file system layouts, and command options.",
+      "explanation": "Many modern systems (Linux, macOS) have features from both."
+    },
+    {
+      "id": 11,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "What is the core difference between Unix and Linux?",
+      "answer": "Unix is a family of proprietary operating systems; Linux is a free, open‑source kernel (often used with GNU tools).",
+      "explanation": "Linux is Unix‑like but not certified Unix (except some distributions that pay for certification)."
+    },
+    {
+      "id": 12,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "Why do some people call the OS 'GNU/Linux' instead of just 'Linux'?",
+      "answer": "To credit the GNU project for supplying essential system tools (shell, compiler, libraries) without which the kernel alone is not a full OS.",
+      "explanation": "The term emphasises that the system is a combination of the Linux kernel and GNU utilities."
+    },
+    {
+      "id": 13,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "Is macOS a Unix system?",
+      "answer": "Yes, macOS is a certified Unix (based on Darwin, which includes BSD components).",
+      "explanation": "Apple obtained official UNIX 03 certification for macOS."
+    },
+    {
+      "id": 14,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "What is a 'Linux distribution' (distro)?",
+      "answer": "A complete operating system built around the Linux kernel, adding system libraries, package manager, desktop environment, and applications.",
+      "explanation": "Examples: Ubuntu, Fedora, Debian, RHEL."
+    },
+    {
+      "id": 15,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "Can Linux run Unix programs?",
+      "answer": "Yes, most Unix programs can be recompiled for Linux; Linux also has compatibility layers (e.g., `compat‑*` libraries).",
+      "explanation": "Linux aims to be highly POSIX‑compliant, making source‑level compatibility easy."
+    },
+    {
+      "id": 16,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Intermediate",
+      "question": "What is the Single UNIX Specification (SUS)?",
+      "answer": "A standard that defines the interface and behaviour of a Unix operating system; systems passing the tests can be branded 'Unix'.",
+      "explanation": "Linux is not certified Unix (unless a distribution pays for certification)."
+    },
+    {
+      "id": 17,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Intermediate",
+      "question": "What is the role of the Linux Foundation?",
+      "answer": "A non‑profit that promotes, protects, and standardises Linux, and hosts the work of Linus Torvalds.",
+      "explanation": "It also supports open source projects like Kubernetes, Node.js, etc."
+    },
+    {
+      "id": 18,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "What is the kernel?",
+      "answer": "The core component of an operating system that manages hardware resources and provides services to user programs.",
+      "explanation": "It runs in privileged mode (kernel space) and controls CPU, memory, devices, and processes."
+    },
+    {
+      "id": 19,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "What does process management by the kernel involve?",
+      "answer": "Creating, scheduling, terminating processes, and handling context switches.",
+      "explanation": "The scheduler decides which process runs on the CPU and for how long."
+    },
+    {
+      "id": 20,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "What is virtual memory?",
+      "answer": "A memory management technique that gives each process its own address space, using disk as an extension of RAM (swap).",
+      "explanation": "The kernel maps virtual addresses to physical pages and handles page faults."
+    },
+    {
+      "id": 21,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "How does the kernel manage devices?",
+      "answer": "Through device drivers that provide a uniform interface to hardware (block devices, character devices, network interfaces).",
+      "explanation": "Drivers run in kernel space and handle I/O requests."
+    },
+    {
+      "id": 22,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "What is a system call?",
+      "answer": "A request from a user‑space program to the kernel for a privileged service (e.g., reading a file).",
+      "explanation": "System calls are the only way to ask the kernel to perform operations on behalf of a process."
+    },
+    {
+      "id": 23,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What is a shell in Unix/Linux?",
+      "answer": "A command‑line interpreter that accepts user commands, executes them, and displays results.",
+      "explanation": "It acts as the interface between the user and the kernel."
+    },
+    {
+      "id": 24,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What is the Bourne shell (sh)?",
+      "answer": "The original Unix shell written by Stephen Bourne at Bell Labs; the basis for most modern shells.",
+      "explanation": "It is still used as `/bin/sh` in many systems (often a symlink to bash or dash)."
+    },
+    {
+      "id": 25,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What is Bash?",
+      "answer": "Bourne Again SHell – the default shell on most Linux distributions, extending sh with features like command history, tab completion, and arrays.",
+      "explanation": "Bash is compatible with sh but adds many interactive conveniences."
+    },
+    {
+      "id": 26,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What is Zsh (Z Shell)?",
+      "answer": "An extended shell with advanced features like spell correction, themeable prompts, plugins, and better globbing.",
+      "explanation": "Zsh is the default shell on macOS (as of Catalina)."
+    },
+    {
+      "id": 27,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Intermediate",
+      "question": "How to check which shell you are using?",
+      "answer": "`echo $SHELL` or `ps -p $$`.",
+      "explanation": "`$SHELL` shows the login shell; `ps` shows the current process name."
+    },
+    {
+      "id": 28,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "difficulty": "Beginner",
+      "question": "What is the difference between a shell and a terminal?",
+      "answer": "A terminal (emulator) is a program that provides a text window; a shell is the command interpreter inside it.",
+      "explanation": "You cannot interact with a shell without a terminal emulator (like GNOME Terminal, iTerm2, or Konsole)."
+    },
+    {
+      "id": 29,
+      "topic": "Shell vs Terminal vs Console – clearing the confusion",
+      "difficulty": "Beginner",
+      "question": "What is a console?",
+      "answer": "Historically, a physical device (keyboard+screen) directly attached to the computer; now sometimes used as a synonym for terminal.",
+      "explanation": "In Unix, `/dev/console` is a special device for system messages."
+    },
+    {
+      "id": 30,
+      "topic": "Understanding system utilities and core GNU tools",
+      "difficulty": "Beginner",
+      "question": "What are core utilities (coreutils)?",
+      "answer": "A set of basic file, shell, and text manipulation programs (like `ls`, `cp`, `mv`, `rm`, `cat`, `grep`, etc.).",
+      "explanation": "GNU coreutils is the standard implementation on Linux."
+    },
+    {
+      "id": 31,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "difficulty": "Beginner",
+      "question": "What is Ubuntu best known for?",
+      "answer": "User‑friendliness, extensive documentation, and regular Long‑Term Support (LTS) releases; popular for desktops and cloud servers.",
+      "explanation": "Based on Debian, maintained by Canonical."
+    },
+    {
+      "id": 32,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "difficulty": "Beginner",
+      "question": "What is Debian known for?",
+      "answer": "Stability, free software philosophy, and its package management (`.deb`).",
+      "explanation": "Debian is the upstream for Ubuntu and many other distros."
+    },
+    {
+      "id": 33,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "difficulty": "Beginner",
+      "question": "What is Fedora?",
+      "answer": "A cutting‑edge distribution sponsored by Red Hat, featuring the latest kernel and software.",
+      "explanation": "Fedora serves as the testing ground for Red Hat Enterprise Linux (RHEL)."
+    },
+    {
+      "id": 34,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "difficulty": "Beginner",
+      "question": "What is CentOS (now CentOS Stream)?",
+      "answer": "Previously a free, binary‑compatible rebuild of RHEL; CentOS Stream is a rolling‑release upstream for RHEL.",
+      "explanation": "Used mostly on servers and enterprise environments."
+    },
+    {
+      "id": 35,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "difficulty": "Beginner",
+      "question": "What is the main difference between desktop Linux and server Linux?",
+      "answer": "Desktop Linux includes a graphical user interface (GUI) and user applications; server Linux typically runs headless (no GUI) and focuses on network services.",
+      "explanation": "Server Linux uses fewer resources and is optimised for stability and security."
+    },
+    {
+      "id": 36,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "difficulty": "Beginner",
+      "question": "Name three real‑world uses of Linux servers.",
+      "answer": "Web servers (Apache/NGINX), database servers (MySQL/PostgreSQL), cloud infrastructure (AWS EC2).",
+      "explanation": "The majority of the internet runs on Linux servers."
+    },
+    {
+      "id": 37,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "difficulty": "Beginner",
+      "question": "Common keyboard shortcut to open a terminal in many Linux distributions?",
+      "answer": "`Ctrl+Alt+T` (GNOME, KDE, etc.)",
+      "explanation": "Some desktops use `Ctrl+Alt+F1` for virtual console; `Ctrl+Alt+T` for terminal emulator."
+    },
+    {
+      "id": 38,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "difficulty": "Beginner",
+      "question": "What does `pwd` stand for and what does it do?",
+      "answer": "Print Working Directory – outputs the absolute path of the current directory.",
+      "explanation": "Always useful when you forget where you are in the file system."
+    },
+    {
+      "id": 39,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "difficulty": "Beginner",
+      "question": "What does `ls` do?",
+      "answer": "Lists the contents of a directory.",
+      "explanation": "Common options: `-l` (long format), `-a` (include hidden files), `-h` (human‑readable sizes)."
+    },
+    {
+      "id": 40,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "difficulty": "Beginner",
+      "question": "What does `cd ..` do?",
+      "answer": "Moves up one directory level to the parent directory.",
+      "explanation": "`cd .` stays in same directory, `cd ~` goes to home directory."
+    },
+    {
+      "id": 41,
+      "topic": "Understanding command structure: command, options, arguments",
+      "difficulty": "Beginner",
+      "question": "What is the general syntax of a Linux command?",
+      "answer": "`command [options] [arguments]`",
+      "explanation": "Options usually start with a hyphen (`-r`) or double hyphen (`--recursive`)."
+    },
+    {
+      "id": 42,
+      "topic": "Understanding command structure: command, options, arguments",
+      "difficulty": "Beginner",
+      "question": "What is the difference between an option and an argument?",
+      "answer": "Options control the behaviour of the command (e.g., `-l`); arguments are the targets the command acts upon (e.g., filename).",
+      "explanation": "Some commands accept no arguments (e.g., `ls` defaults to current directory)."
+    },
+    {
+      "id": 43,
+      "topic": "Case sensitivity in Linux file names",
+      "difficulty": "Beginner",
+      "question": "Are Linux filenames case‑sensitive?",
+      "answer": "Yes, `File.txt` and `file.txt` are different files.",
+      "explanation": "Windows is case‑insensitive, which often confuses beginners moving to Linux."
+    },
+    {
+      "id": 44,
+      "topic": "Using manual pages: man command and --help flag",
+      "difficulty": "Beginner",
+      "question": "How to get help for a command using `man`?",
+      "answer": "`man command`, e.g., `man ls`.",
+      "explanation": "Manual pages are divided into sections (1‑8); use `man 5 passwd` for the file format section."
+    },
+    {
+      "id": 45,
+      "topic": "Using manual pages: man command and --help flag",
+      "difficulty": "Beginner",
+      "question": "What does `command --help` do?",
+      "answer": "Displays a brief usage summary and options for that command (GNU convention).",
+      "explanation": "Not all commands support `--help`, but most do. `man` is the full documentation."
+    },
+    {
+      "id": 46,
+      "topic": "Understanding environment variables – PATH overview",
+      "difficulty": "Beginner",
+      "question": "What is the `PATH` environment variable?",
+      "answer": "A colon‑separated list of directories the shell searches for executable programs.",
+      "explanation": "Example: `echo $PATH` shows `/usr/local/bin:/usr/bin:/bin`."
+    },
+    {
+      "id": 47,
+      "topic": "Understanding environment variables – PATH overview",
+      "difficulty": "Beginner",
+      "question": "How to add a directory to `PATH` temporarily?",
+      "answer": "`export PATH=$PATH:/my/bin` (effective for the current session).",
+      "explanation": "For permanent changes, add the line to `~/.bashrc` or `~/.profile`."
+    },
+    {
+      "id": 48,
+      "topic": "Root user vs normal user – concept and importance",
+      "difficulty": "Beginner",
+      "question": "What is the root user?",
+      "answer": "The superuser with unrestricted access to all files and system operations (UID 0).",
+      "explanation": "Root can override all permissions; using it carelessly can damage the system."
+    },
+    {
+      "id": 49,
+      "topic": "Root user vs normal user – concept and importance",
+      "difficulty": "Beginner",
+      "question": "How to run a single command with root privileges?",
+      "answer": "`sudo command`.",
+      "explanation": "`sudo` requires the user to be in the `sudoers` list; it logs the command for auditing."
+    },
+    {
+      "id": 50,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "difficulty": "Beginner",
+      "question": "What does the `$` symbol in prompt indicate?",
+      "answer": "A normal user shell; `#` indicates the root shell.",
+      "explanation": "In Bash, `PS1` variable defines the prompt; `\\$` expands to `$` or `#` depending on effective UID."
+    },
+    {
+      "id": 51,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "difficulty": "Beginner",
+      "question": "List five basic Linux commands a beginner should know.",
+      "answer": "`pwd`, `ls`, `cd`, `mkdir`, `rm` (or `touch`, `cp`, `mv`, `cat`, `echo`).",
+      "explanation": "These allow you to navigate, create, delete, and view files."
+    },
+    {
+      "id": 52,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "What is a common mistake when using `rm`?",
+      "answer": "Accidentally deleting important files, especially with `rm -rf /` or `rm -rf *` in the wrong directory.",
+      "explanation": "Always double‑check the path; use `ls` before `rm` and consider using `-i` (interactive) flag."
+    },
+    {
+      "id": 53,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "Why is it dangerous to run `sudo` without understanding the command?",
+      "answer": "Because it gives the command full system access, potentially damaging the OS or deleting data.",
+      "explanation": "Always read the command’s manual before using `sudo`."
+    },
+    {
+      "id": 54,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "What happens if you forget a space before a command? (e.g., `cd /home`)",
+      "answer": "Nothing; spaces are required between command and argument. If you write `cd/home`, the shell tries to execute a program named `cd/home` (which doesn't exist).",
+      "explanation": "Proper syntax: `cd /home` (space needed)."
+    },
+    {
+      "id": 55,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "Why should you avoid using `rm -rf /` even as a joke?",
+      "answer": "It recursively deletes all files on the system, making it unbootable.",
+      "explanation": "Modern systems have some protections, but it's extremely destructive."
+    },
+    {
+      "id": 56,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "What is the problem with running `chmod 777` on files?",
+      "answer": "It gives everyone read, write, execute permissions, severely reducing security.",
+      "explanation": "Use more restrictive permissions like `755` for executables and `644` for data files."
+    },
+    {
+      "id": 57,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "difficulty": "Beginner",
+      "question": "How to go directly to your home directory?",
+      "answer": "`cd` (without arguments) or `cd ~`.",
+      "explanation": "The `~` character expands to the home directory."
+    },
+    {
+      "id": 58,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What does `echo $0` show?",
+      "answer": "The name of the current shell.",
+      "explanation": "For example, `bash`, `zsh`, or `sh`."
+    },
+    {
+      "id": 59,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "difficulty": "Beginner",
+      "question": "What is the function of `Ctrl+C` in a terminal?",
+      "answer": "Sends SIGINT (interrupt) to the foreground process, usually terminating it.",
+      "explanation": "Useful to stop a running command (e.g., `ping google.com`)."
+    },
+    {
+      "id": 60,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "Name two kernel data structures.",
+      "answer": "Process Control Block (PCB), file descriptor table, memory management structures (page tables).",
+      "explanation": "These help the kernel track resources."
+    },
+    {
+      "id": 61,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What major Unix variant is used on many modern servers besides Linux?",
+      "answer": "Illumos (derived from OpenSolaris), FreeBSD, and macOS (Darwin).",
+      "explanation": "Linux dominates but BSD systems are still used."
+    },
+    {
+      "id": 62,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "Is Android a Linux distribution?",
+      "answer": "Yes, Android uses the Linux kernel, but with a different userland (Bionic libc, not GNU).",
+      "explanation": "Many do not call it 'GNU/Linux' because it lacks GNU components."
+    },
+    {
+      "id": 63,
+      "topic": "Understanding system utilities and core GNU tools",
+      "difficulty": "Beginner",
+      "question": "Which core utility copies files?",
+      "answer": "`cp`.",
+      "explanation": "`cp source destination` copies the file; `cp -r` copies directories."
+    },
+    {
+      "id": 64,
+      "topic": "Understanding system utilities and core GNU tools",
+      "difficulty": "Beginner",
+      "question": "Which core utility moves (or renames) files?",
+      "answer": "`mv`.",
+      "explanation": "`mv oldname newname` renames; `mv file dir/` moves."
+    },
+    {
+      "id": 65,
+      "topic": "Understanding system utilities and core GNU tools",
+      "difficulty": "Beginner",
+      "question": "Which core utility removes files?",
+      "answer": "`rm`.",
+      "explanation": "`rm file` deletes a file. Use `rm -r` for directories."
+    },
+    {
+      "id": 66,
+      "topic": "Popular Linux distributions and where they are used (Ubuntu, Fedora, Debian, CentOS)",
+      "difficulty": "Beginner",
+      "question": "What is Alpine Linux used for?",
+      "answer": "Small, security‑oriented distribution often used for containers due to its tiny size.",
+      "explanation": "Alpine uses `musl libc` and `busybox` instead of GNU coreutils."
+    },
+    {
+      "id": 67,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "difficulty": "Beginner",
+      "question": "Which distribution is most common for home desktops?",
+      "answer": "Ubuntu (with GNOME or KDE), Linux Mint, Fedora, Pop!_OS.",
+      "explanation": "These focus on user experience and easy installation."
+    },
+    {
+      "id": 68,
+      "topic": "Desktop vs Server Linux – real-world usage",
+      "difficulty": "Beginner",
+      "question": "Which distribution is popular for cloud servers?",
+      "answer": "Ubuntu Server, Amazon Linux, Debian, and Red Hat Enterprise Linux (RHEL).",
+      "explanation": "AWS offers Amazon Linux 2; many use Ubuntu LTS for its stability."
+    },
+    {
+      "id": 69,
+      "topic": "Using manual pages: man command and --help flag",
+      "difficulty": "Beginner",
+      "question": "How to search within a man page?",
+      "answer": "Type `/` then the search term, then `n` for next match.",
+      "explanation": "Works like `less` pager; `q` to quit."
+    },
+    {
+      "id": 70,
+      "topic": "Understanding environment variables – PATH overview",
+      "difficulty": "Beginner",
+      "question": "How to display all environment variables?",
+      "answer": "`env` or `printenv`.",
+      "explanation": "Both show all variables; `printenv PATH` shows just PATH."
+    },
+    {
+      "id": 71,
+      "topic": "Root user vs normal user – concept and importance",
+      "difficulty": "Beginner",
+      "question": "What does `sudo -i` do?",
+      "answer": "Gives a root login shell (root's environment, typically root's home directory).",
+      "explanation": "`sudo -i` is more comprehensive than `sudo -s`."
+    },
+    {
+      "id": 72,
+      "topic": "Root user vs normal user – concept and importance",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `passwd` command?",
+      "answer": "To change a user’s password.",
+      "explanation": "Root can change any user's password; normal users can change only their own."
+    },
+    {
+      "id": 73,
+      "topic": "Understanding shell prompt symbols and working directory display",
+      "difficulty": "Beginner",
+      "question": "How to change the shell prompt to show the current directory?",
+      "answer": "Add `export PS1='\\w $ '` to `~/.bashrc` (`\\w` shows full path).",
+      "explanation": "Many distributions already show the current directory by default."
+    },
+    {
+      "id": 74,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "difficulty": "Beginner",
+      "question": "What command creates an empty file?",
+      "answer": "`touch newfile.txt`.",
+      "explanation": "`touch` also updates timestamps of existing files."
+    },
+    {
+      "id": 75,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "difficulty": "Beginner",
+      "question": "What command displays the contents of a text file?",
+      "answer": "`cat file.txt` (or `less`, `more`, `head`).",
+      "explanation": "`cat` dumps whole file to screen; `less` allows scrolling."
+    },
+    {
+      "id": 76,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "What is the mistake of forgetting `sudo` when editing system files?",
+      "answer": "You get 'Permission denied' because system files are owned by root.",
+      "explanation": "Use `sudo nano /etc/hosts` or `sudo vi /etc/fstab`."
+    },
+    {
+      "id": 77,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "Why is it undesirable to run `rm *` when you meant `rm *.tmp`?",
+      "answer": "`*` matches all files, deleting everything in the directory.",
+      "explanation": "Always use `ls` to check the glob pattern before deletion."
+    },
+    {
+      "id": 78,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "What happens if you use double quotes instead of single quotes around a string with `$`?",
+      "answer": "The shell expands variables inside double quotes; single quotes preserve literal text.",
+      "explanation": "`echo '$HOME'` prints `$HOME`; `echo \"$HOME\"` prints the path."
+    },
+    {
+      "id": 79,
+      "topic": "Basic navigation commands: pwd, ls, cd – with live examples",
+      "difficulty": "Beginner",
+      "question": "How to list all files, including hidden ones?",
+      "answer": "`ls -a` or `ls -al`.",
+      "explanation": "Hidden files start with `.` (dot)."
+    },
+    {
+      "id": 80,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "What is the default login shell in most Linux distributions?",
+      "answer": "Bash (Bourne‑again shell).",
+      "explanation": "Some distributions (like Ubuntu) have switched to Dash for `/bin/sh` but still default to Bash for interactive users."
+    },
+    {
+      "id": 81,
+      "topic": "Opening terminal: shortcuts and interface tour",
+      "difficulty": "Beginner",
+      "question": "What does `Ctrl+L` do in a terminal?",
+      "answer": "Clears the screen (similar to `clear`).",
+      "explanation": "It redraws the terminal, keeping the prompt at the top."
+    },
+    {
+      "id": 82,
+      "topic": "Using manual pages: man command and --help flag",
+      "difficulty": "Beginner",
+      "question": "How to exit a man page?",
+      "answer": "Press `q`.",
+      "explanation": "Man pages use the `less` pager, which quits with `q`."
+    },
+    {
+      "id": 83,
+      "topic": "Understanding environment variables – PATH overview",
+      "difficulty": "Beginner",
+      "question": "What is the typical order of directories in `PATH`?",
+      "answer": "`/usr/local/bin`, `/usr/bin`, `/bin`, possibly `/usr/sbin` and `/sbin` for root.",
+      "explanation": "The order determines precedence when commands have the same name."
+    },
+    {
+      "id": 84,
+      "topic": "Root user vs normal user – concept and importance",
+      "difficulty": "Beginner",
+      "question": "What is the `whoami` command?",
+      "answer": "Displays the current effective username.",
+      "explanation": "Useful after `sudo` to check if you are still root."
+    },
+    {
+      "id": 85,
+      "topic": "Common beginner mistakes in terminal usage",
+      "difficulty": "Beginner",
+      "question": "Why does `command not found` appear even when a program is installed?",
+      "answer": "The program might not be in the `PATH`, or you need `sudo` to run it (if in `/usr/sbin`).",
+      "explanation": "Check with `which command` or `type command`."
+    },
+    {
+      "id": 86,
+      "topic": "Evolution of UNIX – Bell Labs to modern Linux",
+      "difficulty": "Beginner",
+      "question": "What is the role of the Open Group in Unix?",
+      "answer": "It holds the UNIX trademark and certifies operating systems that conform to the Single UNIX Specification.",
+      "explanation": "MacOS and a few commercial Unices are certified; Linux is not."
+    },
+    {
+      "id": 87,
+      "topic": "Difference between UNIX, Linux and GNU/Linux",
+      "difficulty": "Beginner",
+      "question": "What is the kernel of an operating system?",
+      "answer": "The core component that handles hardware, processes, and memory; Linux is a kernel.",
+      "explanation": "GNU/Linux = Linux kernel + GNU tools; Android = Linux kernel + Android runtime."
+    },
+    {
+      "id": 88,
+      "topic": "Role of the kernel: process, memory and device management (conceptual)",
+      "difficulty": "Beginner",
+      "question": "What is a process control block (PCB)?",
+      "answer": "A kernel data structure containing information about a process (PID, state, registers, etc.).",
+      "explanation": "In Linux, it's `task_struct`."
+    },
+    {
+      "id": 89,
+      "topic": "What is a shell? Bash vs Zsh vs Sh",
+      "difficulty": "Beginner",
+      "question": "How to change your default shell?",
+      "answer": "`chsh -s /bin/zsh` (needs to be added to `/etc/shells`).",
+      "explanation": "`chsh` changes the login shell; you must log out and back in."
+    },
+    {
+      "id": 90,
+      "topic": "Practice Lab: Running your first 10 Linux commands",
+      "difficulty": "Beginner",
+      "question": "How to create a new directory?",
+      "answer": "`mkdir newdir`.",
+      "explanation": "Use `mkdir -p` to create parent directories as needed."
+    }
+  ]
+}

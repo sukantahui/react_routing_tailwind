@@ -1,0 +1,3215 @@
+{
+  "subject": "Unix / Linux",
+  "class": "XII",
+  "board": "ICSE / CBSE",
+  "topic": "Process Management – Comprehensive Short Questions",
+  "subjectLogo": {
+    "name": "Unix",
+    "icon": "unix",
+    "type": "svg",
+    "path": "/logos/Unix-original.svg",
+    "alt": "Unix/Linux Logo"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What is a process in Unix?",
+      "answer": "A process is an executing instance of a program, including its code, data, stack, registers, and program counter.",
+      "explanation": "A process has its own address space, PID, and state. It is a dynamic entity, unlike a static program file on disk."
+    },
+    {
+      "id": 2,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What is the difference between a program and a process?",
+      "answer": "A program is a static set of instructions stored on disk; a process is an active execution of that program with its own PID and resources.",
+      "explanation": "Multiple processes can run the same program (e.g., two terminal windows both running bash)."
+    },
+    {
+      "id": 3,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What does PID stand for?",
+      "answer": "Process Identifier – a unique integer assigned to each process by the kernel.",
+      "explanation": "PID 1 is init/systemd. PIDs are recycled after a process exits, but never two at the same time."
+    },
+    {
+      "id": 4,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What is the Process Control Block (PCB)?",
+      "answer": "A kernel data structure that stores all information about a process (PID, state, registers, open files, etc.).",
+      "explanation": "In Linux, the PCB is called `task_struct`. It resides in kernel memory and is used for scheduling and resource management."
+    },
+    {
+      "id": 5,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "Name three items stored in the PCB.",
+      "answer": "Process ID (PID), program counter, CPU registers, memory limits, file descriptors, and process state.",
+      "explanation": "The PCB also includes scheduling priority, signal masks, and parent PID."
+    },
+    {
+      "id": 6,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What system call creates a new process in Unix?",
+      "answer": "`fork()`",
+      "explanation": "`fork()` duplicates the calling process to create a child process. The child is a near‑exact copy of the parent."
+    },
+    {
+      "id": 7,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "How can you see all running processes from the command line?",
+      "answer": "Use `ps`, `top`, `htop`, or `pgrep`.",
+      "explanation": "`ps aux` shows all processes; `top` provides a real‑time updating list; `htop` offers an interactive interface."
+    },
+    {
+      "id": 8,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What is the `ps` command used for?",
+      "answer": "`ps` reports a snapshot of current processes at the moment it is run.",
+      "explanation": "Common options: `ps aux` (BSD style) and `ps -ef` (SysV style)."
+    },
+    {
+      "id": 9,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What command shows a process tree?",
+      "answer": "`pstree` or `ps -e --forest`.",
+      "explanation": "`pstree -p` shows PIDs in a parent‑child tree format, making it easy to see process ancestry."
+    },
+    {
+      "id": 10,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Beginner",
+      "question": "What is the init process?",
+      "answer": "The first user‑space process started by the kernel, with PID 1; it is the ancestor of all other processes.",
+      "explanation": "Init adopts orphan processes and manages system runlevels (or targets in systemd)."
+    },
+    {
+      "id": 11,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is a daemon?",
+      "answer": "A background process that runs continuously, often started at boot, without a controlling terminal.",
+      "explanation": "Examples: `sshd`, `cron`, `httpd`. Daemons typically end with 'd'."
+    },
+    {
+      "id": 12,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is the `kill` command used for?",
+      "answer": "`kill` sends a signal to a process (e.g., terminate, interrupt, suspend).",
+      "explanation": "`kill -9 PID` forces immediate termination; `kill -15 PID` requests graceful termination (SIGTERM)."
+    },
+    {
+      "id": 13,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "Name two signals sent by default when pressing Ctrl+C and Ctrl+Z.",
+      "answer": "Ctrl+C sends SIGINT; Ctrl+Z sends SIGTSTP.",
+      "explanation": "SIGINT interrupts a process; SIGTSTP suspends it (can be resumed with `fg` or `bg`)."
+    },
+    {
+      "id": 14,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of the `/proc` filesystem?",
+      "answer": "`/proc` provides process and system information via virtual files, accessible as normal files.",
+      "explanation": "`/proc/self/` refers to the current process; `/proc/<pid>/` contains details like status, memory maps, and command line."
+    },
+    {
+      "id": 15,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is a zombie process?",
+      "answer": "A process that has terminated but whose parent hasn’t called `wait()` to read its exit status; shows state `Z`.",
+      "explanation": "Zombies consume no memory or CPU, only a slot in the process table. They cannot be killed because they are already dead."
+    },
+    {
+      "id": 16,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is an orphan process?",
+      "answer": "A process whose parent has terminated before it; it is adopted by init (PID 1).",
+      "explanation": "Init will eventually call `wait()` on orphans, so they do not become permanent zombies."
+    },
+    {
+      "id": 17,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What system call terminates a process?",
+      "answer": "`_exit()` or `exit()`.",
+      "explanation": "`_exit()` performs no clean‑up (immediate kernel termination); `exit()` flushes stdio buffers and runs atexit handlers."
+    },
+    {
+      "id": 18,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is a context switch?",
+      "answer": "Saving the state of one process and restoring the state of another when the CPU switches between processes.",
+      "explanation": "Context switches are triggered by timer interrupts, I/O, or system calls. High context switch rates can degrade performance."
+    },
+    {
+      "id": 19,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `exit()` and `_exit()`?",
+      "answer": "`exit()` performs clean‑up (atexit, stdio flush); `_exit()` terminates immediately without clean‑up.",
+      "explanation": "In a child process after `fork()`, use `_exit()` if `exec()` fails to avoid flushing parent's buffers."
+    },
+    {
+      "id": 20,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Intermediate",
+      "question": "What is a process group?",
+      "answer": "A collection of related processes that can receive signals together and are managed as a unit for job control.",
+      "explanation": "Shell pipelines, e.g., `cmd1 | cmd2`, form a process group. The foreground group receives keyboard signals."
+    },
+    {
+      "id": 21,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the `nice` value?",
+      "answer": "A user‑space priority adjustment from -20 (highest priority) to +19 (lowest priority).",
+      "explanation": "Higher nice = lower priority = more polite. Only root can set negative nice values."
+    },
+    {
+      "id": 22,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the default nice value for a process?",
+      "answer": "0",
+      "explanation": "Normal processes start with nice 0, which gives them standard priority in the CFS scheduler."
+    },
+    {
+      "id": 23,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "How to run a command with lower priority (niceness)?",
+      "answer": "`nice -n 10 command` or `nice command` (adds +10 by default).",
+      "explanation": "`nice` without argument increments the nice value by 10, lowering the priority."
+    },
+    {
+      "id": 24,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What does `ulimit -u` show?",
+      "answer": "The maximum number of processes allowed for the current user (soft limit).",
+      "explanation": "The limit can be changed with `ulimit -u` if permissions allow; it prevents fork bombs."
+    },
+    {
+      "id": 25,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is a process's address space?",
+      "answer": "The virtual memory layout of a process, typically divided into text, data, heap, and stack segments.",
+      "explanation": "Each process has its own isolated address space for security and stability. The kernel maps virtual to physical pages."
+    },
+    {
+      "id": 26,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "How can you get the PID of the current shell?",
+      "answer": "`echo $$` in the shell, or `$` in scripts (though `$$` may not change in subshells).",
+      "explanation": "For the actual PID of a subshell, use `$BASHPID` in bash. `$$` gives the original shell's PID."
+    },
+    {
+      "id": 27,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the maximum PID value on a typical Linux system?",
+      "answer": "Default is 32768 on 32‑bit systems, 4194304 on 64‑bit systems (configurable via `/proc/sys/kernel/pid_max`).",
+      "explanation": "PID wrap‑around occurs after the maximum is reached; the kernel skips PIDs that are still in use."
+    },
+    {
+      "id": 28,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` system call's return type?",
+      "answer": "`pid_t`, a signed integer type defined in `<sys/types.h>`.",
+      "explanation": "`pid_t` is typically `int`. It must be able to represent a PID (positive) and -1 for error."
+    },
+    {
+      "id": 29,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a process and a thread?",
+      "answer": "Processes have separate address spaces; threads share the same address space within a process.",
+      "explanation": "All threads of a process share the same PID, but have unique thread IDs (TID). Context switching between threads is cheaper."
+    },
+    {
+      "id": 30,
+      "topic": "Concept of process in Unix",
+      "difficulty": "Advanced",
+      "question": "What is the role of the kernel's scheduler?",
+      "answer": "The scheduler decides which process runs on the CPU and for how long, aiming for fairness, throughput, and responsiveness.",
+      "explanation": "Linux uses the Completely Fair Scheduler (CFS) which uses vruntime to allocate CPU time proportionally."
+    },
+    {
+      "id": 31,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What system call creates a child process?",
+      "answer": "`fork()`",
+      "explanation": "`fork()` duplicates the parent process. After `fork()`, both parent and child run concurrently."
+    },
+    {
+      "id": 32,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What does `fork()` return to the parent?",
+      "answer": "The PID of the child process.",
+      "explanation": "The parent can use this PID to wait for the child or send signals."
+    },
+    {
+      "id": 33,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What does `fork()` return to the child?",
+      "answer": "0",
+      "explanation": "The child gets a return value of 0, which allows it to distinguish itself from the parent."
+    },
+    {
+      "id": 34,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What happens if `fork()` fails?",
+      "answer": "It returns -1 and sets `errno` (e.g., `EAGAIN` for process limit or `ENOMEM` for insufficient memory).",
+      "explanation": "A failed `fork()` means no child was created; you should always check the return value."
+    },
+    {
+      "id": 35,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What is the parent process of a newly created child?",
+      "answer": "The process that called `fork()` (the parent).",
+      "explanation": "The child's `getppid()` returns the parent's PID."
+    },
+    {
+      "id": 36,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What system call replaces the current process image with a new program?",
+      "answer": "`exec()` family (`execlp`, `execvp`, `execve`, etc.).",
+      "explanation": "`exec` does not create a new process; it transforms the calling process into a new program. The PID remains unchanged."
+    },
+    {
+      "id": 37,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What is the typical lifecycle sequence for spawning a new program?",
+      "answer": "`fork()` then `exec()` (often called fork‑exec).",
+      "explanation": "The shell uses fork‑exec to run commands: `fork` creates a child, then `exec` replaces the child with the command."
+    },
+    {
+      "id": 38,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What function does a shell use to wait for a child process to finish?",
+      "answer": "`wait()` or `waitpid()`.",
+      "explanation": "The shell calls `wait()` in the parent to receive the child's exit status and to prevent zombies."
+    },
+    {
+      "id": 39,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What is the process life cycle?",
+      "answer": "Creation → Ready → Running → Waiting (if needed) → Terminated → Reaped.",
+      "explanation": "The scheduler moves processes among these states. After termination, the process becomes a zombie until reaped."
+    },
+    {
+      "id": 40,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Beginner",
+      "question": "What does the `wait()` system call do?",
+      "answer": "Suspends the parent until one of its children terminates, then returns the child's PID and exit status.",
+      "explanation": "`wait()` also reaps the child's zombie entry, freeing the process table slot."
+    },
+    {
+      "id": 41,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is copy‑on‑write (COW) in the context of `fork()`?",
+      "answer": "An optimization where the kernel shares physical pages between parent and child until one writes to a page, then a copy is made.",
+      "explanation": "COW makes `fork()` very fast because only page tables are duplicated, not the entire address space."
+    },
+    {
+      "id": 42,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `fork()` and `vfork()`?",
+      "answer": "`vfork()` suspends the parent until the child calls `exec()` or `_exit()`, and shares the address space (no copy).",
+      "explanation": "`vfork()` is obsolete; modern `fork()` with COW is efficient and safer."
+    },
+    {
+      "id": 43,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What does the `clone()` system call do?",
+      "answer": "A Linux‑specific call that creates a new process (or thread) with fine‑grained sharing of resources (memory, files, etc.).",
+      "explanation": "`clone()` is used to implement threads (pthreads) by sharing address space with the parent."
+    },
+    {
+      "id": 44,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is a process group and session?",
+      "answer": "A process group is a set of related processes; a session is a collection of process groups attached to a terminal.",
+      "explanation": "Job control uses sessions and process groups to handle foreground/background processes and terminal signals."
+    },
+    {
+      "id": 45,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "How does a daemon detach from a terminal?",
+      "answer": "By forking, the child calls `setsid()` to become a session leader, then forks again to ensure it is not a session leader.",
+      "explanation": "The double‑fork technique prevents the daemon from acquiring a controlling terminal."
+    },
+    {
+      "id": 46,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `exit()` and `return` from `main()`?",
+      "answer": "`return` from `main()` is equivalent to calling `exit()` with the returned value; both trigger atexit handlers.",
+      "explanation": "`exit()` can be called from anywhere; `return` only exits the current function, and in `main` it exits the process."
+    },
+    {
+      "id": 47,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "How can a parent wait for a specific child?",
+      "answer": "Use `waitpid(child_pid, &status, options)`.",
+      "explanation": "`waitpid()` allows waiting for a particular child, non‑blocking mode (`WNOHANG`), and other options."
+    },
+    {
+      "id": 48,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What happens if a parent dies before its child?",
+      "answer": "The child becomes an orphan and is reparented to init (PID 1).",
+      "explanation": "Init will eventually `wait()` for the orphan, preventing a zombie."
+    },
+    {
+      "id": 49,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "What is the `SIGCHLD` signal?",
+      "answer": "A signal sent to the parent when a child terminates, stops, or continues.",
+      "explanation": "A parent can install a handler for `SIGCHLD` to reap children asynchronously using `waitpid()` with `WNOHANG`."
+    },
+    {
+      "id": 50,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Intermediate",
+      "question": "How can you prevent zombies without calling `wait()` in the parent?",
+      "answer": "Set `SIGCHLD` to `SIG_IGN` (on Linux), or use a `SIGCHLD` handler that calls `waitpid(-1, NULL, WNOHANG)`.",
+      "explanation": "Ignoring `SIGCHLD` causes the kernel to automatically reap children; the handler approach does it without blocking."
+    },
+    {
+      "id": 51,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `posix_spawn()`?",
+      "answer": "A function that creates a new process and executes a program in one step, often more efficient than fork‑exec.",
+      "explanation": "`posix_spawn()` is used in environments where `fork()` is too heavy (e.g., embedded systems)."
+    },
+    {
+      "id": 52,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is a `subreaper` process?",
+      "answer": "A process that marks itself as a child subreaper using `prctl(PR_SET_CHILD_SUBREAPER)`, inheriting orphaned descendants.",
+      "explanation": "Container runtimes often set a subreaper to manage processes inside the container without relying on init."
+    },
+    {
+      "id": 53,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What file descriptors are inherited across `fork()`?",
+      "answer": "All open file descriptors are inherited, including their file offsets and flags.",
+      "explanation": "The child gets a copy of the descriptors, all referring to the same open file descriptions."
+    },
+    {
+      "id": 54,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `fork()` and `fork()` with `clone(CLONE_VM)`?",
+      "answer": "`clone(CLONE_VM)` creates a thread (shares address space); `fork()` creates a process with a separate address space.",
+      "explanation": "The underlying `clone()` system call can be used to create both processes and threads depending on flags."
+    },
+    {
+      "id": 55,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What does the `execve()` system call return on success?",
+      "answer": "It does not return on success; the new program starts running.",
+      "explanation": "If `execve()` returns, it means an error occurred (e.g., file not found, permission denied)."
+    },
+    {
+      "id": 56,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of the `fork()` `vfork()` race condition?",
+      "answer": "In `vfork()`, the child runs in the parent's address space, so any modification to memory before `exec()` can corrupt the parent.",
+      "explanation": "`vfork()` is considered dangerous and should be avoided; use `fork()` with COW instead."
+    },
+    {
+      "id": 57,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "How can a process change its own priority?",
+      "answer": "Using `nice()` system call or `setpriority()` (POSIX).",
+      "explanation": "`nice(inc)` increments the nice value; `setpriority(PRIO_PROCESS, 0, value)` sets the priority directly."
+    },
+    {
+      "id": 58,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the `SCHED_DEADLINE` policy in Linux?",
+      "answer": "A real‑time scheduling policy based on earliest deadline first (EDF), where processes specify runtime, period, and deadline.",
+      "explanation": "The kernel guarantees that tasks meeting their deadlines will be scheduled accordingly; used for hard real‑time systems."
+    },
+    {
+      "id": 59,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the `O_CLOEXEC` flag?",
+      "answer": "A flag that marks a file descriptor to be automatically closed when `exec()` is called.",
+      "explanation": "It helps avoid leaking file descriptors to child processes that call `exec()`."
+    },
+    {
+      "id": 60,
+      "topic": "Process creation and lifecycle",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `pthread_atfork()` and `fork()` handlers?",
+      "answer": "`pthread_atfork()` registers handlers that run just before, and after, `fork()` to reinitialize locks and state.",
+      "explanation": "In multithreaded programs, `fork()` only duplicates the calling thread; `pthread_atfork()` helps avoid deadlocks in the child."
+    },
+    {
+      "id": 61,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is the init process?",
+      "answer": "The first user‑space process started by the kernel, always with PID 1.",
+      "explanation": "Init is the ancestor of all other processes and adopts orphaned processes."
+    },
+    {
+      "id": 62,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is the PID of init?",
+      "answer": "1",
+      "explanation": "The kernel reserves PID 1 for init. No other process can have PID 1."
+    },
+    {
+      "id": 63,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What happens to orphan processes?",
+      "answer": "They are reparented to init (PID 1).",
+      "explanation": "Init will call `wait()` periodically to reap orphans and prevent zombies."
+    },
+    {
+      "id": 64,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is the role of init in system boot?",
+      "answer": "Init loads system services, runs startup scripts, and brings the system to the default runlevel/target.",
+      "explanation": "Traditionally, init reads `/etc/inittab`. Modern systems use systemd with unit files."
+    },
+    {
+      "id": 65,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is the difference between SysV init and systemd?",
+      "answer": "SysV init uses sequential runlevel scripts; systemd uses parallel, dependency‑based unit files and socket activation.",
+      "explanation": "Systemd is faster and provides more features like logging, snapshot, and on‑demand starting of services."
+    },
+    {
+      "id": 66,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What command checks which init system is running?",
+      "answer": "`ps -p 1 -o comm=` or `systemctl --version` (for systemd).",
+      "explanation": "If the output contains 'systemd', it's systemd; otherwise, it might be SysV or upstart."
+    },
+    {
+      "id": 67,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "Can init be killed?",
+      "answer": "No, the kernel ignores SIGKILL for PID 1.",
+      "explanation": "Killing init would cause a kernel panic. The system must be shut down properly."
+    },
+    {
+      "id": 68,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is a runlevel?",
+      "answer": "A system state in SysV init (0‑6), e.g., 0 = halt, 1 = single‑user, 3 = multi‑user, 5 = graphical, 6 = reboot.",
+      "explanation": "Systemd replaced runlevels with targets (e.g., multi-user.target, graphical.target)."
+    },
+    {
+      "id": 69,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What command changes the default runlevel in SysV init?",
+      "answer": "Edit `/etc/inittab` (or use `telinit`).",
+      "explanation": "In systemd, use `systemctl set-default <target>.target`."
+    },
+    {
+      "id": 70,
+      "topic": "Understanding init process",
+      "difficulty": "Beginner",
+      "question": "What is the default target in systemd?",
+      "answer": "`default.target` (usually a symlink to `multi-user.target` or `graphical.target`).",
+      "explanation": "Use `systemctl get-default` to see it."
+    },
+    {
+      "id": 71,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is a service unit in systemd?",
+      "answer": "A unit file describing a service (daemon) with `[Service]` section defining execution and restart behaviour.",
+      "explanation": "Systemd units are stored in `/etc/systemd/system/` and `/lib/systemd/system/`."
+    },
+    {
+      "id": 72,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "How does init handle `Ctrl+Alt+Del`?",
+      "answer": "Traditionally, init runs a shutdown command. In systemd, `ctrl-alt-del.target` is triggered, often linked to `reboot.target`.",
+      "explanation": "You can mask the target to disable the behaviour: `systemctl mask ctrl-alt-del.target`."
+    },
+    {
+      "id": 73,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is `initramfs`?",
+      "answer": "An initial RAM filesystem loaded by the bootloader that contains a minimal init and modules to mount the real root.",
+      "explanation": "The `initramfs` init (often `init`) prepares the system and then executes the real init."
+    },
+    {
+      "id": 74,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `init` and `systemd` as PID 1?",
+      "answer": "`init` is the traditional name for the first process; `systemd` is a modern implementation that provides many more features.",
+      "explanation": "Systemd is backwards compatible with many init scripts but replaces `/sbin/init` with a symlink."
+    },
+    {
+      "id": 75,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is an orphan process and how does init handle it?",
+      "answer": "An orphan is a process whose parent has died. Init adopts it, and later calls `wait()` to reap it when it exits.",
+      "explanation": "This prevents zombies from accumulating indefinitely."
+    },
+    {
+      "id": 76,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "Can a process become a sub‑init?",
+      "answer": "Yes, by using `prctl(PR_SET_CHILD_SUBREAPER, 1)`. It will then adopt orphan descendants.",
+      "explanation": "This is useful for container runtimes where an intermediate process must manage child processes."
+    },
+    {
+      "id": 77,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is the `systemd-logind` component?",
+      "answer": "A systemd service that manages user logins, seats, and sessions, including handling power keys and device access.",
+      "explanation": "It replaces console‑kit and integrates with PolicyKit."
+    },
+    {
+      "id": 78,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is `systemctl enable` used for?",
+      "answer": "It creates symlinks so a service starts automatically at boot.",
+      "explanation": "`systemctl enable ssh` links the unit file into the multi‑user.target.wants directory."
+    },
+    {
+      "id": 79,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `/etc/inittab`?",
+      "answer": "The configuration file for SysV init that defines runlevels, getty processes, and shutdown actions.",
+      "explanation": "On systemd systems, this file is not used."
+    },
+    {
+      "id": 80,
+      "topic": "Understanding init process",
+      "difficulty": "Intermediate",
+      "question": "What is a `target` in systemd compared to a runlevel?",
+      "answer": "A target is a group of units that together represent a system state; runlevels are aliases (e.g., multi-user.target is runlevel 3).",
+      "explanation": "Targets are more flexible and can be started in parallel."
+    },
+    {
+      "id": 81,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is `systemd-analyze` used for?",
+      "answer": "To analyze boot performance and unit dependencies (e.g., `systemd-analyze blame` shows startup times).",
+      "explanation": "It helps optimise boot speed by identifying slow services."
+    },
+    {
+      "id": 82,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "How can you create a custom init script for SysV init?",
+      "answer": "Write a script in `/etc/init.d/` that accepts `start`, `stop`, `restart`, and `status` arguments, then link it in the appropriate runlevel directories.",
+      "explanation": "Use `update-rc.d` (Debian) or `chkconfig` (RHEL) to manage the links."
+    },
+    {
+      "id": 83,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is a `socket unit` in systemd?",
+      "answer": "A unit that listens on a socket and starts a service when a connection arrives (socket activation).",
+      "explanation": "This reduces resource usage by starting services only when needed."
+    },
+    {
+      "id": 84,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is `systemd-cgls`?",
+      "answer": "Shows the control group hierarchy for all processes, rooted at systemd.",
+      "explanation": "Control groups (cgroups) are used to limit and account resources; systemd is the root controller."
+    },
+    {
+      "id": 85,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "How does systemd handle service restart on failure?",
+      "answer": "Through `Restart=` directive in the service unit (e.g., `Restart=on-failure`, `RestartSec=5s`).",
+      "explanation": "Systemd can automatically restart crashed services, improving reliability."
+    },
+    {
+      "id": 86,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is `masking` a systemd unit?",
+      "answer": "Making a unit unstartable by symlinking it to `/dev/null` (e.g., `systemctl mask sshd`).",
+      "explanation": "Masking is stronger than disabling; it prevents manual and automatic start."
+    },
+    {
+      "id": 87,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is the `initrd` vs `initramfs`?",
+      "answer": "`initrd` is an older block device image; `initramfs` is a cpio archive unpacked into a tmpfs, more flexible and standard on modern Linux.",
+      "explanation": "Both serve as a temporary root before the real root is mounted."
+    },
+    {
+      "id": 88,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "How to add a new service to systemd manually?",
+      "answer": "Create a `.service` file in `/etc/systemd/system/`, then run `systemctl daemon-reload` and `systemctl enable|start`.",
+      "explanation": "Unit files define the command to run, dependencies, and behaviour."
+    },
+    {
+      "id": 89,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is `systemd-nspawn`?",
+      "answer": "A tool to run a command or OS in a lightweight container, using namespaces and cgroups.",
+      "explanation": "It is similar to `chroot` but with more isolation."
+    },
+    {
+      "id": 90,
+      "topic": "Understanding init process",
+      "difficulty": "Advanced",
+      "question": "What is the `DefaultDependencies` directive in systemd?",
+      "answer": "It controls whether implicit dependencies (e.g., `After=sysinit.target`) are added to the unit.",
+      "explanation": "Setting `DefaultDependencies=no` is for very low‑level services that must run before basic system initialisation."
+    },
+    {
+      "id": 91,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What is `getty`?",
+      "answer": "A program that opens a terminal and displays the `login:` prompt.",
+      "explanation": "Init spawns getty on virtual consoles and serial lines. After username entry, getty execs the `login` program."
+    },
+    {
+      "id": 92,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What does the `login` program do?",
+      "answer": "It prompts for a password, verifies credentials, sets environment variables, changes to home directory, and executes the user's shell.",
+      "explanation": "Login also logs the session in `/var/log/wtmp` and prints `/etc/motd`."
+    },
+    {
+      "id": 93,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "Where is the user's default shell defined?",
+      "answer": "In `/etc/passwd`, the last field (e.g., `/bin/bash`).",
+      "explanation": "The shell can be changed by the user with `chsh` (subject to allowed shells in `/etc/shells`)."
+    },
+    {
+      "id": 94,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What are the two main authentication databases?",
+      "answer": "`/etc/passwd` (user info) and `/etc/shadow` (encrypted passwords).",
+      "explanation": "`/etc/passwd` is world‑readable but contains no passwords; `/etc/shadow` is readable only by root."
+    },
+    {
+      "id": 95,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What is PAM?",
+      "answer": "Pluggable Authentication Modules – a flexible framework for authentication, account management, session setup, and password changing.",
+      "explanation": "PAM allows system administrators to stack modules (e.g., `pam_unix.so`, `pam_ldap.so`)."
+    },
+    {
+      "id": 96,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What is the purpose of `/etc/nologin`?",
+      "answer": "If this file exists, non‑root users cannot log in; the file's contents are displayed and the login is denied.",
+      "explanation": "Used during system maintenance."
+    },
+    {
+      "id": 97,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What command shows currently logged‑in users?",
+      "answer": "`who`, `w`, or `users`.",
+      "explanation": "`who -u` also shows idle time and process ID."
+    },
+    {
+      "id": 98,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What is `last` command?",
+      "answer": "Displays a list of recent logins (successful) from `/var/log/wtmp`.",
+      "explanation": "`lastb` shows failed login attempts from `/var/log/btmp` (requires root)."
+    },
+    {
+      "id": 99,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What is the `motd` file?",
+      "answer": "Message Of The Day – displayed after successful login, typically located at `/etc/motd`.",
+      "explanation": "Often generated by scripts in `/etc/update-motd.d/` (Ubuntu)."
+    },
+    {
+      "id": 100,
+      "topic": "Unix login process overview",
+      "difficulty": "Beginner",
+      "question": "What does the `/etc/securetty` file do?",
+      "answer": "It lists terminals from which root can log in directly (login on console, not over network).",
+      "explanation": "Prevents root login from insecure network terminals (e.g., telnet)."
+    },
+    {
+      "id": 101,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is `sshd`?",
+      "answer": "The SSH daemon that handles remote login sessions over the SSH protocol.",
+      "explanation": "`sshd` replaces the `getty`+`login` chain for network logins, providing encryption and authentication."
+    },
+    {
+      "id": 102,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `su` and `su -`?",
+      "answer": "`su` switches user but keeps current environment; `su -` (or `su -l`) simulates a full login, clearing environment and running profile scripts.",
+      "explanation": "`su -` changes to target user's home directory and sources `.profile`."
+    },
+    {
+      "id": 103,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is a display manager?",
+      "answer": "A graphical login program (e.g., GDM, SDDM) that starts the user's desktop environment.",
+      "explanation": "Display managers often provide session management and restart Xorg automatically."
+    },
+    {
+      "id": 104,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "How does `sudo` differ from `su`?",
+      "answer": "`sudo` allows a user to run a command as another user (often root) if permitted by `/etc/sudoers`, without requiring the target user's password.",
+      "explanation": "`sudo` logs the command and can provide fine‑grained access control."
+    },
+    {
+      "id": 105,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is `faillog`?",
+      "answer": "A command to display or set failed login counters and lockouts from `/var/log/faillog`.",
+      "explanation": "Used in combination with PAM to enforce account lockout after too many failures."
+    },
+    {
+      "id": 106,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What does `pam_tally2` do?",
+      "answer": "A PAM module that counts failed login attempts and can lock accounts after a threshold is reached.",
+      "explanation": "Use `pam_tally2 --user username` to see counters; `pam_tally2 --reset` to unlock."
+    },
+    {
+      "id": 107,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a login shell and a non‑login shell?",
+      "answer": "A login shell executes `/etc/profile` and `~/.profile`; a non‑login shell (e.g., after `bash` from another shell) executes `~/.bashrc`.",
+      "explanation": "Login shells are typically started when you log in via console or SSH; non‑login shells are spawned from those."
+    },
+    {
+      "id": 108,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `getent`?",
+      "answer": "To query entries from system databases (passwd, shadow, group, hosts) using the configured name service (NSS).",
+      "explanation": "`getent passwd username` shows user info from both local files and LDAP/NIS."
+    },
+    {
+      "id": 109,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is `sulogin`?",
+      "answer": "A minimal version of `login` used in single‑user mode or recovery; it asks for the root password.",
+      "explanation": "Used when the normal login process cannot start."
+    },
+    {
+      "id": 110,
+      "topic": "Unix login process overview",
+      "difficulty": "Intermediate",
+      "question": "What is the `USER` environment variable set by login?",
+      "answer": "The username of the logged‑in user.",
+      "explanation": "Also `LOGNAME` is usually set to the same value."
+    },
+    {
+      "id": 111,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `systemd-logind` and how does it affect login?",
+      "answer": "A systemd service that manages user sessions, including graphical and text logins, power buttons, and seat management.",
+      "explanation": "`logind` ensures that user sessions have proper ACLs on devices and can handle session switching."
+    },
+    {
+      "id": 112,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is the `utmp` and `wtmp` file?",
+      "answer": "`utmp` keeps information about currently logged‑in users; `wtmp` is a history of logins and logouts.",
+      "explanation": "`utmp` is often stored in `/var/run/utmp`, `wtmp` in `/var/log/wtmp`. The `who` command reads `utmp`."
+    },
+    {
+      "id": 113,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `lastlog`?",
+      "answer": "A database file (`/var/log/lastlog`) that stores the last login time for each user; command `lastlog` displays it.",
+      "explanation": "Updated by login and sshd; used by system administrators to detect unusual login patterns."
+    },
+    {
+      "id": 114,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "How does `pam_limits.so` affect login?",
+      "answer": "It sets resource limits (from `/etc/security/limits.conf`) for the user session when the user logs in.",
+      "explanation": "Limits include core file size, open files, CPU time, etc."
+    },
+    {
+      "id": 115,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is the `nsswitch.conf` file?",
+      "answer": "The Name Service Switch configuration file that defines the order of sources (files, LDAP, NIS) for user, group, host, and other databases.",
+      "explanation": "`/etc/nsswitch.conf` directs the system to, e.g., check `/etc/passwd` before LDAP."
+    },
+    {
+      "id": 116,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `pam_env` module?",
+      "answer": "A PAM module that sets environment variables based on `/etc/security/pam_env.conf` and `/etc/environment`.",
+      "explanation": "It allows setting system‑wide environment variables for every login."
+    },
+    {
+      "id": 117,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `chroot` in relation to login?",
+      "answer": "`chroot` changes the root directory for a process; it can be used to create restricted login environments (chroot jail).",
+      "explanation": "SSH can be configured to chroot users to their home directories (ChrootDirectory in sshd_config)."
+    },
+    {
+      "id": 118,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `pam_securetty`?",
+      "answer": "A PAM module that restricts root login to the terminals listed in `/etc/securetty`.",
+      "explanation": "It checks the device name before allowing root login."
+    },
+    {
+      "id": 119,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is the `TMOUT` environment variable?",
+      "answer": "If set and exported, it automatically logs out the user after the specified number of seconds of inactivity.",
+      "explanation": "Often set in `/etc/profile` for security."
+    },
+    {
+      "id": 120,
+      "topic": "Unix login process overview",
+      "difficulty": "Advanced",
+      "question": "What is `pam_lastlog`?",
+      "answer": "A PAM module that displays information about the last login (time, terminal, IP) upon successful login.",
+      "explanation": "It reads from `/var/log/lastlog` and updates it."
+    },
+    {
+      "id": 121,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "What does `fork()` do?",
+      "answer": "Creates a new process (child) by duplicating the calling process.",
+      "explanation": "The child is an almost exact copy of the parent, with its own PID and memory."
+    },
+    {
+      "id": 122,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "What is the return value of `fork()` in the parent?",
+      "answer": "The PID of the child (positive integer).",
+      "explanation": "The parent can use this PID to wait for or signal the child."
+    },
+    {
+      "id": 123,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "What is the return value of `fork()` in the child?",
+      "answer": "0",
+      "explanation": "The child gets 0, allowing it to differentiate itself from the parent."
+    },
+    {
+      "id": 124,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "What does `fork()` return on error?",
+      "answer": "-1, and `errno` is set appropriately (e.g., `EAGAIN` or `ENOMEM`).",
+      "explanation": "No child process is created."
+    },
+    {
+      "id": 125,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "After `fork()`, which process runs first?",
+      "answer": "Undefined; depends on the scheduler.",
+      "explanation": "You cannot assume either the parent or child runs first. Use synchronisation if order matters."
+    },
+    {
+      "id": 126,
+      "topic": "System calls: fork()",
+      "difficulty": "Beginner",
+      "question": "What is the typical pattern after `fork()`?",
+      "answer": "The parent calls `wait()` while the child calls `exec()` to run a new program.",
+      "explanation": "This is the standard fork‑exec pattern used by shells and servers."
+    },
+    {
+      "id": 127,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What is copy‑on‑write (COW) in `fork()`?",
+      "answer": "Pages are shared between parent and child until one writes; then a private copy is made.",
+      "explanation": "COW optimises memory usage and makes `fork()` fast."
+    },
+    {
+      "id": 128,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `fork()` and `vfork()`?",
+      "answer": "`vfork()` suspends the parent and shares the address space; `fork()` uses COW and both run concurrently.",
+      "explanation": "`vfork()` is considered dangerous and is rarely used today."
+    },
+    {
+      "id": 129,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What file descriptors are inherited after `fork()`?",
+      "answer": "All open file descriptors are inherited, including their file offsets and flags.",
+      "explanation": "The parent and child share the same file descriptions; changes in one affect the other."
+    },
+    {
+      "id": 130,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "Are pending signals inherited after `fork()`?",
+      "answer": "No, the child starts with an empty set of pending signals.",
+      "explanation": "Signal handlers are inherited, but signals that were pending for the parent are not delivered to the child."
+    },
+    {
+      "id": 131,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What is a fork bomb?",
+      "answer": "A malicious or buggy program that calls `fork()` repeatedly, rapidly exhausting the process table.",
+      "explanation": "Example: `:(){ :|:& };:` in bash. Limit user processes with `ulimit -u` to prevent."
+    },
+    {
+      "id": 132,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "How does `fork()` interact with threads?",
+      "answer": "Only the calling thread is duplicated; other threads disappear in the child.",
+      "explanation": "This can lead to deadlocks if the child tries to lock mutexes held by non‑existent threads."
+    },
+    {
+      "id": 133,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `pthread_atfork()`?",
+      "answer": "It registers handlers that are called before and after `fork()` to reinitialise locks and state in the child.",
+      "explanation": "Prevents deadlocks in multithreaded programs when forking."
+    },
+    {
+      "id": 134,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What is the `clone()` system call?",
+      "answer": "A Linux‑specific syscall that can create processes with fine‑grained resource sharing; `fork()` is implemented on top of it.",
+      "explanation": "`clone()` with `CLONE_VM` creates a thread; with no sharing flags it resembles `fork()`."
+    },
+    {
+      "id": 135,
+      "topic": "System calls: fork()",
+      "difficulty": "Intermediate",
+      "question": "What does `fork()` do with memory locks (mlock)?",
+      "answer": "The child does not inherit memory locks; each process must call `mlock()` again if needed.",
+      "explanation": "`mlockall(MCL_FUTURE)` also not inherited."
+    },
+    {
+      "id": 136,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` system call's time complexity?",
+      "answer": "O(Number of page table entries) – it must copy the page tables, but not the actual memory pages (COW).",
+      "explanation": "Page table duplication and setting reference counts is the main overhead."
+    },
+    {
+      "id": 137,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "Why does `fork()` return twice?",
+      "answer": "Because after the call, two processes exist. Each returns its own value from the same function.",
+      "explanation": "The kernel duplicates the process, then adjusts the return value in each process before returning to user space."
+    },
+    {
+      "id": 138,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` performance cost roughly?",
+      "answer": "On modern systems, ~10–50 microseconds, mostly due to copying page tables and allocating a new `task_struct`.",
+      "explanation": "COW avoids copying large amounts of memory, making fork fast."
+    },
+    {
+      "id": 139,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "How does `fork()` interact with `O_CLOEXEC` file descriptors?",
+      "answer": "`O_CLOEXEC` does not affect `fork()`; descriptors are inherited. It only affects `exec()`.",
+      "explanation": "To close a descriptor in the child after `fork()`, you must explicitly `close()` it."
+    },
+    {
+      "id": 140,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `fork()` and `posix_spawn()`?",
+      "answer": "`posix_spawn()` combines fork‑exec in one call, and may be more efficient on some systems (e.g., macOS).",
+      "explanation": "On Linux, `posix_spawn()` is implemented using `vfork()` or `clone()`, and may be faster for large processes."
+    },
+    {
+      "id": 141,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` memory usage initially?",
+      "answer": "Very little – only new page tables and a `task_struct` (about 2–4 KB); physical pages are shared via COW.",
+      "explanation": "The child's virtual memory is the same as the parent, but no additional physical memory is used until writes occur."
+    },
+    {
+      "id": 142,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "Can you call `fork()` from a signal handler?",
+      "answer": "No, `fork()` is not async‑signal‑safe according to POSIX and can lead to deadlocks.",
+      "explanation": "Avoid calling non‑async‑safe functions in signal handlers; use `posix_spawn()` if needed."
+    },
+    {
+      "id": 143,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "How does `fork()` handle large memory mappings (e.g., mmap)?",
+      "answer": "Shared (`MAP_SHARED`) mappings remain shared; private (`MAP_PRIVATE`) mappings are COWed.",
+      "explanation": "The child inherits all memory mappings; COW applies to private anonymous and MAP_PRIVATE mappings."
+    },
+    {
+      "id": 144,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` return type and why signed?",
+      "answer": "`pid_t`, a signed integer, so that -1 can be sentinel for error.",
+      "explanation": "PIDs are positive, but negative values are reserved for error codes and special meanings in some contexts."
+    },
+    {
+      "id": 145,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the maximum number of children a single parent can have?",
+      "answer": "Limited by system limits (`kernel.pid_max`, `ulimit -u`, available memory for task_struct).",
+      "explanation": "Each child consumes a PID slot and a small kernel structure. Long‑running parents can accumulate thousands."
+    },
+    {
+      "id": 146,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What does the kernel do when `fork()` is called?",
+      "answer": "Allocates new `task_struct`, copies process attributes, duplicates page tables, sets child to TASK_RUNNING, and returns twice.",
+      "explanation": "The exact steps are in `kernel/fork.c` (do_fork → copy_process)."
+    },
+    {
+      "id": 147,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `fork()` and `clone()` with `CLONE_VFORK`?",
+      "answer": "`clone(CLONE_VFORK | CLONE_VM)` creates a process that runs in the parent's memory and suspends the parent until exec or exit.",
+      "explanation": "This is exactly the behaviour of `vfork()`."
+    },
+    {
+      "id": 148,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "How to detect if a process was created by `fork()`?",
+      "answer": "The process can check `getppid()`; a child of `fork()` will have a parent PID that was different before the call.",
+      "explanation": "However, re‑parenting can occur, so the only reliable detection is via the return value of `fork()`."
+    },
+    {
+      "id": 149,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` behavior in a PID namespace?",
+      "answer": "Inside a PID namespace, `fork()` can create a process that becomes PID 1 in that namespace if it's the first one.",
+      "explanation": "PID namespaces are used for containers; each namespace has its own PID 1."
+    },
+    {
+      "id": 150,
+      "topic": "System calls: fork()",
+      "difficulty": "Advanced",
+      "question": "What is the `fork()` vs `exec()` overhead in embedded systems?",
+      "answer": "`fork()` can be expensive due to page table duplication; `vfork()` or `posix_spawn()` are preferred.",
+      "explanation": "Some embedded kernels support `fork()` only if MMU is present (no MMU → use `vfork()`)."
+    },
+    {
+      "id": 151,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "What does `getpid()` return?",
+      "answer": "The PID of the calling process.",
+      "explanation": "`getpid()` always returns a valid positive integer and never fails."
+    },
+    {
+      "id": 152,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "What does `getppid()` return?",
+      "answer": "The PID of the parent of the calling process.",
+      "explanation": "If the parent has died, the child is reparented to init (PID 1), so `getppid()` returns 1."
+    },
+    {
+      "id": 153,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "Can `getpid()` fail?",
+      "answer": "No, it always succeeds.",
+      "explanation": "The PID is a property of the process; no error condition is defined."
+    },
+    {
+      "id": 154,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "How to get the shell's PID from the command line?",
+      "answer": "`echo $$`",
+      "explanation": "The `$$` variable expands to the PID of the current shell."
+    },
+    {
+      "id": 155,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "What is the parent PID of init?",
+      "answer": "0",
+      "explanation": "Init has no parent; its PPID is 0 (a kernel convention)."
+    },
+    {
+      "id": 156,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Beginner",
+      "question": "What does the `$PPID` variable in bash show?",
+      "answer": "The PID of the parent of the current shell.",
+      "explanation": "`echo $PPID` is equivalent to calling `getppid()` from the shell."
+    },
+    {
+      "id": 157,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `getpid()` in programming?",
+      "answer": "To identify the current process for logging, creating unique temporary filenames, or signaling itself.",
+      "explanation": "Also used in conjunction with `kill()` to send signals to the process itself."
+    },
+    {
+      "id": 158,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What is the typical size of a PID on Linux?",
+      "answer": "Up to 4194304 (4 million) on 64‑bit systems, but `pid_t` is still a 32‑bit integer.",
+      "explanation": "The maximum PID is set in `/proc/sys/kernel/pid_max`."
+    },
+    {
+      "id": 159,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `getpid()` and `gettid()`?",
+      "answer": "`getpid()` returns the process ID (same for all threads), while `gettid()` returns the thread ID (unique per thread).",
+      "explanation": "Thread IDs are not portable; on Linux, `gettid()` is provided by the kernel."
+    },
+    {
+      "id": 160,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "How can a process find its own PID from `/proc`?",
+      "answer": "By reading `/proc/self/status` or `/proc/self/stat`.",
+      "explanation": "Example: `awk '/^Pid/ {print $2}' /proc/self/status`."
+    },
+    {
+      "id": 161,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What does the `ps` command show for PID and PPID?",
+      "answer": "`ps -o pid,ppid,comm` displays the PID and parent PID of each process.",
+      "explanation": "`ps -f` also shows PPID."
+    },
+    {
+      "id": 162,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "Why might `getppid()` return 1 even if the parent is still alive?",
+      "answer": "If the process was reparented due to the original parent dying; but if parent alive, it should not return 1 unless misconfiguration.",
+      "explanation": "Check with `ps` to see the actual parent; a reparented process would have PPID 1."
+    },
+    {
+      "id": 163,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `getppid()` and the `PPID` variable in scripts?",
+      "answer": "They are equivalent; both return the parent process ID.",
+      "explanation": "`$PPID` is a shell variable, while `getppid()` is a system call."
+    },
+    {
+      "id": 164,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Intermediate",
+      "question": "What is a PID namespace?",
+      "answer": "A Linux feature that isolates PIDs; inside a namespace, a process can have PID 1 even if it has a different global PID.",
+      "explanation": "Used in containers; `getpid()` returns the PID within the current namespace."
+    },
+    {
+      "id": 165,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "How can you get the PID of the parent's parent?",
+      "answer": "Read `/proc/<ppid>/stat` or use `ps -o pid,ppid` recursively.",
+      "explanation": "There is no direct system call to get the grandparent PID; you must follow the process tree."
+    },
+    {
+      "id": 166,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `getpid()` and `syscall(SYS_getpid)`?",
+      "answer": "`getpid()` is a C library wrapper; `syscall(SYS_getpid)` makes the system call directly.",
+      "explanation": "On Linux, `getpid()` is cached (no context switch) since glibc 2.25; `syscall` forces a trap."
+    },
+    {
+      "id": 167,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the significance of PID 0?",
+      "answer": "PID 0 is the idle process (swapper), a kernel thread that runs when no other process is ready.",
+      "explanation": "It is not normally visible; its PPID is 0."
+    },
+    {
+      "id": 168,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "Why does `getpid()` sometimes return a different value in a subshell?",
+      "answer": "Because a subshell is a new process, it has its own PID. In bash, `$$` may not change; use `$BASHPID` for actual PID.",
+      "explanation": "`$$` is a special variable that expands to the PID of the original shell in some contexts, not the subshell."
+    },
+    {
+      "id": 169,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `pgrep` command?",
+      "answer": "It finds processes by name and prints their PIDs (e.g., `pgrep -u user bash`).",
+      "explanation": "`pgrep` uses `/proc` to search; it can be combined with `pkill` to send signals."
+    },
+    {
+      "id": 170,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `pidof` command?",
+      "answer": "Returns the PID of the named program (e.g., `pidof sshd`).",
+      "explanation": "`pidof` is similar to `pgrep` but simpler; uses the process name."
+    },
+    {
+      "id": 171,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `/proc/self` symlink?",
+      "answer": "A symbolic link that points to `/proc/<PID>` of the current process.",
+      "explanation": "Useful for programs to access their own process information without knowing their PID."
+    },
+    {
+      "id": 172,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "Can a process change its own PID?",
+      "answer": "No, PIDs are assigned by the kernel and cannot be changed.",
+      "explanation": "PID namespaces allow a process to have a different PID in the namespace, but the global PID remains fixed."
+    },
+    {
+      "id": 173,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `pstree` command?",
+      "answer": "Displays the process tree, showing parent‑child relationships with PIDs.",
+      "explanation": "`pstree -p` includes PIDs, useful for visualising process ancestry."
+    },
+    {
+      "id": 174,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `pidfd` feature in Linux?",
+      "answer": "File descriptors representing a process, used for race‑free signalling and waiting.",
+      "explanation": "Introduced to avoid PID recycling races. Functions like `pidfd_send_signal()` and `waitid(P_PIDFD)`."
+    },
+    {
+      "id": 175,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "How to print `pid_t` portably in C?",
+      "answer": "Cast to `long` and use `%ld`, or use `%d` if you know it's an int.",
+      "explanation": "POSIX does not guarantee `pid_t` is int, but on Linux it is. Safer to cast to long."
+    },
+    {
+      "id": 176,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `fork()` and `getpid()`?",
+      "answer": "`fork()` creates a new process; `getpid()` only returns the PID of the current process.",
+      "explanation": "They are unrelated; `fork()` returns the child's PID to the parent, and 0 to the child."
+    },
+    {
+      "id": 177,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `TGID` field in `/proc/pid/stat`?",
+      "shortAnswer": "Thread group ID – the PID of the process (same for all threads).",
+      "explanation": "For a single‑threaded process, `tgid = pid`. For threads, they share the same `tgid`."
+    },
+    {
+      "id": 178,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `getpgrp()` system call?",
+      "answer": "Returns the process group ID of the calling process.",
+      "explanation": "Process groups are used for job control; `getpgrp()` is related to `getpid()` but for grouping."
+    },
+    {
+      "id": 179,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `getsid()` system call?",
+      "answer": "Returns the session ID of the calling process.",
+      "explanation": "Sessions contain one or more process groups; `getsid()` is part of job control."
+    },
+    {
+      "id": 180,
+      "topic": "System calls: getpid() and getppid()",
+      "difficulty": "Advanced",
+      "question": "What is the `pid_max` kernel parameter?",
+      "answer": "The maximum PID value that can be assigned. Default is 32768 on 32‑bit systems, up to 4194304 on 64‑bit.",
+      "explanation": "When the limit is reached, PIDs wrap around, skipping those that are still in use."
+    },
+    {
+      "id": 181,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "What does the `wait()` system call do?",
+      "answer": "Suspends the calling process until one of its child processes terminates.",
+      "explanation": "It returns the PID of the terminated child and fills the status pointer with exit information."
+    },
+    {
+      "id": 182,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "How does `wait()` prevent zombie processes?",
+      "answer": "By reaping the child's exit status, the kernel can free the child's process table entry.",
+      "explanation": "If a parent does not wait, the child becomes a zombie (state Z)."
+    },
+    {
+      "id": 183,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "What does `wait()` return on success?",
+      "answer": "The PID of the child that terminated.",
+      "explanation": "If multiple children exist, `wait()` returns the first one that terminates."
+    },
+    {
+      "id": 184,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "What does `wait()` return if there are no children?",
+      "answer": "-1 with `errno` set to `ECHILD`.",
+      "explanation": "No child processes exist to wait for."
+    },
+    {
+      "id": 185,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "What is the `waitpid()` system call used for?",
+      "answer": "To wait for a specific child process, with options like non‑blocking (`WNOHANG`).",
+      "explanation": "`waitpid(-1, &status, 0)` is equivalent to `wait(&status)`."
+    },
+    {
+      "id": 186,
+      "topic": "System calls: wait()",
+      "difficulty": "Beginner",
+      "question": "What does the macro `WIFEXITED(status)` do?",
+      "answer": "Returns true if the child terminated normally via `exit()` or `return`.",
+      "explanation": "If true, you can use `WEXITSTATUS(status)` to get the exit code."
+    },
+    {
+      "id": 187,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between `wait()` and `waitpid()` with `-1`?",
+      "answer": "They are identical: both wait for any child.",
+      "explanation": "`waitpid(-1, &status, 0)` is functionally the same as `wait(&status)`."
+    },
+    {
+      "id": 188,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What is the `WNOHANG` option?",
+      "answer": "Makes `waitpid()` non‑blocking; if no child has terminated, it returns 0 immediately.",
+      "explanation": "Used in signal handlers and event loops to avoid blocking."
+    },
+    {
+      "id": 189,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "How can a parent wait for all its children?",
+      "answer": "Loop `wait(&status)` until it returns -1 with `errno == ECHILD`.",
+      "explanation": "Example: `while (wait(NULL) > 0);`"
+    },
+    {
+      "id": 190,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What does `WIFSIGNALED(status)` indicate?",
+      "answer": "True if the child terminated due to an uncaught signal (e.g., SIGKILL, SIGSEGV).",
+      "explanation": "Use `WTERMSIG(status)` to get the signal number."
+    },
+    {
+      "id": 191,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What is the `WUNTRACED` option?",
+      "answer": "Causes `waitpid()` to also return when a child is stopped (by `SIGSTOP` or `SIGTSTP`).",
+      "explanation": "Use `WIFSTOPPED(status)` to check and `WSTOPSIG(status)` to get the signal."
+    },
+    {
+      "id": 192,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What is the `WCONTINUED` option?",
+      "answer": "Returns when a stopped child is resumed by `SIGCONT`.",
+      "explanation": "Used with `waitpid()` for job control shells."
+    },
+    {
+      "id": 193,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "How does a `SIGCHLD` handler help with zombies?",
+      "answer": "By calling `waitpid(-1, NULL, WNOHANG)` in the handler, it reaps terminated children asynchronously.",
+      "explanation": "This prevents zombies without the parent having to block on `wait()`."
+    },
+    {
+      "id": 194,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What happens if a parent calls `wait()` but no child has terminated?",
+      "answer": "The parent blocks (sleeps) until a child terminates or a signal arrives.",
+      "explanation": "Blocking can be avoided by using `WNOHANG`."
+    },
+    {
+      "id": 195,
+      "topic": "System calls: wait()",
+      "difficulty": "Intermediate",
+      "question": "What is the return value of `waitpid()` with `WNOHANG` when no child has exited?",
+      "answer": "0",
+      "explanation": "No error; just nothing to reap."
+    },
+    {
+      "id": 196,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the `waitid()` system call?",
+      "answer": "A more flexible version of `waitpid()` that can return detailed information in a `siginfo_t` structure.",
+      "explanation": "It supports waiting for ID types: `P_PID`, `P_PGID`, `P_ALL`, and `P_PIDFD`."
+    },
+    {
+      "id": 197,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is `wait4()`?",
+      "answer": "A BSD variant that also returns resource usage statistics (CPU time, page faults) in a `rusage` structure.",
+      "explanation": "`wait4()` is less portable; use `getrusage()` on Linux instead."
+    },
+    {
+      "id": 198,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What happens to a `wait()` call when a `SIGCHLD` handler is installed?",
+      "answer": "If the handler does not restart system calls (`SA_RESTART` not set), `wait()` may return `EINTR`.",
+      "explanation": "You can retry the `wait()` call after checking `errno == EINTR`."
+    },
+    {
+      "id": 199,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "How can you reap children without a signal handler and without blocking?",
+      "answer": "Periodically call `waitpid(-1, NULL, WNOHANG)` in the main loop.",
+      "explanation": "This is common in event‑driven programs (e.g., using `select()` or `poll()`)."
+    },
+    {
+      "id": 200,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the state of a zombie (defunct) process?",
+      "answer": "The process has terminated, the kernel has freed its memory, but the process table entry remains.",
+      "explanation": "The zombie waits for the parent to call `wait()` and collect the exit status."
+    },
+    {
+      "id": 201,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "Why does `wait()` sometimes return -1 with `errno == EINTR`?",
+      "answer": "Because the process received a signal while blocked in `wait()`, and the signal handler did not have `SA_RESTART`.",
+      "explanation": "Simply retry `wait()` unless you want to handle the signal specially."
+    },
+    {
+      "id": 202,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the `CLONE_THREAD` relation with `wait()`?",
+      "answer": "Processes created with `clone(CLONE_THREAD)` (threads) are not waited for by `wait()`; they are reaped when the entire thread group exits.",
+      "explanation": "The `wait()` call only works on non‑threaded processes (different thread group ID)."
+    },
+    {
+      "id": 203,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "How can a parent be notified when a child stops (but not terminates)?",
+      "answer": "Use `waitpid(pid, &status, WUNTRACED)` and check `WIFSTOPPED(status)`.",
+      "explanation": "This is used by shells to manage job control (e.g., `SIGTSTP` from Ctrl+Z)."
+    },
+    {
+      "id": 204,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the `WEXITSTATUS` macro?",
+      "answer": "Extracts the exit code from the status (only valid if `WIFEXITED` is true).",
+      "explanation": "Exit codes are in the range 0–255 (higher values are truncated)."
+    },
+    {
+      "id": 205,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `exit()` and `_exit()` in the child after `fork()`?",
+      "answer": "`exit()` flushes stdio buffers and runs atexit handlers; `_exit()` terminates immediately without cleanup.",
+      "explanation": "In the child, `_exit()` is safer to avoid corrupting parent buffers; especially important after a failed `exec()`."
+    },
+    {
+      "id": 206,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What does `wait3()` and `wait4()` provide?",
+      "answer": "Resource usage information (CPU time, page faults, etc.) via a `struct rusage`.",
+      "explanation": "`wait3()` is obsolescent; `wait4()` is BSD‑specific."
+    },
+    {
+      "id": 207,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "How can you wait for a specific child with a non‑blocking check?",
+      "answer": "`waitpid(child_pid, &status, WNOHANG)` returns 0 if child still running, child's PID if terminated.",
+      "explanation": "This allows polling without blocking."
+    },
+    {
+      "id": 208,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the `ptrace` interaction with `wait()`?",
+      "answer": "When a process is traced (e.g., by a debugger), its parent receives `SIGCHLD` and `wait()` returns after each stop.",
+      "explanation": "The debugger uses `ptrace()` to control the child and receive stop events."
+    },
+    {
+      "id": 209,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the `sigaction` flag `SA_NOCLDWAIT`?",
+      "answer": "If set for `SIGCHLD`, children are automatically reaped without becoming zombies; no `wait()` needed.",
+      "explanation": "Similar to setting `SIGCHLD` to `SIG_IGN` on some systems, but more portable."
+    },
+    {
+      "id": 210,
+      "topic": "System calls: wait()",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `waitid()` with `P_PIDFD`?",
+      "answer": "To wait on a `pidfd` (a file descriptor representing a process) instead of a PID, avoiding PID reuse races.",
+      "explanation": "`pidfd` provides a stable reference to a process."
+    },
+    {
+      "id": 211,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "What is a zombie process?",
+      "answer": "A process that has terminated but still has an entry in the process table because its parent hasn't called `wait()`.",
+      "explanation": "Zombies have state `Z` in `ps` output and consume only a process table slot."
+    },
+    {
+      "id": 212,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "What does the 'Z' state in `ps` mean?",
+      "answer": "Zombie (defunct) process.",
+      "explanation": "The process is dead but not yet reaped."
+    },
+    {
+      "id": 213,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "Can a zombie be killed with `kill -9`?",
+      "answer": "No, zombies are already dead. The signal is ignored.",
+      "explanation": "The only way to remove a zombie is to have the parent call `wait()`, or kill the parent so that init adopts and reap it."
+    },
+    {
+      "id": 214,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "What resources does a zombie process consume?",
+      "answer": "Only a process table entry (PCB). No memory, no CPU.",
+      "explanation": "The kernel retains the exit status and PID, but all other resources have been freed."
+    },
+    {
+      "id": 215,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "Why do zombies exist?",
+      "answer": "To allow the parent to retrieve the child's exit status via `wait()`. The kernel cannot discard the status before the parent reads it.",
+      "explanation": "Zombies are a necessary design feature, not a bug."
+    },
+    {
+      "id": 216,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "How can you identify a zombie process?",
+      "answer": "Using `ps aux | grep defunct` or `ps -e -o pid,stat,comm | grep '^.* Z'`.",
+      "explanation": "The `STAT` column shows 'Z' and the command may be `<defunct>`."
+    },
+    {
+      "id": 217,
+      "topic": "Zombie process concept",
+      "difficulty": "Beginner",
+      "question": "What happens to a zombie when its parent terminates?",
+      "answer": "The zombie is reparented to init (PID 1), which will reap it by calling `wait()`.",
+      "explanation": "Thus, zombies are eventually cleaned up if the parent dies."
+    },
+    {
+      "id": 218,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "How can a parent prevent zombie creation?",
+      "answer": "By calling `wait()` or `waitpid()` for each child, or by ignoring `SIGCHLD` (Linux).",
+      "explanation": "Setting `SIGCHLD` to `SIG_IGN` causes the kernel to immediately reap children."
+    },
+    {
+      "id": 219,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "What is a zombie leak?",
+      "answer": "A situation where a process creates many children without waiting, accumulating a large number of zombies.",
+      "explanation": "Can lead to exhaustion of the process table, causing `fork()` to fail."
+    },
+    {
+      "id": 220,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "What does `top` show about zombies?",
+      "answer": "The first line of `top` shows the number of zombie processes (e.g., `Tasks: 100 total, 1 zombie`).",
+      "explanation": "This gives a quick indication of whether zombies are present."
+    },
+    {
+      "id": 221,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "Does a zombie process appear in `bottom` (or `htop`)?",
+      "answer": "Yes, `htop` highlights zombies in red or shows 'Z' in the state column.",
+      "explanation": "`htop` also shows the number of zombies in the header."
+    },
+    {
+      "id": 222,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a zombie and a stopped process?",
+      "answer": "A zombie is dead; a stopped process is still alive but suspended (state T). A stopped process can be resumed with `SIGCONT`.",
+      "explanation": "A zombie cannot be resumed; it is only a placeholder."
+    },
+    {
+      "id": 223,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "How to find the parent of a zombie process?",
+      "answer": "Use `ps -o pid,ppid,comm -p <pid>` to see the parent PID, then inspect the parent.",
+      "explanation": "The parent may be a buggy process that does not call `wait()`."
+    },
+    {
+      "id": 224,
+      "topic": "Zombie process concept",
+      "difficulty": "Intermediate",
+      "question": "What is the maximum number of zombies a process can have?",
+      "answer": "Limited by `ulimit -u` (max user processes) and `kernel.pid_max`. A single parent could fill the process table with zombies.",
+      "explanation": "Each zombie consumes a PID, so eventually `fork()` will fail with `EAGAIN`."
+    },
+    {
+      "id": 225,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is a `subreaper` and how does it affect zombies?",
+      "answer": "A subreaper (set with `prctl(PR_SET_CHILD_SUBREAPER)`) adopts orphaned descendants and must `wait()` for them to prevent zombies.",
+      "explanation": "Subreapers are used in containers to manage process trees without depending on init."
+    },
+    {
+      "id": 226,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What does the kernel do when a zombie is reaped?",
+      "answer": "It returns the exit status to the parent via the `wait()` call, then frees the process table entry.",
+      "explanation": "The PCB is deallocated, and the PID becomes available for reuse."
+    },
+    {
+      "id": 227,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a zombie and a 'defunct' process?",
+      "answer": "They are the same; 'defunct' is the text shown by `ps` for a zombie.",
+      "explanation": "Both terms refer to a process in state Z."
+    },
+    {
+      "id": 228,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "How can you create a zombie intentionally?",
+      "answer": "Write a program that calls `fork()`, the child exits immediately, and the parent goes into an infinite loop without calling `wait()`.",
+      "explanation": "The child will become a zombie until the parent terminates."
+    },
+    {
+      "id": 229,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the `SIGCHLD` default action?",
+      "answer": "`SIGCHLD` is ignored by default, but that does not prevent zombies; the parent must still call `wait()`.",
+      "explanation": "Ignoring `SIGCHLD` does not automatically reap children unless explicitly set to `SIG_IGN` (Linux behaviour)."
+    },
+    {
+      "id": 230,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "Why does the kernel keep zombie entries?",
+      "answer": "To preserve the exit status until the parent calls `wait()`. The kernel doesn't know if the parent will need the status.",
+      "explanation": "If the kernel freed the entry immediately, the parent would never know why the child died."
+    },
+    {
+      "id": 231,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "Can a zombie be a kernel thread?",
+      "answer": "No, kernel threads never become zombies; they are not reaped by user‑space wait.",
+      "explanation": "Kernel threads are managed by the kernel and do not have a user‑space parent."
+    },
+    {
+      "id": 232,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the 'defunct' process state in `/proc/<pid>/status`?",
+      "answer": "State: Z (zombie) and `Tgid` still listed, but most process information is invalid.",
+      "explanation": "`/proc/<pid>/status` for a zombie shows `State: Z (zombie)` and few fields."
+    },
+    {
+      "id": 233,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "How does `systemd` handle zombies?",
+      "answer": "As PID 1, systemd loops calling `wait()` to reap all children. It also uses Linux's subreaper feature for scopes.",
+      "explanation": "Services may be killed if they become zombies, but init always reaps them."
+    },
+    {
+      "id": 234,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the difference between a zombie and an orphan?",
+      "answer": "A zombie is dead but not reaped; an orphan is alive but has lost its parent.",
+      "explanation": "An orphan can later become a zombie if it terminates and init (or subreaper) does not reap it immediately."
+    },
+    {
+      "id": 235,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What happens when you send a signal to a zombie?",
+      "answer": "The signal is ignored (no reaction). The kernel does nothing.",
+      "explanation": "Zombies are not schedulable and have no signal handler."
+    },
+    {
+      "id": 236,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "Why can't you use `strace` on a zombie?",
+      "answer": "Because `strace` attaches to a running process; a zombie is not running.",
+      "explanation": "`strace` will fail with 'No such process' or 'Operation not permitted'."
+    },
+    {
+      "id": 237,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the impact of a large number of zombies?",
+      "answer": "They consume PIDs and process table slots, potentially preventing new processes from being created.",
+      "explanation": "Even though zombies use little memory, they can exhaust `pid_max` or user process limits."
+    },
+    {
+      "id": 238,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is a `zombie` vs `stopped (T)` vs `defunct`?",
+      "answer": "Zombie = defunct (dead). Stopped is alive but suspended. All are distinct states.",
+      "explanation": "Process states: R, S, D, Z, T. Only Z is 'dead'."
+    },
+    {
+      "id": 239,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "How can you reap a zombie without killing the parent?",
+      "answer": "You cannot; you must either fix the parent to call `wait()` or kill the parent so that init adopts and reaps it.",
+      "explanation": "There is no system call to force‑reap another process's zombie."
+    },
+    {
+      "id": 240,
+      "topic": "Zombie process concept",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `SIG_IGN` for `SIGCHLD` and not ignoring?",
+      "answer": "On Linux, ignoring `SIGCHLD` (with `signal(SIGCHLD, SIG_IGN)`) causes the kernel to automatically reap children, preventing zombies.",
+      "explanation": "This is a Linux extension; not portable to all Unix systems."
+    },
+    {
+      "id": 241,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "What is an anonymous pipe?",
+      "answer": "A unidirectional data channel used between related processes (parent and child).",
+      "explanation": "Created with `pipe()`, it provides two file descriptors: `fd[0]` for reading, `fd[1]` for writing."
+    },
+    {
+      "id": 242,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "Which end of the pipe is used for reading?",
+      "answer": "`fd[0]` (the read end).",
+      "explanation": "`fd[1]` is the write end. Data flows from write to read."
+    },
+    {
+      "id": 243,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "What is a pipe's typical buffer size?",
+      "answer": "On Linux, default is 64 KB (16 pages).",
+      "explanation": "The buffer size can be changed with `fcntl(fd, F_SETPIPE_SZ, size)`."
+    },
+    {
+      "id": 244,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "What happens if you read from an empty pipe?",
+      "answer": "The read blocks until data is written (unless the pipe is set non‑blocking).",
+      "explanation": "If the write end is closed, read returns 0 (EOF)."
+    },
+    {
+      "id": 245,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "What happens if you write to a full pipe?",
+      "answer": "The write blocks until space is available (unless non‑blocking).",
+      "explanation": "If the read end is closed, the writer receives a `SIGPIPE` signal."
+    },
+    {
+      "id": 246,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Beginner",
+      "question": "What does the shell operator `|` do?",
+      "answer": "Creates an anonymous pipe connecting the stdout of the left command to the stdin of the right command.",
+      "explanation": "Example: `ls -l | grep .txt`."
+    },
+    {
+      "id": 247,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "Why must a process close the unused end of a pipe after `fork()`?",
+      "answer": "To avoid resource leaks and to allow proper EOF delivery when the writer closes its end.",
+      "explanation": "If the reader keeps the write end open, it will never see EOF; if the writer keeps the read end open, the writer may never get `SIGPIPE`."
+    },
+    {
+      "id": 248,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "What is `PIPE_BUF`?",
+      "answer": "The maximum size for which a write to a pipe is guaranteed to be atomic (not interleaved with other writes).",
+      "explanation": "On Linux, `PIPE_BUF` is 4096 bytes."
+    },
+    {
+      "id": 249,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "Can a pipe be used for bidirectional communication?",
+      "answer": "No, a pipe is unidirectional. For two‑way communication, use two pipes or a socket pair.",
+      "explanation": "You can create a pair of pipes: one for parent→child, one for child→parent."
+    },
+    {
+      "id": 250,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a pipe and a FIFO (named pipe)?",
+      "answer": "A pipe is anonymous and exists only while processes hold it; a FIFO has a name in the filesystem and can be used by unrelated processes.",
+      "explanation": "FIFOs are created with `mkfifo` and opened like regular files."
+    },
+    {
+      "id": 251,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "How do you make a pipe non‑blocking?",
+      "answer": "Use `fcntl(fd, F_SETFL, O_NONBLOCK)` on the file descriptor.",
+      "explanation": "Then `read()` and `write()` will return `EAGAIN` instead of blocking."
+    },
+    {
+      "id": 252,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "What is the purpose of `pipe2()`?",
+      "answer": "A newer system call that allows setting flags like `O_NONBLOCK` and `O_CLOEXEC` directly at creation.",
+      "explanation": "`pipe2(fds, O_CLOEXEC | O_NONBLOCK)` is more efficient than combining `pipe()` and `fcntl()`."
+    },
+    {
+      "id": 253,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "What is the `splice()` system call?",
+      "answer": "It moves data between file descriptors (including pipes) without copying to user space, enabling zero‑copy data transfer.",
+      "explanation": "Used for high‑performance data transfer between pipes and network sockets."
+    },
+    {
+      "id": 254,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Intermediate",
+      "question": "How can you create a pipeline of three commands in C?",
+      "answer": "Create two pipes, fork two children, and carefully connect stdin/stdout using `dup2()`.",
+      "explanation": "The shell does this internally; it's a classic exercise in process management."
+    },
+    {
+      "id": 255,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "What is `epoll` with pipes?",
+      "answer": "You can add the read end of a pipe to an `epoll` instance to be notified when data is available.",
+      "explanation": "This allows asynchronous I/O on pipes in event‑driven applications."
+    },
+    {
+      "id": 256,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "What is the `vmsplice()` system call?",
+      "answer": "It transfers pages from user memory to a pipe without copying, working with `splice()`.",
+      "explanation": "Used in high‑performance I/O paths (e.g., network servers)."
+    },
+    {
+      "id": 257,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "What is the maximum pipe buffer size in Linux?",
+      "answer": "Configurable via `fs.pipe-max-size` sysctl (default 1,048,576 bytes).",
+      "explanation": "Root can increase the limit further."
+    },
+    {
+      "id": 258,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "How does a pipe handle writing from multiple processes simultaneously?",
+      "answer": "Writes ≤ `PIPE_BUF` are atomic; larger writes may be interleaved arbitrarily.",
+      "explanation": "Kernel uses a pipe mutex to serialise small writes, but large writes can be split."
+    },
+    {
+      "id": 259,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "What is `O_DIRECT` on pipes?",
+      "answer": "A flag that can be set on a pipe to bypass the page cache for I/O; not commonly used on pipes.",
+      "explanation": "Mostly used for regular files; pipes are already in kernel buffers."
+    },
+    {
+      "id": 260,
+      "topic": "Inter-process communication using pipe()",
+      "difficulty": "Advanced",
+      "question": "What is the `tee()` system call?",
+      "answer": "Duplicates data from one pipe to another without consuming it (like the Unix `tee` command).",
+      "explanation": "Used for splitting a data stream without copying to user space."
+    },
+    {
+      "id": 261,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "What is message passing in IPC?",
+      "answer": "A method where processes exchange discrete messages (with type and data) via kernel‑managed message queues.",
+      "explanation": "Unlike pipes (byte streams), message queues preserve message boundaries and support selective reception by type."
+    },
+    {
+      "id": 262,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "Name two types of message queues in Unix.",
+      "answer": "System V message queues and POSIX message queues.",
+      "explanation": "System V uses `msgget`, `msgsnd`, `msgrcv`; POSIX uses `mq_open()`, `mq_send()`, `mq_receive()`."
+    },
+    {
+      "id": 263,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "What is a message type in System V message queues?",
+      "answer": "A positive integer used to filter which messages a process receives.",
+      "explanation": "The receiver can specify a type to receive messages of that type only."
+    },
+    {
+      "id": 264,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "How do you create a System V message queue?",
+      "answer": "Use `msgget(key, IPC_CREAT | 0666)`, where key is often generated with `ftok()`.",
+      "explanation": "The call returns a message queue identifier (`msqid`)."
+    },
+    {
+      "id": 265,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "How do you send a message to a System V queue?",
+      "answer": "`msgsnd(msqid, &msg, msgsz, flags)`, where `msg` is a structure with `long mtype` as first member.",
+      "explanation": "The message type must be > 0."
+    },
+    {
+      "id": 266,
+      "topic": "Message passing basics",
+      "difficulty": "Beginner",
+      "question": "How do you receive a message from a System V queue?",
+      "answer": "`msgrcv(msqid, &msg, maxsize, msgtyp, flags)`.",
+      "explanation": "`msgtyp` selects which message(s) to receive (0 = first, positive = exact type, negative = lowest type ≤ absolute value)."
+    },
+    {
+      "id": 267,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between a pipe and a message queue?",
+      "answer": "Pipes are byte streams for related processes; message queues handle structured messages and can be used by unrelated processes.",
+      "explanation": "Message queues decouple sender and receiver in time (messages persist in kernel)."
+    },
+    {
+      "id": 268,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "What is the `ftok()` function?",
+      "answer": "Converts a pathname and a project ID into a key_t for System V IPC (msgget, semget, shmget).",
+      "explanation": "`key_t key = ftok('/tmp/myapp', 'A');`"
+    },
+    {
+      "id": 269,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "What are typical kernel limits for System V message queues?",
+      "answer": "`msgmax` (max bytes per message), `msgmnb` (max bytes per queue), `msgmni` (max number of queues).",
+      "explanation": "These can be tuned via sysctl (e.g., `kernel.msgmax`)."
+    },
+    {
+      "id": 270,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "What is a POSIX message queue?",
+      "answer": "A message queue identified by a name (e.g., `/myqueue`), using functions `mq_open()`, `mq_send()`, `mq_receive()`.",
+      "explanation": "POSIX queues support priorities and non‑blocking operations; they are mounted under `/dev/mqueue`."
+    },
+    {
+      "id": 271,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "How do you list all System V message queues?",
+      "answer": "Use the `ipcs -q` command.",
+      "explanation": "`ipcs -q` shows msqid, key, owner, permissions, and number of messages."
+    },
+    {
+      "id": 272,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "How do you remove a System V message queue?",
+      "answer": "`msgctl(msqid, IPC_RMID, NULL)` or the command `ipcrm -q <msqid>`.",
+      "explanation": "The queue is removed immediately, even if processes have it open."
+    },
+    {
+      "id": 273,
+      "topic": "Message passing basics",
+      "difficulty": "Intermediate",
+      "question": "What is a message priority in POSIX queues?",
+      "answer": "An integer (0‑31) attached to each message; `mq_send()` accepts a priority, and `mq_receive()` returns the highest priority message first.",
+      "explanation": "Higher priority messages are dequeued first."
+    },
+    {
+      "id": 274,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `msgrcv()` with `msgtyp = 0` and `msgtyp = -5`?",
+      "answer": "`msgtyp = 0` receives the first message in FIFO order; `-5` receives the first message with type ≤5 (lowest type).",
+      "explanation": "Negative types implement priority reception (lower type = higher priority)."
+    },
+    {
+      "id": 275,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "Can a message queue be used between processes on different machines?",
+      "answer": "No, message queues are local to a single kernel. Use sockets or remote procedure calls (RPC) for network communication.",
+      "explanation": "For distributed queues, use message brokers (RabbitMQ, Kafka)."
+    },
+    {
+      "id": 276,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "What does `mq_notify()` do?",
+      "answer": "Registers a notification (signal or thread) for when a message arrives on an empty POSIX queue.",
+      "explanation": "Enables event‑driven message handling without polling."
+    },
+    {
+      "id": 277,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "What is the advantage of POSIX message queues over System V?",
+      "answer": "Simpler interface, support for priorities, notification, and easier cleanup (unlink).",
+      "explanation": "POSIX queues are more modern and are the recommended choice for new code on Linux."
+    },
+    {
+      "id": 278,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "How does `CMSG` (control messages) relate to message passing?",
+      "answer": "CMSG is used with Unix domain sockets to send file descriptors, credentials, and other ancillary data.",
+      "explanation": "It's a different IPC mechanism but also message‑oriented."
+    },
+    {
+      "id": 279,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "What is a `msqid` and how is it reused?",
+      "answer": "A message queue identifier; after removal, new queues may reuse the same `msqid` number.",
+      "explanation": "Like file descriptors, identifiers are recycled."
+    },
+    {
+      "id": 280,
+      "topic": "Message passing basics",
+      "difficulty": "Advanced",
+      "question": "What is the `ipcrm` command used for?",
+      "answer": "To remove IPC objects (message queues, semaphores, shared memory) from the system.",
+      "explanation": "Example: `ipcrm -q 12345` removes the queue with `msqid` 12345."
+    },
+    {
+      "id": 281,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What are the five classic process states?",
+      "answer": "New, Ready, Running, Waiting (Blocked), Terminated.",
+      "explanation": "These states represent a process's lifecycle from creation to exit."
+    },
+    {
+      "id": 282,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What state is a process in when it is waiting for CPU?",
+      "answer": "Ready state.",
+      "explanation": "The process is in the run queue, waiting to be dispatched."
+    },
+    {
+      "id": 283,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What state is a process in when it is executing instructions?",
+      "answer": "Running state.",
+      "explanation": "Only one process per core can be in running state at a time."
+    },
+    {
+      "id": 284,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What state is a process in when it is waiting for I/O?",
+      "answer": "Waiting (blocked) state.",
+      "explanation": "The process cannot proceed until the I/O completes."
+    },
+    {
+      "id": 285,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What does the letter 'R' mean in `ps` output?",
+      "answer": "Running or runnable (ready to run).",
+      "explanation": "On Linux, 'R' includes both ready and actually running processes."
+    },
+    {
+      "id": 286,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Beginner",
+      "question": "What does the letter 'S' mean in `ps` output?",
+      "answer": "Sleeping (interruptible sleep).",
+      "explanation": "The process is waiting for an event (e.g., I/O, timer)."
+    },
+    {
+      "id": 287,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What does the letter 'D' mean in `ps` output?",
+      "answer": "Uninterruptible sleep (usually disk I/O).",
+      "explanation": "The process cannot be killed; it is stuck in a kernel routine."
+    },
+    {
+      "id": 288,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What is the transition from Ready to Running called?",
+      "answer": "Dispatch (scheduler picks the process).",
+      "explanation": "The scheduler selects a process from the ready queue and gives it the CPU."
+    },
+    {
+      "id": 289,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What causes a transition from Running to Ready?",
+      "answer": "Time slice expiry (preemption) or a higher priority process becoming ready.",
+      "explanation": "Preemptive multitasking forces the process back to the ready queue."
+    },
+    {
+      "id": 290,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What causes a transition from Running to Waiting?",
+      "answer": "A system call that blocks (e.g., `read()` on an empty pipe, `wait()`).",
+      "explanation": "I/O requests, waiting for locks, or sleeping."
+    },
+    {
+      "id": 291,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What causes a transition from Waiting to Ready?",
+      "answer": "Completion of the I/O event (e.g., disk read done, signal received).",
+      "explanation": "The kernel wakes the process and moves it to the ready queue."
+    },
+    {
+      "id": 292,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What does the 'T' state mean?",
+      "answer": "Stopped – process suspended by SIGSTOP, SIGTSTP, or a debugger.",
+      "explanation": "It can be resumed with SIGCONT."
+    },
+    {
+      "id": 293,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Intermediate",
+      "question": "What does the 'Z' state mean?",
+      "answer": "Zombie – terminated child not yet reaped by parent.",
+      "explanation": "The process has exited but still has a process table entry."
+    },
+    {
+      "id": 294,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the `WCHAN` column in `ps -l`?",
+      "answer": "The kernel function (wait channel) where the process is sleeping, if any.",
+      "explanation": "Example: `read`, `wait`, `do_exit`. For running processes, it shows '-'."
+    },
+    {
+      "id": 295,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the difference between interruptible and uninterruptible sleep?",
+      "answer": "Interruptible sleep (S) can be woken by signals; uninterruptible (D) cannot (must wait for I/O).",
+      "explanation": "D state is used for critical kernel operations."
+    },
+    {
+      "id": 296,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "How can you see the state transition diagram in action?",
+      "answer": "Run a process that repeatedly sleeps and calculates, and watch its state in `top` or `ps`.",
+      "explanation": "Example: `while true; do date; sleep 1; done` – alternates between R and S."
+    },
+    {
+      "id": 297,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the `task state` in kernel debugging?",
+      "answer": "Enum values: `TASK_RUNNING`, `TASK_INTERRUPTIBLE`, `TASK_UNINTERRUPTIBLE`, `TASK_ZOMBIE`, `TASK_STOPPED`.",
+      "explanation": "Kernel symbols used to represent process states."
+    },
+    {
+      "id": 298,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the load average and its relation to process states?",
+      "answer": "Load average is the average number of processes in the run queue (ready + running) over 1,5,15 minutes.",
+      "explanation": "High load average indicates many processes competing for CPU."
+    },
+    {
+      "id": 299,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the 'st' (steal time) in `top`?",
+      "answer": "CPU time stolen by the hypervisor from a virtual machine (only relevant in VMs).",
+      "explanation": "High st means the host is overcommitted."
+    },
+    {
+      "id": 300,
+      "topic": "Process states and state transition diagram",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `TASK_STOPPED` and `TASK_TRACED`?",
+      "answer": "`TASK_STOPPED` is from job control signals; `TASK_TRACED` is when a debugger (ptrace) is attached.",
+      "explanation": "Both appear as 'T' in `ps`, but behaviour differs internally."
+    },
+    {
+      "id": 301,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is the role of the process scheduler?",
+      "answer": "To decide which process runs on the CPU and for how long, balancing fairness, throughput, and response time.",
+      "explanation": "The scheduler is invoked on timer interrupts, I/O completions, and system calls."
+    },
+    {
+      "id": 302,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is preemptive multitasking?",
+      "answer": "The kernel can forcibly interrupt a process and switch to another after a time slice, ensuring fair CPU sharing.",
+      "explanation": "All modern Unix systems use preemptive multitasking."
+    },
+    {
+      "id": 303,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is a time slice (quantum)?",
+      "answer": "The maximum time a process can run before being preempted.",
+      "explanation": "Typical Linux time slice is 4–100 ms, depending on the CFS parameters."
+    },
+    {
+      "id": 304,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is a context switch?",
+      "answer": "Saving the state of one process and restoring another, allowing the CPU to switch between processes.",
+      "explanation": "Context switches involve saving registers, program counter, and memory management info."
+    },
+    {
+      "id": 305,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is the Completely Fair Scheduler (CFS)?",
+      "answer": "The default Linux scheduler that gives each process a proportional share of CPU time based on virtual runtime (vruntime).",
+      "explanation": "CFS uses a red‑black tree of runnable processes, picking the one with smallest vruntime."
+    },
+    {
+      "id": 306,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Beginner",
+      "question": "What is the `nice` value used for?",
+      "answer": "To adjust a process's CPU priority (niceness) from -20 (highest) to +19 (lowest).",
+      "explanation": "Nice values influence how much CPU time a process receives relative to others."
+    },
+    {
+      "id": 307,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "What is the difference between I/O‑bound and CPU‑bound processes?",
+      "answer": "I/O‑bound processes spend more time waiting (sleeping), CPU‑bound processes spend more time running.",
+      "explanation": "CFS gives I/O‑bound processes a priority boost for responsiveness."
+    },
+    {
+      "id": 308,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "What is `sched_yield()`?",
+      "answer": "A system call that voluntarily yields the CPU, moving the calling process to the back of the run queue.",
+      "explanation": "Used in cooperative multitasking scenarios (e.g., spinlock implementation)."
+    },
+    {
+      "id": 309,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "What are real‑time scheduling policies?",
+      "answer": "`SCHED_FIFO` (first‑in, first‑out) and `SCHED_RR` (round robin) for processes requiring deterministic response.",
+      "explanation": "Real‑time processes have higher priority than normal processes; they can starve other tasks."
+    },
+    {
+      "id": 310,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "What is the `chrt` command used for?",
+      "answer": "To view or change a process's real‑time scheduling policy and priority.",
+      "explanation": "Example: `chrt -f 99 ./program` sets SCHED_FIFO with priority 99."
+    },
+    {
+      "id": 311,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "What is the `runqueue`?",
+      "answer": "A kernel data structure holding all processes in the ready state, waiting for CPU.",
+      "explanation": "Linux CFS uses a red‑black tree per CPU; O(1) scheduler used per‑CPU arrays."
+    },
+    {
+      "id": 312,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Intermediate",
+      "question": "How can you pin a process to a specific CPU core?",
+      "answer": "Use `sched_setaffinity()` or the `taskset` command.",
+      "explanation": "CPU affinity improves cache locality and can reduce context switching."
+    },
+    {
+      "id": 313,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `SCHED_DEADLINE`?",
+      "answer": "A real‑time scheduling policy where processes specify a runtime, period, and deadline; the kernel guarantees meeting deadlines.",
+      "explanation": "Based on the earliest deadline first (EDF) algorithm, introduced in Linux 3.14."
+    },
+    {
+      "id": 314,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `CONFIG_PREEMPT` in the Linux kernel?",
+      "answer": "A kernel configuration that enables preemption of kernel code (improves latency).",
+      "explanation": "Without it, kernel code runs until completion; with `CONFIG_PREEMPT`, even kernel code can be preempted."
+    },
+    {
+      "id": 315,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `CFS` vruntime and how does it work?",
+      "answer": "`vruntime` is the virtual runtime of a process; CFS always picks the process with the smallest vruntime.",
+      "explanation": "vruntime increases at a rate inversely proportional to the process's weight (nice value)."
+    },
+    {
+      "id": 316,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `load balancing` in the Linux scheduler?",
+      "answer": "The process of distributing runnable processes evenly across CPU cores to improve performance.",
+      "explanation": "A periodic load balancer moves tasks between runqueues."
+    },
+    {
+      "id": 317,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `sched_setscheduler()`?",
+      "answer": "A system call to change the scheduling policy and priority of a process.",
+      "explanation": "Requires appropriate capabilities (CAP_SYS_NICE)."
+    },
+    {
+      "id": 318,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is the `sched_` sysctl parameters?",
+      "answer": "Kernel tunables for CFS, e.g., `kernel.sched_min_granularity_ns`, `kernel.sched_latency_ns`.",
+      "explanation": "Set via `sysctl` or `/proc/sys/kernel/sched_*`."
+    },
+    {
+      "id": 319,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is `spinlock` and how does it relate to scheduling?",
+      "answer": "A busy‑wait lock; if a process holds a spinlock and gets preempted, other processes may wait longer.",
+      "explanation": "Spinlocks are used in the kernel; preemption is disabled while holding them."
+    },
+    {
+      "id": 320,
+      "topic": "Unix process scheduler overview",
+      "difficulty": "Advanced",
+      "question": "What is the purpose of `SCHED_BATCH`?",
+      "answer": "A policy for CPU‑intensive, non‑interactive tasks; they receive a small penalty in latency.",
+      "explanation": "`chrt -b 0 ./task` uses SCHED_BATCH."
+    },
+    {
+      "id": 321,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "What is swap space?",
+      "answer": "Disk space used as an extension of physical memory when RAM is full.",
+      "explanation": "It can be a partition or a file. Swapping moves pages between RAM and swap."
+    },
+    {
+      "id": 322,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "What command shows swap usage?",
+      "answer": "`free -h`, `swapon --show`, `cat /proc/swaps`.",
+      "explanation": "`free` shows total, used, and free swap."
+    },
+    {
+      "id": 323,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "What is swappiness?",
+      "answer": "A kernel parameter (0‑200) that controls how aggressively the kernel swaps out process memory.",
+      "explanation": "Higher values cause more swapping; lower values prefer to reclaim page cache first."
+    },
+    {
+      "id": 324,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "How to check the swappiness value?",
+      "answer": "`cat /proc/sys/vm/swappiness` or `sysctl vm.swappiness`.",
+      "explanation": "Default is usually 60."
+    },
+    {
+      "id": 325,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "What is thrashing?",
+      "answer": "Heavy swapping that causes the system to spend more time moving pages than doing useful work.",
+      "explanation": "Symptoms: high swap I/O, high CPU wait, low CPU utilisation."
+    },
+    {
+      "id": 326,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "How can you disable swap?",
+      "answer": "`sudo swapoff -a` (temporary); remove swap entry from `/etc/fstab` to persist.",
+      "explanation": "Disabling swap may cause OOM killer to activate sooner."
+    },
+    {
+      "id": 327,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Beginner",
+      "question": "What is the OOM killer?",
+      "answer": "Out‑Of‑Memory killer – a kernel mechanism that terminates processes when memory is exhausted.",
+      "explanation": "It chooses a victim based on `oom_score`."
+    },
+    {
+      "id": 328,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "What is `mlock()` used for?",
+      "answer": "To lock a range of memory pages into RAM, preventing them from being swapped out.",
+      "explanation": "Used by real‑time or security‑critical applications (e.g., password storage)."
+    },
+    {
+      "id": 329,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "What is a swap file vs a swap partition?",
+      "answer": "Swap file is a regular file on a filesystem; swap partition is a dedicated raw partition. Both provide swap space.",
+      "explanation": "Swap files are more flexible (can be resized), swap partitions may have slightly better performance."
+    },
+    {
+      "id": 330,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "What does `si` and `so` mean in `vmstat` output?",
+      "answer": "`si` = swap in (pages read from swap into RAM), `so` = swap out (pages written from RAM to swap).",
+      "explanation": "Non‑zero values indicate active swapping."
+    },
+    {
+      "id": 331,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "What is `zram`?",
+      "answer": "A compressed block device in RAM used as swap (no disk backing), faster than disk swap.",
+      "explanation": "Used on embedded systems and low‑RAM devices."
+    },
+    {
+      "id": 332,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "What is `zswap`?",
+      "answer": "A kernel feature that compresses swapped pages before writing to disk, reducing I/O.",
+      "explanation": "Stores compressed pages in a pool in RAM; only writes to disk when pool fills."
+    },
+    {
+      "id": 333,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Intermediate",
+      "question": "How to see swap usage per process?",
+      "answer": "Look for `VmSwap` in `/proc/<pid>/status` or use `smem -s swap`.",
+      "explanation": "Example: `grep VmSwap /proc/*/status`."
+    },
+    {
+      "id": 334,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is the swap priority?",
+      "answer": "When multiple swap areas exist, priority (higher number = higher priority) determines which is used first.",
+      "explanation": "Set with `swapon -p`."
+    },
+    {
+      "id": 335,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is the effect of `vm.vfs_cache_pressure`?",
+      "answer": "Controls the kernel's tendency to reclaim file cache memory; high values cause more cache reclaim, less swapping.",
+      "explanation": "Default is 100; values > 100 cause more aggressive cache reclaim."
+    },
+    {
+      "id": 336,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is `hugepages` and swap?",
+      "answer": "Huge pages are large memory blocks (2MB, 1GB) that are not swappable unless configured.",
+      "explanation": "Huge pages can be locked or shareable; swapping them is expensive."
+    },
+    {
+      "id": 337,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is `swap accounting` in cgroups?",
+      "answer": "Control group (cgroup) v2 provides `memory.swap.current` to track swap usage per group.",
+      "explanation": "Allows limiting total memory+swap usage for containerised workloads."
+    },
+    {
+      "id": 338,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is the `swapcache`?",
+      "answer": "Pages that are swapped out but still present in the page cache (clean copies), allowing them to be reclaimed without I/O.",
+      "explanation": "`SwapCached` appears in `/proc/meminfo`."
+    },
+    {
+      "id": 339,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "How to tune swappiness to avoid swap on servers with enough RAM?",
+      "answer": "Set `vm.swappiness=10` or lower to encourage page cache reclaim over swapping.",
+      "explanation": "Some production systems set swappiness=1 or even 0 (but 0 can cause OOM)."
+    },
+    {
+      "id": 340,
+      "topic": "Concept of swapped memory",
+      "difficulty": "Advanced",
+      "question": "What is the `kswapd` process?",
+      "answer": "A kernel thread that asynchronously reclaims pages (memory) when free memory is low, including swapping.",
+      "explanation": "It runs periodically and tries to keep enough free memory for the system."
+    },
+    {
+      "id": 341,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What does `vmstat` show?",
+      "answer": "Virtual memory statistics: processes, memory, swap, I/O, system, and CPU.",
+      "explanation": "`vmstat 2` updates every 2 seconds; first line is since boot."
+    },
+    {
+      "id": 342,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `r` column in `vmstat`?",
+      "answer": "The number of processes in the run queue (ready to run).",
+      "explanation": "High 'r' (> number of CPU cores) indicates CPU overload."
+    },
+    {
+      "id": 343,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `b` column in `vmstat`?",
+      "answer": "The number of processes blocked on I/O.",
+      "explanation": "High 'b' suggests I/O bottleneck."
+    },
+    {
+      "id": 344,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `si` and `so` columns?",
+      "answer": "Swap in and swap out per second (KB).",
+      "explanation": "Non‑zero values indicate swapping; persistently >0 means insufficient RAM."
+    },
+    {
+      "id": 345,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `us` column?",
+      "answer": "Percentage of CPU time spent in user space (application code).",
+      "explanation": "High `us` indicates CPU‑bound user processes."
+    },
+    {
+      "id": 346,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `sy` column?",
+      "answer": "Percentage of CPU time spent in kernel (system code).",
+      "explanation": "High `sy` may indicate excessive system calls or driver overhead."
+    },
+    {
+      "id": 347,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Beginner",
+      "question": "What is the `wa` column?",
+      "answer": "Percentage of CPU time waiting for I/O.",
+      "explanation": "High `wa` indicates disk I/O bottleneck."
+    },
+    {
+      "id": 348,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Intermediate",
+      "question": "What is the `cs` column?",
+      "answer": "Context switches per second.",
+      "explanation": "Very high cs can indicate lock contention or many threads."
+    },
+    {
+      "id": 349,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Intermediate",
+      "question": "What does `vmstat -d` do?",
+      "answer": "Shows disk statistics (reads, writes, IOPS) per disk.",
+      "explanation": "Useful to identify which disk is busy."
+    },
+    {
+      "id": 350,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Intermediate",
+      "question": "What does `vmstat -s` show?",
+      "answer": "A summary of memory and event counters (total memory, pages swapped, forks, etc.).",
+      "explanation": "Shows statistics since boot."
+    },
+    {
+      "id": 351,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Intermediate",
+      "question": "How to interpret the first line of `vmstat`?",
+      "answer": "It shows averages since system boot (or since statistics were reset).",
+      "explanation": "Ignore it for real‑time monitoring; use subsequent lines."
+    },
+    {
+      "id": 352,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Intermediate",
+      "question": "How to produce a wide output in `vmstat`?",
+      "answer": "Use `vmstat -w` for wider columns (better readability).",
+      "explanation": "Helpful when column values exceed typical width."
+    },
+    {
+      "id": 353,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What is the `st` column in `vmstat`?",
+      "answer": "Stolen time – CPU time taken by hypervisor (only in virtual machines).",
+      "explanation": "High `st` means the VM is being starved of CPU by the host."
+    },
+    {
+      "id": 354,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What is the `in` column?",
+      "answer": "Interrupts per second (including timer, disk, network).",
+      "explanation": "A sudden spike may indicate a hardware or driver issue."
+    },
+    {
+      "id": 355,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What is the `bi` and `bo` columns?",
+      "answer": "Blocks read from and written to disk per second (KB).",
+      "explanation": "High values indicate disk activity."
+    },
+    {
+      "id": 356,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What is the `pgpgin` and `pgpgout` in `vmstat -s`?",
+      "answer": "Total pages paged in/out from disk (swap) since boot.",
+      "explanation": "Divide over uptime to get average rate."
+    },
+    {
+      "id": 357,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "How to use `vmstat` to find memory shortage?",
+      "answer": "Look for high `si`/`so` (swapping), low `free`, and high `cache`/`buff`. Also check `vmstat -s` for swap totals.",
+      "explanation": "Persistent swapping is the primary indicator of memory pressure."
+    },
+    {
+      "id": 358,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "How to run `vmstat` in background logging?",
+      "answer": "`vmstat 5 > vmstat.log &` logs every 5 seconds.",
+      "explanation": "Use `nohup` to keep it running after logout."
+    },
+    {
+      "id": 359,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What does `vmstat -t` add?",
+      "answer": "Timestamps to each line (date and time).",
+      "explanation": "Useful for correlating with other logs."
+    },
+    {
+      "id": 360,
+      "topic": "Monitoring system performance using vmstat",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `vmstat` and `iostat`?",
+      "answer": "`vmstat` gives CPU, memory, and swap; `iostat` focuses on disk I/O per device.",
+      "explanation": "Use both together for full performance analysis."
+    },
+    {
+      "id": 361,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "What does `top` display?",
+      "answer": "Real‑time system summary and an updating list of processes sorted by resource usage.",
+      "explanation": "Shows CPU, memory, swap, load average, and per‑process details."
+    },
+    {
+      "id": 362,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "How to quit `top`?",
+      "answer": "Press `q`.",
+      "explanation": "Ctrl+C also works."
+    },
+    {
+      "id": 363,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "How to sort by CPU usage in `top`?",
+      "answer": "Press `P` (uppercase).",
+      "explanation": "This is the default sort."
+    },
+    {
+      "id": 364,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "How to sort by memory usage in `top`?",
+      "answer": "Press `M` (uppercase).",
+      "explanation": "Sorts by `%MEM` column."
+    },
+    {
+      "id": 365,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "How to kill a process from `top`?",
+      "answer": "Press `k`, then enter the PID and signal (e.g., 15 for SIGTERM, 9 for SIGKILL).",
+      "explanation": "Always verify the PID before killing."
+    },
+    {
+      "id": 366,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Beginner",
+      "question": "How to filter by user in `top`?",
+      "answer": "Press `u`, then type the username.",
+      "explanation": "Only processes of that user will be shown."
+    },
+    {
+      "id": 367,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "What does the `RES` column mean?",
+      "answer": "Resident memory – the portion of a process's memory currently in RAM (physical memory).",
+      "explanation": "Excludes swapped memory and shared libraries accounted elsewhere."
+    },
+    {
+      "id": 368,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "What does the `VIRT` column mean?",
+      "answer": "Virtual memory – total memory used by the process (including swapped and shared).",
+      "explanation": "Often larger than RES; includes libraries, memory‑mapped files."
+    },
+    {
+      "id": 369,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "How to change the update delay in `top`?",
+      "answer": "Press `s`, then enter the new delay in seconds.",
+      "explanation": "Default is 3 seconds. Lower delays increase overhead."
+    },
+    {
+      "id": 370,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "How to save your `top` configuration?",
+      "answer": "Press `W` (uppercase) to write the configuration to `~/.toprc`.",
+      "explanation": "Settings like displayed fields, sort order, and color will be restored next time."
+    },
+    {
+      "id": 371,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "How to display full command line in `top`?",
+      "answer": "Press `c` to toggle between command name and full command line.",
+      "explanation": "Useful to see arguments."
+    },
+    {
+      "id": 372,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "How to view a process tree in `top`?",
+      "answer": "Press `V` (uppercase) to enter forest view.",
+      "explanation": "Shows parent‑child relationships."
+    },
+    {
+      "id": 373,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Intermediate",
+      "question": "How to monitor only a specific PID with `top`?",
+      "answer": "`top -p <PID>` or press `=` and enter PID.",
+      "explanation": "Can monitor multiple PIDs separated by commas: `top -p 1234,5678`."
+    },
+    {
+      "id": 374,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "How to show per‑thread CPU usage in `top`?",
+      "answer": "Press `H` to toggle thread view.",
+      "explanation": "Each thread appears as a separate entry."
+    },
+    {
+      "id": 375,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "What is `htop` and how is it different from `top`?",
+      "answer": "`htop` is an improved, interactive, colour‑coded process viewer with mouse support, scroll, and easier killing.",
+      "explanation": "`htop` shows a tree view by default and allows horizontal scrolling."
+    },
+    {
+      "id": 376,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "What is `atop`?",
+      "answer": "An advanced performance monitor that logs system and process activity for later analysis.",
+      "explanation": "`atop` can record and replay activity, showing resource consumption per process over time."
+    },
+    {
+      "id": 377,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "How to run `top` in batch mode for logging?",
+      "answer": "`top -b -n 1` runs once, non‑interactive; `top -b -n 10 -d 5` runs 10 iterations every 5 seconds.",
+      "explanation": "Batch mode outputs to stdout and can be redirected to a file."
+    },
+    {
+      "id": 378,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "What does the `S` column in `top` represent?",
+      "answer": "Process state: R (running), S (sleeping), D (uninterruptible sleep), Z (zombie), T (stopped).",
+      "explanation": "Same as `ps` state codes."
+    },
+    {
+      "id": 379,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "What is the `PR` column in `top`?",
+      "answer": "Priority of the process; real‑time processes show as 'rt', others as 20 + NI.",
+      "explanation": "Lower number = higher priority."
+    },
+    {
+      "id": 380,
+      "topic": "Monitoring processes using top command",
+      "difficulty": "Advanced",
+      "question": "What is the `TIME+` column in `top`?",
+      "answer": "Cumulative CPU time used by the process (in minutes:seconds.hundredths).",
+      "explanation": "Unlike `%CPU` (recent usage), `TIME+` is total since start."
+    },
+    {
+      "id": 381,
+      "topic": "Process priority using nice command",
+      "difficulty": "Beginner",
+      "question": "What is the range of nice values?",
+      "answer": "-20 (highest priority) to +19 (lowest priority).",
+      "explanation": "Default is 0. Only root can set negative nice values."
+    },
+    {
+      "id": 382,
+      "topic": "Process priority using nice command",
+      "difficulty": "Beginner",
+      "question": "What does the `nice` command do?",
+      "answer": "Launches a command with a modified scheduling priority (niceness).",
+      "explanation": "`nice -n 10 command` runs command with nice value 10 (low priority)."
+    },
+    {
+      "id": 383,
+      "topic": "Process priority using nice command",
+      "difficulty": "Beginner",
+      "question": "What does `nice` without arguments do?",
+      "answer": "It runs the command with an increment of +10 (if no explicit -n is given).",
+      "explanation": "Example: `nice ./script` adds 10 to the current nice value."
+    },
+    {
+      "id": 384,
+      "topic": "Process priority using nice command",
+      "difficulty": "Beginner",
+      "question": "What is the `renice` command?",
+      "answer": "Changes the nice value of an already running process.",
+      "explanation": "`renice -n 10 -p 1234` sets nice 10 for PID 1234."
+    },
+    {
+      "id": 385,
+      "topic": "Process priority using nice command",
+      "difficulty": "Beginner",
+      "question": "How to check the nice value of a process?",
+      "answer": "Use `ps -o ni -p <PID>` or look at the `NI` column in `top`.",
+      "explanation": "`top` shows `NI`; `ps -l` also shows `NI`."
+    },
+    {
+      "id": 386,
+      "topic": "Process priority using nice command",
+      "difficulty": "Intermediate",
+      "question": "Can a normal user increase priority (lower nice)?",
+      "answer": "No, only root can set negative nice values (higher priority).",
+      "explanation": "Normal users can only increase nice (lower priority)."
+    },
+    {
+      "id": 387,
+      "topic": "Process priority using nice command",
+      "difficulty": "Intermediate",
+      "question": "What is the effect of a higher nice value?",
+      "answer": "Higher nice means lower CPU priority; the process gets less CPU time.",
+      "explanation": "The process is 'nicer' to others."
+    },
+    {
+      "id": 388,
+      "topic": "Process priority using nice command",
+      "difficulty": "Intermediate",
+      "question": "How to set the nice value of a running process to 15?",
+      "answer": "`renice -n 15 -p <PID>` (requires ownership or root).",
+      "explanation": "You can also use `renice 15 -p <PID>` (some implementations)."
+    },
+    {
+      "id": 389,
+      "topic": "Process priority using nice command",
+      "difficulty": "Intermediate",
+      "question": "What does `nice()` system call do?",
+      "answer": "It increments the nice value of the calling process by `inc` (subject to permissions).",
+      "explanation": "`int nice(int inc);` returns the new nice value or -1 on error."
+    },
+    {
+      "id": 390,
+      "topic": "Process priority using nice command",
+      "difficulty": "Intermediate",
+      "question": "What is the default nice value for a child process?",
+      "answer": "It inherits the parent's nice value.",
+      "explanation": "After `fork()`, child has the same nice as the parent."
+    },
+    {
+      "id": 391,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "How does `nice` interact with the CFS scheduler?",
+      "answer": "In CFS, nicer processes have a lower weight, so they receive proportionally less CPU time.",
+      "explanation": "Weight mapping: nice -20 weight ~ 88761, nice 0 weight = 1024, nice +19 weight = 15."
+    },
+    {
+      "id": 392,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the difference between `nice` and `ionice`?",
+      "answer": "`nice` affects CPU priority; `ionice` affects disk I/O priority.",
+      "explanation": "Combine both for full resource control of background jobs."
+    },
+    {
+      "id": 393,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the `getpriority()` system call?",
+      "answer": "Retrieves the nice value of a process, process group, or user.",
+      "explanation": "`int getpriority(int which, id_t who);`"
+    },
+    {
+      "id": 394,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the `setpriority()` system call?",
+      "answer": "Sets the nice value for a process, process group, or user (subject to permissions).",
+      "explanation": "More flexible than `nice()`; part of POSIX."
+    },
+    {
+      "id": 395,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the `RLIMIT_NICE` resource limit?",
+      "answer": "A limit that restricts the maximum nice value a process can set (only for lowering priority).",
+      "explanation": "Set with `ulimit -e` (though not widely used)."
+    },
+    {
+      "id": 396,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "How to see the `nice` effect on CPU usage?",
+      "answer": "Run two CPU‑intensive processes with different nice values and watch `top`.",
+      "explanation": "Example: `stress --cpu 1 &` (nice 0) and `nice -n 19 stress --cpu 1 &`."
+    },
+    {
+      "id": 397,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the `sched_priority` vs `nice`?",
+      "answer": "`sched_priority` is used for real‑time policies (SCHED_FIFO/RR), independent of `nice`.",
+      "explanation": "Real‑time priorities range 1–99, where higher number = higher priority."
+    },
+    {
+      "id": 398,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What happens if you `renice -20` a process that already has nice -20?",
+      "answer": "Nothing; the value stays -20.",
+      "explanation": "Values are clamped to the allowed range."
+    },
+    {
+      "id": 399,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "How to renice all processes of a user?",
+      "answer": "`renice -n 10 -u username`",
+      "explanation": "This changes the nice value for all processes owned by that user."
+    },
+    {
+      "id": 400,
+      "topic": "Process priority using nice command",
+      "difficulty": "Advanced",
+      "question": "What is the concept of 'autogroup' and how does it relate to nice?",
+      "answer": "Linux groups processes from a session into an autogroup, and the nice value applies to the entire group, not individual processes.",
+      "explanation": "This improves desktop interactivity on multi‑core systems."
+    }
+  ]
+}

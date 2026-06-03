@@ -1,0 +1,98 @@
+{
+  "paperId": "OSI-NETWORK-SET-01",
+  "title": "OSI Layer Model – Networking Concepts (No Programming)",
+  "duration": "1 Hours",
+  "totalMarks": 50,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Theory (Short Answer)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "questions": [
+        {
+          "q": "List all seven layers of the OSI model in order from bottom to top.",
+          "marks": 2,
+          "answer": "Physical (Layer 1), Data Link (Layer 2), Network (Layer 3), Transport (Layer 4), Session (Layer 5), Presentation (Layer 6), Application (Layer 7). Mnemonic: Please Do Not Throw Sausage Pizza Away."
+        },
+        {
+          "q": "What is the primary function of the Network Layer?",
+          "marks": 2,
+          "answer": "The Network Layer (Layer 3) is responsible for logical addressing (e.g., IP addresses), routing packets across different networks, and path determination. Routers operate at this layer."
+        },
+        {
+          "q": "Differentiate between a hub and a switch in terms of OSI layers.",
+          "marks": 2,
+          "answer": "A hub operates at the Physical Layer (Layer 1) – it simply repeats electrical signals to all ports. A switch operates at the Data Link Layer (Layer 2) – it learns MAC addresses and forwards frames intelligently based on MAC address tables."
+        },
+        {
+          "q": "What is encapsulation in the context of the OSI model?",
+          "marks": 2,
+          "answer": "Encapsulation is the process where each layer adds its own header (and sometimes trailer) to the data received from the layer above. For example, application data gets a transport header, then a network header, then a data link header and trailer before being transmitted as bits."
+        },
+        {
+          "q": "Name two protocols that work at the Transport Layer and state whether each is connection‑oriented or connectionless.",
+          "marks": 2,
+          "answer": "TCP (Transmission Control Protocol) – connection‑oriented, reliable. UDP (User Datagram Protocol) – connectionless, unreliable but fast."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Theory (Descriptive)",
+      "marksPerQuestion": 5,
+      "totalQuestions": 2,
+      "questions": [
+        {
+          "q": "Explain the responsibilities of the Data Link Layer and the Physical Layer. Include examples of devices and protocols at each layer.",
+          "marks": 5,
+          "answer": "Physical Layer (Layer 1): Transmits raw bits over a physical medium. Defines voltage levels, data rates, pin connectors, and synchronization. Devices: hubs, repeaters, network interface cables (RJ45). Protocols: Ethernet (physical part), DSL, 802.11 (Wi‑Fi PHY). Data Link Layer (Layer 2): Provides node‑to‑node delivery, error detection (CRC), flow control, and media access control (MAC). It packages bits into frames and uses MAC addresses. Devices: switches, bridges. Protocols: Ethernet (MAC sublayer), PPP, ARP (partly)."
+        },
+        {
+          "q": "Describe the role of the Session Layer and the Presentation Layer. Give real‑world examples for each.",
+          "marks": 5,
+          "answer": "Session Layer (Layer 5): Manages dialogues between applications – establishes, maintains, and terminates sessions. Provides checkpointing and recovery (e.g., resume a file download from where it stopped). Examples: NetBIOS, Remote Procedure Calls (RPC), PPTP. Presentation Layer (Layer 6): Translates data between application format and network format. Handles encryption/decryption, compression, and character code conversion (e.g., ASCII to EBCDIC). Examples: SSL/TLS (encryption), JPEG/MPEG (compression), ASCII/EBCDIC conversion."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Theory (Long Answer)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Explain the complete OSI 7‑layer model in detail. For each layer, mention its Protocol Data Unit (PDU) name, key functions, and at least one example protocol or device.",
+          "marks": 10,
+          "answer": "Layer 1 – Physical: PDU = Bits; Transmits raw bits over medium; defines voltage, data rate, connectors. Example: RJ45, fiber, hub. Layer 2 – Data Link: PDU = Frame; Node‑to‑node delivery, MAC addressing, error detection (CRC). Example: Ethernet, switch. Layer 3 – Network: PDU = Packet; Logical addressing (IP), routing, path determination. Example: IP, router. Layer 4 – Transport: PDU = Segment (TCP) / Datagram (UDP); End‑to‑end reliability, flow control, port addressing. Example: TCP, UDP. Layer 5 – Session: PDU = Data; Manages sessions, checkpoints, synchronization. Example: NetBIOS, RPC. Layer 6 – Presentation: PDU = Data; Translation, encryption, compression. Example: SSL/TLS, JPEG. Layer 7 – Application: PDU = Data; Provides network services to user applications. Example: HTTP, FTP, SMTP, DNS. Encapsulation: Each layer wraps the data from above with its own header. Decapsulation reverses this at the receiving end."
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Network Analysis (Practical / Diagram)",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "Given a network scenario with a PC sending an HTTP request to a web server: List all the OSI layers involved on the sending PC and describe what each layer does to the data before it leaves the network interface. Then, on the receiving server, describe the decapsulation process.",
+          "marks": 10,
+          "answer": "Sending PC (encapsulation):\n- Application Layer: HTTP request (e.g., GET /index.html) is generated.\n- Presentation Layer: (may encrypt or compress data if needed – e.g., HTTPS).\n- Session Layer: Manages the session (if using session control).\n- Transport Layer: Segments the data; adds TCP header with source/destination ports (e.g., 5000 → 80); provides reliability.\n- Network Layer: Adds IP header with source/destination IP addresses; chooses best route.\n- Data Link Layer: Adds Ethernet header (source/destination MAC) and trailer (CRC); frames the packet.\n- Physical Layer: Converts frame into electrical/optical signals and sends over cable.\nReceiving Server (decapsulation):\n- Physical Layer: Receives bits and passes them as frames to Data Link.\n- Data Link Layer: Checks CRC, removes header/trailer, passes the packet to Network Layer.\n- Network Layer: Checks IP header, verifies destination IP, removes header, passes segment to Transport.\n- Transport Layer: Reassembles segments, checks port number, passes HTTP data to correct application.\n- Session/Presentation/Application: Process session info, decryption, finally delivers HTTP request to web server software."
+        }
+      ]
+    },
+    {
+      "section": "E",
+      "type": "Case Study / Design Problem",
+      "marksPerQuestion": 10,
+      "totalQuestions": 1,
+      "questions": [
+        {
+          "q": "You are designing a network for a small office. The office has two floors. On each floor, there are 20 computers that need to communicate with each other and access the internet. Using OSI layer concepts, answer: (a) Which devices would you use at the Physical and Data Link layers? (b) Which device provides connectivity between the two floors? (c) Which layer is responsible for ensuring that data from one computer reaches the correct application on another computer? (d) If you need to encrypt all traffic, which layer would handle it? (e) Explain how a switch (Layer 2) and a router (Layer 3) differ in this network.",
+          "marks": 10,
+          "answer": "(a) Physical layer: cables (Cat6), connectors (RJ45), and perhaps a hub (though not recommended). Data Link layer: switches (Layer 2) on each floor to connect the 20 computers. (b) A router (Layer 3) connects the two floors and also provides internet access. Alternatively, a Layer 3 switch could route between VLANs. (c) The Transport Layer (Layer 4) uses port numbers to deliver data to the correct application (e.g., port 80 for web, port 443 for secure web). (d) The Presentation Layer (Layer 6) handles encryption (e.g., TLS/SSL) – though often implemented in the application layer in practice, the OSI model places encryption at the presentation layer. (e) Switch (Layer 2): forwards frames based on MAC addresses; operates within the same network/subnet; does not understand IP addresses. Router (Layer 3): forwards packets based on IP addresses; connects different networks/subnets; can perform NAT, firewall, and routing. In the office, a switch connects local computers, while a router connects the office network to the internet and possibly interconnects the two floors if they are on different subnets."
+        }
+      ]
+    }
+  ]
+}

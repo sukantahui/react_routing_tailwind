@@ -5,7 +5,6 @@ import {
   Lightbulb,
   BookOpen,
 } from "lucide-react";
-import JavaCodeBlock from "../../common/JavaCodeBlock";
 
 export default class ProjectListTemplate extends Component {
   render() {

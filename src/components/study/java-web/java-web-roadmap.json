@@ -89,7 +89,8 @@
             "HTTP Protocol Basics (Methods, Status Codes, Headers)",
             "Setting Up Development Environment (Eclipse/IntelliJ, Maven/Gradle Basics)",
             "WAR File Structure and Deployment",
-            "Introduction to Servlet Containers"
+            "Introduction to Servlet Containers",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Understand Java EE ecosystem",
@@ -133,7 +134,8 @@
             "RowSet and Its Types (CachedRowSet, etc.)",
             "Scrollable and Updatable ResultSet",
             "Database Configuration Using Properties Files",
-            "SQL Exception Handling and Best Practices"
+            "SQL Exception Handling and Best Practices",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Connect Java applications to databases",
@@ -178,7 +180,9 @@
             "JSP 2.0 Simple Tag Handlers",
             "EL Advanced Features (Collections, Operators)",
             "Introduction to AJAX Integration",
-            "Security Considerations (Avoiding Scriptlets)"
+            "Security Considerations (Avoiding Scriptlets)",
+            "JSP Action Element",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Create dynamic JSP pages",
@@ -222,7 +226,8 @@
             "URL Mapping Patterns",
             "MVC Architecture with Servlets and JSP",
             "Introduction to RESTful Web Services with JAX-RS (Jersey)",
-            "Introduction to Web Frameworks (Struts, Spring MVC)"
+            "Introduction to Web Frameworks (Struts, Spring MVC)",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Handle client-server requests",
@@ -292,7 +297,8 @@
             "Introduction to JPA (Java Persistence API)",
             "Hibernate Tools (Reverse Engineering, hbm2ddl)",
             "Connection Pooling with Hibernate (c3p0, HikariCP)",
-            "Performance Tuning Tips"
+            "Performance Tuning Tips",
+            "Short Questions"
           ],
           "learningOutcomes": [
             "Implement ORM-based persistence",

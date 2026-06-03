@@ -1,0 +1,767 @@
+{
+  "paperId": "DUALITY-PRINCIPLE-100",
+  "title": "Principle of Duality – 100 Practice Questions",
+  "subject": "Computer Science / Boolean Algebra",
+  "class": "XI - XII",
+  "board": "ISC / CBSE / All Boards",
+  "duration": "2.5 Hours",
+  "totalMarks": 100,
+  "sections": [
+    {
+      "section": "A",
+      "type": "Definition & Basic Concepts (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "id": 1,
+          "q": "State the Principle of Duality in Boolean algebra.",
+          "marks": 1,
+          "answer": "The Principle of Duality states that every algebraic identity in Boolean algebra remains valid if we interchange the binary operators '+' (OR) and '·' (AND), and simultaneously interchange the identity elements '0' and '1', while keeping the variables and their complements unchanged.",
+          "explanation": "This principle is a fundamental property of Boolean algebra. It arises because Boolean algebra is symmetric with respect to the operators and constants."
+        },
+        {
+          "id": 2,
+          "q": "When applying the Principle of Duality, what happens to the constants 0 and 1?",
+          "marks": 1,
+          "answer": "0 becomes 1, and 1 becomes 0.",
+          "explanation": "The duality principle swaps the additive identity (0) with the multiplicative identity (1)."
+        },
+        {
+          "id": 3,
+          "q": "When applying the Principle of Duality, what happens to the operators + and · ?",
+          "marks": 1,
+          "answer": "+ (OR) becomes · (AND), and · (AND) becomes + (OR).",
+          "explanation": "The two binary operators are interchanged to obtain the dual of an expression."
+        },
+        {
+          "id": 4,
+          "q": "Are the complements of variables (e.g., A') changed when taking the dual of an expression?",
+          "marks": 1,
+          "answer": "No, complements of variables remain unchanged.",
+          "explanation": "Duality only swaps operators and constants; variable literals (plain or complemented) stay the same."
+        },
+        {
+          "id": 5,
+          "q": "What is the dual of the expression: A + 0 = A ?",
+          "marks": 1,
+          "answer": "A · 1 = A",
+          "explanation": "Swap + with · and 0 with 1."
+        },
+        {
+          "id": 6,
+          "q": "What is the dual of the expression: A · 1 = A ?",
+          "marks": 1,
+          "answer": "A + 0 = A",
+          "explanation": "Swap · with + and 1 with 0."
+        },
+        {
+          "id": 7,
+          "q": "What is the dual of the expression: A + A' = 1 ?",
+          "marks": 1,
+          "answer": "A · A' = 0",
+          "explanation": "Swap + with ·, and 1 with 0."
+        },
+        {
+          "id": 8,
+          "q": "What is the dual of the expression: A · A' = 0 ?",
+          "marks": 1,
+          "answer": "A + A' = 1",
+          "explanation": "Swap · with +, and 0 with 1."
+        },
+        {
+          "id": 9,
+          "q": "If a Boolean equation is valid, what can be said about its dual?",
+          "marks": 1,
+          "answer": "The dual equation is also valid (true).",
+          "explanation": "The Principle of Duality guarantees that duality preserves truth: if an identity holds, its dual also holds."
+        },
+        {
+          "id": 10,
+          "q": "Which Boolean law is self‑dual (i.e., its dual is the same as itself)? Give an example.",
+          "marks": 1,
+          "answer": "The law of double complement (A'') = A is self‑dual. Also the commutative laws (A+B = B+A and A·B = B·A) are self‑dual.",
+          "explanation": "Self‑dual identities contain no constants and the operators are symmetric. Commutativity is its own dual because swapping + and · yields the same form if the expression is symmetric."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Find the Dual of Simple Expressions (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 20,
+      "questions": [
+        {
+          "id": 11,
+          "q": "Find the dual of: A + B",
+          "marks": 1,
+          "answer": "A · B",
+          "explanation": "OR becomes AND."
+        },
+        {
+          "id": 12,
+          "q": "Find the dual of: A · B",
+          "marks": 1,
+          "answer": "A + B",
+          "explanation": "AND becomes OR."
+        },
+        {
+          "id": 13,
+          "q": "Find the dual of: A' + B",
+          "marks": 1,
+          "answer": "A' · B",
+          "explanation": "Complement of A remains; swap + with ·."
+        },
+        {
+          "id": 14,
+          "q": "Find the dual of: (A + B') · C",
+          "marks": 1,
+          "answer": "(A · B') + C",
+          "explanation": "Swap operators: + becomes ·, · becomes +, and B' stays B'."
+        },
+        {
+          "id": 15,
+          "q": "Find the dual of: A + (B · C)",
+          "marks": 1,
+          "answer": "A · (B + C)",
+          "explanation": "Swap + and ·, keep parentheses to preserve order."
+        },
+        {
+          "id": 16,
+          "q": "Find the dual of: (A + B) · (C + D)",
+          "marks": 1,
+          "answer": "(A · B) + (C · D)",
+          "explanation": "Each + becomes ·, and the main · becomes + between the factors."
+        },
+        {
+          "id": 17,
+          "q": "Find the dual of: A + 1",
+          "marks": 1,
+          "answer": "A · 0",
+          "explanation": "Swap + with ·, and 1 with 0."
+        },
+        {
+          "id": 18,
+          "q": "Find the dual of: A · 0",
+          "marks": 1,
+          "answer": "A + 1",
+          "explanation": "Swap · with +, and 0 with 1."
+        },
+        {
+          "id": 19,
+          "q": "Find the dual of: (A' + B')(A + B)",
+          "marks": 1,
+          "answer": "(A' · B') + (A · B)",
+          "explanation": "Swap operators: + becomes ·, · becomes +."
+        },
+        {
+          "id": 20,
+          "q": "Find the dual of: AB' + CD'",
+          "marks": 1,
+          "answer": "(A + B') · (C + D')",
+          "explanation": "AB' is AND, becomes OR; + becomes AND."
+        },
+        {
+          "id": 21,
+          "q": "Find the dual of: (A + B + C)(A' + B' + C')",
+          "marks": 1,
+          "answer": "(A · B · C) + (A' · B' · C')",
+          "explanation": "Each OR becomes AND, the main AND becomes OR."
+        },
+        {
+          "id": 22,
+          "q": "Find the dual of: A ⊕ B (XOR). Express the dual in terms of AND/OR.",
+          "marks": 1,
+          "answer": "(A + B')(A' + B) = A ⊙ B (XNOR)",
+          "explanation": "Write XOR as AB' + A'B. Dual = (A+B')(A'+B) which is XNOR."
+        },
+        {
+          "id": 23,
+          "q": "Find the dual of: (A + B')(A' + B)",
+          "marks": 1,
+          "answer": "(A · B') + (A' · B)",
+          "explanation": "This is the dual of XNOR, which is XOR."
+        },
+        {
+          "id": 24,
+          "q": "Find the dual of: A + (B' + C)",
+          "marks": 1,
+          "answer": "A · (B' · C)",
+          "explanation": "All ORs become ANDs."
+        },
+        {
+          "id": 25,
+          "q": "Find the dual of: (A·B) + (C·D)",
+          "marks": 1,
+          "answer": "(A+B) · (C+D)",
+          "explanation": "Swap AND with OR, and OR with AND."
+        },
+        {
+          "id": 26,
+          "q": "Find the dual of: (A + B')·(C' + D)",
+          "marks": 1,
+          "answer": "(A·B') + (C'·D)",
+          "explanation": "Each + becomes ·, main · becomes +."
+        },
+        {
+          "id": 27,
+          "q": "Find the dual of: (A·B·C) + 0",
+          "marks": 1,
+          "answer": "(A+B+C) · 1",
+          "explanation": "AND becomes OR, OR becomes AND, 0 becomes 1."
+        },
+        {
+          "id": 28,
+          "q": "Find the dual of: (A+B+C) · 1",
+          "marks": 1,
+          "answer": "(A·B·C) + 0",
+          "explanation": "OR becomes AND, AND becomes OR, 1 becomes 0."
+        },
+        {
+          "id": 29,
+          "q": "Find the dual of: A + (B + C)",
+          "marks": 1,
+          "answer": "A · (B · C)",
+          "explanation": "All ORs become ANDs."
+        },
+        {
+          "id": 30,
+          "q": "Find the dual of: (A' + B)·(B' + C)",
+          "marks": 1,
+          "answer": "(A'·B) + (B'·C)",
+          "explanation": "Standard operator swap."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Dual of Boolean Identities / Theorems (2 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 20,
+      "questions": [
+        {
+          "id": 31,
+          "q": "State the dual of the Absorption law: A + (A·B) = A",
+          "marks": 2,
+          "answer": "A · (A + B) = A",
+          "explanation": "Swap + and ·. The dual of the absorption law is the other absorption law."
+        },
+        {
+          "id": 32,
+          "q": "State the dual of the Idempotent law: A + A = A",
+          "marks": 2,
+          "answer": "A · A = A",
+          "explanation": "Swap + with ·."
+        },
+        {
+          "id": 33,
+          "q": "State the dual of the Domination law: A + 1 = 1",
+          "marks": 2,
+          "answer": "A · 0 = 0",
+          "explanation": "Swap + with ·, and 1 with 0."
+        },
+        {
+          "id": 34,
+          "q": "State the dual of the Identity law: A + 0 = A",
+          "marks": 2,
+          "answer": "A · 1 = A",
+          "explanation": "Swap + with ·, 0 with 1."
+        },
+        {
+          "id": 35,
+          "q": "State the dual of the Complement law: A + A' = 1",
+          "marks": 2,
+          "answer": "A · A' = 0",
+          "explanation": "Swap + with ·, 1 with 0. Complements unchanged."
+        },
+        {
+          "id": 36,
+          "q": "State the dual of De Morgan's first law: (A + B)' = A' · B'",
+          "marks": 2,
+          "answer": "(A · B)' = A' + B'",
+          "explanation": "Applying duality to De Morgan's first law yields the second De Morgan law."
+        },
+        {
+          "id": 37,
+          "q": "State the dual of De Morgan's second law: (A · B)' = A' + B'",
+          "marks": 2,
+          "answer": "(A + B)' = A' · B'",
+          "explanation": "Dual of the second gives the first De Morgan law."
+        },
+        {
+          "id": 38,
+          "q": "What is the dual of the distributive law: A + (B · C) = (A + B) · (A + C)",
+          "marks": 2,
+          "answer": "A · (B + C) = (A · B) + (A · C)",
+          "explanation": "Swap all + and ·. This gives the other distributive law."
+        },
+        {
+          "id": 39,
+          "q": "What is the dual of the consensus theorem: AB + AC + BC = AB + AC",
+          "marks": 2,
+          "answer": "(A+B)(A+C)(B+C) = (A+B)(A+C)",
+          "explanation": "Swap AND with OR, and OR with AND. The consensus theorem in dual form."
+        },
+        {
+          "id": 40,
+          "q": "Write the dual of: A + (A'·B) = A + B",
+          "marks": 2,
+          "answer": "A · (A' + B) = A · B",
+          "explanation": "Swap operators, keep variables and complements."
+        },
+        {
+          "id": 41,
+          "q": "Write the dual of: A·(A' + B) = A·B",
+          "marks": 2,
+          "answer": "A + (A'·B) = A + B",
+          "explanation": "Duality is symmetric; the dual of the previous is the original."
+        },
+        {
+          "id": 42,
+          "q": "What is the dual of the redundancy law: X + X'Y = X + Y",
+          "marks": 2,
+          "answer": "X · (X' + Y) = X · Y",
+          "explanation": "Swap + and ·. This is its dual."
+        },
+        {
+          "id": 43,
+          "q": "If the identity (A + B)(A' + C)(B + C) = (A + B)(A' + C) holds, write its dual.",
+          "marks": 2,
+          "answer": "(A·B) + (A'·C) + (B·C) = (A·B) + (A'·C)",
+          "explanation": "Swap operators and constants (none here)."
+        },
+        {
+          "id": 44,
+          "q": "State the dual of the involution law: (A')' = A",
+          "marks": 2,
+          "answer": "It is self‑dual: (A')' = A remains the same (no operators or constants to swap).",
+          "explanation": "The law contains no +, ·, 0, or 1, so its dual is itself."
+        },
+        {
+          "id": 45,
+          "q": "Write the dual of: (A+B)(A'+B') = A·B' + A'·B",
+          "marks": 2,
+          "answer": "(A·B) + (A'·B') = (A+B')·(A'+B)",
+          "explanation": "Swap both sides; note that the right side of the original is XOR form, its dual is XNOR form."
+        },
+        {
+          "id": 46,
+          "q": "What is the dual of the identity: (A+B')·B = A·B?",
+          "marks": 2,
+          "answer": "(A·B') + B = A + B",
+          "explanation": "Swap · and + on both sides."
+        },
+        {
+          "id": 47,
+          "q": "Find the dual of: (A + B + C)(A + B + C') = A + B",
+          "marks": 2,
+          "answer": "(A·B·C) + (A·B·C') = A·B",
+          "explanation": "Each OR becomes AND, the outer AND becomes OR."
+        },
+        {
+          "id": 48,
+          "q": "Find the dual of: A·B + A·B' = A",
+          "marks": 2,
+          "answer": "(A+B)·(A+B') = A",
+          "explanation": "Swap AND with OR, OR with AND."
+        },
+        {
+          "id": 49,
+          "q": "Find the dual of: (A+B)·(A+B') = A",
+          "marks": 2,
+          "answer": "A·B + A·B' = A",
+          "explanation": "This is the dual of the previous, confirming symmetry."
+        },
+        {
+          "id": 50,
+          "q": "What is the dual of the Shannon expansion theorem: F = A·F(1) + A'·F(0)",
+          "marks": 2,
+          "answer": "F = (A + F(0)) · (A' + F(1))",
+          "explanation": "Swap + and ·, and also swap the roles of the cofactors? The dual form is the other expansion: F = (A + F(0))·(A' + F(1))."
+        }
+      ]
+    },
+    {
+      "section": "D",
+      "type": "Multiple Choice Questions (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 15,
+      "questions": [
+        {
+          "id": 51,
+          "q": "The dual of (A + B)(C + D) is: \n(a) A·B + C·D\n(b) (A·B) + (C·D)\n(c) (A·B)(C·D)\n(d) (A + B) + (C + D)",
+          "marks": 1,
+          "answer": "(b) (A·B) + (C·D)",
+          "explanation": "Each + becomes ·, and the main · becomes +."
+        },
+        {
+          "id": 52,
+          "q": "The dual of A·(B + C) is: \n(a) A + (B·C)\n(b) (A + B)·(A + C)\n(c) A·(B·C)\n(d) A + (B + C)",
+          "marks": 1,
+          "answer": "(a) A + (B·C)",
+          "explanation": "Swap · with + and + with ·."
+        },
+        {
+          "id": 53,
+          "q": "Which of the following is the dual of A + (A'·B) = A + B ?\n(a) A·(A' + B) = A·B\n(b) A + (A'·B) = A·B\n(c) A·(A' + B) = A + B\n(d) A·A' + B = A·B",
+          "marks": 1,
+          "answer": "(a) A·(A' + B) = A·B",
+          "explanation": "Swap + and · on both sides. LHS: A + (A'·B) becomes A·(A' + B). RHS: A + B becomes A·B."
+        },
+        {
+          "id": 54,
+          "q": "The dual of the complement law A + A' = 1 is: \n(a) A·A' = 0\n(b) A·A' = 1\n(c) A + A' = 0\n(d) A' + A = 1",
+          "marks": 1,
+          "answer": "(a) A·A' = 0",
+          "explanation": "Swap + with · and 1 with 0."
+        },
+        {
+          "id": 55,
+          "q": "Which statement is TRUE about the Principle of Duality?\n(a) The dual of a valid identity is also valid.\n(b) The dual of a valid identity may be false.\n(c) Duality changes the number of variables.\n(d) Duality changes complements to uncomplemented.",
+          "marks": 1,
+          "answer": "(a) The dual of a valid identity is also valid.",
+          "explanation": "Duality preserves truth; it's a theorem of Boolean algebra."
+        },
+        {
+          "id": 56,
+          "q": "The dual of (A + 1)(B + 0) = B is:\n(a) (A·0) + (B·1) = B\n(b) (A·1)+(B·0)=B\n(c) (A·0)·(B·1)=B\n(d) (A·0)+(B·0)=B",
+          "marks": 1,
+          "answer": "(a) (A·0) + (B·1) = B",
+          "explanation": "LHS: (A+1) becomes (A·0); (B+0) becomes (B·1); the product (·) becomes sum (+). RHS: B stays B."
+        },
+        {
+          "id": 57,
+          "q": "Which of the following laws is self‑dual?\n(a) A + 0 = A\n(b) A + A = A\n(c) (A')' = A\n(d) A + 1 = 1",
+          "marks": 1,
+          "answer": "(c) (A')' = A",
+          "explanation": "The involution law has no operators or constants, so its dual is itself."
+        },
+        {
+          "id": 58,
+          "q": "The dual of (X + Y')(X' + Z) is:\n(a) X·Y' + X'·Z\n(b) (X·Y') + (X'·Z)\n(c) (X·Y')·(X'·Z)\n(d) (X+Y') + (X'+Z)",
+          "marks": 1,
+          "answer": "(a) X·Y' + X'·Z (same as b)",
+          "explanation": "Swap + and ·, the expression becomes (X·Y') + (X'·Z). Options a and b are identical."
+        },
+        {
+          "id": 59,
+          "q": "If the identity A + (B·C) = (A+B)(A+C) is true, then its dual is:\n(a) A·(B+C) = (A·B)+(A·C)\n(b) A·(B+C) = (A+B)(A+C)\n(c) A+(B·C) = (A·B)+(A·C)\n(d) A·(B+C) = (A+B)+(A+C)",
+          "marks": 1,
+          "answer": "(a) A·(B+C) = (A·B)+(A·C)",
+          "explanation": "Swap all operators gives the other distributive law."
+        },
+        {
+          "id": 60,
+          "q": "The dual of (A ⊕ B) is equal to:\n(a) A ⊕ B\n(b) A ⊙ B (XNOR)\n(c) A' ⊕ B'\n(d) A + B",
+          "marks": 1,
+          "answer": "(b) A ⊙ B (XNOR)",
+          "explanation": "XOR in terms of AND/OR: AB' + A'B. Dual = (A+B')(A'+B) = A⊙B."
+        },
+        {
+          "id": 61,
+          "q": "The dual of A·(B' + C) = A·B' + A·C is:\n(a) A + (B'·C) = (A+B')·(A+C)\n(b) A + (B'·C) = A·B' + A·C\n(c) A·(B' + C) = (A+B')·(A+C)\n(d) A + (B'+C) = (A+B')+(A+C)",
+          "marks": 1,
+          "answer": "(a) A + (B'·C) = (A+B')·(A+C)",
+          "explanation": "Swap operators on both sides."
+        },
+        {
+          "id": 62,
+          "q": "What is the dual of the expression: A + 0 = A? (Choose correct form)\n(a) A·1 = A\n(b) A·0 = A\n(c) A + 1 = A\n(d) A·1 = 1",
+          "marks": 1,
+          "answer": "(a) A·1 = A",
+          "explanation": "Swap + with · and 0 with 1."
+        },
+        {
+          "id": 63,
+          "q": "Which one is the dual of (A + B')(C + D')?\n(a) (A·B') + (C·D')\n(b) (A·B')·(C·D')\n(c) (A+B')+(C+D')\n(d) A·B' + C·D'",
+          "marks": 1,
+          "answer": "(a) (A·B') + (C·D')",
+          "explanation": "Swap OR with AND, AND with OR."
+        },
+        {
+          "id": 64,
+          "q": "The dual of the statement 'If A=0 then A+B = B' is:\n(a) If A=1 then A·B = B\n(b) If A=1 then A+B = B\n(c) If A=0 then A·B = B\n(d) If A=1 then A·B = 0",
+          "marks": 1,
+          "answer": "(a) If A=1 then A·B = B",
+          "explanation": "Duality swaps 0↔1 and +↔·. The original: A=0 ⇒ A+B = B. Dual: A=1 ⇒ A·B = B."
+        },
+        {
+          "id": 65,
+          "q": "The dual of the identity (A+B)' = A'·B' is:\n(a) (A·B)' = A'+B'\n(b) (A+B)' = A'·B'\n(c) (A·B)' = A'·B'\n(d) (A'+B')' = A·B",
+          "marks": 1,
+          "answer": "(a) (A·B)' = A'+B'",
+          "explanation": "Applying duality to De Morgan's law gives the other De Morgan law."
+        }
+      ]
+    },
+    {
+      "section": "E",
+      "type": "Fill in the Blanks (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 15,
+      "questions": [
+        {
+          "id": 66,
+          "q": "The dual of A + (B·C) is __________.",
+          "marks": 1,
+          "answer": "A · (B + C)",
+          "explanation": "Swap OR with AND, AND with OR."
+        },
+        {
+          "id": 67,
+          "q": "The dual of A·1 = A is __________.",
+          "marks": 1,
+          "answer": "A + 0 = A",
+          "explanation": "Swap · with + and 1 with 0."
+        },
+        {
+          "id": 68,
+          "q": "The dual of the absorption law A·(A+B) = A is __________.",
+          "marks": 1,
+          "answer": "A + (A·B) = A",
+          "explanation": "Swap · with + and + with ·."
+        },
+        {
+          "id": 69,
+          "q": "The dual of (A+B')·(A+C) = A + B'C is __________.",
+          "marks": 1,
+          "answer": "(A·B') + (A·C) = A·(B' + C)",
+          "explanation": "Swap operators on both sides."
+        },
+        {
+          "id": 70,
+          "q": "The dual of the expression (A + B')(C' + D) = AC' + AD + B'C' + B'D is __________.",
+          "marks": 1,
+          "answer": "(A·B') + (C'·D) = (A+C')(A+D)(B'+C')(B'+D)",
+          "explanation": "Swap + and ·, and also · and + on both sides."
+        },
+        {
+          "id": 71,
+          "q": "The complement of the dual of A is __________.",
+          "marks": 1,
+          "answer": "A' (since dual of A is A, complement is A')",
+          "explanation": "A has no operators/constants, its dual is itself. Complement is A'."
+        },
+        {
+          "id": 72,
+          "q": "The dual of the identity (A + B + C)' = A'·B'·C' is __________.",
+          "marks": 1,
+          "answer": "(A·B·C)' = A' + B' + C'",
+          "explanation": "Dual of De Morgan for three variables."
+        },
+        {
+          "id": 73,
+          "q": "The dual of A·0 = 0 is __________.",
+          "marks": 1,
+          "answer": "A + 1 = 1",
+          "explanation": "Swap · with + and 0 with 1."
+        },
+        {
+          "id": 74,
+          "q": "The dual of (A ⊕ B) ⊕ C in terms of AND/OR is __________.",
+          "marks": 1,
+          "answer": "(A ⊙ B) ⊙ C (i.e., XNOR of three variables)",
+          "explanation": "XOR is not self-dual; its dual is XNOR. For three variables, the dual of odd parity is even parity."
+        },
+        {
+          "id": 75,
+          "q": "If F(X,Y,Z) = X + YZ, then its dual F^D = __________.",
+          "marks": 1,
+          "answer": "X · (Y + Z)",
+          "explanation": "Swap + and ·."
+        },
+        {
+          "id": 76,
+          "q": "The dual of the expression A + B + 0 is __________.",
+          "marks": 1,
+          "answer": "A · B · 1",
+          "explanation": "ORs become ANDs, 0 becomes 1."
+        },
+        {
+          "id": 77,
+          "q": "The dual of the expression (A·B') + (C·D) is __________.",
+          "marks": 1,
+          "answer": "(A+B') · (C+D)",
+          "explanation": "Swap + and ·, and the main + becomes ·."
+        },
+        {
+          "id": 78,
+          "q": "If a Boolean function is expressed as a sum of minterms, its dual corresponds to a __________ of maxterms.",
+          "marks": 1,
+          "answer": "product",
+          "explanation": "Duality swaps sum (OR) and product (AND). So SOP becomes POS."
+        },
+        {
+          "id": 79,
+          "q": "The dual of the identity A·(B + C) = A·B + A·C is __________.",
+          "marks": 1,
+          "answer": "A + (B·C) = (A+B)·(A+C)",
+          "explanation": "Swap all operators."
+        },
+        {
+          "id": 80,
+          "q": "The dual of the expression (A + B)·(C + D) + E is __________.",
+          "marks": 1,
+          "answer": "((A·B) + (C·D)) · E",
+          "explanation": "Apply duality systematically: swap each + with · and each · with +, keeping parentheses. The outer + becomes ·."
+        }
+      ]
+    },
+    {
+      "section": "F",
+      "type": "True or False (1 Mark Each)",
+      "marksPerQuestion": 1,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "id": 81,
+          "q": "The dual of A·B is A + B.",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "AND becomes OR."
+        },
+        {
+          "id": 82,
+          "q": "The dual of A + 1 = 1 is A·0 = 0.",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "Swap + with · and 1 with 0."
+        },
+        {
+          "id": 83,
+          "q": "The dual of the expression (A + B)' is A' + B'.",
+          "marks": 1,
+          "answer": "False",
+          "explanation": "The dual of (A+B)' is (A·B)'. Because duality does not change the outer complement; it swaps the inner operator. (A+B)' becomes (A·B)'."
+        },
+        {
+          "id": 84,
+          "q": "The dual of the identity (A+B)' = A'·B' is (A·B)' = A' + B'.",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "Applying duality to De Morgan's first law gives the second."
+        },
+        {
+          "id": 85,
+          "q": "The Principle of Duality changes the order of operations (parentheses).",
+          "marks": 1,
+          "answer": "False",
+          "explanation": "Parentheses remain in the same places; only operators and constants are swapped."
+        },
+        {
+          "id": 86,
+          "q": "A self‑dual function satisfies f(A,B,C) = f^D(A,B,C).",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "By definition, a function is self‑dual if it equals its dual."
+        },
+        {
+          "id": 87,
+          "q": "The dual of A XOR B is A XOR B.",
+          "marks": 1,
+          "answer": "False",
+          "explanation": "The dual of XOR is XNOR."
+        },
+        {
+          "id": 88,
+          "q": "The dual of (A+B)·(A+C) is (A·B)+(A·C).",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "Swap + and ·."
+        },
+        {
+          "id": 89,
+          "q": "The dual of A·(B·C) is A+(B+C).",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "AND becomes OR."
+        },
+        {
+          "id": 90,
+          "q": "The dual of A·(B+C) = A·B + A·C is A+(B·C) = (A+B)·(A+C).",
+          "marks": 1,
+          "answer": "True",
+          "explanation": "Swap all operators."
+        }
+      ]
+    },
+    {
+      "section": "G",
+      "type": "Applied Problems (2‑3 Marks Each)",
+      "marksPerQuestion": 2,
+      "totalQuestions": 10,
+      "questions": [
+        {
+          "id": 91,
+          "q": "Given the identity XY + X'Z + YZ = XY + X'Z. Use the Principle of Duality to write its dual and state whether the dual is also a valid identity.",
+          "marks": 2,
+          "answer": "Dual: (X+Y)·(X'+Z)·(Y+Z) = (X+Y)·(X'+Z). Yes, it is valid (consensus theorem in POS form).",
+          "explanation": "Swapping operators gives the dual form of the consensus theorem. Since the original is true, its dual is also true."
+        },
+        {
+          "id": 92,
+          "q": "Find the dual of: (P + Q')(R + S') + T. Simplify the dual if possible.",
+          "marks": 2,
+          "answer": "Dual = ((P·Q') + (R·S')) · T. It can be left as is or expanded to (P·Q'·T) + (R·S'·T).",
+          "explanation": "Apply duality: (P+Q') becomes (P·Q'), (R+S') becomes (R·S'), the outer + becomes ·, and T stays T. No further simplification needed."
+        },
+        {
+          "id": 93,
+          "q": "Prove that the dual of a product-of-sums (POS) expression is a sum-of-products (SOP) expression.",
+          "marks": 2,
+          "answer": "A POS expression has the form ∏(sum terms). By duality, each OR becomes AND, and the outer product (AND) becomes OR. Thus we get a sum of product terms, i.e., SOP.",
+          "explanation": "This is a direct consequence of swapping operators. For example, (A+B)(C+D) becomes (A·B)+(C·D)."
+        },
+        {
+          "id": 94,
+          "q": "For a Boolean function F(A,B,C) = AB + AC + BC, write its dual. What is the relationship between F and its dual?",
+          "marks": 2,
+          "answer": "F^D = (A+B)(A+C)(B+C). Because of the consensus theorem, F = F^D; the majority function is self‑dual.",
+          "explanation": "Known identity: AB+AC+BC = (A+B)(A+C)(B+C). So the dual of the SOP majority is the POS majority, and they are equal."
+        },
+        {
+          "id": 95,
+          "q": "Using the Principle of Duality, derive the dual of the following valid identity: (A + B)(A' + C)(B + C) = (A + B)(A' + C). Then verify that the dual identity is also valid by algebraic manipulation.",
+          "marks": 2,
+          "answer": "Dual: (A·B) + (A'·C) + (B·C) = (A·B) + (A'·C). This is the consensus theorem in SOP form, which can be verified by expanding RHS and adding the consensus term.",
+          "explanation": "The dual is indeed the consensus theorem. It is valid because B·C is redundant given A·B and A'·C."
+        },
+        {
+          "id": 96,
+          "q": "Write the dual of the expression: (A + B' + C)(A' + B + C'). Then simplify the dual if possible.",
+          "marks": 2,
+          "answer": "Dual = (A·B'·C) + (A'·B·C'). This is already simplified (two minterms).",
+          "explanation": "Swap all OR to AND and AND to OR. Each product term is a minterm."
+        },
+        {
+          "id": 97,
+          "q": "Given F = (A + B)(C + D) + E. Find its dual F^D and express it in a sum-of-products form.",
+          "marks": 2,
+          "answer": "F^D = ((A·B) + (C·D)) · E = (A·B·E) + (C·D·E).",
+          "explanation": "First, (A+B) becomes (A·B), (C+D) becomes (C·D), the outer + becomes ·, and E stays. Then distribute the · over the + to get SOP."
+        },
+        {
+          "id": 98,
+          "q": "What is the dual of the boolean function f(a,b,c) = a + bc? Write the dual and then find its complement.",
+          "marks": 2,
+          "answer": "Dual f^D = a·(b+c). Complement of f^D = a' + (b'·c') by De Morgan.",
+          "explanation": "First obtain dual by swapping + and ·, then apply De Morgan to find complement."
+        },
+        {
+          "id": 99,
+          "q": "Show that the dual of a self‑dual function is the function itself. Give an example of a self‑dual function.",
+          "marks": 2,
+          "answer": "By definition, a self‑dual function satisfies f = f^D. Example: majority function f(A,B,C) = AB + AC + BC. Its dual is (A+B)(A+C)(B+C) which equals AB+AC+BC.",
+          "explanation": "Self‑dual functions are those that are unchanged under the duality transformation."
+        },
+        {
+          "id": 100,
+          "q": "Using duality, derive the identity corresponding to (A·B)' = A' + B' from the identity (A+B)' = A'·B'.",
+          "marks": 2,
+          "answer": "Take dual of (A+B)' = A'·B'. The dual of LHS: (A·B)', the dual of RHS: A' + B'. Thus we obtain (A·B)' = A' + B'.",
+          "explanation": "Duality applied to De Morgan's first law yields the second De Morgan law directly, without separate proof."
+        }
+      ]
+    }
+  ]
+}

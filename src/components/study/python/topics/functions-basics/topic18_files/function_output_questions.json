@@ -1,0 +1,815 @@
+{
+    "subject": "Python Programming",
+    "class": "IX",
+    "board": "ICSE",
+    "topic": "Functions – Output Based Questions",
+    "subjectLogo": {
+        "name": "Python",
+        "icon": "python",
+        "type": "svg",
+        "path": "/logos/python.svg",
+        "alt": "Python Programming Logo"
+    },
+    "questions": [
+        {
+            "id": 1,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def greet():\n    print(\"Hello\")\ngreet()",
+            "output": "Hello",
+            "explanation": "Function definition then call."
+        },
+        {
+            "id": 2,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def add(a, b):\n    return a + b\nprint(add(3, 4))",
+            "output": "7",
+            "explanation": "Return value used in print."
+        },
+        {
+            "id": 3,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def show():\n    print(\"Hi\")\nresult = show()\nprint(result)",
+            "output": "Hi\nNone",
+            "explanation": "No return → None."
+        },
+        {
+            "id": 4,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def square(x):\n    return x * x\nprint(square(5))",
+            "output": "25",
+            "explanation": "Returns square of 5."
+        },
+        {
+            "id": 5,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def msg():\n    pass\nprint(msg())",
+            "output": "None",
+            "explanation": "Empty function returns None."
+        },
+        {
+            "id": 6,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def diff(a, b):\n    return a - b\nprint(diff(10, 3))",
+            "output": "7",
+            "explanation": "Returns difference."
+        },
+        {
+            "id": 7,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def greet(name):\n    print(\"Hello\", name)\ngreet(\"Swadeep\")",
+            "output": "Hello Swadeep",
+            "explanation": "Parameter passed as argument."
+        },
+        {
+            "id": 8,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def multiply(a, b=2):\n    return a * b\nprint(multiply(5))\nprint(multiply(5, 3))",
+            "output": "10\n15",
+            "explanation": "Default parameter used when omitted."
+        },
+        {
+            "id": 9,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def f(a, b=10, c=20):\n    return a+b+c\nprint(f(1, c=5))",
+            "output": "16",
+            "explanation": "Keyword argument overrides default c."
+        },
+        {
+            "id": 10,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def test(x, y):\n    x = x + y\n    y = x - y\n    return x, y\na, b = test(5, 3)\nprint(a, b)",
+            "output": "8 5",
+            "explanation": "Multiple return values unpacked."
+        },
+        {
+            "id": 11,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def show():\n    x = 10\n    print(x)\nshow()\nprint(x)",
+            "output": "10\nNameError",
+            "explanation": "x is local, not accessible outside."
+        },
+        {
+            "id": 12,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "x = 5\ndef modify():\n    x = 10\nmodify()\nprint(x)",
+            "output": "5",
+            "explanation": "Local x does not change global."
+        },
+        {
+            "id": 13,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def outer():\n    def inner():\n        print(\"Inner\")\n    inner()\nouter()",
+            "output": "Inner",
+            "explanation": "Nested function call."
+        },
+        {
+            "id": 14,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a ** b\nprint(f(2, 3))",
+            "output": "8",
+            "explanation": "Power operator."
+        },
+        {
+            "id": 15,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def add(a, b):\n    return a + b\nprint(add(2, add(3, 4)))",
+            "output": "9",
+            "explanation": "Nested function call."
+        },
+        {
+            "id": 16,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def max2(a, b):\n    return a if a > b else b\nprint(max2(7, 4))",
+            "output": "7",
+            "explanation": "Conditional expression."
+        },
+        {
+            "id": 17,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def test():\n    return 1, 2, 3\nprint(test())",
+            "output": "(1, 2, 3)",
+            "explanation": "Multiple values returned as tuple."
+        },
+        {
+            "id": 18,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def f(a, b, c):\n    return a * b * c\nprint(f(2, 3, 4))",
+            "output": "24",
+            "explanation": "Product of three numbers."
+        },
+        {
+            "id": 19,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def even(n):\n    return n % 2 == 0\nprint(even(4))\nprint(even(5))",
+            "output": "True\nFalse",
+            "explanation": "Returns boolean."
+        },
+        {
+            "id": 20,
+            "difficulty": "Beginner",
+            "question": "Find the output:",
+            "code": "def f(x, y=10):\n    return x + y\nprint(f(5))\nprint(f(5, 20))",
+            "output": "15\n25",
+            "explanation": "Default parameter."
+        },
+        {
+            "id": 21,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def total(*args):\n    return sum(args)\nprint(total(1, 2, 3, 4))",
+            "output": "10",
+            "explanation": "*args packs arguments into tuple."
+        },
+        {
+            "id": 22,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def display(**kwargs):\n    for k, v in kwargs.items():\n        print(k, v)\ndisplay(name=\"Swadeep\", age=17)",
+            "output": "name Swadeep\nage 17",
+            "explanation": "**kwargs collects keyword arguments as dict."
+        },
+        {
+            "id": 23,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def intro(name, age=18):\n    print(f\"{name} is {age} years old\")\nintro(\"Tuhina\", 16)\nintro(\"Abhronila\")",
+            "output": "Tuhina is 16 years old\nAbhronila is 18 years old",
+            "explanation": "Default parameter used when missing."
+        },
+        {
+            "id": 24,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, *args):\n    return a + b + sum(args)\nprint(f(1, 2, 3, 4, 5))",
+            "output": "15",
+            "explanation": "First two positional, rest go to *args."
+        },
+        {
+            "id": 25,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b=5, *args):\n    print(a, b, args)\nf(1, 2, 3, 4)",
+            "output": "1 2 (3, 4)",
+            "explanation": "b overridden, extra into args."
+        },
+        {
+            "id": 26,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, **kwargs):\n    print(a, kwargs)\nf(10, x=1, y=2)",
+            "output": "10 {'x': 1, 'y': 2}",
+            "explanation": "Keyword arguments collected in kwargs."
+        },
+        {
+            "id": 27,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, c=30):\n    return a+b+c\nprint(f(c=10, a=5, b=15))",
+            "output": "30",
+            "explanation": "Keyword arguments can be in any order."
+        },
+        {
+            "id": 28,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b=10):\n    return a + b\nprint(f(5))\nprint(f(a=5))",
+            "output": "15\n15",
+            "explanation": "Both positional and keyword work."
+        },
+        {
+            "id": 29,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def make_adder(n):\n    return lambda x: x + n\nadd5 = make_adder(5)\nprint(add5(3))",
+            "output": "8",
+            "explanation": "Lambda captures n from outer scope."
+        },
+        {
+            "id": 30,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "nums = [1, 2, 3, 4]\nsquared = list(map(lambda x: x**2, nums))\nprint(squared)",
+            "output": "[1, 4, 9, 16]",
+            "explanation": "map applies lambda to each element."
+        },
+        {
+            "id": 31,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "nums = [10, 15, 20, 25]\nevens = list(filter(lambda x: x%2==0, nums))\nprint(evens)",
+            "output": "[10, 20]",
+            "explanation": "filter keeps elements where lambda returns True."
+        },
+        {
+            "id": 32,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, *args, **kwargs):\n    print(a, b, args, kwargs)\nf(1, 2, 3, 4, x=5, y=6)",
+            "output": "1 2 (3, 4) {'x': 5, 'y': 6}",
+            "explanation": "All types of parameters combined."
+        },
+        {
+            "id": 33,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(lst):\n    lst.append(4)\n    return lst\nmy_list = [1, 2, 3]\nnew = f(my_list)\nprint(my_list)\nprint(new)",
+            "output": "[1, 2, 3, 4]\n[1, 2, 3, 4]",
+            "explanation": "List is mutable, changes reflect outside."
+        },
+        {
+            "id": 34,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a=[]):\n    a.append(1)\n    return a\nprint(f())\nprint(f())",
+            "output": "[1]\n[1, 1]",
+            "explanation": "Mutable default persists across calls."
+        },
+        {
+            "id": 35,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a):\n    a = a + [4]\n    return a\nmy_list = [1, 2, 3]\nprint(f(my_list))\nprint(my_list)",
+            "output": "[1, 2, 3, 4]\n[1, 2, 3]",
+            "explanation": "Assignment creates new list, original unchanged."
+        },
+        {
+            "id": 36,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(x):\n    x = 20\n    return x\ny = 10\nprint(f(y))\nprint(y)",
+            "output": "20\n10",
+            "explanation": "Integers are immutable; original unchanged."
+        },
+        {
+            "id": 37,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x = 20\n    inner()\n    print(x)\nouter()",
+            "output": "20",
+            "explanation": "nonlocal modifies enclosing variable."
+        },
+        {
+            "id": 38,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "count = 0\ndef inc():\n    global count\n    count += 1\ninc()\ninc()\nprint(count)",
+            "output": "2",
+            "explanation": "global allows modification."
+        },
+        {
+            "id": 39,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f():\n    print(len(\"hello\"))\nf()",
+            "output": "5",
+            "explanation": "Built‑in function len called inside function."
+        },
+        {
+            "id": 40,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a // b, a % b\nq, r = f(17, 5)\nprint(q, r)",
+            "output": "3 2",
+            "explanation": "Multiple return values: quotient and remainder."
+        },
+        {
+            "id": 41,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(x):\n    if x < 0:\n        return\n    return x * 2\nprint(f(-3))\nprint(f(5))",
+            "output": "None\n10",
+            "explanation": "Early return with no value returns None."
+        },
+        {
+            "id": 42,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(*args):\n    return args\nprint(f(1, 2, 3))\nprint(f())",
+            "output": "(1, 2, 3)\n()",
+            "explanation": "*args returns tuple, empty if no args."
+        },
+        {
+            "id": 43,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(**kwargs):\n    return kwargs\nprint(f(a=1, b=2))\nprint(f())",
+            "output": "{'a': 1, 'b': 2}\n{}",
+            "explanation": "**kwargs returns dict."
+        },
+        {
+            "id": 44,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a > b\nprint(f(5, 3))\nprint(f(2, 7))",
+            "output": "True\nFalse",
+            "explanation": "Returns boolean result of comparison."
+        },
+        {
+            "id": 45,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b=[]):\n    b.append(a)\n    return b\nprint(f(1))\nprint(f(2))\nprint(f(3, []))",
+            "output": "[1]\n[1, 2]\n[3]",
+            "explanation": "Mutable default persists; third call uses new list."
+        },
+        {
+            "id": 46,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a + b\nnums = [10, 20]\nprint(f(*nums))",
+            "output": "30",
+            "explanation": "Unpacking list into arguments."
+        },
+        {
+            "id": 47,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, c):\n    print(a, b, c)\nargs = (1, 2, 3)\nf(*args)",
+            "output": "1 2 3",
+            "explanation": "Tuple unpacked into positional args."
+        },
+        {
+            "id": 48,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(name, age):\n    print(name, age)\nd = {'name': 'Swadeep', 'age': 17}\nf(**d)",
+            "output": "Swadeep 17",
+            "explanation": "Dictionary unpacked into keyword args."
+        },
+        {
+            "id": 49,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, c=10):\n    return a + b + c\nprint(f(1, 2, 3))\nprint(f(1, 2))",
+            "output": "6\n13",
+            "explanation": "Default used when third argument omitted."
+        },
+        {
+            "id": 50,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(a, b, c=10):\n    return a + b + c\nprint(f(c=5, a=1, b=2))",
+            "output": "8",
+            "explanation": "Keyword arguments override defaults."
+        },
+        {
+            "id": 51,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(x):\n    return lambda y: x + y\ng = f(5)\nprint(g(3))",
+            "output": "8",
+            "explanation": "Closure: inner lambda remembers x."
+        },
+        {
+            "id": 52,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "f = lambda x, y: x if x > y else y\nprint(f(8, 12))",
+            "output": "12",
+            "explanation": "Lambda with conditional expression."
+        },
+        {
+            "id": 53,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "nums = [1, 2, 3, 4, 5]\nresult = list(map(lambda x: x * 2, filter(lambda x: x % 2 == 0, nums)))\nprint(result)",
+            "output": "[4, 8]",
+            "explanation": "Filter even then double."
+        },
+        {
+            "id": 54,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f(x):\n    try:\n        return 10 / x\n    except ZeroDivisionError:\n        return None\nprint(f(2))\nprint(f(0))",
+            "output": "5.0\nNone",
+            "explanation": "Exception handling returns None on error."
+        },
+        {
+            "id": 55,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f():\n    return\n    print(\"Never\")\nprint(f())",
+            "output": "None",
+            "explanation": "Return exits before print."
+        },
+        {
+            "id": 56,
+            "difficulty": "Intermediate",
+            "question": "Find the output:",
+            "code": "def f():\n    for i in range(3):\n        if i == 1:\n            return i\nprint(f())",
+            "output": "1",
+            "explanation": "Return inside loop stops function."
+        },
+        {
+            "id": 57,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b, *args, **kwargs):\n    return len(args) + len(kwargs)\nprint(f(1, 2, 3, 4, x=5, y=6))",
+            "output": "4",
+            "explanation": "args = (3,4) → 2, kwargs = {'x':5,'y':6} → 2, total 4."
+        },
+        {
+            "id": 58,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x, y):\n    return x + y\nprint(f(y=5, x=3))",
+            "output": "8",
+            "explanation": "Keyword arguments can be in any order."
+        },
+        {
+            "id": 59,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x, y=[]):\n    y.append(x)\n    return y\nprint(f(1))\nprint(f(2))\nprint(f(3, []))",
+            "output": "[1]\n[1, 2]\n[3]",
+            "explanation": "Mutable default persists across calls; new list used when provided."
+        },
+        {
+            "id": 60,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def outer():\n    x = 10\n    def inner():\n        nonlocal x\n        x = 20\n    inner()\n    return x\nprint(outer())",
+            "output": "20",
+            "explanation": "nonlocal modifies x in enclosing scope."
+        },
+        {
+            "id": 61,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b=10, *args, c=20, **kwargs):\n    print(a, b, args, c, kwargs)\nf(1, 2, 3, 4, c=30, d=5)",
+            "output": "1 2 (3, 4) 30 {'d': 5}",
+            "explanation": "Order: positional, default, *args, keyword-only, **kwargs."
+        },
+        {
+            "id": 62,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    x = x + 1\n    return x\nx = 5\nprint(f(x))\nprint(x)",
+            "output": "6\n5",
+            "explanation": "Integers immutable, original unchanged."
+        },
+        {
+            "id": 63,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(lst):\n    lst = lst + [4]\n    return lst\nmy_list = [1,2,3]\nprint(f(my_list))\nprint(my_list)",
+            "output": "[1, 2, 3, 4]\n[1, 2, 3]",
+            "explanation": "Concatenation creates new list; original unchanged."
+        },
+        {
+            "id": 64,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(lst):\n    lst.append(4)\n    return lst\nmy_list = [1,2,3]\nprint(f(my_list))\nprint(my_list)",
+            "output": "[1, 2, 3, 4]\n[1, 2, 3, 4]",
+            "explanation": "append modifies original list."
+        },
+        {
+            "id": 65,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b, c):\n    return a + b + c\nnums = [1, 2, 3, 4]\nprint(f(*nums[:3]))",
+            "output": "6",
+            "explanation": "Sliced list unpacked into three arguments."
+        },
+        {
+            "id": 66,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    def g(y):\n        return y + x\n    return g\nh = f(10)\nprint(h(5))",
+            "output": "15",
+            "explanation": "Closure: inner function remembers x."
+        },
+        {
+            "id": 67,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "funcs = [lambda i=i: i for i in range(3)]\nfor f in funcs:\n    print(f(), end=' ')",
+            "output": "0 1 2",
+            "explanation": "Default argument captures current i; avoids late binding."
+        },
+        {
+            "id": 68,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    return [lambda x: x * i for i in range(3)]\nfor g in f():\n    print(g(2), end=' ')",
+            "output": "4 4 4",
+            "explanation": "Late binding: all lambdas use final i=2 → 2*2=4."
+        },
+        {
+            "id": 69,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    def g(y):\n        return x + y\n    return g\nprint(f(5)(3))",
+            "output": "8",
+            "explanation": "Currying: outer called, returns inner, then inner called."
+        },
+        {
+            "id": 70,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b=[]):\n    b.append(a)\n    return b\nprint(f.__defaults__)\nf(1)\nf(2)\nprint(f.__defaults__)",
+            "output": "([],)\n([1, 2],)",
+            "explanation": "__defaults__ shows mutable default state."
+        },
+        {
+            "id": 71,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    x = 5\n    def inner():\n        print(x)\n    return inner\nf()()",
+            "output": "5",
+            "explanation": "Closure captures x from outer function."
+        },
+        {
+            "id": 72,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a):\n    def g(b):\n        return a * b\n    return g\nprint(f(3)(4))\nprint(f(5)(6))",
+            "output": "12\n30",
+            "explanation": "Different closures each capture their own a."
+        },
+        {
+            "id": 73,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a + b\nprint(f(1, 2))\nprint(f(b=3, a=4))",
+            "output": "3\n7",
+            "explanation": "Keyword arguments can reorder."
+        },
+        {
+            "id": 74,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, *args, b=10):\n    return a + b + sum(args)\nprint(f(1, 2, 3, 4, b=5))",
+            "output": "15",
+            "explanation": "b is keyword-only after *args."
+        },
+        {
+            "id": 75,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b=10, *args):\n    return a + b + sum(args)\nprint(f(1, 2, 3, 4))",
+            "output": "10",
+            "explanation": "a=1, b=2, args=(3,4) → 1+2+7=10."
+        },
+        {
+            "id": 76,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, *, b=10, c):\n    return a + b + c\nprint(f(1, c=5, b=2))",
+            "output": "8",
+            "explanation": "* makes b and c keyword-only."
+        },
+        {
+            "id": 77,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    global x\n    x = 20\nx = 10\nf()\nprint(x)",
+            "output": "20",
+            "explanation": "global modifies the global variable."
+        },
+        {
+            "id": 78,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    x = 10\n    def g():\n        nonlocal x\n        x = 20\n    g()\n    print(x)\nf()",
+            "output": "20",
+            "explanation": "nonlocal modifies x in the enclosing function."
+        },
+        {
+            "id": 79,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a):\n    print(locals())\nf(5)",
+            "output": "{'a': 5}",
+            "explanation": "locals() shows local variables."
+        },
+        {
+            "id": 80,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "x = 10\ndef f():\n    print(globals()['x'])\nf()",
+            "output": "10",
+            "explanation": "globals() accesses global namespace."
+        },
+        {
+            "id": 81,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a, b\nprint(f(10, 20)[1])",
+            "output": "20",
+            "explanation": "Tuple indexing on returned value."
+        },
+        {
+            "id": 82,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    try:\n        return 1\n    finally:\n        return 2\nprint(f())",
+            "output": "2",
+            "explanation": "finally overrides return in try."
+        },
+        {
+            "id": 83,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    return a + b\nprint(f(5) if False else f(10, 20))",
+            "output": "30",
+            "explanation": "Conditional expression calls the correct one."
+        },
+        {
+            "id": 84,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    return x ** 2\nprint(list(map(f, [1, 2, 3])))",
+            "output": "[1, 4, 9]",
+            "explanation": "map with named function."
+        },
+        {
+            "id": 85,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    return x % 2 == 0\nprint(list(filter(f, [1, 2, 3, 4])))",
+            "output": "[2, 4]",
+            "explanation": "filter with named function."
+        },
+        {
+            "id": 86,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "from functools import reduce\nprint(reduce(lambda a, b: a * b, [1, 2, 3, 4]))",
+            "output": "24",
+            "explanation": "reduce cumulatively applies lambda."
+        },
+        {
+            "id": 87,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    return\nprint(f() is None)",
+            "output": "True",
+            "explanation": "Function without return returns None."
+        },
+        {
+            "id": 88,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b):\n    a = a + b\n    b = a - b\n    return a, b\nprint(f(5, 3))",
+            "output": "(8, 5)",
+            "explanation": "Swapping using arithmetic."
+        },
+        {
+            "id": 89,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a):\n    return a * 2\nprint(f(f(3)))",
+            "output": "12",
+            "explanation": "Nested function calls."
+        },
+        {
+            "id": 90,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(n):\n    if n <= 1:\n        return 1\n    return n * f(n-1)\nprint(f(4))",
+            "output": "24",
+            "explanation": "Recursive factorial."
+        },
+        {
+            "id": 91,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(n):\n    if n == 0:\n        return 0\n    return n + f(n-1)\nprint(f(5))",
+            "output": "15",
+            "explanation": "Recursive sum 1+2+3+4+5 = 15."
+        },
+        {
+            "id": 92,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b=[]):\n    b.append(a)\n    return b\nprint(f(1, [10]))\nprint(f(2))",
+            "output": "[10, 1]\n[2]",
+            "explanation": "First call uses provided list, second uses shared default."
+        },
+        {
+            "id": 93,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x, y=[]):\n    y.append(x)\n    return y\nprint(f(1, [10]))\nprint(f(2))",
+            "output": "[10, 1]\n[2]",
+            "explanation": "Default list is not used when a list is passed."
+        },
+        {
+            "id": 94,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    def g(y):\n        return y * x\n    return g\nprint(f(2)(3))\nprint(f(3)(2))",
+            "output": "6\n6",
+            "explanation": "Different closures produce same product."
+        },
+        {
+            "id": 95,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a, b, /, c, d, *, e, f):\n    print(a, b, c, d, e, f)\nf(1, 2, 3, 4, e=5, f=6)",
+            "output": "1 2 3 4 5 6",
+            "explanation": "/ means positional-only, * means keyword-only."
+        },
+        {
+            "id": 96,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    return x + 1\nprint(f(5))\nprint(f(f(5)))",
+            "output": "6\n7",
+            "explanation": "Nested calls."
+        },
+        {
+            "id": 97,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(a):\n    a = a + [5]\n    return a\nb = [1,2]\nprint(f(b))\nprint(b)",
+            "output": "[1, 2, 5]\n[1, 2]",
+            "explanation": "Concatenation creates new list, original unchanged."
+        },
+        {
+            "id": 98,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    return lambda x: x * 2\nprint(f()(10))",
+            "output": "20",
+            "explanation": "Function returning lambda, then calling it."
+        },
+        {
+            "id": 99,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f():\n    x = 100\n    def g():\n        nonlocal x\n        x = 200\n    g()\n    return x\nprint(f())",
+            "output": "200",
+            "explanation": "nonlocal modifies x in enclosing scope."
+        },
+        {
+            "id": 100,
+            "difficulty": "Advanced",
+            "question": "Find the output:",
+            "code": "def f(x):\n    return x % 2 == 0\nprint(list(filter(f, range(10))))",
+            "output": "[0, 2, 4, 6, 8]",
+            "explanation": "filter with named function on range."
+        }
+    ]
+}
