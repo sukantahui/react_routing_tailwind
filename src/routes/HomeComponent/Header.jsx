@@ -69,26 +69,9 @@ const Header = () => {
             whileTap={{ scale: 0.97 }}
             className="inline-block bg-gradient-to-r from-sky-600 to-purple-600 text-white text-base md:text-lg font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-sky-400/40 transition-all duration-500"
           >
-            🚀 Explore Courses
+            Explore Courses
           </motion.a>
         </div>
-
-        {/* 🔹 Floating Decorative Icons */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 right-10 text-sky-400/40 text-6xl select-none"
-        >
-          💻
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-16 left-16 text-purple-400/40 text-5xl select-none"
-        >
-          ⚙️
-        </motion.div>
       </header>
     </>
   );

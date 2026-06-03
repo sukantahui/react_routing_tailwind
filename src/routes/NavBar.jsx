@@ -91,8 +91,8 @@ const NavBar = () => {
       "isc-11": "bi-journal-richtext",
       css: "bi-filetype-css",
       unix: "bi-terminal",
-      react: "bi-filetype-js",     // ✅ replaced bi-react with existing icon
-      node: "bi-node",             // ✅ bi-node exists in Bootstrap Icons
+      react: "bi-filetype-js", // replaced bi-react with existing icon
+      node: "bi-node", // bi-node exists in Bootstrap Icons
       "java-web": "bi-globe",
       "qr-code": "bi-qr-code-scan",
       network: "bi-diagram-3",
@@ -117,7 +117,7 @@ const NavBar = () => {
     return `flex items-center gap-2 px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-all duration-200 ${
       isActive
         ? `bg-gradient-to-r ${activeColors[key]} text-white shadow-lg shadow-${activeColors[key].split(" ")[0]}/30`
-        : "text-gray-300 hover:text-white hover:bg-gray-800/70 hover:scale-105"
+        : "text-gray-300 hover:text-white hover:bg-gray-800/70"
     }`;
   };
 
@@ -168,12 +168,11 @@ const NavBar = () => {
       transition={{ duration: 0.6 }}
       className="sticky opacity-[0.5] top-0 z-50 bg-gradient-to-b from-gray-950/95 via-gray-900/95 to-gray-950/95 backdrop-blur-md border-b border-gray-800"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="flex items-center justify-between py-3 sm:py-4">
+      <div className="max-w-full mx-auto px-4 sm:px-6">
+        <div className="w-full flex items-center justify-between py-3 sm:py-4">
           {/* Brand */}
           <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
+            className="flex items-center gap-2 gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
           >
             <img src={cnat} alt="Coder & AccoTax Logo" className="w-8 h-8 sm:w-9 sm:h-9" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 whitespace-nowrap">
