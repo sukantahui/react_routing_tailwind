@@ -127,7 +127,7 @@ export default function Topic7() {
             </div>
             <div className="bg-gray-900 p-3 rounded">
               <p className="font-medium text-indigo-300">Example 2: Grade Bracket – Approximate Match</p>
-              <p className="text-sm">A grade table: {0,"F"; 60,"D"; 70,"C"; 80,"B"; 90,"A"}. Find the row for a score of 85.</p>
+              <p className="text-sm">{`A grade table: {0,"F"; 60,"D"; 70,"C"; 80,"B"; 90,"A"}. Find the row for a score of 85.`}</p>
               <code className="block text-sm text-green-300 mt-1">=MATCH(85, {0,60,70,80,90}, 1) → returns 4 (position of 80)</code>
             </div>
             <div className="bg-gray-900 p-3 rounded">
