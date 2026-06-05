@@ -41,7 +41,7 @@ export default function App() {
       </div>
 
       {/* 🔥 Page Content */}
-      <div className="pt-14 md:pt-16">
+      <div className="pt-16 md:pt-[14]">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
       </div>
     </div>

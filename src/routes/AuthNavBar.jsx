@@ -196,7 +196,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800 text-gray-100 px-4 sm:px-6 py-3 flex justify-between items-center shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-lg border-gray-800 text-gray-100 px-4 sm:px-6 py-2 flex justify-between items-center shadow-lg"
       >
         {/* Brand */}
         <div
