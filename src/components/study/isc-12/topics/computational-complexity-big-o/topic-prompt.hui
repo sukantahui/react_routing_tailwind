@@ -1,0 +1,247 @@
+[
+{ topic_no: 0, topic: "Why Algorithm Analysis Matters", file: "Topic0.jsx" },
+{ topic_no: 1, topic: "Introduction to Time Complexity", file: "Topic1.jsx" },
+{ topic_no: 2, topic: "Introduction to Space Complexity", file: "Topic2.jsx" },
+{ topic_no: 3, topic: "Mathematical Foundation: Exponents", file: "Topic3.jsx" },
+{ topic_no: 4, topic: "Mathematical Foundation: Logarithms", file: "Topic4.jsx" },
+{ topic_no: 5, topic: "Converting Between Exponential and Logarithmic Forms", file: "Topic5.jsx" },
+{ topic_no: 6, topic: "Logarithm Rules and Properties", file: "Topic6.jsx" },
+{ topic_no: 7, topic: "Why O(log n) Appears in Computer Science", file: "Topic7.jsx" },
+{ topic_no: 8, topic: "Repeated Division and Halving Problems", file: "Topic8.jsx" },
+{ topic_no: 9, topic: "Big-O Notation", file: "Topic9.jsx" },
+{ topic_no: 10, topic: "Big-Ω (Omega) Notation", file: "Topic10.jsx" },
+{ topic_no: 11, topic: "Big-Θ (Theta) Notation", file: "Topic11.jsx" },
+{ topic_no: 12, topic: "Best Case, Worst Case and Average Case Analysis", file: "Topic12.jsx" },
+{ topic_no: 13, topic: "Complexity of Single Loops", file: "Topic13.jsx" },
+{ topic_no: 14, topic: "Complexity of Nested Loops", file: "Topic14.jsx" },
+{ topic_no: 15, topic: "Complexity of Multiple Loops", file: "Topic15.jsx" },
+{ topic_no: 16, topic: "Analyzing Recursive Algorithms", file: "Topic16.jsx" },
+{ topic_no: 17, topic: "Recurrence Relations", file: "Topic17.jsx" },
+{ topic_no: 18, topic: "Recursion Trees", file: "Topic18.jsx" },
+{ topic_no: 19, topic: "Common Complexity Classes", file: "Topic19.jsx" },
+{ topic_no: 20, topic: "O(1) - Constant", file: "Topic20.jsx" },
+{ topic_no: 21, topic: "O(log n) - Logarithmic", file: "Topic21.jsx" },
+{ topic_no: 22, topic: "O(n) - Linear", file: "Topic22.jsx" },
+{ topic_no: 23, topic: "O(n log n) - Linearithmic", file: "Topic23.jsx" },
+{ topic_no: 24, topic: "O(n²) - Quadratic", file: "Topic24.jsx" },
+{ topic_no: 25, topic: "O(2ⁿ) - Exponential", file: "Topic25.jsx" },
+{ topic_no: 26, topic: "O(n!) - Factorial", file: "Topic26.jsx" },
+{ topic_no: 27, topic: "Binary Search Complexity Analysis", file: "Topic27.jsx" },
+{ topic_no: 28, topic: "Merge Sort Complexity Analysis", file: "Topic28.jsx" },
+{ topic_no: 29, topic: "Quick Sort Complexity Analysis", file: "Topic29.jsx" },
+{ topic_no: 30, topic: "Comparing Algorithm Efficiency", file: "Topic30.jsx" },
+{ topic_no: 31, topic: "Analyzing Recursive Algorithms", file: "Topic31.jsx" },
+{ topic_no: 32, topic: "Recurrence Relations", file: "Topic32.jsx" },
+{ topic_no: 33, topic: "Recursion Trees", file: "Topic33.jsx" },
+{ topic_no: 34, topic: "Complexity of Recursive Sum of N Numbers", file: "Topic34.jsx" },
+{ topic_no: 35, topic: "Complexity of Recursive Sum of Digits", file: "Topic35.jsx" },
+{ topic_no: 36, topic: "Complexity of Recursive Factorial", file: "Topic36.jsx" },
+{ topic_no: 37, topic: "Complexity of Recursive Power Function", file: "Topic37.jsx" },
+{ topic_no: 38, topic: "Complexity of Recursive GCD (Euclidean Algorithm)", file: "Topic38.jsx" },
+{ topic_no: 39, topic: "Complexity of Recursive Binary Search", file: "Topic39.jsx" },
+{ topic_no: 40, topic: "Complexity of Recursive Fibonacci", file: "Topic40.jsx" },
+{ topic_no: 41, topic: "Complexity of Recursive String Reversal", file: "Topic41.jsx" },
+{ topic_no: 42, topic: "Complexity of Recursive Palindrome Check", file: "Topic42.jsx" },
+{ topic_no: 43, topic: "Complexity of Recursive Decimal to Binary Conversion", file: "Topic43.jsx" },
+{ topic_no: 44, topic: "Complexity of Recursive Tower of Hanoi", file: "Topic44.jsx" },
+{ topic_no: 45, topic: "Complexity of Recursive Tree Traversals", file: "Topic45.jsx" },
+{ topic_no: 46, topic: "Complexity of Recursive Merge Sort", file: "Topic46.jsx" },
+{ topic_no: 47, topic: "Complexity of Recursive Quick Sort", file: "Topic47.jsx" },
+{ topic_no: 48, topic: "Linear Recursion", file: "Topic48.jsx" },
+{ topic_no: 49, topic: "Binary Recursion", file: "Topic49.jsx" },
+{ topic_no: 50, topic: "Multiple Recursion", file: "Topic50.jsx" },
+{ topic_no: 51, topic: "Tail Recursion", file: "Topic51.jsx" },
+{ topic_no: 52, topic: "Divide and Conquer Recursion", file: "Topic52.jsx" },
+{ topic_no: 53, topic: "Solving Recurrence Relations", file: "Topic53.jsx" },
+{ topic_no: 54, topic: "Substitution Method", file: "Topic54.jsx" },
+{ topic_no: 55, topic: "Iteration Method", file: "Topic55.jsx" },
+{ topic_no: 56, topic: "Recursion Tree Method", file: "Topic56.jsx" },
+{ topic_no: 57, topic: "Master Theorem", file: "Topic57.jsx" },
+{ topic_no: 58, topic: "Time vs Space Trade-Offs", file: "Topic58.jsx" }
+]
+
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Susmita, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+
+Add at least 20 questions and answers related to this  topic in well manner
+
+start from Topic0
