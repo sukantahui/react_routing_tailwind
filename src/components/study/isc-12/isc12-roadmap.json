@@ -814,6 +814,168 @@
             "Secondary storage"
           ],
           "difficulty": "Easy"
+        },
+        {
+          "moduleId": "expression-conversion",
+          "slug": "expression-conversion-using-stack",
+          "title": "Expression Conversion (Infix, Prefix & Postfix)",
+          "level": "Intermediate",
+          "estimatedHours": 12,
+          "tags": [
+            "stack",
+            "expression",
+            "infix",
+            "postfix",
+            "prefix",
+            "compiler",
+            "data-structure"
+          ],
+          "topics": [
+            "Introduction to Expressions",
+            "What is an Operand?",
+            "What is an Operator?",
+            "Unary and Binary Operators",
+            "Operator Precedence",
+            "Operator Associativity",
+            "Need for Expression Conversion",
+            "Types of Expressions",
+            "Infix Expression",
+            "Prefix Expression",
+            "Postfix Expression",
+            "Rules for Infix to Postfix Conversion",
+            "Algorithm for Infix to Postfix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Infix to Prefix Conversion with Swapping Postfix",
+            "Algorithm for Infix to Prefix",
+            "Example of Infix to Prefix",
+            "Example of Infix to Prefix using stack",
+            "Infix to Prefix Testing tool,",
+            "Reverse and Parentheses Swapping Technique",
+            "Step-by-Step Examples",
+            "Practice Problems Infix to Postfix",
+            "Rules for Postfix to Infix Conversion",
+            "Algorithm for Postfix to Infix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Prefix to Infix Conversion",
+            "Algorithm for Prefix to Infix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Prefix to Postfix Conversion",
+            "Algorithm for Prefix to Postfix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Postfix to Prefix Conversion",
+            "Algorithm for Postfix to Prefix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Expression Evaluation using Stack",
+            "Evaluation of Postfix Expressions",
+            "Evaluation of Prefix Expressions",
+            "Common Errors in Expression Conversion",
+            "Compiler Applications",
+            "Practice Questions",
+            "ISC Board Previous Year Questions",
+            "MCQ Practice",
+            "Short Questions",
+            "Long Questions",
+            "Programming using Stack",
+            "Java Programs",
+            "Complexity Analysis"
+          ],
+          "learningOutcomes": [
+            "Understand different expression notations.",
+            "Identify operands and operators correctly.",
+            "Apply operator precedence and associativity.",
+            "Convert Infix to Postfix.",
+            "Convert Infix to Prefix.",
+            "Convert Postfix to Infix.",
+            "Convert Prefix to Infix.",
+            "Convert Prefix to Postfix.",
+            "Convert Postfix to Prefix.",
+            "Evaluate Prefix and Postfix expressions using Stack.",
+            "Implement expression conversion algorithms in Java.",
+            "Solve ISC board examination problems confidently."
+          ],
+          "prerequisites": [
+            "Basic Stack Operations",
+            "Operator Precedence",
+            "Arrays"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "This module introduces all three expression notations—Infix, Prefix, and Postfix—and teaches complete expression conversion using stack data structures. Students will learn conversion algorithms, expression evaluation, programming implementations, and compiler applications with numerous board-level examples.",
+          "miniProjects": [
+            "Expression Converter",
+            "Postfix Calculator",
+            "Prefix Calculator",
+            "Expression Validator"
+          ],
+          "exercises": {
+            "mcq": 40,
+            "shortAnswer": 20,
+            "longAnswer": 10,
+            "numerical": 35,
+            "coding": 8
+          },
+          "assessment": {
+            "type": "Worksheet + Programming Assignment + Viva",
+            "passScore": 70
+          },
+          "teachingFlow": [
+            "Introduction to Expressions",
+            "Operands and Operators",
+            "Operator Precedence",
+            "Associativity",
+            "Infix Expression",
+            "Prefix Expression",
+            "Postfix Expression",
+            "Infix to Postfix",
+            "Infix to Prefix",
+            "Postfix to Infix",
+            "Prefix to Infix",
+            "Postfix to Prefix",
+            "Prefix to Postfix",
+            "Expression Evaluation",
+            "Programming using Stack",
+            "Previous Year Questions",
+            "Mock Test"
+          ],
+          "commonMistakes": [
+            "Ignoring operator precedence.",
+            "Ignoring associativity of operators.",
+            "Incorrect handling of parentheses.",
+            "Using wrong stack operations.",
+            "Reversing expressions incorrectly while converting to Prefix.",
+            "Popping operands in the wrong order.",
+            "Forgetting to empty the stack at the end."
+          ],
+          "examTips": [
+            "Remember precedence before starting conversion.",
+            "Draw the stack after every scanned symbol.",
+            "Write postfix output after every step.",
+            "Always pop remaining operators after scanning ends.",
+            "For Prefix conversion, reverse the expression and swap parentheses first.",
+            "Practice at least 20 conversion problems before the exam."
+          ],
+          "realLifeApplications": [
+            "Compiler Design",
+            "Expression Parsing",
+            "Programming Language Interpreters",
+            "Scientific Calculators",
+            "Database Query Processing",
+            "Virtual Machines"
+          ],
+          "timeComplexity": {
+            "conversion": "O(n)",
+            "evaluation": "O(n)"
+          },
+          "spaceComplexity": {
+            "conversion": "O(n)",
+            "evaluation": "O(n)"
+          },
+          "badge": "Expression Conversion Master"
         }
       ]
     }

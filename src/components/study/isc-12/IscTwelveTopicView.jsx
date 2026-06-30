@@ -14,7 +14,10 @@ import {
   BookOpen,
   Layers,
   Menu,
+  List,
   X,
+  PanelRight,
+  PanelRightClose,
 } from "lucide-react";
 import roadmapData from "./isc12-roadmap.json";
 
@@ -42,6 +45,26 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const index = Number.parseInt(topicIndex, 10) || 0;
   const activeTopicRef = useRef(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Persist desktop sidebar visibility in localStorage
+  const [showSidebar, setShowSidebar] = useState(() => {
+    const stored = localStorage.getItem('topic-sidebar-visible');
+    return stored !== null ? JSON.parse(stored) : true;
+  });
+
+  // New: Right sidebar visibility
+  const [showRightSidebar, setShowRightSidebar] = useState(() => {
+    const stored = localStorage.getItem('topic-right-sidebar-visible');
+    return stored !== null ? JSON.parse(stored) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('topic-sidebar-visible', JSON.stringify(showSidebar));
+  }, [showSidebar]);
+
+  useEffect(() => {
+    localStorage.setItem('topic-right-sidebar-visible', JSON.stringify(showRightSidebar));
+  }, [showRightSidebar]);
 
   // -----------------------------------------------------
   //  GET MODULE DATA
@@ -162,6 +185,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const buildTopicListText = (topics) =>
     topics.map((t, i) => `${i + 1}. ${t}`).join("\n");
 
+  // compute if any sidebar is open (to limit main content width)
+  const anySidebar = showSidebar || showRightSidebar;
+
   // ===================================================================
   // FULL UI
   // ===================================================================
@@ -250,6 +276,38 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </div>
             </div>
 
+            {/* Left Sidebar Toggle */}
+            <button
+              onClick={() => setShowSidebar(!showSidebar)}
+              className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full 
+             bg-gradient-to-r from-slate-800 to-slate-700 
+             hover:from-sky-600 hover:to-sky-500 
+             text-xs font-medium uppercase tracking-wider
+             border border-slate-600 hover:border-sky-400
+             shadow-md hover:shadow-sky-500/20
+             transition-all duration-300 ease-in-out
+             hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <List size={14} className="text-current" />
+              {showSidebar ? "Hide Topics" : "Show Topics"}
+            </button>
+
+            {/* NEW: Right Sidebar Toggle */}
+            <button
+              onClick={() => setShowRightSidebar(!showRightSidebar)}
+              className="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full 
+             bg-gradient-to-r from-slate-800 to-slate-700 
+             hover:from-purple-600 hover:to-purple-500 
+             text-xs font-medium uppercase tracking-wider
+             border border-slate-600 hover:border-purple-400
+             shadow-md hover:shadow-purple-500/20
+             transition-all duration-300 ease-in-out
+             hover:scale-[1.02] active:scale-[0.98]"
+            >
+              {showRightSidebar ? <PanelRightClose size={14} /> : <PanelRight size={14} />}
+              {showRightSidebar ? "Hide Panel" : "Show Panel"}
+            </button>
+
             {/* Prev/Next */}
             <div className="hidden sm:flex items-center gap-2">
               {hasPrev ? (
@@ -295,261 +353,263 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       <div className="relative z-20 flex-1 flex justify-center">
         <div className="w-full max-w-6xl mx-auto flex">
 
-          {/* ====================== DESKTOP SIDEBAR ====================== */}
-          <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
-            {/* Progress Card */}
-            <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
-              <div className="flex items-center justify-between mb-1">
-                <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
-                  Progress
-                </span>
-                <span className="text-[11px] text-sky-300 font-semibold">
-                  {completedCount}/{totalTopics}
-                </span>
+          {/* ====================== DESKTOP SIDEBAR (LEFT) ====================== */}
+          {showSidebar && (
+            <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
+              {/* Progress Card */}
+              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="uppercase tracking-[0.18em] text-[10px] text-slate-500">
+                    Progress
+                  </span>
+                  <span className="text-[11px] text-sky-300 font-semibold">
+                    {completedCount}/{totalTopics}
+                  </span>
+                </div>
+
+                <div className="w-full h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  onClick={resetProgress}
+                  className="mt-2 text-[11px] text-rose-300 hover:text-rose-400"
+                >
+                  Reset Progress
+                </button>
               </div>
 
-              <div className="w-full h-1.5 rounded-full bg-slate-800 border border-slate-700 overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-sky-400 to-emerald-400"
-                  style={{ width: `${progressPercent}%` }}
-                />
-              </div>
 
-              <button
-                type="button"
-                onClick={resetProgress}
-                className="mt-2 text-[11px] text-rose-300 hover:text-rose-400"
-              >
-                Reset Progress
-              </button>
-            </div>
+              {/* Topic List */}
+              <div className="space-y-2 text-sm">
+                {moduleData.topics.map((title, i) => {
+                  const isActive = i === index;
+                  const isCompleted = completedTopics.includes(i);
 
-
-            {/* Topic List */}
-            <div className="space-y-2 text-sm">
-              {moduleData.topics.map((title, i) => {
-                const isActive = i === index;
-                const isCompleted = completedTopics.includes(i);
-
-                return (
-                  <Link
-                    key={i}
-                    ref={isActive ? activeTopicRef : null}
-                    to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
-                    className={`
+                  return (
+                    <Link
+                      key={i}
+                      ref={isActive ? activeTopicRef : null}
+                      to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
+                      className={`
                       relative flex items-center gap-3 px-3 py-2 rounded-xl border transition
                       ${isActive
-                        ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
-                        : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
-                      }
+                          ? "border-sky-500 bg-sky-600/90 text-white shadow-lg"
+                          : "border-slate-800 bg-slate-900/90 text-slate-200 hover:bg-slate-800/90"
+                        }
                     `}
-                  >
-                    {/* Accent bar */}
-                    <span
-                      className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
-                        }`}
-                    />
+                    >
+                      {/* Accent bar */}
+                      <span
+                        className={`absolute left-0 top-0 h-full w-[3px] ${isActive ? "bg-sky-300" : "bg-slate-700"
+                          }`}
+                      />
 
-                    {isCompleted ? (
-                      <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
-                    ) : (
-                      <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
-                    )}
+                      {isCompleted ? (
+                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                      ) : (
+                        <span className="w-4 h-4 rounded-full border border-slate-500 shrink-0" />
+                      )}
 
-                    <span className="truncate">
-                      <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
-                      {title}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
+                      <span className="truncate">
+                        <span className="text-sky-300 mr-1 text-xs">{i + 1}.</span>
+                        {title}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
 
-            {/* Sidebar Footer */}
-            <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
+              {/* Sidebar Footer */}
+              <div className="mt-6 pt-4 border-t border-slate-800 space-y-2 text-xs">
 
-              <Link
-                to={`/${roadmapData.folder}/module/${moduleSlug}`}
-                className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-              >
-                ← Back to Module Overview
-              </Link>
+                <Link
+                  to={`/${roadmapData.folder}/module/${moduleSlug}`}
+                  className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
+                >
+                  ← Back to Module Overview
+                </Link>
 
-              <Link
-                to={`/${roadmapData.folder}/roadmap`}
-                className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-              >
-                📍 {roadmapData.subject} Roadmap
-              </Link>
+                <Link
+                  to={`/${roadmapData.folder}/roadmap`}
+                  className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
+                >
+                  📍 {roadmapData.subject} Roadmap
+                </Link>
 
-              <a
-                href="/play"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
-              >
-                🧪 CNAT Playground
-              </a>
-            </div>
+                <a
+                  href="/play"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:bg-slate-800 text-slate-200"
+                >
+                  🧪 CNAT Playground
+                </a>
+              </div>
 
-            {/* =========================
+              {/* =========================
                  ENHANCED: Send Topics List (Ultra Premium)
                  ========================= */}
-            <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500">
-                  Send Topics List
-                </p>
-                <span className="text-[11px] text-slate-400">{moduleData.topics.length} topics</span>
-              </div>
+              <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-300">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[11px] uppercase tracking-[0.15em] text-slate-500">
+                    Send Topics List
+                  </p>
+                  <span className="text-[11px] text-slate-400">{moduleData.topics.length} topics</span>
+                </div>
 
-              {/* Student name input */}
-              <label className="text-[11px] text-slate-400">Student name (optional)</label>
-              <input
-                id="waStudentNameInput"
-                value={waStudentName}
-                onChange={(e) => setWaStudentName(e.target.value)}
-                type="text"
-                placeholder="e.g., Ritaja Ghosh"
-                className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 mb-3 focus:outline-none focus:border-sky-500"
-              />
+                {/* Student name input */}
+                <label className="text-[11px] text-slate-400">Student name (optional)</label>
+                <input
+                  id="waStudentNameInput"
+                  value={waStudentName}
+                  onChange={(e) => setWaStudentName(e.target.value)}
+                  type="text"
+                  placeholder="e.g., Ritaja Ghosh"
+                  className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 mb-3 focus:outline-none focus:border-sky-500"
+                />
 
-              {/* PHONE NUMBER INPUT */}
-              <label className="text-[11px] text-slate-400">WhatsApp number</label>
-              <input
-                id="waPhoneInput"
-                value={waPhone}
-                onChange={(e) => setWaPhone(e.target.value)}
-                type="text"
-                placeholder="e.g., 919876543210"
-                className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 focus:outline-none focus:border-sky-500"
-              />
+                {/* PHONE NUMBER INPUT */}
+                <label className="text-[11px] text-slate-400">WhatsApp number</label>
+                <input
+                  id="waPhoneInput"
+                  value={waPhone}
+                  onChange={(e) => setWaPhone(e.target.value)}
+                  type="text"
+                  placeholder="e.g., 919876543210"
+                  className="w-full bg-slate-800 text-slate-200 p-2 rounded-lg border border-slate-600 text-xs mt-1 focus:outline-none focus:border-sky-500"
+                />
 
-              {/* Options */}
-              <div className="flex items-center gap-2 mt-3">
-                <label className="inline-flex items-center gap-2 text-xs text-slate-300">
-                  <input
-                    type="checkbox"
-                    checked={waIncludeLink}
-                    onChange={() => setWaIncludeLink((v) => !v)}
-                    className="accent-sky-500"
-                  />
-                  Include module link
-                </label>
+                {/* Options */}
+                <div className="flex items-center gap-2 mt-3">
+                  <label className="inline-flex items-center gap-2 text-xs text-slate-300">
+                    <input
+                      type="checkbox"
+                      checked={waIncludeLink}
+                      onChange={() => setWaIncludeLink((v) => !v)}
+                      className="accent-sky-500"
+                    />
+                    Include module link
+                  </label>
 
+                  <button
+                    onClick={() => {
+                      // Copy preview to clipboard (rebuild message)
+                      const phone = waPhone.trim();
+                      if (!phone) return alert("Please enter a WhatsApp phone number.");
+
+                      const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
+                      const topicsText = buildTopicListText(moduleData.topics);
+
+                      // Build Ultra Premium message
+                      const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
+                      const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
+                      const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
+                      const body = `\n*Topics Preview:*\n${topicsText}\n`;
+                      const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
+                      const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
+
+                      const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
+
+                      // copy to clipboard
+                      try {
+                        navigator.clipboard.writeText(fullMessage);
+                        alert("Message preview copied to clipboard. You can paste it in WhatsApp or preview below.");
+                        setWaLastMessage(fullMessage);
+                        setWaPreviewOpen(true);
+                      } catch (err) {
+                        // fallback: show preview
+                        setWaLastMessage(fullMessage);
+                        setWaPreviewOpen(true);
+                      }
+                    }}
+                    className="ml-auto px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:bg-slate-900"
+                  >
+                    Copy Preview
+                  </button>
+                </div>
+
+                {/* Preview toggle */}
+                <div className="mt-3">
+                  <button
+                    onClick={() => {
+                      // Build message for preview only and toggle
+                      const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
+                      const topicsText = buildTopicListText(moduleData.topics);
+                      const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
+                      const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
+                      const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
+                      const body = `\n*Topics Preview:*\n${topicsText}\n`;
+                      const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
+                      const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
+                      const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
+
+                      setWaLastMessage(fullMessage);
+                      setWaPreviewOpen((s) => !s);
+                    }}
+                    className="w-full mt-3 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-semibold text-white transition"
+                  >
+                    {waPreviewOpen ? "Hide Preview" : "Preview Message"}
+                  </button>
+                </div>
+
+                {/* Preview area */}
+                {waPreviewOpen && (
+                  <pre className="mt-3 whitespace-pre-wrap text-[13px] bg-slate-900 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs">
+                    {waLastMessage || "No preview available."}
+                  </pre>
+                )}
+
+                {/* Send button */}
                 <button
                   onClick={() => {
-                    // Copy preview to clipboard (rebuild message)
-                    const phone = waPhone.trim();
-                    if (!phone) return alert("Please enter a WhatsApp phone number.");
-
-                    const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
-                    const topicsText = buildTopicListText(moduleData.topics);
-
-                    // Build Ultra Premium message
-                    const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
-                    const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
-                    const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
-                    const body = `\n*Topics Preview:*\n${topicsText}\n`;
-                    const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
-                    const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
-
-                    const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
-
-                    // copy to clipboard
-                    try {
-                      navigator.clipboard.writeText(fullMessage);
-                      alert("Message preview copied to clipboard. You can paste it in WhatsApp or preview below.");
-                      setWaLastMessage(fullMessage);
-                      setWaPreviewOpen(true);
-                    } catch (err) {
-                      // fallback: show preview
-                      setWaLastMessage(fullMessage);
-                      setWaPreviewOpen(true);
+                    const phoneRaw = waPhone.trim();
+                    if (!phoneRaw) {
+                      return alert("Please enter the WhatsApp phone number (with country code). Example: 919876543210");
                     }
-                  }}
-                  className="ml-auto px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:bg-slate-900"
-                >
-                  Copy Preview
-                </button>
-              </div>
 
-              {/* Preview toggle */}
-              <div className="mt-3">
-                <button
-                  onClick={() => {
-                    // Build message for preview only and toggle
+                    // sanitize phone (remove leading + or non-digits)
+                    const phone = phoneRaw.replace(/[^0-9]/g, "");
+                    if (!/^\d{10,15}$/.test(phone)) {
+                      // allow 10..15 digits (local + country)
+                      if (!confirm("Phone number looks unusual. Continue anyway?")) return;
+                    }
+
                     const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
                     const topicsText = buildTopicListText(moduleData.topics);
+
                     const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
                     const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
                     const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
                     const body = `\n*Topics Preview:*\n${topicsText}\n`;
                     const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
-                    const footer = `\n━━━━━━━━━━━━━━━━━━━━\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
-                    const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${footer}`;
+                    const closing = `\n━━━━━━━━━━━━━━━━━━━━\nNeed help? Reply with "HELP" and we'll assist you.\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
 
-                    setWaLastMessage(fullMessage);
-                    setWaPreviewOpen((s) => !s);
+                    const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${closing}`;
+
+                    // Save student name for convenience
+                    try {
+                      localStorage.setItem("student_name", waStudentName.trim());
+                    } catch { /* ignore */ }
+
+                    const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
+                    window.open(url, "_blank");
                   }}
-                  className="w-full mt-3 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-semibold text-white transition"
+                  className="w-full mt-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-xs font-semibold text-white transition"
                 >
-                  {waPreviewOpen ? "Hide Preview" : "Preview Message"}
+                  📤 Send Ultra Premium Topic Message
                 </button>
+
+                <p className="text-[11px] text-slate-500 mt-2">
+                  Tip: include country code (e.g., 91 for India). You can preview or copy the message before sending.
+                </p>
               </div>
-
-              {/* Preview area */}
-              {waPreviewOpen && (
-                <pre className="mt-3 whitespace-pre-wrap text-[13px] bg-slate-900 border border-slate-800 rounded-lg p-3 text-slate-200 text-xs">
-                  {waLastMessage || "No preview available."}
-                </pre>
-              )}
-
-              {/* Send button */}
-              <button
-                onClick={() => {
-                  const phoneRaw = waPhone.trim();
-                  if (!phoneRaw) {
-                    return alert("Please enter the WhatsApp phone number (with country code). Example: 919876543210");
-                  }
-
-                  // sanitize phone (remove leading + or non-digits)
-                  const phone = phoneRaw.replace(/[^0-9]/g, "");
-                  if (!/^\d{10,15}$/.test(phone)) {
-                    // allow 10..15 digits (local + country)
-                    if (!confirm("Phone number looks unusual. Continue anyway?")) return;
-                  }
-
-                  const moduleLink = `${window.location.origin}/${roadmapData.folder}/module/${moduleSlug}`;
-                  const topicsText = buildTopicListText(moduleData.topics);
-
-                  const namePart = waStudentName.trim() ? `Hi ${waStudentName.trim()},\n\n` : "";
-                  const greeting = `${namePart}📘 *Ultra Premium Topic List*\n━━━━━━━━━━━━━━━━━━━━`;
-                  const header = `*Module:* ${moduleData.title}\n*Topics:* ${moduleData.topics.length}\n`;
-                  const body = `\n*Topics Preview:*\n${topicsText}\n`;
-                  const linkPart = waIncludeLink ? `\n🔗 Module Link:\n${moduleLink}\n` : "";
-                  const closing = `\n━━━━━━━━━━━━━━━━━━━━\nNeed help? Reply with "HELP" and we'll assist you.\nSent via Coder & AccoTax Learning Platform • Barrackpore\nwww.codernaccotax.co.in`;
-
-                  const fullMessage = `${greeting}\n${header}\n${body}${linkPart}${closing}`;
-
-                  // Save student name for convenience
-                  try {
-                    localStorage.setItem("student_name", waStudentName.trim());
-                  } catch { /* ignore */ }
-
-                  const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
-                  window.open(url, "_blank");
-                }}
-                className="w-full mt-3 py-2 rounded-lg bg-green-600 hover:bg-green-500 text-xs font-semibold text-white transition"
-              >
-                📤 Send Ultra Premium Topic Message
-              </button>
-
-              <p className="text-[11px] text-slate-500 mt-2">
-                Tip: include country code (e.g., 91 for India). You can preview or copy the message before sending.
-              </p>
-            </div>
-          </aside>
+            </aside>
+          )}
 
           {/* ====================== MOBILE SIDEBAR (DRAWER) ====================== */}
           {sidebarOpen && (
@@ -674,8 +734,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           )}
 
           {/* ====================== MAIN TOPIC READER ====================== */}
-          <main className="flex-1 flex justify-center px-4 lg:px-8 py-6 lg:py-10">
-            <div className="w-full max-w-3xl">
+          <main className="flex-1 px-4 lg:px-8 py-6 lg:py-10">
+            <div className={`w-full ${anySidebar ? "max-w-4xl mx-auto" : "max-w-7xl mx-auto"}`}>
 
               {/* Topic Header */}
               <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-xl relative overflow-hidden">
@@ -794,6 +854,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
               </section>
             </div>
+
             {/* FLOATING WHATSAPP BUTTON – PREMIUM DESIGN */}
             <div className="fixed bottom-6 right-6 z-[9999] group">
               {/* Tooltip */}
@@ -901,6 +962,28 @@ ${userMsg}
             </div>
 
           </main>
+
+          {/* ====================== NEW RIGHT SIDEBAR ====================== */}
+          {showRightSidebar && (
+            <aside className="hidden lg:flex flex-col w-72 shrink-0 border-l border-slate-800 bg-slate-950/60 backdrop-blur-xl pt-6 pb-8 px-4">
+              {/* Placeholder content - replace with your own */}
+              <div className="text-slate-300 text-sm space-y-4">
+                <h4 className="text-sky-300 font-semibold text-base">Right Panel</h4>
+                <p className="text-slate-400 text-xs">
+                  This is a vacant area. You can add any additional content here – notes, resources, hints, or a chat.
+                </p>
+                <div className="border border-slate-700 rounded-xl p-3 bg-slate-900/60">
+                  <p className="text-[11px] text-slate-500">Example block</p>
+                  <p className="text-xs text-slate-300">You can place anything here.</p>
+                </div>
+                <div className="border border-slate-700 rounded-xl p-3 bg-slate-900/60">
+                  <p className="text-[11px] text-slate-500">Another placeholder</p>
+                  <p className="text-xs text-slate-300">Make it yours.</p>
+                </div>
+              </div>
+            </aside>
+          )}
+
         </div>
       </div>
     </div>

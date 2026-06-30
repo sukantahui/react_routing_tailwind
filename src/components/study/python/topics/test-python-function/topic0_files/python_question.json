@@ -1,0 +1,99 @@
+{
+  "paperId": "PYTHON-FUNCTIONS-50-SET-01",
+  "title": "Python Programming - Functions (50 Marks)",
+  "duration": "1.5 Hours",
+  "totalMarks": 50,
+  "prerequisites": "Basic Python syntax, variables, data types, loops, and conditionals",
+  "instructions": [
+    "All questions are compulsory",
+    "Write Python code where required",
+    "Assume Python 3.8+",
+    "Proper indentation and comments may carry partial marks"
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Short Answer",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer in 2-3 lines",
+      "questions": [
+        {
+          "q": "What is a function in Python? Write the syntax for defining a function with one parameter.",
+          "marks": 2,
+          "answer": "A function is a reusable block of code that performs a specific task. It helps in modularity and code reuse.\n\n```python\ndef my_function(param):\n    # function body\n    return result\n```"
+        },
+        {
+          "q": "Distinguish between function declaration and function calling with an example.",
+          "marks": 2,
+          "answer": "Function declaration defines the function (using def), while function calling executes it.\n\n```python\ndef greet():          # declaration\n    print(\"Hello\")\n\ngreet()               # calling\n```"
+        },
+        {
+          "q": "What are default parameter values? Provide a suitable example.",
+          "marks": 2,
+          "answer": "Default parameters are assigned a default value that is used if the caller does not supply a value for that argument.\n\n```python\ndef power(base, exp=2):\n    return base ** exp\n\nprint(power(3))    # uses exp=2 → 9\nprint(power(3, 3)) # overrides → 27\n```"
+        },
+        {
+          "q": "Explain the difference between *args and **kwargs in function definitions.",
+          "marks": 2,
+          "answer": "*args collects extra positional arguments as a tuple, while **kwargs collects extra keyword arguments as a dictionary.\n\n```python\ndef demo(*args, **kwargs):\n    print(args)   # tuple\n    print(kwargs) # dict\n\ndemo(1,2,3, name=\"Alice\", age=25)\n```"
+        },
+        {
+          "q": "What is a lambda function? Write a lambda that returns the square of a number.",
+          "marks": 2,
+          "answer": "A lambda is an anonymous, single‑expression function defined using the `lambda` keyword.\n\n```python\nsquare = lambda x: x ** 2\nprint(square(5))  # 25\n```"
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Descriptive",
+      "marksPerQuestion": 5,
+      "totalQuestions": 4,
+      "description": "Explain with examples",
+      "questions": [
+        {
+          "q": "Explain the different types of arguments in Python functions: positional, keyword, default, and required. Provide examples for each.",
+          "marks": 5,
+          "answer": "**1. Positional arguments** – must be passed in the correct order:\n```python\ndef add(a, b): return a + b\nadd(3, 5)\n```\n\n**2. Keyword arguments** – passed by parameter name, order doesn't matter:\n```python\nadd(b=5, a=3)\n```\n\n**3. Default arguments** – have a default value; can be omitted:\n```python\ndef greet(name, msg=\"Hello\"):\n    print(f\"{msg}, {name}\")\ngreet(\"Alice\")          # Hello, Alice\ngreet(\"Bob\", \"Hi\")      # Hi, Bob\n```\n\n**4. Required arguments** – have no default; must be provided by the caller:\n```python\n# 'name' is required, 'msg' is default\ndef show(name, msg=\"Hi\"):\n    print(name, msg)\nshow(\"John\")  # 'name' is required\n```\n\nAll argument types can be mixed, but positional must come before keyword/default."
+        },
+        {
+          "q": "Explain variable‑length arguments (*args and **kwargs) with a complete example. Also demonstrate unpacking arguments in function calls using * and **.",
+          "marks": 5,
+          "answer": "*args collects extra positional arguments as a tuple; **kwargs collects extra keyword arguments as a dictionary.\n\n```python\ndef summarize(*args, **kwargs):\n    print(\"Positional args:\", args)\n    print(\"Keyword args:\", kwargs)\n\nsummarize(10, 20, 30, name=\"Python\", version=3.9)\n```\n\n**Unpacking in function calls:**\n```python\ndef multiply(a, b, c):\n    return a * b * c\n\n# Unpack list/tuple\nnums = [2, 3, 4]\nprint(multiply(*nums))   # 24\n\n# Unpack dictionary\ndata = {'a':2, 'b':3, 'c':5}\nprint(multiply(**data))  # 30\n```\n\n**Practical use:**\n```python\ndef log(level, *messages, **metadata):\n    print(f\"[{level}]\", *messages)\n    for key, value in metadata.items():\n        print(f\"  {key}: {value}\")\n\nlog(\"INFO\", \"User logged in\", \"IP:192.168.1.1\", user=\"Alice\", time=\"10:00\")\n```"
+        },
+        {
+          "q": "Explain the return statement in Python. How can a function return multiple values? What happens if a function does not have a return statement?",
+          "marks": 5,
+          "answer": "The `return` statement exits a function and optionally passes back a value to the caller.\n\n**Returning multiple values:**\nPython returns multiple values as a tuple, which can be unpacked.\n```python\ndef get_stats(numbers):\n    return min(numbers), max(numbers), sum(numbers)/len(numbers)\n\nmin_val, max_val, avg = get_stats([10, 20, 30])\nprint(min_val, max_val, avg)  # 10 30 20.0\n```\n\n**Function without return:**\nIf no return statement is executed, the function returns `None`.\n```python\ndef greet(name):\n    print(f\"Hello {name}\")\n\nresult = greet(\"Alice\")\nprint(result)  # None\n```\n\n`None` is a singleton object representing absence of a value. It evaluates to `False` in boolean contexts."
+        },
+        {
+          "q": "Explain local and global scope in Python. How does the 'global' keyword work? Provide an example demonstrating variable lifetime and namespace.",
+          "marks": 5,
+          "answer": "**Local scope:** Variables defined inside a function are local to that function.\n**Global scope:** Variables defined at the top level of a module are global.\n\n```python\nglobal_var = 10   # global scope\n\ndef my_func():\n    local_var = 5   # local scope\n    print(global_var)   # can read global\n    # global_var = 20   # would create a local variable, not modify global\n\ndef modify_global():\n    global global_var   # declare intent to modify global\n    global_var = 20\n\nmy_func()\nmodify_global()\nprint(global_var)  # 20\n```\n\n**Lifetime:**\n- Global variables exist from module load until program end.\n- Local variables exist only while the function is executing; they are destroyed when the function returns.\n\n**Namespace concept:**\nPython uses LEGB rule: Local → Enclosing → Global → Built-in.\n```python\nx = \"global\"\ndef outer():\n    x = \"enclosing\"\n    def inner():\n        x = \"local\"\n        print(x)   # local\n    inner()\n    print(x)       # enclosing\nouter()\nprint(x)           # global\n```\n\nUse `nonlocal` to modify variables in enclosing (nested) scopes."
+        }
+      ]
+    },
+    {
+      "section": "C",
+      "type": "Programming",
+      "marksPerQuestion": 10,
+      "totalQuestions": 2,
+      "description": "Write complete Python programs",
+      "questions": [
+        {
+          "q": "Write a Python program that defines a function `process_numbers(*args, **kwargs)`. The function should:\n- Accept any number of positional numbers (args) and keyword arguments (kwargs).\n- Calculate and return the sum of all positional numbers.\n- If a keyword argument `multiplier` is present, multiply the sum by that multiplier.\n- If `round_to` is present, round the result to that many decimal places.\n- Demonstrate the function with at least three different calls, including unpacking of a list and a dictionary.",
+          "marks": 10,
+          "hint": "Use *args for numbers, **kwargs for options",
+          "answer": "```python\ndef process_numbers(*args, **kwargs):\n    \"\"\"\n    Sum all positional numbers, apply multiplier and rounding based on kwargs.\n    \"\"\"\n    total = sum(args)\n    \n    if 'multiplier' in kwargs:\n        total *= kwargs['multiplier']\n    \n    if 'round_to' in kwargs:\n        total = round(total, kwargs['round_to'])\n    \n    return total\n\n# Demonstration\nprint(\"1.\", process_numbers(10, 20, 30))                     # 60\nprint(\"2.\", process_numbers(1, 2, 3, 4, multiplier=2))       # (1+2+3+4)*2 = 20\nprint(\"3.\", process_numbers(5, 7, 2.5, multiplier=1.5, round_to=1))  # (14.5)*1.5=21.75 → 21.8\n\n# Unpacking examples\nnum_list = [100, 200, 300]\noptions = {'multiplier': 0.1, 'round_to': 2}\nprint(\"4.\", process_numbers(*num_list, **options))           # (600)*0.1=60.0 → 60.00\n\n# Mixed unpacking\nnum_tuple = (2, 4, 6)\nprint(\"5.\", process_numbers(1, *num_tuple, multiplier=3))    # (1+2+4+6)*3=39\n```"
+        },
+        {
+          "q": "Write a Python function `calculate(a, b, operation)` that takes two numbers and a string operation ('add', 'subtract', 'multiply', 'divide'). The function should perform the requested operation and return the result. If an invalid operation is given, return `None`. Then write a main program that:\n- Asks the user for two numbers and an operation.\n- Calls the function and prints the result (or an error message if operation is invalid).\n- Also demonstrate calling the function with keyword arguments (e.g., `calculate(b=5, a=3, operation='add')`).",
+          "marks": 10,
+          "hint": "Use if-elif-else; handle division by zero by returning 'Error: Division by zero'.",
+          "answer": "```python\ndef calculate(a, b, operation):\n    \"\"\"Performs basic arithmetic and returns result or None for invalid op.\"\"\"\n    if operation == 'add':\n        return a + b\n    elif operation == 'subtract':\n        return a - b\n    elif operation == 'multiply':\n        return a * b\n    elif operation == 'divide':\n        if b == 0:\n            return 'Error: Division by zero'\n        return a / b\n    else:\n        return None\n\n# Main program\nif __name__ == \"__main__\":\n    # User input\n    try:\n        x = float(input(\"Enter first number: \"))\n        y = float(input(\"Enter second number: \"))\n        op = input(\"Enter operation (add/subtract/multiply/divide): \").strip().lower()\n        \n        result = calculate(x, y, op)\n        \n        if result is None:\n            print(\"Invalid operation!\")\n        else:\n            print(f\"Result: {result}\")\n    except ValueError:\n        print(\"Please enter valid numbers.\")\n    \n    # Demonstration of keyword arguments\n    print(\"\\nKeyword argument demo:\")\n    res = calculate(b=10, a=20, operation='subtract')\n    print(f\"20 - 10 = {res}\")\n```"
+        }
+      ]
+    }
+  ]
+}
