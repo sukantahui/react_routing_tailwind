@@ -65,9 +65,64 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// ---------- Infix‑to‑Postfix Tracer (Stable) ----------
+// ---------- Infix‑to‑Postfix Tracer (Enhanced Info) ----------
 function InfixToPostfixTracer() {
-  const [expr, setExpr] = useState("A*B/D-C+E");
+  const expressions = [
+    "A+B/C*D/E+F^J*K-J-L+P",
+    "A+B*C^D^E/F-G+H",
+    "A*(B+C^D)-E/F+G",
+    "(A+B)*(C+D)/(E-F)",
+    "A+B/C*D-E^F^G+H",
+    "A*B+C*(D-E/F)+G",
+    "((A+B)-C)*(D+E/F)",
+    "A+B*(C-D/E^F)+G",
+    "(A+B*C)-(D/E-F)*G",
+    "A^B+C*D/E-F+G*H",
+    "A*(B+C)-D/E+F^G*H-I",
+    "A+B*C-D/E*C+B",
+    "A*(B+C)-D/E",
+    "(A+B)*C-D",
+    "A+B*C/D%E^F^G-H+I",
+    "A+B*C^D-E/F",
+    "A*B+C/D-E+F",
+    "(A+B)*(C-D)+E/F",
+    "A^B^C+D*E-F",
+    "A+B-C*D/E",
+    "A*B-(C+D)/E+F",
+    "A+B*C/D%E-F+G",
+    "A+B/C*D%E-F*G+H",
+    "A*B+C/D%E^F-G",
+    "A+B*C^D/E%F-G+H",
+    "A+B/C*D-E/F+G",
+    "A*B/C+D%E^F-G",
+    "A+B*C/D%E^F-G*H+I",
+    "A+B/C*D%E^F^G-H+I",
+    "A*B+C*D/E%F-G+H",
+    "A+B*C-D/E*F+G-H",
+    "A+B/C*D/E+F^G*H-I-J+K",
+    "A*B/C%D+E^F-G",
+    "A+B*C/D-E%F^G+H",
+    "A+B/C%D*E-F+G",
+    "A*B+C/D*E%F-G+H",
+    "A+B*C/D%E-F*G-H+I",
+    "A+B/C*D%E^F*G-H",
+    "A*B/C+D*E/F-G+H",
+    "A+B*C%D/E^F-G",
+    "A*B+C/D%E-F+G-H",
+    "A+B*C/D%E^F^G*H-I",
+    "A+B/C*D%E-F+G*H-I",
+    "A*B/C%D^E-F+G",
+    "A+B*C^D%E/F-G",
+    "A+B/C*D-E%F*G+H",
+    "A*B+C/D%E^F*G-H+I",
+    "A+B*C/D%E-F^G*H-I",
+    "A*B/C+D%E/F-G*H+I",
+    "A+B/C*D%E^F-G+H-I",
+    "A*B+C/D*E%F^G-H+I"
+  ];
+
+  const [exprIndex, setExprIndex] = useState(0);
+  const [expr, setExpr] = useState(expressions[0]);
   const [steps, setSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [isTraced, setIsTraced] = useState(false);
@@ -83,34 +138,13 @@ function InfixToPostfixTracer() {
     return 0;
   };
   const isLeftAssoc = (op) => op !== '^';
-
-  // ----- SIMPLE description generator – always returns a string -----
-  const getDescription = (token, action) => {
-    // Operand
-    if (isOperand(token)) {
-      return `Operand "${token}" is immediately appended to the output. It never goes on the stack.`;
-    }
-    // Left parenthesis
-    if (token === '(') {
-      return `'(' is pushed onto the stack. It marks the start of a sub‑expression.`;
-    }
-    // Right parenthesis
-    if (token === ')') {
-      if (action && action.includes('Pop')) {
-        return `')' causes all operators on the stack up to '(' to be popped and appended to the output. The '(' is then discarded. This ensures the parenthesized part is evaluated first.`;
-      } else {
-        return `')' encountered but no operators to pop. The '(' is discarded (empty parentheses).`;
-      }
-    }
-    // Operator (+, -, *, /, ^)
-    if (action && action.includes('Pop')) {
-      return `Operator '${token}' is about to be pushed. First, any operators with higher or equal precedence (and left‑associative) are popped from the stack and appended to the output. This maintains correct evaluation order. Then '${token}' is pushed.`;
-    } else {
-      return `Operator '${token}' is pushed onto the stack to wait for its right operand.`;
-    }
+  const getPrecedenceLabel = (op) => {
+    const p = getPrecedence(op);
+    return `${p}${op === '^' ? ' (highest)' : ''}`;
   };
+  const getAssocLabel = (op) => op === '^' ? 'right‑associative' : 'left‑associative';
 
-  // ----- conversion with step recording -----
+  // ----- conversion with step recording and enhanced descriptions -----
   const convert = (infix) => {
     const tokens = infix.match(/([A-Za-z0-9]+|[+\-*/^()])/g);
     if (!tokens) {
@@ -123,29 +157,70 @@ function InfixToPostfixTracer() {
     const steps = [];
     let stepNum = 0;
 
-    const recordStep = (token, action) => {
+    const recordStep = (token, action, beforeStack) => {
+      let description = '';
+      if (isOperand(token)) {
+        description = `Operand "${token}" is immediately appended to the output. It never goes on the stack.`;
+      } else if (token === '(') {
+        description = `'(' is pushed onto the stack. It marks the start of a sub‑expression.`;
+      } else if (token === ')') {
+        if (action && action.includes('Pop')) {
+          description = `')' causes all operators on the stack up to '(' to be popped and appended to the output. The '(' is then discarded. This ensures the parenthesized part is evaluated first.`;
+        } else {
+          description = `')' encountered but no operators to pop. The '(' is discarded (empty parentheses).`;
+        }
+      } else if (token === '(end)') {
+        description = `End of expression: remaining operators on the stack are popped and appended to the output in LIFO order.`;
+      } else {
+        // operator
+        const poppedMatches = action.match(/Pop (.+?) →/);
+        if (poppedMatches) {
+          // Determine reason based on beforeStack (the stack before the operation)
+          const topBefore = beforeStack.length > 0 ? beforeStack[beforeStack.length - 1] : 'none';
+          const precToken = getPrecedence(token);
+          let reason = '';
+          if (topBefore !== 'none' && topBefore !== '(') {
+            const precTop = getPrecedence(topBefore);
+            if (precTop > precToken) {
+              reason = `Top of stack "${topBefore}" has higher precedence (${precTop} > ${precToken}), so it is popped.`;
+            } else if (precTop === precToken && isLeftAssoc(token)) {
+              reason = `Top of stack "${topBefore}" has equal precedence (${precTop} = ${precToken}) and "${token}" is left‑associative, so it is popped to maintain left‑to‑right evaluation.`;
+            } else {
+              reason = `Top of stack "${topBefore}" does not need to be popped (lower precedence or right‑associative).`;
+            }
+          } else {
+            reason = `No operator on stack to pop.`;
+          }
+          description = `Operator '${token}' is about to be pushed. ${reason} Then '${token}' is pushed.`;
+        } else {
+          // pure push (no pop)
+          description = `Operator '${token}' is pushed onto the stack. (Precedence: ${getPrecedenceLabel(token)}, ${getAssocLabel(token)})`;
+        }
+      }
+
       steps.push({
         step: ++stepNum,
         token: token,
         action: action,
-        stack: [...stack],
+        stack: [...stack], // after modification
         output: output.join(''),
-        description: getDescription(token, action),
+        description: description,
+        beforeStack: beforeStack ? [...beforeStack] : [],
       });
     };
 
     for (let token of tokens) {
+      const beforeStack = [...stack];
       let action = "";
-      const stackBefore = [...stack]; // not used directly, but kept for safety
 
       if (isOperand(token)) {
         output.push(token);
         action = `Operand → output`;
-        recordStep(token, action);
+        recordStep(token, action, beforeStack);
       } else if (token === '(') {
         stack.push(token);
         action = `Push '('`;
-        recordStep(token, action);
+        recordStep(token, action, beforeStack);
       } else if (token === ')') {
         let pops = [];
         while (stack.length && stack[stack.length - 1] !== '(') {
@@ -164,8 +239,9 @@ function InfixToPostfixTracer() {
         } else {
           action = `Discard '(' (empty parentheses)`;
         }
-        recordStep(token, action);
-      } else { // operator
+        recordStep(token, action, beforeStack);
+      } else {
+        // operator
         let popped = [];
         while (
           stack.length &&
@@ -184,15 +260,15 @@ function InfixToPostfixTracer() {
         } else {
           action = `Push ${token}`;
         }
-        recordStep(token, action);
+        recordStep(token, action, beforeStack);
       }
     }
 
-    // pop remaining operators
     while (stack.length) {
+      const beforeStack = [...stack];
       const op = stack.pop();
       output.push(op);
-      recordStep('(end)', `Pop ${op} → output`);
+      recordStep('(end)', `Pop ${op} → output`, beforeStack);
     }
 
     return steps;
@@ -208,6 +284,17 @@ function InfixToPostfixTracer() {
     setSteps(result);
     setCurrentStep(0);
     setIsTraced(result.length > 0);
+    setPopupStepIndex(null);
+  };
+
+  const handleNextExample = () => {
+    const nextIndex = (exprIndex + 1) % expressions.length;
+    setExprIndex(nextIndex);
+    setExpr(expressions[nextIndex]);
+    setSteps([]);
+    setCurrentStep(0);
+    setIsTraced(false);
+    setError("");
     setPopupStepIndex(null);
   };
 
@@ -249,12 +336,21 @@ function InfixToPostfixTracer() {
               className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent transition"
             />
           </div>
-          <button
-            onClick={handleConvert}
-            className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white font-medium rounded-lg transition shadow-sm hover:shadow-md"
-          >
-            Convert
-          </button>
+
+          <div className="flex gap-2">
+            <button
+              onClick={handleConvert}
+              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg"
+            >
+              Convert
+            </button>
+            <button
+              onClick={handleNextExample}
+              className="px-6 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg"
+            >
+              Next Example →
+            </button>
+          </div>
         </div>
 
         {error && (
@@ -371,7 +467,7 @@ function InfixToPostfixTracer() {
           </>
         )}
 
-        {/* popup modal */}
+        {/* popup modal – enhanced */}
         {popupStepIndex !== null && steps[popupStepIndex] && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
@@ -395,11 +491,23 @@ function InfixToPostfixTracer() {
               </div>
               <div className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <p><strong>Action:</strong> {steps[popupStepIndex].action}</p>
-                <p><strong>Stack:</strong> [ {steps[popupStepIndex].stack.join(' , ')} ]</p>
+                <p><strong>Stack before:</strong> [ {steps[popupStepIndex].beforeStack?.join(' , ') || ''} ]</p>
+                <p><strong>Stack after:</strong> [ {steps[popupStepIndex].stack.join(' , ')} ]</p>
                 <p><strong>Output:</strong> {steps[popupStepIndex].output || ' '}</p>
                 <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-gray-800 dark:text-gray-200 font-medium">💡 Explanation</p>
-                  <p className="mt-1 leading-relaxed">{steps[popupStepIndex].description}</p>
+                  <p className="text-gray-800 dark:text-gray-200 font-medium">💡 Detailed Explanation</p>
+                  <div className="mt-1 leading-relaxed whitespace-pre-line">
+                    {steps[popupStepIndex].description}
+                  </div>
+                  {/* Extra operator info if applicable */}
+                  {steps[popupStepIndex].token !== '(' &&
+                    steps[popupStepIndex].token !== ')' &&
+                    steps[popupStepIndex].token !== '(end)' &&
+                    !isOperand(steps[popupStepIndex].token) && (
+                      <div className="mt-2 p-2 bg-gray-100 dark:bg-gray-700 rounded text-xs">
+                        <span className="font-medium">Operator info:</span> Precedence = {getPrecedenceLabel(steps[popupStepIndex].token)}, Associativity = {getAssocLabel(steps[popupStepIndex].token)}
+                      </div>
+                    )}
                 </div>
               </div>
             </div>
@@ -427,7 +535,7 @@ export default function Topic13() {
           </p>
         </header>
 
-        {/* THEORY – keep as before */}
+        {/* THEORY */}
         <section className="animate-fadeUp delay-100">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/10">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
@@ -461,7 +569,7 @@ export default function Topic13() {
           </div>
         </section>
 
-        {/* ---- INTERACTIVE TRACER (NEW) ---- */}
+        {/* ---- INTERACTIVE TRACER ---- */}
         <section className="animate-fadeUp delay-100">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/10 dark:hover:shadow-indigo-400/10">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
@@ -477,20 +585,7 @@ export default function Topic13() {
           </div>
         </section>
 
-        {/* ---- All other examples (unchanged) ---- */}
-        {/* We keep the existing example sections for reference. */}
-        {/* Since they are long, we'll include them in the final code but omit them here for brevity. */}
-        {/* In the actual response, we will include the full list of examples from the original code. */}
-
-        {/* For the answer, we will include a placeholder comment but the full code will have them. */}
-        {/* In practice, copy the examples from the original code. */}
-
-        {/* SVG ILLUSTRATION (optional, keep if desired) */}
-        {/* ... SVG ... */}
-
-        {/* TIPS, PITFALLS, BEST PRACTICES, CHECKLIST, HINTS, JAVA CODE, TEACHER, FAQ, FOOTER */}
-        {/* All these sections remain exactly as in the original code. */}
-
+        {/* ---- All static examples (unchanged) ---- */}
         {/* EXAMPLE 1: A + B */}
         <section className="animate-fadeUp delay-200">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-400/10">
@@ -866,8 +961,9 @@ export default function Topic13() {
             </p>
           </div>
         </section>
+
         {/* ================================ Special EXAMPLES ================================ */}
-        <h1> Special Examples Where Beginners Make Mistakes</h1>
+        <h1 className="text-3xl font-bold mt-12">Special Examples Where Beginners Make Mistakes</h1>
 
         {/* EXAMPLE 1: A + B * C - D */}
         <section className="animate-fadeUp delay-200">
@@ -1437,6 +1533,7 @@ export default function Topic13() {
             </p>
           </div>
         </section>
+
         {/* TIPS & TRICKS */}
         <section className="animate-fadeUp delay-200">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 dark:hover:shadow-amber-400/10">
@@ -1460,6 +1557,7 @@ export default function Topic13() {
             </ul>
           </div>
         </section>
+
         {/* COMMON PITFALLS */}
         <section className="animate-fadeUp delay-300">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 dark:hover:shadow-red-400/10">
@@ -1483,6 +1581,7 @@ export default function Topic13() {
             </ul>
           </div>
         </section>
+
         {/* BEST PRACTICES */}
         <section className="animate-fadeUp delay-400">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/10 dark:hover:shadow-green-400/10">
@@ -1506,6 +1605,7 @@ export default function Topic13() {
             </ul>
           </div>
         </section>
+
         {/* MINI CHECKLIST */}
         <section className="animate-fadeUp delay-500">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800">
