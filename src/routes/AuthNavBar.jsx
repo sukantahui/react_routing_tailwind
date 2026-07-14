@@ -185,9 +185,11 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     { to: "/play", label: "JavaScript Editor" },
     { to: "/icons", label: "Icons" },
     { to: "/whiteBoard", label: "Whiteboard" },
+    { to: "/tools/audioextract", key: "audioextractor", label: "Audioextractor" },
     { to: "/studentFeesReceipt", label: "Student Fees Receipt" },
     { to: "/studentFeesReceiptPart2", label: "Student Fees Part 2" },
     { to: "/studentFeesReceiptPart3", label: "Student Fees Part 3" },
+    { to: "/studentFeesReceiptPart4", label: "Student Fees Part 4 test" },
   ];
 
   return (

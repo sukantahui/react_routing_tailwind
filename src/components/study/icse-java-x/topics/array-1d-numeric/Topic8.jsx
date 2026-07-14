@@ -390,7 +390,7 @@ const Topic8 = () => {
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li>🤔 What happens if array has duplicate elements? Which index is returned?</li>
                   <li>🤔 How would you modify the code to find LAST occurrence of target?</li>
-                  <li>🤔 Can linear search work faster if array is sorted? (Hint: early termination when element > target)</li>
+                  <li>🤔 Can linear search work faster if array is sorted? (Hint: early termination when element {`>`} target)</li>
                   <li>🤔 Why do we return -1 instead of 0 or null?</li>
                 </ul>
               </div>

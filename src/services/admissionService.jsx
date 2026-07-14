@@ -11,6 +11,7 @@ export const admissionService = {
       throw error;
     }
   },
+  
   create: async (data) => {
     try {
       const response = await api.post("/admissions",data);
@@ -21,4 +22,5 @@ export const admissionService = {
     }
 
   }
+  
 };
