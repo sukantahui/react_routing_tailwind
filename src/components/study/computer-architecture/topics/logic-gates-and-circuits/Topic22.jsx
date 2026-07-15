@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import _8x3_encoder from './topic22_files/8x3_encoder.png';
 
 // Inline keyframes for fade + slide-up animation
 const animationStyles = `
@@ -150,59 +151,13 @@ const Topic22 = () => {
       <section className="mb-8 p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 animate-[fadeInUp_0.6s_ease-out] motion-reduce:animate-none">
         <h2 className="text-2xl font-semibold text-yellow-400 mb-4">🔧 Gate-Level Implementation</h2>
         <div className="flex justify-center">
-          <div className="w-full max-w-3xl group">
-            <svg viewBox="0 0 600 300" className="w-full h-auto text-blue-400 transition-transform duration-300 group-hover:scale-105">
-              {/* Inputs */}
-              <line x1="30" y1="40" x2="80" y2="40" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="45" fill="currentColor" fontSize="10">I0</text>
-              <line x1="30" y1="70" x2="80" y2="70" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="75" fill="currentColor" fontSize="10">I1</text>
-              <line x1="30" y1="100" x2="80" y2="100" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="105" fill="currentColor" fontSize="10">I2</text>
-              <line x1="30" y1="130" x2="80" y2="130" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="135" fill="currentColor" fontSize="10">I3</text>
-              <line x1="30" y1="160" x2="80" y2="160" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="165" fill="currentColor" fontSize="10">I4</text>
-              <line x1="30" y1="190" x2="80" y2="190" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="195" fill="currentColor" fontSize="10">I5</text>
-              <line x1="30" y1="220" x2="80" y2="220" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="225" fill="currentColor" fontSize="10">I6</text>
-              <line x1="30" y1="250" x2="80" y2="250" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="255" fill="currentColor" fontSize="10">I7</text>
-
-              {/* OR for A0 (I1+I3+I5+I7) */}
-              <path d="M200 70 L230 70 L240 90 L230 110 L200 110 L200 70" fill="none" stroke="currentColor" strokeWidth="2" />
-              <path d="M190 70 L200 90 L190 110" fill="none" stroke="currentColor" strokeWidth="2" />
-              <text x="215" y="95" fill="currentColor" fontSize="10" textAnchor="middle">≥1</text>
-              <line x1="80" y1="70" x2="190" y2="90" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="130" x2="190" y2="90" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="190" x2="190" y2="90" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="250" x2="190" y2="90" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="240" y1="90" x2="300" y2="90" stroke="currentColor" strokeWidth="2" />
-              <text x="310" y="95" fill="currentColor" fontSize="12" fontWeight="bold">A0</text>
-
-              {/* OR for A1 (I2+I3+I6+I7) */}
-              <path d="M350 100 L380 100 L390 120 L380 140 L350 140 L350 100" fill="none" stroke="currentColor" strokeWidth="2" />
-              <path d="M340 100 L350 120 L340 140" fill="none" stroke="currentColor" strokeWidth="2" />
-              <text x="365" y="125" fill="currentColor" fontSize="10" textAnchor="middle">≥1</text>
-              <line x1="80" y1="100" x2="340" y2="120" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="130" x2="340" y2="120" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="220" x2="340" y2="120" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="250" x2="340" y2="120" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="390" y1="120" x2="450" y2="120" stroke="currentColor" strokeWidth="2" />
-              <text x="460" y="125" fill="currentColor" fontSize="12" fontWeight="bold">A1</text>
-
-              {/* OR for A2 (I4+I5+I6+I7) */}
-              <path d="M200 180 L230 180 L240 200 L230 220 L200 220 L200 180" fill="none" stroke="currentColor" strokeWidth="2" />
-              <path d="M190 180 L200 200 L190 220" fill="none" stroke="currentColor" strokeWidth="2" />
-              <text x="215" y="205" fill="currentColor" fontSize="10" textAnchor="middle">≥1</text>
-              <line x1="80" y1="160" x2="190" y2="200" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="190" x2="190" y2="200" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="220" x2="190" y2="200" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="80" y1="250" x2="190" y2="200" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="240" y1="200" x2="300" y2="200" stroke="currentColor" strokeWidth="2" />
-              <text x="310" y="205" fill="currentColor" fontSize="12" fontWeight="bold">A2</text>
-            </svg>
+          <div className="w-full max-w-2xl group">
+            {/* Image inserted here */}
+            <img
+              src={_8x3_encoder}
+              alt="Gate-level implementation of 8:2 encoder with two OR gates"
+              className="w-full h-auto rounded-lg shadow-md"
+            />
           </div>
         </div>
         <p className="text-gray-300 mt-4 text-center">

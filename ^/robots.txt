@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://codernaccotax.co.in/sitemap.xml

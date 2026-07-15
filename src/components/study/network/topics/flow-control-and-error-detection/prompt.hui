@@ -3,6 +3,10 @@ topic_sl: 1, topic: "Flow control: Stop-and-Wait, Sliding Window", file: Topic1.
 topic_sl: 2, topic: "Error detection: Parity, CRC, Checksum", file: Topic2.jsx,
 topic_sl: 3, topic: "Error correction: Hamming Code", file: Topic3.jsx,
 topic_sl: 4, topic: "Framing techniques", file: Topic4.jsx,
+topic_sl: 5, topic: "Short Questions", file: Topic5.jsx,
+topic_sl: 6, topic: "Parity Bit checking, example with visualisation, add a interactive program to test it", file: Topic6.jsx,
+topic_sl: 7, topic: "Checksu example with visualisation, add a interactive program to test it", file: Topic7.jsx,
+topic_sl: 8, topic: "Stop-and-Wait Protocol Efficiency", file: Topic8.jsx,
 
 
 

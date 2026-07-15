@@ -61,7 +61,8 @@ const StudentAdmission = () => {
 
   // Load initial data
   useEffect(() => {
-    loadStudents();
+    // loadStudents();
+    loadWithoutAdmissionStudents();
     loadCourses();
     loadAdmissions();
   }, []);
@@ -70,6 +71,24 @@ const StudentAdmission = () => {
     setLoading((prev) => ({ ...prev, students: true }));
     try {
       const response = await studentService.getAll();
+      setStudents(response.data);
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to load students.",
+        ...getSwalTheme(),
+      });
+    } finally {
+      setLoading((prev) => ({ ...prev, students: false }));
+    }
+  };
+  //it will load all students who have no courses
+  const loadWithoutAdmissionStudents = async () => {
+    setLoading((prev) => ({ ...prev, students: true }));
+    try {
+      const response = await studentService.getWithoutAdmission();
       setStudents(response.data);
     } catch (error) {
       console.error(error);

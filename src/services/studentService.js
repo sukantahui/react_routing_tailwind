@@ -11,6 +11,15 @@ export const studentService = {
       throw error;
     }
   },
+  getWithoutAdmission: async () => {
+    try {
+      const response = await api.get("/students/without-admission");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching students:", error);
+      throw error;
+    }
+  },
   create: async (data) => {
     try {
       const response = await api.post("/students",data);

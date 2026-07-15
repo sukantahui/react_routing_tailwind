@@ -1,4 +1,4 @@
-// src/components/study/JavaScriptModuleView.jsx
+// src/components/study/PythonModuleView.jsx
 
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";

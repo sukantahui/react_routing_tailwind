@@ -26,24 +26,23 @@ export default function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-
-      {/* 🔥 Navbar */}
-      <div className="fixed top-0 left-0 w-full z-50 
-                      bg-white/70 backdrop-blur-md shadow-sm border-b border-gray-200">
-        <div className="fixed top-0 left-0 w-full z-50 
-                bg-white/80 backdrop-blur-md border-b shadow-sm">
-          {isLoggedIn ? (
-            <AuthNavBar setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <NavBar />
-          )}
-        </div>
+      {/* Navbar */}
+      <div
+        className="fixed top-0 left-0 w-full z-50
+               bg-white/80 backdrop-blur-md
+               border-b shadow-sm"
+      >
+        {isLoggedIn ? (
+          <AuthNavBar setIsLoggedIn={setIsLoggedIn} />
+        ) : (
+          <NavBar />
+        )}
       </div>
 
-      {/* 🔥 Page Content */}
-      <div className="pt-16 md:pt-[14]">
+      {/* Main Content */}
+      <main className="pt-14">
         <AppRoutes setIsLoggedIn={setIsLoggedIn} />
-      </div>
+      </main>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import _4x2_encoder from './topic21_files/4x2_encoder.png';
 
 // Inline keyframes for fade + slide-up animation
 const animationStyles = `
@@ -134,38 +135,12 @@ const Topic21 = () => {
         <h2 className="text-2xl font-semibold text-yellow-400 mb-4">🔧 Gate-Level Implementation</h2>
         <div className="flex justify-center">
           <div className="w-full max-w-2xl group">
-            <svg viewBox="0 0 450 200" className="w-full h-auto text-blue-400 transition-transform duration-300 group-hover:scale-105">
-              {/* Inputs */}
-              <line x1="30" y1="40" x2="80" y2="40" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="45" fill="currentColor" fontSize="12">I0</text>
-              <line x1="30" y1="80" x2="80" y2="80" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="85" fill="currentColor" fontSize="12">I1</text>
-              <line x1="30" y1="120" x2="80" y2="120" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="125" fill="currentColor" fontSize="12">I2</text>
-              <line x1="30" y1="160" x2="80" y2="160" stroke="currentColor" strokeWidth="2" />
-              <text x="15" y="165" fill="currentColor" fontSize="12">I3</text>
-
-              {/* OR for A1 (I2 + I3) */}
-              <path d="M150 100 L180 100 L190 120 L180 140 L150 140 L150 100" fill="none" stroke="currentColor" strokeWidth="2" />
-              <path d="M140 100 L150 120 L140 140" fill="none" stroke="currentColor" strokeWidth="2" />
-              <text x="165" y="125" fill="currentColor" fontSize="10" textAnchor="middle">≥1</text>
-              <line x1="80" y1="120" x2="140" y2="120" stroke="currentColor" strokeWidth="2" />
-              <line x1="80" y1="160" x2="140" y2="160" stroke="currentColor" strokeWidth="2" />
-              <line x1="140" y1="120" x2="140" y2="150" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="140" y1="160" x2="140" y2="130" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="190" y1="120" x2="250" y2="120" stroke="currentColor" strokeWidth="2" />
-              <text x="260" y="125" fill="currentColor" fontSize="14" fontWeight="bold">A1</text>
-
-              {/* OR for A0 (I1 + I3) */}
-              <path d="M150 40 L180 40 L190 60 L180 80 L150 80 L150 40" fill="none" stroke="currentColor" strokeWidth="2" />
-              <path d="M140 40 L150 60 L140 80" fill="none" stroke="currentColor" strokeWidth="2" />
-              <text x="165" y="65" fill="currentColor" fontSize="10" textAnchor="middle">≥1</text>
-              <line x1="80" y1="80" x2="140" y2="60" stroke="currentColor" strokeWidth="2" />
-              <line x1="80" y1="160" x2="140" y2="70" stroke="currentColor" strokeWidth="2" />
-              <line x1="140" y1="60" x2="140" y2="70" stroke="currentColor" strokeWidth="2" strokeDasharray="2" />
-              <line x1="190" y1="60" x2="250" y2="60" stroke="currentColor" strokeWidth="2" />
-              <text x="260" y="65" fill="currentColor" fontSize="14" fontWeight="bold">A0</text>
-            </svg>
+            {/* Image inserted here */}
+            <img
+              src={_4x2_encoder}
+              alt="Gate-level implementation of 4:2 encoder with two OR gates"
+              className="w-full h-auto rounded-lg shadow-md"
+            />
           </div>
         </div>
         <p className="text-gray-300 mt-4 text-center">

@@ -219,7 +219,10 @@
             "Error detection: Parity, CRC, Checksum",
             "Error correction: Hamming Code",
             "Framing techniques",
-            "Short Questions"
+            "Short Questions",
+            "Parity Checking",
+            "Checksum checking",
+            "Stop-and-Wait Protocol Efficiency"
           ],
           "learningOutcomes": [
             "Understand flow control",

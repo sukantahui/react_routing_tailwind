@@ -132,6 +132,7 @@ const NavBar = () => {
     { to: "/icons", key: "icons", label: "Icons" },
     { to: "/vscode", key: "vscode", label: "VS Code" },
     { to: "/whiteBoard", key: "whiteboard", label: "Whiteboard" },
+    { to: "/tools/audioextract", key: "audioextractor", label: "Audioextractor" },
     { to: "/qrcode", key: "qr-code", label: "QR Code Generator" },
     { to: "/LinkedListVisualizer", key: "LinkedListVisualizer", label: "Linked List Visualizer" },
     { to: "/DoublyLinkedListVisualizer", key: "DoublyLinkedListVisualizer", label: "Double Linked List Visualizer" },
