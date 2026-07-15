@@ -172,6 +172,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     { to: "/subjects", label: "Add Subject" },
     { to: "/courses", label: "Courses" },
     { to: "/admission", label: "Admission" },
+    { to: "students/student-admission", label: "Student With Admission" },
     { to: "/results", label: "Result" },
     { to: "/teachers", label: "Teachers" },
     { to: "/certificates", label: "Certificates" },

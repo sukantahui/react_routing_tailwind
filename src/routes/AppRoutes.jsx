@@ -9,6 +9,8 @@ import ProtectedRoute from './ProtectedRoute';
 // 2. LAZY‑LOADED COMPONENTS (split by feature)
 // --------------------------------------------------------------
 
+const StudentWithAdmission = lazy(()=> import('../components/students/StudentWithAdmission'));
+
 const NetworkRoadmap = lazy(() => import('../components/study/network/NetworkRoadmap'));
 const NetworkModuleView = lazy(() => import('../components/study/network/NetworkModuleView'));
 const NetworkTopicView = lazy(() => import('../components/study/network/NetworkTopicView'));
@@ -189,6 +191,7 @@ const ROUTES = {
   ICONS: '/icons',
   VSCODE: '/vscode',
   WHITEBOARD: '/whiteBoard',
+  STUDENT_WITH_ADMISSION: 'students/student-admission',
   NOT_FOUND: '*',
 
   // Technology routes – pattern: /{tech}/roadmap, /{tech}/module/:slug, /{tech}/topic/:moduleSlug/:topicIndex
@@ -328,6 +331,15 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper>
               <Dashboard />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.STUDENT_WITH_ADMISSION}
+          element={
+            <ProtectedRouteWrapper>
+              <StudentWithAdmission />
             </ProtectedRouteWrapper>
           }
         />
