@@ -512,6 +512,9 @@
   .end-1 {
     inset-inline-end: calc(var(--spacing) * 1);
   }
+  .end-100 {
+    inset-inline-end: calc(var(--spacing) * 100);
+  }
   .-top-2 {
     top: calc(var(--spacing) * -2);
   }
