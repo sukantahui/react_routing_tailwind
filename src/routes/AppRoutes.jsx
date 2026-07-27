@@ -111,6 +111,10 @@ const IscElevenRoadmap = lazy(() => import('../components/study/isc-11/IscEleven
 const IscElevenModuleView = lazy(() => import('../components/study/isc-11/IscElevenModuleView'));
 const IscElevenTopicView = lazy(() => import('../components/study/isc-11/IscElevenTopicView'));
 
+const RDBMSMysQLRoadmap = lazy(() => import('../components/study/rdbms-mysql/RdbmsMysqlRoadmap'));
+const RDBMSMysQLModuleView = lazy(() => import('../components/study/rdbms-mysql/RdbmsMysqlModuleView'));
+const RDBMSMysQLTopicView = lazy(() => import('../components/study/rdbms-mysql/RdbmsMysqlTopicView'));
+
 const ComputerArchitectureRoadmap = lazy(() =>
   import('../components/study/computer-architecture/ComputerArchitectureRoadmap')
 );
@@ -148,6 +152,8 @@ const AddCourse = lazy(() => import('../components/AddCourse'));
 const AddResult = lazy(() => import('../components/AddResult'));
 const Subject = lazy(() => import('../components/Subject'));
 const StudentFeeReceipt = lazy(() => import('../components/StudentFeeReceipt'));
+
+
 
 // --------------------------------------------------------------
 // 3. ROUTE PATH CONSTANTS (avoid typos, centralise updates)
@@ -270,6 +276,10 @@ const ROUTES = {
   NETWORK_ROADMAP: '/network/roadmap',
   NETWORK_MODULE: '/network/module/:slug',
   NETWORK_TOPIC: '/network/topic/:moduleSlug/:topicIndex',
+
+  RDBMS_MYSQL_ROADMAP: '/rdbms-mysql/roadmap',
+  RDBMS_MYSQL_MODULE: '/rdbms-mysql/module/:slug',
+  RDBMS_MYSQL_TOPIC: '/rdbms-mysql/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -550,6 +560,11 @@ export default function AppRoutes() {
         <Route path={ROUTES.NETWORK_ROADMAP} element={<NetworkRoadmap />} />
         <Route path={ROUTES.NETWORK_MODULE} element={<NetworkModuleView />} />
         <Route path={ROUTES.NETWORK_TOPIC} element={<NetworkTopicView />} />
+
+        {/* RDBMS */}
+        <Route path={ROUTES.RDBMS_MYSQL_ROADMAP} element={<RDBMSMysQLRoadmap />} />
+        <Route path={ROUTES.RDBMS_MYSQL_MODULE} element={<RDBMSMysQLModuleView />} />
+        <Route path={ROUTES.RDBMS_MYSQL_TOPIC} element={<RDBMSMysQLTopicView />} />
 
         {/* ---------- Catch‑all 404 ---------- */}
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
