@@ -16,7 +16,7 @@ import About from "./About";
 import Contact from "./Contact";
 import Services from "./Services";
 import Teachers from "./Teachers";
-import Courses from "./Courses";
+import Courses from "./courses/Courses";
 import HomeSeo from "../../seo/HomeSeo"
 import LocalSEO from "./LocalSEO";
 import Facilities from "./Facilities"

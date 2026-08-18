@@ -7,24 +7,75 @@
       {
         "courseID": "course001",
         "title": "Full Stack Web Development",
-        "desc": "Learn HTML, CSS, JS, React, Node.js & more.",
-        "more": "Covers front-end and back-end development with real-world projects, Git/GitHub, APIs, and deployment practices.",
+        "desc": "Master JavaScript, modern frontend & backend, databases, and deployment.",
+        "more": "A comprehensive full‑stack course with a strong JavaScript foundation, covering React, Angular, Node.js, Laravel, MySQL, Prisma, and live deployment.",
         "image": "webDevImg",
         "level": "Advanced",
-        "duration": "6 Months",
+        "duration": "55 Classes",
         "mode": "Online / Offline",
         "badge": "Popular",
-        "rating": 4.8,
+        "rating": 4.9,
         "studentsEnrolled": 480,
-        "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
-        "fee": "₹15,000",
+        "skills": [
+          "JavaScript (ES6+)",
+          "HTML5 & CSS3",
+          "Bootstrap & Tailwind CSS",
+          "React (JSX & Hooks)",
+          "Angular (TypeScript)",
+          "Node.js & Express",
+          "Laravel (PHP)",
+          "MySQL",
+          "Prisma ORM",
+          "REST APIs",
+          "Git & GitHub",
+          "Insomnia (API Testing)",
+          "Deployment (Vercel, Netlify, Heroku)"
+        ],
+        "fee": "₹24,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
           "available": true,
-          "maxDiscountPercent": 25,
-          "actualDiscountPercent": 20,
+          "maxDiscountPercent": 15,
+          "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
+        },
+        "details": {
+          "overview": "This Full Stack Web Development course is built around **JavaScript** as the core language, giving you the flexibility to work with both **React** (JSX) and **Angular** (TypeScript) on the frontend. On the backend, you'll learn two popular API frameworks – **Node.js + Express** and **Laravel (PHP)** – so you can choose the right tool for any project. You'll also master **MySQL** with **Prisma ORM**, version control with **Git** and **GitHub**, API testing with **Insomnia**, and deployment strategies to launch your applications live. The curriculum is hands‑on, with multiple real‑world projects that will make you industry‑ready.",
+          "syllabus": [
+            "Module 1: Web Fundamentals – HTML5, CSS3, Flexbox, Grid, and Responsive Design",
+            "Module 2: CSS Frameworks – Bootstrap 5 and Tailwind CSS",
+            "Module 3: JavaScript (ES6+) – Variables, Functions, Classes, Promises, Async/Await",
+            "Module 4: Frontend Frameworks – React (JSX, Components, Hooks, Context API) and Angular (TypeScript, Components, Services, Routing)",
+            "Module 5: State Management – Redux (React) and NgRx (Angular)",
+            "Module 6: Backend with Node.js & Express – Building REST APIs, Middleware, Error Handling",
+            "Module 7: Backend with Laravel – MVC, Routing, Eloquent ORM, API Resources",
+            "Module 8: Database – MySQL (Schema Design, Queries, Indexes) and Prisma ORM (Models, Migrations, Relations)",
+            "Module 9: Authentication & Authorization – JWT, OAuth2, Session Management",
+            "Module 10: API Testing – Using Insomnia for manual and automated testing",
+            "Module 11: Version Control – Git workflows, branching, pull requests with GitHub",
+            "Module 12: Deployment – Deploying full‑stack apps on Vercel, Netlify, Heroku, and AWS basics",
+            "Module 13: Final Capstone – Build a complete e‑commerce platform with payment integration"
+          ],
+          "learningOutcomes": [
+            "Build responsive, modern web interfaces with HTML, CSS, Bootstrap, and Tailwind",
+            "Develop robust frontends using React (JSX) and Angular (TypeScript)",
+            "Create and consume secure REST APIs with Node.js/Express and Laravel",
+            "Design, query, and manage MySQL databases using Prisma ORM",
+            "Implement authentication and authorisation mechanisms",
+            "Test APIs effectively with Insomnia",
+            "Use Git and GitHub for collaborative development",
+            "Deploy applications to production environments"
+          ],
+          "prerequisites": "Basic understanding of programming concepts (variables, loops, functions) is helpful. Beginners with a strong motivation are welcome – we start from the basics of HTML/CSS.",
+          "projects": [
+            "Personal Portfolio & Blog",
+            "Task Management Dashboard (React + Node.js)",
+            "E‑commerce Product Catalogue (Angular + Laravel)",
+            "Social Media Feed App (React + Node.js + MySQL)",
+            "Full‑Stack Capstone: Multi‑vendor e‑commerce platform with payments"
+          ],
+          "certification": "Yes, a course completion certificate is awarded upon successful submission of the final project."
         }
       },
       {
@@ -48,7 +99,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "course019",
@@ -71,7 +123,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "course020",
@@ -94,7 +147,8 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
     ]
   },
@@ -124,7 +178,8 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "PRG1002",
@@ -147,9 +202,9 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
-
       {
         "courseID": "PRG1003",
         "title": "C Programming",
@@ -171,9 +226,9 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
-
       {
         "courseID": "PRG1004",
         "title": "Data Structures & Algorithms (DSA)",
@@ -195,7 +250,8 @@
           "actualDiscountPercent": 20,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "PRG1005",
@@ -218,9 +274,9 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
-
     ]
   },
   {
@@ -228,7 +284,7 @@
     "groupImage": "databaseServer",
     "groupDesc": "Master relational database concepts, SQL queries, and data management techniques for real-world applications.",
     "courses": [
-    {
+      {
         "courseID": "DB1001",
         "title": "MySQL Fundamentals",
         "desc": "Learn to create, manage, and query databases efficiently.",
@@ -249,7 +305,8 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "DB1002",
@@ -272,7 +329,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "DB1003",
@@ -295,7 +353,8 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
     ]
   },
@@ -316,7 +375,7 @@
         "badge": "Popular",
         "rating": 4.7,
         "studentsEnrolled": 260,
-        "skills": ["Basic Accounting","Tally", "Invoicing", "Payroll"],
+        "skills": ["Basic Accounting", "Tally", "Invoicing", "Payroll"],
         "fee": "₹9,000",
         "instructor": "Chandan Das",
         "meritDiscount": {
@@ -325,7 +384,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "ACCT1002",
@@ -348,7 +408,8 @@
           "actualDiscountPercent": 20,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
     ]
   },
@@ -378,7 +439,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "course028",
@@ -401,7 +463,8 @@
           "actualDiscountPercent": 20,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
     ]
   },
@@ -431,7 +494,8 @@
           "actualDiscountPercent": 10,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       },
       {
         "courseID": "course036",
@@ -454,7 +518,8 @@
           "actualDiscountPercent": 15,
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
-        }
+        },
+        "details": {}
       }
     ]
   }

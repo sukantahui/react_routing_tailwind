@@ -115,6 +115,14 @@ const RDBMSMysQLRoadmap = lazy(() => import('../components/study/rdbms-mysql/Rdb
 const RDBMSMysQLModuleView = lazy(() => import('../components/study/rdbms-mysql/RdbmsMysqlModuleView'));
 const RDBMSMysQLTopicView = lazy(() => import('../components/study/rdbms-mysql/RdbmsMysqlTopicView'));
 
+const CyberSecurityRoadmap = lazy(() => import('../components/study/cyber-security/CyberSecurityRoadmap'));
+const CyberSecurityModuleView = lazy(() => import('../components/study/cyber-security/CyberSecurityModuleView'));
+const CyberSecurityTopicView = lazy(() => import('../components/study/cyber-security/CyberSecurityTopicView'));
+
+const QuantitativeAnalysisRoadmap = lazy(() => import('../components/study/quantitative-analysis/QuantitativeAnalysisRoadmap'));
+const QuantitativeAnalysisModuleView = lazy(() => import('../components/study/quantitative-analysis/QuantitativeAnalysisModuleView'));
+const QuantitativeAnalysisTopicView = lazy(() => import('../components/study/quantitative-analysis/QuantitativeAnalysisTopicView'));
+
 const ComputerArchitectureRoadmap = lazy(() =>
   import('../components/study/computer-architecture/ComputerArchitectureRoadmap')
 );
@@ -280,6 +288,14 @@ const ROUTES = {
   RDBMS_MYSQL_ROADMAP: '/rdbms-mysql/roadmap',
   RDBMS_MYSQL_MODULE: '/rdbms-mysql/module/:slug',
   RDBMS_MYSQL_TOPIC: '/rdbms-mysql/topic/:moduleSlug/:topicIndex',
+
+  CYBER_SECURITY_ROADMAP: '/cyber-security/roadmap',
+  CYBER_SECURITY_MODULE: '/cyber-security/module/:slug',
+  CYBER_SECURITY_TOPIC: '/cyber-security/topic/:moduleSlug/:topicIndex',
+
+  QUANTITATIVE_ANALYSIS_ROADMAP: '/quantitative-analysis/roadmap',
+  QUANTITATIVE_ANALYSIS_MODULE: '/quantitative-analysis/module/:slug',
+  QUANTITATIVE_ANALYSIS_TOPIC: '/quantitative-analysis/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -565,6 +581,16 @@ export default function AppRoutes() {
         <Route path={ROUTES.RDBMS_MYSQL_ROADMAP} element={<RDBMSMysQLRoadmap />} />
         <Route path={ROUTES.RDBMS_MYSQL_MODULE} element={<RDBMSMysQLModuleView />} />
         <Route path={ROUTES.RDBMS_MYSQL_TOPIC} element={<RDBMSMysQLTopicView />} />
+
+        {/* Cyber Security */}
+        <Route path={ROUTES.CYBER_SECURITY_ROADMAP} element={<CyberSecurityRoadmap />} />
+        <Route path={ROUTES.CYBER_SECURITY_MODULE} element={<CyberSecurityModuleView />} />
+        <Route path={ROUTES.CYBER_SECURITY_TOPIC} element={<CyberSecurityTopicView />} />
+
+        {/* Quatatitative Analysis */}
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_ROADMAP} element={<QuantitativeAnalysisRoadmap />} />
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_MODULE} element={<QuantitativeAnalysisModuleView />} />
+        <Route path={ROUTES.QUANTITATIVE_ANALYSIS_TOPIC} element={<QuantitativeAnalysisTopicView />} />
 
         {/* ---------- Catch‑all 404 ---------- */}
         <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />

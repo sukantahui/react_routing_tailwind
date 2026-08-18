@@ -1,0 +1,76 @@
+MEANING AND PURPOSE OF LINEAR PROGRAMMING
+=========================================
+
+WHAT DOES "LINEAR PROGRAMMING" MEAN?
+-------------------------------------
+- Linear: all relationships are straight‑line (no x², xy, etc.)
+  → Proportionality: double input → double output.
+  → Additivity: total = sum of parts (no cross‑effects).
+- Programming: planning or scheduling, NOT computer programming.
+  → Originated from military logistics planning in WWII.
+
+→ Together: a method for optimal planning when all relations are linear.
+
+THE CORE PURPOSE OF LP
+----------------------
+To make the best possible decision under scarcity.
+- We have limited resources (money, time, materials, labour).
+- We have competing activities (products, projects, investments).
+- We want to achieve a single objective (max profit, min cost, etc.).
+- LP gives the optimal allocation of resources to meet that objective.
+
+WHY IS LP SO IMPORTANT?
+-----------------------
+1. It provides a systematic, quantitative approach to decision‑making.
+2. It handles complex trade‑offs and reveals which resources are most valuable.
+3. It has been proven effective for over 75 years across industries.
+4. It can be implemented with readily available software.
+5. It often leads to significant cost savings and profit improvements.
+
+KEY ASSUMPTIONS OF LP
+---------------------
+- Linearity: objective and constraints are linear.
+- Divisibility: variables can take fractional values.
+- Certainty: all coefficients are known constants.
+- Proportionality / Additivity: no interaction between variables.
+
+Without these assumptions, LP may not apply; other OR techniques (nonlinear, integer, stochastic) are used.
+
+REAL‑WORLD EXAMPLES
+-------------------
+- Manufacturing: production planning, product‑mix optimisation.
+- Logistics: transportation, route planning, warehouse location.
+- Finance: portfolio selection, risk management, budget allocation.
+- Agriculture: crop planning, land use, irrigation scheduling.
+- Healthcare: staff scheduling, resource allocation, patient flow.
+- Education: time allocation, assignment of teachers to classes.
+
+COMMON PITFALLS TO AVOID
+------------------------
+- Confusing "programming" with computer programming.
+- Assuming LP can solve any optimisation problem (it's only for linear ones).
+- Ignoring the assumptions of certainty and divisibility.
+- Using LP when variables must be integers (use Integer Programming).
+- Forgetting that the optimal solution is only as good as the model.
+
+BEST PRACTICES FOR UNDERSTANDING LP
+-----------------------------------
+✓ Always define the objective first.
+✓ List all constraints before solving.
+✓ Use clear variable names and document them.
+✓ Check for linearity – ensure no x² or xy terms.
+✓ Include non‑negativity constraints.
+✓ Test the model with simple numbers.
+✓ Use sensitivity analysis to understand trade‑offs.
+
+MINI CHECKLIST
+--------------
+✅ I can explain the meaning of "linear" and "programming" in LP.
+✅ I understand that LP helps make optimal decisions under scarcity.
+✅ I can list at least three real‑world applications.
+✅ I know the key assumptions: linearity, divisibility, certainty, additivity.
+✅ I can distinguish LP from other optimisation techniques.
+✅ I am aware of common mistakes like forgetting non‑negativity.
+
+--
+Printed from Linear Programming Course – Topic 1: Meaning and Purpose

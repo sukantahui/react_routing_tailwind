@@ -159,6 +159,8 @@ const NavBar = () => {
     { to: "/network/roadmap", key: "network", label: "Network", icon: "bi-diagram-3" },
     ...(isDev ? [{ to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" }] : []),
     { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
+    { to: "/cyber-security/roadmap", key: "cyber-security", label: "Cyber Security", icon: "bi-globe" },
+    { to: "/quantitative-analysis/roadmap", key: "quantitative-analysis", label: "Quatitative Analysis", icon: "bi-globe" },
   ];
 
   return (
