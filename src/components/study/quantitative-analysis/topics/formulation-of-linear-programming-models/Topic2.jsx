@@ -3,6 +3,8 @@ import clsx from "clsx";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic2_files/topic2_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import noteText from "./topic2_files/topic2_note.txt?raw";
 
 /**
  * Topic2: Decision variables
@@ -161,6 +163,758 @@ const Topic2 = () => {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* =========================================================
+    SECTION 2A: COMPLETE LP EXAMPLE — FROM DATA TO MODEL
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-2xl">🧩</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            Let's Build a Linear Programming Model
+          </h2>
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-7 mb-6">
+          Let's take a complete real-world example and see exactly where every
+          number in the mathematical model comes from.
+        </p>
+
+
+        {/* =====================================================
+      EXAMPLE DATA
+  ===================================================== */}
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-800
+                  bg-gray-50 dark:bg-gray-900/50 overflow-hidden">
+
+          {/* Header */}
+          <div className="bg-gray-900 dark:bg-black px-5 py-5">
+
+            <div className="flex items-center gap-3">
+
+              <span className="text-3xl">
+                🍰
+              </span>
+
+              <div>
+                <h3 className="font-semibold text-white text-lg">
+                  Example: A Bakery Production Problem
+                </h3>
+
+                <p className="text-sm text-gray-400 mt-1">
+                  A bakery produces cakes and cookies.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="p-5 md:p-6">
+
+            <p className="text-gray-700 dark:text-gray-300 leading-7">
+              A bakery produces two products: <strong>cakes</strong> and
+              <strong> cookies</strong>. The bakery has limited flour and sugar,
+              so it must decide how many of each product to make.
+            </p>
+
+
+            {/* =================================================
+          GIVEN DATA
+      ================================================= */}
+            <div className="mt-6">
+
+              <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-3">
+                📋 Given Information
+              </h4>
+
+              <div className="overflow-x-auto">
+
+                <table className="w-full text-sm border-collapse">
+
+                  <thead>
+
+                    <tr className="bg-gray-100 dark:bg-gray-800">
+
+                      <th className="text-left p-3 border border-gray-200 dark:border-gray-700">
+                        Resource / Information
+                      </th>
+
+                      <th className="text-center p-3 border border-gray-200 dark:border-gray-700">
+                        Cake
+                      </th>
+
+                      <th className="text-center p-3 border border-gray-200 dark:border-gray-700">
+                        Cookie
+                      </th>
+
+                      <th className="text-center p-3 border border-gray-200 dark:border-gray-700">
+                        Available
+                      </th>
+
+                    </tr>
+
+                  </thead>
+
+                  <tbody>
+
+                    <tr className="bg-white dark:bg-gray-950">
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 font-medium">
+                        Profit
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono font-bold text-green-600 dark:text-green-400">
+                        ₹100
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono font-bold text-green-600 dark:text-green-400">
+                        ₹50
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center text-gray-400">
+                        —
+                      </td>
+
+                    </tr>
+
+
+                    <tr className="bg-gray-50 dark:bg-gray-900">
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 font-medium">
+                        Flour
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono">
+                        2 kg
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono">
+                        1 kg
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono font-bold">
+                        10 kg
+                      </td>
+
+                    </tr>
+
+
+                    <tr className="bg-white dark:bg-gray-950">
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 font-medium">
+                        Sugar
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono">
+                        1 kg
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono">
+                        2 kg
+                      </td>
+
+                      <td className="p-3 border border-gray-200 dark:border-gray-700 text-center font-mono font-bold">
+                        8 kg
+                      </td>
+
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+            </div>
+
+
+            {/* IMPORTANT DATA NOTE */}
+            <div className="mt-5 rounded-xl bg-blue-50 dark:bg-blue-950/20
+                      border border-blue-200 dark:border-blue-900/40 p-5">
+
+              <p className="text-sm text-blue-900 dark:text-blue-300 leading-7">
+
+                <strong>💡 Where did these numbers come from?</strong>
+
+                <br />
+
+                The numbers are the <strong>given data of the problem</strong>.
+                They are not calculated by the LP method.
+
+                <br /><br />
+
+                For example:
+
+                <span className="font-mono font-bold">
+                  {" "}₹100
+                </span>
+
+                {" "}means the profit from one cake, while
+
+                <span className="font-mono font-bold">
+                  {" "}₹50
+                </span>
+
+                {" "}means the profit from one cookie.
+
+              </p>
+
+            </div>
+
+
+            {/* =================================================
+          STEP 1
+      ================================================= */}
+            <div className="mt-8 rounded-xl border border-blue-200 dark:border-blue-900/40
+                      bg-blue-50 dark:bg-blue-950/20 p-5">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full
+                          bg-blue-600 text-white
+                          flex items-center justify-center font-bold">
+                  1
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                    Identify the Decision Variables
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    Ask:
+
+                    <strong>
+                      {" "}What quantities do we need to decide?
+                    </strong>
+
+                  </p>
+
+                  <p className="mt-3 text-sm text-gray-700 dark:text-gray-300">
+                    We need to decide how many cakes and cookies to produce.
+                  </p>
+
+
+                  <div className="mt-4 grid sm:grid-cols-2 gap-3">
+
+                    <div className="rounded-lg bg-white dark:bg-gray-950
+                              border border-blue-200 dark:border-blue-900/40 p-4">
+
+                      <div className="text-xs text-gray-500 mb-1">
+                        Decision Variable 1
+                      </div>
+
+                      <div className="font-mono font-bold text-blue-700 dark:text-blue-400">
+                        x = number of cakes
+                      </div>
+
+                    </div>
+
+
+                    <div className="rounded-lg bg-white dark:bg-gray-950
+                              border border-blue-200 dark:border-blue-900/40 p-4">
+
+                      <div className="text-xs text-gray-500 mb-1">
+                        Decision Variable 2
+                      </div>
+
+                      <div className="font-mono font-bold text-blue-700 dark:text-blue-400">
+                        y = number of cookies
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ARROW */}
+            <div className="text-center text-blue-500 text-xl py-2">
+              ↓
+            </div>
+
+
+            {/* =================================================
+          STEP 2 OBJECTIVE
+      ================================================= */}
+            <div className="rounded-xl border border-green-200 dark:border-green-900/40
+                      bg-green-50 dark:bg-green-950/20 p-5">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full
+                          bg-green-600 text-white
+                          flex items-center justify-center font-bold">
+                  2
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                    Define the Objective
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    Ask:
+
+                    <strong>
+                      {" "}What are we trying to achieve?
+                    </strong>
+
+                  </p>
+
+                  <p className="mt-3 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    The bakery wants to earn as much profit as possible.
+                    Therefore, our objective is to <strong>maximize profit</strong>.
+
+                  </p>
+
+
+                  {/* Derivation */}
+                  <div className="mt-5 rounded-xl bg-white dark:bg-gray-950
+                            border border-green-200 dark:border-green-900/40 p-5">
+
+                    <p className="text-xs uppercase tracking-wider
+                            text-gray-500 mb-4">
+                      Where does each number come from?
+                    </p>
+
+                    <div className="space-y-3 text-sm">
+
+                      <div className="flex items-center gap-3">
+
+                        <span className="font-mono font-bold text-green-600">
+                          100x
+                        </span>
+
+                        <span className="text-gray-600 dark:text-gray-400">
+                          = ₹100 profit per cake × x cakes
+                        </span>
+
+                      </div>
+
+
+                      <div className="flex items-center gap-3">
+
+                        <span className="font-mono font-bold text-green-600">
+                          50y
+                        </span>
+
+                        <span className="text-gray-600 dark:text-gray-400">
+                          = ₹50 profit per cookie × y cookies
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <div className="mt-5 border-t border-gray-200 dark:border-gray-800 pt-5">
+
+                      <p className="text-center font-mono text-lg font-bold
+                              text-green-700 dark:text-green-400">
+
+                        Maximize Z = 100x + 50y
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+
+                  <div className="mt-4 border-l-4 border-green-500 pl-4">
+
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-6">
+
+                      <strong>Important:</strong>{" "}
+                      The coefficients <strong>100</strong> and <strong>50</strong>
+                      come directly from the stated profit per unit.
+
+                      They are <strong>not calculated by the LP method</strong>.
+
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ARROW */}
+            <div className="text-center text-green-500 text-xl py-2">
+              ↓
+            </div>
+
+
+            {/* =================================================
+          STEP 3 FLOUR
+      ================================================= */}
+            <div className="rounded-xl border border-amber-200 dark:border-amber-900/40
+                      bg-amber-50 dark:bg-amber-950/20 p-5">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full
+                          bg-amber-500 text-white
+                          flex items-center justify-center font-bold">
+                  3
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                    Create the Flour Constraint
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    From the given data:
+
+                  </p>
+
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+
+                    <li>
+                      • One cake requires <strong>2 kg flour</strong>.
+                    </li>
+
+                    <li>
+                      • One cookie requires <strong>1 kg flour</strong>.
+                    </li>
+
+                    <li>
+                      • The bakery has only <strong>10 kg flour</strong>.
+                    </li>
+
+                  </ul>
+
+
+                  <div className="mt-5 rounded-xl bg-white dark:bg-gray-950
+                            border border-amber-200 dark:border-amber-900/40 p-5">
+
+                    <div className="space-y-3 text-center font-mono">
+
+                      <div className="text-gray-600 dark:text-gray-400">
+                        Flour used by cakes = 2x
+                      </div>
+
+                      <div className="text-gray-600 dark:text-gray-400">
+                        Flour used by cookies = y
+                      </div>
+
+                      <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+
+                        <div className="font-bold text-amber-700 dark:text-amber-400 text-lg">
+                          2x + y ≤ 10
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-6">
+
+                    We use <strong>≤</strong> because the bakery can use
+                    <strong> at most 10 kg</strong> of flour. It cannot use more
+                    than the amount available.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ARROW */}
+            <div className="text-center text-amber-500 text-xl py-2">
+              ↓
+            </div>
+
+
+            {/* =================================================
+          STEP 4 SUGAR
+      ================================================= */}
+            <div className="rounded-xl border border-orange-200 dark:border-orange-900/40
+                      bg-orange-50 dark:bg-orange-950/20 p-5">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full
+                          bg-orange-500 text-white
+                          flex items-center justify-center font-bold">
+                  4
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                    Create the Sugar Constraint
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    Again, look at the given data:
+
+                  </p>
+
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+
+                    <li>
+                      • One cake requires <strong>1 kg sugar</strong>.
+                    </li>
+
+                    <li>
+                      • One cookie requires <strong>2 kg sugar</strong>.
+                    </li>
+
+                    <li>
+                      • The bakery has only <strong>8 kg sugar</strong>.
+                    </li>
+
+                  </ul>
+
+
+                  <div className="mt-5 rounded-xl bg-white dark:bg-gray-950
+                            border border-orange-200 dark:border-orange-900/40 p-5">
+
+                    <div className="space-y-3 text-center font-mono">
+
+                      <div className="text-gray-600 dark:text-gray-400">
+                        Sugar used by cakes = x
+                      </div>
+
+                      <div className="text-gray-600 dark:text-gray-400">
+                        Sugar used by cookies = 2y
+                      </div>
+
+                      <div className="border-t border-gray-200 dark:border-gray-800 pt-4">
+
+                        <div className="font-bold text-orange-700 dark:text-orange-400 text-lg">
+                          x + 2y ≤ 8
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* ARROW */}
+            <div className="text-center text-orange-500 text-xl py-2">
+              ↓
+            </div>
+
+
+            {/* =================================================
+          STEP 5 NON NEGATIVITY
+      ================================================= */}
+            <div className="rounded-xl border border-purple-200 dark:border-purple-900/40
+                      bg-purple-50 dark:bg-purple-950/20 p-5">
+
+              <div className="flex items-start gap-4">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full
+                          bg-purple-600 text-white
+                          flex items-center justify-center font-bold">
+                  5
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-bold text-gray-900 dark:text-white text-lg">
+                    Add Non-Negativity Restrictions
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-7">
+
+                    Can the bakery produce −5 cakes?
+
+                    <strong> No.</strong>
+
+                    <br />
+
+                    Can it produce −3 cookies?
+
+                    <strong> No.</strong>
+
+                  </p>
+
+
+                  <div className="mt-4 rounded-xl bg-white dark:bg-gray-950
+                            border border-purple-200 dark:border-purple-900/40
+                            p-5 text-center">
+
+                    <div className="font-mono font-bold text-purple-700
+                              dark:text-purple-400 text-lg">
+
+                      x ≥ 0, &nbsp;&nbsp; y ≥ 0
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+          COMPLETE MODEL
+      ================================================= */}
+            <div className="mt-8 rounded-2xl bg-gray-900 dark:bg-black
+                      p-6 md:p-8 text-white">
+
+              <div className="text-center">
+
+                <div className="text-3xl mb-2">
+                  🧩
+                </div>
+
+                <h3 className="font-bold text-xl">
+                  Complete Linear Programming Model
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-400">
+                  Every coefficient and number can now be traced back to the given data.
+                </p>
+
+              </div>
+
+
+              <div className="mt-7 space-y-3 text-center font-mono
+                        text-sm md:text-base">
+
+                <div className="text-green-300 font-bold">
+                  Maximize Z = 100x + 50y
+                </div>
+
+                <div className="text-gray-500 pt-2">
+                  Subject to:
+                </div>
+
+                <div>
+                  2x + y ≤ 10
+                </div>
+
+                <div>
+                  x + 2y ≤ 8
+                </div>
+
+                <div className="pt-2">
+                  x ≥ 0, &nbsp; y ≥ 0
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+          NUMBER TRACE
+      ================================================= */}
+            <div className="mt-8">
+
+              <h4 className="font-bold text-gray-900 dark:text-white text-lg mb-4">
+                🔍 Where Did Every Number Come From?
+              </h4>
+
+
+              <div className="grid gap-3">
+
+                {[
+                  ["100", "Profit per cake", "Given data"],
+                  ["50", "Profit per cookie", "Given data"],
+                  ["2", "Flour required by one cake", "Given data"],
+                  ["1", "Flour required by one cookie", "Given data"],
+                  ["10", "Total flour available", "Given data"],
+                  ["1", "Sugar required by one cake", "Given data"],
+                  ["2", "Sugar required by one cookie", "Given data"],
+                  ["8", "Total sugar available", "Given data"],
+                ].map(([number, meaning, source]) => (
+
+                  <div
+                    key={`${number}-${meaning}`}
+                    className="grid grid-cols-[70px_1fr_auto] gap-3 items-center
+                         rounded-lg bg-gray-50 dark:bg-gray-900
+                         border border-gray-200 dark:border-gray-800
+                         p-3"
+                  >
+
+                    <div className="font-mono font-bold text-blue-600 dark:text-blue-400">
+                      {number}
+                    </div>
+
+                    <div className="text-sm text-gray-700 dark:text-gray-300">
+                      {meaning}
+                    </div>
+
+                    <div className="text-xs text-gray-500 dark:text-gray-500">
+                      {source}
+                    </div>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+
+            {/* KEY LESSON */}
+            <div className="mt-8 rounded-xl border-l-4 border-indigo-500
+                      bg-indigo-50 dark:bg-indigo-950/20 p-5">
+
+              <p className="text-sm md:text-base text-indigo-900
+                      dark:text-indigo-300 leading-7">
+
+                <strong>🎯 Key Lesson:</strong>{" "}
+
+                In an LP problem, the numbers in the objective function and
+                constraints normally come from the <strong>given data</strong>.
+                Our job is to correctly translate that information into
+                mathematical expressions.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* ===== SECTION 3: EXAMPLES FROM DIFFERENT DOMAINS ===== */}
@@ -415,7 +1169,19 @@ const Topic2 = () => {
         />
       </div>
 
-      {/* ===== SECTION 10: TEACHER'S NOTE ===== */}
+      {/* ===== SECTION 10: PRINTABLE NOTES ===== */}
+      <div className="max-w-5xl mx-auto mb-16 animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-950">
+        <PlainTextPrint
+          content={noteText}
+          title="Decision Variables - Printable Notes"
+          stampEnabled={true}
+          showDownload={true}
+          downloadButtonText="Download Note"
+          downloadFileName="topic2_note.txt"
+        />
+      </div>
+
+      {/* ===== SECTION 11: TEACHER'S NOTE ===== */}
       <div className="max-w-5xl mx-auto animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-1000">
         <Teacher
           note={

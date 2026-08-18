@@ -1,0 +1,112 @@
+================================================================================
+TOPIC 31: IDENTIFYING DECISION VARIABLES IN COMPLEX WORD PROBLEMS
+================================================================================
+
+1. INTRODUCTION
+---------------
+Decision variables are the foundation of any LP model. They represent the
+quantities we control and want to determine. In simple problems, variables
+are obvious—"number of units of product A." But in complex word problems,
+identifying the right variables can be challenging.
+
+This topic provides a systematic approach to identifying decision variables
+in complex scenarios.
+
+2. WHAT ARE DECISION VARIABLES?
+--------------------------------
+Decision variables are the unknown quantities that:
+- The decision-maker can control
+- Are directly involved in the objective function
+- Appear in the constraints
+- Have non-negativity restrictions
+
+Key characteristics:
+- Controllable: You can choose their values
+- Measurable: They have clear units
+- Relevant: They affect the objective
+- Independent: Each variable represents a distinct choice
+
+3. STRATEGIES FOR IDENTIFYING VARIABLES
+---------------------------------------
+Strategy 1: Look for "How many" or "How much"
+- Questions like "How many units of product?" "How much should be invested?"
+  indicate variables.
+
+Strategy 2: Identify the decision-maker's choices
+- What can the decision-maker actually control?
+- Examples: production quantities, investment amounts, staff allocation.
+
+Strategy 3: Consider the objective
+- What is being optimized? The variables contribute to the objective.
+- Example: Profit = price × quantity → quantity is a variable.
+
+Strategy 4: Look at constraints
+- What limits the decisions? Resources, demands, policies.
+- Variables appear in constraints with coefficients.
+
+Strategy 5: Think about time periods
+- Multi-period problems may need time-indexed variables (e.g., x_{t}).
+
+Strategy 6: Consider categories
+- If there are multiple categories (products, regions, time periods),
+  use subscripted variables.
+
+4. COMMON PATTERNS OF VARIABLES
+--------------------------------
+Pattern 1: Production quantities
+- x₁ = units of Product A, x₂ = units of Product B, etc.
+
+Pattern 2: Allocation amounts
+- x₁ = amount allocated to Activity A, x₂ = amount allocated to Activity B.
+
+Pattern 3: Investment amounts
+- x₁ = amount invested in Asset A, x₂ = amount invested in Asset B.
+
+Pattern 4: Staff assignments
+- x₁ = number of workers assigned to Shift A, x₂ = number assigned to Shift B.
+
+Pattern 5: Shipping quantities
+- x_{ij} = amount shipped from source i to destination j.
+
+Pattern 6: Time-based variables
+- x_t = production in period t, or inventory at time t.
+
+5. COMMON MISTAKES
+-------------------
+- Defining variables too vaguely (e.g., just "x" without meaning).
+- Using too many or too few variables.
+- Creating variables that are not independent.
+- Forgetting units in variable definitions.
+- Not including variables for all decisions.
+- Mixing variables with parameters.
+
+6. BEST PRACTICES
+------------------
+- Always define variables with clear descriptions and units.
+- Use subscripts for multiple similar variables.
+- Write variable definitions before writing equations.
+- Check that each variable appears in the objective or constraints.
+- Ensure variables are independent (not functions of each other).
+- Review variables with a colleague.
+
+7. TIPS & TRICKS
+-----------------
+- Start by asking: "What decisions need to be made?"
+- Write a sentence for each variable: "Let x = number of units of Product P."
+- Use meaningful variable names (e.g., x_prod_A, x_invest_B).
+- For complex problems, draw a diagram to visualize variables.
+- Check that each variable has a clear interpretation.
+
+8. SUMMARY
+-----------
+Identifying decision variables is the most critical step in LP formulation.
+With practice, you'll develop an intuition for what variables represent.
+Remember: if you can't clearly define your variables, you can't solve the
+problem.
+
+"Think about: What choices does the decision-maker have? Those are your
+decision variables."
+
+================================================================================
+End of Topic 31 Notes
+================================================================================

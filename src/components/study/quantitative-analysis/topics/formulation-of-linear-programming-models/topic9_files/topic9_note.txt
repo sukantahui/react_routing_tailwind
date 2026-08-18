@@ -1,0 +1,110 @@
+================================================================================
+TOPIC 9: WORKED EXAMPLE 3 – PROFIT MAXIMIZATION WITH TWO PRODUCTS
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A company manufactures two products: Product X and Product Y.
+The company has three resources: Machining, Assembly, and Packaging.
+
+Resource requirements per unit:
+              Product X   Product Y   Available
+Machining       2 hrs       4 hrs      100 hrs
+Assembly        3 hrs       2 hrs       90 hrs
+Packaging       1 hr        2 hrs       50 hrs
+
+Profit per unit: Product X = ₹60, Product Y = ₹80
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize profit
+- Products: X and Y (2 products)
+- Resources: Machining, Assembly, Packaging (3 resources)
+- No demand constraints
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Product X produced
+- x₂ = number of units of Product Y produced
+
+STEP 3: Identify the Objective
+- Profit per unit: X = ₹60, Y = ₹80
+- Maximize Z = 60x₁ + 80x₂
+
+STEP 4: Identify Constraints
+- Machining: 2x₁ + 4x₂ ≤ 100
+- Assembly: 3x₁ + 2x₂ ≤ 90
+- Packaging: 1x₁ + 2x₂ ≤ 50
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 25:
+  Machining = 100 ≤ 100 ✓
+  Assembly = 50 ≤ 90 ✓
+  Packaging = 50 ≤ 50 ✓
+
+- Test x₁ = 30, x₂ = 0:
+  Machining = 60 ≤ 100 ✓
+  Assembly = 90 ≤ 90 ✓
+  Packaging = 30 ≤ 50 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 60x₁ + 80x₂
+  Subject to:
+    Machining: 2x₁ + 4x₂ ≤ 100
+    Assembly: 3x₁ + 2x₂ ≤ 90
+    Packaging: x₁ + 2x₂ ≤ 50
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+Step 2: Identify feasible region (intersection of all half-planes)
+Step 3: Find corner points:
+  - (0, 0)
+  - (0, 25)
+  - (20, 15)
+  - (30, 0)
+  - (0, 0) is also a corner
+
+Step 4: Evaluate objective at each corner:
+  - (0, 0): Z = 0
+  - (0, 25): Z = 60(0) + 80(25) = ₹2,000
+  - (20, 15): Z = 60(20) + 80(15) = 1,200 + 1,200 = ₹2,400
+  - (30, 0): Z = 60(30) + 80(0) = ₹1,800
+
+Step 5: Optimal solution: (20, 15) with profit = ₹2,400
+
+4. INTERPRETATION
+-----------------
+- Produce 20 units of Product X and 15 units of Product Y.
+- Total profit = ₹2,400.
+- Resource usage at optimum:
+  - Machining: 2(20) + 4(15) = 40 + 60 = 100 hrs (fully used)
+  - Assembly: 3(20) + 2(15) = 60 + 30 = 90 hrs (fully used)
+  - Packaging: 20 + 30 = 50 hrs (fully used)
+  - All resources are binding!
+
+5. WHAT WE LEARN
+----------------
+- All three resources are fully used at the optimum.
+- Profit contribution: X = ₹60/unit, Y = ₹80/unit.
+- The optimal solution occurs at the intersection of Machining and Assembly constraints.
+- The Packaging constraint is also binding at this point.
+
+6. KEY TAKEAWAYS
+-----------------
+- Profit maximization problems often involve selecting the optimal mix.
+- The graphical method works for 2-variable problems.
+- Multiple constraints can be binding at the optimal solution.
+- The optimal solution occurs at a corner point of the feasible region.
+
+================================================================================
+End of Topic 9 Notes
+================================================================================

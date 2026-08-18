@@ -1,0 +1,192 @@
+================================================================================
+TOPIC 12: WORKED EXAMPLE 6 – RAW-MATERIAL CONSTRAINT PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces two products: Product P and Product Q.
+The company uses three raw materials: Material X, Material Y, and Material Z.
+
+Raw material requirements per unit:
+              Product P   Product Q   Available
+Material X       3 kg        2 kg       180 kg
+Material Y       2 kg        4 kg       160 kg
+Material Z       1 kg        3 kg       120 kg
+
+Profit per unit: Product P = ₹120, Product Q = ₹100
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize profit
+- Products: P and Q (2 products)
+- Resources: 3 raw materials (X, Y, Z)
+- No demand constraints
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Product P produced
+- x₂ = number of units of Product Q produced
+
+STEP 3: Identify the Objective
+- Profit per unit: P = ₹120, Q = ₹100
+- Maximize Z = 120x₁ + 100x₂
+
+STEP 4: Identify Constraints
+- Material X: 3x₁ + 2x₂ ≤ 180
+- Material Y: 2x₁ + 4x₂ ≤ 160
+- Material Z: 1x₁ + 3x₂ ≤ 120
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 40:
+  Material X = 80 ≤ 180 ✓
+  Material Y = 160 ≤ 160 ✓
+  Material Z = 120 ≤ 120 ✓
+
+- Test x₁ = 40, x₂ = 20:
+  Material X = 120 + 40 = 160 ≤ 180 ✓
+  Material Y = 80 + 80 = 160 ≤ 160 ✓
+  Material Z = 40 + 60 = 100 ≤ 120 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 120x₁ + 100x₂
+  Subject to:
+    Material X: 3x₁ + 2x₂ ≤ 180
+    Material Y: 2x₁ + 4x₂ ≤ 160
+    Material Z: x₁ + 3x₂ ≤ 120
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Material X: 3x₁ + 2x₂ = 180 → x₂ = 90 - 1.5x₁
+- Material Y: 2x₁ + 4x₂ = 160 → x₂ = 40 - 0.5x₁
+- Material Z: x₁ + 3x₂ = 120 → x₂ = 40 - (1/3)x₁
+
+Step 2: Identify feasible region
+Step 3: Find corner points:
+  - (0, 0)
+  - (0, 40)
+  - (30, 30)  [Intersection of X and Y]
+  - (40, 20)  [Intersection of Y and Z]
+  - (60, 0)   [Intersection of X and x₂ axis]
+
+Step 4: Evaluate objective at each corner:
+  - (0, 0): Z = 0
+  - (0, 40): Z = 120(0) + 100(40) = 4,000
+  - (30, 30): Z = 120(30) + 100(30) = 3,600 + 3,000 = 6,600
+  - (40, 20): Z = 120(40) + 100(20) = 4,800 + 2,000 = 6,800
+  - (60, 0): Z = 120(60) + 100(0) = 7,200
+
+Wait! Let me verify the corner points more carefully.
+
+Actually, let me recalculate properly:
+
+Constraints:
+1. Material X: 3x₁ + 2x₂ = 180
+2. Material Y: 2x₁ + 4x₂ = 160
+3. Material Z: x₁ + 3x₂ = 120
+
+Corner points:
+- (0,0): origin
+- Intersection of X and Y:
+  3x₁ + 2x₂ = 180
+  2x₁ + 4x₂ = 160 → divide by 2: x₁ + 2x₂ = 80
+  Solve: From X: 3x₁ + 2x₂ = 180
+  From Y: 2x₁ + 4x₂ = 160
+  Multiply Y by 1.5: 3x₁ + 6x₂ = 240
+  Subtract: 4x₂ = 60 → x₂ = 15
+  Then: 3x₁ + 2(15) = 180 → 3x₁ + 30 = 180 → 3x₁ = 150 → x₁ = 50
+  So (50, 15) - but wait, check Z constraint: x₁ + 3x₂ = 50 + 45 = 95 ≤ 120 ✓
+  So (50, 15) is a corner.
+
+- Intersection of Y and Z:
+  2x₁ + 4x₂ = 160
+  x₁ + 3x₂ = 120
+  From Z: x₁ = 120 - 3x₂
+  Substitute: 2(120 - 3x₂) + 4x₂ = 160
+  240 - 6x₂ + 4x₂ = 160
+  -2x₂ = -80 → x₂ = 40
+  Then: x₁ = 120 - 3(40) = 120 - 120 = 0
+  So (0, 40) - but this is the same as the Y-intercept.
+
+- Intersection of X and Z:
+  3x₁ + 2x₂ = 180
+  x₁ + 3x₂ = 120
+  From Z: x₁ = 120 - 3x₂
+  Substitute: 3(120 - 3x₂) + 2x₂ = 180
+  360 - 9x₂ + 2x₂ = 180
+  -7x₂ = -180 → x₂ = 25.71
+  Then: x₁ = 120 - 3(25.71) = 120 - 77.14 = 42.86
+  So (42.86, 25.71) - check Y constraint: 2(42.86) + 4(25.71) = 85.71 + 102.86 = 188.57 ≤ 160 ✗
+  So (42.86, 25.71) is infeasible!
+
+- Intersection of X and x₂=0: 3x₁ = 180 → x₁ = 60 → (60,0)
+- Intersection of Y and x₁=0: 4x₂ = 160 → x₂ = 40 → (0,40)
+
+Now let me find the feasible region corners:
+- (0,0)
+- (0,40) [from Y with x₁=0]
+- (50,15) [intersection of X and Y]
+- (60,0) [from X with x₂=0]
+
+Check all corners against Z constraint:
+- (0,40): x₁ + 3x₂ = 0 + 120 = 120 ≤ 120 ✓
+- (50,15): x₁ + 3x₂ = 50 + 45 = 95 ≤ 120 ✓
+- (60,0): x₁ + 3x₂ = 60 + 0 = 60 ≤ 120 ✓
+
+Now evaluate objective:
+- (0,0): Z = 0
+- (0,40): Z = 120(0) + 100(40) = 4,000
+- (50,15): Z = 120(50) + 100(15) = 6,000 + 1,500 = 7,500
+- (60,0): Z = 120(60) + 100(0) = 7,200
+
+Optimal solution: (50, 15) with profit = ₹7,500
+
+4. INTERPRETATION
+-----------------
+- Produce 50 units of Product P and 15 units of Product Q.
+- Total profit = ₹7,500.
+- Resource usage at optimum:
+  - Material X: 3(50) + 2(15) = 150 + 30 = 180 kg (fully used)
+  - Material Y: 2(50) + 4(15) = 100 + 60 = 160 kg (fully used)
+  - Material Z: 1(50) + 3(15) = 50 + 45 = 95 kg (slack: 25 kg)
+
+5. KEY INSIGHTS
+---------------
+- Materials X and Y are binding (fully used).
+- Material Z has slack (25 kg unused).
+- Product P is more profitable per kg of Material X (₹40/kg) vs Product Q (₹50/kg).
+- Product P is more profitable per kg of Material Y (₹60/kg) vs Product Q (₹25/kg).
+- The optimal solution balances the use of all three materials.
+
+6. RAW-MATERIAL CONSTRAINTS IN PRODUCTION
+------------------------------------------
+- Raw materials are the physical inputs needed for production.
+- They are often the most critical constraints in manufacturing.
+- Different products require different material compositions.
+- Material constraints often have slack or are binding depending on the product mix.
+
+7. WHAT WE LEARN
+----------------
+- How to handle multiple raw-material constraints.
+- How materials with different availability affect the product mix.
+- The importance of checking material usage at the optimum.
+- How to identify which materials are binding.
+
+8. KEY TAKEAWAYS
+-----------------
+- Raw-material constraints are common in manufacturing.
+- Multiple materials may be binding or have slack.
+- The optimal product mix balances material usage across all materials.
+- Material constraints often interact with each other.
+
+================================================================================
+End of Topic 12 Notes
+================================================================================

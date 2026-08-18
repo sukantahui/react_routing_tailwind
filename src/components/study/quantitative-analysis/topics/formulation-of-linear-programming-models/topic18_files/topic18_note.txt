@@ -1,0 +1,150 @@
+================================================================================
+TOPIC 18: WORKED EXAMPLE 12 – WORKFORCE ALLOCATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A company needs to assign workers to three shifts (Morning, Evening, Night)
+to meet minimum staffing requirements.
+
+The company has two types of workers:
+- Full-time workers: can work any shift, cost ₹1,200 per shift
+- Part-time workers: can only work Morning and Evening shifts, cost ₹800 per shift
+
+Minimum staff requirements per shift:
+- Morning: 8 workers
+- Evening: 6 workers
+- Night: 4 workers
+
+The company has available:
+- Full-time workers: 10
+- Part-time workers: 8
+
+The company wants to minimize total labor cost.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total labor cost
+- Worker types: Full-time, Part-time
+- Shifts: Morning, Evening, Night
+- Requirements: Minimum staff per shift
+- Availability: Max workers of each type
+
+STEP 2: Identify Decision Variables
+- x₁ = number of full-time workers assigned to Morning
+- x₂ = number of full-time workers assigned to Evening
+- x₃ = number of full-time workers assigned to Night
+- x₄ = number of part-time workers assigned to Morning
+- x₅ = number of part-time workers assigned to Evening
+
+(Note: Part-time cannot work Night)
+
+STEP 3: Identify the Objective
+- Cost per shift: Full-time = ₹1,200, Part-time = ₹800
+- Minimize Z = 1200(x₁ + x₂ + x₃) + 800(x₄ + x₅)
+
+STEP 4: Identify Constraints
+- Morning staffing: x₁ + x₄ ≥ 8
+- Evening staffing: x₂ + x₅ ≥ 6
+- Night staffing: x₃ ≥ 4
+- Full-time availability: x₁ + x₂ + x₃ ≤ 10
+- Part-time availability: x₄ + x₅ ≤ 8
+- Non-negativity: all variables ≥ 0 (integer not required)
+
+STEP 5: Add Non-negativity
+- All xᵢ ≥ 0
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  Full-time: Morning=4, Evening=2, Night=4 (total 10)
+  Part-time: Morning=4, Evening=4 (total 8)
+  Check: Morning=8 ✓, Evening=6 ✓, Night=4 ✓
+  Cost = 1200(10) + 800(8) = 12,000 + 6,400 = 18,400
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 1200(x₁ + x₂ + x₃) + 800(x₄ + x₅)
+  Subject to:
+    Morning: x₁ + x₄ ≥ 8
+    Evening: x₂ + x₅ ≥ 6
+    Night: x₃ ≥ 4
+    Full-time: x₁ + x₂ + x₃ ≤ 10
+    Part-time: x₄ + x₅ ≤ 8
+    x₁, x₂, x₃, x₄, x₅ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 5-variable LP. We can solve using simplex or by reasoning.
+
+Since full-time workers are more expensive (₹1,200 vs ₹800), we want to use
+as many part-time workers as possible, but they can only work Morning and Evening.
+
+Part-time availability is 8, and part-time can cover Morning and Evening.
+
+Morning + Evening demand = 8 + 6 = 14.
+If we use all 8 part-time workers, they can cover at most 8 of those 14 shifts,
+leaving 6 shifts to be covered by full-time.
+
+Night shift (4) must be covered by full-time workers (since part-time can't work Night).
+
+So full-time needed = 6 (for Morning/Evening) + 4 (for Night) = 10 full-time workers.
+
+This uses all 10 full-time workers and all 8 part-time workers.
+
+Cost = 10 × 1,200 + 8 × 800 = 12,000 + 6,400 = 18,400.
+
+Optimal allocation:
+- Full-time: Morning=0, Evening=6, Night=4 (total 10)
+- Part-time: Morning=8, Evening=0 (total 8)
+
+Check: Morning = 0+8=8 ✓, Evening = 6+0=6 ✓, Night=4 ✓.
+Cost = 1200(0+6+4) + 800(8+0) = 1200(10) + 800(8) = 18,400.
+
+But we can also have multiple optimal solutions. For example:
+- Full-time: Morning=2, Evening=4, Night=4 (total 10)
+- Part-time: Morning=6, Evening=2 (total 8)
+Morning=8, Evening=6, Night=4 ✓, cost same.
+
+So there are multiple optimal solutions.
+
+4. INTERPRETATION
+-----------------
+- The company should use all available workers (10 full-time, 8 part-time).
+- Total cost = ₹18,400.
+- Part-time workers should cover as much of the Morning/Evening demand as possible.
+- Full-time workers cover the Night shift and the remaining Morning/Evening shifts.
+- Multiple optimal allocations exist.
+
+5. KEY INSIGHTS
+---------------
+- Workforce allocation problems involve assigning workers to shifts or tasks.
+- Different worker types have different costs and availability.
+- Minimum requirements must be met.
+- The optimal solution balances cost and availability.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Hospital staff scheduling.
+- Customer service center shift planning.
+- Manufacturing shift assignment.
+- Retail store staffing.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate workforce allocation problems.
+- How to handle different worker types with different costs and constraints.
+- How to meet minimum staffing requirements.
+- How to identify multiple optimal solutions.
+
+8. KEY TAKEAWAYS
+-----------------
+- Workforce allocation is a classic LP application.
+- Different worker types have different costs and availability.
+- Minimum requirements must be met.
+- The optimal solution often uses all available workers.
+
+================================================================================
+End of Topic 18 Notes
+================================================================================

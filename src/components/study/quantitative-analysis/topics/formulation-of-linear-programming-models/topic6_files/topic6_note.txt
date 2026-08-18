@@ -1,0 +1,100 @@
+================================================================================
+TOPIC 6: STEP-BY-STEP PROCEDURE FOR FORMULATING AN LP MODEL
+================================================================================
+
+1. INTRODUCTION
+---------------
+Formulating a Linear Programming model is the process of translating a real-world
+problem into a mathematical representation. This is a critical skill that requires
+practice and attention to detail. A well-formulated model is the foundation for
+finding the optimal solution.
+
+2. THE 7-STEP PROCEDURE
+------------------------
+Step 1: READ AND UNDERSTAND THE PROBLEM
+  - Identify the overall objective (max or min).
+  - List all resources, constraints, and requirements.
+  - Underline key phrases (e.g., "at most", "at least", "exactly").
+
+Step 2: DEFINE DECISION VARIABLES
+  - Give each variable a clear name and units.
+  - Use descriptive names like x₁, x₂ or x_A, x_B.
+  - State what each variable represents.
+
+Step 3: DETERMINE THE OBJECTIVE FUNCTION
+  - Decide whether to maximize or minimize.
+  - Identify the contribution (coefficient) of each variable.
+  - Write the linear expression.
+
+Step 4: IDENTIFY ALL CONSTRAINTS
+  - List every limitation: resources, demand, policies.
+  - For each, determine the variables that affect it.
+  - Write the linear inequality (≤, ≥, =) with the correct RHS.
+
+Step 5: ADD NON-NEGATIVITY RESTRICTIONS
+  - For every variable, add x ≥ 0.
+  - If a variable is free (unrestricted), transform it.
+
+Step 6: REVIEW THE MODEL
+  - Check consistency: units, signs, and logic.
+  - Test with a feasible point.
+  - Ensure all constraints are included.
+
+Step 7: DOCUMENT AND PRESENT
+  - Clearly label objective and constraints.
+  - Write the model in a clean, readable format.
+  - Include assumptions.
+
+3. EXAMPLE WALKTHROUGH
+-----------------------
+Problem: A factory produces two products (A and B). Each product requires labor
+and material. Product A: 2 hours labor, 3 kg material, profit $5. Product B:
+4 hours labor, 1 kg material, profit $3. Available: 120 labor hours, 80 kg
+material. Demand: at least 10 units of A. Formulate an LP model to maximize profit.
+
+Solution:
+Step 1: Objective: Maximize profit.
+Step 2: Variables: x₁ = units of A, x₂ = units of B.
+Step 3: Objective: Max Z = 5x₁ + 3x₂.
+Step 4: Constraints:
+  Labor: 2x₁ + 4x₂ ≤ 120
+  Material: 3x₁ + 1x₂ ≤ 80
+  Demand: x₁ ≥ 10
+Step 5: Non-negativity: x₁ ≥ 0, x₂ ≥ 0.
+Step 6: Review: Units consistent; all variables non-negative; feasible point e.g., x₁=10, x₂=20 gives labor=100≤120, material=50≤80, demand met.
+Step 7: Present the model clearly.
+
+4. TIPS & TRICKS
+-----------------
+- Start with the objective; it sets the direction.
+- Read the problem multiple times.
+- Underline key phrases to catch constraints.
+- Use a table to organize variables, coefficients, and RHS.
+- Check for hidden constraints (e.g., production cannot exceed demand).
+- Validate the model with a simple feasible solution.
+
+5. COMMON MISTAKES
+-------------------
+- Skipping the problem understanding step.
+- Defining vague or ambiguous variables.
+- Forgetting constraints or using wrong direction.
+- Inconsistent units.
+- Not checking if the model is feasible.
+
+6. BEST PRACTICES
+------------------
+- Write the model in a standard format.
+- Label all parts clearly.
+- Document assumptions.
+- Test with extreme values.
+- Review with others.
+
+7. SUMMARY
+------------
+Formulating an LP model is a skill that improves with practice. Follow the steps
+systematically, and always double-check your work. A good model is clear, complete,
+and solvable.
+
+================================================================================
+End of Topic 6 Notes
+================================================================================

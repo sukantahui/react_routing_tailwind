@@ -1,0 +1,248 @@
+================================================================================
+TOPIC 26: WORKED EXAMPLE 20 – PROBLEM INVOLVING BOTH MINIMUM AND MAXIMUM REQUIREMENTS
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces two products: Product A and Product B.
+The company has three resources that constrain production:
+- Labor: 200 hours
+- Machine: 150 hours
+- Raw Material: 180 units
+
+Resource requirements per unit:
+              Product A   Product B   Available
+Labor (hrs)       3           4         200
+Machine (hrs)     2           3         150
+Material (units)  4           2         180
+
+Profit per unit: Product A = ₹45, Product B = ₹55
+
+Additional requirements:
+- Contract requires at least 15 units of Product A
+- Market demand allows at most 35 units of Product A
+- Contract requires at least 10 units of Product B
+- Market demand allows at most 30 units of Product B
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total profit
+- Products: A and B (2 products)
+- Resources: Labor, Machine, Material (3 resources)
+- Minimums: A ≥ 15, B ≥ 10
+- Maximums: A ≤ 35, B ≤ 30
+
+STEP 2: Identify Decision Variables
+- x₁ = units of Product A produced
+- x₂ = units of Product B produced
+
+STEP 3: Identify the Objective
+- Profit: A = ₹45, B = ₹55
+- Maximize Z = 45x₁ + 55x₂
+
+STEP 4: Identify Constraints
+- Labor: 3x₁ + 4x₂ ≤ 200
+- Machine: 2x₁ + 3x₂ ≤ 150
+- Material: 4x₁ + 2x₂ ≤ 180
+- Minimum A: x₁ ≥ 15
+- Maximum A: x₁ ≤ 35
+- Minimum B: x₂ ≥ 10
+- Maximum B: x₂ ≤ 30
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered by minimums)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 20, x₂ = 15
+  Labor = 60+60 = 120 ≤ 200 ✓
+  Machine = 40+45 = 85 ≤ 150 ✓
+  Material = 80+30 = 110 ≤ 180 ✓
+  Min A = 20 ≥ 15 ✓, Max A = 20 ≤ 35 ✓
+  Min B = 15 ≥ 10 ✓, Max B = 15 ≤ 30 ✓
+  Profit = 45(20)+55(15) = 900+825 = ₹1,725
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 45x₁ + 55x₂
+  Subject to:
+    Labor: 3x₁ + 4x₂ ≤ 200
+    Machine: 2x₁ + 3x₂ ≤ 150
+    Material: 4x₁ + 2x₂ ≤ 180
+    Min A: x₁ ≥ 15
+    Max A: x₁ ≤ 35
+    Min B: x₂ ≥ 10
+    Max B: x₂ ≤ 30
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Labor: 3x₁ + 4x₂ = 200 → x₂ = 50 - 0.75x₁
+- Machine: 2x₁ + 3x₂ = 150 → x₂ = 50 - 0.667x₁
+- Material: 4x₁ + 2x₂ = 180 → x₂ = 90 - 2x₁
+- Min A: x₁ = 15
+- Max A: x₁ = 35
+- Min B: x₂ = 10
+- Max B: x₂ = 30
+
+Step 2: Identify feasible region (intersection of all constraints)
+Step 3: Find corner points of feasible region:
+
+The feasible region is bounded by:
+- Min A: x₁ ≥ 15, Max A: x₁ ≤ 35
+- Min B: x₂ ≥ 10, Max B: x₂ ≤ 30
+- The three resource constraints.
+
+Let me find the intersection points:
+
+1. At x₁ = 15 (Min A):
+   - Labor: 3(15)+4x₂ ≤ 200 → 45+4x₂ ≤ 200 → 4x₂ ≤ 155 → x₂ ≤ 38.75
+   - Machine: 2(15)+3x₂ ≤ 150 → 30+3x₂ ≤ 150 → 3x₂ ≤ 120 → x₂ ≤ 40
+   - Material: 4(15)+2x₂ ≤ 180 → 60+2x₂ ≤ 180 → 2x₂ ≤ 120 → x₂ ≤ 60
+   - Min B: x₂ ≥ 10, Max B: x₂ ≤ 30
+   - So with x₁ = 15, x₂ ≤ 30 (Max B is binding)
+   - Point: (15, 30)
+
+2. At x₁ = 35 (Max A):
+   - Labor: 3(35)+4x₂ ≤ 200 → 105+4x₂ ≤ 200 → 4x₂ ≤ 95 → x₂ ≤ 23.75
+   - Machine: 2(35)+3x₂ ≤ 150 → 70+3x₂ ≤ 150 → 3x₂ ≤ 80 → x₂ ≤ 26.67
+   - Material: 4(35)+2x₂ ≤ 180 → 140+2x₂ ≤ 180 → 2x₂ ≤ 40 → x₂ ≤ 20
+   - Min B: x₂ ≥ 10, Max B: x₂ ≤ 30
+   - So with x₁ = 35, x₂ ≤ 20 (Material is binding)
+   - Point: (35, 20)
+
+3. At x₂ = 10 (Min B):
+   - Labor: 3x₁+4(10) ≤ 200 → 3x₁+40 ≤ 200 → 3x₁ ≤ 160 → x₁ ≤ 53.33
+   - Machine: 2x₁+3(10) ≤ 150 → 2x₁+30 ≤ 150 → 2x₁ ≤ 120 → x₁ ≤ 60
+   - Material: 4x₁+2(10) ≤ 180 → 4x₁+20 ≤ 180 → 4x₁ ≤ 160 → x₁ ≤ 40
+   - Min A: x₁ ≥ 15, Max A: x₁ ≤ 35
+   - So with x₂ = 10, x₁ ≤ 35 (Max A is binding)
+   - Point: (35, 10)
+
+4. At x₂ = 30 (Max B):
+   - Labor: 3x₁+4(30) ≤ 200 → 3x₁+120 ≤ 200 → 3x₁ ≤ 80 → x₁ ≤ 26.67
+   - Machine: 2x₁+3(30) ≤ 150 → 2x₁+90 ≤ 150 → 2x₁ ≤ 60 → x₁ ≤ 30
+   - Material: 4x₁+2(30) ≤ 180 → 4x₁+60 ≤ 180 → 4x₁ ≤ 120 → x₁ ≤ 30
+   - Min A: x₁ ≥ 15, Max A: x₁ ≤ 35
+   - So with x₂ = 30, x₁ ≤ 26.67 (Labor is binding)
+   - Point: (26.67, 30)
+
+5. Intersection of Labor and Machine:
+   3x₁ + 4x₂ = 200
+   2x₁ + 3x₂ = 150
+   Multiply Labor by 3: 9x₁ + 12x₂ = 600
+   Multiply Machine by 4: 8x₁ + 12x₂ = 600
+   Subtract: x₁ = 0, then x₂ = 50
+   (0, 50) infeasible due to Min A and Max B.
+
+6. Intersection of Labor and Material:
+   3x₁ + 4x₂ = 200
+   4x₁ + 2x₂ = 180
+   Multiply Labor by 2: 6x₁ + 8x₂ = 400
+   Multiply Material by 3: 12x₁ + 6x₂ = 540
+   Subtract: 6x₁ - 2x₂ = -140 → 3x₁ - x₂ = -70 → x₂ = 3x₁ + 70
+   Substitute: 3x₁ + 4(3x₁+70) = 200 → 3x₁ + 12x₁ + 280 = 200 → 15x₁ = -80 → x₁ negative.
+   No intersection in feasible region.
+
+7. Intersection of Machine and Material:
+   2x₁ + 3x₂ = 150
+   4x₁ + 2x₂ = 180
+   Multiply Machine by 2: 4x₁ + 6x₂ = 300
+   Subtract Material: 4x₂ = 120 → x₂ = 30
+   Then: 2x₁ + 3(30) = 150 → 2x₁ + 90 = 150 → 2x₁ = 60 → x₁ = 30
+   (30, 30) → check Labor: 3(30)+4(30)=90+120=210 > 200 ✗ (infeasible)
+
+8. Intersection of Labor with x₂ = 30 (Max B):
+   3x₁ + 4(30) = 200 → 3x₁ + 120 = 200 → 3x₁ = 80 → x₁ = 26.67
+   Point: (26.67, 30)
+
+9. Intersection of Material with x₁ = 35 (Max A):
+   4(35) + 2x₂ = 180 → 140 + 2x₂ = 180 → 2x₂ = 40 → x₂ = 20
+   Point: (35, 20)
+
+10. Intersection of Labor with x₂ = 10 (Min B):
+    3x₁ + 4(10) = 200 → 3x₁ + 40 = 200 → 3x₁ = 160 → x₁ = 53.33
+    But Max A caps at 35, so (35, 10) is the corner.
+
+11. Intersection of Material with x₂ = 10 (Min B):
+    4x₁ + 2(10) = 180 → 4x₁ + 20 = 180 → 4x₁ = 160 → x₁ = 40
+    But Max A caps at 35, so (35, 10) is the corner.
+
+12. Intersection of Labor with x₁ = 15 (Min A):
+    3(15) + 4x₂ = 200 → 45 + 4x₂ = 200 → 4x₂ = 155 → x₂ = 38.75
+    But Max B caps at 30, so (15, 30) is the corner.
+
+13. Intersection of Machine with x₁ = 15 (Min A):
+    2(15) + 3x₂ = 150 → 30 + 3x₂ = 150 → 3x₂ = 120 → x₂ = 40
+    But Max B caps at 30, so (15, 30) is the corner.
+
+14. Intersection of Material with x₁ = 15 (Min A):
+    4(15) + 2x₂ = 180 → 60 + 2x₂ = 180 → 2x₂ = 120 → x₂ = 60
+    But Max B caps at 30, so (15, 30) is the corner.
+
+15. Intersection of Machine with x₂ = 30 (Max B):
+    2x₁ + 3(30) = 150 → 2x₁ + 90 = 150 → 2x₁ = 60 → x₁ = 30
+    (30, 30) infeasible due to Labor.
+
+So the feasible corner points are:
+(15, 10), (15, 30), (26.67, 30), (35, 20), (35, 10)
+
+Step 4: Evaluate objective at each corner:
+- (15, 10): Z = 45(15)+55(10) = 675+550 = ₹1,225
+- (15, 30): Z = 45(15)+55(30) = 675+1,650 = ₹2,325
+- (26.67, 30): Z = 45(26.67)+55(30) = 1,200+1,650 = ₹2,850
+- (35, 20): Z = 45(35)+55(20) = 1,575+1,100 = ₹2,675
+- (35, 10): Z = 45(35)+55(10) = 1,575+550 = ₹2,125
+
+Step 5: Optimal solution: (26.67, 30) with profit = ₹2,850
+
+4. INTERPRETATION
+-----------------
+- Produce 26.67 units of Product A and 30 units of Product B.
+- Total profit = ₹2,850.
+- Resource usage at optimum:
+  - Labor: 3(26.67)+4(30) = 80+120 = 200 (fully used)
+  - Machine: 2(26.67)+3(30) = 53.33+90 = 143.33 (slack: 6.67 hours)
+  - Material: 4(26.67)+2(30) = 106.67+60 = 166.67 (slack: 13.33 units)
+  - Min A: 26.67 ≥ 15 (satisfied)
+  - Max A: 26.67 ≤ 35 (slack: 8.33 units)
+  - Min B: 30 ≥ 10 (satisfied)
+  - Max B: 30 = 30 (binding)
+- Labor and Max B are binding; others have slack.
+
+5. KEY INSIGHTS
+---------------
+- Both minimum and maximum requirements must be respected.
+- In this case, Max B is binding, but Min A, Min B, and Max A are not.
+- Labor is the binding resource constraint.
+- The optimal solution balances all constraints.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Production planning with contractual obligations and market limits.
+- Manufacturing with both minimum order quantities and maximum demand.
+- Resource allocation with policy constraints (minimums and maximums).
+- Strategic production planning with capacity and demand constraints.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate problems with both minimum and maximum requirements.
+- How to handle lower and upper bounds simultaneously.
+- How to identify which bounds are binding.
+- How to optimize with multiple constraint types.
+
+8. KEY TAKEAWAYS
+-----------------
+- Both minimums and maximums are common in real-world production.
+- Some bounds may be binding, others may have slack.
+- The optimal solution balances all constraints.
+- Understanding which constraints are binding guides decision-making.
+
+================================================================================
+End of Topic 26 Notes
+================================================================================

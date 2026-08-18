@@ -1,0 +1,98 @@
+================================================================================
+TOPIC 33: DISTINGUISHING OBJECTIVE FUNCTIONS FROM CONSTRAINTS
+================================================================================
+
+1. INTRODUCTION
+---------------
+One of the most fundamental skills in LP formulation is distinguishing between
+the objective function and constraints. This topic provides a clear framework
+for identifying which parts of a word problem belong to the objective and which
+belong to the constraints.
+
+2. OBJECTIVE FUNCTION VS CONSTRAINTS
+------------------------------------
+Objective Function:
+- What you want to optimize (maximize or minimize)
+- A single linear expression
+- Contains coefficients that represent contributions (profit, cost, etc.)
+- Answer: "What are we trying to achieve?"
+
+Constraints:
+- What limits your decisions
+- Multiple inequalities or equalities
+- Contain coefficients that represent resource usage, requirements, etc.
+- Answer: "What restrictions must we respect?"
+
+3. KEY CHARACTERISTICS
+----------------------
+Objective Function:
+- Always has a maximize or minimize statement
+- Usually appears at the beginning of the model
+- Has no inequality sign (just expression)
+- Variables appear with coefficients representing contribution per unit
+
+Constraints:
+- Always have inequality signs (≤, ≥, =) or equality signs
+- Usually appear after the objective
+- Have a Right Hand Side (RHS) value
+- Variables appear with coefficients representing resource usage
+
+4. HOW TO IDENTIFY THE OBJECTIVE
+--------------------------------
+Look for keywords:
+- "Maximize", "Max", "Increase", "Highest", "Best" → Maximization
+- "Minimize", "Min", "Decrease", "Lowest", "Cheapest" → Minimization
+- "Profit", "Revenue", "Cost", "Time", "Distance" → What is being optimized
+
+Ask: "What is the decision-maker trying to achieve?"
+The answer is the objective.
+
+5. HOW TO IDENTIFY CONSTRAINTS
+------------------------------
+Look for keywords:
+- "At most", "No more than", "Cannot exceed" → ≤ constraints
+- "At least", "No less than", "Minimum" → ≥ constraints
+- "Exactly", "Equal to" → = constraints
+- "Limited to", "Available", "Capacity" → Resource constraints
+
+Ask: "What limits the decision-maker's choices?"
+The answers are the constraints.
+
+6. COMMON MISTAKES
+-------------------
+- Confusing the objective with constraints
+- Including the objective in the constraints section
+- Forgetting the objective entirely
+- Using inequality signs in the objective
+- Not having a clear objective direction (max or min)
+- Including constraints that are actually part of the objective
+
+7. BEST PRACTICES
+------------------
+- Write the objective first, then the constraints
+- Clearly state "Maximize" or "Minimize" before the objective
+- Label constraints clearly
+- Check that the objective has no inequality sign
+- Check that constraints have inequality or equality signs
+- Test with a simple example
+
+8. TIPS & TRICKS
+-----------------
+- The objective answers "What do we want?"
+- Constraints answer "What limits us?"
+- The objective is a single expression; constraints are multiple
+- The objective has coefficients representing value; constraints have coefficients representing usage
+- If it has "≤", "≥", or "=", it's a constraint
+
+9. SUMMARY
+-----------
+Distinguishing between the objective function and constraints is essential for
+correct LP formulation. Remember: the objective is what you want to optimize;
+constraints are the limits you must respect.
+
+"Think about: What are we trying to achieve? That's the objective.
+What limits us? Those are the constraints."
+
+================================================================================
+End of Topic 33 Notes
+================================================================================

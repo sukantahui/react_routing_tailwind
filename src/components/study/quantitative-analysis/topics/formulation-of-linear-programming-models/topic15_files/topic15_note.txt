@@ -1,0 +1,146 @@
+================================================================================
+TOPIC 15: WORKED EXAMPLE 9 – ADVERTISING BUDGET ALLOCATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A marketing manager is planning an advertising campaign using three media channels:
+Television, Radio, and Social Media.
+
+The company has a total advertising budget of ₹100,000.
+The manager wants to maximize total audience reach.
+
+Channel data:
+              Cost per ad   Reach per ad (thousands)   Minimum ads   Maximum ads
+Television    ₹12,000       80                         3             8
+Radio         ₹8,000        50                         2             6
+Social Media  ₹6,000        40                         2             10
+
+The company wants to maximize total audience reach.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total audience reach
+- Channels: TV, Radio, Social Media (3 channels)
+- Budget: ₹100,000
+- Limits: Minimum and maximum ads per channel
+
+STEP 2: Identify Decision Variables
+- x₁ = number of TV advertisements
+- x₂ = number of Radio advertisements
+- x₃ = number of Social Media advertisements
+
+STEP 3: Identify the Objective
+- Reach per ad: TV = 80,000, Radio = 50,000, Social = 40,000
+- Maximize Z = 80x₁ + 50x₂ + 40x₃ (in thousands)
+
+STEP 4: Identify Constraints
+- Budget: 12,000x₁ + 8,000x₂ + 6,000x₃ ≤ 100,000
+- TV min: x₁ ≥ 3, TV max: x₁ ≤ 8
+- Radio min: x₂ ≥ 2, Radio max: x₂ ≤ 6
+- Social min: x₃ ≥ 2, Social max: x₃ ≤ 10
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0 (already covered by lower bounds)
+
+STEP 6: Review and Validate
+- Test x₁ = 3, x₂ = 2, x₃ = 2:
+  Cost = 36,000 + 16,000 + 12,000 = 64,000 ≤ 100,000 ✓
+  Reach = 240,000 + 100,000 + 80,000 = 420,000
+
+- Test x₁ = 8, x₂ = 2, x₃ = 2:
+  Cost = 96,000 + 16,000 + 12,000 = 124,000 ≤ 100,000 ✗
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 80x₁ + 50x₂ + 40x₃
+  Subject to:
+    Budget: 12,000x₁ + 8,000x₂ + 6,000x₃ ≤ 100,000
+    TV: 3 ≤ x₁ ≤ 8
+    Radio: 2 ≤ x₂ ≤ 6
+    Social: 2 ≤ x₃ ≤ 10
+    x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+Since this has 3 variables, we can use the simplex method or solve by
+considering the budget constraint and variable bounds.
+
+Simplify budget constraint (divide by 2,000):
+6x₁ + 4x₂ + 3x₃ ≤ 50
+
+Let's try to maximize reach by allocating budget to channels with
+highest reach per rupee:
+
+Reach per rupee:
+- TV: 80,000 / 12,000 = 6.67 reach per rupee
+- Radio: 50,000 / 8,000 = 6.25 reach per rupee
+- Social: 40,000 / 6,000 = 6.67 reach per rupee
+
+TV and Social have the same efficiency! Radio is slightly lower.
+
+Given the lower bounds, the minimum cost is:
+x₁ = 3, x₂ = 2, x₃ = 2
+Cost = 36,000 + 16,000 + 12,000 = 64,000
+Reach = 240,000 + 100,000 + 80,000 = 420,000
+Remaining budget = 36,000
+
+Remaining budget can buy:
+- TV: 3 ads (36,000 / 12,000 = 3) → reach +240,000
+- Radio: 4.5 ads (36,000 / 8,000 = 4.5) → reach +225,000
+- Social: 6 ads (36,000 / 6,000 = 6) → reach +240,000
+
+Since TV and Social have same efficiency, any combination of TV and Social
+ads using the remaining budget gives the same reach increase.
+
+Solution: Add 3 TV ads (x₁ = 6) or 6 Social ads (x₃ = 8) or any combination.
+
+Optimal: x₁ = 6, x₂ = 2, x₃ = 2
+Cost = 72,000 + 16,000 + 12,000 = 100,000
+Reach = 480,000 + 100,000 + 80,000 = 660,000
+
+Or: x₁ = 3, x₂ = 2, x₃ = 8
+Cost = 36,000 + 16,000 + 48,000 = 100,000
+Reach = 240,000 + 100,000 + 320,000 = 660,000
+
+4. INTERPRETATION
+-----------------
+- Multiple optimal solutions exist.
+- TV and Social Media have the same reach per rupee (6.67).
+- The optimal strategy is to use the full budget.
+- Radio is slightly less efficient (6.25 reach per rupee).
+- Minimum ad requirements ensure all channels are used.
+
+5. KEY INSIGHTS
+---------------
+- Budget allocation problems involve distributing a fixed budget.
+- Minimum and maximum limits add bound constraints.
+- Reach per rupee helps identify the most efficient channels.
+- Multiple optimal solutions may exist.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Marketing budget allocation across channels.
+- Media planning for advertising campaigns.
+- Resource allocation with fixed budget.
+- Portfolio optimization.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate advertising budget allocation problems.
+- How to handle minimum and maximum ad requirements.
+- How to calculate and use reach per rupee.
+- How to identify multiple optimal solutions.
+
+8. KEY TAKEAWAYS
+-----------------
+- Budget constraints are fundamental in advertising problems.
+- Minimum and maximum limits add complexity.
+- Reach per rupee is a key metric for decision-making.
+- Multiple optimal solutions may exist.
+
+================================================================================
+End of Topic 15 Notes
+================================================================================

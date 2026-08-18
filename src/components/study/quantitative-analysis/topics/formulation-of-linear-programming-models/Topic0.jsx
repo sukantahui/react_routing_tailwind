@@ -376,6 +376,566 @@ const Topic0 = () => {
         </div>
       </section>
 
+      {/* =========================================================
+    SECTION 3A: UNDERSTANDING THE FOUR PILLARS WITH AN EXAMPLE
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16 animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-350">
+
+        <div className="flex items-center gap-3 mb-4">
+          <span className="text-2xl">🔍</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            Let's Build an LP Model Step by Step
+          </h2>
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base mb-6">
+          Knowing the four pillars is not enough. The real skill is learning how
+          to convert a real-world problem into a Linear Programming model.
+        </p>
+
+        {/* BIG IDEA */}
+        <div className="mb-6 rounded-2xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900/40 p-5">
+
+          <p className="text-sm text-indigo-800 dark:text-indigo-300 leading-7">
+            <strong>Remember the sequence:</strong>
+            <span className="font-semibold">
+              {" "}Decision Variables → Objective Function → Constraints → Non-Negativity
+            </span>
+          </p>
+
+        </div>
+
+        {/* EXAMPLE */}
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 overflow-hidden">
+
+          {/* Example Header */}
+          <div className="bg-gray-900 dark:bg-black px-5 py-4">
+
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🍰</span>
+
+              <h3 className="font-semibold text-white">
+                Example: A Bakery
+              </h3>
+            </div>
+
+            <p className="mt-2 text-sm text-gray-300 leading-6">
+              A bakery produces cakes and cookies. Both products require limited
+              resources, and the bakery wants to maximize its profit.
+            </p>
+
+          </div>
+
+          <div className="p-5 md:p-6 space-y-6">
+
+            {/* STEP 1 */}
+            <div className="rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-5">
+
+              <div className="flex items-start gap-3">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 flex items-center justify-center font-bold">
+                  1
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Identify the Decision Variables
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+                    First ask:
+                    <strong className="text-gray-900 dark:text-white">
+                      {" "}What do we need to decide?
+                    </strong>
+                  </p>
+
+                  <div className="mt-4 grid sm:grid-cols-2 gap-3">
+
+                    <div className="rounded-lg bg-blue-50 dark:bg-blue-950/30 p-4">
+                      <div className="font-mono font-bold text-blue-700 dark:text-blue-300">
+                        x = number of cakes
+                      </div>
+                    </div>
+
+                    <div className="rounded-lg bg-blue-50 dark:bg-blue-950/30 p-4">
+                      <div className="font-mono font-bold text-blue-700 dark:text-blue-300">
+                        y = number of cookies
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="mt-4 border-l-4 border-blue-500 pl-4">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <strong className="text-gray-900 dark:text-white">
+                        Key idea:
+                      </strong>{" "}
+                      Decision variables are the quantities that we are free to
+                      choose.
+                    </p>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* STEP 2 */}
+            <div className="rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-5">
+
+              <div className="flex items-start gap-3">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300 flex items-center justify-center font-bold">
+                  2
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Identify the Objective
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+                    Now ask:
+                    <strong className="text-gray-900 dark:text-white">
+                      {" "}What are we trying to achieve?
+                    </strong>
+                  </p>
+
+                  <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                    Suppose:
+                  </p>
+
+                  <ul className="mt-2 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+
+                    <li className="flex gap-2">
+                      <span className="text-green-500">✓</span>
+                      Cake gives ₹100 profit.
+                    </li>
+
+                    <li className="flex gap-2">
+                      <span className="text-green-500">✓</span>
+                      Cookie gives ₹50 profit.
+                    </li>
+
+                  </ul>
+
+                  <div className="mt-4 rounded-lg bg-green-50 dark:bg-green-950/30 p-4 text-center">
+
+                    <div className="text-xs uppercase tracking-wider text-green-700 dark:text-green-400 mb-2">
+                      Objective Function
+                    </div>
+
+                    <div className="font-mono text-lg font-bold text-green-800 dark:text-green-300">
+                      Maximize Z = 100x + 50y
+                    </div>
+
+                  </div>
+
+                  <div className="mt-4 border-l-4 border-green-500 pl-4">
+
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      <strong className="text-gray-900 dark:text-white">
+                        Why maximize?
+                      </strong>{" "}
+                      Because the bakery wants the highest possible profit.
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* STEP 3 */}
+            <div className="rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-5">
+
+              <div className="flex items-start gap-3">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full bg-amber-100 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold">
+                  3
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Identify the Constraints
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+                    The bakery cannot produce unlimited cakes and cookies because
+                    its resources are limited.
+                  </p>
+
+                  <div className="mt-4 grid sm:grid-cols-2 gap-3">
+
+                    <div className="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-4">
+
+                      <div className="text-xs text-amber-700 dark:text-amber-400 mb-2">
+                        Flour Constraint
+                      </div>
+
+                      <div className="font-mono font-bold text-amber-800 dark:text-amber-300">
+                        2x + y ≤ 10
+                      </div>
+
+                    </div>
+
+                    <div className="rounded-lg bg-amber-50 dark:bg-amber-950/30 p-4">
+
+                      <div className="text-xs text-amber-700 dark:text-amber-400 mb-2">
+                        Sugar Constraint
+                      </div>
+
+                      <div className="font-mono font-bold text-amber-800 dark:text-amber-300">
+                        x + 2y ≤ 8
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div className="mt-4 border-l-4 border-amber-500 pl-4">
+
+                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-6">
+
+                      <strong className="text-gray-900 dark:text-white">
+                        Why ≤?
+                      </strong>{" "}
+                      Because the bakery can use at most the available amount.
+                      It cannot use more than its available resource.
+
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* STEP 4 */}
+            <div className="rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-5">
+
+              <div className="flex items-start gap-3">
+
+                <div className="w-9 h-9 flex-shrink-0 rounded-full bg-purple-100 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 flex items-center justify-center font-bold">
+                  4
+                </div>
+
+                <div className="flex-1">
+
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Add Non-Negativity Restrictions
+                  </h4>
+
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+                    We cannot produce a negative number of cakes or cookies.
+                  </p>
+
+                  <div className="mt-4 rounded-lg bg-purple-50 dark:bg-purple-950/30 p-4 text-center">
+
+                    <div className="font-mono text-lg font-bold text-purple-800 dark:text-purple-300">
+                      x ≥ 0, y ≥ 0
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* COMPLETE MODEL */}
+            <div className="rounded-xl bg-gray-900 dark:bg-black p-6 text-white">
+
+              <div className="flex items-center gap-2 mb-5">
+
+                <span className="text-xl">🧩</span>
+
+                <h4 className="font-semibold">
+                  Complete Linear Programming Model
+                </h4>
+
+              </div>
+
+              <div className="space-y-3 text-center font-mono text-sm md:text-base">
+
+                <div className="text-green-300">
+                  Maximize Z = 100x + 50y
+                </div>
+
+                <div className="h-px bg-gray-700 my-4" />
+
+                <div className="text-gray-400">
+                  Subject to:
+                </div>
+
+                <div>
+                  2x + y ≤ 10
+                </div>
+
+                <div>
+                  x + 2y ≤ 8
+                </div>
+
+                <div className="pt-2">
+                  x ≥ 0, y ≥ 0
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 3B: UNDERSTANDING INEQUALITY LANGUAGE
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="flex items-center gap-3 mb-4">
+
+          <span className="text-2xl">🔢</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            Understanding Constraint Language
+          </h2>
+
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base mb-6">
+          One of the most important skills in LP is converting ordinary language
+          into mathematical inequalities.
+        </p>
+
+        <div className="grid gap-3">
+
+          {[
+            ["At most 100", "≤ 100", "You cannot exceed 100."],
+            ["Maximum 100", "≤ 100", "The largest allowed value is 100."],
+            ["Cannot exceed 100", "≤ 100", "The value must remain within 100."],
+            ["At least 100", "≥ 100", "The value must be 100 or more."],
+            ["Minimum 100", "≥ 100", "The smallest allowed value is 100."],
+            ["Exactly 100", "= 100", "The value must be precisely 100."],
+          ].map(([phrase, symbol, explanation], index) => (
+
+            <div
+              key={index}
+              className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1.5fr] gap-3 items-center bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl p-4"
+            >
+
+              <div className="font-medium text-gray-900 dark:text-white">
+                {phrase}
+              </div>
+
+              <div className="font-mono font-bold text-lg text-blue-600 dark:text-blue-400">
+                {symbol}
+              </div>
+
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                {explanation}
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+        <div className="mt-5 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 p-5">
+
+          <p className="text-sm text-red-800 dark:text-red-300">
+
+            <strong>⚠️ Be careful:</strong>{" "}
+            "At least" means <strong>≥</strong>, while "at most" means{" "}
+            <strong>≤</strong>.
+
+          </p>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 3C: THE FOUR QUESTIONS
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="rounded-2xl bg-gray-900 dark:bg-black p-6 md:p-8">
+
+          <div className="text-center mb-8">
+
+            <div className="text-2xl mb-2">🧠</div>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              The Four Questions You Should Always Ask
+            </h2>
+
+            <p className="mt-2 text-gray-400 text-sm">
+              Use these questions whenever you encounter an LP word problem.
+            </p>
+
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            {[
+              {
+                number: "01",
+                question: "What do I need to decide?",
+                answer: "Decision Variables",
+              },
+              {
+                number: "02",
+                question: "What am I trying to achieve?",
+                answer: "Objective Function",
+              },
+              {
+                number: "03",
+                question: "What limits or requirements exist?",
+                answer: "Constraints",
+              },
+              {
+                number: "04",
+                question: "Can the variables be negative?",
+                answer: "Non-Negativity",
+              },
+            ].map((item) => (
+
+              <div
+                key={item.number}
+                className="rounded-xl bg-white/5 border border-white/10 p-5"
+              >
+
+                <div className="text-blue-400 font-bold text-sm">
+                  {item.number}
+                </div>
+
+                <h3 className="mt-2 text-white font-semibold">
+                  {item.question}
+                </h3>
+
+                <div className="mt-4 inline-block rounded-lg bg-blue-500/10 border border-blue-500/20 px-3 py-2 text-sm text-blue-300">
+                  → {item.answer}
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+          <div className="mt-8 text-center">
+
+            <p className="text-lg md:text-xl font-bold text-white">
+              Decision
+              <span className="text-blue-400 mx-2">→</span>
+              Objective
+              <span className="text-blue-400 mx-2">→</span>
+              Constraints
+              <span className="text-blue-400 mx-2">→</span>
+              Non-Negativity
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 3D: FROM FORMULATION TO GRAPH
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="rounded-2xl border border-indigo-200 dark:border-indigo-900/40 bg-indigo-50 dark:bg-indigo-950/20 p-6 md:p-8">
+
+          <div className="flex items-start gap-4">
+
+            <div className="text-3xl">
+              📈
+            </div>
+
+            <div>
+
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                What Happens Next?
+              </h2>
+
+              <p className="mt-3 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-7">
+
+                We now know how to formulate an LP model. But writing the equations
+                is only the beginning.
+
+              </p>
+
+              <p className="mt-3 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-7">
+
+                In the next lessons, we will learn how constraints such as{" "}
+
+                <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                  2x + y ≤ 10
+                </span>
+
+                {" "}can be represented on a graph.
+
+              </p>
+
+              <div className="mt-5 flex flex-wrap items-center gap-2 text-sm font-semibold">
+
+                {[
+                  "LP Model",
+                  "Constraint Lines",
+                  "Feasible Region",
+                  "Corner Points",
+                  "Optimal Solution",
+                ].map((item, index, arr) => (
+
+                  <React.Fragment key={item}>
+
+                    <span className="rounded-lg bg-white dark:bg-gray-900 border border-indigo-200 dark:border-indigo-900/50 px-3 py-2 text-indigo-700 dark:text-indigo-300">
+                      {item}
+                    </span>
+
+                    {index < arr.length - 1 && (
+                      <span className="text-indigo-400">
+                        →
+                      </span>
+                    )}
+
+                  </React.Fragment>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* ===== SECTION 4: REAL-WORLD APPLICATIONS ===== */}
       <section className="max-w-5xl mx-auto mb-16 animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-400">
         <div className="flex items-center gap-3 mb-4">

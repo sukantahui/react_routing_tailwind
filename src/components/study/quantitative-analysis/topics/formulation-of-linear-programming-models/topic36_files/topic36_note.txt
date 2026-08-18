@@ -1,0 +1,112 @@
+================================================================================
+TOPIC 36: MAXIMIZATION AND MINIMIZATION PROBLEMS
+================================================================================
+
+1. INTRODUCTION
+---------------
+LP problems come in two flavors: Maximization and Minimization. Understanding
+the difference between these two types of problems is essential for correct
+formulation and solution interpretation.
+
+2. MAXIMIZATION PROBLEMS
+------------------------
+Goal: Find the largest possible value of the objective function.
+Characteristics:
+- Objective: Maximize Z = c₁x₁ + c₂x₂ + ...
+- Keywords: profit, revenue, income, benefit, maximize, increase, largest
+- Constraints: Usually ≤ (resource limits)
+- Feasible region: Bounded from above
+- Optimal solution: At the highest corner point
+
+Examples:
+- Maximize profit
+- Maximize revenue
+- Maximize reach
+- Maximize social impact
+
+3. MINIMIZATION PROBLEMS
+------------------------
+Goal: Find the smallest possible value of the objective function.
+Characteristics:
+- Objective: Minimize Z = c₁x₁ + c₂x₂ + ...
+- Keywords: cost, expense, minimize, decrease, smallest, cheapest
+- Constraints: Usually ≥ (minimum requirements)
+- Feasible region: Bounded from below
+- Optimal solution: At the lowest corner point
+
+Examples:
+- Minimize cost
+- Minimize time
+- Minimize risk
+- Minimize waste
+
+4. KEY DIFFERENCES
+------------------
+Feature           Maximization              Minimization
+Objective         Maximize Z                Minimize Z
+Keywords          Profit, Revenue           Cost, Expense
+Constraints       Usually ≤ (limits)        Usually ≥ (requirements)
+Graph             Highest point             Lowest point
+Interpretation    Best outcome              Least expensive
+
+5. CONVERTING MINIMIZATION TO MAXIMIZATION
+------------------------------------------
+A minimization problem can be converted to maximization:
+- Min Z = c₁x₁ + c₂x₂ + ... is equivalent to Max W = -c₁x₁ - c₂x₂ - ...
+- The optimal x values remain the same
+- The objective values are negatives: Z_min = -W_max
+
+Example:
+Minimize Z = 5x₁ + 3x₂
+Is equivalent to:
+Maximize W = -5x₁ - 3x₂
+Then Z_min = -W_max
+
+6. REAL-WORLD CONTEXT
+----------------------
+Maximization:
+- "We want to increase profit"
+- "We want to maximize output"
+- "We want to maximize return on investment"
+
+Minimization:
+- "We want to reduce costs"
+- "We want to minimize waste"
+- "We want to minimize time"
+
+7. COMMON MISTAKES
+-------------------
+- Using the wrong direction (max vs min)
+- Forgetting to convert minimization to maximization
+- Using ≤ when ≥ is needed (or vice versa)
+- Misinterpreting the optimal solution
+
+8. BEST PRACTICES
+------------------
+- Clearly state the objective direction
+- Check that constraints match the objective
+- Test with simple values
+- Verify the solution makes sense
+- Document the objective direction
+
+9. TIPS & TRICKS
+-----------------
+- "Profit" → Maximize
+- "Cost" → Minimize
+- "At most" → Maximization (≤ constraints)
+- "At least" → Minimization (≥ constraints)
+- When in doubt, test with numbers
+
+10. SUMMARY
+------------
+Maximization and minimization are two sides of the same coin. Both are
+solved using the same LP techniques, but the objective direction and
+constraint types differ. Understanding the difference is essential for
+correct LP formulation.
+
+"Think about: What is the decision-maker trying to achieve? Maximize
+something beneficial or minimize something costly?"
+
+================================================================================
+End of Topic 36 Notes
+================================================================================

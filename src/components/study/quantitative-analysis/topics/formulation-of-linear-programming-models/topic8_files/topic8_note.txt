@@ -1,0 +1,94 @@
+================================================================================
+TOPIC 8: WORKED EXAMPLE 2 – PRODUCT-MIX PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces three products: Product A, Product B, and Product C.
+The company has three limited resources: Labor, Machine Time, and Raw Material.
+
+Resource requirements per unit:
+              Product A   Product B   Product C   Available
+Labor (hrs)       2           3           4         100
+Machine (hrs)     3           2           1          80
+Material (kg)     4           2           3         120
+
+Profit per unit: ₹40, ₹35, ₹50 respectively.
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize profit
+- Products: A, B, C (3 products)
+- Resources: Labor, Machine Time, Raw Material
+- Demand: None specified (unlike Topic7)
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Product A produced
+- x₂ = number of units of Product B produced
+- x₃ = number of units of Product C produced
+
+STEP 3: Identify the Objective
+- Profit per unit: A = ₹40, B = ₹35, C = ₹50
+- Maximize Z = 40x₁ + 35x₂ + 50x₃
+
+STEP 4: Identify Constraints
+- Labor: 2x₁ + 3x₂ + 4x₃ ≤ 100
+- Machine: 3x₁ + 2x₂ + x₃ ≤ 80
+- Material: 4x₁ + 2x₂ + 3x₃ ≤ 120
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 0, x₃ = 20:
+  Labor = 80 ≤ 100 ✓
+  Machine = 20 ≤ 80 ✓
+  Material = 60 ≤ 120 ✓
+  All variables ≥ 0 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 40x₁ + 35x₂ + 50x₃
+  Subject to:
+    Labor: 2x₁ + 3x₂ + 4x₃ ≤ 100
+    Machine: 3x₁ + 2x₂ + x₃ ≤ 80
+    Material: 4x₁ + 2x₂ + 3x₃ ≤ 120
+    x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+3. COMPARISON WITH TOPIC7
+--------------------------
+Feature              Topic7 (Simple)     Topic8 (Product-Mix)
+Products             2                    3
+Resources            2                    3
+Profit per unit      ₹40, ₹25             ₹40, ₹35, ₹50
+Demand constraint    Yes (x₂ ≥ 10)        No
+Complexity           Beginner             Intermediate
+
+4. KEY INSIGHTS
+----------------
+- Product-mix problems involve choosing how much of each product to produce.
+- Multiple resources constrain the production quantities.
+- The objective is to maximize profit from the mix.
+- The optimal solution may produce some products and not others.
+
+5. COMMON MISTAKES
+-------------------
+- Forgetting to include all resource constraints.
+- Using wrong coefficients (swapping resource usage).
+- Not recognizing that some products may be unprofitable to produce.
+- Forgetting non-negativity.
+
+6. KEY TAKEAWAYS
+-----------------
+- Product-mix problems are a natural extension of production problems.
+- More products = more variables, more complexity.
+- The formulation structure remains the same: Variables, Objective, Constraints.
+- Always validate with a simple feasible solution.
+
+================================================================================
+End of Topic 8 Notes
+================================================================================

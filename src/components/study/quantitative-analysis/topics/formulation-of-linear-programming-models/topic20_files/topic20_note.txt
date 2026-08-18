@@ -1,0 +1,206 @@
+================================================================================
+TOPIC 20: WORKED EXAMPLE 14 – AGRICULTURAL PRODUCTION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A farmer has 80 hectares of land and can grow two crops:
+- Crop A: Requires 2 labor-days per hectare, 3 units of fertilizer, and yields ₹45,000 profit per hectare
+- Crop B: Requires 4 labor-days per hectare, 2 units of fertilizer, and yields ₹55,000 profit per hectare
+
+Available resources:
+- Land: 80 hectares
+- Labor: 240 labor-days
+- Fertilizer: 200 units
+
+Additionally, Crop A has a minimum planting requirement of 10 hectares due to contract obligations.
+The farmer wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total profit
+- Crops: Crop A and Crop B (2 crops)
+- Resources: Land (80 ha), Labor (240 days), Fertilizer (200 units)
+- Requirement: Crop A minimum 10 hectares
+
+STEP 2: Identify Decision Variables
+- x₁ = hectares of Crop A
+- x₂ = hectares of Crop B
+
+STEP 3: Identify the Objective
+- Profit per hectare: Crop A = ₹45,000, Crop B = ₹55,000
+- Maximize Z = 45,000x₁ + 55,000x₂
+
+STEP 4: Identify Constraints
+- Land: x₁ + x₂ ≤ 80
+- Labor: 2x₁ + 4x₂ ≤ 240
+- Fertilizer: 3x₁ + 2x₂ ≤ 200
+- Minimum Crop A: x₁ ≥ 10
+- Non-negativity: x₁ ≥ 0, x₂ ≥ 0
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered)
+
+STEP 6: Review and Validate
+- Test x₁ = 20, x₂ = 30:
+  Land = 50 ≤ 80 ✓
+  Labor = 2(20)+4(30) = 40+120 = 160 ≤ 240 ✓
+  Fertilizer = 3(20)+2(30) = 60+60 = 120 ≤ 200 ✓
+  x₁ = 20 ≥ 10 ✓
+
+- Test x₁ = 40, x₂ = 30:
+  Land = 70 ≤ 80 ✓
+  Labor = 2(40)+4(30) = 80+120 = 200 ≤ 240 ✓
+  Fertilizer = 3(40)+2(30) = 120+60 = 180 ≤ 200 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 45,000x₁ + 55,000x₂
+  Subject to:
+    Land: x₁ + x₂ ≤ 80
+    Labor: 2x₁ + 4x₂ ≤ 240
+    Fertilizer: 3x₁ + 2x₂ ≤ 200
+    Minimum A: x₁ ≥ 10
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Land: x₂ = 80 - x₁
+- Labor: x₂ = 60 - 0.5x₁
+- Fertilizer: x₂ = 100 - 1.5x₁
+- Minimum A: x₁ = 10
+
+Step 2: Identify feasible region
+Step 3: Find corner points:
+  - (10, 0)
+  - (10, 50) [Labor limit]
+  - (20, 40) [Labor limit]
+  - (40, 20) [Fertilizer limit]
+  - (66.67, 0) [Fertilizer limit]
+  - (80, 0) [Land limit]
+
+But need to check which ones are actually in the feasible region:
+
+Labor: 2x₁ + 4x₂ ≤ 240 → x₂ ≤ 60 - 0.5x₁
+Fertilizer: 3x₁ + 2x₂ ≤ 200 → x₂ ≤ 100 - 1.5x₁
+Land: x₂ ≤ 80 - x₁
+x₁ ≥ 10
+
+Let me find the intersections:
+
+- Labor and Fertilizer:
+  60 - 0.5x₁ = 100 - 1.5x₁
+  60 + x₁ = 100 → x₁ = 40
+  x₂ = 60 - 0.5(40) = 60 - 20 = 40
+  (40, 40) → check land: 40+40=80 ≤ 80 ✓
+
+- Labor and Land:
+  60 - 0.5x₁ = 80 - x₁ → x₁ = 40
+  x₂ = 60 - 0.5(40) = 40
+  (40, 40) (same point)
+
+- Fertilizer and Land:
+  100 - 1.5x₁ = 80 - x₁ → 100 - 1.5x₁ = 80 - x₁ → 20 = 0.5x₁ → x₁ = 40
+  x₂ = 80 - 40 = 40
+  (40, 40) (same point)
+
+So (40, 40) is where all three constraints intersect!
+
+Other corner points:
+- (10, 50) from Labor with x₁ = 10: x₂ = 60 - 0.5(10) = 55
+  But check fertilizer: 3(10)+2(55) = 30+110 = 140 ≤ 200 ✓
+  Check land: 10+55=65 ≤ 80 ✓
+  So (10, 55) is feasible, not (10, 50).
+
+Let me recalc properly:
+
+Labor: 2x₁ + 4x₂ ≤ 240 → x₂ ≤ 60 - 0.5x₁
+Fertilizer: 3x₁ + 2x₂ ≤ 200 → x₂ ≤ 100 - 1.5x₁
+Land: x₂ ≤ 80 - x₁
+x₁ ≥ 10
+
+Corner points:
+1. x₁ = 10, from Land: x₂ = 80 - 10 = 70 → check Labor: 2(10)+4(70) = 20+280=300 > 240 ✗
+   From Labor: x₂ = 60 - 0.5(10) = 55 → check Fertilizer: 3(10)+2(55) = 30+110 = 140 ≤ 200 ✓
+   So (10, 55)
+
+2. Labor and Fertilizer:
+   60 - 0.5x₁ = 100 - 1.5x₁ → x₁ = 40
+   x₂ = 60 - 0.5(40) = 40 → (40, 40) ✓
+
+3. Labor and Land:
+   60 - 0.5x₁ = 80 - x₁ → x₁ = 40
+   x₂ = 40 → (40, 40) (same)
+
+4. Fertilizer and Land:
+   100 - 1.5x₁ = 80 - x₁ → x₁ = 40
+   x₂ = 40 → (40, 40) (same)
+
+5. Land with x₁ = 10: x₂ = 70 (infeasible due to Labor)
+
+6. x₁ = 10, x₂ = 55: (10, 55)
+
+7. Fertilizer with x₂ = 0: x₁ = 66.67 → (66.67, 0) ✓ (check land: 66.67 ≤ 80 ✓, labor: 2(66.67) = 133.33 ≤ 240 ✓)
+
+8. Labor with x₂ = 0: x₁ = 120 → but land limit x₁ ≤ 80, so (80, 0) ✓
+
+9. Land with x₂ = 0: x₁ = 80 → (80, 0) ✓
+
+10. x₁ = 10, x₂ = 55 already found.
+
+So corner points: (10, 55), (40, 40), (66.67, 0), (80, 0)
+
+Step 4: Evaluate objective at each corner:
+- (10, 55): Z = 45,000(10) + 55,000(55) = 450,000 + 3,025,000 = 3,475,000
+- (40, 40): Z = 45,000(40) + 55,000(40) = 1,800,000 + 2,200,000 = 4,000,000
+- (66.67, 0): Z = 45,000(66.67) + 55,000(0) = 3,000,000
+- (80, 0): Z = 45,000(80) + 55,000(0) = 3,600,000
+
+Step 5: Optimal solution: (40, 40) with profit = ₹4,000,000
+
+4. INTERPRETATION
+-----------------
+- Plant 40 hectares of Crop A and 40 hectares of Crop B.
+- Total profit = ₹4,000,000.
+- Resource usage at optimum:
+  - Land: 40 + 40 = 80 ha (fully used)
+  - Labor: 2(40) + 4(40) = 80 + 160 = 240 days (fully used)
+  - Fertilizer: 3(40) + 2(40) = 120 + 80 = 200 units (fully used)
+  - Minimum A: 40 ≥ 10 (satisfied)
+- All resources are fully used! This is a fully binding solution.
+
+5. KEY INSIGHTS
+---------------
+- All three main constraints (Land, Labor, Fertilizer) are binding.
+- The minimum requirement for Crop A is not binding (40 > 10).
+- Crop B has higher profit per hectare but uses more labor.
+- Crop A uses more fertilizer but less labor.
+- The optimal mix balances all resources perfectly.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Farm planning and resource allocation.
+- Agricultural extension services.
+- Government agricultural policy.
+- Sustainable farming practices.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate agricultural production problems.
+- How to handle minimum planting requirements.
+- How to solve with multiple binding constraints.
+- The importance of resource balance.
+
+8. KEY TAKEAWAYS
+-----------------
+- Multiple resources may be binding simultaneously.
+- Minimum requirements may or may not be binding.
+- The optimal solution balances all resource constraints.
+- Understanding resource efficiency is crucial.
+
+================================================================================
+End of Topic 20 Notes
+================================================================================

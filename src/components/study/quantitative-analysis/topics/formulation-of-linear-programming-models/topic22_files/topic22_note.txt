@@ -1,0 +1,149 @@
+================================================================================
+TOPIC 22: WORKED EXAMPLE 16 – CAPACITY PLANNING PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A factory produces a single product. The factory can operate with three capacity levels:
+- Regular time: Normal production capacity
+- Overtime: Extra production beyond regular hours
+- Subcontracting: Outsourcing production to external vendors
+
+Data:
+- Demand for next month: 800 units
+- Regular time capacity: 500 units at ₹200 per unit
+- Overtime capacity: 200 units at ₹250 per unit
+- Subcontracting capacity: 300 units at ₹300 per unit
+
+Additionally, there is a minimum usage requirement:
+- At least 50% of production must be from Regular time
+
+The company wants to minimize total production cost.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total production cost
+- Capacity options: Regular time, Overtime, Subcontracting (3 options)
+- Demand: 800 units
+- Capacities: Regular 500, Overtime 200, Subcontracting 300
+- Costs: Regular ₹200, Overtime ₹250, Subcontracting ₹300
+- Requirement: At least 50% Regular time
+
+STEP 2: Identify Decision Variables
+- x₁ = units produced in Regular time
+- x₂ = units produced in Overtime
+- x₃ = units produced by Subcontracting
+
+STEP 3: Identify the Objective
+- Minimize Z = 200x₁ + 250x₂ + 300x₃
+
+STEP 4: Identify Constraints
+- Demand: x₁ + x₂ + x₃ = 800
+- Regular capacity: x₁ ≤ 500
+- Overtime capacity: x₂ ≤ 200
+- Subcontracting capacity: x₃ ≤ 300
+- Regular time minimum: x₁ ≥ 0.50(800) = 400
+- Non-negativity: x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 400, x₂ = 200, x₃ = 200
+  Total = 800 ✓
+  Regular = 400 ≥ 400 ✓
+  Overtime = 200 ≤ 200 ✓
+  Subcontracting = 200 ≤ 300 ✓
+  Cost = 200(400) + 250(200) + 300(200) = 80,000 + 50,000 + 60,000 = ₹190,000
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 200x₁ + 250x₂ + 300x₃
+  Subject to:
+    Demand: x₁ + x₂ + x₃ = 800
+    Regular: x₁ ≤ 500
+    Overtime: x₂ ≤ 200
+    Subcontracting: x₃ ≤ 300
+    Minimum Regular: x₁ ≥ 400
+    x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 3-variable LP. We can solve using simplex or by reasoning:
+
+Since Regular time is cheapest (₹200), we want to use as much as possible.
+But Regular capacity is 500, and we need 800 units total.
+
+Minimum Regular = 400 (50% of demand).
+
+Let's try to use maximum Regular: x₁ = 500.
+Remaining demand: 800 - 500 = 300 units.
+
+Overtime is cheaper than Subcontracting (₹250 vs ₹300), so use Overtime first.
+Overtime capacity = 200, so x₂ = 200.
+Remaining: 300 - 200 = 100 units → Subcontracting: x₃ = 100.
+
+Check: x₁ = 500, x₂ = 200, x₃ = 100
+Total = 500 + 200 + 100 = 800 ✓
+Regular = 500 ≥ 400 ✓
+Overtime = 200 ≤ 200 ✓
+Subcontracting = 100 ≤ 300 ✓
+
+Cost = 200(500) + 250(200) + 300(100) = 100,000 + 50,000 + 30,000 = ₹180,000
+
+But wait, is there a better solution? Let's check the objective.
+
+Since Regular is cheapest, we should maximize x₁.
+x₁ ≤ 500 and x₁ ≥ 400.
+
+With x₁ = 500, remaining = 300.
+We want to minimize 250x₂ + 300x₃ with x₂ + x₃ = 300, x₂ ≤ 200, x₃ ≤ 300.
+Since Overtime is cheaper, use as much Overtime as possible: x₂ = 200, x₃ = 100.
+
+So optimal: x₁ = 500, x₂ = 200, x₃ = 100
+Cost = ₹180,000
+
+4. INTERPRETATION
+-----------------
+- Produce 500 units in Regular time, 200 units in Overtime, and 100 units by Subcontracting.
+- Total cost = ₹180,000.
+- Regular time is at maximum capacity (500/500).
+- Overtime is at maximum capacity (200/200).
+- Subcontracting is at 100/300 (slack: 200 units).
+- Regular time minimum is satisfied (500 ≥ 400).
+
+5. KEY INSIGHTS
+---------------
+- Use the cheapest capacity option first (Regular time).
+- When Regular capacity is exhausted, use the next cheapest (Overtime).
+- Use Subcontracting only when Overtime is also exhausted.
+- Minimum usage requirements may force using a particular option.
+- All capacities and demand must be balanced.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Manufacturing capacity planning.
+- Workforce planning and shift scheduling.
+- Equipment capacity allocation.
+- Service industry capacity management.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate capacity planning problems.
+- How to handle multiple capacity options with different costs.
+- How to include minimum usage requirements.
+- The importance of using the cheapest capacity first.
+
+8. KEY TAKEAWAYS
+-----------------
+- Capacity planning problems involve choosing between capacity options.
+- The cheapest capacity should be used first.
+- Capacity limits and minimum requirements must be respected.
+- The optimal solution balances cost, capacity, and demand.
+
+================================================================================
+End of Topic 22 Notes
+================================================================================

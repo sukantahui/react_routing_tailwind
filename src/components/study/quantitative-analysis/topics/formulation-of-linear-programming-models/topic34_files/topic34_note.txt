@@ -1,0 +1,119 @@
+================================================================================
+TOPIC 34: CHECKING A FORMULATED LP MODEL
+================================================================================
+
+1. INTRODUCTION
+---------------
+Formulating an LP model is only half the battle. Before solving, you must
+check that your model is correct. This topic provides a systematic approach
+to verifying and validating LP models.
+
+2. WHY CHECK YOUR MODEL?
+------------------------
+- Prevent costly errors
+- Ensure the model represents the real problem
+- Catch mistakes before solving
+- Build confidence in the solution
+- Save time and resources
+
+3. CHECKLIST FOR VERIFYING AN LP MODEL
+--------------------------------------
+Checklist Item 1: Variables
+- Are all variables defined clearly with units?
+- Are there variables for every decision?
+- Are variables independent (not functions of each other)?
+- Is non-negativity included?
+
+Checklist Item 2: Objective
+- Is the objective clearly stated (Max or Min)?
+- Are all variables included in the objective?
+- Are the coefficients correct (profit, cost, etc.)?
+- Is the objective linear (no squares, products)?
+
+Checklist Item 3: Constraints
+- Are all constraints included?
+- Are coefficients correct (resource usage)?
+- Is the inequality direction correct (≤, ≥, =)?
+- Are units consistent?
+- Is the RHS correct (available resources, requirements)?
+
+Checklist Item 4: Consistency
+- Are variable names used consistently?
+- Are units consistent across all equations?
+- Does the model make logical sense?
+
+Checklist Item 5: Feasibility
+- Is there at least one feasible solution?
+- Can you find a simple feasible solution?
+- Are there any obvious contradictions?
+
+4. DIMENSIONAL ANALYSIS
+------------------------
+Check that all terms in each equation have the same units:
+- Constraint: (usage per unit × units) = total usage → same units as RHS
+- Objective: (contribution per unit × units) = total contribution
+
+Example: If x is in "units" and labor usage is "hours/unit", then labor
+usage term has units of "hours", matching the RHS "hours available".
+
+5. COMMON ERRORS TO CHECK
+--------------------------
+- Missing a constraint
+- Wrong inequality direction
+- Wrong coefficient (resource usage)
+- Wrong variable in a constraint
+- Inconsistent units
+- Non-linear terms in objective or constraints
+- Missing non-negativity
+- Empty feasible region
+
+6. VALIDATION TECHNIQUES
+------------------------
+Technique 1: Test with a simple feasible solution
+- Plug in values and check all constraints
+- Verify the objective value
+
+Technique 2: Check extreme solutions
+- Test variables at their bounds (0, max)
+- Check if the solution is feasible
+
+Technique 3: Dimensional analysis
+- Verify all units are consistent
+
+Technique 4: Peer review
+- Ask someone else to review the model
+
+Technique 5: Compare with known results
+- If similar problems exist, compare formulations
+
+7. BEST PRACTICES
+------------------
+- Write the model neatly with labels
+- Check each constraint individually
+- Use a checklist systematically
+- Test with a simple feasible solution
+- Verify units
+- Document assumptions
+- Review with a colleague
+
+8. TIPS & TRICKS
+-----------------
+- Read the original problem again after formulating
+- Check that all numbers are in the right place
+- Verify that the objective direction matches the problem
+- Test with a solution that should be feasible
+- Test with a solution that should be infeasible
+- Use a calculator to verify arithmetic
+
+9. SUMMARY
+-----------
+Checking your LP model is an essential step in the formulation process.
+A systematic verification saves time and prevents errors. Remember: a
+well-checked model is the foundation for a correct solution.
+
+"Think about: Does the model make sense? Would a decision-maker understand it?
+Can you find a simple solution that satisfies all constraints?"
+
+================================================================================
+End of Topic 34 Notes
+================================================================================

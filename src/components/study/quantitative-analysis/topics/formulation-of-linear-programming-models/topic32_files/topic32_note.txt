@@ -1,0 +1,103 @@
+================================================================================
+TOPIC 32: TRANSLATING VERBAL CONDITIONS INTO MATHEMATICAL INEQUALITIES
+================================================================================
+
+1. INTRODUCTION
+---------------
+One of the most challenging aspects of LP formulation is translating verbal
+conditions into mathematical inequalities. This topic provides a systematic
+approach to identifying the correct inequality direction and writing constraints
+from word problems.
+
+2. KEYWORDS AND THEIR MEANINGS
+-------------------------------
+Keyword                Meaning              Inequality   Example
+"at most"              ≤                    ≤           x ≤ 10
+"no more than"         ≤                    ≤           x ≤ 10
+"cannot exceed"        ≤                    ≤           x ≤ 10
+"maximum"              ≤                    ≤           x ≤ 10
+"limited to"           ≤                    ≤           x ≤ 10
+"not to exceed"        ≤                    ≤           x ≤ 10
+
+"at least"             ≥                    ≥           x ≥ 10
+"no less than"         ≥                    ≥           x ≥ 10
+"minimum"              ≥                    ≥           x ≥ 10
+"must be at least"     ≥                    ≥           x ≥ 10
+"should not be less"   ≥                    ≥           x ≥ 10
+
+"exactly"              =                    =           x = 10
+"equal to"             =                    =           x = 10
+"is"                   =                    =           x = 10
+"must be"              =                    =           x = 10
+
+3. STEP-BY-STEP TRANSLATION PROCESS
+-----------------------------------
+Step 1: Identify the quantity being described.
+Step 2: Identify the inequality keyword.
+Step 3: Determine the correct inequality direction.
+Step 4: Write the mathematical expression.
+Step 5: Check the direction with a simple example.
+
+4. COMMON PHRASES AND THEIR TRANSLATIONS
+-----------------------------------------
+Phrase                    Translation
+"x is at most 5"          x ≤ 5
+"x is no more than 5"     x ≤ 5
+"x cannot exceed 5"       x ≤ 5
+"x is at least 5"         x ≥ 5
+"x is no less than 5"     x ≥ 5
+"x must be at least 5"    x ≥ 5
+"x is exactly 5"          x = 5
+"x is equal to 5"         x = 5
+
+5. COMPLEX PHRASE TRANSLATIONS
+-------------------------------
+Phrase                    Translation
+"The sum of x and y is at most 10"     x + y ≤ 10
+"The total of x and y is at least 20"  x + y ≥ 20
+"The difference of x and y is exactly 5"  x - y = 5
+"x is twice y"            x = 2y
+"x is 3 more than y"      x = y + 3
+"x is at least twice y"   x ≥ 2y
+"The ratio of x to y is 2"  x/y = 2 → x = 2y
+
+6. COMMON MISTAKES
+-------------------
+- Using the wrong inequality direction (≤ vs ≥).
+- Confusing "at most" with "at least".
+- Forgetting to include all terms in the expression.
+- Not checking units for consistency.
+- Translating verbal conditions too literally without considering the algebra.
+- Mixing up variables and constants.
+
+7. BEST PRACTICES
+------------------
+- Read the problem carefully and underline keywords.
+- Write the inequality direction clearly.
+- Use variables consistently throughout the problem.
+- Check the translation with a simple numerical example.
+- Convert all terms to the same units.
+- Verify that the inequality makes logical sense.
+
+8. TIPS & TRICKS
+-----------------
+- "At most" → ≤ (think: "at the maximum")
+- "At least" → ≥ (think: "at the minimum")
+- "Exactly" → = (think: "precisely")
+- When in doubt, test with a number.
+- Draw a number line to visualize the inequality.
+- Practice with a variety of phrases.
+
+9. SUMMARY
+-----------
+Translating verbal conditions into mathematical inequalities is a critical skill
+in LP formulation. With practice, you'll develop an intuition for the correct
+inequality direction. Remember: "at most" means ≤, "at least" means ≥, and
+"exactly" means =.
+
+"Think about: What does the condition mean in words? What would a number
+that violates the condition look like?"
+
+================================================================================
+End of Topic 32 Notes
+================================================================================

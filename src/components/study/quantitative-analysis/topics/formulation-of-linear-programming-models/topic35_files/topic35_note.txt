@@ -1,0 +1,118 @@
+================================================================================
+TOPIC 35: INTERPRETING THE MEANING OF VARIABLES AND CONSTRAINTS
+================================================================================
+
+1. INTRODUCTION
+---------------
+Solving an LP model gives you numbers, but those numbers mean nothing without
+interpretation. This topic teaches you how to translate mathematical results
+into meaningful business, social, or operational insights.
+
+2. INTERPRETING DECISION VARIABLES
+----------------------------------
+Each decision variable has a specific meaning:
+- Example: x₁ = units of Product A produced
+- Interpretation: The optimal value tells us how many units to produce
+
+Questions to ask:
+- What does the value mean in real terms?
+- Is the value practical (e.g., can we produce fractional units)?
+- What would change if we increased or decreased this value?
+
+3. INTERPRETING CONSTRAINTS
+---------------------------
+Each constraint represents a limit or requirement:
+- ≤ constraints: Resources that limit production
+- ≥ constraints: Requirements that must be met
+- = constraints: Exact relationships
+
+Questions to ask:
+- Which constraints are binding (fully used)?
+- Which constraints have slack (excess capacity)?
+- What is the shadow price of each constraint?
+
+4. BINDING VS NON-BINDING CONSTRAINTS
+-------------------------------------
+Binding constraints:
+- Satisfied with equality at the optimal solution
+- The resource is fully utilized
+- Shadow price > 0 (for ≤ constraints)
+- Increasing the RHS would improve the objective
+
+Non-binding constraints:
+- Have slack (excess capacity)
+- Shadow price = 0
+- Increasing the RHS would not improve the objective
+
+5. SHADOW PRICES (DUAL VARIABLES)
+---------------------------------
+Shadow price = the change in the objective value per unit increase in the RHS
+- For ≤ constraints: how much profit increases with more resources
+- For ≥ constraints: how much cost decreases by relaxing a requirement
+
+Interpretation:
+- Positive shadow price: resource has value
+- Zero shadow price: resource has no value (slack)
+- Shadow price tells you what to invest in
+
+6. SLACK AND SURPLUS VARIABLES
+------------------------------
+Slack variables (for ≤ constraints):
+- Amount of unused resource
+- Example: 50 hours of labor unused → slack = 50
+
+Surplus variables (for ≥ constraints):
+- Amount by which a requirement is exceeded
+- Example: Produced 10 more than minimum → surplus = 10
+
+7. SENSITIVITY ANALYSIS INTERPRETATION
+--------------------------------------
+Sensitivity analysis tells us:
+- How much coefficients can change before the solution changes
+- Which constraints are most important
+- How robust the solution is
+
+8. REAL-WORLD INTERPRETATION
+---------------------------
+- Optimal production plan: "Produce X units of product A and Y units of product B"
+- Resource utilization: "Labor is fully used; machine has 10 hours of slack"
+- Shadow prices: "Increasing labor by 1 hour increases profit by ₹50"
+- Recommendations: "Invest in labor; don't invest in machine time"
+
+9. COMMON MISTAKES
+-------------------
+- Misinterpreting shadow prices
+- Ignoring slack variables
+- Not checking which constraints are binding
+- Assuming all resources are equally valuable
+- Not linking results to real-world decisions
+
+10. BEST PRACTICES
+-------------------
+- Always check which constraints are binding
+- Calculate and interpret shadow prices
+- Identify slack and surplus
+- Link results to business decisions
+- Use sensitivity analysis to test robustness
+- Present results in business language
+
+11. TIPS & TRICKS
+-----------------
+- Shadow prices tell you the value of resources
+- Binding constraints = scarce resources = valuable
+- Slack resources = excess capacity = not valuable
+- Think about what each number means in practice
+- Use sensitivity analysis for "what-if" questions
+
+12. SUMMARY
+-----------
+Interpreting LP results is as important as solving the model. The numbers
+tell a story about resource scarcity, value, and trade-offs. Master
+interpretation to make better decisions.
+
+"Think about: What does each number mean in the real world? What would
+change if a constraint were relaxed?"
+
+================================================================================
+End of Topic 35 Notes
+================================================================================

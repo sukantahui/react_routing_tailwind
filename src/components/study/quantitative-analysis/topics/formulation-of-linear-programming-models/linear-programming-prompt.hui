@@ -135,8 +135,8 @@ Apply this animation system consistently across the file.
 
 Content Depth (VERY IMPORTANT)
     - Each topic must include:
-    - Detailed conceptual explanation and Theory in details
-    - Real-world usage examples
+    - Detailed conceptual explanation and Theory in details, content should be enough 
+    - Real-world usage examples, at least 4 examples
     - Tips & tricks used by professionals
     - Common mistakes made by beginners
     - Best practices
@@ -144,7 +144,7 @@ Content Depth (VERY IMPORTANT)
 
 
 
-You must clearly mention:
+You must clearly mention if it is a programming language:
     - Prototype / signature
     - Return type
     - Purpose
@@ -208,7 +208,7 @@ Example Name to be used
 (Use them as analogies, stories, or scenarios—not forced mentions.)
 
 Output Instructions
-    - Start by generating Topic0.jsx only
+    - Start by generating Topic0.jsx only if not mentioned a topic number
     - Wait for my confirmation before proceeding to the next topic
     - Do NOT assume missing data.
 Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
@@ -232,9 +232,11 @@ for PlainTextPrint i use the following:
     place
     <PlainTextPrint
         content={noteText}
-        buttonText="Print Note"
-        title="[title of the topic]"
-        className="max-w-5xl mx-auto mb-8 ..."
+        title="Introduction to Linear Programming"
+        stampEnabled={true}
+        showDownload={true}
+        downloadButtonText="Download Note"
+        downloadFileName="topic[topic_no+1]_note.txt"
     />
     I want to add another file here which be plain text file conatining the topic in printable style, so that students can print it as plain text, i will put the file in   './topic[topic_no]_files/topic[topic_no]_note'
 
@@ -263,6 +265,6 @@ for FAQ i use the following:
     create 30 questions moderate to expert show the file also
     show all the files with folder separately  
 
-    
+always use Rupee sign for currency instead of $    
 
 start from Topic[user defined]

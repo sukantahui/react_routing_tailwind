@@ -191,6 +191,792 @@ const Topic1 = () => {
         </div>
       </section>
 
+      {/* =========================================================
+    SECTION 2A: UNDERSTANDING LP THROUGH A REAL DECISION
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16 animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-250">
+
+        <div className="flex items-center gap-3 mb-4">
+
+          <span className="text-2xl">🧠</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            Let's Understand LP Through a Real Decision
+          </h2>
+
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-7 mb-6">
+
+          The easiest way to understand Linear Programming is to stop thinking
+          about equations for a moment and think about a real decision where
+          resources are limited.
+
+        </p>
+
+
+        {/* BIG IDEA */}
+        <div className="rounded-2xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900/40 p-5 md:p-6 mb-6">
+
+          <div className="flex items-start gap-4">
+
+            <div className="text-3xl">
+              💡
+            </div>
+
+            <div>
+
+              <h3 className="font-bold text-indigo-900 dark:text-indigo-300">
+                The central idea of LP
+              </h3>
+
+              <p className="mt-2 text-sm md:text-base text-indigo-800 dark:text-indigo-300 leading-7">
+
+                We have <strong>limited resources</strong>, several possible
+                choices, and a <strong>goal</strong>. LP helps us determine the
+                best combination of choices while respecting all limitations.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* REAL LIFE EXAMPLE */}
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 overflow-hidden">
+
+          <div className="bg-gray-900 dark:bg-black px-5 py-5">
+
+            <div className="flex items-center gap-3">
+
+              <span className="text-2xl">
+                🍰
+              </span>
+
+              <div>
+
+                <h3 className="font-semibold text-white">
+                  Example: A Bakery Has a Decision to Make
+                </h3>
+
+                <p className="text-sm text-gray-400 mt-1">
+                  Suppose a bakery produces cakes and cookies.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="p-5 md:p-6">
+
+            <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-7">
+
+              The bakery has only a limited amount of flour, sugar and labour.
+              It cannot produce unlimited quantities of both products.
+
+              At the same time, the owner wants to earn as much profit as possible.
+
+            </p>
+
+
+            {/* FOUR QUESTIONS */}
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div className="rounded-xl bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/30 p-5">
+
+                <div className="text-2xl mb-2">
+                  ❓
+                </div>
+
+                <h4 className="font-bold text-gray-900 dark:text-white">
+                  What can the bakery control?
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  The number of cakes and cookies it decides to produce.
+                </p>
+
+              </div>
+
+
+              <div className="rounded-xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/30 p-5">
+
+                <div className="text-2xl mb-2">
+                  🎯
+                </div>
+
+                <h4 className="font-bold text-gray-900 dark:text-white">
+                  What is the goal?
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  To maximize total profit.
+                </p>
+
+              </div>
+
+
+              <div className="rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-900/30 p-5">
+
+                <div className="text-2xl mb-2">
+                  🚧
+                </div>
+
+                <h4 className="font-bold text-gray-900 dark:text-white">
+                  What limits the decision?
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  Flour, sugar, labour, time and production capacity.
+                </p>
+
+              </div>
+
+
+              <div className="rounded-xl bg-purple-50 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-900/30 p-5">
+
+                <div className="text-2xl mb-2">
+                  🏆
+                </div>
+
+                <h4 className="font-bold text-gray-900 dark:text-white">
+                  What does LP provide?
+                </h4>
+
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                  The best possible production combination under those limitations.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 2B: SCARCITY, CHOICE, TRADE-OFF AND OPTIMIZATION
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="flex items-center gap-3 mb-4">
+
+          <span className="text-2xl">⚖️</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            The Four Ideas Behind Every LP Problem
+          </h2>
+
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-7 mb-6">
+
+          Almost every Linear Programming problem can be understood through four
+          connected ideas.
+
+        </p>
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          {/* SCARCITY */}
+          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-5 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+
+            <div className="text-3xl mb-3">
+              📦
+            </div>
+
+            <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+              1. Scarcity
+            </h3>
+
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+
+              Resources are limited.
+
+              There may be only a certain amount of money, time, labour,
+              land, raw material or machine capacity available.
+
+            </p>
+
+            <div className="mt-4 rounded-lg bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-3">
+
+              <p className="text-xs text-gray-500 dark:text-gray-500">
+                Example
+              </p>
+
+              <p className="font-mono font-bold text-blue-600 dark:text-blue-400 mt-1">
+                Available flour = 100 kg
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* CHOICE */}
+          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-5 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+
+            <div className="text-3xl mb-3">
+              🔀
+            </div>
+
+            <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+              2. Choice
+            </h3>
+
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+
+              When resources are limited, we cannot choose everything.
+              We have to decide how much of each activity or product to select.
+
+            </p>
+
+            <div className="mt-4 rounded-lg bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-3">
+
+              <p className="text-xs text-gray-500 dark:text-gray-500">
+                Example
+              </p>
+
+              <p className="font-mono font-bold text-green-600 dark:text-green-400 mt-1">
+                Cakes OR Cookies?
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* TRADE-OFF */}
+          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-5 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+
+            <div className="text-3xl mb-3">
+              ⚔️
+            </div>
+
+            <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+              3. Trade-off
+            </h3>
+
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+
+              Using more resources for one activity may leave fewer resources
+              available for another activity.
+
+            </p>
+
+            <div className="mt-4 rounded-lg bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-3">
+
+              <p className="text-xs text-gray-500 dark:text-gray-500">
+                Think about it
+              </p>
+
+              <p className="font-semibold text-amber-600 dark:text-amber-400 mt-1">
+                More cakes may mean fewer cookies.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* OPTIMIZATION */}
+          <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-5 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+
+            <div className="text-3xl mb-3">
+              🏆
+            </div>
+
+            <h3 className="font-bold text-gray-900 dark:text-white text-lg">
+              4. Optimization
+            </h3>
+
+            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-6">
+
+              After considering all possible choices and limitations,
+              we want to find the best one.
+
+            </p>
+
+            <div className="mt-4 rounded-lg bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-3">
+
+              <p className="text-xs text-gray-500 dark:text-gray-500">
+                Goal
+              </p>
+
+              <p className="font-mono font-bold text-purple-600 dark:text-purple-400 mt-1">
+                Maximum Profit
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        {/* FLOW */}
+        <div className="mt-6 rounded-2xl bg-gray-900 dark:bg-black p-6">
+
+          <p className="text-center text-sm text-gray-400 mb-5">
+            The basic logic of Linear Programming
+          </p>
+
+          <div className="flex flex-wrap justify-center items-center gap-2 text-sm font-semibold">
+
+            {[
+              "Scarcity",
+              "Choice",
+              "Trade-off",
+              "Optimization",
+            ].map((item, index, array) => (
+
+              <React.Fragment key={item}>
+
+                <span className="rounded-lg bg-white/10 px-4 py-2 text-white">
+                  {item}
+                </span>
+
+                {index < array.length - 1 && (
+                  <span className="text-blue-400 text-lg">
+                    →
+                  </span>
+                )}
+
+              </React.Fragment>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 2C: WHAT LP DOES AND DOES NOT DO
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="flex items-center gap-3 mb-4">
+
+          <span className="text-2xl">🔎</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            What Does LP Actually Do?
+          </h2>
+
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-7 mb-6">
+
+          LP does not magically make decisions for us. It converts a real-world
+          decision into a mathematical model and then finds the best solution
+          within the assumptions of that model.
+
+        </p>
+
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+          {/* DOES */}
+          <div className="rounded-2xl bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-900/40 p-6">
+
+            <h3 className="text-lg font-bold text-green-800 dark:text-green-300 flex items-center gap-2">
+
+              <span>✓</span>
+              LP Does
+
+            </h3>
+
+            <ul className="mt-4 space-y-3 text-sm text-gray-700 dark:text-gray-300">
+
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 dark:text-green-400">✓</span>
+                Find the best solution under given constraints.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 dark:text-green-400">✓</span>
+                Compare different possible resource allocations.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 dark:text-green-400">✓</span>
+                Help maximize profit or minimize cost.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 dark:text-green-400">✓</span>
+                Make trade-offs explicit and measurable.
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          {/* DOES NOT */}
+          <div className="rounded-2xl bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 p-6">
+
+            <h3 className="text-lg font-bold text-red-800 dark:text-red-300 flex items-center gap-2">
+
+              <span>✗</span>
+              LP Does Not
+
+            </h3>
+
+            <ul className="mt-4 space-y-3 text-sm text-gray-700 dark:text-gray-300">
+
+              <li className="flex items-start gap-2">
+                <span className="text-red-600 dark:text-red-400">✗</span>
+                Automatically know what the real-world objective should be.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-red-600 dark:text-red-400">✗</span>
+                Remove real-world resource limitations.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-red-600 dark:text-red-400">✗</span>
+                Guarantee a useful answer if the model is badly formulated.
+              </li>
+
+              <li className="flex items-start gap-2">
+                <span className="text-red-600 dark:text-red-400">✗</span>
+                Handle every type of optimization problem.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        {/* IMPORTANT */}
+        <div className="mt-6 rounded-xl border-l-4 border-indigo-500 bg-indigo-50 dark:bg-indigo-950/20 p-5">
+
+          <p className="text-sm md:text-base text-indigo-900 dark:text-indigo-300 leading-7">
+
+            <strong>Important:</strong>{" "}
+            A mathematical solver can find the optimum of the model you give it.
+            Therefore, the quality of the final answer depends heavily on the
+            quality of the model.
+
+          </p>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 2D: FROM REAL PROBLEM TO LP MODEL
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="flex items-center gap-3 mb-4">
+
+          <span className="text-2xl">🔄</span>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white">
+            From a Real Problem to a Mathematical Problem
+          </h2>
+
+        </div>
+
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-7 mb-6">
+
+          This is the most important conceptual transition in Linear Programming.
+          A real-world situation must first be translated into a mathematical model.
+
+        </p>
+
+
+        <div className="space-y-3">
+
+          {/* REAL WORLD */}
+          <div className="rounded-xl border border-blue-200 dark:border-blue-900/40 bg-blue-50 dark:bg-blue-950/20 p-5">
+
+            <div className="flex items-start gap-4">
+
+              <div className="text-2xl">
+                🌍
+              </div>
+
+              <div>
+
+                <h3 className="font-bold text-blue-900 dark:text-blue-300">
+                  Step 1 — Real-world problem
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  A bakery wants to decide how many cakes and cookies to produce
+                  using limited flour, sugar and labour.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="text-center text-blue-500 text-xl">
+            ↓
+          </div>
+
+
+          {/* DECISION */}
+          <div className="rounded-xl border border-green-200 dark:border-green-900/40 bg-green-50 dark:bg-green-950/20 p-5">
+
+            <div className="flex items-start gap-4">
+
+              <div className="text-2xl">
+                🎯
+              </div>
+
+              <div>
+
+                <h3 className="font-bold text-green-900 dark:text-green-300">
+                  Step 2 — Identify the decision
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  Decide the quantities that can be controlled.
+                </p>
+
+                <div className="mt-3 font-mono font-bold text-green-700 dark:text-green-400">
+                  x = cakes, &nbsp; y = cookies
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="text-center text-green-500 text-xl">
+            ↓
+          </div>
+
+
+          {/* OBJECTIVE */}
+          <div className="rounded-xl border border-purple-200 dark:border-purple-900/40 bg-purple-50 dark:bg-purple-950/20 p-5">
+
+            <div className="flex items-start gap-4">
+
+              <div className="text-2xl">
+                🏆
+              </div>
+
+              <div>
+
+                <h3 className="font-bold text-purple-900 dark:text-purple-300">
+                  Step 3 — Define the objective
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  Express the goal mathematically.
+                </p>
+
+                <div className="mt-3 font-mono font-bold text-purple-700 dark:text-purple-400">
+                  Maximize Z = 100x + 50y
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="text-center text-purple-500 text-xl">
+            ↓
+          </div>
+
+
+          {/* CONSTRAINTS */}
+          <div className="rounded-xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 p-5">
+
+            <div className="flex items-start gap-4">
+
+              <div className="text-2xl">
+                🚧
+              </div>
+
+              <div>
+
+                <h3 className="font-bold text-amber-900 dark:text-amber-300">
+                  Step 4 — Express limitations
+                </h3>
+
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  Convert resource limitations into mathematical constraints.
+                </p>
+
+                <div className="mt-3 space-y-1 font-mono font-bold text-amber-700 dark:text-amber-400">
+                  <div>2x + y ≤ 10</div>
+                  <div>x + 2y ≤ 8</div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div className="text-center text-amber-500 text-xl">
+            ↓
+          </div>
+
+
+          {/* MODEL */}
+          <div className="rounded-xl bg-gray-900 dark:bg-black p-6 text-white">
+
+            <div className="text-center">
+
+              <div className="text-2xl mb-2">
+                🧩
+              </div>
+
+              <h3 className="font-bold text-lg">
+                Step 5 — Complete LP Model
+              </h3>
+
+            </div>
+
+            <div className="mt-5 space-y-2 text-center font-mono text-sm md:text-base">
+
+              <div className="text-green-300">
+                Maximize Z = 100x + 50y
+              </div>
+
+              <div className="text-gray-500">
+                Subject to:
+              </div>
+
+              <div>
+                2x + y ≤ 10
+              </div>
+
+              <div>
+                x + 2y ≤ 8
+              </div>
+
+              <div>
+                x ≥ 0, y ≥ 0
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =========================================================
+    SECTION 2E: THE BIG PICTURE
+========================================================= */}
+      <section className="max-w-5xl mx-auto mb-16">
+
+        <div className="rounded-2xl bg-indigo-600 dark:bg-indigo-700 p-6 md:p-8 text-white shadow-xl">
+
+          <div className="text-center">
+
+            <div className="text-3xl mb-3">
+              🧭
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-bold">
+              The Big Picture of Linear Programming
+            </h2>
+
+            <p className="mt-3 text-indigo-100 text-sm md:text-base max-w-3xl mx-auto leading-7">
+
+              LP is not primarily about complicated mathematics.
+              It is a structured way of thinking about decisions when resources
+              are limited.
+
+            </p>
+
+          </div>
+
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+
+            {[
+              ["1", "Real Problem", "What is happening?"],
+              ["2", "Decision", "What can I control?"],
+              ["3", "Objective", "What do I want?"],
+              ["4", "Constraints", "What limits me?"],
+              ["5", "Optimization", "What is the best choice?"],
+            ].map(([number, title, text]) => (
+
+              <div
+                key={number}
+                className="rounded-xl bg-white/10 border border-white/10 p-4 text-center"
+              >
+
+                <div className="w-8 h-8 mx-auto rounded-full bg-white/20 flex items-center justify-center font-bold">
+                  {number}
+                </div>
+
+                <h3 className="mt-3 font-bold">
+                  {title}
+                </h3>
+
+                <p className="mt-1 text-xs text-indigo-100">
+                  {text}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+
+          <div className="mt-8 text-center">
+
+            <p className="text-base md:text-lg font-bold">
+
+              Real World
+              <span className="mx-2 text-indigo-200">→</span>
+
+              Mathematical Model
+              <span className="mx-2 text-indigo-200">→</span>
+
+              Solution
+              <span className="mx-2 text-indigo-200">→</span>
+
+              Decision
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* ===== SECTION 3: WHY IS LP IMPORTANT? ===== */}
       <section className="max-w-5xl mx-auto mb-16 animate-[fadeSlideUp_0.7s_ease-out] motion-safe:animate-[fadeSlideUp_0.7s_ease-out] animation-delay-300">
         <div className="flex items-center gap-3 mb-4">

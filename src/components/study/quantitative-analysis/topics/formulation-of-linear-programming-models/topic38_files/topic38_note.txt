@@ -1,0 +1,68 @@
+================================================================================
+TOPIC 38: PRACTICE PROBLEMS
+================================================================================
+
+1. INTRODUCTION
+---------------
+This topic provides a comprehensive set of practice problems covering all the
+concepts learned throughout the Linear Programming course. Each problem includes
+a detailed solution and explanation.
+
+2. PROBLEM TYPES
+----------------
+The practice problems cover the following types:
+
+Type 1: Production Planning
+- Simple production problems
+- Product-mix problems
+- Multi-product optimization
+
+Type 2: Resource Allocation
+- Multiple resource constraints
+- Labor and machine constraints
+- Raw material constraints
+
+Type 3: Cost Minimization
+- Diet problems
+- Blending problems
+- Cost optimization
+
+Type 4: Transportation
+- Shipping and distribution
+- Supply chain optimization
+
+Type 5: Social Applications
+- Public resource allocation
+- Legal service allocation
+- Healthcare optimization
+
+Type 6: Special Constraints
+- Minimum and maximum requirements
+- Both min and max constraints
+- Multiple bounds
+
+3. HOW TO USE THESE PROBLEMS
+----------------------------
+- Read each problem carefully
+- Identify the objective (max or min)
+- Define decision variables
+- Write the objective function
+- Formulate all constraints
+- Solve using graphical method (2 variables) or simplex (3+ variables)
+- Check your solution
+- Compare with the provided solution
+
+4. PROBLEMS
+-----------
+(Detailed problems and solutions are provided in the component)
+
+5. KEY TAKEAWAYS
+----------------
+- Practice is essential for mastering LP
+- Each problem type has its own pattern
+- The 7-step procedure works for all problems
+- Check your work systematically
+
+================================================================================
+End of Topic 38 Notes
+================================================================================

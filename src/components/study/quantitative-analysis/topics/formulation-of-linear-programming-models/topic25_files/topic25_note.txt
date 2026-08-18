@@ -1,0 +1,270 @@
+================================================================================
+TOPIC 25: WORKED EXAMPLE 19 – PROBLEM INVOLVING MAXIMUM PRODUCTION LIMITS
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces two products: Product A and Product B.
+The company has three resources that constrain production:
+- Labor: 180 hours
+- Machine: 120 hours
+- Raw Material: 150 units
+
+Resource requirements per unit:
+              Product A   Product B   Available
+Labor (hrs)       2           3         180
+Machine (hrs)     3           2         120
+Material (units)  2           4         150
+
+Profit per unit: Product A = ₹40, Product B = ₹50
+
+Due to market demand limitations:
+- Product A cannot exceed 40 units
+- Product B cannot exceed 25 units
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total profit
+- Products: A and B (2 products)
+- Resources: Labor, Machine, Material (3 resources)
+- Maximum limits: Product A ≤ 40, Product B ≤ 25
+
+STEP 2: Identify Decision Variables
+- x₁ = units of Product A produced
+- x₂ = units of Product B produced
+
+STEP 3: Identify the Objective
+- Profit: A = ₹40, B = ₹50
+- Maximize Z = 40x₁ + 50x₂
+
+STEP 4: Identify Constraints
+- Labor: 2x₁ + 3x₂ ≤ 180
+- Machine: 3x₁ + 2x₂ ≤ 120
+- Material: 2x₁ + 4x₂ ≤ 150
+- Maximum A: x₁ ≤ 40
+- Maximum B: x₂ ≤ 25
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 20, x₂ = 15
+  Labor = 40+45 = 85 ≤ 180 ✓
+  Machine = 60+30 = 90 ≤ 120 ✓
+  Material = 40+60 = 100 ≤ 150 ✓
+  Max A = 20 ≤ 40 ✓
+  Max B = 15 ≤ 25 ✓
+  Profit = 40(20)+50(15) = 800+750 = ₹1,550
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 40x₁ + 50x₂
+  Subject to:
+    Labor: 2x₁ + 3x₂ ≤ 180
+    Machine: 3x₁ + 2x₂ ≤ 120
+    Material: 2x₁ + 4x₂ ≤ 150
+    Maximum A: x₁ ≤ 40
+    Maximum B: x₂ ≤ 25
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Labor: 2x₁ + 3x₂ = 180 → x₂ = 60 - 0.667x₁
+- Machine: 3x₁ + 2x₂ = 120 → x₂ = 60 - 1.5x₁
+- Material: 2x₁ + 4x₂ = 150 → x₂ = 37.5 - 0.5x₁
+- Maximum A: x₁ = 40
+- Maximum B: x₂ = 25
+
+Step 2: Identify feasible region (intersection of all constraints)
+Step 3: Find corner points of feasible region:
+
+The feasible region is bounded by:
+- Maximum A: x₁ ≤ 40
+- Maximum B: x₂ ≤ 25
+- The three resource constraints.
+
+Let me find the intersection points:
+
+1. At x₁ = 40 (maximum A):
+   - From Labor: 2(40)+3x₂ ≤ 180 → 80+3x₂ ≤ 180 → 3x₂ ≤ 100 → x₂ ≤ 33.33
+   - From Machine: 3(40)+2x₂ ≤ 120 → 120+2x₂ ≤ 120 → 2x₂ ≤ 0 → x₂ ≤ 0
+   - From Material: 2(40)+4x₂ ≤ 150 → 80+4x₂ ≤ 150 → 4x₂ ≤ 70 → x₂ ≤ 17.5
+   - So with x₁ = 40, x₂ ≤ 0 (Machine is binding)
+   - Point: (40, 0)
+
+2. At x₂ = 25 (maximum B):
+   - From Labor: 2x₁+3(25) ≤ 180 → 2x₁+75 ≤ 180 → 2x₁ ≤ 105 → x₁ ≤ 52.5
+   - From Machine: 3x₁+2(25) ≤ 120 → 3x₁+50 ≤ 120 → 3x₁ ≤ 70 → x₁ ≤ 23.33
+   - From Material: 2x₁+4(25) ≤ 150 → 2x₁+100 ≤ 150 → 2x₁ ≤ 50 → x₁ ≤ 25
+   - So with x₂ = 25, x₁ ≤ 23.33 (Machine is binding)
+   - Point: (23.33, 25)
+
+3. Intersection of Labor and Machine:
+   2x₁ + 3x₂ = 180
+   3x₁ + 2x₂ = 120
+   Multiply Labor by 3: 6x₁ + 9x₂ = 540
+   Multiply Machine by 2: 6x₁ + 4x₂ = 240
+   Subtract: 5x₂ = 300 → x₂ = 60
+   Then: 2x₁ + 3(60) = 180 → 2x₁ + 180 = 180 → x₁ = 0
+   (0, 60) → check max B: 60 ≤ 25 ✗ (infeasible)
+
+4. Intersection of Labor and Material:
+   2x₁ + 3x₂ = 180
+   2x₁ + 4x₂ = 150
+   Subtract: -x₂ = -30 → x₂ = 30
+   Then: 2x₁ + 3(30) = 180 → 2x₁ + 90 = 180 → 2x₁ = 90 → x₁ = 45
+   (45, 30) → check max A: 45 ≤ 40 ✗ (infeasible)
+
+5. Intersection of Machine and Material:
+   3x₁ + 2x₂ = 120
+   2x₁ + 4x₂ = 150
+   Multiply Machine by 2: 6x₁ + 4x₂ = 240
+   Subtract Material: 4x₁ = 90 → x₁ = 22.5
+   Then: 3(22.5) + 2x₂ = 120 → 67.5 + 2x₂ = 120 → 2x₂ = 52.5 → x₂ = 26.25
+   (22.5, 26.25) → check max A: 22.5 ≤ 40 ✓, max B: 26.25 ≤ 25 ✗ (infeasible)
+
+6. Intersection of Labor with x₂ = 25:
+   2x₁ + 3(25) = 180 → 2x₁ + 75 = 180 → 2x₁ = 105 → x₁ = 52.5
+   But Machine at x₂=25 gives x₁ ≤ 23.33, so (52.5, 25) is infeasible due to Machine.
+
+7. Intersection of Machine with x₂ = 25:
+   3x₁ + 2(25) = 120 → 3x₁ + 50 = 120 → 3x₁ = 70 → x₁ = 23.33
+   Check Labor: 2(23.33)+3(25) = 46.67+75 = 121.67 ≤ 180 ✓
+   Check Material: 2(23.33)+4(25) = 46.67+100 = 146.67 ≤ 150 ✓
+   Point: (23.33, 25)
+
+8. Intersection of Machine with x₁ = 40:
+   3(40) + 2x₂ = 120 → 120 + 2x₂ = 120 → x₂ = 0
+   Point: (40, 0)
+
+9. Intersection of Material with x₁ = 40:
+   2(40) + 4x₂ = 150 → 80 + 4x₂ = 150 → 4x₂ = 70 → x₂ = 17.5
+   Check Machine: 3(40)+2(17.5) = 120+35 = 155 ≤ 120 ✗ (infeasible)
+
+10. Intersection of Labor with x₁ = 40:
+    2(40) + 3x₂ = 180 → 80 + 3x₂ = 180 → 3x₂ = 100 → x₂ = 33.33
+    Check Machine: 3(40)+2(33.33) = 120+66.67 = 186.67 ≤ 120 ✗ (infeasible)
+
+So the feasible corner points are:
+(0, 0), (40, 0), (23.33, 25), and the origin.
+
+Wait, I should also check (0, 0) and the intersection at (0, 25):
+At (0, 25): Labor = 75 ≤ 180 ✓, Machine = 50 ≤ 120 ✓, Material = 100 ≤ 150 ✓, A=0≤40 ✓, B=25≤25 ✓
+So (0, 25) is feasible.
+
+Let me check (0, 0): all constraints satisfied.
+(0, 25): feasible as above.
+(23.33, 25): feasible as checked.
+(40, 0): feasible.
+
+Are there any other corners? Let me check where Machine and Labor intersect with the max bounds.
+
+At x₂ = 25, Machine gives (23.33, 25) and Labor gives (52.5, 25) which is infeasible.
+At x₁ = 40, Machine gives (40, 0) and Labor gives (40, 33.33) which is infeasible.
+
+So the feasible corners are:
+(0, 0), (0, 25), (23.33, 25), (40, 0)
+
+Step 4: Evaluate objective at each corner:
+- (0, 0): Z = 40(0)+50(0) = 0
+- (0, 25): Z = 40(0)+50(25) = 0+1,250 = ₹1,250
+- (23.33, 25): Z = 40(23.33)+50(25) = 933.33+1,250 = ₹2,183.33
+- (40, 0): Z = 40(40)+50(0) = 1,600+0 = ₹1,600
+
+Step 5: Optimal solution: (23.33, 25) with profit = ₹2,183.33
+
+But wait! (23.33, 25) has x₂ = 25 which is at the maximum limit for B, and x₁ is at the intersection of Machine with x₂ = 25.
+
+Actually, let me check if (23.33, 25) is the exact intersection. At (23.33, 25):
+- Machine: 3(23.33)+2(25) = 70+50 = 120 (binding)
+- Labor: 2(23.33)+3(25) = 46.67+75 = 121.67 ≤ 180 ✓
+- Material: 2(23.33)+4(25) = 46.67+100 = 146.67 ≤ 150 ✓
+- Max A: 23.33 ≤ 40 ✓
+- Max B: 25 ≤ 25 (binding)
+
+So the optimal solution is x₁ = 23.33, x₂ = 25.
+
+But let me check if there's a better solution at the intersection of Labor and Material:
+2x₁ + 3x₂ = 180
+2x₁ + 4x₂ = 150
+Subtract: -x₂ = -30 → x₂ = 30
+Then: 2x₁ + 3(30) = 180 → 2x₁ + 90 = 180 → x₁ = 45
+(45, 30) is infeasible due to max A (45 > 40) and max B (30 > 25).
+
+And (40, 0) gives ₹1,600, which is less than ₹2,183.33.
+
+So optimal: x₁ = 23.33, x₂ = 25
+
+Wait, I need to check if there's a better point. Let me check the intersection of Machine and Max B:
+(23.33, 25) as found.
+
+What about the intersection of Labor and Max B:
+(52.5, 25) but Machine is violated.
+
+What about the intersection of Machine and Max A:
+(40, 0) as found.
+
+So the optimal is (23.33, 25) with profit = ₹2,183.33.
+
+But let me check if there's another feasible corner: at x₂ = 0, Machine gives x₁ = 40, which is also the Max A bound. (40, 0) is feasible.
+
+Also at x₁ = 0, Machine gives x₂ = 60 (infeasible due to Max B), Material gives x₂ = 37.5 (infeasible), Labor gives x₂ = 60 (infeasible). So (0, 25) is the only feasible point on x₁ = 0.
+
+So the corners are: (0, 0), (0, 25), (23.33, 25), (40, 0).
+
+(0, 0): Z = 0
+(0, 25): Z = 1,250
+(23.33, 25): Z = 2,183.33
+(40, 0): Z = 1,600
+
+Optimal: (23.33, 25) with profit = ₹2,183.33.
+
+4. INTERPRETATION
+-----------------
+- Produce 23.33 units of Product A and 25 units of Product B.
+- Total profit = ₹2,183.33.
+- Resource usage at optimum:
+  - Labor: 2(23.33)+3(25) = 46.67+75 = 121.67 (slack: 58.33 hours)
+  - Machine: 3(23.33)+2(25) = 70+50 = 120 (fully used)
+  - Material: 2(23.33)+4(25) = 46.67+100 = 146.67 (slack: 3.33 units)
+  - Max A: 23.33 ≤ 40 (slack: 16.67 units)
+  - Max B: 25 = 25 (binding)
+- Machine and Max B are binding; others have slack.
+
+5. KEY INSIGHTS
+---------------
+- Maximum production limits add upper-bound constraints (≤).
+- These constraints may or may not be binding at the optimum.
+- In this case, Max B is binding, but Max A has slack.
+- Machine is also binding, making it a dual bottleneck.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Market demand limitations.
+- Storage capacity constraints.
+- Strategic diversification limits.
+- Regulatory production caps.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate problems with maximum production limits.
+- How to handle upper-bound constraints.
+- How to identify binding vs non-binding maximums.
+- How to optimize with both resource limits and maximums.
+
+8. KEY TAKEAWAYS
+-----------------
+- Maximum limits create upper bounds on variables.
+- These constraints may or may not be binding.
+- The optimal solution balances resource limits and maximums.
+- Maximums may force production diversification.
+
+================================================================================
+End of Topic 25 Notes
+================================================================================
