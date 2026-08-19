@@ -1,0 +1,101 @@
+===============================================================================
+GRAPHICAL REPRESENTATION OF LINEAR INEQUALITIES
+===============================================================================
+
+TOPIC 0 – FOUNDATIONS FOR GRAPHICAL LINEAR PROGRAMMING
+
+-------------------------------------------------------------------------------
+1. WHAT IS A LINEAR INEQUALITY?
+-------------------------------------------------------------------------------
+A linear inequality in two variables is an inequality of the form:
+    ax + by ≤ c,   ax + by ≥ c,   ax + by < c,   or ax + by > c
+
+Unlike a linear equation (which gives a line), a linear inequality describes
+a half-plane – all the points on one side of the boundary line.
+
+Key idea: The solution is a REGION, not just a single line.
+
+-------------------------------------------------------------------------------
+2. THE COORDINATE PLANE
+-------------------------------------------------------------------------------
+- x-axis: horizontal (independent variable)
+- y-axis: vertical (dependent variable)
+- Origin: (0,0) – the point where axes cross
+- Every point is an ordered pair (x, y)
+
+-------------------------------------------------------------------------------
+3. GRAPHING A LINEAR INEQUALITY – STEP-BY-STEP
+-------------------------------------------------------------------------------
+STEP 1: Replace the inequality with '=' to get the boundary line.
+STEP 2: Determine if the line is solid (≤ or ≥) or dashed (< or >).
+STEP 3: Test a point NOT on the line (often (0,0) if not on line).
+STEP 4: Shade the half-plane that satisfies the inequality.
+
+Example: Graph 2x + 3y ≤ 12
+- Boundary: 2x + 3y = 12  → intercepts: (6,0) and (0,4)
+- Solid line (because of ≤)
+- Test (0,0): 0 ≤ 12 true → shade the side containing (0,0)
+
+-------------------------------------------------------------------------------
+4. IMPORTANT CONCEPTS
+-------------------------------------------------------------------------------
+- Feasible region: overlap of all shaded half-planes.
+- Bounded region: finite area (enclosed).
+- Unbounded region: extends infinitely in some direction.
+- Corner points: vertices of the feasible region (intersections of constraints).
+- Binding constraint: holds as equality at the optimal solution.
+- Slack: unused resource in a ≤ constraint (RHS - LHS).
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES TO AVOID
+-------------------------------------------------------------------------------
+✗ Using dashed line for ≤ or ≥ (should be solid).
+✗ Shading the wrong side – always test a point.
+✗ Forgetting to rearrange into slope-intercept form.
+✗ Using (0,0) when it lies on the boundary line – choose another point.
+✗ Misreading inequality direction when multiplying by a negative.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always use (0,0) as test point whenever possible – it's quick.
+✓ Label axes and the inequality on the graph.
+✓ Use a ruler for straight lines – precision matters.
+✓ For intercepts: set x=0 to find y-intercept; set y=0 to find x-intercept.
+✓ Keep graphs neat – it prevents misreading intersections.
+✓ Check your work by plugging the shaded point back into the original inequality.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD CONTEXT
+-------------------------------------------------------------------------------
+Linear inequalities model real constraints:
+- Budget: Expenses ≤ Budget
+- Time: Hours ≥ Minimum requirement
+- Capacity: x + y ≤ Storage limit
+- Minimum requirements: Rice + Wheat ≥ Target
+
+These constraints appear in resource allocation, production planning,
+diet problems, and many other decision-making scenarios.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST FOR SUCCESS
+-------------------------------------------------------------------------------
+☐ I can identify a linear inequality from its equation.
+☐ I know the difference between solid and dashed lines.
+☐ I can graph a linear inequality on a coordinate plane.
+☐ I can test a point to determine the correct half-plane.
+☐ I understand that the solution is a region, not just a line.
+☐ I can connect the graph to a real-world constraint.
+
+-------------------------------------------------------------------------------
+9. PREPARING FOR THE NEXT TOPIC
+-------------------------------------------------------------------------------
+This foundation prepares you for plotting multiple constraints and finding
+the feasible region – the heart of graphical linear programming.
+
+Remember: Every inequality is a rule; the feasible region is where all rules
+are satisfied together.
+
+-------------------------------------------------------------------------------
+END OF NOTES
+===============================================================================

@@ -1,0 +1,106 @@
+===============================================================================
+PLOTTING A STRAIGHT-LINE CONSTRAINT
+===============================================================================
+
+TOPIC 5 – ESSENTIAL SKILL FOR GRAPHICAL LP
+
+-------------------------------------------------------------------------------
+1. WHAT IS A CONSTRAINT LINE?
+-------------------------------------------------------------------------------
+A constraint line is the boundary of a constraint in a linear programming
+problem. It represents the limit of a resource, capacity, or requirement.
+
+- Equality (=): solid line
+- Inequality (≤ or ≥): solid line (includes the boundary)
+- Inequality (< or >): dashed line (excludes the boundary)
+
+Key idea: The constraint line divides the plane into two halves — one feasible,
+one not.
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP: PLOTTING A CONSTRAINT LINE
+-------------------------------------------------------------------------------
+STEP 1: Identify the boundary line.
+  - For inequalities, replace the inequality with '='.
+
+STEP 2: Find two points on the line.
+  - Intercept method (fastest): find x-intercept (set y=0) and y-intercept (set x=0).
+  - Alternative: choose convenient x-values and solve for y.
+
+STEP 3: Decide the line type.
+  - Solid: ≤, ≥, or =
+  - Dashed: < or >
+
+STEP 4: Plot the points and draw the line.
+  - Extend the line across the entire graph.
+  - Label the line with its equation.
+
+-------------------------------------------------------------------------------
+3. FINDING INTERCEPTS
+-------------------------------------------------------------------------------
+For ax + by = c:
+- x-intercept: set y=0 → x = c/a → (c/a, 0)
+- y-intercept: set x=0 → y = c/b → (0, c/b)
+
+Example: 2x + 3y = 12
+- x-intercept: (6,0)
+- y-intercept: (0,4)
+
+-------------------------------------------------------------------------------
+4. SPECIAL CASES
+-------------------------------------------------------------------------------
+- Vertical line: x = k (no y-intercept unless k=0)
+- Horizontal line: y = k (no x-intercept unless k=0)
+- Line through origin: c=0 → both intercepts at (0,0)
+- Fractions: multiply through by LCD to simplify
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Using dashed line for ≤ or ≥ (should be solid).
+✗ Using solid line for < or > (should be dashed).
+✗ Not extending the line across the entire graph.
+✗ Misplacing intercepts (swapping x and y).
+✗ Forgetting to label the line.
+✗ Not checking the line with a test point.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Use intercepts whenever possible — they're the fastest method.
+✓ Always verify your line by checking a second point.
+✓ Use a straightedge for accurate lines.
+✓ Label the line with its equation on the graph.
+✓ For inequalities, decide line type before plotting.
+✓ Choose a scale that fits all constraints comfortably.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production capacity: 2x + 3y ≤ 24 (machine hours)
+- Budget limit: x + y ≤ 50 (rupees)
+- Minimum requirement: x + 2y ≥ 40 (acres of crops)
+- Time management: 2x + y ≤ 8 (hours available)
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the boundary line from a constraint.
+☐ I can find two points to plot a line (intercepts or other).
+☐ I know when to use solid vs dashed lines.
+☐ I can handle vertical and horizontal constraints.
+☐ I can draw a line that accurately represents the constraint.
+☐ I can verify my plotted line with a test point.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can plot constraint lines, the next step is to test a point to
+determine the feasible side of the constraint (Topic 6). This will prepare you
+to shade the appropriate half-plane and build the feasible region.
+
+Remember: A constraint line is just the beginning — the shading tells the full story.
+
+===============================================================================
+END OF NOTES
+===============================================================================

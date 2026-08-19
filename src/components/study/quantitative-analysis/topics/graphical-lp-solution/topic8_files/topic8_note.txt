@@ -1,0 +1,104 @@
+===============================================================================
+GRAPHICAL REPRESENTATION OF NON-NEGATIVITY RESTRICTIONS
+===============================================================================
+
+TOPIC 8 – RESTRICTING TO THE FIRST QUADRANT
+
+-------------------------------------------------------------------------------
+1. WHAT ARE NON-NEGATIVITY RESTRICTIONS?
+-------------------------------------------------------------------------------
+Non-negativity restrictions are constraints that require decision variables
+to be greater than or equal to zero: x ≥ 0 and y ≥ 0.
+
+Why are they needed?
+- Most real-world quantities can't be negative
+- You can't produce negative items
+- You can't spend negative money
+- You can't have negative time
+
+Key idea: Non-negativity ensures mathematical solutions are practically meaningful.
+
+-------------------------------------------------------------------------------
+2. GRAPHING NON-NEGATIVITY
+-------------------------------------------------------------------------------
+x ≥ 0:
+  - Vertical line at x = 0 (the y-axis)
+  - Solid line (includes equality)
+  - Shade to the RIGHT
+
+y ≥ 0:
+  - Horizontal line at y = 0 (the x-axis)
+  - Solid line (includes equality)
+  - Shade ABOVE
+
+The intersection is the FIRST QUADRANT (QI).
+
+-------------------------------------------------------------------------------
+3. CORNER POINTS WITH NON-NEGATIVITY
+-------------------------------------------------------------------------------
+Non-negativity creates important corner points:
+- Origin: (0,0) — intersection of x=0 and y=0
+- x-axis intercepts: (x, 0) — where constraints meet x-axis
+- y-axis intercepts: (0, y) — where constraints meet y-axis
+
+These are always candidates for optimal solutions.
+
+-------------------------------------------------------------------------------
+4. EFFECT ON FEASIBLE REGION
+-------------------------------------------------------------------------------
+- Feasible region is restricted to the first quadrant
+- All negative coordinates are eliminated
+- The origin is always in the feasible region (if other constraints allow)
+- Axis intercepts become important boundary points
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to include non-negativity constraints.
+✗ Graphing in all four quadrants unnecessarily.
+✗ Not recognizing origin as a potential optimum.
+✗ Ignoring axis intercepts as corner points.
+✗ Using dashed lines for x≥0 or y≥0 (should be solid).
+✗ Assuming all variables are automatically non-negative.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always include non-negativity in LP formulations.
+✓ Graph only the first quadrant for LP problems.
+✓ Origin is almost always a feasible corner point.
+✓ Axis intercepts are key corner points.
+✓ Use the first quadrant as your "playing field."
+✓ Check if variables truly can't be negative.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production planning: quantities can't be negative
+- Budget allocation: spending can't be negative
+- Time management: time can't be negative
+- Inventory management: stock levels can't be negative
+- Resource allocation: resources can't be negative
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I understand why non-negativity constraints are needed.
+☐ I can graph x ≥ 0 and y ≥ 0 as solid lines.
+☐ I know that non-negativity restricts the region to the first quadrant.
+☐ I can shade the first quadrant correctly.
+☐ I know that the origin and axis intercepts are important corner points.
+☐ I can identify when non-negativity creates the feasible region boundary.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand non-negativity, you're ready to plot multiple
+constraints on the same graph (Topic 9). This will combine everything
+you've learned to build the complete feasible region.
+
+Remember: The first quadrant is your arena — all LP solutions live here.
+
+===============================================================================
+END OF NOTES
+===============================================================================

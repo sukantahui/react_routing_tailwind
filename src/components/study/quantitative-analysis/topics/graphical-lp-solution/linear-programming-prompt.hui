@@ -1,0 +1,321 @@
+[
+  {"topic_no": 0, "topic": "Graphical representation of linear inequalities", "file": "Topic0.jsx"},
+  {"topic_no": 1, "topic": "Plotting constraints on a coordinate plane", "file": "Topic1.jsx"},
+  {"topic_no": 2, "topic": "Understanding the x-axis and y-axis", "file": "Topic2.jsx"},
+  {"topic_no": 3, "topic": "Identifying the origin and coordinate points", "file": "Topic3.jsx"},
+  {"topic_no": 4, "topic": "Finding x-intercepts and y-intercepts", "file": "Topic4.jsx"},
+  {"topic_no": 5, "topic": "Plotting a straight-line constraint", "file": "Topic5.jsx"},
+  {"topic_no": 6, "topic": "Testing a point to determine the feasible side of a constraint", "file": "Topic6.jsx"},
+  {"topic_no": 7, "topic": "Shading the appropriate half-plane", "file": "Topic7.jsx"},
+  {"topic_no": 8, "topic": "Graphical representation of non-negativity restrictions", "file": "Topic8.jsx"},
+  {"topic_no": 9, "topic": "Plotting multiple constraints on the same graph", "file": "Topic9.jsx"},
+  {"topic_no": 10, "topic": "Finding the common feasible region", "file": "Topic10.jsx"},
+  {"topic_no": 11, "topic": "Feasible region", "file": "Topic11.jsx"},
+  {"topic_no": 12, "topic": "Bounded and unbounded feasible regions", "file": "Topic12.jsx"},
+  {"topic_no": 13, "topic": "Corner points and extreme points", "file": "Topic13.jsx"},
+  {"topic_no": 14, "topic": "Finding corner points from the graph", "file": "Topic14.jsx"},
+  {"topic_no": 15, "topic": "Finding corner points algebraically", "file": "Topic15.jsx"},
+  {"topic_no": 16, "topic": "Intersection of two constraint lines", "file": "Topic16.jsx"},
+  {"topic_no": 17, "topic": "Determining whether a point satisfies all constraints", "file": "Topic17.jsx"},
+  {"topic_no": 18, "topic": "Checking feasibility of corner points", "file": "Topic18.jsx"},
+  {"topic_no": 19, "topic": "Graphical interpretation of the objective function", "file": "Topic19.jsx"},
+  {"topic_no": 20, "topic": "Objective function line", "file": "Topic20.jsx"},
+  {"topic_no": 21, "topic": "Iso-profit line", "file": "Topic21.jsx"},
+  {"topic_no": 22, "topic": "Iso-cost line", "file": "Topic22.jsx"},
+  {"topic_no": 23, "topic": "Slope of the objective function", "file": "Topic23.jsx"},
+  {"topic_no": 24, "topic": "Moving the objective function line parallel to itself", "file": "Topic24.jsx"},
+  {"topic_no": 25, "topic": "Finding the maximum value graphically", "file": "Topic25.jsx"},
+  {"topic_no": 26, "topic": "Finding the minimum value graphically", "file": "Topic26.jsx"},
+  {"topic_no": 27, "topic": "Corner-point principle", "file": "Topic27.jsx"},
+  {"topic_no": 28, "topic": "Worked Example 1: Simple two-variable maximization problem", "file": "Topic28.jsx"},
+  {"topic_no": 29, "topic": "Worked Example 2: Maximization with two resource constraints", "file": "Topic29.jsx"},
+  {"topic_no": 30, "topic": "Worked Example 3: Maximization with three or more constraints", "file": "Topic30.jsx"},
+  {"topic_no": 31, "topic": "Worked Example 4: Profit maximization product-mix problem", "file": "Topic31.jsx"},
+  {"topic_no": 32, "topic": "Worked Example 5: Resource allocation problem", "file": "Topic32.jsx"},
+  {"topic_no": 33, "topic": "Worked Example 6: Labour and machine-hour constraint problem", "file": "Topic33.jsx"},
+  {"topic_no": 34, "topic": "Worked Example 7: Production planning problem", "file": "Topic34.jsx"},
+  {"topic_no": 35, "topic": "Worked Example 8: Advertising budget allocation problem", "file": "Topic35.jsx"},
+  {"topic_no": 36, "topic": "Worked Example 9: Investment allocation problem", "file": "Topic36.jsx"},
+  {"topic_no": 37, "topic": "Worked Example 10: Agricultural production problem", "file": "Topic37.jsx"},
+  {"topic_no": 38, "topic": "Worked Example 11: Simple minimization problem", "file": "Topic38.jsx"},
+  {"topic_no": 39, "topic": "Worked Example 12: Cost minimization with resource requirements", "file": "Topic39.jsx"},
+  {"topic_no": 40, "topic": "Worked Example 13: Diet and nutrition minimization problem", "file": "Topic40.jsx"},
+  {"topic_no": 41, "topic": "Worked Example 14: Minimum-cost production problem", "file": "Topic41.jsx"},
+  {"topic_no": 42, "topic": "Evaluating the objective function at corner points", "file": "Topic42.jsx"},
+  {"topic_no": 43, "topic": "Comparing objective-function values", "file": "Topic43.jsx"},
+  {"topic_no": 44, "topic": "Selecting the optimal corner point", "file": "Topic44.jsx"},
+  {"topic_no": 45, "topic": "Determining the optimal values of decision variables", "file": "Topic45.jsx"},
+  {"topic_no": 46, "topic": "Determining the maximum profit", "file": "Topic46.jsx"},
+  {"topic_no": 47, "topic": "Determining the minimum cost", "file": "Topic47.jsx"},
+  {"topic_no": 48, "topic": "Multiple optimal solutions", "file": "Topic48.jsx"},
+  {"topic_no": 49, "topic": "Identifying alternate optimal solutions graphically", "file": "Topic49.jsx"},
+  {"topic_no": 50, "topic": "Objective function parallel to a boundary edge", "file": "Topic50.jsx"},
+  {"topic_no": 51, "topic": "Infinite optimal solutions", "file": "Topic51.jsx"},
+  {"topic_no": 52, "topic": "Infeasible LP problems", "file": "Topic52.jsx"},
+  {"topic_no": 53, "topic": "Identifying an empty feasible region", "file": "Topic53.jsx"},
+  {"topic_no": 54, "topic": "Worked Example 15: Infeasible graphical LP problem", "file": "Topic54.jsx"},
+  {"topic_no": 55, "topic": "Unbounded LP problems", "file": "Topic55.jsx"},
+  {"topic_no": 56, "topic": "Identifying an unbounded feasible region", "file": "Topic56.jsx"},
+  {"topic_no": 57, "topic": "Worked Example 16: Unbounded maximization problem", "file": "Topic57.jsx"},
+  {"topic_no": 58, "topic": "Worked Example 17: Unbounded minimization problem", "file": "Topic58.jsx"},
+  {"topic_no": 59, "topic": "Redundant constraints", "file": "Topic59.jsx"},
+  {"topic_no": 60, "topic": "Identifying redundant constraints graphically", "file": "Topic60.jsx"},
+  {"topic_no": 61, "topic": "Effect of redundant constraints on the feasible region", "file": "Topic61.jsx"},
+  {"topic_no": 62, "topic": "Binding and non-binding constraints", "file": "Topic62.jsx"},
+  {"topic_no": 63, "topic": "Identifying binding constraints at the optimal solution", "file": "Topic63.jsx"},
+  {"topic_no": 64, "topic": "Slack in a constraint", "file": "Topic64.jsx"},
+  {"topic_no": 65, "topic": "Interpreting unused resources graphically", "file": "Topic65.jsx"},
+  {"topic_no": 66, "topic": "Special cases in graphical LP", "file": "Topic66.jsx"},
+  {"topic_no": 67, "topic": "Unique optimal solution", "file": "Topic67.jsx"},
+  {"topic_no": 68, "topic": "Multiple optimal solutions", "file": "Topic68.jsx"},
+  {"topic_no": 69, "topic": "Infeasible solution", "file": "Topic69.jsx"},
+  {"topic_no": 70, "topic": "Unbounded solution", "file": "Topic70.jsx"},
+  {"topic_no": 71, "topic": "Redundant constraints", "file": "Topic71.jsx"},
+  {"topic_no": 72, "topic": "Sensitivity interpretation from graphical solutions", "file": "Topic72.jsx"},
+  {"topic_no": 73, "topic": "Effect of changing a resource constraint", "file": "Topic73.jsx"},
+  {"topic_no": 74, "topic": "Effect of changing objective-function coefficients", "file": "Topic74.jsx"},
+  {"topic_no": 75, "topic": "Effect of shifting a constraint line", "file": "Topic75.jsx"},
+  {"topic_no": 76, "topic": "Graphical interpretation of resource availability", "file": "Topic76.jsx"},
+  {"topic_no": 77, "topic": "Legal-service resource allocation problem", "file": "Topic77.jsx"},
+  {"topic_no": 78, "topic": "Public resource allocation problem", "file": "Topic78.jsx"},
+  {"topic_no": 79, "topic": "Social-resource optimization problem", "file": "Topic79.jsx"},
+  {"topic_no": 80, "topic": "Practical applications of graphical LP", "file": "Topic80.jsx"},
+  {"topic_no": 81, "topic": "Step-by-step procedure for solving LP graphically", "file": "Topic81.jsx"},
+  {"topic_no": 82, "topic": "Common mistakes in graphical LP", "file": "Topic82.jsx"},
+  {"topic_no": 83, "topic": "Checking a graphical solution", "file": "Topic83.jsx"},
+  {"topic_no": 84, "topic": "Interpreting graphical LP solutions", "file": "Topic84.jsx"},
+  {"topic_no": 85, "topic": "Practice Problems", "file": "Topic85.jsx"},
+  {"topic_no": 86, "topic": "Numerical Exercises", "file": "Topic86.jsx"},
+  {"topic_no": 87, "topic": "Unsolved Problems", "file": "Topic87.jsx"},
+  {"topic_no": 88, "topic": "Exam-style Problems", "file": "Topic88.jsx"},
+  {"topic_no": 89, "topic": "Short Questions", "file": "Topic89.jsx"}
+]
+
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details, content should be enough 
+    - Real-world usage examples, at least 4 examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention if it is a programming language:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Mamata, Mahima, Abhronila, Susmita, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Kolkata, Ichapur, Jadavpur
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only if not mentioned a topic number
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+avoid opacity-0 class
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+
+do not use opacity-0
+
+for PlainTextPrint i use the following:
+    import PlainTextPrint from "../../../../../common/PlainTextPrint";
+    import noteText from "./topic[topic_no]_files/topic[topic_no]_note.txt?raw";
+    after <FAQTemplate
+    place
+    <PlainTextPrint
+        content={noteText}
+        title="Introduction to Linear Programming"
+        stampEnabled={true}
+        showDownload={true}
+        downloadButtonText="Download Note"
+        downloadFileName="topic[topic_no+1]_note.txt"
+    />
+    I want to add another file here which be plain text file conatining the topic in printable style, so that students can print it as plain text, i will put the file in   './topic[topic_no]_files/topic[topic_no]_note'
+
+for FAQ i use the following:
+    import FAQTemplate from '../../../../../common/FAQTemplate';
+    import questions from './topic[topic_no]_files/topic[topic_no]_questions';
+    before <Teacher note
+    place
+    <FAQTemplate
+        title="[topic_name] FAQs"
+        questions={questions}
+      />
+    create a js file in following style
+    const questions = [
+        {
+            question: "What is inheritance in object-oriented programming?",
+            shortAnswer: "Inheritance allows a class to acquire properties and methods from another class.",
+            explanation: "Inheritance is a mechanism where a new class (child/subclass) inherits fields and methods from an existing class (parent/superclass). It represents an 'is-a' relationship and promotes code reusability.",
+            hint: "Think of a child inheriting traits from parents.",
+            level: "basic",
+            codeExample: "class Parent { } class Child extends Parent { }"
+        },  
+        .....
+    ]
+    export default questions;
+    create 30 questions moderate to expert show the file also
+    show all the files with folder separately  
+
+always use Rupee sign for currency instead of $    
+generate three files
+
+start from Topic[user defined]

@@ -1,0 +1,99 @@
+===============================================================================
+SHADING THE APPROPRIATE HALF-PLANE
+===============================================================================
+
+TOPIC 7 – COMPLETING THE CONSTRAINT GRAPH
+
+-------------------------------------------------------------------------------
+1. WHAT IS SHADING?
+-------------------------------------------------------------------------------
+Shading is the process of visually marking the region of the coordinate plane
+that satisfies an inequality. It transforms a simple line into a complete
+representation of the constraint.
+
+- The shaded region represents all solutions to the inequality.
+- Every point in the shaded region satisfies the inequality.
+- Points outside the shaded region do not satisfy it.
+
+Key idea: The line is the boundary; the shading is the "playing field."
+
+-------------------------------------------------------------------------------
+2. HOW TO SHADE — THE TEST POINT METHOD
+-------------------------------------------------------------------------------
+STEP 1: Plot the boundary line (solid or dashed).
+STEP 2: Choose a test point NOT on the line (origin is best).
+STEP 3: Substitute the test point into the inequality.
+STEP 4: If TRUE → shade the side containing the test point.
+STEP 5: If FALSE → shade the opposite side.
+
+-------------------------------------------------------------------------------
+3. SHADING RULES FOR DIFFERENT INEQUALITY TYPES
+-------------------------------------------------------------------------------
+For a line in slope-intercept form (y = mx + b):
+- y ≤ mx + b → shade BELOW the line (solid)
+- y ≥ mx + b → shade ABOVE the line (solid)
+- y < mx + b → shade BELOW the line (dashed)
+- y > mx + b → shade ABOVE the line (dashed)
+
+For vertical lines:
+- x ≤ k → shade LEFT of the line (solid)
+- x ≥ k → shade RIGHT of the line (solid)
+- x < k → shade LEFT of the line (dashed)
+- x > k → shade RIGHT of the line (dashed)
+
+For horizontal lines:
+- y ≤ k → shade BELOW the line (solid)
+- y ≥ k → shade ABOVE the line (solid)
+- y < k → shade BELOW the line (dashed)
+- y > k → shade ABOVE the line (dashed)
+
+-------------------------------------------------------------------------------
+4. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Shading before testing a point.
+✗ Shading the wrong side (misinterpreting true/false).
+✗ Using dark shading that obscures other constraints.
+✗ Forgetting to shade entirely.
+✗ Shading both sides of the line.
+✗ Using the wrong line type with shading.
+
+-------------------------------------------------------------------------------
+5. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always test a point before shading.
+✓ Use light shading or cross-hatching for clarity.
+✓ Label the shaded region as "Feasible" or "Satisfies".
+✓ Mark the test point and its result on the graph.
+✓ Use different shading patterns for multiple constraints.
+✓ Verify your shading by testing points in and out of the region.
+
+-------------------------------------------------------------------------------
+6. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Budget constraints: shade below the line for affordable options.
+- Minimum requirements: shade above the line for acceptable solutions.
+- Strict limits: use dashed lines when the boundary is excluded.
+- Resource constraints: shade shows all feasible combinations.
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can test a point to determine which side to shade.
+☐ I know when to shade above vs below a line.
+☐ I can shade the correct half-plane for any inequality.
+☐ I understand the difference between solid and dashed shading.
+☐ I can shade multiple constraints on the same graph.
+☐ I can verify my shading with a test point.
+
+-------------------------------------------------------------------------------
+8. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can shade individual constraints, you're ready to apply
+non-negativity restrictions (Topic 8). This will restrict the feasible
+region to the first quadrant and set the stage for multi-constraint problems.
+
+Remember: Shading shows where the solution lives — it's the visual heart of LP.
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,95 @@
+===============================================================================
+UNDERSTANDING THE X-AXIS AND Y-AXIS
+===============================================================================
+
+TOPIC 2 – THE COORDINATE SYSTEM
+
+-------------------------------------------------------------------------------
+1. WHAT ARE THE AXES?
+-------------------------------------------------------------------------------
+- x-axis: horizontal number line. Positive to the right, negative to the left.
+- y-axis: vertical number line. Positive upward, negative downward.
+- They intersect at the origin (0,0).
+- The axes divide the plane into four quadrants.
+
+Key idea: Every point has a unique (x, y) address.
+
+-------------------------------------------------------------------------------
+2. READING AND PLOTTING COORDINATES
+-------------------------------------------------------------------------------
+- Order: (x, y) – x first, then y.
+- To plot: start at origin, move horizontally by x, then vertically by y.
+- Positive x = right; negative x = left.
+- Positive y = up; negative y = down.
+
+Example: (3, -2) → 3 right, 2 down → Quadrant IV.
+
+-------------------------------------------------------------------------------
+3. QUADRANTS
+-------------------------------------------------------------------------------
+QI: (+,+) – both positive
+QII: (-,+) – x negative, y positive
+QIII: (-,-) – both negative
+QIV: (+,-) – x positive, y negative
+
+Points on axes have one coordinate zero:
+- x-axis: (x, 0)
+- y-axis: (0, y)
+
+-------------------------------------------------------------------------------
+4. SPECIAL POINTS
+-------------------------------------------------------------------------------
+- Origin: (0,0) – the reference point.
+- On x-axis: (x, 0) – any point with y=0.
+- On y-axis: (0, y) – any point with x=0.
+
+These are useful as test points for shading inequalities.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Reversing x and y (writing (y,x) instead of (x,y)).
+✗ Moving left when you should move right (negative vs positive).
+✗ Forgetting that negative y goes down.
+✗ Not labeling axes.
+✗ Using inconsistent scales.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always start at the origin.
+✓ Move horizontally first, then vertically.
+✓ Label axes clearly with variable names.
+✓ Use consistent scale on both axes.
+✓ Double-check your plotted point by reading it back.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- City maps: x-axis = east-west, y-axis = north-south.
+- Temperature vs. time: time on x, temperature on y.
+- Profit vs. production: production on x, profit on y.
+- Nutrient tracking: calories on x, protein on y.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the x-axis and y-axis.
+☐ I know which is horizontal and which is vertical.
+☐ I can locate the origin.
+☐ I can read and plot coordinates.
+☐ I understand the four quadrants and their signs.
+☐ I can identify points on axes.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you're comfortable with the axes, you're ready to explore the origin
+and coordinate points in more detail (Topic 3), which will deepen your
+understanding of how to use points in LP.
+
+The axes are the foundation – master them and everything else becomes easier.
+
+===============================================================================
+END OF NOTES
+===============================================================================
