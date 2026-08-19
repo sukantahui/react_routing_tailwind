@@ -1,3 +1,7 @@
+// ===============================================
+// NavBar.jsx - Modern Professional Navigation
+// ===============================================
+
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -6,31 +10,25 @@ import cnat from "../assets/cnat.png";
 
 const isDev = import.meta.env.DEV;
 
-/**
- * Professional navigation bar with responsive menu,
- * dropdowns for Tools and Tutorials, and smooth animations.
- */
 const NavBar = () => {
   const location = useLocation();
   const navRef = useRef(null);
 
-  // State for mobile menu and dropdowns
   const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [tutorialsOpen, setTutorialsOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(location.hash || "");
 
-  // Update active hash when location changes
   useEffect(() => {
     setActiveHash(location.hash);
   }, [location.hash]);
 
-  // Close mobile menu on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
         setIsOpen(false);
-        setServicesOpen(false);
+        setToolsOpen(false);
         setTutorialsOpen(false);
       }
     };
@@ -40,410 +38,386 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
-    setServicesOpen(false);
+    setToolsOpen(false);
     setTutorialsOpen(false);
-  };
-
-  const toggleServices = () => {
-    setServicesOpen((prev) => !prev);
-    setTutorialsOpen(false);
-  };
-
-  const toggleTutorials = () => {
-    setTutorialsOpen((prev) => !prev);
-    setServicesOpen(false);
   };
 
   const closeMobileMenu = () => {
     setIsOpen(false);
-    setServicesOpen(false);
+    setToolsOpen(false);
     setTutorialsOpen(false);
-  };
-
-  // Helper to get icon class based on link key
-  const getIconClass = (key) => {
-    const icons = {
-      home: "bi-house-door",
-      about: "bi-info-circle",
-      courses: "bi-book",
-      teachers: "bi-people",
-      services: "bi-tools",
-      tutorials: "bi-collection-play",
-      contact: "bi-envelope",
-      login: "bi-box-arrow-in-right",
-      "typing-test": "bi-keyboard",
-      "typing-learn": "bi-pencil",
-      "python-play": "bi-code-slash",
-      play: "bi-code-square",
-      icons: "bi-grid-3x3",
-      vscode: "bi-window",
-      whiteboard: "bi-easel",
-      javascript: "bi-filetype-js",
-      python: "bi-filetype-py",
-      "c-language": "bi-filetype-c",
-      tally: "bi-calculator",
-      excel: "bi-file-spreadsheet",
-      "icse-java-ix": "bi-journal-code",
-      "icse-java-x": "bi-journal-code",
-      "java-core": "bi-cpu",
-      general: "bi-files",
-      "computer-architecture": "bi-motherboard",
-      "isc-11": "bi-journal-richtext",
-      css: "bi-filetype-css",
-      unix: "bi-terminal",
-      react: "bi-filetype-js", // replaced bi-react with existing icon
-      node: "bi-node", // bi-node exists in Bootstrap Icons
-      "java-web": "bi-globe",
-      "qr-code": "bi-qr-code-scan",
-      network: "bi-diagram-3",
-      LinkedListVisualizer: "bi-diagram-2",
-    };
-    return icons[key] || "bi-link";
-  };
-
-  // Dynamic styling for navigation links
-  const linkClass = (key, isActive) => {
-    const activeColors = {
-      home: "from-sky-600 to-purple-600",
-      about: "from-green-500 to-lime-500",
-      courses: "from-pink-500 to-rose-500",
-      teachers: "from-amber-500 to-orange-500",
-      services: "from-indigo-500 to-blue-500",
-      tutorials: "from-yellow-500 to-amber-500",
-      contact: "from-emerald-500 to-teal-500",
-      login: "from-red-500 to-pink-500",
-    };
-
-    return `flex items-center gap-2 px-4 py-2 text-sm sm:text-base font-medium rounded-full transition-all duration-200 ${
-      isActive
-        ? `bg-gradient-to-r ${activeColors[key]} text-white shadow-lg shadow-${activeColors[key].split(" ")[0]}/30`
-        : "text-gray-300 hover:text-white hover:bg-gray-800/70"
-    }`;
   };
 
   const isHome = location.pathname === "/";
 
-  // Define menu items (DRY)
+  // Unified Professional Nav Link Styling
+  const navLinkClass = (isActive) =>
+    `inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
+      isActive
+        ? "text-sky-400 bg-slate-800/90 border border-slate-700/80 shadow-sm"
+        : "text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent"
+    }`;
+
   const toolsItems = [
-    { to: "/tools/type-test", key: "typing-test", label: "Typing Test" },
-    { to: "/tools/typing-learn", key: "typing-learn", label: "Typing Learn" },
-    { to: "/python-play", key: "python-play", label: "Python Editor" },
-    { to: "/play", key: "play", label: "JavaScript Editor" },
-    { to: "/icons", key: "icons", label: "Icons" },
-    { to: "/vscode", key: "vscode", label: "VS Code" },
-    { to: "/whiteBoard", key: "whiteboard", label: "Whiteboard" },
-    { to: "/tools/audioextract", key: "audioextractor", label: "Audioextractor" },
-    { to: "/qrcode", key: "qr-code", label: "QR Code Generator" },
-    { to: "/LinkedListVisualizer", key: "LinkedListVisualizer", label: "Linked List Visualizer" },
-    { to: "/DoublyLinkedListVisualizer", key: "DoublyLinkedListVisualizer", label: "Double Linked List Visualizer" },
-    { to: "/BinaryTreeVisualizer", key: "BinaryTreeVisualizer", label: "Binary Tree Visualizer" },
-    { to: "/AvlTreeVisualizer", key: "AvlTreeVisualizer", label: "AVL Tree Visualizer" },
+    { to: "/tools/type-test", icon: "bi-keyboard", label: "Typing Speed Test" },
+    { to: "/tools/typing-learn", icon: "bi-pencil", label: "Typing Tutor" },
+    { to: "/python-play", icon: "bi-filetype-py", label: "Python Interactive Editor" },
+    { to: "/play", icon: "bi-code-square", label: "JavaScript Playground" },
+    { to: "/vscode", icon: "bi-window", label: "Web VS Code" },
+    { to: "/whiteBoard", icon: "bi-easel", label: "Interactive Whiteboard" },
+    { to: "/qrcode", icon: "bi-qr-code-scan", label: "QR Code Generator" },
+    { to: "/LinkedListVisualizer", icon: "bi-diagram-2", label: "Linked List Visualizer" },
+    { to: "/BinaryTreeVisualizer", icon: "bi-diagram-3", label: "Binary Tree Visualizer" },
+    { to: "/AvlTreeVisualizer", icon: "bi-diagram-3", label: "AVL Tree Visualizer" },
   ];
 
   const tutorialsItems = [
-    { to: "/javascript/roadmap", key: "javascript", label: "JavaScript", icon: "bi-filetype-js" },
-    { to: "/python/roadmap", key: "python", label: "Python", icon: "bi-filetype-py" },
-    { to: "/c-language/roadmap", key: "c-language", label: "C Programming", icon: "bi-filetype-c" },
-    { to: "/tally/roadmap", key: "tally", label: "Tally", icon: "bi-calculator" },
-    { to: "/excel/roadmap", key: "excel", label: "Excel", icon: "bi-file-spreadsheet" },
-    { to: "/icse-java-ix/roadmap", key: "icse-java-ix", label: "ICSE Class 9", icon: "bi-journal-code" },
-    { to: "/icse-java-x/roadmap", key: "icse-java-x", label: "ICSE Class X", icon: "bi-journal-code" },
-    { to: "/java-core/roadmap", key: "java-core", label: "Core Java", icon: "bi-cpu" },
-    { to: "/general/roadmap", key: "general", label: "General", icon: "bi-files" },
-    { to: "/css/roadmap", key: "css", label: "CSS", icon: "bi-filetype-css" },
-    { to: "/isc-11/roadmap", key: "isc-11", label: "ISC 11 Com. Sc.", icon: "bi-journal-richtext" },
-    { to: "/isc-12/roadmap", key: "isc-11", label: "ISC 12 Com. Sc.", icon: "bi-journal-richtext" },
-    { to: "/computer-architecture/roadmap", key: "computer-architecture", label: "Computer Architecture", icon: "bi-motherboard" },
-    { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
-    { to: "/react/roadmap", key: "react", label: "React", icon: "bi-filetype-js" },   // ✅ updated to valid icon
-    { to: "/network/roadmap", key: "network", label: "Network", icon: "bi-diagram-3" },
-    ...(isDev ? [{ to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" }] : []),
-    { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
-    { to: "/cyber-security/roadmap", key: "cyber-security", label: "Cyber Security", icon: "bi-globe" },
-    { to: "/quantitative-analysis/roadmap", key: "quantitative-analysis", label: "Quatitative Analysis", icon: "bi-globe" },
+    { to: "/javascript/roadmap", icon: "bi-filetype-js", label: "JavaScript Roadmap" },
+    { to: "/python/roadmap", icon: "bi-filetype-py", label: "Python Roadmap" },
+    { to: "/c-language/roadmap", icon: "bi-filetype-c", label: "C Programming" },
+    { to: "/tally/roadmap", icon: "bi-calculator", label: "Tally Prime & Accounts" },
+    { to: "/excel/roadmap", icon: "bi-file-spreadsheet", label: "Advanced Excel" },
+    { to: "/icse-java-ix/roadmap", icon: "bi-journal-code", label: "ICSE Class 9 Java" },
+    { to: "/icse-java-x/roadmap", icon: "bi-journal-code", label: "ICSE Class 10 Java" },
+    { to: "/java-core/roadmap", icon: "bi-cpu", label: "Core Java" },
+    { to: "/java-web/roadmap", icon: "bi-globe", label: "Java Web" },
+    { to: "/rdbms-mysql/roadmap", icon: "bi-database", label: "RDBMS MySQL" },
+    { to: "/react/roadmap", icon: "bi-code-slash", label: "React Roadmap" },
+    { to: "/css/roadmap", icon: "bi-filetype-css", label: "Modern CSS & Tailwind" },
+    { to: "/isc-11/roadmap", icon: "bi-journal-richtext", label: "ISC 11 Computer Science" },
+    { to: "/isc-12/roadmap", icon: "bi-journal-richtext", label: "ISC 12 Computer Science" },
+    { to: "/computer-architecture/roadmap", icon: "bi-motherboard", label: "Computer Architecture" },
+    { to: "/unix/roadmap", icon: "bi-terminal", label: "UNIX" },
+    { to: "/network/roadmap", icon: "bi-diagram-3", label: "Computer Networks" },
+    { to: "/cyber-security/roadmap", icon: "bi-shield-lock", label: "Cyber Security" },
+    { to: "/quantitative-analysis/roadmap", icon: "bi-graph-up-arrow", label: "Quantitative Analysis" },
+    { to: "/general/roadmap", icon: "bi-files", label: "General" },
+    ...(isDev ? [{ to: "/node/roadmap", icon: "bi-hdd-network", label: "Node.js Roadmap" }] : []),
   ];
 
   return (
-    <motion.header
+    <header
       ref={navRef}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="sticky opacity-[0.5] top-0 z-50 bg-gradient-to-b from-gray-950/95 via-gray-900/95 to-gray-950/95 backdrop-blur-md border-b border-gray-800"
+      className="w-full bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/90 shadow-lg shadow-black/30"
     >
-      <div className="max-w-full mx-auto px-4 sm:px-6">
-        <div className="w-full flex items-center justify-between py-3 sm:py-4">
-          {/* Brand */}
-          <motion.div
-            className="flex items-center gap-2 gap-2 sm:gap-3 font-semibold text-lg sm:text-xl text-white"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="w-full flex items-center justify-between h-14">
+          {/* Brand Logo */}
+          <NavLink
+            to="/"
+            className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none"
           >
-            <img src={cnat} alt="Coder & AccoTax Logo" className="w-8 h-8 sm:w-9 sm:h-9" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-purple-400 to-pink-400 whitespace-nowrap">
-              Coder & AccoTax
-            </span>
-          </motion.div>
+            <div className="relative flex items-center">
+              <img
+                src={cnat}
+                alt="Coder & AccoTax"
+                className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm sm:text-base font-bold tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                Coder & AccoTax
+              </span>
+              <span className="text-[9px] text-slate-400 font-medium uppercase tracking-wider hidden sm:block -mt-0.5">
+                ISO 9001:2015 Certified
+              </span>
+            </div>
+          </NavLink>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={toggleMenu}
-            className="sm:hidden text-gray-300 text-2xl focus:outline-none hover:text-white transition"
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? "✕" : "☰"}
-          </button>
-
-          {/* Desktop navigation */}
-          <nav className="hidden sm:flex items-center gap-2 md:gap-3">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1">
             {!isHome && (
-              <NavLink to="/" className={({ isActive }) => linkClass("home", isActive)}>
-                <i className={`bi ${getIconClass("home")}`}></i>
+              <NavLink to="/" className={({ isActive }) => navLinkClass(isActive)}>
+                <i className="bi bi-house-door text-slate-400"></i>
                 <span>Home</span>
               </NavLink>
             )}
 
             {isHome && (
               <>
-                <HashLink smooth to="/#about" className={linkClass("about", activeHash === "#about")}>
-                  <i className={`bi ${getIconClass("about")}`}></i>
+                <HashLink smooth to="/#about" className={navLinkClass(activeHash === "#about")}>
+                  <i className="bi bi-info-circle text-slate-400 text-xs"></i>
                   <span>About</span>
                 </HashLink>
-                <HashLink smooth to="/#courses" className={linkClass("courses", activeHash === "#courses")}>
-                  <i className={`bi ${getIconClass("courses")}`}></i>
+                <HashLink smooth to="/#courses" className={navLinkClass(activeHash === "#courses")}>
+                  <i className="bi bi-book text-slate-400 text-xs"></i>
                   <span>Courses</span>
                 </HashLink>
-                <HashLink smooth to="/#teachers" className={linkClass("teachers", activeHash === "#teachers")}>
-                  <i className={`bi ${getIconClass("teachers")}`}></i>
+                <HashLink smooth to="/#teachers" className={navLinkClass(activeHash === "#teachers")}>
+                  <i className="bi bi-people text-slate-400 text-xs"></i>
                   <span>Teachers</span>
                 </HashLink>
-                <HashLink smooth to="/#services" className={linkClass("services", activeHash === "#services")}>
-                  <i className={`bi ${getIconClass("services")}`}></i>
-                  <span>Services</span>
-                </HashLink>
-                <HashLink smooth to="/#contact" className={linkClass("contact", activeHash === "#contact")}>
-                  <i className={`bi ${getIconClass("contact")}`}></i>
+                <HashLink smooth to="/#contact" className={navLinkClass(activeHash === "#contact")}>
+                  <i className="bi bi-envelope text-slate-400 text-xs"></i>
                   <span>Contact</span>
                 </HashLink>
               </>
             )}
 
-            {/* Tools dropdown */}
+            {/* Tools Dropdown */}
             <div className="relative">
               <button
-                onClick={toggleServices}
-                className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full transition"
+                onClick={() => {
+                  setToolsOpen(!toolsOpen);
+                  setTutorialsOpen(false);
+                }}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
+                  toolsOpen
+                    ? "text-sky-400 bg-slate-800/90 border border-slate-700/80"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent"
+                }`}
               >
-                <i className={`bi ${getIconClass("services")}`}></i>
+                <i className="bi bi-tools text-slate-400 text-xs"></i>
                 <span>Tools</span>
-                <i className={`bi bi-chevron-down text-xs transition-transform ${servicesOpen ? "rotate-180" : ""}`}></i>
+                <i className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform ${toolsOpen ? "rotate-180 text-sky-400" : ""}`}></i>
               </button>
 
               <AnimatePresence>
-                {servicesOpen && (
+                {toolsOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-56 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50"
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl p-2 z-50 ring-1 ring-white/5"
                   >
-                    {toolsItems.map((item) => (
-                      <NavLink
-                        key={item.to}
-                        to={item.to}
-                        onClick={toggleServices}
-                        className={({ isActive }) =>
-                          `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
-                            isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                          }`
-                        }
-                      >
-                        <i className={`bi ${getIconClass(item.key)} text-lg`}></i>
-                        <span>{item.label}</span>
-                      </NavLink>
-                    ))}
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 border-b border-slate-800 mb-1">
+                      Online Tools & Compilers
+                    </div>
+                    <div className="max-h-80 overflow-y-auto space-y-0.5">
+                      {toolsItems.map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setToolsOpen(false)}
+                          className={({ isActive }) =>
+                            `flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium transition ${
+                              isActive
+                                ? "bg-sky-500/20 text-sky-300 border border-sky-500/30"
+                                : "text-slate-300 hover:bg-slate-800/80 hover:text-white"
+                            }`
+                          }
+                        >
+                          <i className={`bi ${item.icon} text-sky-400 text-sm`}></i>
+                          <span>{item.label}</span>
+                        </NavLink>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Tutorials dropdown */}
+            {/* Tutorials Dropdown */}
             <div className="relative">
               <button
-                onClick={toggleTutorials}
-                className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 text-sm sm:text-base font-medium rounded-full transition"
+                onClick={() => {
+                  setTutorialsOpen(!tutorialsOpen);
+                  setToolsOpen(false);
+                }}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm font-medium rounded-lg transition-all duration-200 ${
+                  tutorialsOpen
+                    ? "text-sky-400 bg-slate-800/90 border border-slate-700/80"
+                    : "text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent"
+                }`}
               >
-                <i className={`bi ${getIconClass("tutorials")}`}></i>
+                <i className="bi bi-collection-play text-slate-400 text-xs"></i>
                 <span>Tutorials</span>
-                <i className={`bi bi-chevron-down text-xs transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
+                <i className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform ${tutorialsOpen ? "rotate-180 text-sky-400" : ""}`}></i>
               </button>
 
               <AnimatePresence>
                 {tutorialsOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-64 bg-gray-900 border border-gray-700 rounded-xl shadow-lg p-2 z-50 max-h-96 overflow-y-auto"
+                    initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 mt-2 w-72 bg-slate-900/95 backdrop-blur-2xl border border-slate-800 rounded-2xl shadow-2xl p-2 z-50 ring-1 ring-white/5"
                   >
-                    {tutorialsItems.map((item) => (
-                      <NavLink
-                        key={item.to}
-                        to={item.to}
-                        onClick={toggleTutorials}
-                        className={({ isActive }) =>
-                          `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
-                            isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                          }`
-                        }
-                      >
-                        <i className={`bi ${item.icon} text-lg`}></i>
-                        <span>{item.label}</span>
-                      </NavLink>
-                    ))}
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 border-b border-slate-800 mb-1">
+                      Academic & Professional Roadmaps
+                    </div>
+                    <div className="max-h-96 overflow-y-auto space-y-0.5">
+                      {tutorialsItems.map((item) => (
+                        <NavLink
+                          key={item.to}
+                          to={item.to}
+                          onClick={() => setTutorialsOpen(false)}
+                          className={({ isActive }) =>
+                            `flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium transition ${
+                              isActive
+                                ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                                : "text-slate-300 hover:bg-slate-800/80 hover:text-white"
+                            }`
+                          }
+                        >
+                          <i className={`bi ${item.icon} text-purple-400 text-sm`}></i>
+                          <span>{item.label}</span>
+                        </NavLink>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Login */}
-            <NavLink to="/login" className={({ isActive }) => linkClass("login", isActive)}>
-              <i className={`bi ${getIconClass("login")}`}></i>
+            {/* Login Button */}
+            <div className="ml-2">
+              <NavLink
+                to="/login"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-md shadow-sky-500/20 hover:shadow-sky-500/30 transition-all"
+              >
+                <i className="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+              </NavLink>
+            </div>
+          </nav>
+
+          {/* Mobile Menu Toggle Button */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <NavLink
+              to="/login"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-sky-600 hover:bg-sky-500 text-white transition"
+            >
               <span>Login</span>
             </NavLink>
-          </nav>
+            <button
+              onClick={toggleMenu}
+              className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              <i className={`bi ${isOpen ? "bi-x-lg" : "bi-list"} text-lg`}></i>
+            </button>
+          </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Navigation Drawer */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="sm:hidden flex flex-col gap-2 pb-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="lg:hidden border-t border-slate-800/80 py-3 space-y-1"
             >
               {!isHome && (
-                <NavLink to="/" className={({ isActive }) => linkClass("home", isActive)} onClick={closeMobileMenu}>
-                  <i className={`bi ${getIconClass("home")}`}></i>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium ${
+                      isActive ? "bg-slate-800 text-sky-400" : "text-slate-300 hover:bg-slate-900 hover:text-white"
+                    }`
+                  }
+                  onClick={closeMobileMenu}
+                >
+                  <i className="bi bi-house-door text-sky-400"></i>
                   <span>Home</span>
                 </NavLink>
               )}
 
               {isHome && (
                 <>
-                  <HashLink smooth to="/#about" className={linkClass("about", activeHash === "#about")} onClick={closeMobileMenu}>
-                    <i className={`bi ${getIconClass("about")}`}></i>
+                  <HashLink
+                    smooth
+                    to="/#about"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-white"
+                    onClick={closeMobileMenu}
+                  >
+                    <i className="bi bi-info-circle text-sky-400"></i>
                     <span>About</span>
                   </HashLink>
-                  <HashLink smooth to="/#courses" className={linkClass("courses", activeHash === "#courses")} onClick={closeMobileMenu}>
-                    <i className={`bi ${getIconClass("courses")}`}></i>
+                  <HashLink
+                    smooth
+                    to="/#courses"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-white"
+                    onClick={closeMobileMenu}
+                  >
+                    <i className="bi bi-book text-sky-400"></i>
                     <span>Courses</span>
                   </HashLink>
-                  <HashLink smooth to="/#teachers" className={linkClass("teachers", activeHash === "#teachers")} onClick={closeMobileMenu}>
-                    <i className={`bi ${getIconClass("teachers")}`}></i>
+                  <HashLink
+                    smooth
+                    to="/#teachers"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-white"
+                    onClick={closeMobileMenu}
+                  >
+                    <i className="bi bi-people text-sky-400"></i>
                     <span>Teachers</span>
                   </HashLink>
-                  <HashLink smooth to="/#services" className={linkClass("services", activeHash === "#services")} onClick={closeMobileMenu}>
-                    <i className={`bi ${getIconClass("services")}`}></i>
-                    <span>Services</span>
-                  </HashLink>
-                  <HashLink smooth to="/#contact" className={linkClass("contact", activeHash === "#contact")} onClick={closeMobileMenu}>
-                    <i className={`bi ${getIconClass("contact")}`}></i>
+                  <HashLink
+                    smooth
+                    to="/#contact"
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900 hover:text-white"
+                    onClick={closeMobileMenu}
+                  >
+                    <i className="bi bi-envelope text-sky-400"></i>
                     <span>Contact</span>
                   </HashLink>
                 </>
               )}
 
-              {/* Mobile Tools dropdown */}
-              <div className="flex flex-col">
+              {/* Mobile Tools accordion */}
+              <div className="pt-1">
                 <button
-                  onClick={toggleServices}
-                  className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 rounded-full text-left"
+                  onClick={() => setToolsOpen(!toolsOpen)}
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900"
                 >
-                  <i className={`bi ${getIconClass("services")}`}></i>
-                  <span>Tools</span>
-                  <i className={`bi bi-chevron-down text-xs ml-auto transition-transform ${servicesOpen ? "rotate-180" : ""}`}></i>
+                  <span className="flex items-center gap-2">
+                    <i className="bi bi-tools text-sky-400"></i>
+                    <span>Tools & Compilers</span>
+                  </span>
+                  <i className={`bi bi-chevron-down text-[10px] transition-transform ${toolsOpen ? "rotate-180" : ""}`}></i>
                 </button>
-
-                <AnimatePresence>
-                  {servicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="ml-4 flex flex-col gap-1 overflow-hidden"
-                    >
-                      {toolsItems.map((item) => (
-                        <NavLink
-                          key={item.to}
-                          to={item.to}
-                          onClick={closeMobileMenu}
-                          className={({ isActive }) =>
-                            `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
-                              isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                            }`
-                          }
-                        >
-                          <i className={`bi ${getIconClass(item.key)}`}></i>
-                          <span>{item.label}</span>
-                        </NavLink>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {toolsOpen && (
+                  <div className="pl-6 pr-2 py-1 space-y-0.5">
+                    {toolsItems.map((item) => (
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        onClick={closeMobileMenu}
+                        className="block px-2.5 py-1.5 rounded-lg text-xs text-slate-400 hover:text-white hover:bg-slate-800"
+                      >
+                        {item.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Mobile Tutorials dropdown */}
-              <div className="flex flex-col">
+              {/* Mobile Tutorials accordion */}
+              <div className="pt-1">
                 <button
-                  onClick={toggleTutorials}
-                  className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/70 rounded-full text-left"
+                  onClick={() => setTutorialsOpen(!tutorialsOpen)}
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-900"
                 >
-                  <i className={`bi ${getIconClass("tutorials")}`}></i>
-                  <span>Tutorials</span>
-                  <i className={`bi bi-chevron-down text-xs ml-auto transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
+                  <span className="flex items-center gap-2">
+                    <i className="bi bi-collection-play text-purple-400"></i>
+                    <span>Tutorials & Roadmaps</span>
+                  </span>
+                  <i className={`bi bi-chevron-down text-[10px] transition-transform ${tutorialsOpen ? "rotate-180" : ""}`}></i>
                 </button>
-
-                <AnimatePresence>
-                  {tutorialsOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="ml-4 flex flex-col gap-1 overflow-hidden"
-                    >
-                      {tutorialsItems.map((item) => (
-                        <NavLink
-                          key={item.to}
-                          to={item.to}
-                          onClick={closeMobileMenu}
-                          className={({ isActive }) =>
-                            `flex items-center gap-3 px-3 py-2 rounded-lg transition ${
-                              isActive ? "bg-sky-600 text-white" : "text-gray-300 hover:bg-gray-800"
-                            }`
-                          }
-                        >
-                          <i className={`bi ${item.icon}`}></i>
-                          <span>{item.label}</span>
-                        </NavLink>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {tutorialsOpen && (
+                  <div className="pl-6 pr-2 py-1 space-y-0.5">
+                    {tutorialsItems.map((item) => (
+                      <NavLink
+                        key={item.to}
+                        to={item.to}
+                        onClick={closeMobileMenu}
+                        className="block px-2.5 py-1.5 rounded-lg text-xs text-slate-400 hover:text-white hover:bg-slate-800"
+                      >
+                        {item.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
               </div>
-
-              {/* Login */}
-              <NavLink to="/login" className={({ isActive }) => linkClass("login", isActive)} onClick={closeMobileMenu}>
-                <i className={`bi ${getIconClass("login")}`}></i>
-                <span>Login</span>
-              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

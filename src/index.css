@@ -1,36 +1,75 @@
 @import "tailwindcss";
 
-/* ✅ Keep your site’s structure and design */
-
-/* Smooth scrolling and readable base font size */
+/* Base HTML & font rendering */
 html {
-  font-size: 18px;
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
-/* Body text defaults (Inter + normal colors) */
+/* Deep Obsidian Dark Theme */
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #1f2937; /* text-gray-800 */
-  background-color: #e7e3e3;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #f1f5f9; /* slate-100 */
+  background-color: #030712; /* gray-950 */
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Optional: smoother text rendering */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-/* Optional container helper */
-.container {
-  max-width: 1280px;
-  margin-inline: auto;
-  padding-inline: 1rem;
+/* Glassmorphism & Glow Utilities */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.glass-card {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
 
+.glass-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.glow-sky {
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.25);
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 2px solid #030712;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* Text selection */
 *::selection {
-  background-color: rgba(254, 230, 133, 0.534);
-  color: purple;
+  background-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
 }

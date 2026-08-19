@@ -1,20 +1,10 @@
 // ===============================================
-// Teachers.jsx (with GitHub links)
-// -----------------------------------------------
-// Purpose:
-//   Showcase instructor profiles with photos, bios, contact details, and GitHub links.
-// Features:
-// - Interactive cards (expandable bios)
-// - Framer Motion animations
-// - GitHub profile links with icons
-// - Accessibility & responsive design
+// Teachers.jsx - Faculty & Mentors Section
 // ===============================================
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import teachers from "../../data/teachers.json";
+import teachersData from "../../data/teachers.json";
 
-// 🔹 Local image imports
 import teacher1 from "../../assets/teachers/teacher1.jpg";
 import teacher2 from "../../assets/teachers/teacher2.jpg";
 import teacher3 from "../../assets/teachers/teacher3.jpg";
@@ -23,8 +13,7 @@ import teacher5 from "../../assets/teachers/teacher5.jpg";
 import teacher6 from "../../assets/teachers/teacher6.jpg";
 import teacher7 from "../../assets/teachers/teacher7.jpg";
 
-// 🔹 Image mapping
-const images = {
+const imageMap = {
   "teacher1.jpg": teacher1,
   "teacher2.jpg": teacher2,
   "teacher3.jpg": teacher3,
@@ -34,160 +23,112 @@ const images = {
   "teacher7.jpg": teacher7,
 };
 
-const Teachers = () => {
-  return (
-    <section
-      id="teachers"
-      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 overflow-hidden"
-    >
-      {/* Background glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-sky-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30"
-        aria-hidden="true"
-      ></div>
-
-      <div className="relative max-w-6xl mx-auto px-6">
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-center mb-3 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-blue-400 to-cyan-300 drop-shadow-lg"
-        >
-          Meet Our Instructors
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center text-gray-400 mb-14 max-w-2xl mx-auto"
-        >
-          Learn from <strong className="text-sky-400">industry experts</strong> with years
-          of hands-on experience and mentorship. Our instructors combine practical
-          knowledge with passion for teaching.
-        </motion.p>
-
-        {/* Instructor Grid */}
-        <div
-          className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3"
-          role="list"
-          aria-label="List of instructors"
-        >
-          {teachers.map((teacher, index) => (
-            <TeacherCard key={teacher.name} teacher={teacher} index={index} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ===============================================
-// TeacherCard Component (with GitHub link)
-// -----------------------------------------------
-const TeacherCard = ({ teacher, index }) => {
-  const [expanded, setExpanded] = useState(false);
+const TeacherCard = ({ teacher }) => {
+  const [showFullBio, setShowFullBio] = useState(false);
+  const avatar = imageMap[teacher.image] || teacher1;
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.15, duration: 0.7 }}
-      viewport={{ once: true }}
-      whileHover={{ scale: 1.03 }}
-      className="relative group bg-gray-800/40 backdrop-blur-xl rounded-3xl border border-gray-700/50 shadow-lg p-8 pt-20 transition-all duration-500 hover:shadow-sky-500/30 hover:-translate-y-1"
-      itemScope
-      itemType="https://schema.org/Person"
-    >
-      {/* Image */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-        <motion.div
-          whileHover={{ scale: 1.08 }}
-          className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-sky-400/60 transition-all duration-500"
-        >
+    <div className="bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300 shadow-xl">
+      <div className="flex flex-col items-center text-center">
+        {/* Mentor Image with generous spacing */}
+        <div className="mb-5 relative">
           <img
-            src={images[teacher.image]}
-            alt={`Instructor ${teacher.name}`}
+            src={avatar}
+            alt={teacher.name}
             loading="lazy"
-            className="w-full h-full object-cover rounded-full"
+            className="w-24 h-24 rounded-full object-cover border-2 border-sky-400/90 shadow-xl shadow-sky-500/10 bg-slate-800"
           />
-          <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-sky-400 group-hover:shadow-[0_0_25px_6px_rgba(56,189,248,0.6)] transition-all duration-500"></div>
-        </motion.div>
-      </div>
+        </div>
 
-      {/* Content */}
-      <div className="text-center mt-4 space-y-2">
-        <h2 className="text-xl font-semibold text-sky-300" itemProp="name">
+        {/* Name with proper margin */}
+        <h3 className="text-base sm:text-lg font-bold text-white tracking-tight mb-1.5">
           {teacher.name}
-        </h2>
-        <p className="text-sm text-indigo-300" itemProp="jobTitle">
+        </h3>
+
+        {/* Title with distinct styling and generous bottom spacing */}
+        <p className="text-xs sm:text-sm text-sky-400 font-medium mb-5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 inline-block">
           {teacher.title}
         </p>
 
-        {/* Email */}
-        {teacher.email && (
-          <p className="text-sm flex items-center justify-center gap-1">
-            <i className="bi bi-envelope text-sky-400" aria-hidden="true"></i>
-            <a
-              href={`mailto:${teacher.email}`}
-              itemProp="email"
-              className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
-            >
-              {teacher.email}
-            </a>
-          </p>
-        )}
-
-        {/* GitHub (new) */}
-        {teacher.github && (
-          <p className="text-sm flex items-center justify-center gap-1">
-            <i className="bi bi-github text-sky-400" aria-hidden="true"></i>
-            <a
-              href={`https://github.com/${teacher.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-sky-400 transition-colors duration-300 underline underline-offset-2"
-              itemProp="sameAs"
-            >
-              {teacher.github}
-            </a>
-          </p>
+        {/* Bio text with clear separation */}
+        {teacher.bio && (
+          <div className="text-slate-300 text-xs sm:text-sm leading-relaxed border-t border-slate-800/90 pt-4 mb-4 text-left w-full">
+            <p className={!showFullBio ? "line-clamp-3" : ""}>
+              {teacher.bio}
+            </p>
+            {teacher.bio.length > 120 && (
+              <button
+                type="button"
+                onClick={() => setShowFullBio(!showFullBio)}
+                className="text-sky-400 hover:text-sky-300 text-xs font-semibold mt-2 focus:outline-none block"
+              >
+                {showFullBio ? "Show Less ↑" : "Read Full Bio →"}
+              </button>
+            )}
+          </div>
         )}
       </div>
 
-      {/* Expandable Bio */}
-      <motion.div
-        initial={false}
-        animate={{ height: expanded ? "auto" : "4rem" }}
-        transition={{ duration: 0.5 }}
-        className="relative text-gray-300 text-sm mt-4 text-left leading-relaxed overflow-hidden"
-        itemProp="description"
-      >
-        <div className="pr-2">{teacher.bio}</div>
-
-        {!expanded && teacher.bio.length > 100 && (
-          <span
-            className="absolute bottom-0 left-0 w-full h-6 bg-gradient-to-t from-black to-transparent flex items-end justify-start text-gray-400 text-sm"
-            aria-hidden="true"
+      {/* Social / Contact Links with proper spacing */}
+      <div className="flex items-center justify-center gap-3 pt-4 border-t border-slate-800/90 w-full mt-2">
+        {teacher.email && (
+          <a
+            href={`mailto:${teacher.email}`}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-sky-300 text-xs border border-slate-700 transition"
+            title={teacher.email}
           >
-            ...
-          </span>
+            <i className="bi bi-envelope text-sky-400"></i>
+            <span>Email</span>
+          </a>
         )}
-      </motion.div>
+        {teacher.github && (
+          <a
+            href={`https://github.com/${teacher.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white text-xs border border-slate-700 transition"
+            title={`GitHub: ${teacher.github}`}
+          >
+            <i className="bi bi-github text-purple-400"></i>
+            <span>GitHub</span>
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
 
-      {teacher.bio.length > 100 && (
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="block mx-auto text-sky-400 hover:text-sky-300 text-sm mt-2 underline underline-offset-4 transition-colors duration-300"
-          aria-expanded={expanded}
-        >
-          {expanded ? "Show Less" : "Read More"}
-        </button>
-      )}
-    </motion.article>
+const Teachers = () => {
+  return (
+    <section id="teachers" className="py-16 bg-slate-950 text-slate-100 border-b border-slate-800/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-sky-400">
+            Faculty
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            Meet Our Mentors
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-2">
+            Industry professionals offering personalized 1-on-1 mentorship and practical guidance.
+          </p>
+        </div>
+
+        {/* Mentors Grid with generous gap */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.isArray(teachersData) && teachersData.length > 0 ? (
+            teachersData.map((teacher, index) => (
+              <TeacherCard key={teacher.name || index} teacher={teacher} />
+            ))
+          ) : (
+            <p className="text-center text-slate-400 col-span-full">
+              No mentor information available.
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 
