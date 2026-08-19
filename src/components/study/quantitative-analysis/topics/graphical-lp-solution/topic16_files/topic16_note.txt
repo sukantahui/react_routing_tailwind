@@ -1,0 +1,124 @@
+===============================================================================
+INTERSECTION OF TWO CONSTRAINT LINES
+===============================================================================
+
+TOPIC 16 – FINDING CORNER POINTS
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE INTERSECTION OF TWO LINES?
+-------------------------------------------------------------------------------
+The intersection of two constraint lines is the point where they cross.
+This point is a corner point of the feasible region.
+
+- The point (x, y) that satisfies both equations
+- Every corner point is the intersection of two constraints
+- Found by solving two linear equations simultaneously
+
+Key idea: Intersections become corner points in LP.
+
+-------------------------------------------------------------------------------
+2. TYPES OF INTERSECTIONS
+-------------------------------------------------------------------------------
+Unique Intersection:
+- Lines cross at exactly one point
+- One unique solution
+- Example: x+y=10 and 2x+y=14 → (4,6)
+
+Parallel Lines:
+- Lines never cross
+- No solution
+- Example: x+y=10 and x+y=5 → no intersection
+
+Coincident Lines:
+- Lines are identical
+- Infinite solutions
+- Example: x+y=10 and 2x+2y=20 → same line
+
+-------------------------------------------------------------------------------
+3. METHODS FOR FINDING INTERSECTIONS
+-------------------------------------------------------------------------------
+Substitution Method:
+1. Solve one equation for a variable.
+2. Substitute into the other equation.
+3. Solve for the remaining variable.
+4. Substitute back to find the other variable.
+
+Elimination Method:
+1. Align equations (same order).
+2. Add or subtract to eliminate a variable.
+3. Solve for the remaining variable.
+4. Substitute back to find the other variable.
+
+Graphical Method:
+1. Plot both lines.
+2. Read the intersection point.
+3. Use for visualization and verification.
+
+-------------------------------------------------------------------------------
+4. SPECIAL CASES
+-------------------------------------------------------------------------------
+Vertical Line (x = k):
+- Substitute x = k into the other equation.
+- Solve for y.
+- Example: x=3 and 2x+3y=12 → (3,2)
+
+Horizontal Line (y = k):
+- Substitute y = k into the other equation.
+- Solve for x.
+- Example: y=3 and 3x+4y=24 → (4,3)
+
+Line Through Origin (c = 0):
+- Both equations have c = 0.
+- Intersection at (0,0) if not parallel.
+- Example: 2x-y=0 and x+2y=0 → (0,0)
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not checking if the intersection is feasible.
+✗ Confusing substitution and elimination methods.
+✗ Missing parallel lines (no solution).
+✗ Missing coincident lines (infinite solutions).
+✗ Arithmetic errors in solving systems.
+✗ Forgetting to check if the point satisfies all constraints.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Choose elimination when coefficients align nicely.
+✓ Choose substitution when one equation is easy to solve.
+✓ Always check if the intersection satisfies all constraints.
+✓ Use graphical methods to verify algebraic solutions.
+✓ Watch for parallel and coincident lines.
+✓ Write equations in standard form before solving.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production: intersection of machine and labor constraints gives production mix
+- Resource allocation: intersection of budget and time constraints
+- Diet planning: intersection of calorie and protein constraints
+- Investment: intersection of risk and return constraints
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can find the intersection of two lines using substitution.
+☐ I can find the intersection using elimination.
+☐ I can identify parallel and coincident lines.
+☐ I can verify if an intersection is feasible.
+☐ I understand that intersections become corner points.
+☐ I can find intersections for special cases (vertical/horizontal).
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand line intersections, you're ready to determine
+whether a point satisfies all constraints (Topic 17). This skill is
+essential for verifying corner points.
+
+Remember: Intersections are where constraints meet and corners form!
+
+===============================================================================
+END OF NOTES
+===============================================================================

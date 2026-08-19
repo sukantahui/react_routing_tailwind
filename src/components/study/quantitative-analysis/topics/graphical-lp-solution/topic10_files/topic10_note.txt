@@ -1,0 +1,94 @@
+===============================================================================
+FINDING THE COMMON FEASIBLE REGION
+===============================================================================
+
+TOPIC 10 – THE SOLUTION SPACE
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE COMMON FEASIBLE REGION?
+-------------------------------------------------------------------------------
+The common feasible region is the set of all points that satisfy EVERY
+constraint in a linear programming problem simultaneously.
+
+- It's the intersection of all constraint half-planes.
+- It's always a convex polygon (or unbounded).
+- Any point in this region is a feasible solution.
+
+Key idea: The feasible region is where ALL rules are followed.
+
+-------------------------------------------------------------------------------
+2. HOW TO FIND THE COMMON FEASIBLE REGION
+-------------------------------------------------------------------------------
+STEP 1: Plot all constraints on the same coordinate plane.
+STEP 2: Shade the feasible side of each constraint (use light shading).
+STEP 3: Identify the overlap — this is the feasible region.
+STEP 4: Find the corner points (vertices) of the region.
+
+-------------------------------------------------------------------------------
+3. PROPERTIES OF THE FEASIBLE REGION
+-------------------------------------------------------------------------------
+- Convex: Any line segment between two points in the region stays in the region.
+- Polygonal: Has straight edges (constraint lines).
+- Bounded or Unbounded: May be enclosed or extend to infinity.
+- Empty possible: If constraints conflict.
+- Corner points exist: Vertices where constraint lines intersect.
+
+-------------------------------------------------------------------------------
+4. IMPORTANT CONCEPTS
+-------------------------------------------------------------------------------
+- Corner points: Intersections of constraint lines. Optimal solutions occur here.
+- Bounded region: Enclosed, finite area.
+- Unbounded region: Extends infinitely in some direction.
+- Feasible point: Any point in the feasible region.
+- Redundant constraint: Doesn't affect the feasible region.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to include all constraints.
+✗ Misidentifying the overlap (shading the wrong area).
+✗ Not checking if the feasible region is empty.
+✗ Ignoring corner points on the axes.
+✗ Using inconsistent shading directions.
+✗ Not including non-negativity constraints.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ The feasible region is always the overlap of all constraints.
+✓ Corner points are where optimal solutions are found.
+✓ Use different colors to distinguish constraints.
+✓ Light shading helps see the overlap clearly.
+✓ Always include non-negativity constraints.
+✓ List all constraints before graphing.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Manufacturing: production combinations meeting all constraints.
+- Investment: portfolios meeting risk and return requirements.
+- Diet planning: meal combinations meeting nutritional needs.
+- Time management: schedules meeting all commitments.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can plot all constraints on the same graph.
+☐ I can identify the overlapping feasible region.
+☐ I can find the corner points of the feasible region.
+☐ I understand that the feasible region is convex.
+☐ I can verify if a point is in the feasible region.
+☐ I know that optimal solutions occur at corner points.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find the common feasible region, you're ready to explore
+the feasible region in more detail (Topic 11) and learn about bounded/
+unbounded regions (Topic 12).
+
+The feasible region is your solution space — every valid answer lives here.
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,110 @@
+===============================================================================
+ISO-COST LINES
+===============================================================================
+
+TOPIC 22 – FINDING MINIMUM COST GRAPHICALLY
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN ISO-COST LINE?
+-------------------------------------------------------------------------------
+An iso-cost line is a line where the cost is constant. All points on an
+iso-cost line give the same cost value.
+
+- "Iso" means "equal" (from Greek)
+- Represents equal cost levels
+- Used to find the minimum cost graphically
+
+Key idea: Iso-cost lines are cost contours.
+
+-------------------------------------------------------------------------------
+2. HOW TO DRAW AN ISO-COST LINE
+-------------------------------------------------------------------------------
+For C = ax + by:
+
+Step 1: Choose a cost value C
+Step 2: Find x-intercept: set y=0 → x = C/a → (C/a, 0)
+Step 3: Find y-intercept: set x=0 → y = C/b → (0, C/b)
+Step 4: Plot the intercepts and draw the line
+
+All iso-cost lines are parallel with slope -a/b.
+
+-------------------------------------------------------------------------------
+3. FINDING THE MINIMUM COST
+-------------------------------------------------------------------------------
+Step 1: Draw the feasible region
+Step 2: Draw an iso-cost line for any C value
+Step 3: Move the line parallel inward (toward the origin)
+Step 4: The first line to touch the region gives the minimum cost
+Step 5: The point of contact is the optimal solution
+
+-------------------------------------------------------------------------------
+4. KEY PROPERTIES
+-------------------------------------------------------------------------------
+✓ All iso-cost lines are parallel (same slope)
+✓ Lower C = lower cost (move inward)
+✓ The optimal line touches the feasible region at a corner point
+✓ If the line overlaps an edge, there are multiple optimal solutions
+✓ The cost at any point is given by C = ax + by
+
+-------------------------------------------------------------------------------
+5. COMPARISON: ISO-PROFIT vs ISO-COST
+-------------------------------------------------------------------------------
+Iso-Profit (Maximization):
+  - Move OUTWARD (away from origin)
+  - Higher P = higher profit
+  - Last line to touch the region is optimal
+
+Iso-Cost (Minimization):
+  - Move INWARD (toward the origin)
+  - Lower C = lower cost
+  - First line to touch the region is optimal
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Moving iso-cost lines outward (should move inward for min)
+✗ Drawing lines that aren't parallel
+✗ Forgetting that the optimal line can overlap an edge
+✗ Not checking if the line still intersects the region
+✗ Misreading the cost function coefficients
+
+-------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ All iso-cost lines are parallel — check the slope.
+✓ Move lines inward to find lower cost.
+✓ The optimal line just touches the feasible region.
+✓ Use intercepts to quickly draw iso-cost lines.
+✓ Check corner points to verify the minimum cost.
+✓ Use the interactive tool to build intuition.
+
+-------------------------------------------------------------------------------
+8. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Diet planning: minimize food costs while meeting nutrition
+- Production: minimize production costs with resource constraints
+- Transportation: minimize shipping costs while meeting demand
+- Investment: minimize risk while meeting return requirements
+
+-------------------------------------------------------------------------------
+9. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can draw an iso-cost line for a given cost value.
+☐ I know that all iso-cost lines are parallel.
+☐ I can move iso-cost lines inward to find minimum cost.
+☐ I can identify the optimal iso-cost line.
+☐ I can find the minimum cost from the optimal line.
+☐ I can handle cases with multiple optimal solutions.
+
+-------------------------------------------------------------------------------
+10. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand iso-cost lines, you're ready to explore the slope
+of the objective function (Topic 23). This will help you understand how
+the coefficients affect the optimal solution.
+
+Remember: Iso-cost lines = equal cost. Move inward for minimum cost!
+
+===============================================================================
+END OF NOTES
+===============================================================================

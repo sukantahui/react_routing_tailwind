@@ -1,0 +1,109 @@
+===============================================================================
+THE FEASIBLE REGION
+===============================================================================
+
+TOPIC 11 – THE SOLUTION SPACE OF LINEAR PROGRAMMING
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE FEASIBLE REGION?
+-------------------------------------------------------------------------------
+The feasible region is the set of all points (x, y) that satisfy EVERY
+constraint in a linear programming problem simultaneously.
+
+- It's the intersection of all constraint half-planes.
+- It's always a convex set (no holes, no indentations).
+- Any point in this region is a feasible solution.
+
+Key idea: The feasible region is where ALL rules are followed.
+
+-------------------------------------------------------------------------------
+2. KEY PROPERTIES OF THE FEASIBLE REGION
+-------------------------------------------------------------------------------
+✓ Convex: A line segment between any two points in the region stays in the region.
+✓ Polygonal: Has straight edges (constraint lines).
+✓ Bounded or Unbounded: May be enclosed or extend to infinity.
+✓ Empty possible: If constraints conflict.
+✓ Corner points exist: Vertices where constraint lines intersect.
+✓ No holes: The region is always a solid polygon (or unbounded).
+
+-------------------------------------------------------------------------------
+3. FEASIBLE vs INFEASIBLE POINTS
+-------------------------------------------------------------------------------
+Feasible point:
+- Lies inside the feasible region
+- Satisfies ALL constraints
+- Is a valid solution candidate
+
+Infeasible point:
+- Lies outside the feasible region
+- Violates at least one constraint
+- Cannot be a solution
+
+-------------------------------------------------------------------------------
+4. HOW TO FIND THE FEASIBLE REGION
+-------------------------------------------------------------------------------
+STEP 1: List all constraints from the problem.
+STEP 2: Plot each constraint on the same coordinate plane.
+STEP 3: Shade the feasible side of each constraint (use light shading).
+STEP 4: Identify the overlap — this is the feasible region.
+STEP 5: Find the corner points (vertices) of the region.
+
+-------------------------------------------------------------------------------
+5. IMPORTANT CONCEPTS
+-------------------------------------------------------------------------------
+- Bounded region: Enclosed, finite area. Has constraints in all directions.
+- Unbounded region: Extends infinitely in some direction.
+- Corner points: Intersections of constraint lines. Optimal solutions occur here.
+- Redundant constraint: Doesn't affect the feasible region.
+- Feasible point: Any point in the feasible region.
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to include all constraints.
+✗ Misidentifying the overlap (shading the wrong area).
+✗ Not checking if the feasible region is empty.
+✗ Ignoring corner points on the axes.
+✗ Using inconsistent shading directions.
+✗ Not including non-negativity constraints.
+
+-------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ The feasible region is always convex — use this to verify your graph.
+✓ Optimal solutions always occur at corner points.
+✓ Use light shading to see overlaps clearly.
+✓ Always include non-negativity constraints.
+✓ Check if the region is bounded or unbounded.
+✓ List all constraints before graphing.
+
+-------------------------------------------------------------------------------
+8. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Manufacturing: production combinations meeting all constraints.
+- Investment: portfolios meeting risk and return requirements.
+- Diet planning: meal combinations meeting nutritional needs.
+- Time management: schedules meeting all commitments.
+
+-------------------------------------------------------------------------------
+9. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the feasible region on a graph.
+☐ I understand that the feasible region is convex.
+☐ I can distinguish between bounded and unbounded regions.
+☐ I can test if a point is feasible.
+☐ I know that optimal solutions occur at corner points.
+☐ I can explain the feasible region in real-world terms.
+
+-------------------------------------------------------------------------------
+10. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand the feasible region, you're ready to explore
+bounded and unbounded regions in detail (Topic 12). This will deepen your
+understanding of how constraints shape the solution space.
+
+The feasible region is your solution space — every valid answer lives here.
+
+===============================================================================
+END OF NOTES
+===============================================================================

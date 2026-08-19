@@ -1,0 +1,122 @@
+===============================================================================
+FINDING CORNER POINTS ALGEBRAICALLY
+===============================================================================
+
+TOPIC 15 – EXACT SOLUTIONS FOR LP PROBLEMS
+
+-------------------------------------------------------------------------------
+1. WHY ALGEBRAIC METHODS?
+-------------------------------------------------------------------------------
+While graphical methods give a visual understanding, algebraic methods
+provide exact coordinates for corner points.
+
+- Precision: Fractions and decimals are handled exactly
+- Large Problems: Works even when graphs are too large
+- Verification: Confirm graphical solutions with exact values
+
+Key idea: Every corner point is the intersection of two constraint lines.
+
+-------------------------------------------------------------------------------
+2. ALGEBRAIC METHODS
+-------------------------------------------------------------------------------
+Substitution Method:
+1. Solve one equation for a variable.
+2. Substitute into the other equation.
+3. Solve for the remaining variable.
+4. Substitute back to find the other variable.
+
+Elimination Method:
+1. Align equations (same order of variables).
+2. Add or subtract equations to eliminate a variable.
+3. Solve for the remaining variable.
+4. Substitute back to find the other variable.
+
+Direct Substitution (for axes):
+1. If x=0 or y=0, substitute directly.
+2. Solve the other equation for the remaining variable.
+
+-------------------------------------------------------------------------------
+3. STEP-BY-STEP PROCESS
+-------------------------------------------------------------------------------
+STEP 1: List all constraints, including non-negativity.
+STEP 2: Identify pairs of constraints that could intersect.
+STEP 3: Solve each pair of equations.
+STEP 4: Check if the solution satisfies all constraints.
+STEP 5: If feasible, it's a corner point.
+STEP 6: List all corner points.
+
+-------------------------------------------------------------------------------
+4. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: Substitution
+  x + y = 10  ... (1)
+  2x + y = 14 ... (2)
+  From (1): y = 10 - x
+  Substitute into (2): 2x + (10 - x) = 14
+  x = 4
+  y = 6
+  Solution: (4, 6)
+
+Example 2: Elimination
+  x + y = 10  ... (1)
+  2x + y = 14 ... (2)
+  Subtract (1) from (2): x = 4
+  Substitute into (1): y = 6
+  Solution: (4, 6)
+
+Example 3: Direct Substitution
+  2x + 3y = 12 ... (1)
+  x = 0        ... (2)
+  Substitute x=0 into (1): 3y = 12 → y = 4
+  Solution: (0, 4)
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Not verifying that the point satisfies all constraints.
+✗ Making arithmetic errors in substitution.
+✗ Choosing the wrong pair of constraints.
+✗ Forgetting to include non-negativity constraints.
+✗ Assuming all intersections are corner points.
+✗ Not checking if the system has a solution.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Choose the method that makes the problem easiest.
+✓ For x=0 or y=0 constraints, use direct substitution.
+✓ When coefficients align nicely, use elimination.
+✓ Always verify that the point satisfies all constraints.
+✓ Double-check your arithmetic.
+✓ Use a systematic table for multiple pairs.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production planning: solve constraints to find optimal production mix
+- Resource allocation: find exact allocation strategies
+- Diet planning: determine exact nutrient combinations
+- Investment: find optimal portfolio allocations
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can solve two linear equations using substitution.
+☐ I can solve two linear equations using elimination.
+☐ I can handle constraints like x=0 and y=0.
+☐ I can verify if a point satisfies all constraints.
+☐ I can find all corner points algebraically.
+☐ I can cross-check algebraic solutions graphically.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find corner points algebraically, you're ready to explore
+the intersection of two constraint lines (Topic 16). This will deepen your
+understanding of how constraints interact to form corner points.
+
+Remember: Algebra gives exact answers — use it for precision!
+
+===============================================================================
+END OF NOTES
+===============================================================================

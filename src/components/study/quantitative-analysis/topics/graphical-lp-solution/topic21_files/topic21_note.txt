@@ -1,0 +1,97 @@
+===============================================================================
+ISO-PROFIT LINES
+===============================================================================
+
+TOPIC 21 – FINDING MAXIMUM PROFIT GRAPHICALLY
+
+-------------------------------------------------------------------------------
+1. WHAT IS AN ISO-PROFIT LINE?
+-------------------------------------------------------------------------------
+An iso-profit line is a line where the profit is constant. All points on an
+iso-profit line give the same profit value.
+
+- "Iso" means "equal" (from Greek)
+- Represents equal profit levels
+- Used to find the maximum profit graphically
+
+Key idea: Iso-profit lines are profit contours.
+
+-------------------------------------------------------------------------------
+2. HOW TO DRAW AN ISO-PROFIT LINE
+-------------------------------------------------------------------------------
+For P = ax + by:
+
+Step 1: Choose a profit value P
+Step 2: Find x-intercept: set y=0 → x = P/a → (P/a, 0)
+Step 3: Find y-intercept: set x=0 → y = P/b → (0, P/b)
+Step 4: Plot the intercepts and draw the line
+
+All iso-profit lines are parallel with slope -a/b.
+
+-------------------------------------------------------------------------------
+3. FINDING THE MAXIMUM PROFIT
+-------------------------------------------------------------------------------
+Step 1: Draw the feasible region
+Step 2: Draw an iso-profit line for any P value
+Step 3: Move the line parallel outward (away from origin)
+Step 4: The last line to touch the region gives the maximum profit
+Step 5: The point of contact is the optimal solution
+
+-------------------------------------------------------------------------------
+4. KEY PROPERTIES
+-------------------------------------------------------------------------------
+✓ All iso-profit lines are parallel (same slope)
+✓ Higher P = higher profit (move outward)
+✓ The optimal line touches the feasible region at a corner point
+✓ If the line overlaps an edge, there are multiple optimal solutions
+✓ The profit at any point is given by P = ax + by
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Moving iso-profit lines inward (should move outward for max)
+✗ Drawing lines that aren't parallel
+✗ Forgetting that the optimal line can overlap an edge
+✗ Not checking if the line still intersects the region
+✗ Misreading the profit function coefficients
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ All iso-profit lines are parallel — check the slope.
+✓ Move lines outward to find higher profit.
+✓ The optimal line just touches the feasible region.
+✓ Use intercepts to quickly draw iso-profit lines.
+✓ Check corner points to verify the maximum profit.
+✓ Use the interactive tool to build intuition.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Manufacturing: find optimal production mix for max profit
+- Retail: find best product combination for max profit
+- Agriculture: decide crop planting for max profit
+- Investment: find optimal portfolio for max return
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can draw an iso-profit line for a given profit value.
+☐ I know that all iso-profit lines are parallel.
+☐ I can move iso-profit lines outward to find maximum profit.
+☐ I can identify the optimal iso-profit line.
+☐ I can find the maximum profit from the optimal line.
+☐ I can handle cases with multiple optimal solutions.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand iso-profit lines, you're ready to explore
+iso-cost lines (Topic 22). These are the equivalent lines for
+minimization problems.
+
+Remember: Iso-profit lines = equal profit. Move outward for max profit!
+
+===============================================================================
+END OF NOTES
+===============================================================================

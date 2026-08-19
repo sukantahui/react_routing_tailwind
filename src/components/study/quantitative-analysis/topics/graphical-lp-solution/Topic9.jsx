@@ -24,43 +24,43 @@ const Topic9 = () => {
 
     // Multiple constraints for a production problem
     const constraints = [
-        { 
-            id: 0, 
-            label: "2x + 3y ≤ 12", 
-            a: 2, b: 3, c: 12, 
-            sign: "≤", 
+        {
+            id: 0,
+            label: "2x + 3y ≤ 12",
+            a: 2, b: 3, c: 12,
+            sign: "≤",
             color: "#8b5cf6",
             description: "Machine time constraint"
         },
-        { 
-            id: 1, 
-            label: "x + 2y ≤ 8", 
-            a: 1, b: 2, c: 8, 
-            sign: "≤", 
+        {
+            id: 1,
+            label: "x + 2y ≤ 8",
+            a: 1, b: 2, c: 8,
+            sign: "≤",
             color: "#f59e0b",
             description: "Labor constraint"
         },
-        { 
-            id: 2, 
-            label: "x ≥ 0", 
-            a: 1, b: 0, c: 0, 
-            sign: "≥", 
+        {
+            id: 2,
+            label: "x ≥ 0",
+            a: 1, b: 0, c: 0,
+            sign: "≥",
             color: "#10b981",
             description: "Non-negativity (x)"
         },
-        { 
-            id: 3, 
-            label: "y ≥ 0", 
-            a: 0, b: 1, c: 0, 
-            sign: "≥", 
+        {
+            id: 3,
+            label: "y ≥ 0",
+            a: 0, b: 1, c: 0,
+            sign: "≥",
             color: "#10b981",
             description: "Non-negativity (y)"
         },
-        { 
-            id: 4, 
-            label: "x + y ≥ 4", 
-            a: 1, b: 1, c: 4, 
-            sign: "≥", 
+        {
+            id: 4,
+            label: "x + y ≥ 4",
+            a: 1, b: 1, c: 4,
+            sign: "≥",
             color: "#ef4444",
             description: "Minimum production requirement"
         },
@@ -222,6 +222,203 @@ const Topic9 = () => {
             setSelectedConstraint(id);
         }
     };
+
+    // ============================================================
+    // ADVANCED GRAPH HELPERS
+    // ============================================================
+
+    const GRAPH = {
+        width: 400,
+        height: 400,
+        originX: 200,
+        originY: 200,
+        scale: 40,
+        padding: 20,
+    };
+
+    // Convert mathematical coordinates → SVG coordinates
+    const toSvg = (x, y) => ({
+        px: GRAPH.originX + x * GRAPH.scale,
+        py: GRAPH.originY - y * GRAPH.scale,
+    });
+
+    // Check whether a point satisfies a constraint
+    const satisfiesConstraint = (x, y, con, tolerance = 0.0001) => {
+        const value = con.a * x + con.b * y;
+
+        switch (con.sign) {
+            case "<=":
+            case "≤":
+                return value <= con.c + tolerance;
+
+            case ">=":
+            case "≥":
+                return value >= con.c - tolerance;
+
+            case "=":
+            case "==":
+                return Math.abs(value - con.c) <= tolerance;
+
+            default:
+                return true;
+        }
+    };
+
+    // Find intersection of two constraint lines
+    const getIntersection = (c1, c2) => {
+        const determinant =
+            c1.a * c2.b -
+            c2.a * c1.b;
+
+        if (Math.abs(determinant) < 0.000001) {
+            return null;
+        }
+
+        const x =
+            (c1.c * c2.b - c2.c * c1.b) /
+            determinant;
+
+        const y =
+            (c1.a * c2.c - c2.a * c1.c) /
+            determinant;
+
+        return { x, y };
+    };
+
+    // Find feasible vertices
+    const getFeasibleVertices = () => {
+        const candidates = [];
+
+        // Origin
+        candidates.push({
+            x: 0,
+            y: 0,
+            source: "Origin",
+        });
+
+        // Constraint/constraint intersections
+        for (let i = 0; i < constraints.length; i++) {
+            for (let j = i + 1; j < constraints.length; j++) {
+
+                const point = getIntersection(
+                    constraints[i],
+                    constraints[j]
+                );
+
+                if (!point) continue;
+
+                if (point.x < -0.0001 || point.y < -0.0001) {
+                    continue;
+                }
+
+                const feasible = constraints.every(con =>
+                    satisfiesConstraint(
+                        point.x,
+                        point.y,
+                        con
+                    )
+                );
+
+                if (feasible) {
+                    candidates.push({
+                        ...point,
+                        source: `${constraints[i].id}-${constraints[j].id}`,
+                    });
+                }
+            }
+        }
+
+        // Intersections with X-axis
+        constraints.forEach(con => {
+            if (Math.abs(con.a) > 0.000001) {
+
+                const x = con.c / con.a;
+                const y = 0;
+
+                if (x >= 0) {
+                    const feasible = constraints.every(c =>
+                        satisfiesConstraint(x, y, c)
+                    );
+
+                    if (feasible) {
+                        candidates.push({
+                            x,
+                            y,
+                            source: `${con.id}-x-axis`,
+                        });
+                    }
+                }
+            }
+        });
+
+        // Intersections with Y-axis
+        constraints.forEach(con => {
+            if (Math.abs(con.b) > 0.000001) {
+
+                const x = 0;
+                const y = con.c / con.b;
+
+                if (y >= 0) {
+                    const feasible = constraints.every(c =>
+                        satisfiesConstraint(x, y, c)
+                    );
+
+                    if (feasible) {
+                        candidates.push({
+                            x,
+                            y,
+                            source: `${con.id}-y-axis`,
+                        });
+                    }
+                }
+            }
+        });
+
+        // Remove duplicates
+        const unique = [];
+
+        candidates.forEach(point => {
+            const exists = unique.some(
+                p =>
+                    Math.abs(p.x - point.x) < 0.001 &&
+                    Math.abs(p.y - point.y) < 0.001
+            );
+
+            if (!exists) {
+                unique.push(point);
+            }
+        });
+
+        // Sort vertices around centroid
+        if (unique.length > 2) {
+            const center = unique.reduce(
+                (acc, p) => ({
+                    x: acc.x + p.x,
+                    y: acc.y + p.y,
+                }),
+                { x: 0, y: 0 }
+            );
+
+            center.x /= unique.length;
+            center.y /= unique.length;
+
+            unique.sort(
+                (a, b) =>
+                    Math.atan2(
+                        a.y - center.y,
+                        a.x - center.x
+                    ) -
+                    Math.atan2(
+                        b.y - center.y,
+                        b.x - center.x
+                    )
+            );
+        }
+
+        return unique;
+    };
+
+    const feasibleVertices = getFeasibleVertices();
 
     return (
         <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-200 font-sans leading-relaxed antialiased">
@@ -415,125 +612,827 @@ const Topic9 = () => {
                             ))}
                         </div>
 
-                        {/* SVG Graph */}
-                        <div className="w-full max-w-md mx-auto aspect-square bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 p-2 shadow-inner">
-                            <svg viewBox="0 0 400 400" className="w-full h-full" role="img" aria-label="Multiple constraints explorer">
-                                {/* Grid */}
-                                <defs>
-                                    <pattern id="grid_t9" width="40" height="40" patternUnits="userSpaceOnUse">
-                                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" strokeWidth="0.5" className="dark:stroke-slate-700" />
-                                    </pattern>
-                                </defs>
-                                <rect width="400" height="400" fill="url(#grid_t9)" />
+                        {/* ============================================================
+    ADVANCED SVG LINEAR PROGRAMMING GRAPH
+============================================================ */}
 
-                                {/* Axes */}
-                                <line x1="200" y1="200" x2="380" y2="200" stroke="#1e293b" strokeWidth="2.5" className="dark:stroke-slate-300" />
-                                <line x1="200" y1="380" x2="200" y2="20" stroke="#1e293b" strokeWidth="2.5" className="dark:stroke-slate-300" />
-                                <polygon points="380,195 395,200 380,205" fill="#1e293b" className="dark:fill-slate-300" />
-                                <polygon points="195,20 200,5 205,20" fill="#1e293b" className="dark:fill-slate-300" />
-                                <text x="385" y="215" fontSize="16" fill="#1e293b" className="dark:fill-slate-300 font-medium">x</text>
-                                <text x="210" y="22" fontSize="16" fill="#1e293b" className="dark:fill-slate-300 font-medium">y</text>
+                        <div className="w-full max-w-xl mx-auto">
 
-                                {/* Origin */}
-                                <circle cx="200" cy="200" r="5" fill="#ef4444" />
-                                <text x="205" y="215" fontSize="14" fill="#1e293b" className="dark:fill-slate-300 font-medium">O</text>
+                            {/* Graph Header */}
+                            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
 
-                                {/* Tick marks (first quadrant only) */}
-                                {[40, 80, 120, 160, 240, 280, 320, 360].map((v) => {
-                                    const val = (v - 200) / 40;
-                                    if (val >= 0 && val <= 4.5) {
+                                <div>
+                                    <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                                        Interactive Constraint Graph
+                                    </h4>
+
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        Explore constraints and identify the feasible region
+                                    </p>
+                                </div>
+
+                                {showAllConstraints && (
+                                    <span className="inline-flex items-center gap-1.5
+                             px-2.5 py-1 rounded-full
+                             bg-emerald-50 dark:bg-emerald-950/30
+                             border border-emerald-200
+                             dark:border-emerald-800
+                             text-emerald-700 dark:text-emerald-400
+                             text-xs font-semibold">
+
+                                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+
+                                        Feasible Region Active
+                                    </span>
+                                )}
+
+                            </div>
+
+
+                            {/* GRAPH */}
+                            <div
+                                className="relative w-full aspect-square
+                   bg-white dark:bg-slate-950
+                   rounded-2xl
+                   border border-slate-200 dark:border-slate-700
+                   p-2
+                   shadow-lg
+                   overflow-hidden"
+                            >
+
+                                <svg
+                                    viewBox="0 0 400 400"
+                                    className="w-full h-full"
+                                    role="img"
+                                    aria-label="Interactive linear programming constraint graph"
+                                >
+
+                                    {/* ====================================================
+                DEFINITIONS
+            ==================================================== */}
+
+                                    <defs>
+
+                                        {/* Minor grid */}
+                                        <pattern
+                                            id="minorGrid_lp"
+                                            width="10"
+                                            height="10"
+                                            patternUnits="userSpaceOnUse"
+                                        >
+                                            <path
+                                                d="M 10 0 L 0 0 0 10"
+                                                fill="none"
+                                                stroke="#e2e8f0"
+                                                strokeWidth="0.35"
+                                                className="dark:stroke-slate-800"
+                                            />
+                                        </pattern>
+
+                                        {/* Major grid */}
+                                        <pattern
+                                            id="majorGrid_lp"
+                                            width="40"
+                                            height="40"
+                                            patternUnits="userSpaceOnUse"
+                                        >
+                                            <rect
+                                                width="40"
+                                                height="40"
+                                                fill="url(#minorGrid_lp)"
+                                            />
+
+                                            <path
+                                                d="M 40 0 L 0 0 0 40"
+                                                fill="none"
+                                                stroke="#cbd5e1"
+                                                strokeWidth="0.8"
+                                                className="dark:stroke-slate-700"
+                                            />
+                                        </pattern>
+
+                                        {/* Feasible region gradient */}
+                                        <linearGradient
+                                            id="feasibleGradient_lp"
+                                            x1="0"
+                                            y1="1"
+                                            x2="1"
+                                            y2="0"
+                                        >
+                                            <stop
+                                                offset="0%"
+                                                stopColor="#10b981"
+                                                stopOpacity="0.18"
+                                            />
+
+                                            <stop
+                                                offset="100%"
+                                                stopColor="#06b6d4"
+                                                stopOpacity="0.10"
+                                            />
+                                        </linearGradient>
+
+                                        {/* Feasible region border */}
+                                        <filter
+                                            id="feasibleGlow_lp"
+                                            x="-30%"
+                                            y="-30%"
+                                            width="160%"
+                                            height="160%"
+                                        >
+                                            <feGaussianBlur
+                                                stdDeviation="2"
+                                                result="blur"
+                                            />
+
+                                            <feMerge>
+                                                <feMergeNode in="blur" />
+                                                <feMergeNode in="SourceGraphic" />
+                                            </feMerge>
+                                        </filter>
+
+                                        {/* Arrow markers */}
+                                        <marker
+                                            id="arrowX_lp"
+                                            markerWidth="8"
+                                            markerHeight="8"
+                                            refX="5"
+                                            refY="4"
+                                            orient="auto"
+                                        >
+                                            <path
+                                                d="M0,0 L8,4 L0,8 Z"
+                                                fill="#334155"
+                                                className="dark:fill-slate-300"
+                                            />
+                                        </marker>
+
+                                        <marker
+                                            id="arrowY_lp"
+                                            markerWidth="8"
+                                            markerHeight="8"
+                                            refX="5"
+                                            refY="4"
+                                            orient="auto"
+                                        >
+                                            <path
+                                                d="M0,0 L8,4 L0,8 Z"
+                                                fill="#334155"
+                                                className="dark:fill-slate-300"
+                                            />
+                                        </marker>
+
+                                    </defs>
+
+
+                                    {/* ====================================================
+                BACKGROUND
+            ==================================================== */}
+
+                                    <rect
+                                        x="0"
+                                        y="0"
+                                        width="400"
+                                        height="400"
+                                        rx="12"
+                                        fill="url(#majorGrid_lp)"
+                                    />
+
+
+                                    {/* ====================================================
+                PLOT AREA
+            ==================================================== */}
+
+                                    <rect
+                                        x="200"
+                                        y="20"
+                                        width="175"
+                                        height="175"
+                                        rx="4"
+                                        fill="rgba(255,255,255,0.02)"
+                                        className="dark:fill-slate-900"
+                                    />
+
+
+                                    {/* ====================================================
+                AXES
+            ==================================================== */}
+
+                                    <line
+                                        x1="200"
+                                        y1="200"
+                                        x2="375"
+                                        y2="200"
+                                        stroke="#334155"
+                                        strokeWidth="2.5"
+                                        markerEnd="url(#arrowX_lp)"
+                                        className="dark:stroke-slate-300"
+                                    />
+
+                                    <line
+                                        x1="200"
+                                        y1="200"
+                                        x2="200"
+                                        y2="25"
+                                        stroke="#334155"
+                                        strokeWidth="2.5"
+                                        markerEnd="url(#arrowY_lp)"
+                                        className="dark:stroke-slate-300"
+                                    />
+
+
+                                    {/* ====================================================
+                AXIS LABELS
+            ==================================================== */}
+
+                                    <text
+                                        x="378"
+                                        y="215"
+                                        fontSize="15"
+                                        fontWeight="700"
+                                        fill="#334155"
+                                        className="dark:fill-slate-200"
+                                    >
+                                        x
+                                    </text>
+
+                                    <text
+                                        x="211"
+                                        y="25"
+                                        fontSize="15"
+                                        fontWeight="700"
+                                        fill="#334155"
+                                        className="dark:fill-slate-200"
+                                    >
+                                        y
+                                    </text>
+
+
+                                    {/* ====================================================
+                ORIGIN
+            ==================================================== */}
+
+                                    <circle
+                                        cx="200"
+                                        cy="200"
+                                        r="5"
+                                        fill="#ef4444"
+                                        stroke="white"
+                                        strokeWidth="2"
+                                    />
+
+                                    <text
+                                        x="207"
+                                        y="218"
+                                        fontSize="11"
+                                        fontWeight="700"
+                                        fill="#475569"
+                                        className="dark:fill-slate-300"
+                                    >
+                                        O (0,0)
+                                    </text>
+
+
+                                    {/* ====================================================
+                AXIS TICKS
+            ==================================================== */}
+
+                                    {[1, 2, 3, 4].map(value => {
+
+                                        const x = GRAPH.originX + value * GRAPH.scale;
+                                        const y = GRAPH.originY - value * GRAPH.scale;
+
                                         return (
-                                            <g key={`t9-tick-${v}`}>
-                                                <line x1={v} y1="195" x2={v} y2="205" stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                                <line x1="195" y1={v} x2="205" y2={v} stroke="#1e293b" strokeWidth="1.2" className="dark:stroke-slate-300" />
-                                                {v >= 40 && v <= 360 && val !== 0 && (
-                                                    <>
-                                                        <text x={v - 4} y="218" fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
-                                                        <text x="178" y={v + 5} fontSize="11" fill="#475569" className="dark:fill-slate-500">{val}</text>
-                                                    </>
-                                                )}
+                                            <g key={`axis-${value}`}>
+
+                                                {/* X tick */}
+                                                <line
+                                                    x1={x}
+                                                    y1="196"
+                                                    x2={x}
+                                                    y2="204"
+                                                    stroke="#64748b"
+                                                    strokeWidth="1.3"
+                                                    className="dark:stroke-slate-400"
+                                                />
+
+                                                <text
+                                                    x={x}
+                                                    y="219"
+                                                    textAnchor="middle"
+                                                    fontSize="10"
+                                                    fill="#64748b"
+                                                    className="dark:fill-slate-400"
+                                                >
+                                                    {value}
+                                                </text>
+
+
+                                                {/* Y tick */}
+                                                <line
+                                                    x1="196"
+                                                    y1={y}
+                                                    x2="204"
+                                                    y2={y}
+                                                    stroke="#64748b"
+                                                    strokeWidth="1.3"
+                                                    className="dark:stroke-slate-400"
+                                                />
+
+                                                <text
+                                                    x="185"
+                                                    y={y + 4}
+                                                    textAnchor="end"
+                                                    fontSize="10"
+                                                    fill="#64748b"
+                                                    className="dark:fill-slate-400"
+                                                >
+                                                    {value}
+                                                </text>
+
                                             </g>
                                         );
-                                    }
-                                    return null;
-                                })}
+                                    })}
 
-                                {/* Shading for all constraints */}
-                                {showAllConstraints && constraints.map((con) => {
-                                    const shading = getConstraintShading(con.a, con.b, con.c, con.sign);
-                                    if (shading.length > 2) {
-                                        return (
+
+                                    {/* ====================================================
+                CONSTRAINT SHADING
+            ==================================================== */}
+
+                                    {showAllConstraints &&
+                                        constraints.map(con => {
+
+                                            const shading =
+                                                getConstraintShading(
+                                                    con.a,
+                                                    con.b,
+                                                    con.c,
+                                                    con.sign
+                                                );
+
+                                            if (shading.length <= 2) {
+                                                return null;
+                                            }
+
+                                            const isSelected =
+                                                selectedConstraint === con.id;
+
+                                            return (
+                                                <polygon
+                                                    key={`shade-${con.id}`}
+                                                    points={shading
+                                                        .map(
+                                                            p =>
+                                                                `${p.px},${p.py}`
+                                                        )
+                                                        .join(" ")
+                                                    }
+                                                    fill={con.color}
+                                                    fillOpacity={
+                                                        selectedConstraint !== null
+                                                            ? isSelected
+                                                                ? 0.16
+                                                                : 0.025
+                                                            : 0.07
+                                                    }
+                                                    stroke="none"
+                                                    className="transition-all duration-300"
+                                                />
+                                            );
+                                        })}
+
+
+                                    {/* ====================================================
+                FEASIBLE REGION
+            ==================================================== */}
+
+                                    {showAllConstraints &&
+                                        feasibleVertices.length >= 3 && (
+
                                             <polygon
-                                                key={`shade-${con.id}`}
-                                                points={shading.map(p => `${p.px},${p.py}`).join(' ')}
-                                                fill={con.color}
-                                                fillOpacity={selectedConstraint !== null && selectedConstraint !== con.id ? "0.05" : "0.12"}
-                                                stroke="none"
-                                            />
-                                        );
-                                    }
-                                    return null;
-                                })}
+                                                points={feasibleVertices
+                                                    .map(point => {
 
-                                {/* Draw all constraint lines */}
-                                {constraints.map((con) => {
-                                    const points = getLinePoints(con.a, con.b, con.c);
-                                    const solid = isSolid(con.sign);
-                                    const isHighlighted = selectedConstraint === con.id;
-                                    const strokeWidth = isHighlighted ? 4 : 2.5;
-                                    const opacity = selectedConstraint !== null && selectedConstraint !== con.id ? 0.4 : 0.8;
-                                    
-                                    if (points.length > 1) {
-                                        return (
-                                            <polyline
-                                                key={`line-${con.id}`}
-                                                points={points.map(p => `${p.px},${p.py}`).join(' ')}
-                                                fill="none"
-                                                stroke={con.color}
-                                                strokeWidth={strokeWidth}
-                                                strokeDasharray={solid ? "none" : "8,6"}
-                                                opacity={opacity}
-                                            />
-                                        );
-                                    }
-                                    return null;
-                                })}
+                                                        const svg =
+                                                            toSvg(
+                                                                point.x,
+                                                                point.y
+                                                            );
 
-                                {/* Labels for constraints */}
-                                {constraints.map((con, idx) => {
-                                    const xInt = con.b !== 0 ? con.c / con.a : null;
-                                    const yInt = con.a !== 0 ? con.c / con.b : null;
-                                    const yPos = 370 - (idx * 20);
-                                    const xPos = 20;
-                                    if (showAllConstraints) {
+                                                        return `${svg.px},${svg.py}`;
+                                                    })
+                                                    .join(" ")
+                                                }
+                                                fill="url(#feasibleGradient_lp)"
+                                                stroke="#10b981"
+                                                strokeWidth="2.5"
+                                                strokeLinejoin="round"
+                                                filter="url(#feasibleGlow_lp)"
+                                            />
+                                        )}
+
+
+                                    {/* ====================================================
+                CONSTRAINT LINES
+            ==================================================== */}
+
+                                    {constraints.map(con => {
+
+                                        const points =
+                                            getLinePoints(
+                                                con.a,
+                                                con.b,
+                                                con.c
+                                            );
+
+                                        const solid =
+                                            isSolid(con.sign);
+
+                                        const isHighlighted =
+                                            selectedConstraint === con.id;
+
+                                        const opacity =
+                                            selectedConstraint !== null &&
+                                                !isHighlighted
+                                                ? 0.28
+                                                : 0.95;
+
+                                        if (points.length <= 1) {
+                                            return null;
+                                        }
+
                                         return (
+                                            <g key={`constraint-${con.id}`}>
+
+                                                {/* Glow */}
+                                                {isHighlighted && (
+                                                    <polyline
+                                                        points={points
+                                                            .map(
+                                                                p =>
+                                                                    `${p.px},${p.py}`
+                                                            )
+                                                            .join(" ")
+                                                        }
+                                                        fill="none"
+                                                        stroke={con.color}
+                                                        strokeWidth="8"
+                                                        opacity="0.12"
+                                                    />
+                                                )}
+
+                                                {/* Main line */}
+                                                <polyline
+                                                    points={points
+                                                        .map(
+                                                            p =>
+                                                                `${p.px},${p.py}`
+                                                        )
+                                                        .join(" ")
+                                                    }
+                                                    fill="none"
+                                                    stroke={con.color}
+                                                    strokeWidth={
+                                                        isHighlighted
+                                                            ? 3.8
+                                                            : 2.2
+                                                    }
+                                                    strokeDasharray={
+                                                        solid
+                                                            ? undefined
+                                                            : "7 5"
+                                                    }
+                                                    strokeLinecap="round"
+                                                    opacity={opacity}
+                                                    className="transition-all duration-300"
+                                                />
+
+                                            </g>
+                                        );
+                                    })}
+
+
+                                    {/* ====================================================
+                FEASIBLE VERTICES
+            ==================================================== */}
+
+                                    {showAllConstraints &&
+                                        feasibleVertices.map(
+                                            (point, index) => {
+
+                                                const svg =
+                                                    toSvg(
+                                                        point.x,
+                                                        point.y
+                                                    );
+
+                                                return (
+                                                    <g
+                                                        key={`vertex-${index}`}
+                                                        className="cursor-pointer"
+                                                    >
+
+                                                        {/* Outer ring */}
+                                                        <circle
+                                                            cx={svg.px}
+                                                            cy={svg.py}
+                                                            r="7"
+                                                            fill="#10b981"
+                                                            fillOpacity="0.15"
+                                                        />
+
+                                                        {/* Vertex */}
+                                                        <circle
+                                                            cx={svg.px}
+                                                            cy={svg.py}
+                                                            r="3.8"
+                                                            fill="#10b981"
+                                                            stroke="white"
+                                                            strokeWidth="1.5"
+                                                        />
+
+                                                        {/* Coordinate */}
+                                                        <rect
+                                                            x={svg.px + 7}
+                                                            y={svg.py - 17}
+                                                            width="55"
+                                                            height="16"
+                                                            rx="4"
+                                                            fill="white"
+                                                            fillOpacity="0.92"
+                                                            stroke="#d1d5db"
+                                                            strokeWidth="0.7"
+                                                            className="dark:fill-slate-800 dark:stroke-slate-600"
+                                                        />
+
+                                                        <text
+                                                            x={svg.px + 34}
+                                                            y={svg.py - 6}
+                                                            textAnchor="middle"
+                                                            fontSize="8.5"
+                                                            fontWeight="600"
+                                                            fill="#334155"
+                                                            className="dark:fill-slate-200"
+                                                        >
+                                                            (
+                                                            {point.x.toFixed(1)},
+                                                            {point.y.toFixed(1)}
+                                                            )
+                                                        </text>
+
+                                                    </g>
+                                                );
+                                            }
+                                        )}
+
+
+                                    {/* ====================================================
+                GRAPH INFORMATION PANEL
+            ==================================================== */}
+
+                                    {showAllConstraints && (
+                                        <g>
+
+                                            <rect
+                                                x="215"
+                                                y="28"
+                                                width="150"
+                                                height="47"
+                                                rx="8"
+                                                fill="white"
+                                                fillOpacity="0.94"
+                                                stroke="#cbd5e1"
+                                                strokeWidth="1"
+                                                className="dark:fill-slate-900 dark:stroke-slate-700"
+                                            />
+
+                                            <circle
+                                                cx="229"
+                                                cy="43"
+                                                r="4"
+                                                fill="#10b981"
+                                            />
+
                                             <text
-                                                key={`label-${con.id}`}
-                                                x={xPos}
-                                                y={yPos}
-                                                fontSize="9"
-                                                fill={con.color}
-                                                className="font-mono"
-                                                opacity={selectedConstraint !== null && selectedConstraint !== con.id ? 0.4 : 0.9}
+                                                x="239"
+                                                y="47"
+                                                fontSize="10"
+                                                fontWeight="700"
+                                                fill="#334155"
+                                                className="dark:fill-slate-200"
                                             >
-                                                {con.label}
+                                                Feasible Region
                                             </text>
-                                        );
-                                    }
-                                    return null;
-                                })}
 
-                                {/* Feasible region indicator */}
-                                {showAllConstraints && (
-                                    <rect x="20" y="20" width="150" height="35" rx="4" fill="white" fillOpacity="0.9" stroke="#e2e8f0" strokeWidth="1" className="dark:fill-slate-800 dark:stroke-slate-700" />
-                                    <text x="28" y="38" fontSize="11" fill="#475569" className="dark:fill-slate-400 font-medium">
-                                        Feasible Region:
-                                    </text>
-                                    <text x="28" y="50" fontSize="10" fill="#475569" className="dark:fill-slate-400">
-                                        Overlap of ALL constraints
-                                    </text>
-                                )}
-                            </svg>
+                                            <text
+                                                x="225"
+                                                y="63"
+                                                fontSize="8.5"
+                                                fill="#64748b"
+                                                className="dark:fill-slate-400"
+                                            >
+                                                Satisfies ALL constraints
+                                            </text>
+
+                                        </g>
+                                    )}
+
+
+                                    {/* ====================================================
+                CONSTRAINT LEGEND
+            ==================================================== */}
+
+                                    {showAllConstraints && (
+                                        <g>
+
+                                            <rect
+                                                x="20"
+                                                y="315"
+                                                width="160"
+                                                height={
+                                                    Math.min(
+                                                        25 +
+                                                        constraints.length * 18,
+                                                        70
+                                                    )
+                                                }
+                                                rx="7"
+                                                fill="white"
+                                                fillOpacity="0.94"
+                                                stroke="#cbd5e1"
+                                                strokeWidth="1"
+                                                className="dark:fill-slate-900 dark:stroke-slate-700"
+                                            />
+
+                                            <text
+                                                x="30"
+                                                y="331"
+                                                fontSize="9"
+                                                fontWeight="700"
+                                                fill="#334155"
+                                                className="dark:fill-slate-200"
+                                            >
+                                                Constraints
+                                            </text>
+
+                                            {constraints
+                                                .slice(0, 3)
+                                                .map((con, index) => (
+
+                                                    <g
+                                                        key={`legend-${con.id}`}
+                                                    >
+
+                                                        <line
+                                                            x1="30"
+                                                            y1={
+                                                                343 +
+                                                                index * 17
+                                                            }
+                                                            x2="47"
+                                                            y2={
+                                                                343 +
+                                                                index * 17
+                                                            }
+                                                            stroke={con.color}
+                                                            strokeWidth="2.5"
+                                                            strokeDasharray={
+                                                                isSolid(
+                                                                    con.sign
+                                                                )
+                                                                    ? undefined
+                                                                    : "5 3"
+                                                            }
+                                                        />
+
+                                                        <text
+                                                            x="53"
+                                                            y={
+                                                                346 +
+                                                                index * 17
+                                                            }
+                                                            fontSize="8.5"
+                                                            fill={con.color}
+                                                            fontWeight="600"
+                                                        >
+                                                            {con.label}
+                                                        </text>
+
+                                                    </g>
+
+                                                ))}
+
+                                        </g>
+                                    )}
+
+
+                                    {/* ====================================================
+                BOTTOM STATUS
+            ==================================================== */}
+
+                                    {showAllConstraints && (
+                                        <text
+                                            x="200"
+                                            y="390"
+                                            textAnchor="middle"
+                                            fontSize="9"
+                                            fill="#64748b"
+                                            className="dark:fill-slate-500"
+                                        >
+                                            Green area = feasible solution space
+                                        </text>
+                                    )}
+
+                                </svg>
+                            </div>
+
+
+                            {/* ============================================================
+        GRAPH EXPLANATION
+    ============================================================ */}
+
+                            {showAllConstraints && (
+                                <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+
+                                    <div className="rounded-lg border border-slate-200
+                            dark:border-slate-700
+                            bg-slate-50 dark:bg-slate-800/60
+                            p-2.5">
+
+                                        <div className="flex items-center gap-2 mb-1">
+
+                                            <span className="w-2.5 h-2.5 rounded-full
+                                     bg-emerald-500" />
+
+                                            <span className="text-xs font-bold
+                                     text-slate-700
+                                     dark:text-slate-300">
+                                                Feasible
+                                            </span>
+
+                                        </div>
+
+                                        <p className="text-[10px] leading-4
+                              text-slate-500
+                              dark:text-slate-400">
+                                            Points satisfying every constraint.
+                                        </p>
+
+                                    </div>
+
+
+                                    <div className="rounded-lg border border-slate-200
+                            dark:border-slate-700
+                            bg-slate-50 dark:bg-slate-800/60
+                            p-2.5">
+
+                                        <div className="flex items-center gap-2 mb-1">
+
+                                            <span className="w-5 h-0.5 bg-slate-500" />
+
+                                            <span className="text-xs font-bold
+                                     text-slate-700
+                                     dark:text-slate-300">
+                                                Boundary
+                                            </span>
+
+                                        </div>
+
+                                        <p className="text-[10px] leading-4
+                              text-slate-500
+                              dark:text-slate-400">
+                                            Each line represents a constraint.
+                                        </p>
+
+                                    </div>
+
+
+                                    <div className="rounded-lg border border-slate-200
+                            dark:border-slate-700
+                            bg-slate-50 dark:bg-slate-800/60
+                            p-2.5">
+
+                                        <div className="flex items-center gap-2 mb-1">
+
+                                            <span className="text-xs font-bold
+                                     text-slate-700
+                                     dark:text-slate-300">
+                                                ● Vertices
+                                            </span>
+
+                                        </div>
+
+                                        <p className="text-[10px] leading-4
+                              text-slate-500
+                              dark:text-slate-400">
+                                            Candidate points for the optimum.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                            )}
+
                         </div>
                         <div className="mt-3 text-center text-sm text-slate-500 dark:text-slate-400">
                             <span className="inline-block px-3 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 rounded-full mr-2">

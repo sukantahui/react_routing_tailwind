@@ -1,0 +1,20 @@
+===============================================================================
+DETERMINING WHETHER A POINT SATISFIES ALL CONSTRAINTS
+===============================================================================
+
+TOPIC 17 – VALIDATING SOLUTION CANDIDATES
+
+-------------------------------------------------------------------------------
+1. WHAT IS FEASIBILITY?
+-------------------------------------------------------------------------------
+A point is feasible if it satisfies ALL constraints simultaneously.
+
+- ALL constraints must be true
+- One violation = infeasible
+- Feasible points are in the feasible region
+- Infeasible points are outside
+
+Key idea: Feasibility is an all-or-nothing test.
+
+-------------------------------------------------------------------------------
+2. HOW TO

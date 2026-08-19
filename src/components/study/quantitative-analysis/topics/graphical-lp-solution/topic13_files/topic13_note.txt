@@ -1,0 +1,111 @@
+===============================================================================
+CORNER POINTS AND EXTREME POINTS
+===============================================================================
+
+TOPIC 13 – THE VERTICES OF THE FEASIBLE REGION
+
+-------------------------------------------------------------------------------
+1. WHAT ARE CORNER POINTS?
+-------------------------------------------------------------------------------
+Corner points (also called extreme points) are the vertices of the feasible
+region where two or more constraint lines intersect.
+
+- They are the "corners" of the feasible region.
+- Each corner point satisfies two or more constraints as equalities.
+- In a bounded region, they form the vertices of the polygon.
+
+Key idea: Corner points are where constraint lines meet.
+
+-------------------------------------------------------------------------------
+2. THE CORNER-POINT PRINCIPLE
+-------------------------------------------------------------------------------
+The corner-point principle states that:
+
+"If a linear programming problem has an optimal solution, it will occur
+at a corner point of the feasible region."
+
+Why this is important:
+- We only need to check corner points, not every point in the region
+- This makes LP solvable (finite search)
+- The simplex method is based on this principle
+
+-------------------------------------------------------------------------------
+3. WHY CORNER POINTS MATTER
+-------------------------------------------------------------------------------
+1. Efficiency: Only need to check corner points, not every point.
+2. Guarantee: If an optimal solution exists, it's at a corner.
+3. Simplicity: Makes LP solvable by evaluating a finite set of points.
+4. Practical: The simplex method moves between corner points.
+
+-------------------------------------------------------------------------------
+4. HOW TO FIND CORNER POINTS
+-------------------------------------------------------------------------------
+Graphical Method:
+1. Plot all constraints and shade the feasible region.
+2. Look for the "corners" where constraint lines intersect.
+3. These are the corner points.
+
+Algebraic Method:
+1. Solve pairs of constraint equations simultaneously.
+2. Each corner point is the intersection of two constraints.
+3. Check that the point satisfies all constraints.
+
+-------------------------------------------------------------------------------
+5. KEY PROPERTIES
+-------------------------------------------------------------------------------
+- Bounded regions have a finite number of corner points.
+- Unbounded regions can also have corner points.
+- Each corner point is the intersection of at least two constraints.
+- Corner points on axes are due to non-negativity constraints.
+- All corner points are feasible (by definition).
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Missing corner points on the axes.
+✗ Assuming interior points can be optimal.
+✗ Not verifying if a corner point is feasible.
+✗ Counting points that aren't actually corners.
+✗ Forgetting that unbounded regions may have corner points too.
+✗ Not including all constraints when finding corners.
+
+-------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Every corner point is the intersection of two constraint lines.
+✓ In bounded regions, all corner points are feasible.
+✓ Check corner points on the axes (where non-negativity binds).
+✓ The optimal solution is always at a corner point.
+✓ Use the corner-point principle to reduce the search space.
+✓ Always verify corner points satisfy all constraints.
+
+-------------------------------------------------------------------------------
+8. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production planning: corner points represent fully utilized resources.
+- Resource allocation: each corner point is a different allocation strategy.
+- Investment portfolio: corner points represent optimal allocations.
+- Diet planning: corner points represent meal combinations meeting requirements.
+
+-------------------------------------------------------------------------------
+9. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify corner points on a graph.
+☐ I understand that corner points are constraint intersections.
+☐ I know the corner-point principle.
+☐ I can verify if a corner point is feasible.
+☐ I understand why optimal solutions occur at corner points.
+☐ I can find corner points for both bounded and unbounded regions.
+
+-------------------------------------------------------------------------------
+10. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand corner points, you're ready to find them from the
+graph (Topic 14) and algebraically (Topic 15). These skills are essential
+for solving LP problems.
+
+Remember: The optimal solution is always at a corner point!
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,103 @@
+===============================================================================
+FINDING THE MAXIMUM VALUE GRAPHICALLY
+===============================================================================
+
+TOPIC 25 – SOLVING MAXIMIZATION PROBLEMS
+
+-------------------------------------------------------------------------------
+1. THE GRAPHICAL METHOD FOR MAXIMIZATION
+-------------------------------------------------------------------------------
+The graphical method for finding the maximum value involves four steps:
+
+Step 1: Graph all constraints and shade the feasible region.
+Step 2: Identify all corner points of the feasible region.
+Step 3: Evaluate Z at each corner point.
+Step 4: Select the corner point with the highest Z value.
+
+Key idea: The maximum is always at a corner point (corner-point principle).
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP EXAMPLE
+-------------------------------------------------------------------------------
+Problem: Maximize Z = 3x + 4y
+Subject to:
+  x + y ≤ 10
+  2x + y ≤ 14
+  x ≥ 0, y ≥ 0
+
+Step 1: Graph constraints → feasible region
+Step 2: Corner points: O(0,0), A(5,0), B(4,3), C(2,4), D(0,5)
+Step 3: Evaluate Z:
+  O: 0, A: 15, B: 24, C: 22, D: 20
+Step 4: Maximum Z = 24 at (4,3)
+
+-------------------------------------------------------------------------------
+3. KEY PRINCIPLES
+-------------------------------------------------------------------------------
+✓ The maximum always occurs at a corner point
+✓ Evaluate Z at ALL corner points
+✓ Compare values systematically
+✓ Check for multiple optimal solutions
+✓ Verify the optimal point satisfies all constraints
+
+-------------------------------------------------------------------------------
+4. SPECIAL CASES
+-------------------------------------------------------------------------------
+Multiple Optima:
+- If the objective line is parallel to a constraint edge
+- Multiple corner points give the same maximum value
+- Any point on the edge is optimal
+
+Unbounded Maximum:
+- If the feasible region extends in the direction of improvement
+- No finite maximum exists
+- Example: Maximize Z=x+y with x≥0, y≥0
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to check all corner points
+✗ Missing corner points on the axes
+✗ Assuming the origin is always the optimum
+✗ Not verifying that the optimal point satisfies all constraints
+✗ Confusing maximization with minimization
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always identify ALL corner points of the feasible region.
+✓ Check points on axes — they're often overlooked.
+✓ The maximum is always at a corner point (or along an edge).
+✓ Verify your answer by checking if it satisfies all constraints.
+✓ Use the objective line to visually confirm the maximum.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Profit maximization: find optimal production mix
+- Production maximization: maximize output with resources
+- Revenue maximization: find best product combination
+- Efficiency maximization: optimize resource allocation
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can graph all constraints and find the feasible region.
+☐ I can identify all corner points of the feasible region.
+☐ I can evaluate the objective function at each corner point.
+☐ I can identify the corner point with the maximum Z value.
+☐ I can verify that the optimal point satisfies all constraints.
+☐ I can identify multiple optimal solutions if they exist.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find the maximum value graphically, you're ready to
+learn about finding the minimum value (Topic 26). The process is similar
+but with minimization instead of maximization.
+
+Remember: The maximum is the highest Z value at a corner point!
+
+===============================================================================
+END OF NOTES
+===============================================================================

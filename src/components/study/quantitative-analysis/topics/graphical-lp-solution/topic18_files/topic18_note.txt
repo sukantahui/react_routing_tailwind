@@ -1,0 +1,98 @@
+===============================================================================
+CHECKING FEASIBILITY OF CORNER POINTS
+===============================================================================
+
+TOPIC 18 – VALIDATING SOLUTION CANDIDATES
+
+-------------------------------------------------------------------------------
+1. WHY CHECK CORNER POINT FEASIBILITY?
+-------------------------------------------------------------------------------
+Not all intersections of constraint lines are valid corner points. Before
+evaluating the objective function, we must verify each corner point.
+
+- Only feasible corner points can be optimal solutions
+- Infeasible corners must be excluded
+- This is a critical step in the LP solution process
+
+Key idea: A corner point is only a candidate if it passes ALL tests.
+
+-------------------------------------------------------------------------------
+2. HOW TO CHECK CORNER POINT FEASIBILITY
+-------------------------------------------------------------------------------
+STEP 1: List all corner points from the graph.
+STEP 2: For each corner point, substitute into ALL constraints.
+STEP 3: Check if all constraints are satisfied.
+STEP 4: If yes → feasible ✓; If no → infeasible ✗
+STEP 5: Only evaluate feasible corner points in the objective function.
+
+-------------------------------------------------------------------------------
+3. SYSTEMATIC APPROACH
+-------------------------------------------------------------------------------
+Create a table:
+┌─────────────────────────────────────────────────────────────┐
+│ Corner Point │ Constraint 1 │ Constraint 2 │ Feasible?   │
+├─────────────────────────────────────────────────────────────┤
+│ (0,0)        │ ✓           │ ✓           │ Yes         │
+│ (4,0)        │ ✓           │ ✗           │ No          │
+│ (2,2)        │ ✓           │ ✓           │ Yes         │
+│ (0,4)        │ ✓           │ ✓           │ Yes         │
+└─────────────────────────────────────────────────────────────┘
+
+-------------------------------------------------------------------------------
+4. COMMON FEASIBILITY ISSUES
+-------------------------------------------------------------------------------
+✗ Non-Negativity Violation: x<0 or y<0
+✗ Resource Exceeded: ≤ constraints violated (using more than available)
+✗ Minimum Not Met: ≥ constraints violated (not meeting requirements)
+✗ Strict Inequality: Points on dashed lines fail < or > constraints
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting to check all constraints.
+✗ Assuming a corner point is feasible without checking.
+✗ Misreading inequality signs (≤ vs ≥).
+✗ Not checking non-negativity.
+✗ Stopping after one constraint passes.
+✗ Evaluating infeasible corner points in the objective function.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Create a table to systematically check each constraint.
+✓ Start with the simplest constraints (non-negativity).
+✓ Use different colors for feasible vs infeasible corners.
+✓ Mark which constraint fails for infeasible points.
+✓ Always verify your feasibility check with the graph.
+✓ Only evaluate feasible corner points.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production: check if production plans satisfy all constraints
+- Resource allocation: verify resource usage is within limits
+- Diet planning: ensure all nutritional requirements are met
+- Investment: verify portfolios meet risk and return constraints
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can list all corner points from the graph.
+☐ I can substitute each corner point into all constraints.
+☐ I can identify which corner points are feasible.
+☐ I can identify which constraint is violated for infeasible corners.
+☐ I know that only feasible corner points are candidates for optimal solutions.
+☐ I can use a systematic table to check corner point feasibility.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can check corner point feasibility, you're ready to understand
+the graphical interpretation of the objective function (Topic 19). This
+will show you how to find the optimal solution among feasible corner points.
+
+Remember: Only feasible corner points can be optimal!
+
+===============================================================================
+END OF NOTES
+===============================================================================

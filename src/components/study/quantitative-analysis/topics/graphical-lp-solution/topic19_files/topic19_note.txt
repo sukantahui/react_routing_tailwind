@@ -1,0 +1,103 @@
+===============================================================================
+GRAPHICAL INTERPRETATION OF THE OBJECTIVE FUNCTION
+===============================================================================
+
+TOPIC 19 – FINDING THE OPTIMAL SOLUTION
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE OBJECTIVE FUNCTION?
+-------------------------------------------------------------------------------
+The objective function is the mathematical expression we want to maximize or
+minimize in a linear programming problem.
+
+- It's the goal of the problem
+- Examples: maximize profit, minimize cost
+- Written as Z = ax + by
+
+Key idea: The objective is what we're trying to achieve.
+
+-------------------------------------------------------------------------------
+2. GRAPHICAL REPRESENTATION
+-------------------------------------------------------------------------------
+The objective function is represented by a family of parallel lines:
+
+- Iso-profit lines: for maximization (equal profit)
+- Iso-cost lines: for minimization (equal cost)
+
+For any value of Z, the objective function forms a straight line:
+  Z = ax + by → by = -ax + Z → y = (-a/b)x + Z/b
+
+As Z changes, the line moves parallel to itself.
+
+-------------------------------------------------------------------------------
+3. FINDING THE OPTIMAL SOLUTION
+-------------------------------------------------------------------------------
+Maximization:
+1. Draw the objective line for any Z value
+2. Move it in the direction of increasing Z (away from origin)
+3. The last point of contact with the feasible region is optimal
+
+Minimization:
+1. Draw the objective line for any Z value
+2. Move it in the direction of decreasing Z (toward origin)
+3. The first point of contact with the feasible region is optimal
+
+-------------------------------------------------------------------------------
+4. KEY INSIGHTS
+-------------------------------------------------------------------------------
+✓ The optimal solution is always at a corner point (or along an edge)
+✓ The objective line moves parallel to itself
+✓ For maximization: move away from the origin
+✓ For minimization: move toward the origin
+✓ If the line is parallel to a constraint edge: multiple optima
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Moving the line in the wrong direction for max/min
+✗ Not recognizing multiple optimal solutions
+✗ Assuming the optimal point is at the origin
+✗ Forgetting to check if the line leaves the region
+✗ Misreading the objective function coefficients
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ The objective line moves parallel to itself.
+✓ For maximization, move the line away from the origin.
+✓ For minimization, move the line toward the origin.
+✓ The optimal point is where the line just touches the region.
+✓ Check corner points to verify the optimal solution.
+✓ Identify if the problem is max or min first.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Profit maximization: Z = 3x + 4y (factory production)
+- Cost minimization: Z = 2x + 3y (resource allocation)
+- Diet planning: minimize cost while meeting nutrition
+- Investment: maximize return with risk constraints
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the objective function from a problem.
+☐ I can draw the objective line for a given Z value.
+☐ I can move the objective line parallel to find the optimum.
+☐ I know the difference between maximization and minimization.
+☐ I can identify the optimal corner point from the graph.
+☐ I can recognize multiple optimal solutions.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand the objective function graphically, you're ready
+to explore the objective function line in more detail (Topic 20). This
+will deepen your understanding of how the line moves and how to find the
+optimal solution.
+
+Remember: The objective is your goal — find the best point in the region!
+
+===============================================================================
+END OF NOTES
+===============================================================================

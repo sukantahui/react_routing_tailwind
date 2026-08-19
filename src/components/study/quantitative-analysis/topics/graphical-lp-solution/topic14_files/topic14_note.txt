@@ -1,0 +1,101 @@
+===============================================================================
+FINDING CORNER POINTS FROM THE GRAPH
+===============================================================================
+
+TOPIC 14 – VISUAL IDENTIFICATION OF VERTICES
+
+-------------------------------------------------------------------------------
+1. WHY FIND CORNER POINTS GRAPHICALLY?
+-------------------------------------------------------------------------------
+Finding corner points graphically is the most intuitive way to identify the
+vertices of the feasible region.
+
+- Visual: See the corners directly on the graph
+- Fast: Quick identification without solving equations
+- Check: Verify algebraic solutions by matching them to the graph
+
+Key idea: The corners are where the feasible region changes direction.
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP: FINDING CORNER POINTS
+-------------------------------------------------------------------------------
+STEP 1: Plot all constraints on the same graph.
+STEP 2: Shade the feasible region (the overlap of all constraints).
+STEP 3: Look for the "corners" where the boundary changes direction.
+STEP 4: Read the coordinates of each corner point from the graph.
+STEP 5: List all corner points with their coordinates.
+
+-------------------------------------------------------------------------------
+3. HOW TO RECOGNIZE CORNER POINTS
+-------------------------------------------------------------------------------
+Corner points are:
+- The "sharp" points of the feasible region
+- Where two or more constraint lines intersect
+- Where the boundary changes direction
+- The vertices of the feasible polygon
+
+Look for:
+- Changes in direction when tracing the boundary
+- Points on axes (from non-negativity constraints)
+- Intersections of constraint lines
+
+-------------------------------------------------------------------------------
+4. TIPS FOR ACCURATE READING
+-------------------------------------------------------------------------------
+✓ Use grid lines to read coordinates precisely.
+✓ Check points on the x-axis and y-axis.
+✓ Trace the entire boundary to find all corners.
+✓ If a point is on two lines, it's a corner.
+✓ Use a ruler to draw straight lines.
+✓ Use different colors for different constraints.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Missing corner points on the axes.
+✗ Counting points that aren't actually corners.
+✗ Misreading coordinates from the graph.
+✗ Forgetting to check if a point is feasible.
+✗ Not including all constraints when finding corners.
+✗ Assuming points on lines are corners (they may be edge points).
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Look for "sharp" corners where the boundary changes direction.
+✓ Always check points on the axes (non-negativity).
+✓ Use grid lines to read coordinates accurately.
+✓ Each corner is where two constraints intersect.
+✓ Draw a circle around the region to help find corners.
+✓ Label corners with letters and coordinates.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production: corner points represent resource-utilized production mixes
+- Resource allocation: each corner is a different allocation strategy
+- Diet planning: corners show meal combinations meeting requirements
+- Investment: corners represent optimal portfolio allocations
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify corner points on a graph.
+☐ I know that corners are where constraints intersect.
+☐ I can read coordinates from the graph.
+☐ I remember to check points on the axes.
+☐ I can verify if a point is a valid corner.
+☐ I can list all corner points of a feasible region.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find corner points graphically, you're ready to find them
+algebraically (Topic 15). This will allow you to get exact coordinates for
+any corner point, especially when the graph doesn't give precise values.
+
+Remember: Every corner point is where two constraints meet!
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,100 @@
+===============================================================================
+MOVING THE OBJECTIVE FUNCTION LINE PARALLEL TO ITSELF
+===============================================================================
+
+TOPIC 24 – FINDING THE OPTIMAL SOLUTION
+
+-------------------------------------------------------------------------------
+1. WHY MOVE THE OBJECTIVE LINE PARALLEL?
+-------------------------------------------------------------------------------
+The objective function line represents all points with the same value of Z (or C).
+To find the optimal solution, we need to move this line parallel to itself
+across the feasible region.
+
+- For maximization: move OUTWARD (away from origin) to increase Z
+- For minimization: move INWARD (toward origin) to decrease C
+- The slope never changes — only the intercept changes
+
+Key idea: The line moves like a ghost — always parallel, never changing its slope.
+
+-------------------------------------------------------------------------------
+2. HOW TO MOVE THE LINE
+-------------------------------------------------------------------------------
+Step 1: Draw the initial objective line for any Z (or C) value
+Step 2: Increase or decrease the value to move the line
+Step 3: The line shifts parallel because the slope stays the same
+Step 4: The optimal line is where the line just touches the feasible region
+
+-------------------------------------------------------------------------------
+3. DIRECTION OF MOVEMENT
+-------------------------------------------------------------------------------
+Maximization:
+- Move OUTWARD (away from the origin)
+- Higher Z = better
+- Last line to touch the region is optimal
+- Example: Z=12 → Z=24 → Z=36
+
+Minimization:
+- Move INWARD (toward the origin)
+- Lower C = better
+- First line to touch the region is optimal
+- Example: C=12 → C=8 → C=6
+
+-------------------------------------------------------------------------------
+4. KEY PROPERTIES
+-------------------------------------------------------------------------------
+✓ The slope stays the same during movement
+✓ Only the intercept changes
+✓ The line shifts parallel
+✓ The optimal line touches the feasible region at a corner point
+✓ If the line overlaps an edge, there are multiple optimal solutions
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Changing the slope when moving the line (should stay parallel)
+✗ Moving in the wrong direction for max/min
+✗ Not checking if the line still intersects the region
+✗ Stopping too early before finding the optimum
+✗ Forgetting that the line can overlap an edge
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ The objective line always moves parallel — slope stays the same.
+✓ For max: move outward until it's about to leave the region.
+✓ For min: move inward until it just enters the region.
+✓ Use multiple lines to see the pattern of movement.
+✓ The optimal line always touches a corner point (or edge).
+✓ Use the slider to visualize the movement.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Profit maximization: move profit line outward to find max profit
+- Cost minimization: move cost line inward to find min cost
+- Investment: move return line outward to find max return
+- Resource allocation: move objective line to find optimal allocation
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can move the objective line parallel to itself.
+☐ I understand that the slope stays the same during movement.
+☐ I know to move outward for maximization.
+☐ I know to move inward for minimization.
+☐ I can identify the optimal line where it just touches the region.
+☐ I can handle cases where the line overlaps an edge.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you know how to move the objective line parallel, you're ready
+to find the maximum value graphically (Topic 25). This will apply the
+technique to specific maximization problems.
+
+Remember: The line moves parallel — slope stays the same!
+
+===============================================================================
+END OF NOTES
+===============================================================================

@@ -1,0 +1,101 @@
+===============================================================================
+OBJECTIVE FUNCTION LINE
+===============================================================================
+
+TOPIC 20 – THE GRAPHICAL REPRESENTATION OF THE GOAL
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE OBJECTIVE FUNCTION LINE?
+-------------------------------------------------------------------------------
+The objective function line is the graphical representation of the objective
+function for a specific value of Z.
+
+- It's a line where Z is constant
+- All points on the line give the same objective value
+- Also called iso-profit (max) or iso-cost (min) lines
+
+Key idea: The objective line shows what you're trying to achieve.
+
+-------------------------------------------------------------------------------
+2. HOW TO DRAW THE OBJECTIVE LINE
+-------------------------------------------------------------------------------
+For Z = ax + by:
+
+Step 1: Choose a Z value (e.g., Z = 12)
+Step 2: Find x-intercept: set y=0 → x = Z/a → (Z/a, 0)
+Step 3: Find y-intercept: set x=0 → y = Z/b → (0, Z/b)
+Step 4: Plot the intercepts and draw the line
+
+All objective lines are parallel with slope -a/b.
+
+-------------------------------------------------------------------------------
+3. MOVING THE OBJECTIVE LINE
+-------------------------------------------------------------------------------
+Maximization:
+- Move the line in the direction of increasing Z
+- Away from the origin
+- The last line to touch the region is optimal
+
+Minimization:
+- Move the line in the direction of decreasing Z
+- Toward the origin
+- The first line to touch the region is optimal
+
+-------------------------------------------------------------------------------
+4. KEY PROPERTIES
+-------------------------------------------------------------------------------
+✓ All objective lines are parallel (same slope)
+✓ The x-intercept is Z/a (if a ≠ 0)
+✓ The y-intercept is Z/b (if b ≠ 0)
+✓ The optimal line touches the feasible region at a corner point
+✓ If the line overlaps an edge, there are multiple optimal solutions
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Drawing objective lines that aren't parallel
+✗ Moving the line in the wrong direction
+✗ Using the wrong intercepts
+✗ Forgetting that the objective line can overlap an edge
+✗ Misreading the objective function coefficients
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Use intercepts to quickly draw objective lines.
+✓ All objective lines are parallel — check the slope.
+✓ For max, move the line away from the origin.
+✓ For min, move the line toward the origin.
+✓ The optimal line is the one that just touches the region.
+✓ Check corner points to verify the optimal solution.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Profit maximization: Z = 3x + 4y → move outward
+- Cost minimization: Z = 2x + 3y → move inward
+- Investment: Z = 0.05x + 0.08y → maximize return
+- Resource allocation: Z = x + y → optimize usage
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can draw the objective line for a given Z value.
+☐ I can find the intercepts of the objective line.
+☐ I can move the objective line parallel to find the optimum.
+☐ I understand that all objective lines are parallel.
+☐ I can identify the optimal objective line.
+☐ I can handle cases with multiple optimal solutions.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand the objective line, you're ready to explore
+iso-profit lines (Topic 21) and iso-cost lines (Topic 22). These are
+special cases of objective lines for maximization and minimization.
+
+Remember: The objective line is your goal — find where it just touches!
+
+===============================================================================
+END OF NOTES
+===============================================================================

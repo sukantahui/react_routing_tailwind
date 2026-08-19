@@ -1,0 +1,97 @@
+===============================================================================
+BOUNDED AND UNBOUNDED FEASIBLE REGIONS
+===============================================================================
+
+TOPIC 12 – UNDERSTANDING REGION TYPES
+
+-------------------------------------------------------------------------------
+1. DEFINITIONS
+-------------------------------------------------------------------------------
+Bounded Region:
+- Enclosed on all sides
+- Finite area
+- Has a maximum and minimum in all directions
+- Always has a finite number of corner points
+- Example: x≥0, y≥0, x+y≤10
+
+Unbounded Region:
+- Extends infinitely in some direction
+- Infinite area
+- Has no bound in at least one direction
+- May have finite or infinite corner points
+- Example: x≥0, y≥0, x+y≥4
+
+-------------------------------------------------------------------------------
+2. HOW TO IDENTIFY
+-------------------------------------------------------------------------------
+Bounded Region Signs:
+✓ There are ≤ constraints in both x and y directions
+✓ The region does not extend to infinity
+✓ All variables have upper bounds
+✓ The region forms a closed polygon
+✓ You can draw a circle around it
+
+Unbounded Region Signs:
+∞ Only ≥ constraints (minimum requirements)
+∞ Missing upper bounds in some direction
+∞ Variables can grow without limit
+∞ Region extends to infinity
+∞ Goes off the graph in some direction
+
+-------------------------------------------------------------------------------
+3. WHY BOUNDEDNESS MATTERS
+-------------------------------------------------------------------------------
+For Bounded Regions:
+- Optimal solution ALWAYS exists
+- Found at a corner point
+- Maximization and minimization both work
+- The simplex method terminates
+
+For Unbounded Regions:
+- Optimal solution MAY NOT exist
+- Maximization can be unbounded (∞)
+- Minimization often still works
+- The simplex method may fail
+
+-------------------------------------------------------------------------------
+4. KEY INSIGHTS
+-------------------------------------------------------------------------------
+- Bounded regions are formed by ≤ constraints (upper bounds).
+- Unbounded regions often come from ≥ constraints (minimum requirements).
+- Non-negativity alone creates an unbounded region.
+- Boundedness guarantees an optimal solution exists.
+- For maximization, unbounded regions may have no finite optimum.
+- For minimization, unbounded regions often still have an optimum.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming all LP regions are bounded.
+✗ Not recognizing unbounded regions in maximization problems.
+✗ Missing that non-negativity alone creates unbounded regions.
+✗ Forgetting that unbounded regions can still have optimal values (minimization).
+✗ Not checking if the objective can grow indefinitely.
+✗ Thinking bounded means the same as always having a solution.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Look for ≤ constraints — they usually bound the region.
+✓ If the region goes off the graph, it's likely unbounded.
+✓ For bounded regions, optimal solutions always exist.
+✓ For unbounded maximization, check if the objective goes to infinity.
+✓ Include a boundedness check in your LP analysis.
+✓ Draw the region first, then analyze its properties.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+Bounded Examples:
+- Production planning with limited resources (machine hours, labor, materials)
+- Diet planning with calorie limits
+- Budget allocation with fixed total
+
+Unbounded Examples:
+- Minimum requirements (at least 4 hours of study)
+- Investment returns with no upper limit
+- Resource allocation with no
