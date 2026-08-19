@@ -1,0 +1,87 @@
+================================================================================
+TOPIC 7: WORKED EXAMPLE 1 – SIMPLE PRODUCTION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A small furniture workshop produces two products: Tables and Chairs.
+- Each table requires 3 hours of carpentry work and 2 hours of finishing work.
+- Each chair requires 2 hours of carpentry work and 1 hour of finishing work.
+- The workshop has 120 hours of carpentry and 60 hours of finishing available per week.
+- The profit per table is $40, and per chair is $25.
+- Market demand requires at least 10 chairs to be produced per week.
+- The workshop wants to maximize weekly profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize profit
+- Resources: Carpentry (120 hours), Finishing (60 hours)
+- Products: Tables and Chairs
+- Requirement: At least 10 chairs
+
+STEP 2: Identify Decision Variables
+- x₁ = number of tables produced per week
+- x₂ = number of chairs produced per week
+
+STEP 3: Identify the Objective
+- Profit per table = $40
+- Profit per chair = $25
+- Maximize Z = 40x₁ + 25x₂
+
+STEP 4: Identify Constraints
+- Carpentry: 3x₁ + 2x₂ ≤ 120
+- Finishing: 2x₁ + 1x₂ ≤ 60
+- Demand: x₂ ≥ 10
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 10: Carpentry = 20 ≤ 120 ✓, Finishing = 10 ≤ 60 ✓
+- Test x₁ = 20, x₂ = 0: Carpentry = 60 ≤ 120 ✓, Finishing = 40 ≤ 60 ✓
+
+STEP 7: Document
+- Final Model: Maximize Z = 40x₁ + 25x₂
+  Subject to:
+    Carpentry: 3x₁ + 2x₂ ≤ 120
+    Finishing: 2x₁ + x₂ ≤ 60
+    Demand: x₂ ≥ 10
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. DETAILED INTERPRETATION
+---------------------------
+- Decision Variables: x₁ = tables, x₂ = chairs (both ≥ 0)
+- Objective Function: $40 per table + $25 per chair
+- Constraint 1 (Carpentry): each table uses 3 hours, each chair uses 2 hours
+- Constraint 2 (Finishing): each table uses 2 hours, each chair uses 1 hour
+- Constraint 3 (Demand): must produce at least 10 chairs
+
+4. WHAT WE LEARN FROM THIS EXAMPLE
+-----------------------------------
+- How to identify decision variables from a word problem.
+- How to formulate the objective function from profit data.
+- How to write resource constraints from consumption data.
+- How to handle minimum demand requirements.
+- How to validate the model with simple feasible solutions.
+- The importance of labeling constraints for clarity.
+
+5. COMMON MISTAKES IN THIS EXAMPLE
+-----------------------------------
+- Forgetting the demand constraint (x₂ ≥ 10).
+- Swapping coefficients (using 2x₁ + 3x₂ instead of 3x₁ + 2x₂).
+- Using wrong inequality direction (≥ instead of ≤ for resources).
+- Forgetting non-negativity.
+
+6. KEY TAKEAWAYS
+-----------------
+- Always read the problem carefully and identify the goal first.
+- Define variables clearly with units.
+- Write constraints in the order of resources/requirements.
+- Label everything for clarity.
+- Validate your model before solving.
+
+================================================================================
+End of Topic 7 Notes
+================================================================================

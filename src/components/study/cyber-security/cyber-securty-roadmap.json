@@ -1,0 +1,683 @@
+{
+  "trackId": "isc-class12-computer-science-969",
+  "trackTitle": "Cyber Security",
+  "description": "Cyber Security for BCA",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "ISC Class 12 Computer Science Tutorial Roadmap",
+    "version": "1.0.0",
+    "lastUpdated": "2026-03-28"
+  },
+  "folder": "cyber-security",
+  "subject": "Computer Science",
+  "segments": [
+    {
+      "segmentId": "course-module-1",
+      "title": "First Module",
+      "level": "Beginner",
+      "summary": "Understand logic simplification and computational efficiency concepts.",
+      "modules": [
+        {
+          "moduleId": "introduction-to-networking",
+          "slug": "introduction-to-networking",
+          "title": "Introduction to Networking",
+          "level": "Beginner",
+          "estimatedHours": 2,
+          "tags": [
+            "networking",
+            "computer-network",
+            "cyber-security",
+            "bcac703"
+          ],
+          "topics": [
+            "Introduction to Computer Networks",
+            "Need for Computer Networking",
+            "History of Computer Networks",
+            "Characteristics of a Computer Network",
+            "Advantages of Networking",
+            "Disadvantages of Networking",
+            "Applications of Computer Networks",
+            "Types of Networks",
+            "Personal Area Network (PAN)",
+            "Local Area Network (LAN)",
+            "Metropolitan Area Network (MAN)",
+            "Wide Area Network (WAN)",
+            "Wireless Networks",
+            "Peer-to-Peer Network",
+            "Client-Server Network",
+            "Network Topology Overview",
+            "Bus Topology",
+            "Star Topology",
+            "Ring Topology",
+            "Mesh Topology",
+            "Tree Topology",
+            "Hybrid Topology",
+            "Basic Networking Components",
+            "Server",
+            "Client",
+            "NIC (Network Interface Card)",
+            "Transmission Media Overview",
+            "Network Address",
+            "MAC Address",
+            "IP Address",
+            "Bandwidth",
+            "Latency",
+            "Throughput",
+            "Packet",
+            "Frame",
+            "Protocol",
+            "Internet vs Intranet",
+            "Extranet",
+            "Real-life Networking Examples",
+            "Networking in Banking",
+            "Networking in Education",
+            "Networking in Healthcare",
+            "Networking in Government",
+            "Networking in Cloud Computing",
+            "Future of Computer Networking"
+          ],
+          "learningOutcomes": [
+            "Explain the concept of computer networking.",
+            "Differentiate various types of computer networks.",
+            "Identify common networking components.",
+            "Understand networking terminology.",
+            "Recognize networking applications in real-world environments.",
+            "Prepare a foundation for advanced networking concepts."
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "summary": "This tutorial introduces the fundamentals of computer networking, including network types, components, terminology, topologies, and practical applications that form the foundation for Cyber Security.",
+          "miniProjects": [
+            "Draw the network layout of your school or college.",
+            "Identify different devices used in your home network.",
+            "Create a comparison chart of PAN, LAN, MAN and WAN."
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "longAnswer": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Worksheet + Viva + Diagram Practice",
+            "passScore": 70
+          },
+          "teachingFlow": [
+            "What is Networking?",
+            "Need for Networking",
+            "History",
+            "Types of Networks",
+            "Network Components",
+            "Network Topologies",
+            "Networking Terminologies",
+            "Real-life Applications",
+            "Summary",
+            "Practice Questions"
+          ],
+          "commonMistakes": [
+            "Confusing LAN with WAN.",
+            "Assuming Internet and WWW are the same.",
+            "Mixing IP Address with MAC Address.",
+            "Ignoring the purpose of network protocols.",
+            "Confusing topology with network type."
+          ],
+          "examTips": [
+            "Draw neat topology diagrams.",
+            "Remember full forms of PAN, LAN, MAN and WAN.",
+            "Practice comparison tables.",
+            "Understand the difference between Internet, Intranet and Extranet.",
+            "Remember real-life applications."
+          ],
+          "realLifeApplications": [
+            "Banking Networks",
+            "Hospital Information Systems",
+            "Cloud Computing",
+            "Online Education",
+            "E-commerce",
+            "Social Media",
+            "Government Digital Services"
+          ],
+          "careerSkills": [
+            "Networking Fundamentals",
+            "Basic Infrastructure Knowledge",
+            "Technical Documentation",
+            "Problem Solving",
+            "Cyber Security Foundation"
+          ],
+          "references": [
+            "BCAC703 Cyber Security Syllabus",
+            "Computer Networking Fundamentals",
+            "RFC Documentation (Introduction)"
+          ],
+          "badge": "Networking Fundamentals"
+        },
+        {
+          "moduleId": "cyber-security-definition",
+          "slug": "cyber-security-definition",
+          "title": "Cyber Security Definition",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to Cyber Security",
+            "Need of Cyber Security",
+            "Importance of Cyber Security",
+            "Goals of Cyber Security",
+            "Cyber Space",
+            "Digital Assets",
+            "Cyber Threat Landscape",
+            "Cyber Crime",
+            "Cyber Warfare",
+            "Cyber Terrorism",
+            "Applications of Cyber Security"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "section-b",
+      "title": "Section B – Java Programming Core",
+      "level": "Intermediate",
+      "summary": "Develop strong programming concepts using Java.",
+      "modules": [
+        {
+          "moduleId": "arrays",
+          "slug": "arrays-and-operations",
+          "title": "Arrays (1D & 2D)",
+          "level": "Intermediate",
+          "estimatedHours": 15,
+          "topics": [
+            "1D and 2D arrays",
+            "Traversing arrays",
+            "Sorting: Bubble, Selection",
+            "Searching: Linear, Binary",
+            "Introduction to 2D arrays (matrix representation)",
+            "Declaration and initialization of 2D arrays",
+            "Input and output of matrix elements",
+            "Traversing a matrix (row-wise and column-wise)",
+            "Row major & column major address calculation",
+            "Formula for row-major order address calculation",
+            "Formula for column-major order address calculation",
+            "Address calculation with base address and element size",
+            "Finding address of A[i][j] in 2D array",
+            "Comparison between row-major and column-major storage",
+            "Matrix addition",
+            "Matrix subtraction",
+            "Matrix multiplication",
+            "Transpose of a matrix",
+            "Diagonal elements of a matrix (primary & secondary)",
+            "Upper and lower triangular matrices",
+            "Symmetric matrix check",
+            "Identity matrix",
+            "Sparse matrix basics"
+          ],
+          "learningOutcomes": [
+            "Implement sorting algorithms",
+            "Perform searching efficiently",
+            "Understand memory representation"
+          ],
+          "miniProjects": [
+            "Student Marks Analyzer"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "strings",
+          "slug": "strings-and-stringbuffer",
+          "title": "Strings & StringBuffer",
+          "topics": [
+            "Introduction to Strings in Java",
+            "String creation (literals vs new keyword)",
+            "Immutability of String objects",
+            "String class methods (length, charAt, substring, equals, compareTo, toUpperCase, toLowerCase, trim, replace, etc.)",
+            "String comparison (== vs equals())",
+            "String concatenation techniques",
+            "String manipulation programs (reverse string, palindrome, word count, frequency of characters)",
+            "StringBuffer class and its features",
+            "Mutable vs Immutable strings",
+            "Key methods of StringBuffer (append, insert, delete, reverse, capacity)",
+            "String vs StringBuffer vs StringBuilder (comparison & use cases)",
+            "Performance considerations in string handling",
+            "Short Questions"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "functions",
+          "slug": "functions-and-parameters",
+          "title": "Functions",
+          "topics": [
+            "Function definition",
+            "Call by value",
+            "Call by reference",
+            "Programs using functions"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "oop-inheritance",
+          "slug": "inheritance",
+          "title": "Inheritance",
+          "topics": [
+            "Concept of inheritance",
+            "Types of inheritance (Single, Multilevel, Hierarchical)",
+            "Method overriding",
+            "Use of super keyword",
+            "Constructor in inheritance",
+            "Dynamic method dispatch",
+            "Practical programs on inheritance"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "oop-abstract",
+          "slug": "abstract",
+          "title": "Abstract Class",
+          "topics": [
+            "Concept of abstraction",
+            "Abstract class and abstract methods",
+            "Rules for abstract classes",
+            "Use of abstract class in inheritance",
+            "Difference between abstract class and concrete class",
+            "Practical programs using abstract classes"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "test-and-project-inheritence-abstract",
+          "slug": "test-and-project-inheritence-abstract",
+          "title": "Test & Projects of Inheritencd & Abstract",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "MCQ Test1"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Passing large arrays efficiently to functions",
+            "Working with low level memory operations"
+          ],
+          "careerSkills": [
+            "Thinking in terms of addresses and references",
+            "Understanding how higher level languages implement references"
+          ],
+          "commonMistakes": [
+            "Dereferencing NULL or uninitialized pointers",
+            "Incorrect pointer arithmetic that steps outside valid memory"
+          ],
+          "references": [
+            "Pointers in C tutorials and articles",
+            "The C Programming Language - pointers chapter"
+          ],
+          "teachingTips": [
+            "Use step by step diagrams showing addresses and contents.",
+            "Give small pointer puzzles to build intuition."
+          ],
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
+        },
+        {
+          "moduleId": "test-inheritence-abstract",
+          "slug": "test-inheritence-abstract",
+          "title": "Test Inheritencd & Abstract",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "visibility": "loggedIn",
+          "tags": [
+            "test",
+            "memory",
+            "address"
+          ],
+          "topics": [
+            "Test 1",
+            "Test 2 Moderate",
+            "Test3 Expert"
+          ],
+          "learningOutcomes": [
+            "Use pointers to work with memory addresses",
+            "Apply pointer arithmetic to traverse arrays",
+            "Understand the connection between arrays and pointers in C"
+          ],
+          "prerequisites": [
+            "strings-core"
+          ],
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 7,
+          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
+          "miniProjects": [
+            "Practice: Pointers and Memory Addressing - Mini Project 1"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Quiz + Mini Project",
+            "passScore": 75
+          },
+          "useCases": [
+            "Passing large arrays efficiently to functions",
+            "Working with low level memory operations"
+          ],
+          "careerSkills": [
+            "Thinking in terms of addresses and references",
+            "Understanding how higher level languages implement references"
+          ],
+          "commonMistakes": [
+            "Dereferencing NULL or uninitialized pointers",
+            "Incorrect pointer arithmetic that steps outside valid memory"
+          ],
+          "references": [
+            "Pointers in C tutorials and articles",
+            "The C Programming Language - pointers chapter"
+          ],
+          "teachingTips": [
+            "Use step by step diagrams showing addresses and contents.",
+            "Give small pointer puzzles to build intuition."
+          ],
+          "preReading": [
+            "Strings and Character Arrays module"
+          ],
+          "previousModule": "strings-core",
+          "nextModule": "memory-dynamic",
+          "badge": "Pointer Pro Badge"
+        },
+        {
+          "moduleId": "oop-interface",
+          "slug": "interface",
+          "title": "Interface",
+          "topics": [
+            "Concept of interface",
+            "Defining and implementing interfaces",
+            "Multiple inheritance using interface",
+            "Default and static methods in interface",
+            "Difference between interface and abstract class",
+            "Practical programs using interfaces"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-c",
+      "title": "Section C – Advanced Programming",
+      "level": "Advanced",
+      "summary": "Learn recursion and advanced data handling.",
+      "modules": [
+        {
+          "moduleId": "recursion",
+          "slug": "recursion-concepts",
+          "title": "Recursion",
+          "topics": [
+            "Recursive functions",
+            "Base condition",
+            "Tracing recursion",
+            "Classic problems (factorial, Fibonacci)"
+          ],
+          "difficulty": "Medium-High"
+        },
+        {
+          "moduleId": "data-structures",
+          "slug": "stack-queue",
+          "title": "Stack & Queue (Array Implementation)",
+          "topics": [
+            "Stack operations",
+            "Queue operations",
+            "Circular Queue",
+            "Deque"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "sorting-expression",
+          "slug": "sorting-and-expression",
+          "title": "Insertion Sort & Expression Conversion",
+          "topics": [
+            "Insertion sort (numeric & string)",
+            "Infix to postfix",
+            "Infix to prefix"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
+    },
+    {
+      "segmentId": "section-d",
+      "title": "Section D – Data Structures & Hardware",
+      "level": "Advanced",
+      "summary": "Final advanced topics for ISC board exams.",
+      "modules": [
+        {
+          "moduleId": "linked-list",
+          "slug": "single-linked-list",
+          "title": "Single Linked List",
+          "topics": [
+            "Node structure",
+            "Insertion and deletion",
+            "Traversal",
+            "Programs on linked list"
+          ],
+          "difficulty": "High"
+        },
+        {
+          "moduleId": "binary-tree",
+          "slug": "binary-tree",
+          "title": "Binary Tree",
+          "topics": [
+            "Tree terminology",
+            "Binary tree structure",
+            "Traversal (inorder, preorder, postorder)"
+          ],
+          "difficulty": "High"
+        },
+        {
+          "moduleId": "hardware",
+          "slug": "computer-hardware",
+          "title": "Computer Hardware",
+          "topics": [
+            "Basic hardware components",
+            "CPU, Memory, I/O devices",
+            "Secondary storage"
+          ],
+          "difficulty": "Easy"
+        },
+        {
+          "moduleId": "expression-conversion",
+          "slug": "expression-conversion-using-stack",
+          "title": "Expression Conversion (Infix, Prefix & Postfix)",
+          "level": "Intermediate",
+          "estimatedHours": 12,
+          "tags": [
+            "stack",
+            "expression",
+            "infix",
+            "postfix",
+            "prefix",
+            "compiler",
+            "data-structure"
+          ],
+          "topics": [
+            "Introduction to Expressions",
+            "What is an Operand?",
+            "What is an Operator?",
+            "Unary and Binary Operators",
+            "Operator Precedence",
+            "Operator Associativity",
+            "Need for Expression Conversion",
+            "Types of Expressions",
+            "Infix Expression",
+            "Prefix Expression",
+            "Postfix Expression",
+            "Rules for Infix to Postfix Conversion",
+            "Algorithm for Infix to Postfix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Infix to Prefix Conversion with Swapping Postfix",
+            "Algorithm for Infix to Prefix",
+            "Example of Infix to Prefix",
+            "Example of Infix to Prefix using stack",
+            "Infix to Prefix Testing tool,",
+            "Reverse and Parentheses Swapping Technique",
+            "Step-by-Step Examples",
+            "Practice Problems Infix to Postfix",
+            "Rules for Postfix to Infix Conversion",
+            "Algorithm for Postfix to Infix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Prefix to Infix Conversion",
+            "Algorithm for Prefix to Infix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Prefix to Postfix Conversion",
+            "Algorithm for Prefix to Postfix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Rules for Postfix to Prefix Conversion",
+            "Algorithm for Postfix to Prefix",
+            "Step-by-Step Examples",
+            "Practice Problems",
+            "Expression Evaluation using Stack",
+            "Evaluation of Postfix Expressions",
+            "Evaluation of Prefix Expressions",
+            "Common Errors in Expression Conversion",
+            "Compiler Applications",
+            "Practice Questions",
+            "ISC Board Previous Year Questions",
+            "MCQ Practice",
+            "Short Questions",
+            "Long Questions",
+            "Programming using Stack",
+            "Java Programs",
+            "Complexity Analysis"
+          ],
+          "learningOutcomes": [
+            "Understand different expression notations.",
+            "Identify operands and operators correctly.",
+            "Apply operator precedence and associativity.",
+            "Convert Infix to Postfix.",
+            "Convert Infix to Prefix.",
+            "Convert Postfix to Infix.",
+            "Convert Prefix to Infix.",
+            "Convert Prefix to Postfix.",
+            "Convert Postfix to Prefix.",
+            "Evaluate Prefix and Postfix expressions using Stack.",
+            "Implement expression conversion algorithms in Java.",
+            "Solve ISC board examination problems confidently."
+          ],
+          "prerequisites": [
+            "Basic Stack Operations",
+            "Operator Precedence",
+            "Arrays"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "This module introduces all three expression notations—Infix, Prefix, and Postfix—and teaches complete expression conversion using stack data structures. Students will learn conversion algorithms, expression evaluation, programming implementations, and compiler applications with numerous board-level examples.",
+          "miniProjects": [
+            "Expression Converter",
+            "Postfix Calculator",
+            "Prefix Calculator",
+            "Expression Validator"
+          ],
+          "exercises": {
+            "mcq": 40,
+            "shortAnswer": 20,
+            "longAnswer": 10,
+            "numerical": 35,
+            "coding": 8
+          },
+          "assessment": {
+            "type": "Worksheet + Programming Assignment + Viva",
+            "passScore": 70
+          },
+          "teachingFlow": [
+            "Introduction to Expressions",
+            "Operands and Operators",
+            "Operator Precedence",
+            "Associativity",
+            "Infix Expression",
+            "Prefix Expression",
+            "Postfix Expression",
+            "Infix to Postfix",
+            "Infix to Prefix",
+            "Postfix to Infix",
+            "Prefix to Infix",
+            "Postfix to Prefix",
+            "Prefix to Postfix",
+            "Expression Evaluation",
+            "Programming using Stack",
+            "Previous Year Questions",
+            "Mock Test"
+          ],
+          "commonMistakes": [
+            "Ignoring operator precedence.",
+            "Ignoring associativity of operators.",
+            "Incorrect handling of parentheses.",
+            "Using wrong stack operations.",
+            "Reversing expressions incorrectly while converting to Prefix.",
+            "Popping operands in the wrong order.",
+            "Forgetting to empty the stack at the end."
+          ],
+          "examTips": [
+            "Remember precedence before starting conversion.",
+            "Draw the stack after every scanned symbol.",
+            "Write postfix output after every step.",
+            "Always pop remaining operators after scanning ends.",
+            "For Prefix conversion, reverse the expression and swap parentheses first.",
+            "Practice at least 20 conversion problems before the exam."
+          ],
+          "realLifeApplications": [
+            "Compiler Design",
+            "Expression Parsing",
+            "Programming Language Interpreters",
+            "Scientific Calculators",
+            "Database Query Processing",
+            "Virtual Machines"
+          ],
+          "timeComplexity": {
+            "conversion": "O(n)",
+            "evaluation": "O(n)"
+          },
+          "spaceComplexity": {
+            "conversion": "O(n)",
+            "evaluation": "O(n)"
+          },
+          "badge": "Expression Conversion Master"
+        }
+      ]
+    }
+  ]
+}

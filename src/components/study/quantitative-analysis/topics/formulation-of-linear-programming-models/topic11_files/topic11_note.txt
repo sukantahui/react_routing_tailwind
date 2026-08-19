@@ -1,0 +1,130 @@
+================================================================================
+TOPIC 11: WORKED EXAMPLE 5 – LABOUR AND MACHINE-HOUR CONSTRAINTS
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces two products: Product A and Product B.
+The company has two key resources that constrain production:
+- Labour hours (total: 100 hours per week)
+- Machine hours (total: 80 hours per week)
+
+Resource requirements per unit:
+              Product A   Product B   Available
+Labour (hrs)       2           4         100
+Machine (hrs)      3           2          80
+
+Profit per unit: Product A = ₹50, Product B = ₹60
+
+Additionally, market demand requires at least 10 units of Product A to be produced.
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize profit
+- Products: A and B (2 products)
+- Resources: Labour (100 hrs), Machine (80 hrs)
+- Requirement: At least 10 units of Product A
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Product A produced
+- x₂ = number of units of Product B produced
+
+STEP 3: Identify the Objective
+- Profit per unit: A = ₹50, B = ₹60
+- Maximize Z = 50x₁ + 60x₂
+
+STEP 4: Identify Constraints
+- Labour: 2x₁ + 4x₂ ≤ 100
+- Machine: 3x₁ + 2x₂ ≤ 80
+- Demand: x₁ ≥ 10
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 10, x₂ = 0:
+  Labour = 20 ≤ 100 ✓
+  Machine = 30 ≤ 80 ✓
+  Demand = 10 ≥ 10 ✓
+
+- Test x₁ = 20, x₂ = 10:
+  Labour = 40 + 40 = 80 ≤ 100 ✓
+  Machine = 60 + 20 = 80 ≤ 80 ✓
+  Demand = 20 ≥ 10 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 50x₁ + 60x₂
+  Subject to:
+    Labour: 2x₁ + 4x₂ ≤ 100
+    Machine: 3x₁ + 2x₂ ≤ 80
+    Demand: x₁ ≥ 10
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Labour: 2x₁ + 4x₂ = 100 → x₂ = 25 - 0.5x₁
+- Machine: 3x₁ + 2x₂ = 80 → x₂ = 40 - 1.5x₁
+- Demand: x₁ ≥ 10 (vertical line)
+
+Step 2: Identify feasible region
+Step 3: Find corner points:
+  - (10, 0)
+  - (10, 20)
+  - (20, 10)
+  - (26.67, 0)
+
+Step 4: Evaluate objective at each corner:
+  - (10, 0): Z = 50(10) + 60(0) = 500
+  - (10, 20): Z = 50(10) + 60(20) = 500 + 1,200 = 1,700
+  - (20, 10): Z = 50(20) + 60(10) = 1,000 + 600 = 1,600
+  - (26.67, 0): Z = 50(26.67) + 60(0) = 1,333.5
+
+Step 5: Optimal solution: (10, 20) with profit = ₹1,700
+
+4. INTERPRETATION
+-----------------
+- Produce 10 units of Product A and 20 units of Product B.
+- Total profit = ₹1,700.
+- Resource usage at optimum:
+  - Labour: 2(10) + 4(20) = 20 + 80 = 100 hrs (fully used)
+  - Machine: 3(10) + 2(20) = 30 + 40 = 70 hrs (slack: 10 hrs)
+  - Demand: 10 ≥ 10 (just met)
+
+5. KEY INSIGHTS
+---------------
+- Labour is the binding constraint (fully used).
+- Machine has 10 hours of slack (unused capacity).
+- The demand constraint is binding at the minimum (x₁ = 10).
+- The optimal solution produces exactly the minimum required units of A.
+- Product B is more profitable per machine hour but uses more labour.
+
+6. LABOUR VS MACHINE-HOUR CONSTRAINTS
+--------------------------------------
+- Labour constraints represent limits on available workforce hours.
+- Machine-hour constraints represent limits on available equipment time.
+- These are the two most common resource constraints in manufacturing.
+- They often compete: more labour vs more machine time.
+
+7. WHAT WE LEARN
+----------------
+- How to handle two resource constraints (Labour and Machine).
+- How to include demand constraints alongside resource constraints.
+- How to identify binding vs non-binding resources.
+- The importance of checking resource utilization.
+
+8. KEY TAKEAWAYS
+-----------------
+- Labour and machine-hour constraints are common in production planning.
+- Multiple constraints can be binding or have slack.
+- Demand constraints add minimum production requirements.
+- The optimal solution balances resource usage and demand.
+
+================================================================================
+End of Topic 11 Notes
+================================================================================

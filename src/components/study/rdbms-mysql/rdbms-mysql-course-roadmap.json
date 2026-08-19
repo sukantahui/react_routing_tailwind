@@ -1,0 +1,417 @@
+{
+  "trackId": "rdbms-mysql-basic-to-pro",
+  "trackTitle": "RDBMS based on MySQL",
+  "description": "A complete roadmap for learning Relational Database Management Systems (RDBMS) using MySQL, from beginner to advanced with practical SQL, database design, normalization, transactions, optimization, projects and assessments.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "trackType": "RDBMS using MySQL Tutorial Roadmap",
+    "version": "1.1.0",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "lastUpdated": "2026-07-25"
+  },
+  "folder": "rdbms-mysql",
+  "subject": "RDBMS using MySQL",
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Educator · Software Trainer · Mentor",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "This roadmap focuses on relational database design, SQL programming, MySQL administration, database optimization, and real-world database application development from beginner to professional level.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
+  "segments": [
+    {
+      "segmentId": "foundation",
+      "title": "Segment 1 - Database Fundamentals",
+      "modules": [
+        {
+          "moduleId": "intro",
+          "slug": "introduction-to-dbms-and-rdbms",
+          "title": "Introduction to DBMS & RDBMS",
+          "estimatedHours": 3,
+          "topics": [
+            "Introduction to Data and Information",
+            "Understanding Data Processing",
+            "What is a Database?",
+            "Characteristics of a Good Database",
+            "Traditional File System vs Database System",
+            "Problems with File-Based Systems",
+            "What is DBMS?",
+            "Features of DBMS",
+            "Advantages of DBMS",
+            "Disadvantages of DBMS",
+            "Applications of Database Systems",
+            "Examples of Popular DBMS Software",
+            "What is RDBMS?",
+            "DBMS vs RDBMS",
+            "Relational Model by E. F. Codd",
+            "Concept of Tables (Relations)",
+            "Rows (Tuples) and Columns (Attributes)",
+            "Domains and Data Types",
+            "Primary Key Concept",
+            "Candidate Key",
+            "Alternate Key",
+            "Composite Key",
+            "Foreign Key",
+            "Introduction to SQL",
+            "SQL Categories (DDL, DML, DCL, TCL, DQL)",
+            "Introduction to MySQL",
+            "History of MySQL",
+            "Features of MySQL",
+            "MySQL Editions",
+            "Installing MySQL Server",
+            "Installing MySQL Workbench",
+            "Installing XAMPP / WAMP (Optional)",
+            "Configuring MySQL Server",
+            "Connecting to MySQL Server",
+            "Creating the First Database",
+            "Exploring MySQL Workbench Interface",
+            "Executing SQL Statements",
+            "Saving SQL Scripts",
+            "Importing SQL Scripts",
+            "Exporting Databases",
+            "Common MySQL Commands",
+            "MySQL Data Directory",
+            "Understanding Client-Server Architecture",
+            "Practice Session",
+            "Hands-on Lab",
+            "MCQ Test",
+            "Module Assessment"
+          ]
+        },
+        {
+          "moduleId": "sql-basics",
+          "slug": "sql-fundamentals",
+          "title": "SQL Fundamentals",
+          "estimatedHours": 6,
+          "topics": [
+            "CREATE DATABASE",
+            "CREATE TABLE",
+            "INSERT",
+            "SELECT",
+            "UPDATE",
+            "DELETE",
+            "WHERE",
+            "ORDER BY",
+            "LIMIT"
+          ]
+        },
+        {
+          "moduleId": "constraints",
+          "slug": "keys-and-constraints",
+          "title": "Keys and Constraints",
+          "estimatedHours": 5,
+          "topics": [
+            "Primary Key",
+            "Foreign Key",
+            "Unique",
+            "Not Null",
+            "Default",
+            "Check",
+            "Auto Increment"
+          ]
+        },
+        {
+          "moduleId": "practice1",
+          "slug": "practice-and-assessment-segment-1",
+          "title": "Practice & Assessment",
+          "estimatedHours": 4,
+          "topics": [
+            "MCQ",
+            "Lab",
+            "Mini Project"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "design",
+      "title": "Segment 2 - Relational Database Design",
+      "modules": [
+        {
+          "moduleId": "relationships",
+          "slug": "relationships-in-db",
+          "title": "Relationships",
+          "estimatedHours": 5,
+          "topics": [
+            "One-to-One",
+            "One-to-Many",
+            "Many-to-Many",
+            "Referential Integrity"
+          ]
+        },
+        {
+          "moduleId": "er-modeling",
+          "slug": "er-modeling-and-schema-design",
+          "title": "ER Modeling & Schema Design",
+          "estimatedHours": 5,
+          "topics": [
+            "Entities & Attributes",
+            "Relationships (Chen vs Crow's Foot)",
+            "Strong vs Weak Entities",
+            "Mapping ER to Relational Tables",
+            "Relational Algebra Basics (Select, Project, Union)"
+          ]
+        },
+        {
+          "moduleId": "normalization",
+          "slug": "normalization",
+          "title": "Normalization",
+          "estimatedHours": 6,
+          "topics": [
+            "1NF",
+            "2NF",
+            "3NF",
+            "BCNF",
+            "Denormalization"
+          ]
+        },
+        {
+          "moduleId": "joins",
+          "slug": "sql-joins",
+          "title": "Joins",
+          "estimatedHours": 6,
+          "topics": [
+            "INNER",
+            "LEFT",
+            "RIGHT",
+            "FULL (concept)",
+            "SELF",
+            "CROSS"
+          ]
+        },
+        {
+          "moduleId": "functions",
+          "slug": "sql-functions",
+          "title": "SQL Functions",
+          "estimatedHours": 6,
+          "topics": [
+            "String",
+            "Numeric",
+            "Date",
+            "Aggregate",
+            "GROUP BY",
+            "HAVING"
+          ]
+        },
+        {
+          "moduleId": "views-indexes",
+          "slug": "views-indexes-and-performance-basics",
+          "title": "Views, Indexes & Performance Basics",
+          "estimatedHours": 5,
+          "topics": [
+            "Views",
+            "Indexes",
+            "Performance Basics"
+          ]
+        },
+        {
+          "moduleId": "practice2",
+          "slug": "practice-and-project-segment-2",
+          "title": "Practice & Project",
+          "estimatedHours": 6,
+          "topics": [
+            "Library Management DB",
+            "School DB",
+            "Inventory DB"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "advanced-sql",
+      "title": "Segment 3 - Advanced SQL & Programming",
+      "modules": [
+        {
+          "moduleId": "subqueries",
+          "slug": "subqueries-and-cte",
+          "title": "Subqueries & CTE",
+          "estimatedHours": 5,
+          "topics": [
+            "Nested Queries",
+            "CTE",
+            "Recursive CTE"
+          ]
+        },
+        {
+          "moduleId": "advanced-sql-patterns",
+          "slug": "advanced-sql-patterns",
+          "title": "Advanced SQL Patterns",
+          "estimatedHours": 4,
+          "topics": [
+            "Window Functions (ROW_NUMBER, RANK, DENSE_RANK)",
+            "LAG / LEAD",
+            "CASE Statement",
+            "COALESCE & NULLIF",
+            "Pivoting Data"
+          ]
+        },
+        {
+          "moduleId": "procedures",
+          "slug": "stored-procedures-functions-and-triggers",
+          "title": "Stored Procedures, Functions & Triggers",
+          "estimatedHours": 8,
+          "topics": [
+            "Procedures",
+            "Functions",
+            "Triggers",
+            "Events"
+          ]
+        },
+        {
+          "moduleId": "error-handling",
+          "slug": "error-handling-and-cursors",
+          "title": "Error Handling & Cursors",
+          "estimatedHours": 3,
+          "topics": [
+            "DECLARE HANDLER",
+            "SIGNAL / RESIGNAL",
+            "Using Cursors in Procedures",
+            "Looping Constructs"
+          ]
+        },
+        {
+          "moduleId": "transactions",
+          "slug": "transactions-and-concurrency",
+          "title": "Transactions & Concurrency",
+          "estimatedHours": 6,
+          "topics": [
+            "ACID",
+            "COMMIT",
+            "ROLLBACK",
+            "SAVEPOINT",
+            "Locks"
+          ]
+        },
+        {
+          "moduleId": "optimization",
+          "slug": "performance-tuning",
+          "title": "Performance Tuning",
+          "estimatedHours": 6,
+          "topics": [
+            "EXPLAIN",
+            "Query Optimization",
+            "Indexes Deep Dive",
+            "Execution Plan"
+          ]
+        }
+      ]
+    },
+    {
+      "segmentId": "dba-enterprise",
+      "title": "Segment 4 - DBA & Enterprise MySQL",
+      "modules": [
+        {
+          "moduleId": "storage-engines",
+          "slug": "storage-engines-and-architecture",
+          "title": "Storage Engines & Architecture",
+          "estimatedHours": 4,
+          "topics": [
+            "InnoDB vs MyISAM vs MEMORY",
+            "B+ Tree Index Structure",
+            "Clustered vs Secondary Indexes",
+            "MVCC (Multiversion Concurrency Control)"
+          ]
+        },
+        {
+          "moduleId": "charset-collation",
+          "slug": "character-sets-collations-and-data-types",
+          "title": "Character Sets, Collations & Data Types",
+          "estimatedHours": 3,
+          "topics": [
+            "utf8mb4 vs utf8",
+            "Case-sensitive vs Accent-sensitive",
+            "JSON Data Type",
+            "Spatial Data Types (GIS)"
+          ]
+        },
+        {
+          "moduleId": "security",
+          "slug": "user-security-and-privilege-management",
+          "title": "User Security & Privilege Management",
+          "estimatedHours": 3,
+          "topics": [
+            "User Management",
+            "GRANT",
+            "REVOKE",
+            "Roles"
+          ]
+        },
+        {
+          "moduleId": "backup-migration",
+          "slug": "backup-restore-and-data-migration",
+          "title": "Backup, Restore & Data Migration",
+          "estimatedHours": 4,
+          "topics": [
+            "mysqldump strategies",
+            "mysqlpump",
+            "LOAD DATA INFILE",
+            "mysqlimport",
+            "Point-in-time Recovery"
+          ]
+        },
+        {
+          "moduleId": "logs-monitoring",
+          "slug": "logs-monitoring-and-slow-queries",
+          "title": "Logs, Monitoring & Slow Queries",
+          "estimatedHours": 4,
+          "topics": [
+            "Error Log",
+            "Binary Log (binlog)",
+            "Slow Query Log",
+            "Performance Schema",
+            "Enabling & Analyzing Logs"
+          ]
+        },
+        {
+          "moduleId": "replication",
+          "slug": "replication-and-high-availability",
+          "title": "Replication & High Availability",
+          "estimatedHours": 5,
+          "topics": [
+            "Master-Slave Asynchronous Replication",
+            "Setting up Replication",
+            "Read/Write Splitting",
+            "Failover Concepts"
+          ]
+        },
+        {
+          "moduleId": "partitioning",
+          "slug": "partitioning-and-sharding",
+          "title": "Partitioning & Sharding",
+          "estimatedHours": 3,
+          "topics": [
+            "RANGE Partitioning",
+            "LIST Partitioning",
+            "HASH Partitioning",
+            "When to use Partitioning",
+            "Introduction to Database Sharding"
+          ]
+        },
+        {
+          "moduleId": "capstone",
+          "slug": "capstone-project",
+          "title": "Capstone Project",
+          "estimatedHours": 12,
+          "topics": [
+            "ERP Database",
+            "Hospital Management",
+            "Banking System",
+            "E-commerce Platform"
+          ]
+        }
+      ]
+    }
+  ]
+}

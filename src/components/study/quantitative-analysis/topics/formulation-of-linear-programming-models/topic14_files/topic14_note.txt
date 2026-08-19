@@ -1,0 +1,217 @@
+================================================================================
+TOPIC 14: WORKED EXAMPLE 8 – DIET AND NUTRITION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A nutritionist is planning a diet using two foods: Food A and Food B.
+The diet must meet minimum daily requirements for three nutrients:
+- Carbohydrates: at least 16 units
+- Protein: at least 12 units
+- Fat: at least 10 units
+
+Nutrient content per unit of food:
+              Food A   Food B   Minimum Required
+Carbohydrates    2        4          16
+Protein          3        1          12
+Fat              1        3          10
+
+Cost per unit: Food A = ₹20, Food B = ₹30
+
+The nutritionist wants to minimize the total daily cost of the diet.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total cost
+- Foods: A and B (2 foods)
+- Nutrients: Carbohydrates, Protein, Fat (3 nutrients with minimum requirements)
+- This is a cost minimization problem with ≥ constraints
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Food A in the diet
+- x₂ = number of units of Food B in the diet
+
+STEP 3: Identify the Objective
+- Cost per unit: A = ₹20, B = ₹30
+- Minimize Z = 20x₁ + 30x₂
+
+STEP 4: Identify Constraints
+- Carbohydrates: 2x₁ + 4x₂ ≥ 16
+- Protein: 3x₁ + 1x₂ ≥ 12
+- Fat: 1x₁ + 3x₂ ≥ 10
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 5:
+  Carbohydrates = 20 ≥ 16 ✓
+  Protein = 5 ≥ 12 ✗
+
+- Test x₁ = 4, x₂ = 2:
+  Carbohydrates = 8 + 8 = 16 ≥ 16 ✓
+  Protein = 12 + 2 = 14 ≥ 12 ✓
+  Fat = 4 + 6 = 10 ≥ 10 ✓
+  Cost = 20(4) + 30(2) = 80 + 60 = ₹140
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 20x₁ + 30x₂
+  Subject to:
+    Carbohydrates: 2x₁ + 4x₂ ≥ 16
+    Protein: 3x₁ + 1x₂ ≥ 12
+    Fat: x₁ + 3x₂ ≥ 10
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Carbohydrates: 2x₁ + 4x₂ = 16 → x₂ = 4 - 0.5x₁
+- Protein: 3x₁ + 1x₂ = 12 → x₂ = 12 - 3x₁
+- Fat: x₁ + 3x₂ = 10 → x₂ = (10 - x₁)/3
+
+Step 2: Identify feasible region (above all three constraints)
+Step 3: Find corner points:
+  - Intersection of Protein and Fat:
+    3x₁ + x₂ = 12
+    x₁ + 3x₂ = 10
+    Solve: From Protein: x₂ = 12 - 3x₁
+    Substitute: x₁ + 3(12 - 3x₁) = 10
+    x₁ + 36 - 9x₁ = 10
+    -8x₁ = -26 → x₁ = 3.25
+    Then: x₂ = 12 - 3(3.25) = 12 - 9.75 = 2.25
+    So (3.25, 2.25)
+
+  - Intersection of Carbohydrates and Protein:
+    2x₁ + 4x₂ = 16 → divide by 2: x₁ + 2x₂ = 8
+    3x₁ + x₂ = 12
+    Solve: From first: x₁ = 8 - 2x₂
+    Substitute: 3(8 - 2x₂) + x₂ = 12
+    24 - 6x₂ + x₂ = 12
+    -5x₂ = -12 → x₂ = 2.4
+    Then: x₁ = 8 - 2(2.4) = 8 - 4.8 = 3.2
+    So (3.2, 2.4)
+
+  - Intersection of Carbohydrates and Fat:
+    2x₁ + 4x₂ = 16
+    x₁ + 3x₂ = 10
+    From second: x₁ = 10 - 3x₂
+    Substitute: 2(10 - 3x₂) + 4x₂ = 16
+    20 - 6x₂ + 4x₂ = 16
+    -2x₂ = -4 → x₂ = 2
+    Then: x₁ = 10 - 3(2) = 10 - 6 = 4
+    So (4, 2)
+
+  Also check intersections with axes:
+  - Carbohydrates with x₁-axis: 2x₁ = 16 → x₁ = 8 → (8,0)
+  - Protein with x₂-axis: x₂ = 12 → (0,12)
+  - Fat with x₂-axis: 3x₂ = 10 → x₂ = 3.33 → (0, 3.33)
+
+  Corner points: (4, 2), (3.2, 2.4), (3.25, 2.25)
+
+Step 4: Evaluate objective at each corner:
+  - (4, 2): Z = 20(4) + 30(2) = 80 + 60 = 140
+  - (3.2, 2.4): Z = 20(3.2) + 30(2.4) = 64 + 72 = 136
+  - (3.25, 2.25): Z = 20(3.25) + 30(2.25) = 65 + 67.5 = 132.5
+
+Step 5: Optimal solution: (3.25, 2.25) with cost = ₹132.5
+
+4. INTERPRETATION
+-----------------
+- Include 3.25 units of Food A and 2.25 units of Food B in the diet.
+- Total cost = ₹132.5.
+- Nutrient usage at optimum:
+  - Carbohydrates: 2(3.25) + 4(2.25) = 6.5 + 9 = 15.5 ≥ 16 ✗ Wait, 15.5 < 16!
+
+Let me reconsider: At (3.25, 2.25):
+- Carbohydrates: 2(3.25) + 4(2.25) = 6.5 + 9 = 15.5 (this is < 16, so it's infeasible!)
+
+I need to check this point against Carbohydrates constraint.
+
+Actually, (3.25, 2.25) is the intersection of Protein and Fat. I need to verify it satisfies Carbohydrates:
+2(3.25) + 4(2.25) = 6.5 + 9 = 15.5 < 16 → INFEASIBLE!
+
+So I need to find the correct optimal corner. Let me re-evaluate.
+
+The feasible region is above all three constraints. The corner points are where constraints intersect:
+
+1. Intersection of Carbohydrates and Protein: (3.2, 2.4)
+   Check Fat: 3.2 + 3(2.4) = 3.2 + 7.2 = 10.4 ≥ 10 ✓
+   Cost: 20(3.2) + 30(2.4) = 64 + 72 = 136
+
+2. Intersection of Carbohydrates and Fat: (4, 2)
+   Check Protein: 3(4) + 2 = 14 ≥ 12 ✓
+   Cost: 20(4) + 30(2) = 80 + 60 = 140
+
+3. Intersection of Protein and Fat: (3.25, 2.25)
+   Check Carbohydrates: 2(3.25) + 4(2.25) = 6.5 + 9 = 15.5 < 16 ✗
+   This point is NOT feasible because it violates Carbohydrates.
+
+4. Carbohydrates with x₂-axis: x₂ = 4 → (0, 4)
+   Check Protein: 0 + 4 = 4 ≥ 12 ✗ (infeasible)
+
+5. Protein with x₁-axis: x₁ = 4 → (4, 0)
+   Check Carbohydrates: 8 ≥ 16 ✗ (infeasible)
+   Check Fat: 4 ≥ 10 ✗ (infeasible)
+
+So the feasible corner points are:
+- (3.2, 2.4) with cost = 136
+- (4, 2) with cost = 140
+
+The optimal solution is (3.2, 2.4) with cost = 136.
+
+Wait, let me re-verify (3.2, 2.4):
+- Carbohydrates: 2(3.2) + 4(2.4) = 6.4 + 9.6 = 16 ≥ 16 ✓
+- Protein: 3(3.2) + 2.4 = 9.6 + 2.4 = 12 ≥ 12 ✓
+- Fat: 3.2 + 3(2.4) = 3.2 + 7.2 = 10.4 ≥ 10 ✓
+
+Yes, this is feasible. So the optimal solution is (3.2, 2.4) with cost = 136.
+
+5. REVISED CORNER POINT ANALYSIS
+--------------------------------
+Corner points of feasible region:
+- (3.2, 2.4): Z = 136
+- (4, 2): Z = 140
+- Also check (0, 4) with Carbohydrates: 16 ≥ 16 ✓, Protein: 4 ≥ 12 ✗ (infeasible)
+- (4, 0): Protein: 12 ≥ 12 ✓, Carbohydrates: 8 ≥ 16 ✗ (infeasible)
+- (0, 12): Carbohydrates: 48 ≥ 16 ✓, Fat: 36 ≥ 10 ✓ → (0, 12) cost = 360
+- (8, 0): Protein: 24 ≥ 12 ✓, Fat: 8 ≥ 10 ✗ (infeasible)
+
+So the feasible corner points are (3.2, 2.4), (4, 2), and (0, 12).
+
+Costs:
+- (3.2, 2.4): 136
+- (4, 2): 140
+- (0, 12): 360
+
+Optimal solution: (3.2, 2.4) with cost = ₹136
+
+6. INTERPRETATION
+-----------------
+- Include 3.2 units of Food A and 2.4 units of Food B in the diet.
+- Total cost = ₹136.
+- Nutrient usage at optimum:
+  - Carbohydrates: 2(3.2) + 4(2.4) = 6.4 + 9.6 = 16 (fully used)
+  - Protein: 3(3.2) + 2.4 = 9.6 + 2.4 = 12 (fully used)
+  - Fat: 3.2 + 3(2.4) = 3.2 + 7.2 = 10.4 (slack: 0.4)
+
+7. DIET PROBLEM INSIGHTS
+-------------------------
+- The diet problem is a classic LP application.
+- It ensures nutritional requirements are met at minimum cost.
+- Multiple nutrients must be considered simultaneously.
+- Some nutrients may have slack at the optimum.
+
+8. KEY TAKEAWAYS
+-----------------
+- Diet problems use ≥ constraints for nutritional requirements.
+- The objective is to minimize cost.
+- Multiple nutrients constrain the solution.
+- Some nutrients may be exceeded (slack) at the optimum.
+- This is a practical application in healthcare and nutrition.
+
+================================================================================
+End of Topic 14 Notes
+================================================================================

@@ -1,0 +1,222 @@
+================================================================================
+TOPIC 27: WORKED EXAMPLE 21 – MAXIMIZATION PROBLEM FROM A SOCIAL CONTEXT
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A public health organization operates two types of health programs in a rural district:
+Program X: Preventive care (vaccination drives, health education)
+Program Y: Curative care (clinic operations, treatment)
+
+The organization has limited resources:
+- Healthcare workers: 120 person-months
+- Budget: ₹80,00,000 (80 lakh rupees)
+- Medical supplies: 180 units
+
+Resource requirements per program:
+              Program X   Program Y   Available
+Healthcare       2           3         120 person-months
+Budget (₹)      1,00,000    1,50,000  80,00,000
+Medical Supplies 2           1         180 units
+
+Social Impact per unit:
+- Program X: 500 quality-adjusted life years (QALYs)
+- Program Y: 700 QALYs
+
+Additional constraints:
+- At least 10 units of Program X must be implemented (minimum coverage)
+- At most 25 units of Program X can be implemented (capacity constraint)
+- At least 8 units of Program Y must be implemented (minimum coverage)
+- At most 30 units of Program Y can be implemented (capacity constraint)
+
+The organization wants to maximize total social impact (QALYs).
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total social impact (QALYs)
+- Programs: X and Y (2 programs)
+- Resources: Healthcare workers, Budget, Medical Supplies
+- Minimums: X ≥ 10, Y ≥ 8
+- Maximums: X ≤ 25, Y ≤ 30
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Program X implemented
+- x₂ = number of units of Program Y implemented
+
+STEP 3: Identify the Objective
+- Social Impact: X = 500 QALYs, Y = 700 QALYs
+- Maximize Z = 500x₁ + 700x₂
+
+STEP 4: Identify Constraints
+- Healthcare: 2x₁ + 3x₂ ≤ 120
+- Budget: 100,000x₁ + 150,000x₂ ≤ 8,000,000
+  Simplified: 100,000x₁ + 150,000x₂ ≤ 8,000,000
+- Medical Supplies: 2x₁ + 1x₂ ≤ 180
+- Minimum X: x₁ ≥ 10
+- Maximum X: x₁ ≤ 25
+- Minimum Y: x₂ ≥ 8
+- Maximum Y: x₂ ≤ 30
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered by minimums)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 15, x₂ = 20
+  Healthcare = 30+60 = 90 ≤ 120 ✓
+  Budget = 100,000(15)+150,000(20) = 1,500,000+3,000,000 = 4,500,000 ≤ 8,000,000 ✓
+  Medical = 30+20 = 50 ≤ 180 ✓
+  Min X = 15 ≥ 10 ✓, Max X = 15 ≤ 25 ✓
+  Min Y = 20 ≥ 8 ✓, Max Y = 20 ≤ 30 ✓
+  Impact = 500(15)+700(20) = 7,500+14,000 = 21,500 QALYs
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 500x₁ + 700x₂
+  Subject to:
+    Healthcare: 2x₁ + 3x₂ ≤ 120
+    Budget: 100,000x₁ + 150,000x₂ ≤ 8,000,000
+    Medical Supplies: 2x₁ + x₂ ≤ 180
+    Min X: x₁ ≥ 10
+    Max X: x₁ ≤ 25
+    Min Y: x₂ ≥ 8
+    Max Y: x₂ ≤ 30
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 2-variable LP with multiple constraints. Using graphical method:
+
+Step 1: Plot constraints on x₁-x₂ plane
+- Healthcare: 2x₁ + 3x₂ ≤ 120 → x₂ = 40 - 0.667x₁
+- Budget: 100,000x₁ + 150,000x₂ ≤ 8,000,000 → divide by 50,000: 2x₁ + 3x₂ ≤ 160 → x₂ = 53.33 - 0.667x₁
+  Wait, careful! Let me simplify correctly.
+
+Budget: 100,000x₁ + 150,000x₂ ≤ 8,000,000
+Divide by 50,000: 2x₁ + 3x₂ ≤ 160 → x₂ = 53.33 - 0.667x₁
+
+But wait, let me check: 100,000 ÷ 50,000 = 2, 150,000 ÷ 50,000 = 3, 8,000,000 ÷ 50,000 = 160. Yes.
+
+- Medical Supplies: 2x₁ + x₂ ≤ 180 → x₂ = 180 - 2x₁
+- Min X: x₁ = 10
+- Max X: x₁ = 25
+- Min Y: x₂ = 8
+- Max Y: x₂ = 30
+
+Step 2: Identify feasible region
+Step 3: Find corner points:
+
+The feasible region is bounded by:
+- Min X: x₁ ≥ 10, Max X: x₁ ≤ 25
+- Min Y: x₂ ≥ 8, Max Y: x₂ ≤ 30
+- The three resource constraints.
+
+Let me find the intersection points:
+
+1. At x₁ = 10 (Min X):
+   - Healthcare: 2(10)+3x₂ ≤ 120 → 20+3x₂ ≤ 120 → 3x₂ ≤ 100 → x₂ ≤ 33.33
+   - Budget: 2(10)+3x₂ ≤ 160 → 20+3x₂ ≤ 160 → 3x₂ ≤ 140 → x₂ ≤ 46.67
+   - Medical: 2(10)+x₂ ≤ 180 → 20+x₂ ≤ 180 → x₂ ≤ 160
+   - Min B: x₂ ≥ 8, Max B: x₂ ≤ 30
+   - So with x₁ = 10, x₂ ≤ 30 (Max B is binding)
+   - Point: (10, 30)
+
+2. At x₁ = 25 (Max X):
+   - Healthcare: 2(25)+3x₂ ≤ 120 → 50+3x₂ ≤ 120 → 3x₂ ≤ 70 → x₂ ≤ 23.33
+   - Budget: 2(25)+3x₂ ≤ 160 → 50+3x₂ ≤ 160 → 3x₂ ≤ 110 → x₂ ≤ 36.67
+   - Medical: 2(25)+x₂ ≤ 180 → 50+x₂ ≤ 180 → x₂ ≤ 130
+   - Min B: x₂ ≥ 8, Max B: x₂ ≤ 30
+   - So with x₁ = 25, x₂ ≤ 23.33 (Healthcare is binding)
+   - Point: (25, 23.33)
+
+3. At x₂ = 8 (Min Y):
+   - Healthcare: 2x₁+3(8) ≤ 120 → 2x₁+24 ≤ 120 → 2x₁ ≤ 96 → x₁ ≤ 48
+   - Budget: 2x₁+3(8) ≤ 160 → 2x₁+24 ≤ 160 → 2x₁ ≤ 136 → x₁ ≤ 68
+   - Medical: 2x₁+8 ≤ 180 → 2x₁ ≤ 172 → x₁ ≤ 86
+   - Min X: x₁ ≥ 10, Max X: x₁ ≤ 25
+   - So with x₂ = 8, x₁ ≤ 25 (Max X is binding)
+   - Point: (25, 8)
+
+4. At x₂ = 30 (Max Y):
+   - Healthcare: 2x₁+3(30) ≤ 120 → 2x₁+90 ≤ 120 → 2x₁ ≤ 30 → x₁ ≤ 15
+   - Budget: 2x₁+3(30) ≤ 160 → 2x₁+90 ≤ 160 → 2x₁ ≤ 70 → x₁ ≤ 35
+   - Medical: 2x₁+30 ≤ 180 → 2x₁ ≤ 150 → x₁ ≤ 75
+   - Min X: x₁ ≥ 10, Max X: x₁ ≤ 25
+   - So with x₂ = 30, x₁ ≤ 15 (Healthcare is binding)
+   - Point: (15, 30)
+
+5. Intersection of Healthcare and Budget:
+   2x₁ + 3x₂ = 120
+   2x₁ + 3x₂ = 160
+   These are parallel! No intersection.
+
+6. Intersection of Healthcare and Medical:
+   2x₁ + 3x₂ = 120
+   2x₁ + x₂ = 180
+   Subtract: (2x₁+3x₂) - (2x₁+x₂) = 120 - 180 → 2x₂ = -60 → x₂ = -30 (infeasible)
+
+7. Intersection of Budget and Medical:
+   2x₁ + 3x₂ = 160
+   2x₁ + x₂ = 180
+   Subtract: 2x₂ = -20 → x₂ = -10 (infeasible)
+
+So the feasible corner points are:
+(10, 8), (10, 30), (15, 30), (25, 23.33), (25, 8)
+
+Step 4: Evaluate objective at each corner:
+- (10, 8): Z = 500(10)+700(8) = 5,000+5,600 = 10,600 QALYs
+- (10, 30): Z = 500(10)+700(30) = 5,000+21,000 = 26,000 QALYs
+- (15, 30): Z = 500(15)+700(30) = 7,500+21,000 = 28,500 QALYs
+- (25, 23.33): Z = 500(25)+700(23.33) = 12,500+16,333 = 28,833 QALYs
+- (25, 8): Z = 500(25)+700(8) = 12,500+5,600 = 18,100 QALYs
+
+Step 5: Optimal solution: (25, 23.33) with impact = 28,833.33 QALYs
+
+4. INTERPRETATION
+-----------------
+- Implement 25 units of Program X and 23.33 units of Program Y.
+- Total social impact = 28,833.33 QALYs.
+- Resource usage at optimum:
+  - Healthcare: 2(25)+3(23.33) = 50+70 = 120 (fully used)
+  - Budget: 2(25)+3(23.33) = 50+70 = 120 → 120 × 50,000 = 6,000,000 (slack: 2,000,000)
+  - Medical: 2(25)+1(23.33) = 50+23.33 = 73.33 (slack: 106.67)
+  - Min X: 25 ≥ 10 (satisfied)
+  - Max X: 25 = 25 (binding)
+  - Min Y: 23.33 ≥ 8 (satisfied)
+  - Max Y: 23.33 ≤ 30 (slack: 6.67)
+- Healthcare and Max X are binding; others have slack.
+
+5. KEY INSIGHTS
+---------------
+- Social impact problems use LP to maximize welfare or benefit.
+- Minimums and maximums reflect social equity and capacity constraints.
+- The optimal solution balances resources and social impact.
+- Healthcare workers are the binding resource (fully used).
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Public health program planning.
+- Education resource allocation.
+- Community development programs.
+- Social welfare policy design.
+- Non-profit organization planning.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate social sector LP problems.
+- How to use social impact as the objective.
+- How to handle social equity constraints.
+- The importance of QALYs as a measure of health impact.
+
+8. KEY TAKEAWAYS
+-----------------
+- Social sector problems maximize social welfare, not profit.
+- QALYs and other social impact metrics are common objectives.
+- Equity constraints (minimums) ensure underserved populations are reached.
+- The optimal solution balances resources and social impact.
+
+================================================================================
+End of Topic 27 Notes
+================================================================================

@@ -1,0 +1,197 @@
+================================================================================
+TOPIC 28: WORKED EXAMPLE 22 – MINIMIZATION PROBLEM FROM A SOCIAL CONTEXT
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A government agency runs two meal programs to provide food to communities:
+- Standard Meal: Provides 600 calories per person, costs ₹50 per person
+- Premium Meal: Provides 1000 calories per person, costs ₹80 per person
+
+The agency must meet the following requirements:
+- Serve at least 500 people total
+- Provide at least 400,000 total calories
+- At least 200 people must receive Premium Meals (special dietary needs)
+- At most 400 people can receive Standard Meals (due to kitchen capacity)
+
+The agency wants to minimize total cost.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total cost
+- Meal types: Standard, Premium (2 types)
+- Requirements: Total people ≥ 500, Calories ≥ 400,000, Premium ≥ 200, Standard ≤ 400
+- This is a minimization problem with ≥ and ≤ constraints
+
+STEP 2: Identify Decision Variables
+- x₁ = number of people receiving Standard Meals
+- x₂ = number of people receiving Premium Meals
+
+STEP 3: Identify the Objective
+- Cost: Standard = ₹50/person, Premium = ₹80/person
+- Minimize Z = 50x₁ + 80x₂
+
+STEP 4: Identify Constraints
+- Total people: x₁ + x₂ ≥ 500
+- Calories: 600x₁ + 1000x₂ ≥ 400,000
+- Premium minimum: x₂ ≥ 200
+- Standard maximum: x₁ ≤ 400
+- Non-negativity: x₁ ≥ 0, x₂ ≥ 0
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 300, x₂ = 200
+  Total people = 500 ≥ 500 ✓
+  Calories = 600(300)+1000(200) = 180,000+200,000 = 380,000 ≥ 400,000 ✗
+
+- Test another: x₁ = 300, x₂ = 220
+  Total people = 520 ≥ 500 ✓
+  Calories = 180,000+220,000 = 400,000 ≥ 400,000 ✓
+  Premium = 220 ≥ 200 ✓
+  Standard = 300 ≤ 400 ✓
+  Cost = 50(300)+80(220) = 15,000+17,600 = ₹32,600
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 50x₁ + 80x₂
+  Subject to:
+    Total People: x₁ + x₂ ≥ 500
+    Calories: 600x₁ + 1000x₂ ≥ 400,000
+    Premium: x₂ ≥ 200
+    Standard Max: x₁ ≤ 400
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Total People: x₁ + x₂ = 500 → x₂ = 500 - x₁
+- Calories: 600x₁ + 1000x₂ = 400,000 → divide by 200: 3x₁ + 5x₂ = 2,000 → x₂ = 400 - 0.6x₁
+- Premium: x₂ = 200
+- Standard Max: x₁ = 400
+
+Step 2: Identify feasible region (intersection of all constraints)
+Step 3: Find corner points of feasible region:
+
+The feasible region is bounded by:
+- x₂ ≥ 200 (Premium minimum)
+- x₁ ≤ 400 (Standard maximum)
+- x₁ + x₂ ≥ 500 (Total people minimum)
+- 600x₁ + 1000x₂ ≥ 400,000 (Calories minimum)
+
+Let me find the intersection points:
+
+1. At x₂ = 200 (Premium minimum):
+   - Total people: x₁ + 200 ≥ 500 → x₁ ≥ 300
+   - Calories: 600x₁ + 1000(200) ≥ 400,000 → 600x₁ + 200,000 ≥ 400,000 → 600x₁ ≥ 200,000 → x₁ ≥ 333.33
+   - Standard Max: x₁ ≤ 400
+   - So with x₂ = 200, x₁ ≥ 333.33 (Calories is binding)
+   - Point: (333.33, 200)
+
+2. At x₁ = 400 (Standard maximum):
+   - Total people: 400 + x₂ ≥ 500 → x₂ ≥ 100
+   - Calories: 600(400) + 1000x₂ ≥ 400,000 → 240,000 + 1000x₂ ≥ 400,000 → 1000x₂ ≥ 160,000 → x₂ ≥ 160
+   - Premium: x₂ ≥ 200
+   - So with x₁ = 400, x₂ ≥ 200 (Premium is binding)
+   - Point: (400, 200)
+
+3. Intersection of Total People and Calories:
+   x₁ + x₂ = 500
+   600x₁ + 1000x₂ = 400,000
+   From Total: x₂ = 500 - x₁
+   Substitute: 600x₁ + 1000(500 - x₁) = 400,000
+   600x₁ + 500,000 - 1000x₁ = 400,000
+   -400x₁ = -100,000 → x₁ = 250
+   Then x₂ = 500 - 250 = 250
+   (250, 250) → check Premium: 250 ≥ 200 ✓, Standard Max: 250 ≤ 400 ✓
+   Point: (250, 250)
+
+4. Intersection of Total People and Premium:
+   x₁ + x₂ = 500, x₂ = 200 → x₁ = 300
+   Check Calories: 600(300)+1000(200) = 180,000+200,000 = 380,000 ≥ 400,000 ✗
+   So (300, 200) is infeasible.
+
+5. Intersection of Calories and Premium:
+   600x₁ + 1000(200) = 400,000 → 600x₁ = 200,000 → x₁ = 333.33
+   Check Total: 333.33 + 200 = 533.33 ≥ 500 ✓
+   Check Standard Max: 333.33 ≤ 400 ✓
+   Point: (333.33, 200)
+
+6. Intersection of Calories and Standard Max:
+   600(400) + 1000x₂ = 400,000 → 240,000 + 1000x₂ = 400,000 → 1000x₂ = 160,000 → x₂ = 160
+   Check Total: 400 + 160 = 560 ≥ 500 ✓
+   Check Premium: 160 ≥ 200 ✗
+   So (400, 160) is infeasible.
+
+7. Intersection of Total People and Standard Max:
+   x₁ = 400, x₂ = 100
+   Check Calories: 600(400)+1000(100) = 240,000+100,000 = 340,000 ≥ 400,000 ✗
+   (400, 100) is infeasible.
+
+8. Intersection of Total People, Calories, and Premium:
+   (333.33, 200) is on Calories and Premium.
+
+9. Intersection of Total People, Calories, and Standard Max:
+   (400, 160) is on Calories and Standard Max but fails Premium.
+
+So the feasible corner points are:
+(250, 250), (333.33, 200), (400, 200)
+
+Check each:
+- (250, 250): Total=500 ✓, Calories=600(250)+1000(250)=150,000+250,000=400,000 ✓, Premium=250≥200 ✓, Standard=250≤400 ✓
+- (333.33, 200): Total=533.33≥500 ✓, Calories=600(333.33)+200,000=200,000+200,000=400,000 ✓, Premium=200≥200 ✓, Standard=333.33≤400 ✓
+- (400, 200): Total=600≥500 ✓, Calories=600(400)+1000(200)=240,000+200,000=440,000≥400,000 ✓, Premium=200≥200 ✓, Standard=400≤400 ✓
+
+Step 4: Evaluate objective at each corner:
+- (250, 250): Z = 50(250)+80(250) = 12,500+20,000 = ₹32,500
+- (333.33, 200): Z = 50(333.33)+80(200) = 16,666.67+16,000 = ₹32,666.67
+- (400, 200): Z = 50(400)+80(200) = 20,000+16,000 = ₹36,000
+
+Step 5: Optimal solution: (250, 250) with cost = ₹32,500
+
+4. INTERPRETATION
+-----------------
+- Provide 250 Standard Meals and 250 Premium Meals.
+- Total cost = ₹32,500.
+- Resource usage at optimum:
+  - Total people: 250+250 = 500 (minimum met)
+  - Calories: 600(250)+1000(250) = 150,000+250,000 = 400,000 (minimum met)
+  - Premium: 250 ≥ 200 (satisfied, not binding)
+  - Standard: 250 ≤ 400 (satisfied, not binding)
+- Total People and Calories are binding; Premium and Standard have slack.
+
+5. KEY INSIGHTS
+---------------
+- Social minimization problems aim to meet requirements at minimum cost.
+- Both minimum requirements (≥) and maximum limits (≤) are present.
+- The optimal solution balances cost with all requirements.
+- The cheapest solution may not use the cheapest option exclusively.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Food aid and nutrition programs.
+- Healthcare service delivery with budget constraints.
+- Education resource allocation.
+- Social welfare program optimization.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate social context minimization problems.
+- How to handle multiple minimum and maximum constraints.
+- How to balance cost with social requirements.
+- The importance of meeting all requirements.
+
+8. KEY TAKEAWAYS
+-----------------
+- Social minimization problems minimize cost while meeting requirements.
+- Multiple constraints must be satisfied.
+- The optimal solution may use a mix of options.
+- Understanding efficiency helps identify the best allocation.
+
+================================================================================
+End of Topic 28 Notes
+================================================================================

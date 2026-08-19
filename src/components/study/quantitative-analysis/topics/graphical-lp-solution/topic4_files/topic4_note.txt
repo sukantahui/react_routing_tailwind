@@ -1,0 +1,94 @@
+===============================================================================
+FINDING X-INTERCEPTS AND Y-INTERCEPTS
+===============================================================================
+
+TOPIC 4 – QUICK PLOTTING SKILL
+
+-------------------------------------------------------------------------------
+1. WHAT ARE INTERCEPTS?
+-------------------------------------------------------------------------------
+- x-intercept: point where line crosses the x-axis → (x, 0) with y=0.
+- y-intercept: point where line crosses the y-axis → (0, y) with x=0.
+
+They are the easiest points to find for a line in standard form (ax+by=c).
+
+-------------------------------------------------------------------------------
+2. HOW TO FIND THEM
+-------------------------------------------------------------------------------
+For a linear equation ax + by = c:
+
+x-intercept:
+  Set y = 0 → ax = c → x = c/a → (c/a, 0)  (if a ≠ 0)
+
+y-intercept:
+  Set x = 0 → by = c → y = c/b → (0, c/b)  (if b ≠ 0)
+
+Example: 2x + 3y = 12
+x-intercept: (6,0)
+y-intercept: (0,4)
+
+-------------------------------------------------------------------------------
+3. SPECIAL CASES
+-------------------------------------------------------------------------------
+- Horizontal line (a=0): y = c/b → only y-intercept (unless c=0, then y=0).
+- Vertical line (b=0): x = c/a → only x-intercept (unless c=0, then x=0).
+- Line through origin (c=0): both intercepts are (0,0).
+- No intercept: when line is parallel to an axis and not on it.
+
+-------------------------------------------------------------------------------
+4. USING INTERCEPTS TO PLOT A LINE
+-------------------------------------------------------------------------------
+1. Find x-intercept and y-intercept.
+2. Plot both points on the coordinate plane.
+3. Draw a straight line through them.
+
+This is the fastest method for plotting a constraint.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting that intercepts are points (ordered pairs).
+✗ Setting x=0 to find x-intercept (wrong – set y=0).
+✗ Setting y=0 to find y-intercept (wrong – set x=0).
+✗ Forgetting that horizontal/vertical lines may lack one intercept.
+✗ Misreading the sign of the intercept.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always write intercepts as (x,0) and (0,y).
+✓ Label them clearly on the graph.
+✓ Check your intercepts by substituting back into the equation.
+✓ Use intercepts to quickly sketch lines in LP problems.
+✓ If intercepts are fractions, use decimal approximations or keep as fractions.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD CONTEXT
+-------------------------------------------------------------------------------
+- Budget constraints: intercepts show maximum of each product.
+- Production planning: intercepts show max output of each item.
+- Break-even analysis: intercepts show zero-cost or zero-revenue points.
+- Diet problems: intercepts show nutrient levels when consuming only one food.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can find the x-intercept by setting y=0.
+☐ I can find the y-intercept by setting x=0.
+☐ I can handle cases where intercepts don't exist.
+☐ I can plot a line using only its intercepts.
+☐ I can verify intercepts by substitution.
+☐ I understand what intercepts represent in real problems.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find intercepts, you're ready to plot a full straight-line
+constraint (Topic 5). This will combine intercepts with line-type decisions
+(solid/dashed) and shading.
+
+Master intercepts – they are the quickest path to a correct graph.
+
+===============================================================================
+END OF NOTES
+===============================================================================

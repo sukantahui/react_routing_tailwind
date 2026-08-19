@@ -1,0 +1,90 @@
+===============================================================================
+IDENTIFYING THE ORIGIN AND COORDINATE POINTS
+===============================================================================
+
+TOPIC 3 – THE REFERENCE SYSTEM
+
+-------------------------------------------------------------------------------
+1. THE ORIGIN (0,0)
+-------------------------------------------------------------------------------
+- The origin is the intersection of the x-axis and y-axis.
+- Coordinates: (0, 0).
+- It is the reference point for all measurements.
+- Lies on both axes.
+
+Key idea: Every other point is defined relative to the origin.
+
+-------------------------------------------------------------------------------
+2. COORDINATE POINTS
+-------------------------------------------------------------------------------
+- Each point is an ordered pair (x, y).
+- x-coordinate (abscissa): horizontal distance from origin.
+- y-coordinate (ordinate): vertical distance from origin.
+- Positive x: right; negative x: left.
+- Positive y: up; negative y: down.
+
+To plot a point: start at origin, move horizontally by x, then vertically by y.
+
+-------------------------------------------------------------------------------
+3. POINTS ON AXES
+-------------------------------------------------------------------------------
+- On x-axis: (x, 0) — y=0.
+- On y-axis: (0, y) — x=0.
+- Origin: (0,0) is on both axes.
+
+These are easy to find and often used as test points.
+
+-------------------------------------------------------------------------------
+4. READING COORDINATES FROM A GRAPH
+-------------------------------------------------------------------------------
+- Find the point.
+- Trace vertically down to the x-axis to read x.
+- Trace horizontally to the y-axis to read y.
+- Write as (x, y).
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Confusing x and y coordinates (reversing order).
+✗ Forgetting that the origin is (0,0) and not (0, something else).
+✗ Not recognizing that points on axes have one zero coordinate.
+✗ Misreading the scale on axes.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always start from the origin when plotting.
+✓ Use the origin as a test point for shading inequalities.
+✓ Double-check the order: x first, y second.
+✓ Label the origin clearly on graphs.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- City maps: origin is the central square.
+- Stock portfolio: origin is zero investment, zero profit.
+- Temperature logs: origin is reference time and temperature.
+- Study hours vs. grades: origin is no study, grade zero.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify the origin on a graph.
+☐ I know the coordinates of the origin are (0,0).
+☐ I can read coordinates of any point.
+☐ I understand the meaning of x and y coordinates.
+☐ I can plot a point given its coordinates.
+☐ I can identify points on axes (x=0 or y=0).
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+With a solid grasp of the origin and coordinates, you're ready to find
+x-intercepts and y-intercepts of lines (Topic 4) — a key skill for plotting
+constraints quickly.
+
+The origin is your anchor; always return to it.
+
+===============================================================================
+END OF NOTES
+===============================================================================

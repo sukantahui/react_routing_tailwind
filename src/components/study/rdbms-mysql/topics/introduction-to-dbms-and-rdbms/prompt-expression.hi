@@ -1,0 +1,262 @@
+[
+  { sl_no: 0, topic: "Introduction to Data and Information", file: "Topic0.jsx" },
+  { sl_no: 1, topic: "Understanding Data Processing", file: "Topic1.jsx" },
+  { sl_no: 2, topic: "What is a Database?", file: "Topic2.jsx" },
+  { sl_no: 3, topic: "Characteristics of a Good Database", file: "Topic3.jsx" },
+  { sl_no: 4, topic: "Traditional File System vs Database System", file: "Topic4.jsx" },
+  { sl_no: 5, topic: "Problems with File-Based Systems", file: "Topic5.jsx" },
+  { sl_no: 6, topic: "What is DBMS?", file: "Topic6.jsx" },
+  { sl_no: 7, topic: "Features of DBMS", file: "Topic7.jsx" },
+  { sl_no: 8, topic: "Advantages of DBMS", file: "Topic8.jsx" },
+  { sl_no: 9, topic: "Disadvantages of DBMS", file: "Topic9.jsx" },
+  { sl_no: 10, topic: "Applications of Database Systems", file: "Topic10.jsx" },
+  { sl_no: 11, topic: "Examples of Popular DBMS Software", file: "Topic11.jsx" },
+  { sl_no: 12, topic: "What is RDBMS?", file: "Topic12.jsx" },
+  { sl_no: 13, topic: "DBMS vs RDBMS", file: "Topic13.jsx" },
+  { sl_no: 14, topic: "Relational Model by E. F. Codd", file: "Topic14.jsx" },
+  { sl_no: 15, topic: "Concept of Tables (Relations)", file: "Topic15.jsx" },
+  { sl_no: 16, topic: "Rows (Tuples) and Columns (Attributes)", file: "Topic16.jsx" },
+  { sl_no: 17, topic: "Domains and Data Types", file: "Topic17.jsx" },
+  { sl_no: 18, topic: "Primary Key Concept", file: "Topic18.jsx" },
+  { sl_no: 19, topic: "Candidate Key", file: "Topic19.jsx" },
+  { sl_no: 20, topic: "Alternate Key", file: "Topic20.jsx" },
+  { sl_no: 21, topic: "Composite Key", file: "Topic21.jsx" },
+  { sl_no: 22, topic: "Foreign Key", file: "Topic22.jsx" },
+  { sl_no: 23, topic: "Introduction to SQL", file: "Topic23.jsx" },
+  { sl_no: 24, topic: "SQL Categories (DDL, DML, DCL, TCL, DQL)", file: "Topic24.jsx" },
+  { sl_no: 25, topic: "Introduction to MySQL", file: "Topic25.jsx" },
+  { sl_no: 26, topic: "History of MySQL", file: "Topic26.jsx" },
+  { sl_no: 27, topic: "Features of MySQL", file: "Topic27.jsx" },
+  { sl_no: 28, topic: "MySQL Editions", file: "Topic28.jsx" },
+  { sl_no: 29, topic: "Installing MySQL Server", file: "Topic29.jsx" },
+  { sl_no: 30, topic: "Installing MySQL Workbench", file: "Topic30.jsx" },
+  { sl_no: 31, topic: "Installing XAMPP / WAMP (Optional)", file: "Topic31.jsx" },
+  { sl_no: 32, topic: "Configuring MySQL Server", file: "Topic32.jsx" },
+  { sl_no: 33, topic: "Connecting to MySQL Server", file: "Topic33.jsx" },
+  { sl_no: 34, topic: "Creating the First Database", file: "Topic34.jsx" },
+  { sl_no: 35, topic: "Exploring MySQL Workbench Interface", file: "Topic35.jsx" },
+  { sl_no: 36, topic: "Executing SQL Statements", file: "Topic36.jsx" },
+  { sl_no: 37, topic: "Saving SQL Scripts", file: "Topic37.jsx" },
+  { sl_no: 38, topic: "Importing SQL Scripts", file: "Topic38.jsx" },
+  { sl_no: 39, topic: "Exporting Databases", file: "Topic39.jsx" },
+  { sl_no: 40, topic: "Common MySQL Commands", file: "Topic40.jsx" },
+  { sl_no: 41, topic: "MySQL Data Directory", file: "Topic41.jsx" },
+  { sl_no: 42, topic: "Understanding Client-Server Architecture", file: "Topic42.jsx" },
+  { sl_no: 43, topic: "Practice Session", file: "Topic43.jsx" },
+  { sl_no: 44, topic: "Hands-on Lab", file: "Topic44.jsx" },
+  { sl_no: 45, topic: "MCQ Test", file: "Topic45.jsx" },
+  { sl_no: 46, topic: "Module Assessment", file: "Topic46.jsx" }
+]
+
+I am using the latest Tailwind CSS with NO tailwind.config.js file.
+Do NOT require any Tailwind config, plugins, or external animation libraries.
+
+
+Animation requirements:
+- Zero-config animations using Tailwind arbitrary values (animate-[...])
+- Inline <style> keyframes if needed (scoped to the component)
+- motion-safe support (respect reduced motion users)
+- Section-based reveal animations (fade + slide-up)
+- Staggered appearance using animation-delay-[...]
+- SVG animations using native SVG <animate> (no JS animation)
+- Hover emphasis using Tailwind transitions only
+- Animations must reinforce concepts (not decorative)
+- Section-based reveal (fade + slide-up)
+- Staggered appearance using animation-delay-[…]
+
+Hover emphasis on:
+    -- Cards
+    -- SVG steps
+    -- Teacher note
+
+
+Component Rules (STRICT – MUST FOLLOW)
+    - Use React 19 FUNCTION-BASED components ONLY
+        -- Class-based components are NOT allowed
+        -- All components must be written as JavaScript functions
+    - Hooks Usage
+        -- Use React Hooks correctly and intentionally
+        -- Follow the Rules of Hooks
+        -- Do not misuse useEffect, useState, or other hooks
+        -- No unnecessary hooks
+    - File Naming Convention (MANDATORY)
+        -- given topic and its file name
+
+        -- Continue sequentially without skipping numbers
+    - One Topic = One File
+        -- Each file must contain only one topic
+        -- No multiple topics inside a single file
+    - No Topic Mixing
+        -- Do NOT combine concepts from different topics
+        -- Keep the scope strictly limited to the current topic
+    - Sequential Learning Rule
+        -- Do NOT jump ahead to future topics
+        -- Each topic must build only on previously covered concepts
+    - Pedagogical Discipline
+        -- Follow beginner-to-advanced progression
+        -- No assumptions of prior knowledge unless already taught
+
+
+UI / UX Requirements
+    - Use Tailwind CSS
+    - Support Light & Dark mode
+    - SVGs should be semantic (labels, arrows, stages) and mapped directly to the concept being explained.
+    - Decorative SVGs without instructional value should be avoided.
+    - On mousehover need little animation.
+    - Add:
+        -- Subtle hover effects
+        -- Light animations (professional, not flashy)
+        -- Expert-quality SVG illustrations to explain concepts step by step
+        -- Layout should be:
+        -- Clean
+        -- Readable
+        -- Classroom-friendly
+        -- Production-ready
+
+Fonts & Visual Feel
+    -- Typography must be:
+        --- Soothing
+        --- Classroom-friendly
+        --- Professional (not flashy)
+    -- Use:
+        -- leading-relaxed
+        -- Soft color contrast
+        -- Balanced spacing
+        -- Must support Light & Dark mode
+
+Do NOT:
+- Do NOT assume tailwind.config.js
+- Do NOT use Framer Motion or GSAP
+- Do NOT use CSS files outside the component
+- Do NOT add unnecessary motion
+
+Output:
+- Generate the FULL file
+- Ready to copy-paste
+- Industry-grade, scalable
+
+Apply this animation system consistently across the file.
+
+
+
+Content Depth (VERY IMPORTANT)
+    - Each topic must include:
+    - Detailed conceptual explanation and Theory in details
+    - Real-world usage examples
+    - Tips & tricks used by professionals
+    - Common mistakes made by beginners
+    - Best practices
+    - Mini checklist (what students should remember)
+
+
+
+You must clearly mention:
+    - Prototype / signature
+    - Return type
+    - Purpose
+    - When & why it is used
+
+Common Pitfalls Section
+    -- Beginner mistakes
+    -- Misconceptions
+    -- IDE / compiler errors
+    -- Conceptual misunderstandings
+
+Best Practices
+    -- Coding standards
+    -- Readability
+    -- Maintainability
+    -- Beginner-safe habits
+
+Content & Quality GUARANTEE (For Every Topic)
+    - every topic file will consistently include:
+        -- Content Depth (Non-Negotiable)
+        -- Clear conceptual explanation (why + what)
+        -- Real-world context (schools, systems, logs, configs, etc.)
+        -- Beginner → Professional thinking transition
+        -- Industry perspective, not just syllabus coverage
+
+Hover & Interaction Rules
+    -- Every major block must have:
+    -- Subtle hover elevation or glow
+    -- Smooth transition (transition-all duration-300)
+    
+
+Hint Section (NEW – MANDATORY)
+    -- Subtle guidance without revealing answers
+    -- Framed as:
+        --- “Think about…”
+        --- “Observe carefully…”
+        --- “Try changing this…”
+
+Used to encourage thinking, not spoon-feeding.
+
+Tips & Tricks (Professional Level)
+    -- Industry habits
+    -- Classroom-tested shortcuts
+    -- Debugging mindset
+    -- Naming & structure advice
+
+Teacher’s Note (MANDATORY IN EVERY TOPIC)
+    - Add a dedicated “Teacher’s Note” section, No need to use Teacher name only include Teacher's Note.
+    - use a component to use Teacher Note as follows
+        import Teacher from "../../../../../common/TeacherSukantaHui";
+
+        <Teacher note={"Note will be here"}
+    - Note relating to current topic, i.e. Tips and Tricks and point to be remeber
+
+
+Example Name to be used
+    - While explaining concepts, naturally include examples involving:
+        -- Students:
+            --- Swadeep, Tuhina, Abhronila, Susmita, Debangshu, etc.
+        -- Places:
+            --- Barrackpore, Shyamnagar, Ichapur, Naihati
+(Use them as analogies, stories, or scenarios—not forced mentions.)
+
+Output Instructions
+    - Start by generating Topic0.jsx only
+    - Wait for my confirmation before proceeding to the next topic
+    - Do NOT assume missing data.
+Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
+    - Code must be:
+        -- Clean
+        -- Commented
+        -- Industry-standard
+        -- Ready to scale
+use clsx to avoid backtik
+import clsx from "clsx";
+
+make dark mode as default, place divs one after another not side by side, maintain it for all topics
+
+
+do not use opacity-0
+
+
+
+for FAQ i use the following:
+    import FAQTemplate from '../../../../../common/FAQTemplate';
+    import questions from './topic[sl_no]_files/topic[sl_no]_questions';
+    before <Teacher note
+    place
+    <FAQTemplate
+        title="[topic_name] FAQs"
+        questions={questions}
+      />
+    create a js file in following style
+    const questions = [
+        {
+            question: "What is inheritance in object-oriented programming?",
+            shortAnswer: "Inheritance allows a class to acquire properties and methods from another class.",
+            explanation: "Inheritance is a mechanism where a new class (child/subclass) inherits fields and methods from an existing class (parent/superclass). It represents an 'is-a' relationship and promotes code reusability.",
+            hint: "Think of a child inheriting traits from parents.",
+            level: "basic",
+            codeExample: "class Parent { } class Child extends Parent { }"
+        },  
+        .....
+    ]
+    export default questions;
+    create 30 questions moderate to expert show the file also
+    show all the files with folder separately  
+
+start from Topic1

@@ -1,0 +1,168 @@
+================================================================================
+TOPIC 29: WORKED EXAMPLE 23 – LEGAL-SERVICE RESOURCE ALLOCATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A legal aid organization provides two types of legal services:
+- Civil cases: Requires 5 hours of lawyer time, 2 hours of paralegal time
+- Criminal cases: Requires 3 hours of lawyer time, 4 hours of paralegal time
+
+Available resources per week:
+- Lawyers: 120 hours
+- Paralegals: 80 hours
+
+The organization must meet minimum service requirements:
+- At least 10 civil cases
+- At least 8 criminal cases
+
+The organization receives funding based on cases completed:
+- Civil case funding: ₹15,000 per case
+- Criminal case funding: ₹18,000 per case
+
+The organization wants to maximize total funding.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total funding
+- Cases: Civil, Criminal (2 types)
+- Resources: Lawyers (120 hrs), Paralegals (80 hrs)
+- Minimums: Civil ≥ 10, Criminal ≥ 8
+
+STEP 2: Identify Decision Variables
+- x₁ = number of civil cases
+- x₂ = number of criminal cases
+
+STEP 3: Identify the Objective
+- Funding: Civil = ₹15,000, Criminal = ₹18,000
+- Maximize Z = 15,000x₁ + 18,000x₂
+
+STEP 4: Identify Constraints
+- Lawyers: 5x₁ + 3x₂ ≤ 120
+- Paralegals: 2x₁ + 4x₂ ≤ 80
+- Minimum civil: x₁ ≥ 10
+- Minimum criminal: x₂ ≥ 8
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered by minimums)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 10, x₂ = 10
+  Lawyers = 50+30 = 80 ≤ 120 ✓
+  Paralegals = 20+40 = 60 ≤ 80 ✓
+  Min civil = 10 ≥ 10 ✓
+  Min criminal = 10 ≥ 8 ✓
+  Funding = 150,000+180,000 = ₹330,000
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 15,000x₁ + 18,000x₂
+  Subject to:
+    Lawyers: 5x₁ + 3x₂ ≤ 120
+    Paralegals: 2x₁ + 4x₂ ≤ 80
+    Min Civil: x₁ ≥ 10
+    Min Criminal: x₂ ≥ 8
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Lawyers: 5x₁ + 3x₂ = 120 → x₂ = 40 - 1.67x₁
+- Paralegals: 2x₁ + 4x₂ = 80 → x₂ = 20 - 0.5x₁
+- Min Civil: x₁ = 10
+- Min Criminal: x₂ = 8
+
+Step 2: Identify feasible region
+Step 3: Find corner points of feasible region:
+
+1. At x₁ = 10 (Min Civil):
+   - Lawyers: 5(10)+3x₂ ≤ 120 → 50+3x₂ ≤ 120 → 3x₂ ≤ 70 → x₂ ≤ 23.33
+   - Paralegals: 2(10)+4x₂ ≤ 80 → 20+4x₂ ≤ 80 → 4x₂ ≤ 60 → x₂ ≤ 15
+   - So with x₁ = 10, x₂ ≤ 15 (Paralegals is binding)
+   - Point: (10, 15)
+
+2. At x₂ = 8 (Min Criminal):
+   - Lawyers: 5x₁+3(8) ≤ 120 → 5x₁+24 ≤ 120 → 5x₁ ≤ 96 → x₁ ≤ 19.2
+   - Paralegals: 2x₁+4(8) ≤ 80 → 2x₁+32 ≤ 80 → 2x₁ ≤ 48 → x₁ ≤ 24
+   - So with x₂ = 8, x₁ ≤ 19.2 (Lawyers is binding)
+   - Point: (19.2, 8)
+
+3. Intersection of Lawyers and Paralegals:
+   5x₁ + 3x₂ = 120
+   2x₁ + 4x₂ = 80
+   From Paralegals: x₂ = 20 - 0.5x₁
+   Substitute: 5x₁ + 3(20 - 0.5x₁) = 120
+   5x₁ + 60 - 1.5x₁ = 120
+   3.5x₁ = 60 → x₁ = 17.14
+   x₂ = 20 - 0.5(17.14) = 20 - 8.57 = 11.43
+   (17.14, 11.43) → check min: x₁ ≥ 10 ✓, x₂ ≥ 8 ✓
+   Point: (17.14, 11.43)
+
+4. Intersection of Lawyers and Min Civil:
+   x₁ = 10, from Lawyers: 5(10)+3x₂ = 120 → 50+3x₂ = 120 → 3x₂ = 70 → x₂ = 23.33
+   But Paralegals caps at x₂ = 15, so (10, 15) is the corner.
+
+5. Intersection of Paralegals and Min Criminal:
+   x₂ = 8, from Paralegals: 2x₁+4(8) = 80 → 2x₁+32 = 80 → 2x₁ = 48 → x₁ = 24
+   But Lawyers caps at x₁ = 19.2, so (19.2, 8) is the corner.
+
+6. Intersection of Min Civil and Min Criminal:
+   (10, 8) → check Lawyers: 5(10)+3(8) = 50+24 = 74 ≤ 120 ✓, Paralegals: 2(10)+4(8) = 20+32 = 52 ≤ 80 ✓
+   Point: (10, 8)
+
+So the feasible corner points are:
+(10, 8), (10, 15), (17.14, 11.43), (19.2, 8)
+
+Step 4: Evaluate objective at each corner:
+- (10, 8): Z = 15,000(10)+18,000(8) = 150,000+144,000 = ₹294,000
+- (10, 15): Z = 15,000(10)+18,000(15) = 150,000+270,000 = ₹420,000
+- (17.14, 11.43): Z = 15,000(17.14)+18,000(11.43) = 257,142+205,714 = ₹462,857
+- (19.2, 8): Z = 15,000(19.2)+18,000(8) = 288,000+144,000 = ₹432,000
+
+Step 5: Optimal solution: (17.14, 11.43) with funding = ₹462,857
+
+4. INTERPRETATION
+-----------------
+- Handle 17.14 civil cases and 11.43 criminal cases.
+- Total funding = ₹462,857.
+- Resource usage at optimum:
+  - Lawyers: 5(17.14)+3(11.43) = 85.71+34.29 = 120 (fully used)
+  - Paralegals: 2(17.14)+4(11.43) = 34.29+45.71 = 80 (fully used)
+  - Civil min: 17.14 ≥ 10 (slack)
+  - Criminal min: 11.43 ≥ 8 (slack)
+- Both lawyer and paralegal resources are binding.
+
+5. KEY INSIGHTS
+---------------
+- Legal service allocation balances resources and demand.
+- Both resources are fully utilized at the optimum.
+- Minimum requirements are satisfied but not binding.
+- Criminal cases provide higher funding per case but use more paralegal time.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Legal aid resource allocation.
+- Public defender case assignment.
+- Pro bono legal service planning.
+- Law firm resource management.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate legal service allocation problems.
+- How to handle minimum service requirements.
+- How to balance multiple resource constraints.
+- How to optimize funding for social services.
+
+8. KEY TAKEAWAYS
+-----------------
+- Legal services require specialized resources.
+- Minimum service requirements ensure public access.
+- Both resources may be fully utilized.
+- The optimal allocation maximizes funding while meeting requirements.
+
+================================================================================
+End of Topic 29 Notes
+================================================================================

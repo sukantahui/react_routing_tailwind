@@ -1,0 +1,144 @@
+================================================================================
+TOPIC 17: WORKED EXAMPLE 11 – TRANSPORTATION-RELATED PRODUCTION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A company manufactures a product at two factories (Plant A and Plant B)
+and ships it to three warehouses (W1, W2, W3) to meet demand.
+
+Factory capacities:
+- Plant A: 150 units per week
+- Plant B: 200 units per week
+
+Warehouse demands:
+- W1: 100 units per week
+- W2: 120 units per week
+- W3: 130 units per week
+
+Production costs per unit:
+- Plant A: ₹50
+- Plant B: ₹60
+
+Shipping costs per unit from each plant to each warehouse:
+              W1    W2    W3
+Plant A       ₹8    ₹10   ₹12
+Plant B       ₹12   ₹9    ₹7
+
+The company wants to minimize total cost (production + shipping).
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total cost (production + shipping)
+- Plants: A and B (2 factories)
+- Warehouses: W1, W2, W3 (3 destinations)
+- Capacities: A=150, B=200
+- Demands: W1=100, W2=120, W3=130
+- Production costs and shipping costs vary
+
+STEP 2: Identify Decision Variables
+Let xᵢⱼ = number of units produced at Plant i and shipped to Warehouse j
+
+- x₁₁ = units from Plant A to W1
+- x₁₂ = units from Plant A to W2
+- x₁₃ = units from Plant A to W3
+- x₂₁ = units from Plant B to W1
+- x₂₂ = units from Plant B to W2
+- x₂₃ = units from Plant B to W3
+
+STEP 3: Identify the Objective
+- Production cost: Plant A = ₹50, Plant B = ₹60
+- Shipping cost: matrix given
+- Minimize Z = 58x₁₁ + 60x₁₂ + 62x₁₃ + 72x₂₁ + 69x₂₂ + 67x₂₃
+  (production + shipping)
+
+STEP 4: Identify Constraints
+- Plant A capacity: x₁₁ + x₁₂ + x₁₃ ≤ 150
+- Plant B capacity: x₂₁ + x₂₂ + x₂₃ ≤ 200
+- W1 demand: x₁₁ + x₂₁ ≥ 100
+- W2 demand: x₁₂ + x₂₂ ≥ 120
+- W3 demand: x₁₃ + x₂₃ ≥ 130
+
+STEP 5: Add Non-negativity
+- All xᵢⱼ ≥ 0
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  Plant A to W1: 80, to W2: 70, to W3: 0 (total 150)
+  Plant B to W1: 20, to W2: 50, to W3: 130 (total 200)
+  Check demands: W1=100 ✓, W2=120 ✓, W3=130 ✓
+  Check capacities: A=150 ✓, B=200 ✓
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 58x₁₁ + 60x₁₂ + 62x₁₃ + 72x₂₁ + 69x₂₂ + 67x₂₃
+  Subject to:
+    Plant A: x₁₁ + x₁₂ + x₁₃ ≤ 150
+    Plant B: x₂₁ + x₂₂ + x₂₃ ≤ 200
+    W1: x₁₁ + x₂₁ ≥ 100
+    W2: x₁₂ + x₂₂ ≥ 120
+    W3: x₁₃ + x₂₃ ≥ 130
+    xᵢⱼ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a transportation problem with production costs. We can solve using
+the transportation simplex method or by using LP solvers.
+
+Optimal Solution (found by solving the LP):
+- x₁₁ = 100 (Plant A to W1)
+- x₁₂ = 50 (Plant A to W2)
+- x₁₃ = 0 (Plant A to W3)
+- x₂₁ = 0 (Plant B to W1)
+- x₂₂ = 70 (Plant B to W2)
+- x₂₃ = 130 (Plant B to W3)
+
+Total production = 100 + 50 + 0 + 0 + 70 + 130 = 350 units
+
+Cost calculation:
+- Production cost: 150×50 + 200×60 = 7,500 + 12,000 = 19,500
+- Shipping cost: 100×8 + 50×10 + 0×12 + 0×12 + 70×9 + 130×7 = 800 + 500 + 0 + 0 + 630 + 910 = 2,840
+- Total cost: 19,500 + 2,840 = ₹22,340
+
+4. INTERPRETATION
+-----------------
+- Plant A operates at full capacity (150 units).
+- Plant B operates at full capacity (200 units).
+- All warehouse demands are met exactly (equality).
+- Plant A serves W1 and W2; Plant B serves W2 and W3.
+- Total cost = ₹22,340.
+
+5. KEY INSIGHTS
+---------------
+- Transportation problems involve shipping from sources to destinations.
+- Production costs add complexity to the model.
+- The optimal solution balances production and shipping costs.
+- Both plants operate at full capacity.
+- All demands are met exactly.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Supply chain optimization.
+- Logistics and distribution planning.
+- Manufacturing network design.
+- Global sourcing and production planning.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate transportation problems with production costs.
+- How to handle multiple sources and destinations.
+- How to minimize total cost including production and shipping.
+- How to balance supply and demand.
+
+8. KEY TAKEAWAYS
+-----------------
+- Transportation problems are a special class of LP.
+- Production costs can be incorporated into the objective.
+- The optimal solution may use some routes and not others.
+- All demands are typically met in the optimal solution.
+
+================================================================================
+End of Topic 17 Notes
+================================================================================

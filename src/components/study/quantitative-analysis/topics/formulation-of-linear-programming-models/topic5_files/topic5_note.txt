@@ -1,0 +1,97 @@
+================================================================================
+TOPIC 5: NON-NEGATIVITY RESTRICTIONS
+================================================================================
+
+1. DEFINITION
+-------------
+Non-negativity restrictions are constraints that require each decision variable
+to be greater than or equal to zero.
+
+Form: x₁ ≥ 0, x₂ ≥ 0, ..., xₙ ≥ 0
+
+They are fundamental to most Linear Programming problems because decision
+variables typically represent quantities that cannot be negative.
+
+2. PURPOSE
+-----------
+- Realism: Most real-world quantities (production, time, money) are non-negative.
+- Mathematical necessity: Ensures the feasible region is bounded and the LP
+  algorithms (like Simplex) work correctly.
+- Prevents absurd solutions: Negative values often have no physical meaning.
+
+3. WHY ARE THEY REQUIRED?
+--------------------------
+- LP algorithms assume variables are non-negative; the Simplex method starts
+  at the origin (all zero) and moves to better corners.
+- Without non-negativity, the feasible region might be unbounded in the
+  negative direction, causing the problem to be unbounded or the optimal
+  solution to be meaningless.
+- Many transformation techniques (like slack variables) rely on non-negativity.
+
+4. EXAMPLES FROM REAL LIFE
+---------------------------
+a) Production: Cannot produce negative units → x₁ ≥ 0, x₂ ≥ 0.
+b) Investment: Cannot invest negative money → x₁ ≥ 0, x₂ ≥ 0.
+c) Diet: Cannot consume negative servings → x₁ ≥ 0, x₂ ≥ 0.
+d) Workforce: Cannot hire negative employees → x₁ ≥ 0, x₂ ≥ 0.
+e) Shipping: Cannot ship negative quantities → x_{ij} ≥ 0.
+f) Advertising: Cannot spend negative money → x₁ ≥ 0, x₂ ≥ 0.
+
+5. HANDLING FREE VARIABLES (UNRESTRICTED IN SIGN)
+--------------------------------------------------
+Occasionally, variables may represent net positions (e.g., net profit, net change)
+that can be negative. In such cases, they are called "free variables" and are
+transformed by substitution:
+
+Let x = x⁺ - x⁻, where x⁺ ≥ 0, x⁻ ≥ 0.
+
+This allows the Simplex method to handle them while maintaining non-negativity.
+
+6. COMMON MISTAKES
+-------------------
+- Forgetting to include non-negativity constraints in the model.
+- Assuming they are implied—they must be explicitly stated.
+- Using negative values in testing without realizing they are infeasible.
+- Confusing non-negativity with lower-bound constraints (e.g., x ≥ 10 is a
+  separate lower bound, not just non-negativity).
+- Treating non-negativity as optional—it is mandatory in standard LP.
+
+7. BEST PRACTICES
+------------------
+- Always write x₁ ≥ 0, x₂ ≥ 0 explicitly at the end of the model.
+- Use the same variable names in non-negativity as in the objective/constraints.
+- When solving by hand, check that all variables are non-negative in the final solution.
+- If a variable is expected to be negative, transform it before solving.
+- Keep non-negativity separate from other constraints for clarity.
+
+8. TIPS & TRICKS (PROFESSIONAL)
+-------------------------------
+- In most LP software, non-negativity is the default; you only need to specify
+  if a variable is free.
+- In educational settings, always list non-negativity separately to reinforce
+  its importance.
+- When formulating, ask: "Does it make sense for this variable to be negative?"
+  If yes, consider transformation.
+- If a variable has a lower bound > 0, write it as a separate constraint.
+- Non-negativity is sometimes called "canonical" constraint.
+
+9. KEY TAKEAWAYS
+-----------------
+- Non-negativity is a simple but critical part of any LP model.
+- It ensures the solution is physically meaningful and mathematically tractable.
+- Never forget to include it.
+- Free variables can be handled with substitution.
+- Zero values are often optimal—they indicate an activity is not worthwhile.
+
+10. SUMMARY
+------------
+Non-negativity restrictions are the gatekeepers of realism in LP. They ensure
+that solutions represent feasible, real-world quantities. While they seem
+obvious, forgetting them is one of the most common mistakes in LP formulation.
+
+"Think about: If a variable represents a real quantity, can it ever be negative?
+If not, you need non-negativity."
+
+================================================================================
+End of Topic 5 Notes
+================================================================================

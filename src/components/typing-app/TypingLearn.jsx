@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import lessonsData from "./typing-lessons.json";
+
 const LESSONS = lessonsData;
 
 // ===============================
@@ -30,6 +30,28 @@ const FINGER_LABELS = {
   thumbs: "Thumb (Space)",
 };
 
+// ===============================
+// 🎵 Sound Feedback (Web Audio)
+// ===============================
+const playSound = (type) => {
+  try {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    oscillator.type = "sine";
+    if (type === "correct") {
+      oscillator.frequency.value = 800;
+      gainNode.gain.value = 0.08;
+    } else if (type === "wrong") {
+      oscillator.frequency.value = 200;
+      gainNode.gain.value = 0.1;
+    }
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + 0.08);
+  } catch (e) {}
+};
 
 export default class TypingLearn extends Component {
   constructor(props) {
@@ -41,26 +63,25 @@ export default class TypingLearn extends Component {
       started: false,
       correctChars: 0,
       totalChars: 0,
-
-      // ⏱ Timer
       timer: 0,
       timerRunning: false,
       lessonCompleted: false,
-
-      // 🎯 Completion popup
       showCompletionModal: false,
       lastResult: null,
-
-      // 🌟 Global progress
       totalXP: 0,
       level: 1,
       completedLessonsCount: 0,
-      totalPracticeTime: 0, // seconds
+      totalPracticeTime: 0,
       streak: 0,
       weakKeys: [],
-
-      // 🔍 Session mistake tracking
       sessionMistakes: {},
+      soundEnabled: true,
+      completedLessonIds: [],
+      performanceRecords: [],
+      showRecordsModal: false,
+      sortField: "date",
+      sortDirection: "desc",
+      recordsFilter: "",
     };
   }
 
@@ -69,83 +90,119 @@ export default class TypingLearn extends Component {
   // ------------------------------------------------
   componentDidMount() {
     this.loadGlobalStats();
+    this.loadSoundPreference();
+    this.loadCompletedLessons();
+    this.loadPerformanceRecords();
+    document.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentWillUnmount() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
     }
+    document.removeEventListener("keydown", this.handleKeyDown);
   }
 
   // ------------------------------------------------
-  // Helpers
+  // Key handler (Escape to close modals)
   // ------------------------------------------------
-  getCurrentLesson = () => {
-    return LESSONS[this.state.currentLessonIndex];
+  handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      if (this.state.showCompletionModal) {
+        this.handleCloseModal();
+      }
+      if (this.state.showRecordsModal) {
+        this.toggleRecordsModal();
+      }
+    }
   };
 
+  // ------------------------------------------------
+  // Helpers (same as before)
+  // ------------------------------------------------
+  getCurrentLesson = () => LESSONS[this.state.currentLessonIndex];
   formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60)
-      .toString()
-      .padStart(2, "0");
+    const m = Math.floor(seconds / 60).toString().padStart(2, "0");
     const s = (seconds % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   };
-
+  formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    const d = new Date(dateStr);
+    return d.toLocaleString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
   computeWeakKeys = (mistakeMap) => {
     const entries = Object.entries(mistakeMap || {});
     if (!entries.length) return [];
     entries.sort((a, b) => b[1] - a[1]);
     return entries.slice(0, 5).map(([key]) => key);
   };
-
-  // 🖐 Get correct finger for next character
   getFingerForChar = (char) => {
     if (!char) return null;
     const c = char.toLowerCase();
-
     for (const finger in FINGER_MAP) {
-      if (FINGER_MAP[finger].includes(c)) {
-        return FINGER_LABELS[finger];
-      }
+      if (FINGER_MAP[finger].includes(c)) return FINGER_LABELS[finger];
     }
     return null;
   };
-
-  // 🖐 Check if user used correct finger
-  isCorrectFingerUsed = (typedChar, expectedChar) => {
-    if (!typedChar || !expectedChar) return null;
-
-    const expectedFinger = this.getFingerForChar(expectedChar);
-    const typedFinger = this.getFingerForChar(typedChar);
-
-    if (!expectedFinger || !typedFinger) return null;
-
-    return expectedFinger === typedFinger;
+  getFingerKeyForChar = (char) => {
+    if (!char) return null;
+    const c = char.toLowerCase();
+    for (const finger in FINGER_MAP) {
+      if (FINGER_MAP[finger].includes(c)) return finger;
+    }
+    return null;
   };
-
-
-
-  // Load global stats from localStorage
+  isCorrectFingerUsed = (typed, expected) => {
+    if (!typed || !expected || typed !== expected) return null;
+    return this.getFingerForChar(typed) === this.getFingerForChar(expected);
+  };
+  loadSoundPreference = () => {
+    try {
+      const pref = localStorage.getItem("typingLearn_soundEnabled");
+      if (pref !== null) this.setState({ soundEnabled: pref === "true" });
+    } catch (e) {}
+  };
+  saveSoundPreference = (enabled) => {
+    try {
+      localStorage.setItem("typingLearn_soundEnabled", String(enabled));
+    } catch (e) {}
+  };
+  loadCompletedLessons = () => {
+    const completed = [];
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith("typingLearn_completed_")) {
+          const id = parseInt(key.replace("typingLearn_completed_", ""), 10);
+          if (!isNaN(id)) completed.push(id);
+        }
+      }
+    } catch (e) {}
+    this.setState({ completedLessonIds: completed });
+  };
   loadGlobalStats = () => {
-    let totalXP = 0;
-    let totalPracticeTime = 0;
-    let completedLessonsCount = 0;
-    let streak = 0;
-    let weakKeys = [];
-
+    let totalXP = 0,
+      totalPracticeTime = 0,
+      completedLessonsCount = 0,
+      streak = 0,
+      weakKeys = [];
     try {
       const xp = localStorage.getItem("typingLearn_totalXP");
       const tt = localStorage.getItem("typingLearn_totalTime");
       const cl = localStorage.getItem("typingLearn_completedLessons");
       const st = localStorage.getItem("typingLearn_streak");
       const mm = localStorage.getItem("typingLearn_mistakeMap");
-
       if (xp) totalXP = parseInt(xp, 10) || 0;
       if (tt) totalPracticeTime = parseInt(tt, 10) || 0;
       if (cl) completedLessonsCount = parseInt(cl, 10) || 0;
       if (st) streak = parseInt(st, 10) || 0;
-
       let mistakeMap = {};
       if (mm) {
         try {
@@ -155,12 +212,8 @@ export default class TypingLearn extends Component {
         }
       }
       weakKeys = this.computeWeakKeys(mistakeMap);
-    } catch (e) {
-      // Ignore storage errors
-    }
-
+    } catch (e) {}
     const level = 1 + Math.floor(totalXP / 500);
-
     this.setState({
       totalXP,
       totalPracticeTime,
@@ -170,8 +223,52 @@ export default class TypingLearn extends Component {
       weakKeys,
     });
   };
+  loadPerformanceRecords = () => {
+    try {
+      const data = localStorage.getItem("typingLearn_performance");
+      if (data) {
+        const records = JSON.parse(data);
+        if (Array.isArray(records)) this.setState({ performanceRecords: records });
+      }
+    } catch (e) {}
+  };
+  savePerformanceRecord = (lessonId, stats) => {
+    const newRecord = {
+      lessonId,
+      title: stats.title,
+      level: stats.level,
+      accuracy: stats.accuracy,
+      time: stats.time,
+      wpm: stats.wpm,
+      xp: stats.xp,
+      date: new Date().toISOString(),
+    };
+    this.setState(
+      (prev) => ({
+        performanceRecords: [...prev.performanceRecords, newRecord],
+      }),
+      () => {
+        try {
+          localStorage.setItem(
+            "typingLearn_performance",
+            JSON.stringify(this.state.performanceRecords)
+          );
+        } catch (e) {}
+      }
+    );
+  };
 
-  // Per-lesson best time (already used in overview)
+  // NEW: Clear all performance records
+  clearPerformanceRecords = () => {
+    if (window.confirm("Are you sure you want to delete ALL performance records? This cannot be undone.")) {
+      this.setState({ performanceRecords: [] }, () => {
+        try {
+          localStorage.removeItem("typingLearn_performance");
+        } catch (e) {}
+      });
+    }
+  };
+
   getBestTimeForLesson = (lessonId) => {
     const key = `typingLearn_bestTime_${lessonId}`;
     try {
@@ -185,19 +282,13 @@ export default class TypingLearn extends Component {
     }
     return null;
   };
-
   updateBestTimeForLesson = (lessonId, currentTime) => {
     const key = `typingLearn_bestTime_${lessonId}`;
-    let bestTime = null;
-    let isNewRecord = false;
-
-    if (!currentTime || currentTime <= 0) {
-      return { bestTime: null, isNewRecord: false };
-    }
-
+    let bestTime = null,
+      isNewRecord = false;
+    if (!currentTime || currentTime <= 0) return { bestTime: null, isNewRecord: false };
     try {
       const stored = localStorage.getItem(key);
-
       if (stored !== null) {
         const prev = parseInt(stored, 10);
         if (!isNaN(prev)) {
@@ -221,48 +312,31 @@ export default class TypingLearn extends Component {
       bestTime = null;
       isNewRecord = false;
     }
-
     return { bestTime, isNewRecord };
   };
-
-  // XP earned per lesson
   calculateXPEarned = (accuracy, textLength, timeSeconds) => {
     if (!timeSeconds || timeSeconds <= 0) return 0;
-    const speedFactor = textLength / timeSeconds; // chars per second
+    const speedFactor = textLength / timeSeconds;
     const base = Math.max(5, Math.round(speedFactor * 3));
     const accuracyFactor = accuracy / 100;
     const xp = Math.round(base * accuracyFactor * 5);
     return Math.max(10, xp);
   };
-
-  // Update global stats on completion
   updateGlobalStats = (lessonId, xpEarned, sessionTime, sessionMistakes) => {
-    let totalXP = 0;
-    let totalPracticeTime = 0;
-    let completedLessonsCount = 0;
-    let streak = 0;
-    let lastPracticeDate = null;
-    let mistakeMap = {};
-
+    let totalXP = 0,
+      totalPracticeTime = 0,
+      completedLessonsCount = 0,
+      streak = 0,
+      lastPracticeDate = null,
+      mistakeMap = {};
     const todayStr = new Date().toISOString().slice(0, 10);
     const todayDate = new Date(todayStr);
-
     try {
       totalXP = parseInt(localStorage.getItem("typingLearn_totalXP") || "0", 10);
-      totalPracticeTime = parseInt(
-        localStorage.getItem("typingLearn_totalTime") || "0",
-        10
-      );
-      completedLessonsCount = parseInt(
-        localStorage.getItem("typingLearn_completedLessons") || "0",
-        10
-      );
-      streak = parseInt(
-        localStorage.getItem("typingLearn_streak") || "0",
-        10
-      );
+      totalPracticeTime = parseInt(localStorage.getItem("typingLearn_totalTime") || "0", 10);
+      completedLessonsCount = parseInt(localStorage.getItem("typingLearn_completedLessons") || "0", 10);
+      streak = parseInt(localStorage.getItem("typingLearn_streak") || "0", 10);
       lastPracticeDate = localStorage.getItem("typingLearn_lastPracticeDate");
-
       const mm = localStorage.getItem("typingLearn_mistakeMap");
       if (mm) {
         try {
@@ -271,64 +345,36 @@ export default class TypingLearn extends Component {
           mistakeMap = {};
         }
       }
-    } catch (e) {
-      // ignore
-    }
-
-    // Update base counters
+    } catch (e) {}
     totalXP += xpEarned;
     totalPracticeTime += sessionTime;
     completedLessonsCount += 1;
-
-    // Update streak
     if (!lastPracticeDate) {
       streak = 1;
     } else {
       const lastDate = new Date(lastPracticeDate);
-      const diffMs = todayDate - lastDate;
-      const diffDays = diffMs / (1000 * 60 * 60 * 24);
-
-      if (diffDays >= 0 && diffDays < 1) {
-        // same day → streak unchanged
-      } else if (diffDays >= 1 && diffDays < 2) {
-        // yesterday
-        streak = streak + 1;
-      } else {
-        // gap > 1 day
-        streak = 1;
-      }
+      const diffDays = (todayDate - lastDate) / (1000 * 60 * 60 * 24);
+      if (diffDays >= 1 && diffDays < 2) streak += 1;
+      else if (diffDays >= 2) streak = 1;
     }
-
-    // Merge mistakes
     const updatedMistakeMap = { ...mistakeMap };
     Object.entries(sessionMistakes || {}).forEach(([ch, count]) => {
       updatedMistakeMap[ch] = (updatedMistakeMap[ch] || 0) + count;
     });
-
-    // Save back to localStorage
     try {
       localStorage.setItem("typingLearn_totalXP", String(totalXP));
-      localStorage.setItem(
-        "typingLearn_totalTime",
-        String(totalPracticeTime)
-      );
-      localStorage.setItem(
-        "typingLearn_completedLessons",
-        String(completedLessonsCount)
-      );
+      localStorage.setItem("typingLearn_totalTime", String(totalPracticeTime));
+      localStorage.setItem("typingLearn_completedLessons", String(completedLessonsCount));
       localStorage.setItem("typingLearn_streak", String(streak));
       localStorage.setItem("typingLearn_lastPracticeDate", todayStr);
-      localStorage.setItem(
-        "typingLearn_mistakeMap",
-        JSON.stringify(updatedMistakeMap)
-      );
-    } catch (e) {
-      // ignore storage errors
-    }
-
+      localStorage.setItem("typingLearn_mistakeMap", JSON.stringify(updatedMistakeMap));
+      localStorage.setItem(`typingLearn_completed_${lessonId}`, "true");
+    } catch (e) {}
+    this.setState((prev) => ({
+      completedLessonIds: [...prev.completedLessonIds, lessonId],
+    }));
     const weakKeys = this.computeWeakKeys(updatedMistakeMap);
     const level = 1 + Math.floor(totalXP / 500);
-
     return {
       totalXP,
       totalPracticeTime,
@@ -338,15 +384,8 @@ export default class TypingLearn extends Component {
       level,
     };
   };
-
-  // ------------------------------------------------
-  // Timer logic
-  // ------------------------------------------------
   startTimer = () => {
-    if (this.timerInterval) {
-      clearInterval(this.timerInterval);
-    }
-
+    if (this.timerInterval) clearInterval(this.timerInterval);
     this.timerInterval = setInterval(() => {
       this.setState((prev) => ({
         timer: prev.timer + 1,
@@ -354,35 +393,24 @@ export default class TypingLearn extends Component {
       }));
     }, 1000);
   };
-
   stopTimer = () => {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
+      this.timerInterval = null;
     }
-    this.timerInterval = null;
     this.setState({ timerRunning: false });
   };
-
-  // ------------------------------------------------
-  // Input & Lesson Flow
-  // ------------------------------------------------
   handleInputChange = (e) => {
     const rawValue = e.target.value;
     const lesson = this.getCurrentLesson();
     const target = lesson.text;
-
-    // prevent typing beyond target text length
     const value = rawValue.slice(0, target.length);
-
     const prevLength = this.state.input.length;
     let correct = 0;
     const len = Math.min(value.length, target.length);
-
     for (let i = 0; i < len; i++) {
       if (value[i] === target[i]) correct++;
     }
-
-    // track new character mistake for weak key detection
     if (value.length > prevLength) {
       const index = value.length - 1;
       const typedChar = value[index];
@@ -394,14 +422,15 @@ export default class TypingLearn extends Component {
           map[key] = (map[key] || 0) + 1;
           return { sessionMistakes: map };
         });
+        if (this.state.soundEnabled) playSound("wrong");
+      } else if (typedChar === targetChar && this.state.soundEnabled) {
+        playSound("correct");
       }
     }
-
     const alreadyCompleted = this.state.lessonCompleted;
     const shouldStartTimer =
       !this.state.timerRunning && len > 0 && !alreadyCompleted;
     const hasJustCompleted = len === target.length && !alreadyCompleted;
-
     this.setState(
       (prev) => ({
         input: value,
@@ -411,10 +440,7 @@ export default class TypingLearn extends Component {
         lessonCompleted: hasJustCompleted ? true : prev.lessonCompleted,
       }),
       () => {
-        if (shouldStartTimer) {
-          this.startTimer();
-        }
-
+        if (shouldStartTimer) this.startTimer();
         if (hasJustCompleted) {
           this.stopTimer();
           this.handleLessonCompletion();
@@ -422,35 +448,22 @@ export default class TypingLearn extends Component {
       }
     );
   };
-
   handleLessonCompletion = () => {
-    const {
-      correctChars,
-      totalChars,
-      timer,
-      currentLessonIndex,
-      sessionMistakes,
-    } = this.state;
+    const { correctChars, totalChars, timer, sessionMistakes } = this.state;
     const lesson = this.getCurrentLesson();
-
-    const accuracy =
-      totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
-
+    const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+    const wpm = timer > 0 ? Math.round((totalChars / 5) / (timer / 60)) : 0;
     const { bestTime } = this.updateBestTimeForLesson(lesson.id, timer);
-
-    const xpEarned = this.calculateXPEarned(
+    const xpEarned = this.calculateXPEarned(accuracy, lesson.text.length, timer);
+    const globalStats = this.updateGlobalStats(lesson.id, xpEarned, timer, sessionMistakes);
+    this.savePerformanceRecord(lesson.id, {
+      title: lesson.title,
+      level: lesson.level,
       accuracy,
-      lesson.text.length,
-      timer
-    );
-
-    const globalStats = this.updateGlobalStats(
-      lesson.id,
-      xpEarned,
-      timer,
-      sessionMistakes
-    );
-
+      time: timer,
+      wpm,
+      xp: xpEarned,
+    });
     this.setState({
       showCompletionModal: true,
       lastResult: {
@@ -459,24 +472,22 @@ export default class TypingLearn extends Component {
         accuracy,
         time: timer,
         chars: totalChars,
+        wpm,
         bestTime,
         xpEarned,
         totalXP: globalStats.totalXP,
         level: globalStats.level,
         streak: globalStats.streak,
       },
-      // sync global stats to UI
       totalXP: globalStats.totalXP,
       level: globalStats.level,
       completedLessonsCount: globalStats.completedLessonsCount,
       totalPracticeTime: globalStats.totalPracticeTime,
       streak: globalStats.streak,
       weakKeys: globalStats.weakKeys,
-      // reset session mistakes for next lesson
       sessionMistakes: {},
     });
   };
-
   resetCurrentLesson = () => {
     this.stopTimer();
     this.setState({
@@ -491,10 +502,8 @@ export default class TypingLearn extends Component {
       sessionMistakes: {},
     });
   };
-
   goToLesson = (index) => {
     if (index < 0 || index >= LESSONS.length) return;
-
     this.stopTimer();
     this.setState({
       currentLessonIndex: index,
@@ -509,58 +518,132 @@ export default class TypingLearn extends Component {
       sessionMistakes: {},
     });
   };
-
-  nextLesson = () => {
-    this.goToLesson(this.state.currentLessonIndex + 1);
-  };
-
-  prevLesson = () => {
-    this.goToLesson(this.state.currentLessonIndex - 1);
-  };
+  nextLesson = () => this.goToLesson(this.state.currentLessonIndex + 1);
+  prevLesson = () => this.goToLesson(this.state.currentLessonIndex - 1);
 
   // ------------------------------------------------
-  // Completion popup handlers
+  // Modal close handlers
   // ------------------------------------------------
   handleCloseModal = () => {
-    this.setState({ showCompletionModal: false });
+    this.setState({
+      showCompletionModal: false,
+      lastResult: null,
+    });
   };
-
   handleRetryFromModal = () => {
-    this.setState({ showCompletionModal: false }, () =>
+    this.setState({ showCompletionModal: false, lastResult: null }, () =>
       this.resetCurrentLesson()
     );
   };
-
   handleNextFromModal = () => {
     if (this.state.currentLessonIndex < LESSONS.length - 1) {
-      this.setState({ showCompletionModal: false }, () => this.nextLesson());
+      this.setState({ showCompletionModal: false, lastResult: null }, () =>
+        this.nextLesson()
+      );
     } else {
-      this.setState({ showCompletionModal: false });
+      this.setState({ showCompletionModal: false, lastResult: null });
     }
+  };
+  toggleRecordsModal = () => {
+    this.setState((prev) => ({ showRecordsModal: !prev.showRecordsModal }));
+  };
+  handleSort = (field) => {
+    this.setState((prev) => {
+      const direction =
+        prev.sortField === field && prev.sortDirection === "asc" ? "desc" : "asc";
+      return { sortField: field, sortDirection: direction };
+    });
+  };
+  getSortedRecords = () => {
+    const { performanceRecords, sortField, sortDirection, recordsFilter } =
+      this.state;
+    let filtered = performanceRecords;
+    if (recordsFilter.trim()) {
+      const q = recordsFilter.trim().toLowerCase();
+      filtered = filtered.filter(
+        (r) =>
+          r.title.toLowerCase().includes(q) || r.level.toLowerCase().includes(q)
+      );
+    }
+    return filtered.sort((a, b) => {
+      let aVal = a[sortField];
+      let bVal = b[sortField];
+      if (sortField === "date") {
+        aVal = new Date(aVal).getTime();
+        bVal = new Date(bVal).getTime();
+      }
+      if (aVal < bVal) return sortDirection === "asc" ? -1 : 1;
+      if (aVal > bVal) return sortDirection === "asc" ? 1 : -1;
+      return 0;
+    });
   };
 
   // ------------------------------------------------
-  // Keyboard rendering
+  // Rendering helpers (unchanged)
   // ------------------------------------------------
+  renderHomeRowGuide = () => {
+    const homeRowKeys = [
+      { key: "A", finger: "Pinky", hand: "left" },
+      { key: "S", finger: "Ring", hand: "left" },
+      { key: "D", finger: "Middle", hand: "left" },
+      { key: "F", finger: "Index", hand: "left" },
+      { key: "J", finger: "Index", hand: "right" },
+      { key: "K", finger: "Middle", hand: "right" },
+      { key: "L", finger: "Ring", hand: "right" },
+      { key: ";", finger: "Pinky", hand: "right" },
+    ];
+    return (
+      <div className="bg-gray-800/90 border border-gray-700 rounded-2xl p-4 shadow-xl">
+        <h3 className="text-sm font-semibold text-gray-200 mb-2">
+          🖐️ Home Row Finger Placement
+        </h3>
+        <div className="flex justify-center gap-2">
+          {homeRowKeys.map((item) => (
+            <div key={item.key} className="flex flex-col items-center">
+              <div
+                className={`w-10 h-10 md:w-12 md:h-12 rounded-lg border-2 flex items-center justify-center font-mono font-bold text-lg ${
+                  item.hand === "left"
+                    ? "border-blue-400 bg-blue-500/20 text-blue-200"
+                    : "border-orange-400 bg-orange-500/20 text-orange-200"
+                }`}
+              >
+                {item.key}
+              </div>
+              <span className="text-[10px] text-gray-400 mt-1 text-center leading-tight">
+                {item.finger}
+              </span>
+            </div>
+          ))}
+        </div>
+        <p className="text-[10px] text-gray-500 mt-2 text-center">
+          Left hand (blue) · Right hand (orange) · Thumbs on Space
+        </p>
+      </div>
+    );
+  };
+
   renderKeyboardRow = (keys, expectedChar) => {
+    const expectedFingerKey = this.getFingerKeyForChar(expectedChar);
+    const fingerKeys = expectedFingerKey ? FINGER_MAP[expectedFingerKey] : null;
     return (
       <div className="flex justify-center gap-1 mb-1">
         {keys.split("").map((k, idx) => {
           const displayKey = k === " " ? "␣" : k.toUpperCase();
-          const normalizedExpected = (expectedChar || "").toLowerCase();
           const normalizedKey = k.toLowerCase();
-          const isActive = normalizedKey === normalizedExpected;
-
+          const isActive = normalizedKey === expectedChar?.toLowerCase();
+          const isInFingerGroup = fingerKeys && fingerKeys.includes(normalizedKey);
+          let className =
+            "px-3 py-2 rounded-md border text-sm font-semibold transition-transform ";
+          if (isActive) {
+            className +=
+              "bg-emerald-500 border-emerald-400 text-black shadow-lg scale-105";
+          } else if (isInFingerGroup && expectedChar && expectedChar !== " ") {
+            className += "bg-blue-600/40 border-blue-500/50 text-blue-100";
+          } else {
+            className += "bg-slate-800 border-slate-600 text-slate-100";
+          }
           return (
-            <div
-              key={idx}
-              className={
-                "px-3 py-2 rounded-md border text-sm font-semibold transition-transform " +
-                (isActive
-                  ? "bg-emerald-500 border-emerald-400 text-black shadow-lg scale-105"
-                  : "bg-slate-800 border-slate-600 text-slate-100")
-              }
-            >
+            <div key={idx} className={className}>
               {displayKey}
             </div>
           );
@@ -588,81 +671,81 @@ export default class TypingLearn extends Component {
       streak,
       weakKeys,
       sessionMistakes,
+      soundEnabled,
+      completedLessonIds,
+      showRecordsModal,
+      sortField,
+      sortDirection,
+      recordsFilter,
     } = this.state;
 
     const lesson = this.getCurrentLesson();
     const target = lesson.text;
-
     const accuracy =
       totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
-
-    const currentCharIndex = input.length;
+    const wpm = timer > 0 ? Math.round((totalChars / 5) / (timer / 60)) : 0;
     const expectedChar =
-      currentCharIndex < target.length ? target[currentCharIndex] : "";
+      input.length < target.length ? target[input.length] : "";
     const fingerHint = this.getFingerForChar(expectedChar);
-
-    const lastTypedIndex = input.length - 1;
-
-    const lastTypedChar =
-      lastTypedIndex >= 0 ? input[lastTypedIndex] : "";
-
+    const lastTypedChar = input.length > 0 ? input[input.length - 1] : "";
     const expectedTypedChar =
-      lastTypedIndex >= 0 ? target[lastTypedIndex] : "";
-
+      input.length > 0 ? target[input.length - 1] : "";
     const fingerCorrectness = this.isCorrectFingerUsed(
       lastTypedChar,
       expectedTypedChar
     );
-
-
-    // Difficulty label for display
-    let difficultyLabel = "";
-    if (lesson.level === "Beginner") {
-      difficultyLabel = "Easy • Focus on basics";
-    } else if (lesson.level === "Intermediate") {
-      difficultyLabel = "Moderate • Build control";
-    } else if (lesson.level === "Advanced") {
-      difficultyLabel = "Challenging • Real-world practice";
-    } else if (lesson.level === "Expert") {
-      difficultyLabel = "Expert • High focus & discipline";
-    } else {
-      difficultyLabel = "Practice • Keep improving";
-    }
-
     const isLastLesson = currentLessonIndex === LESSONS.length - 1;
-
-    // XP progress to next level
     const xpPerLevel = 500;
     const xpIntoLevel = totalXP % xpPerLevel;
-    const xpPercent = Math.min(
-      100,
-      Math.round((xpIntoLevel / xpPerLevel) * 100)
-    );
-
-    // Session weak keys (top 3)
+    const xpPercent = Math.min(100, Math.round((xpIntoLevel / xpPerLevel) * 100));
     const sessionWeakKeys = Object.entries(sessionMistakes)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 3)
       .map(([ch]) => (ch === " " ? "Space" : ch.toUpperCase()));
+    const progressPercent =
+      target.length > 0 ? (input.length / target.length) * 100 : 0;
+    const sortedRecords = this.getSortedRecords();
 
     return (
       <div
         className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6 md:p-10"
-        // 🔒 Global restriction: copy, cut, paste, right-click disabled
         onCopy={(e) => e.preventDefault()}
         onCut={(e) => e.preventDefault()}
         onPaste={(e) => e.preventDefault()}
         onContextMenu={(e) => e.preventDefault()}
       >
-        {/* PAGE HEADER */}
-        <div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-sky-400">
-            CNAT Typing Learning Lab
-          </h1>
-
+        {/* HEADER */}
+        <div className="w-full max-w-7xl">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-sky-400">
+              CNAT Typing Learning Lab
+            </h1>
+            <div className="flex items-center gap-4 mt-2 md:mt-0 flex-wrap">
+              <label className="flex items-center gap-2 text-sm text-gray-300">
+                <input
+                  type="checkbox"
+                  checked={soundEnabled}
+                  onChange={(e) => {
+                    const val = e.target.checked;
+                    this.setState({ soundEnabled: val });
+                    this.saveSoundPreference(val);
+                  }}
+                  className="w-4 h-4 accent-sky-500"
+                />
+                Sound
+              </label>
+              <button
+                onClick={this.toggleRecordsModal}
+                className="px-3 py-1.5 text-sm rounded-lg border border-sky-500 text-sky-300 hover:bg-sky-600/20 transition flex items-center gap-1"
+              >
+                📊 Records
+              </button>
+              <span className="text-xs text-gray-400">
+                <kbd className="px-2 py-1 bg-gray-700 rounded">Ctrl+Shift+←/→</kbd>
+              </span>
+            </div>
+          </div>
           <div className="mt-4 flex flex-col lg:flex-row gap-6 items-start">
-
-            {/* LEFT: Intro Text */}
             <div className="lg:basis-2/5">
               <p className="text-gray-300 text-sm md:text-base leading-relaxed">
                 Practice-based typing lessons with real-world style content. Move
@@ -671,13 +754,10 @@ export default class TypingLearn extends Component {
                 you improve like a pro.
               </p>
             </div>
-
-            {/* RIGHT: Finger Placement Card */}
             <div className="lg:basis-2/5 max-w-[620px] bg-gray-800/60 border border-gray-700 rounded-xl p-4 shadow-md">
               <p className="font-semibold text-emerald-300 mb-1 text-sm">
                 🖐 Proper Finger Placement (Home Row)
               </p>
-
               <p className="text-gray-300 text-sm">
                 Left hand: <span className="text-gray-200 font-semibold">A S D F</span>
                 &nbsp; | &nbsp;
@@ -685,25 +765,17 @@ export default class TypingLearn extends Component {
                 &nbsp; | &nbsp;
                 Thumbs on <span className="text-gray-200 font-semibold">Space</span>
               </p>
-
               <p className="mt-2 italic text-gray-500 text-xs">
                 Tip: Keep your fingers on the home row and return after every key press.
               </p>
             </div>
-
           </div>
-
         </div>
 
-
-
-
-        {/* MAIN LAYOUT */}
-        {/* <div className="w-full max-w-5xl grid md:grid-cols-[2fr,1.2fr] gap-6"> */}
-        <div class="flex flex-col md:flex-row gap-4">
+        {/* MAIN LAYOUT: two columns */}
+        <div className="w-full max-w-7xl flex flex-col md:flex-row gap-4 mt-6">
           {/* LEFT: PRACTICE AREA */}
           <div className="md:flex-[2] bg-gray-800/80 border border-gray-700 rounded-2xl p-5 md:p-6 shadow-xl">
-            {/* Lesson Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-4">
               <div>
                 <p className="text-xs uppercase tracking-wide text-gray-400">
@@ -713,10 +785,9 @@ export default class TypingLearn extends Component {
                   {lesson.title}
                 </h2>
                 <p className="text-xs mt-1 text-emerald-300">
-                  Level: {lesson.level} — {difficultyLabel}
+                  Level: {lesson.level}
                 </p>
               </div>
-
               <div className="flex flex-wrap gap-2 justify-start md:justify-end">
                 <button
                   onClick={this.prevLesson}
@@ -751,20 +822,21 @@ export default class TypingLearn extends Component {
               </div>
             </div>
 
-            {/* Lesson description */}
-            <p className="text-sm text-gray-300 mb-4">{lesson.description}</p>
-            <p className="text-xs text-amber-300 mb-4">
-              💡 Tip: {lesson.hint}
-            </p>
-            {/* 🖐 Finger Guidance + Confidence Indicator */}
+            <p className="text-sm text-gray-300 mb-2">{lesson.description}</p>
+            <p className="text-xs text-amber-300 mb-3">💡 Tip: {lesson.hint}</p>
+
+            <div className="w-full h-1.5 bg-gray-700 rounded-full mb-4 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-sky-400 to-emerald-400 transition-all duration-200"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+
             {(fingerHint || fingerCorrectness !== null) && (
               <div className="mb-4 px-4 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
                 <div className="flex items-center justify-between gap-4 flex-wrap">
-
-                  {/* LEFT: Finger Hint */}
                   <div className="flex items-center gap-2 text-base text-emerald-300">
                     <span className="text-xl">👉</span>
-
                     {fingerHint ? (
                       <span>
                         Finger:
@@ -779,15 +851,11 @@ export default class TypingLearn extends Component {
                       </span>
                     )}
                   </div>
-
-                  {/* RIGHT: Finger Correctness */}
                   {fingerCorrectness !== null && (
                     <div
                       className={
                         "text-sm font-semibold flex items-center gap-1 " +
-                        (fingerCorrectness
-                          ? "text-emerald-400"
-                          : "text-rose-400")
+                        (fingerCorrectness ? "text-emerald-400" : "text-rose-400")
                       }
                     >
                       {fingerCorrectness ? "✔ Correct finger" : "❌ Wrong finger"}
@@ -797,19 +865,15 @@ export default class TypingLearn extends Component {
               </div>
             )}
 
-
-            {/* Target Text */}
             <div className="bg-gray-900/70 rounded-xl p-4 md:p-5 mb-4 text-base md:text-lg font-mono leading-relaxed border border-gray-700">
               {target.split("").map((char, index) => {
                 let className = "text-gray-500";
-
                 if (index < input.length) {
                   className =
                     input[index] === char ? "text-emerald-400" : "text-red-400";
                 } else if (index === input.length) {
                   className += " bg-sky-600/30 rounded-sm";
                 }
-
                 return (
                   <span key={index} className={className}>
                     {char}
@@ -818,7 +882,6 @@ export default class TypingLearn extends Component {
               })}
             </div>
 
-            {/* Input Area */}
             <textarea
               value={input}
               onChange={this.handleInputChange}
@@ -830,31 +893,31 @@ export default class TypingLearn extends Component {
               onContextMenu={(e) => e.preventDefault()}
             />
 
-            {/* Stats */}
-            <div className="flex flex-wrap items-center gap-6 mt-4 text-sm md:text-base">
+            <div className="flex flex-wrap items-center gap-4 mt-4 text-sm md:text-base">
               <div>
                 <span className="text-gray-400 mr-1">Accuracy:</span>
                 <span className="font-bold text-amber-300">{accuracy}%</span>
               </div>
               <div>
-                <span className="text-gray-400 mr-1">Correct chars:</span>
-                <span className="font-bold text-emerald-300">
-                  {correctChars}
-                </span>
+                <span className="text-gray-400 mr-1">WPM:</span>
+                <span className="font-bold text-lime-300">{wpm}</span>
               </div>
               <div>
-                <span className="text-gray-400 mr-1">Typed chars:</span>
+                <span className="text-gray-400 mr-1">Correct:</span>
+                <span className="font-bold text-emerald-300">{correctChars}</span>
+              </div>
+              <div>
+                <span className="text-gray-400 mr-1">Typed:</span>
                 <span className="font-bold text-sky-300">{totalChars}</span>
               </div>
               <div>
-                <span className="text-gray-400 mr-1">Time Taken:</span>
+                <span className="text-gray-400 mr-1">Time:</span>
                 <span className="font-bold text-lime-300">
                   {this.formatTime(timer)}
                 </span>
               </div>
             </div>
 
-            {/* Session weak keys */}
             {(sessionWeakKeys.length > 0 || weakKeys.length > 0) && (
               <div className="mt-3 text-xs text-gray-400">
                 {sessionWeakKeys.length > 0 && (
@@ -879,9 +942,8 @@ export default class TypingLearn extends Component {
             )}
           </div>
 
-          {/* RIGHT: PROGRESS + KEYBOARD + LESSON LIST */}
+          {/* RIGHT: SIDEBAR */}
           <div className="md:flex-[1] space-y-5">
-            {/* Progress Overview */}
             <div className="bg-gray-800/90 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-3">
                 Your Progress Overview
@@ -935,11 +997,12 @@ export default class TypingLearn extends Component {
                 <span className="text-emerald-300 font-semibold">
                   {streak} day{streak === 1 ? "" : "s"}
                 </span>{" "}
-                of practice. Try not to break the chain!
+                of practice.
               </p>
             </div>
 
-            {/* On-screen Keyboard */}
+            {this.renderHomeRowGuide()}
+
             <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-2">
                 On-screen Keyboard
@@ -957,8 +1020,8 @@ export default class TypingLearn extends Component {
                 </div>
               )}
               <p className="text-xs text-gray-400 mb-3">
-                The <span className="text-emerald-400">highlighted key</span> is
-                the next expected character.
+                <span className="text-emerald-400">Green</span> = next key ·{" "}
+                <span className="text-blue-400">Blue</span> = suggested finger zone
               </p>
 
               <div className="mt-2">
@@ -969,12 +1032,10 @@ export default class TypingLearn extends Component {
               </div>
             </div>
 
-            {/* Lesson Navigator (Grouped by Level) */}
             <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-4 shadow-xl">
               <h3 className="text-sm font-semibold text-gray-200 mb-4">
                 Lessons Overview
               </h3>
-
               <div className="space-y-5 max-h-80 overflow-y-auto pr-2">
                 {["Beginner", "Intermediate", "Advanced", "Expert"].map(
                   (levelLabel) => {
@@ -982,19 +1043,17 @@ export default class TypingLearn extends Component {
                       (l) => l.level === levelLabel
                     );
                     if (groupLessons.length === 0) return null;
-
                     return (
                       <div key={levelLabel}>
                         <h4 className="text-xs font-bold uppercase tracking-wide text-sky-400 mb-2 pl-1">
                           {levelLabel} Lessons ({groupLessons.length})
                         </h4>
-
                         <div className="space-y-2">
                           {groupLessons.map((lsn) => {
                             const realIndex = LESSONS.indexOf(lsn);
                             const isActive = realIndex === currentLessonIndex;
                             const bestTime = this.getBestTimeForLesson(lsn.id);
-
+                            const isCompleted = completedLessonIds.includes(lsn.id);
                             return (
                               <button
                                 key={lsn.id}
@@ -1008,6 +1067,7 @@ export default class TypingLearn extends Component {
                               >
                                 <div className="flex justify-between items-center">
                                   <span className="font-semibold">
+                                    {isCompleted && "✓ "}
                                     {lsn.title}
                                   </span>
                                   <div className="flex flex-col items-end ml-2">
@@ -1033,22 +1093,35 @@ export default class TypingLearn extends Component {
                   }
                 )}
               </div>
-
-              <p className="text-[10px] text-gray-500 mt-3">
-                Tip: Move to the next level only when your accuracy is
-                consistently above{" "}
-                <span className="text-emerald-300 font-semibold">90%</span>.
-              </p>
+              <div className="mt-3 flex flex-col gap-2">
+                <p className="text-[10px] text-gray-500">
+                  Tip: Move to the next level only when your accuracy is
+                  consistently above{" "}
+                  <span className="text-emerald-300 font-semibold">90%</span>.
+                </p>
+                <button
+                  onClick={this.toggleRecordsModal}
+                  className="w-full py-2 px-4 rounded-lg border border-sky-500 text-sky-300 text-xs font-semibold hover:bg-sky-600/20 transition"
+                >
+                  📊 Performance Records
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         {/* =============================================
-            FINISH LESSON POPUP (Dark Modern)
+            COMPLETION MODAL (fixed)
         ============================================== */}
         {showCompletionModal && lastResult && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-            <div className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full mx-4">
+          <div
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            onClick={this.handleCloseModal}
+          >
+            <div
+              className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
               <h2 className="text-xl md:text-2xl font-bold text-sky-400 mb-2 text-center">
                 Lesson Completed
               </h2>
@@ -1070,9 +1143,7 @@ export default class TypingLearn extends Component {
                   </p>
                 </div>
                 <div className="bg-gray-800/80 rounded-xl p-3 border border-gray-700">
-                  <p className="text-gray-400 text-xs mb-1">
-                    Typed Characters
-                  </p>
+                  <p className="text-gray-400 text-xs mb-1">Typed Characters</p>
                   <p className="text-lg font-bold text-sky-300">
                     {lastResult.chars}
                   </p>
@@ -1089,7 +1160,7 @@ export default class TypingLearn extends Component {
 
               <div className="mb-4 text-xs text-center text-gray-300 space-y-1">
                 <p>
-                  XP earned this lesson:{" "}
+                  XP earned:{" "}
                   <span className="text-emerald-300 font-semibold">
                     {lastResult.xpEarned}
                   </span>
@@ -1097,17 +1168,15 @@ export default class TypingLearn extends Component {
                   <span className="text-sky-300 font-semibold">
                     {lastResult.totalXP}
                   </span>
-                  .
                 </p>
                 <p>
-                  Current Level:{" "}
+                  Level:{" "}
                   <span className="text-sky-300 font-semibold">
                     Lv. {lastResult.level}
                   </span>{" "}
                   • Streak:{" "}
                   <span className="text-emerald-300 font-semibold">
-                    {lastResult.streak} day
-                    {lastResult.streak === 1 ? "" : "s"}
+                    {lastResult.streak} day{lastResult.streak === 1 ? "" : "s"}
                   </span>
                 </p>
               </div>
@@ -1115,7 +1184,6 @@ export default class TypingLearn extends Component {
               <p className="text-xs text-gray-400 text-center mb-4">
                 Aim to reduce your time while keeping accuracy above{" "}
                 <span className="text-emerald-300 font-semibold">90%</span>.
-                Strong accuracy with shorter times will give you more XP.
               </p>
 
               <div className="flex flex-wrap justify-center gap-3 mt-2">
@@ -1143,6 +1211,177 @@ export default class TypingLearn extends Component {
                 >
                   Close
                 </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =============================================
+            PERFORMANCE RECORDS MODAL (with Clear button)
+        ============================================== */}
+        {showRecordsModal && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) this.toggleRecordsModal();
+            }}
+          >
+            <div className="bg-gray-900 border border-sky-600 rounded-2xl shadow-2xl p-6 w-full max-w-5xl max-h-[90vh] flex flex-col">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-sky-400">
+                  📊 Performance Records
+                </h2>
+                <div className="flex gap-2">
+                  <button
+                    onClick={this.clearPerformanceRecords}
+                    className="px-3 py-2 rounded-lg bg-red-600/20 border border-red-500/50 text-red-300 hover:bg-red-600/30 transition text-sm"
+                  >
+                    🗑️ Clear All
+                  </button>
+                  <button
+                    onClick={this.toggleRecordsModal}
+                    className="px-4 py-2 rounded-lg bg-gray-800 border border-gray-600 text-gray-300 hover:bg-gray-700"
+                  >
+                    ✕ Close
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-sm text-gray-400">Filter:</span>
+                <input
+                  type="text"
+                  value={recordsFilter}
+                  onChange={(e) =>
+                    this.setState({ recordsFilter: e.target.value })
+                  }
+                  placeholder="Search by title or level..."
+                  className="flex-1 px-3 py-1 bg-gray-800 border border-gray-600 rounded-lg text-sm text-white outline-none focus:ring-1 focus:ring-sky-500"
+                />
+                <span className="text-xs text-gray-400">
+                  {sortedRecords.length} records
+                </span>
+              </div>
+
+              <div className="flex-1 overflow-auto border border-gray-700 rounded-lg">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-gray-800/90 text-gray-300 sticky top-0">
+                    <tr>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("date")}
+                      >
+                        Date {sortField === "date" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("title")}
+                      >
+                        Lesson {sortField === "title" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("level")}
+                      >
+                        Level {sortField === "level" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("accuracy")}
+                      >
+                        Accuracy {sortField === "accuracy" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("time")}
+                      >
+                        Time {sortField === "time" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("wpm")}
+                      >
+                        WPM {sortField === "wpm" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                      <th
+                        className="px-3 py-2 cursor-pointer hover:bg-gray-700 transition"
+                        onClick={() => this.handleSort("xp")}
+                      >
+                        XP {sortField === "xp" && (sortDirection === "asc" ? "↑" : "↓")}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-700">
+                    {sortedRecords.length === 0 ? (
+                      <tr>
+                        <td colSpan="7" className="px-3 py-6 text-center text-gray-400">
+                          No records found. Complete a lesson to see data here.
+                        </td>
+                      </tr>
+                    ) : (
+                      sortedRecords.map((record, idx) => {
+                        const lessonRecords = this.state.performanceRecords.filter(
+                          (r) => r.lessonId === record.lessonId
+                        );
+                        const bestTime = Math.min(...lessonRecords.map((r) => r.time));
+                        const bestAccuracy = Math.max(...lessonRecords.map((r) => r.accuracy));
+                        const isBestTime = record.time === bestTime;
+                        const isBestAccuracy = record.accuracy === bestAccuracy;
+                        return (
+                          <tr
+                            key={idx}
+                            className="hover:bg-gray-800/50 transition border-b border-gray-700/50"
+                          >
+                            <td className="px-3 py-2 text-gray-300 whitespace-nowrap">
+                              {this.formatDate(record.date)}
+                            </td>
+                            <td className="px-3 py-2 text-gray-200">
+                              {record.title}
+                              {isBestTime && (
+                                <span className="ml-2 text-[10px] text-emerald-400 font-bold">
+                                  ⭐ Best Time
+                                </span>
+                              )}
+                              {isBestAccuracy && (
+                                <span className="ml-2 text-[10px] text-amber-400 font-bold">
+                                  🎯 Best Accuracy
+                                </span>
+                              )}
+                            </td>
+                            <td className="px-3 py-2 text-gray-300">{record.level}</td>
+                            <td className="px-3 py-2">
+                              <span
+                                className={
+                                  record.accuracy >= 90
+                                    ? "text-emerald-400"
+                                    : record.accuracy >= 70
+                                    ? "text-amber-300"
+                                    : "text-rose-400"
+                                }
+                              >
+                                {record.accuracy}%
+                              </span>
+                            </td>
+                            <td className="px-3 py-2 text-gray-300">
+                              {this.formatTime(record.time)}
+                            </td>
+                            <td className="px-3 py-2 text-gray-300">{record.wpm}</td>
+                            <td className="px-3 py-2 text-gray-300">{record.xp}</td>
+                          </tr>
+                        );
+                      })
+                    )}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="mt-3 text-xs text-gray-400 flex justify-between">
+                <span>
+                  Showing {sortedRecords.length} of {this.state.performanceRecords.length} total records.
+                </span>
+                <span>
+                  ⭐ Best time · 🎯 Best accuracy per lesson
+                </span>
               </div>
             </div>
           </div>

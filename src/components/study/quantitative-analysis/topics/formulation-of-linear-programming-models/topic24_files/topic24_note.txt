@@ -1,0 +1,231 @@
+================================================================================
+TOPIC 24: WORKED EXAMPLE 18 – PROBLEM INVOLVING MINIMUM PRODUCTION REQUIREMENTS
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A manufacturing company produces two products: Product X and Product Y.
+The company has three resources that constrain production:
+- Labor: 200 hours
+- Machine: 150 hours
+- Raw Material: 180 units
+
+Resource requirements per unit:
+              Product X   Product Y   Available
+Labor (hrs)       3           4         200
+Machine (hrs)     2           3         150
+Material (units)  4           2         180
+
+Profit per unit: Product X = ₹50, Product Y = ₹60
+
+The company has a contract that requires at least 20 units of Product X to be produced.
+Additionally, due to market demand, at least 15 units of Product Y must be produced.
+
+The company wants to maximize total profit.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize total profit
+- Products: X and Y (2 products)
+- Resources: Labor, Machine, Material (3 resources)
+- Requirements: Product X ≥ 20, Product Y ≥ 15
+
+STEP 2: Identify Decision Variables
+- x₁ = units of Product X produced
+- x₂ = units of Product Y produced
+
+STEP 3: Identify the Objective
+- Profit: X = ₹50, Y = ₹60
+- Maximize Z = 50x₁ + 60x₂
+
+STEP 4: Identify Constraints
+- Labor: 3x₁ + 4x₂ ≤ 200
+- Machine: 2x₁ + 3x₂ ≤ 150
+- Material: 4x₁ + 2x₂ ≤ 180
+- Minimum X: x₁ ≥ 20
+- Minimum Y: x₂ ≥ 15
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0 (already covered by minimums)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 20, x₂ = 15
+  Labor = 60+60 = 120 ≤ 200 ✓
+  Machine = 40+45 = 85 ≤ 150 ✓
+  Material = 80+30 = 110 ≤ 180 ✓
+  Minimum X = 20 ≥ 20 ✓
+  Minimum Y = 15 ≥ 15 ✓
+  Profit = 50(20)+60(15) = 1,000+900 = ₹1,900
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 50x₁ + 60x₂
+  Subject to:
+    Labor: 3x₁ + 4x₂ ≤ 200
+    Machine: 2x₁ + 3x₂ ≤ 150
+    Material: 4x₁ + 2x₂ ≤ 180
+    Minimum X: x₁ ≥ 20
+    Minimum Y: x₂ ≥ 15
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Labor: 3x₁ + 4x₂ = 200 → x₂ = 50 - 0.75x₁
+- Machine: 2x₁ + 3x₂ = 150 → x₂ = 50 - 0.667x₁
+- Material: 4x₁ + 2x₂ = 180 → x₂ = 90 - 2x₁
+- Minimum X: x₁ = 20
+- Minimum Y: x₂ = 15
+
+Step 2: Identify feasible region (intersection of all constraints)
+Step 3: Find corner points of feasible region:
+
+The feasible region is bounded by:
+- Minimum X: x₁ ≥ 20
+- Minimum Y: x₂ ≥ 15
+- The three resource constraints.
+
+Let me find the intersection points:
+
+1. At x₁ = 20 (minimum X):
+   - From Labor: 3(20)+4x₂ ≤ 200 → 60+4x₂ ≤ 200 → 4x₂ ≤ 140 → x₂ ≤ 35
+   - From Machine: 2(20)+3x₂ ≤ 150 → 40+3x₂ ≤ 150 → 3x₂ ≤ 110 → x₂ ≤ 36.67
+   - From Material: 4(20)+2x₂ ≤ 180 → 80+2x₂ ≤ 180 → 2x₂ ≤ 100 → x₂ ≤ 50
+   - So with x₁ = 20, x₂ ≤ 35 (Labor is binding)
+   - Point: (20, 35)
+
+2. At x₂ = 15 (minimum Y):
+   - From Labor: 3x₁+4(15) ≤ 200 → 3x₁+60 ≤ 200 → 3x₁ ≤ 140 → x₁ ≤ 46.67
+   - From Machine: 2x₁+3(15) ≤ 150 → 2x₁+45 ≤ 150 → 2x₁ ≤ 105 → x₁ ≤ 52.5
+   - From Material: 4x₁+2(15) ≤ 180 → 4x₁+30 ≤ 180 → 4x₁ ≤ 150 → x₁ ≤ 37.5
+   - So with x₂ = 15, x₁ ≤ 37.5 (Material is binding)
+   - Point: (37.5, 15)
+
+3. Intersection of Labor and Machine:
+   3x₁ + 4x₂ = 200
+   2x₁ + 3x₂ = 150
+   Multiply Machine by 1.5: 3x₁ + 4.5x₂ = 225
+   Subtract Labor: 0.5x₂ = 25 → x₂ = 50
+   Then: 3x₁ + 4(50) = 200 → 3x₁ + 200 = 200 → 3x₁ = 0 → x₁ = 0
+   But x₁ ≥ 20, so this point is infeasible.
+
+4. Intersection of Labor and Material:
+   3x₁ + 4x₂ = 200
+   4x₁ + 2x₂ = 180
+   Multiply Labor by 2: 6x₁ + 8x₂ = 400
+   Multiply Material by 3: 12x₁ + 6x₂ = 540
+   Subtract: 6x₁ - 2x₂ = -140 → 3x₁ - x₂ = -70 → x₂ = 3x₁ + 70
+   Substitute: 3x₁ + 4(3x₁+70) = 200 → 3x₁ + 12x₁ + 280 = 200 → 15x₁ = -80 → x₁ negative.
+   So no intersection in feasible region.
+
+5. Intersection of Machine and Material:
+   2x₁ + 3x₂ = 150
+   4x₁ + 2x₂ = 180
+   Multiply Machine by 2: 4x₁ + 6x₂ = 300
+   Subtract Material: 4x₂ = 120 → x₂ = 30
+   Then: 2x₁ + 3(30) = 150 → 2x₁ + 90 = 150 → 2x₁ = 60 → x₁ = 30
+   Point: (30, 30) → check Labor: 3(30)+4(30)=90+120=210 > 200 ✗ (infeasible)
+
+6. Intersection of Labor with x₁ = 20:
+   (20, 35) as found above.
+
+7. Intersection of Material with x₂ = 15:
+   (37.5, 15) as found above.
+
+8. Intersection of Labor with x₂ = 15:
+   3x₁+4(15) ≤ 200 → 3x₁+60 ≤ 200 → 3x₁ ≤ 140 → x₁ ≤ 46.67
+   Also check Material: 4x₁+2(15) ≤ 180 → 4x₁ ≤ 150 → x₁ ≤ 37.5
+   So the limiting constraint is Material: (37.5, 15)
+
+9. Intersection of Machine with x₁ = 20:
+   (20, 36.67) but check Material: 4(20)+2(36.67) = 80+73.33 = 153.33 ≤ 180 ✓
+   So (20, 36.67) but Labor at (20,35) is stricter.
+
+Actually, let me find the feasible corner points systematically:
+
+The feasible region is the intersection of:
+- x₁ ≥ 20, x₂ ≥ 15
+- 3x₁ + 4x₂ ≤ 200
+- 2x₁ + 3x₂ ≤ 150
+- 4x₁ + 2x₂ ≤ 180
+
+Corner points:
+1. (20, 15) - from minimums
+2. (20, 35) - Labor with x₁ = 20
+3. (37.5, 15) - Material with x₂ = 15
+4. (30, 27.5) - Intersection of Labor and Material? Let me recalc.
+
+Actually, let me use substitution method to find the exact intersection of Labor and Material:
+3x₁ + 4x₂ = 200
+4x₁ + 2x₂ = 180
+From Material: x₂ = 90 - 2x₁
+Substitute: 3x₁ + 4(90 - 2x₁) = 200 → 3x₁ + 360 - 8x₁ = 200 → -5x₁ = -160 → x₁ = 32
+Then x₂ = 90 - 2(32) = 90 - 64 = 26
+(32, 26) check Machine: 2(32)+3(26)=64+78=142 ≤ 150 ✓
+So (32, 26) is feasible.
+
+5. Intersection of Labor and Machine:
+3x₁ + 4x₂ = 200
+2x₁ + 3x₂ = 150
+From Machine: x₁ = 75 - 1.5x₂
+Substitute: 3(75 - 1.5x₂) + 4x₂ = 200 → 225 - 4.5x₂ + 4x₂ = 200 → -0.5x₂ = -25 → x₂ = 50
+Then x₁ = 75 - 1.5(50) = 75 - 75 = 0
+(0, 50) infeasible because x₁ ≥ 20.
+
+So the feasible corner points are:
+(20, 15), (20, 35), (32, 26), (37.5, 15)
+
+Step 4: Evaluate objective at each corner:
+- (20, 15): Z = 50(20)+60(15) = 1,000+900 = ₹1,900
+- (20, 35): Z = 50(20)+60(35) = 1,000+2,100 = ₹3,100
+- (32, 26): Z = 50(32)+60(26) = 1,600+1,560 = ₹3,160
+- (37.5, 15): Z = 50(37.5)+60(15) = 1,875+900 = ₹2,775
+
+Step 5: Optimal solution: (32, 26) with profit = ₹3,160
+
+4. INTERPRETATION
+-----------------
+- Produce 32 units of Product X and 26 units of Product Y.
+- Total profit = ₹3,160.
+- Resource usage at optimum:
+  - Labor: 3(32)+4(26) = 96+104 = 200 (fully used)
+  - Machine: 2(32)+3(26) = 64+78 = 142 (slack: 8 hours)
+  - Material: 4(32)+2(26) = 128+52 = 180 (fully used)
+  - Minimum X: 32 ≥ 20 (satisfied)
+  - Minimum Y: 26 ≥ 15 (satisfied)
+- Labor and Material are binding; Machine has slack.
+
+5. KEY INSIGHTS
+---------------
+- Minimum production requirements add lower-bound constraints.
+- These constraints may or may not be binding at the optimum.
+- In this case, both minimums are satisfied but not binding.
+- Labor and Material are the binding resources.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Contractual production obligations.
+- Minimum order fulfillment.
+- Regulatory requirements.
+- Market share maintenance.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate problems with minimum production requirements.
+- How to handle lower-bound constraints.
+- How to identify binding vs non-binding minimums.
+- How to optimize with both minimums and resource limits.
+
+8. KEY TAKEAWAYS
+-----------------
+- Minimum requirements create lower bounds on variables.
+- These constraints may or may not be binding.
+- The optimal solution balances minimums and resource limits.
+- Validation must check both resource and minimum constraints.
+
+================================================================================
+End of Topic 24 Notes
+================================================================================

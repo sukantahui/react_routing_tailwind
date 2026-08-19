@@ -1,0 +1,157 @@
+================================================================================
+TOPIC 16: WORKED EXAMPLE 10 – INVESTMENT ALLOCATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+An investor has ₹200,000 to invest in three investment options:
+- Stocks: expected return 12%, risk factor 0.6
+- Bonds: expected return 8%, risk factor 0.3
+- Mutual Funds: expected return 10%, risk factor 0.4
+
+The investor wants to maximize total expected return while:
+- Total investment cannot exceed ₹200,000
+- Overall portfolio risk (weighted average) must not exceed 0.45
+- At least ₹20,000 must be invested in Mutual Funds
+- No more than ₹100,000 can be invested in Stocks
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize expected return
+- Assets: Stocks, Bonds, Mutual Funds (3 options)
+- Budget: ₹200,000
+- Risk limit: ≤ 0.45
+- Minimum Mutual Funds: ₹20,000
+- Maximum Stocks: ₹100,000
+
+STEP 2: Identify Decision Variables
+- x₁ = amount invested in Stocks (₹)
+- x₂ = amount invested in Bonds (₹)
+- x₃ = amount invested in Mutual Funds (₹)
+
+STEP 3: Identify the Objective
+- Return: 0.12x₁ + 0.08x₂ + 0.10x₃
+- Maximize Z = 0.12x₁ + 0.08x₂ + 0.10x₃
+
+STEP 4: Identify Constraints
+- Budget: x₁ + x₂ + x₃ ≤ 200,000
+- Risk: 0.6x₁ + 0.3x₂ + 0.4x₃ ≤ 0.45(x₁ + x₂ + x₃)
+  Simplify: 0.6x₁ + 0.3x₂ + 0.4x₃ ≤ 0.45x₁ + 0.45x₂ + 0.45x₃
+  → 0.15x₁ - 0.15x₂ - 0.05x₃ ≤ 0
+  → 15x₁ - 15x₂ - 5x₃ ≤ 0  (multiplying by 100)
+  → 3x₁ - 3x₂ - x₃ ≤ 0     (dividing by 5)
+- Mutual Funds minimum: x₃ ≥ 20,000
+- Stocks maximum: x₁ ≤ 100,000
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 50,000, x₂ = 80,000, x₃ = 70,000:
+  Total = 200,000 ≤ 200,000 ✓
+  Risk = 0.6(50) + 0.3(80) + 0.4(70) = 30 + 24 + 28 = 82
+  0.45(200) = 90, so 82 ≤ 90 ✓
+  x₃ ≥ 20 ✓, x₁ ≤ 100 ✓
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 0.12x₁ + 0.08x₂ + 0.10x₃
+  Subject to:
+    Budget: x₁ + x₂ + x₃ ≤ 200,000
+    Risk: 3x₁ - 3x₂ - x₃ ≤ 0
+    Mutual Funds: x₃ ≥ 20,000
+    Stocks: x₁ ≤ 100,000
+    x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 3-variable LP. We can solve using simplex or by reasoning:
+
+Since we want to maximize return, we want to invest as much as possible in
+Stocks (highest return) but we have a risk constraint and maximum limit.
+
+Let's try to allocate to maximize return subject to risk.
+
+Let total investment = 200,000 (will use full budget).
+
+Risk constraint: 0.6x₁ + 0.3x₂ + 0.4x₃ ≤ 0.45(200,000) = 90,000
+
+Also x₃ ≥ 20,000, x₁ ≤ 100,000.
+
+We want to maximize 0.12x₁ + 0.08x₂ + 0.10x₃.
+
+Let's express x₂ = 200,000 - x₁ - x₃.
+
+Substitute into risk:
+0.6x₁ + 0.3(200,000 - x₁ - x₃) + 0.4x₃ ≤ 90,000
+0.6x₁ + 60,000 - 0.3x₁ - 0.3x₃ + 0.4x₃ ≤ 90,000
+0.3x₁ + 0.1x₃ ≤ 30,000
+Multiply by 10: 3x₁ + x₃ ≤ 300,000
+
+Also x₃ ≥ 20,000, x₁ ≤ 100,000, x₁ + x₃ ≤ 200,000 (since x₂ ≥ 0).
+
+Objective: Z = 0.12x₁ + 0.08(200,000 - x₁ - x₃) + 0.10x₃
+= 0.12x₁ + 16,000 - 0.08x₁ - 0.08x₃ + 0.10x₃
+= 0.04x₁ + 0.02x₃ + 16,000
+
+To maximize, we want to maximize 0.04x₁ + 0.02x₃, which means we want as much x₁ and x₃ as possible, but constrained by 3x₁ + x₃ ≤ 300,000 and x₁ ≤ 100,000, x₃ ≤ 200,000 - x₁.
+
+Given x₁'s coefficient is higher (0.04 vs 0.02), we want to maximize x₁ first.
+
+Set x₁ = 100,000 (max allowed).
+Then 3(100,000) + x₃ ≤ 300,000 → x₃ ≤ 0.
+But we need x₃ ≥ 20,000, infeasible.
+
+So x₁ cannot be 100,000. We need to satisfy x₃ ≥ 20,000 and 3x₁ + x₃ ≤ 300,000.
+
+If x₃ = 20,000, then 3x₁ ≤ 280,000 → x₁ ≤ 93,333.33.
+
+So we set x₁ = 93,333.33, x₃ = 20,000, then x₂ = 200,000 - 93,333.33 - 20,000 = 86,666.67.
+
+Check risk: 0.6(93,333.33) + 0.3(86,666.67) + 0.4(20,000) = 56,000 + 26,000 + 8,000 = 90,000 ✓
+
+Return = 0.12(93,333.33) + 0.08(86,666.67) + 0.10(20,000) = 11,200 + 6,933.33 + 2,000 = 20,133.33
+
+So optimal: x₁ = 93,333.33, x₂ = 86,666.67, x₃ = 20,000
+Return = ₹20,133.33
+
+4. INTERPRETATION
+-----------------
+- Invest ₹93,333.33 in Stocks, ₹86,666.67 in Bonds, ₹20,000 in Mutual Funds.
+- Total expected return = ₹20,133.33 (10.07% of total).
+- All constraints are binding: Budget, Risk, Mutual Funds minimum, Stocks maximum.
+- This portfolio achieves the maximum return while staying within risk limits.
+
+5. KEY INSIGHTS
+---------------
+- Investment allocation problems involve balancing risk and return.
+- Constraints include budget, risk tolerance, and diversification requirements.
+- The optimal solution often has multiple binding constraints.
+- Risk constraints are typically expressed as weighted averages.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Personal financial planning.
+- Pension fund management.
+- Mutual fund portfolio construction.
+- Asset allocation for institutional investors.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate investment allocation problems.
+- How to handle risk constraints.
+- How to incorporate minimum/maximum investment limits.
+- How to solve 3-variable LP problems.
+
+8. KEY TAKEAWAYS
+-----------------
+- Investment problems balance risk and return.
+- Risk constraints are often linear.
+- Multiple constraints may be binding.
+- The optimal solution uses the full budget.
+
+================================================================================
+End of Topic 16 Notes
+================================================================================

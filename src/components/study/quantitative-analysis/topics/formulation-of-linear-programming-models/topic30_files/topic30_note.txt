@@ -1,0 +1,237 @@
+================================================================================
+TOPIC 30: WORKED EXAMPLE 24 – PUBLIC RESOURCE ALLOCATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A city government needs to allocate resources across three public services:
+- Public Health: ₹1,00,000 per program, provides 200 health visits, uses 2 staff
+- Public Safety: ₹1,50,000 per program, provides 300 safety incidents handled, uses 3 staff
+- Education: ₹80,000 per program, provides 250 student enrollments, uses 2 staff
+
+Available resources:
+- Budget: ₹10,00,000
+- Staff: 20 people
+
+The government wants to maximize total public impact (sum of health visits, safety incidents, and student enrollments).
+
+Additional constraints:
+- At least 2 public health programs
+- At least 2 public safety programs
+- At least 3 education programs
+- No more than 5 public health programs
+- No more than 4 public safety programs
+- No more than 6 education programs
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Maximize public impact
+- Services: Public Health, Public Safety, Education (3 services)
+- Resources: Budget (₹10,00,000), Staff (20 people)
+- Minimums: Health ≥ 2, Safety ≥ 2, Education ≥ 3
+- Maximums: Health ≤ 5, Safety ≤ 4, Education ≤ 6
+
+STEP 2: Identify Decision Variables
+- x₁ = number of public health programs
+- x₂ = number of public safety programs
+- x₃ = number of education programs
+
+STEP 3: Identify the Objective
+- Impact: Health = 200, Safety = 300, Education = 250
+- Maximize Z = 200x₁ + 300x₂ + 250x₃
+
+STEP 4: Identify Constraints
+- Budget: 100,000x₁ + 150,000x₂ + 80,000x₃ ≤ 1,000,000
+- Staff: 2x₁ + 3x₂ + 2x₃ ≤ 20
+- Min Health: x₁ ≥ 2
+- Max Health: x₁ ≤ 5
+- Min Safety: x₂ ≥ 2
+- Max Safety: x₂ ≤ 4
+- Min Education: x₃ ≥ 3
+- Max Education: x₃ ≤ 6
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0 (already covered by minimums)
+
+STEP 6: Review and Validate
+- Test a feasible solution:
+  x₁ = 2, x₂ = 2, x₃ = 3
+  Budget = 200,000+300,000+240,000 = 740,000 ≤ 1,000,000 ✓
+  Staff = 4+6+6 = 16 ≤ 20 ✓
+  Minimums satisfied ✓
+  Impact = 200(2)+300(2)+250(3) = 400+600+750 = 1,750
+
+STEP 7: Document
+- Final Model:
+  Maximize Z = 200x₁ + 300x₂ + 250x₃
+  Subject to:
+    Budget: 100,000x₁ + 150,000x₂ + 80,000x₃ ≤ 1,000,000
+    Staff: 2x₁ + 3x₂ + 2x₃ ≤ 20
+    Min Health: x₁ ≥ 2
+    Max Health: x₁ ≤ 5
+    Min Safety: x₂ ≥ 2
+    Max Safety: x₂ ≤ 4
+    Min Education: x₃ ≥ 3
+    Max Education: x₃ ≤ 6
+    x₁ ≥ 0, x₂ ≥ 0, x₃ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 3-variable LP with 8 constraints. Using simplex method or LP solver:
+
+Let's analyze the objective and constraints.
+
+Budget constraint (divide by 10,000): 10x₁ + 15x₂ + 8x₃ ≤ 100
+Staff constraint: 2x₁ + 3x₂ + 2x₃ ≤ 20
+
+Since we want to maximize impact, we want to use resources efficiently.
+Let's calculate impact per unit of resource:
+
+Impact per rupee (per ₹10,000):
+- Health: 200/10 = 20 impact per ₹10,000
+- Safety: 300/15 = 20 impact per ₹10,000
+- Education: 250/8 = 31.25 impact per ₹10,000
+
+Impact per staff:
+- Health: 200/2 = 100 impact per staff
+- Safety: 300/3 = 100 impact per staff
+- Education: 250/2 = 125 impact per staff
+
+Education is most efficient in both budget and staff!
+
+So we want to maximize Education programs, but there are constraints.
+
+Education maximum is 6, and minimum is 3.
+
+Let's try to find the optimal solution:
+
+With x₃ = 6 (max Education):
+Budget: 10x₁ + 15x₂ + 8(6) ≤ 100 → 10x₁ + 15x₂ + 48 ≤ 100 → 10x₁ + 15x₂ ≤ 52
+Staff: 2x₁ + 3x₂ + 2(6) ≤ 20 → 2x₁ + 3x₂ + 12 ≤ 20 → 2x₁ + 3x₂ ≤ 8
+
+Also x₁ ≥ 2, x₂ ≥ 2, x₁ ≤ 5, x₂ ≤ 4.
+
+Let's maximize impact = 200x₁ + 300x₂ + 250(6) = 200x₁ + 300x₂ + 1,500
+
+From 2x₁ + 3x₂ ≤ 8, with x₁ ≥ 2, x₂ ≥ 2:
+- At x₁ = 2: 4 + 3x₂ ≤ 8 → 3x₂ ≤ 4 → x₂ ≤ 1.33 (but x₂ ≥ 2, infeasible)
+- At x₂ = 2: 2x₁ + 6 ≤ 8 → 2x₁ ≤ 2 → x₁ ≤ 1 (but x₁ ≥ 2, infeasible)
+
+So x₃ = 6 is infeasible with the minimums!
+
+With x₃ = 5:
+Budget: 10x₁ + 15x₂ + 40 ≤ 100 → 10x₁ + 15x₂ ≤ 60
+Staff: 2x₁ + 3x₂ + 10 ≤ 20 → 2x₁ + 3x₂ ≤ 10
+
+x₁ ≥ 2, x₂ ≥ 2, x₁ ≤ 5, x₂ ≤ 4.
+
+At x₁ = 2, x₂ = 2: 2(2)+3(2)=10 ≤ 10 ✓
+At x₁ = 2, x₂ = 2: Budget: 10(2)+15(2)=20+30=50 ≤ 60 ✓
+Impact = 200(2)+300(2)+250(5) = 400+600+1,250 = 2,250
+
+At x₁ = 2, x₂ = 2: Staff = 2(2)+3(2)+2(5) = 4+6+10 = 20 ✓
+
+Check Budget: 100,000(2)+150,000(2)+80,000(5) = 200,000+300,000+400,000 = 900,000 ≤ 1,000,000 ✓
+
+Could we do better with x₃ = 4?
+Staff: 2x₁ + 3x₂ + 8 ≤ 20 → 2x₁ + 3x₂ ≤ 12
+Budget: 10x₁ + 15x₂ + 32 ≤ 100 → 10x₁ + 15x₂ ≤ 68
+
+With x₁ = 2, x₂ = 2: Staff = 4+6+8 = 18 ≤ 20, Budget = 20+30+32 = 82 ≤ 100
+Impact = 200(2)+300(2)+250(4) = 400+600+1,000 = 2,000
+
+With x₁ = 2, x₂ = 4 (max Safety): Staff = 4+12+8 = 24 > 20 ✗
+With x₁ = 5 (max Health), x₂ = 2: Staff = 10+6+8 = 24 > 20 ✗
+
+So x₃ = 4 with x₁ = 2, x₂ = 2 gives 2,000 impact, which is less than 2,250.
+
+What about x₃ = 5, x₁ = 2, x₂ = 2 gives 2,250.
+
+What about x₃ = 5, x₁ = 3, x₂ = 2:
+Staff = 6+6+10 = 22 > 20 ✗
+
+x₃ = 5, x₁ = 2, x₂ = 3:
+Staff = 4+9+10 = 23 > 20 ✗
+
+So (2, 2, 5) is feasible and gives 2,250 impact.
+
+What about x₃ = 5, x₁ = 2, x₂ = 2, but we might use less than full staff to save budget?
+No, budget is at 900,000, staff at 20 (full).
+
+Could we do x₃ = 5, x₁ = 2, x₂ = 2 and still be optimal? Let's check if we can increase impact by adjusting.
+
+Try x₃ = 5, x₁ = 2, x₂ = 2: impact = 2,250
+Try x₃ = 5, x₁ = 2, x₂ = 2, but increase x₂ to 3: Staff = 4+9+10 = 23 > 20 ✗
+Try x₃ = 5, x₁ = 3, x₂ = 2: Staff = 6+6+10 = 22 > 20 ✗
+
+So (2, 2, 5) seems optimal with 2,250 impact.
+
+But wait, what about x₃ = 6? We found it infeasible with the minimums.
+x₃ = 6, x₁ = 2, x₂ = 2: Staff = 4+6+12 = 22 > 20 ✗
+
+What about x₃ = 3? That would give lower impact.
+
+So the optimal solution is x₁ = 2, x₂ = 2, x₃ = 5 with impact = 2,250.
+
+But let me check if there's a better combination with x₃ = 4 but x₁ and x₂ higher.
+
+x₃ = 4, x₁ = 5, x₂ = 2: Staff = 10+6+8 = 24 > 20 ✗
+x₃ = 4, x₁ = 2, x₂ = 4: Staff = 4+12+8 = 24 > 20 ✗
+
+x₃ = 4, x₁ = 2, x₂ = 3: Staff = 4+9+8 = 21 > 20 ✗
+
+So x₃ = 4 with x₁ = 2, x₂ = 2 gives 2,000, less than 2,250.
+
+Therefore, the optimal solution is (2, 2, 5) with impact = 2,250.
+
+Wait, I should check if fractional solutions are possible. If fractional, we could get higher impact. But since the problem asks for "number of programs," these should be integers. So (2, 2, 5) is the optimal integer solution.
+
+Let me also check x₃ = 5, x₁ = 2, x₂ = 2:
+- Budget: 100,000(2)+150,000(2)+80,000(5) = 200,000+300,000+400,000 = 900,000 ≤ 1,000,000 ✓
+- Staff: 2(2)+3(2)+2(5) = 4+6+10 = 20 ≤ 20 ✓
+- Minimums: Health 2≥2, Safety 2≥2, Education 5≥3 ✓
+- Maximums: Health 2≤5, Safety 2≤4, Education 5≤6 ✓
+- Impact: 200(2)+300(2)+250(5) = 400+600+1,250 = 2,250
+
+4. INTERPRETATION
+-----------------
+- Implement 2 Public Health programs, 2 Public Safety programs, and 5 Education programs.
+- Total public impact = 2,250 (400 health visits + 600 safety incidents + 1,250 student enrollments).
+- Resource usage at optimum:
+  - Budget: ₹9,00,000 (slack: ₹1,00,000)
+  - Staff: 20 people (fully used)
+  - All minimums and maximums satisfied.
+
+5. KEY INSIGHTS
+---------------
+- Education programs are most efficient in both budget and staff.
+- The optimal solution uses the maximum allowed Education programs (5).
+- Staff is the binding constraint; Budget has slack.
+- The solution respects all minimum and maximum requirements.
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- City budget allocation across departments.
+- State government resource planning.
+- Public service optimization.
+- Non-profit program portfolio management.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate public resource allocation problems.
+- How to handle multiple services with different costs and impacts.
+- The importance of efficiency metrics (impact per rupee, per staff).
+- How to balance budget, staff, and service requirements.
+
+8. KEY TAKEAWAYS
+-----------------
+- Public resource allocation problems are multi-dimensional.
+- Efficiency metrics help identify the most impactful services.
+- Budget and staff constraints limit what can be done.
+- The optimal solution balances all constraints.
+
+================================================================================
+End of Topic 30 Notes
+================================================================================

@@ -1,0 +1,8 @@
+# CNAT local utility
+*.exe
+topic_creator.exe
+
+# PyInstaller build files
+build/
+dist/
+*.spec

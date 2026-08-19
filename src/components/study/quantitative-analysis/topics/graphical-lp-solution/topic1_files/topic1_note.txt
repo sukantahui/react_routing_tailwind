@@ -1,0 +1,100 @@
+===============================================================================
+PLOTTING CONSTRAINTS ON A COORDINATE PLANE
+===============================================================================
+
+TOPIC 1 – ESSENTIAL SKILL FOR GRAPHICAL LP
+
+-------------------------------------------------------------------------------
+1. WHY PLOT CONSTRAINTS?
+-------------------------------------------------------------------------------
+Constraints are the rules that define what is possible. Plotting them gives a
+visual representation of the feasible region. Each constraint is a straight
+line that acts as a boundary. The area on one side of the line is allowed.
+
+Key idea: A constraint limits the values of decision variables.
+
+-------------------------------------------------------------------------------
+2. METHODS TO PLOT A LINE
+-------------------------------------------------------------------------------
+We have three primary methods:
+
+A) Intercept Method (fastest for standard form)
+   - x-intercept: set y=0, solve for x.
+   - y-intercept: set x=0, solve for y.
+   - Plot both intercepts and draw the line.
+
+B) Slope-Intercept Form (y = mx + b)
+   - Identify slope (m) and y-intercept (b).
+   - Plot (0,b), then use slope to find another point.
+   - Draw the line through both points.
+
+C) Table of Values
+   - Choose a few x-values, compute y.
+   - Plot points and connect.
+
+-------------------------------------------------------------------------------
+3. SPECIAL CASES
+-------------------------------------------------------------------------------
+- Vertical line: x = k (no y-intercept, undefined slope).
+- Horizontal line: y = k (no x-intercept, slope 0).
+- Line through origin: c = 0, use slope or another point.
+- Fractions: multiply through by LCD to simplify.
+
+-------------------------------------------------------------------------------
+4. SOLID vs DASHED LINES
+-------------------------------------------------------------------------------
+- Solid: when inequality includes equality (≤ or ≥).
+- Dashed: when strict (< or >).
+
+The line type indicates whether boundary points are included in the solution.
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Swapping intercepts (x vs y).
+✗ Using wrong slope sign.
+✗ Not extending the line across the entire graph.
+✗ Forgetting that vertical/horizontal lines have special rules.
+✗ Not checking that the plotted line satisfies the equation.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always label the line with its equation.
+✓ Use intercepts for standard form – it's quick.
+✓ Verify your line with a second point.
+✓ For inequalities, decide line type before shading.
+✓ Use a straightedge for accuracy.
+✓ Choose a scale that fits all constraints.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Warehouse capacity: x + y ≤ 100 (plot line x+y=100).
+- Production time: 2x + 3y ≤ 24 (intercepts (12,0) and (0,8)).
+- Farm acreage: x + 2y ≥ 40 (line x+2y=40, shade above).
+- Nutrient requirement: 3x + y ≥ 15.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can find x- and y-intercepts from an equation.
+☐ I can convert to slope-intercept form.
+☐ I can plot vertical and horizontal lines.
+☐ I know when to use solid vs dashed lines.
+☐ I can extend a line across the graph.
+☐ I can verify my plotted line by checking points.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can plot individual constraints, the next step is to understand
+the coordinate axes in detail (Topic 2) and then plot multiple constraints
+to find the feasible region.
+
+Remember: accurate plotting is the foundation for solving LP problems
+graphically.
+
+===============================================================================
+END OF NOTES
+===============================================================================

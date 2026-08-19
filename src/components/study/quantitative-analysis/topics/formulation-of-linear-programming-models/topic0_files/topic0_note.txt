@@ -1,0 +1,81 @@
+INTRODUCTION TO LINEAR PROGRAMMING
+==================================
+
+WHAT IS LINEAR PROGRAMMING?
+---------------------------
+Linear Programming (LP) is a mathematical technique used to achieve the best outcome
+— such as maximum profit or minimum cost — in a mathematical model whose requirements
+are represented by linear relationships.
+
+In simple terms, LP helps you make the best possible decision when you have limited
+resources and multiple competing options.
+
+THE FOUR PILLARS OF LP
+----------------------
+1. Decision Variables (x₁, x₂, …, xₙ)
+   → The quantities you can control and want to determine.
+   → Example: number of products to manufacture.
+
+2. Objective Function (Z = c₁x₁ + c₂x₂ + … + cₙxₙ)
+   → The goal you want to achieve — maximize (profit) or minimize (cost).
+   → Must be a linear equation.
+
+3. Constraints (a₁x₁ + a₂x₂ + … ≤ b)
+   → Limitations on resources such as time, money, materials, or labour.
+   → Expressed as linear inequalities or equations.
+
+4. Non-negativity (x₁ ≥ 0, x₂ ≥ 0, …, xₙ ≥ 0)
+   → Decision variables cannot be negative.
+
+KEY ASSUMPTIONS IN LP
+---------------------
+• Proportionality: Doubling the input doubles the output.
+• Additivity: Total effect is the sum of individual effects (no cross-products).
+• Divisibility: Variables can take fractional values.
+• Certainty: All parameters (numbers) are known for sure.
+
+WHERE IS LP USED?
+-----------------
+• Manufacturing — production planning, product mix
+• Logistics — transportation, supply chain
+• Finance — investment portfolio optimization
+• Agriculture — crop planning, land use
+• Healthcare — staff scheduling, resource planning
+• Telecom — network design, bandwidth allocation
+
+COMMON MISTAKES TO AVOID
+------------------------
+• Forgetting non-negativity constraints (x ≥ 0).
+• Using non-linear relationships (e.g., x², xy) in LP.
+• Mixing up maximization and minimization.
+• Inconsistent units across constraints (e.g., kg vs. tons).
+• Treating "at least" as ≤ instead of ≥.
+
+BEST PRACTICES FOR FORMULATION
+------------------------------
+• Document all assumptions explicitly.
+• Validate constraints against real data.
+• Use meaningful variable names (e.g., let x = units of Product A).
+• Test the model with simple scenarios (e.g., zero production).
+• Always double-check the RHS of constraints for correct capacity.
+
+CLASSROOM EXAMPLES
+------------------
+Example 1 (Bakery): Mamata runs a bakery in Barrackpore. She has 10kg flour and 5kg sugar.
+Profit per cake is ₹100, per cookie is ₹50. LP helps find the optimal mix.
+
+Example 2 (Education): Abhronila plans a study schedule. She wants to maximize marks
+subject to time limits per subject — a classic resource allocation LP.
+
+MINI CHECKLIST (WHAT TO REMEMBER)
+---------------------------------
+✓ LP is a method for optimal decision-making under constraints.
+✓ Four pillars: variables, objective, constraints, non-negativity.
+✓ Objective is always linear (no squares, products, or ratios).
+✓ Constraints represent real-world limitations (resources) or requirements.
+✓ Variables must be ≥ 0 (non-negative).
+✓ LP applies to business, engineering, healthcare, and more.
+✓ Always check for unboundedness (missing constraints) and infeasibility (contradictory constraints).
+
+--
+Printed from Linear Programming Course — Topic 0: Introduction

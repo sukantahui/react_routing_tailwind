@@ -1,0 +1,461 @@
+[
+  {
+    "category": "Web Development",
+    "groupImage": "webDevImg",
+    "groupDesc": "Web Designing is the art and science of creating visually appealing and user-friendly websites. It involves crafting layouts, selecting color schemes, designing graphics, and organizing content to deliver a smooth and engaging user experience. It uses tools like HTML, CSS, JavaScript, Bootstrap, and Figma to bring ideas to life on the web.",
+    "courses": [
+      {
+        "courseID": "course001",
+        "title": "Full Stack Web Development",
+        "desc": "Learn HTML, CSS, JS, React, Node.js & more.",
+        "more": "Covers front-end and back-end development with real-world projects, Git/GitHub, APIs, and deployment practices.",
+        "image": "webDevImg",
+        "level": "Advanced",
+        "duration": "6 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.8,
+        "studentsEnrolled": 480,
+        "skills": ["HTML", "CSS", "JavaScript", "React", "Node.js", "MongoDB"],
+        "fee": "₹15,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "course018",
+        "title": "Frontend Development with React",
+        "desc": "Build modern UIs with React, JSX, and hooks.",
+        "more": "Focus on responsive interfaces, React Router, and state management using Redux.",
+        "image": "reactImg",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Online",
+        "badge": "New",
+        "rating": 4.7,
+        "studentsEnrolled": 220,
+        "skills": ["React", "Redux", "JSX", "Hooks"],
+        "fee": "₹9,500",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "course019",
+        "title": "Backend Development with Node.js",
+        "desc": "Learn server-side development using Node.js.",
+        "more": "Covers Express.js, REST APIs, authentication, and MongoDB integration.",
+        "image": "codeImg",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Offline",
+        "badge": "Advanced",
+        "rating": 4.6,
+        "studentsEnrolled": 180,
+        "skills": ["Node.js", "Express", "JWT", "MongoDB"],
+        "fee": "₹8,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "course020",
+        "title": "HTML & CSS Fundamentals",
+        "desc": "Get started with web design basics.",
+        "more": "Learn HTML5, CSS3, Flexbox, and Grid layouts through real-world projects.",
+        "image": "javaImg",
+        "level": "Beginner",
+        "duration": "1.5 Months",
+        "mode": "Offline",
+        "badge": "Popular",
+        "rating": 4.9,
+        "studentsEnrolled": 510,
+        "skills": ["HTML5", "CSS3", "Flexbox", "Grid"],
+        "fee": "₹4,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+    ]
+  },
+  {
+    "category": "Programming Languages",
+    "groupImage": "programmingImg",
+    "groupDesc": "Programming is the foundation of software development, enabling you to instruct computers to perform tasks efficiently and intelligently. Learn core logic, algorithms, and object-oriented programming in multiple languages.",
+    "courses": [
+      {
+        "courseID": "PRG1001",
+        "title": "Python Programming",
+        "desc": "Master Python for web, data science, and AI.",
+        "more": "This course provides in-depth coverage of Python fundamentals along with practical modules on data manipulation and analysis using Pandas and NumPy. Students will also work on hands-on projects involving automation, data visualization, and algorithmic problem-solving to build a strong foundation for advanced domains such as machine learning and web development.",
+        "image": "pythonImg",
+        "level": "Beginner",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.9,
+        "studentsEnrolled": 620,
+        "skills": ["Python", "OOP", "NumPy", "Pandas"],
+        "fee": "₹8,500",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "PRG1002",
+        "title": "Python Programming Advance",
+        "desc": "Master Python for web, data science, and AI.",
+        "more": "This advanced course is designed for learners who already have a solid foundation in Python and want to take their skills to the next level. It covers real-world applications through frameworks like Django for web development, Pandas for advanced data analysis, and TensorFlow for building machine learning models. Students will work on end-to-end projects that combine backend development, data-driven insights, and AI automation to gain professional-level expertise.",
+        "image": "pythonImg",
+        "level": "Advanced",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.8,
+        "studentsEnrolled": 230,
+        "skills": ["Python", "OOP", "Django", "Pandas"],
+        "fee": "₹18,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+
+      {
+        "courseID": "PRG1003",
+        "title": "C Programming",
+        "desc": "Develop strong fundamentals in system-level programming.",
+        "more": "This course builds a solid foundation in C programming, focusing on core concepts such as variables, data types, operators, control structures, functions, arrays, pointers, and dynamic memory management. Students will learn to write efficient and optimized code, understand how programs interact with hardware, and develop logical problem-solving skills through structured projects and hands-on exercises.",
+        "image": "clanguage",
+        "level": "Beginner",
+        "duration": "2.5 Months",
+        "mode": "Offline",
+        "badge": "Essential",
+        "rating": 4.8,
+        "studentsEnrolled": 900,
+        "skills": ["C", "Pointers", "Functions", "Arrays", "Memory Management", "Problem Solving"],
+        "fee": "₹6,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+
+      {
+        "courseID": "PRG1004",
+        "title": "Data Structures & Algorithms (DSA)",
+        "desc": "Strengthen problem-solving and coding skills.",
+        "more": "This course provides a deep understanding of core data structures and algorithms essential for high-performance programming and competitive coding. It covers arrays, stacks, queues, linked lists, trees, recursion, sorting, searching, and graph algorithms. Students will solve real-world coding challenges and optimize programs for efficiency, preparing them for technical interviews and advanced software development roles.",
+        "image": "dsa",
+        "level": "Advanced",
+        "duration": "4 Months",
+        "mode": "Online / Offline",
+        "badge": "Advanced",
+        "rating": 4.9,
+        "studentsEnrolled": 410,
+        "skills": ["DSA", "Recursion", "Linked List", "Trees", "Graphs"],
+        "fee": "₹12,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "PRG1005",
+        "title": "C++ Programming",
+        "desc": "Build strong foundations in object-oriented programming and logic building.",
+        "more": "This course provides a comprehensive understanding of C++ programming, covering core and advanced concepts such as data types, functions, pointers, classes, objects, inheritance, polymorphism, and file handling. Students will learn how to write optimized, modular, and reusable code following OOP principles. The course also includes hands-on problem-solving sessions and projects to prepare learners for competitive programming and software development roles.",
+        "image": "cpp",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Trending",
+        "rating": 4.8,
+        "studentsEnrolled": 540,
+        "skills": ["C++", "OOP", "STL", "Classes", "Inheritance", "Polymorphism"],
+        "fee": "₹9,500",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+
+    ]
+  },
+  {
+    "category": "RDBMS & SQL",
+    "groupImage": "databaseServer",
+    "groupDesc": "Master relational database concepts, SQL queries, and data management techniques for real-world applications.",
+    "courses": [
+    {
+        "courseID": "DB1001",
+        "title": "MySQL Fundamentals",
+        "desc": "Learn to create, manage, and query databases efficiently.",
+        "more": "This beginner-friendly course introduces relational databases and the SQL language through MySQL. Students will learn to design tables, define relationships, and perform CRUD operations. The course covers SELECT, JOIN, WHERE, GROUP BY, and subqueries with practical exercises and mini projects.",
+        "image": "mysql",
+        "level": "Beginner",
+        "duration": "2.5 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.8,
+        "studentsEnrolled": 560,
+        "skills": ["SQL", "MySQL", "Joins", "Subqueries", "Normalization"],
+        "fee": "₹7,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "DB1002",
+        "title": "Advanced SQL & Database Optimization",
+        "desc": "Write complex SQL queries and optimize database performance.",
+        "more": "This advanced-level course focuses on query optimization, indexing, stored procedures, triggers, and transaction control. Students will learn real-world data handling techniques, performance tuning, and database normalization strategies using MySQL and PostgreSQL. Perfect for developers preparing for backend and data engineering roles.",
+        "image": "sql",
+        "level": "Advanced",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Advanced",
+        "rating": 4.9,
+        "studentsEnrolled": 320,
+        "skills": ["SQL Optimization", "Indexes", "Stored Procedures", "Triggers", "Transactions"],
+        "fee": "₹9,500",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "DB1003",
+        "title": "Database Design & ER Modeling",
+        "desc": "Learn to structure and design scalable relational databases.",
+        "more": "This course teaches how to plan, design, and implement relational databases using Entity-Relationship (ER) models. Students will understand primary/foreign keys, relationships, normalization, and schema design for complex systems. Practical exercises help apply concepts to real business and software applications.",
+        "image": "databaselabs",
+        "level": "Intermediate",
+        "duration": "2 Months",
+        "mode": "Online / Offline",
+        "badge": "New",
+        "rating": 4.7,
+        "studentsEnrolled": 280,
+        "skills": ["Database Design", "ER Model", "Normalization", "Schema Design"],
+        "fee": "₹8,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+    ]
+  },
+  {
+    "category": "Accounts & Taxation",
+    "groupImage": "accountsImg",
+    "groupDesc": "Equip yourself with practical knowledge of financial accounting, GST, TDS, and Income Tax filing.",
+    "courses": [
+      {
+        "courseID": "ACCT1001",
+        "title": "Tally Prime",
+        "desc": "Become job-ready in financial accounting.",
+        "more": "Covers TallyPrime, GST filing, invoice management, and payroll processing.",
+        "image": "taxImg",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Offline/Online",
+        "badge": "Popular",
+        "rating": 4.7,
+        "studentsEnrolled": 260,
+        "skills": ["Basic Accounting","Tally", "Invoicing", "Payroll"],
+        "fee": "₹9,000",
+        "instructor": "Chandan Das",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "ACCT1002",
+        "title": "Advanced GST Compliance",
+        "desc": "Master GST return filing and reconciliation.",
+        "more": "Learn GSTR-1, GSTR-3B, e-way bills, ITC claims, and audits.",
+        "image": "taxImg",
+        "level": "Advanced",
+        "duration": "2 Months",
+        "mode": "Online/Offline",
+        "badge": "New",
+        "rating": 4.8,
+        "studentsEnrolled": 140,
+        "skills": ["GSTR", "GST Audit", "Reconciliation"],
+        "fee": "₹11,500",
+        "instructor": "Chandan Das",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+    ]
+  },
+  {
+    "category": "Data Analysis",
+    "groupImage": "dataanalysisImg",
+    "groupDesc": "The Data Analysis group focuses on turning raw data into meaningful insights. Learn Excel, Power BI, SQL, Python, and Tableau.",
+    "courses": [
+      {
+        "courseID": "course004",
+        "title": "Data Analytics with Excel & Power BI",
+        "desc": "Analyze and visualize data like a pro.",
+        "more": "Learn Excel functions, pivot tables, dashboards, and Power BI visualizations.",
+        "image": "excelImg",
+        "level": "Intermediate",
+        "duration": "3 Months",
+        "mode": "Online / Offline",
+        "badge": "Popular",
+        "rating": 4.7,
+        "studentsEnrolled": 390,
+        "skills": ["Excel", "Power BI", "Dashboards", "Reports"],
+        "fee": "₹10,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "course028",
+        "title": "Machine Learning Fundamentals",
+        "desc": "Introduction to predictive modeling.",
+        "more": "Covers regression, classification, clustering, and model evaluation.",
+        "image": "mlImg",
+        "level": "Advanced",
+        "duration": "4 Months",
+        "mode": "Online",
+        "badge": "Advanced",
+        "rating": 4.9,
+        "studentsEnrolled": 210,
+        "skills": ["Regression", "Clustering", "Scikit-learn"],
+        "fee": "₹14,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 20,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+    ]
+  },
+  {
+    "category": "School Courses (CBSE/ICSE/WBCHSE)",
+    "groupImage": "studentImg",
+    "groupDesc": "Courses designed for Class V–XII students following CBSE, ICSE, and WB boards. Strong conceptual clarity and exam guidance.",
+    "courses": [
+      {
+        "courseID": "course005",
+        "title": "Computer Science (CBSE/ICSE/WB)",
+        "desc": "Class XI & XII programming and DBMS.",
+        "more": "Covers Python, Java, MySQL, and practical lab support.",
+        "image": "studentImg",
+        "level": "Beginner",
+        "duration": "10 Months",
+        "mode": "Offline",
+        "badge": "Popular",
+        "rating": 4.9,
+        "studentsEnrolled": 580,
+        "skills": ["Python", "MySQL", "Java", "Algorithms"],
+        "fee": "₹12,000",
+        "instructor": "Tanusree Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 10,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      },
+      {
+        "courseID": "course036",
+        "title": "Mathematics (XI–XII)",
+        "desc": "Board & competitive syllabus coverage.",
+        "more": "Covers calculus, algebra, trigonometry, and probability.",
+        "image": "excelImg",
+        "level": "Intermediate",
+        "duration": "10 Months",
+        "mode": "Offline",
+        "badge": "New",
+        "rating": 4.8,
+        "studentsEnrolled": 420,
+        "skills": ["Calculus", "Algebra", "Probability"],
+        "fee": "₹11,000",
+        "instructor": "Sukanta Hui",
+        "meritDiscount": {
+          "available": true,
+          "maxDiscountPercent": 25,
+          "actualDiscountPercent": 15,
+          "criteria": "Based on entrance test or academic performance (85%+).",
+          "note": "Exact discount varies according to merit; maximum up to 25%."
+        }
+      }
+    ]
+  }
+]

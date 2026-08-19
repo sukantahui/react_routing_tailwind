@@ -2,324 +2,497 @@
   {
     "id": 1,
     "level": "Beginner",
-    "title": "Home Row Warm-up",
-    "description": "Start with relaxed home row patterns to get comfortable with the keyboard.",
-    "text": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; fjdk asdl jakl fjda asdf jkl; asdf jkl;",
-    "hint": "Keep your fingers curved and lightly resting on the keys."
+    "title": "Home Row – Left Hand",
+    "description": "Introduce left-hand home row keys (A, S, D, F).",
+    "text": "asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf",
+    "hint": "Keep your left hand curved over A S D F."
   },
   {
     "id": 2,
     "level": "Beginner",
-    "title": "Home Row Flow",
-    "description": "Build a smooth flow on the home row using repeated patterns.",
-    "text": "as as df df jk jk l; l; asdf asdf jkl; jkl; asdf jkl; asdf jkl; asdf jkl;",
-    "hint": "Try to type without any sudden stops."
+    "title": "Home Row – Right Hand",
+    "description": "Introduce right-hand home row keys (J, K, L, ;).",
+    "text": "jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl; jkl;",
+    "hint": "Rest your right hand on J K L ; – keep fingers relaxed."
   },
   {
     "id": 3,
     "level": "Beginner",
-    "title": "Left Hand – Home Row",
-    "description": "Focus only on the left-hand keys of the home row.",
-    "text": "asdf asdf sasa dad fad sad fad asda fads sads dfas asdf asdf",
-    "hint": "Use only your left-hand fingers for these keys."
+    "title": "Home Row – Both Hands",
+    "description": "Combine left and right home row keys.",
+    "text": "asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
+    "hint": "Alternate hands smoothly – return to home row after each key."
   },
   {
     "id": 4,
     "level": "Beginner",
-    "title": "Right Hand – Home Row",
-    "description": "Strengthen right hand control on the home row keys.",
-    "text": "jkl; jkl; lkj; kjl; jaja kaka lall jkjk klkl jkl; jkl; jkl;",
-    "hint": "Return each finger to its home position after pressing a key."
+    "title": "Home Row – Left Index Focus",
+    "description": "Strengthen the left index finger (F and G).",
+    "text": "fg fg fg fg fg fg fg fg fg fg fg fg fg fg fg fg fg fg",
+    "hint": "Only move your left index finger; keep others anchored."
   },
   {
     "id": 5,
     "level": "Beginner",
-    "title": "Top Row Basics",
-    "description": "Light practice for the QWERTY top row keys.",
-    "text": "qwer qwer tyui tyui opop qwert yuiop qwer tyui qwerty qwerty",
-    "hint": "Do not lift your whole hand; only move the fingers."
+    "title": "Home Row – Right Index Focus",
+    "description": "Strengthen the right index finger (J and H).",
+    "text": "jh jh jh jh jh jh jh jh jh jh jh jh jh jh jh jh jh jh",
+    "hint": "Only move your right index finger; keep others anchored."
   },
   {
     "id": 6,
     "level": "Beginner",
-    "title": "Bottom Row Basics",
-    "description": "Introduce the bottom row with gentle repetition.",
-    "text": "zxcv zxcv bnm bnm zxzx cvcv bnbn mnmn zxcvbnm zxcvbnm",
-    "hint": "Keep your wrists relaxed and steady."
+    "title": "Home Row – Middle Finger Drills",
+    "description": "Practice with left and right middle fingers (D, K).",
+    "text": "dk dk dk dk dk dk dk dk dk dk dk dk dk dk dk dk dk dk",
+    "hint": "Keep your index and ring fingers still while moving the middle finger."
   },
   {
     "id": 7,
     "level": "Beginner",
-    "title": "Simple Words Mix",
-    "description": "Practice very common and simple words.",
-    "text": "the and is of to in it on at by we me he she you they this that",
-    "hint": "Say the words in your mind as you type them."
+    "title": "Home Row – Ring Finger Drills",
+    "description": "Practice with left and right ring fingers (S, L).",
+    "text": "sl sl sl sl sl sl sl sl sl sl sl sl sl sl sl sl sl sl",
+    "hint": "Keep your middle and pinky fingers still while moving the ring finger."
   },
   {
     "id": 8,
     "level": "Beginner",
-    "title": "Short Sentences",
-    "description": "Type short sentences with basic punctuation.",
-    "text": "I can type. You can learn. We all improve with practice. Keep going. Do not stop.",
-    "hint": "Press the space bar lightly and consistently."
+    "title": "Home Row – Pinky Finger Drills",
+    "description": "Practice with left and right pinky fingers (A, ;).",
+    "text": "a; a; a; a; a; a; a; a; a; a; a; a; a; a; a; a; a; a;",
+    "hint": "Keep your ring fingers anchored; move only the pinkies."
   },
   {
     "id": 9,
     "level": "Beginner",
-    "title": "Vowel & Consonant Patterns",
-    "description": "Mix vowels and consonants to build rhythm.",
-    "text": "ta te ti to tu sa se si so su la le li lo lu ma me mi mo mu",
-    "hint": "Watch the screen instead of your keyboard."
+    "title": "Home Row – Finger Combinations",
+    "description": "Combine different fingers on the home row.",
+    "text": "as fj dk sl a; fg jh asdf jkl; asdf jkl; asdf jkl;",
+    "hint": "Focus on smooth transitions between fingers."
   },
   {
     "id": 10,
     "level": "Beginner",
-    "title": "Basic Rhythm Drill",
-    "description": "Maintain a slow and steady typing rhythm.",
-    "text": "type slow and steady type slow and steady type slow and steady",
-    "hint": "Count in your mind and match your typing speed with it."
+    "title": "Home Row – Rhythm Drill",
+    "description": "Build a steady rhythm on the home row.",
+    "text": "asdf asdf jkl; jkl; asdf jkl; asdf jkl; asdf jkl; asdf jkl;",
+    "hint": "Keep a constant tempo; do not pause between words."
   },
-
   {
     "id": 11,
-    "level": "Intermediate",
-    "title": "Common English Words",
-    "description": "Practice a mix of high-frequency English words in one line.",
-    "text": "people about there would could should always never really every other after before again",
-    "hint": "Focus on accuracy while your speed increases naturally."
+    "level": "Beginner",
+    "title": "Top Row – Left Hand (QWERT)",
+    "description": "Introduce the left-hand top row keys (Q, W, E, R, T).",
+    "text": "qwert qwert qwert qwert qwert qwert qwert qwert qwert qwert",
+    "hint": "Move your fingers upward from the home row, then return."
   },
   {
     "id": 12,
-    "level": "Intermediate",
-    "title": "Mixed Rows Drill",
-    "description": "Top, middle, and bottom rows combined in patterns.",
-    "text": "qaz wsx edc rfv tgb yhn ujm qazwsx edcrfv tgb yhn ujm qwert asdfg zxcvb",
-    "hint": "Keep your hands anchored on the home row."
+    "level": "Beginner",
+    "title": "Top Row – Right Hand (YUIOP)",
+    "description": "Introduce the right-hand top row keys (Y, U, I, O, P).",
+    "text": "yuiop yuiop yuiop yuiop yuiop yuiop yuiop yuiop yuiop yuiop",
+    "hint": "Move your right hand fingers up and back to home row."
   },
   {
     "id": 13,
-    "level": "Intermediate",
-    "title": "Natural Phrases",
-    "description": "Type phrases that feel like everyday writing.",
-    "text": "Practice makes progress. Small steps every day build strong habits. Keep your hands relaxed and your eyes on the screen.",
-    "hint": "Do not worry about speed, just keep moving forward."
+    "level": "Beginner",
+    "title": "Top Row – Both Hands",
+    "description": "Combine left and right top row keys.",
+    "text": "qwertyuiop qwertyuiop qwertyuiop qwertyuiop qwertyuiop",
+    "hint": "Keep your wrists steady; only move the fingers."
   },
   {
     "id": 14,
-    "level": "Intermediate",
-    "title": "Number Row – Light",
-    "description": "Introduce number keys without pressure.",
-    "text": "12345 67890 10203 40506 78901 11223 34455 66789",
-    "hint": "Use the correct finger for each number according to standard layout."
+    "level": "Beginner",
+    "title": "Bottom Row – Left Hand (ZXCV)",
+    "description": "Introduce the left-hand bottom row keys (Z, X, C, V).",
+    "text": "zxcv zxcv zxcv zxcv zxcv zxcv zxcv zxcv zxcv zxcv",
+    "hint": "Reach down from the home row with your fingers."
   },
   {
     "id": 15,
-    "level": "Intermediate",
-    "title": "Number Row – Practice",
-    "description": "A bit more intense repetition on the number row for familiarity.",
-    "text": "13579 24680 11111 22222 33333 44444 55555 67890 09876 54321",
-    "hint": "Glance at the numbers row, then try to type from memory."
+    "level": "Beginner",
+    "title": "Bottom Row – Right Hand (BNM,.)",
+    "description": "Introduce the right-hand bottom row keys (B, N, M, ,, .).",
+    "text": "bnm,. bnm,. bnm,. bnm,. bnm,. bnm,. bnm,. bnm,. bnm,. bnm,.",
+    "hint": "Reach down with your right hand fingers and return."
   },
   {
     "id": 16,
-    "level": "Intermediate",
-    "title": "Simple Story Line",
-    "description": "Type a short story-like paragraph with simple language.",
-    "text": "A student decided to improve typing skills. Every morning, they spent ten minutes practicing quietly. After a few weeks, typing felt easy and natural.",
-    "hint": "Breathe calmly and do not tense your shoulders."
+    "level": "Beginner",
+    "title": "Bottom Row – Both Hands",
+    "description": "Combine left and right bottom row keys.",
+    "text": "zxcvbnm,. zxcvbnm,. zxcvbnm,. zxcvbnm,. zxcvbnm,.",
+    "hint": "Keep your thumbs on the space bar; only move the fingers."
   },
   {
     "id": 17,
-    "level": "Intermediate",
-    "title": "Speed Pattern Booster",
-    "description": "Use repeated letter patterns to build fast reactions.",
-    "text": "asdf asdf asdf jkl; jkl; jkl; qwer qwer qwer zxcv zxcv zxcv qaz qaz qaz wsx wsx wsx",
-    "hint": "Try to keep the same speed for the entire line."
+    "level": "Beginner",
+    "title": "All Rows – Basic Mix",
+    "description": "Combine home, top, and bottom rows.",
+    "text": "qaz wsx edc rfv tgb yhn ujm qwerty asdfgh zxcvbnm qwertyuiop",
+    "hint": "Focus on moving the correct finger for each key."
   },
   {
     "id": 18,
-    "level": "Intermediate",
-    "title": "Punctuation Practice",
-    "description": "Use commas, periods, and question marks in real sentences.",
-    "text": "Typing is a useful skill, and it helps in many jobs. Do you practice regularly? If yes, you will see improvement soon.",
-    "hint": "Pay attention to where spaces are used with punctuation."
+    "level": "Beginner",
+    "title": "Simple Words – Home Row Only",
+    "description": "Type common words using only home row keys.",
+    "text": "as sad dad fall all ask flask ad lads sad salad a as",
+    "hint": "Use only home row fingers for these words."
   },
   {
     "id": 19,
-    "level": "Intermediate",
-    "title": "Email Style Text",
-    "description": "Simulate simple professional email content.",
-    "text": "Dear Sir, I hope you are doing well. This is a gentle reminder about the pending work. Please review the document and share your feedback.",
-    "hint": "Use Shift for capital letters at the start of sentences."
+    "level": "Beginner",
+    "title": "Simple Words – Top & Home Rows",
+    "description": "Words using top and home rows only.",
+    "text": "we are there would great treat tree try true you your",
+    "hint": "Move up to top row for letters like w, e, r, t, y, u."
   },
   {
     "id": 20,
-    "level": "Intermediate",
-    "title": "Descriptive Paragraph",
-    "description": "Longer descriptive text to improve endurance and accuracy.",
-    "text": "The room was silent except for the soft sound of keys being pressed. Each letter appeared on the screen, slowly forming words and sentences full of meaning.",
-    "hint": "Focus on staying relaxed over longer text."
+    "level": "Beginner",
+    "title": "Simple Words – All Letters",
+    "description": "Introduce all letters in common short words.",
+    "text": "the cat dog sun big red hot fun run map pen cup book",
+    "hint": "Use all fingers; take your time to find each key."
   },
   {
     "id": 21,
     "level": "Intermediate",
-    "title": "Daily Routine Text",
-    "description": "Practice a paragraph about a simple daily routine scenario.",
-    "text": "Every day begins with a plan. You wake up, get ready, and decide how to use your time. A little planning and a little discipline can make the entire day productive.",
-    "hint": "Maintain even spacing between words."
+    "title": "Common Words – High Frequency",
+    "description": "Practice the most common English words.",
+    "text": "the of and to in that it for on with as I his they at be this have from",
+    "hint": "Focus on accuracy; speed will come later."
   },
   {
     "id": 22,
     "level": "Intermediate",
-    "title": "Question & Answer Style",
-    "description": "Practice questions and answers to simulate real typing use.",
-    "text": "Why should you practice typing? Because it saves time. How often should you practice? At least a few minutes every day.",
-    "hint": "Be careful with question marks and periods."
+    "title": "Two-Letter Words Drill",
+    "description": "Quick fire common two-letter words.",
+    "text": "am an as at be by do go he if in is it me my no of on or so to up us we",
+    "hint": "Type these as short bursts; keep rhythm."
   },
-
   {
     "id": 23,
-    "level": "Advanced",
-    "title": "Focused Accuracy Paragraph",
-    "description": "Longer paragraph where accuracy is more important than speed.",
-    "text": "Accuracy builds confidence. When you know that your fingers press the right keys, you can type faster without fear. This calm confidence comes only from focused practice.",
-    "hint": "Try to complete this without any backspace if possible."
+    "level": "Intermediate",
+    "title": "Left Hand Only – All Rows",
+    "description": "Practice typing with only the left hand.",
+    "text": "qaz wsx edc rfv tgb qwerty asdfg zxcvb qazwsx edcrfv",
+    "hint": "Keep your right hand still; only move left fingers."
   },
   {
     "id": 24,
-    "level": "Advanced",
-    "title": "Fast-paced Sentence Mix",
-    "description": "Multiple sentences with varying lengths to challenge your rhythm.",
-    "text": "Fast typing is impressive, but clear typing is powerful. Short sentences test control. Longer sentences test patience and consistency.",
-    "hint": "Vary your speed slightly but avoid losing control."
+    "level": "Intermediate",
+    "title": "Right Hand Only – All Rows",
+    "description": "Practice typing with only the right hand.",
+    "text": "yhn ujm ik ol p; yuiop hjkl nm,./ yuiop hjkl nm,./",
+    "hint": "Keep your left hand still; only move right fingers."
   },
   {
     "id": 25,
-    "level": "Advanced",
-    "title": "Typing a Mini Article",
-    "description": "Simulate typing a small article-like paragraph for practice.",
-    "text": "In the digital age, typing is a fundamental skill. From writing emails to creating reports, quick and accurate typing helps you work efficiently and communicate clearly with others.",
-    "hint": "Pretend this is a real assignment you must submit."
+    "level": "Intermediate",
+    "title": "Numbers – Top Row Numbers",
+    "description": "Practice the number row (1–0).",
+    "text": "12345 67890 10203 40506 78901 11223 34455 66789 09876",
+    "hint": "Use the correct finger for each number; keep your hands anchored."
   },
   {
     "id": 26,
-    "level": "Advanced",
-    "title": "Mixed Numbers & Words",
-    "description": "Combine words, dates, and simple numbers.",
-    "text": "The meeting starts at 10:30 AM on 15th June. Please bring 2 copies of the report and 1 pen drive with the backup files.",
-    "hint": "Watch out for numbers, colons, and abbreviations."
+    "level": "Intermediate",
+    "title": "Numbers – Common Combinations",
+    "description": "Number patterns with repetition.",
+    "text": "111 222 333 444 555 666 777 888 999 000 123 456 789 012 345",
+    "hint": "Practice each number multiple times to build muscle memory."
   },
   {
     "id": 27,
-    "level": "Advanced",
-    "title": "Symbol-rich Practice",
-    "description": "Frequently used symbols inside real phrases.",
-    "text": "Save the file as report_final_v2.docx and upload it to the shared folder. Use the password: Safe@123 to open the protected sheet.",
-    "hint": "Give extra attention to underscores, dots, and @ symbol."
+    "level": "Intermediate",
+    "title": "Punctuation – Period, Comma, Semicolon",
+    "description": "Use punctuation keys with words.",
+    "text": "Hello, world. Good morning. How are you? I am fine. Thanks.",
+    "hint": "Return to home row after each punctuation key."
   },
   {
     "id": 28,
-    "level": "Advanced",
-    "title": "Story-style Paragraph",
-    "description": "A compact story paragraph for natural-flow practice.",
-    "text": "A soft breeze entered the room as the window opened. The student sat near the desk, practicing typing again and again, determined to cross every previous speed record.",
-    "hint": "Imagine the scene while you type to stay engaged."
+    "level": "Intermediate",
+    "title": "Punctuation – Apostrophe and Slash",
+    "description": "Practice apostrophe and slash keys.",
+    "text": "don't can't won't isn't it's / and/or path/to/file",
+    "hint": "Use the right pinky for apostrophe and slash."
   },
   {
     "id": 29,
-    "level": "Advanced",
-    "title": "Motivational Text",
-    "description": "Practice motivational lines while encouraging yourself.",
-    "text": "You do not need to be perfect to begin. You simply need to start, stay patient, and show up for practice. Every session adds a small layer of improvement.",
-    "hint": "Type with a calm and confident mindset."
+    "level": "Intermediate",
+    "title": "Capital Letters – Shift Key",
+    "description": "Introduce Shift for capital letters.",
+    "text": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z",
+    "hint": "Use the opposite hand's pinky to press Shift and the letter with the other hand."
   },
   {
     "id": 30,
-    "level": "Advanced",
-    "title": "Dialogue-style Text",
-    "description": "Simulate small conversations and quotes.",
-    "text": "\"Can I really type faster?\" the learner asked. \"Yes,\" the mentor replied, \"if you keep practicing without giving up.\"",
-    "hint": "Be careful with quotation marks and commas."
+    "level": "Intermediate",
+    "title": "Capital Letters – Sentences",
+    "description": "Type sentences with proper capitalisation.",
+    "text": "The quick brown fox jumps over the lazy dog. My name is Alice.",
+    "hint": "Press Shift with one hand, type the letter with the other."
   },
   {
     "id": 31,
-    "level": "Advanced",
-    "title": "Exam Simulation Paragraph",
-    "description": "Simulated exam-style paragraph to mimic test conditions.",
-    "text": "During an exam, every second matters. Typing quickly can save precious time, but it is useless without accuracy. Practicing now prepares your mind and hands for that pressure.",
-    "hint": "Imagine you are in a real exam environment."
+    "level": "Intermediate",
+    "title": "Mixed Case Drill",
+    "description": "Alternate between lower and upper case.",
+    "text": "Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz",
+    "hint": "Practice shifting for each pair."
   },
   {
     "id": 32,
-    "level": "Advanced",
-    "title": "Long-form Practice",
-    "description": "Longer block of text to build stamina.",
-    "text": "Long typing sessions test your posture, breathing, focus, and patience. Take short breaks when needed, but always come back with fresh energy to continue learning and improving.",
-    "hint": "Do not rush. Maintain posture and breathe normally."
+    "level": "Intermediate",
+    "title": "Common Phrases",
+    "description": "Everyday phrases with punctuation.",
+    "text": "Thank you very much. Have a nice day. See you later. Good night.",
+    "hint": "Keep a steady flow; don't pause for punctuation."
   },
   {
     "id": 33,
-    "level": "Advanced",
-    "title": "Descriptive Scene Typing",
-    "description": "Type a descriptive passage to improve consistency.",
-    "text": "The sky slowly changed its color from bright blue to a soft orange. People walked home, the street lights turned on, and the sound of keyboards echoed in quiet rooms.",
-    "hint": "Enjoy the imagery as you type the description."
+    "level": "Intermediate",
+    "title": "Short Story – First Paragraph",
+    "description": "A short story paragraph with simple vocabulary.",
+    "text": "One sunny morning, a little girl went to the park. She played on the swings and fed the ducks by the pond. She had a wonderful time.",
+    "hint": "Read ahead while you type to maintain rhythm."
   },
   {
     "id": 34,
-    "level": "Advanced",
-    "title": "Office Scenario Text",
-    "description": "Practice paragraphs based on office communication.",
-    "text": "The team planned a weekly review meeting to discuss progress. Each member shared updates, challenges, and ideas that could make the workflow smoother and more efficient.",
-    "hint": "This type of content appears often in real jobs."
+    "level": "Intermediate",
+    "title": "Dialog – Simple Conversation",
+    "description": "Type a short dialogue with quotation marks.",
+    "text": "\"Hello,\" said Tom. \"Good morning,\" replied Jane. \"How are you?\" \"I am well, thank you.\"",
+    "hint": "Use the right hand for quotation marks (Shift + 2)."
   },
-
   {
     "id": 35,
-    "level": "Expert",
-    "title": "High-focus Practice Paragraph",
-    "description": "Dense text that requires strong concentration and typing control.",
-    "text": "Complex tasks demand not only skill but also mental clarity. When you type for long hours, your ability to stay focused, accurate, and calm becomes a valuable strength.",
-    "hint": "This is about mental focus as much as typing skill."
+    "level": "Intermediate",
+    "title": "Numbers & Words Mix",
+    "description": "Combine numbers and words in sentences.",
+    "text": "I have 3 apples, 5 bananas, and 2 oranges. The price is $10.50.",
+    "hint": "Shift between letters and numbers smoothly."
   },
   {
     "id": 36,
-    "level": "Expert",
-    "title": "Advanced Mixed Content",
-    "description": "Realistic mix of words, numbers, and symbols used in daily work.",
-    "text": "Project ID: CN-2048-AX7. Deadline: 31/12/2025. Please upload all files to drive folder /clients/active and send a confirmation email to support@example.com.",
-    "hint": "Notice slashes, dashes, and email format carefully."
+    "level": "Intermediate",
+    "title": "Email Addresses and URLs",
+    "description": "Practice typing email addresses and web addresses.",
+    "text": "contact@example.com www.typinglab.com https://learn.typing.com",
+    "hint": "Pay attention to dots, slashes, and at symbol."
   },
   {
     "id": 37,
-    "level": "Expert",
-    "title": "Fast Thinking Text",
-    "description": "Text that encourages thinking and typing at the same time.",
-    "text": "As your fingers move faster, your thoughts must also stay ahead. You begin to plan the next word, the next sentence, and even the next idea while typing the current one.",
-    "hint": "Do not overthink individual letters; think in words."
+    "level": "Intermediate",
+    "title": "Medical/Technical Vocabulary",
+    "description": "Common longer words from various fields.",
+    "text": "diagnosis treatment analysis statistical methodology application development",
+    "hint": "Break words into syllables if needed."
   },
   {
     "id": 38,
-    "level": "Expert",
-    "title": "Long Motivational Block",
-    "description": "Deep motivational text for long-form continuous typing.",
-    "text": "Improvement is rarely visible in the beginning. For many days, your speed may feel the same. But underneath that feeling, your fingers are learning patterns and shortcuts that slowly transform your typing ability.",
-    "hint": "Try to complete this in one continuous attempt."
+    "level": "Intermediate",
+    "title": "Sentence Variety",
+    "description": "Mix of statements, questions, exclamations.",
+    "text": "What a beautiful day! Are you ready to begin? Let's go!",
+    "hint": "Use Shift for question marks and exclamation points."
   },
   {
     "id": 39,
-    "level": "Expert",
-    "title": "Mock Test Paragraph",
-    "description": "Use this as a mock test to measure your focus and stamina.",
-    "text": "Set a timer for a few minutes and type this passage as if it were a real test. When the time ends, note your accuracy and observe how your hands and mind feel.",
-    "hint": "Use this often to simulate real typing tests."
+    "level": "Advanced",
+    "title": "Symbols – Shift+Number",
+    "description": "Practice common symbols: @, #, $, %, ^, &, *, (, ).",
+    "text": "@ # $ % ^ & * ( ) _ + { } [ ] | \\ : ; \" ' < > , . ? /",
+    "hint": "Use the correct Shift combination; accuracy over speed."
   },
   {
     "id": 40,
+    "level": "Advanced",
+    "title": "Mixed Symbols in Sentences",
+    "description": "Use symbols in realistic contexts.",
+    "text": "The price is $49.99 (plus tax). Contact me at support@example.com. Use #code.",
+    "hint": "Keep your fingers close to the home row even for symbols."
+  },
+  {
+    "id": 41,
+    "level": "Advanced",
+    "title": "Speed Drill – Repetition",
+    "description": "Repeat common patterns to build speed.",
+    "text": "asdf asdf asdf jkl; jkl; jkl; qwer qwer qwer zxcv zxcv zxcv",
+    "hint": "Try to increase speed while maintaining accuracy."
+  },
+  {
+    "id": 42,
+    "level": "Advanced",
+    "title": "Paragraph – Description",
+    "description": "Descriptive writing practice.",
+    "text": "The old house stood on a hill, surrounded by tall pine trees. Its windows were dark, but a faint light flickered inside.",
+    "hint": "Focus on punctuation and capitalisation."
+  },
+  {
+    "id": 43,
+    "level": "Advanced",
+    "title": "Formal Letter",
+    "description": "Simulate writing a formal letter.",
+    "text": "Dear Sir or Madam, I am writing to express my interest in the position. I have attached my resume for your review.",
+    "hint": "Use proper salutation and closing."
+  },
+  {
+    "id": 44,
+    "level": "Advanced",
+    "title": "Meeting Notes",
+    "description": "Type notes from a fictional meeting.",
+    "text": "Project update: Phase 1 completed on schedule. Next steps: review budget, assign tasks to team members.",
+    "hint": "Use commas, periods, and colons correctly."
+  },
+  {
+    "id": 45,
+    "level": "Advanced",
+    "title": "Marketing Copy",
+    "description": "Write a short advertisement.",
+    "text": "Discover the future of learning. Our platform offers interactive courses, real-time feedback, and progress tracking.",
+    "hint": "Type fluently as if you were reading aloud."
+  },
+  {
+    "id": 46,
+    "level": "Advanced",
+    "title": "Story – Mystery",
+    "description": "A short mystery paragraph.",
+    "text": "The detective studied the footprint. It was too large to be a woman's, and the tread pattern was unusual. A clue, perhaps?",
+    "hint": "Maintain consistent speed throughout."
+  },
+  {
+    "id": 47,
+    "level": "Advanced",
+    "title": "Science Text",
+    "description": "A paragraph about science.",
+    "text": "Photosynthesis is the process by which green plants convert sunlight into chemical energy. This energy is stored in glucose molecules.",
+    "hint": "Keep your wrists relaxed; long words require finger independence."
+  },
+  {
+    "id": 48,
+    "level": "Advanced",
+    "title": "Current Events – News Headline",
+    "description": "Type a news-like paragraph.",
+    "text": "Local community rallies for clean water initiative. Mayor announces new budget for public libraries. Weather forecast: sunny and warm.",
+    "hint": "Pay attention to proper nouns and capital letters."
+  },
+  {
+    "id": 49,
+    "level": "Advanced",
+    "title": "Poetry Excerpt",
+    "description": "Type a poetic line for rhythm.",
+    "text": "The woods are lovely, dark and deep, But I have promises to keep, And miles to go before I sleep.",
+    "hint": "Feel the rhythm of the words as you type."
+  },
+  {
+    "id": 50,
+    "level": "Advanced",
+    "title": "Technical Documentation",
+    "description": "Simulate writing technical instructions.",
+    "text": "To install the software, download the setup file and run it. Follow the on-screen prompts. Restart your computer when done.",
+    "hint": "Use periods and commas clearly."
+  },
+  {
+    "id": 51,
+    "level": "Advanced",
+    "title": "Mixed Numbers and Dates",
+    "description": "Practice dates, times, and percentages.",
+    "text": "The event is on 15/07/2025 at 2:30 PM. We have achieved 85% of our target. Version 3.2.1 is out.",
+    "hint": "Use the correct fingers for numbers and symbols."
+  },
+  {
+    "id": 52,
+    "level": "Advanced",
+    "title": "Complex Sentence Structure",
+    "description": "Long sentences with multiple clauses.",
+    "text": "Although she had practiced for hours, she still felt nervous before the performance, but she took a deep breath and began.",
+    "hint": "Keep your hands relaxed; read ahead to anticipate upcoming words."
+  },
+  {
+    "id": 53,
+    "level": "Expert",
+    "title": "Stamina – Long Paragraph",
+    "description": "A longer text to build endurance.",
+    "text": "In the heart of the city, there was a small bookstore that had been open for decades. The owner knew every title on the shelves. Visitors came not only to buy books but also to hear stories about the authors. It was a place of quiet magic.",
+    "hint": "Maintain a steady, sustainable pace. Do not rush."
+  },
+  {
+    "id": 54,
+    "level": "Expert",
+    "title": "Advanced Punctuation",
+    "description": "Use semi-colons, colons, dashes, and parentheses.",
+    "text": "There are three main points: (1) accuracy, (2) speed, and (3) rhythm – all are essential. We'll practice each; we'll master them.",
+    "hint": "Be precise with punctuation; they affect the meaning."
+  },
+  {
+    "id": 55,
+    "level": "Expert",
+    "title": "Business Email",
+    "description": "Type a professional email with formatting.",
+    "text": "Subject: Quarterly Report Submission. Dear Team, Please find attached the Q3 report. We have met 95% of our targets. Great work!",
+    "hint": "Use capital letters appropriately and punctuate salutations."
+  },
+  {
+    "id": 56,
+    "level": "Expert",
+    "title": "Argumentative Text",
+    "description": "Type a short persuasive paragraph.",
+    "text": "Some argue that remote work reduces collaboration, but studies show that productivity often increases. The key is to maintain clear communication and regular check-ins.",
+    "hint": "Keep a logical flow; your typing should reflect the structure."
+  },
+  {
+    "id": 57,
+    "level": "Expert",
+    "title": "Code Snippet (Pseudocode)",
+    "description": "Type a simple algorithm in plain English.",
+    "text": "function calculateSum(a, b) { return a + b; } let result = calculateSum(5, 7); console.log(result);",
+    "hint": "Pay close attention to braces, parentheses, and semicolons."
+  },
+  {
+    "id": 58,
+    "level": "Expert",
+    "title": "Motivational Speech",
+    "description": "Type a powerful motivational paragraph.",
+    "text": "You have the power to change your life. Every day is a new opportunity to improve. Do not waste it. Start now, and never give up.",
+    "hint": "Type with conviction – let the words motivate you."
+  },
+  {
+    "id": 59,
+    "level": "Expert",
+    "title": "Historical Fact",
+    "description": "Type a historical paragraph.",
+    "text": "In 1969, humans first set foot on the Moon. This achievement was the result of decades of research and millions of people working together.",
+    "hint": "Focus on numbers and proper nouns."
+  },
+  {
+    "id": 60,
+    "level": "Expert",
+    "title": "Complex Dialog",
+    "description": "Multiple speakers with tags.",
+    "text": "\"I don't understand,\" said Maria. \"Let me explain,\" replied John. \"It's quite simple once you see the full picture.\"",
+    "hint": "Use quotation marks and commas correctly."
+  },
+  {
+    "id": 61,
+    "level": "Expert",
+    "title": "Long-form Practice – 2 Minutes",
+    "description": "A longer passage to simulate a timed test.",
+    "text": "The world is changing rapidly, and the ability to learn new skills is more valuable than ever. Typing is a skill that underpins many others. Whether you are a programmer, writer, student, or executive, being able to type quickly and accurately saves time and reduces frustration. This practice session is designed to help you build that automaticity. Focus on your finger placement and try to eliminate hesitation. With consistent effort, you will notice steady improvement. Keep going.",
+    "hint": "Pace yourself; aim for a steady rhythm throughout."
+  },
+  {
+    "id": 62,
     "level": "Expert",
     "title": "Final Challenge",
-    "description": "A final all-round challenge for letters, numbers, and symbols.",
-    "text": "Typing skill is a lifelong asset. Whether you work with code, content, data, or design, your ability to type fast and accurately will always save time and open new opportunities in your career.",
-    "hint": "Treat this as a final practice before your real-world work."
+    "description": "A comprehensive mix of letters, numbers, symbols, and long sentences.",
+    "text": "Your final challenge combines everything: accuracy, speed, punctuation, and rhythm. Type the following without errors: \"The price is $299.99 (including 20% tax) – order by 31/12/2025.\" Then, continue: \"Project status: 90% complete. Remaining tasks: testing, documentation, deployment.\" Finally, write a short reflection on your typing journey so far. What have you learned? How has your speed improved? Keep practicing.",
+    "hint": "This is the ultimate test. Stay calm, use correct finger placement, and aim for 100% accuracy."
   }
 ]

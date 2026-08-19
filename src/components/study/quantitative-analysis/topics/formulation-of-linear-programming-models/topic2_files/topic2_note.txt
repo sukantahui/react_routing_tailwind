@@ -1,0 +1,72 @@
+================================================================================
+TOPIC 2: DECISION VARIABLES
+================================================================================
+
+1. DEFINITION
+-------------
+Decision variables are the unknown quantities that represent the choices available
+to the decision-maker. They are the variables we solve for in a Linear Programming
+model.
+
+Examples:
+- x₁ = number of units of Product A to produce
+- x₂ = number of hours of machine time allocated
+- x₃ = dollars invested in stocks
+
+2. CHARACTERISTICS
+------------------
+- Controllable: The decision-maker can choose their values.
+- Measurable: They have clear units and interpretation.
+- Non-negative: Usually require x ≥ 0 (unless a free variable is specified).
+- Linear: They appear only to the first power and are not multiplied together.
+
+3. ROLE IN LP MODEL
+--------------------
+Decision variables connect the objective function and the constraints:
+- Objective function: Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+- Constraints: a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≤ b₁
+- Non-negativity: x₁ ≥ 0, x₂ ≥ 0, ...
+
+4. HOW TO DEFINE DECISION VARIABLES
+------------------------------------
+- Be explicit: "Let x = number of units of product P".
+- Include units: e.g., kilograms, hours, dollars.
+- Use subscripts for multiple variables: x₁, x₂, ... or x_A, x_B.
+- Ensure each variable represents a distinct activity.
+- Avoid vagueness; write a clear definition before writing any equations.
+
+5. COMMON MISTAKES
+-------------------
+- Vague definitions (e.g., just "x" without meaning).
+- Using too many or too few variables.
+- Forgetting non-negativity constraints.
+- Mixing variables with parameters (fixed values).
+- Not checking if the variable values make sense in the real world.
+
+6. BEST PRACTICES
+------------------
+- List all variables at the start of the model.
+- Include units in every definition.
+- Use consistent notation (e.g., x₁, x₂, ...).
+- Test with extreme values (0, large numbers) to validate.
+- Review definitions with others for clarity.
+
+7. EXAMPLES FROM DIFFERENT DOMAINS
+-----------------------------------
+Domain          Variables                                          Objective
+Production      x₁ = units of Product A, x₂ = units of Product B   Maximize profit
+Diet            x₁ = servings of food 1, x₂ = servings of food 2  Minimize cost
+Investment      x₁ = dollars in stocks, x₂ = dollars in bonds     Maximize return
+Transportation  x_{ij} = units shipped from i to j                Minimize shipping cost
+Advertising     x₁ = TV spend, x₂ = digital spend                 Maximize reach
+
+8. SUMMARY
+-----------
+Decision variables are the building blocks of every LP model. A clear, well-defined
+set of variables is essential for correct formulation and interpretation.
+
+"Think about: If you can't define your variables clearly, you can't solve the problem."
+
+================================================================================
+End of Topic 2 Notes
+================================================================================

@@ -1,0 +1,736 @@
+{
+  "trackId": "quantitative-analysis-llm104",
+  "trackTitle": "Quantitative Analysis (LLM Semester I)",
+  "description": "A complete Quantitative Analysis course covering Linear Programming, Transportation Problems, Assignment Problems, CPM/PERT, and Game Theory for Master of Law students.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal, India",
+    "trackType": "Quantitative Analysis Tutorial",
+    "version": "1.0.0"
+  },
+  "folder": "quantitative-analysis",
+  "subject": "Quantitative Analysis",
+  "subjectCode": "LLM104",
+  "course": {
+    "program": "Master of Law",
+    "semester": "Semester-I",
+    "academicYear": "2026",
+    "credits": 4,
+    "weeklyContactHours": "4L",
+    "totalAllottedHours": 60,
+    "prerequisites": [
+      "Basic ideas about linear programming",
+      "Basic plotting of graphs",
+      "Linear Algebra",
+      "Vector Calculus"
+    ]
+  },
+  "segments": [
+    {
+      "segmentId": "linear-programming",
+      "title": "Segment 1 – Linear Programming Problems",
+      "level": "Beginner-Intermediate",
+      "allocatedHours": 15,
+      "modules": [
+        {
+          "moduleId": "lp-model-formulation",
+          "slug": "formulation-of-linear-programming-models",
+          "title": "Formulation of Linear Programming Models",
+          "estimatedHours": 3,
+          "topics": [
+            "Introduction to Linear Programming",
+            "Meaning and purpose of Linear Programming",
+            "Decision variables",
+            "Objective function",
+            "Constraints",
+            "Non-negativity restrictions",
+            "Step-by-step procedure for formulating an LP model",
+            "Worked Example 1: Simple production problem",
+            "Worked Example 2: Product-mix problem",
+            "Worked Example 3: Profit maximization with two products",
+            "Worked Example 4: Resource allocation problem",
+            "Worked Example 5: Labour and machine-hour constraints",
+            "Worked Example 6: Raw-material constraint problem",
+            "Worked Example 7: Cost minimization problem",
+            "Worked Example 8: Diet and nutrition problem",
+            "Worked Example 9: Advertising budget allocation problem",
+            "Worked Example 10: Investment allocation problem",
+            "Worked Example 11: Transportation-related production problem",
+            "Worked Example 12: Workforce allocation problem",
+            "Worked Example 13: Land and crop allocation problem",
+            "Worked Example 14: Agricultural production problem",
+            "Worked Example 15: Blending problem",
+            "Worked Example 16: Capacity planning problem",
+            "Worked Example 17: Problem involving multiple resource constraints",
+            "Worked Example 18: Problem involving minimum production requirements",
+            "Worked Example 19: Problem involving maximum production limits",
+            "Worked Example 20: Problem involving both minimum and maximum requirements",
+            "Worked Example 21: Maximization problem from a social context",
+            "Worked Example 22: Minimization problem from a social context",
+            "Worked Example 23: Legal-service resource allocation problem",
+            "Worked Example 24: Public resource allocation problem",
+            "Identifying decision variables in complex word problems",
+            "Translating verbal conditions into mathematical inequalities",
+            "Distinguishing objective functions from constraints",
+            "Checking a formulated LP model",
+            "Interpreting the meaning of variables and constraints",
+            "Maximization and minimization problems",
+            "Social and practical applications of Linear Programming",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the basic concepts of Linear Programming",
+            "Identify decision variables, objective functions, and constraints",
+            "Formulate real-world problems as LP models"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "lp-graphical-solution",
+          "slug": "graphical-lp-solution",
+          "title": "Graphical LP Solution",
+          "estimatedHours": 3,
+          "topics": [
+            "Graphical representation of linear inequalities",
+            "Plotting constraints on a coordinate plane",
+            "Understanding the x-axis and y-axis",
+            "Identifying the origin and coordinate points",
+            "Finding x-intercepts and y-intercepts",
+            "Plotting a straight-line constraint",
+            "Testing a point to determine the feasible side of a constraint",
+            "Shading the appropriate half-plane",
+            "Graphical representation of non-negativity restrictions",
+            "Plotting multiple constraints on the same graph",
+            "Finding the common feasible region",
+            "Feasible region",
+            "Bounded and unbounded feasible regions",
+            "Corner points and extreme points",
+            "Finding corner points from the graph",
+            "Finding corner points algebraically",
+            "Intersection of two constraint lines",
+            "Determining whether a point satisfies all constraints",
+            "Checking feasibility of corner points",
+            "Graphical interpretation of the objective function",
+            "Objective function line",
+            "Iso-profit line",
+            "Iso-cost line",
+            "Slope of the objective function",
+            "Moving the objective function line parallel to itself",
+            "Finding the maximum value graphically",
+            "Finding the minimum value graphically",
+            "Corner-point principle",
+            "Worked Example 1: Simple two-variable maximization problem",
+            "Worked Example 2: Maximization with two resource constraints",
+            "Worked Example 3: Maximization with three or more constraints",
+            "Worked Example 4: Profit maximization product-mix problem",
+            "Worked Example 5: Resource allocation problem",
+            "Worked Example 6: Labour and machine-hour constraint problem",
+            "Worked Example 7: Production planning problem",
+            "Worked Example 8: Advertising budget allocation problem",
+            "Worked Example 9: Investment allocation problem",
+            "Worked Example 10: Agricultural production problem",
+            "Worked Example 11: Simple minimization problem",
+            "Worked Example 12: Cost minimization with resource requirements",
+            "Worked Example 13: Diet and nutrition minimization problem",
+            "Worked Example 14: Minimum-cost production problem",
+            "Evaluating the objective function at corner points",
+            "Comparing objective-function values",
+            "Selecting the optimal corner point",
+            "Determining the optimal values of decision variables",
+            "Determining the maximum profit",
+            "Determining the minimum cost",
+            "Multiple optimal solutions",
+            "Identifying alternate optimal solutions graphically",
+            "Objective function parallel to a boundary edge",
+            "Infinite optimal solutions",
+            "Infeasible LP problems",
+            "Identifying an empty feasible region",
+            "Worked Example 15: Infeasible graphical LP problem",
+            "Unbounded LP problems",
+            "Identifying an unbounded feasible region",
+            "Worked Example 16: Unbounded maximization problem",
+            "Worked Example 17: Unbounded minimization problem",
+            "Redundant constraints",
+            "Identifying redundant constraints graphically",
+            "Effect of redundant constraints on the feasible region",
+            "Binding and non-binding constraints",
+            "Identifying binding constraints at the optimal solution",
+            "Slack in a constraint",
+            "Interpreting unused resources graphically",
+            "Special cases in graphical LP",
+            "Unique optimal solution",
+            "Multiple optimal solutions",
+            "Infeasible solution",
+            "Unbounded solution",
+            "Redundant constraints",
+            "Sensitivity interpretation from graphical solutions",
+            "Effect of changing a resource constraint",
+            "Effect of changing objective-function coefficients",
+            "Effect of shifting a constraint line",
+            "Graphical interpretation of resource availability",
+            "Legal-service resource allocation problem",
+            "Public resource allocation problem",
+            "Social-resource optimization problem",
+            "Practical applications of graphical LP",
+            "Step-by-step procedure for solving LP graphically",
+            "Common mistakes in graphical LP",
+            "Checking a graphical solution",
+            "Interpreting graphical LP solutions",
+            "Practice Problems",
+            "Numerical Exercises",
+            "Unsolved Problems",
+            "Exam-style Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Plot LP constraints correctly",
+            "Identify feasible and infeasible regions",
+            "Find corner points graphically and algebraically",
+            "Solve two-variable maximization and minimization problems graphically",
+            "Determine optimal solutions using the corner-point principle",
+            "Recognize unique, alternate, infeasible, and unbounded solutions",
+            "Identify binding, non-binding, and redundant constraints",
+            "Interpret graphical LP solutions in practical and social contexts"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "lp-formulation-exercises",
+          "slug": "formulation-exercises-on-lp-problems",
+          "title": "Formulation Exercises on LP Problems",
+          "estimatedHours": 2,
+          "topics": [
+            "Product-mix problems",
+            "Resource allocation problems",
+            "Profit maximization problems",
+            "Cost minimization problems",
+            "Translating verbal conditions into mathematical constraints",
+            "Identifying redundant and essential constraints",
+            "Practice problems on LP formulation",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Translate practical problems into LP models",
+            "Recognize appropriate objective functions and constraints",
+            "Build confidence through formulation exercises"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "lp-graphical-method",
+          "slug": "graphical-method-of-solving-lp",
+          "title": "Graphical Method of Solving LP",
+          "estimatedHours": 2,
+          "topics": [
+            "Graphical solution procedure",
+            "Finding intercepts",
+            "Plotting constraint lines",
+            "Determining the feasible region",
+            "Evaluating the objective function at corner points",
+            "Optimal solution and alternate optimal solutions",
+            "Special cases in graphical LP",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Apply the graphical method systematically",
+            "Determine optimal solutions using corner-point analysis",
+            "Interpret special cases in graphical LP"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "simplex-big-m",
+          "slug": "simplex-artificial-variables-big-m-method",
+          "title": "Simplex Method, Artificial Variables & Big-M Method",
+          "estimatedHours": 4,
+          "topics": [
+            "Need for the Simplex Method",
+            "Standard form of an LP problem",
+            "Slack variables",
+            "Surplus variables",
+            "Artificial variables",
+            "Initial Simplex tableau",
+            "Entering and leaving variables",
+            "Pivot element",
+            "Iteration procedure",
+            "Optimality condition",
+            "Big-M Method",
+            "Maximization and minimization using Simplex/Big-M",
+            "Numerical problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the logic of the Simplex Method",
+            "Convert LP models into standard form",
+            "Use artificial variables where required",
+            "Solve suitable LP problems using the Big-M Method"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "duality",
+          "slug": "duality-in-linear-programming",
+          "title": "Duality",
+          "estimatedHours": 1,
+          "topics": [
+            "Concept of primal and dual problems",
+            "Formation of the dual problem",
+            "Relationship between primal and dual",
+            "Economic interpretation of duality",
+            "Basic duality properties",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the concept of duality",
+            "Form a dual problem from a primal LP",
+            "Understand the relationship between primal and dual solutions"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "transportation-problems",
+      "title": "Segment 2 – Transportation Problems",
+      "level": "Intermediate",
+      "allocatedHours": 20,
+      "modules": [
+        {
+          "moduleId": "transportation-formulation",
+          "slug": "formulation-of-transportation-problems",
+          "title": "Formulation of Transportation Problems",
+          "estimatedHours": 3,
+          "topics": [
+            "Introduction to Transportation Problems",
+            "Transportation model",
+            "Sources and destinations",
+            "Supply and demand",
+            "Transportation cost matrix",
+            "Balanced transportation problem",
+            "Unbalanced transportation problem",
+            "Dummy source and dummy destination",
+            "Formulation of transportation tables",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the structure of a transportation problem",
+            "Construct transportation tables",
+            "Differentiate balanced and unbalanced transportation problems"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "north-west-corner-rule",
+          "slug": "north-west-corner-rule",
+          "title": "North-West Corner Rule",
+          "estimatedHours": 3,
+          "topics": [
+            "Purpose of an initial basic feasible solution",
+            "North-West Corner Rule",
+            "Step-by-step allocation procedure",
+            "Handling exhausted supply and demand",
+            "Transportation cost calculation",
+            "Degeneracy in transportation problems",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Find an initial basic feasible solution using the North-West Corner Rule",
+            "Calculate the transportation cost",
+            "Recognize basic degeneracy situations"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "matrix-minima-method",
+          "slug": "matrix-minima-method",
+          "title": "Matrix Minima Method",
+          "estimatedHours": 3,
+          "topics": [
+            "Least-cost allocation concept",
+            "Matrix Minima Method",
+            "Selecting the minimum cost cell",
+            "Allocation procedure",
+            "Updating supply and demand",
+            "Calculating initial transportation cost",
+            "Comparison with North-West Corner Rule",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Construct an initial solution using the Matrix Minima Method",
+            "Apply least-cost allocation systematically",
+            "Compare different initial feasible solutions"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "vogel-approximation-method",
+          "slug": "vogel-approximation-method",
+          "title": "Vogel Approximation Method",
+          "estimatedHours": 5,
+          "topics": [
+            "Concept of penalty",
+            "Row and column penalties",
+            "Selecting the highest penalty",
+            "Allocation using the least-cost cell",
+            "Updating penalties after allocation",
+            "Complete VAM procedure",
+            "Balanced and unbalanced examples",
+            "Degeneracy considerations",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Calculate row and column penalties",
+            "Construct an initial transportation solution using VAM",
+            "Understand why VAM often produces a good initial solution"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "modi-optimality",
+          "slug": "test-of-optimality-by-modi-method",
+          "title": "Test of Optimality by the MODI Method",
+          "estimatedHours": 6,
+          "topics": [
+            "Need for testing optimality",
+            "MODI method overview",
+            "u-v variables",
+            "Calculating opportunity costs",
+            "Optimality condition",
+            "Identifying entering cells",
+            "Closed loops",
+            "Plus-minus allocation pattern",
+            "Improving the transportation solution",
+            "Repeated MODI iterations",
+            "Final minimum transportation cost",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Test a transportation solution for optimality",
+            "Calculate u-v values and opportunity costs",
+            "Improve a non-optimal transportation solution",
+            "Determine the minimum transportation cost"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "assignment-problems",
+      "title": "Segment 3 – Assignment Problems",
+      "level": "Intermediate",
+      "allocatedHours": 5,
+      "modules": [
+        {
+          "moduleId": "hungarian-method",
+          "slug": "hungarian-method-for-assignment-problems",
+          "title": "Hungarian Method for Solving Assignment Problems",
+          "estimatedHours": 5,
+          "topics": [
+            "Introduction to Assignment Problems",
+            "Assignment model",
+            "One-to-one allocation",
+            "Cost matrix",
+            "Balanced assignment problems",
+            "Unbalanced assignment problems",
+            "Adding dummy rows or columns",
+            "Hungarian Method",
+            "Row reduction",
+            "Column reduction",
+            "Covering zeros",
+            "Making additional reductions when necessary",
+            "Selecting independent zeros",
+            "Determining the optimal assignment",
+            "Minimization problems",
+            "Conversion of maximization problems",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Formulate assignment problems",
+            "Apply the Hungarian Method step by step",
+            "Solve minimization and suitable maximization assignment problems",
+            "Interpret the final optimal assignment"
+          ],
+          "difficulty": "Medium-Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "cpm-pert",
+      "title": "Segment 4 – Critical Path Method & PERT",
+      "level": "Intermediate",
+      "allocatedHours": 5,
+      "modules": [
+        {
+          "moduleId": "cpm-pert",
+          "slug": "critical-path-method-and-pert",
+          "title": "Critical Path Method (CPM) & PERT",
+          "estimatedHours": 5,
+          "topics": [
+            "Meaning of project network analysis",
+            "Assumptions of CPM/PERT",
+            "Activity, task or job",
+            "Event, node or connector",
+            "Network or arrow diagram",
+            "Working methodology of Critical Path Analysis",
+            "Earliest event times",
+            "Latest event times",
+            "Critical activities",
+            "Critical path",
+            "Project duration",
+            "Basic PERT concept",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify activities and events in a project",
+            "Construct basic network or arrow diagrams",
+            "Determine the critical path",
+            "Calculate project completion time using CPM",
+            "Understand the basic idea of PERT"
+          ],
+          "difficulty": "Medium-Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "game-theory",
+      "title": "Segment 5 – Introduction to Game Theory",
+      "level": "Intermediate-Advanced",
+      "allocatedHours": 15,
+      "modules": [
+        {
+          "moduleId": "game-theory-basics",
+          "slug": "payoff-matrix-two-person-zero-sum-game",
+          "title": "Payoff Matrix & Two-Person Zero-Sum Game",
+          "estimatedHours": 2,
+          "topics": [
+            "Introduction to Game Theory",
+            "Players and strategies",
+            "Payoff concept",
+            "Payoff matrix",
+            "Two-person zero-sum game",
+            "Interpretation of payoff entries",
+            "Formulating simple game matrices",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Understand the basic terminology of Game Theory",
+            "Construct and interpret payoff matrices",
+            "Explain two-person zero-sum games"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "pure-strategy-saddle-point",
+          "slug": "pure-strategy-and-saddle-point",
+          "title": "Pure Strategy & Saddle Point",
+          "estimatedHours": 2,
+          "topics": [
+            "Pure strategy",
+            "Maximin principle",
+            "Minimax principle",
+            "Saddle point",
+            "Value of the game",
+            "Optimal pure strategies",
+            "Numerical examples",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify pure strategies",
+            "Calculate maximin and minimax values",
+            "Determine whether a saddle point exists",
+            "Find the value of a game with a saddle point"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "dominance-rule",
+          "slug": "dominance-rule-in-game-theory",
+          "title": "Dominance Rule",
+          "estimatedHours": 2,
+          "topics": [
+            "Concept of dominance",
+            "Dominant and dominated strategies",
+            "Row dominance",
+            "Column dominance",
+            "Reduction of payoff matrices",
+            "Solving games using dominance",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify dominated strategies",
+            "Reduce a payoff matrix using dominance",
+            "Simplify larger games before solving them"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "mixed-strategy",
+          "slug": "mixed-strategy",
+          "title": "Mixed Strategy",
+          "estimatedHours": 3,
+          "topics": [
+            "Need for mixed strategies",
+            "Probability distribution over strategies",
+            "Expected payoff",
+            "Mixed strategy solution for 2×2 games",
+            "Determining optimal probabilities",
+            "Finding the value of the game",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain mixed strategies",
+            "Calculate optimal mixed strategies for simple games",
+            "Determine the expected value of a game"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "game-reduction",
+          "slug": "reduction-of-mxn-game",
+          "title": "Reduction of m×n Games",
+          "estimatedHours": 3,
+          "topics": [
+            "Need for reducing larger payoff matrices",
+            "Reduction of m×n games",
+            "Use of dominance for reduction",
+            "Reduction to 2×2 games",
+            "Reduction to 2×n and m×2 cases",
+            "Interpreting the reduced game",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Reduce larger games using appropriate methods",
+            "Recognize when a game can be reduced to a smaller matrix",
+            "Prepare a reduced game for further solution"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "game-graphical-algebraic",
+          "slug": "rx2-cases-graphical-and-algebraic-methods",
+          "title": "2×n and m×2 Cases: Graphical & Algebraic Methods",
+          "estimatedHours": 3,
+          "topics": [
+            "2×n games",
+            "m×2 games",
+            "Graphical method",
+            "Plotting strategy lines",
+            "Finding the optimal mixed strategy graphically",
+            "Algebraic method",
+            "Solving equations for optimal probabilities",
+            "Determining the value of the game",
+            "Numerical exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Solve suitable 2×n and m×2 games graphically",
+            "Solve suitable games using algebraic methods",
+            "Interpret optimal strategies and game value"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    }
+  ],
+  "courseOutcomes": [
+    {
+      "code": "CO1",
+      "description": "Remember and understand Linear Programming problems and their social applications.",
+      "mappedModules": [
+        "M1"
+      ],
+      "learningLevels": [
+        "K1",
+        "K2"
+      ]
+    },
+    {
+      "code": "CO2",
+      "description": "Interpret and develop Transportation problems in social science and analysis of social issues.",
+      "mappedModules": [
+        "M2"
+      ],
+      "learningLevels": [
+        "K2",
+        "K3"
+      ]
+    },
+    {
+      "code": "CO3",
+      "description": "Interpret and develop social and ethical issues through understanding Assignments and PERT problems.",
+      "mappedModules": [
+        "M3",
+        "M4"
+      ],
+      "learningLevels": [
+        "K2",
+        "K3"
+      ]
+    },
+    {
+      "code": "CO4",
+      "description": "Analyze and interpret socio-legal problems by applying knowledge of Game Theory.",
+      "mappedModules": [
+        "M5"
+      ],
+      "learningLevels": [
+        "K4",
+        "K5"
+      ]
+    }
+  ],
+  "recommendedLearningOrder": [
+    "lp-model-formulation",
+    "lp-graphical-solution",
+    "lp-formulation-exercises",
+    "lp-graphical-method",
+    "simplex-big-m",
+    "duality",
+    "transportation-formulation",
+    "north-west-corner-rule",
+    "matrix-minima-method",
+    "vogel-approximation-method",
+    "modi-optimality",
+    "hungarian-method",
+    "cpm-pert",
+    "game-theory-basics",
+    "pure-strategy-saddle-point",
+    "dominance-rule",
+    "mixed-strategy",
+    "game-reduction",
+    "game-graphical-algebraic"
+  ],
+  "assessment": {
+    "type": "Concepts + Numerical Problems + Module Tests",
+    "recommendedPractice": [
+      "Short Questions",
+      "Solved Numerical Problems",
+      "Unsolved Numerical Problems",
+      "Previous/Exam-style Problems"
+    ]
+  },
+  "textBooks": [
+    "Quantitative Management, N. D. Vohra, Tata McGraw-Hill.",
+    "Operations Research, P. K. Gupta, Man Mohan, Kanti Swarup, Sultan Chand.",
+    "Operations Research, V. K. Kapoor, Sultan Chand & Sons.",
+    "Operations Research Theory & Applications, J. K. Sharma, Macmillan India Limited.",
+    "Linear Programming and Theory of Games, Ghosh and Chakraborty, Central Book Agency."
+  ],
+  "referenceBooks": [
+    "Operations Research, Paneer Selvam, PHI, 2nd edition.",
+    "Operations Research, Hillier & Lieberman, TMH 10th edition (2017).",
+    "A Textbook of Engineering Operations Research, Dipak Kumar Jana, Tapan Kumar Roy, Chhaya Prakashani."
+  ]
+}

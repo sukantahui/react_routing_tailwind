@@ -1,0 +1,96 @@
+===============================================================================
+PLOTTING MULTIPLE CONSTRAINTS ON THE SAME GRAPH
+===============================================================================
+
+TOPIC 9 – COMBINING ALL LIMITATIONS
+
+-------------------------------------------------------------------------------
+1. WHY PLOT MULTIPLE CONSTRAINTS?
+-------------------------------------------------------------------------------
+In real-world LP problems, there are multiple constraints — resources,
+budgets, time, minimum requirements — all acting simultaneously.
+
+- Each constraint is a rule that must be followed.
+- The feasible solution must satisfy ALL rules.
+- Plotting multiple constraints shows where all rules are followed.
+
+Key idea: The feasible region is where ALL constraints are satisfied together.
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP: PLOTTING MULTIPLE CONSTRAINTS
+-------------------------------------------------------------------------------
+STEP 1: List all constraints.
+  - Write down every constraint from the problem.
+  - Include non-negativity: x ≥ 0, y ≥ 0.
+
+STEP 2: Plot each constraint.
+  - For each: find intercepts, decide line type, shade.
+  - Use a consistent scale for all.
+
+STEP 3: Use color coding.
+  - Assign different colors to each constraint.
+  - This makes identification and overlap easier.
+
+STEP 4: Find the overlap.
+  - The feasible region is where ALL shaded areas overlap.
+
+-------------------------------------------------------------------------------
+3. TIPS FOR MANAGING MULTIPLE CONSTRAINTS
+-------------------------------------------------------------------------------
+✓ Use different colors for each constraint.
+✓ Use light shading so overlaps are visible.
+✓ Label each line with its equation.
+✓ Plot non-negativity constraints first.
+✓ Work systematically, one constraint at a time.
+✓ Use the intercept method for speed.
+
+-------------------------------------------------------------------------------
+4. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Missing a constraint (especially non-negativity).
+✗ Using inconsistent line types (solid/dashed).
+✗ Dark shading that hides the feasible region.
+✗ Not labeling constraints on the graph.
+✗ Plotting constraints in different scales.
+✗ Forgetting to check if a point satisfies ALL constraints.
+
+-------------------------------------------------------------------------------
+5. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Plot constraints in order of complexity (non-negativity first).
+✓ Use different colors or patterns for each constraint.
+✓ Light shading helps see overlaps clearly.
+✓ Label each line with its equation.
+✓ Double-check that all constraints are included.
+✓ The feasible region is often a polygon — identify its vertices.
+
+-------------------------------------------------------------------------------
+6. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Production planning: machine hours, labor, materials, minimum production.
+- Resource allocation: budget, time, quality score.
+- Student schedule: study, sleep, work, social time.
+- Diet planning: calories, protein, carbs, cost.
+
+-------------------------------------------------------------------------------
+7. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can list all constraints from a problem.
+☐ I can plot each constraint on the same graph.
+☐ I can identify the overlapping feasible region.
+☐ I can use color coding to distinguish constraints.
+☐ I know how to handle multiple inequalities.
+☐ I can verify if a point satisfies all constraints.
+
+-------------------------------------------------------------------------------
+8. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can plot multiple constraints, you're ready to find the common
+feasible region (Topic 10). This will combine everything you've learned
+and prepare you for evaluating corner points.
+
+Remember: The feasible region is where all rules are followed.
+
+===============================================================================
+END OF NOTES
+===============================================================================

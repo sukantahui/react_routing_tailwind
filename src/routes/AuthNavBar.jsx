@@ -163,6 +163,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
     { to: "/unix/roadmap", key: "unix", label: "UNIX", icon: "bi-terminal" },
     { to: "/react/roadmap", key: "react", label: "React", icon: "bi-filetype-js" },
     { to: "/network/roadmap", key: "network", label: "Network", icon: "bi-diagram-3" },
+    { to: "/rdbms-mysql/roadmap", key: "rdbms", label: "Rdbms", icon: "bi-diagram-3" },
     ...(isDev ? [{ to: "/node/roadmap", key: "node", label: "Node.js", icon: "bi-node" }] : []),
     { to: "/java-web/roadmap", key: "java-web", label: "Java Web", icon: "bi-globe" },
   ];

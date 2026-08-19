@@ -1,0 +1,128 @@
+================================================================================
+TOPIC 4: CONSTRAINTS
+================================================================================
+
+1. DEFINITION
+-------------
+Constraints are linear inequalities or equalities that restrict the values of
+decision variables. They represent the limitations, requirements, or boundaries
+of the problem—what you CAN or CANNOT do.
+
+General form:
+a₁₁x₁ + a₁₂x₂ + ... + a₁ₙxₙ ≤ b₁
+a₂₁x₁ + a₂₂x₂ + ... + a₂ₙxₙ ≥ b₂
+a₃₁x₁ + a₃₂x₂ + ... + a₃ₙxₙ = b₃
+
+Where:
+- aᵢⱼ are coefficients (resource usage per unit)
+- xⱼ are decision variables
+- bᵢ are the limits (available resources, minimum requirements, etc.)
+
+2. PURPOSE
+-----------
+- Define the feasible region: the set of all possible solutions.
+- Ensure solutions are realistic and respect real-world limitations.
+- Prevent unrealistic or impossible solutions.
+- Model resource constraints, demand requirements, and policy rules.
+
+3. TYPES OF CONSTRAINTS
+------------------------
+a) ≤ (Less than or equal to):
+   - Resource capacity (e.g., labor hours ≤ 40)
+   - Budget limits (e.g., total cost ≤ $10,000)
+   - Maximum production limits (e.g., x₁ ≤ 100)
+
+b) ≥ (Greater than or equal to):
+   - Minimum requirements (e.g., demand ≥ 50 units)
+   - Nutritional needs (e.g., protein ≥ 20g)
+   - Service levels (e.g., staffing ≥ 5 employees)
+
+c) = (Equality):
+   - Conservation laws (e.g., total weight = 100 kg)
+   - Balance equations (e.g., inflow = outflow)
+   - Exact requirements (e.g., x₁ + x₂ = 200)
+
+4. CHARACTERISTICS
+-------------------
+- Linear: Variables appear only to the first power, multiplied by constants.
+- Independent: Each constraint defines a half-space or plane.
+- Bounded: Together, constraints form a bounded or unbounded feasible region.
+- Additive: Total resource usage is the sum of individual contributions.
+
+5. FORMULATION STEPS
+---------------------
+Step 1: List all limiting factors (resources, demands, policies).
+Step 2: For each factor, identify which variables consume or contribute.
+Step 3: Write the usage per unit (coefficients).
+Step 4: Determine the limit (RHS).
+Step 5: Choose inequality direction (≤, ≥, =) based on wording.
+Step 6: Combine: sum(usage × variable) ≤ limit.
+
+6. COMMON MISTAKES
+-------------------
+- Using wrong inequality direction (≤ vs ≥).
+- Forgetting to include a constraint.
+- Inconsistent units (e.g., hours vs minutes).
+- Misplacing coefficients (resource usage per unit).
+- Overlooking implicit constraints (e.g., production ≤ demand).
+- Creating conflicting constraints that lead to infeasibility.
+
+7. BEST PRACTICES
+------------------
+- List all constraints explicitly before writing equations.
+- Write each constraint on a new line with a descriptive label.
+- Ensure units are consistent on both sides.
+- Check that RHS is non-negative; multiply by -1 if needed.
+- Test with a feasible point to validate all constraints.
+- Review constraints with stakeholders to confirm accuracy.
+
+8. TIPS & TRICKS (PROFESSIONAL)
+-------------------------------
+- Start with resource constraints; they are the most common.
+- Look for "at least" (≥) and "at most" (≤) signals in the problem.
+- For equality constraints, check if conservation or balance is involved.
+- Redundant constraints can be removed; check if they affect the feasible region.
+- If a constraint seems too tight, check if you've misinterpreted the units.
+- Use the same variable names consistently across all constraints.
+
+9. KEY TAKEAWAYS
+-----------------
+- Constraints define what is possible; the objective defines what is desired.
+- The feasible region is the intersection of all constraint half-spaces.
+- A binding constraint is one that is tight at the optimal solution.
+- Slack variables convert ≤ constraints to equalities.
+- Surplus variables convert ≥ constraints to equalities.
+
+10. REAL-WORLD EXAMPLES
+------------------------
+a) Manufacturing:
+   Labor: 2x₁ + 3x₂ ≤ 40 hours
+   Material: 4x₁ + 2x₂ ≤ 60 kg
+   Demand: x₁ ≥ 5 units
+
+b) Diet Planning:
+   Calories: 100x₁ + 150x₂ ≥ 2000 kcal
+   Protein: 10x₁ + 20x₂ ≥ 50g
+   Servings: x₁ + x₂ ≤ 5
+
+c) Investment:
+   Budget: x₁ + x₂ + x₃ ≤ 100,000
+   Risk: 0.2x₁ + 0.3x₂ + 0.1x₃ ≤ 20,000
+   Return: 0.05x₁ + 0.07x₂ + 0.04x₃ ≥ 6,000
+
+d) Transportation:
+   Supply: x₁₁ + x₁₂ ≤ 100 (from source 1)
+   Demand: x₁₁ + x₂₁ ≥ 80 (at destination 1)
+
+11. SUMMARY
+------------
+Constraints are the rules of the game. They tell the model what is allowed and
+what is not. Without them, the problem has no realistic solution. The art of LP
+formulation lies in correctly translating verbal conditions into mathematical
+inequalities.
+
+"Think about: What limits your choices? Those are your constraints."
+
+================================================================================
+End of Topic 4 Notes
+================================================================================

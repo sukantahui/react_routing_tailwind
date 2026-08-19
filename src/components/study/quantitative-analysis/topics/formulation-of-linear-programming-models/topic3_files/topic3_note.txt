@@ -1,0 +1,94 @@
+================================================================================
+TOPIC 3: OBJECTIVE FUNCTION
+================================================================================
+
+1. DEFINITION
+-------------
+The objective function is a linear expression that defines the goal of the Linear
+Programming problem. It is the quantity to be maximized or minimized.
+
+Form: Z = c₁x₁ + c₂x₂ + ... + cₙxₙ
+- Z = objective value
+- cᵢ = coefficients (profit, cost, etc.) per unit of variable xᵢ
+- xᵢ = decision variables
+
+2. PURPOSE
+-----------
+The objective function quantifies the decision‑maker's goal:
+- Maximize: profit, revenue, efficiency, reach, utility, etc.
+- Minimize: cost, time, risk, waste, distance, etc.
+
+It provides a single measure to evaluate and compare feasible solutions.
+
+3. CHARACTERISTICS
+-------------------
+- Linear: each variable appears only to the first power, multiplied by a constant.
+- Single objective: only one objective function per LP model.
+- Coefficients are constants (known with certainty).
+- Independent of constraints, but evaluated within the feasible region.
+
+4. EXAMPLES FROM REAL LIFE
+---------------------------
+a) Manufacturing – Maximize profit:
+   Max Z = 5x₁ + 3x₂   (profit per unit of products A and B)
+
+b) Diet planning – Minimize cost:
+   Min Z = 2x₁ + 3x₂   (cost per serving of foods 1 and 2)
+
+c) Investment – Maximize return:
+   Max Z = 0.08x₁ + 0.06x₂   (expected returns on stocks and bonds)
+
+d) Transportation – Minimize shipping cost:
+   Min Z = 5x₁₁ + 7x₁₂ + 4x₂₁ + ...   (cost per unit shipped)
+
+e) Advertising – Maximize reach:
+   Max Z = 1.2x₁ + 0.8x₂   (reach per dollar on TV and digital)
+
+5. HOW TO FORMULATE THE OBJECTIVE FUNCTION
+--------------------------------------------
+Step 1: Identify the goal – maximize or minimize?
+Step 2: Determine what contributes to that goal (each decision variable).
+Step 3: Assign a coefficient (contribution per unit) to each variable.
+Step 4: Write the linear expression.
+Step 5: Prepend "Maximize" or "Minimize".
+
+6. TIPS & TRICKS (PROFESSIONAL)
+--------------------------------
+- Always write the objective first, before constraints.
+- Use meaningful variable names (e.g., profit_A, cost_B) to make it self‑explanatory.
+- Check units: all coefficients must be in the same unit (dollars, hours, etc.).
+- If minimizing, you can multiply by -1 to convert to maximization for some solvers.
+- Validate with simple values: plug in feasible numbers to see if the objective makes sense.
+
+7. COMMON MISTAKES
+-------------------
+- Forgetting the objective entirely – then you have only constraints.
+- Using non‑linear terms (e.g., x₁², x₁x₂) – that's not LP.
+- Mixing up max vs min – the direction matters.
+- Including constants that don't depend on variables – they don't affect optimization.
+- Ignoring units leading to inconsistent coefficients.
+
+8. BEST PRACTICES
+------------------
+- State "Maximize" or "Minimize" clearly.
+- Write the objective as the first line of the model.
+- Ensure the objective is linear.
+- Use the same variable names as in constraints.
+- Test the objective with extreme values (e.g., zero production) to verify sense.
+
+9. KEY TAKEAWAYS
+-----------------
+- The objective function is the "compass" of the LP model.
+- It must be linear and single.
+- It drives the optimization process.
+- The optimal solution is the one that gives the best objective value.
+
+10. SUMMARY
+------------
+Without an objective function, an LP model has no purpose. It defines what "best"
+means. Always start by asking: "What am I trying to achieve?" – that is your
+objective function.
+
+================================================================================
+End of Topic 3 Notes
+================================================================================

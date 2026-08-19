@@ -1,0 +1,142 @@
+================================================================================
+TOPIC 21: WORKED EXAMPLE 15 – BLENDING PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A company produces a blended product by mixing two raw materials: Material X and Material Y.
+The blend must meet specific quality requirements:
+
+Quality requirements per unit of blend:
+- Protein content: at least 20%
+- Fat content: at most 15%
+- Moisture content: at most 10%
+
+Material compositions:
+              Material X   Material Y
+Protein (%)       30%         10%
+Fat (%)           5%          20%
+Moisture (%)      8%          12%
+
+Cost per kg: Material X = ₹25, Material Y = ₹20
+
+The company wants to produce 1,000 kg of the blend at minimum cost.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize cost for 1,000 kg blend
+- Materials: X and Y (2 materials)
+- Requirements: Protein ≥ 20%, Fat ≤ 15%, Moisture ≤ 10%
+- Production: Exactly 1,000 kg of blend
+
+STEP 2: Identify Decision Variables
+- x₁ = kg of Material X used
+- x₂ = kg of Material Y used
+
+STEP 3: Identify the Objective
+- Cost: Material X = ₹25/kg, Material Y = ₹20/kg
+- Minimize Z = 25x₁ + 20x₂
+
+STEP 4: Identify Constraints
+- Total blend: x₁ + x₂ = 1,000
+- Protein: 0.30x₁ + 0.10x₂ ≥ 0.20(1,000) = 200
+  → 0.30x₁ + 0.10x₂ ≥ 200
+  → 3x₁ + x₂ ≥ 2,000 (multiply by 10)
+- Fat: 0.05x₁ + 0.20x₂ ≤ 0.15(1,000) = 150
+  → 0.05x₁ + 0.20x₂ ≤ 150
+  → 5x₁ + 20x₂ ≤ 15,000 (multiply by 100)
+  → x₁ + 4x₂ ≤ 3,000 (divide by 5)
+- Moisture: 0.08x₁ + 0.12x₂ ≤ 0.10(1,000) = 100
+  → 0.08x₁ + 0.12x₂ ≤ 100
+  → 8x₁ + 12x₂ ≤ 10,000 (multiply by 100)
+  → 2x₁ + 3x₂ ≤ 2,500 (divide by 4)
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 500, x₂ = 500:
+  Total = 1,000 ✓
+  Protein = 0.30(500)+0.10(500) = 150+50 = 200 ≥ 200 ✓
+  Fat = 0.05(500)+0.20(500) = 25+100 = 125 ≤ 150 ✓
+  Moisture = 0.08(500)+0.12(500) = 40+60 = 100 ≤ 100 ✓
+  Cost = 25(500)+20(500) = 12,500+10,000 = 22,500
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 25x₁ + 20x₂
+  Subject to:
+    Blend: x₁ + x₂ = 1,000
+    Protein: 3x₁ + x₂ ≥ 2,000
+    Fat: x₁ + 4x₂ ≤ 3,000
+    Moisture: 2x₁ + 3x₂ ≤ 2,500
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. SOLUTION APPROACH
+---------------------
+This is a 2-variable LP with equality and inequality constraints.
+
+From blend constraint: x₂ = 1,000 - x₁
+
+Substitute into constraints:
+Protein: 3x₁ + (1,000 - x₁) ≥ 2,000 → 2x₁ + 1,000 ≥ 2,000 → 2x₁ ≥ 1,000 → x₁ ≥ 500
+
+Fat: x₁ + 4(1,000 - x₁) ≤ 3,000 → x₁ + 4,000 - 4x₁ ≤ 3,000 → -3x₁ ≤ -1,000 → x₁ ≥ 333.33
+
+Moisture: 2x₁ + 3(1,000 - x₁) ≤ 2,500 → 2x₁ + 3,000 - 3x₁ ≤ 2,500 → -x₁ ≤ -500 → x₁ ≥ 500
+
+So x₁ ≥ 500 (from protein and moisture) and x₁ ≥ 333.33 (from fat).
+
+Since x₁ + x₂ = 1,000 and x₁ ≥ 500, x₂ ≤ 500.
+
+The objective: Z = 25x₁ + 20(1,000 - x₁) = 25x₁ + 20,000 - 20x₁ = 20,000 + 5x₁
+
+To minimize Z, we want the smallest x₁, which is x₁ = 500.
+
+Then x₂ = 1,000 - 500 = 500.
+
+So optimal: x₁ = 500, x₂ = 500, cost = 25(500) + 20(500) = 12,500 + 10,000 = ₹22,500
+
+4. INTERPRETATION
+-----------------
+- Use 500 kg of Material X and 500 kg of Material Y.
+- Total cost = ₹22,500.
+- Quality check at optimum:
+  - Protein: 0.30(500)+0.10(500) = 150+50 = 200 (20%) ✓
+  - Fat: 0.05(500)+0.20(500) = 25+100 = 125 (12.5%) ≤ 15% ✓
+  - Moisture: 0.08(500)+0.12(500) = 40+60 = 100 (10%) ✓
+- Protein and moisture are binding; fat has slack.
+
+5. KEY INSIGHTS
+---------------
+- Blending problems involve mixing ingredients to meet quality specifications.
+- The objective is to minimize cost while meeting all requirements.
+- Some constraints may be binding, others may have slack.
+- The blend total is typically fixed (exactly 1,000 kg).
+
+6. REAL-WORLD APPLICATIONS
+---------------------------
+- Petroleum refining (gasoline blending).
+- Animal feed formulation.
+- Food product blending (juice, flour, etc.).
+- Chemical manufacturing.
+
+7. WHAT WE LEARN
+----------------
+- How to formulate blending problems.
+- How to handle equality constraints (fixed blend amount).
+- How to handle percentage constraints.
+- The importance of quality specifications.
+
+8. KEY TAKEAWAYS
+-----------------
+- Blending problems are common in manufacturing.
+- Fixed blend amount creates an equality constraint.
+- Percentage constraints require careful conversion.
+- The optimal solution meets all quality requirements at minimum cost.
+
+================================================================================
+End of Topic 21 Notes
+================================================================================

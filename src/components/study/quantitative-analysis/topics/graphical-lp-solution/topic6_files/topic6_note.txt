@@ -1,0 +1,107 @@
+===============================================================================
+TESTING A POINT TO DETERMINE THE FEASIBLE SIDE
+===============================================================================
+
+TOPIC 6 – ESSENTIAL SHADING SKILL
+
+-------------------------------------------------------------------------------
+1. WHY TEST A POINT?
+-------------------------------------------------------------------------------
+After plotting a constraint line, you need to know which side to shade.
+The test point method is the standard way to determine this.
+
+- The line divides the plane into two half-planes.
+- All points in one half-plane satisfy the inequality.
+- All points in the other half-plane do not.
+- Testing just ONE point tells you which whole side to shade.
+
+Key idea: One test point is enough to know the whole half-plane.
+
+-------------------------------------------------------------------------------
+2. THE TEST POINT METHOD — STEP BY STEP
+-------------------------------------------------------------------------------
+STEP 1: Pick a test point NOT on the line.
+  - Best: origin (0,0) — simplest to evaluate.
+  - Alternative: (1,0), (0,1), or any easy point.
+
+STEP 2: Substitute the point into the inequality.
+
+STEP 3: Check if the inequality is TRUE or FALSE.
+
+STEP 4: Shade accordingly.
+  - If TRUE → shade the side containing the test point.
+  - If FALSE → shade the opposite side.
+
+-------------------------------------------------------------------------------
+3. CHOOSING A TEST POINT
+-------------------------------------------------------------------------------
+✓ Best: Origin (0,0) — simple arithmetic.
+✓ Good: (1,0) or (0,1) — easy to evaluate.
+✓ OK: Any point not on the line.
+✗ Avoid: Points on the line — they give equality, not truth.
+
+Remember: If your test point gives equality, it's on the line. Pick another.
+
+-------------------------------------------------------------------------------
+4. EXAMPLES
+-------------------------------------------------------------------------------
+Example 1: 2x + 3y ≤ 12
+- Test (0,0): 0 ≤ 12 → TRUE → shade origin side.
+
+Example 2: x - 2y ≥ 6
+- Test (0,0): 0 ≥ 6 → FALSE → shade opposite side.
+
+Example 3: 3x + y < 9
+- Test (0,0): 0 < 9 → TRUE → shade origin side (dashed line).
+
+Example 4: x + 2y > 8
+- Test (0,0): 0 > 8 → FALSE → shade opposite side (dashed line).
+
+-------------------------------------------------------------------------------
+5. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Testing a point on the line (gives equality, not truth).
+✗ Shading the wrong side (misinterpreting true/false).
+✗ Forgetting to substitute both coordinates.
+✗ Misreading the inequality symbol.
+✗ Not checking if the origin is on the line first.
+
+-------------------------------------------------------------------------------
+6. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always check if your test point is on the line before testing.
+✓ The origin is your best friend — use it whenever possible.
+✓ Mark the tested point on the graph with "✓" or "✗".
+✓ Write the inequality and the test result for clarity.
+✓ Use the test point to confirm your shading.
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD CONTEXT
+-------------------------------------------------------------------------------
+- Budget constraints: test if a spending plan is affordable.
+- Production planning: test if a production mix meets constraints.
+- Time management: test if a schedule fits within available time.
+- Storage capacity: test if items fit in available space.
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I understand why we test a point to determine shading.
+☐ I can substitute a point into an inequality.
+☐ I can determine if a point satisfies the inequality.
+☐ I know to avoid testing points on the line.
+☐ I can identify which side to shade based on the test result.
+☐ I can use the origin as a test point effectively.
+
+-------------------------------------------------------------------------------
+9. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can test points, you're ready to shade the appropriate half-plane
+(Topic 7). This will complete the process of graphing a single constraint and
+prepare you for multiple constraints.
+
+Remember: Test first, shade second. The test point is your guide.
+
+===============================================================================
+END OF NOTES
+===============================================================================

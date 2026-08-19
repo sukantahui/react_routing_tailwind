@@ -1,0 +1,139 @@
+================================================================================
+TOPIC 13: WORKED EXAMPLE 7 – COST MINIMIZATION PROBLEM
+================================================================================
+
+1. PROBLEM STATEMENT
+--------------------
+A company needs to produce two products: Product X and Product Y.
+The company must meet minimum requirements for two resources:
+- Resource A: at least 24 units
+- Resource B: at least 20 units
+
+Resource requirements per unit:
+              Product X   Product Y   Minimum Required
+Resource A       2           3           24
+Resource B       4           2           20
+
+Cost per unit: Product X = ₹40, Product Y = ₹60
+
+The company wants to minimize total production cost.
+
+2. STEP-BY-STEP FORMULATION
+---------------------------
+
+STEP 1: Read and Understand
+- Goal: Minimize total cost
+- Products: X and Y (2 products)
+- Resources: A and B (2 resources with minimum requirements)
+- This is a minimization problem (unlike previous maximization examples)
+
+STEP 2: Identify Decision Variables
+- x₁ = number of units of Product X produced
+- x₂ = number of units of Product Y produced
+
+STEP 3: Identify the Objective
+- Cost per unit: X = ₹40, Y = ₹60
+- Minimize Z = 40x₁ + 60x₂
+
+STEP 4: Identify Constraints
+- Resource A: 2x₁ + 3x₂ ≥ 24
+- Resource B: 4x₁ + 2x₂ ≥ 20
+
+STEP 5: Add Non-negativity
+- x₁ ≥ 0, x₂ ≥ 0
+
+STEP 6: Review and Validate
+- Test x₁ = 0, x₂ = 10:
+  Resource A = 30 ≥ 24 ✓
+  Resource B = 20 ≥ 20 ✓
+  Cost = 60(10) = ₹600
+
+- Test x₁ = 6, x₂ = 4:
+  Resource A = 12 + 12 = 24 ≥ 24 ✓
+  Resource B = 24 + 8 = 32 ≥ 20 ✓
+  Cost = 40(6) + 60(4) = 240 + 240 = ₹480
+
+STEP 7: Document
+- Final Model:
+  Minimize Z = 40x₁ + 60x₂
+  Subject to:
+    Resource A: 2x₁ + 3x₂ ≥ 24
+    Resource B: 4x₁ + 2x₂ ≥ 20
+    x₁ ≥ 0, x₂ ≥ 0
+
+3. GRAPHICAL SOLUTION
+---------------------
+Step 1: Plot constraints on x₁-x₂ plane
+- Resource A: 2x₁ + 3x₂ = 24 → x₂ = 8 - (2/3)x₁
+- Resource B: 4x₁ + 2x₂ = 20 → x₂ = 10 - 2x₁
+
+Step 2: Identify feasible region (above both constraints)
+Step 3: Find corner points:
+  - Intersection of A and B:
+    2x₁ + 3x₂ = 24
+    4x₁ + 2x₂ = 20
+    Solve: From B: 2x₁ + x₂ = 10 → x₂ = 10 - 2x₁
+    Substitute: 2x₁ + 3(10 - 2x₁) = 24
+    2x₁ + 30 - 6x₁ = 24
+    -4x₁ = -6 → x₁ = 1.5
+    Then: x₂ = 10 - 2(1.5) = 10 - 3 = 7
+    So (1.5, 7)
+
+  - Intersection of A with x₂-axis: 2x₁ = 24 → x₁ = 12 → (12, 0)
+  - Intersection of B with x₁-axis: 4x₁ = 20 → x₁ = 5 → (5, 0)
+  - Intersection of A with x₁-axis: 2x₁ = 24 → x₁ = 12 → (12, 0)
+  - Intersection of B with x₂-axis: 2x₂ = 20 → x₂ = 10 → (0, 10)
+
+  Corner points: (0, 10), (1.5, 7), (12, 0)
+
+Step 4: Evaluate objective at each corner:
+  - (0, 10): Z = 40(0) + 60(10) = 600
+  - (1.5, 7): Z = 40(1.5) + 60(7) = 60 + 420 = 480
+  - (12, 0): Z = 40(12) + 60(0) = 480
+
+Step 5: Optimal solution: (1.5, 7) with cost = ₹480
+
+Note: There are multiple optimal solutions! (1.5, 7) and (12, 0) both give ₹480.
+
+4. INTERPRETATION
+-----------------
+- Produce 1.5 units of Product X and 7 units of Product Y (or 12 units of X and 0 units of Y).
+- Total cost = ₹480.
+- Resource usage at optimum:
+  - Resource A: 2(1.5) + 3(7) = 3 + 21 = 24 (fully used)
+  - Resource B: 4(1.5) + 2(7) = 6 + 14 = 20 (fully used)
+
+5. KEY INSIGHTS
+---------------
+- Both resources are fully used at the optimum (binding).
+- There are multiple optimal solutions (alternative optima).
+- Cost minimization problems use ≥ constraints (minimum requirements).
+- The feasible region is above the constraints (unlike ≤ constraints where it's below).
+
+6. COST MINIMIZATION VS PROFIT MAXIMIZATION
+--------------------------------------------
+Feature           Cost Minimization        Profit Maximization
+Objective         Minimize cost            Maximize profit
+Constraint type   ≥ (minimum requirements) ≤ (maximum capacities)
+Feasible region   Above constraints        Below constraints
+Interpretation    Meet requirements        Use resources efficiently
+
+7. WHAT WE LEARN
+----------------
+- How to formulate a cost minimization problem.
+- The difference between minimization and maximization.
+- How to handle ≥ constraints (minimum requirements).
+- Alternative optimal solutions.
+- The importance of checking all corner points.
+
+8. KEY TAKEAWAYS
+-----------------
+- Cost minimization is the dual of profit maximization.
+- Minimum requirements use ≥ constraints.
+- The feasible region extends away from the origin.
+- Alternative optimal solutions exist when the objective is parallel to a constraint.
+- Always evaluate all corner points.
+
+================================================================================
+End of Topic 13 Notes
+================================================================================
