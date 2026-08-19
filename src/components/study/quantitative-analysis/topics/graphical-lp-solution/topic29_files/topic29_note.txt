@@ -1,0 +1,95 @@
+===============================================================================
+WORKED EXAMPLE 2: MAXIMIZATION WITH TWO RESOURCE CONSTRAINTS
+===============================================================================
+
+TOPIC 29 – PRODUCTION PLANNING WITH WOOD AND LABOR
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A furniture company produces chairs (x) and tables (y).
+
+- Chair: 2 wood, 3 labor, ₹5 profit
+- Table: 4 wood, 2 labor, ₹8 profit
+- Available: 24 wood, 18 labor
+
+Question: How many chairs and tables to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = number of chairs
+  y = number of tables
+
+Objective Function:
+  Maximize Z = 5x + 8y
+
+Constraints:
+  2x + 4y ≤ 24  (wood)
+  3x + 2y ≤ 18  (labor)
+  x ≥ 0, y ≥ 0  (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (6,0)     → Z = 30
+  B (3,4.5)   → Z = 51  ← OPTIMAL
+  C (0,6)     → Z = 48
+
+Optimal Solution:
+  x = 3, y = 4.5, Z = 51
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (3, 4.5):
+  Wood: 2(3) + 4(4.5) = 6 + 18 = 24 ✓ (fully used)
+  Labor: 3(3) + 2(4.5) = 9 + 9 = 18 ✓ (fully used)
+
+Both constraints are binding.
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Tables are more profitable but use more wood
+✓ The optimal solution balances the two resources
+✓ Both constraints are binding at the optimum
+✓ The trade-off between products determines the optimal mix
+✓ Solving two constraints simultaneously gives the optimal point
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Misreading the resource requirements
+✗ Forgetting to simplify constraints
+✗ Not checking the feasibility of the optimal point
+✗ Assuming tables are always better (they use more wood)
+✗ Ignoring the trade-off between products
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a production planning problem where a company
+must allocate limited resources between two products.
+
+The same approach applies to:
+- Manufacturing: allocate machine time, labor, materials
+- Agriculture: allocate land, water, fertilizer
+- Service: allocate time, staff, budget
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can identify resource constraints from a word problem.
+☐ I can formulate the objective function and constraints.
+☐ I can solve for the intersection of two constraints.
+☐ I can identify which constraints are binding.
+☐ I can interpret the solution in business terms.
+☐ I can verify that resources are fully utilized.
+
+===============================================================================
+END OF NOTES
+===============================================================================

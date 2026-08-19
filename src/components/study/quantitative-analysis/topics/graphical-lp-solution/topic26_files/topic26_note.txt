@@ -1,0 +1,119 @@
+===============================================================================
+FINDING THE MINIMUM VALUE GRAPHICALLY
+===============================================================================
+
+TOPIC 26 – SOLVING MINIMIZATION PROBLEMS
+
+-------------------------------------------------------------------------------
+1. THE GRAPHICAL METHOD FOR MINIMIZATION
+-------------------------------------------------------------------------------
+The graphical method for finding the minimum value follows the same four steps
+as maximization, but we select the LOWEST value:
+
+Step 1: Graph all constraints and shade the feasible region.
+Step 2: Identify all corner points of the feasible region.
+Step 3: Evaluate C at each corner point.
+Step 4: Select the corner point with the LOWEST C value.
+
+Key idea: The minimum is always at a corner point (corner-point principle).
+
+-------------------------------------------------------------------------------
+2. STEP-BY-STEP EXAMPLE
+-------------------------------------------------------------------------------
+Problem: Minimize C = 2x + 3y
+Subject to:
+  2x + y ≥ 6
+  x + y ≥ 4
+  x ≥ 0, y ≥ 0
+
+Step 1: Graph constraints → feasible region
+Step 2: Corner points: A(0,4), B(2,2), C(3,0)
+Step 3: Evaluate C:
+  A: 12, B: 10, C: 6
+Step 4: Minimum C = 6 at (3,0)
+
+-------------------------------------------------------------------------------
+3. KEY DIFFERENCES: MAX vs MIN
+-------------------------------------------------------------------------------
+Maximization:
+- Move objective line OUTWARD
+- Look for HIGHEST value
+- Last line to touch the region
+- Example: Profit maximization
+
+Minimization:
+- Move objective line INWARD (toward origin)
+- Look for LOWEST value
+- First line to touch the region
+- Example: Cost minimization
+
+-------------------------------------------------------------------------------
+4. KEY PRINCIPLES
+-------------------------------------------------------------------------------
+✓ The minimum always occurs at a corner point
+✓ Evaluate C at ALL corner points
+✓ Compare values systematically
+✓ Check for multiple optimal solutions
+✓ Verify the optimal point satisfies all constraints
+✓ Move the objective line INWARD for minimization
+
+-------------------------------------------------------------------------------
+5. SPECIAL CASES
+-------------------------------------------------------------------------------
+Multiple Optima:
+- If the objective line is parallel to a constraint edge
+- Multiple corner points give the same minimum value
+- Any point on the edge is optimal
+
+Unbounded Minimum:
+- The minimum may still exist if the objective direction is bounded
+- Example: Minimize C=x+y with x≥0, y≥0 → minimum at (0,0)
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Moving the objective line outward instead of inward
+✗ Forgetting to check all corner points
+✗ Missing corner points on the axes
+✗ Not verifying that the optimal point satisfies all constraints
+✗ Confusing minimization with maximization
+
+-------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always identify ALL corner points of the feasible region.
+✓ Check points on axes — they're often overlooked.
+✓ The minimum is always at a corner point (or along an edge).
+✓ Verify your answer by checking if it satisfies all constraints.
+✓ Remember: move the objective line inward for minimization.
+
+-------------------------------------------------------------------------------
+8. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Diet planning: minimize food costs while meeting nutrition
+- Production: minimize production costs with resource constraints
+- Transportation: minimize shipping costs while meeting demand
+- Resource allocation: minimize waste while meeting requirements
+
+-------------------------------------------------------------------------------
+9. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can graph all constraints and find the feasible region.
+☐ I can identify all corner points of the feasible region.
+☐ I can evaluate the objective function at each corner point.
+☐ I can identify the corner point with the minimum C value.
+☐ I can verify that the optimal point satisfies all constraints.
+☐ I can identify multiple optimal solutions if they exist.
+
+-------------------------------------------------------------------------------
+10. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you can find both maximum and minimum values graphically,
+you're ready to explore the Corner-Point Principle (Topic 27). This
+principle explains WHY the optimum always occurs at a corner point.
+
+Remember: The minimum is the lowest C value at a corner point!
+
+===============================================================================
+END OF NOTES
+===============================================================================

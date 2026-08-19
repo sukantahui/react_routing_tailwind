@@ -1,0 +1,96 @@
+===============================================================================
+WORKED EXAMPLE 3: MAXIMIZATION WITH THREE CONSTRAINTS
+===============================================================================
+
+TOPIC 30 – MULTIPLE BINDING CONSTRAINTS
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A manufacturing company produces products A and B.
+
+- Product A: ₹6 profit, 2 machine, 4 labor, 1 storage
+- Product B: ₹8 profit, 3 machine, 2 labor, 1 storage
+- Available: 18 machine, 20 labor, 7 storage
+
+Question: How many of each product to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of Product A
+  y = units of Product B
+
+Objective Function:
+  Maximize Z = 6x + 8y
+
+Constraints:
+  2x + 3y ≤ 18  (machine hours)
+  4x + 2y ≤ 20  (labor hours)
+  x + y ≤ 7     (storage space)
+  x ≥ 0, y ≥ 0  (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (5,0)     → Z = 30
+  B (3,4)     → Z = 50  ← OPTIMAL
+  C (0,6)     → Z = 48
+
+Optimal Solution:
+  x = 3, y = 4, Z = 50
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (3, 4):
+  Machine: 2(3) + 3(4) = 6 + 12 = 18 ✓ (fully used)
+  Labor:   4(3) + 2(4) = 12 + 8 = 20 ✓ (fully used)
+  Storage: 3 + 4 = 7 ✓ (fully used)
+
+ALL THREE CONSTRAINTS ARE BINDING!
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ All three constraints can bind simultaneously
+✓ This is a special case in LP
+✓ Every resource is fully utilized
+✓ The solution is very sensitive to any change
+✓ The optimal point is at the intersection of all three lines
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming only two constraints can bind
+✗ Not checking if the intersection satisfies all constraints
+✗ Forgetting to check the third constraint
+✗ Missing the fact that all resources are fully used
+✗ Not verifying the solution
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a manufacturing problem with multiple resource
+constraints. The same approach applies to:
+
+- Manufacturing: machine time, labor, materials, storage
+- Service: staff time, budget, space, equipment
+- Logistics: trucks, drivers, time, fuel
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can solve problems with three or more constraints.
+☐ I can identify which constraints are binding.
+☐ I can verify that the optimal point satisfies all constraints.
+☐ I understand the special case of all constraints binding.
+☐ I can interpret the solution with multiple constraints.
+☐ I understand the implications of fully utilized resources.
+
+===============================================================================
+END OF NOTES
+===============================================================================

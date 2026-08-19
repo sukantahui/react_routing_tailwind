@@ -125,18 +125,6 @@ const Topic0 = () => {
                 strokeWidth="2.5"
                 strokeDasharray="6,4"
               >
-                <animate
-                  attributeName="y1"
-                  values="160;140;160"
-                  dur="5s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="y2"
-                  values="40;20;40"
-                  dur="5s"
-                  repeatCount="indefinite"
-                />
               </line>
 
               {/* Labels */}

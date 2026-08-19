@@ -1,0 +1,105 @@
+===============================================================================
+CORNER-POINT PRINCIPLE
+===============================================================================
+
+TOPIC 27 – THE FOUNDATION OF LINEAR PROGRAMMING
+
+-------------------------------------------------------------------------------
+1. WHAT IS THE CORNER-POINT PRINCIPLE?
+-------------------------------------------------------------------------------
+The corner-point principle states:
+
+"If a linear programming problem has an optimal solution,
+it will occur at a corner point of the feasible region."
+
+- Also called the extreme-point principle
+- The foundation of linear programming
+- What makes LP solvable in practice
+
+Key idea: The optimum is always at a corner!
+
+-------------------------------------------------------------------------------
+2. WHY DOES IT WORK?
+-------------------------------------------------------------------------------
+1. The feasible region is convex (a polygon)
+2. The objective function is linear (Z = ax + by)
+3. On a convex polygon, a linear function's maximum/minimum is at a vertex
+4. Therefore, we only need to check corner points
+
+-------------------------------------------------------------------------------
+3. IMPLICATIONS
+-------------------------------------------------------------------------------
+✓ Efficiency: Only check corner points, not every point
+✓ Simplicity: The simplex method moves between corners
+✓ Guarantee: If an optimum exists, it's at a corner
+✓ Finite Search: There are finitely many corners
+
+-------------------------------------------------------------------------------
+4. WHAT THE PRINCIPLE MEANS
+-------------------------------------------------------------------------------
+- We don't need to check interior points
+- Interior points can never be better than the best corner
+- Any interior point is a combination of corners
+- The objective value at an interior point is a weighted average
+
+-------------------------------------------------------------------------------
+5. SPECIAL CASES
+-------------------------------------------------------------------------------
+Multiple Optima:
+- If the objective line is parallel to a constraint edge
+- Multiple corner points give the same optimum
+- Any point on the edge is optimal
+
+Unbounded Optimum:
+- If the region extends in the direction of improvement
+- No finite optimum exists
+- Example: Maximize Z=x+y with x≥0, y≥0
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting that the optimum must be at a corner
+✗ Checking interior points unnecessarily
+✗ Missing corner points on the axes
+✗ Not understanding why the principle works
+✗ Applying the principle to non-linear problems
+
+-------------------------------------------------------------------------------
+7. PROFESSIONAL TIPS
+-------------------------------------------------------------------------------
+✓ Always identify ALL corner points of the feasible region.
+✓ Remember: the optimum is guaranteed to be at a corner.
+✓ Use the principle to justify why you only check corners.
+✓ This principle is the foundation of the simplex method.
+✓ It works for both maximization and minimization.
+
+-------------------------------------------------------------------------------
+8. REAL-WORLD EXAMPLES
+-------------------------------------------------------------------------------
+- Manufacturing: find optimal production mix
+- Logistics: find optimal shipping routes
+- Finance: find optimal investment portfolio
+- Agriculture: allocate land between crops
+
+-------------------------------------------------------------------------------
+9. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I understand the corner-point principle.
+☐ I know that the optimum is always at a corner point.
+☐ I can explain why the principle works.
+☐ I know that the principle applies to both max and min.
+☐ I understand that multiple corners can be optimal.
+☐ I can apply the principle to solve LP problems.
+
+-------------------------------------------------------------------------------
+10. NEXT STEPS
+-------------------------------------------------------------------------------
+Now that you understand the corner-point principle, you're ready to
+apply it to worked examples. Topic 28 begins with a simple maximization
+problem.
+
+Remember: The optimum is always at a corner point!
+
+===============================================================================
+END OF NOTES
+===============================================================================

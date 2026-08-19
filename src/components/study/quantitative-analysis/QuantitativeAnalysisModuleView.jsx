@@ -9,7 +9,6 @@ import {
   ArrowLeft,
   ArrowRight,
   ChevronRight,
-  BookOpen,
   Layers,
   Clock,
   ShieldCheck,
@@ -98,8 +97,8 @@ export default function QuantitativeAnalysisModuleView() {
   const showToast = useCallback((msg) => {
     setToastMessage(msg);
     setTimeout(() => {
-      setToastMessage(null);
-    }, 2400);
+      setToastMessage(null), 2400;
+    });
   }, []);
 
   // -------------------------------------------
@@ -113,7 +112,8 @@ export default function QuantitativeAnalysisModuleView() {
       const raw = localStorage.getItem(PROGRESS_KEY) || "[]";
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) setCompletedTopics(parsed);
-    } catch {
+    } catch (e) {
+      void e;
       setCompletedTopics([]);
     }
 
@@ -124,7 +124,8 @@ export default function QuantitativeAnalysisModuleView() {
         const idx = parseInt(rawLast, 10);
         if (!isNaN(idx)) setLastTopicIndex(idx);
       }
-    } catch {
+    } catch (e) {
+      void e;
       setLastTopicIndex(null);
     }
 
@@ -132,7 +133,8 @@ export default function QuantitativeAnalysisModuleView() {
     try {
       const bm = localStorage.getItem(BOOKMARKED_MODULE_KEY) === "true";
       setIsBookmarked(bm);
-    } catch {
+    } catch (e) {
+      void e;
       setIsBookmarked(false);
     }
 
@@ -146,8 +148,8 @@ export default function QuantitativeAnalysisModuleView() {
         timestamp: new Date().toISOString()
       };
       localStorage.setItem(LAST_VISITED_MODULE_KEY, JSON.stringify(data));
-    } catch {
-      // ignore
+    } catch (e) {
+      void e;
     }
   }, [moduleData, segmentData, PROGRESS_KEY, LAST_TOPIC_KEY, BOOKMARKED_MODULE_KEY]);
 
@@ -177,8 +179,8 @@ export default function QuantitativeAnalysisModuleView() {
           localStorage.setItem(COMPLETED_MODULE_KEY, "true");
           showToast("🎉 All topics completed! Module marked finished.");
         }
-      } catch {
-        // ignore
+      } catch (e) {
+        void e;
       }
       return updated;
     });
@@ -188,8 +190,8 @@ export default function QuantitativeAnalysisModuleView() {
     try {
       localStorage.setItem(LAST_TOPIC_KEY, String(index));
       setLastTopicIndex(index);
-    } catch {
-      // ignore
+    } catch (e) {
+      void e;
     }
   };
 
@@ -227,18 +229,18 @@ export default function QuantitativeAnalysisModuleView() {
   // -------------------------------------------
   if (!moduleData) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
         <div className="text-center max-w-md p-8 rounded-2xl bg-slate-900 border border-slate-800">
-          <HelpCircle size={40} className="text-rose-400 mx-auto mb-3" />
+          <HelpCircle size={44} className="text-rose-400 mx-auto mb-3" />
           <h1 className="text-xl font-bold text-slate-100">Module Not Found</h1>
-          <p className="text-xs sm:text-sm text-slate-400 mt-2 mb-6">
+          <p className="text-sm text-slate-400 mt-2 mb-6">
             The requested quantitative analysis module "{slug}" does not exist in the curriculum.
           </p>
           <Link
             to={`/${roadmapData.folder}/roadmap`}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold rounded-xl border border-slate-700 transition"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeft size={16} />
             Back to Course Roadmap
           </Link>
         </div>
@@ -302,10 +304,10 @@ export default function QuantitativeAnalysisModuleView() {
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-xl backdrop-blur-md"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-2xl backdrop-blur-md"
           >
-            <Sparkles className="w-4 h-4 text-sky-400" />
-            <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
+            <Sparkles className="w-5 h-5 text-sky-400" />
+            <span className="text-sm font-medium">{toastMessage}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -314,34 +316,34 @@ export default function QuantitativeAnalysisModuleView() {
       {/* Sticky Header Navigation */}
       {/* ========================================================== */}
       <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
           
           {/* Left: Breadcrumbs & Module Title */}
           <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-0.5">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 mb-0.5">
               <Link
                 to={`/${roadmapData.folder}/roadmap`}
-                className="hover:text-slate-200 flex items-center gap-1 transition"
+                className="hover:text-slate-200 flex items-center gap-1 font-medium transition"
               >
-                <ArrowLeft size={12} />
+                <ArrowLeft size={14} />
                 <span>Roadmap</span>
               </Link>
               <span>/</span>
-              <span className="truncate text-slate-500">
+              <span className="truncate text-slate-500 font-medium">
                 {segmentData?.title?.split("–")[0]?.trim() || "Segment"}
               </span>
             </div>
 
-            <h1 className="text-sm sm:text-base font-bold text-slate-100 truncate">
+            <h1 className="text-base sm:text-lg md:text-xl font-bold text-slate-100 truncate">
               {moduleData.title}
             </h1>
           </div>
 
           {/* Right: Quick Action Controls & Topic Progress Counter */}
-          <div className="flex items-center gap-2 shrink-0">
-            <div className="hidden sm:flex flex-col text-right pr-2 border-r border-slate-800">
-              <span className="text-[10px] uppercase font-semibold text-slate-500">Progress</span>
-              <span className="text-xs font-bold text-slate-300">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <div className="hidden sm:flex flex-col text-right pr-3 border-r border-slate-800">
+              <span className="text-xs uppercase font-bold text-slate-500">Progress</span>
+              <span className="text-sm font-bold text-slate-200">
                 {completedCount} / {totalTopics} Topics ({progressPercent}%)
               </span>
             </div>
@@ -350,22 +352,22 @@ export default function QuantitativeAnalysisModuleView() {
             <button
               onClick={handleCopyLink}
               title="Copy module link"
-              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
             >
-              {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+              {copiedLink ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
             </button>
 
             {/* Bookmark Module */}
             <button
               onClick={toggleBookmarkModule}
               title={isBookmarked ? "Remove bookmark" : "Bookmark module"}
-              className={`p-2 rounded-lg border transition ${
+              className={`p-2.5 rounded-xl border transition ${
                 isBookmarked
                   ? "bg-slate-800 border-slate-700 text-amber-400"
                   : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
               }`}
             >
-              {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+              {isBookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
             </button>
 
             {/* Resume / Start Target Topic */}
@@ -373,10 +375,10 @@ export default function QuantitativeAnalysisModuleView() {
               <Link
                 to={`/${roadmapData.folder}/topic/${moduleData.slug}/${activeTopicTarget}`}
                 onClick={() => handleTopicClick(activeTopicTarget)}
-                className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition"
+                className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 text-sm font-bold transition shadow-sm"
               >
                 <span>{lastTopicIndex !== null ? "Resume Topic" : "Start Learning"}</span>
-                <ArrowRight size={13} />
+                <ArrowRight size={15} />
               </Link>
             )}
           </div>
@@ -384,61 +386,61 @@ export default function QuantitativeAnalysisModuleView() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
 
         {/* ========================================================== */}
         {/* Module Hero Overview Card */}
         {/* ========================================================== */}
-        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-6 shadow-sm">
+        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 shadow-sm">
           
           {/* Metadata Badges */}
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-slate-950 text-slate-400 border border-slate-800">
+          <div className="flex flex-wrap items-center gap-2.5 mb-4">
+            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-mono font-bold bg-slate-950 text-slate-300 border border-slate-800">
               #{moduleData.moduleIndexInSegment} · {moduleData.moduleId}
             </span>
 
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
-              <Layers size={11} className="text-slate-400" />
+            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <Layers size={14} className="text-slate-400" />
               {segmentData?.title?.split("–")[0]?.trim() || "Core Segment"}
             </span>
 
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
-              <Clock size={11} className="text-slate-400" />
+            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <Clock size={14} className="text-slate-400" />
               {moduleData.estimatedHours} Estimated Hours
             </span>
 
-            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
-              <ShieldCheck size={11} className="text-slate-400" />
+            <span className="px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1.5">
+              <ShieldCheck size={14} className="text-slate-400" />
               {moduleData.difficulty || "Standard"}
             </span>
           </div>
 
           {/* Module Title */}
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-3">
             {moduleData.title}
           </h2>
 
           {/* Module Summary */}
           {moduleData.summary && (
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-5">
               {moduleData.summary}
             </p>
           )}
 
           {/* Learning Outcomes Checklist if available */}
           {Array.isArray(moduleData.learningOutcomes) && moduleData.learningOutcomes.length > 0 && (
-            <div className="mt-4 pt-4 border-t border-slate-800">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
-                <Compass size={13} className="text-sky-400" />
+            <div className="mt-5 pt-5 border-t border-slate-800">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
+                <Compass size={16} className="text-sky-400" />
                 Key Learning Outcomes
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {moduleData.learningOutcomes.map((outcome, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2 p-2 rounded-xl bg-slate-950/60 border border-slate-850 text-xs text-slate-300"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-slate-950/60 border border-slate-850 text-sm text-slate-200 leading-normal"
                   >
-                    <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 size={16} className="text-emerald-400 shrink-0 mt-0.5" />
                     <span>{outcome}</span>
                   </div>
                 ))}
@@ -447,26 +449,26 @@ export default function QuantitativeAnalysisModuleView() {
           )}
 
           {/* Interactive Progress Bar */}
-          <div className="mt-5 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="mt-6 pt-5 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             <div className="flex-1">
-              <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5">
+              <div className="flex items-center justify-between text-sm text-slate-300 mb-2 font-medium">
                 <span>Module Completion</span>
-                <span className="font-semibold text-slate-200">{progressPercent}%</span>
+                <span className="font-bold text-slate-100">{progressPercent}%</span>
               </div>
-              <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+              <div className="h-2.5 w-full bg-slate-800 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-slate-400 transition-all duration-300 rounded-full"
+                  className="h-full bg-sky-500 transition-all duration-300 rounded-full"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
             </div>
 
-            <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+            <div className="flex items-center gap-2.5 self-end sm:self-auto shrink-0">
               <button
                 onClick={() => handleMarkAllTopics(completedCount < totalTopics)}
-                className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-xs font-medium text-slate-300 transition flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-sm font-semibold text-slate-200 hover:text-white transition flex items-center gap-2"
               >
-                <CheckCheck size={13} className="text-slate-400" />
+                <CheckCheck size={16} className="text-slate-400" />
                 <span>{completedCount < totalTopics ? "Mark All Done" : "Clear All"}</span>
               </button>
 
@@ -474,9 +476,9 @@ export default function QuantitativeAnalysisModuleView() {
                 <button
                   onClick={() => handleMarkAllTopics(false)}
                   title="Reset topic progress"
-                  className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-500 hover:text-slate-300 transition"
+                  className="p-2 rounded-xl bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-400 hover:text-slate-200 transition"
                 >
-                  <RotateCcw size={13} />
+                  <RotateCcw size={16} />
                 </button>
               )}
             </div>
@@ -487,56 +489,56 @@ export default function QuantitativeAnalysisModuleView() {
         {/* ========================================================== */}
         {/* Topics List & Search Bar Section */}
         {/* ========================================================== */}
-        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-6 shadow-sm">
+        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-6 sm:p-8 shadow-sm">
           
           {/* Header & Topic Counters */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                <ListOrdered size={18} className="text-slate-400" />
+              <h3 className="text-lg sm:text-xl font-extrabold text-white flex items-center gap-2.5">
+                <ListOrdered size={22} className="text-sky-400" />
                 <span>Topics & Problem Sets</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-sm text-slate-400 mt-1">
                 Step-by-step syllabus sequence, theoretical concepts, and worked numericals.
               </p>
             </div>
 
-            <span className="text-xs text-slate-400 self-start sm:self-auto bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800">
+            <span className="text-sm font-semibold text-slate-300 self-start sm:self-auto bg-slate-950 px-3.5 py-1.5 rounded-xl border border-slate-800">
               Showing {filteredTopics.length} of {totalTopics}
             </span>
           </div>
 
           {/* Search & Topic Filters Row */}
-          <div className="flex flex-col sm:flex-row gap-2.5 mb-4">
+          <div className="flex flex-col sm:flex-row gap-3 mb-5">
             
             {/* Search Input */}
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 type="text"
                 placeholder="Search topics (e.g. decision variables, worked example, slack, dual)..."
                 value={searchTopic}
                 onChange={(e) => setSearchTopic(e.target.value)}
-                className="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:border-slate-600 transition"
+                className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-sm sm:text-base focus:outline-none focus:border-slate-600 transition"
               />
               {searchTopic && (
                 <button
                   onClick={() => setSearchTopic("")}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
                 >
-                  <X size={14} />
+                  <X size={16} />
                 </button>
               )}
             </div>
 
             {/* Filter Mode Chips */}
-            <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-xl border border-slate-800 self-start sm:self-auto">
+            <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 self-start sm:self-auto">
               <button
                 onClick={() => setFilterMode("all")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
                   filterMode === "all"
-                    ? "bg-slate-800 text-slate-200 font-medium"
-                    : "text-slate-500 hover:text-slate-300"
+                    ? "bg-slate-800 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
                 }`}
               >
                 All ({totalTopics})
@@ -544,10 +546,10 @@ export default function QuantitativeAnalysisModuleView() {
 
               <button
                 onClick={() => setFilterMode("incomplete")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
                   filterMode === "incomplete"
-                    ? "bg-slate-800 text-slate-200 font-medium"
-                    : "text-slate-500 hover:text-slate-300"
+                    ? "bg-slate-800 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
                 }`}
               >
                 Unfinished ({totalTopics - completedCount})
@@ -555,10 +557,10 @@ export default function QuantitativeAnalysisModuleView() {
 
               <button
                 onClick={() => setFilterMode("completed")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition ${
                   filterMode === "completed"
-                    ? "bg-slate-800 text-slate-200 font-medium"
-                    : "text-slate-500 hover:text-slate-300"
+                    ? "bg-slate-800 text-white shadow-sm"
+                    : "text-slate-400 hover:text-slate-200"
                 }`}
               >
                 Done ({completedCount})
@@ -568,7 +570,7 @@ export default function QuantitativeAnalysisModuleView() {
           </div>
 
           {/* Topics List Items */}
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {filteredTopics.map(({ topic, idx }) => {
               const isDone = completedTopics.includes(idx);
               const isLastVisited = lastTopicIndex === idx;
@@ -577,14 +579,14 @@ export default function QuantitativeAnalysisModuleView() {
               return (
                 <div
                   key={idx}
-                  className={`group flex items-center justify-between gap-3 p-3 rounded-xl border transition-all ${
+                  className={`group flex items-center justify-between gap-4 p-3.5 sm:p-4 rounded-xl border transition-all ${
                     isDone
                       ? "bg-slate-950/40 border-slate-800/80 text-slate-300"
-                      : "bg-slate-950/80 border-slate-800 hover:border-slate-700 text-slate-200"
+                      : "bg-slate-950/80 border-slate-800 hover:border-slate-700 text-slate-200 shadow-sm"
                   }`}
                 >
                   {/* Left: Completion Checkbox & Topic Title */}
-                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                  <div className="flex items-center gap-3.5 min-w-0 flex-1">
                     <button
                       type="button"
                       onClick={() => toggleTopicComplete(idx)}
@@ -592,9 +594,9 @@ export default function QuantitativeAnalysisModuleView() {
                       className="shrink-0 p-0.5 text-slate-500 hover:text-slate-300 transition"
                     >
                       {isDone ? (
-                        <CheckCircle2 size={17} className="text-emerald-400" />
+                        <CheckCircle2 size={20} className="text-emerald-400" />
                       ) : (
-                        <Circle size={17} className="text-slate-600 group-hover:text-slate-400" />
+                        <Circle size={20} className="text-slate-600 group-hover:text-slate-400" />
                       )}
                     </button>
 
@@ -603,23 +605,23 @@ export default function QuantitativeAnalysisModuleView() {
                       onClick={() => handleTopicClick(idx)}
                       className="min-w-0 flex-1 block"
                     >
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="text-xs font-mono text-slate-500 shrink-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs sm:text-sm font-mono font-bold text-slate-500 shrink-0">
                           {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
                         </span>
                         
-                        <span className={`text-xs sm:text-sm font-medium group-hover:text-sky-300 transition-colors truncate ${isDone ? "text-slate-400" : "text-slate-200"}`}>
+                        <span className={`text-sm sm:text-base font-semibold group-hover:text-sky-300 transition-colors truncate ${isDone ? "text-slate-400" : "text-slate-100"}`}>
                           {topic}
                         </span>
 
                         {badgeInfo && (
-                          <span className={`px-1.5 py-0.2 rounded text-[10px] font-medium border ${badgeInfo.badge} hidden md:inline-flex items-center gap-1`}>
+                          <span className={`px-2 py-0.5 rounded-md text-xs font-semibold border ${badgeInfo.badge} hidden md:inline-flex items-center gap-1`}>
                             {badgeInfo.text}
                           </span>
                         )}
 
                         {isLastVisited && (
-                          <span className="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-slate-800 text-sky-300 border border-slate-700">
+                          <span className="px-2 py-0.5 rounded-md text-xs font-bold bg-slate-800 text-sky-300 border border-slate-700">
                             Last Viewed
                           </span>
                         )}
@@ -631,10 +633,10 @@ export default function QuantitativeAnalysisModuleView() {
                   <Link
                     to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
                     onClick={() => handleTopicClick(idx)}
-                    className="shrink-0 px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 group-hover:text-white border border-slate-800 group-hover:border-slate-700 text-xs font-medium flex items-center gap-1 transition"
+                    className="shrink-0 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 group-hover:text-white border border-slate-800 group-hover:border-slate-700 text-xs sm:text-sm font-bold flex items-center gap-1.5 transition"
                   >
                     <span>{isDone ? "Review" : "Study"}</span>
-                    <ChevronRight size={12} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight size={14} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
               );
@@ -642,15 +644,15 @@ export default function QuantitativeAnalysisModuleView() {
 
             {/* Empty State */}
             {filteredTopics.length === 0 && (
-              <div className="text-center py-8 px-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-400">
-                <Search size={24} className="text-slate-600 mx-auto mb-2" />
-                <p className="text-xs">No topics matched your search filters.</p>
+              <div className="text-center py-10 px-4 rounded-2xl bg-slate-950 border border-slate-800 text-slate-400">
+                <Search size={28} className="text-slate-600 mx-auto mb-2" />
+                <p className="text-sm">No topics matched your search filters.</p>
                 <button
                   onClick={() => {
                     setSearchTopic("");
                     setFilterMode("all");
                   }}
-                  className="mt-2 text-xs text-sky-400 hover:underline"
+                  className="mt-2 text-sm text-sky-400 hover:underline font-semibold"
                 >
                   Clear search
                 </button>
@@ -667,18 +669,18 @@ export default function QuantitativeAnalysisModuleView() {
           {prevModule ? (
             <Link
               to={`/${roadmapData.folder}/module/${prevModule.slug}`}
-              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center gap-3"
+              className="group p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center gap-3.5"
             >
-              <ArrowLeft size={16} className="text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" />
+              <ArrowLeft size={20} className="text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" />
               <div className="min-w-0">
-                <div className="text-[10px] uppercase font-semibold text-slate-500">Previous Module</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                <div className="text-xs uppercase font-bold text-slate-500">Previous Module</div>
+                <div className="text-sm sm:text-base font-bold text-slate-200 truncate group-hover:text-white transition-colors">
                   {prevModule.title}
                 </div>
               </div>
             </Link>
           ) : (
-            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-600 text-xs flex items-center">
+            <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-850 text-slate-500 text-sm flex items-center">
               Beginning of course curriculum
             </div>
           )}
@@ -686,25 +688,25 @@ export default function QuantitativeAnalysisModuleView() {
           {nextModule ? (
             <Link
               to={`/${roadmapData.folder}/module/${nextModule.slug}`}
-              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between text-right gap-3"
+              className="group p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between text-right gap-3.5"
             >
               <div className="min-w-0 flex-1">
-                <div className="text-[10px] uppercase font-semibold text-slate-500">Next Module</div>
-                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                <div className="text-xs uppercase font-bold text-slate-500">Next Module</div>
+                <div className="text-sm sm:text-base font-bold text-slate-200 truncate group-hover:text-white transition-colors">
                   {nextModule.title}
                 </div>
               </div>
-              <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+              <ArrowRight size={20} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
             </Link>
           ) : (
-            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-600 text-xs flex items-center justify-end">
+            <div className="p-5 rounded-2xl bg-slate-950/40 border border-slate-850 text-slate-500 text-sm flex items-center justify-end">
               Course completed 🎉
             </div>
           )}
         </nav>
 
         {/* Footer */}
-        <footer className="text-center pt-6 pb-8 text-xs text-slate-600 space-y-1">
+        <footer className="text-center pt-8 pb-10 text-xs sm:text-sm text-slate-500 space-y-1">
           <p>
             © {new Date().getFullYear()} {roadmapData.institute?.name || "Coder & AccoTax"} · {roadmapData.trackTitle}
           </p>

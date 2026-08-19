@@ -1,0 +1,96 @@
+===============================================================================
+WORKED EXAMPLE 1: SIMPLE TWO-VARIABLE MAXIMIZATION
+===============================================================================
+
+TOPIC 28 – A COMPLETE LP SOLUTION
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A small business produces product X and product Y.
+
+- Product X: 2 hours labor, 3 units material, ₹3 profit
+- Product Y: 3 hours labor, 2 units material, ₹4 profit
+- Available: 12 hours labor, 12 units material
+
+Question: How many units of each should be produced to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = units of product X
+  y = units of product Y
+
+Objective Function:
+  Maximize Z = 3x + 4y
+
+Constraints:
+  2x + 3y ≤ 12  (labor)
+  3x + 2y ≤ 12  (material)
+  x ≥ 0, y ≥ 0  (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (4,0)     → Z = 12
+  B (2.4,2.4) → Z = 16.8  ← OPTIMAL
+  C (0,4)     → Z = 16
+
+Optimal Solution:
+  x = 2.4, y = 2.4, Z = 16.8
+
+-------------------------------------------------------------------------------
+4. INTERPRETATION
+-------------------------------------------------------------------------------
+- Produce 2.4 units of each product
+- Maximum profit = ₹16.8
+- Both constraints are binding (fully utilized)
+- Labor: 2(2.4) + 3(2.4) = 12 hours ✓
+- Material: 3(2.4) + 2(2.4) = 12 units ✓
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Always define decision variables clearly first
+✓ The optimal solution is at a corner point
+✓ Both constraints are binding at the optimum
+✓ Fractional solutions are allowed in LP
+✓ Verify that the solution satisfies all constraints
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Forgetting non-negativity constraints
+✗ Misreading constraints from the problem
+✗ Not checking all corner points
+✗ Ignoring fractional solutions
+✗ Not verifying the optimal solution
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a production planning problem where a business
+must allocate limited resources (labor, materials) between two products
+to maximize profit.
+
+The same approach applies to:
+- Manufacturing: allocate machine time, labor, materials
+- Agriculture: allocate land, water, fertilizer
+- Service: allocate time, staff, budget
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can define decision variables from a problem statement.
+☐ I can formulate the objective function and constraints.
+☐ I can graph the feasible region and find corner points.
+☐ I can evaluate the objective function at all corner points.
+☐ I can identify the optimal solution and maximum value.
+☐ I can interpret the solution in the context of the problem.
+
+===============================================================================
+END OF NOTES
+===============================================================================

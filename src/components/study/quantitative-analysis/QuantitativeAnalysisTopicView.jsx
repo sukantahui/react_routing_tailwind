@@ -22,23 +22,14 @@ import {
   X,
   PanelRight,
   PanelRightClose,
-  Pencil,
   Eraser,
   Trash2,
-  Eye,
-  EyeOff,
   GripVertical,
-  Palette,
-  Square,
-  Minus,
-  Type,
-  MousePointer2,
   PenTool,
   Copy,
   Check,
   Bookmark,
   BookmarkCheck,
-  RotateCcw,
   Sparkles,
   Download,
   FileText,
@@ -46,11 +37,9 @@ import {
   HelpCircle,
   Maximize2,
   Minimize2,
-  ChevronRight,
   Search,
   MessageSquare,
   ShieldCheck,
-  Clock,
   Compass,
   Sigma,
   Binary
@@ -179,7 +168,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     try {
       const stored = localStorage.getItem('qa-topic-sidebar-visible');
       return stored !== null ? JSON.parse(stored) : true;
-    } catch {
+    } catch (e) {
+      void e;
       return true;
     }
   });
@@ -188,7 +178,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     try {
       const stored = localStorage.getItem('qa-topic-right-sidebar-visible');
       return stored !== null ? JSON.parse(stored) : false;
-    } catch {
+    } catch (e) {
+      void e;
       return false;
     }
   });
@@ -333,7 +324,6 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   // Keyboard navigation shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Avoid triggering when user is typing in textarea or input
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
       if (e.key === '[' && hasPrev) {
         window.location.href = `/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`;
@@ -350,12 +340,12 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   // ----------------------------------------------------------------
   // 4. RESIZABLE SPLIT PANEL
   // ----------------------------------------------------------------
-  const leftSidebarWidth = showSidebar && !focusMode ? 280 : 0;
+  const leftSidebarWidth = showSidebar && !focusMode ? 310 : 0;
   const getRightSidebarWidth = useCallback(() => {
-    if (!containerWidth) return 550;
+    if (!containerWidth) return 600;
     const available = containerWidth - leftSidebarWidth - 4;
     let width = available * rightSidebarPercent;
-    width = Math.max(280, Math.min(850, width));
+    width = Math.max(300, Math.min(900, width));
     return width;
   }, [containerWidth, leftSidebarWidth, rightSidebarPercent]);
   const rightSidebarWidth = getRightSidebarWidth();
@@ -665,9 +655,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
   const overlayProcessPending = () => {
     const ctx = overlayCtxRef.current;
-    if (!ctx) { overlayDrawPending.current = false; return; }
+    if (!ctx) { drawPendingRef.current = false; return; }
     const points = overlayPending.current;
-    if (points.length === 0) { overlayDrawPending.current = false; return; }
+    if (points.length === 0) { drawPendingRef.current = false; return; }
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     const allPoints = [{ x: overlayLastX.current, y: overlayLastY.current }, ...points];
@@ -719,7 +709,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
   const overlayEndDrawing = () => {
     if (!overlayIsDrawing.current) return;
     if (overlayPending.current.length > 0) {
-      overlayProcessPending();
+      processPending();
     }
     overlaySaveDrawing();
     overlayIsDrawing.current = false;
@@ -747,16 +737,16 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
     return (
       <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
         <div className="max-w-md text-center p-8 rounded-2xl bg-slate-900 border border-slate-800">
-          <HelpCircle size={40} className="text-amber-400 mx-auto mb-3" />
-          <h1 className="text-lg font-bold text-slate-100">Topic Not Found</h1>
-          <p className="text-xs text-slate-400 mt-2 mb-6">
+          <HelpCircle size={44} className="text-amber-400 mx-auto mb-3" />
+          <h1 className="text-xl font-bold text-slate-100">Topic Not Found</h1>
+          <p className="text-sm text-slate-400 mt-2 mb-6">
             The topic index {topicIndex} could not be located in module "{moduleSlug}".
           </p>
           <Link
             to={`/${roadmapData.folder}/module/${moduleSlug}`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold border border-slate-700 transition"
           >
-            <ArrowLeft size={14} /> Back to Module
+            <ArrowLeft size={16} /> Back to Module
           </Link>
         </div>
       </div>
@@ -787,10 +777,10 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
             initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-xl backdrop-blur-md"
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-2xl backdrop-blur-md"
           >
-            <Sparkles className="w-4 h-4 text-sky-400" />
-            <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
+            <Sparkles className="w-5 h-5 text-sky-400" />
+            <span className="text-sm font-medium">{toastMessage}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -800,26 +790,26 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       {/* ========================================================== */}
       {!focusMode && (
         <header className="relative z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md flex-shrink-0">
-          <div className="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-3 flex-wrap">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4 flex-wrap">
             
             {/* Left: Navigation & Context Breadcrumbs */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-3">
               <Link
                 to={`/${roadmapData.folder}/module/${moduleSlug}`}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:border-slate-700 transition"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-800 bg-slate-900 px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:border-slate-700 transition"
               >
-                <ArrowLeft size={13} />
+                <ArrowLeft size={15} />
                 <span className="hidden sm:inline">Module Overview</span>
               </Link>
 
-              <div className="h-4 w-px bg-slate-800 hidden sm:block" />
+              <div className="h-5 w-px bg-slate-800 hidden sm:block" />
 
               <div className="flex flex-col leading-tight min-w-0">
-                <div className="flex items-center gap-1.5 text-[10px] uppercase font-semibold tracking-wider text-slate-500">
-                  <Layers size={11} className="text-sky-400" />
+                <div className="flex items-center gap-1.5 text-xs uppercase font-bold tracking-wider text-slate-500">
+                  <Layers size={13} className="text-sky-400" />
                   <span className="truncate">{segmentData?.title?.split("–")[0]?.trim() || "Segment"}</span>
                 </div>
-                <span className="text-xs font-semibold text-slate-200 truncate max-w-[200px] sm:max-w-xs md:max-w-md">
+                <span className="text-sm sm:text-base font-bold text-slate-200 truncate max-w-[220px] sm:max-w-xs md:max-w-md">
                   {moduleData.title}
                 </span>
               </div>
@@ -829,69 +819,69 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
             <div className="flex items-center gap-2 flex-wrap">
               
               {/* Progress counter */}
-              <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-400">
-                <BookOpen size={13} className="text-slate-400" />
-                <span>{index + 1} / {totalTopics}</span>
-                <div className="w-12 h-1.5 rounded-full bg-slate-800 overflow-hidden">
-                  <div className="h-full bg-sky-500" style={{ width: `${progressPercent}%` }} />
+              <div className="hidden lg:flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-sm text-slate-300">
+                <BookOpen size={15} className="text-sky-400" />
+                <span className="font-semibold">{index + 1} / {totalTopics}</span>
+                <div className="w-16 h-2 rounded-full bg-slate-800 overflow-hidden">
+                  <div className="h-full bg-sky-500 rounded-full" style={{ width: `${progressPercent}%` }} />
                 </div>
-                <span className="font-semibold text-slate-300">{progressPercent}%</span>
+                <span className="font-bold text-slate-200">{progressPercent}%</span>
               </div>
 
               {/* Sidebar toggle buttons */}
               <button
                 onClick={() => setShowSidebar(!showSidebar)}
-                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                className={`px-3 py-1.5 rounded-xl text-sm font-semibold border transition flex items-center gap-1.5 ${
                   showSidebar
                     ? "bg-slate-800 border-slate-700 text-slate-100"
-                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                    : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                 }`}
                 title="Toggle topics sidebar"
               >
-                <List size={14} />
+                <List size={16} />
                 <span className="hidden md:inline">{showSidebar ? "Hide Topics" : "Topic Index"}</span>
               </button>
 
               <button
                 onClick={() => setShowRightSidebar(!showRightSidebar)}
-                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                className={`px-3 py-1.5 rounded-xl text-sm font-semibold border transition flex items-center gap-1.5 ${
                   showRightSidebar
                     ? "bg-slate-800 border-slate-700 text-slate-100"
-                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                    : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                 }`}
                 title="Toggle study workspace & whiteboard"
               >
-                {showRightSidebar ? <PanelRightClose size={14} /> : <PanelRight size={14} />}
+                {showRightSidebar ? <PanelRightClose size={16} /> : <PanelRight size={16} />}
                 <span className="hidden md:inline">{showRightSidebar ? "Close Workspace" : "Workspace"}</span>
               </button>
 
               {/* Draw anywhere button */}
               <button
                 onClick={() => setDrawAnywhere(!drawAnywhere)}
-                className={`p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium border transition flex items-center gap-1.5 ${
+                className={`px-3 py-1.5 rounded-xl text-sm font-semibold border transition flex items-center gap-1.5 ${
                   drawAnywhere
                     ? "bg-rose-950/80 border-rose-700 text-rose-300"
-                    : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                    : "bg-slate-900 border-slate-800 text-slate-300 hover:text-white"
                 }`}
                 title="Annotate directly on screen"
               >
-                <PenTool size={14} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
-                <span className="hidden md:inline">{drawAnywhere ? "Stop Annotating" : "Annotate Screen"}</span>
+                <PenTool size={16} className={drawAnywhere ? "text-rose-400" : "text-slate-400"} />
+                <span className="hidden md:inline">{drawAnywhere ? "Stop Annotating" : "Annotate"}</span>
               </button>
 
               {/* Focus mode button */}
               <button
                 onClick={() => setFocusMode(!focusMode)}
-                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition"
                 title="Focus Mode (Hide sidebars & clutter)"
               >
-                {focusMode ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
+                {focusMode ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
               </button>
 
               {/* Font size toggle */}
               <button
                 onClick={() => setFontSize((f) => (f === 'normal' ? 'large' : 'normal'))}
-                className="p-1.5 px-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 text-xs font-semibold font-mono transition"
+                className="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 text-sm font-bold font-mono transition"
                 title={`Font Size: ${fontSize === 'normal' ? 'Normal (Click for Large)' : 'Large (Click for Normal)'}`}
               >
                 {fontSize === 'normal' ? 'A+' : 'A-'}
@@ -900,38 +890,38 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               {/* Bookmark & Link */}
               <button
                 onClick={toggleBookmark}
-                className={`p-1.5 rounded-lg border transition ${
+                className={`p-2 rounded-xl border transition ${
                   isBookmarked
                     ? "bg-slate-800 border-slate-700 text-amber-400"
                     : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
                 }`}
                 title={isBookmarked ? "Remove bookmark" : "Bookmark topic"}
               >
-                {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+                {isBookmarked ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
               </button>
 
               <button
                 onClick={handleCopyLink}
-                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
                 title="Copy topic link"
               >
-                {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                {copiedLink ? <Check size={16} className="text-emerald-400" /> : <Copy size={16} />}
               </button>
 
               {/* Prev / Next Topic Buttons */}
-              <div className="flex items-center gap-1 pl-1 border-l border-slate-800">
+              <div className="flex items-center gap-1.5 pl-2 border-l border-slate-800">
                 {hasPrev ? (
                   <Link
                     to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
-                    className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-1 transition"
+                    className="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-800 text-sm font-semibold flex items-center gap-1 transition"
                     title="Previous Topic (Shortcut: [ )"
                   >
-                    <ArrowLeft size={13} />
+                    <ArrowLeft size={15} />
                     <span className="hidden sm:inline">Prev</span>
                   </Link>
                 ) : (
-                  <button disabled className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-xs cursor-not-allowed flex items-center gap-1">
-                    <ArrowLeft size={13} />
+                  <button disabled className="px-3 py-1.5 rounded-xl bg-slate-950 text-slate-600 border border-slate-900 text-sm cursor-not-allowed flex items-center gap-1">
+                    <ArrowLeft size={15} />
                     <span className="hidden sm:inline">Prev</span>
                   </button>
                 )}
@@ -939,16 +929,16 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 {hasNext ? (
                   <Link
                     to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
-                    className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-100 hover:text-white border border-slate-700 text-xs font-semibold flex items-center gap-1 transition"
+                    className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-sm font-bold flex items-center gap-1 transition"
                     title="Next Topic (Shortcut: ] )"
                   >
                     <span className="hidden sm:inline">Next</span>
-                    <ArrowRight size={13} />
+                    <ArrowRight size={15} />
                   </Link>
                 ) : (
-                  <button disabled className="p-1.5 sm:px-2.5 sm:py-1 rounded-lg bg-slate-950 text-slate-600 border border-slate-900 text-xs cursor-not-allowed flex items-center gap-1">
+                  <button disabled className="px-3 py-1.5 rounded-xl bg-slate-950 text-slate-600 border border-slate-900 text-sm cursor-not-allowed flex items-center gap-1">
                     <span className="hidden sm:inline">Next</span>
-                    <ArrowRight size={13} />
+                    <ArrowRight size={15} />
                   </button>
                 )}
               </div>
@@ -957,9 +947,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               <button
                 type="button"
                 onClick={() => setSidebarOpen(true)}
-                className="p-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 sm:hidden"
+                className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 sm:hidden"
               >
-                <Menu size={14} />
+                <Menu size={16} />
               </button>
 
             </div>
@@ -972,9 +962,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       {focusMode && (
         <button
           onClick={() => setFocusMode(false)}
-          className="fixed top-4 right-4 z-50 px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-700 text-xs text-slate-300 hover:text-white backdrop-blur shadow-lg flex items-center gap-1.5 transition"
+          className="fixed top-5 right-5 z-50 px-4 py-2 rounded-xl bg-slate-900/95 border border-slate-700 text-sm font-semibold text-slate-200 hover:text-white backdrop-blur shadow-2xl flex items-center gap-2 transition"
         >
-          <Minimize2 size={13} /> Exit Focus Mode
+          <Minimize2 size={16} /> Exit Focus Mode
         </button>
       )}
 
@@ -988,45 +978,45 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           {/* LEFT TOPIC NAVIGATION SIDEBAR (Desktop) */}
           {/* ============================================================== */}
           {showSidebar && !focusMode && (
-            <aside className="hidden lg:flex flex-col w-72 shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md pt-4 pb-6 px-3 h-full overflow-hidden">
+            <aside className="hidden lg:flex flex-col w-80 shrink-0 border-r border-slate-800 bg-slate-950/80 backdrop-blur-md pt-5 pb-6 px-4 h-full overflow-hidden">
               
               {/* Module Info & Progress Bar */}
-              <div className="mb-3 rounded-xl border border-slate-800 bg-slate-900/80 p-3 text-xs">
-                <div className="flex items-center justify-between mb-1.5 text-[11px] text-slate-400">
-                  <span className="font-semibold uppercase tracking-wider">Module Progress</span>
-                  <span className="font-bold text-slate-200">{completedCount}/{totalTopics} ({progressPercent}%)</span>
+              <div className="mb-4 rounded-xl border border-slate-800 bg-slate-900/80 p-3.5 text-sm">
+                <div className="flex items-center justify-between mb-2 text-xs text-slate-400">
+                  <span className="font-bold uppercase tracking-wider">Module Progress</span>
+                  <span className="font-bold text-slate-100">{completedCount}/{totalTopics} ({progressPercent}%)</span>
                 </div>
-                <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden mb-2">
+                <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden mb-2.5">
                   <div className="h-full bg-sky-500 rounded-full" style={{ width: `${progressPercent}%` }} />
                 </div>
-                <div className="flex items-center justify-between text-[10px] text-slate-500">
+                <div className="flex items-center justify-between text-xs text-slate-400">
                   <span>{moduleData.estimatedHours} hrs course</span>
                   <span>{moduleData.difficulty || "Standard"}</span>
                 </div>
               </div>
 
               {/* Search topics inside module */}
-              <div className="relative mb-2.5">
-                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-500" />
+              <div className="relative mb-3">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   type="text"
                   placeholder="Filter module topics..."
                   value={sidebarSearch}
                   onChange={(e) => setSidebarSearch(e.target.value)}
-                  className="w-full pl-8 pr-7 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs focus:outline-none focus:border-slate-700"
+                  className="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-sm focus:outline-none focus:border-slate-700"
                 />
                 {sidebarSearch && (
                   <button
                     onClick={() => setSidebarSearch("")}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
                   >
-                    <X size={12} />
+                    <X size={14} />
                   </button>
                 )}
               </div>
 
               {/* Topics List Scrollable Area */}
-              <div className="flex-1 overflow-y-auto space-y-1 pr-1 text-xs custom-scrollbar">
+              <div className="flex-1 overflow-y-auto space-y-1.5 pr-1 text-sm custom-scrollbar">
                 {filteredSidebarTopics.map(({ title, idx }) => {
                   const isActive = idx === index;
                   const isDone = completedTopics.includes(idx);
@@ -1036,22 +1026,22 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                       key={idx}
                       ref={isActive ? activeTopicRef : null}
                       to={`/${roadmapData.folder}/topic/${moduleSlug}/${idx}`}
-                      className={`relative flex items-center gap-2.5 px-3 py-2 rounded-xl border transition-all text-xs ${
+                      className={`relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl border transition-all text-sm leading-normal ${
                         isActive
-                          ? "border-slate-700 bg-slate-800/90 text-white font-semibold shadow-sm"
+                          ? "border-slate-700 bg-slate-800/90 text-white font-bold shadow-md"
                           : isDone
                           ? "border-slate-850 bg-slate-900/40 text-slate-400 hover:bg-slate-900 hover:text-slate-200"
                           : "border-transparent text-slate-300 hover:bg-slate-900/80 hover:border-slate-800"
                       }`}
                     >
                       {isDone ? (
-                        <CheckCircle2 size={14} className="text-emerald-400 shrink-0" />
+                        <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                       ) : (
-                        <span className={`w-3.5 h-3.5 rounded-full border shrink-0 ${isActive ? "border-sky-400" : "border-slate-600"}`} />
+                        <span className={`w-4 h-4 rounded-full border shrink-0 ${isActive ? "border-sky-400" : "border-slate-600"}`} />
                       )}
 
                       <span className="truncate">
-                        <span className="text-slate-500 font-mono mr-1 text-[11px]">
+                        <span className="text-slate-500 font-mono mr-1.5 text-xs font-semibold">
                           {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
                         </span>
                         {title}
@@ -1062,16 +1052,16 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               </div>
 
               {/* Bottom Quick Links */}
-              <div className="mt-3 pt-3 border-t border-slate-800/80 space-y-1 text-xs">
+              <div className="mt-4 pt-3 border-t border-slate-800/80 space-y-1.5 text-xs sm:text-sm">
                 <Link
                   to={`/${roadmapData.folder}/module/${moduleSlug}`}
-                  className="block px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition"
+                  className="block px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium transition"
                 >
                   ← Back to Module Overview
                 </Link>
                 <Link
                   to={`/${roadmapData.folder}/roadmap`}
-                  className="block px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition"
+                  className="block px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium transition"
                 >
                   📍 Course Roadmap ({roadmapData.subjectCode})
                 </Link>
@@ -1086,18 +1076,18 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           {sidebarOpen && (
             <>
               <div className="fixed inset-0 z-40 bg-black/70 lg:hidden" onClick={() => setSidebarOpen(false)} />
-              <aside className="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 border-r border-slate-800 p-4 flex flex-col lg:hidden">
+              <aside className="fixed inset-y-0 left-0 z-50 w-80 bg-slate-950 border-r border-slate-800 p-5 flex flex-col lg:hidden">
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
                   <div className="flex items-center gap-2">
-                    <Layers size={16} className="text-sky-400" />
-                    <span className="text-xs font-bold text-slate-200 truncate max-w-[180px]">{moduleData.title}</span>
+                    <Layers size={18} className="text-sky-400" />
+                    <span className="text-sm font-bold text-slate-200 truncate max-w-[200px]">{moduleData.title}</span>
                   </div>
                   <button onClick={() => setSidebarOpen(false)} className="p-1 rounded-lg text-slate-400 hover:text-white">
-                    <X size={16} />
+                    <X size={18} />
                   </button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto space-y-1 text-xs">
+                <div className="flex-1 overflow-y-auto space-y-1.5 text-sm">
                   {topics.map((t, i) => {
                     const isActive = i === index;
                     const isDone = completedTopics.includes(i);
@@ -1106,7 +1096,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                         key={i}
                         to={`/${roadmapData.folder}/topic/${moduleSlug}/${i}`}
                         onClick={() => setSidebarOpen(false)}
-                        className={`flex items-center gap-2 p-2 rounded-lg ${
+                        className={`flex items-center gap-2.5 p-2.5 rounded-xl text-sm ${
                           isActive
                             ? "bg-slate-800 text-white font-bold"
                             : isDone
@@ -1114,7 +1104,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                             : "text-slate-300 hover:bg-slate-900"
                         }`}
                       >
-                        {isDone ? <CheckCircle2 size={14} className="text-emerald-400" /> : <Circle size={14} className="text-slate-600" />}
+                        {isDone ? <CheckCircle2 size={16} className="text-emerald-400" /> : <Circle size={16} className="text-slate-600" />}
                         <span className="truncate">{i + 1}. {t}</span>
                       </Link>
                     );
@@ -1127,20 +1117,20 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           {/* ============================================================== */}
           {/* MAIN TOPIC CONTENT READER */}
           {/* ============================================================== */}
-          <main ref={mainContentRef} className="flex-1 px-4 sm:px-6 lg:px-8 py-6 lg:py-8 overflow-y-auto h-full relative">
-            <div className="max-w-4xl mx-auto space-y-6">
+          <main ref={mainContentRef} className="flex-1 px-4 sm:px-8 lg:px-10 py-6 lg:py-10 overflow-y-auto h-full relative">
+            <div className="max-w-5xl mx-auto space-y-6">
               
               {/* Topic Hero Card */}
-              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-5 sm:p-6 shadow-sm">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-6 sm:p-7 shadow-sm">
                 
                 {/* Meta details line */}
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-slate-950 text-slate-400 border border-slate-800">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <span className="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-slate-950 text-slate-300 border border-slate-800">
                       Topic {index + 1 < 10 ? `0${index + 1}` : index + 1} / {totalTopics}
                     </span>
 
-                    <span className="px-2 py-0.5 rounded-md text-[11px] text-slate-400 bg-slate-950 border border-slate-800">
+                    <span className="px-2.5 py-1 rounded-md text-xs font-semibold text-slate-300 bg-slate-950 border border-slate-800">
                       {moduleData.title}
                     </span>
                   </div>
@@ -1148,42 +1138,42 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                   {/* Toggle Completed Pill Button */}
                   <button
                     onClick={toggleTopicCompletion}
-                    className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold border transition ${
+                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold border transition ${
                       isCurrentTopicDone
                         ? "bg-slate-800 border-slate-700 text-emerald-400 hover:bg-slate-750"
-                        : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                        : "bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700 hover:text-white"
                     }`}
                   >
-                    {isCurrentTopicDone ? <CheckCircle2 size={14} className="text-emerald-400" /> : <Circle size={14} />}
+                    {isCurrentTopicDone ? <CheckCircle2 size={16} className="text-emerald-400" /> : <Circle size={16} />}
                     <span>{isCurrentTopicDone ? "Completed" : "Mark as Completed"}</span>
                   </button>
                 </div>
 
                 {/* Topic Title */}
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
                   {topicTitle}
                 </h1>
 
               </div>
 
               {/* Dynamic Topic Content Page */}
-              <article className={`rounded-2xl border border-slate-800 bg-slate-900/50 p-5 sm:p-7 md:p-8 shadow-sm ${fontSize === 'large' ? 'text-base' : 'text-sm'}`}>
+              <article className={`rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8 md:p-10 shadow-sm ${fontSize === 'large' ? 'text-lg sm:text-xl leading-relaxed' : 'text-base sm:text-lg leading-relaxed'}`}>
                 <Suspense fallback={
-                  <div className="py-12 text-center text-slate-400 space-y-2">
-                    <div className="w-6 h-6 border-2 border-slate-700 border-t-sky-400 rounded-full animate-spin mx-auto" />
-                    <p className="text-xs">Loading topic formulation & calculations…</p>
+                  <div className="py-14 text-center text-slate-400 space-y-3">
+                    <div className="w-8 h-8 border-2 border-slate-700 border-t-sky-400 rounded-full animate-spin mx-auto" />
+                    <p className="text-sm">Loading topic formulation & calculations…</p>
                   </div>
                 }>
                   {TopicPage ? (
                     <TopicPage key={topicKey} />
                   ) : (
-                    <div className="text-slate-300 text-sm py-8 text-center space-y-3">
-                      <FileText size={36} className="text-slate-600 mx-auto" />
-                      <h3 className="text-base font-bold text-slate-200">Topic Component In Development</h3>
-                      <p className="text-xs text-slate-400 max-w-md mx-auto">
+                    <div className="text-slate-300 text-base py-10 text-center space-y-4">
+                      <FileText size={42} className="text-slate-600 mx-auto" />
+                      <h3 className="text-lg font-bold text-slate-200">Topic Component In Development</h3>
+                      <p className="text-sm text-slate-400 max-w-md mx-auto">
                         The content for "{topicTitle}" is being compiled for the curriculum.
                       </p>
-                      <pre className="text-slate-400 text-[11px] bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg mx-auto overflow-x-auto text-left">
+                      <pre className="text-slate-400 text-xs bg-slate-950 p-4 rounded-xl border border-slate-800 max-w-lg mx-auto overflow-x-auto text-left">
                         {`src/components/study/${roadmapData.folder}/topics/${moduleSlug}/Topic${topicIndex}.jsx`}
                       </pre>
                     </div>
@@ -1194,19 +1184,19 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               {/* ========================================================== */}
               {/* WhatsApp Question & Doubt Clearance Widget */}
               {/* ========================================================== */}
-              <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 space-y-3">
-                <div className="flex items-center gap-2 text-slate-200">
-                  <MessageSquare size={16} className="text-emerald-400" />
-                  <h3 className="text-sm font-bold">Have a Question About This Topic?</h3>
+              <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-6 space-y-4">
+                <div className="flex items-center gap-2 text-slate-100">
+                  <MessageSquare size={18} className="text-emerald-400" />
+                  <h3 className="text-base font-bold">Have a Question About This Topic?</h3>
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-400 leading-relaxed">
                   Ask your calculation, formulation, or theorem doubt directly to instructor {teacher.name}.
                 </p>
                 <textarea
                   id="qaTopicDoubt"
                   placeholder="Type your question or problem statement here..."
-                  className="w-full bg-slate-950 text-slate-200 p-3 rounded-xl border border-slate-800 text-xs placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
-                  rows={2}
+                  className="w-full bg-slate-950 text-slate-200 p-3.5 rounded-xl border border-slate-800 text-sm placeholder:text-slate-600 focus:outline-none focus:border-slate-600"
+                  rows={3}
                 />
                 <button
                   onClick={() => {
@@ -1222,24 +1212,24 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                     );
                     window.open(`https://wa.me/${cleanPhone}?text=${message}`, "_blank");
                   }}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white border border-slate-700 text-xs font-semibold transition shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-100 hover:text-white border border-slate-700 text-sm font-semibold transition shadow-sm"
                 >
-                  <MessageSquare size={13} className="text-emerald-400" />
+                  <MessageSquare size={16} className="text-emerald-400" />
                   <span>Send Query via WhatsApp</span>
                 </button>
               </section>
 
               {/* Bottom Topic Navigation */}
-              <nav className="flex items-center justify-between gap-3 pt-2 pb-8">
+              <nav className="flex items-center justify-between gap-4 pt-2 pb-10">
                 {hasPrev ? (
                   <Link
                     to={`/${roadmapData.folder}/topic/${moduleSlug}/${index - 1}`}
-                    className="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-medium text-slate-300 hover:text-white transition flex items-center gap-2"
+                    className="flex-1 p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-sm font-medium text-slate-300 hover:text-white transition flex items-center gap-3"
                   >
-                    <ArrowLeft size={14} className="text-slate-500" />
+                    <ArrowLeft size={16} className="text-slate-500 shrink-0" />
                     <div className="truncate">
-                      <div className="text-[10px] text-slate-500 uppercase font-semibold">Previous Topic</div>
-                      <div className="truncate">{topics[index - 1]}</div>
+                      <div className="text-xs text-slate-500 uppercase font-bold">Previous Topic</div>
+                      <div className="truncate text-slate-200 font-semibold">{topics[index - 1]}</div>
                     </div>
                   </Link>
                 ) : <div className="flex-1" />}
@@ -1247,13 +1237,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                 {hasNext ? (
                   <Link
                     to={`/${roadmapData.folder}/topic/${moduleSlug}/${index + 1}`}
-                    className="flex-1 p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-semibold text-slate-200 hover:text-white transition flex items-center justify-between text-right gap-2"
+                    className="flex-1 p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-sm font-semibold text-slate-200 hover:text-white transition flex items-center justify-between text-right gap-3"
                   >
                     <div className="truncate flex-1">
-                      <div className="text-[10px] text-slate-500 uppercase font-semibold">Next Topic</div>
-                      <div className="truncate">{topics[index + 1]}</div>
+                      <div className="text-xs text-slate-500 uppercase font-bold">Next Topic</div>
+                      <div className="truncate text-white font-bold">{topics[index + 1]}</div>
                     </div>
-                    <ArrowRight size={14} className="text-slate-400 shrink-0" />
+                    <ArrowRight size={16} className="text-slate-400 shrink-0" />
                   </Link>
                 ) : <div className="flex-1" />}
               </nav>
@@ -1285,11 +1275,11 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           {showRightSidebar && !focusMode && (
             <div
               ref={dividerRef}
-              className="flex-shrink-0 w-2 bg-slate-850 hover:bg-slate-700 cursor-col-resize relative group transition-colors z-20 flex items-center justify-center"
+              className="flex-shrink-0 w-2.5 bg-slate-850 hover:bg-slate-700 cursor-col-resize relative group transition-colors z-20 flex items-center justify-center"
               onMouseDown={startDrag}
             >
               <div className="p-0.5 rounded bg-slate-800 border border-slate-700 text-slate-500 group-hover:text-slate-300">
-                <GripVertical size={14} />
+                <GripVertical size={16} />
               </div>
             </div>
           )}
@@ -1299,7 +1289,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
           {/* ============================================================== */}
           {showRightSidebar && !focusMode && (
             <aside
-              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/90 backdrop-blur-md pt-3 pb-6 px-3 h-full overflow-hidden"
+              className="hidden lg:flex flex-col border-l border-slate-800 bg-slate-950/90 backdrop-blur-md pt-4 pb-6 px-4 h-full overflow-hidden"
               style={{
                 width: `${rightSidebarWidth}px`,
                 flexShrink: 0,
@@ -1309,13 +1299,13 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
               <div className="flex flex-col h-full">
                 
                 {/* Workspace Header Tabs */}
-                <div className="flex items-center justify-between gap-1 pb-2.5 mb-2.5 border-b border-slate-800">
-                  <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+                <div className="flex items-center justify-between gap-1 pb-3 mb-3 border-b border-slate-800">
+                  <div className="flex items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800">
                     <button
                       onClick={() => setActiveRightTab('canvas')}
-                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${
                         activeRightTab === 'canvas'
-                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
@@ -1324,9 +1314,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                     <button
                       onClick={() => setActiveRightTab('tldraw')}
-                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${
                         activeRightTab === 'tldraw'
-                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
@@ -1335,9 +1325,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                     <button
                       onClick={() => setActiveRightTab('scratchpad')}
-                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${
                         activeRightTab === 'scratchpad'
-                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
@@ -1346,9 +1336,9 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                     <button
                       onClick={() => setActiveRightTab('cheatsheet')}
-                      className={`px-2 py-1 rounded text-xs font-medium transition ${
+                      className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition ${
                         activeRightTab === 'cheatsheet'
-                          ? "bg-slate-800 text-slate-100 font-semibold"
+                          ? "bg-slate-800 text-slate-100 shadow-sm"
                           : "text-slate-400 hover:text-slate-200"
                       }`}
                     >
@@ -1358,63 +1348,63 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                   <button
                     onClick={() => setShowRightSidebar(false)}
-                    className="p-1 rounded-lg text-slate-400 hover:text-white"
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-white"
                     title="Close workspace"
                   >
-                    <X size={14} />
+                    <X size={16} />
                   </button>
                 </div>
 
                 {/* TAB 1: CANVAS WHITEBOARD */}
                 {activeRightTab === 'canvas' && (
                   <div className="flex-1 flex flex-col min-h-0">
-                    <div className="flex items-center justify-between gap-2 mb-2 bg-slate-900 p-1.5 rounded-lg border border-slate-800">
-                      <div className="flex items-center gap-1.5">
+                    <div className="flex items-center justify-between gap-2 mb-3 bg-slate-900 p-2 rounded-xl border border-slate-800">
+                      <div className="flex items-center gap-2">
                         <input
                           type="color"
                           value={drawingColor}
                           onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
-                          className="w-5 h-5 p-0 border-0 rounded cursor-pointer bg-transparent"
+                          className="w-6 h-6 p-0 border-0 rounded cursor-pointer bg-transparent"
                           title="Pen color"
                         />
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5">
                           <input
                             type="range"
                             min="1"
                             max="16"
                             value={drawingSize}
                             onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
-                            className="w-12 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+                            className="w-16 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
                           />
                         </div>
                         <button
                           onClick={() => setIsEraser(!isEraser)}
-                          className={`p-1 rounded transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
+                          className={`p-1.5 rounded-lg transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
                           title="Eraser"
                         >
-                          <Eraser size={13} />
+                          <Eraser size={15} />
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1.5">
                         <button
                           onClick={clearCanvas}
-                          className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition"
                           title="Clear canvas"
                         >
-                          <Trash2 size={13} />
+                          <Trash2 size={15} />
                         </button>
                         <button
                           onClick={downloadDrawing}
-                          className="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
                           title="Download PNG snapshot"
                         >
-                          <Download size={13} />
+                          <Download size={15} />
                         </button>
                       </div>
                     </div>
 
-                    <div className="flex-1 relative border border-slate-800 rounded-xl overflow-hidden bg-slate-950">
+                    <div className="flex-1 relative border border-slate-800 rounded-2xl overflow-hidden bg-slate-950">
                       <canvas
                         ref={canvasRef}
                         onMouseDown={startDrawing}
@@ -1432,8 +1422,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                 {/* TAB 2: TLDRAW CANVAS */}
                 {activeRightTab === 'tldraw' && (
-                  <div className="flex-1 flex flex-col border border-slate-800 rounded-xl overflow-hidden bg-slate-900 min-h-0">
-                    <div className="flex items-center gap-1.5 px-2 py-1.5 bg-slate-850 border-b border-slate-800 text-[10px] text-slate-300">
+                  <div className="flex-1 flex flex-col border border-slate-800 rounded-2xl overflow-hidden bg-slate-900 min-h-0">
+                    <div className="flex items-center gap-2 px-3 py-2 bg-slate-850 border-b border-slate-800 text-xs text-slate-300 font-medium">
                       <span>Tools:</span>
                       {['d','draw','e','eraser','r','rectangle','o','circle','l','line','t','text','v','select'].map((key, i, arr) => {
                         if (i % 2 === 0) {
@@ -1442,7 +1432,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                             <button
                               key={key}
                               onClick={() => handleShortcutClick(key, toolName)}
-                              className={`px-1.5 py-0.5 rounded uppercase font-mono ${
+                              className={`px-2 py-0.5 rounded-md uppercase font-mono text-xs ${
                                 selectedShortcut === toolName ? "bg-slate-700 text-white font-bold" : "bg-slate-900 text-slate-400 hover:text-slate-200"
                               }`}
                             >
@@ -1452,7 +1442,7 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                         }
                         return null;
                       })}
-                      {copyFeedback && <span className="text-[10px] text-emerald-400 ml-auto">{copyFeedback}</span>}
+                      {copyFeedback && <span className="text-xs text-emerald-400 ml-auto font-medium">{copyFeedback}</span>}
                     </div>
                     <TldrawWrapper onEditorReady={(editor) => { tldrawEditorRef.current = editor; }} />
                   </div>
@@ -1460,8 +1450,8 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
 
                 {/* TAB 3: NOTES & SCRATCHPAD */}
                 {activeRightTab === 'scratchpad' && (
-                  <div className="flex-1 flex flex-col min-h-0 space-y-2">
-                    <div className="flex items-center justify-between text-xs text-slate-400">
+                  <div className="flex-1 flex flex-col min-h-0 space-y-2.5">
+                    <div className="flex items-center justify-between text-sm text-slate-400 font-medium">
                       <span>Auto-saved Topic Notes</span>
                       <button
                         onClick={() => {
@@ -1473,106 +1463,106 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
                           a.click();
                           showToast("Notes downloaded.");
                         }}
-                        className="p-1 text-slate-400 hover:text-white"
+                        className="p-1.5 text-slate-400 hover:text-white"
                         title="Download notes"
                       >
-                        <Download size={13} />
+                        <Download size={15} />
                       </button>
                     </div>
                     <textarea
                       value={scratchpadText}
                       onChange={(e) => handleScratchpadChange(e.target.value)}
                       placeholder="Write your calculations, scratch notes, formulas here..."
-                      className="flex-1 w-full bg-slate-950 text-slate-200 p-3 rounded-xl border border-slate-800 text-xs font-mono placeholder:text-slate-600 focus:outline-none focus:border-slate-700 resize-none"
+                      className="flex-1 w-full bg-slate-950 text-slate-200 p-4 rounded-xl border border-slate-800 text-sm font-mono placeholder:text-slate-600 focus:outline-none focus:border-slate-700 resize-none leading-relaxed"
                     />
                   </div>
                 )}
 
                 {/* TAB 4: FORMULAS CHEAT SHEET */}
                 {activeRightTab === 'cheatsheet' && (
-                  <div className="flex-1 overflow-y-auto space-y-3 pr-1 text-xs custom-scrollbar">
+                  <div className="flex-1 overflow-y-auto space-y-3.5 pr-1 text-sm custom-scrollbar leading-relaxed">
                     
                     {/* Linear Programming Reference */}
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
-                        <Sigma size={14} className="text-sky-400" />
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-slate-100 text-sm sm:text-base">
+                        <Sigma size={16} className="text-sky-400" />
                         <span>Linear Programming Essentials</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Standard Form: Max/Min Z = Σ c_j x_j subject to Σ a_ij x_j = b_i, x_j ≥ 0.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Constraints: For ≤ constraints, add slack variable s ≥ 0. For ≥ constraints, subtract surplus s ≥ 0 and add artificial variable A ≥ 0.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Big-M Method: Penalty (+M) in minimization, (-M) in maximization for artificial variables.
                       </p>
                     </div>
 
                     {/* Transportation Reference */}
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
-                        <Calculator size={14} className="text-teal-400" />
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-slate-100 text-sm sm:text-base">
+                        <Calculator size={16} className="text-teal-400" />
                         <span>Transportation Problems</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Balanced Condition: Total Supply = Total Demand. If unbalanced, add dummy row or column.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Initial BFS: North-West Corner Rule (NWCR), Matrix Minima (Least Cost), Vogel's Approximation Method (VAM).
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • MODI Optimality: u_i + v_j = c_ij for allocated cells; Opportunity cost d_ij = c_ij - (u_i + v_j) for unallocated cells.
                       </p>
                     </div>
 
                     {/* Assignment & Hungarian */}
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
-                        <Binary size={14} className="text-amber-400" />
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-slate-100 text-sm sm:text-base">
+                        <Binary size={16} className="text-amber-400" />
                         <span>Assignment Problem (Hungarian)</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Step 1: Row reduction (subtract minimum element of each row).
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Step 2: Column reduction (subtract minimum element of each column).
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Step 3: Draw minimum lines N to cover all zeros. If N = n, optimal assignment is reached.
                       </p>
                     </div>
 
                     {/* CPM & PERT */}
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
-                        <Compass size={14} className="text-indigo-400" />
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-slate-100 text-sm sm:text-base">
+                        <Compass size={16} className="text-indigo-400" />
                         <span>CPM & PERT Calculations</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Forward Pass: ES_j = max(EF_i), EF = ES + t.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Backward Pass: LF_i = min(LS_j), LS = LF - t.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Expected Time (PERT): t_e = (a + 4m + b) / 6, Variance σ² = ((b - a) / 6)².
                       </p>
                     </div>
 
                     {/* Game Theory */}
-                    <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-200">
-                        <ShieldCheck size={14} className="text-rose-400" />
+                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-slate-100 text-sm sm:text-base">
+                        <ShieldCheck size={16} className="text-rose-400" />
                         <span>Game Theory Principles</span>
                       </div>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Saddle Point: Maximin = Minimax.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • Dominance: Row A dominates B if every payoff in A ≥ B. Column A dominates B if every payoff in A ≤ B.
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-slate-300 text-xs sm:text-sm">
                         • 2x2 Mixed Strategy: p1 = (a22 - a21) / [(a11 + a22) - (a12 + a21)].
                       </p>
                     </div>
@@ -1591,50 +1581,50 @@ function TopicViewInner({ moduleSlug, topicIndex }) {
       {/* FLOATING TOOLBAR – DRAW ANYWHERE (BOTTOM DOCK) */}
       {/* ============================================================== */}
       {drawAnywhere && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-2 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl px-3.5 py-2 shadow-2xl">
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-3 bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl px-4 py-2.5 shadow-2xl">
           <button
             onClick={() => setDrawAnywhere(false)}
-            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition"
+            className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition"
           >
             ✕ Exit
           </button>
           
-          <div className="w-px h-5 bg-slate-800" />
+          <div className="w-px h-6 bg-slate-800" />
 
           <input
             type="color"
             value={drawingColor}
             onChange={(e) => { setDrawingColor(e.target.value); setIsEraser(false); }}
-            className="w-6 h-6 p-0 border-0 rounded cursor-pointer bg-transparent"
+            className="w-7 h-7 p-0 border-0 rounded cursor-pointer bg-transparent"
             title="Pen color"
           />
 
-          <div className="flex items-center gap-1">
-            <span className="text-[10px] text-slate-400">Size</span>
+          <div className="flex items-center gap-1.5">
+            <span className="text-xs text-slate-400 font-semibold">Size</span>
             <input
               type="range"
               min="1"
               max="16"
               value={drawingSize}
               onChange={(e) => { setDrawingSize(Number(e.target.value)); setIsEraser(false); }}
-              className="w-14 h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+              className="w-16 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer"
             />
           </div>
 
           <button
             onClick={() => setIsEraser(!isEraser)}
-            className={`p-1.5 rounded-lg transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
+            className={`p-2 rounded-xl transition ${isEraser ? "bg-slate-700 text-white" : "text-slate-400 hover:text-slate-200"}`}
             title="Eraser"
           >
-            <Eraser size={14} />
+            <Eraser size={16} />
           </button>
 
           <button
             onClick={overlayClear}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 transition"
+            className="p-2 rounded-xl text-slate-400 hover:text-rose-400 transition"
             title="Clear all screen markings"
           >
-            <Trash2 size={14} />
+            <Trash2 size={16} />
           </button>
         </div>
       )}

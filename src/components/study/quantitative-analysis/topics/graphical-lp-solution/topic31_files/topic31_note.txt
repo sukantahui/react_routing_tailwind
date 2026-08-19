@@ -1,0 +1,93 @@
+===============================================================================
+WORKED EXAMPLE 4: PROFIT MAXIMIZATION PRODUCT-MIX
+===============================================================================
+
+TOPIC 31 – BAKERY PRODUCT-MIX PROBLEM
+
+-------------------------------------------------------------------------------
+1. PROBLEM STATEMENT
+-------------------------------------------------------------------------------
+A bakery produces two types of cakes:
+
+- Chocolate Cake: 3 cups flour, 2 eggs, ₹10 profit
+- Vanilla Cake: 2 cups flour, 4 eggs, ₹15 profit
+- Available: 24 cups flour, 24 eggs
+
+Question: How many cakes of each type to maximize profit?
+
+-------------------------------------------------------------------------------
+2. LP FORMULATION
+-------------------------------------------------------------------------------
+Decision Variables:
+  x = number of Chocolate Cakes
+  y = number of Vanilla Cakes
+
+Objective Function:
+  Maximize Z = 10x + 15y
+
+Constraints:
+  3x + 2y ≤ 24  (flour)
+  2x + 4y ≤ 24  (eggs)
+  x ≥ 0, y ≥ 0  (non-negativity)
+
+-------------------------------------------------------------------------------
+3. GRAPHICAL SOLUTION
+-------------------------------------------------------------------------------
+Corner Points:
+  O (0,0)     → Z = 0
+  A (8,0)     → Z = 80
+  B (6,3)     → Z = 105  ← OPTIMAL
+  C (0,6)     → Z = 90
+
+Optimal Solution:
+  x = 6, y = 3, Z = 105
+
+-------------------------------------------------------------------------------
+4. RESOURCE UTILIZATION
+-------------------------------------------------------------------------------
+At the optimal solution (6, 3):
+  Flour: 3(6) + 2(3) = 18 + 6 = 24 ✓ (fully used)
+  Eggs:  2(6) + 4(3) = 12 + 12 = 24 ✓ (fully used)
+
+Both constraints are binding.
+
+-------------------------------------------------------------------------------
+5. KEY LESSONS
+-------------------------------------------------------------------------------
+✓ Vanilla cakes are more profitable but use more eggs
+✓ The optimal mix balances flour and eggs
+✓ Both resources are fully utilized
+✓ The trade-off between products determines the optimal mix
+✓ Higher profit per unit doesn't always mean produce more of that product
+
+-------------------------------------------------------------------------------
+6. COMMON MISTAKES
+-------------------------------------------------------------------------------
+✗ Assuming the more profitable product should be produced more
+✗ Forgetting to check resource constraints
+✗ Not verifying the feasibility of the solution
+✗ Ignoring the trade-off between products
+✗ Misreading the resource requirements
+
+-------------------------------------------------------------------------------
+7. REAL-WORLD APPLICATION
+-------------------------------------------------------------------------------
+This example represents a product-mix problem common in:
+
+- Manufacturing: decide which products to make with limited resources
+- Agriculture: decide which crops to plant with limited land and water
+- Retail: decide which products to stock with limited shelf space
+
+-------------------------------------------------------------------------------
+8. CHECKLIST
+-------------------------------------------------------------------------------
+☐ I can formulate a product-mix problem.
+☐ I can identify the limiting resources.
+☐ I can find the optimal product mix.
+☐ I can verify resource utilization at the optimum.
+☐ I can interpret the solution in business terms.
+☐ I can explain the trade-off between products.
+
+===============================================================================
+END OF NOTES
+===============================================================================
