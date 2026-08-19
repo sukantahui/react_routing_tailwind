@@ -1,628 +1,1418 @@
-// src/components/study/IscTweleveRoadmap.jsx
+// src/components/study/quantitative-analysis/QuantitativeAnalysisRoadmap.jsx
 
-import React, { Component } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Layers,
   Code2,
   ShieldCheck,
   Sparkles,
   Clock,
-} from "lucide-react";
-
-import roadmapData from "./quantitative-analysis-roadmap.json";
-
-import {
+  CheckCircle2,
+  Circle,
+  Bookmark,
+  BookmarkCheck,
+  Copy,
+  Check,
+  Search,
+  X,
+  BookOpen,
+  GraduationCap,
+  Award,
+  BookMarked,
+  FileText,
+  HelpCircle,
+  ChevronDown,
+  ChevronUp,
+  LayoutGrid,
+  TrendingUp,
+  Flame,
+  ArrowRight,
+  RotateCcw,
+  Lock,
+  Unlock,
   Linkedin,
   Twitter,
   Globe,
   Github,
   Mail,
-  Phone
+  Phone,
+  MessageSquare,
+  Compass,
+  ListOrdered
 } from "lucide-react";
 
+import roadmapData from "./quantitative-analysis-roadmap.json";
 
-export default class QuantitativeAnalysisRoadmap extends Component {
-  // ==========================================================
-  // Dynamic Segment Colors
-  // ==========================================================
-  colorThemes = [
-    { from: "#38bdf8", to: "#a855f7", title: "text-sky-300" },
-    { from: "#4ade80", to: "#22d3ee", title: "text-emerald-300" },
-    { from: "#f59e0b", to: "#ef4444", title: "text-amber-300" },
-    { from: "#6366f1", to: "#ec4899", title: "text-indigo-300" },
-  ];
+// Default instructor data fallback if not in JSON
+const defaultTeacher = {
+  name: "Sukanta Hui",
+  designation: "Educator · Quantitative & Software Specialist",
+  organization: "Founder, Coder & AccoTax",
+  location: "Barrackpore, West Bengal, India",
+  photo: "/teachers/sukantahui.jpg",
+  bio: "Specialist in Quantitative Techniques, Operations Research, and Mathematical Optimization. Designing rigorous, practical curricula that bridge theory with real-world decision science and socio-legal analytics.",
+  social: {
+    linkedin: "https://www.linkedin.com/in/sukantahui/",
+    twitter: "https://twitter.com/sukantahui",
+    website: "https://www.codernaccotax.co.in",
+    github: "https://github.com/sukantahui",
+    email: "contact@codernaccotax.co.in",
+    phone: "+917003756860",
+    whatsapp: "+917003756860"
+  }
+};
 
+// Subtle, refined segment themes (calm & professional)
+const SEGMENT_THEMES = [
+  {
+    name: "sky",
+    badge: "bg-slate-900 text-sky-300 border-slate-750",
+    accent: "text-sky-400",
+    border: "border-slate-800 hover:border-slate-700",
+    dot: "bg-sky-400"
+  },
+  {
+    name: "teal",
+    badge: "bg-slate-900 text-teal-300 border-slate-750",
+    accent: "text-teal-400",
+    border: "border-slate-800 hover:border-slate-700",
+    dot: "bg-teal-400"
+  },
+  {
+    name: "amber",
+    badge: "bg-slate-900 text-amber-300 border-slate-750",
+    accent: "text-amber-400",
+    border: "border-slate-800 hover:border-slate-700",
+    dot: "bg-amber-400"
+  },
+  {
+    name: "indigo",
+    badge: "bg-slate-900 text-indigo-300 border-slate-750",
+    accent: "text-indigo-400",
+    border: "border-slate-800 hover:border-slate-700",
+    dot: "bg-indigo-400"
+  },
+  {
+    name: "rose",
+    badge: "bg-slate-900 text-rose-300 border-slate-750",
+    accent: "text-rose-400",
+    border: "border-slate-800 hover:border-slate-700",
+    dot: "bg-rose-400"
+  }
+];
+
+export default function QuantitativeAnalysisRoadmap() {
   // ==========================================================
   // State
   // ==========================================================
-  state = {
-    search: "",
-    forceUpdate: 0,
-  };
+  const [search, setSearch] = useState("");
+  const [selectedSegment, setSelectedSegment] = useState("all");
+  const [difficultyFilter, setDifficultyFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all"); // 'all' | 'completed' | 'incomplete' | 'bookmarked'
+  const [viewMode, setViewMode] = useState("grid"); // 'grid' | 'timeline'
+  const [activeTabModal, setActiveTabModal] = useState(null); // 'outcomes' | 'books' | 'prereq' | null
+  const [expandedTopics, setExpandedTopics] = useState({});
+  const [copiedSlug, setCopiedSlug] = useState(null);
+  const [toastMessage, setToastMessage] = useState(null);
+  const [lastVisited, setLastVisited] = useState(null);
+  const [, setAuthVersion] = useState(0);
+
+  // Storage Keys
+  const COMPLETED_KEY_PREFIX = "qa-module-completed::";
+  const BOOKMARKED_KEY_PREFIX = "qa-module-bookmarked::";
+  const LAST_VISITED_KEY = "qa-last-visited-module";
 
   // ==========================================================
-  // Lifecycle Methods
+  // Auth & Storage Listeners
   // ==========================================================
-  componentDidMount() {
-    window.addEventListener("storage", this.handleAuthChange);
-    window.addEventListener("authChange", this.handleAuthChange);
-    document.addEventListener("visibilitychange", this.handleVisibilityChange);
-  }
+  useEffect(() => {
+    const handleAuthChange = () => setAuthVersion(v => v + 1);
+    window.addEventListener("storage", handleAuthChange);
+    window.addEventListener("authChange", handleAuthChange);
+    document.addEventListener("visibilitychange", handleAuthChange);
 
-  componentWillUnmount() {
-    window.removeEventListener("storage", this.handleAuthChange);
-    window.removeEventListener("authChange", this.handleAuthChange);
-    document.removeEventListener("visibilitychange", this.handleVisibilityChange);
-  }
-
-  // ==========================================================
-  // Event Handlers
-  // ==========================================================
-  handleAuthChange = () => {
-    this.setState(prev => ({ forceUpdate: prev.forceUpdate + 1 }));
-  };
-
-  handleVisibilityChange = () => {
-    if (!document.hidden) {
-      this.setState(prev => ({ forceUpdate: prev.forceUpdate + 1 }));
+    // Retrieve last visited
+    try {
+      const stored = localStorage.getItem(LAST_VISITED_KEY);
+      if (stored) {
+        setLastVisited(JSON.parse(stored));
+      }
+    } catch {
+      // ignore
     }
-  };
 
-  // ==========================================================
-  // Helper to check if user is logged in from localStorage
-  // ==========================================================
-  isLoggedIn = () => {
+    return () => {
+      window.removeEventListener("storage", handleAuthChange);
+      window.removeEventListener("authChange", handleAuthChange);
+      document.removeEventListener("visibilitychange", handleAuthChange);
+    };
+  }, []);
+
+  const isLoggedIn = useCallback(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     return !!(token && user);
+  }, []);
+
+  // Show quick toast notification
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 2600);
   };
 
-  // ==========================================================
+  // Module completion helpers
+  const isCompleted = useCallback((moduleId) => {
+    return localStorage.getItem(`${COMPLETED_KEY_PREFIX}${moduleId}`) === "true";
+  }, []);
+
+  const toggleCompleted = (moduleId, title) => {
+    const current = isCompleted(moduleId);
+    const nextVal = !current;
+    localStorage.setItem(`${COMPLETED_KEY_PREFIX}${moduleId}`, nextVal.toString());
+    setAuthVersion(v => v + 1);
+    showToast(nextVal ? `Completed: "${title}"` : `Marked incomplete: "${title}"`);
+  };
+
+  // Bookmark helpers
+  const isBookmarked = useCallback((moduleId) => {
+    return localStorage.getItem(`${BOOKMARKED_KEY_PREFIX}${moduleId}`) === "true";
+  }, []);
+
+  const toggleBookmark = (moduleId, title) => {
+    const current = isBookmarked(moduleId);
+    const nextVal = !current;
+    localStorage.setItem(`${BOOKMARKED_KEY_PREFIX}${moduleId}`, nextVal.toString());
+    setAuthVersion(v => v + 1);
+    showToast(nextVal ? `Bookmarked "${title}"` : `Removed bookmark from "${title}"`);
+  };
+
+  // Record last visited module
+  const recordVisit = (module, segmentTitle) => {
+    const data = {
+      slug: module.slug,
+      title: module.title,
+      moduleId: module.moduleId,
+      segmentTitle,
+      timestamp: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(LAST_VISITED_KEY, JSON.stringify(data));
+      setLastVisited(data);
+    } catch {
+      // ignore
+    }
+  };
+
+  // Copy Direct Link
+  const copyDirectLink = (slug, title) => {
+    const directURL = `${window.location.origin}/${roadmapData.folder}/module/${slug}`;
+    navigator.clipboard.writeText(directURL);
+    setCopiedSlug(slug);
+    showToast(`Link copied for: "${title}"`);
+    setTimeout(() => setCopiedSlug(null), 2000);
+  };
+
+  // Toggle topic list expansion
+  const toggleTopicExpand = (moduleId) => {
+    setExpandedTopics(prev => ({
+      ...prev,
+      [moduleId]: !prev[moduleId]
+    }));
+  };
+
   // Module Visibility Check
-  // ==========================================================
-  isModuleVisible = (module) => {
-    // If no visibility key exists, show the module (public by default)
-    if (!module.hasOwnProperty("visibility")) {
-      return true;
-    }
-    
-    // Convert visibility to lowercase for case-insensitive comparison
-    const visibility = module.visibility.toLowerCase();
-    
-    // If visibility is public, show the module
-    if (visibility === "public") {
-      return true;
-    }
-    
-    // If visibility is loggedin, check if user is logged in
-    if (visibility === "loggedin") {
-      return this.isLoggedIn();
-    }
-    
-    // Default to false for any other visibility values
+  const isModuleVisible = useCallback((module) => {
+    if (!module || !('visibility' in module)) return true;
+    const vis = module.visibility.toLowerCase();
+    if (vis === "public") return true;
+    if (vis === "loggedin") return isLoggedIn();
     return false;
-  };
+  }, [isLoggedIn]);
 
   // ==========================================================
-  // LocalStorage helpers (Completion Tracking)
+  // Compute Stats & Filtered Modules
   // ==========================================================
-  isCompleted(moduleId) {
-    return (
-      localStorage.getItem(`c-module-completed::${moduleId}`) === "true"
-    );
-  }
+  const flatModules = useMemo(() => {
+    const list = [];
+    roadmapData.segments.forEach((seg, sIndex) => {
+      seg.modules.forEach((mod, mIndex) => {
+        list.push({
+          ...mod,
+          segmentId: seg.segmentId,
+          segmentTitle: seg.title,
+          segmentIndex: sIndex,
+          indexOverall: list.length + 1,
+          moduleIndexInSegment: mIndex + 1
+        });
+      });
+    });
+    return list;
+  }, []);
 
-  toggleCompleted(moduleId) {
-    const key = `c-module-completed::${moduleId}`;
-    const current = this.isCompleted(moduleId);
-    localStorage.setItem(key, (!current).toString());
-    this.setState({});
-  }
+  // Completion & Progress Metrics
+  const stats = useMemo(() => {
+    const total = flatModules.length;
+    let completedCount = 0;
+    let completedHours = 0;
+    let totalHours = 0;
+    let bookmarkedCount = 0;
 
-  // ==========================================================
-  // Search logic
-  // ==========================================================
-  matchesSearch(module) {
-    const searchText = this.state.search.toLowerCase();
-
-    return (
-      module.title.toLowerCase().includes(searchText) ||
-      (module.summary &&
-        module.summary.toLowerCase().includes(searchText)) ||
-      (Array.isArray(module.topics) &&
-        module.topics.some((t) => t.toLowerCase().includes(searchText)))
-    );
-  }
-
-  // ==========================================================
-  // Render Segment
-  // ==========================================================
-  renderSegment(segment, index) {
-    const filteredModules = segment.modules.filter((m) => {
-      const visible = this.isModuleVisible(m);
-      const matches = this.matchesSearch(m);
-      return visible && matches;
+    flatModules.forEach(m => {
+      const hrs = Number(m.estimatedHours) || 0;
+      totalHours += hrs;
+      if (isCompleted(m.moduleId)) {
+        completedCount++;
+        completedHours += hrs;
+      }
+      if (isBookmarked(m.moduleId)) {
+        bookmarkedCount++;
+      }
     });
 
-    if (filteredModules.length === 0) return null;
+    const percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+    return {
+      total,
+      completedCount,
+      remainingCount: total - completedCount,
+      percent,
+      totalHours: roadmapData.course?.totalAllottedHours || totalHours,
+      completedHours,
+      bookmarkedCount,
+      totalTopics: flatModules.reduce((acc, curr) => acc + (curr.topics?.length || 0), 0)
+    };
+  }, [flatModules, isCompleted, isBookmarked]);
 
-    const theme = this.colorThemes[index % this.colorThemes.length];
+  // Next suggested module
+  const nextIncompleteModule = useMemo(() => {
+    return flatModules.find(m => !isCompleted(m.moduleId) && isModuleVisible(m));
+  }, [flatModules, isCompleted, isModuleVisible]);
 
-    return (
-      <section key={segment.segmentId} className="relative border border-slate-800 bg-slate-900/70 rounded-3xl p-5 sm:p-6 md:p-10 mb-14 shadow-[0_0_35px_rgba(0,0,0,0.4)] backdrop-blur-xl">
-        {/* Segment Header */}
-        <div className="space-y-2 mb-6">
-          <h2
-            className={`text-xl md:text-3xl font-extrabold ${theme.title} flex items-center gap-2`}
-          >
-            <Layers size={20} />
-            {segment.title}
-          </h2>
-          <p className="text-slate-400 text-sm">{segment.summary}</p>
-        </div>
+  // Search & Filtering Logic
+  const matchesSearch = useCallback((module) => {
+    if (!search.trim()) return true;
+    const q = search.toLowerCase().trim();
+    const titleMatch = module.title?.toLowerCase().includes(q);
+    const idMatch = module.moduleId?.toLowerCase().includes(q);
+    const summaryMatch = module.summary?.toLowerCase().includes(q);
+    const topicMatch = Array.isArray(module.topics) &&
+      module.topics.some(t => t.toLowerCase().includes(q));
+    return titleMatch || idMatch || summaryMatch || topicMatch;
+  }, [search]);
 
-        {/* Modules */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredModules.map((module, i) =>
-            this.renderModule(module, i)
-          )}
-        </div>
-
-        {/* Show login prompt if segment has locked modules and user is not logged in */}
-        {!this.isLoggedIn() && segment.modules.some(m => m.visibility === "loggedIn") && (
-          <div className="mt-6 p-4 bg-blue-900/20 border border-blue-700/30 rounded-xl">
-            <p className="text-blue-300 text-sm text-center">
-              🔒 Some modules in this segment are locked. 
-              <Link to="/login" className="text-blue-400 font-semibold ml-2 hover:underline">
-                Sign in to access all modules
-              </Link>
-            </p>
-          </div>
-        )}
-      </section>
-    );
-  }
-
-  // ==========================================================
-  // Render Module Card
-  // ==========================================================
-  renderModule(module, index) {
-    const completed = this.isCompleted(module.moduleId);
-    const directURL = `${window.location.origin}/${roadmapData.folder}/module/${module.slug}`;
-    const isVisible = this.isModuleVisible(module);
-    const isLocked = !isVisible && module.visibility === "loggedIn";
-    
-    // Check if this is a loggedIn-only module (visible because user is logged in)
-    const isLoggedInOnlyModule = module.visibility === "loggedIn" && this.isLoggedIn();
-
-    // If module is locked, show a locked card with amber color
-    if (isLocked) {
-      return (
-        <div
-          key={module.moduleId}
-          className="relative rounded-2xl p-4 sm:p-5 border border-amber-500/60 bg-amber-900/10"
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-1">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 border border-slate-700 text-[10px]">
-                  {index + 1}
-                </span>
-                <span>{module.moduleId}</span>
-              </div>
-
-              <h3 className="text-lg font-semibold text-amber-400 flex items-center gap-2">
-                <Code2 size={16} className="text-amber-500" />
-                {module.title}
-              </h3>
-
-              <div className="mt-3">
-                <Link
-                  to="/login"
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-amber-900/30 text-amber-400 text-xs border border-amber-500/50 hover:bg-amber-500/20 transition"
-                >
-                  <span className="text-base">🔒</span>
-                  Login to access this module
-                </Link>
-              </div>
-
-              {module.summary && (
-                <p className="mt-2 text-sm text-slate-500">
-                  {module.summary.substring(0, 100)}...
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Meta with amber colors */}
-          <div className="mt-4 flex flex-wrap gap-2 text-[11px]">
-            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
-              <ShieldCheck size={11} className="text-amber-400" />
-              {module.level}
-            </span>
-            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
-              <Sparkles size={11} className="text-amber-400" />
-              {module.difficulty}
-            </span>
-            <span className="px-2 py-1 rounded-full bg-amber-900/30 flex items-center gap-1 text-amber-400">
-              <Clock size={11} className="text-amber-400" />
-              {module.estimatedHours} hrs
-            </span>
-          </div>
-        </div>
-      );
+  const matchesFilters = useCallback((module) => {
+    // Segment filter
+    if (selectedSegment !== "all" && module.segmentId !== selectedSegment) {
+      return false;
     }
 
-    // Normal visible module with conditional styling based on module type
-    return (
-      <div
-        key={module.moduleId}
-        className={`
-          relative rounded-2xl p-4 sm:p-5 transition-all
-          ${completed
-            ? "border border-emerald-500/60 bg-emerald-900/10"
-            : isLoggedInOnlyModule
-              ? "border border-purple-500/60 bg-purple-900/10 hover:shadow-[0_0_25px_rgba(168,85,247,0.25)]"
-              : "border border-slate-700/60 bg-slate-800/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)]"
-          }
-          hover:scale-[1.01]
-        `}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-1">
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 border border-slate-700 text-[10px]">
-                {index + 1}
-              </span>
-              <span>{module.moduleId}</span>
-            </div>
+    // Difficulty filter
+    if (difficultyFilter !== "all") {
+      const diff = (module.difficulty || "").toLowerCase();
+      if (difficultyFilter === "easy" && !diff.includes("easy")) return false;
+      if (difficultyFilter === "medium" && !diff.includes("medium")) return false;
+      if (difficultyFilter === "advanced" && !diff.includes("advanced")) return false;
+    }
 
-            <h3 className={`text-lg font-semibold flex items-center gap-2 ${
-              isLoggedInOnlyModule ? "text-purple-300" : "text-slate-100"
-            }`}>
-              <Code2 size={16} className={isLoggedInOnlyModule ? "text-purple-400" : "text-sky-400"} />
-              {module.title}
-            </h3>
+    // Status filter
+    if (statusFilter === "completed" && !isCompleted(module.moduleId)) return false;
+    if (statusFilter === "incomplete" && isCompleted(module.moduleId)) return false;
+    if (statusFilter === "bookmarked" && !isBookmarked(module.moduleId)) return false;
+    if (statusFilter === "premium" && module.visibility !== "loggedIn") return false;
 
-            {completed && (
-              <span className="inline-block mt-2 text-[10px] px-2 py-1 rounded-full border border-emerald-500 text-emerald-300 bg-emerald-700/20">
-                ✓ Completed
-              </span>
-            )}
+    // Search query
+    return matchesSearch(module);
+  }, [selectedSegment, difficultyFilter, statusFilter, isCompleted, isBookmarked, matchesSearch]);
 
-            {/* Badge for loggedIn-only modules */}
-            {isLoggedInOnlyModule && (
-              <span className="inline-block mt-2 ml-2 text-[10px] px-2 py-1 rounded-full border border-purple-500 text-purple-300 bg-purple-700/20">
-                🔒 Premium Content
-              </span>
-            )}
+  // Segments with filtered modules
+  const filteredSegments = useMemo(() => {
+    return roadmapData.segments.map((seg, sIndex) => {
+      const filtered = seg.modules
+        .map((mod, mIndex) => ({
+          ...mod,
+          segmentId: seg.segmentId,
+          segmentTitle: seg.title,
+          segmentIndex: sIndex,
+          moduleIndexInSegment: mIndex + 1
+        }))
+        .filter(matchesFilters);
 
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Link
-                to={`/${roadmapData.folder}/module/${module.slug}`}
-                className={`
-                  px-3 py-2 rounded-full border text-xs transition
-                  ${isLoggedInOnlyModule
-                    ? "border-purple-500 text-purple-300 hover:bg-purple-500/10"
-                    : "border-sky-500 text-sky-300 hover:bg-sky-500/10"
-                  }
-                `}
-              >
-                Explore Module →
-              </Link>
+      return {
+        ...seg,
+        theme: SEGMENT_THEMES[sIndex % SEGMENT_THEMES.length],
+        filteredModules: filtered,
+        totalModulesInSegment: seg.modules.length,
+        completedInSegment: seg.modules.filter(m => isCompleted(m.moduleId)).length
+      };
+    }).filter(seg => seg.filteredModules.length > 0);
+  }, [matchesFilters, isCompleted]);
 
-              <button
-                onClick={() => this.toggleCompleted(module.moduleId)}
-                className={`
-                  px-3 py-2 rounded-full text-xs border transition
-                  ${completed
-                    ? "border-emerald-500 text-emerald-300 hover:bg-emerald-500/10"
-                    : "border-slate-600 text-slate-400 hover:bg-slate-700/30"
-                  }
-                `}
-              >
-                {completed ? "Mark Incomplete" : "Mark Completed"}
-              </button>
-            </div>
+  const totalFilteredCount = useMemo(() => {
+    return filteredSegments.reduce((acc, s) => acc + s.filteredModules.length, 0);
+  }, [filteredSegments]);
 
-            <p className="mt-2 text-[11px] text-slate-400 break-all">
-              <a
-                href={directURL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={isLoggedInOnlyModule ? "text-purple-400 hover:underline" : "text-sky-400 hover:underline"}
-              >
-                {directURL}
-              </a>
-            </p>
+  const teacher = roadmapData.teacher || defaultTeacher;
 
-            {module.summary && (
-              <p className="mt-2 text-sm text-slate-300">
-                {module.summary}
-              </p>
-            )}
-          </div>
-        </div>
+  // Reset Progress Handler
+  const handleResetProgress = () => {
+    if (window.confirm("Are you sure you want to reset all completion and bookmark progress for this course?")) {
+      flatModules.forEach(m => {
+        localStorage.removeItem(`${COMPLETED_KEY_PREFIX}${m.moduleId}`);
+        localStorage.removeItem(`${BOOKMARKED_KEY_PREFIX}${m.moduleId}`);
+      });
+      localStorage.removeItem(LAST_VISITED_KEY);
+      setLastVisited(null);
+      setAuthVersion(v => v + 1);
+      showToast("Progress reset successfully.");
+    }
+  };
 
-        {/* Meta section with different colors for loggedIn modules */}
-        <div className="mt-4 flex flex-wrap gap-2 text-[11px]">
-          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
-            isLoggedInOnlyModule 
-              ? "bg-purple-900/30 text-purple-400" 
-              : "bg-slate-900 text-slate-400"
-          }`}>
-            <ShieldCheck size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-emerald-400"} />
-            {module.level}
-          </span>
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-slate-800 selection:text-slate-200">
+      
+      {/* ========================================================== */}
+      {/* Toast Notification */}
+      {/* ========================================================== */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-xl backdrop-blur-md"
+          >
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
-            isLoggedInOnlyModule 
-              ? "bg-purple-900/30 text-purple-400" 
-              : "bg-slate-900 text-slate-400"
-          }`}>
-            <Sparkles size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-purple-400"} />
-            {module.difficulty}
-          </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
-          <span className={`px-2 py-1 rounded-full flex items-center gap-1 ${
-            isLoggedInOnlyModule 
-              ? "bg-purple-900/30 text-purple-400" 
-              : "bg-slate-900 text-slate-400"
-          }`}>
-            <Clock size={11} className={isLoggedInOnlyModule ? "text-purple-400" : "text-yellow-400"} />
-            {module.estimatedHours} hrs
-          </span>
-
-          {/* Show visibility badge */}
-          {module.visibility && (
-            <span className={`px-2 py-1 rounded-full text-[10px] ${
-              isLoggedInOnlyModule
-                ? "bg-purple-900/30 text-purple-400"
-                : "bg-slate-900 text-slate-500"
-            }`}>
-              {module.visibility === "loggedIn" ? "🔒 Premium" : "🌐 Public"}
+        {/* ========================================================== */}
+        {/* Course Header & Hero */}
+        {/* ========================================================== */}
+        <header className="mb-10 text-center relative">
+          
+          {/* Top Pill Badges */}
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 mb-4">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-300 border border-slate-800">
+              <GraduationCap size={13} className="text-sky-400" />
+              {roadmapData.subjectCode || "LLM104"} · {roadmapData.course?.program || "Master of Law"}
             </span>
-          )}
-        </div>
-      </div>
-    );
-  }
 
-  // ==========================================================
-  // Page Render
-  // ==========================================================
-  render() {
-    // Filter segments that have at least one visible module
-    const visibleSegments = roadmapData.segments.filter((seg) =>
-      seg.modules.some((m) => {
-        const visible = this.isModuleVisible(m);
-        const matches = this.matchesSearch(m);
-        return visible && matches;
-      })
-    );
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-300 border border-slate-800">
+              <Compass size={13} className="text-indigo-400" />
+              {roadmapData.course?.semester || "Semester-I"} · {roadmapData.course?.academicYear || "2026"}
+            </span>
 
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-100">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-
-          {/* Search */}
-          <div className="max-w-md mx-auto mb-10">
-            <input
-              type="text"
-              placeholder="Search topics, modules…"
-              value={this.state.search}
-              onChange={(e) => this.setState({ search: e.target.value })}
-              className="
-                w-full px-4 py-2 rounded-lg bg-slate-800
-                border border-slate-700 text-slate-200
-                focus:outline-none focus:ring-2 focus:ring-sky-500
-              "
-            />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-900 text-slate-300 border border-slate-800">
+              <Clock size={13} className="text-emerald-400" />
+              {roadmapData.course?.credits || 4} Credits ({roadmapData.course?.totalAllottedHours || 60} Total Hours)
+            </span>
           </div>
 
-          {/* Header */}
-          <div className="text-center mb-12">
+          {/* Main Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+            {roadmapData.trackTitle || "Quantitative Analysis"}
+          </h1>
 
-            {/* Logo + Title */}
-            <div className="flex items-center justify-center gap-4 mb-4">
-              {roadmapData.subjectLogo?.path && (
-                <img
-                  src={roadmapData.subjectLogo.path}
-                  alt={roadmapData.subjectLogo.alt || roadmapData.subject}
-                  className="w-12 h-12 md:w-14 md:h-14 object-contain brightness-0 invert"
-                />
-              )}
+          {/* Description */}
+          <p className="max-w-3xl mx-auto text-slate-400 text-xs sm:text-sm md:text-base leading-relaxed mb-6">
+            {roadmapData.description}
+          </p>
 
-              <h1 className="text-4xl md:text-5xl font-extrabold text-sky-400">
-                {roadmapData.trackTitle}
-              </h1>
-            </div>
+          {/* Quick Academic Modals / Action Trigger Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            <button
+              onClick={() => setActiveTabModal(activeTabModal === "outcomes" ? null : "outcomes")}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-medium border transition-all ${
+                activeTabModal === "outcomes"
+                  ? "bg-slate-800 border-slate-600 text-white shadow-sm"
+                  : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+              }`}
+            >
+              <Award size={14} className="text-sky-400" />
+              Course Outcomes (CO1–CO4)
+              <ChevronDown size={13} className={`transition-transform ${activeTabModal === "outcomes" ? "rotate-180" : ""}`} />
+            </button>
 
-            <p className="text-slate-400 mt-3 max-w-2xl mx-auto">
-              {roadmapData.description}
-              <br />
-              <span className="text-emerald-300 font-medium">
-                {roadmapData.institute.name}
-              </span>
-            </p>
+            <button
+              onClick={() => setActiveTabModal(activeTabModal === "books" ? null : "books")}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-medium border transition-all ${
+                activeTabModal === "books"
+                  ? "bg-slate-800 border-slate-600 text-white shadow-sm"
+                  : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+              }`}
+            >
+              <BookOpen size={14} className="text-indigo-400" />
+              Textbooks & References
+              <ChevronDown size={13} className={`transition-transform ${activeTabModal === "books" ? "rotate-180" : ""}`} />
+            </button>
+
+            <button
+              onClick={() => setActiveTabModal(activeTabModal === "prereq" ? null : "prereq")}
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-medium border transition-all ${
+                activeTabModal === "prereq"
+                  ? "bg-slate-800 border-slate-600 text-white shadow-sm"
+                  : "bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+              }`}
+            >
+              <FileText size={14} className="text-emerald-400" />
+              Prerequisites & Assessment
+              <ChevronDown size={13} className={`transition-transform ${activeTabModal === "prereq" ? "rotate-180" : ""}`} />
+            </button>
           </div>
 
-          {/* ================= TEACHER PROFILE ================= */}
-          {roadmapData.teacher && (
-            <div className="max-w-4xl mx-auto mb-14 border border-slate-800 bg-slate-900/70 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-[0_0_30px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+          {/* ========================================================== */}
+          {/* Interactive Collapsible Drawers / Modals */}
+          {/* ========================================================== */}
+          <AnimatePresence>
+            {activeTabModal && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="overflow-hidden max-w-4xl mx-auto mt-6 text-left"
+              >
+                <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/95 border border-slate-800 shadow-xl relative">
+                  <button
+                    onClick={() => setActiveTabModal(null)}
+                    className="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
+                  >
+                    <X size={16} />
+                  </button>
 
-              {/* Teacher Image */}
-              <div className="shrink-0">
-                <img
-                  src={roadmapData.teacher.photo}
-                  alt={roadmapData.teacher.name}
-                  className="
-                    w-28 h-28 sm:w-32 sm:h-32
-                    rounded-full object-cover
-                    border-4 border-sky-500/40
-                    shadow-lg
-                    transition-transform duration-300
-                    hover:scale-105
-                  "
-                />
-              </div>
-
-              {/* Teacher Info */}
-              <div className="text-center sm:text-left">
-
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-100">
-                  {roadmapData.teacher.name}
-                </h3>
-
-                <p className="text-sky-400 text-sm font-medium mt-1">
-                  {roadmapData.teacher.designation}
-                </p>
-
-                <p className="text-emerald-400 text-sm mt-1">
-                  {roadmapData.teacher.organization} · {roadmapData.teacher.location}
-                </p>
-
-                <p className="text-slate-400 text-sm mt-3 leading-relaxed max-w-xl">
-                  {roadmapData.teacher.bio}
-                </p>
-
-                {/* ===== SOCIAL ICONS ===== */}
-                <div className="mt-4 flex justify-center sm:justify-start gap-4">
-
-                  {roadmapData.teacher.social.linkedin && (
-                    <a
-                      href={roadmapData.teacher.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full border border-slate-700 text-sky-400 hover:text-sky-300 hover:border-sky-400 hover:bg-sky-500/10 transition hover:scale-110"
-                    >
-                      <Linkedin size={18} />
-                    </a>
+                  {/* Course Outcomes Panel */}
+                  {activeTabModal === "outcomes" && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <Award className="w-4 h-4 text-sky-400" />
+                        <h3 className="text-sm sm:text-base font-bold text-white">Course Outcomes & Bloom's Taxonomy Mapping</h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        {roadmapData.courseOutcomes?.map((co) => (
+                          <div key={co.code} className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-between">
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="px-2 py-0.5 rounded text-xs font-bold bg-slate-800 text-sky-300 border border-slate-700">
+                                  {co.code}
+                                </span>
+                                <div className="flex gap-1">
+                                  {co.learningLevels?.map((lvl) => (
+                                    <span key={lvl} className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-900 text-slate-400 border border-slate-800">
+                                      Level {lvl}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                              <p className="text-xs text-slate-300 leading-relaxed">{co.description}</p>
+                            </div>
+                            <div className="mt-3 pt-2 border-t border-slate-850 text-[11px] text-slate-400">
+                              Mapped Modules: <span className="text-slate-300 font-mono">{co.mappedModules?.join(", ")}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   )}
 
-                  {roadmapData.teacher.social.twitter && (
-                    <a
-                      href={roadmapData.teacher.social.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full border border-slate-700 text-slate-300 hover:text-white hover:border-slate-400 hover:bg-slate-500/10 transition hover:scale-110"
-                    >
-                      <Twitter size={18} />
-                    </a>
+                  {/* Textbooks & References Panel */}
+                  {activeTabModal === "books" && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <BookOpen className="w-4 h-4 text-indigo-400" />
+                        <h3 className="text-sm sm:text-base font-bold text-white">Recommended Textbooks & Literature</h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Core Textbooks</h4>
+                          <ul className="space-y-2">
+                            {roadmapData.textBooks?.map((book, i) => (
+                              <li key={i} className="text-xs text-slate-300 flex items-start gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+                                <BookMarked size={14} className="text-indigo-400 shrink-0 mt-0.5" />
+                                <span>{book}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Reference Books</h4>
+                          <ul className="space-y-2">
+                            {roadmapData.referenceBooks?.map((ref, i) => (
+                              <li key={i} className="text-xs text-slate-300 flex items-start gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800">
+                                <FileText size={14} className="text-emerald-400 shrink-0 mt-0.5" />
+                                <span>{ref}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   )}
 
-                  {roadmapData.teacher.social.website && (
-                    <a
-                      href={roadmapData.teacher.social.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full border border-slate-700 text-emerald-400 hover:text-emerald-300 hover:border-emerald-400 hover:bg-emerald-500/10 transition hover:scale-110"
-                    >
-                      <Globe size={18} />
-                    </a>
-                  )}
+                  {/* Prerequisites & Assessment Panel */}
+                  {activeTabModal === "prereq" && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <FileText className="w-4 h-4 text-emerald-400" />
+                        <h3 className="text-sm sm:text-base font-bold text-white">Prerequisites & Examination Scheme</h3>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
+                            <ShieldCheck size={13} className="text-emerald-400" /> Course Prerequisites
+                          </h4>
+                          <ul className="space-y-2">
+                            {roadmapData.course?.prerequisites?.map((pre, i) => (
+                              <li key={i} className="text-xs text-slate-300 flex items-center gap-2">
+                                <CheckCircle2 size={13} className="text-emerald-400 shrink-0" />
+                                <span>{pre}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                  {roadmapData.teacher.social.github && (
-                    <a
-                      href={roadmapData.teacher.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full border border-slate-700 text-purple-400 hover:text-purple-300 hover:border-purple-400 hover:bg-purple-500/10 transition hover:scale-110"
-                    >
-                      <Github size={18} />
-                    </a>
-                  )}
-
-                  {roadmapData.teacher.social.email && (
-                    <a
-                      href={`mailto:${roadmapData.teacher.social.email}`}
-                      className="p-2 rounded-full border border-slate-700 text-yellow-400 hover:text-yellow-300 hover:border-yellow-400 hover:bg-yellow-500/10 transition hover:scale-110"
-                    >
-                      <Mail size={18} />
-                    </a>
-                  )}
-
-                  {roadmapData.teacher.social.phone && (
-                    <a
-                      href={`tel:${roadmapData.teacher.social.phone}`}
-                      aria-label="Phone"
-                      className="
-                        p-2 rounded-full border border-slate-700
-                        text-green-400 hover:text-green-300
-                        hover:border-green-400 hover:bg-green-500/10
-                        transition hover:scale-110
-                      "
-                    >
-                      <Phone size={18} />
-                    </a>
-                  )}
-
-                  {roadmapData.teacher.social.whatsapp && (
-                    <a
-                      href={`https://wa.me/${roadmapData.teacher.social.whatsapp.replace(/\D/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="WhatsApp"
-                      className="
-                        p-2 rounded-full border border-slate-700
-                        text-green-500 hover:text-green-400
-                        hover:border-green-400 hover:bg-green-500/10
-                        transition hover:scale-110
-                      "
-                    >
-                      <svg
-                        role="img"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-[18px] h-[18px]"
-                      >
-                        <path d="M12.04 2.003c-5.514 0-9.998 4.486-9.998 9.998 0 1.762.458 3.479 1.33 4.995L2 22l5.14-1.35a9.96 9.96 0 0 0 4.9 1.29h.004c5.514 0 9.998-4.486 9.998-9.998 0-2.67-1.04-5.182-2.928-7.07A9.935 9.935 0 0 0 12.04 2.003zm5.86 14.43c-.246.69-1.45 1.322-1.994 1.404-.52.078-1.19.11-1.92-.12-.442-.14-1.01-.33-1.744-.64-3.07-1.33-5.07-4.45-5.225-4.66-.15-.21-1.26-1.68-1.26-3.2 0-1.52.8-2.27 1.08-2.58.28-.31.61-.39.82-.39.2 0 .41.002.59.01.19.01.45-.07.7.53.25.6.85 2.08.92 2.23.07.15.12.33.02.54-.1.21-.15.33-.3.51-.15.18-.32.4-.45.54-.15.15-.31.31-.13.6.18.29.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.46 1.53.29.15.46.13.63-.08.17-.21.73-.85.92-1.14.19-.29.38-.24.63-.15.25.09 1.6.75 1.87.89.27.14.45.21.52.33.07.12.07.69-.18 1.38z" />
-                      </svg>
-                    </a>
+                        <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
+                            <HelpCircle size={13} className="text-amber-400" /> Assessment Methodology
+                          </h4>
+                          <p className="text-xs text-slate-300 mb-3">
+                            <span className="font-semibold text-slate-200">Evaluation:</span> {roadmapData.assessment?.type}
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {roadmapData.assessment?.recommendedPractice?.map((item, i) => (
+                              <span key={i} className="px-2 py-0.5 rounded text-[11px] bg-slate-900 border border-slate-800 text-slate-300">
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   )}
 
                 </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </header>
+
+        {/* ========================================================== */}
+        {/* Progress Analytics Dashboard & Quick Resume Bar */}
+        {/* ========================================================== */}
+        <section className="mb-8 p-5 sm:p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-md">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+            
+            {/* Left: Overall Progress Metric */}
+            <div className="lg:col-span-4 flex flex-col justify-center">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs uppercase tracking-wider font-semibold text-slate-400 flex items-center gap-1.5">
+                  <TrendingUp size={13} className="text-slate-400" />
+                  Your Course Progress
+                </span>
+                <span className="text-lg font-bold text-slate-200">{stats.percent}%</span>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="h-2.5 w-full bg-slate-800 rounded-full overflow-hidden mb-2.5">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${stats.percent}%` }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  className="h-full rounded-full bg-gradient-to-r from-sky-600 to-indigo-600"
+                />
+              </div>
+
+              <div className="flex items-center justify-between text-[11px] text-slate-400">
+                <span>{stats.completedCount} of {stats.total} Modules Completed</span>
+                <span>{stats.completedHours} / {stats.totalHours} hrs</span>
               </div>
             </div>
-          )}
 
-          {/* Login Status Banner */}
-          {!this.isLoggedIn() && (
-            <div className="max-w-4xl mx-auto mb-8 p-4 bg-amber-900/20 border border-amber-700/30 rounded-xl">
-              <p className="text-amber-300 text-sm text-center">
-                🔓 You're viewing public modules only. 
-                <Link to="/login" className="text-amber-400 font-semibold ml-2 hover:underline">
-                  Sign in to unlock premium modules
+            {/* Middle: Quick Metrics Ticker */}
+            <div className="lg:col-span-5 grid grid-cols-3 gap-2.5">
+              <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 text-center">
+                <div className="text-base sm:text-lg font-bold text-slate-200">{stats.total}</div>
+                <div className="text-[11px] text-slate-400">Total Modules</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 text-center">
+                <div className="text-base sm:text-lg font-bold text-slate-200">{roadmapData.segments?.length || 5}</div>
+                <div className="text-[11px] text-slate-400">Segments</div>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800/80 text-center">
+                <div className="text-base sm:text-lg font-bold text-slate-200">{stats.totalTopics}+</div>
+                <div className="text-[11px] text-slate-400">Topics</div>
+              </div>
+            </div>
+
+            {/* Right: Quick Action / Continue Learning */}
+            <div className="lg:col-span-3 flex flex-col gap-2">
+              {lastVisited ? (
+                <Link
+                  to={`/${roadmapData.folder}/module/${lastVisited.slug}`}
+                  className="group flex items-center justify-between p-3 rounded-xl bg-slate-850 border border-slate-700/80 hover:border-slate-600 hover:bg-slate-800 transition"
+                >
+                  <div className="truncate pr-2">
+                    <div className="text-[10px] uppercase tracking-wider text-sky-400 font-semibold flex items-center gap-1">
+                      <Flame size={12} className="text-amber-400" /> Resume Learning
+                    </div>
+                    <div className="text-xs font-semibold text-slate-200 truncate">{lastVisited.title}</div>
+                  </div>
+                  <ArrowRight size={14} className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition shrink-0" />
                 </Link>
+              ) : nextIncompleteModule ? (
+                <Link
+                  to={`/${roadmapData.folder}/module/${nextIncompleteModule.slug}`}
+                  className="group flex items-center justify-between p-3 rounded-xl bg-slate-850 border border-slate-700/80 hover:border-slate-600 hover:bg-slate-800 transition"
+                >
+                  <div className="truncate pr-2">
+                    <div className="text-[10px] uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1">
+                      <Flame size={12} className="text-emerald-400" /> Start First Module
+                    </div>
+                    <div className="text-xs font-semibold text-slate-200 truncate">{nextIncompleteModule.title}</div>
+                  </div>
+                  <ArrowRight size={14} className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition shrink-0" />
+                </Link>
+              ) : (
+                <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800 text-center text-xs text-slate-400 font-medium">
+                  All modules completed!
+                </div>
+              )}
+
+              {stats.completedCount > 0 && (
+                <button
+                  onClick={handleResetProgress}
+                  className="text-[11px] text-slate-500 hover:text-slate-400 flex items-center justify-center gap-1 hover:underline transition self-center"
+                >
+                  <RotateCcw size={11} /> Reset progress
+                </button>
+              )}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================== */}
+        {/* Filter, Search & View Controls */}
+        {/* ========================================================== */}
+        <section className="mb-8 space-y-3.5">
+          
+          {/* Top Row: Search Input & View Mode Toggles */}
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+            
+            {/* Search Box */}
+            <div className="relative flex-1 max-w-xl">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <input
+                type="text"
+                placeholder="Search topics (e.g. Simplex, Big-M, Hungarian, VAM, Saddle point)..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-9 pr-9 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:border-slate-600 transition"
+              />
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+
+            {/* View Mode & Filter Quick Indicators */}
+            <div className="flex items-center gap-2 self-end sm:self-auto">
+              <span className="text-xs text-slate-400 hidden sm:inline">
+                Showing <strong className="text-slate-200">{totalFilteredCount}</strong> of {stats.total}
+              </span>
+
+              <div className="flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-800">
+                <button
+                  onClick={() => setViewMode("grid")}
+                  title="Grid View"
+                  className={`p-1.5 rounded-md text-xs font-medium flex items-center gap-1.5 transition ${
+                    viewMode === "grid"
+                      ? "bg-slate-800 text-slate-200 shadow-sm"
+                      : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  <LayoutGrid size={14} />
+                  <span className="hidden md:inline">Grid</span>
+                </button>
+
+                <button
+                  onClick={() => setViewMode("timeline")}
+                  title="Timeline / Sequential View"
+                  className={`p-1.5 rounded-md text-xs font-medium flex items-center gap-1.5 transition ${
+                    viewMode === "timeline"
+                      ? "bg-slate-800 text-slate-200 shadow-sm"
+                      : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  <ListOrdered size={14} />
+                  <span className="hidden md:inline">Timeline</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Segment Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+            <span className="text-xs font-medium text-slate-400 mr-1 flex items-center gap-1">
+              <Layers size={12} /> Segments:
+            </span>
+
+            <button
+              onClick={() => setSelectedSegment("all")}
+              className={`px-3 py-1 rounded-lg text-xs font-medium transition ${
+                selectedSegment === "all"
+                  ? "bg-slate-200 text-slate-950 font-semibold"
+                  : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+              }`}
+            >
+              All Segments ({stats.total})
+            </button>
+
+            {roadmapData.segments?.map((seg, idx) => {
+              const count = seg.modules?.length || 0;
+              const isSelected = selectedSegment === seg.segmentId;
+              const theme = SEGMENT_THEMES[idx % SEGMENT_THEMES.length];
+
+              return (
+                <button
+                  key={seg.segmentId}
+                  onClick={() => setSelectedSegment(isSelected ? "all" : seg.segmentId)}
+                  className={`px-3 py-1 rounded-lg text-xs font-medium transition flex items-center gap-1.5 ${
+                    isSelected
+                      ? "bg-slate-800 border border-slate-600 text-slate-100 font-semibold"
+                      : "bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                  }`}
+                >
+                  <span className={`inline-block w-1.5 h-1.5 rounded-full ${theme.dot}`} />
+                  <span>{seg.title.split("–")[0].trim()} ({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Secondary Filter Chips: Difficulty & Completion Status */}
+          <div className="flex flex-wrap items-center gap-2 pt-0.5">
+            <span className="text-xs font-medium text-slate-400 mr-1">Filter:</span>
+
+            {/* Difficulty pills */}
+            <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+              {["all", "easy", "medium", "advanced"].map((lvl) => (
+                <button
+                  key={lvl}
+                  onClick={() => setDifficultyFilter(lvl)}
+                  className={`px-2 py-0.5 rounded-md text-[11px] capitalize transition ${
+                    difficultyFilter === lvl
+                      ? "bg-slate-800 text-slate-200 font-medium"
+                      : "text-slate-500 hover:text-slate-300"
+                  }`}
+                >
+                  {lvl === "all" ? "All Levels" : lvl}
+                </button>
+              ))}
+            </div>
+
+            {/* Status pills */}
+            <div className="flex items-center gap-1 bg-slate-900 p-0.5 rounded-lg border border-slate-800">
+              <button
+                onClick={() => setStatusFilter("all")}
+                className={`px-2 py-0.5 rounded-md text-[11px] transition ${
+                  statusFilter === "all"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                All Status
+              </button>
+
+              <button
+                onClick={() => setStatusFilter(statusFilter === "incomplete" ? "all" : "incomplete")}
+                className={`px-2 py-0.5 rounded-md text-[11px] transition flex items-center gap-1 ${
+                  statusFilter === "incomplete"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                <Circle size={9} className="text-slate-400" />
+                Unfinished ({stats.remainingCount})
+              </button>
+
+              <button
+                onClick={() => setStatusFilter(statusFilter === "completed" ? "all" : "completed")}
+                className={`px-2 py-0.5 rounded-md text-[11px] transition flex items-center gap-1 ${
+                  statusFilter === "completed"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                <CheckCircle2 size={10} className="text-emerald-400" />
+                Completed ({stats.completedCount})
+              </button>
+
+              <button
+                onClick={() => setStatusFilter(statusFilter === "bookmarked" ? "all" : "bookmarked")}
+                className={`px-2 py-0.5 rounded-md text-[11px] transition flex items-center gap-1 ${
+                  statusFilter === "bookmarked"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                <Bookmark size={10} className="text-amber-400" />
+                Bookmarked ({stats.bookmarkedCount})
+              </button>
+            </div>
+
+            {/* Clear All Filters Button if any active */}
+            {(selectedSegment !== "all" || difficultyFilter !== "all" || statusFilter !== "all" || search) && (
+              <button
+                onClick={() => {
+                  setSelectedSegment("all");
+                  setDifficultyFilter("all");
+                  setStatusFilter("all");
+                  setSearch("");
+                }}
+                className="px-2 py-0.5 rounded-md text-[11px] text-slate-400 hover:text-slate-200 hover:bg-slate-800 border border-slate-800 transition flex items-center gap-1"
+              >
+                <RotateCcw size={10} /> Reset Filters
+              </button>
+            )}
+
+          </div>
+
+        </section>
+
+        {/* ========================================================== */}
+        {/* Auth Status Notification Banner */}
+        {/* ========================================================== */}
+        {!isLoggedIn() ? (
+          <div className="mb-8 p-3 rounded-xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
+            <div className="flex items-center gap-2 text-center sm:text-left">
+              <Lock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <span>
+                Browsing public roadmap modules. Sign in to unlock complete tracking and premium exercises.
+              </span>
+            </div>
+            <Link
+              to="/login"
+              className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 font-medium text-xs transition shrink-0"
+            >
+              Sign In
+            </Link>
+          </div>
+        ) : (
+          <div className="mb-8 p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between gap-2 text-slate-400 text-xs">
+            <div className="flex items-center gap-2">
+              <Unlock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>Full Access Active · All Quantitative Analysis modules, interactive tests, and exercises available.</span>
+            </div>
+          </div>
+        )}
+
+        {/* ========================================================== */}
+        {/* Segmented Curriculum Modules View */}
+        {/* ========================================================== */}
+        {filteredSegments.length > 0 ? (
+          <div className="space-y-10">
+            {filteredSegments.map((segment) => {
+              const theme = segment.theme;
+              const segmentPercent = segment.totalModulesInSegment > 0
+                ? Math.round((segment.completedInSegment / segment.totalModulesInSegment) * 100)
+                : 0;
+
+              return (
+                <section
+                  key={segment.segmentId}
+                  className="rounded-2xl bg-slate-900/60 border border-slate-800 p-5 sm:p-6 md:p-7 backdrop-blur-sm shadow-sm transition-all"
+                >
+                  {/* Segment Header */}
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 mb-5 border-b border-slate-800/80">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-slate-900 text-slate-300 border border-slate-800">
+                          {segment.level || "Core Segment"}
+                        </span>
+                        <span className="text-xs text-slate-400 flex items-center gap-1">
+                          <Clock size={11} className="text-slate-400" />
+                          {segment.allocatedHours} Hours
+                        </span>
+                      </div>
+                      <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                        <Layers className={`w-5 h-5 ${theme.accent}`} />
+                        <span>{segment.title}</span>
+                      </h2>
+                      {segment.summary && (
+                        <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl leading-relaxed">
+                          {segment.summary}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Segment Completion Badge */}
+                    <div className="flex items-center gap-3 self-start md:self-auto bg-slate-950/80 px-3.5 py-2 rounded-xl border border-slate-800">
+                      <div className="text-right">
+                        <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium">Segment Progress</div>
+                        <div className="text-xs font-semibold text-slate-300">
+                          {segment.completedInSegment} / {segment.totalModulesInSegment} Completed
+                        </div>
+                      </div>
+                      <div className="w-8 h-8 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-xs font-semibold text-slate-300">
+                        {segmentPercent}%
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Modules Display (Grid vs Timeline) */}
+                  {viewMode === "grid" ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {segment.filteredModules.map((module) => (
+                        <ModuleCard
+                          key={module.moduleId}
+                          module={module}
+                          theme={theme}
+                          isCompleted={isCompleted(module.moduleId)}
+                          isBookmarked={isBookmarked(module.moduleId)}
+                          isExpanded={!!expandedTopics[module.moduleId]}
+                          isLocked={!isModuleVisible(module)}
+                          copiedSlug={copiedSlug}
+                          onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
+                          onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
+                          onToggleExpand={() => toggleTopicExpand(module.moduleId)}
+                          onCopyLink={() => copyDirectLink(module.slug, module.title)}
+                          onRecordVisit={() => recordVisit(module, segment.title)}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    /* Timeline View */
+                    <div className="relative pl-6 sm:pl-7 border-l border-slate-800 space-y-5">
+                      {segment.filteredModules.map((module) => (
+                        <div key={module.moduleId} className="relative">
+                          {/* Timeline Dot */}
+                          <div
+                            className={`absolute -left-[30px] sm:-left-[35px] top-4 w-4 h-4 rounded-full border flex items-center justify-center ${
+                              isCompleted(module.moduleId)
+                                ? "bg-emerald-600 border-emerald-400 text-slate-950"
+                                : "bg-slate-900 border-slate-700 text-slate-500"
+                            }`}
+                          >
+                            {isCompleted(module.moduleId) ? <Check size={10} /> : <div className="w-1 h-1 rounded-full bg-slate-500" />}
+                          </div>
+
+                          <ModuleCard
+                            module={module}
+                            theme={theme}
+                            isCompleted={isCompleted(module.moduleId)}
+                            isBookmarked={isBookmarked(module.moduleId)}
+                            isExpanded={!!expandedTopics[module.moduleId]}
+                            isLocked={!isModuleVisible(module)}
+                            copiedSlug={copiedSlug}
+                            onToggleComplete={() => toggleCompleted(module.moduleId, module.title)}
+                            onToggleBookmark={() => toggleBookmark(module.moduleId, module.title)}
+                            onToggleExpand={() => toggleTopicExpand(module.moduleId)}
+                            onCopyLink={() => copyDirectLink(module.slug, module.title)}
+                            onRecordVisit={() => recordVisit(module, segment.title)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Logged in prompt for locked modules */}
+                  {!isLoggedIn() && segment.modules.some(m => m.visibility === "loggedIn") && (
+                    <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <Lock size={13} className="text-slate-400" />
+                        <span>Additional case studies and practice tests require login.</span>
+                      </div>
+                      <Link to="/login" className="font-semibold text-slate-200 hover:underline">
+                        Sign In →
+                      </Link>
+                    </div>
+                  )}
+                </section>
+              );
+            })}
+          </div>
+        ) : (
+          /* Empty Search State */
+          <div className="text-center py-14 px-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+            <Search className="w-10 h-10 text-slate-600 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-slate-200 mb-1">No modules found matching your search</h3>
+            <p className="text-xs text-slate-400 max-w-md mx-auto mb-5">
+              We couldn't find any modules matching "{search}".
+            </p>
+            <button
+              onClick={() => {
+                setSearch("");
+                setSelectedSegment("all");
+                setDifficultyFilter("all");
+                setStatusFilter("all");
+              }}
+              className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs transition border border-slate-700"
+            >
+              Clear All Filters
+            </button>
+          </div>
+        )}
+
+        {/* ========================================================== */}
+        {/* Teacher / Instructor Profile & Institutional Card */}
+        {/* ========================================================== */}
+        <section className="mt-14 mb-10 max-w-4xl mx-auto rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-7 shadow-sm relative">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-5 sm:gap-6">
+            
+            {/* Teacher Avatar */}
+            <div className="shrink-0 relative">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-700 p-1 bg-slate-950 shadow">
+                <img
+                  src={teacher.photo || "/teachers/sukantahui.jpg"}
+                  alt={teacher.name}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80";
+                  }}
+                  className="w-full h-full rounded-xl object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Teacher Info */}
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-1.5">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    {teacher.name}
+                  </h3>
+                  <p className="text-xs font-medium text-slate-400">
+                    {teacher.designation}
+                  </p>
+                </div>
+                <span className="text-[11px] text-slate-400 font-medium px-2.5 py-0.5 rounded-lg bg-slate-950 border border-slate-800 self-center sm:self-auto">
+                  {teacher.organization} · {teacher.location}
+                </span>
+              </div>
+
+              <p className="text-xs text-slate-400 leading-relaxed mt-2 max-w-2xl">
+                {teacher.bio}
               </p>
-            </div>
-          )}
 
-          {this.isLoggedIn() && (
-            <div className="max-w-4xl mx-auto mb-8 p-4 bg-emerald-900/20 border border-emerald-700/30 rounded-xl">
-              <p className="text-emerald-300 text-sm text-center">
-                ✅ You're logged in! Premium modules are now available.
-              </p>
-            </div>
-          )}
+              {/* Social Channels */}
+              {teacher.social && (
+                <div className="mt-4 flex flex-wrap items-center justify-center md:justify-start gap-2">
+                  {teacher.social.linkedin && (
+                    <a
+                      href={teacher.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="LinkedIn Profile"
+                    >
+                      <Linkedin size={15} />
+                    </a>
+                  )}
 
-          {/* Segments */}
-          {visibleSegments.length > 0 ? (
-            visibleSegments.map((seg, i) =>
-              this.renderSegment(seg, i)
-            )
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-slate-400">No modules found matching your search.</p>
-            </div>
-          )}
+                  {teacher.social.twitter && (
+                    <a
+                      href={teacher.social.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="Twitter / X"
+                    >
+                      <Twitter size={15} />
+                    </a>
+                  )}
 
-          <div className="text-center text-slate-600 text-xs mt-12">
-            © {new Date().getFullYear()} Coder & AccoTax · {roadmapData.trackTitle}
+                  {teacher.social.website && (
+                    <a
+                      href={teacher.social.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="Official Website"
+                    >
+                      <Globe size={15} />
+                    </a>
+                  )}
+
+                  {teacher.social.github && (
+                    <a
+                      href={teacher.social.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="GitHub Repository"
+                    >
+                      <Github size={15} />
+                    </a>
+                  )}
+
+                  {teacher.social.email && (
+                    <a
+                      href={`mailto:${teacher.social.email}`}
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="Email Contact"
+                    >
+                      <Mail size={15} />
+                    </a>
+                  )}
+
+                  {teacher.social.phone && (
+                    <a
+                      href={`tel:${teacher.social.phone}`}
+                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+                      title="Direct Phone"
+                    >
+                      <Phone size={15} />
+                    </a>
+                  )}
+
+                  {teacher.social.whatsapp && (
+                    <a
+                      href={`https://wa.me/${teacher.social.whatsapp.replace(/\D/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 text-xs font-medium hover:border-slate-700 hover:text-white transition"
+                    >
+                      <MessageSquare size={13} className="text-emerald-400" />
+                      WhatsApp Query
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================== */}
+        {/* Footer */}
+        {/* ========================================================== */}
+        <footer className="text-center pt-6 pb-10 border-t border-slate-800 text-xs text-slate-500 space-y-1.5">
+          <p>
+            © {new Date().getFullYear()} {roadmapData.institute?.name || "Coder & AccoTax"} · {roadmapData.trackTitle} ({roadmapData.subjectCode || "LLM104"})
+          </p>
+          <p className="text-[11px] text-slate-600">
+            Master of Law Curriculum · Quantitative Optimization & Decision Sciences
+          </p>
+        </footer>
+
+      </div>
+    </div>
+  );
+}
+
+// =========================================================================
+// Reusable Rich Module Card Component (Refined Muted Styling)
+// =========================================================================
+function ModuleCard({
+  module,
+  theme,
+  isCompleted,
+  isBookmarked,
+  isExpanded,
+  isLocked,
+  copiedSlug,
+  onToggleComplete,
+  onToggleBookmark,
+  onToggleExpand,
+  onCopyLink,
+  onRecordVisit
+}) {
+  const topicsCount = module.topics?.length || 0;
+  const isCopied = copiedSlug === module.slug;
+
+  // Difficulty badge dot indicator
+  const getDifficultyDot = (diff = "") => {
+    const d = diff.toLowerCase();
+    if (d.includes("easy")) return "bg-emerald-400";
+    if (d.includes("advanced")) return "bg-rose-400";
+    return "bg-amber-400";
+  };
+
+  return (
+    <div
+      className={`rounded-2xl p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between ${
+        isCompleted
+          ? "border border-slate-800 bg-slate-900/40"
+          : isLocked
+          ? "border border-slate-800 bg-slate-900/30"
+          : "border border-slate-800 bg-slate-900/70 hover:bg-slate-900 hover:border-slate-700"
+      }`}
+    >
+      <div>
+        
+        {/* Top Header Line: Module Index + Meta Pills + Bookmark */}
+        <div className="flex items-center justify-between gap-2 mb-2.5">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex h-5 px-1.5 items-center justify-center rounded-md bg-slate-950 border border-slate-800 text-[10px] font-mono font-semibold text-slate-400">
+              #{module.moduleIndexInSegment || module.indexOverall || "M"}
+            </span>
+
+            <span className="text-[11px] font-mono text-slate-500 hidden sm:inline">
+              {module.moduleId}
+            </span>
+
+            {isCompleted && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-950 text-emerald-400 border border-slate-800">
+                <CheckCircle2 size={10} className="text-emerald-400" /> Completed
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-1">
+            {/* Copy link button */}
+            <button
+              onClick={onCopyLink}
+              title="Copy direct module link"
+              className="p-1 rounded-md text-slate-500 hover:text-slate-300 hover:bg-slate-800 transition relative"
+            >
+              {isCopied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+            </button>
+
+            {/* Bookmark button */}
+            <button
+              onClick={onToggleBookmark}
+              title={isBookmarked ? "Remove bookmark" : "Bookmark module"}
+              className={`p-1 rounded-md transition ${
+                isBookmarked
+                  ? "text-amber-400 bg-slate-800"
+                  : "text-slate-500 hover:text-slate-300 hover:bg-slate-800"
+              }`}
+            >
+              {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+            </button>
           </div>
         </div>
+
+        {/* Module Title */}
+        <Link
+          to={`/${roadmapData.folder}/module/${module.slug}`}
+          onClick={onRecordVisit}
+          className="group block"
+        >
+          <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-sky-300 transition-colors flex items-start gap-2 leading-snug">
+            <Code2 size={16} className={`shrink-0 mt-0.5 ${isCompleted ? "text-emerald-400" : theme.accent}`} />
+            <span>{module.title}</span>
+          </h3>
+        </Link>
+
+        {/* Module Summary */}
+        {module.summary && (
+          <p className="mt-1.5 text-xs text-slate-400 leading-relaxed line-clamp-2">
+            {module.summary}
+          </p>
+        )}
+
+        {/* Topics Accordion Preview */}
+        {topicsCount > 0 && (
+          <div className="mt-2.5">
+            <div className="flex flex-wrap gap-1">
+              {(isExpanded ? module.topics : module.topics.slice(0, 3)).map((topic, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-0.5 rounded-md text-[10px] bg-slate-950 text-slate-400 border border-slate-850 truncate max-w-full"
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
+
+            {topicsCount > 3 && (
+              <button
+                onClick={onToggleExpand}
+                className="mt-1 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-200 font-medium transition"
+              >
+                {isExpanded ? (
+                  <>
+                    <ChevronUp size={11} /> Show less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown size={11} /> +{topicsCount - 3} more topics & worked examples
+                  </>
+                )}
+              </button>
+            )}
+          </div>
+        )}
+
       </div>
-    );
-  }
+
+      {/* Footer Area: Meta Badges + Actions */}
+      <div className="mt-4 pt-3.5 border-t border-slate-800/80">
+        
+        {/* Meta badges row */}
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3 text-[11px]">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="px-2 py-0.5 rounded-md bg-slate-950 text-slate-400 border border-slate-800 flex items-center gap-1 text-[10px]">
+              <span className={`w-1.5 h-1.5 rounded-full ${getDifficultyDot(module.difficulty)}`} />
+              {module.difficulty || "Standard"}
+            </span>
+
+            <span className="px-2 py-0.5 rounded-md bg-slate-950 text-slate-400 border border-slate-800 flex items-center gap-1 text-[10px]">
+              <Clock size={10} className="text-slate-400" />
+              {module.estimatedHours} hrs
+            </span>
+          </div>
+
+          {topicsCount > 0 && (
+            <span className="text-slate-500 text-[10px]">
+              {topicsCount} {topicsCount === 1 ? "topic" : "topics"}
+            </span>
+          )}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2">
+          {isLocked ? (
+            <Link
+              to="/login"
+              className="flex-1 py-1.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-750 text-slate-300 border border-slate-700 text-xs font-medium text-center transition flex items-center justify-center gap-1.5"
+            >
+              <Lock size={12} /> Unlock Module
+            </Link>
+          ) : (
+            <Link
+              to={`/${roadmapData.folder}/module/${module.slug}`}
+              onClick={onRecordVisit}
+              className={`group flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold text-center transition-all flex items-center justify-center gap-1.5 ${
+                isCompleted
+                  ? "bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700 hover:text-white"
+                  : "bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 shadow-sm"
+              }`}
+            >
+              <span>Explore Module</span>
+              <ArrowRight size={13} className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          )}
+
+          <button
+            onClick={onToggleComplete}
+            title={isCompleted ? "Mark incomplete" : "Mark completed"}
+            className={`p-1.5 rounded-lg border text-xs transition flex items-center justify-center shrink-0 ${
+              isCompleted
+                ? "border-slate-700 bg-slate-800 text-emerald-400 hover:bg-slate-750"
+                : "border-slate-800 bg-slate-950 text-slate-500 hover:border-slate-700 hover:text-slate-300"
+            }`}
+          >
+            {isCompleted ? <CheckCircle2 size={15} /> : <Circle size={15} />}
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  );
 }

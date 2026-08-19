@@ -1,60 +1,70 @@
-// src/components/study/JavaScriptModuleView.jsx
+// src/components/study/quantitative-analysis/QuantitativeAnalysisModuleView.jsx
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle2,
   Circle,
-  PlayCircle,
   ArrowLeft,
+  ArrowRight,
   ChevronRight,
   BookOpen,
   Layers,
-  Star,
+  Clock,
+  ShieldCheck,
+  Sparkles,
+  Search,
+  X,
+  Copy,
+  Check,
+  Bookmark,
+  BookmarkCheck,
+  RotateCcw,
+  CheckCheck,
+  ListOrdered,
+  FileText,
+  HelpCircle,
+  Calculator,
+  Compass
 } from "lucide-react";
+
 import roadmapData from "./quantitative-analysis-roadmap.json";
 
 export default function QuantitativeAnalysisModuleView() {
   const { slug } = useParams();
 
   // -------------------------------------------
-  //  FIND MODULE + SEGMENT + LINEAR INDEX
+  // FIND MODULE + SEGMENT + LINEAR INDEX
   // -------------------------------------------
   const { moduleData, segmentData, flatModules, currentIndex } = useMemo(() => {
-    let moduleData = null;
-    let segmentData = null;
-
-    const flat = [];
-    let indexCounter = 0;
-
-    roadmapData.segments.forEach((seg) => {
-      seg.modules.forEach((m) => {
-        flat.push({
-          ...m,
-          segmentId: seg.segmentId,
-          segmentTitle: seg.title,
-          segmentLevel: seg.level,
-          __index: indexCounter++,
-        });
-      });
-    });
-
     let foundModule = null;
     let foundSegment = null;
     let foundIndex = -1;
 
-    roadmapData.segments.forEach((seg) => {
-      const found = seg.modules.find((m) => m.slug === slug);
-      if (found && !foundModule) {
-        foundModule = found;
-        foundSegment = seg;
-      }
-    });
+    const flat = [];
+    let indexCounter = 0;
 
-    if (foundModule) {
-      const item = flat.find((m) => m.slug === slug);
-      foundIndex = item ? item.__index : -1;
-    }
+    roadmapData.segments.forEach((seg, sIdx) => {
+      seg.modules.forEach((m, mIdx) => {
+        const item = {
+          ...m,
+          segmentId: seg.segmentId,
+          segmentTitle: seg.title,
+          segmentLevel: seg.level,
+          segmentIndex: sIdx,
+          moduleIndexInSegment: mIdx + 1,
+          __index: indexCounter++,
+        };
+        flat.push(item);
+
+        if (m.slug === slug) {
+          foundModule = item;
+          foundSegment = seg;
+          foundIndex = item.__index;
+        }
+      });
+    });
 
     return {
       moduleData: foundModule,
@@ -65,261 +75,643 @@ export default function QuantitativeAnalysisModuleView() {
   }, [slug]);
 
   // -------------------------------------------
-  //  MODULE NOT FOUND
+  // STORAGE KEYS
   // -------------------------------------------
-  if (!moduleData) {
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-red-500">Module Not Found</h1>
-          <p className="text-slate-400 mt-2">
-            The module you are looking for does not exist.
-          </p>
-
-          <Link
-            to={`/${roadmapData.folder}/roadmap`}
-            className="mt-6 inline-flex items-center gap-2 px-4 py-2 border border-sky-500 text-sky-300 rounded-full hover:bg-sky-600 hover:text-white transition"
-          >
-            <ArrowLeft size={16} />
-            Back to Roadmap
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  const mod = moduleData;
-  const topics = Array.isArray(mod.topics) ? mod.topics : [];
-  const totalTopics = topics.length;
+  const PROGRESS_KEY = `qa_module_progress_${moduleData?.moduleId || ""}`;
+  const LAST_TOPIC_KEY = `qa_module_lastTopic_${moduleData?.moduleId || ""}`;
+  const COMPLETED_MODULE_KEY = `qa-module-completed::${moduleData?.moduleId || ""}`;
+  const BOOKMARKED_MODULE_KEY = `qa-module-bookmarked::${moduleData?.moduleId || ""}`;
+  const LAST_VISITED_MODULE_KEY = "qa-last-visited-module";
 
   // -------------------------------------------
-  //  TOPIC PROGRESS (localStorage)
+  // STATE
   // -------------------------------------------
-  const PROGRESS_KEY = `${roadmapData.folder}_module_progress_${mod.moduleId}`;
-  const LAST_TOPIC_KEY = `${roadmapData.folder}_module_lastTopic_${mod.moduleId}`;
-
   const [completedTopics, setCompletedTopics] = useState([]);
   const [lastTopicIndex, setLastTopicIndex] = useState(null);
-
-  // -------------------------------------------
-  //  NEW: SEARCH TOPICS
-  // -------------------------------------------
   const [searchTopic, setSearchTopic] = useState("");
+  const [filterMode, setFilterMode] = useState("all"); // 'all' | 'incomplete' | 'completed'
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
 
+  // Show quick toast notification
+  const showToast = useCallback((msg) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 2400);
+  }, []);
+
+  // -------------------------------------------
+  // INITIALIZE STATE & STORAGE
+  // -------------------------------------------
   useEffect(() => {
+    if (!moduleData) return;
+
+    // Load completed topics
     try {
       const raw = localStorage.getItem(PROGRESS_KEY) || "[]";
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed)) setCompletedTopics(parsed);
-    } catch {}
+    } catch {
+      setCompletedTopics([]);
+    }
 
+    // Load last topic
     try {
       const rawLast = localStorage.getItem(LAST_TOPIC_KEY);
       if (rawLast !== null) {
         const idx = parseInt(rawLast, 10);
         if (!isNaN(idx)) setLastTopicIndex(idx);
       }
-    } catch {}
-  }, [PROGRESS_KEY, LAST_TOPIC_KEY]);
+    } catch {
+      setLastTopicIndex(null);
+    }
 
+    // Load bookmark
+    try {
+      const bm = localStorage.getItem(BOOKMARKED_MODULE_KEY) === "true";
+      setIsBookmarked(bm);
+    } catch {
+      setIsBookmarked(false);
+    }
+
+    // Record last visited module
+    try {
+      const data = {
+        slug: moduleData.slug,
+        title: moduleData.title,
+        moduleId: moduleData.moduleId,
+        segmentTitle: segmentData?.title || "",
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem(LAST_VISITED_MODULE_KEY, JSON.stringify(data));
+    } catch {
+      // ignore
+    }
+  }, [moduleData, segmentData, PROGRESS_KEY, LAST_TOPIC_KEY, BOOKMARKED_MODULE_KEY]);
+
+  // Sync with overall module completion when all topics are done
+  const topics = useMemo(() => {
+    return Array.isArray(moduleData?.topics) ? moduleData.topics : [];
+  }, [moduleData]);
+  const totalTopics = topics.length;
+  const completedCount = completedTopics.length;
+  const progressPercent = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
+
+  // -------------------------------------------
+  // TOPIC HANDLERS
+  // -------------------------------------------
   const toggleTopicComplete = (index) => {
     setCompletedTopics((prev) => {
-      let updated;
-      if (prev.includes(index)) {
-        updated = prev.filter((i) => i !== index);
-      } else {
-        updated = [...prev, index];
-      }
+      const updated = prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index];
+
       updated.sort((a, b) => a - b);
-      localStorage.setItem(PROGRESS_KEY, JSON.stringify(updated));
+      try {
+        localStorage.setItem(PROGRESS_KEY, JSON.stringify(updated));
+        
+        // If all topics completed, mark whole module completed
+        if (updated.length === totalTopics && totalTopics > 0) {
+          localStorage.setItem(COMPLETED_MODULE_KEY, "true");
+          showToast("🎉 All topics completed! Module marked finished.");
+        }
+      } catch {
+        // ignore
+      }
       return updated;
     });
   };
 
   const handleTopicClick = (index) => {
-    localStorage.setItem(LAST_TOPIC_KEY, String(index));
-    setLastTopicIndex(index);
+    try {
+      localStorage.setItem(LAST_TOPIC_KEY, String(index));
+      setLastTopicIndex(index);
+    } catch {
+      // ignore
+    }
   };
 
-  const completedCount = completedTopics.length;
-  const progressPercent =
-    totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
+  const handleMarkAllTopics = (complete = true) => {
+    if (complete) {
+      const allIndices = topics.map((_, i) => i);
+      setCompletedTopics(allIndices);
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify(allIndices));
+      localStorage.setItem(COMPLETED_MODULE_KEY, "true");
+      showToast("Marked all topics completed.");
+    } else {
+      setCompletedTopics([]);
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify([]));
+      localStorage.setItem(COMPLETED_MODULE_KEY, "false");
+      showToast("Reset all topic progress.");
+    }
+  };
+
+  const toggleBookmarkModule = () => {
+    const nextVal = !isBookmarked;
+    setIsBookmarked(nextVal);
+    localStorage.setItem(BOOKMARKED_MODULE_KEY, String(nextVal));
+    showToast(nextVal ? "Module bookmarked." : "Bookmark removed.");
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopiedLink(true);
+    showToast("Direct module link copied to clipboard.");
+    setTimeout(() => setCopiedLink(false), 2000);
+  };
+
+  // -------------------------------------------
+  // MODULE NOT FOUND
+  // -------------------------------------------
+  if (!moduleData) {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4">
+        <div className="text-center max-w-md p-8 rounded-2xl bg-slate-900 border border-slate-800">
+          <HelpCircle size={40} className="text-rose-400 mx-auto mb-3" />
+          <h1 className="text-xl font-bold text-slate-100">Module Not Found</h1>
+          <p className="text-xs sm:text-sm text-slate-400 mt-2 mb-6">
+            The requested quantitative analysis module "{slug}" does not exist in the curriculum.
+          </p>
+          <Link
+            to={`/${roadmapData.folder}/roadmap`}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-xl border border-slate-700 transition"
+          >
+            <ArrowLeft size={14} />
+            Back to Course Roadmap
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // -------------------------------------------
+  // FILTERED TOPICS
+  // -------------------------------------------
+  const filteredTopics = topics
+    .map((topic, idx) => ({ topic, idx }))
+    .filter(({ topic, idx }) => {
+      // Search query
+      if (searchTopic.trim() && !topic.toLowerCase().includes(searchTopic.toLowerCase().trim())) {
+        return false;
+      }
+      // Status filter
+      const isDone = completedTopics.includes(idx);
+      if (filterMode === "completed" && !isDone) return false;
+      if (filterMode === "incomplete" && isDone) return false;
+      return true;
+    });
+
+  // Next recommended topic to study
+  const nextIncompleteTopicIndex = topics.findIndex((_, idx) => !completedTopics.includes(idx));
+  const activeTopicTarget = lastTopicIndex !== null
+    ? lastTopicIndex
+    : (nextIncompleteTopicIndex !== -1 ? nextIncompleteTopicIndex : 0);
 
   // -------------------------------------------
   // MODULE NAVIGATION
   // -------------------------------------------
   const prevModule = currentIndex > 0 ? flatModules[currentIndex - 1] : null;
-  const nextModule =
-    currentIndex < flatModules.length - 1
-      ? flatModules[currentIndex + 1]
-      : null;
+  const nextModule = currentIndex < flatModules.length - 1 ? flatModules[currentIndex + 1] : null;
 
-  // -------------------------------------------
-  // RENDER PAGE
-  // -------------------------------------------
+  // Topic classification helper
+  const getTopicTypeBadge = (title = "") => {
+    const t = title.toLowerCase();
+    if (t.startsWith("worked example")) {
+      return { text: "Worked Example", badge: "bg-slate-950 text-sky-400 border-slate-800", icon: Calculator };
+    }
+    if (t.startsWith("practice problem") || t.startsWith("numerical exercise") || t.startsWith("unsolved")) {
+      return { text: "Practice Problem", badge: "bg-slate-950 text-amber-400 border-slate-800", icon: FileText };
+    }
+    if (t.startsWith("short question")) {
+      return { text: "Short Question", badge: "bg-slate-950 text-indigo-400 border-slate-800", icon: HelpCircle };
+    }
+    return null;
+  };
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <div className="relative z-10">
-        <div className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur-xl">
-          <div className="max-w-4xl mx-auto p-4 flex justify-between items-center">
-            <div>
-              <p className="text-[11px] uppercase text-slate-500 flex items-center gap-2">
-                <BookOpen size={13} className="text-sky-300" />
-                {roadmapData.trackTitle}
-              </p>
-              <h1 className="text-xl font-bold text-sky-300">
-                {mod.title}
-              </h1>
-            </div>
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-slate-800 selection:text-slate-200">
+      
+      {/* ========================================================== */}
+      {/* Toast Notification */}
+      {/* ========================================================== */}
+      <AnimatePresence>
+        {toastMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 shadow-xl backdrop-blur-md"
+          >
+            <Sparkles className="w-4 h-4 text-sky-400" />
+            <span className="text-xs sm:text-sm font-medium">{toastMessage}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <div className="text-right text-[11px] text-slate-400">
-              {completedCount}/{totalTopics} Completed
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-4xl mx-auto p-6 space-y-10">
-
-          {/* ------------------------------------------- */}
-          {/* MODULE HERO */}
-          {/* ------------------------------------------- */}
-          <section className="border border-slate-800 bg-slate-900/70 p-6 rounded-3xl shadow-lg">
-            <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
-              {mod.title}
-              <Star size={16} className="text-amber-300" />
-            </h2>
-            {mod.summary && (
-              <p className="text-slate-300 mt-2">{mod.summary}</p>
-            )}
-          </section>
-
-          {/* ------------------------------------------- */}
-          {/* TOPICS + SEARCH */}
-          {/* ------------------------------------------- */}
-          <section className="border border-slate-800 bg-slate-900/80 p-6 rounded-3xl shadow-lg">
-
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-slate-100">
-                Topics Covered
-              </h2>
-
-              <span className="text-[11px] text-slate-400">
-                {totalTopics} Topics
+      {/* ========================================================== */}
+      {/* Sticky Header Navigation */}
+      {/* ========================================================== */}
+      <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/95 backdrop-blur-md">
+        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+          
+          {/* Left: Breadcrumbs & Module Title */}
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-2 text-[11px] text-slate-400 mb-0.5">
+              <Link
+                to={`/${roadmapData.folder}/roadmap`}
+                className="hover:text-slate-200 flex items-center gap-1 transition"
+              >
+                <ArrowLeft size={12} />
+                <span>Roadmap</span>
+              </Link>
+              <span>/</span>
+              <span className="truncate text-slate-500">
+                {segmentData?.title?.split("–")[0]?.trim() || "Segment"}
               </span>
             </div>
 
-            {/* 🔍 SEARCH BAR */}
-            <div className="mb-4">
-              <input
-                type="text"
-                placeholder="Search topics..."
-                value={searchTopic}
-                onChange={(e) => setSearchTopic(e.target.value)}
-                className="
-                  w-full px-3 py-2 rounded-lg 
-                  bg-slate-800 border border-slate-700 
-                  text-slate-200 placeholder-slate-500
-                  focus:outline-none focus:ring-2 focus:ring-sky-500
-                "
-              />
+            <h1 className="text-sm sm:text-base font-bold text-slate-100 truncate">
+              {moduleData.title}
+            </h1>
+          </div>
+
+          {/* Right: Quick Action Controls & Topic Progress Counter */}
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="hidden sm:flex flex-col text-right pr-2 border-r border-slate-800">
+              <span className="text-[10px] uppercase font-semibold text-slate-500">Progress</span>
+              <span className="text-xs font-bold text-slate-300">
+                {completedCount} / {totalTopics} Topics ({progressPercent}%)
+              </span>
             </div>
 
-            {/* TOPIC LIST */}
-            <div className="space-y-3">
+            {/* Copy Direct Link */}
+            <button
+              onClick={handleCopyLink}
+              title="Copy module link"
+              className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700 transition"
+            >
+              {copiedLink ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+            </button>
 
-              {topics
-                .map((topic, idx) => ({ topic, idx }))
-                .filter(({ topic }) =>
-                  topic.toLowerCase().includes(searchTopic.toLowerCase())
-                )
-                .map(({ topic, idx }) => {
-                  const isDone = completedTopics.includes(idx);
+            {/* Bookmark Module */}
+            <button
+              onClick={toggleBookmarkModule}
+              title={isBookmarked ? "Remove bookmark" : "Bookmark module"}
+              className={`p-2 rounded-lg border transition ${
+                isBookmarked
+                  ? "bg-slate-800 border-slate-700 text-amber-400"
+                  : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              }`}
+            >
+              {isBookmarked ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+            </button>
 
-                  return (
-                    <div
-                      key={idx}
-                      className={`
-                        group flex items-center gap-3 px-4 py-3 rounded-xl border text-sm
-                        ${
-                          isDone
-                            ? "bg-emerald-900/20 border-emerald-500 text-emerald-200"
-                            : "bg-slate-900/80 border-slate-700 text-slate-200 hover:border-sky-500"
-                        }
-                      `}
-                    >
-                      {/* Checkbox */}
-                      <button
-                        type="button"
-                        onClick={() => toggleTopicComplete(idx)}
-                        className="shrink-0"
-                      >
-                        {isDone ? (
-                          <CheckCircle2 size={20} className="text-emerald-400" />
-                        ) : (
-                          <Circle size={20} className="text-slate-400 group-hover:text-sky-300" />
-                        )}
-                      </button>
-
-                      {/* Topic Link */}
-                      <Link
-                        to={`/${roadmapData.folder}/topic/${mod.slug}/${idx}`}
-                        onClick={() => handleTopicClick(idx)}
-                        className="flex-1 flex justify-between"
-                      >
-                        <span>
-                          <span className="text-sky-400 mr-1">{idx + 1}.</span>
-                          {topic}
-                        </span>
-                        <span className="text-sky-300 text-[11px] flex items-center gap-1">
-                          Open <ChevronRight size={12} />
-                        </span>
-                      </Link>
-                    </div>
-                  );
-                })}
-
-              {/* No results */}
-              {topics.filter((t) =>
-                t.toLowerCase().includes(searchTopic.toLowerCase())
-              ).length === 0 && (
-                <p className="text-slate-500 text-sm italic mt-2">
-                  No topics matched your search…
-                </p>
-              )}
-            </div>
-          </section>
-
-          {/* ------------------------------------------- */}
-          {/* MODULE NAVIGATION */}
-          {/* ------------------------------------------- */}
-          <section className="flex justify-between text-sm">
-
-            {prevModule ? (
+            {/* Resume / Start Target Topic */}
+            {totalTopics > 0 && (
               <Link
-                to={`/${roadmapData.folder}/module/${prevModule.slug}`}
-                className="px-3 py-2 rounded-full border border-slate-700 text-slate-300 hover:border-sky-500"
+                to={`/${roadmapData.folder}/topic/${moduleData.slug}/${activeTopicTarget}`}
+                onClick={() => handleTopicClick(activeTopicTarget)}
+                className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition"
               >
-                ← {prevModule.title}
+                <span>{lastTopicIndex !== null ? "Resume Topic" : "Start Learning"}</span>
+                <ArrowRight size={13} />
               </Link>
-            ) : (
-              <span className="text-slate-600">No previous module</span>
             )}
-
-            {nextModule ? (
-              <Link
-                to={`/${roadmapData.folder}/module/${nextModule.slug}`}
-                className="px-3 py-2 rounded-full bg-sky-600 text-white hover:bg-sky-500"
-              >
-                {nextModule.title} →
-              </Link>
-            ) : (
-              <span className="text-slate-600">End of track</span>
-            )}
-
-          </section>
+          </div>
 
         </div>
-      </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+
+        {/* ========================================================== */}
+        {/* Module Hero Overview Card */}
+        {/* ========================================================== */}
+        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-6 shadow-sm">
+          
+          {/* Metadata Badges */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-semibold bg-slate-950 text-slate-400 border border-slate-800">
+              #{moduleData.moduleIndexInSegment} · {moduleData.moduleId}
+            </span>
+
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
+              <Layers size={11} className="text-slate-400" />
+              {segmentData?.title?.split("–")[0]?.trim() || "Core Segment"}
+            </span>
+
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
+              <Clock size={11} className="text-slate-400" />
+              {moduleData.estimatedHours} Estimated Hours
+            </span>
+
+            <span className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-950 text-slate-300 border border-slate-800 flex items-center gap-1">
+              <ShieldCheck size={11} className="text-slate-400" />
+              {moduleData.difficulty || "Standard"}
+            </span>
+          </div>
+
+          {/* Module Title */}
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
+            {moduleData.title}
+          </h2>
+
+          {/* Module Summary */}
+          {moduleData.summary && (
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+              {moduleData.summary}
+            </p>
+          )}
+
+          {/* Learning Outcomes Checklist if available */}
+          {Array.isArray(moduleData.learningOutcomes) && moduleData.learningOutcomes.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-slate-800">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-1.5">
+                <Compass size={13} className="text-sky-400" />
+                Key Learning Outcomes
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {moduleData.learningOutcomes.map((outcome, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-2 p-2 rounded-xl bg-slate-950/60 border border-slate-850 text-xs text-slate-300"
+                  >
+                    <CheckCircle2 size={13} className="text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{outcome}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Interactive Progress Bar */}
+          <div className="mt-5 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="flex-1">
+              <div className="flex items-center justify-between text-xs text-slate-400 mb-1.5">
+                <span>Module Completion</span>
+                <span className="font-semibold text-slate-200">{progressPercent}%</span>
+              </div>
+              <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-slate-400 transition-all duration-300 rounded-full"
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
+              <button
+                onClick={() => handleMarkAllTopics(completedCount < totalTopics)}
+                className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-xs font-medium text-slate-300 transition flex items-center gap-1.5"
+              >
+                <CheckCheck size={13} className="text-slate-400" />
+                <span>{completedCount < totalTopics ? "Mark All Done" : "Clear All"}</span>
+              </button>
+
+              {completedCount > 0 && (
+                <button
+                  onClick={() => handleMarkAllTopics(false)}
+                  title="Reset topic progress"
+                  className="p-1.5 rounded-lg bg-slate-950 hover:bg-slate-850 border border-slate-800 text-slate-500 hover:text-slate-300 transition"
+                >
+                  <RotateCcw size={13} />
+                </button>
+              )}
+            </div>
+          </div>
+
+        </section>
+
+        {/* ========================================================== */}
+        {/* Topics List & Search Bar Section */}
+        {/* ========================================================== */}
+        <section className="rounded-2xl bg-slate-900/70 border border-slate-800 p-5 sm:p-6 shadow-sm">
+          
+          {/* Header & Topic Counters */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                <ListOrdered size={18} className="text-slate-400" />
+                <span>Topics & Problem Sets</span>
+              </h3>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Step-by-step syllabus sequence, theoretical concepts, and worked numericals.
+              </p>
+            </div>
+
+            <span className="text-xs text-slate-400 self-start sm:self-auto bg-slate-950 px-2.5 py-1 rounded-lg border border-slate-800">
+              Showing {filteredTopics.length} of {totalTopics}
+            </span>
+          </div>
+
+          {/* Search & Topic Filters Row */}
+          <div className="flex flex-col sm:flex-row gap-2.5 mb-4">
+            
+            {/* Search Input */}
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+              <input
+                type="text"
+                placeholder="Search topics (e.g. decision variables, worked example, slack, dual)..."
+                value={searchTopic}
+                onChange={(e) => setSearchTopic(e.target.value)}
+                className="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder:text-slate-500 text-xs sm:text-sm focus:outline-none focus:border-slate-600 transition"
+              />
+              {searchTopic && (
+                <button
+                  onClick={() => setSearchTopic("")}
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300"
+                >
+                  <X size={14} />
+                </button>
+              )}
+            </div>
+
+            {/* Filter Mode Chips */}
+            <div className="flex items-center gap-1 bg-slate-950 p-0.5 rounded-xl border border-slate-800 self-start sm:self-auto">
+              <button
+                onClick={() => setFilterMode("all")}
+                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                  filterMode === "all"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                All ({totalTopics})
+              </button>
+
+              <button
+                onClick={() => setFilterMode("incomplete")}
+                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                  filterMode === "incomplete"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                Unfinished ({totalTopics - completedCount})
+              </button>
+
+              <button
+                onClick={() => setFilterMode("completed")}
+                className={`px-2.5 py-1 rounded-lg text-[11px] transition ${
+                  filterMode === "completed"
+                    ? "bg-slate-800 text-slate-200 font-medium"
+                    : "text-slate-500 hover:text-slate-300"
+                }`}
+              >
+                Done ({completedCount})
+              </button>
+            </div>
+
+          </div>
+
+          {/* Topics List Items */}
+          <div className="space-y-2">
+            {filteredTopics.map(({ topic, idx }) => {
+              const isDone = completedTopics.includes(idx);
+              const isLastVisited = lastTopicIndex === idx;
+              const badgeInfo = getTopicTypeBadge(topic);
+
+              return (
+                <div
+                  key={idx}
+                  className={`group flex items-center justify-between gap-3 p-3 rounded-xl border transition-all ${
+                    isDone
+                      ? "bg-slate-950/40 border-slate-800/80 text-slate-300"
+                      : "bg-slate-950/80 border-slate-800 hover:border-slate-700 text-slate-200"
+                  }`}
+                >
+                  {/* Left: Completion Checkbox & Topic Title */}
+                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                    <button
+                      type="button"
+                      onClick={() => toggleTopicComplete(idx)}
+                      title={isDone ? "Mark incomplete" : "Mark completed"}
+                      className="shrink-0 p-0.5 text-slate-500 hover:text-slate-300 transition"
+                    >
+                      {isDone ? (
+                        <CheckCircle2 size={17} className="text-emerald-400" />
+                      ) : (
+                        <Circle size={17} className="text-slate-600 group-hover:text-slate-400" />
+                      )}
+                    </button>
+
+                    <Link
+                      to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                      onClick={() => handleTopicClick(idx)}
+                      className="min-w-0 flex-1 block"
+                    >
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <span className="text-xs font-mono text-slate-500 shrink-0">
+                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}.
+                        </span>
+                        
+                        <span className={`text-xs sm:text-sm font-medium group-hover:text-sky-300 transition-colors truncate ${isDone ? "text-slate-400" : "text-slate-200"}`}>
+                          {topic}
+                        </span>
+
+                        {badgeInfo && (
+                          <span className={`px-1.5 py-0.2 rounded text-[10px] font-medium border ${badgeInfo.badge} hidden md:inline-flex items-center gap-1`}>
+                            {badgeInfo.text}
+                          </span>
+                        )}
+
+                        {isLastVisited && (
+                          <span className="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-slate-800 text-sky-300 border border-slate-700">
+                            Last Viewed
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  </div>
+
+                  {/* Right: Open Topic Action */}
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${moduleData.slug}/${idx}`}
+                    onClick={() => handleTopicClick(idx)}
+                    className="shrink-0 px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 group-hover:text-white border border-slate-800 group-hover:border-slate-700 text-xs font-medium flex items-center gap-1 transition"
+                  >
+                    <span>{isDone ? "Review" : "Study"}</span>
+                    <ChevronRight size={12} className="text-slate-400 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+              );
+            })}
+
+            {/* Empty State */}
+            {filteredTopics.length === 0 && (
+              <div className="text-center py-8 px-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-400">
+                <Search size={24} className="text-slate-600 mx-auto mb-2" />
+                <p className="text-xs">No topics matched your search filters.</p>
+                <button
+                  onClick={() => {
+                    setSearchTopic("");
+                    setFilterMode("all");
+                  }}
+                  className="mt-2 text-xs text-sky-400 hover:underline"
+                >
+                  Clear search
+                </button>
+              </div>
+            )}
+          </div>
+
+        </section>
+
+        {/* ========================================================== */}
+        {/* Module Navigation Footer (Prev / Next) */}
+        {/* ========================================================== */}
+        <nav className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          {prevModule ? (
+            <Link
+              to={`/${roadmapData.folder}/module/${prevModule.slug}`}
+              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center gap-3"
+            >
+              <ArrowLeft size={16} className="text-slate-400 group-hover:-translate-x-0.5 transition-transform shrink-0" />
+              <div className="min-w-0">
+                <div className="text-[10px] uppercase font-semibold text-slate-500">Previous Module</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                  {prevModule.title}
+                </div>
+              </div>
+            </Link>
+          ) : (
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-600 text-xs flex items-center">
+              Beginning of course curriculum
+            </div>
+          )}
+
+          {nextModule ? (
+            <Link
+              to={`/${roadmapData.folder}/module/${nextModule.slug}`}
+              className="group p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition flex items-center justify-between text-right gap-3"
+            >
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] uppercase font-semibold text-slate-500">Next Module</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-200 truncate group-hover:text-white transition-colors">
+                  {nextModule.title}
+                </div>
+              </div>
+              <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-0.5 transition-transform shrink-0" />
+            </Link>
+          ) : (
+            <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-850 text-slate-600 text-xs flex items-center justify-end">
+              Course completed 🎉
+            </div>
+          )}
+        </nav>
+
+        {/* Footer */}
+        <footer className="text-center pt-6 pb-8 text-xs text-slate-600 space-y-1">
+          <p>
+            © {new Date().getFullYear()} {roadmapData.institute?.name || "Coder & AccoTax"} · {roadmapData.trackTitle}
+          </p>
+        </footer>
+
+      </main>
+
     </div>
   );
 }
